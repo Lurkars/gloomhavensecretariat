@@ -172,5 +172,5 @@ export class MainMenuComponent extends DialogComponent {
 }
 
 export enum SubMenu {
-  main, edition, scenario, section, monster_add, monster_remove, character_add, character_remove, settings, language
+  main, edition, scenario, section, monster_add, monster_remove, character_add, character_remove, settings, language, about
 }

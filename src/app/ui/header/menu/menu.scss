@@ -35,8 +35,18 @@
     text-align: left;
     padding: calc(var(--ghs-unit) * 1);
 
-    a,
-    label {
+    p {
+      font-family: 'ghs-title';
+      font-size: calc(var(--ghs-unit) * 3);
+      color: var(--ghs-color-gray);
+
+      a {
+        color: var(--ghs-color-gray);
+      }
+    }
+
+    >a,
+    >label {
       cursor: pointer;
       font-family: 'ghs-title';
       font-size: calc(var(--ghs-unit) * 4);

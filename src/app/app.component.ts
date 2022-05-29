@@ -10,7 +10,7 @@ export class AppComponent {
 }
 
 export function ghsUnit(): number {
-  return +window.getComputedStyle(document.body).getPropertyValue('--ghs-width').replace('px', '') / +window.getComputedStyle(document.body).getPropertyValue('--ghs-factor');
+  return +window.getComputedStyle(document.body).getPropertyValue('--ghs-width').replace(/[^\d\+]/g, '') / +window.getComputedStyle(document.body).getPropertyValue('--ghs-factor');
 }
 
 export function ghsClolumnUnit(): number {
