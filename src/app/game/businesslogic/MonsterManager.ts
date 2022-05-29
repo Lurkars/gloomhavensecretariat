@@ -25,7 +25,7 @@ export class MonsterManager {
       return;
     }
     const monster: Monster = new Monster(monsterData);
-    monster.level = gameManager.szenarioLevel();
+    monster.level = gameManager.game.level;
     this.game.figures.push(monster);
   }
 
