@@ -18,7 +18,7 @@ export class CharacterComponent extends DialogComponent {
 
   GameState = GameState;
   Conditions = Condition;
-  conditions: Condition[] = [ Condition.stun, Condition.immobilize, Condition.disarm, Condition.wound, Condition.muddle, Condition.poison, Condition.strengthen ];
+  conditions: Condition[] = [ Condition.stun, Condition.immobilize, Condition.disarm, Condition.wound, Condition.muddle, Condition.poison, Condition.strengthen, Condition.invisible ];
   health: number = 0;
   experience: number = 0;
   loot: number = 0;

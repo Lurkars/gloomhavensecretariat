@@ -19,7 +19,7 @@ export class MonsterEntityComponent extends DialogComponent {
   Conditions = Condition;
   AttackModifierType = AttackModifierType;
 
-  conditions: Condition[] = [ Condition.stun, Condition.immobilize, Condition.disarm, Condition.wound, Condition.muddle, Condition.poison, Condition.strengthen ];
+  conditions: Condition[] = [ Condition.stun, Condition.immobilize, Condition.disarm, Condition.wound, Condition.muddle, Condition.poison, Condition.strengthen, Condition.invisible ];
   health: number = 0;
 
   changeHealth(value: number) {
