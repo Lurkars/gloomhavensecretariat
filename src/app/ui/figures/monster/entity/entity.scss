@@ -1,0 +1,189 @@
+.entity {
+  cursor: pointer;
+  width: calc(var(--ghs-column-unit) * 8);
+  min-height: calc(var(--ghs-column-unit) * 5);
+  position: relative;
+  text-align: center;
+  background-image: url('~src/assets/images/monster/entity.png');
+  background-size: 100% AUTO;
+  background-repeat: no-repeat;
+  color: var(--ghs-color-white);
+  text-shadow: var(--ghs-outline);
+  text-shadow: var(--ghs-outline);
+  margin: calc(var(--ghs-column-unit) * 1);
+
+  .number {
+    position: absolute;
+    width: calc(var(--ghs-column-unit) * 3);
+    top: calc(var(--ghs-column-unit) * 0.3);
+    font-family: "ghs-title";
+    font-size: calc(var(--ghs-column-unit) * 2.6);
+    left: calc(var(--ghs-column-unit) * 1);
+  }
+
+  .health {
+    position: absolute;
+    top: calc(var(--ghs-column-unit) * 1);
+    left: calc(var(--ghs-column-unit) * 4);
+    width: calc(var(--ghs-column-unit) * 4);
+    font-size: calc(var(--ghs-column-unit) * 3);
+  }
+
+  .conditions {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: calc(var(--ghs-column-unit) * 4.4);
+    padding-bottom: calc(var(--ghs-column-unit) * 1);
+    padding-left: calc(var(--ghs-column-unit) * 0.7);
+    padding-right: calc(var(--ghs-column-unit) * 0.7);
+
+    img {
+      width: calc(var(--ghs-column-unit) * 2);
+      margin: calc(var(--ghs-column-unit) * 0.1);
+      height: auto;
+    }
+  }
+
+  .health-bar {
+    position: absolute;
+    bottom: calc(var(--ghs-column-unit) * 0);
+    width: calc(var(--ghs-column-unit) * 7);
+    left: calc(var(--ghs-column-unit) * 0.5);
+    height: calc(var(--ghs-column-unit) * 0.5);
+    border: none;
+    background-color: transparent;
+
+    &::-webkit-progress-value {
+      background-color: var(--ghs-color-green) !important;
+    }
+
+    &::-moz-progress-bar {
+      background-color: var(--ghs-color-green) !important;
+    }
+
+    color: var(--ghs-color-green);
+
+    &.critical {
+      &::-webkit-progress-value {
+        background-color: var(--ghs-color-red) !important;
+      }
+
+      &::-moz-progress-bar {
+        background-color: var(--ghs-color-red) !important;
+      }
+
+      color: var(--ghs-color-red);
+    }
+  }
+
+  &.normal {
+    background-image: url('~src/assets/images/monster/types/normal.png');
+  }
+
+  &.elite {
+    background-image: url('~src/assets/images/monster/types/elite.png');
+
+    .number {
+      color: var(--ghs-color-yellow);
+    }
+  }
+}
+
+.dialog {
+  .status-container {
+    display: flex;
+    flex-direction: row;
+    margin: calc(var(--ghs-unit) * 0.5);
+
+    .entity-container {
+      display: grid;
+      grid-template-columns: calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7);
+    }
+
+    .condition-container {
+      display: grid;
+      grid-template-columns: calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7);
+    }
+
+    .condition {
+
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: calc(var(--ghs-unit) * 7);
+      width: calc(var(--ghs-unit) * 7);
+
+      &.active {
+        border: calc(var(--ghs-unit) / 4) var(--ghs-color-white) solid;
+        border-radius: 100%;
+      }
+
+      &:hover {
+        border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
+        border-radius: 100%;
+      }
+    }
+  }
+
+  span.item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(var(--ghs-unit) * 7);
+    width: calc(var(--ghs-unit) * 7);
+  }
+
+  a {
+    cursor: pointer;
+    font-size: calc(var(--ghs-unit) * 7);
+    color: var(--ghs-color-white);
+    text-shadow: var(--ghs-outline);
+
+    &.disabled {
+      pointer-events: none;
+      color: var(--ghs-color-gray);
+    }
+  }
+
+  img {
+    height: calc(var(--ghs-unit) * 4);
+    width: auto;
+  }
+
+  .health-positive {
+    color: var(--ghs-color-green) !important;
+  }
+
+  .health-negative {
+    color: var(--ghs-color-red) !important;
+  }
+
+  .max-health-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: calc(var(--ghs-unit) * 12);
+
+    img {
+      height: calc(var(--ghs-unit) * 3);
+      width: auto;
+    }
+  }
+
+
+  .badge {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: var(--ghs-color-white);
+    font-size: calc(var(--ghs-unit) * 2);
+    text-shadow: var(--ghs-outline);
+  }
+
+
+}

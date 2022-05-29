@@ -1,0 +1,3 @@
+<div class="image" (click)="toggleOff()" [ngClass]="{'disabled' : gameManager.game.state == GameState.draw}">
+  <img src="./assets/images/monster/thumbnail/{{monster.edition}}-{{monster.name | lowercase}}.png" />
+</div>

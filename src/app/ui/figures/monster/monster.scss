@@ -1,0 +1,43 @@
+.monster {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  &.off {
+
+    ghs-monster-ability,
+    ghs-monster-stats,
+    ghs-monster-image {
+      filter: grayscale(100%);
+    }
+  }
+
+  ghs-monster-ability {
+    margin: 0 calc(var(--ghs-column-unit) * 2);
+  }
+}
+
+.entities {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+
+  &.normal {
+    left: calc(var(--ghs-column-unit) * 0);
+  }
+
+  &.elite {
+    right: calc(var(--ghs-column-unit) * 0);
+  }
+}
+
+
+ghs-monster-numberpicker {
+  &.disabled {
+    pointer-events: none;
+    display: none;
+  }
+}

@@ -1,0 +1,146 @@
+<a #button class="button active-outline">
+  ☰
+</a>
+<div #dialog [ngSwitch]="active">
+  <div *ngSwitchCase="SubMenu.main" class="menu-container main">
+    <div class="line">
+      <div class="state">
+        <a [ngClass]="{'disabled' : !gameManager.stateManager.hasUndo()}"
+          (click)="gameManager.stateManager.undo()">Undo</a>
+        <a [ngClass]="{'disabled' :!gameManager.stateManager.hasRedo()}"
+          (click)="gameManager.stateManager.redo()">Redo</a>
+      </div>
+    </div>
+    <hr class="separator">
+    <div class="line">
+      <a (click)="active = SubMenu.edition">Set Edition</a>
+    </div>
+    <hr class="separator">
+    <div class="line">
+      <a (click)="active = SubMenu.scenario">Set Scenario</a>
+    </div>
+    <div class="line disabled">
+      <a (click)="active = SubMenu.section">Add Section</a>
+    </div>
+    <hr class="separator">
+
+    <div class="line" [ngClass]="{'disabled' : hasAllMonster()}">
+      <a (click)="active = SubMenu.monster_add">Add Monster</a>
+    </div>
+    <div class="line" [ngClass]="{'disabled' : monsters().length == 0}">
+      <a (click)="active = SubMenu.monster_remove">Remove Monster</a>
+    </div>
+    <hr class="separator">
+
+    <div class="line" [ngClass]="{'disabled' : hasAllCharacter()}">
+      <a (click)="active = SubMenu.character_add">Add Character</a>
+    </div>
+    <div class="line" [ngClass]="{'disabled' : characters().length == 0}">
+      <a (click)="active = SubMenu.character_remove">Remove Character</a>
+    </div>
+    <hr class="separator">
+    <div class="line">
+      <a (click)="active = SubMenu.settings">Settings</a>
+    </div>
+  </div>
+
+  <div *ngSwitchCase="SubMenu.edition" class="menu-container edition">
+    <div class="line" [ngClass]="{'disabled' : !gameManager.game.edition}">
+      <label>
+        <input type="checkbox" [checked]="!gameManager.game.edition" (change)="setEdition()">
+        &lt;All Editions&gt;
+      </label>
+    </div>
+    <div class="line" *ngFor="let edition of gameManager.editions()"
+      [ngClass]="{'disabled' : gameManager.game.edition == edition}">
+      <label>
+        <input type="checkbox" [checked]="gameManager.game.edition == edition" (change)="setEdition(edition)">
+        {{edition}}
+      </label>
+    </div>
+  </div>
+
+  <div *ngSwitchCase="SubMenu.scenario" class="menu-container scenario">
+    <div class="line" *ngFor="let scenarioData of gameManager.scenarioData | ghsEditionFilter">
+      <a (click)="setScenario(scenarioData);">
+        #{{scenarioData.index}} {{scenarioData.name}}
+      </a>
+    </div>
+  </div>
+
+  <div *ngSwitchCase="SubMenu.character_add" class="menu-container character-add">
+    <div class="line" *ngFor="let characterData of gameManager.charactersData | ghsEditionFilter"
+      [ngClass]="{'disabled' : hasCharacter(characterData)}">
+      <a (click)="addCharacter(characterData);">
+        {{characterData.name}}
+      </a>
+    </div>
+  </div>
+
+  <div *ngSwitchCase="SubMenu.character_remove" class="menu-container character-remove">
+    <div class="line">
+      <a (click)="removeAllCharacters()">
+        &lt;Remove All&gt;
+      </a>
+    </div>
+    <div class="line" *ngFor="let character of characters()">
+      <a (click)="removeCharacter(character);">
+        {{character.name}}
+      </a>
+    </div>
+  </div>
+
+  <div *ngSwitchCase="SubMenu.monster_add" class="menu-container monster-add">
+    <div class="line" *ngFor="let monsterData of gameManager.monstersData | ghsEditionFilter"
+      [ngClass]="{'disabled' : hasMonster(monsterData)}">
+      <a (click)="addMonster(monsterData);">
+        {{monsterData.name}}
+      </a>
+    </div>
+  </div>
+
+  <div *ngSwitchCase="SubMenu.monster_remove" class="menu-container monster-remove">
+    <div class="line">
+      <a (click)="removeAllMonsters()">
+        &lt;Remove All&gt;
+      </a>
+    </div>
+    <div class="line" *ngFor="let monster of monsters()">
+      <a (click)="removeMonster(monster);">
+        {{monster.name}}
+      </a>
+    </div>
+  </div>
+
+
+  <div *ngSwitchCase="SubMenu.settings" class="menu-container settings">
+    <div class="line">
+      <label>
+        <input type="checkbox" [checked]="gameManager.game.calculate" (change)="toggleCalc()">
+        Calculate
+      </label>
+    </div>
+    <hr class="separator">
+    <div class="line">
+      <a (click)="zoomOut()">
+        Zoom Out
+      </a>
+    </div>
+    <div class="line">
+      <a (click)="zoomIn()">
+        Zoom In
+      </a>
+    </div>
+    <div class="line">
+      <a (click)="zoomReset()">
+        Reset Zoom
+      </a>
+    </div>
+    <hr class="separator">
+    <div class="line">
+      <a (click)="reset()">
+        Reset Game
+      </a>
+    </div>
+  </div>
+</div>

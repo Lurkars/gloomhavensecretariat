@@ -1,0 +1,127 @@
+<div class="character" #highlight [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0}">
+
+  <ghs-character-initiativepicker (click)="close()" [character]="character"></ghs-character-initiativepicker>
+
+  <div class="stats" (click)="toggle()">
+    <div class="initiative" *ngIf="character.initiative > 0">
+      <img src="./assets/images/initiative.svg" />
+      {{character.initiative}}
+    </div>
+
+    <div class="column col-1">
+      <div #button class="title">{{character.title}}</div>
+      <div class="health">
+        <img src="./assets/images/status/health.svg" />
+        {{character.health}}/{{character.maxHealth}}
+        <div class="conditions">
+          <img *ngFor="let condition of character.conditions" src="./assets/images/condition/{{condition}}.svg" />
+        </div>
+      </div>
+    </div>
+
+    <span class="spacer"></span>
+
+    <div class="column col-2">
+      <span class="experience">{{character.experience}}
+        <img src="./assets/images/status/experience.svg" />
+      </span>
+      <span class="loot">{{character.loot}}
+        <img src="./assets/images/status/loot.svg" />
+      </span>
+    </div>
+  </div>
+</div>
+
+<div #dialog class="dialog">
+  <div *ngIf="!levelDialog" class="status-container">
+    <div class="entity-container">
+      <span class="item">
+        <a class="button" [ngClass]="{'disabled' : character.health == 0}" (click)="changeHealth(-1)">
+          -
+        </a>
+      </span>
+      <span class="item">
+        <img src="./assets/images/status/health.svg" />
+        <span class="badge health-count"
+          [ngClass]="{'health-negative' : health < 0, 'health-positive' : health > 0}">{{health | ghsValueSign}}</span>
+      </span>
+      <span class="item">
+        <a class="button" [ngClass]="{'disabled' : character.health == character.maxHealth}" (click)="changeHealth(1)">
+          +
+        </a>
+      </span>
+
+
+      <span class="item">
+        <a class="button" [ngClass]="{'disabled' : character.experience == 0}" (click)="changeExperience(-1)">
+          -
+        </a>
+      </span>
+      <span class="item">
+        <img src="./assets/images/status/experience.svg" />
+        <span class="badge">{{experience  | ghsValueSign}}</span>
+      </span>
+      <span class="item">
+        <a class="button" (click)="changeExperience(1)">
+          +
+        </a>
+      </span>
+
+      <span class="item">
+        <a class="button" [ngClass]="{'disabled' : character.loot == 0}" (click)="changeLoot(-1)">
+          -
+        </a>
+      </span>
+      <span class="item">
+        <img src="./assets/images/status/loot.svg" />
+        <span class="badge">{{loot  | ghsValueSign}}</span>
+      </span>
+      <span class="item">
+        <a class="button" (click)="changeLoot(1)">
+          +
+        </a>
+      </span>
+
+      <span class="item">
+        <a class="condition" [ngClass]="{'active' : character.exhausted}" (click)="exhausted()">
+          <img src="./assets/images/status/dead.svg" />
+        </a>
+      </span>
+      <span class="item">
+        <a class="button level-button" (click)="openLevelDialog()">
+          {{character.level}} <img src="./assets/images/status/level.svg" />
+        </a>
+      </span>
+      <span></span>
+    </div>
+
+
+    <div class="condition-container">
+      <span *ngFor="let condition of conditions">
+        <a class="condition" [ngClass]="{'active' : hasCondition(condition)}" (click)="toggleCondition(condition)">
+          <img src="./assets/images/condition/{{condition}}.svg" />
+        </a>
+      </span>
+    </div>
+  </div>
+  <div *ngIf="levelDialog" class="level-dialog">
+    <div class="level-container">
+      <span class="item"><img src="./assets/images/status/level.svg" /></span>
+      <span class="item" *ngFor="let level of levels;"><a class="level"
+          [ngClass]="{'active' : level == character.level}" (click)="setLevel(level)">{{level}}</a></span>
+    </div>
+    <div class="char-container">
+      <input #charactertitle />
+      <a class="button" (click)="changeMaxHealth(-1)">
+        -
+      </a>
+      <span class="item">
+        <img src="./assets/images/status/health.svg" />
+        <span class="badge max-health">{{character.health}}/{{character.maxHealth}}</span>
+      </span>
+      <a class="button" (click)="changeMaxHealth(1)">
+        +
+      </a>
+    </div>
+  </div>
+</div>

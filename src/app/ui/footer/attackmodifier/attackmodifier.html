@@ -1,0 +1,61 @@
+<div class="attack-modifiers" [ngClass]="{'disabled' : gameManager.game.state == GameState.draw}">
+  <div class="card-container attack-modifier draw">
+    <div class="card" (click)="draw()">
+      <a class="card-front front">
+        <span class="number">{{ gameManager.game.attackModifiers.length - gameManager.game.attackModifier - 1 }}</span>
+        <img *ngIf="gameManager.game.attackModifier == gameManager.game.attackModifiers.length -1" class="shuffle"
+          src="./assets/images/shuffle.svg">
+      </a>
+      <div class="card-back"></div>
+    </div>
+  </div>
+
+  <div class="card-container attack-modifier"
+    *ngFor="let attackModifier of gameManager.game.attackModifiers; let index = index;"
+    [style.z-index]="zIndex(attackModifier)"
+    [ngClass]="{'last' : disgarded(attackModifier), 'current' : current(attackModifier)}">
+    <div class="card" [ngClass]="{'flipped' : disgarded(attackModifier) || current(attackModifier)}"
+      (click)="click(attackModifier)">
+      <a class="card-front front">
+        <span class="number"
+          *ngIf="!disgarded(attackModifier) && !current(attackModifier)">{{ gameManager.game.attackModifiers.length - gameManager.game.attackModifier - 1 }}</span>
+      </a>
+      <div class="card-back back">
+        <img src="./assets/images/attackmodifier/{{attackModifier.type}}.png" />
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div #popup  class="attack-modifiers-popup">
+  <a class="shuffle" (click)="shuffle()">Shuffle</a>
+  <div class="attack-modifiers-container">
+    <div class="upcoming">
+      <div class="empty" *ngIf="upcomingCards().length == 0"></div>
+      <div class="card-container attack-modifier" *ngFor="let attackModifier of upcomingCards();">
+        <div class="card" card-reveal>
+          <a class="card-front front">
+            <span class="revealed">Click again to reveal!</span>
+          </a>
+          <div class="card-back back">
+            <img src="./assets/images/attackmodifier/{{attackModifier.type}}.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="disgarded">
+      <div class="empty" *ngIf="disgardedCards().length == 0"></div>
+      <div class="card-container attack-modifier" *ngFor="let attackModifier of disgardedCards();">
+        <div class="card flipped">
+          <a class="card-front front">
+          </a>
+          <div class="card-back back">
+            <img src="./assets/images/attackmodifier/{{attackModifier.type}}.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

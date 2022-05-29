@@ -1,0 +1,167 @@
+@font-face {
+  font-family: 'ghs-normal';
+  src: url('~src/assets/font/nyala.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'ghs-title';
+  src: url('~src/assets/font/PirataOne-Gloomhaven.ttf') format('truetype');
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'ghs-normal';
+  --ghs-width: 100px;
+  --ghs-factor: 100;
+  --ghs-unit: calc(var(--ghs-width) / var(--ghs-factor));
+  --ghs-columns: 1;
+  --ghs-column-unit: calc(var(--ghs-unit) / var(--ghs-columns));
+  --ghs-color-white: #fff;
+  --ghs-color-black: #000;
+  --ghs-color-gray: #98b0b5;
+  --ghs-color-darkgray: #202830;
+  --ghs-color-yellow: #eca610;
+  --ghs-color-blue: #56c8ef;
+  --ghs-color-green: #7da82a;
+  --ghs-color-red: #e2421f;
+  --ghs-outline: 1px 1px var(--ghs-color-black), 1px -1px var(--ghs-color-black), -1px -1px var(--ghs-color-black), -1px 1px var(--ghs-color-black);
+
+  &.working {
+    cursor: progress;
+
+    * {
+      pointer-events: none;
+    }
+  }
+}
+
+
+@media (max-width: 500px) {
+  body {
+    --ghs-width: 100vw;
+  }
+}
+
+@media (min-width: 500px) {
+  body {
+    --ghs-width: 500px;
+  }
+}
+
+@media (min-width: 800px) {
+  body {
+    --ghs-width: 800px;
+  }
+}
+
+@media (min-width: 1000px) {
+  body {
+    --ghs-width: 1000px;
+  }
+}
+
+app-root,
+ghs-main {
+  height: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+ghs-main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.inactive {
+  filter: grayscale(100%);
+}
+
+.outline {
+  color: var(--ghs-color-white);
+  text-shadow: var(--ghs-outline);
+}
+
+.card-container {
+  background-color: transparent;
+  height: 100%;
+  max-height: 100%;
+  perspective: 1000px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.75, 0, 0.85, 1);
+  transform-style: preserve-3d;
+
+  &.flipped {
+    transform: rotateX(180deg);
+  }
+
+  &.reveal {
+    cursor: pointer;
+  }
+
+  .revealed {
+    display: none;
+  }
+
+  &.confirm {
+    .revealed {
+      display: inline-block;
+    }
+  }
+
+
+  .card-front,
+  .card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    -webkit-backface-visibility: hidden;
+    /* Safari */
+    backface-visibility: hidden;
+    overflow: hidden;
+  }
+
+  .card-back {
+    transform: rotateX(180deg);
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.dialog-backdrop,
+.popup-backdrop {
+  z-index: 1000;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+}

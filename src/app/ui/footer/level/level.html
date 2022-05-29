@@ -1,0 +1,23 @@
+<div (click)="toggle()" class="level-status">
+  <div class="title">
+    <span *ngIf="gameManager.game.scenario" class="index">#{{gameManager.game.scenario.index}}</span>
+    <span #button></span>
+    <span *ngIf="gameManager.game.scenario" class="name">{{gameManager.game.scenario.name}}</span>
+  </div>
+  <div class="values">
+    <span class="level">{{gameManager.game.level}} <img src="./assets/images/level.svg" /></span>
+    <span class="trap">{{trap}} <img src="./assets/images/trap.svg" /></span>
+    <span class="experience">+{{experience}} <img src="./assets/images/experience.svg" /></span>
+    <span class="loot">x{{loot}} <img src="./assets/images/loot.svg" /></span>
+  </div>
+</div>
+
+<div #dialog class="level-dialog">
+  <div class="level-container">
+    <span class="item"><img src="./assets/images/status/level.svg" /></span>
+    <span class="item" *ngFor="let level of levels;"><a class="level"
+        [ngClass]="{'active' : level == gameManager.game.level, 'scenariolevel' : level == gameManager.szenarioLevel()}"
+        (click)="setLevel(level)">{{level}}</a></span>
+  </div>
+
+</div>

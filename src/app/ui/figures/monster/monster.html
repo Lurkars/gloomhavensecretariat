@@ -1,0 +1,9 @@
+<div class="monster" [ngClass]="{'off' : monster.off}">
+  <ghs-monster-image [monster]="monster"></ghs-monster-image>
+  <ghs-monster-ability [monster]="monster"></ghs-monster-ability>
+  <ghs-monster-stats [monster]="monster"></ghs-monster-stats>
+</div>
+<div class="entities">
+  <ghs-monster-entity *ngFor="let entity of sortedEntites()" [monster]="monster" [entity]="entity">
+  </ghs-monster-entity>
+</div>

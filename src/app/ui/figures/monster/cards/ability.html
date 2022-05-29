@@ -1,0 +1,16 @@
+<div class="card-container ability">
+  <div class="card" [ngClass]="{'flipped' : flipped() }" (click)="toggleReveal()">
+    <div class="card-front ability-front">
+      <span class="name">{{monster.name}}</span>
+      <span class="left-abilities">{{monster.availableAbilities.length}}</span>
+    </div>
+    <div class="card-back ability-back">
+      <div *ngIf="ability">
+        <div class="initiative">{{ability.initiative}}</div>
+        <span class="name">{{ability.name}}</span>
+        <ghs-monster-actions [actions]="ability.actions" [monster]="monster"></ghs-monster-actions>
+        <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
+      </div>
+    </div>
+  </div>
+</div>

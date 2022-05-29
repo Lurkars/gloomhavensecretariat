@@ -1,0 +1,189 @@
+.stats-container {
+  width: calc(var(--ghs-column-unit) * 35);
+  width: calc(var(--ghs-column-unit) * 35);
+  height: calc(var(--ghs-column-unit) * 19);
+  position: relative;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-image: url('~src/assets/images/monster/stats/normal.png');
+
+  .name {
+    position: absolute;
+    top: calc(var(--ghs-column-unit) * 0.1);
+    left: 0;
+    width: 100%;
+    font-family: 'ghs-title';
+    color: var(--ghs-color-white);
+    font-size: calc(var(--ghs-column-unit) * 2.5);
+    text-align: center;
+  }
+
+  .level {
+    position: absolute;
+    top: calc(var(--ghs-column-unit) * 0.5);
+    left: calc(var(--ghs-column-unit) * 6.5);
+    font-family: "ghs-title";
+    font-size: calc(var(--ghs-column-unit) * 2.5);
+    text-shadow: var(--ghs-outline);
+    color: var(--ghs-color-gray);
+    cursor: pointer;
+
+    &:hover,
+    &.active-button {
+      color: var(--ghs-color-white);
+    }
+  }
+
+  .entities {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: calc(var(--ghs-column-unit) * 4);
+  }
+
+  .stats {
+    position: absolute;
+    top: calc(var(--ghs-column-unit) * 3.5);
+    left: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: calc(var(--ghs-column-unit) * 1);
+
+    .stat {
+      font-size: calc(var(--ghs-column-unit) * 2.1);
+      font-weight: bold;
+      padding-top: calc(var(--ghs-column-unit) * 0);
+      width: calc(var(--ghs-column-unit) * 3);
+      text-align: center;
+
+      &.end {
+        justify-self: end;
+      }
+
+      &.start {
+        justify-self: start;
+        color: var(--ghs-color-white);
+        text-shadow: var(--ghs-outline);
+      }
+    }
+
+  }
+
+  .extra {
+    position: absolute;
+    top: calc(var(--ghs-column-unit) * 4);
+    width: calc(var(--ghs-column-unit) * 9);
+    display: flex;
+    flex-direction: column;
+    font-size: calc(var(--ghs-column-unit) * 1.5);
+
+    .condition {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      text-transform: uppercase;
+
+      img {
+        padding-left: calc(var(--ghs-column-unit) * 0.3);
+        height: calc(var(--ghs-column-unit) * 2);
+        width: auto;
+      }
+    }
+
+    &.normal {
+      right: calc(var(--ghs-column-unit) * 21);
+      text-align: right;
+
+      .condition {
+        justify-content: end;
+      }
+    }
+
+    &.elite {
+      right: calc(var(--ghs-column-unit) * 5);
+      color: var(--ghs-color-white);
+    }
+
+    &.boss {
+      width: calc(var(--ghs-column-unit) * 12);
+      right: calc(var(--ghs-column-unit) * 6);
+      color: var(--ghs-color-white);
+
+      .additional {
+        display: flex;
+        flex-wrap: wrap;
+        ghs-monster-action {
+          flex-basis: 0;
+          flex-grow: 1;
+        }
+      }
+    }
+  }
+
+  &.boss {
+    background-image: url('~src/assets/images/monster/stats/boss.png');
+
+    .stats {
+      width: calc(var(--ghs-column-unit) * 14.5);
+      grid-template-columns: 1fr;
+    }
+  }
+
+}
+
+
+.dialog {
+  .level-container {
+    display: grid;
+    grid-template-columns: calc(var(--ghs-column-unit) * 8) calc(var(--ghs-column-unit) * 8) calc(var(--ghs-column-unit) * 8) calc(var(--ghs-column-unit) * 8) calc(var(--ghs-column-unit) * 8);
+
+    margin: calc(var(--ghs-column-unit) * 0.5);
+
+    span.item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: calc(var(--ghs-unit) * 7);
+      width: calc(var(--ghs-unit) * 7);
+    }
+    
+    img {
+      height: calc(var(--ghs-unit) * 4);
+      width: auto;
+    }
+
+    .level {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: calc(var(--ghs-column-unit) * 7);
+      width: calc(var(--ghs-column-unit) * 7);
+      cursor: pointer;
+      font-family: 'ghs-title';
+      font-size: calc(var(--ghs-column-unit) * 3);
+      color: var(--ghs-color-white);
+      text-shadow: var(--ghs-outline);
+
+      &:hover {
+        border: calc(var(--ghs-column-unit) / 5) var(--ghs-color-gray) solid;
+        border-radius: 100%;
+      }
+
+      &.active {
+        pointer-events: none;
+        border: calc(var(--ghs-column-unit) / 4) var(--ghs-color-white) solid;
+        border-radius: 100%;
+      }
+
+    }
+
+    .max-health {
+      right: calc(var(--ghs-column-unit) * 2);
+    }
+  }
+}

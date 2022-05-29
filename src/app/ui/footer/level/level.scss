@@ -1,0 +1,100 @@
+.level-status {
+  cursor: pointer;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  width: 100%;
+
+  .title {
+    font-size: calc(var(--ghs-unit) * 2.5);
+    color: var(--ghs-color-white);
+    text-shadow: var(--ghs-outline);
+
+    .index {
+      margin-right: calc(var(--ghs-unit) * 1);
+    }
+  }
+
+  .values {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+
+    span {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      font-size: calc(var(--ghs-unit) * 2.5);
+      color: var(--ghs-color-white);
+      text-shadow: var(--ghs-outline);
+      margin-right: calc(var(--ghs-unit) * 2);
+
+      img {
+        margin-left: calc(var(--ghs-unit) * 0.5);
+        height: calc(var(--ghs-unit) * 2);
+        width: auto;
+      }
+    }
+  }
+}
+
+
+.level-dialog {
+
+
+  display: flex;
+  flex-direction: column;
+
+  span.item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(var(--ghs-unit) * 7);
+    width: calc(var(--ghs-unit) * 7);
+  }
+
+  img {
+    height: calc(var(--ghs-unit) * 4);
+    width: auto;
+  }
+
+  .level-container {
+    display: grid;
+    grid-template-columns: calc(var(--ghs-unit) * 8) calc(var(--ghs-unit) * 8) calc(var(--ghs-unit) * 8) calc(var(--ghs-unit) * 8) calc(var(--ghs-unit) * 8);
+    margin: calc(var(--ghs-unit) * 0.5);
+
+    .level {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: calc(var(--ghs-unit) * 7);
+      width: calc(var(--ghs-unit) * 7);
+      cursor: pointer;
+      font-family: 'ghs-title';
+      font-size: calc(var(--ghs-unit) * 3);
+      color: var(--ghs-color-white);
+      text-shadow: var(--ghs-outline);
+
+      &.scenariolevel {
+        border: calc(var(--ghs-unit) / 4) var(--ghs-color-darkgray) solid;
+        border-radius: 100%;
+      }
+
+      &.active {
+        pointer-events: none;
+        border: calc(var(--ghs-unit) / 4) var(--ghs-color-white) solid;
+        border-radius: 100%;
+      }
+
+      &:hover {
+        border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
+        border-radius: 100%;
+      }
+    }
+  }
+}

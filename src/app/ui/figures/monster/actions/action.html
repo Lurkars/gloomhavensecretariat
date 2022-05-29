@@ -1,0 +1,53 @@
+<span class="action" [ngSwitch]="action.type">
+  <span *ngSwitchCase="ActionType.area">
+    <ghs-action-hex [value]="action.value + ''"></ghs-action-hex>
+  </span>
+
+  <span class="condition" *ngSwitchCase="ActionType.condition">
+    <span class="condition-value">{{action.value}}</span>
+    <img class="icon" src="./assets/images/condition/{{action.value}}.svg" />
+  </span>
+
+
+  <span class="element" *ngSwitchCase="ActionType.element">
+    <img src="./assets/images/element/{{action.value}}.svg" />
+    <span class="minus" *ngIf="action.valueType == ActionValueType.minus">:</span>
+    <ghs-monster-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
+      [action]="subAction" [monster]="monster" [relative]="true">
+    </ghs-monster-action>
+  </span>
+
+  <span class="self" *ngSwitchCase="ActionType.self">
+    <span class="self-value">self</span>
+  </span>
+
+  <span class="custom" *ngSwitchCase="ActionType.custom">
+    <span class="custom-value">{{action.value}}</span>
+  </span>
+
+  <span class="default" *ngSwitchCase="ActionType.special">
+    <span class="type">{{action.type}} {{action.value}}</span>
+    <ghs-monster-action [ngClass]="'subaction-' + getSpecial(action).type" [action]="getSpecial(action)"
+      [monster]="monster">
+    </ghs-monster-action>
+  </span>
+
+  <span class="default" *ngSwitchDefault>
+    <span *ngIf="relative" class="value">{{getNormalValue() | ghsValueCalc}}&nbsp;
+      <span *ngIf="getNormalValue() != getEliteValue()">/&nbsp;<span
+          class="elite">{{getEliteValue() | ghsValueCalc}}&nbsp;</span>
+      </span>
+    </span>
+    <span class="type">{{action.type}}</span>
+    <img src="./assets/images/action/{{action.type}}.svg" class="icon" />
+    <span *ngIf="!relative" class="value">{{getNormalValue() | ghsValueCalc}}
+      <span *ngIf="getNormalValue() != getEliteValue()"> /
+        <span class="elite">{{getEliteValue() | ghsValueCalc}}</span>
+      </span>
+    </span>
+    <ghs-monster-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
+      [action]="subAction" [monster]="monster">
+    </ghs-monster-action>
+  </span>
+
+</span>

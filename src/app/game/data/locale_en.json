@@ -1,0 +1,48 @@
+{
+  "draw": "Draw",
+  "next": "Next Round",
+  "state": {
+    "undo": "Undo",
+    "redo": "Redo",
+    "reset": "Reset"
+  },
+  "menu": {
+    "edition": {
+      ".": "Set Edition",
+      "all": "All Editions"
+    },
+    "scenario": "Set Scenario",
+    "section": "Add Section",
+    "monster": {
+      "add": "Add Monster",
+      "remove": "Remove Monster",
+      "removeAll": "Remove All"
+    },
+    "character": {
+      "add": "Add Character",
+      "remove": "Remove Character",
+      "removeAll": "Remove All"
+    },
+    "settings": {
+      ".": "Settings",
+      "calc": "Calculate",
+      "zoomIn": "Zoom In",
+      "zoomOut": "Zoom Out",
+      "zoomReset": "Reset Zoom",
+      "gameReset": "Reset Game"
+    }
+  },
+  "game": {
+    "edition": {
+      "gh": "Gloomhaven",
+      "jotl": "Jaws Of The Lion"
+    },
+    "character": {
+      "demolitionist": "Demolitionist",
+      "redguard": "Red Guard",
+      "hatchet": "Hatchet",
+      "voidwarden": "voidwarden"
+    }
+  }
+
+}

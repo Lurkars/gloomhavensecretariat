@@ -1,0 +1,88 @@
+<div #button class="entity" [ngClass]="entity.type">
+  <span class="number">{{entity.number}}</span> <span class="health">{{entity.health}}</span>
+
+  <div class="conditions">
+    <img *ngFor="let condition of entity.conditions" src="./assets/images/condition/{{condition}}.svg" />
+  </div>
+  <progress class="health-bar" [ngClass]="{'critical' : entity.health / entity.maxHealth < 0.35}"
+    [value]="entity.health" [max]="entity.maxHealth"></progress>
+</div>
+
+<div #dialog>
+  <div class="status-container">
+    <div class="entity-container">
+      <span class="item">
+        <a class="button" [ngClass]="{'disabled' : entity.health == 0}" (click)="changeHealth(-1)">
+          -
+        </a>
+      </span>
+      <span class="item">
+        <img src="./assets/images/status/health.svg" />
+        <span class="badge health-count"
+          [ngClass]="{'health-negative' : health < 0, 'health-positive' : health > 0}">{{health | ghsValueSign}}</span>
+      </span>
+      <span class="item">
+        <a class="button" [ngClass]="{'disabled' : entity.health == entity.maxHealth}" (click)="changeHealth(1)">
+          +
+        </a>
+      </span>
+
+      <span class="item">
+        <a class="button" [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.bless) == 0}"
+          (click)="changeBless(-1)">
+          -
+        </a>
+      </span>
+      <span class="item">
+        <img src="./assets/images/status/bless.svg" />
+        <span class="badge bless-count">{{countAttackModifier(AttackModifierType.bless)}}</span>
+      </span>
+      <span class="item">
+        <a class="button" [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.bless) >= 10}"
+          (click)="changeBless(1)">
+          +
+        </a>
+      </span>
+
+      <span class="item">
+        <a class="button" [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.curse) == 0}"
+          (click)="changeCurse(-1)">
+          -
+        </a>
+      </span>
+      <span class="item">
+        <img src="./assets/images/status/curse.svg" />
+        <span class="badge curse-count">{{countAttackModifier(AttackModifierType.curse)}}</span>
+      </span>
+      <span class="item">
+        <a class="button" [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.curse) >= 10}"
+          (click)="changeCurse(1)">
+          +
+        </a>
+      </span>
+
+      <span class="item">
+        <a class="button" (click)="dead()">
+          <img src="./assets/images/status/dead.svg" />
+        </a>
+      </span>
+      <span class="max-health-container">
+        <a class="button" (click)="changeMaxHealth(-1)">
+          -
+        </a>
+        <img src="./assets/images/status/health.svg" />
+        <span class="badge max-health">{{entity.health}}/{{entity.maxHealth}}</span>
+        <a class="button" (click)="changeMaxHealth(1)">
+          +
+        </a>
+      </span>
+    </div>
+    <div class="condition-container">
+      <span *ngFor="let condition of conditions">
+        <a class="condition" [ngClass]="{'active' : hasCondition(condition)}" (click)="toggleCondition(condition)">
+          <img src="./assets/images/condition/{{condition}}.svg" />
+        </a>
+      </span>
+    </div>
+  </div>
+</div>

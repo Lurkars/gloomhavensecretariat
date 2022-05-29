@@ -1,0 +1,110 @@
+.ability {
+  width: calc(var(--ghs-column-unit) * 35);
+  height: calc(var(--ghs-column-unit) * 19);
+  color: var(--ghs-color-white);
+}
+
+.ability-front,
+.ability-back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-position: center;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+.ability-back {
+  background-image: url('~src/assets/images/monster/abilities/card.png');
+  background-position: bottom;
+
+  ghs-monster-actions {
+    position: absolute;
+    top: 0; // calc(var(--ghs-column-unit) * 5);
+    left: 0;
+    height: calc(var(--ghs-unit) * 19);
+    width: 100%;
+    font-size: calc(var(--ghs-column-unit) * 2.3);
+  }
+
+  .name {
+    display: none;
+    position: absolute;
+    top: calc(var(--ghs-column-unit) * 1.7);
+    left: 0;
+    width: 100%;
+    font-family: 'ghs-title';
+    font-size: calc(var(--ghs-column-unit) * 2.5);
+    text-align: center;
+  }
+
+  .initiative {
+    position: absolute;
+    font-family: 'ghs-title';
+    font-size: calc(var(--ghs-column-unit) * 3);
+    top: calc(var(--ghs-column-unit) * 0.5);
+    left: calc(var(--ghs-column-unit) * 1.4);
+    text-align: center;
+    width: calc(var(--ghs-unit) * 4);
+    height: calc(var(--ghs-unit) * 4);
+  }
+
+  .shuffle {
+    position: absolute;
+    bottom: calc(var(--ghs-column-unit) * 0.25);
+    right: calc(var(--ghs-column-unit) * 0.5);
+
+    img {
+      width: calc(var(--ghs-column-unit) * 3.5);
+      height: auto;
+    }
+  }
+
+
+  &:hover {
+    background-position: top;
+
+    .name {
+      display: block;
+    }
+
+    .initiative {
+      top: calc(var(--ghs-column-unit) * 4.5);
+    }
+
+    ghs-monster-actions {
+      position: absolute;
+      overflow: hidden;
+      top: calc(var(--ghs-column-unit) * 6);
+      height: calc(var(--ghs-unit) * 13);
+    }
+  }
+
+}
+
+.ability-front {
+  background-image: url('~src/assets/images/monster/abilities/none.png');
+
+  .name {
+    position: absolute;
+    bottom: calc(var(--ghs-column-unit) * 1);
+    left: 0;
+    width: 100%;
+    font-family: 'ghs-title';
+    font-size: calc(var(--ghs-column-unit) * 2.2);
+    text-align: center;
+  }
+
+}
+
+.left-abilities {
+  font-size: calc(var(--ghs-column-unit) * 2);
+  position: absolute;
+  right: calc(var(--ghs-column-unit) * 1);
+  bottom: calc(var(--ghs-column-unit) * 0.5);
+}
+
+ghs-monster-action {
+  width: 100%;
+}
