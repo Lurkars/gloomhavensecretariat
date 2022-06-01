@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { ghsClolumnUnit } from 'src/app/app.component';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Action, ActionHex, ActionType, ActionValueType } from 'src/app/game/model/Action';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Monster } from 'src/app/game/model/Monster';
@@ -64,6 +65,12 @@ export class MonsterActionComponent {
     })[ 0 ];
   }
 
+  getConditions(action: Action): string[] {
+    if (action.value && typeof action.value === "string") {
+      return action.value.split('|');
+    }
+    return [];
+  }
 
   getSpecial(action: Action): Action {
     return this.getStat(MonsterType.boss).special[ (action.value as number) - 1 ];
@@ -71,7 +78,7 @@ export class MonsterActionComponent {
 
   getValue(type: MonsterType): number | string {
     const stat = this.getStat(type);
-    if (gameManager.game.calculate && !this.relative) {
+    if (settingsManager.settings.calculate && !this.relative) {
       let statValue: number = 0;
       switch (this.action.type) {
         case ActionType.attack:
@@ -145,9 +152,12 @@ export class ActionHexComponent implements OnInit, AfterViewInit {
 
     this.canvas.nativeElement.width = size * mX * 2;
     this.canvas.nativeElement.height = size * mY * 2 + (mY == 1 ? size : 0);
-    this.hexes.forEach((hex: ActionHex) => {
-      this.drawHexagon(hex, size);
-    });
+
+    setTimeout(() => {
+      this.hexes.forEach((hex: ActionHex) => {
+        this.drawHexagon(hex, size);
+      });
+    }, 1);
   }
 
   drawHexagon(hex: ActionHex, size: number) {

@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { CharacterEntity } from 'src/app/game/model/CharacterEntity';
 import { Condition } from 'src/app/game/model/Condition';
 import { GameState } from 'src/app/game/model/Game';
@@ -88,11 +89,8 @@ export class CharacterComponent extends DialogComponent {
 
   openLevelDialog() {
     this.levelDialog = true;
-
     this.changeDetectorRef.detectChanges();
-
-    console.log(this.titleInput);
-    this.titleInput.nativeElement.value = this.character.title;
+    this.titleInput.nativeElement.value = this.character.title || settingsManager.getLabel('data.character.' + this.character.name.toLowerCase());
   }
 
 
@@ -122,10 +120,10 @@ export class CharacterComponent extends DialogComponent {
     this.experience = 0;
     this.loot = 0;
     if (this.levelDialog && this.titleInput) {
-      if (this.titleInput.nativeElement.value) {
+      if (this.titleInput.nativeElement.value && this.titleInput.nativeElement.value != settingsManager.getLabel('data.character.' + this.character.name.toLowerCase())) {
         this.character.title = this.titleInput.nativeElement.value;
       } else {
-        this.character.title = this.character.name;
+        this.character.title = '';
       }
     }
     this.levelDialog = false;

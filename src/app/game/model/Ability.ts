@@ -1,6 +1,6 @@
 import { Action } from "./Action";
 
-export class MonsterAbility {
+export class Ability {
   name: string;
   initiative: number;
   actions: Action[];

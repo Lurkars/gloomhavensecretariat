@@ -1,0 +1,105 @@
+{
+  "draw": "Ziehen",
+  "next": "Nächste Runde",
+  "state": {
+    "undo": "Rückgängig",
+    "redo": "Wiederherstellen",
+    "reset": "Zurücksetzen"
+  },
+  "edition": {
+    ".": "Edition auswählen",
+    "all": "Alle Editionen"
+  },
+  "scenario": "Szenario auswählen",
+  "section": "Sektion hinzufügen",
+  "monster": {
+    "add": "Monster hinzufügen",
+    "remove": "Monster entfernen",
+    "removeAll": "Alle entfernen"
+  },
+  "character": {
+    "add": "Charakter hinzufügen",
+    "remove": "Charakter entfernen",
+    "removeAll": "Alle entfernen"
+  },
+  "settings": {
+    ".": "Einstellungen",
+    "calc": "Berechnen",
+    "zoomIn": "Reinzoomen",
+    "zoomOut": "Rauszoomen",
+    "zoomReset": "Zoom zurücksetzen",
+    "reset": "Zurücksetzen",
+    "locale": {
+      ".": "Sprache",
+      "en": "Englisch (English)",
+      "de": "Deutsch"
+    }
+  },
+  "about": "Über",
+  "game": {
+    "action": {
+      "attack": "Angriff",
+      "range": "Reichweite",
+      "move": "Bewegung",
+      "jump": "Springen",
+      "heal": "Heilen",
+      "specialTarget" : {
+        "self": "Selbst"
+      },
+      "target": "Ziel",
+      "shield": "Schild",
+      "pierce": "Durchstechen",
+      "area": "Fläche",
+      "push": "Schieben",
+      "pull": "Ziehen",
+      "element": "Element",
+      "condition": "Zustand",
+      "custom": "Benutzerdefiniert",
+      "special": "Spezial"
+    },
+    "condition": {
+      "stun": "Betäubung",
+      "immobilize": "Lähmung",
+      "disarm": "Entwaffnen",
+      "wound": "Wunde",
+      "muddle": "Verwirrrung",
+      "poison": "Gift",
+      "invisible": "Unsichtbar",
+      "strengthen": "Stärkung",
+      "curse": "Fluch",
+      "bless": "Segen"
+    },
+    "element": {
+      "all": "Alle",
+      "fire": "Feuer",
+      "ice": "Eis",
+      "air": "Luft",
+      "earth": "Erde",
+      "light": "Licht",
+      "dark": "Dunkel"
+    },
+    "cards": {
+      "shuffle": "Mischen"
+    }
+  },
+  "data": {
+    "edition": {
+      "gh": "Gloomhaven",
+      "jotl": "Pranken des Löwen"
+    },
+    "character": {
+      "demolitionist": "Sprengmeisterin",
+      "red-guard": "Rotgardist",
+      "hatchet": "Axtwerfer",
+      "voidwarden": "Leerehüterin"
+    },
+    "monster": {
+      "zealot": "Fanatiker",
+      "blood-tumor": "Blutgeschwür"
+    },
+    "scenarios": {
+
+    }
+  }
+
+}

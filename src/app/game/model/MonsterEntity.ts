@@ -4,12 +4,14 @@ import { Entity, EntityValueFunction } from "./Entity";
 import { Monster } from "./Monster";
 import { MonsterStat } from "./MonsterStat";
 import { MonsterType } from "./MonsterType";
+import { SummonColor } from "./Summon";
 
 export class MonsterEntity implements Entity {
   number: number;
   type: MonsterType;
   stat: MonsterStat;
   dead: boolean = false;
+  summon: SummonColor | undefined = undefined;
 
   // from entity
   level: number;

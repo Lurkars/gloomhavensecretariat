@@ -1,17 +1,17 @@
 <a #button class="button">
-  <img class="image"
-  src="./assets/images/character/thumbnail/{{character.edition + '-' + character.name | lowercase}}.png" />
+  <img class="image" [ngClass]="{'active-border' : character.active}"
+    src="./assets/images/character/thumbnail/{{character.edition + '-' + character.name}}.png" />
 </a>
-  <div #dialog>
-    <div class="number-container">
-      <span></span>
-      <span class="value">{{value}}</span>
-      <span></span>
-      <span *ngFor="let number of [1,2,3,4,5,6,7,8,9]" class="number-button" (click)="pickNumber(number)">
-        <span class="number">{{number}}</span>
-      </span>
-      <span></span>
-      <span class="number-button" (click)="pickNumber(0)"><span class="number">0</span></span>
-      <span></span>
-    </div>
+<div #dialog>
+  <div class="number-container">
+    <span></span>
+    <span class="value">{{value}}</span>
+    <span></span>
+    <span *ngFor="let number of [1,2,3,4,5,6,7,8,9]" class="number-button" (click)="pickNumber(number)">
+      <span class="number">{{number}}</span>
+    </span>
+    <span></span>
+    <span class="number-button" (click)="pickNumber(0)"><span class="number">0</span></span>
+    <span></span>
   </div>
+</div>

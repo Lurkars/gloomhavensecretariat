@@ -9,7 +9,9 @@
     </div>
 
     <div class="column col-1">
-      <div #button class="title">{{character.title}}</div>
+      <div #button class="title"><img class="icon"
+          src="./assets/images/character/icons/{{character.edition + '-' + character.name}}.svg" />
+        {{character.title || ('data.character.' + character.name | ghsLabel)}}</div>
       <div class="health">
         <img src="./assets/images/status/health.svg" />
         {{character.health}}/{{character.maxHealth}}
@@ -28,6 +30,10 @@
       <span class="loot">{{character.loot}}
         <img src="./assets/images/status/loot.svg" />
       </span>
+    </div>
+
+    <div class="icon-container">
+      <img src="./assets/images/character/icons/{{character.edition + '-' + character.name}}.svg" />
     </div>
   </div>
 </div>

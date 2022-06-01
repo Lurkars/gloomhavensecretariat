@@ -21,7 +21,7 @@ export enum ActionType {
   move = "move",
   jump = "jump",
   heal = "heal",
-  self = "self",
+  specialTarget = "specialTarget",
   target = "target",
   shield = "shield",
   pierce = "pierce",

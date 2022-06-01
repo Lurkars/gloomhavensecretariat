@@ -1,7 +1,7 @@
 <footer>
   <div class="round-container">
     <a [ngClass]="{'disabled' : !gameManager.nextAvailable()}"
-      (click)="next()">{{ gameManager.game.state == GameState.next ? 'Next Round' : 'Draw'}} <span class="round">{{gameManager.game.round}}</span></a>
+      (click)="next()">{{ (gameManager.game.state == GameState.next ? 'next' : 'draw') | ghsLabel}} <span class="round">{{gameManager.game.round}}</span></a>
   </div>
   <div class="flex-shrink"></div>
   <ghs-level class="flex-shrink"></ghs-level>

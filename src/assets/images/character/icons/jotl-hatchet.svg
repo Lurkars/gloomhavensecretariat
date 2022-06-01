@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.0"
+   width="100mm"
+   height="100mm"
+   viewBox="0 0 283.46458 283.46456"
+   preserveAspectRatio="xMidYMid meet"
+   id="svg10"
+   sodipodi:docname="hatchet.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs14" />
+  <sodipodi:namedview
+     id="namedview12"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="pt"
+     showgrid="false"
+     units="mm"
+     width="100mm"
+     inkscape:zoom="1.6276119"
+     inkscape:cx="-51.916553"
+     inkscape:cy="222.71894"
+     inkscape:window-width="1850"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg10" />
+  <metadata
+     id="metadata2">
+Created by potrace 1.16, written by Peter Selinger 2001-2019
+</metadata>
+  <g
+     transform="matrix(0.07400011,0,0,-0.07400011,52.914194,265.73347)"
+     fill="#000000"
+     stroke="none"
+     id="g8"
+     style="fill:#56a1cf;fill-opacity:1">
+    <path
+       d="m 1010,3284 c -29,-35 -51,-66 -49,-68 2,-1 32,-19 66,-40 198,-118 446,-363 548,-541 27,-46 20,-41 -86,65 -138,139 -254,233 -374,305 -83,50 -208,105 -238,105 -7,0 -112,-120 -232,-267 C 524,2696 395,2539 358,2494 l -67,-81 346,-362 c 190,-199 350,-360 357,-358 6,3 63,41 126,87 333,237 589,370 744,387 l 58,6 -6,41 c -12,76 -85,276 -142,389 -155,310 -396,577 -642,709 l -69,38 z"
+       id="path4"
+       style="fill:#56a1cf;fill-opacity:1" />
+    <path
+       d="M 173,2327 C 86,2261 29,2156 6,2018 c -7,-37 -6,-38 71,-99 42,-34 116,-87 163,-119 68,-46 192,-165 625,-601 297,-300 679,-690 850,-867 177,-185 319,-325 333,-329 31,-7 63,8 117,58 95,88 174,237 216,407 18,74 20,97 11,117 -14,30 -44,32 -215,14 -120,-12 -188,1 -255,46 -19,13 -408,403 -864,867 -456,464 -832,844 -836,845 -4,1 -26,-12 -49,-30 z"
+       id="path6"
+       style="fill:#56a1cf;fill-opacity:1" />
+  </g>
+</svg>

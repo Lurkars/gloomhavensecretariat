@@ -3,13 +3,12 @@
   flex-direction: row;
   justify-content: center;
   position: relative;
-  text-transform: capitalize;
   color: var(--ghs-color-white);
   font-weight: bold;
 
   .default,
   .custom,
-  .self,
+  .specialTarget,
   .condition,
   .element {
     display: flex;
@@ -17,6 +16,10 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+  }
+
+  .specialTarget {
+    display: block;
   }
 
   .condition-value {
@@ -36,8 +39,9 @@
 
   .element {
     flex-wrap: unset;
+    margin-top: calc(var(--ghs-column-unit) * 1);
 
-    > img {
+    >img {
       height: calc(var(--ghs-column-unit) * 3);
       width: auto;
       margin: calc(var(--ghs-column-unit) * 0.25);
@@ -70,13 +74,22 @@
 
   ghs-action-hex {
     position: relative;
-    left: calc(var(--ghs-column-unit) * 3.5);
-    top: calc(var(--ghs-column-unit) * 3.5 * -1);
+    left: calc(var(--ghs-column-unit) * 4.7);
+    top: calc(var(--ghs-column-unit) * -4.5);
+  }
+
+  .action-attack {
+    ghs-action-hex {
+      left: calc(var(--ghs-column-unit) * 4.7);
+      top: calc(var(--ghs-column-unit) * -4.5);
+    }
   }
 
   ghs-monster-action {
     flex-basis: 100%;
     flex-shrink: 0;
+    display: flex;
+    justify-content: center;
 
     &.subaction-area {
       flex-basis: 0;
@@ -86,6 +99,7 @@
     }
 
     .action {
+      max-width: 80%;
       font-size: 80%;
 
       .condition-value {
@@ -95,6 +109,24 @@
       img.icon {
         margin: 0 calc(var(--ghs-column-unit) * 0.25);
       }
+    }
+  }
+
+
+
+  .element-subactions {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    flex-basis: 100%;
+    max-width: calc(var(--ghs-unit) * 25);
+
+    ghs-action-hex {
+      top: 0;
+    }
+
+    .subaction-area {
+      height: auto;
     }
   }
 }

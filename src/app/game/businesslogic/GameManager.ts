@@ -1,11 +1,11 @@
-import { defaultData } from "../data/DefaultData";
+
+import { Ability } from "../model/Ability";
 import { CharacterEntity } from "../model/CharacterEntity";
 import { CharacterData } from "../model/data/CharacterData";
-import { Data } from "../model/data/Data";
-import { EditionData } from "../model/data/EditionData";
+import { DeckData } from "../model/data/DeckData";
+import { defaultAttackModifier, EditionData } from "../model/data/EditionData";
 import { MonsterData } from "../model/data/MonsterData";
 import { ScenarioData } from "../model/data/ScenarioData";
-import { Edition } from "../model/Edition";
 import { Element } from "../model/Element";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
@@ -20,11 +20,11 @@ import { StateManager } from "./StateManager";
 
 export class GameManager {
 
-  data: Data = defaultData;
-  editionData: EditionData | undefined = undefined;
+  editions: string[] = [];
   game: Game = new Game();
   charactersData: CharacterData[] = [];
   monstersData: MonsterData[] = [];
+  decksData: DeckData[] = [];
   scenarioData: ScenarioData[] = [];
   stateManager: StateManager;
   characterManager: CharacterManager;
@@ -33,22 +33,29 @@ export class GameManager {
   working: boolean = false;
 
   constructor() {
-    if (this.data && this.data.has(Edition.jotl)) {
-      this.editionData = this.data.get(Edition.jotl);
-      if (this.editionData) {
-        this.charactersData = this.editionData.characters;
-        this.monstersData = this.editionData.monsters;
-        this.scenarioData = this.editionData.scenarios;
-      }
-    }
     this.stateManager = new StateManager(this.game);
     this.characterManager = new CharacterManager(this.game);
     this.monsterManager = new MonsterManager(this.game);
-    this.attackModifierManager = new AttackModifierManager(this.game, this.editionData && this.editionData.attackModifiers || []);
+    this.attackModifierManager = new AttackModifierManager(this.game, defaultAttackModifier);
   }
 
-  editions(): string[] {
-    return Array.from(this.data.keys()) as string[];
+  async loadData(url: string) {
+    await fetch(url)
+      .then(response => {
+        return response.json();
+      }).then((data) => {
+        Object.keys(data).forEach((edition: string) => {
+          this.editions.push(edition);
+          let value: EditionData = data[ edition ];
+          this.charactersData = this.charactersData.concat(value.characters);
+          this.monstersData = this.monstersData.concat(value.monsters);
+          this.decksData = this.decksData.concat(value.decks);
+          this.scenarioData = this.scenarioData.concat(value.scenarios);
+        });
+      })
+      .catch((error: Error) => {
+        throw Error("Invalid data url: " + url + " [" + error + "]");
+      })
   }
 
   nextGameState(): void {
@@ -75,6 +82,8 @@ export class GameManager {
         return a.name < b.name ? -1 : 1;
       })
 
+      this.game.figures.forEach((figure: Figure) => figure.active = false);
+
     } else if (this.nextAvailable()) {
       this.game.state = GameState.next;
       this.characterManager.next();
@@ -95,7 +104,11 @@ export class GameManager {
           return 99;
         }
         return a.getInitiative() - b.getInitiative();
-      })
+      });
+
+      if (this.game.figures.length > 0) {
+        this.game.figures[ 0 ].active = true;
+      }
     }
     setTimeout(() => this.working = false, 1);
   }
@@ -121,6 +134,14 @@ export class GameManager {
       }
       return a.getInitiative() - b.getInitiative();
     });
+  }
+
+  abilities(name: string, edition: string): Ability[] {
+    if (!this.decksData.some((deck: DeckData) => deck.name == name && deck.edition == edition)) {
+      throw Error("Unknwon deck: " + name + " for " + edition);
+    }
+
+    return this.decksData.filter((deck: DeckData) => deck.name == name && deck.edition == edition)[ 0 ].abilities;
   }
 
   nextAvailable(): boolean {
@@ -161,21 +182,52 @@ export class GameManager {
   }
 
   toggleOff(figure: Figure) {
-    const index = this.game.figures.indexOf(figure);
+
+
+    const figures: Figure[] = this.sortedFigures();
+    const index = figures.indexOf(figure);
 
     if (index == -1) {
-      figure.off = !figure.off;
+      throw Error("Invalid figure");
     }
 
-    if (figure.off) {
-      for (let i = index; i < this.game.figures.length; i++) {
-        this.game.figures[ i ].off = false;
-      }
+    if (!figure.active && !figure.off) {
+      figure.active = true;
+    } else if (figure.active && !figure.off) {
+      figure.off = true;
+      figure.active = false;
     } else {
-      for (let i = 0; i <= index; i++) {
-        this.game.figures[ i ].off = true;
+      figure.off = false;
+      figure.active = !figures.some((other: Figure, otherIndex: number) => otherIndex < index && other.active);
+    }
+
+    for (let i = 0; i < figures.length; i++) {
+      if (figure.active) {
+        if (i != index) {
+          figures[ i ].active = false;
+        }
+        if (i < index) {
+          figures[ i ].off = true;
+        } else {
+          figures[ i ].off = false;
+        }
+      }
+      if (figure.off) {
+        if (i < index) {
+          figures[ i ].off = true;
+          figures[ i ].active = false;
+        }
+        if (i > index) {
+          figures[ i ].off = false;
+          if (i == index + 1) {
+            figures[ i ].active = true;
+          } else {
+            figures[ i ].active = false;
+          }
+        }
       }
     }
+
   }
 
   toggleElement(element: Element) {

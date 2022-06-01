@@ -11,7 +11,7 @@
   .title {
     font-size: calc(var(--ghs-unit) * 2.5);
     color: var(--ghs-color-white);
-    text-shadow: var(--ghs-outline);
+    text-shadow: var(--ghs-outline-thin);
 
     .index {
       margin-right: calc(var(--ghs-unit) * 1);
@@ -30,7 +30,7 @@
       align-items: center;
       font-size: calc(var(--ghs-unit) * 2.5);
       color: var(--ghs-color-white);
-      text-shadow: var(--ghs-outline);
+      text-shadow: var(--ghs-outline-thin);
       margin-right: calc(var(--ghs-unit) * 2);
 
       img {

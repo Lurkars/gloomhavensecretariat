@@ -5,7 +5,7 @@ import { CharacterStat } from "./CharacterStat";
 import { CharacterData } from "./data/CharacterData";
 
 export class CharacterEntity extends CharacterData implements Entity, Figure {
-  title: string;
+  title: string = "";
   initiative: number = 0;
   experience: number = 0;
   loot: number = 0;
@@ -15,6 +15,7 @@ export class CharacterEntity extends CharacterData implements Entity, Figure {
   // from figure
   level: number;
   off: boolean = false;
+  active: boolean = false;
 
   // from entity
   health: number;
@@ -35,7 +36,6 @@ export class CharacterEntity extends CharacterData implements Entity, Figure {
 
     this.stat = this.stats.filter((characterStat: CharacterStat) => characterStat.level == level)[ 0 ];
 
-    this.title = character.name;
     this.level = level;
     this.maxHealth = this.stat.health;
     this.health = this.maxHealth;
@@ -62,7 +62,7 @@ export class CharacterEntity extends CharacterData implements Entity, Figure {
   }
 
   toModel(): GameCharacterEntityModel {
-    return new GameCharacterEntityModel(this.name, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.health, this.maxHealth, this.conditions, this.turnConditions);
+    return new GameCharacterEntityModel(this.name, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.conditions, this.turnConditions);
   }
 
   fromModel(model: GameCharacterEntityModel) {
@@ -73,6 +73,7 @@ export class CharacterEntity extends CharacterData implements Entity, Figure {
     this.exhausted = model.exhausted;
     this.level = model.level;
     this.off = model.off;
+    this.active = model.active;
     this.health = model.health;
     this.maxHealth = model.maxHealth;
     this.conditions = model.conditions;
@@ -92,6 +93,7 @@ export class GameCharacterEntityModel {
   exhausted: boolean;
   level: number;
   off: boolean;
+  active: boolean;
   health: number;
   maxHealth: number;
   conditions: Condition[];
@@ -106,6 +108,7 @@ export class GameCharacterEntityModel {
     exhausted: boolean,
     level: number,
     off: boolean,
+    active: boolean,
     health: number,
     maxHealth: number,
     conditions: Condition[],
@@ -118,6 +121,7 @@ export class GameCharacterEntityModel {
     this.exhausted = exhausted;
     this.level = level;
     this.off = off;
+    this.active = active;
     this.health = health;
     this.maxHealth = maxHealth;
     this.conditions = conditions;

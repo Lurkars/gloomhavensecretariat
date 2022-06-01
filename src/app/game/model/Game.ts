@@ -13,7 +13,6 @@ export class Game {
   scenario: Scenario | undefined = undefined;
   level: number = 1;
   round: number = 1;
-  calculate: boolean = true;
   attackModifier: number = -1;
   attackModifiers: AttackModifier[] = [];
   newElements: Element[] = [];
@@ -22,7 +21,7 @@ export class Game {
 
 
   toModel(): GameModel {
-    return new GameModel(this.edition, this.figures.filter((figure: Figure) => figure instanceof CharacterEntity).map((figure: Figure) => ((figure as CharacterEntity).toModel())), this.figures.filter((figure: Figure) => figure instanceof Monster).map((figure: Figure) => ((figure as Monster).toModel())), this.state, this.scenario, this.level, this.round, this.calculate, this.attackModifier, this.attackModifiers.map((value: AttackModifier) => value.type), this.newElements, this.strongElements, this.elements);
+    return new GameModel(this.edition, this.figures.filter((figure: Figure) => figure instanceof CharacterEntity).map((figure: Figure) => ((figure as CharacterEntity).toModel())), this.figures.filter((figure: Figure) => figure instanceof Monster).map((figure: Figure) => ((figure as Monster).toModel())), this.state, this.scenario, this.level, this.round,  this.attackModifier, this.attackModifiers.map((value: AttackModifier) => value.type), this.newElements, this.strongElements, this.elements);
   }
 
   fromModel(model: GameModel) {
@@ -45,7 +44,6 @@ export class Game {
     this.scenario = model.scenario;
     this.level = model.level;
     this.round = model.round;
-    this.calculate = model.calculate;
     this.attackModifier = model.attackModifier;
     this.attackModifiers = model.attackModifiers.map((value: AttackModifierType) => new AttackModifier(value));
     this.strongElements = model.strongElements;
@@ -67,7 +65,6 @@ export class GameModel {
   scenario: Scenario | undefined;
   level: number;
   round: number;
-  calculate: boolean;
   attackModifier: number;
   attackModifiers: AttackModifierType[];
   newElements: Element[];
@@ -81,7 +78,6 @@ export class GameModel {
     scenario: Scenario | undefined,
     level: number,
     round: number,
-    calculate: boolean,
     attackModifier: number,
     attackModifieres: AttackModifierType[],
     newElements: Element[],
@@ -94,7 +90,6 @@ export class GameModel {
     this.scenario = scenario;
     this.level = level;
     this.round = round;
-    this.calculate = calculate;
     this.attackModifier = attackModifier;
     this.attackModifiers = attackModifieres;
     this.newElements = newElements;

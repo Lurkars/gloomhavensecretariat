@@ -37,18 +37,19 @@
 
     p {
       font-family: 'ghs-title';
-      font-size: calc(var(--ghs-unit) * 3);
+      font-size: calc(var(--ghs-unit) * 2.5);
       color: var(--ghs-color-gray);
 
       a {
-        font-size: calc(var(--ghs-unit) * 3);
+        font-size: calc(var(--ghs-unit) * 2.5);
       }
     }
 
-    a, label {
+    a,
+    label {
       cursor: pointer;
       font-family: 'ghs-title';
-      font-size: calc(var(--ghs-unit) * 4);
+      font-size: calc(var(--ghs-unit) * 3.5);
       color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
 
@@ -122,6 +123,10 @@
     .state {
       display: flex;
       justify-content: space-between;
+
+      >a {
+        margin-right: calc(var(--ghs-unit) * 1);
+      }
     }
   }
 

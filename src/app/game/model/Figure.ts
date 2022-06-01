@@ -1,6 +1,7 @@
 export interface Figure {
-  name : string;
+  name: string;
   level: number;
-  off : boolean;
+  off: boolean;
+  active: boolean;
   getInitiative(): number;
 }

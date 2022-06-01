@@ -1,0 +1,152 @@
+{
+  "draw": "Draw",
+  "next": "Next Round",
+  "state": {
+    "undo": "Undo",
+    "redo": "Redo",
+    "reset": "Reset"
+  },
+  "edition": {
+    ".": "Set Edition",
+    "all": "All Editions"
+  },
+  "scenario": "Set Scenario",
+  "section": "Add Section",
+  "monster": {
+    "add": "Add Monster",
+    "remove": "Remove Monster",
+    "removeAll": "Remove All"
+  },
+  "character": {
+    "add": "Add Character",
+    "remove": "Remove Character",
+    "removeAll": "Remove All"
+  },
+  "settings": {
+    ".": "Settings",
+    "calc": "Calculate",
+    "zoomIn": "Zoom In",
+    "zoomOut": "Zoom Out",
+    "zoomReset": "Reset Zoom",
+    "reset": "Reset",
+    "locale": {
+      ".": "Language",
+      "en": "English",
+      "de": "German (Deutsch)"
+    }
+  },
+  "about": "About",
+  "game": {
+    "action": {
+      "attack": "Attack",
+      "range": "Range",
+      "move": "Move",
+      "jump": "Jump",
+      "heal": "Heal",
+      "specialTarget": {
+        "self": "Self",
+        "ally": "Target one adjacent ally",
+        "allAllies": "Target all allies",
+        "allAlliesRange": "Target all allies within range",
+        "adjacentAllies": "Target all adjacent allies",
+        "adjacentAlliesAffect": "Affect all adjacent allies",
+        "enemy": "Target one adjacent enemy",
+        "enemyOneAll": "Target one enemy with all attacks",
+        "allEnemies": "Target all enemies",
+        "allEnemiesRange": "Target all enemies within range",
+        "adjacentEnemies": "Target all adjacent enemies"
+      },
+      "target": "Target",
+      "shield": "Shield",
+      "pierce": "Pierce",
+      "area": "Area",
+      "push": "Push",
+      "retaliate": "Retaliate",
+      "pull": "Pull",
+      "loot": "Loot",
+      "element": "Element",
+      "condition": "Condition",
+      "custom": "Custom",
+      "special": "Special"
+    },
+    "condition": {
+      "stun": "stun",
+      "immobilize": "immobilize",
+      "disarm": "disarm",
+      "wound": "wound",
+      "muddle": "muddle",
+      "poison": "poison",
+      "invisible": "invisible",
+      "strengthen": "strengthen",
+      "curse": "curse",
+      "bless": "bless"
+    },
+    "element": {
+      "all": "All",
+      "fire": "Fire",
+      "ice": "Ice",
+      "air": "Air",
+      "earth": "Earth",
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "cards": {
+      "shuffle": "Shuffle",
+      "revealAll": "Reveal All"
+    }
+  },
+  "data": {
+    "edition": {
+      "gh": "Gloomhaven",
+      "jotl": "Jaws Of The Lion"
+    },
+    "character": {
+      "brute": "Brute",
+      "cragheart": "Cragheart",
+      "mindthief": "Mindthief",
+      "scoundrel": "Scoundrel",
+      "spellweaver": "Spellweaver",
+      "tinkerer": "Tinkerer",
+      "demolitionist": "Demolitionist",
+      "red-guard": "Red Guard",
+      "hatchet": "Hatchet",
+      "voidwarden": "Voidwarden"
+    },
+    "monster": {
+      "ancient-artillery": "Ancient Artillery",
+      "bandit-archer": "Bandit Archer",
+      "city-archer": "City Archer",
+      "inox-archer": "Inox Archer",
+      "bandit-guard": "Bandit Guard",
+      "inox-shaman": "Inox Shaman",
+      "city-guard": "City Guard",
+      "inox-guard": "Inox Guard",
+      "bandit-commander": "Bandit Commander",
+      "black-imp": "Black Imp",
+      "cave-bear": "Cave Bear",
+      "cultist": "Cultist",
+      "deep-terror": "Deep Terror",
+      "earth-demon": "Earth Demon",
+      "flame-demon": "Flame Demon",
+      "frost-demon": "Frost Demon",
+      "forest-imp": "Forest Imp",
+      "giant-viper": "Giant Viper",
+      "harrower-infester": "Harrower Infester",
+      "hound": "Hound",
+      "living-bones": "Living Bones",
+      "living-corpse": "Living Corpse",
+      "living-spirit": "Living Spirit",
+      "lurker": "Lurker",
+      "night-demon": "Night Demon",
+      "ooze": "Ooze",
+      "vermling-scout": "Vermling Scout",
+      "vermling-shaman": "Vermling Shaman",
+      "blood-tumor": "Blood Tumor",
+      "zealot": "Zealot"
+    },
+    "scenarios": {
+
+    }
+  }
+
+}

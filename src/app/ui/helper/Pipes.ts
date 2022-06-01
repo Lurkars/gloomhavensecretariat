@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Action, ActionType, ActionValueType } from 'src/app/game/model/Action';
 import { CharacterEntity } from 'src/app/game/model/CharacterEntity';
 import { Editional } from 'src/app/game/model/Editional';
@@ -20,7 +21,7 @@ export class GhsValueCalcPipe implements PipeTransform {
 
     if (value instanceof Action) {
       const action: Action = value;
-      if (gameManager.game.calculate && isNaN(+action.value)) {
+      if (settingsManager.settings.calculate && isNaN(+action.value)) {
         let statValue = 0;
         if (args.length > 0) {
           statValue = args[ 0 ];
@@ -56,7 +57,7 @@ export class GhsValueCalcPipe implements PipeTransform {
       L = args[ 0 ];
     }
 
-    if (gameManager.game.calculate) {
+    if (settingsManager.settings.calculate) {
       try {
         return EntityValueFunction(value, L)
       } catch {
@@ -88,7 +89,41 @@ export class GhsValueSignPipe implements PipeTransform {
 })
 export class GhsEditionFilterPipe implements PipeTransform {
 
-  transform(value: any[], ...args: any[]): any[] {
+  transform(value: any[], ...args: string[]): any[] {
+    if (args.length > 0) {
+      return value.filter((value: Editional) => value.edition == args[ 0 ]);
+    }
     return value.filter((value: Editional) => gameManager.game.edition == undefined || value.edition == gameManager.game.edition);
+  }
+}
+
+@Pipe({
+  name: 'ghsLabel', pure: false
+})
+export class GhsLabelPipe implements PipeTransform {
+
+  transform(value: string, ...args: string[]): string {
+    return settingsManager.getLabel(value, args);
+  }
+
+}
+
+
+
+@Pipe({
+  name: 'ghsSort', pure: false
+})
+export class GhsSortPipe implements PipeTransform {
+
+  transform(value: any[], ...args: string[]): any[] {
+    return value.sort((a: any, b: any) => {
+      if (a.name > b.name) {
+        return 1;
+      }
+      if (a.name < b.name) {
+        return -1;
+      }
+      return 0;
+    })
   }
 }

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.0"
+   width="100mm"
+   height="100mm"
+   viewBox="0 0 283.46456 283.46457"
+   preserveAspectRatio="xMidYMid meet"
+   id="svg8"
+   sodipodi:docname="soothsinger.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs12" />
+  <sodipodi:namedview
+     id="namedview10"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="pt"
+     showgrid="false"
+     units="mm"
+     width="100mm"
+     inkscape:zoom="0.246385"
+     inkscape:cx="91.320494"
+     inkscape:cy="1475.3333"
+     inkscape:window-width="1850"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <metadata
+     id="metadata2">
+Created by potrace 1.16, written by Peter Selinger 2001-2019
+</metadata>
+  <g
+     transform="matrix(0.0098,0,0,-0.0098,30.379573,251.28417)"
+     fill="#000000"
+     stroke="none"
+     id="g6"
+     style="fill:#e3746c;fill-opacity:1">
+    <path
+       d="m 13190,21884 c -647,-12 -1453,-76 -2090,-165 -2074,-290 -3843,-987 -5050,-1989 -194,-161 -320,-292 -360,-374 -44,-88 -43,-125 3,-411 20,-121 75,-456 122,-745 47,-289 468,-2824 936,-5633 468,-2810 848,-5111 845,-5114 -3,-3 -74,13 -158,35 -357,97 -621,138 -980,154 -676,28 -1211,-34 -1863,-217 C 3830,7210 3039,6816 2421,6342 1511,5643 889,4781 650,3885 c -79,-296 -94,-416 -94,-750 0,-302 10,-400 64,-611 114,-446 339,-836 667,-1155 460,-446 1105,-739 1896,-858 361,-55 1050,-53 1444,4 2347,340 4397,1982 4817,3857 48,215 57,306 63,638 l 5,315 -121,670 c -606,3375 -1431,8015 -1511,8505 l -20,125 52,48 c 192,180 577,425 998,636 792,395 1735,692 2850,896 711,130 1373,204 2480,276 394,26 1655,38 2145,20 769,-27 1641,-136 2212,-276 169,-42 472,-134 500,-153 13,-8 190,-1375 728,-5602 287,-2257 345,-2718 345,-2746 0,-32 -4,-31 -197,16 -192,46 -393,83 -593,107 -182,21 -858,25 -1040,5 -1432,-157 -2756,-763 -3770,-1726 -910,-863 -1424,-1972 -1360,-2932 73,-1093 760,-1913 1930,-2303 424,-142 854,-205 1385,-205 288,0 437,9 685,40 1081,136 2169,579 3055,1244 404,304 800,693 1079,1060 572,753 852,1537 823,2300 -9,209 -39,482 -253,2230 -386,3164 -1503,12177 -1558,12568 -16,119 -31,147 -124,237 -157,151 -573,405 -952,580 -1101,510 -2522,812 -4320,920 -244,15 -1358,27 -1770,19 z"
+       id="path4"
+       style="fill:#e3746c;fill-opacity:1" />
+  </g>
+</svg>

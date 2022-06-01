@@ -1,0 +1,42 @@
+<div class="menu-container settings">
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.calculate" (change)="toggleCalc()">
+      {{'settings.calc'  | ghsLabel}}
+    </label>
+  </div>
+  <hr class="separator">
+  <div class="line">
+    <a (click)="zoomOut()">
+      {{'settings.zoomOut'  | ghsLabel}}
+    </a>
+  </div>
+  <div class="line">
+    <a (click)="zoomIn()">
+      {{'settings.zoomIn'  | ghsLabel}}
+    </a>
+  </div>
+  <div class="line">
+    <a (click)="zoomReset()">
+      {{'settings.zoomReset'  | ghsLabel}}
+    </a>
+  </div>
+  <hr class="separator">
+  <div class="line">
+    <label class="disabled">{{'settings.locale'  | ghsLabel}}</label>
+  </div>
+  <div class="line" *ngFor="let locale of settingsManager.locales"
+    [ngClass]="{'disabled' : settingsManager.settings.locale == locale}">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.locale == locale"
+        (change)="settingsManager.setLocale(locale)">
+      {{'settings.locale.' + locale  | ghsLabel}}
+    </label>
+  </div>
+  <hr class="separator">
+  <div class="line">
+    <a (click)="reset()">
+      &lt;{{'settings.reset'  | ghsLabel}}&gt; (!)
+    </a>
+  </div>
+</div>

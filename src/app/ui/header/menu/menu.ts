@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { CharacterEntity } from "src/app/game/model/CharacterEntity";
 import { CharacterData } from "src/app/game/model/data/CharacterData";
 import { MonsterData } from "src/app/game/model/data/MonsterData";
@@ -17,20 +18,18 @@ import { DialogComponent } from "src/app/ui/dialog/dialog";
 export class MainMenuComponent extends DialogComponent {
 
   gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
   GameState = GameState
   SubMenu = SubMenu;
   active: SubMenu = SubMenu.main;
-
 
   override close(): void {
     this.active = SubMenu.main;
     super.close();
   }
 
-  setEdition(edition: string | undefined = undefined) {
-    gameManager.stateManager.before();
-    gameManager.game.edition = edition;
-    gameManager.stateManager.after();
+  get setDialogPositionFunc() {
+    return this.setDialogPosition.bind(this);
   }
 
   setScenario(scenarioData: ScenarioData | undefined) {
@@ -135,40 +134,6 @@ export class MainMenuComponent extends DialogComponent {
     ).length;
   }
 
-  zoomOut(): void {
-    this.zoom(5);
-  }
-
-  zoomIn(): void {
-    this.zoom(-5);
-  }
-
-  zoomReset(): void {
-    gameManager.stateManager.before();
-    document.body.style.setProperty('--ghs-factor', 100 + '');
-    this.setDialogPosition();
-    gameManager.stateManager.after();
-  }
-
-  zoom(value: number) {
-    gameManager.stateManager.before();
-    let factor: number = +window.getComputedStyle(document.body).getPropertyValue('--ghs-factor');
-    factor += value;
-    document.body.style.setProperty('--ghs-factor', factor + '');
-    this.setDialogPosition();
-    gameManager.stateManager.after();
-  }
-
-  reset(): void {
-    gameManager.stateManager.reset();
-    window.location.reload();
-  }
-
-  toggleCalc() {
-    gameManager.stateManager.before();
-    gameManager.game.calculate = !gameManager.game.calculate
-    gameManager.stateManager.after();
-  }
 }
 
 export enum SubMenu {

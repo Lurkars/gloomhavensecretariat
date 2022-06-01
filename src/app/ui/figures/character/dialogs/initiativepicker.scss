@@ -1,9 +1,9 @@
 .button {
   position: relative;
   display: block;
-  width: calc(var(--ghs-column-unit) * 13);
-  height: calc(var(--ghs-column-unit) * 13);
-  margin: calc(var(--ghs-column-unit) * 1);
+  width: calc(var(--ghs-column-unit) * 9);
+  height: calc(var(--ghs-column-unit) * 9);
+  margin: calc(var(--ghs-column-unit) * 3);
   cursor: pointer;
 
   .image {

@@ -1,15 +1,58 @@
 <div class="card-container ability">
-  <div class="card" [ngClass]="{'flipped' : flipped() }" (click)="toggleReveal()">
+  <div class="card" [ngClass]="{'flipped' : flipped() }" (click)="open()">
     <div class="card-front ability-front">
-      <span class="name">{{monster.name}}</span>
+      <span class="name">{{'data.monster.' + monster.name | ghsLabel}}</span>
       <span class="left-abilities">{{monster.availableAbilities.length}}</span>
     </div>
     <div class="card-back ability-back">
       <div *ngIf="ability">
-        <div class="initiative">{{ability.initiative}}</div>
+        <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
         <span class="name">{{ability.name}}</span>
         <ghs-monster-actions [actions]="ability.actions" [monster]="monster"></ghs-monster-actions>
         <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div #popup class="abilities-popup">
+  <div class="menu">
+    <a (click)="revealAll()">{{'game.cards.revealAll' | ghsLabel}}</a>
+    <a (click)="shuffle()">{{'game.cards.shuffle' | ghsLabel}}</a>
+  </div>
+  <div class="abilities-container">
+    <div class="upcoming">
+      <div class="empty" *ngIf="upcomingCards().length == 0"></div>
+      <div class="card-container ability" *ngFor="let ability of upcomingCards();">
+        <div class="card" card-reveal [ngClass]="{'flipped' : reveal}">
+          <a class="card-front ability-front">
+            <span class="revealed">Click again to reveal!</span>
+            <span class="name">{{'data.monster.' + monster.name | ghsLabel}}</span>
+          </a>
+          <div class="card-back ability-back">
+            <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
+            <span class="name">{{ability.name}}</span>
+            <ghs-monster-actions [actions]="ability.actions" [monster]="monster"></ghs-monster-actions>
+            <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="disgarded">
+      <div class="empty" *ngIf="disgardedCards().length == 0"></div>
+      <div class="card-container ability" *ngFor="let ability of disgardedCards();">
+        <div class="card flipped">
+          <a class="card-front ability-front">
+          </a>
+          <div class="card-back ability-back">
+            <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
+            <span class="name">{{ability.name}}</span>
+            <ghs-monster-actions [actions]="ability.actions" [monster]="monster"></ghs-monster-actions>
+            <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

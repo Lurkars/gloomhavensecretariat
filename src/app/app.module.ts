@@ -6,7 +6,7 @@ import { DialogComponent } from './ui/dialog/dialog';
 import { CharacterComponent } from './ui/figures/character/character';
 import { CharacterInitiativePicker } from './ui/figures/character/dialogs/initiativepicker';
 import { ActionHexComponent, MonsterActionComponent, MonsterActionsComponent } from './ui/figures/monster/actions/action';
-import { MonsterAbilityComponent } from './ui/figures/monster/cards/ability';
+import { AbilityComponent } from './ui/figures/monster/cards/ability';
 import { MonsterImageComponent } from './ui/figures/monster/cards/image';
 import { MonsterStatsComponent } from './ui/figures/monster/cards/stats';
 import { MonsterNumberPicker } from './ui/figures/monster/dialogs/numberpicker';
@@ -16,9 +16,11 @@ import { AttackModifierComponent } from './ui/footer/attackmodifier/attackmodifi
 import { FooterComponent } from './ui/footer/footer';
 import { LevelComponent } from './ui/footer/level/level';
 import { HeaderComponent } from './ui/header/header';
+import { EditionMenuComponent } from './ui/header/menu/edition/edition';
 import { MainMenuComponent } from './ui/header/menu/menu';
+import { SettingsMenuComponent } from './ui/header/menu/settings/settings';
 import { CardRevealDirective } from './ui/helper/CardReveal';
-import { GhsEditionFilterPipe, GhsValueCalcPipe, GhsValueSignPipe } from './ui/helper/Pipes';
+import { GhsEditionFilterPipe, GhsLabelPipe, GhsSortPipe, GhsValueCalcPipe, GhsValueSignPipe } from './ui/helper/Pipes';
 import { MainComponent } from './ui/main';
 import { PopupComponent } from './ui/popup/popup';
 
@@ -27,7 +29,7 @@ import { PopupComponent } from './ui/popup/popup';
     AppComponent,
     MainComponent,
     HeaderComponent,
-    MainMenuComponent,
+    MainMenuComponent, EditionMenuComponent, SettingsMenuComponent,
     FooterComponent,
     AttackModifierComponent,
     LevelComponent,
@@ -37,12 +39,12 @@ import { PopupComponent } from './ui/popup/popup';
     MonsterComponent,
     MonsterEntityComponent,
     MonsterImageComponent,
-    MonsterAbilityComponent,
+    AbilityComponent,
     MonsterStatsComponent,
     MonsterNumberPicker,
     MonsterActionsComponent, MonsterActionComponent, ActionHexComponent,
     CardRevealDirective,
-    GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe
+    GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsLabelPipe, GhsSortPipe
   ],
   imports: [
     BrowserModule

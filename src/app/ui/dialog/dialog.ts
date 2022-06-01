@@ -79,11 +79,14 @@ export class DialogComponent implements OnInit {
     this.dialog.nativeElement.style.left = left + 'px';
 
     let top: number = buttonRect.y + (buttonRect.height / 2) - unit * 4.5;
-    if (top < unit * 1.5) {
-      top = unit * 1.5;
-    } else if (top + dialogRect.height > window.innerHeight - unit * 1.5) {
+    if (top + dialogRect.height > window.innerHeight - unit * 1.5) {
       top = window.innerHeight - dialogRect.height - unit * 1.5;
     }
+
+    if (top < unit * 1.5) {
+      top = unit * 1.5;
+    }
+
     this.dialog.nativeElement.style.top = top + 'px';
   }
 

@@ -29,7 +29,7 @@
 
 
 <div #popup  class="attack-modifiers-popup">
-  <a class="shuffle" (click)="shuffle()">Shuffle</a>
+  <a class="shuffle" (click)="shuffle()">{{'game.cards.shuffle' | ghsLabel}}</a>
   <div class="attack-modifiers-container">
     <div class="upcoming">
       <div class="empty" *ngIf="upcomingCards().length == 0"></div>

@@ -8,7 +8,7 @@ import { MonsterStat } from "../model/MonsterStat";
 import { MonsterEntity } from "../model/MonsterEntity";
 import { MonsterData } from "../model/data/MonsterData";
 import { Condition, RoundCondition } from "../model/Condition";
-import { MonsterAbility } from "../model/MonsterAbility";
+import { Ability } from "../model/Ability";
 
 export class MonsterManager {
 
@@ -26,6 +26,7 @@ export class MonsterManager {
     }
     const monster: Monster = new Monster(monsterData);
     monster.level = gameManager.game.level;
+    monster.off = true;
     this.game.figures.push(monster);
   }
 
@@ -37,7 +38,6 @@ export class MonsterManager {
     }
 
     monster.entities = [];
-    monster.off = true;
     this.shuffleAbilities(monster);
     this.game.figures.splice(this.game.figures.indexOf(monster), 1);
   }
@@ -55,17 +55,28 @@ export class MonsterManager {
     if (this.game.state == GameState.next && !monster.ability) {
       const randomAbilityIndex = Math.floor(Math.random() * monster.availableAbilities.length);
       const abilityIndex = monster.availableAbilities[ randomAbilityIndex ];
-      monster.ability = monster.abilities[ abilityIndex ];
+      monster.ability = gameManager.abilities(monster.deck, monster.edition)[ abilityIndex ];
       monster.availableAbilities.splice(randomAbilityIndex, 1);
       monster.discardedAbilities.push(abilityIndex);
     }
 
-    monster.off = false;
+    if (monster.off) {
+      monster.off = false;
+      monster.active = false;
+    }
   }
 
 
   removeMonsterEntity(monster: Monster, monsterEntity: MonsterEntity) {
     monster.entities.splice(monster.entities.indexOf(monsterEntity), 1);
+    if (monster.entities.length == 0) {
+      if (!monster.off && gameManager.game.state == GameState.next) {
+        monster.active = true;
+        gameManager.toggleOff(monster);
+      } else {
+        monster.off = true;
+      }
+    }
   }
 
   async draw() {
@@ -77,7 +88,7 @@ export class MonsterManager {
           }
           figure.ability = undefined;
         }
-        figure.off = false;
+        figure.off = figure.entities.length == 0;
 
         figure.entities.forEach((monsterEntity: MonsterEntity) => {
           for (let roundCondition in RoundCondition) {
@@ -99,7 +110,7 @@ export class MonsterManager {
         if (figure.entities.length > 0) {
           const randomAbilityIndex = Math.floor(Math.random() * figure.availableAbilities.length);
           const abilityIndex = figure.availableAbilities[ randomAbilityIndex ];
-          figure.ability = figure.abilities[ abilityIndex ];
+          figure.ability = gameManager.abilities(figure.deck, figure.edition)[ abilityIndex ];
           figure.availableAbilities.splice(randomAbilityIndex, 1);
           figure.discardedAbilities.push(abilityIndex);
         }
@@ -109,7 +120,7 @@ export class MonsterManager {
 
 
   shuffleAbilities(monster: Monster) {
-    monster.availableAbilities = monster.abilities.map((value: MonsterAbility, index: number) => index);
+    monster.availableAbilities = gameManager.abilities(monster.deck, monster.edition).map((value: Ability, index: number) => index);
     monster.discardedAbilities = [];
   }
 
