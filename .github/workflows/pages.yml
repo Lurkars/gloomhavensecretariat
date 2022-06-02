@@ -27,15 +27,10 @@ jobs:
       - name: npm install and ng build
         run: |
           npm i
-          ng build
-      - name: Create Zip
-        uses: thedoctor0/zip-release@main
+          ng build --base-href gloomhavensecretary
+      - name: Publish GitHub Pages
+        uses: tsunematsu21/actions-publish-gh-pages@v1.0.2
         with:
-          type: 'zip'
-          directory: "dist/gloomhavensecretary/"
-          filename: 'gloomhavensecretary.zip'
-      - name: Push Build to Releases
-        uses: ncipollo/release-action@v1
-        with:
-          artifacts: "dist/gloomhavensecretary/gloomhavensecretary.zip"
+          dir: dist/gloomhavensecretary/
+          branch: gh-pages
           token: ${{ secrets.TOKEN }}
