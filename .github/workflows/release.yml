@@ -39,3 +39,9 @@ jobs:
         with:
           artifacts: "dist/gloomhavensecretary/gloomhavensecretary.zip"
           token: ${{ secrets.TOKEN }}
+      - name: Publish GitHub Pages
+        uses: tsunematsu21/actions-publish-gh-pages@v1.0.2
+        with:
+          dir: dist/gloomhavensecretary/
+          branch: gh-pages
+          token: ${{ secrets.ACCESS_TOKEN }}
