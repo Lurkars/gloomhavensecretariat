@@ -33,9 +33,9 @@ jobs:
         with:
           type: 'zip'
           directory: "dist/gloomhavensecretary/"
-          filename: 'gloomhavensecretary-${GITHUB_REF##*/}.zip'
+          filename: 'gloomhavensecretary.zip'
       - name: Push Build to Releases
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "dist/gloomhavensecretary/gloomhavensecretary-${GITHUB_REF##*/}.zip"
+          artifacts: "dist/gloomhavensecretary/gloomhavensecretary.zip"
           token: ${{ secrets.TOKEN }}
