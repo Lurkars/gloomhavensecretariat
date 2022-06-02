@@ -17,7 +17,7 @@ This is basically a clone implementing the same functionality and look&feel of t
 
 ## Install
 
-Download [latest release](./releases/latest) zip-file and unzip content on a webserver.
+Download [latest release](https://github.com/Lurkars/gloomhavensecretary/releases/latest) zip-file and unzip content on a webserver.
 
 ## Copyright / License
 
