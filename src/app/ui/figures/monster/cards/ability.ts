@@ -30,10 +30,6 @@ export class AbilityComponent extends PopupComponent {
     return gameManager.working && gameManager.game.state == GameState.draw || !gameManager.working && (gameManager.game.state == GameState.next && this.ability != undefined);
   }
 
-  revealAll() {
-    this.reveal = true;
-  }
-
   override close(): void {
     super.close();
     this.reveal = false;

@@ -18,7 +18,7 @@
 
 <div #popup class="abilities-popup">
   <div class="menu">
-    <a (click)="revealAll()">{{'game.cards.revealAll' | ghsLabel}}</a>
+    <a (click)="reveal = !reveal">{{(reveal ? 'game.cards.coverAll' : 'game.cards.revealAll') | ghsLabel}}</a>
     <a (click)="shuffle()">{{'game.cards.shuffle' | ghsLabel}}</a>
   </div>
   <div class="abilities-container">

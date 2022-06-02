@@ -92,6 +92,7 @@
     },
     "cards": {
       "shuffle": "Shuffle",
+      "coverAll": "Cover All",
       "revealAll": "Reveal All"
     }
   },

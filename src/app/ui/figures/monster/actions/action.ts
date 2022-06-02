@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { ghsClolumnUnit } from 'src/app/app.component';
+import { ghsColumnUnit, ghsUnitUnit } from 'src/app/app.component';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Action, ActionHex, ActionType, ActionValueType } from 'src/app/game/model/Action';
@@ -141,7 +141,10 @@ export class ActionHexComponent implements OnInit, AfterViewInit {
     if (this.context == null) {
       return;
     }
-    const size: number = ghsClolumnUnit() * 1.5;
+    let size: number = ghsColumnUnit() * 1.5;
+    if (ghsUnitUnit() == 'vw') {
+      size = window.innerWidth / 100 * ghsColumnUnit() * 1.5;
+    }
     let mX = 1;
     let mY = 1;
 
