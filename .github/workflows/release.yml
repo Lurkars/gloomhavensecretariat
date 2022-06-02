@@ -24,10 +24,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install and ng build
+      - name: npm install and npm run build
         run: |
           npm i
-          ng build
+          npm run build
       - name: Create Zip
         uses: thedoctor0/zip-release@main
         with:

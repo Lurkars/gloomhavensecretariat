@@ -24,10 +24,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm install and ng build
+      - name: npm install and npm run build
         run: |
           npm i
-          ng build --base-href gloomhavensecretary
+          npm run build -- --base-href gloomhavensecretary
       - name: Publish GitHub Pages
         uses: tsunematsu21/actions-publish-gh-pages@v1.0.2
         with:
