@@ -1,5 +1,7 @@
 # Gloomhaven Secretary
 
+[Latest Demo](https://lurkars.github.io/gloomhavensecretary/)
+
 An open source Gloomhaven Helper clone made as web app with Angular.
 
 This is basically a clone implementing the same functionality and look&feel of the original Gloomhaven Helper since I am not capable of good design/UX. So feel free to contribute better assets.

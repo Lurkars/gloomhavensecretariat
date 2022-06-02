@@ -2,7 +2,7 @@ on:
   push:
     tags:
       - '*'
-name: Build Release
+name: Release Page
 jobs:
   build:
     runs-on: ubuntu-latest
