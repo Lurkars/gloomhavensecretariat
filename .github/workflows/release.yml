@@ -28,8 +28,14 @@ jobs:
         run: |
           npm i
           npm run build
+      - name: Create Zip
+        uses: thedoctor0/zip-release@main
+        with:
+          type: 'zip'
+          directory: "dist/gloomhavensecretary/"
+          filename: 'gloomhavensecretary-${{ github.ref }}.zip'
       - name: Push Build to Releases
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "dist/gloomhavensecretary/*"
+          artifacts: "dist/gloomhavensecretary/gloomhavensecretary-${{ github.ref }}.zip"
           token: ${{ secrets.TOKEN }}
