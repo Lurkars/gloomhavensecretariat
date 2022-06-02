@@ -28,6 +28,12 @@ jobs:
         run: |
           npm i
           npm run build
+      - name: Publish GitHub Pages
+        uses: tsunematsu21/actions-publish-gh-pages@v1.0.2
+        with:
+          dir: dist/gloomhavensecretary/
+          branch: gh-pages
+          token: ${{ secrets.TOKEN }}
       - name: Create Zip
         uses: thedoctor0/zip-release@main
         with:
@@ -38,10 +44,4 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           artifacts: "dist/gloomhavensecretary/gloomhavensecretary.zip"
-          token: ${{ secrets.TOKEN }}
-      - name: Publish GitHub Pages
-        uses: tsunematsu21/actions-publish-gh-pages@v1.0.2
-        with:
-          dir: dist/gloomhavensecretary/
-          branch: gh-pages
           token: ${{ secrets.TOKEN }}
