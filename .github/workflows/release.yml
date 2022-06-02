@@ -44,4 +44,4 @@ jobs:
         with:
           dir: dist/gloomhavensecretary/
           branch: gh-pages
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.TOKEN }}
