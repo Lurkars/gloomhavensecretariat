@@ -1,0 +1,14 @@
+<a #button class="button">
+  +
+</a>
+<div #dialog>
+  <div class="container">
+    <span *ngFor="let color of summonColors" class="summon-button" (click)="selectColor(color)"
+      [ngClass]="{'active' : color == summonColor}">
+      <img src="./assets/images/summons/{{color}}.png">
+    </span>
+    <span *ngFor="let number of [1,2,3,4]" class="number-button" (click)="pickNumber(number)">
+      <span class="number">{{number}}</span>
+    </span>
+  </div>
+</div>

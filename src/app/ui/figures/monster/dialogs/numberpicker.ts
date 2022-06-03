@@ -17,7 +17,8 @@ export class MonsterNumberPicker extends DialogComponent {
   @Input() min: number = 1;
   @Input() max: number = 10;
   @Input() range: number[] = [];
-
+  @Input() elite: boolean = false;
+  summon : boolean = false;
 
   override ngOnInit(): void {
     super.ngOnInit();
@@ -46,9 +47,9 @@ export class MonsterNumberPicker extends DialogComponent {
   pickNumber(number: number) {
     if (!this.hasNumber(number) && this.type) {
       gameManager.stateManager.before();
-      gameManager.monsterManager.addMonsterEntity(this.monster, number, this.type);
+      gameManager.monsterManager.addMonsterEntity(this.monster, number, this.type, this.summon);
       gameManager.stateManager.after();
     }
-  }
+  } 
 
 }

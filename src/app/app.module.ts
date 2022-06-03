@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { DialogComponent } from './ui/dialog/dialog';
 import { CharacterComponent } from './ui/figures/character/character';
 import { CharacterInitiativePicker } from './ui/figures/character/dialogs/initiativepicker';
+import { CharacterSummonDialog } from './ui/figures/character/dialogs/summondialog';
 import { ActionHexComponent, MonsterActionComponent, MonsterActionsComponent } from './ui/figures/monster/actions/action';
 import { AbilityComponent } from './ui/figures/monster/cards/ability';
 import { MonsterImageComponent } from './ui/figures/monster/cards/image';
@@ -34,8 +35,7 @@ import { PopupComponent } from './ui/popup/popup';
     AttackModifierComponent,
     LevelComponent,
     DialogComponent, PopupComponent,
-    CharacterComponent,
-    CharacterInitiativePicker,
+    CharacterComponent, CharacterInitiativePicker, CharacterSummonDialog,
     MonsterComponent,
     MonsterEntityComponent,
     MonsterImageComponent,

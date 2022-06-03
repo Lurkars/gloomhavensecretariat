@@ -15,6 +15,7 @@
   border-image-outset: calc(var(--ghs-unit) * -1);
   border-image-width: calc(var(--ghs-unit) * 6);
   background-color: var(--ghs-color-black);
+  transition: top 0.4s ease-in-out, left 0.4s ease-in-out;
 
   &.opened {
     display: block;

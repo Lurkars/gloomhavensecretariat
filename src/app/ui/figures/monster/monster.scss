@@ -24,6 +24,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
+  margin-top: calc(var(--ghs-column-unit) * 1);
 
   &.normal {
     left: calc(var(--ghs-column-unit) * 0);
@@ -33,7 +34,6 @@
     right: calc(var(--ghs-column-unit) * 0);
   }
 }
-
 
 ghs-monster-numberpicker {
   &.disabled {

@@ -1,11 +1,19 @@
-<div #button class="entity" [ngClass]="entity.type">
-  <span class="number">{{entity.number}}</span> <span class="health">{{entity.health}}</span>
+<div class="entity-border">
+  <div #button class="entity" [ngClass]="entity.type">
+    <span class="number">{{entity.number}}</span> <span class="health">{{entity.health}}</span>
 
-  <div class="conditions">
-    <img *ngFor="let condition of entity.conditions" src="./assets/images/condition/{{condition}}.svg" />
+    <div class="conditions">
+      <span class="condition" *ngFor="let condition of entity.conditions; let index = index;" [ngClass]="{'center' : entity.summon == SummonState.false && (entity.conditions.length % 2) == 1 && entity.conditions.length == index + 1}">
+        <img src="./assets/images/condition/{{condition}}.svg" />
+      </span>
+      <span *ngIf="entity.summon != SummonState.false" class="summon"
+        [ngClass]="{'active' : entity.summon == SummonState.true, 'new' : entity.summon == SummonState.new, 'center' : (entity.conditions.length % 2) == 0}">
+        <img src="./assets/images/summons/{{monster.summonColor}}.png">
+      </span>
+    </div>
+    <progress class="health-bar" [ngClass]="{'critical' : entity.health / entity.maxHealth < 0.35}"
+      [value]="entity.health" [max]="entity.maxHealth"></progress>
   </div>
-  <progress class="health-bar" [ngClass]="{'critical' : entity.health / entity.maxHealth < 0.35}"
-    [value]="entity.health" [max]="entity.maxHealth"></progress>
 </div>
 
 <div #dialog>
@@ -81,6 +89,13 @@
       <span *ngFor="let condition of conditions">
         <a class="condition" [ngClass]="{'active' : hasCondition(condition)}" (click)="toggleCondition(condition)">
           <img src="./assets/images/condition/{{condition}}.svg" />
+        </a>
+      </span>
+      <span class="summon-button">
+        <a class="summon"
+          [ngClass]="{'active' : entity.summon == SummonState.true, 'new' : entity.summon == SummonState.new }"
+          (click)="toggleSummon()">
+          <img src="./assets/images/summons/{{monster.summonColor}}.png">
         </a>
       </span>
     </div>

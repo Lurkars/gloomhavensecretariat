@@ -4,7 +4,7 @@ import { AttackModifier, AttackModifierType } from 'src/app/game/model/AttackMod
 import { Condition } from 'src/app/game/model/Condition';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
-import { MonsterStat } from 'src/app/game/model/MonsterStat';
+import { Summon, SummonState } from 'src/app/game/model/Summon';
 import { DialogComponent } from 'src/app/ui/dialog/dialog';
 
 @Component({
@@ -18,7 +18,7 @@ export class MonsterEntityComponent extends DialogComponent {
   @Input() entity!: MonsterEntity;
   Conditions = Condition;
   AttackModifierType = AttackModifierType;
-
+  SummonState = SummonState;
   conditions: Condition[] = [ Condition.stun, Condition.immobilize, Condition.disarm, Condition.wound, Condition.muddle, Condition.poison, Condition.strengthen, Condition.invisible ];
   health: number = 0;
 
@@ -90,6 +90,20 @@ export class MonsterEntityComponent extends DialogComponent {
       this.entity.conditions.splice(this.entity.conditions.indexOf(condition), 1);
     }
     gameManager.stateManager.after();
+    this.setDialogPosition();
+  }
+
+  toggleSummon() {
+    gameManager.stateManager.before();
+    if (this.entity.summon == SummonState.false) {
+      this.entity.summon = SummonState.new;
+    } else if (this.entity.summon == SummonState.new) {
+      this.entity.summon = SummonState.true;
+    } else {
+      this.entity.summon = SummonState.false;
+    }
+    gameManager.stateManager.after();
+    this.setDialogPosition();
   }
 
   dead() {

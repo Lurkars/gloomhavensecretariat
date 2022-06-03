@@ -2,16 +2,21 @@ import { Condition } from "./Condition";
 import { Entity } from "./Entity";
 
 
+export enum SummonState {
+  new = "new",
+  true = "true",
+  false = "false"
+}
+
 export enum SummonColor {
-  normal = "normal",
-  fire = "fire",
-  ice = "ice",
-  air = "air",
-  earth = "earth",
-  light = "light",
-  dark = "dark",
-  additional1 = "additional1",
-  additional2 = "additional2"
+  blue = "blue",
+  green = "green",
+  yellow = "yellow",
+  orange = "orange",
+  white = "white",
+  purple = "purple",
+  pink = "pink",
+  red = "red"
 }
 
 export class Summon implements Entity {

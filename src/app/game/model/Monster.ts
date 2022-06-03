@@ -3,8 +3,11 @@ import { Ability } from "./Ability";
 import { Figure } from "./Figure";
 import { MonsterData } from "./data/MonsterData";
 import { gameManager } from "../businesslogic/GameManager";
+import { SummonColor } from "./Summon";
 
 export class Monster extends MonsterData implements Figure {
+
+  summonColor: SummonColor = SummonColor.blue;
 
   // from figure
   level: number;

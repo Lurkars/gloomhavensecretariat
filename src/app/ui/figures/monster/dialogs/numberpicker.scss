@@ -28,7 +28,7 @@
 .number-container {
 
   display: grid;
-  grid-template-columns: calc(var(--ghs-column-unit) * 8) calc(var(--ghs-column-unit) * 8) calc(var(--ghs-column-unit) * 8);
+  grid-template-columns: calc(var(--ghs-column-unit) * 8) calc(var(--ghs-column-unit) * 8) calc(var(--ghs-column-unit) * 8) calc(var(--ghs-column-unit) * 8);
 
   .number-button {
     display: flex;
@@ -42,6 +42,10 @@
     color: var(--ghs-color-white);
     text-shadow: var(--ghs-outline);
 
+    &.elite {
+      color: var(--ghs-color-yellow);
+    }
+
     &:hover {
       border: calc(var(--ghs-column-unit) / 5) var(--ghs-color-gray) solid;
       border-radius: 100%;
@@ -50,6 +54,29 @@
     &.disabled {
       pointer-events: none;
       color: var(--ghs-color-gray);
+    }
+  }
+
+  .summon-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(var(--ghs-column-unit) * 7);
+    width: calc(var(--ghs-column-unit) * 7);
+
+    img.summon {
+      height: calc(var(--ghs-column-unit) * 3);
+      width: calc(var(--ghs-column-unit) * 3);
+    }
+
+    &:hover {
+      border: calc(var(--ghs-column-unit) / 5) var(--ghs-color-gray) solid;
+      border-radius: 100%;
+    }
+
+    &.active {
+      border: calc(var(--ghs-column-unit) / 5) var(--ghs-color-white) solid;
+      border-radius: 100%;
     }
   }
 }

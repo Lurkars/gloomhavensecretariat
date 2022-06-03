@@ -5,8 +5,8 @@
       {{'settings.calc'  | ghsLabel}}
     </label>
   </div>
-  <hr class="separator">
-  <div class="line">
+  
+  <div class="line separator">
     <a (click)="zoomOut()">
       {{'settings.zoomOut'  | ghsLabel}}
     </a>
@@ -21,8 +21,8 @@
       {{'settings.zoomReset'  | ghsLabel}}
     </a>
   </div>
-  <hr class="separator">
-  <div class="line">
+  
+  <div class="line separator title">
     <label class="disabled">{{'settings.locale'  | ghsLabel}}</label>
   </div>
   <div class="line" *ngFor="let locale of settingsManager.locales"
@@ -33,8 +33,8 @@
       {{'settings.locale.' + locale  | ghsLabel}}
     </label>
   </div>
-  <hr class="separator">
-  <div class="line">
+  
+  <div class="line separator">
     <a (click)="reset()">
       &lt;{{'settings.reset'  | ghsLabel}}&gt; (!)
     </a>

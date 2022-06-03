@@ -9,6 +9,7 @@ import { MonsterEntity } from "../model/MonsterEntity";
 import { MonsterData } from "../model/data/MonsterData";
 import { Condition, RoundCondition } from "../model/Condition";
 import { Ability } from "../model/Ability";
+import { SummonState } from "../model/Summon";
 
 export class MonsterManager {
 
@@ -43,14 +44,19 @@ export class MonsterManager {
   }
 
 
-  addMonsterEntity(monster: Monster, number: number, type: MonsterType) {
+  addMonsterEntity(monster: Monster, number: number, type: MonsterType, summon: boolean = false) {
     if (!monster.stats.some((element: MonsterStat) => {
       return element.type == type;
     })) {
-      return;
+      throw Error("Missing type '" + type + "' for " + monster.name);
     }
 
-    monster.entities.push(new MonsterEntity(number, type, monster));
+    let monsterEntity: MonsterEntity = new MonsterEntity(number, type, monster);
+
+    if (summon) {
+      monsterEntity.summon = SummonState.new;
+    }
+    monster.entities.push(monsterEntity);
 
     if (this.game.state == GameState.next && !monster.ability) {
       const randomAbilityIndex = Math.floor(Math.random() * monster.availableAbilities.length);
@@ -91,6 +97,11 @@ export class MonsterManager {
         figure.off = figure.entities.length == 0;
 
         figure.entities.forEach((monsterEntity: MonsterEntity) => {
+
+          if (monsterEntity.summon == SummonState.new) {
+            monsterEntity.summon = SummonState.true;
+          }
+
           for (let roundCondition in RoundCondition) {
             if (monsterEntity.conditions.indexOf(roundCondition as Condition) != -1 && monsterEntity.turnConditions.indexOf(roundCondition as Condition) == -1) {
               monsterEntity.turnConditions.push(roundCondition as Condition);

@@ -24,9 +24,13 @@
   flex-direction: column;
 
   .separator {
-    border: none;
     border-top: calc(var(--ghs-unit) * 0.1) solid var(--ghs-color-gray);
-    margin: calc(var(--ghs-unit) * 1);
+    margin-top: calc(var(--ghs-unit) * 1);
+  }
+
+  .title {
+    border-bottom: calc(var(--ghs-unit) * 0.1) solid var(--ghs-color-gray);
+    margin-bottom: calc(var(--ghs-unit) * 1);
   }
 
   .line {

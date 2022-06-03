@@ -11,10 +11,11 @@ export class DialogComponent implements OnInit {
   @ViewChild('dialog', { static: true }) dialog!: ElementRef;
   @ViewChild('highlight', { static: true }) highlight!: ElementRef;
 
+  @Input() left: boolean = false;
+  
   dialogBackdrop!: HTMLElement | null;
 
   opened: boolean = false;
-  @Input() left: boolean = false;
 
 
   ngOnInit(): void {

@@ -57,7 +57,7 @@
       [ngClass]="{'disabled' : monster.entities.length >= monster.count}">
     </ghs-monster-numberpicker>
     <ghs-monster-numberpicker class="elite" [monster]="monster" [type]="MonsterType.elite" [max]="monster.count"
-      [left]="true" [ngClass]="{'disabled' : monster.entities.length >= monster.count}">
+      [left]="true" [ngClass]="{'disabled' : monster.entities.length >= monster.count}" [elite]="true">
     </ghs-monster-numberpicker>
   </div>
 

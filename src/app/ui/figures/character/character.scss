@@ -71,7 +71,8 @@
       img.icon {
         height: calc(var(--ghs-column-unit) * 5);
         width: auto;
-        margin: 0 calc(var(--ghs-column-unit) * -0.5);
+        margin-left: calc(var(--ghs-column-unit) * -1);
+        margin-right: calc(var(--ghs-column-unit) * 0.5);
       }
     }
 

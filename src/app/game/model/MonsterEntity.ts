@@ -4,14 +4,14 @@ import { Entity, EntityValueFunction } from "./Entity";
 import { Monster } from "./Monster";
 import { MonsterStat } from "./MonsterStat";
 import { MonsterType } from "./MonsterType";
-import { SummonColor } from "./Summon";
+import { SummonColor, SummonState } from "./Summon";
 
 export class MonsterEntity implements Entity {
   number: number;
   type: MonsterType;
   stat: MonsterStat;
   dead: boolean = false;
-  summon: SummonColor | undefined = undefined;
+  summon: SummonState = SummonState.false;
 
   // from entity
   level: number;
@@ -44,10 +44,12 @@ export class MonsterEntity implements Entity {
   }
 
   toModel(): GameMonsterEntityModel {
-    return new GameMonsterEntityModel(this.number, this.type, this.health, this.maxHealth, this.conditions, this.turnConditions);
+    return new GameMonsterEntityModel(this.number, this.type, this.dead, this.summon, this.health, this.maxHealth, this.conditions, this.turnConditions);
   }
 
   fromModel(model: GameMonsterEntityModel) {
+    this.dead = model.dead;
+    this.summon = model.summon;
     this.health = model.health;
     this.maxHealth = model.maxHealth;
     this.conditions = model.conditions;
@@ -60,6 +62,8 @@ export class MonsterEntity implements Entity {
 export class GameMonsterEntityModel {
   number: number;
   type: MonsterType;
+  dead: boolean;
+  summon: SummonState;
   health: number;
   maxHealth: number;
   conditions: Condition[];
@@ -68,12 +72,16 @@ export class GameMonsterEntityModel {
 
   constructor(number: number,
     type: MonsterType,
+    dead: boolean,
+    summon: SummonState,
     health: NumberSymbol,
     maxHealth: number,
     conditions: Condition[],
     turnConditions: Condition[]) {
     this.number = number;
     this.type = type;
+    this.dead = dead;
+    this.summon = summon;
     this.health = health;
     this.maxHealth = maxHealth;
     this.conditions = conditions;
