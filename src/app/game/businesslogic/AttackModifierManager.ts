@@ -38,7 +38,7 @@ export class AttackModifierManager {
   }
 
   draw() {
-    if (this.game.attackModifiers.some((attackModifier: AttackModifier, index: number) => { return index < this.game.attackModifier && attackModifier.shuffle })) {
+    if (this.game.attackModifiers.some((attackModifier: AttackModifier, index: number) => { return index <= this.game.attackModifier && attackModifier.shuffle })) {
       this.shuffleModifiers();
     }
   }
