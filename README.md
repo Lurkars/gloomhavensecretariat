@@ -8,10 +8,10 @@ This is basically a clone implementing the same functionality and look&feel of t
 
 ## Missing / Upcoming
 
-- most ~~monster/character~~ scenario data
+- most ~~monster\/character~~ scenario data
 - ~~i18n support~~
 - summons (WIP)
-- standalone app (Electron/PWA)
+- standalone app (Electron\/~~PWA~~)
 - ~~releases for easier self hosting~~
 - server part to sync states
 - load (JSON-)data from URL, so easier custom content integration (WIP)
