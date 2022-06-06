@@ -2,11 +2,6 @@
   <ghs-main-menu></ghs-main-menu>
   <span class="spacer"></span>
   <div class="elements">
-    <span class="element" *ngFor="let element of elements" (click)="toggleElement(element)"
-      [ngClass]="{'full' : gameManager.game.strongElements.indexOf(element) != -1  || gameManager.game.newElements.indexOf(element) != -1, 'half' : gameManager.game.elements.indexOf(element) != -1}">
-      <img *ngIf="gameManager.game.strongElements.indexOf(element) != -1 || gameManager.game.newElements.indexOf(element) != -1" src="./assets/images/element/{{element}}.svg">
-      <img *ngIf="gameManager.game.elements.indexOf(element) != -1" src="./assets/images/element/{{element}}_half.svg">
-      <img *ngIf="gameManager.game.strongElements.indexOf(element) == -1 && gameManager.game.newElements.indexOf(element) == -1 && gameManager.game.elements.indexOf(element) == -1" src="./assets/images/element/{{element}}_empty.svg">
-    </span>
+    <ghs-element-icon *ngFor="let element of elements" [element]="element"></ghs-element-icon>
   </div>
 </header>

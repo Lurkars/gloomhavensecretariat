@@ -91,15 +91,20 @@
 
 .attack-modifiers-popup {
 
-  .shuffle {
-    cursor: pointer;
-    font-family: 'ghs-title';
-    font-size: calc(var(--ghs-unit) * 4);
-    color: var(--ghs-color-gray);
-    text-shadow: var(--ghs-outline);
+  .menu {
+    display: flex;
+    justify-content: space-evenly;
 
-    &:hover {
-      color: var(--ghs-color-white);
+    a {
+      cursor: pointer;
+      font-family: 'ghs-title';
+      font-size: calc(var(--ghs-unit) * 4);
+      color: var(--ghs-color-gray);
+      text-shadow: var(--ghs-outline);
+
+      &:hover {
+        color: var(--ghs-color-white);
+      }
     }
   }
 

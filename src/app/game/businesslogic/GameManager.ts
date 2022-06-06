@@ -62,7 +62,6 @@ export class GameManager {
     this.working = true;
     if (this.game.state == GameState.next) {
       this.game.state = GameState.draw;
-      this.game.round++;
       this.characterManager.draw();
       this.monsterManager.draw();
       this.attackModifierManager.draw();
@@ -86,6 +85,7 @@ export class GameManager {
 
     } else if (this.nextAvailable()) {
       this.game.state = GameState.next;
+      this.game.round++;
       this.characterManager.next();
       this.monsterManager.next();
       this.attackModifierManager.next();

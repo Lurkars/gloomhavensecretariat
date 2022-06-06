@@ -1,0 +1,55 @@
+ghs-element-icon {
+  span {
+    cursor: pointer;
+    display: block;
+    width: calc(var(--ghs-unit) * 6);
+    height: calc(var(--ghs-unit) * 6);
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    #outline {
+      display: none;
+    }
+
+    #bg {
+      transition: clip-path 1s;
+      clip-path: inset(100% 0px 0px 0px);
+    }
+
+    #outline,
+    #symbol {
+      path {
+        fill: var(--ghs-color-gray) !important;
+      }
+    }
+
+    &:hover,
+    &.full,
+    &.half {
+
+      #outline,
+      #symbol {
+        display: inherit;
+
+        path {
+          fill: var(--ghs-color-white) !important;
+        }
+      }
+    }
+
+    &.full {
+      #bg {
+        clip-path: inset(0% 0px 0px 0px);
+      }
+    }
+
+    &.half {
+      #bg {
+        clip-path: inset(50% 0px 0px 0px);
+      }
+    }
+  }
+}

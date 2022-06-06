@@ -3,11 +3,11 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  font-size: calc(var(--ghs-unit) * 7.5);
+  font-size: calc(var(--ghs-unit) * 6);
   text-shadow: var(--ghs-outline);
   color: var(--ghs-color-gray);
-  width: calc(var(--ghs-unit) * 10);
-  height: calc(var(--ghs-unit) * 10);
+  width: calc(var(--ghs-unit) * 6);
+  height: calc(var(--ghs-unit) * 6);
   margin: calc(var(--ghs-unit) * 1);
   cursor: pointer;
 

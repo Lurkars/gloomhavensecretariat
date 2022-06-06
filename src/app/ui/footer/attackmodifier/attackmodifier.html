@@ -28,13 +28,16 @@
 </div>
 
 
-<div #popup  class="attack-modifiers-popup">
-  <a class="shuffle" (click)="shuffle()">{{'game.cards.shuffle' | ghsLabel}}</a>
+<div #popup class="attack-modifiers-popup">
+  <div class="menu">
+    <a (click)="reveal = (reveal + 1) % 3">{{(reveal == 2 ? 'game.cards.coverAll' : (reveal == 0 ? 'game.cards.revealAll' : 'game.cards.revealAllConfirm')) | ghsLabel}}</a>
+    <a (click)="shuffle()">{{'game.cards.shuffle' | ghsLabel}}</a>
+  </div>
   <div class="attack-modifiers-container">
     <div class="upcoming">
       <div class="empty" *ngIf="upcomingCards().length == 0"></div>
       <div class="card-container attack-modifier" *ngFor="let attackModifier of upcomingCards();">
-        <div class="card" card-reveal>
+        <div class="card" card-reveal [ngClass]="{'flipped' : reveal == 2}">
           <a class="card-front front">
             <span class="revealed">Click again to reveal!</span>
           </a>

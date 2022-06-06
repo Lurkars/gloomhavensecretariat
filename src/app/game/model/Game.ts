@@ -12,7 +12,7 @@ export class Game {
   state: GameState = GameState.draw;
   scenario: Scenario | undefined = undefined;
   level: number = 1;
-  round: number = 1;
+  round: number = 0;
   attackModifier: number = -1;
   attackModifiers: AttackModifier[] = [];
   newElements: Element[] = [];

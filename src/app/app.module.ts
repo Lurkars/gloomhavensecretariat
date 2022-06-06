@@ -16,6 +16,7 @@ import { MonsterComponent } from './ui/figures/monster/monster';
 import { AttackModifierComponent } from './ui/footer/attackmodifier/attackmodifier';
 import { FooterComponent } from './ui/footer/footer';
 import { LevelComponent } from './ui/footer/level/level';
+import { ElementIconComponent } from './ui/header/element/element';
 import { HeaderComponent } from './ui/header/header';
 import { EditionMenuComponent } from './ui/header/menu/edition/edition';
 import { MainMenuComponent } from './ui/header/menu/menu';
@@ -29,7 +30,7 @@ import { PopupComponent } from './ui/popup/popup';
   declarations: [
     AppComponent,
     MainComponent,
-    HeaderComponent,
+    HeaderComponent, ElementIconComponent,
     MainMenuComponent, EditionMenuComponent, SettingsMenuComponent,
     FooterComponent,
     AttackModifierComponent,

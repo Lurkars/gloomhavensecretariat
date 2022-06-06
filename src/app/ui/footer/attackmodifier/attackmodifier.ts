@@ -13,6 +13,7 @@ export class AttackModifierComponent extends PopupComponent {
 
   gameManager: GameManager = gameManager;
   GameState = GameState;
+  reveal: number = 0;
 
   draw() {
     gameManager.stateManager.before();

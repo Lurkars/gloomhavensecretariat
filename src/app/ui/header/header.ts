@@ -15,12 +15,5 @@ export class HeaderComponent {
 
   elements: Element[] = [ Element.fire, Element.ice, Element.air, Element.earth, Element.light, Element.dark ];
 
-
-  toggleElement(element: Element): void {
-    gameManager.stateManager.before();
-    gameManager.toggleElement(element);
-    gameManager.stateManager.after();
-  }
-
 }
 

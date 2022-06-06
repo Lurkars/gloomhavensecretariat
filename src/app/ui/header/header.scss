@@ -1,5 +1,5 @@
 header {
-  height: calc(var(--ghs-unit) * 14);
+  height: calc(var(--ghs-unit) * 10);
   padding-bottom: calc(var(--ghs-unit) * 2);
   display: flex;
   flex-direction: row;
@@ -24,11 +24,11 @@ header {
 
     .element {
       margin: calc(var(--ghs-unit) * 0.5);
-      width: calc(var(--ghs-unit) * 9);
-      height: calc(var(--ghs-unit) * 9);
+      width: calc(var(--ghs-unit) * 6);
+      height: calc(var(--ghs-unit) * 6);
       cursor: pointer;
 
-      img {
+      span {
         height: 100%;
         width: 100%;
       }

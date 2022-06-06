@@ -34,9 +34,13 @@
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      margin-left: calc(var(--ghs-column-unit) * 1);
+
+      &.col-1 {
+        max-width: calc(var(--ghs-column-unit) * 39);
+      }
 
       &.col-2 {
+        width: calc(var(--ghs-column-unit) * 8);
         justify-content: space-evenly;
       }
     }
@@ -97,9 +101,9 @@
         margin-left: calc(var(--ghs-column-unit) * 1);
 
         img {
-          margin: calc(var(--ghs-column-unit) * 0.5);
-          width: calc(var(--ghs-column-unit) * 4);
-          height: calc(var(--ghs-column-unit) * 4);
+          width: calc(var(--ghs-column-unit) * 3);
+          height: calc(var(--ghs-column-unit) * 3);
+          margin: 0;
         }
       }
     }
