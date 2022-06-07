@@ -1,12 +1,42 @@
 {
   "name": "gloomhavensecretary",
   "version": "0.1.1",
+  "author": {
+    "name": "Lurkars",
+    "email": "ghs@champonthis.de"
+  },
+  "main": "main.js",
   "scripts": {
+    "electron": "ng build --base-href ./ && electron .",
+    "electron:build": "ng build --base-href ./ && electron-builder",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
+  },
+  "build": {
+    "appId": "gloomhavensecretary",
+    "linux": {
+      "target": [
+        "AppImage", "rpm", "deb"
+      ]
+    },
+    "mac": {
+      "type": "distribution",
+      "target": [
+        "dmg",
+        "pkg"
+      ]
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    },
+    "files": [
+      "main.js",
+      "dist/gloomhavensecretary"
+    ]
   },
   "private": true,
   "dependencies": {
@@ -28,6 +58,8 @@
     "@angular/cli": "^14.0.0",
     "@angular/compiler-cli": "^14.0.0",
     "@types/jasmine": "~3.10.0",
+    "electron": "^19.0.3",
+    "electron-builder": "^23.0.3",
     "http-server": "^14.1.1",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
