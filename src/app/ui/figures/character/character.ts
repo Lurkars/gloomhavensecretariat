@@ -4,6 +4,7 @@ import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { CharacterEntity } from 'src/app/game/model/CharacterEntity';
 import { Condition } from 'src/app/game/model/Condition';
 import { GameState } from 'src/app/game/model/Game';
+import { Summon, SummonColor } from 'src/app/game/model/Summon';
 import { DialogComponent } from '../../dialog/dialog';
 
 @Component({
@@ -16,6 +17,8 @@ export class CharacterComponent extends DialogComponent {
   @Input() character!: CharacterEntity;
 
   @ViewChild('charactertitle', { static: false }) titleInput!: ElementRef;
+  addSummonFunction!: Function;
+  removeSummonFunction!: Function;
 
   GameState = GameState;
   Conditions = Condition;
@@ -25,9 +28,33 @@ export class CharacterComponent extends DialogComponent {
   loot: number = 0;
   levelDialog: boolean = false;
   levels: number[] = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
+  summons: number = 0;
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {
     super();
+  }
+
+  override ngOnInit(): void {
+    super.ngOnInit();
+    this.summons = this.character.summons.length;
+    this.addSummonFunction = this.addSummon.bind(this);
+    this.removeSummonFunction = this.removeSummon.bind(this);
+  }
+
+  addSummon(number: number, color: SummonColor) {
+    this.summons++;
+    gameManager.stateManager.before();
+    gameManager.characterManager.addSummon(this.character, number, color);
+    gameManager.stateManager.after();
+  }
+
+  removeSummon(summon: Summon) {
+    this.summons--;
+    setTimeout(() => {
+      gameManager.stateManager.before();
+      gameManager.characterManager.removeSummon(this.character, summon);
+      gameManager.stateManager.after();
+    }, 2000);
   }
 
   changeHealth(value: number) {

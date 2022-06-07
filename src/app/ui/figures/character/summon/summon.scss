@@ -1,4 +1,4 @@
-.entity-border {
+.summon-border {
   position: relative;
 
   &:before {
@@ -17,7 +17,7 @@
 }
 
 
-.entity {
+.summon {
   position: relative;
   display: flex;
   cursor: pointer;
@@ -30,7 +30,7 @@
   text-shadow: var(--ghs-outline);
   width: 100%;
   margin-right: calc(var(--ghs-column-unit) * 1);
-  margin-top: calc(var(--ghs-column-unit) * 1);
+  margin-bottom: calc(var(--ghs-column-unit) * 1);
 
   .number,
   .health {
@@ -57,7 +57,7 @@
     padding-left: calc(var(--ghs-column-unit) * 0.5);
 
     .condition,
-    .summon {
+    .summon-state {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -74,7 +74,7 @@
       }
     }
 
-    .summon {
+    .summon-state {
       &.new:after {
         content: " ";
         display: block;
@@ -118,18 +118,6 @@
       color: var(--ghs-color-red);
     }
   }
-
-  &.normal {
-    background-image: url('~src/assets/images/monster/types/normal.png');
-  }
-
-  &.elite {
-    background-image: url('~src/assets/images/monster/types/elite.png');
-
-    .number {
-      color: var(--ghs-color-yellow);
-    }
-  }
 }
 
 .dialog {
@@ -138,54 +126,66 @@
     flex-direction: row;
     margin: calc(var(--ghs-unit) * 0.5);
 
-    .entity-container {
+    .summon-container {
       display: grid;
       grid-template-columns: calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7);
+    }
+
+    .stats-container {
+      grid-column: span 3;
+      grid-row: span 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .stat {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--ghs-color-white);
+        font-size: calc(var(--ghs-unit) * 2.5);
+        margin: calc(var(--ghs-unit) * 0.5);
+
+        img {
+          height: calc(var(--ghs-unit) * 3);
+          margin-right: calc(var(--ghs-unit) * 0.5);
+        }
+      }
     }
 
     .condition-container {
       display: grid;
       grid-template-columns: calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7);
+    }
 
-      .condition,
-      .summon {
+    .condition,
+    .summon {
 
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: calc(var(--ghs-unit) * 7);
-        width: calc(var(--ghs-unit) * 7);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: calc(var(--ghs-unit) * 7);
+      width: calc(var(--ghs-unit) * 7);
 
-        &.active,
-        &.new {
-          border: calc(var(--ghs-unit) / 4) var(--ghs-color-white) solid;
-          border-radius: 100%;
-        }
-
-        &:hover {
-          border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
-          border-radius: 100%;
-        }
+      &.active,
+      &.new {
+        border: calc(var(--ghs-unit) / 4) var(--ghs-color-white) solid;
+        border-radius: 100%;
       }
 
-      .summon {
-        &.new:after {
-          content: " ";
-          display: block;
-          position: absolute;
-          width: calc(var(--ghs-column-unit) * 4);
-          height: calc(var(--ghs-column-unit) * 4);
-          background-image: url('~src/assets/images/summons/minus.svg');
-          background-size: cover;
-        }
+      &:hover {
+        border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
+        border-radius: 100%;
       }
+    }
 
-      .summon-button {
-        grid-column: span 3;
-        display: flex;
-        justify-content: center;
-      }
+    .level-button {
+      font-size: calc(var(--ghs-unit) * 2);
+      display: flex;
+      align-items: center;
     }
   }
 
@@ -246,5 +246,22 @@
     text-shadow: var(--ghs-outline);
   }
 
+  .level-dialog {
+    .summon-container {
+      display: grid;
+      grid-template-columns: calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7);
+
+      img {
+        height: calc(var(--ghs-unit) * 3);
+        width: calc(var(--ghs-unit) * 3);
+      }
+
+      .badge {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+    }
+  }
 
 }

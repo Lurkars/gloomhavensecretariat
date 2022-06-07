@@ -1,10 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { AttackModifier, AttackModifierType } from 'src/app/game/model/AttackModifier';
 import { Condition } from 'src/app/game/model/Condition';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
-import { Summon, SummonState } from 'src/app/game/model/Summon';
+import { SummonState } from 'src/app/game/model/Summon';
 import { DialogComponent } from 'src/app/ui/dialog/dialog';
 
 @Component({
@@ -21,6 +21,19 @@ export class MonsterEntityComponent extends DialogComponent {
   SummonState = SummonState;
   conditions: Condition[] = [ Condition.stun, Condition.immobilize, Condition.disarm, Condition.wound, Condition.muddle, Condition.poison, Condition.strengthen, Condition.invisible ];
   health: number = 0;
+
+  constructor(private elementRef: ElementRef) {
+    super();
+    this.elementRef.nativeElement.classList.add("entity-animation");
+    this.elementRef.nativeElement.classList.add("hidden");
+  }
+
+  override ngOnInit(): void {
+    super.ngOnInit();
+    setTimeout(() => {
+      this.elementRef.nativeElement.classList.remove('hidden');
+    }, 0)
+  }
 
   changeHealth(value: number) {
     gameManager.stateManager.before();
@@ -107,10 +120,15 @@ export class MonsterEntityComponent extends DialogComponent {
   }
 
   dead() {
-    gameManager.stateManager.before();
-    this.entity.dead = true;
-    this.close();
-    gameManager.stateManager.after(1000);
+    if (this.opened) {
+      this.close();
+    }
+    this.elementRef.nativeElement.classList.add('hidden');
+    setTimeout(() => {
+      gameManager.stateManager.before();
+      gameManager.monsterManager.removeMonsterEntity(this.monster, this.entity);
+      gameManager.stateManager.after(0);
+    }, 2000);
   }
 
 
@@ -132,8 +150,7 @@ export class MonsterEntityComponent extends DialogComponent {
     super.close();
     this.health = 0;
     if (this.entity.health <= 0 || this.entity.dead) {
-      this.entity.health = 0;
-      gameManager.monsterManager.removeMonsterEntity(this.monster, this.entity);
+      this.dead();
     }
   }
 }

@@ -3,6 +3,7 @@ import { Condition, RoundCondition } from "../model/Condition";
 import { CharacterData } from "../model/data/CharacterData";
 import { Figure } from "../model/Figure";
 import { Game } from "../model/Game";
+import { Summon, SummonColor, SummonState } from "../model/Summon";
 
 export class CharacterManager {
 
@@ -33,6 +34,15 @@ export class CharacterManager {
     this.game.figures.splice(this.game.figures.indexOf(character), 1);
   }
 
+  addSummon(character: CharacterEntity, number: number, color: SummonColor) {
+    let summon: Summon = new Summon(character.level, number, color);
+    character.summons.push(summon);
+  }
+
+  removeSummon(character: CharacterEntity, summon: Summon) {
+    character.summons.splice(character.summons.indexOf(summon), 1);
+  }
+
   draw() {
     this.game.figures.forEach((figure: Figure) => {
       if (figure instanceof CharacterEntity) {
@@ -44,6 +54,12 @@ export class CharacterManager {
           } else if (figure.turnConditions.indexOf(roundCondition as Condition) != -1) {
             figure.conditions.splice(figure.conditions.indexOf(roundCondition as Condition), 1);
             figure.turnConditions.splice(figure.turnConditions.indexOf(roundCondition as Condition), 1);
+          }
+        }
+
+        for (let summon of figure.summons) {
+          if (summon.state == SummonState.new) {
+            summon.state = SummonState.true;
           }
         }
       }

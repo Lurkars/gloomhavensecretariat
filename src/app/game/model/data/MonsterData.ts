@@ -1,5 +1,4 @@
 import { Editional } from "../Editional";
-import { Ability } from "../Ability";
 import { MonsterStat } from "../MonsterStat";
 
 export class MonsterData implements Editional {

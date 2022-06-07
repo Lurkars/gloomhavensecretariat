@@ -14,7 +14,7 @@ export class MainComponent implements OnInit {
   GameState = GameState;
 
   async ngOnInit() {
-    await gameManager.loadData(settingsManager.settings.dataUrl || './assets/data.json');
+    await gameManager.loadData(settingsManager.settings.dataUrl || '/assets/data.json');
 
     const local: string | null = localStorage.getItem("ghs-game");
     if (local != null) {

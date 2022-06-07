@@ -1,5 +1,4 @@
 import { Game, GameState } from "../model/Game";
-
 import { Monster } from '../model/Monster';
 import { Figure } from "../model/Figure";
 import { gameManager } from "./GameManager";

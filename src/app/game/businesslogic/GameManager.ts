@@ -1,4 +1,3 @@
-
 import { Ability } from "../model/Ability";
 import { CharacterEntity } from "../model/CharacterEntity";
 import { CharacterData } from "../model/data/CharacterData";

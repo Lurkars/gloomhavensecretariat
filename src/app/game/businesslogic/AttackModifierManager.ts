@@ -2,7 +2,6 @@ import { AttackModifier, AttackModifierType } from "../model/AttackModifier";
 import { Game } from "../model/Game";
 
 export class AttackModifierManager {
-
   game: Game;
 
   constructor(game: Game, attackModifiers: AttackModifier[]) {
@@ -13,8 +12,10 @@ export class AttackModifierManager {
 
   addModifier(attackModifier: AttackModifier, index: number = -1) {
     if (index < 0 || index > this.game.attackModifiers.length) {
-      index = Math.random() * (this.game.attackModifiers.length - this.game.attackModifier + 1)
-        + this.game.attackModifier;
+      index =
+        Math.random() *
+          (this.game.attackModifiers.length - this.game.attackModifier + 1) +
+        this.game.attackModifier;
     }
     this.game.attackModifiers.splice(index, 0, attackModifier);
   }
@@ -27,24 +28,31 @@ export class AttackModifierManager {
   }
 
   shuffleModifiers() {
-    this.game.attackModifiers = this.game.attackModifiers.filter((attackModifier: AttackModifier, index: number) =>
-      index > this.game.attackModifier || attackModifier.type != AttackModifierType.bless && attackModifier.type != AttackModifierType.curse
+    this.game.attackModifiers = this.game.attackModifiers.filter(
+      (attackModifier: AttackModifier, index: number) =>
+        index > this.game.attackModifier ||
+        (attackModifier.type != AttackModifierType.bless &&
+          attackModifier.type != AttackModifierType.curse)
     );
 
     this.game.attackModifier = -1;
-    this.game.attackModifiers = this.game.attackModifiers.map(value => ({ value, sort: Math.random() }))
+    this.game.attackModifiers = this.game.attackModifiers
+      .map((value) => ({ value, sort: Math.random() }))
       .sort((a, b) => a.sort - b.sort)
-      .map(({ value }) => value)
+      .map(({ value }) => value);
   }
 
   draw() {
-    if (this.game.attackModifiers.some((attackModifier: AttackModifier, index: number) => { return index <= this.game.attackModifier && attackModifier.shuffle })) {
+    if (
+      this.game.attackModifiers.some(
+        (attackModifier: AttackModifier, index: number) => {
+          return index <= this.game.attackModifier && attackModifier.shuffle;
+        }
+      )
+    ) {
       this.shuffleModifiers();
     }
   }
 
-  next() {
-
-  }
-
+  next() {}
 }

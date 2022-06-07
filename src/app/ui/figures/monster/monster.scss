@@ -4,6 +4,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  width: calc(var(--ghs-column-unit) * 89);
 
   &.off {
 
@@ -24,7 +25,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  margin-top: calc(var(--ghs-column-unit) * 1);
+  margin-left: calc(var(--ghs-column-unit) * 17);
+  max-width: calc(var(--ghs-column-unit) * 72);
 
   &.normal {
     left: calc(var(--ghs-column-unit) * 0);

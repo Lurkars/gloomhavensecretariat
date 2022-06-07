@@ -1,3 +1,15 @@
+<div class="summons-container" [ngClass]="{'empty' : !summons}">
+  <span class="spacer"></span>
+  <span class="icon entity-animation" [ngClass]="{'hidden' : !summons}">
+    <img src="./assets/images/character/icons/{{character.edition + '-' + character.name}}.svg" />
+  </span>
+  <div class="summons">
+    <ghs-summon-entity *ngFor="let summon of character.summons" [character]="character" [summon]="summon"
+      [removeSummon]="removeSummonFunction">
+    </ghs-summon-entity>
+  </div> 
+</div>
+
 <div class="character" #highlight [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0}">
 
   <ghs-character-initiativepicker (click)="close()" [character]="character"></ghs-character-initiativepicker>
@@ -23,7 +35,7 @@
 
     <span class="spacer" (click)="toggle()"></span>
 
-    <ghs-character-summondialog></ghs-character-summondialog>
+    <ghs-character-summondialog [addSummon]="addSummonFunction"></ghs-character-summondialog>
     <div class="column col-2" (click)="toggle()">
       <span class="experience">{{character.experience}}
         <img src="./assets/images/status/experience.svg" />
@@ -111,6 +123,7 @@
       </span>
     </div>
   </div>
+
   <div *ngIf="levelDialog" class="level-dialog">
     <div class="level-container">
       <span class="item"><img src="./assets/images/status/level.svg" /></span>

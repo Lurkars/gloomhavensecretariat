@@ -170,3 +170,17 @@ ghs-main {
   right: 0;
   background: rgba(0, 0, 0, 0.5);
 }
+
+.entity-animation {
+  transition: opacity 1.5s linear, transform 1.5s ease-out;
+  opacity: 1;
+  transform: translate(0, 0);
+  overflow: visible;
+  filter: none;
+
+  &.hidden {
+    opacity: 0;
+    transform: translate(0%, 100%);
+    filter: grayscale(100%);
+  }
+}

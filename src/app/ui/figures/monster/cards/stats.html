@@ -31,14 +31,14 @@
   <ng-container *ngIf="!monster.boss">
     <div class="extra normal">
       <div class="additional" *ngFor="let special of (statsForType(MonsterType.normal).special); let index = index;">
-        {{index}}: <ghs-monster-action [action]="special" [monster]="monster"></ghs-monster-action>
+        {{index}}: <ghs-action [action]="special" [monster]="monster"></ghs-action>
       </div>
       <div class="condition" *ngFor="let condition of (statsForType(MonsterType.normal).conditions)">
         {{'game.condition.' + condition | ghsLabel}} <img src="./assets/images/condition/{{condition}}.svg" /></div>
     </div>
     <div class="extra elite">
       <div class="additional" *ngFor="let special of (statsForType(MonsterType.elite).special); let index = index;">
-        {{index}}: <ghs-monster-action [action]="special" [monster]="monster"></ghs-monster-action>
+        {{index}}: <ghs-action [action]="special" [monster]="monster"></ghs-action>
       </div>
       <div class="condition" *ngFor="let condition of (statsForType(MonsterType.elite).conditions)">
         {{'game.condition.' + condition | ghsLabel}} <img src="./assets/images/condition/{{condition}}.svg" /> </div>
@@ -46,7 +46,7 @@
   </ng-container>
   <div class="extra boss" *ngIf="monster.boss">
     <div class="additional" *ngFor="let special of (statsForType(MonsterType.boss).special); let index = index;">
-      <span>{{index}}:</span><ghs-monster-action [action]="special" [monster]="monster"></ghs-monster-action>
+      <span>{{index}}:</span><ghs-action [action]="special" [monster]="monster"></ghs-action>
     </div>
     <div class="condition" *ngFor="let condition of (statsForType(MonsterType.boss).conditions)">
       {{'game.condition.' + condition | ghsLabel}} <img src="./assets/images/condition/{{condition}}.svg" /> </div>

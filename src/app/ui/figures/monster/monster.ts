@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
@@ -10,14 +10,22 @@ import { MonsterType } from 'src/app/game/model/MonsterType';
   templateUrl: './monster.html',
   styleUrls: [ './monster.scss' ]
 })
-export class MonsterComponent {
+export class MonsterComponent implements OnInit {
 
   @Input() monster!: Monster;
   MonsterType = MonsterType;
+  entities: number = 0;
+  addMonsterEntityFunction!: Function;
+  removeMonsterEntityFunction!: Function;
 
   constructor() { }
 
+  ngOnInit(): void {
+    this.entities = this.monster.entities.length;
+  }
+
   removeMonsterEntity(monsterEntity: MonsterEntity) {
+    this.entities--;
     gameManager.stateManager.before();
     gameManager.monsterManager.removeMonsterEntity(this.monster, monsterEntity);
     gameManager.stateManager.after(1000);

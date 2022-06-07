@@ -9,9 +9,9 @@
       <span class="condition-value">{{'game.condition.' + condition | ghsLabel}}</span>
       <img class="icon" src="./assets/images/condition/{{condition}}.svg" />
     </ng-container>
-    <ghs-monster-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
+    <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
       [action]="subAction" [monster]="monster" [relative]="true">
-    </ghs-monster-action>
+    </ghs-action>
   </span>
 
 
@@ -20,9 +20,9 @@
     <span class="minus" *ngIf="action.valueType == ActionValueType.minus">:</span>
     <ng-container *ngIf="action.subActions && action.subActions.length > 0">
       <div class="element-subactions">
-        <ghs-monster-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
+        <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
           [action]="subAction" [monster]="monster" [relative]="true">
-        </ghs-monster-action>
+        </ghs-action>
       </div>
     </ng-container>
   </span>
@@ -35,17 +35,17 @@
     <span class="custom-value">{{action.value}}</span>
     <ng-container *ngIf="action.subActions && action.subActions.length > 0">
       <span>:</span>
-      <ghs-monster-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
+      <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
         [action]="subAction" [monster]="monster">
-      </ghs-monster-action>
+      </ghs-action>
     </ng-container>
   </span>
 
   <span class="default" *ngSwitchCase="ActionType.special">
     <span class="type">{{'game.action.' + action.type | ghsLabel}} {{action.value}}</span>
-    <ghs-monster-action [ngClass]="'subaction-' + getSpecial(action).type" [action]="getSpecial(action)"
+    <ghs-action [ngClass]="'subaction-' + getSpecial(action).type" [action]="getSpecial(action)"
       [monster]="monster">
-    </ghs-monster-action>
+    </ghs-action>
   </span>
 
   <span class="default" [ngClass]="'action-' + action.type" *ngSwitchDefault>
@@ -59,9 +59,9 @@
           class="elite">{{getEliteValue()}}</span>
       </span>&nbsp;
     </span>
-    <ghs-monster-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
+    <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
       [action]="subAction" [monster]="monster">
-    </ghs-monster-action>
+    </ghs-action>
   </span>
 
 </span>

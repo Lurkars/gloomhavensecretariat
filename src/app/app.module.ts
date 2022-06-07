@@ -6,7 +6,7 @@ import { DialogComponent } from './ui/dialog/dialog';
 import { CharacterComponent } from './ui/figures/character/character';
 import { CharacterInitiativePicker } from './ui/figures/character/dialogs/initiativepicker';
 import { CharacterSummonDialog } from './ui/figures/character/dialogs/summondialog';
-import { ActionHexComponent, MonsterActionComponent, MonsterActionsComponent } from './ui/figures/monster/actions/action';
+import { ActionHexComponent, ActionComponent, ActionsComponent } from './ui/figures/actions/action';
 import { AbilityComponent } from './ui/figures/monster/cards/ability';
 import { MonsterImageComponent } from './ui/figures/monster/cards/image';
 import { MonsterStatsComponent } from './ui/figures/monster/cards/stats';
@@ -27,6 +27,8 @@ import { MainComponent } from './ui/main';
 import { PopupComponent } from './ui/popup/popup';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { SummonEntityComponent } from './ui/figures/character/summon/summon';
+import { GhsSvgComponent } from './ui/helper/svg/svg';
 
 @NgModule({
   declarations: [
@@ -39,15 +41,16 @@ import { environment } from '../environments/environment';
     LevelComponent,
     DialogComponent, PopupComponent,
     CharacterComponent, CharacterInitiativePicker, CharacterSummonDialog,
+    SummonEntityComponent,
     MonsterComponent,
     MonsterEntityComponent,
     MonsterImageComponent,
     AbilityComponent,
     MonsterStatsComponent,
     MonsterNumberPicker,
-    MonsterActionsComponent, MonsterActionComponent, ActionHexComponent,
+    ActionsComponent, ActionComponent, ActionHexComponent,
     CardRevealDirective,
-    GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsLabelPipe, GhsSortPipe
+    GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,7 @@ import { Entity, EntityValueFunction } from "./Entity";
 import { Monster } from "./Monster";
 import { MonsterStat } from "./MonsterStat";
 import { MonsterType } from "./MonsterType";
-import { SummonColor, SummonState } from "./Summon";
+import { SummonState } from "./Summon";
 
 export class MonsterEntity implements Entity {
   number: number;

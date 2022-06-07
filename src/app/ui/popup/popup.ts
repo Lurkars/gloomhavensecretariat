@@ -1,5 +1,4 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
-import { ghsUnit } from "src/app/app.component";
 
 @Component({
   template: '',

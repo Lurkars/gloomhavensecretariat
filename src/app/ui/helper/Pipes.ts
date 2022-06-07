@@ -1,13 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Action, ActionType, ActionValueType } from 'src/app/game/model/Action';
-import { CharacterEntity } from 'src/app/game/model/CharacterEntity';
+import { Action, ActionValueType } from 'src/app/game/model/Action';
 import { Editional } from 'src/app/game/model/Editional';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
-import { Figure } from 'src/app/game/model/Figure';
-import { GameState } from 'src/app/game/model/Game';
-import { Monster } from 'src/app/game/model/Monster';
 
 @Pipe({
   name: 'ghsValueCalc', pure: false
@@ -16,6 +12,10 @@ export class GhsValueCalcPipe implements PipeTransform {
 
   transform(value: Action | string | number, ...args: any[]): string | number {
     if (typeof value === "number") {
+      if (args.indexOf("empty") != -1 && value == 0) {
+        return "-";
+      }
+
       return value;
     }
 
@@ -78,6 +78,8 @@ export class GhsValueSignPipe implements PipeTransform {
   transform(value: number, ...args: any[]): string {
     if (value > 0) {
       return "+" + value;
+    } else if (args.indexOf("empty") != -1 && value == 0) {
+      return "-";
     } else {
       return "" + value;
     }

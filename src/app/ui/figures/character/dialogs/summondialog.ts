@@ -13,18 +13,22 @@ import { DialogComponent } from "src/app/ui/dialog/dialog";
 })
 export class CharacterSummonDialog extends DialogComponent {
 
-  @Input() character!: CharacterEntity;
+  @Input()
+  public addSummon!: Function;
 
-  summonColors : SummonColor[] = Object.values(SummonColor);
-
+  summonColors: SummonColor[] = Object.values(SummonColor);
   summonColor: SummonColor = SummonColor.blue;
 
   pickNumber(number: number) {
-
+    this.close();
+    this.addSummon(number, this.summonColor);
   }
 
   selectColor(color: SummonColor) {
     this.summonColor = color;
   }
+
+
+
 
 }

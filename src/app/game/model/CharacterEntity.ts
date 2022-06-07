@@ -3,6 +3,7 @@ import { Entity } from "./Entity";
 import { Condition } from "./Condition";
 import { CharacterStat } from "./CharacterStat";
 import { CharacterData } from "./data/CharacterData";
+import { GameSummonModel, Summon } from "./Summon";
 
 export class CharacterEntity extends CharacterData implements Entity, Figure {
   title: string = "";
@@ -11,6 +12,7 @@ export class CharacterEntity extends CharacterData implements Entity, Figure {
   loot: number = 0;
   exhausted: boolean = false;
   stat: CharacterStat;
+  summons: Summon[] = [];
 
   // from figure
   level: number;
@@ -62,7 +64,7 @@ export class CharacterEntity extends CharacterData implements Entity, Figure {
   }
 
   toModel(): GameCharacterEntityModel {
-    return new GameCharacterEntityModel(this.name, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.conditions, this.turnConditions);
+    return new GameCharacterEntityModel(this.name, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.conditions, this.turnConditions, this.summons.map((summon: Summon) => summon.toModel()));
   }
 
   fromModel(model: GameCharacterEntityModel) {
@@ -78,6 +80,11 @@ export class CharacterEntity extends CharacterData implements Entity, Figure {
     this.maxHealth = model.maxHealth;
     this.conditions = model.conditions;
     this.turnConditions = model.turnConditions;
+    this.summons = model.summons.map((value: GameSummonModel) => {
+      const entity = new Summon(value.level, value.number, value.color);
+      entity.fromModel(value);
+      return entity;
+    })
   }
 
 }
@@ -98,6 +105,7 @@ export class GameCharacterEntityModel {
   maxHealth: number;
   conditions: Condition[];
   turnConditions: Condition[];
+  summons: GameSummonModel[];
 
 
   constructor(name: string,
@@ -112,7 +120,8 @@ export class GameCharacterEntityModel {
     health: number,
     maxHealth: number,
     conditions: Condition[],
-    turnConditions: Condition[]) {
+    turnConditions: Condition[],
+    summons: GameSummonModel[]) {
     this.name = name;
     this.title = title;
     this.initiative = initiative;
@@ -126,6 +135,7 @@ export class GameCharacterEntityModel {
     this.maxHealth = maxHealth;
     this.conditions = conditions;
     this.turnConditions = turnConditions;
+    this.summons = summons;
   }
 
 }

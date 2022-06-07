@@ -1,7 +1,7 @@
 <div class="actions">
   <ng-container *ngFor="let action of actions; let index = index;">
     <div class="divider" *ngIf="index > 0 && action.type != ActionType.element"></div>
-    <ghs-monster-action [action]="action" [monster]="monster">
-    </ghs-monster-action>
+    <ghs-action [action]="action" [monster]="monster">
+    </ghs-action>
   </ng-container>
 </div>
