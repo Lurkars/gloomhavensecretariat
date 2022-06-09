@@ -5,11 +5,36 @@
   height: calc(var(--ghs-column-unit) * 9);
   margin: calc(var(--ghs-column-unit) * 3);
   cursor: pointer;
+  border-radius: calc(var(--ghs-column-unit) * 1);
+  overflow: hidden;
 
   .image {
     width: auto;
     height: 100%;
-    border-radius: calc(var(--ghs-column-unit) * 1);
+  }
+
+  .health-bar {
+    position: absolute;
+    bottom: 0;
+    width: calc(var(--ghs-column-unit) * 9);
+    left: 0;
+    height: calc(var(--ghs-column-unit) * 0.5);
+    border: none;
+    background-color: transparent;
+
+    .health-bar-value {
+      height: 100%;
+      max-width: 1000%;
+      transition: width 0.5s;
+      background-color: var(--ghs-color-green);
+      border-radius: calc(var(--ghs-column-unit) * 1);
+    }
+
+    &.critical {
+      .health-bar-value {
+        background-color: var(--ghs-color-red);
+      }
+    }
   }
 }
 

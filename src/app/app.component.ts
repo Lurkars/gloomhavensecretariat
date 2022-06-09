@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { delay, of } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,16 +8,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'gloomhavensecretary';
-}
-
-export function ghsUnit(): number {
-  return +window.getComputedStyle(document.body).getPropertyValue('--ghs-width').replace(/[^\d\+]/g, '') / +window.getComputedStyle(document.body).getPropertyValue('--ghs-factor');
-}
-
-export function ghsUnitUnit(): string {
-  return window.getComputedStyle(document.body).getPropertyValue('--ghs-width').replace(/[\d\+]/g, '');
-}
-
-export function ghsColumnUnit(): number {
-  return ghsUnit() / +window.getComputedStyle(document.body).getPropertyValue('--ghs-columns');
 }

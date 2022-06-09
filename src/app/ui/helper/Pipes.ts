@@ -119,6 +119,12 @@ export class GhsSortPipe implements PipeTransform {
 
   transform(value: any[], ...args: string[]): any[] {
     return value.sort((a: any, b: any) => {
+      if (a.spoiler && !b.spoiler) {
+        return 1;
+      }
+      if (!a.spoiler && b.spoiler) {
+        return -1;
+      }
       if (a.name > b.name) {
         return 1;
       }

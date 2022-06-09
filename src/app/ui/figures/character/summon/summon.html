@@ -1,6 +1,7 @@
 <div class="summon-border">
   <div #button class="summon">
-    <span class="number">{{summon.number}}</span> <span class="health">{{summon.health}}</span>
+    <span class="number"><span *ngIf="summon.number == 0">-</span><span
+        *ngIf="summon.number > 0">{{summon.number}}</span></span> <span class="health">{{summon.health}}</span>
 
     <div class="conditions">
       <span class="condition" *ngFor="let condition of summon.conditions; let index = index;">

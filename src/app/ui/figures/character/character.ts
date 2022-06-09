@@ -1,10 +1,11 @@
 import { ChangeDetectorRef, Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { CharacterEntity } from 'src/app/game/model/CharacterEntity';
 import { Condition } from 'src/app/game/model/Condition';
 import { GameState } from 'src/app/game/model/Game';
-import { Summon, SummonColor } from 'src/app/game/model/Summon';
+import { Summon } from 'src/app/game/model/Summon';
 import { DialogComponent } from '../../dialog/dialog';
 
 @Component({
@@ -17,8 +18,8 @@ export class CharacterComponent extends DialogComponent {
   @Input() character!: CharacterEntity;
 
   @ViewChild('charactertitle', { static: false }) titleInput!: ElementRef;
-  addSummonFunction!: Function;
-  removeSummonFunction!: Function;
+
+  characterManager: CharacterManager = gameManager.characterManager;
 
   GameState = GameState;
   Conditions = Condition;
@@ -28,33 +29,12 @@ export class CharacterComponent extends DialogComponent {
   loot: number = 0;
   levelDialog: boolean = false;
   levels: number[] = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
-  summons: number = 0;
-
   constructor(private changeDetectorRef: ChangeDetectorRef) {
     super();
   }
 
-  override ngOnInit(): void {
-    super.ngOnInit();
-    this.summons = this.character.summons.length;
-    this.addSummonFunction = this.addSummon.bind(this);
-    this.removeSummonFunction = this.removeSummon.bind(this);
-  }
-
-  addSummon(number: number, color: SummonColor) {
-    this.summons++;
-    gameManager.stateManager.before();
-    gameManager.characterManager.addSummon(this.character, number, color);
-    gameManager.stateManager.after();
-  }
-
-  removeSummon(summon: Summon) {
-    this.summons--;
-    setTimeout(() => {
-      gameManager.stateManager.before();
-      gameManager.characterManager.removeSummon(this.character, summon);
-      gameManager.stateManager.after();
-    }, 2000);
+  emptySummons(): boolean {
+    return this.character.summons.length == 0 || this.character.summons.every((summon: Summon) => summon.dead);
   }
 
   changeHealth(value: number) {
@@ -148,9 +128,15 @@ export class CharacterComponent extends DialogComponent {
     this.loot = 0;
     if (this.levelDialog && this.titleInput) {
       if (this.titleInput.nativeElement.value && this.titleInput.nativeElement.value != settingsManager.getLabel('data.character.' + this.character.name.toLowerCase())) {
-        this.character.title = this.titleInput.nativeElement.value;
-      } else {
-        this.character.title = '';
+        if (this.character.title != this.titleInput.nativeElement.value) {
+          gameManager.stateManager.before();
+          this.character.title = this.titleInput.nativeElement.value;
+          gameManager.stateManager.after();
+        }
+      } else if (this.character.title != "") {
+        gameManager.stateManager.before();
+        this.character.title = "";
+        gameManager.stateManager.after();
       }
     }
     this.levelDialog = false;

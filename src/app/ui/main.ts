@@ -14,8 +14,7 @@ export class MainComponent implements OnInit {
   GameState = GameState;
 
   async ngOnInit() {
-    await gameManager.loadData(settingsManager.settings.dataUrl || '/assets/data.json');
-
+    await settingsManager.init();
     const local: string | null = localStorage.getItem("ghs-game");
     if (local != null) {
       const gameModel: GameModel = JSON.parse(local);
@@ -25,8 +24,6 @@ export class MainComponent implements OnInit {
     }
 
     document.body.style.setProperty('--ghs-factor', settingsManager.settings.zoom + '');
-
-
   }
 
 }

@@ -15,7 +15,8 @@ export enum SummonColor {
   white = "white",
   purple = "purple",
   pink = "pink",
-  red = "red"
+  red = "red",
+  custom = "custom"
 }
 
 export class Summon implements Entity {

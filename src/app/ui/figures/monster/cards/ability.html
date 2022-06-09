@@ -27,7 +27,7 @@
       <div class="card-container ability" *ngFor="let ability of upcomingCards();">
         <div class="card" card-reveal [ngClass]="{'flipped' : reveal}">
           <a class="card-front ability-front">
-            <span class="revealed">Click again to reveal!</span>
+            <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
             <span class="name">{{'data.monster.' + monster.name | ghsLabel}}</span>
           </a>
           <div class="card-back ability-back">

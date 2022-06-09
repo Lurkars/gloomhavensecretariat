@@ -38,25 +38,6 @@ export class GameManager {
     this.attackModifierManager = new AttackModifierManager(this.game, defaultAttackModifier);
   }
 
-  async loadData(url: string) {
-    await fetch(url)
-      .then(response => {
-        return response.json();
-      }).then((data) => {
-        Object.keys(data).forEach((edition: string) => {
-          this.editions.push(edition);
-          let value: EditionData = data[ edition ];
-          this.charactersData = this.charactersData.concat(value.characters);
-          this.monstersData = this.monstersData.concat(value.monsters);
-          this.decksData = this.decksData.concat(value.decks);
-          this.scenarioData = this.scenarioData.concat(value.scenarios);
-        });
-      })
-      .catch((error: Error) => {
-        throw Error("Invalid data url: " + url + " [" + error + "]");
-      })
-  }
-
   nextGameState(): void {
     this.working = true;
     if (this.game.state == GameState.next) {

@@ -9,6 +9,10 @@ import { Figure } from "src/app/game/model/Figure";
 import { GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
 import { DialogComponent } from "src/app/ui/dialog/dialog";
+import { SwUpdate } from '@angular/service-worker';
+import { Scenario } from "src/app/game/model/Scenario";
+import { Spoilable } from "src/app/game/model/Spoilable";
+import { ghsHasSpoilers, ghsIsSpoiled, ghsNotSpoiled } from "../../helper/Static";
 
 @Component({
   selector: 'ghs-main-menu',
@@ -22,6 +26,35 @@ export class MainMenuComponent extends DialogComponent {
   GameState = GameState
   SubMenu = SubMenu;
   active: SubMenu = SubMenu.main;
+  isSW: boolean = false;
+  hasUpdate: boolean = false;
+  hasSpoilers = ghsHasSpoilers;
+  isSpoiled = ghsIsSpoiled;
+  notSpoiled = ghsNotSpoiled;
+
+  constructor(private swUpdate: SwUpdate) {
+    super();
+    this.isSW = this.swUpdate.isEnabled;
+    this.swUpdate.versionUpdates.subscribe(evt => {
+      this.hasUpdate = false;
+      if (evt.type == 'VERSION_READY') {
+        this.hasUpdate = true;
+      } else if (evt.type == 'VERSION_INSTALLATION_FAILED') {
+        console.error(`Failed to install version '${evt.version.hash}': ${evt.error}`);
+      }
+    })
+  }
+
+  override ngOnInit(): void {
+    super.ngOnInit();
+    if (this.isSW) {
+      document.body.addEventListener("click", (event) => {
+        if (settingsManager.settings.fullscreen && this.isSW) {
+          document.body.requestFullscreen();
+        }
+      });
+    }
+  }
 
   override close(): void {
     this.active = SubMenu.main;
@@ -34,7 +67,7 @@ export class MainMenuComponent extends DialogComponent {
 
   setScenario(scenarioData: ScenarioData | undefined) {
     gameManager.stateManager.before();
-    gameManager.setScenario(scenarioData)
+    gameManager.setScenario(scenarioData as Scenario)
     gameManager.stateManager.after();
   }
 
@@ -43,6 +76,47 @@ export class MainMenuComponent extends DialogComponent {
       return figure instanceof CharacterEntity;
     }).map((figure: Figure) => {
       return figure as CharacterEntity;
+    }).sort((a: CharacterEntity, b: CharacterEntity) => {
+      const aName = a.title.toLowerCase() || settingsManager.getLabel('data.character.' + a.name).toLowerCase();
+      const bName = b.title.toLowerCase() || settingsManager.getLabel('data.character.' + b.name).toLowerCase();
+      if (aName > bName) {
+        return 1;
+      }
+      if (aName < bName) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+
+  characterData(edition: string | undefined = undefined): CharacterData[] {
+    return gameManager.charactersData.filter((characterData: CharacterData) => !edition || characterData.edition == edition).sort((a: CharacterData, b: CharacterData) => {
+      const aName = settingsManager.getLabel('data.character.' + a.name).toLowerCase();
+      const bName = settingsManager.getLabel('data.character.' + b.name).toLowerCase();
+
+      if (a.spoiler && !b.spoiler) {
+        return 1;
+      }
+      if (!a.spoiler && b.spoiler) {
+        return -1;
+      }
+
+      if (a.spoiler && b.spoiler) {
+        if (!this.isSpoiled(a) && this.isSpoiled(b)) {
+          return 1;
+        }
+        if (this.isSpoiled(a) && !this.isSpoiled(b)) {
+          return -1;
+        }
+      }
+
+      if (aName > bName) {
+        return 1;
+      }
+      if (aName < bName) {
+        return -1;
+      }
+      return 0;
     });
   }
 
@@ -51,6 +125,47 @@ export class MainMenuComponent extends DialogComponent {
       return figure instanceof Monster;
     }).map((figure: Figure) => {
       return figure as Monster;
+    }).sort((a: Monster, b: Monster) => {
+      const aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
+      const bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
+      if (aName > bName) {
+        return 1;
+      }
+      if (aName < bName) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+
+  monsterData(): MonsterData[] {
+    return gameManager.monstersData.sort((a: MonsterData, b: MonsterData) => {
+      const aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
+      const bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
+
+      if (a.spoiler && !b.spoiler) {
+        return 1;
+      }
+      if (!a.spoiler && b.spoiler) {
+        return -1;
+      }
+
+      if (a.spoiler && b.spoiler) {
+        if (!this.isSpoiled(a) && this.isSpoiled(b)) {
+          return 1;
+        }
+        if (this.isSpoiled(a) && !this.isSpoiled(b)) {
+          return -1;
+        }
+      }
+
+      if (aName > bName) {
+        return 1;
+      }
+      if (aName < bName) {
+        return -1;
+      }
+      return 0;
     });
   }
 
@@ -134,8 +249,14 @@ export class MainMenuComponent extends DialogComponent {
     ).length;
   }
 
+  update(): void {
+    if (this.hasUpdate) {
+      this.swUpdate.activateUpdate().then(() => document.location.reload());
+    }
+  }
+
 }
 
 export enum SubMenu {
-  main, edition, scenario, section, monster_add, monster_remove, character_add, character_remove, settings, language, about
+  main, edition, scenario, section, monster_add, monster_remove, character_add, character_remove, settings, language, datamanagement, about
 }

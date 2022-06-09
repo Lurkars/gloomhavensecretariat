@@ -11,7 +11,7 @@
 
   &.off {
 
-    ghs-character-initiativepicker,
+    ghs-character-image,
     .title,
     .conditions,
     .experience,
@@ -131,7 +131,7 @@
 
     .icon-container {
 
-      width: calc(var(--ghs-column-unit) * 18);
+      width: calc(var(--ghs-column-unit) * 13);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -149,14 +149,13 @@
   position: relative;
   z-index: 2;
   display: flex;
-  transition: height 0.5s ease-out, min-height 0.5s ease-out;
-  height: auto;
-  min-height: calc(var(--ghs-column-unit) * 6);
+  transition: max-height 1.5s ease-out;
+  max-height: 100%;
+  min-width: calc(var(--ghs-column-unit) * 7);
   max-width: calc(var(--ghs-column-unit) * 89);
 
   &.empty {
-    height: 0;
-    min-height: 0;
+    max-height: 0;
   }
 
   .spacer {

@@ -15,7 +15,6 @@ export class SummonEntityComponent extends DialogComponent {
 
   @Input() character!: CharacterEntity;
   @Input() summon!: Summon;
-  @Input() removeSummon!: Function;
   Conditions = Condition;
   SummonState = SummonState;
   conditions: Condition[] = [ Condition.stun, Condition.immobilize, Condition.disarm, Condition.wound, Condition.muddle, Condition.poison, Condition.strengthen, Condition.invisible ];
@@ -27,6 +26,17 @@ export class SummonEntityComponent extends DialogComponent {
     this.elementRef.nativeElement.classList.add("entity-animation");
     this.elementRef.nativeElement.classList.add("hidden");
   }
+
+
+  removeSummon(summon: Summon) {
+    summon.dead = true;
+    setTimeout(() => {
+      gameManager.stateManager.before();
+      gameManager.characterManager.removeSummon(this.character, summon);
+      gameManager.stateManager.after();
+    }, 2000)
+  }
+
 
   override ngOnInit(): void {
     super.ngOnInit();

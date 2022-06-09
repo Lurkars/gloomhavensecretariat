@@ -10,25 +10,32 @@ import { MonsterType } from 'src/app/game/model/MonsterType';
   templateUrl: './monster.html',
   styleUrls: [ './monster.scss' ]
 })
-export class MonsterComponent implements OnInit {
+export class MonsterComponent {
 
   @Input() monster!: Monster;
   MonsterType = MonsterType;
-  entities: number = 0;
   addMonsterEntityFunction!: Function;
   removeMonsterEntityFunction!: Function;
 
   constructor() { }
 
-  ngOnInit(): void {
-    this.entities = this.monster.entities.length;
+
+
+  emptyEntities(): boolean {
+    return this.monster.entities.length == 0 || this.monster.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead);
+  }
+
+  monsterOff(): boolean {
+    return this.monster.off || this.monster.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead);
   }
 
   removeMonsterEntity(monsterEntity: MonsterEntity) {
-    this.entities--;
-    gameManager.stateManager.before();
-    gameManager.monsterManager.removeMonsterEntity(this.monster, monsterEntity);
-    gameManager.stateManager.after(1000);
+    monsterEntity.dead = true;
+    setTimeout(() => {
+      gameManager.stateManager.before();
+      gameManager.monsterManager.removeMonsterEntity(this.monster, monsterEntity);
+      gameManager.stateManager.after(1000);
+    }, 2000);
   }
 
   sortedEntites(): MonsterEntity[] {

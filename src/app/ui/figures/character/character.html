@@ -1,18 +1,17 @@
-<div class="summons-container" [ngClass]="{'empty' : !summons}">
+<div class="summons-container" [ngClass]="{'empty' : emptySummons() }">
   <span class="spacer"></span>
-  <span class="icon entity-animation" [ngClass]="{'hidden' : !summons}">
-    <img src="./assets/images/character/icons/{{character.edition + '-' + character.name}}.svg" />
+  <span class="icon entity-animation" [ngClass]="{'hidden' : emptySummons()}">
+    <img [src]="characterManager.characterIcon(character)" />
   </span>
   <div class="summons">
-    <ghs-summon-entity *ngFor="let summon of character.summons" [character]="character" [summon]="summon"
-      [removeSummon]="removeSummonFunction">
+    <ghs-summon-entity *ngFor="let summon of character.summons" [character]="character" [summon]="summon">
     </ghs-summon-entity>
-  </div> 
+  </div>
 </div>
 
-<div class="character" #highlight [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0}">
+<div class="character" [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0}">
 
-  <ghs-character-initiativepicker (click)="close()" [character]="character"></ghs-character-initiativepicker>
+  <ghs-character-image (click)="close()" [character]="character"></ghs-character-image>
 
   <div class="stats">
     <div class="initiative" *ngIf="character.initiative > 0">
@@ -21,8 +20,7 @@
     </div>
 
     <div class="column col-1" (click)="toggle()">
-      <div #button class="title"><img class="icon"
-          src="./assets/images/character/icons/{{character.edition + '-' + character.name}}.svg" />
+      <div #button class="title"><img class="icon" [src]="characterManager.characterIcon(character)" />
         {{character.title || ('data.character.' + character.name | ghsLabel)}}</div>
       <div class="health">
         <img src="./assets/images/status/health.svg" />
@@ -35,7 +33,7 @@
 
     <span class="spacer" (click)="toggle()"></span>
 
-    <ghs-character-summondialog [addSummon]="addSummonFunction"></ghs-character-summondialog>
+    <ghs-character-summondialog [character]="character"></ghs-character-summondialog>
     <div class="column col-2" (click)="toggle()">
       <span class="experience">{{character.experience}}
         <img src="./assets/images/status/experience.svg" />
@@ -46,7 +44,7 @@
     </div>
 
     <div class="icon-container" (click)="toggle()">
-      <img src="./assets/images/character/icons/{{character.edition + '-' + character.name}}.svg" />
+      <img [src]="characterManager.characterIcon(character)" />
     </div>
   </div>
 </div>

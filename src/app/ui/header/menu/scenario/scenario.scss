@@ -1,0 +1,29 @@
+.custom-container {
+  display: flex;
+
+  .custom-check {
+    flex-basis: 0;
+  }
+}
+
+.editions {
+  display: flex;
+}
+
+.scenarios {
+  display: grid !important;
+  grid-template-columns: repeat(10, 1fr);
+
+  .scenario {
+    cursor: pointer;
+    font-family: 'ghs-title';
+    font-size: calc(var(--ghs-unit) * 3.5);
+    color: var(--ghs-color-gray);
+    align-self: center;
+    text-align: center;
+
+    &:hover {
+    color: var(--ghs-color-white);
+    }
+  }
+}

@@ -21,7 +21,7 @@
   position: relative;
   display: flex;
   cursor: pointer;
-  height: calc(var(--ghs-column-unit) * 6);
+  height: calc(var(--ghs-column-unit) * 5);
   text-align: center;
   background-image: url('~src/assets/images/monster/entity.png');
   background-size: calc(var(--ghs-column-unit) * 8) AUTO;
@@ -75,7 +75,7 @@
     }
 
     .summon {
-      &.new:after {
+      &.new:before {
         content: " ";
         display: block;
         position: absolute;
@@ -89,33 +89,24 @@
 
   .health-bar {
     position: absolute;
-    bottom: calc(var(--ghs-column-unit) * 0);
+    bottom: 0;
     width: calc(var(--ghs-column-unit) * 7);
     left: calc(var(--ghs-column-unit) * 0.5);
     height: calc(var(--ghs-column-unit) * 0.5);
     border: none;
     background-color: transparent;
 
-    &::-webkit-progress-value {
-      background-color: var(--ghs-color-green) !important;
+    .health-bar-value {
+      height: 100%;
+      max-width: 1000%;
+      transition: width 0.5s;
+      background-color: var(--ghs-color-green);
     }
-
-    &::-moz-progress-bar {
-      background-color: var(--ghs-color-green) !important;
-    }
-
-    color: var(--ghs-color-green);
 
     &.critical {
-      &::-webkit-progress-value {
-        background-color: var(--ghs-color-red) !important;
+      .health-bar-value {
+        background-color: var(--ghs-color-red);
       }
-
-      &::-moz-progress-bar {
-        background-color: var(--ghs-color-red) !important;
-      }
-
-      color: var(--ghs-color-red);
     }
   }
 

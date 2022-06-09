@@ -18,6 +18,13 @@ export class MonsterManager {
     this.game = game;
   }
 
+  monsterThumbnail(monsterData: MonsterData) {
+    if (monsterData.thumbnail) {
+      return monsterData.thumbnail;
+    }
+    return './assets/images/monster/thumbnail/' + monsterData.edition + '-' + monsterData.name + '.png';
+  }
+
   addMonster(monsterData: MonsterData) {
     if (this.game.figures.some((element: Figure) => {
       return element.name == monsterData.name;

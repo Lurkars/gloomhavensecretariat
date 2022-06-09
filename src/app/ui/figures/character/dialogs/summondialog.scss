@@ -77,6 +77,31 @@
       border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
       border-radius: 100%;
     }
+  }
 
+  .custom {
+    cursor: pointer;
+    grid-column: span 4;
+    display: flex;
+    align-items: center;
+
+    label {
+      cursor: pointer;
+      margin-left: calc(var(--ghs-column-unit) * 1);
+      font-family: 'ghs-title';
+      font-size: calc(var(--ghs-column-unit) * 3);
+      color: var(--ghs-color-gray);
+    }
+
+    &:hover {
+      .summon-button {
+        border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
+        border-radius: 100%;
+      }
+
+      label {
+        color: var(--ghs-color-white);
+      }
+    }
   }
 }

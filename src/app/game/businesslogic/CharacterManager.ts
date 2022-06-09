@@ -13,6 +13,20 @@ export class CharacterManager {
     this.game = game;
   }
 
+  characterIcon(characterData: CharacterData) {
+    if (characterData.icon) {
+      return characterData.icon;
+    }
+    return './assets/images/character/icons/' + characterData.edition + '-' + characterData.name + '.svg';
+  }
+
+  characterThumbnail(characterData: CharacterData) {
+    if (characterData.thumbnail) {
+      return characterData.thumbnail;
+    }
+    return './assets/images/character/thumbnail/' + characterData.edition + '-' + characterData.name + '.png';
+  }
+
   addCharacter(characterData: CharacterData) {
     if (this.game.figures.some((element: Figure) => {
       return element.name == characterData.name;
@@ -34,8 +48,7 @@ export class CharacterManager {
     this.game.figures.splice(this.game.figures.indexOf(character), 1);
   }
 
-  addSummon(character: CharacterEntity, number: number, color: SummonColor) {
-    let summon: Summon = new Summon(character.level, number, color);
+  addSummon(character: CharacterEntity, summon: Summon) {
     character.summons.push(summon);
   }
 

@@ -124,10 +124,11 @@ export class MonsterEntityComponent extends DialogComponent {
       this.close();
     }
     this.elementRef.nativeElement.classList.add('hidden');
+    this.entity.dead = true;
     setTimeout(() => {
       gameManager.stateManager.before();
       gameManager.monsterManager.removeMonsterEntity(this.monster, this.entity);
-      gameManager.stateManager.after(0);
+      gameManager.stateManager.after();
     }, 2000);
   }
 

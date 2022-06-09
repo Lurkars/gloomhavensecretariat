@@ -10,7 +10,11 @@
     ".": "Edition auswählen",
     "all": "Alle Editionen"
   },
-  "scenario": "Szenario auswählen",
+  "scenario": {
+    ".":  "Szenario auswählen",
+    "custom": "Benutzerdefiniert",
+    "title" : "Titel"
+  },
   "section": "Sektion hinzufügen",
   "monster": {
     "add": "Monster hinzufügen",
@@ -22,12 +26,16 @@
     "remove": "Charakter entfernen",
     "removeAll": "Alle entfernen"
   },
+  "summon": {
+    "addCustom": "Beschwörung '{0}'"
+  },
   "settings": {
     ".": "Einstellungen",
     "calc": "Berechnen",
     "zoomIn": "Reinzoomen",
     "zoomOut": "Rauszoomen",
     "zoomReset": "Zoom zurücksetzen",
+    "fullscreen": "Vollbild",
     "reset": "Zurücksetzen",
     "locale": {
       ".": "Sprache",
@@ -36,6 +44,7 @@
     }
   },
   "about": "Über",
+  "update": "Update (Neu Laden)",
   "game": {
     "action": {
       "attack": "Angriff",
@@ -44,14 +53,26 @@
       "jump": "Springen",
       "heal": "Heilen",
       "specialTarget" : {
-        "self": "Selbst"
+        "self": "Selbst",
+        "ally": "Target one adjacent ally",
+        "allAllies": "Target all allies",
+        "allAlliesRange": "Target all allies within range",
+        "adjacentAllies": "Target all adjacent allies",
+        "adjacentAlliesAffect": "Affect all adjacent allies",
+        "enemy": "Target one adjacent enemy",
+        "enemyOneAll": "Target one enemy with all attacks",
+        "allEnemies": "Target all enemies",
+        "allEnemiesRange": "Target all enemies within range",
+        "adjacentEnemies": "Target all adjacent enemies"
       },
       "target": "Ziel",
       "shield": "Schild",
       "pierce": "Durchstechen",
       "area": "Fläche",
       "push": "Schieben",
+      "retaliate": "Vergeltung",
       "pull": "Ziehen",
+      "loot": "Beute",
       "element": "Element",
       "condition": "Zustand",
       "custom": "Benutzerdefiniert",
@@ -64,7 +85,7 @@
       "wound": "Wunde",
       "muddle": "Verwirrrung",
       "poison": "Gift",
-      "invisible": "Unsichtbar",
+      "invisible": "Unsichtbarkeit",
       "strengthen": "Stärkung",
       "curse": "Fluch",
       "bless": "Segen"
@@ -79,27 +100,25 @@
       "dark": "Dunkel"
     },
     "cards": {
-      "shuffle": "Mischen"
+      "shuffle": "Mischen",
+      "confirmReveal" : "Zum Aufdecken erneut klicken!",
+      "coverAll": "Alle Verdecken",
+      "revealAll": "Alle Aufdecken?",
+      "revealAllConfirm": "Alle Aufdecken!"
     }
   },
-  "data": {
-    "edition": {
-      "gh": "Gloomhaven",
-      "jotl": "Pranken des Löwen"
-    },
-    "character": {
-      "demolitionist": "Sprengmeisterin",
-      "red-guard": "Rotgardist",
-      "hatchet": "Axtwerfer",
-      "voidwarden": "Leerehüterin"
-    },
-    "monster": {
-      "zealot": "Fanatiker",
-      "blood-tumor": "Blutgeschwür"
-    },
-    "scenarios": {
-
-    }
+  "datamanagement": {
+    ".": "Daten Verwalten",
+    "spoilers": "Spoiler bearbeiten",
+    "editionDataUrls": "Editionsdaten bearbeiten",
+    "addEditionDataUrl": "Editionasdaten Url hinzufügen",
+    "restoreEditionDataUrls": "Standard Wiederherstellen",
+    "addSpoiler": "Spoiler Hinzufügen",
+    "removeAllSpoilers": "Alle Löschen"
+  },
+  "spoiler": {
+    "placeholder": "???",
+    "add": "Spoiler hinzufügen",
+    "all": "Alle Spoiler Aufdecken"
   }
-
 }

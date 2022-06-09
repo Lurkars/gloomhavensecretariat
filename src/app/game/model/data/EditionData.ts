@@ -29,6 +29,7 @@ export class EditionData implements Editional {
   scenarios: ScenarioData[];
   attackModifiers: AttackModifier[] = [];
   conditions: Condition[] = [];
+  label: any = {};
 
   constructor(edition: string, characters: CharacterData[],
     monsters: MonsterData[],

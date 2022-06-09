@@ -1,0 +1,59 @@
+.remove {
+  display: flex;
+
+  &:hover:after {
+    content: ' ';
+    position: relative;
+    display: block;
+    left: calc(var(--ghs-unit) * 0.5);
+    width: calc(var(--ghs-unit) * 3);
+    height: calc(var(--ghs-unit) * 3);
+    clip-path: polygon(0 80%, 30% 50%, 0 20%, 20% 0, 50% 30%, 80% 0, 100% 20%, 70% 50%, 100% 80%, 80% 100%, 50% 70%, 20% 100%);
+    background-color: var(--ghs-color-white);
+  }
+}
+
+.input-button {
+  display: flex;
+  cursor: pointer;
+
+  .add-button {
+    &:after {
+      content: ' ';
+      position: relative;
+      display: block;
+      left: calc(var(--ghs-unit) * 0.5);
+      top: calc(var(--ghs-unit) * 0.5);
+      width: calc(var(--ghs-unit) * 3);
+      height: calc(var(--ghs-unit) * 3);
+      clip-path: polygon(0 35%, 35% 35%, 35% 0%, 65% 0%, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0 65%);
+      background-color: var(--ghs-color-gray);
+    }
+
+    &:hover:after {
+      background-color: var(--ghs-color-white);
+    }
+  }
+
+  &.disabled {
+    cursor: inherit;
+
+    .add-button {
+      pointer-events: none;
+
+      &:after {
+        background-color: var(--ghs-color-darkgray);
+      }
+    }
+  }
+
+  input[type="text"] {
+    width: auto !important;
+    margin: 0 !important;
+
+    &.error {
+      animation: shake-animation .5s linear;
+      color: var(--ghs-color-red) !important;
+    }
+  }
+}

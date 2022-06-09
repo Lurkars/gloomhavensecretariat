@@ -1,6 +1,6 @@
 <div (click)="toggle()" class="level-status">
   <div class="title">
-    <span *ngIf="gameManager.game.scenario" class="index">#{{gameManager.game.scenario.index}}</span>
+    <span *ngIf="gameManager.game.scenario && gameManager.game.scenario.index" class="index">#{{gameManager.game.scenario.index}}</span>
     <span #button></span>
     <span *ngIf="gameManager.game.scenario" class="name">{{gameManager.game.scenario.name}}</span>
   </div>

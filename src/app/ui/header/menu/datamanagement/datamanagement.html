@@ -1,0 +1,49 @@
+<div class="menu-container data">
+  <div class="columns">
+    <div class="column">
+      <div class="line title sticky">
+        <label>{{'datamanagement.spoilers' | ghsLabel}}</label>
+      </div>
+      <div class="line">
+        <span class="input-button" [ngClass]="{'disabled' : !(inputSpoiler.value)}">
+          <input type="text" #inputSpoiler (keyup.enter)="addSpoiler()" (keyup)="0"
+            placeholder="{{'datamanagement.addSpoiler' | ghsLabel}}">
+          <span class="add-button" (click)="addSpoiler()"></span>
+        </span>
+      </div>
+      <div class="line" *ngFor="let spoiler of settingsManager.settings.spoilers">
+        <a class="remove" (click)="removeSpoiler(spoiler)">
+          {{spoiler}}
+        </a>
+      </div>
+      <div class="spacer"></div>
+      <div class="line separator" *ngIf="settingsManager.settings.spoilers.length > 0">
+        <a (click)="settingsManager.removeAllSpoilers()">{{'datamanagement.removeAllSpoilers' | ghsLabel}}</a>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="line title sticky">
+        <label>{{'datamanagement.editionDataUrls' | ghsLabel}}</label>
+      </div>
+      <div class="line">
+        <span class="input-button" [ngClass]="{'disabled' : !inputEditionDataUrl.value}">
+          <input type="text" #inputEditionDataUrl (keyup.enter)="addEditionDataUrl()"
+            (keyup)="inputEditionDataUrl.classList.remove('error')"
+            placeholder="{{'datamanagement.addEditionDataUrl' | ghsLabel}}">
+          <span class="add-button" (click)="addEditionDataUrl()"></span>
+        </span>
+      </div>
+      <div class="line" *ngFor="let editionDataUrl of settingsManager.settings.editionDataUrls">
+        <a class="remove" (click)="removeEditionDataUrl(editionDataUrl)">
+          {{editionDataUrl}}
+        </a>
+      </div>
+      <div class="spacer"></div>
+      <div class="line separator" *ngIf="!isDefaultEditionData()">
+        <a
+          (click)="settingsManager.restoreDefaultEditionDataUrls()">{{'datamanagement.restoreEditionDataUrls' | ghsLabel}}</a>
+      </div>
+    </div>
+  </div>
+</div>

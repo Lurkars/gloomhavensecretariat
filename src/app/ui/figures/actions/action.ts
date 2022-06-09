@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { ghsColumnUnit, ghsUnitUnit } from 'src/app/app.component';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Action, ActionHex, ActionType, ActionValueType } from 'src/app/game/model/Action';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
@@ -7,6 +6,7 @@ import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { MonsterStat } from 'src/app/game/model/MonsterStat';
 import { MonsterType } from 'src/app/game/model/MonsterType';
+import { ghsColumnUnit, ghsUnitUnit } from '../../helper/Static';
 
 @Component({
   selector: 'ghs-actions',

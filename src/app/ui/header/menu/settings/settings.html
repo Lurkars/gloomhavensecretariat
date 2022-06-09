@@ -2,28 +2,34 @@
   <div class="line">
     <label>
       <input type="checkbox" [checked]="settingsManager.settings.calculate" (change)="toggleCalc()">
-      {{'settings.calc'  | ghsLabel}}
+      {{'settings.calc' | ghsLabel}}
     </label>
   </div>
-  
+
   <div class="line separator">
     <a (click)="zoomOut()">
-      {{'settings.zoomOut'  | ghsLabel}}
+      {{'settings.zoomOut' | ghsLabel}}
     </a>
   </div>
   <div class="line">
     <a (click)="zoomIn()">
-      {{'settings.zoomIn'  | ghsLabel}}
+      {{'settings.zoomIn' | ghsLabel}}
     </a>
   </div>
   <div class="line">
     <a (click)="zoomReset()">
-      {{'settings.zoomReset'  | ghsLabel}}
+      {{'settings.zoomReset' | ghsLabel}}
     </a>
   </div>
-  
+  <div class="line separator">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.fullscreen" (change)="fullscreen()">
+      {{'settings.fullscreen' | ghsLabel}}
+    </label>
+  </div>
+
   <div class="line separator title">
-    <label class="disabled">{{'settings.locale'  | ghsLabel}}</label>
+    <label class="disabled">{{'settings.locale' | ghsLabel}}</label>
   </div>
   <div class="line" *ngFor="let locale of settingsManager.locales"
     [ngClass]="{'disabled' : settingsManager.settings.locale == locale}">
@@ -33,10 +39,10 @@
       {{'settings.locale.' + locale  | ghsLabel}}
     </label>
   </div>
-  
+
   <div class="line separator">
     <a (click)="reset()">
-      &lt;{{'settings.reset'  | ghsLabel}}&gt; (!)
+      &lt;{{'settings.reset' | ghsLabel}}&gt; (!)
     </a>
   </div>
 </div>

@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { DialogComponent } from './ui/dialog/dialog';
 import { CharacterComponent } from './ui/figures/character/character';
-import { CharacterInitiativePicker } from './ui/figures/character/dialogs/initiativepicker';
 import { CharacterSummonDialog } from './ui/figures/character/dialogs/summondialog';
 import { ActionHexComponent, ActionComponent, ActionsComponent } from './ui/figures/actions/action';
 import { AbilityComponent } from './ui/figures/monster/cards/ability';
@@ -29,18 +28,21 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { SummonEntityComponent } from './ui/figures/character/summon/summon';
 import { GhsSvgComponent } from './ui/helper/svg/svg';
+import { CharacterImageComponent } from './ui/figures/character/cards/image';
+import { DatamanagementMenuComponent } from './ui/header/menu/datamanagement/datamanagement';
+import { ScenarioMenuComponent } from './ui/header/menu/scenario/scenario';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     HeaderComponent, ElementIconComponent,
-    MainMenuComponent, EditionMenuComponent, SettingsMenuComponent,
+    MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent,
     FooterComponent,
     AttackModifierComponent,
     LevelComponent,
     DialogComponent, PopupComponent,
-    CharacterComponent, CharacterInitiativePicker, CharacterSummonDialog,
+    CharacterComponent, CharacterImageComponent, CharacterSummonDialog,
     SummonEntityComponent,
     MonsterComponent,
     MonsterEntityComponent,

@@ -1,7 +1,8 @@
 import { Editional } from "../Editional";
 import { MonsterStat } from "../MonsterStat";
+import { Spoilable } from "../Spoilable";
 
-export class MonsterData implements Editional {
+export class MonsterData implements Editional, Spoilable {
 
   name: string;
   count: number;
@@ -9,10 +10,16 @@ export class MonsterData implements Editional {
   deck: string;
   boss: boolean;
 
+  thumbnail: string | undefined;
+
   // from Editional
   edition: string;
 
-  constructor(name: string, count: number, stats: MonsterStat[], edition: string, deck: string | undefined = undefined, boss: boolean = false) {
+  // from Spoilable
+  spoiler: boolean;
+
+  constructor(name: string, count: number, stats: MonsterStat[], edition: string, deck: string | undefined = undefined, boss: boolean = false, thumbnail: string | undefined = undefined,
+    spoiler: boolean = false) {
     this.name = name;
     this.count = count;
     this.stats = stats;
@@ -22,6 +29,8 @@ export class MonsterData implements Editional {
       this.deck = deck;
     }
     this.boss = boss;
+    this.thumbnail = thumbnail;
+    this.spoiler = true;
   }
 
 }
