@@ -27,7 +27,15 @@ export class SettingsManager {
     if (settingsString != null) {
       this.settings = JSON.parse(settingsString);
     } else {
-      this.settings = new Settings;
+      this.settings = new Settings();
+    }
+
+    if (!this.settings.editionDataUrls) {
+      this.settings.editionDataUrls = [];
+    }
+
+    if (!this.settings.spoilers) {
+      this.settings.spoilers = [];
     }
 
     this.setLocale(this.settings.locale);
