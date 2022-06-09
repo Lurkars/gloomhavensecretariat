@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
-import { GameModel, GameState } from 'src/app/game/model/Game';
+import { Game, GameModel, GameState } from 'src/app/game/model/Game';
 import { settingsManager } from '../game/businesslogic/SettingsManager';
 
 @Component({
@@ -17,7 +17,7 @@ export class MainComponent implements OnInit {
     await settingsManager.init();
     const local: string | null = localStorage.getItem("ghs-game");
     if (local != null) {
-      const gameModel: GameModel = JSON.parse(local);
+      const gameModel: GameModel = Object.assign(new Game(), JSON.parse(local));
       this.gameManager.game.fromModel(gameModel);
     } else {
       localStorage.setItem("ghs-game", JSON.stringify(this.gameManager.game.toModel()));
