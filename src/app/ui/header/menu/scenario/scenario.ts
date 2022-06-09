@@ -16,7 +16,7 @@ export class ScenarioMenuComponent {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
-  edition: string | undefined = (!gameManager.game.scenario || !gameManager.game.scenario.custom) && gameManager.editions[ 0 ] || undefined;
+  edition: string | undefined = (!gameManager.game.scenario || !gameManager.game.scenario.custom) && (gameManager.game.edition || gameManager.editions[ 0 ]) || undefined;
 
   setEdition(edition: string) {
     this.edition = edition;

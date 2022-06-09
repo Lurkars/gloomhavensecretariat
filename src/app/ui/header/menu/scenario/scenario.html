@@ -12,7 +12,7 @@
     </div>
   </div>
   <div class="line editions">
-    <label *ngFor="let e of gameManager.editions">
+    <label *ngFor="let e of (gameManager.game.edition ? [gameManager.game.edition] : gameManager.editions);">
       <input type="radio" name="radio" [value]="e" (change)="setEdition(e)" [checked]="edition == e">
       {{'data.edition.' + e | ghsLabel}}
     </label>

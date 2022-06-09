@@ -2,7 +2,7 @@
   <div class="title">
     <span *ngIf="gameManager.game.scenario && gameManager.game.scenario.index" class="index">#{{gameManager.game.scenario.index}}</span>
     <span #button></span>
-    <span *ngIf="gameManager.game.scenario" class="name">{{gameManager.game.scenario.name}}</span>
+    <span *ngIf="gameManager.game.scenario" class="name">{{'data.scenario.' + gameManager.game.scenario.name | ghsLabel}}</span>
   </div>
   <div class="values">
     <span class="level">{{gameManager.game.level}} <img src="./assets/images/level.svg" /></span>
