@@ -150,10 +150,6 @@ export class SettingsManager {
           }
           return response.json();
         }).then((value: EditionData) => {
-          if (gameManager.editions.indexOf(value.edition) == -1) {
-            throw Error("Edition not exists: " + value.edition);
-          }
-
           this.loadDataLabel(value);
         });
     } catch (error) {

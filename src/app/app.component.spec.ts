@@ -27,6 +27,7 @@ import { GhsSvgComponent } from './ui/helper/svg/svg';
 import { CharacterImageComponent } from './ui/figures/character/cards/image';
 import { DatamanagementMenuComponent } from './ui/header/menu/datamanagement/datamanagement';
 import { ScenarioMenuComponent } from './ui/header/menu/scenario/scenario';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -51,6 +52,9 @@ describe('AppComponent', () => {
         ActionsComponent, ActionComponent, ActionHexComponent,
         CardRevealDirective,
         GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent
+      ],
+      imports: [
+        ServiceWorkerModule.register('ngsw-worker.js', { enabled: false })
       ],
     }).compileComponents();
   });
