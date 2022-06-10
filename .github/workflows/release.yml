@@ -17,7 +17,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         with:
           tag_name: ${{ github.ref }}
-          release_name: v${{ github.ref }}
+          release_name: ${{ github.ref }}
           draft: false
           prerelease: false
   release_zip:
