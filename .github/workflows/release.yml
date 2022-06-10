@@ -2,17 +2,33 @@ on:
   push:
     tags:
       - '*'
-name: Build Release
+name: Build and publish release
 jobs:
-  build:
+  create_release:
+    name: Create release
+    runs-on: ubuntu-latest
+    outputs:
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
+    steps:
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: v${{ github.ref }}
+          draft: false
+          prerelease: false
+  release_zip:
+    name: Release zip
+    needs: create_release
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [16.x]
-
     steps:
       - uses: actions/checkout@v1
-
       - name: Cache node modules
         uses: actions/cache@v1
         with:
@@ -33,9 +49,40 @@ jobs:
         with:
           type: 'zip'
           directory: "dist/gloomhavensecretary/"
-          filename: 'gloomhavensecretary.zip'
-      - name: Push Build to Releases
-        uses: ncipollo/release-action@v1
+          filename: 'gloomhavensecretary-${{github.ref_name}}.zip'
+      uses: alexellis/upload-assets@0.3.0
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         with:
-          artifacts: "dist/gloomhavensecretary/gloomhavensecretary.zip"
-          token: ${{ secrets.TOKEN }}
+          asset_paths: '["./dist/gloomhavensecretary/gloomhavensecretary-${{github.ref_name}}.zip"]'
+  release_electron:
+    name: Release electron builds
+    needs: create_release
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [16.x]
+        os: [macos-latest, windows-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: npm install and npm run electron:build
+        run: |
+          npm i
+          npm run electron:build
+      - name: Upload release binaries
+        uses: alexellis/upload-assets@0.3.0
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          asset_paths: '["./dist/gloomhavensecretary_${{github.ref_name}}_*"]'
