@@ -69,6 +69,7 @@
 
     a,
     label {
+      cursor: pointer;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -76,20 +77,19 @@
       font-size: calc(var(--ghs-unit) * 3.5);
       color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
-      cursor: pointer;
       &:hover {
         color: var(--ghs-color-white);
-      }
-
-      &.disabled {
-        pointer-events: none;
-        color: var(--ghs-color-darkgray);
       }
 
       img.icon {
         width: calc(var(--ghs-unit) * 5);
         margin-right: calc(var(--ghs-unit) * 0.5);
         height: auto;
+      }
+
+      &.disabled {
+        pointer-events: none;
+        color: var(--ghs-color-darkgray);
       }
     }
 
