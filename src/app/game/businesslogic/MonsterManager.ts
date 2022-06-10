@@ -1,5 +1,4 @@
 import { Game, GameState } from "../model/Game";
-
 import { Monster } from '../model/Monster';
 import { Figure } from "../model/Figure";
 import { gameManager } from "./GameManager";
@@ -17,6 +16,13 @@ export class MonsterManager {
 
   constructor(game: Game) {
     this.game = game;
+  }
+
+  monsterThumbnail(monsterData: MonsterData) {
+    if (monsterData.thumbnail) {
+      return monsterData.thumbnail;
+    }
+    return './assets/images/monster/thumbnail/' + monsterData.edition + '-' + monsterData.name + '.png';
   }
 
   addMonster(monsterData: MonsterData) {

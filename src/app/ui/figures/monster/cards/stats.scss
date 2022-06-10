@@ -6,7 +6,7 @@
   background-position: top;
   background-repeat: no-repeat;
   background-size: 100% auto;
-  background-image: url('~src/assets/images/monster/stats/normal.png');
+  background-image: url('~src/assets/images/monster/stats/standard.png');
 
   .name {
     position: absolute;
@@ -116,7 +116,7 @@
       .additional {
         display: flex;
         flex-wrap: wrap;
-        ghs-monster-action {
+        ghs-action {
           flex-basis: 0;
           flex-grow: 1;
         }

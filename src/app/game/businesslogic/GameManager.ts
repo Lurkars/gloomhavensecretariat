@@ -1,4 +1,3 @@
-
 import { Ability } from "../model/Ability";
 import { CharacterEntity } from "../model/CharacterEntity";
 import { CharacterData } from "../model/data/CharacterData";
@@ -37,25 +36,6 @@ export class GameManager {
     this.characterManager = new CharacterManager(this.game);
     this.monsterManager = new MonsterManager(this.game);
     this.attackModifierManager = new AttackModifierManager(this.game, defaultAttackModifier);
-  }
-
-  async loadData(url: string) {
-    await fetch(url)
-      .then(response => {
-        return response.json();
-      }).then((data) => {
-        Object.keys(data).forEach((edition: string) => {
-          this.editions.push(edition);
-          let value: EditionData = data[ edition ];
-          this.charactersData = this.charactersData.concat(value.characters);
-          this.monstersData = this.monstersData.concat(value.monsters);
-          this.decksData = this.decksData.concat(value.decks);
-          this.scenarioData = this.scenarioData.concat(value.scenarios);
-        });
-      })
-      .catch((error: Error) => {
-        throw Error("Invalid data url: " + url + " [" + error + "]");
-      })
   }
 
   nextGameState(): void {
@@ -286,8 +266,8 @@ export class GameManager {
 
   setScenario(scenario: Scenario | undefined) {
     this.game.scenario = scenario;
-    this.game.figures = this.game.figures.filter((figure: Figure) => figure instanceof CharacterData);
-    if (scenario) {
+    if (scenario && !scenario.custom) {
+      this.game.figures = this.game.figures.filter((figure: Figure) => figure instanceof CharacterData);
       scenario.monsters.forEach((name: string) => {
         if (this.monstersData.some((monsterData: MonsterData) => monsterData.name == name && monsterData.edition == scenario.edition)) {
           this.monsterManager.addMonster(this.monstersData.filter((monsterData: MonsterData) => monsterData.name == name && monsterData.edition == scenario.edition)[ 0 ]);

@@ -1,6 +1,8 @@
-<a #button class="button">
-  <img class="image" [ngClass]="{'active-border' : character.active}"
-    src="./assets/images/character/thumbnail/{{character.edition + '-' + character.name}}.png" />
+<a #button class="button" [ngClass]="{'active-border' : character.active}">
+  <img class="image" [src]="characterManager.characterThumbnail(character)" />
+  <div class="health-bar" [ngClass]="{'critical' : character.health / character.maxHealth < 0.35}">
+    <div class="health-bar-value" [style.width]="(character.health / character.maxHealth * 100) + '%'"></div>
+  </div>
 </a>
 <div #dialog>
   <div class="number-container">

@@ -21,7 +21,7 @@
   --hover-animation: all 0.3s ease-in-out;
   transition: var(--hover-animation);
 
-  ghs-monster-actions {
+  ghs-actions {
     position: absolute;
     top: 0; // calc(var(--ghs-column-unit) * 5); 
     left: 0;
@@ -78,7 +78,7 @@
       top: calc(var(--ghs-column-unit) * 4.5);
     }
 
-    ghs-monster-actions {
+    ghs-actions {
       position: absolute;
       overflow: hidden;
       top: calc(var(--ghs-column-unit) * 6);
@@ -110,7 +110,7 @@
   bottom: calc(var(--ghs-column-unit) * 0.5);
 }
 
-ghs-monster-action {
+ghs-action {
   width: 100%;
 }
 
@@ -165,7 +165,7 @@ ghs-monster-action {
             top: calc(var(--ghs-column-unit) * 4.5);
           }
 
-          ghs-monster-actions {
+          ghs-actions {
             position: absolute;
             top: calc(var(--ghs-column-unit) * 7);
             height: calc(var(--ghs-unit) * 13);

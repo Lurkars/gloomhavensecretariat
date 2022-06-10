@@ -3,31 +3,22 @@ import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { Element } from "src/app/game/model/Element";
 import { GameState } from "src/app/game/model/Game";
+import { GhsSvgComponent } from "../../helper/svg/svg";
 
 @Component({
   selector: 'ghs-element-icon',
-  templateUrl: './element.html',encapsulation: ViewEncapsulation.None,
+  templateUrl: './element.html', encapsulation: ViewEncapsulation.None,
   styleUrls: [ './element.scss' ]
 })
-export class ElementIconComponent implements OnInit {
+export class ElementIconComponent extends GhsSvgComponent {
 
   @Input() element!: Element;
   gameManager: GameManager = gameManager;
   GameState = GameState;
-  svg: SafeHtml = "";
 
-  constructor(private sanitizer: DomSanitizer) { }
-
-  ngOnInit(): void {
-    fetch('./assets/images/element/' + this.element + '.svg')
-      .then(response => {
-        return response.text();
-      }).then(data => {
-        this.svg = this.sanitizer.bypassSecurityTrustHtml(data);
-      })
-      .catch((error: Error) => {
-        throw Error("Invalid element: " + this.element);
-      })
+  override ngOnInit(): void {
+    this.src = './assets/images/element/' + this.element + '.svg';
+    super.ngOnInit();
   }
 
 

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
@@ -14,13 +14,28 @@ export class MonsterComponent {
 
   @Input() monster!: Monster;
   MonsterType = MonsterType;
+  addMonsterEntityFunction!: Function;
+  removeMonsterEntityFunction!: Function;
 
   constructor() { }
 
+
+
+  emptyEntities(): boolean {
+    return this.monster.entities.length == 0 || this.monster.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead);
+  }
+
+  monsterOff(): boolean {
+    return this.monster.off || this.monster.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead);
+  }
+
   removeMonsterEntity(monsterEntity: MonsterEntity) {
-    gameManager.stateManager.before();
-    gameManager.monsterManager.removeMonsterEntity(this.monster, monsterEntity);
-    gameManager.stateManager.after(1000);
+    monsterEntity.dead = true;
+    setTimeout(() => {
+      gameManager.stateManager.before();
+      gameManager.monsterManager.removeMonsterEntity(this.monster, monsterEntity);
+      gameManager.stateManager.after(1000);
+    }, 2000);
   }
 
   sortedEntites(): MonsterEntity[] {

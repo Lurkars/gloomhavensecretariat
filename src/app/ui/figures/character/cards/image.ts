@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 
 import { CharacterEntity } from "src/app/game/model/CharacterEntity";
@@ -7,14 +8,16 @@ import { GameState } from "src/app/game/model/Game";
 import { DialogComponent } from "src/app/ui/dialog/dialog";
 
 @Component({
-  selector: 'ghs-character-initiativepicker',
-  templateUrl: 'initiativepicker.html',
-  styleUrls: [ './initiativepicker.scss', '../../../dialog/dialog.scss' ]
+  selector: 'ghs-character-image',
+  templateUrl: 'image.html',
+  styleUrls: [ './image.scss', '../../../dialog/dialog.scss' ]
 })
-export class CharacterInitiativePicker extends DialogComponent {
+export class CharacterImageComponent extends DialogComponent {
 
   @Input() character!: CharacterEntity;
   value: string = "__";
+
+  characterManager: CharacterManager = gameManager.characterManager;
 
   pickNumber(number: number) {
     this.value = (this.value + "" + number).substring(1, 3);

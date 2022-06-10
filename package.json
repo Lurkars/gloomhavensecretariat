@@ -1,10 +1,15 @@
 {
   "name": "gloomhavensecretary",
-  "version": "0.1.1",
+  "version": "0.3.1",
+  "license": "AGPL3",
+  "description": "Gloomhaven Secretary is an angular based Gloomhaven Helper clone.",
   "author": {
     "name": "Lurkars",
-    "email": "ghs@champonthis.de"
+    "email": "ghs@champonthis.de",
+    "url": "https://www.champonthis.de"
   },
+  "repository": "github:Lurkars/gloomhavensecretary",
+  "bugs": "https://github.com/Lurkars/gloomhavensecretary/issues",
   "main": "main.js",
   "scripts": {
     "electron": "ng build --base-href ./ && electron .",

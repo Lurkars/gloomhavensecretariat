@@ -1,0 +1,126 @@
+<div class="summon-border">
+  <div #button class="summon">
+    <span class="number"><span *ngIf="summon.number == 0">-</span><span
+        *ngIf="summon.number > 0">{{summon.number}}</span></span> <span class="health">{{summon.health}}</span>
+
+    <div class="conditions">
+      <span class="condition" *ngFor="let condition of summon.conditions; let index = index;">
+        <img src="./assets/images/condition/{{condition}}.svg" />
+      </span>
+
+      <span class="summon-state"
+        [ngClass]="{'active' : summon.state == SummonState.true, 'new' : summon.state == SummonState.new, 'center' : (summon.conditions.length % 2) == 0}">
+        <img src="./assets/images/summons/{{summon.color}}.png">
+      </span>
+
+    </div>
+    <progress class="health-bar" [ngClass]="{'critical' : summon.health / summon.maxHealth < 0.35}"
+      [value]="summon.health" [max]="summon.maxHealth"></progress>
+  </div>
+</div>
+
+<div #dialog>
+  <div *ngIf="!levelDialog" class="status-container">
+    <div class="summon-container">
+      <span class="item">
+        <a class="button" [ngClass]="{'disabled' : summon.health == 0}" (click)="changeHealth(-1)">
+          -
+        </a>
+      </span>
+      <span class="item">
+        <img src="./assets/images/status/health.svg" />
+        <span class="badge health-count"
+          [ngClass]="{'health-negative' : health < 0, 'health-positive' : health > 0}">{{health | ghsValueSign}}</span>
+      </span>
+      <span class="item">
+        <a class="button" [ngClass]="{'disabled' : summon.health == summon.maxHealth}" (click)="changeHealth(1)">
+          +
+        </a>
+      </span>
+
+      <div class="stats-container">
+        <span class="stat" (click)="openLevelDialog()">
+          <img src="./assets/images/action/move.svg" />
+          <span>{{summon.movement | ghsValueCalc:'empty'}}</span>
+        </span>
+
+        <span class="stat" (click)="openLevelDialog()">
+          <img src="./assets/images/action/attack.svg" />
+          <span>{{summon.attack | ghsValueCalc:'empty'}}</span>
+        </span>
+
+        <span class="stat" (click)="openLevelDialog()">
+          <img src="./assets/images/action/range.svg" />
+          <span>{{summon.range | ghsValueCalc:'empty'}}</span>
+        </span>
+      </div>
+
+      <span class="item">
+        <a class="condition" (click)="dead()">
+          <img src="./assets/images/status/dead.svg" />
+        </a>
+      </span>
+      <span class="item">
+        <a class="button level-button" (click)="openLevelDialog()">
+          {{character.level}} <img src="./assets/images/status/level.svg" />
+        </a>
+      </span>
+    </div>
+    <div class="condition-container">
+      <span *ngFor="let condition of conditions">
+        <a class="condition" [ngClass]="{'active' : hasCondition(condition)}" (click)="toggleCondition(condition)">
+          <img src="./assets/images/condition/{{condition}}.svg" />
+        </a>
+      </span>
+    </div>
+  </div>
+
+  <div *ngIf="levelDialog" class="level-dialog">
+    <div class="summon-container">
+      <a class="button" (click)="changeMaxHealth(-1)">
+        -
+      </a>
+      <span class="item">
+        <img src="./assets/images/status/health.svg" />
+        <span class="badge max-health">{{summon.health}}/{{summon.maxHealth}}</span>
+      </span>
+      <a class="button" (click)="changeMaxHealth(1)">
+        +
+      </a>
+
+      <a class="button" (click)="changeMovement(-1)">
+        -
+      </a>
+      <span class="item">
+        <img src="./assets/images/action/move.svg" />
+        <span class="badge">{{summon.movement | ghsValueCalc:'empty'}}</span>
+      </span>
+      <a class="button" (click)="changeMovement(1)">
+        +
+      </a>
+
+      <a class="button" (click)="changeAttack(-1)">
+        -
+      </a>
+      <span class="item">
+        <img src="./assets/images/action/attack.svg" />
+        <span class="badge">{{summon.attack | ghsValueCalc:'empty'}}</span>
+      </span>
+      <a class="button" (click)="changeAttack(1)">
+        +
+      </a>
+
+      <a class="button" (click)="changeRange(-1)">
+        -
+      </a>
+      <span class="item">
+        <img src="./assets/images/action/range.svg" />
+        <span class="badge">{{summon.range | ghsValueCalc:'empty'}}</span>
+      </span>
+      <a class="button" (click)="changeRange(1)">
+        +
+      </a>
+
+    </div>
+  </div>
+</div>

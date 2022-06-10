@@ -8,14 +8,13 @@ This is basically a clone implementing the same functionality and look&feel of t
 
 ## Missing / Upcoming
 
-- most ~~monster\/character~~ scenario data
+- some monster data, most data of other editions
 - ~~i18n support~~
-- summons (WIP)
-- standalone app (Electron\/~~PWA~~)
+- ~~summons~~
+- standalone app with Electron (WIP)\/~~PWA~~
 - ~~releases for easier self hosting~~
 - server part to sync states
-- load (JSON-)data from URL, so easier custom content integration (WIP)
-
+- ~~load (JSON-)data from URL, so easier custom content integration~~
 
 ## Install
 
@@ -26,8 +25,8 @@ Download [latest release](https://github.com/Lurkars/gloomhavensecretary/release
 Gloomhaven and all related properties, images and text are owned by [Cephalofair Games](https://cephalofair.com).
 
 Assets used:
-- Creator Pack by Isaac Childres [boardgamegeek.com/thread/1733586/files-creation](https://boardgamegeek.com/thread/1733586/files-creation) CC BY-NC-SA 4.0
-- Worldhaven [github.com/any2cards/worldhaven](https://github.com/any2cards/worldhaven)
+- [Creator Pack by Isaac Childres](https://boardgamegeek.com/thread/1733586/files-creation) CC BY-NC-SA 4.0
+- [Worldhaven](https://github.com/any2cards/worldhaven)
 - some other assets used are public domain licensed
 
 Source code is licenced under [AGPL](/LICENSE)

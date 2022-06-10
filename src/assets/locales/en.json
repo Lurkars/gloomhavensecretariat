@@ -10,7 +10,11 @@
     ".": "Set Edition",
     "all": "All Editions"
   },
-  "scenario": "Set Scenario",
+  "scenario": {
+    ".": "Set Scenario",
+    "custom": "Custom",
+    "title" : "Title"
+  },
   "section": "Add Section",
   "monster": {
     "add": "Add Monster",
@@ -22,12 +26,16 @@
     "remove": "Remove Character",
     "removeAll": "Remove All"
   },
+  "summon": {
+    "addCustom": "Summon '{0}'"
+  },
   "settings": {
     ".": "Settings",
     "calc": "Calculate",
     "zoomIn": "Zoom In",
     "zoomOut": "Zoom Out",
     "zoomReset": "Reset Zoom",
+    "fullscreen": "Fullscreen",
     "reset": "Reset",
     "locale": {
       ".": "Language",
@@ -36,6 +44,7 @@
     }
   },
   "about": "About",
+  "update": "Update (Reload)",
   "game": {
     "action": {
       "attack": "Attack",
@@ -92,63 +101,24 @@
     },
     "cards": {
       "shuffle": "Shuffle",
+      "confirmReveal": "Click again to reveal!",
       "coverAll": "Cover All",
       "revealAll": "Reveal All?",
       "revealAllConfirm": "Reveal All!"
     }
   },
-  "data": {
-    "edition": {
-      "gh": "Gloomhaven",
-      "jotl": "Jaws Of The Lion"
-    },
-    "character": {
-      "brute": "Brute",
-      "cragheart": "Cragheart",
-      "mindthief": "Mindthief",
-      "scoundrel": "Scoundrel",
-      "spellweaver": "Spellweaver",
-      "tinkerer": "Tinkerer",
-      "demolitionist": "Demolitionist",
-      "red-guard": "Red Guard",
-      "hatchet": "Hatchet",
-      "voidwarden": "Voidwarden"
-    },
-    "monster": {
-      "ancient-artillery": "Ancient Artillery",
-      "bandit-archer": "Bandit Archer",
-      "city-archer": "City Archer",
-      "inox-archer": "Inox Archer",
-      "bandit-guard": "Bandit Guard",
-      "inox-shaman": "Inox Shaman",
-      "city-guard": "City Guard",
-      "inox-guard": "Inox Guard",
-      "bandit-commander": "Bandit Commander",
-      "black-imp": "Black Imp",
-      "cave-bear": "Cave Bear",
-      "cultist": "Cultist",
-      "deep-terror": "Deep Terror",
-      "earth-demon": "Earth Demon",
-      "flame-demon": "Flame Demon",
-      "frost-demon": "Frost Demon",
-      "forest-imp": "Forest Imp",
-      "giant-viper": "Giant Viper",
-      "harrower-infester": "Harrower Infester",
-      "hound": "Hound",
-      "living-bones": "Living Bones",
-      "living-corpse": "Living Corpse",
-      "living-spirit": "Living Spirit",
-      "lurker": "Lurker",
-      "night-demon": "Night Demon",
-      "ooze": "Ooze",
-      "vermling-scout": "Vermling Scout",
-      "vermling-shaman": "Vermling Shaman",
-      "blood-tumor": "Blood Tumor",
-      "zealot": "Zealot"
-    },
-    "scenarios": {
-
-    }
+  "datamanagement": {
+    ".": "Data Management",
+    "spoilers": "Manage Spoilers",
+    "editionDataUrls": "Manage Edition Data",
+    "addEditionDataUrl": "Add Edition Data Url",
+    "restoreEditionDataUrls": "Restore Defaults",
+    "addSpoiler": "Add Spoiler",
+    "removeAllSpoilers": "Delete all"
+  },
+  "spoiler": {
+    "placeholder": "???",
+    "add": "Add Spoiler",
+    "all": "Reveal All Spoilers"
   }
-
 }

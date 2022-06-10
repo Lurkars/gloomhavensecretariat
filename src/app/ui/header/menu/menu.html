@@ -6,105 +6,95 @@
     <div class="line">
       <div class="state">
         <a [ngClass]="{'disabled' : !gameManager.stateManager.hasUndo()}"
-          (click)="gameManager.stateManager.undo()">{{'state.undo'  | ghsLabel}} </a>
+          (click)="gameManager.stateManager.undo()">{{'state.undo' | ghsLabel}} </a>
         <a [ngClass]="{'disabled' :!gameManager.stateManager.hasRedo()}"
-          (click)="gameManager.stateManager.redo()">{{'state.redo'  | ghsLabel}}</a>
+          (click)="gameManager.stateManager.redo()">{{'state.redo' | ghsLabel}}</a>
       </div>
     </div>
 
     <div class="line separator">
-      <a (click)="active = SubMenu.edition">{{'edition'  | ghsLabel}}</a>
+      <a (click)="active = SubMenu.edition">{{'edition' | ghsLabel}}</a>
     </div>
 
     <div class="line separator">
-      <a (click)="active = SubMenu.scenario">{{'scenario'  | ghsLabel}}</a>
+      <a (click)="active = SubMenu.scenario">{{'scenario' | ghsLabel}}</a>
     </div>
     <div class="line disabled">
-      <a (click)="active = SubMenu.section">{{'section'  | ghsLabel}}</a>
+      <a (click)="active = SubMenu.section">{{'section' | ghsLabel}}</a>
     </div>
 
     <div class="line separator" [ngClass]="{'disabled' : hasAllMonster()}">
-      <a (click)="active = SubMenu.monster_add">{{'monster.add'  | ghsLabel}}</a>
+      <a (click)="active = SubMenu.monster_add">{{'monster.add' | ghsLabel}}</a>
     </div>
     <div class="line" [ngClass]="{'disabled' : monsters().length == 0}">
-      <a (click)="active = SubMenu.monster_remove">{{'monster.remove'  | ghsLabel}}</a>
+      <a (click)="active = SubMenu.monster_remove">{{'monster.remove' | ghsLabel}}</a>
     </div>
 
     <div class="line separator" [ngClass]="{'disabled' : hasAllCharacter()}">
-      <a (click)="active = SubMenu.character_add">{{'character.add'  | ghsLabel}}</a>
+      <a (click)="active = SubMenu.character_add">{{'character.add' | ghsLabel}}</a>
     </div>
     <div class="line" [ngClass]="{'disabled' : characters().length == 0}">
-      <a (click)="active = SubMenu.character_remove">{{'character.remove'  | ghsLabel}}</a>
-    </div>
-    
-    <div class="line separator">
-      <a (click)="active = SubMenu.settings">{{'settings'  | ghsLabel}}</a>
+      <a (click)="active = SubMenu.character_remove">{{'character.remove' | ghsLabel}}</a>
     </div>
 
     <div class="line separator">
-      <a (click)="active = SubMenu.about">{{'about'  | ghsLabel}}</a>
+      <a (click)="active = SubMenu.settings">{{'settings' | ghsLabel}}</a>
+    </div>
+
+    <div class="line separator">
+      <a (click)="active = SubMenu.datamanagement">{{'datamanagement' | ghsLabel}}</a>
+    </div>
+
+    <div class="line separator">
+      <a (click)="active = SubMenu.about">{{'about' | ghsLabel}}</a>
+    </div>
+
+    <div class="line separator" *ngIf="hasUpdate">
+      <a (click)="update()">{{'update' | ghsLabel}} (!)</a>
     </div>
   </div>
 
   <ghs-edition-menu *ngSwitchCase="SubMenu.edition"></ghs-edition-menu>
 
-  <div *ngSwitchCase="SubMenu.scenario" class="menu-container scenario">
-    <ng-container *ngIf="gameManager.game.edition">
-      <div class="line"
-        *ngFor="let scenarioData of gameManager.scenarioData | ghsEditionFilter:gameManager.game.edition">
-        <a (click)="setScenario(scenarioData);">
-          #{{scenarioData.index}} {{'data.scenario.' + scenarioData.name | ghsLabel}}
-        </a>
-      </div>
-    </ng-container>
-    <ng-container *ngIf="!gameManager.game.edition">
-      <ng-container *ngFor="let edition of gameManager.editions; let index = index;">
-        <div class="line title disabled" [ngClass]="{'separator' : index > 0}">
-          <label>{{'data.edition.' + edition  | ghsLabel}}</label>
-        </div>
-        <div class="line" *ngFor="let scenarioData of gameManager.scenarioData | ghsEditionFilter:edition">
-          <a (click)="setScenario(scenarioData);">
-            #{{scenarioData.index}} {{'data.scenario.' + scenarioData.name | ghsLabel}}
-          </a>
-        </div>
-      </ng-container>
-    </ng-container>
-  </div>
+  <ghs-scenario-menu *ngSwitchCase="SubMenu.scenario"></ghs-scenario-menu>
 
   <div *ngSwitchCase="SubMenu.character_add" class="menu-container character-add">
-    <ng-container *ngIf="gameManager.game.edition">
-      <div class="line"
-        *ngFor="let characterData of gameManager.charactersData | ghsEditionFilter:gameManager.game.edition | ghsSort"
-        [ngClass]="{'disabled' : hasCharacter(characterData)}">
-        <a (click)="addCharacter(characterData);">
-          {{'data.character.' + characterData.name | ghsLabel}}
-        </a>
-      </div>
-    </ng-container>
-    <ng-container *ngIf="!gameManager.game.edition">
-      <ng-container *ngFor="let edition of gameManager.editions; let index = index;">
-        <div class="line title disabled" [ngClass]="{'separator' : index > 0}">
+    <div class="columns">
+      <div class="column spoilers"
+        *ngFor="let edition of (gameManager.game.edition ? [gameManager.game.edition] : gameManager.editions);">
+        <div class="line title sticky" *ngIf="!gameManager.game.edition">
           <label>{{'data.edition.' + edition  | ghsLabel}}</label>
         </div>
-        <div class="line" *ngFor="let characterData of gameManager.charactersData | ghsEditionFilter:edition | ghsSort"
-          [ngClass]="{'disabled' : hasCharacter(characterData)}">
-          <a (click)="addCharacter(characterData);">
-            {{'data.character.' + characterData.name | ghsLabel}}
+        <div class="line" *ngFor="let characterData of characterData(edition)"
+          [ngClass]="{'disabled' : hasCharacter(characterData), 'spoiler' : characterData.spoiler}">
+          <a (click)="addCharacter(characterData);" *ngIf="isSpoiled(characterData)">
+            <img class="icon"
+              [src]="gameManager.characterManager.characterIcon(characterData)" />{{'data.character.' + characterData.name | ghsLabel}}
+          </a>
+          <a (click)="settingsManager.addSpoiler(characterData.name);" *ngIf="!isSpoiled(characterData)">
+            <img class="icon" [src]="gameManager.characterManager.characterIcon(characterData)" />
+            <span class="name">
+              {{'spoiler.placeholder' | ghsLabel}}</span>
+            <span class="add">{{'spoiler.add' | ghsLabel}}</span>
           </a>
         </div>
-      </ng-container>
-    </ng-container>
+        <div class="line separator" *ngIf="hasSpoilers(characterData(edition))">
+          <a (click)="settingsManager.addSpoilers(notSpoiled(characterData(edition)))">{{'spoiler.all' | ghsLabel}}</a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div *ngSwitchCase="SubMenu.character_remove" class="menu-container character-remove">
     <div class="line">
       <a (click)="removeAllCharacters()">
-        &lt;{{'character.removeAll'  | ghsLabel}}&gt;
+        &lt;{{'character.removeAll' | ghsLabel}}&gt;
       </a>
     </div>
-    <div class="line" *ngFor="let character of characters() | ghsSort">
+    <div class="line" *ngFor="let character of characters()">
       <a (click)="removeCharacter(character);">
-        <span *ngIf="character.title">{{character.title}} (</span>
+        <img class="icon" [src]="gameManager.characterManager.characterIcon(character)" /><span
+          *ngIf="character.title">{{character.title}} (</span>
         {{'data.character.' + character.name | ghsLabel}}
         <span *ngIf="character.title">)</span>
       </a>
@@ -112,33 +102,33 @@
   </div>
 
   <div *ngSwitchCase="SubMenu.monster_add" class="menu-container monster-add">
-    <ng-container *ngIf="gameManager.game.edition">
-      <div class="line" *ngFor="let monsterData of gameManager.monstersData | ghsEditionFilter:gameManager.game.edition | ghsSort"
-        [ngClass]="{'disabled' : hasMonster(monsterData)}">
-        <a (click)="addMonster(monsterData);">
-          {{'data.monster.' + monsterData.name | ghsLabel}}
-        </a>
-      </div>
-    </ng-container>
-    <ng-container *ngIf="!gameManager.game.edition">
-      <ng-container *ngFor="let edition of gameManager.editions; let index = index;">
-        <div class="line title disabled" [ngClass]="{'separator' : index > 0}">
+    <div class="columns">
+      <div class="column spoilers"
+        *ngFor="let edition of (gameManager.game.edition ? [gameManager.game.edition] : gameManager.editions);">
+        <div class="line title sticky" *ngIf="!gameManager.game.edition">
           <label>{{'data.edition.' + edition  | ghsLabel}}</label>
         </div>
-        <div class="line" *ngFor="let monsterData of gameManager.monstersData | ghsEditionFilter:edition | ghsSort"
-          [ngClass]="{'disabled' : hasMonster(monsterData)}">
-          <a (click)="addMonster(monsterData);">
+        <div class="line" *ngFor="let monsterData of monsterData() | ghsEditionFilter:edition"
+          [ngClass]="{'disabled' : hasMonster(monsterData), 'spoiler' : monsterData.spoiler}">
+          <a (click)="addMonster(monsterData);" *ngIf="isSpoiled(monsterData)">
             {{'data.monster.' + monsterData.name | ghsLabel}}
           </a>
+          <a (click)="settingsManager.addSpoiler(monsterData.name);" *ngIf="!isSpoiled(monsterData)">
+            <span class="name">{{'spoiler.placeholder' | ghsLabel}}</span>
+            <span class="add">{{'spoiler.add' | ghsLabel}}</span>
+          </a>
         </div>
-      </ng-container>
-    </ng-container>
+      </div>
+    </div>
+    <div class="line" *ngIf="hasSpoilers(monsterData())">
+      <a (click)="settingsManager.addSpoilers(notSpoiled(monsterData()))">{{'spoiler.all' | ghsLabel}}</a>
+    </div>
   </div>
 
   <div *ngSwitchCase="SubMenu.monster_remove" class="menu-container monster-remove">
     <div class="line">
       <a (click)="removeAllMonsters()">
-        &lt;{{'monster.removeAll'  | ghsLabel}}&gt;
+        &lt;{{'monster.removeAll' | ghsLabel}}&gt;
       </a>
     </div>
     <div class="line" *ngFor="let monster of monsters() | ghsSort">
@@ -149,6 +139,8 @@
   </div>
 
   <ghs-settings-menu *ngSwitchCase="SubMenu.settings" [setDialogPosition]="setDialogPositionFunc"></ghs-settings-menu>
+
+  <ghs-datamanagement-menu *ngSwitchCase="SubMenu.datamanagement"></ghs-datamanagement-menu>
 
   <div *ngSwitchCase="SubMenu.about" class="menu-container about">
     <div class="line">

@@ -1,8 +1,10 @@
 import { Figure } from "./Figure";
-import { Entity } from "./Entity";
+import { Entity, EntityValueFunction } from "./Entity";
 import { Condition } from "./Condition";
 import { CharacterStat } from "./CharacterStat";
 import { CharacterData } from "./data/CharacterData";
+import { GameSummonModel, Summon, SummonColor, SummonState } from "./Summon";
+import { gameManager } from "../businesslogic/GameManager";
 
 export class CharacterEntity extends CharacterData implements Entity, Figure {
   title: string = "";
@@ -11,6 +13,7 @@ export class CharacterEntity extends CharacterData implements Entity, Figure {
   loot: number = 0;
   exhausted: boolean = false;
   stat: CharacterStat;
+  summons: Summon[] = [];
 
   // from figure
   level: number;
@@ -28,7 +31,7 @@ export class CharacterEntity extends CharacterData implements Entity, Figure {
   }
 
   constructor(character: CharacterData, level: number) {
-    super(character.name, character.stats, character.edition);
+    super(character.name, character.stats, character.edition, character.summon, character.icon, character.thumbnail);
 
     if (!this.stats.some((characterStat: CharacterStat) => characterStat.level == level)) {
       throw Error("Invalid character level: " + level);
@@ -41,6 +44,10 @@ export class CharacterEntity extends CharacterData implements Entity, Figure {
     this.health = this.maxHealth;
     this.conditions = [];
     this.turnConditions = [];
+
+    if (this.summon && this.summon.automatic && (!this.summon.level || this.summon.level <= this.level)) {
+      this.createSummon();
+    }
   }
 
   setLevel(level: number) {
@@ -59,10 +66,40 @@ export class CharacterEntity extends CharacterData implements Entity, Figure {
     if (this.health > this.maxHealth) {
       this.health = this.maxHealth;
     }
+
+    if (this.summon) {
+      if (this.summons.some((summon: Summon) => summon.number == 0)) {
+        let summon = this.summons.filter((summon: Summon) => summon.number == 0)[ 0 ];
+        if (summon.health == summon.maxHealth) {
+          summon.health = typeof this.summon.health == "number" ? this.summon.health : EntityValueFunction(this.summon.health, this.level);
+        }
+        summon.maxHealth = typeof this.summon.health == "number" ? this.summon.health : EntityValueFunction(this.summon.health, this.level);
+        summon.attack = typeof this.summon.attack == "number" ? this.summon.attack : EntityValueFunction(this.summon.attack, this.level);
+        summon.movement = typeof this.summon.movement == "number" ? this.summon.movement : EntityValueFunction(this.summon.movement, this.level);
+        summon.range = typeof this.summon.range == "number" ? this.summon.range : EntityValueFunction(this.summon.range, this.level);
+      } else if (this.summon.automatic && this.summon.level && this.summon.level <= this.level) {
+        this.createSummon();
+      }
+    }
+  }
+
+  createSummon() {
+    if (this.summon) {
+      let summon: Summon = new Summon(this.level, 0, SummonColor.custom);
+      summon.maxHealth = typeof this.summon.health == "number" ? this.summon.health : EntityValueFunction(this.summon.health, this.level);
+      summon.attack = typeof this.summon.attack == "number" ? this.summon.attack : EntityValueFunction(this.summon.attack, this.level);
+      summon.movement = typeof this.summon.movement == "number" ? this.summon.movement : EntityValueFunction(this.summon.movement, this.level);
+      summon.range = typeof this.summon.range == "number" ? this.summon.range : EntityValueFunction(this.summon.range, this.level);
+      summon.health = summon.maxHealth;
+      summon.state = SummonState.true;
+      summon.init = false;
+      gameManager.characterManager.addSummon(this, summon);
+      // TODO: FIX
+    }
   }
 
   toModel(): GameCharacterEntityModel {
-    return new GameCharacterEntityModel(this.name, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.conditions, this.turnConditions);
+    return new GameCharacterEntityModel(this.name, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.conditions, this.turnConditions, this.summons.map((summon: Summon) => summon.toModel()));
   }
 
   fromModel(model: GameCharacterEntityModel) {
@@ -78,6 +115,11 @@ export class CharacterEntity extends CharacterData implements Entity, Figure {
     this.maxHealth = model.maxHealth;
     this.conditions = model.conditions;
     this.turnConditions = model.turnConditions;
+    this.summons = model.summons.map((value: GameSummonModel) => {
+      const entity = new Summon(value.level, value.number, value.color);
+      entity.fromModel(value);
+      return entity;
+    })
   }
 
 }
@@ -98,6 +140,7 @@ export class GameCharacterEntityModel {
   maxHealth: number;
   conditions: Condition[];
   turnConditions: Condition[];
+  summons: GameSummonModel[];
 
 
   constructor(name: string,
@@ -112,7 +155,8 @@ export class GameCharacterEntityModel {
     health: number,
     maxHealth: number,
     conditions: Condition[],
-    turnConditions: Condition[]) {
+    turnConditions: Condition[],
+    summons: GameSummonModel[]) {
     this.name = name;
     this.title = title;
     this.initiative = initiative;
@@ -126,6 +170,7 @@ export class GameCharacterEntityModel {
     this.maxHealth = maxHealth;
     this.conditions = conditions;
     this.turnConditions = turnConditions;
+    this.summons = summons;
   }
 
 }

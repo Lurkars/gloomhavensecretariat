@@ -2,8 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { DialogComponent } from './ui/dialog/dialog';
 import { CharacterComponent } from './ui/figures/character/character';
-import { CharacterInitiativePicker } from './ui/figures/character/dialogs/initiativepicker';
-import { ActionHexComponent, MonsterActionComponent, MonsterActionsComponent } from './ui/figures/monster/actions/action';
+import { ActionHexComponent, ActionComponent, ActionsComponent } from './ui/figures/actions/action';
 import { AbilityComponent } from './ui/figures/monster/cards/ability';
 import { MonsterImageComponent } from './ui/figures/monster/cards/image';
 import { MonsterStatsComponent } from './ui/figures/monster/cards/stats';
@@ -22,6 +21,13 @@ import { CardRevealDirective } from './ui/helper/CardReveal';
 import { GhsEditionFilterPipe, GhsLabelPipe, GhsSortPipe, GhsValueCalcPipe, GhsValueSignPipe } from './ui/helper/Pipes';
 import { MainComponent } from './ui/main';
 import { PopupComponent } from './ui/popup/popup';
+import { CharacterSummonDialog } from './ui/figures/character/dialogs/summondialog';
+import { SummonEntityComponent } from './ui/figures/character/summon/summon';
+import { GhsSvgComponent } from './ui/helper/svg/svg';
+import { CharacterImageComponent } from './ui/figures/character/cards/image';
+import { DatamanagementMenuComponent } from './ui/header/menu/datamanagement/datamanagement';
+import { ScenarioMenuComponent } from './ui/header/menu/scenario/scenario';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -30,22 +36,25 @@ describe('AppComponent', () => {
         AppComponent,
         MainComponent,
         HeaderComponent, ElementIconComponent,
-        MainMenuComponent, EditionMenuComponent, SettingsMenuComponent,
+        MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent,
         FooterComponent,
         AttackModifierComponent,
         LevelComponent,
         DialogComponent, PopupComponent,
-        CharacterComponent,
-        CharacterInitiativePicker,
+        CharacterComponent, CharacterImageComponent, CharacterSummonDialog,
+        SummonEntityComponent,
         MonsterComponent,
         MonsterEntityComponent,
         MonsterImageComponent,
         AbilityComponent,
         MonsterStatsComponent,
         MonsterNumberPicker,
-        MonsterActionsComponent, MonsterActionComponent, ActionHexComponent,
+        ActionsComponent, ActionComponent, ActionHexComponent,
         CardRevealDirective,
-        GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsLabelPipe, GhsSortPipe
+        GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent
+      ],
+      imports: [
+        ServiceWorkerModule.register('ngsw-worker.js', { enabled: false })
       ],
     }).compileComponents();
   });

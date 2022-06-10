@@ -39,7 +39,7 @@
       <div class="card-container attack-modifier" *ngFor="let attackModifier of upcomingCards();">
         <div class="card" card-reveal [ngClass]="{'flipped' : reveal == 2}">
           <a class="card-front front">
-            <span class="revealed">Click again to reveal!</span>
+            <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
           </a>
           <div class="card-back back">
             <img src="./assets/images/attackmodifier/{{attackModifier.type}}.png" />

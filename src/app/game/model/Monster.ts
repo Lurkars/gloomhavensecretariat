@@ -25,7 +25,7 @@ export class Monster extends MonsterData implements Figure {
   entities: MonsterEntity[] = [];
 
   constructor(monsterData: MonsterData) {
-    super(monsterData.name, monsterData.count, monsterData.stats, monsterData.edition, monsterData.deck, monsterData.boss);
+    super(monsterData.name, monsterData.count, monsterData.stats, monsterData.edition, monsterData.deck, monsterData.boss, monsterData.thumbnail, monsterData.spoiler);
     this.availableAbilities = gameManager.abilities(this.deck, this.edition).map((ability: Ability, index: number) => index);
     this.level = 0;
   }
