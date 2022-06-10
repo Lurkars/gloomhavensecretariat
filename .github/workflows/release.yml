@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       release_id: ${{ steps.create_release.outputs.id }}
+      upload_url: ${{ steps.create_release.outputs.upload_url }}
     steps:
       - name: Create release
         id: create_release
@@ -50,11 +51,14 @@ jobs:
           directory: "dist/gloomhavensecretary/"
           filename: "gloomhavensecretary-${{github.ref_name}}.zip"
       - name: Upload release zip
-        uses: alexellis/upload-assets@0.3.0
+        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          asset_paths: '["./dist/gloomhavensecretary/gloomhavensecretary-${{github.ref_name}}.zip"]'
+          upload_url: ${{ needs.create_release.outputs.upload_url }}
+          asset_path: ./dist/gloomhavensecretary/gloomhavensecretary-${{github.ref_name}}.zip
+          asset_name: gloomhavensecretary-${{github.ref_name}}.zip
+          asset_content_type: application/octet-stream
   release_electron:
     name: Release electron builds
     needs: create_release
@@ -83,7 +87,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.TOKEN }}
   publish:
-    name: Release zip
+    name: Publish Draft Release
     needs: [create_release, release_electron]
     runs-on: ubuntu-latest
     steps:
