@@ -7,14 +7,17 @@
   color: var(--ghs-color-gray);
   text-shadow: var(--ghs-outline);
   font-weight: bold;
+  width: calc(var(--ghs-column-unit) * 5);
+  height: calc(var(--ghs-column-unit) * 5);
+  text-align: center;
+
+  &.elite {
+    color: var(--ghs-color-yellow);
+  }
 
   &:hover,
   &.active-button {
     color: var(--ghs-color-white);
-  }
-
-  &.elite {
-    color: var(--ghs-color-yellow);
   }
 
   &.disabled {

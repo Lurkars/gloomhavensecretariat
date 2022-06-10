@@ -1049,7 +1049,7 @@
       "name": "Roadside Ambush",
       "index": "1",
       "monsters": [
-        "common-vermling raider"
+        "common-vermling-raider"
       ]
     },
     {
@@ -1057,7 +1057,7 @@
       "name": "A Hole in the Wall",
       "index": "2",
       "monsters": [
-        "basic-vermling raider"
+        "basic-vermling-raider"
       ]
     },
     {
@@ -1065,7 +1065,7 @@
       "name": "The Black Ship",
       "index": "3",
       "monsters": [
-        "basic-giant viper",
+        "basic-giant-viper",
         "basic-zealot"
       ]
     },
@@ -1203,7 +1203,7 @@
       "monsters": [
         "blood-imp",
         "blood-monstrosity",
-        "first-of the order"
+        "first-of-the-order"
       ]
     },
     {
