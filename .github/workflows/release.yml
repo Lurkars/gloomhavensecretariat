@@ -50,7 +50,7 @@ jobs:
           type: "zip"
           directory: "dist/gloomhavensecretary/"
           filename: "gloomhavensecretary-${{github.ref_name}}.zip"
-      - name: Upload release binaries
+      - name: Upload release zip
         uses: alexellis/upload-assets@0.3.0
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
@@ -81,9 +81,5 @@ jobs:
         run: |
           npm i
           npm run electron:build
-      - name: Upload release binaries
-        uses: alexellis/upload-assets@0.3.0
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        with:
-          asset_paths: '["./dist/gloomhavensecretary_${{github.ref_name}}_*"]'
+          GH_TOKEN: ${{ secrets.TOKEN }}
