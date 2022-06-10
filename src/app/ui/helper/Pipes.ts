@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Action, ActionValueType } from 'src/app/game/model/Action';
@@ -110,7 +111,18 @@ export class GhsLabelPipe implements PipeTransform {
 
 }
 
+@Pipe({
+  name: 'ghsHtmlLabel', pure: false
+})
+export class GhsHtmlLabelPipe implements PipeTransform {
 
+  constructor(private sanitizer: DomSanitizer) { }
+
+  transform(value: string, ...args: string[]): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(settingsManager.getLabel(value, args));
+  }
+
+}
 
 @Pipe({
   name: 'ghsSort', pure: false

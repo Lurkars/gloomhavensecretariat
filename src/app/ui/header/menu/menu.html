@@ -144,11 +144,24 @@
 
   <div *ngSwitchCase="SubMenu.about" class="menu-container about">
     <div class="line">
-      <p>Gloomhaven and all related properties, images and text are owned by <a href="https://cephalofair.com"
-          target="_blank">Cephalofair Games.</a></p>
+      <p
+        [innerHTML]="'about.ip' | ghsHtmlLabel:'<a href=\'https:\/\/cephalofair.com\' target=\'_blank\'>Cephalofair Games</a>'">
+      </p>
     </div>
     <div class="line">
-      <a href="https://github.com/Lurkars/gloomhavensecretary" target="_blank">Source Code</a>
+      <span class="text">Gloomhaven Secretary v{{version}}</span>
+    </div>
+    <div class="line">
+      <div class="columns">
+        <div class="column">
+          <a href="https://github.com/Lurkars/gloomhavensecretary" target="_blank">{{'about.sourceCode' | ghsLabel}}</a>
+        </div>
+        <div class="column">
+          <p
+            [innerHTML]="'about.license' | ghsHtmlLabel:'<a href=\'https:\/\/\github.com\/Lurkars\/gloomhavensecretary\/blob\/main\/LICENSE\'  target=\'_blank\'> AGPL3</a>'">
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

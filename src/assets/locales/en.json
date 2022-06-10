@@ -43,7 +43,12 @@
       "de": "German (Deutsch)"
     }
   },
-  "about": "About",
+  "about": {
+    "." : "About",
+    "ip" : "Gloomhaven and all related properties, images and text are owned by {0}.",
+    "license" : "Licensed under {0}.",
+    "sourceCode" : "Source Code"
+  },
   "update": "Update (Reload)",
   "game": {
     "action": {

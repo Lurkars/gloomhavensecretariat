@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, ViewEncapsulation } from "@angular/core";
+import packageJson from '../../../../../package.json';
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { CharacterEntity } from "src/app/game/model/CharacterEntity";
@@ -11,13 +12,13 @@ import { Monster } from "src/app/game/model/Monster";
 import { DialogComponent } from "src/app/ui/dialog/dialog";
 import { SwUpdate } from '@angular/service-worker';
 import { Scenario } from "src/app/game/model/Scenario";
-import { Spoilable } from "src/app/game/model/Spoilable";
 import { ghsHasSpoilers, ghsIsSpoiled, ghsNotSpoiled } from "../../helper/Static";
 
 @Component({
   selector: 'ghs-main-menu',
   templateUrl: 'menu.html',
-  styleUrls: [ './menu.scss', '../../dialog/dialog.scss' ]
+  styleUrls: [ './menu.scss', '../../dialog/dialog.scss' ],
+  encapsulation: ViewEncapsulation.None
 })
 export class MainMenuComponent extends DialogComponent {
 
@@ -31,6 +32,7 @@ export class MainMenuComponent extends DialogComponent {
   hasSpoilers = ghsHasSpoilers;
   isSpoiled = ghsIsSpoiled;
   notSpoiled = ghsNotSpoiled;
+  version = packageJson.version;
 
   constructor(private swUpdate: SwUpdate) {
     super();
