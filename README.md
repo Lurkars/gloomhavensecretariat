@@ -19,16 +19,15 @@ This is basically a clone implementing the same functionality and look&feel of t
 
 ## Install
 
-All files for installation can be found at the  page.
-
 ### Progressive Web App
 
-You can always install any hosted version as PWA if your OS/Browser supports installation of PWA. For example here is the [Latest Online Version](https://lurkars.github.io/gloomhavensecretary/)
+You can always install any hosted version as PWA if your OS/Browser supports installation of PWA. For example here is the [Latest Online Version](https://lurkars.github.io/gloomhavensecretary/) on GitHub Pages.
 
 
 ### Standalone
 
-An Electron app is provided for Linux, Mac and Windows. Download the corresponding files from the [latest release](https://github.com/Lurkars/gloomhavensecretary/releases/latest) assets.
+An Electron app is provided for Linux, Mac and Windows.
+Download the corresponding files from the [latest release](https://github.com/Lurkars/gloomhavensecretary/releases/latest) assets.
 
 > only tested Linux AppImage for now
 
@@ -52,7 +51,9 @@ Prerequisite:
 
 Checkout the source code with `git clone https://github.com/Lurkars/gloomhavensecretary.git`.
 
-Run `ng serve` to create a development server at [http://localhost:4200](http://localhost:4200).
+Install dependencies with `npm install`.
+
+Afterwards run `ng serve` to create a development server at [http://localhost:4200](http://localhost:4200).
 
 ## Contributing
 
