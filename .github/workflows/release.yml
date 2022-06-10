@@ -7,8 +7,6 @@ jobs:
   create_release:
     name: Create release
     runs-on: ubuntu-latest
-    outputs:
-      upload_url: ${{ steps.create_release.outputs.upload_url }}
     steps:
       - name: Create release
         id: create_release
@@ -18,8 +16,7 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: ${{ github.ref }}
-          draft: false
-          prerelease: false
+          draft: true
   release_zip:
     name: Release zip
     needs: create_release
@@ -83,3 +80,13 @@ jobs:
           npm run electron:build
         env:
           GH_TOKEN: ${{ secrets.TOKEN }}
+  publish:
+    name: Release zip
+    needs: release_electron
+    runs-on: ubuntu-latest
+    steps:
+      - uses: eregon/publish-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        with:
+          release_id: ${{ steps.create_release.outputs.id }}
