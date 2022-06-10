@@ -1,7 +1,7 @@
-on:  
+on:
   push:
     tags:
-      - '*'
+      - "*"
 name: Build and publish release
 jobs:
   create_release:
@@ -47,10 +47,11 @@ jobs:
       - name: Create Zip
         uses: thedoctor0/zip-release@main
         with:
-          type: 'zip'
+          type: "zip"
           directory: "dist/gloomhavensecretary/"
-          filename: 'gloomhavensecretary-${{github.ref_name}}.zip'
-      uses: alexellis/upload-assets@0.3.0
+          filename: "gloomhavensecretary-${{github.ref_name}}.zip"
+      - name: Upload release binaries
+        uses: alexellis/upload-assets@0.3.0
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
