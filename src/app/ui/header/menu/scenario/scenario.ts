@@ -4,7 +4,6 @@ import { settingsManager, SettingsManager } from "src/app/game/businesslogic/Set
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { GameState } from "src/app/game/model/Game";
 import { Scenario } from "src/app/game/model/Scenario";
-import { ghsIsSpoiled } from "src/app/ui/helper/Static";
 
 @Component({
   selector: 'ghs-scenario-menu',
@@ -44,15 +43,12 @@ export class ScenarioMenuComponent {
   }
 
   customScenario() {
-    this.edition = undefined;
-    gameManager.stateManager.before();
-    if (gameManager.game.scenario && gameManager.game.scenario.custom) {
-      gameManager.setScenario(undefined);
-    } else {
+    if (!gameManager.game.scenario || !gameManager.game.scenario.custom) {
+      this.edition = undefined;
+      gameManager.stateManager.before();
       gameManager.setScenario(new Scenario("", 0, [], "", false, true));
+      gameManager.stateManager.after();
     }
-
-    gameManager.stateManager.after();
   }
 
   customScenarioName(event: any) {

@@ -266,8 +266,8 @@ export class GameManager {
 
   setScenario(scenario: Scenario | undefined) {
     this.game.scenario = scenario;
-    this.game.figures = this.game.figures.filter((figure: Figure) => figure instanceof CharacterData);
-    if (scenario) {
+    if (scenario && !scenario.custom) {
+      this.game.figures = this.game.figures.filter((figure: Figure) => figure instanceof CharacterData);
       scenario.monsters.forEach((name: string) => {
         if (this.monstersData.some((monsterData: MonsterData) => monsterData.name == name && monsterData.edition == scenario.edition)) {
           this.monsterManager.addMonster(this.monstersData.filter((monsterData: MonsterData) => monsterData.name == name && monsterData.edition == scenario.edition)[ 0 ]);
