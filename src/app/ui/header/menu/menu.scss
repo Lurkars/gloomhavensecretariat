@@ -77,6 +77,7 @@
       font-size: calc(var(--ghs-unit) * 3.5);
       color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
+      
       &:hover {
         color: var(--ghs-color-white);
       }
