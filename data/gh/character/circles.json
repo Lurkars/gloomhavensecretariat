@@ -1,0 +1,43 @@
+{
+  "edition": "gh",
+  "name": "circles",
+  "spoiler": true,
+  "stats": [
+    {
+      "health": 8,
+      "level": 1
+    },
+    {
+      "health": 9,
+      "level": 2
+    },
+    {
+      "health": 11,
+      "level": 3
+    },
+    {
+      "health": 12,
+      "level": 4
+    },
+    {
+      "health": 14,
+      "level": 5
+    },
+    {
+      "health": 15,
+      "level": 6
+    },
+    {
+      "health": 17,
+      "level": 7
+    },
+    {
+      "health": 18,
+      "level": 8
+    },
+    {
+      "health": 20,
+      "level": 9
+    }
+  ]
+}

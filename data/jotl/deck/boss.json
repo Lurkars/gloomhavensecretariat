@@ -1,0 +1,135 @@
+{
+  "abilities": [
+    {
+      "actions": [
+        {
+          "subActions": [],
+          "type": "special",
+          "value": 2,
+          "valueType": "fixed"
+        }
+      ],
+      "initiative": 11,
+      "name": "Accelerated Power",
+      "shuffle": false
+    },
+    {
+      "actions": [
+        {
+          "subActions": [],
+          "type": "special",
+          "value": 2,
+          "valueType": "fixed"
+        }
+      ],
+      "initiative": 14,
+      "name": "Accelerated Power",
+      "shuffle": false
+    },
+    {
+      "actions": [
+        {
+          "subActions": [],
+          "type": "special",
+          "value": 2,
+          "valueType": "fixed"
+        }
+      ],
+      "initiative": 17,
+      "name": "Accelerated Power",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "subActions": [],
+          "type": "special",
+          "value": 1,
+          "valueType": "fixed"
+        }
+      ],
+      "initiative": 85,
+      "name": "Lingering Strenth",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "subActions": [],
+          "type": "special",
+          "value": 1,
+          "valueType": "fixed"
+        }
+      ],
+      "initiative": 79,
+      "name": "Lingering Strenth",
+      "shuffle": false
+    },
+    {
+      "actions": [
+        {
+          "subActions": [],
+          "type": "special",
+          "value": 1,
+          "valueType": "fixed"
+        }
+      ],
+      "initiative": 73,
+      "name": "Lingering Strenth",
+      "shuffle": false
+    },
+    {
+      "actions": [
+        {
+          "subActions": [],
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 36,
+      "name": "Nothing Speical",
+      "shuffle": false
+    },
+    {
+      "actions": [
+        {
+          "subActions": [],
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "subActions": [],
+              "type": "range",
+              "value": 3,
+              "valueType": "fixed"
+            },
+            {
+              "subActions": [],
+              "type": "target",
+              "value": 2,
+              "valueType": "fixed"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 54,
+      "name": "Twin Missiles",
+      "shuffle": false
+    }
+  ],
+  "edition": "jotl",
+  "name": "boss"
+}

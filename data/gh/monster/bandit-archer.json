@@ -1,0 +1,158 @@
+{
+  "count": 6,
+  "deck": "archer",
+  "edition": "gh",
+  "name": "bandit-archer",
+  "baseStat": {
+    "actions": [],
+    "immunities": [],
+    "special": [],
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "attack": 2,
+      "health": 4,
+      "level": 0,
+      "movement": 2,
+      "range": 3
+    },
+    {
+      "attack": 2,
+      "health": 5,
+      "level": 1,
+      "movement": 2,
+      "range": 4
+    },
+    {
+      "attack": 2,
+      "health": 6,
+      "level": 2,
+      "movement": 3,
+      "range": 4
+    },
+    {
+      "attack": 3,
+      "health": 6,
+      "level": 3,
+      "movement": 3,
+      "range": 4
+    },
+    {
+      "attack": 3,
+      "health": 8,
+      "level": 4,
+      "movement": 3,
+      "range": 4
+    },
+    {
+      "attack": 3,
+      "health": 10,
+      "level": 5,
+      "movement": 3,
+      "range": 5
+    },
+    {
+      "attack": 4,
+      "health": 10,
+      "level": 6,
+      "movement": 3,
+      "range": 5
+    },
+    {
+      "attack": 4,
+      "health": 13,
+      "level": 7,
+      "movement": 3,
+      "range": 5
+    },
+    {
+      "attack": 3,
+      "health": 6,
+      "level": 0,
+      "movement": 2,
+      "range": 3,
+      "type": "elite"
+    },
+    {
+      "attack": 3,
+      "health": 7,
+      "level": 1,
+      "movement": 2,
+      "range": 5,
+      "type": "elite"
+    },
+    {
+      "attack": 3,
+      "health": 9,
+      "level": 2,
+      "movement": 3,
+      "range": 5,
+      "type": "elite"
+    },
+    {
+      "attack": 4,
+      "health": 10,
+      "level": 3,
+      "movement": 3,
+      "range": 5,
+      "type": "elite"
+    },
+    {
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ],
+      "health": 10,
+      "level": 4,
+      "movement": 3,
+      "range": 6,
+      "type": "elite"
+    },
+    {
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ],
+      "health": 12,
+      "level": 5,
+      "movement": 4,
+      "range": 6,
+      "type": "elite"
+    },
+    {
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ],
+      "health": 13,
+      "level": 6,
+      "movement": 4,
+      "range": 6,
+      "type": "elite"
+    },
+    {
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ],
+      "health": 17,
+      "level": 7,
+      "movement": 4,
+      "range": 6,
+      "type": "elite"
+    }
+  ]
+}

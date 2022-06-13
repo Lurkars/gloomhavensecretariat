@@ -1,0 +1,102 @@
+{
+  "boss": true,
+  "count": 1,
+  "deck": "boss",
+  "edition": "gh",
+  "name": "jekserah",
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "disarm",
+      "wound",
+      "curse",
+      "stun"
+    ],
+    "special": [
+      [
+        {
+          "type": "custom",
+          "value": "Summon Living Bones"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "Summon Living Corpse"
+        },
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "plus"
+        }
+      ]
+    ],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "attack": 2,
+      "health": "6xC",
+      "level": 0,
+      "movement": 2
+    },
+    {
+      "attack": 3,
+      "health": "7xC",
+      "level": 1,
+      "movement": 2
+    },
+    {
+      "attack": 3,
+      "health": "9xC",
+      "level": 2,
+      "movement": 3
+    },
+    {
+      "attack": 4,
+      "health": "12xC",
+      "level": 3,
+      "movement": 4
+    },
+    {
+      "attack": 5,
+      "health": "13xC",
+      "level": 4,
+      "movement": 4
+    },
+    {
+      "attack": 5,
+      "health": "15xC",
+      "level": 5,
+      "movement": 5
+    },
+    {
+      "attack": 5,
+      "health": "18xC",
+      "level": 6,
+      "movement": 5
+    },
+    {
+      "attack": 5,
+      "health": "22xC",
+      "level": 7,
+      "movement": 5
+    }
+  ]
+}

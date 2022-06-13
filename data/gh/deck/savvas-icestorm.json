@@ -1,0 +1,254 @@
+{
+  "abilities": [
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ],
+          "type": "push",
+          "value": 2
+        },
+        {
+          "subActions": [
+            {
+              "type": "push",
+              "value": 4,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "instead"
+                }
+              ]
+            }
+          ],
+          "type": "element",
+          "value": "air",
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "valueType": "plus"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 70,
+      "name": "Savvas Icestorm"
+    },
+    {
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Summon normal Wind Demon"
+        },
+        {
+          "type": "element",
+          "value": "air"
+        }
+      ],
+      "initiative": 98,
+      "name": "Savvas Icestorm"
+    },
+    {
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Summon normal Frost Demon"
+        },
+        {
+          "type": "element",
+          "value": "ice"
+        }
+      ],
+      "initiative": 98,
+      "name": "Savvas Icestorm"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": -1
+            },
+            {
+              "type": "specialTarget",
+              "value": "selfAlliesRange"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ],
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "element",
+          "value": "ice"
+        }
+      ],
+      "initiative": 19,
+      "name": "Savvas Icestorm"
+    },
+    {
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "valueType": "plus"
+            },
+            {
+              "type": "condition",
+              "value": "immobilize"
+            }
+          ],
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus"
+        },
+        {
+          "type": "retaliate",
+          "value": 2
+        },
+        {
+          "type": "element",
+          "value": "air"
+        }
+      ],
+      "initiative": 14,
+      "name": "Savvas Icestorm"
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 4
+        },
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ],
+          "type": "heal",
+          "value": 2
+        },
+        {
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 3,
+              "valueType": "plus"
+            }
+          ],
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ],
+          "type": "element",
+          "value": "air",
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 14,
+      "name": "Savvas Icestorm"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ],
+          "type": "condition",
+          "value": "disarm"
+        },
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "element",
+          "value": "air"
+        }
+      ],
+      "initiative": 47,
+      "name": "Savvas Icestorm",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions" : [{
+            "type"  : "area",
+            "value" : "(2,0,true)|(1,1,true)|(2,1,true)|(1,2,false)|(2,2,true)|(3,2,true)"
+          }]
+        },
+        {
+          "type": "element",
+          "value": "ice"
+        }
+      ],
+      "initiative": 35,
+      "name": "Savvas Icestorm",
+      "shuffle": true
+    }
+  ],
+  "edition": "gh",
+  "name": "savvas-icestorm"
+}

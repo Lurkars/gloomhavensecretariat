@@ -1,0 +1,165 @@
+{
+  "abilities": [
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        }
+      ],
+      "initiative": 11,
+      "name": "Stone Golem"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "custom",
+          "value": "Stone Gloem suffers 1 damage."
+        }
+      ],
+      "initiative": 28,
+      "name": "Stone Golem"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 51,
+      "name": "Stone Golem",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 65,
+      "name": "Stone Golem"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "custom",
+          "value": "Stone Golem suffers 2 damage."
+        }
+      ],
+      "initiative": 72,
+      "name": "Stone Golem"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 90,
+      "name": "Stone Golem",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 83,
+      "name": "Stone Golem"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            },
+            {
+              "type": "pull",
+              "value": 2
+            },
+            {
+              "type": "condition",
+              "value": "immobilize"
+            }
+          ],
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 28,
+      "name": "Stone Golem"
+    }
+  ],
+  "edition": "gh",
+  "name": "stone-golem"
+}

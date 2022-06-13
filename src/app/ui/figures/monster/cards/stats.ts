@@ -6,6 +6,8 @@ import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { MonsterStat } from 'src/app/game/model/MonsterStat';
 import { MonsterType } from 'src/app/game/model/MonsterType';
 import { DialogComponent } from 'src/app/ui/dialog/dialog';
+import { ghsUnit, ghsUnitUnit } from 'src/app/ui/helper/Static';
+import { PopupComponent } from 'src/app/ui/popup/popup';
 
 @Component({
   selector: 'ghs-monster-stats',
@@ -19,6 +21,7 @@ export class MonsterStatsComponent extends DialogComponent {
 
   stats: MonsterStat | undefined = undefined;
   eliteStats: MonsterStat | undefined = undefined;
+  statOverview: boolean = false;
 
   @ViewChild('normalButton', { read: ElementRef }) normalButton!: ElementRef;
   @ViewChild('eliteButton', { read: ElementRef }) eliteButton!: ElementRef;
@@ -35,7 +38,7 @@ export class MonsterStatsComponent extends DialogComponent {
       if (!this.monster.stats.some((monsterStat: MonsterStat) => {
         return monsterStat.level == this.monster.level && monsterStat.type == MonsterType.boss;
       })) {
-        throw Error("Could not find stats for monster.")
+        throw Error("Could not find '" + MonsterType.boss + "' stats for monster.")
       }
 
       this.stats = this.monster.stats.filter((monsterStat: MonsterStat) => {
@@ -44,10 +47,15 @@ export class MonsterStatsComponent extends DialogComponent {
     } else {
       if (!this.monster.stats.some((monsterStat: MonsterStat) => {
         return monsterStat.level == this.monster.level && monsterStat.type == MonsterType.normal;
-      }) || !this.monster.stats.some((monsterStat: MonsterStat) => {
+      })) {
+        console.warn(this.monster);
+        throw Error("Could not find '" + MonsterType.normal + "' stats for monster: " + this.monster.name + " level: " + this.monster.level)
+      }
+
+      if (!this.monster.stats.some((monsterStat: MonsterStat) => {
         return monsterStat.level == this.monster.level && monsterStat.type == MonsterType.elite;
       })) {
-        throw Error("Could not find stats for monster.")
+        throw Error("Could not find '" + MonsterType.elite + "' stats for monster: " + this.monster.name + " level: " + this.monster.level)
       }
 
       this.stats = this.monster.stats.filter((monsterStat: MonsterStat) => {
@@ -64,7 +72,7 @@ export class MonsterStatsComponent extends DialogComponent {
     if (!this.monster.stats.some((monsterStat: MonsterStat) => {
       return monsterStat.level == this.monster.level && monsterStat.type == type;
     })) {
-      throw Error("Could not find stats for monster.")
+      throw Error("Could not find '" + type + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
     }
 
     let stat: MonsterStat = this.monster.stats.filter((monsterStat: MonsterStat) => {
@@ -99,7 +107,7 @@ export class MonsterStatsComponent extends DialogComponent {
         }
 
         if (stat == undefined) {
-          throw Error("Could not find stats for monster.")
+          throw Error("Could not find '" + monsterEntity.type + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
         }
 
         monsterEntity.level = this.monster.level;
@@ -124,6 +132,35 @@ export class MonsterStatsComponent extends DialogComponent {
     }
   }
 
+  hexSize(): number {
+    let size = ghsUnit() * 0.5;
+    if (ghsUnitUnit() == 'vw') {
+      size = window.innerWidth / 100 * ghsUnit() * 0.5;
+    }
+    return size;
+  }
 
+  override close(): void {
+    super.close();
+    this.statOverview = false;
+  }
 
+}
+
+@Component({
+  selector: 'ghs-monster-stats-popup',
+  templateUrl: './statspopup.html',
+  styleUrls: [ './statspopup.scss', '../../../popup/popup.scss' ]
+})
+export class MonsterStatsPopupComponent extends PopupComponent {
+
+  @Input() monster!: Monster;
+
+  levels: number[] = [ 0, 1, 2, 3, 4, 5, 6, 7 ];
+
+  getMonsterForLevel(level: number): Monster {
+    let monster: Monster = new Monster(this.monster);
+    monster.level = level;
+    return monster;
+  }
 }

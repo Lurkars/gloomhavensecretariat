@@ -103,13 +103,13 @@
 
   <div *ngSwitchCase="SubMenu.monster_add" class="menu-container monster-add">
     <div class="columns">
-      <div class="column spoilers"
+      <div class="column spoilers bosses"
         *ngFor="let edition of (gameManager.game.edition ? [gameManager.game.edition] : gameManager.editions);">
         <div class="line title sticky" *ngIf="!gameManager.game.edition">
           <label>{{'data.edition.' + edition  | ghsLabel}}</label>
         </div>
         <div class="line" *ngFor="let monsterData of monsterData() | ghsEditionFilter:edition"
-          [ngClass]="{'disabled' : hasMonster(monsterData), 'spoiler' : monsterData.spoiler}">
+          [ngClass]="{'disabled' : hasMonster(monsterData), 'spoiler' : monsterData.spoiler, 'boss' : monsterData.boss}">
           <a (click)="addMonster(monsterData);" *ngIf="isSpoiled(monsterData)">
             {{'data.monster.' + monsterData.name | ghsLabel}}
           </a>

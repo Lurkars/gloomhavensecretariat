@@ -1,6 +1,5 @@
 .stats-container {
   width: calc(var(--ghs-column-unit) * 35);
-  width: calc(var(--ghs-column-unit) * 35);
   height: calc(var(--ghs-column-unit) * 19);
   position: relative;
   background-position: top;
@@ -8,23 +7,12 @@
   background-size: 100% auto;
   background-image: url('~src/assets/images/monster/stats/standard.png');
 
-  .name {
-    position: absolute;
-    top: calc(var(--ghs-column-unit) * 0.1);
-    left: 0;
-    width: 100%;
-    font-family: 'ghs-title';
-    color: var(--ghs-color-white);
-    font-size: calc(var(--ghs-column-unit) * 2.5);
-    text-align: center;
-  }
-
   .level {
     position: absolute;
     top: calc(var(--ghs-column-unit) * 0.5);
-    left: calc(var(--ghs-column-unit) * 6.5);
+    left: calc(var(--ghs-column-unit) * 2);
     font-family: "ghs-title";
-    font-size: calc(var(--ghs-column-unit) * 2.5);
+    font-size: calc(var(--ghs-column-unit) * 3);
     text-shadow: var(--ghs-outline);
     color: var(--ghs-color-gray);
     cursor: pointer;
@@ -35,37 +23,28 @@
     }
   }
 
-  .entities {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: calc(var(--ghs-column-unit) * 4);
-  }
-
   .stats {
     position: absolute;
-    top: calc(var(--ghs-column-unit) * 3.5);
+    top: calc(var(--ghs-column-unit) * 5.5);
     left: 0;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: calc(var(--ghs-column-unit) * 1);
+    column-gap: calc(var(--ghs-column-unit) * 3.5);
 
     .stat {
       font-size: calc(var(--ghs-column-unit) * 2.1);
       font-weight: bold;
-      padding-top: calc(var(--ghs-column-unit) * 0);
-      width: calc(var(--ghs-column-unit) * 3);
-      text-align: center;
+      padding-top: calc(var(--ghs-column-unit) * 0.5);
 
       &.end {
         justify-self: end;
+        text-align: right;
       }
 
       &.start {
         justify-self: start;
+        text-align: left;
         color: var(--ghs-color-white);
         text-shadow: var(--ghs-outline);
       }
@@ -73,29 +52,113 @@
 
   }
 
+  &.boss {
+    background-image: url('~src/assets/images/monster/stats/boss.png');
+
+    .stats {
+      width: calc(var(--ghs-column-unit) * 12.3);
+      grid-template-columns: 1fr;
+      top: calc(var(--ghs-column-unit) * 5.8);
+    }
+  }
+
   .extra {
     position: absolute;
-    top: calc(var(--ghs-column-unit) * 4);
+    top: calc(var(--ghs-column-unit) * 6);
     width: calc(var(--ghs-column-unit) * 9);
     display: flex;
     flex-direction: column;
-    font-size: calc(var(--ghs-column-unit) * 1.5);
+    font-size: calc(var(--ghs-column-unit) * 1.6);
 
-    .condition {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      text-transform: uppercase;
+    .immunities {
+      position: absolute;
+      top: calc(var(--ghs-column-unit) * -0.5);
+      left: calc(var(--ghs-column-unit) * -16.5);
+      display: grid;
+      justify-items: center;
+      grid-template-columns: repeat(6, calc(var(--ghs-column-unit) * 2.3));
+      grid-template-rows: repeat(6, calc(var(--ghs-column-unit) * 1.15));
+      column-gap: calc(var(--ghs-column-unit) * 0.35);
+      row-gap: calc(var(--ghs-column-unit) * 0.35);
 
-      img {
-        padding-left: calc(var(--ghs-column-unit) * 0.3);
-        height: calc(var(--ghs-column-unit) * 2);
-        width: auto;
+      .immunity {
+
+        position: relative;
+        display: block;
+        width: calc(var(--ghs-column-unit) * 2.3);
+        height: calc(var(--ghs-column-unit) * 2.3);
+
+        img {
+          height: calc(var(--ghs-column-unit) * 2.3);
+          width: auto;
+        }
+
+        &:before {
+          content: " ";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: calc(var(--ghs-column-unit) * 2.3);
+          height: calc(var(--ghs-column-unit) * 2.3);
+          background-image: url('~src/assets/images/condition/immunity.svg');
+          background-size: cover;
+        }
+
+        &:nth-child(1) {
+          grid-column-start: 2;
+          grid-column-end: 4;
+          grid-row: 1;
+        }
+
+        &:nth-child(2) {
+          grid-column: 2;
+          grid-row: 2;
+        }
+
+        &:nth-child(3) {
+          grid-column: 3;
+          grid-row: 2;
+        }
+
+        &:nth-child(4) {
+          grid-column-start: 2;
+          grid-column-end: 4;
+          grid-row: 3;
+        }
+
+        &:nth-child(5) {
+          grid-column-start: 3;
+          grid-column-end: 5;
+          grid-row: 3;
+        }
+
+        &:nth-child(6) {
+          grid-column: 3;
+          grid-row: 4;
+        }
+
+        &:nth-child(7) {
+          grid-column-start: 3;
+          grid-column-end: 5;
+          grid-row: 5;
+        }
+
+        &:nth-child(8) {
+          grid-column: 4;
+          grid-row: 6;
+        }
+
+        &:nth-child(9) {
+          grid-column-start: 4;
+          grid-column-end: 6;
+          grid-row: 7;
+        }
       }
     }
 
     &.normal {
-      right: calc(var(--ghs-column-unit) * 21);
+      right: calc(var(--ghs-column-unit) * 22);
       text-align: right;
 
       .condition {
@@ -104,32 +167,23 @@
     }
 
     &.elite {
-      right: calc(var(--ghs-column-unit) * 5);
+      right: calc(var(--ghs-column-unit) * 4);
       color: var(--ghs-color-white);
     }
 
     &.boss {
-      width: calc(var(--ghs-column-unit) * 12);
-      right: calc(var(--ghs-column-unit) * 6);
+      width: calc(var(--ghs-column-unit) * 18);
+      right: calc(var(--ghs-column-unit) * 1);
       color: var(--ghs-color-white);
 
       .additional {
         display: flex;
-        flex-wrap: wrap;
+
         ghs-action {
           flex-basis: 0;
           flex-grow: 1;
         }
       }
-    }
-  }
-
-  &.boss {
-    background-image: url('~src/assets/images/monster/stats/boss.png');
-
-    .stats {
-      width: calc(var(--ghs-column-unit) * 14.5);
-      grid-template-columns: 1fr;
     }
   }
 
@@ -151,7 +205,7 @@
       height: calc(var(--ghs-unit) * 7);
       width: calc(var(--ghs-unit) * 7);
     }
-    
+
     img {
       height: calc(var(--ghs-unit) * 4);
       width: auto;

@@ -1,19 +1,19 @@
-<span class="action" [ngSwitch]="action.type">
+<span class="action" [ngSwitch]="action.type" [ngClass]="{'inline' : inline, 'right' : right}">
   <span *ngSwitchCase="ActionType.area">
-    <ghs-action-hex [value]="action.value + ''"></ghs-action-hex>
+    <ghs-action-hex [value]="action.value + ''" [size]="hexSize"></ghs-action-hex>
   </span>
 
-  <span class="condition" *ngSwitchCase="ActionType.condition">
-    <ng-container *ngFor="let condition of getConditions(action); let index = index;">
-      <span *ngIf="index > 0">&nbsp;{{'and' | ghsLabel}}&nbsp;</span>
+  <span class="conditions" *ngSwitchCase="ActionType.condition">
+    <span class="condition" *ngFor="let condition of getConditions(action); let index = index;">
+      <span *ngIf="index > 0 && !inline">&nbsp;{{'and' | ghsLabel}}&nbsp;</span>
       <span class="condition-value">{{'game.condition.' + condition | ghsLabel}}</span>
       <img class="icon" src="./assets/images/condition/{{condition}}.svg" />
-    </ng-container>
-    <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
-      [action]="subAction" [monster]="monster" [relative]="true">
-    </ghs-action>
+      <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
+        [action]="subAction" [monster]="monster" [relative]="true" [inline]="inline" [right]="right"
+        [hexSize]="hexSize">
+      </ghs-action>
+    </span>
   </span>
-
 
   <span class="element" *ngSwitchCase="ActionType.element">
     <img src="./assets/images/element/{{action.value}}.svg" />
@@ -21,7 +21,8 @@
     <ng-container *ngIf="action.subActions && action.subActions.length > 0">
       <div class="element-subactions">
         <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
-          [action]="subAction" [monster]="monster" [relative]="true">
+          [action]="subAction" [monster]="monster" [relative]="true" [inline]="inline" [right]="right"
+          [hexSize]="hexSize">
         </ghs-action>
       </div>
     </ng-container>
@@ -36,23 +37,23 @@
     <ng-container *ngIf="action.subActions && action.subActions.length > 0">
       <span>:</span>
       <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
-        [action]="subAction" [monster]="monster">
+        [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize">
       </ghs-action>
     </ng-container>
   </span>
 
-  <span class="default" *ngSwitchCase="ActionType.special">
-    <span class="type">{{'game.action.' + action.type | ghsLabel}} {{action.value}}</span>
-    <ghs-action [ngClass]="'subaction-' + getSpecial(action).type" [action]="getSpecial(action)"
-      [monster]="monster">
-    </ghs-action>
+  <span class="default special" *ngSwitchCase="ActionType.special">
+    <span class="type">{{'game.action.' + action.type | ghsLabel}} {{action.value}}:</span>
+    <ghs-actions [actions]="getSpecial(action)" [monster]="monster" [inline]="inline" [right]="right"
+      [hexSize]="hexSize">
+    </ghs-actions>
   </span>
 
   <span class="default" [ngClass]="'action-' + action.type" *ngSwitchDefault>
     <span class="type">{{'game.action.' + action.type | ghsLabel}}</span>
     <img src="./assets/images/action/{{action.type}}.svg" class="icon" />
-    <span *ngIf="!relative" class="value">{{getNormalValue() | ghsValueCalc}}<span
-        *ngIf="getNormalValue() != getEliteValue()">/<span class="elite">{{getEliteValue() | ghsValueCalc}}</span>
+    <span *ngIf="!relative" class="value">{{getNormalValue()}}<span *ngIf="getNormalValue() != getEliteValue()">/<span
+          class="elite">{{getEliteValue()}}</span>
       </span>
     </span>
     <span *ngIf="relative" class="value">{{getNormalValue()}}<span *ngIf="getNormalValue() != getEliteValue()">/<span
@@ -60,7 +61,7 @@
       </span>&nbsp;
     </span>
     <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
-      [action]="subAction" [monster]="monster">
+      [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize">
     </ghs-action>
   </span>
 

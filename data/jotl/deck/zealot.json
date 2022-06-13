@@ -1,0 +1,269 @@
+{
+  "abilities": [
+    {
+      "actions": [
+        {
+          "subActions": [],
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 50,
+      "name": "Nothing Special",
+      "shuffle": false
+    },
+    {
+      "actions": [
+        {
+          "subActions": [],
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 35,
+      "name": "Hasty Assoult",
+      "shuffle": false
+    },
+    {
+      "actions": [
+        {
+          "subActions": [],
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [],
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 65,
+      "name": "Calculated Strike",
+      "shuffle": false
+    },
+    {
+      "actions": [
+        {
+          "subActions": [],
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "subActions": [],
+              "type": "range",
+              "value": 2,
+              "valueType": "plus"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "subActions": [],
+              "type": "specialTarget",
+              "value": "self",
+              "valueType": "fixed"
+            },
+            {
+              "subActions": [],
+              "type": "custom",
+              "value": "X is damage suffered by target of attack",
+              "valueType": "fixed"
+            }
+          ],
+          "type": "heal",
+          "value": "X",
+          "valueType": "fixed"
+        },
+        {
+          "subActions": [],
+          "type": "element",
+          "value": "dark",
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 27,
+      "name": "Drain Life",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "subActions": [],
+              "type": "range",
+              "value": 2,
+              "valueType": "fixed"
+            },
+            {
+              "subActions": [],
+              "type": "target",
+              "value": 2,
+              "valueType": "fixed"
+            },
+            {
+              "subActions": [],
+              "type": "condition",
+              "value": "muddle",
+              "valueType": "fixed"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "subActions": [],
+              "type": "range",
+              "value": 2,
+              "valueType": "plus"
+            }
+          ],
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 46,
+      "name": "Boil Blood",
+      "shuffle": false
+    },
+    {
+      "actions": [
+        {
+          "subActions": [],
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "subActions": [],
+              "type": "area",
+              "value": "(0,1,false)|(1,0,true)|(1,1,true)",
+              "valueType": "fixed"
+            },
+            {
+              "subActions": [],
+              "type": "condition",
+              "value": "poison",
+              "valueType": "plus"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "subActions": [],
+              "type": "attack",
+              "value": 1,
+              "valueType": "plus"
+            }
+          ],
+          "type": "element",
+          "value": "air",
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 77,
+      "name": "Vile Scourge",
+      "shuffle": false
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "subActions": [],
+              "type": "jump",
+              "value": "",
+              "valueType": "fixed"
+            }
+          ],
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "subActions": [],
+              "type": "condition",
+              "value": "curse",
+              "valueType": "plus"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [],
+          "type": "element",
+          "value": "air",
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 19,
+      "name": "Hex Whip",
+      "shuffle": false
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "subActions": [],
+              "type": "range",
+              "value": 3,
+              "valueType": "fixed"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [],
+          "type": "element",
+          "value": "fire",
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 82,
+      "name": "Unholy Flame",
+      "shuffle": true
+    }
+  ],
+  "edition": "jotl",
+  "name": "zealot"
+}

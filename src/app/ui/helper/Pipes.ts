@@ -12,12 +12,17 @@ import { EntityValueFunction } from 'src/app/game/model/Entity';
 export class GhsValueCalcPipe implements PipeTransform {
 
   transform(value: Action | string | number, ...args: any[]): string | number {
+    const empty: boolean = args.indexOf("empty") != -1;
     if (typeof value === "number") {
-      if (args.indexOf("empty") != -1 && value == 0) {
+      if (empty && value == 0) {
         return "-";
       }
 
       return value;
+    }
+
+    if (!value) {
+      return "-";
     }
 
     if (value instanceof Action) {

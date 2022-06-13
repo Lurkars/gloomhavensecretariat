@@ -1,0 +1,180 @@
+{
+  "abilities": [
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 32,
+      "name": "Spitting Drake"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 52,
+      "name": "Spitting Drake"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(1,0,true)|(0,1,true)|(1,1,true)"
+            },
+            {
+              "type": "range",
+              "value": -1
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 57,
+      "name": "Spitting Drake",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2
+            },
+            {
+              "type": "condition",
+              "value": "poison"
+            }
+          ],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 27,
+      "name": "Spitting Drake"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 87,
+      "name": "Spitting Drake"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "stun"
+            }
+          ],
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 89,
+      "name": "Spitting Drake"
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ],
+          "type": "heal",
+          "value": 2
+        },
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ],
+          "type": "condition",
+          "value": "strengthen"
+        }
+      ],
+      "initiative": 6,
+      "name": "Spitting Drake"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(1,0,true)|(2,0,true)|(0,1,true)|(1,1,true)|(2,1,true)|(1,2,true)|(2,2,true)"
+            },
+            {
+              "type": "range",
+              "value": -2
+            },
+            {
+              "type": "condition",
+              "value": "poison"
+            }
+          ],
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 89,
+      "name": "Spitting Drake",
+      "shuffle": true
+    }
+  ],
+  "edition": "gh",
+  "name": "spitting-drake"
+}

@@ -1,0 +1,183 @@
+{
+  "abilities": [
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 5
+        },
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ],
+          "type": "heal",
+          "value": 1
+        }
+      ],
+      "initiative": 5,
+      "name": "Imp"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 37,
+      "name": "Imp"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 37,
+      "name": "Imp"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ],
+          "type": "heal",
+          "value": 2
+        }
+      ],
+      "initiative": 42,
+      "name": "Imp"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2
+            },
+            {
+              "type": "condition",
+              "value": "poison"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 43,
+      "name": "Imp",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 76,
+      "name": "Imp"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2
+            },
+            {
+              "type": "condition",
+              "value": "curse"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 43,
+      "name": "Imp",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            },
+            {
+              "type": "specialTarget",
+              "value": "allAlliesRange"
+            }
+          ],
+          "type": "condition",
+          "value": "strengthen"
+        },
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            },
+            {
+              "type": "specialTarget",
+              "value": "allEnemiesRange"
+            }
+          ],
+          "type": "condition",
+          "value": "muddle"
+        }
+      ],
+      "initiative": 24,
+      "name": "Imp"
+    }
+  ],
+  "edition": "gh",
+  "name": "imp"
+}

@@ -1,0 +1,151 @@
+{
+  "abilities": [
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 64,
+      "name": "Living Bones"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ],
+          "type": "heal",
+          "value": 2
+        }
+      ],
+      "initiative": 20,
+      "name": "Living Bones",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 25,
+      "name": "Living Bones"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 45,
+      "name": "Living Bones"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 45,
+      "name": "Living Bones"
+    },
+    {
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 81,
+      "name": "Living Bones"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemyOneAll"
+            }
+          ],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 74,
+      "name": "Living Bones"
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ],
+          "type": "heal",
+          "value": 2
+        }
+      ],
+      "initiative": 12,
+      "name": "Living Bones",
+      "shuffle": true
+    }
+  ],
+  "edition": "gh",
+  "name": "living-bones"
+}

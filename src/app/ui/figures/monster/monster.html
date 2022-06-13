@@ -2,6 +2,20 @@
   <ghs-monster-image [monster]="monster"></ghs-monster-image>
   <ghs-monster-ability [monster]="monster"></ghs-monster-ability>
   <ghs-monster-stats [monster]="monster"></ghs-monster-stats>
+
+  <ghs-monster-stats-popup [monster]="monster"></ghs-monster-stats-popup>
+
+  <ghs-monster-numberpicker *ngIf="!monster.boss" class="normal" [monster]="monster" [type]="MonsterType.normal"
+    [max]="monster.count" [ngClass]="{'disabled' : monster.entities.length >= monster.count}">
+  </ghs-monster-numberpicker>
+  <ghs-monster-numberpicker *ngIf="!monster.boss" class="elite" [monster]="monster" [type]="MonsterType.elite"
+    [max]="monster.count" [left]="true" [ngClass]="{'disabled' : monster.entities.length >= monster.count}"
+    [elite]="true">
+  </ghs-monster-numberpicker>
+
+  <ghs-monster-numberpicker *ngIf="monster.boss" class="boss" [monster]="monster" [type]="MonsterType.boss"
+    [max]="monster.count" [ngClass]="{'disabled' : monster.entities.length >= monster.count}">
+  </ghs-monster-numberpicker>
 </div>
 
 <div class="entities-container" [ngClass]="{'empty' : emptyEntities() }">

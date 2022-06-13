@@ -1,0 +1,204 @@
+{
+  "count": 4,
+  "edition": "gh",
+  "name": "savvas-lavaflow",
+  "baseStat": {
+    "actions": [],
+    "attack": 2,
+    "health": 8,
+    "immunities": [],
+    "level": 0,
+    "movement": 3,
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "attack": 2,
+      "health": 8,
+      "level": 0,
+      "movement": 3
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ],
+      "attack": 2,
+      "health": 9,
+      "level": 1,
+      "movement": 3
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ],
+      "attack": 3,
+      "health": 11,
+      "level": 2,
+      "movement": 3
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ],
+      "attack": 3,
+      "health": 14,
+      "level": 3,
+      "movement": 3
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ],
+      "attack": 4,
+      "health": 16,
+      "level": 4,
+      "movement": 3
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison|wound"
+        }
+      ],
+      "attack": 4,
+      "health": 18,
+      "level": 5,
+      "movement": 3
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison|wound"
+        }
+      ],
+      "attack": 4,
+      "health": 20,
+      "level": 6,
+      "movement": 4
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison|wound"
+        }
+      ],
+      "attack": 4,
+      "health": 24,
+      "level": 7,
+      "movement": 4
+    },
+    {
+      "attack": 3,
+      "health": 13,
+      "level": 0,
+      "movement": 3,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ],
+      "attack": 3,
+      "health": 15,
+      "level": 1,
+      "movement": 3,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison|wound"
+        }
+      ],
+      "attack": 3,
+      "health": 18,
+      "level": 2,
+      "movement": 3,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison|wound"
+        }
+      ],
+      "attack": 4,
+      "health": 21,
+      "level": 3,
+      "movement": 3,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison|wound"
+        }
+      ],
+      "attack": 4,
+      "health": 24,
+      "level": 4,
+      "movement": 4,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison|wound"
+        }
+      ],
+      "attack": 5,
+      "health": 27,
+      "level": 5,
+      "movement": 4,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison|wound"
+        }
+      ],
+      "attack": 6,
+      "health": 30,
+      "level": 6,
+      "movement": 4,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison|wound"
+        }
+      ],
+      "attack": 6,
+      "health": 35,
+      "level": 7,
+      "movement": 4,
+      "type": "elite"
+    }
+  ]
+}

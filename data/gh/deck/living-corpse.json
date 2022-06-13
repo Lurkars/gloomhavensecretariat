@@ -1,0 +1,155 @@
+{
+  "abilities": [
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemy"
+            }
+          ],
+          "type": "condition",
+          "value": "muddle|immobilize"
+        }
+      ],
+      "initiative": 21,
+      "name": "Living Corpse"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 47,
+      "name": "Living Corpse"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 66,
+      "name": "Living Corpse",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 66,
+      "name": "Living Corpse",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 82,
+      "name": "Living Corpse"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "custom",
+          "value": "Living Corpse suffers 1 damage."
+        }
+      ],
+      "initiative": 91,
+      "name": "Living Corpse"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ],
+          "type": "condition",
+          "value": "poison"
+        }
+      ],
+      "initiative": 71,
+      "name": "Living Corpse"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "push",
+              "value": 1
+            }
+          ],
+          "type": "attack",
+          "value": 2,
+          "valueType": "plus"
+        },
+        {
+          "type": "custom",
+          "value": "Living Corpse suffers 1 damage."
+        }
+      ],
+      "initiative": 32,
+      "name": "Living Corpse"
+    }
+  ],
+  "edition": "gh",
+  "name": "living-corpse"
+}

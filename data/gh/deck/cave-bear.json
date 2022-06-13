@@ -1,0 +1,168 @@
+{
+  "abilities": [
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 13,
+      "name": "Cave Bear"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 14,
+      "name": "Cave Bear"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 34,
+      "name": "Cave Bear",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 41,
+      "name": "Cave Bear"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 60,
+      "name": "Cave Bear"
+    },
+    {
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 80,
+      "name": "Cave Bear",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 61,
+      "name": "Cave Bear"
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "retaliate",
+          "value": 2
+        },
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ],
+          "type": "heal",
+          "value": 2
+        }
+      ],
+      "initiative": 3,
+      "name": "Cave Bear"
+    }
+  ],
+  "edition": "gh",
+  "name": "cave-bear"
+}

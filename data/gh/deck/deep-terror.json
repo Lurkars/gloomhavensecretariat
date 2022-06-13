@@ -1,0 +1,223 @@
+{
+  "abilities": [
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            },
+            {
+              "type": "target",
+              "value": 3
+            },
+            {
+              "type": "condition",
+              "value": "curse"
+            }
+          ],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 65,
+      "name": "Deep Terror"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(3,0,true)|(2,1,true)|(2,2,true)|(1,3,true)|(1,4,true)|(0,5,false)"
+            },
+            {
+              "type": "pierce",
+              "value": 3
+            }
+          ],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 60,
+      "name": "Deep Terror",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(3,0,true)|(2,1,true)|(2,2,true)|(1,3,true)|(1,4,true)|(0,5,false)"
+            },
+            {
+              "type": "pierce",
+              "value": 3
+            }
+          ],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 60,
+      "name": "Deep Terror",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4
+            },
+            {
+              "type": "condition",
+              "value": "wound"
+            }
+          ],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 84,
+      "name": "Deep Terror"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison"
+            }
+          ],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 5
+            },
+            {
+              "type": "condition",
+              "value": "immobilize"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 75,
+      "name": "Deep Terror"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            },
+            {
+              "type": "condition",
+              "value": "disarm"
+            }
+          ],
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            },
+            {
+              "type": "target",
+              "value": 2
+            }
+          ],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 75,
+      "name": "Deep Terror"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 6
+            },
+            {
+              "type": "custom",
+              "value": "Summon normal Deep Terror in a hex adjacent to the target"
+            }
+          ],
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 96,
+      "name": "Deep Terror"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ],
+          "type": "condition",
+          "value": "wound|poison"
+        },
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4
+            }
+          ],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 54,
+      "name": "Deep Terror"
+    }
+  ],
+  "edition": "gh",
+  "name": "deep-terror"
+}

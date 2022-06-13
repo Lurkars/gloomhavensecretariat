@@ -8,7 +8,7 @@ import { CharacterSummonDialog } from './ui/figures/character/dialogs/summondial
 import { ActionHexComponent, ActionComponent, ActionsComponent } from './ui/figures/actions/action';
 import { AbilityComponent } from './ui/figures/monster/cards/ability';
 import { MonsterImageComponent } from './ui/figures/monster/cards/image';
-import { MonsterStatsComponent } from './ui/figures/monster/cards/stats';
+import { MonsterStatsComponent, MonsterStatsPopupComponent } from './ui/figures/monster/cards/stats';
 import { MonsterNumberPicker } from './ui/figures/monster/dialogs/numberpicker';
 import { MonsterEntityComponent } from './ui/figures/monster/entity/entity';
 import { MonsterComponent } from './ui/figures/monster/monster';
@@ -48,7 +48,7 @@ import { ScenarioMenuComponent } from './ui/header/menu/scenario/scenario';
     MonsterEntityComponent,
     MonsterImageComponent,
     AbilityComponent,
-    MonsterStatsComponent,
+    MonsterStatsComponent, MonsterStatsPopupComponent,
     MonsterNumberPicker,
     ActionsComponent, ActionComponent, ActionHexComponent,
     CardRevealDirective,

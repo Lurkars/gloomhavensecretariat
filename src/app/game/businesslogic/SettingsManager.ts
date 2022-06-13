@@ -50,6 +50,21 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setEliteFirst(eliteFirst: boolean) {
+    this.settings.eliteFirst = eliteFirst;
+    this.storeSettings();
+  }
+
+  setExpireConditions(expireConditions: boolean) {
+    this.settings.expireConditions = expireConditions;
+    this.storeSettings();
+  }
+
+  setMoveElements(moveElements: boolean) {
+    this.settings.moveElements = moveElements;
+    this.storeSettings();
+  }
+
   setFullscreen(fullscreen: boolean) {
     this.settings.fullscreen = fullscreen;
     this.storeSettings();

@@ -14,6 +14,7 @@ import { Scenario } from "../model/Scenario";
 import { AttackModifierManager } from "./AttackModifierManager";
 import { CharacterManager } from "./CharacterManager";
 import { MonsterManager } from "./MonsterManager";
+import { settingsManager } from "./SettingsManager";
 import { StateManager } from "./StateManager";
 
 
@@ -46,11 +47,13 @@ export class GameManager {
       this.monsterManager.draw();
       this.attackModifierManager.draw();
 
-      this.game.elements = [];
-      this.game.strongElements.forEach((element: Element) => {
-        this.game.elements.push(element);
-      });
-      this.game.strongElements = [];
+      if (settingsManager.settings.moveElements) {
+        this.game.elements = [];
+        this.game.strongElements.forEach((element: Element) => {
+          this.game.elements.push(element);
+        });
+        this.game.strongElements = [];
+      }
 
       this.game.figures.sort((a: Figure, b: Figure) => {
         if (a instanceof CharacterEntity && b instanceof Monster) {
@@ -70,10 +73,12 @@ export class GameManager {
       this.monsterManager.next();
       this.attackModifierManager.next();
 
-      this.game.newElements.forEach((element: Element) => {
-        this.game.strongElements.push(element);
-      });
-      this.game.newElements = [];
+      if (settingsManager.settings.moveElements) {
+        this.game.newElements.forEach((element: Element) => {
+          this.game.strongElements.push(element);
+        });
+        this.game.newElements = [];
+      }
 
       this.game.figures.sort((a: Figure, b: Figure) => {
         if (a instanceof CharacterEntity && a.exhausted) {
@@ -91,29 +96,6 @@ export class GameManager {
       }
     }
     setTimeout(() => this.working = false, 1);
-  }
-
-
-  sortedFigures(): Figure[] {
-    return this.game.figures.sort((a: Figure, b: Figure) => {
-      if (this.game.state == GameState.draw) {
-        if (a instanceof CharacterEntity && b instanceof Monster) {
-          return -1;
-        } else if (a instanceof Monster && b instanceof CharacterEntity) {
-          return 1;
-        }
-        return a.name < b.name ? -1 : 1;
-      }
-
-      if (a instanceof CharacterEntity && a.exhausted) {
-        return 99;
-      }
-
-      if (b instanceof CharacterEntity && b.exhausted) {
-        return 99;
-      }
-      return a.getInitiative() - b.getInitiative();
-    });
   }
 
   abilities(name: string, edition: string): Ability[] {
@@ -162,9 +144,7 @@ export class GameManager {
   }
 
   toggleOff(figure: Figure) {
-
-
-    const figures: Figure[] = this.sortedFigures();
+    const figures: Figure[] = this.game.figures;
     const index = figures.indexOf(figure);
 
     if (index == -1) {

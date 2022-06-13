@@ -1,0 +1,221 @@
+{
+  "abilities": [
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ],
+          "type": "heal",
+          "value": 3
+        },
+        {
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize"
+            },
+            {
+              "type": "range",
+              "value": 3
+            },
+            {
+              "type": "specialTarget",
+              "value": "allEnemiesRange"
+            }
+          ],
+          "type": "element",
+          "value": "earth",
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 40,
+      "name": "Earth Demon",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 42,
+      "name": "Earth Demon",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "earth"
+        }
+      ],
+      "initiative": 62,
+      "name": "Earth Demon"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4
+            }
+          ],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2
+            }
+          ],
+          "type": "element",
+          "value": "earth",
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 71,
+      "name": "Earth Demon"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "earth"
+        }
+      ],
+      "initiative": 83,
+      "name": "Earth Demon"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "push",
+              "value": 1
+            }
+          ],
+          "type": "element",
+          "value": "earth",
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 93,
+      "name": "Earth Demon"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "valueType": "minus"
+            }
+          ],
+          "type": "element",
+          "value": "air",
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 79,
+      "name": "Earth Demon"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,false)|(1,1,true)|(1,0,true)|(2,0,true)"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ],
+          "type": "element",
+          "value": "all",
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 87,
+      "name": "Earth Demon"
+    }
+  ],
+  "edition": "gh",
+  "name": "earth-demon"
+}

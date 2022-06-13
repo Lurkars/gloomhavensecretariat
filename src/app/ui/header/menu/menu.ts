@@ -161,6 +161,13 @@ export class MainMenuComponent extends DialogComponent {
         }
       }
 
+      if (a.boss && !b.boss) {
+        return 1;
+      }
+      if (!a.boss && b.boss) {
+        return -1;
+      }
+
       if (aName > bName) {
         return 1;
       }

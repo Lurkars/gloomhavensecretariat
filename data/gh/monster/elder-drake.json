@@ -1,0 +1,88 @@
+{
+  "boss": true,
+  "count": 1,
+  "deck": "boss",
+  "edition": "gh",
+  "name": "elder-drake",
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "wound",
+      "poison",
+      "disarm",
+      "immobilize",
+      "pull",
+      "push",
+      "stun"
+    ],
+    "special": [
+      [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(1,0,false)|(2,0,false)|(3,0,true)|(4,0,true)|(1,1,false)|(2,1,true)|(3,1,true)|(2,2,true)|(3,2,true)|(2,3,true)"
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "custom",
+          "value": "Summon 2 Zephyrs"
+        }
+      ]
+    ],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "attack": 3,
+      "health": "11xC",
+      "level": 0
+    },
+    {
+      "attack": 4,
+      "health": "12xC",
+      "level": 1
+    },
+    {
+      "attack": 4,
+      "health": "15xC",
+      "level": 2
+    },
+    {
+      "attack": 5,
+      "health": "16xC",
+      "level": 3
+    },
+    {
+      "attack": 5,
+      "health": "20xC",
+      "level": 4
+    },
+    {
+      "attack": 6,
+      "health": "22xC",
+      "level": 5
+    },
+    {
+      "attack": 6,
+      "health": "27xC",
+      "level": 6
+    },
+    {
+      "attack": 7,
+      "health": "29xC",
+      "level": 7
+    }
+  ]
+}

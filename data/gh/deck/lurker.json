@@ -1,0 +1,189 @@
+{
+  "abilities": [
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 2
+            }
+          ],
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ],
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "initiative": 11,
+      "name": "Lurker",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 28,
+      "name": "Lurker"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 38,
+      "name": "Lurker"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemyOneAll"
+            }
+          ],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 38,
+      "name": "Lurker"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 61,
+      "name": "Lurker"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 64,
+      "name": "Lurker"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self"
+                }
+              ],
+              "type": "condition",
+              "value": "strengthen"
+            }
+          ],
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 41,
+      "name": "Lurker"
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "element",
+          "value": "ice"
+        }
+      ],
+      "initiative": 23,
+      "name": "Lurker",
+      "shuffle": true
+    }
+  ],
+  "edition": "gh",
+  "name": "lurker"
+}

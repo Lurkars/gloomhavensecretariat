@@ -1,0 +1,92 @@
+{
+  "boss": true,
+  "count": 1,
+  "deck": "boss",
+  "edition": "gh",
+  "name": "captain",
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "disarm",
+      "wound",
+      "muddle",
+      "stun"
+    ],
+    "special": [
+      [
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "selfAlliesAffect"
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "All allies add +1 Attack {A} to all attacks this round"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ]
+    ],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "attack": 3,
+      "health": "7xC",
+      "level": 0,
+      "movement": 2
+    },
+    {
+      "attack": 3,
+      "health": "9xC",
+      "level": 1,
+      "movement": 2
+    },
+    {
+      "attack": 4,
+      "health": "11xC",
+      "level": 2,
+      "movement": 2
+    },
+    {
+      "attack": 4,
+      "health": "14xC",
+      "level": 3,
+      "movement": 3
+    },
+    {
+      "attack": 5,
+      "health": "16xC",
+      "level": 4,
+      "movement": 3
+    },
+    {
+      "attack": 5,
+      "health": "20xC",
+      "level": 5,
+      "movement": 3
+    },
+    {
+      "attack": 6,
+      "health": "21xC",
+      "level": 6,
+      "movement": 4
+    },
+    {
+      "attack": 6,
+      "health": "25xC",
+      "level": 7,
+      "movement": 4
+    }
+  ]
+}

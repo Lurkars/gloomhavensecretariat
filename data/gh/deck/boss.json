@@ -1,0 +1,110 @@
+{
+  "abilities": [
+    {
+      "actions": [
+        {
+          "type": "special",
+          "value": 2
+        }
+      ],
+      "initiative": 11,
+      "name": "Boss"
+    },
+    {
+      "actions": [
+        {
+          "type": "special",
+          "value": 2
+        }
+      ],
+      "initiative": 14,
+      "name": "Boss"
+    },
+    {
+      "actions": [
+        {
+          "type": "special",
+          "value": 2
+        }
+      ],
+      "initiative": 17,
+      "name": "Boss",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "type": "special",
+          "value": 1
+        }
+      ],
+      "initiative": 85,
+      "name": "Boss",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "type": "special",
+          "value": 1
+        }
+      ],
+      "initiative": 79,
+      "name": "Boss"
+    },
+    {
+      "actions": [
+        {
+          "type": "special",
+          "value": 1
+        }
+      ],
+      "initiative": 73,
+      "name": "Boss"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 36,
+      "name": "Boss"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            },
+            {
+              "type": "target",
+              "value": 2
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 52,
+      "name": "Boss"
+    }
+  ],
+  "edition": "gh",
+  "name": "boss"
+}

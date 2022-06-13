@@ -2,8 +2,8 @@
   <div class="custom-container">
     <div class="line custom-check">
       <label>
-        <input type="checkbox" [checked]="gameManager.game.scenario && gameManager.game.scenario.custom" [disabled]="gameManager.game.scenario && gameManager.game.scenario.custom"
-          (change)="customScenario()">
+        <input type="checkbox" [checked]="gameManager.game.scenario && gameManager.game.scenario.custom"
+          [disabled]="gameManager.game.scenario && gameManager.game.scenario.custom" (change)="customScenario()">
         &lt;{{'scenario.custom' | ghsLabel}}&gt;
       </label>
     </div>
@@ -19,8 +19,9 @@
   </div>
 
   <div class="line scenarios">
-    <span (click)="setScenario(scenario)" class="scenario" *ngFor="let scenario of scenarios()"><span
-        *ngIf="maxScenario() > 99 && scenario < 100">0</span><span
+    <span (click)="setScenario(scenario)" class="scenario"
+      [ngClass]="{'disabled' : gameManager.game.scenario && gameManager.game.scenario.edition == edition && gameManager.game.scenario.index == scenario}"
+      *ngFor="let scenario of scenarios()"><span *ngIf="maxScenario() > 99 && scenario < 100">0</span><span
         *ngIf="maxScenario() > 9 && scenario < 10">0</span>{{scenario}}</span>
   </div>
 </div>

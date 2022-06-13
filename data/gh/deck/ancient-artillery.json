@@ -1,0 +1,179 @@
+{
+  "abilities": [
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "valueType": "plus"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 46,
+      "name": "Ancient Artillery"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "All adjacent enemies suffer 2 damage."
+            }
+          ],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 71,
+      "name": "Ancient Artillery",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "All adjacent enemies suffer 2 damage."
+            }
+          ],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 71,
+      "name": "Ancient Artillery",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ],
+          "type": "push",
+          "value": 1
+        },
+        {
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,true)|(1,0,true)|(1,1,true)"
+            },
+            {
+              "type": "range",
+              "value": -1
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 37,
+      "name": "Ancient Artillery"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacent"
+            }
+          ],
+          "type": "push",
+          "value": 1
+        },
+        {
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(1,0,true)|(2,0,true)|(0,1,true)|(1,1,true)|(2,1,true)|(1,2,true)|(2,2,true)"
+            },
+            {
+              "type": "range",
+              "value": -1
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 37,
+      "name": "Ancient Artillery"
+    },
+    {
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 95,
+      "name": "Ancient Artillery"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ],
+          "type": "push",
+          "value": 2
+        },
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 17,
+      "name": "Ancient Artillery"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,true)|(1,0,true)|(1,1,true)"
+            },
+            {
+              "type": "condition",
+              "value": "immobilize"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 46,
+      "name": "Ancient Artillery"
+    }
+  ],
+  "edition": "gh",
+  "name": "ancient-artillery"
+}

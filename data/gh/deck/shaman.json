@@ -1,0 +1,183 @@
+{
+  "abilities": [
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "disarm"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 8,
+      "name": "Shaman"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize"
+            }
+          ],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 8,
+      "name": "Shaman"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ],
+          "type": "heal",
+          "value": 3
+        }
+      ],
+      "initiative": 23,
+      "name": "Shaman",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ],
+          "type": "heal",
+          "value": 3
+        }
+      ],
+      "initiative": 23,
+      "name": "Shaman",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 62,
+      "name": "Shaman"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 74,
+      "name": "Shaman"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentAlliesAffect"
+            }
+          ],
+          "type": "heal",
+          "value": 1
+        },
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ],
+          "type": "condition",
+          "value": "bless"
+        }
+      ],
+      "initiative": 89,
+      "name": "Shaman"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "curse"
+            },
+            {
+              "type": "target",
+              "value": 2
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 9,
+      "name": "Shaman"
+    }
+  ],
+  "edition": "gh",
+  "name": "shaman"
+}

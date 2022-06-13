@@ -1,0 +1,189 @@
+{
+  "abilities": [
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "muddle"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 22,
+      "name": "Living Spirit",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "allEnemiesRange"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 33,
+      "name": "Living Spirit",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 48,
+      "name": "Living Spirit"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 48,
+      "name": "Living Spirit"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": -1
+            },
+            {
+              "type": "target",
+              "value": 2
+            }
+          ],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 61,
+      "name": "Living Spirit"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": -1
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ],
+          "type": "heal",
+          "value": 1
+        }
+      ],
+      "initiative": 75,
+      "name": "Living Spirit"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "allEnemiesRange"
+            }
+          ],
+          "type": "condition",
+          "value": "curse"
+        },
+        {
+          "type": "element",
+          "value": "ice"
+        }
+      ],
+      "initiative": 55,
+      "name": "Living Spirit"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "stun"
+            }
+          ],
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 67,
+      "name": "Living Spirit"
+    }
+  ],
+  "edition": "gh",
+  "name": "living-spirit"
+}

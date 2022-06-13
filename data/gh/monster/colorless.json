@@ -1,0 +1,120 @@
+{
+  "boss": true,
+  "count": 1,
+  "deck": "boss",
+  "edition": "gh",
+  "name": "colorless",
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "wound",
+      "poison",
+      "muddle",
+      "stun",
+      "curse"
+    ],
+    "special": [
+      [
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Summon Night Demon"
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "invisible",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Summon Sun Demon"
+            }
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    ],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "attack": 2,
+      "health": "9xC",
+      "level": 0,
+      "movement": 3
+    },
+    {
+      "attack": 3,
+      "health": "10xC",
+      "level": 1,
+      "movement": 3
+    },
+    {
+      "attack": 3,
+      "health": "11xC",
+      "level": 2,
+      "movement": 4
+    },
+    {
+      "attack": 4,
+      "health": "12xC",
+      "level": 3,
+      "movement": 4
+    },
+    {
+      "attack": 4,
+      "health": "14xC",
+      "level": 4,
+      "movement": 4
+    },
+    {
+      "attack": 5,
+      "health": "15xC",
+      "level": 5,
+      "movement": 4
+    },
+    {
+      "attack": 6,
+      "health": "17xC",
+      "level": 6,
+      "movement": 4
+    },
+    {
+      "attack": 7,
+      "health": "19xC",
+      "level": 7,
+      "movement": 5
+    }
+  ]
+}

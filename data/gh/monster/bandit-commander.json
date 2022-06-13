@@ -1,0 +1,81 @@
+{
+  "boss": true,
+  "count": 1,
+  "deck": "boss",
+  "edition": "gh",
+  "name": "bandit-commander",
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "stun",
+      "immobilize",
+      "curse"
+    ],
+    "special": [
+      [
+        {
+          "type": "custom",
+          "value": "Move to next door and reveal room"
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "Summon Living Bones"
+        }
+      ]
+    ],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "attack": 3,
+      "health": "8xC",
+      "level": 0,
+      "movement": 3
+    },
+    {
+      "attack": 3,
+      "health": "10xC",
+      "level": 1,
+      "movement": 3
+    },
+    {
+      "attack": 3,
+      "health": "12xC",
+      "level": 2,
+      "movement": 4
+    },
+    {
+      "attack": 4,
+      "health": "13xC",
+      "level": 3,
+      "movement": 4,
+      "type": "boss"
+    },
+    {
+      "attack": 4,
+      "health": "15xC",
+      "level": 4,
+      "movement": 4
+    },
+    {
+      "attack": 5,
+      "health": "16xC",
+      "level": 5,
+      "movement": 5
+    },
+    {
+      "attack": 5,
+      "health": "19xC",
+      "level": 6,
+      "movement": 5
+    },
+    {
+      "attack": 5,
+      "health": "23xC",
+      "level": 7,
+      "movement": 5
+    }
+  ]
+}

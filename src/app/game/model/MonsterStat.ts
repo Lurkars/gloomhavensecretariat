@@ -9,10 +9,10 @@ export class MonsterStat {
   movement: number;
   attack: number | string;
   range: number;
-  conditions: Condition[];
   actions: Action[];
   immunities: Condition[];
-  special: Action[];
+  special: Array<Action[]>;
+  note: string;
 
   constructor(type: MonsterType,
     level: number,
@@ -20,10 +20,10 @@ export class MonsterStat {
     movement: number,
     attack: number | string,
     range: number,
-    conditions: Condition[] = [],
     actions: Action[] = [],
     immunities: Condition[] = [],
-    special: Action[] = []
+    special: Array<Action[]> = [],
+    note: string = ""
   ) {
     this.type = type;
     this.level = level;
@@ -31,9 +31,9 @@ export class MonsterStat {
     this.movement = movement;
     this.attack = attack;
     this.range = range;
-    this.conditions = conditions || [];
     this.actions = actions || [];
     this.immunities = immunities || [];
     this.special = special || [];
+    this.note = note;
   }
 }

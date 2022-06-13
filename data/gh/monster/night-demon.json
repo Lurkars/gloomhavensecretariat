@@ -1,0 +1,122 @@
+{
+  "count": 6,
+  "edition": "gh",
+  "name": "night-demon",
+  "baseStat": {
+    "actions": [
+      {
+        "type": "custom",
+        "value": "Attackers gain Disadvantage"
+      }
+    ],
+    "immunities": [],
+    "special": [],
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "attack": 3,
+      "health": 3,
+      "level": 0,
+      "movement": 3
+    },
+    {
+      "attack": 3,
+      "health": 5,
+      "level": 1,
+      "movement": 3
+    },
+    {
+      "attack": 4,
+      "health": 6,
+      "level": 2,
+      "movement": 3
+    },
+    {
+      "attack": 4,
+      "health": 7,
+      "level": 3,
+      "movement": 4
+    },
+    {
+      "attack": 5,
+      "health": 8,
+      "level": 4,
+      "movement": 4
+    },
+    {
+      "attack": 5,
+      "health": 11,
+      "level": 5,
+      "movement": 4
+    },
+    {
+      "attack": 5,
+      "health": 14,
+      "level": 6,
+      "movement": 4
+    },
+    {
+      "attack": 6,
+      "health": 15,
+      "level": 7,
+      "movement": 4
+    },
+    {
+      "attack": 4,
+      "health": 5,
+      "level": 0,
+      "movement": 4,
+      "type": "elite"
+    },
+    {
+      "attack": 4,
+      "health": 8,
+      "level": 1,
+      "movement": 4,
+      "type": "elite"
+    },
+    {
+      "attack": 4,
+      "health": 11,
+      "level": 2,
+      "movement": 4,
+      "type": "elite"
+    },
+    {
+      "attack": 5,
+      "health": 13,
+      "level": 3,
+      "movement": 4,
+      "type": "elite"
+    },
+    {
+      "attack": 5,
+      "health": 15,
+      "level": 4,
+      "movement": 5,
+      "type": "elite"
+    },
+    {
+      "attack": 6,
+      "health": 17,
+      "level": 5,
+      "movement": 5,
+      "type": "elite"
+    },
+    {
+      "attack": 6,
+      "health": 21,
+      "level": 6,
+      "movement": 5,
+      "type": "elite"
+    },
+    {
+      "attack": 8,
+      "health": 21,
+      "level": 7,
+      "movement": 5,
+      "type": "elite"
+    }
+  ]
+}

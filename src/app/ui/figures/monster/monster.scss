@@ -18,6 +18,21 @@
   ghs-monster-ability {
     margin: 0 calc(var(--ghs-column-unit) * 2);
   }
+
+  ghs-monster-numberpicker {
+    position: absolute;
+
+    &.normal,
+    &.boss {
+      bottom: calc(var(--ghs-column-unit) * 1);
+      left: calc(var(--ghs-column-unit) * 54);
+    }
+
+    &.elite {
+      bottom: calc(var(--ghs-column-unit) * 1);
+      left: calc(var(--ghs-column-unit) * 84);
+    }
+  }
 }
 
 .entities-container {
@@ -44,6 +59,7 @@
     flex-wrap: wrap;
     align-items: center;
     max-width: calc(var(--ghs-column-unit) * 72);
+
     &.normal {
       left: calc(var(--ghs-column-unit) * 0);
     }

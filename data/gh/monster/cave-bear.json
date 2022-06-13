@@ -1,0 +1,159 @@
+{
+  "count": 4,
+  "edition": "gh",
+  "name": "cave-bear",
+  "baseStat": {
+    "actions": [],
+    "immunities": [],
+    "special": [],
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "attack": 3,
+      "health": 7,
+      "level": 0,
+      "movement": 3
+    },
+    {
+      "attack": 3,
+      "health": 9,
+      "level": 1,
+      "movement": 3
+    },
+    {
+      "attack": 3,
+      "health": 11,
+      "level": 2,
+      "movement": 4
+    },
+    {
+      "attack": 4,
+      "health": 13,
+      "level": 3,
+      "movement": 4
+    },
+    {
+      "attack": 4,
+      "health": 16,
+      "level": 4,
+      "movement": 4
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "attack": 4,
+      "health": 17,
+      "level": 5,
+      "movement": 5
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "attack": 5,
+      "health": 19,
+      "level": 6,
+      "movement": 5
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "attack": 5,
+      "health": 22,
+      "level": 7,
+      "movement": 5
+    },
+    {
+      "attack": 4,
+      "health": 11,
+      "level": 0,
+      "movement": 3,
+      "type": "elite"
+    },
+    {
+      "attack": 4,
+      "health": 14,
+      "level": 1,
+      "movement": 3,
+      "type": "elite"
+    },
+    {
+      "attack": 4,
+      "health": 17,
+      "level": 2,
+      "movement": 4,
+      "type": "elite"
+    },
+    {
+      "attack": 5,
+      "health": 20,
+      "level": 3,
+      "movement": 4,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "attack": 5,
+      "health": 21,
+      "level": 4,
+      "movement": 5,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "attack": 6,
+      "health": 24,
+      "level": 5,
+      "movement": 5,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "attack": 7,
+      "health": 28,
+      "level": 6,
+      "movement": 5,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "attack": 7,
+      "health": 33,
+      "level": 7,
+      "movement": 5,
+      "type": "elite"
+    }
+  ]
+}

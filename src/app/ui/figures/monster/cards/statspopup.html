@@ -1,0 +1,9 @@
+<div class="name-container">
+  <span class="name" (click)="toggle()">{{'data.monster.' + monster.name | ghsLabel}}</span>
+</div>
+
+<div #popup class="stats-popup">
+  <div class="stats-container">
+    <ghs-monster-stats [monster]="getMonsterForLevel(level)" *ngFor="let level of levels"></ghs-monster-stats>
+  </div>
+</div>

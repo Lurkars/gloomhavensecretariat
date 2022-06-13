@@ -1,0 +1,207 @@
+{
+  "count": 6,
+  "edition": "gh",
+  "name": "stone-golem",
+  "baseStat": {
+    "actions": [],
+    "immunities": [],
+    "special": [],
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "attack": 3,
+      "health": 10,
+      "level": 0,
+      "movement": 1
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ],
+      "attack": 3,
+      "health": 10,
+      "level": 1,
+      "movement": 1
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ],
+      "attack": 4,
+      "health": 11,
+      "level": 2,
+      "movement": 1
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ],
+      "attack": 4,
+      "health": 11,
+      "level": 3,
+      "movement": 1
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ],
+      "attack": 4,
+      "health": 12,
+      "level": 4,
+      "movement": 2
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ],
+      "attack": 5,
+      "health": 13,
+      "level": 5,
+      "movement": 2
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ],
+      "attack": 5,
+      "health": 16,
+      "level": 6,
+      "movement": 2
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ],
+      "attack": 5,
+      "health": 16,
+      "level": 7,
+      "movement": 2
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ],
+      "attack": 4,
+      "health": 10,
+      "level": 0,
+      "movement": 2,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ],
+      "attack": 4,
+      "health": 11,
+      "level": 1,
+      "movement": 2,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ],
+      "attack": 5,
+      "health": 14,
+      "level": 2,
+      "movement": 2,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ],
+      "attack": 5,
+      "health": 15,
+      "level": 3,
+      "movement": 2,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ],
+      "attack": 6,
+      "health": 17,
+      "level": 4,
+      "movement": 2,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ],
+      "attack": 6,
+      "health": 19,
+      "level": 5,
+      "movement": 3,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ],
+      "attack": 7,
+      "health": 20,
+      "level": 6,
+      "movement": 3,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ],
+      "attack": 7,
+      "health": 21,
+      "level": 7,
+      "movement": 3,
+      "type": "elite"
+    }
+  ]
+}

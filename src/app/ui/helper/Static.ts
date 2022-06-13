@@ -7,7 +7,7 @@ export function ghsUnit(): number {
 }
 
 export function ghsUnitUnit(): string {
-  return window.getComputedStyle(document.body).getPropertyValue('--ghs-width').replace(/[\d\+]/g, '');
+  return window.getComputedStyle(document.body).getPropertyValue('--ghs-width').replace(/[\d\+]/g, '').trim();
 }
 
 export function ghsColumnUnit(): number {

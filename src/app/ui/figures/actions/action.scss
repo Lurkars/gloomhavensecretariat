@@ -18,6 +18,24 @@
     align-items: center;
   }
 
+  .special {
+
+    &>.type {
+      flex-basis: 100%;
+      margin-bottom: calc(var(--ghs-column-unit) * 1.5);
+    }
+
+    ghs-actions {
+      flex-basis: 100%;
+    }
+
+  }
+
+  .conditions {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   .specialTarget {
     display: block;
   }
@@ -39,7 +57,6 @@
 
   .element {
     flex-wrap: unset;
-    margin-top: calc(var(--ghs-column-unit) * 1);
 
     >img {
       height: calc(var(--ghs-column-unit) * 3);
@@ -71,7 +88,7 @@
     position: relative;
     left: calc(var(--ghs-column-unit) * 1);
     top: 0;
-    transform: translate(50%, -50%);
+    transform: translate(50%, calc(-50% + calc(var(--ghs-column-unit) * 0.3)));
     display: block;
   }
 
@@ -107,16 +124,80 @@
     flex-shrink: 0;
     max-width: calc(var(--ghs-column-unit) * 23);
 
-    .subaction-area {
-      height: auto;
+
+    ghs-action {
+      max-width: 100%;
+
+      .action {
+        font-size: 100%;
+
+        .condition-value {
+          font-size: 100%;
+        }
+      }
     }
 
-    ghs-action-hex {
-      transform: translate(50%, 0);
+    .subaction-area {
+      height: auto;
+
+      ghs-action-hex {
+        transform: translate(50%, calc(var(--ghs-column-unit) * 0.3));
+      }
     }
 
     .element {
       margin-top: 0;
+    }
+  }
+
+  &.inline {
+    justify-content: flex-start;
+
+    .default,
+    .custom,
+    .specialTarget,
+    .condition,
+    .element {
+      justify-content: flex-start;
+    }
+
+    .conditions {
+      flex-direction: column;
+    }
+
+    .element {
+      flex-wrap: unset;
+      margin-top: calc(var(--ghs-column-unit) * 0.5);
+
+      >img {
+        height: calc(var(--ghs-column-unit) * 2);
+        margin: calc(var(--ghs-column-unit) * 0.1);
+      }
+
+      .minus {
+        width: calc(var(--ghs-column-unit) *0.5);
+
+        &:before {
+          left: calc(var(--ghs-column-unit) * -2.2);
+          width: calc(var(--ghs-column-unit) * 2);
+          height: calc(var(--ghs-column-unit) * 2);
+        }
+      }
+    }
+  }
+
+  &.right {
+    color: var(--ghs-color-black);
+    justify-content: flex-end;
+    text-align: right;
+
+    .default,
+    .custom,
+    .specialTarget,
+    .condition,
+    .element {
+      justify-content: flex-end;
+      text-align: right;
     }
   }
 }

@@ -4,6 +4,7 @@ import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { Ability } from 'src/app/game/model/Ability';
 import { PopupComponent } from 'src/app/ui/popup/popup';
+import { ghsColumnUnit, ghsUnit, ghsUnitUnit } from 'src/app/ui/helper/Static';
 
 @Component({
   selector: 'ghs-monster-ability',
@@ -44,5 +45,22 @@ export class AbilityComponent extends PopupComponent {
 
   shuffle() {
     gameManager.monsterManager.shuffleAbilities(this.monster);
+  }
+
+  hexSize(): number {
+    let size = ghsUnit();
+    if (ghsUnitUnit() == 'vw') {
+      size = window.innerWidth / 100 * ghsUnit();
+    }
+    return size;
+  }
+
+  hexSizeColumn(): number {
+    let size = ghsColumnUnit();
+    if (ghsUnitUnit() == 'vw') {
+      size = (window.innerWidth / 100) * ghsColumnUnit();
+    }
+
+    return size;
   }
 }

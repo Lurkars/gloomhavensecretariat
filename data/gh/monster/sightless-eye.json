@@ -1,0 +1,114 @@
+{
+  "boss": true,
+  "count": 1,
+  "deck": "boss",
+  "edition": "gh",
+  "name": "sightless-eye",
+  "baseStat": {
+    "actions": [],
+    "health": "7xC",
+    "immunities": [
+      "stun",
+      "disarm",
+      "curse",
+      "muddle",
+      "pull",
+      "push"
+    ],
+    "special": [
+      [
+        {
+          "type": "custom",
+          "value": "Summon Deep Terror"
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(2,0,false)|(3,0,true)|(4,0,true)|(5,0,true)|(1,1,true)|(2,1,true)|(3,1,true)|(4,1,true)|(1,2,true)|(2,2,true)|(3,2,true)|(4,2,true)|(0,3,true)|(1,3,true)|(2,3,true)|(3,3,true)"
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "Summon Deep Terror"
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(1,0,false)|(2,0,true)|(3,0,true)|(4,0,true)|(1,1,true)|(2,1,true)|(3,1,true)|(2,2,true)|(3,2,true)|(2,3,true)"
+            }
+          ]
+        }
+      ]
+    ],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "attack": 5,
+      "health": "7xC",
+      "level": 0,
+      "movement": 0,
+      "range": 3
+    },
+    {
+      "attack": 6,
+      "health": "8xC",
+      "level": 1,
+      "movement": 0,
+      "range": 3
+    },
+    {
+      "attack": 6,
+      "health": "10xC",
+      "level": 2,
+      "movement": 0,
+      "range": 3
+    },
+    {
+      "attack": 7,
+      "health": "11xC",
+      "level": 3,
+      "movement": 0,
+      "range": 3
+    },
+    {
+      "attack": 7,
+      "health": "14xC",
+      "level": 4,
+      "movement": 0,
+      "range": 3
+    },
+    {
+      "attack": 8,
+      "health": "15xC",
+      "level": 5,
+      "movement": 0,
+      "range": 3
+    },
+    {
+      "attack": 8,
+      "health": "18xC",
+      "level": 6,
+      "movement": 0,
+      "range": 3
+    },
+    {
+      "attack": 9,
+      "health": "20xC",
+      "level": 7,
+      "movement": 0,
+      "range": 3
+    }
+  ]
+}

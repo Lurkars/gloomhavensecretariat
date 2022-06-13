@@ -15,10 +15,6 @@ export class SettingsMenuComponent {
   GameState = GameState;
   @Input() setDialogPosition: Function | undefined = undefined;
 
-  toggleCalc() {
-    settingsManager.setCalculate(!settingsManager.settings.calculate)
-  }
-
   zoomOut(): void {
     this.zoom(5);
   }

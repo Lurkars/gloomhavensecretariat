@@ -224,6 +224,18 @@
     }
   }
 
+  .bosses {
+    &>.boss {
+      margin-top: calc(var(--ghs-unit) * 1);
+      border-top: calc(var(--ghs-unit) * 0.1) solid var(--ghs-color-gray);
+    }
+
+    &>.boss~.boss {
+      margin-top: 0;
+      border-top: none;
+    }
+  }
+
   .spoilers {
     &>.spoiler {
       margin-top: calc(var(--ghs-unit) * 1);

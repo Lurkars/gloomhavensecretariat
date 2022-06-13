@@ -1,0 +1,201 @@
+{
+  "count": 6,
+  "edition": "gh",
+  "name": "hound",
+  "baseStat": {
+    "actions": [],
+    "immunities": [],
+    "special": [],
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "attack": 2,
+      "health": 4,
+      "level": 0,
+      "movement": 3
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1
+        }
+      ],
+      "attack": 2,
+      "health": 4,
+      "level": 1,
+      "movement": 4
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1
+        }
+      ],
+      "attack": 2,
+      "health": 6,
+      "level": 2,
+      "movement": 4
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1
+        }
+      ],
+      "attack": 2,
+      "health": 8,
+      "level": 3,
+      "movement": 4
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1
+        }
+      ],
+      "attack": 3,
+      "health": 8,
+      "level": 4,
+      "movement": 4
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2
+        }
+      ],
+      "attack": 3,
+      "health": 9,
+      "level": 5,
+      "movement": 4
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2
+        }
+      ],
+      "attack": 3,
+      "health": 11,
+      "level": 6,
+      "movement": 5
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2
+        }
+      ],
+      "attack": 3,
+      "health": 15,
+      "level": 7,
+      "movement": 5
+    },
+    {
+      "attack": 2,
+      "health": 6,
+      "level": 0,
+      "movement": 5,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2
+        }
+      ],
+      "attack": 2,
+      "health": 6,
+      "level": 1,
+      "movement": 5,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2
+        }
+      ],
+      "attack": 3,
+      "health": 7,
+      "level": 2,
+      "movement": 5,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2
+        }
+      ],
+      "attack": 4,
+      "health": 8,
+      "level": 3,
+      "movement": 5,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2
+        }
+      ],
+      "attack": 4,
+      "health": 11,
+      "level": 4,
+      "movement": 5,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3
+        }
+      ],
+      "attack": 4,
+      "health": 12,
+      "level": 5,
+      "movement": 5,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3
+        }
+      ],
+      "attack": 4,
+      "health": 15,
+      "level": 6,
+      "movement": 6,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4
+        }
+      ],
+      "attack": 5,
+      "health": 15,
+      "level": 7,
+      "movement": 6,
+      "type": "elite"
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import { CharacterData } from "../model/data/CharacterData";
 import { Figure } from "../model/Figure";
 import { Game } from "../model/Game";
 import { Summon, SummonColor, SummonState } from "../model/Summon";
+import { settingsManager } from "./SettingsManager";
 
 export class CharacterManager {
 
@@ -61,12 +62,14 @@ export class CharacterManager {
       if (figure instanceof CharacterEntity) {
         figure.initiative = 0;
         figure.off = false;
-        for (let roundCondition in RoundCondition) {
-          if (figure.conditions.indexOf(roundCondition as Condition) != -1) {
-            figure.turnConditions.push(roundCondition as Condition);
-          } else if (figure.turnConditions.indexOf(roundCondition as Condition) != -1) {
-            figure.conditions.splice(figure.conditions.indexOf(roundCondition as Condition), 1);
-            figure.turnConditions.splice(figure.turnConditions.indexOf(roundCondition as Condition), 1);
+        if (settingsManager.settings.expireConditions) {
+          for (let roundCondition in RoundCondition) {
+            if (figure.conditions.indexOf(roundCondition as Condition) != -1) {
+              figure.turnConditions.push(roundCondition as Condition);
+            } else if (figure.turnConditions.indexOf(roundCondition as Condition) != -1) {
+              figure.conditions.splice(figure.conditions.indexOf(roundCondition as Condition), 1);
+              figure.turnConditions.splice(figure.turnConditions.indexOf(roundCondition as Condition), 1);
+            }
           }
         }
 

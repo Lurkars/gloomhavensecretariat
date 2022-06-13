@@ -1,0 +1,105 @@
+{
+  "boss": true,
+  "count": 1,
+  "deck": "boss",
+  "edition": "gh",
+  "name": "gloom",
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "wound",
+      "poison",
+      "disarm",
+      "immobilize",
+      "muddle",
+      "stun",
+      "curse"
+    ],
+    "special": [
+      [
+        {
+          "type": "move",
+          "value": 9,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 9,
+          "valueType": "plus"
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "Teleport"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 5
+            },
+            {
+              "type": "condition",
+              "value": "poison|wound|stun"
+            }
+          ]
+        }
+      ]
+    ],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "attack": 5,
+      "health": "20xC",
+      "level": 0,
+      "movement": 2
+    },
+    {
+      "attack": 5,
+      "health": "25xC",
+      "level": 1,
+      "movement": 2
+    },
+    {
+      "attack": 6,
+      "health": "29xC",
+      "level": 2,
+      "movement": 2
+    },
+    {
+      "attack": 6,
+      "health": "35xC",
+      "level": 3,
+      "movement": 2
+    },
+    {
+      "attack": 7,
+      "health": "39xC",
+      "level": 4,
+      "movement": 3
+    },
+    {
+      "attack": 7,
+      "health": "46xC",
+      "level": 5,
+      "movement": 3
+    },
+    {
+      "attack": 8,
+      "health": "50xC",
+      "level": 6,
+      "movement": 3
+    },
+    {
+      "attack": 9,
+      "health": "56xC",
+      "level": 7,
+      "movement": 3
+    }
+  ]
+}

@@ -1,14 +1,14 @@
 <div class="card-container ability">
-  <div class="card" [ngClass]="{'flipped' : flipped() }" (click)="open()">
-    <div class="card-front ability-front">
+  <div class="card" [ngClass]="{'flipped' : flipped() }">
+    <div class="card-front ability-front" (click)="open()">
       <span class="name">{{'data.monster.' + monster.name | ghsLabel}}</span>
       <span class="left-abilities">{{monster.availableAbilities.length}}</span>
     </div>
-    <div class="card-back ability-back">
+    <div class="card-back ability-back" (click)="open()">
       <div *ngIf="ability">
         <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
         <span class="name">{{ability.name}}</span>
-        <ghs-actions [actions]="ability.actions" [monster]="monster"></ghs-actions>
+        <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="hexSizeColumn()"></ghs-actions>
         <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
       </div>
     </div>
@@ -33,7 +33,7 @@
           <div class="card-back ability-back">
             <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
             <span class="name">{{ability.name}}</span>
-            <ghs-actions [actions]="ability.actions" [monster]="monster"></ghs-actions>
+            <ghs-actions [actions]="ability.actions" [monster]="monster"  [hexSize]="hexSize()"></ghs-actions>
             <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
           </div>
         </div>

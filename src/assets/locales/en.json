@@ -31,7 +31,10 @@
   },
   "settings": {
     ".": "Settings",
-    "calc": "Calculate",
+    "calc": "Show calculated stats",
+    "eliteFirst" : "Elite monsters first",
+    "expireConditions" : "Automatic expire condition",
+    "moveElements" : "Automatic update element state",
     "zoomIn": "Zoom In",
     "zoomOut": "Zoom Out",
     "zoomReset": "Reset Zoom",
@@ -59,6 +62,7 @@
       "heal": "Heal",
       "specialTarget": {
         "self": "Self",
+        "selfAlliesAffect" : "Affect self and all allies",
         "ally": "Target one adjacent ally",
         "allAllies": "Target all allies",
         "allAlliesRange": "Target all allies within range",
@@ -68,7 +72,8 @@
         "enemyOneAll": "Target one enemy with all attacks",
         "allEnemies": "Target all enemies",
         "allEnemiesRange": "Target all enemies within range",
-        "adjacentEnemies": "Target all adjacent enemies"
+        "adjacentEnemies": "Target all adjacent enemies",
+        "selfAlliesRange": "Target self and all allies within range"
       },
       "target": "Target",
       "shield": "Shield",

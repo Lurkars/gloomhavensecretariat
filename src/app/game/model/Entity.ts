@@ -24,7 +24,6 @@ export function EntityValueFunction(value: string, L: number | undefined = undef
   value = value.replace(/[x]/g, "*");
   value = value.replace(/[C]/g, "" + C);
   value = value.replace(/[L]/g, "" + L);
-
   const result = eval(value)
   return result as number;
 }

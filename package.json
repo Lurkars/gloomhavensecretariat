@@ -1,6 +1,6 @@
 {
   "name": "gloomhavensecretary",
-  "version": "0.3.5",
+  "version": "0.4.0",
   "license": "AGPL3",
   "description": "Gloomhaven Secretary is an angular based Gloomhaven Helper clone.",
   "author": {
@@ -12,13 +12,13 @@
   "bugs": "https://github.com/Lurkars/gloomhavensecretary/issues",
   "main": "main.js",
   "scripts": {
-    "electron": "ng build --base-href ./ && electron .",
-    "electron:build": "ng build --base-href ./ && electron-builder",
+    "electron": "node ./scripts/concat-data.js && ng build --base-href ./ && electron .",
+    "electron:build": "node ./scripts/concat-data.js && ng build --base-href ./ && electron-builder",
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "start": "node ./scripts/concat-data.js && ng serve",
+    "build": "node ./scripts/concat-data.js && ng build",
+    "watch": "node ./scripts/concat-data.js && ng build --watch --configuration development",
+    "test": "node ./scripts/concat-data.js && ng test"
   },
   "build": {
     "appId": "gloomhavensecretary",

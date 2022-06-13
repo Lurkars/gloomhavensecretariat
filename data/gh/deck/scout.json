@@ -1,0 +1,162 @@
+{
+  "abilities": [
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 29,
+      "name": "Scout"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 40,
+      "name": "Scout"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 53,
+      "name": "Scout"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            },
+            {
+              "type": "condition",
+              "value": "poison"
+            }
+          ],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 54,
+      "name": "Scout"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 69,
+      "name": "Scout"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison"
+            }
+          ],
+          "type": "attack",
+          "value": 2,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 92,
+      "name": "Scout",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4
+            },
+            {
+              "type": "target",
+              "value": 2
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 79,
+      "name": "Scout"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "jump"
+            }
+          ],
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "loot",
+          "value": 1
+        }
+      ],
+      "initiative": 35,
+      "name": "Scout",
+      "shuffle": true
+    }
+  ],
+  "edition": "gh",
+  "name": "scout"
+}

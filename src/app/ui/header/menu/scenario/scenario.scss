@@ -16,14 +16,25 @@
 
   .scenario {
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(var(--ghs-column-unit) * 7);
+    width: calc(var(--ghs-column-unit) * 7);
     font-family: 'ghs-title';
     font-size: calc(var(--ghs-unit) * 3.5);
     color: var(--ghs-color-gray);
-    align-self: center;
-    text-align: center;
+    border-radius: 100%;
 
     &:hover {
-    color: var(--ghs-color-white);
+      border: calc(var(--ghs-column-unit) / 5) var(--ghs-color-white) solid;
+      color: var(--ghs-color-white);
+    }
+
+    &.disabled {
+      pointer-events: none;
+      border: calc(var(--ghs-column-unit) / 5) var(--ghs-color-gray) solid;
+      color: var(--ghs-color-darkgray);
     }
   }
 }

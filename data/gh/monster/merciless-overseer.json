@@ -1,0 +1,82 @@
+{
+  "boss": true,
+  "count": 1,
+  "deck": "boss",
+  "edition": "gh",
+  "name": "merciless-overseer",
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "curse",
+      "disarm",
+      "stun",
+      "wound"
+    ],
+    "special": [
+      [
+        {
+          "type": "custom",
+          "value": "All Scouts act again"
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "Summon Vermling Scouts"
+        }
+      ]
+    ],
+    "type": "boss",
+    "note": "V = Number of Scouts present"
+  },
+  "stats": [
+    {
+      "attack": "V",
+      "health": "6xC",
+      "level": 0,
+      "movement": 2
+    },
+    {
+      "attack": "V",
+      "health": "8xC",
+      "level": 1,
+      "movement": 2
+    },
+    {
+      "attack": "V",
+      "health": "9xC",
+      "level": 2,
+      "movement": 3
+    },
+    {
+      "attack": "V",
+      "health": "11xC",
+      "level": 3,
+      "movement": 3
+    },
+    {
+      "attack": "V",
+      "health": "12xC",
+      "level": 4,
+      "movement": 4
+    },
+    {
+      "attack": "V",
+      "health": "14xC",
+      "level": 5,
+      "movement": 4
+    },
+    {
+      "attack": "V",
+      "health": "16xC",
+      "level": 6,
+      "movement": 4
+    },
+    {
+      "attack": "V",
+      "health": "19xC",
+      "level": 7,
+      "movement": 4
+    }
+  ]
+}

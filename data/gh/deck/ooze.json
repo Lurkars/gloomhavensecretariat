@@ -1,0 +1,163 @@
+{
+  "abilities": [
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 36,
+      "name": "Ooze"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 57,
+      "name": "Ooze"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2
+            },
+            {
+              "type": "condition",
+              "value": "poison"
+            }
+          ],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 59,
+      "name": "Ooze"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 66,
+      "name": "Ooze"
+    },
+    {
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Ooze suffers 2 damage."
+        },
+        {
+          "type": "custom",
+          "value": "Summon normal Ooze with a hit point value equal to the summoning Ooze's current hit point value (limited by a normal Ooze's specified maximum hit point value)"
+        }
+      ],
+      "initiative": 94,
+      "name": "Ooze",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Ooze suffers 2 damage."
+        },
+        {
+          "type": "custom",
+          "value": "Summon normal Ooze with a hit point value equal to the summoning Ooze's current hit point value (limited by a normal Ooze's specified maximum hit point value)"
+        }
+      ],
+      "initiative": 94,
+      "name": "Ooze",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "loot",
+          "value": 1
+        },
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ],
+          "type": "heal",
+          "value": 2
+        }
+      ],
+      "initiative": 66,
+      "name": "Ooze"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ],
+          "type": "condition",
+          "value": "push|poison"
+        },
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": -1
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ],
+      "initiative": 85,
+      "name": "Ooze"
+    }
+  ],
+  "edition": "gh",
+  "name": "ooze"
+}

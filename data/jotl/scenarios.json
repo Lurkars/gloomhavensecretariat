@@ -1,0 +1,242 @@
+[
+  {
+    "edition": "jotl",
+    "name": "Roadside Ambush",
+    "index": "1",
+    "monsters": [
+      "common-vermling-raider"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "A Hole in the Wall",
+    "index": "2",
+    "monsters": [
+      "basic-vermling-raider"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "The Black Ship",
+    "index": "3",
+    "monsters": [
+      "basic-giant-viper",
+      "basic-zealot"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "A Ritual in Stone",
+    "index": "4",
+    "monsters": [
+      "stone-golem",
+      "zealot"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "A Deeper Understanding",
+    "index": "5",
+    "monsters": [
+      "zealot",
+      "chaos-demon",
+      "blood-tumor"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "Corrupted Research",
+    "index": "6",
+    "monsters": [
+      "rat-monstrosity",
+      "black-sludge"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "Sunken Tumor",
+    "index": "7",
+    "monsters": [
+      "vermling-scout",
+      "zealot",
+      "blood-tumor"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "Hidden Tumor",
+    "index": "8",
+    "monsters": [
+      "chaos-demon",
+      "zealot",
+      "blood-tumor"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "Explosive Evolution",
+    "index": "9",
+    "monsters": [
+      "zealot",
+      "living-corpse",
+      "blood-horror"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "The Gauntlet",
+    "index": "10",
+    "monsters": [
+      "black-sludge",
+      "stone-golem",
+      "chaos-demon"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "Defiled Sewers",
+    "index": "11",
+    "monsters": [
+      "black-sludge",
+      "giant-viper",
+      "vermling-scout"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "Beguiling Sewers",
+    "index": "12",
+    "monsters": [
+      "living-corpse",
+      "living-spirit"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "Vile Harvest",
+    "index": "13",
+    "monsters": [
+      "black-sludge",
+      "zealot",
+      "blood-imp"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "Toxic Harvest",
+    "index": "14",
+    "monsters": [
+      "blood-imp",
+      "zealot",
+      "giant-viper"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "Tainted Blood",
+    "index": "15",
+    "monsters": [
+      "black-imp",
+      "blood-imp",
+      "zealot"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "Mixed Results",
+    "index": "16",
+    "monsters": [
+      "black-imp",
+      "blood-imp",
+      "rat-monstrosity"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "Red Twilight",
+    "index": "17",
+    "monsters": [
+      "blood-imp",
+      "blood-monstrosity",
+      "first-of-the-order"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "The Heist",
+    "index": "18",
+    "monsters": [
+      "stone-golem"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "Den of Thieves",
+    "index": "19",
+    "monsters": [
+      "rat-monstrosity",
+      "vermling-raider",
+      "vermling-scout"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "Misplaced Goods",
+    "index": "20",
+    "monsters": [
+      "black-sludge",
+      "giant-viper",
+      "chaos-demon",
+      "rat-monstrosity"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "Agents of Chaos",
+    "index": "21",
+    "monsters": [
+      "chaos-demon",
+      "giant-viper"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "Unfriendly Message",
+    "index": "22",
+    "monsters": [
+      "giant-viper",
+      "stone-golem",
+      "vermling-raider"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "The Best of the Best",
+    "index": "23",
+    "monsters": [
+      "giant-viper",
+      "rat-monstrosity",
+      "stone-golem",
+      "vermling-raider"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "Warding the Void",
+    "index": "24",
+    "monsters": [
+      "black-imp",
+      "chaos-demon"
+    ]
+  },
+  {
+    "edition": "jotl",
+    "name": "The Greatest Job in the World",
+    "index": "25",
+    "monsters": [
+      "living-spirit",
+      "vermling-raider",
+      "vermling-scout"
+    ]
+  }
+]

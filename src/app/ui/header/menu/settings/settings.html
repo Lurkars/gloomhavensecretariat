@@ -1,8 +1,29 @@
 <div class="menu-container settings">
   <div class="line">
     <label>
-      <input type="checkbox" [checked]="settingsManager.settings.calculate" (change)="toggleCalc()">
+      <input type="checkbox" [checked]="settingsManager.settings.calculate" (change)="settingsManager.setCalculate(!settingsManager.settings.calculate)">
       {{'settings.calc' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.eliteFirst" (change)="settingsManager.setEliteFirst(!settingsManager.settings.eliteFirst)">
+      {{'settings.eliteFirst' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.expireConditions" (change)="settingsManager.setExpireConditions(!settingsManager.settings.expireConditions)">
+      {{'settings.expireConditions' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.moveElements" (change)="settingsManager.setMoveElements(!settingsManager.settings.moveElements)">
+      {{'settings.moveElements' | ghsLabel}}
     </label>
   </div>
 

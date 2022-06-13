@@ -1,0 +1,265 @@
+{
+  "abilities": [
+    {
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "heal",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        },
+        {
+          "subActions": [
+            {
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self"
+                }
+              ],
+              "type": "condition",
+              "value": "invisible"
+            }
+          ],
+          "type": "element",
+          "value": "air",
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 9,
+      "name": "Wind Demon"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "pull",
+              "value": 1
+            }
+          ],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "air"
+        }
+      ],
+      "initiative": 21,
+      "name": "Wind Demon",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "pull",
+              "value": 1
+            }
+          ],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "air"
+        }
+      ],
+      "initiative": 21,
+      "name": "Wind Demon",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2
+            },
+            {
+              "subActions": [
+                {
+                  "type": "push",
+                  "value": 2
+                }
+              ],
+              "type": "element",
+              "value": "air",
+              "valueType": "minus"
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 29,
+      "name": "Wind Demon"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(1,0,true)|(2,0,true)|(0,1,false)|(1,1,true)"
+            }
+          ]
+        },
+        {
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "area",
+                  "value": "(1,0,true)|(2,0,true)|(0,1,false)|(1,1,true)|(2,1,true)|(1,2,true)|(2,2,true)"
+                }
+              ]
+            }
+          ],
+          "type": "element",
+          "value": "air",
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 37,
+      "name": "Wind Demon"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "initiative": 43,
+      "name": "Wind Demon"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ],
+          "type": "push",
+          "value": 1
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": -2
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "initiative": 43,
+      "name": "Wind Demon"
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ],
+          "type": "element",
+          "value": "all",
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 2,
+      "name": "Wind Demon"
+    }
+  ],
+  "edition": "gh",
+  "name": "wind-demon"
+}

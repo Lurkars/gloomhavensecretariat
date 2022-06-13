@@ -1,0 +1,34 @@
+{
+  "de": {
+    "character": {
+      "demolitionist": "Sprengmeisterin",
+      "hatchet": "Axtwerfer",
+      "red-guard": "Rotgardist",
+      "voidwarden": "Leerehüterin"
+    },
+    "edition": {
+      "jotl": "Die Pranken des Löwen"
+    },
+    "monster": {
+      "blood-tumor": "Blutgeschwür",
+      "zealot": "Fanatiker"
+    },
+    "scenario": {}
+  },
+  "en": {
+    "character": {
+      "demolitionist": "Demolitionist",
+      "hatchet": "Hatchet",
+      "red-guard": "Red Guard",
+      "voidwarden": "Voidwarden"
+    },
+    "edition": {
+      "jotl": "Jaws Of The Lion"
+    },
+    "monster": {
+      "blood-tumor": "Blood Tumor",
+      "zealot": "Zealot"
+    },
+    "scenario": {}
+  }
+}

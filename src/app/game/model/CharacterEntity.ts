@@ -33,6 +33,12 @@ export class CharacterEntity extends CharacterData implements Entity, Figure {
   constructor(character: CharacterData, level: number) {
     super(character.name, character.stats, character.edition, character.summon, character.icon, character.thumbnail);
 
+    if (level < 1) {
+      level = 1;
+    } else if (level > 9) {
+      level = 9;
+    }
+
     if (!this.stats.some((characterStat: CharacterStat) => characterStat.level == level)) {
       throw Error("Invalid character level: " + level);
     }

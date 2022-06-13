@@ -5,6 +5,15 @@
   align-items: center;
   height: 100%;
 
+  &.inline {
+    align-items: flex-start;
+  }
+
+  &.right {
+    align-items: flex-end;
+    text-align: right;
+  }
+
   .divider {
     width: calc(var(--ghs-column-unit) * 5);
     border-top: calc(var(--ghs-column-unit) * 0.27) var(--ghs-color-white) dotted;

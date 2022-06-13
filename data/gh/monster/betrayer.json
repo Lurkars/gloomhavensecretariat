@@ -1,0 +1,90 @@
+{
+  "boss": true,
+  "count": 1,
+  "deck": "boss",
+  "edition": "gh",
+  "name": "betrayer",
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "wound",
+      "poison",
+      "stun",
+      "disarm",
+      "curse"
+    ],
+    "special": [
+      [
+        {
+          "type": "custom",
+          "value": "Summon Giant Viper and Fear"
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "Mind Control"
+        }
+      ]
+    ],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "attack": 4,
+      "health": "10xC",
+      "level": 0,
+      "movement": 3,
+      "range": 3
+    },
+    {
+      "attack": 5,
+      "health": "12xC",
+      "level": 1,
+      "movement": 3,
+      "range": 3
+    },
+    {
+      "attack": 6,
+      "health": "12xC",
+      "level": 2,
+      "movement": 3,
+      "range": 4
+    },
+    {
+      "attack": 7,
+      "health": "16xC",
+      "level": 3,
+      "movement": 4,
+      "range": 4
+    },
+    {
+      "attack": 8,
+      "health": "18xC",
+      "level": 4,
+      "movement": 4,
+      "range": 4
+    },
+    {
+      "attack": 8,
+      "health": "20xC",
+      "level": 5,
+      "movement": 5,
+      "range": 5
+    },
+    {
+      "attack": 9,
+      "health": "23xC",
+      "level": 6,
+      "movement": 5,
+      "range": 5
+    },
+    {
+      "attack": 9,
+      "health": "27xC",
+      "level": 7,
+      "movement": 5,
+      "range": 5
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { MonsterStat } from 'src/app/game/model/MonsterStat';
@@ -18,8 +19,6 @@ export class MonsterComponent {
   removeMonsterEntityFunction!: Function;
 
   constructor() { }
-
-
 
   emptyEntities(): boolean {
     return this.monster.entities.length == 0 || this.monster.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead);
@@ -40,10 +39,12 @@ export class MonsterComponent {
 
   sortedEntites(): MonsterEntity[] {
     return this.monster.entities.sort((a: MonsterEntity, b: MonsterEntity) => {
-      if (a.type == MonsterType.elite && b.type == MonsterType.normal) {
-        return -1;
-      } else if (a.type == MonsterType.normal && b.type == MonsterType.elite) {
-        return 1;
+      if (settingsManager.settings.eliteFirst) {
+        if (a.type == MonsterType.elite && b.type == MonsterType.normal) {
+          return -1;
+        } else if (a.type == MonsterType.normal && b.type == MonsterType.elite) {
+          return 1;
+        }
       }
       return a.number < b.number ? -1 : 1;
     })

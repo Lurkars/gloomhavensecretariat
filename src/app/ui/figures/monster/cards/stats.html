@@ -1,7 +1,4 @@
 <div class="stats-container" [ngClass]="{'boss' : monster.boss}">
-
-  <div class="name">{{'data.monster.' + monster.name | ghsLabel}}</div>
-
   <div #button class="level">{{monster.level}}</div>
 
   <div class="stats" *ngIf="monster.boss">
@@ -16,12 +13,12 @@
 
   <div class="stats" *ngIf="!monster.boss">
     <div class="stat end">{{statsForType(MonsterType.normal).health | ghsValueCalc}}</div>
-    <div class="stat start">{{statsForType(MonsterType.elite).health  | ghsValueCalc}}</div>
+    <div class="stat start">{{statsForType(MonsterType.elite).health | ghsValueCalc}}</div>
 
     <div class="stat end">{{statsForType(MonsterType.normal).movement | ghsValueCalc}}</div>
     <div class="stat start">{{statsForType(MonsterType.elite).movement | ghsValueCalc}}</div>
 
-    <div class="stat end">{{statsForType(MonsterType.normal).attack  | ghsValueCalc}}</div>
+    <div class="stat end">{{statsForType(MonsterType.normal).attack | ghsValueCalc}}</div>
     <div class="stat start">{{statsForType(MonsterType.elite).attack | ghsValueCalc}}</div>
 
     <div class="stat end">{{statsForType(MonsterType.normal).range | ghsValueCalc}}</div>
@@ -30,41 +27,56 @@
 
   <ng-container *ngIf="!monster.boss">
     <div class="extra normal">
-      <div class="additional" *ngFor="let special of (statsForType(MonsterType.normal).special); let index = index;">
-        {{index}}: <ghs-action [action]="special" [monster]="monster"></ghs-action>
+      <div class="immunities">
+        <span class="immunity" *ngFor="let immunity of statsForType(MonsterType.normal).immunities">
+          <img class="icon" src="./assets/images/condition/{{immunity}}.svg" />
+        </span>
       </div>
-      <div class="condition" *ngFor="let condition of (statsForType(MonsterType.normal).conditions)">
-        {{'game.condition.' + condition | ghsLabel}} <img src="./assets/images/condition/{{condition}}.svg" /></div>
+      <div class="additional">
+        <ghs-actions [actions]="statsForType(MonsterType.normal).actions" [monster]="monster" [inline]="true"
+          [right]="true" [hexSize]="hexSize()">
+        </ghs-actions>
+      </div>
+      <div class="specials" *ngFor="let special of (statsForType(MonsterType.normal).special); let index = index;">
+        {{index+1}}: <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [right]="true"
+          [hexSize]="hexSize()"></ghs-actions>
+      </div>
+      <div class="notes">{{statsForType(MonsterType.normal).note}}</div>
     </div>
     <div class="extra elite">
-      <div class="additional" *ngFor="let special of (statsForType(MonsterType.elite).special); let index = index;">
-        {{index}}: <ghs-action [action]="special" [monster]="monster"></ghs-action>
+      <div class="immunities">
+        <span class="immunity" *ngFor="let immunity of statsForType(MonsterType.elite).immunities">
+          <img class="icon" src="./assets/images/condition/{{immunity}}.svg" />
+        </span>
       </div>
-      <div class="condition" *ngFor="let condition of (statsForType(MonsterType.elite).conditions)">
-        {{'game.condition.' + condition | ghsLabel}} <img src="./assets/images/condition/{{condition}}.svg" /> </div>
+      <div class="additional">
+        <ghs-actions [actions]="statsForType(MonsterType.elite).actions" [monster]="monster" [inline]="true"
+          [hexSize]="hexSize()">
+        </ghs-actions>
+      </div>
+      <div class="additional" *ngFor="let special of (statsForType(MonsterType.elite).special); let index = index;">
+        {{index+1}}: <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [hexSize]="hexSize()">
+        </ghs-actions>
+      </div>
+      <div class="notes">{{statsForType(MonsterType.elite).note}}</div>
     </div>
   </ng-container>
   <div class="extra boss" *ngIf="monster.boss">
-    <div class="additional" *ngFor="let special of (statsForType(MonsterType.boss).special); let index = index;">
-      <span>{{index}}:</span><ghs-action [action]="special" [monster]="monster"></ghs-action>
+    <div class="immunities">
+      <span class="immunity" *ngFor="let immunity of statsForType(MonsterType.boss).immunities">
+        <img class="icon" src="./assets/images/condition/{{immunity}}.svg" />
+      </span>
     </div>
-    <div class="condition" *ngFor="let condition of (statsForType(MonsterType.boss).conditions)">
-      {{'game.condition.' + condition | ghsLabel}} <img src="./assets/images/condition/{{condition}}.svg" /> </div>
-  </div>
-
-  <div class="entities" *ngIf="!monster.boss">
-    <ghs-monster-numberpicker class="normal" [monster]="monster" [type]="MonsterType.normal" [max]="monster.count"
-      [ngClass]="{'disabled' : monster.entities.length >= monster.count}">
-    </ghs-monster-numberpicker>
-    <ghs-monster-numberpicker class="elite" [monster]="monster" [type]="MonsterType.elite" [max]="monster.count"
-      [left]="true" [ngClass]="{'disabled' : monster.entities.length >= monster.count}" [elite]="true">
-    </ghs-monster-numberpicker>
-  </div>
-
-  <div class="entities" *ngIf="monster.boss">
-    <ghs-monster-numberpicker class="boss" [monster]="monster" [type]="MonsterType.boss" [max]="monster.count"
-      [ngClass]="{'disabled' : monster.entities.length >= monster.count}">
-    </ghs-monster-numberpicker>
+    <div class="additional">
+      <ghs-actions [actions]="statsForType(MonsterType.boss).actions" [monster]="monster" [inline]="true"
+        [hexSize]="hexSize()">
+      </ghs-actions>
+    </div>
+    <div class="additional" *ngFor="let special of (statsForType(MonsterType.boss).special); let index = index;">
+      <span>{{index+1}}:</span>
+      <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [hexSize]="hexSize()"></ghs-actions>
+    </div>
+    <div class="notes">{{statsForType(MonsterType.boss).note}}</div>
   </div>
 </div>
 

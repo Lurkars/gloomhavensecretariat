@@ -9,6 +9,7 @@ import { MonsterData } from "../model/data/MonsterData";
 import { Condition, RoundCondition } from "../model/Condition";
 import { Ability } from "../model/Ability";
 import { SummonState } from "../model/Summon";
+import { settingsManager } from "./SettingsManager";
 
 export class MonsterManager {
 
@@ -108,12 +109,14 @@ export class MonsterManager {
             monsterEntity.summon = SummonState.true;
           }
 
-          for (let roundCondition in RoundCondition) {
-            if (monsterEntity.conditions.indexOf(roundCondition as Condition) != -1 && monsterEntity.turnConditions.indexOf(roundCondition as Condition) == -1) {
-              monsterEntity.turnConditions.push(roundCondition as Condition);
-            } else if (monsterEntity.turnConditions.indexOf(roundCondition as Condition) != -1) {
-              monsterEntity.conditions.splice(monsterEntity.conditions.indexOf(roundCondition as Condition), 1);
-              monsterEntity.turnConditions.splice(monsterEntity.turnConditions.indexOf(roundCondition as Condition), 1);
+          if (settingsManager.settings.expireConditions) {
+            for (let roundCondition in RoundCondition) {
+              if (monsterEntity.conditions.indexOf(roundCondition as Condition) != -1 && monsterEntity.turnConditions.indexOf(roundCondition as Condition) == -1) {
+                monsterEntity.turnConditions.push(roundCondition as Condition);
+              } else if (monsterEntity.turnConditions.indexOf(roundCondition as Condition) != -1) {
+                monsterEntity.conditions.splice(monsterEntity.conditions.indexOf(roundCondition as Condition), 1);
+                monsterEntity.turnConditions.splice(monsterEntity.turnConditions.indexOf(roundCondition as Condition), 1);
+              }
             }
           }
         })

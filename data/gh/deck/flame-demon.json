@@ -1,0 +1,222 @@
+{
+  "abilities": [
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "element",
+          "value": "fire"
+        }
+      ],
+      "initiative": 3,
+      "name": "Flame Demon"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "fire"
+        }
+      ],
+      "initiative": 24,
+      "name": "Flame Demon"
+    },
+    {
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(1,0,true)|(2,0,true)|(0,1,true)|(1,1,true)|(2,1,true)|(1,2,true)|(2,2,true)"
+            }
+          ],
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 46,
+      "name": "Flame Demon",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(2,0,true)|(1,1,true)|(1,2,false)"
+            }
+          ],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "plus"
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "valueType": "plus"
+            }
+          ],
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 49,
+      "name": "Flame Demon"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "range",
+              "value": -1
+            }
+          ],
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "fire"
+        }
+      ],
+      "initiative": 67,
+      "name": "Flame Demon"
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ],
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Flame Demon suffers 1 damage."
+            }
+          ],
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 77,
+      "name": "Flame Demon"
+    },
+    {
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
+            },
+            {
+              "type": "target",
+              "value": 2
+            }
+          ],
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus"
+        },
+        {
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "All adjacent enemies suffer 2 damage."
+            }
+          ],
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 77,
+      "name": "Flame Demon",
+      "shuffle": true
+    },
+    {
+      "actions": [
+        {
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Create a 4 damage trap in an adjacent empty hex closest to an enemy."
+            }
+          ],
+          "type": "move",
+          "value": -1
+        },
+        {
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ],
+          "type": "element",
+          "value": "all",
+          "valueType": "minus"
+        }
+      ],
+      "initiative": 8,
+      "name": "Flame Demon"
+    }
+  ],
+  "edition": "gh",
+  "name": "flame-demon"
+}

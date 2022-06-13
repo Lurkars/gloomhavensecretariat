@@ -1,6 +1,6 @@
 <main>
   <div class="figures">
-    <div class="figure" *ngFor="let figure of gameManager.sortedFigures()">
+    <div class="figure" *ngFor="let figure of sortedFigures()">
       <ghs-character [character]="gameManager.toCharacter(figure)" *ngIf="gameManager.isCharacter(figure)">
       </ghs-character>
       <ghs-monster [monster]="gameManager.toMonster(figure)" *ngIf="gameManager.isMonster(figure)"></ghs-monster>

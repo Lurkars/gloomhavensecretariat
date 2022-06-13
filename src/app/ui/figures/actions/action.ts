@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Action, ActionHex, ActionType, ActionValueType } from 'src/app/game/model/Action';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
@@ -17,6 +17,9 @@ export class ActionsComponent {
 
   @Input() monster!: Monster;
   @Input() actions!: Action[];
+  @Input() inline: boolean = false;
+  @Input() right: boolean = false;
+  @Input() hexSize!: number;
   ActionType = ActionType;
 
 }
@@ -31,6 +34,9 @@ export class ActionComponent {
   @Input() monster!: Monster;
   @Input() action!: Action;
   @Input() relative: boolean = false;
+  @Input() inline: boolean = false;
+  @Input() right: boolean = false;
+  @Input() hexSize!: number;
 
   ActionType = ActionType;
   ActionValueType = ActionValueType;
@@ -56,7 +62,7 @@ export class ActionComponent {
     if (!this.monster.stats.some((monsterStat: MonsterStat) => {
       return monsterStat.level == this.monster.level && monsterStat.type == type;
     })) {
-      throw Error("Cannot find monster stat");
+      throw Error("Could not find '" + type + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
     }
 
     return this.monster.stats.filter((monsterStat: MonsterStat) => {
@@ -71,7 +77,7 @@ export class ActionComponent {
     return [];
   }
 
-  getSpecial(action: Action): Action {
+  getSpecial(action: Action): Action[] {
     return this.getStat(MonsterType.boss).special[ (action.value as number) - 1 ];
   }
 
@@ -79,12 +85,17 @@ export class ActionComponent {
     const stat = this.getStat(type);
     if (settingsManager.settings.calculate && !this.relative) {
       let statValue: number = 0;
+      let sign: boolean = true;
       switch (this.action.type) {
         case ActionType.attack:
           if (typeof stat.attack === "number") {
             statValue = stat.attack;
           } else {
-            statValue = EntityValueFunction(stat.attack);
+            try {
+              statValue = EntityValueFunction(stat.attack);
+            } catch {
+              sign = false;
+            }
           }
           break;
         case ActionType.move:
@@ -95,33 +106,38 @@ export class ActionComponent {
           break;
       }
 
-      if (typeof this.action.value === "number") {
+      if (typeof this.action.value === "number" && sign) {
         if (this.action.valueType == ActionValueType.plus) {
           return statValue + this.action.value;
         } else if (this.action.valueType == ActionValueType.minus) {
           return statValue - this.action.value;
         }
       }
+
     }
 
     if (this.action.valueType == ActionValueType.plus) {
       return "+ " + this.action.value;
     } else if (this.action.valueType == ActionValueType.minus) {
       return "- " + this.action.value;
+    } else {
+      return this.action.value;
     }
-
-    return this.action.value;
   }
+
 }
 
 @Component({
   selector: 'ghs-action-hex',
   template: '<canvas #canvas></canvas>'
 })
-export class ActionHexComponent implements OnInit, AfterViewInit {
+export class ActionHexComponent implements OnInit, AfterViewInit, OnChanges {
 
   @Input() value!: string;
+  @Input() size!: number;
   hexes: ActionHex[] = [];
+  init: boolean = false;
+
 
   @ViewChild('canvas', { read: ElementRef }) canvas!: ElementRef<HTMLCanvasElement>;
   public context: CanvasRenderingContext2D | null = null;
@@ -135,32 +151,41 @@ export class ActionHexComponent implements OnInit, AfterViewInit {
     })
   }
 
-  ngAfterViewInit(): void {
-    this.context = this.canvas.nativeElement.getContext('2d');
-    if (this.context == null) {
-      return;
-    }
-    let size: number = ghsColumnUnit() * 1.5;
-    if (ghsUnitUnit() == 'vw') {
-      size = window.innerWidth / 100 * ghsColumnUnit() * 1.5;
-    }
-    let mX = 1;
-    let mY = 1;
-
-    this.hexes.forEach((hex: ActionHex) => {
-      mX = Math.max(mX, hex.x + 1);
-      mY = Math.max(mY, hex.y + 1);
-    });
-
-    this.canvas.nativeElement.width = size * mX * 2;
-    this.canvas.nativeElement.height = size * mY * 2 + (mY == 1 ? size : 0);
-
-    setTimeout(() => {
-      this.hexes.forEach((hex: ActionHex) => {
-        this.drawHexagon(hex, size);
-      });
-    }, 1);
+  ngOnChanges(changes: any) {
+    this.draw();
   }
+
+  ngAfterViewInit(): void {
+    this.init = true;
+    this.draw();
+  }
+
+  draw() {
+    if (this.init) {
+      this.context = this.canvas.nativeElement.getContext('2d');
+      if (this.context == null) {
+        return;
+      }
+      let size: number = this.size;
+      let mX = 1;
+      let mY = 1;
+
+      this.hexes.forEach((hex: ActionHex) => {
+        mX = Math.max(mX, hex.x + 1);
+        mY = Math.max(mY, hex.y + 1);
+      });
+
+      this.canvas.nativeElement.width = size * mX * 2;
+      this.canvas.nativeElement.height = size * mY * 2 + (mY == 1 ? size : 0);
+
+      setTimeout(() => {
+        this.hexes.forEach((hex: ActionHex) => {
+          this.drawHexagon(hex, size);
+        });
+      }, 1);
+    }
+  }
+
 
   drawHexagon(hex: ActionHex, size: number) {
     if (this.context == null) {

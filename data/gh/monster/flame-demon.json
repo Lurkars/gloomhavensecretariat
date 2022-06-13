@@ -1,0 +1,313 @@
+{
+  "count": 6,
+  "edition": "gh",
+  "name": "flame-demon",
+  "baseStat": {
+    "actions": [],
+    "immunities": [],
+    "special": [],
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ],
+      "attack": 2,
+      "health": 2,
+      "level": 0,
+      "movement": 3,
+      "range": 3
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ],
+      "attack": 2,
+      "health": 2,
+      "level": 1,
+      "movement": 3,
+      "range": 3
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ],
+      "attack": 3,
+      "health": 3,
+      "level": 2,
+      "movement": 3,
+      "range": 3
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": {
+            "amount": 2,
+            "range": 2
+          }
+        },
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ],
+      "attack": 3,
+      "health": 3,
+      "level": 3,
+      "movement": 3,
+      "range": 4
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": {
+            "amount": 3,
+            "range": 2
+          }
+        },
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ],
+      "attack": 3,
+      "health": 3,
+      "level": 4,
+      "movement": 4,
+      "range": 4
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": {
+            "amount": 3,
+            "range": 2
+          }
+        },
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ],
+      "attack": 3,
+      "health": 4,
+      "level": 5,
+      "movement": 4,
+      "range": 4
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": {
+            "amount": 4,
+            "range": 2
+          }
+        },
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ],
+      "attack": 4,
+      "health": 4,
+      "level": 6,
+      "movement": 4,
+      "range": 4
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": {
+            "amount": 4,
+            "range": 3
+          }
+        },
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ],
+      "attack": 4,
+      "health": 5,
+      "level": 7,
+      "movement": 4,
+      "range": 5
+    },
+    {
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ],
+      "attack": 2,
+      "health": 3,
+      "level": 0,
+      "movement": 3,
+      "range": 3,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": {
+            "amount": 2,
+            "range": 2
+          }
+        },
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ],
+      "attack": 2,
+      "health": 3,
+      "level": 1,
+      "movement": 3,
+      "range": 4,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": {
+            "amount": 3,
+            "range": 2
+          }
+        },
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ],
+      "attack": 3,
+      "health": 4,
+      "level": 2,
+      "movement": 3,
+      "range": 4,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": {
+            "amount": 3,
+            "range": 3
+          }
+        },
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ],
+      "attack": 3,
+      "health": 5,
+      "level": 3,
+      "movement": 3,
+      "range": 5,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": {
+            "amount": 4,
+            "range": 3
+          }
+        },
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ],
+      "attack": 4,
+      "health": 5,
+      "level": 4,
+      "movement": 4,
+      "range": 5,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": {
+            "amount": 4,
+            "range": 3
+          }
+        },
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ],
+      "attack": 4,
+      "health": 6,
+      "level": 5,
+      "movement": 4,
+      "range": 5,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": {
+            "amount": 5,
+            "range": 3
+          }
+        },
+        {
+          "type": "shield",
+          "value": 5
+        }
+      ],
+      "attack": 5,
+      "health": 7,
+      "level": 6,
+      "movement": 4,
+      "range": 5,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": {
+            "amount": 5,
+            "range": 4
+          }
+        },
+        {
+          "type": "shield",
+          "value": 5
+        }
+      ],
+      "attack": 5,
+      "health": 8,
+      "level": 7,
+      "movement": 4,
+      "range": 6,
+      "type": "elite"
+    }
+  ]
+}

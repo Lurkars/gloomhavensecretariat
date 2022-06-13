@@ -31,7 +31,10 @@
   },
   "settings": {
     ".": "Einstellungen",
-    "calc": "Berechnen",
+    "calc": "Zeige berechnete Werte an",
+    "eliteFirst" : "Elite Monster zuerst",
+    "expireConditions" : "Automatisch Zustände löschen",
+    "moveElements" : "Automatisch Elementen Status ändern",
     "zoomIn": "Reinzoomen",
     "zoomOut": "Rauszoomen",
     "zoomReset": "Zoom zurücksetzen",
@@ -59,6 +62,7 @@
       "heal": "Heilen",
       "specialTarget" : {
         "self": "Selbst",
+        "selfAlliesAffect" : "Affect self and all allies",
         "ally": "Target one adjacent ally",
         "allAllies": "Target all allies",
         "allAlliesRange": "Target all allies within range",
@@ -68,7 +72,8 @@
         "enemyOneAll": "Target one enemy with all attacks",
         "allEnemies": "Target all enemies",
         "allEnemiesRange": "Target all enemies within range",
-        "adjacentEnemies": "Target all adjacent enemies"
+        "adjacentEnemies": "Target all adjacent enemies",
+        "selfAlliesRange": "Target self and all allies within range"
       },
       "target": "Ziel",
       "shield": "Schild",

@@ -1,0 +1,170 @@
+{
+  "count": 6,
+  "deck": "archer",
+  "edition": "gh",
+  "name": "inox-archer",
+  "baseStat": {
+    "actions": [],
+    "immunities": [],
+    "special": [],
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "attack": 2,
+      "health": 5,
+      "level": 0,
+      "movement": 2,
+      "range": 2
+    },
+    {
+      "attack": 2,
+      "health": 6,
+      "level": 1,
+      "movement": 2,
+      "range": 4
+    },
+    {
+      "attack": 2,
+      "health": 8,
+      "level": 2,
+      "movement": 2,
+      "range": 3
+    },
+    {
+      "attack": 3,
+      "health": 9,
+      "level": 3,
+      "movement": 2,
+      "range": 3
+    },
+    {
+      "attack": 3,
+      "health": 10,
+      "level": 4,
+      "movement": 3,
+      "range": 3
+    },
+    {
+      "attack": 3,
+      "health": 12,
+      "level": 5,
+      "movement": 3,
+      "range": 4
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "attack": 4,
+      "health": 12,
+      "level": 6,
+      "movement": 3,
+      "range": 4
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "attack": 4,
+      "health": 15,
+      "level": 7,
+      "movement": 3,
+      "range": 4
+    },
+    {
+      "attack": 3,
+      "health": 7,
+      "level": 0,
+      "movement": 2,
+      "range": 3,
+      "type": "elite"
+    },
+    {
+      "attack": 3,
+      "health": 8,
+      "level": 1,
+      "movement": 2,
+      "range": 4,
+      "type": "elite"
+    },
+    {
+      "attack": 3,
+      "health": 11,
+      "level": 2,
+      "movement": 2,
+      "range": 4,
+      "type": "elite"
+    },
+    {
+      "attack": 4,
+      "health": 13,
+      "level": 3,
+      "movement": 2,
+      "range": 4,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "attack": 4,
+      "health": 14,
+      "level": 4,
+      "movement": 3,
+      "range": 4,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "attack": 4,
+      "health": 17,
+      "level": 5,
+      "movement": 3,
+      "range": 5,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "attack": 5,
+      "health": 19,
+      "level": 6,
+      "movement": 3,
+      "range": 5,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "attack": 5,
+      "health": 23,
+      "level": 7,
+      "movement": 3,
+      "range": 5,
+      "type": "elite"
+    }
+  ]
+}

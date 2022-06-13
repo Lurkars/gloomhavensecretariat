@@ -1,0 +1,32 @@
+.name-container {
+  position: absolute;
+  top: calc(var(--ghs-column-unit) * 0.6);
+  right: 0;
+  width: calc(var(--ghs-column-unit) * 28);
+  font-family: 'ghs-title';
+  color: var(--ghs-color-white);
+  font-size: calc(var(--ghs-column-unit) * 2.5);
+  text-align: left;
+
+  .name {
+    cursor: pointer;
+
+    &:hover {
+      color: var(--ghs-color-gray);
+    }
+  }
+}
+
+.stats-popup {
+  .stats-container {
+    display: flex;
+    flex-direction: column;
+    margin: calc(var(--ghs-unit) * 1);
+    max-height: 80vh;
+    overflow: auto;
+
+    ghs-monster-stats {
+      margin: calc(var(--ghs-unit) * 1.5);
+    }
+  }
+}

@@ -4,6 +4,7 @@ import { Figure } from "./Figure";
 import { MonsterData } from "./data/MonsterData";
 import { gameManager } from "../businesslogic/GameManager";
 import { SummonColor } from "./Summon";
+import { MonsterStat } from "./MonsterStat";
 
 export class Monster extends MonsterData implements Figure {
 
@@ -25,9 +26,40 @@ export class Monster extends MonsterData implements Figure {
   entities: MonsterEntity[] = [];
 
   constructor(monsterData: MonsterData) {
-    super(monsterData.name, monsterData.count, monsterData.stats, monsterData.edition, monsterData.deck, monsterData.boss, monsterData.thumbnail, monsterData.spoiler);
+    super(monsterData.name, monsterData.count, monsterData.baseStat, monsterData.stats, monsterData.edition, monsterData.deck, monsterData.boss, monsterData.thumbnail, monsterData.spoiler);
     this.availableAbilities = gameManager.abilities(this.deck, this.edition).map((ability: Ability, index: number) => index);
     this.level = 0;
+    if (monsterData.baseStat) {
+      for (let stat of monsterData.stats) {
+        if (!stat.health) {
+          stat.health = monsterData.baseStat.health;
+        }
+        if (!stat.movement) {
+          stat.movement = monsterData.baseStat.movement;
+        }
+        if (!stat.attack) {
+          stat.attack = monsterData.baseStat.attack;
+        }
+        if (!stat.range) {
+          stat.range = monsterData.baseStat.range;
+        }
+        if (!stat.actions) {
+          stat.actions = monsterData.baseStat.actions;
+        }
+        if (!stat.immunities) {
+          stat.immunities = monsterData.baseStat.immunities;
+        }
+        if (!stat.special) {
+          stat.special = monsterData.baseStat.special;
+        }
+        if (!stat.note) {
+          stat.note = monsterData.baseStat.note;
+        }
+        if (!stat.type) {
+          stat.type = monsterData.baseStat.type;
+        }
+      }
+    }
   }
 
   toModel(): GameMonsterModel {
