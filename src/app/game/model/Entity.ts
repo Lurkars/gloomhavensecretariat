@@ -1,5 +1,5 @@
 import { gameManager } from "../businesslogic/GameManager";
-import { CharacterEntity } from "./CharacterEntity";
+import { Character } from "./Character";
 import { Condition } from "./Condition";
 import { Figure } from "./Figure";
 
@@ -12,7 +12,7 @@ export interface Entity {
 }
 
 export function EntityValueFunction(value: string, L: number | undefined = undefined): number {
-  let C = gameManager.game.figures.filter((figure: Figure) => figure instanceof CharacterEntity).length;
+  let C = gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).length;
 
   if (C < 1) {
     C = 1;

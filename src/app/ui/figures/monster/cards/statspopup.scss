@@ -1,11 +1,11 @@
 .name-container {
   position: absolute;
-  top: calc(var(--ghs-column-unit) * 0.6);
+  top: calc(var(--ghs-unit) * 0.6);
   right: 0;
-  width: calc(var(--ghs-column-unit) * 28);
+  width: calc(var(--ghs-unit) * 28);
   font-family: 'ghs-title';
   color: var(--ghs-color-white);
-  font-size: calc(var(--ghs-column-unit) * 2.5);
+  font-size: calc(var(--ghs-unit) * 2.5);
   text-align: left;
 
   .name {
@@ -26,6 +26,7 @@
     overflow: auto;
 
     ghs-monster-stats {
+      pointer-events: none;
       margin: calc(var(--ghs-unit) * 1.5);
     }
   }

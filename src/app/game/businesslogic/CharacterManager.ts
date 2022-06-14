@@ -1,9 +1,11 @@
-import { CharacterEntity } from "../model/CharacterEntity";
+import { Character } from "../model/Character";
 import { Condition, RoundCondition } from "../model/Condition";
 import { CharacterData } from "../model/data/CharacterData";
 import { Figure } from "../model/Figure";
 import { Game } from "../model/Game";
-import { Summon, SummonColor, SummonState } from "../model/Summon";
+import { Objective } from "../model/Objective";
+import { Summon, SummonState } from "../model/Summon";
+import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 
 export class CharacterManager {
@@ -35,31 +37,36 @@ export class CharacterManager {
       return;
     }
 
-    let entity: CharacterEntity = new CharacterEntity(characterData, this.game.level);
+    let entity: Character = new Character(characterData, this.game.level);
     this.game.figures.push(entity);
+    gameManager.sortFigures();
   }
 
-  removeCharacter(character: CharacterEntity) {
-    if (!this.game.figures.some((element: Figure) => {
-      return element.name == character.name;
-    })) {
-      return;
-    }
-
+  removeCharacter(character: Character) {
     this.game.figures.splice(this.game.figures.indexOf(character), 1);
   }
 
-  addSummon(character: CharacterEntity, summon: Summon) {
+  addSummon(character: Character, summon: Summon) {
     character.summons.push(summon);
   }
 
-  removeSummon(character: CharacterEntity, summon: Summon) {
+  removeSummon(character: Character, summon: Summon) {
     character.summons.splice(character.summons.indexOf(summon), 1);
+  }
+
+
+  addObjective() {
+    this.game.figures.push(new Objective());
+    gameManager.sortFigures();
+  }
+
+  removeObjective(objective: Objective) {
+    this.game.figures.splice(this.game.figures.indexOf(objective), 1);
   }
 
   draw() {
     this.game.figures.forEach((figure: Figure) => {
-      if (figure instanceof CharacterEntity) {
+      if (figure instanceof Character) {
         figure.initiative = 0;
         figure.off = false;
         if (settingsManager.settings.expireConditions) {
@@ -78,13 +85,15 @@ export class CharacterManager {
             summon.state = SummonState.true;
           }
         }
+      } else if (figure instanceof Objective) {
+        figure.off = false;
       }
     })
   }
 
   next() {
     this.game.figures.forEach((figure: Figure) => {
-      if (figure instanceof CharacterEntity) {
+      if (figure instanceof Character || figure instanceof Objective) {
         if (!figure.exhausted && figure.health <= 0) {
           figure.off = false;
         }

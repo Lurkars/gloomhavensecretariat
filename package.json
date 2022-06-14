@@ -1,6 +1,6 @@
 {
   "name": "gloomhavensecretary",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "license": "AGPL3",
   "description": "Gloomhaven Secretary is an angular based Gloomhaven Helper clone.",
   "author": {
@@ -24,7 +24,9 @@
     "appId": "gloomhavensecretary",
     "linux": {
       "target": [
-        "AppImage", "rpm", "deb"
+        "AppImage",
+        "rpm",
+        "deb"
       ]
     },
     "mac": {
@@ -46,6 +48,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.0.0",
+    "@angular/cdk": "^14.0.1",
     "@angular/common": "^14.0.0",
     "@angular/compiler": "^14.0.0",
     "@angular/core": "^14.0.0",

@@ -15,9 +15,9 @@
   }
 
   .divider {
-    width: calc(var(--ghs-column-unit) * 5);
-    border-top: calc(var(--ghs-column-unit) * 0.27) var(--ghs-color-white) dotted;
-    margin: calc(var(--ghs-column-unit) * 0.5);
+    width: calc(var(--ghs-unit) * 5);
+    border-top: calc(var(--ghs-unit) * 0.27) var(--ghs-color-white) dotted;
+    margin: calc(var(--ghs-unit) * 0.5);
   }
 
   ghs-action {

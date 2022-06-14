@@ -39,12 +39,6 @@ export class MonsterManager {
   }
 
   removeMonster(monster: Monster) {
-    if (!this.game.figures.some((element: Figure) => {
-      return element.name == monster.name;
-    })) {
-      return;
-    }
-
     monster.entities = [];
     this.shuffleAbilities(monster);
     this.game.figures.splice(this.game.figures.indexOf(monster), 1);
@@ -65,12 +59,8 @@ export class MonsterManager {
     }
     monster.entities.push(monsterEntity);
 
-    if (this.game.state == GameState.next && !monster.ability) {
-      const randomAbilityIndex = Math.floor(Math.random() * monster.availableAbilities.length);
-      const abilityIndex = monster.availableAbilities[ randomAbilityIndex ];
-      monster.ability = gameManager.abilities(monster.deck, monster.edition)[ abilityIndex ];
-      monster.availableAbilities.splice(randomAbilityIndex, 1);
-      monster.discardedAbilities.push(abilityIndex);
+    if (this.game.state == GameState.next && monster.ability == -1) {
+      monster.ability = 0;
     }
 
     if (monster.off) {
@@ -95,11 +85,11 @@ export class MonsterManager {
   async draw() {
     this.game.figures.forEach((figure: Figure) => {
       if (figure instanceof Monster) {
-        if (figure.ability) {
-          if (figure.ability.shuffle || figure.availableAbilities.length == 0) {
+        const ability = this.getAbility(figure);
+        if (ability) {
+          if (ability.shuffle || figure.ability == figure.abilities.length - 1) {
             this.shuffleAbilities(figure);
           }
-          figure.ability = undefined;
         }
         figure.off = figure.entities.length == 0;
 
@@ -128,11 +118,10 @@ export class MonsterManager {
     this.game.figures.forEach((figure: Figure) => {
       if (figure instanceof Monster) {
         if (figure.entities.length > 0) {
-          const randomAbilityIndex = Math.floor(Math.random() * figure.availableAbilities.length);
-          const abilityIndex = figure.availableAbilities[ randomAbilityIndex ];
-          figure.ability = gameManager.abilities(figure.deck, figure.edition)[ abilityIndex ];
-          figure.availableAbilities.splice(randomAbilityIndex, 1);
-          figure.discardedAbilities.push(abilityIndex);
+          figure.ability = figure.ability + 1;
+          if (figure.ability == figure.abilities.length) {
+            this.shuffleAbilities(figure);
+          }
         }
       }
     });
@@ -140,8 +129,19 @@ export class MonsterManager {
 
 
   shuffleAbilities(monster: Monster) {
-    monster.availableAbilities = gameManager.abilities(monster.deck, monster.edition).map((value: Ability, index: number) => index);
-    monster.discardedAbilities = [];
+    monster.ability = -1;
+    monster.abilities = monster.abilities
+      .map((value) => ({ value, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ value }) => value);
+  }
+
+  getAbility(monster: Monster): Ability | undefined {
+    if (monster.ability < 0 || monster.ability >= monster.abilities.length) {
+      return undefined;
+    }
+
+    return gameManager.abilities(monster.deck, monster.edition)[ monster.abilities[ monster.ability ] ]
   }
 
 }

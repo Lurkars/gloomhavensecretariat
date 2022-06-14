@@ -1,5 +1,6 @@
 import { Ability } from "../model/Ability";
-import { CharacterEntity } from "../model/CharacterEntity";
+import { Character } from "../model/Character";
+import { Condition, EntityCondition } from "../model/Condition";
 import { CharacterData } from "../model/data/CharacterData";
 import { DeckData } from "../model/data/DeckData";
 import { defaultAttackModifier, EditionData } from "../model/data/EditionData";
@@ -10,6 +11,7 @@ import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
+import { Objective } from "../model/Objective";
 import { Scenario } from "../model/Scenario";
 import { AttackModifierManager } from "./AttackModifierManager";
 import { CharacterManager } from "./CharacterManager";
@@ -26,6 +28,7 @@ export class GameManager {
   monstersData: MonsterData[] = [];
   decksData: DeckData[] = [];
   scenarioData: ScenarioData[] = [];
+  conditions: Condition[] = Object.values(EntityCondition);
   stateManager: StateManager;
   characterManager: CharacterManager;
   monsterManager: MonsterManager;
@@ -55,14 +58,7 @@ export class GameManager {
         this.game.strongElements = [];
       }
 
-      this.game.figures.sort((a: Figure, b: Figure) => {
-        if (a instanceof CharacterEntity && b instanceof Monster) {
-          return -1;
-        } else if (a instanceof Monster && b instanceof CharacterEntity) {
-          return 1;
-        }
-        return a.name < b.name ? -1 : 1;
-      })
+      this.sortFigures();
 
       this.game.figures.forEach((figure: Figure) => figure.active = false);
 
@@ -80,22 +76,55 @@ export class GameManager {
         this.game.newElements = [];
       }
 
-      this.game.figures.sort((a: Figure, b: Figure) => {
-        if (a instanceof CharacterEntity && a.exhausted) {
-          return 99;
-        }
-
-        if (b instanceof CharacterEntity && b.exhausted) {
-          return 99;
-        }
-        return a.getInitiative() - b.getInitiative();
-      });
+      this.sortFigures();
 
       if (this.game.figures.length > 0) {
         this.game.figures[ 0 ].active = true;
       }
     }
     setTimeout(() => this.working = false, 1);
+  }
+
+  sortFigures() {
+    if (this.game.state == GameState.draw) {
+      this.game.figures.sort((a: Figure, b: Figure) => {
+        let aName = a.name.toLowerCase();
+        if (a instanceof Character) {
+          aName = a.title.toLowerCase() || settingsManager.getLabel('data.character.' + a.name).toLowerCase();
+        } else if (a instanceof Monster) {
+          aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
+        } else if (a instanceof Objective) {
+          aName = a.title.toLowerCase() || settingsManager.getLabel(a.name).toLowerCase();
+        }
+
+        let bName = b.name.toLowerCase();
+        if (b instanceof Character) {
+          bName = b.title.toLowerCase() || settingsManager.getLabel('data.character.' + b.name).toLowerCase();
+        } else if (b instanceof Monster) {
+          bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
+        } else if (b instanceof Objective) {
+          bName = b.title.toLowerCase() || settingsManager.getLabel(b.name).toLowerCase();
+        }
+
+        if (a instanceof Character && b instanceof Monster) {
+          return -1;
+        } else if (a instanceof Monster && b instanceof Character) {
+          return 1;
+        }
+        return aName < bName ? -1 : 1;
+      })
+    } else {
+      this.game.figures.sort((a: Figure, b: Figure) => {
+        if (a instanceof Character && a.exhausted) {
+          return 99;
+        }
+
+        if (b instanceof Character && b.exhausted) {
+          return 99;
+        }
+        return a.getInitiative() - b.getInitiative();
+      });
+    }
   }
 
   abilities(name: string, edition: string): Ability[] {
@@ -107,7 +136,7 @@ export class GameManager {
   }
 
   nextAvailable(): boolean {
-    return this.game.figures.length > 0 && (this.game.state == GameState.next || this.game.figures.every((figure: Figure) => figure instanceof Monster || figure instanceof CharacterEntity && (figure.getInitiative() > 0 || figure.exhausted)
+    return this.game.figures.length > 0 && (this.game.state == GameState.next || this.game.figures.every((figure: Figure) => figure instanceof Monster || figure instanceof Objective || figure instanceof Character && (figure.getInitiative() > 0 || figure.exhausted)
     ));
   }
 
@@ -120,15 +149,27 @@ export class GameManager {
   }
 
   isCharacter(figure: Figure): boolean {
-    return figure instanceof CharacterEntity;
+    return figure instanceof Character;
+  }
+
+  isObjective(figure: Figure): boolean {
+    return figure instanceof Objective;
   }
 
   isMonster(figure: Figure): boolean {
     return figure instanceof Monster;
   }
 
-  toCharacter(figure: Figure): CharacterEntity {
-    return figure as CharacterEntity;
+  toCharacter(figure: Figure): Character {
+    return figure as Character;
+  }
+
+  toObjective(figure: Figure): Objective {
+    return figure as Objective;
+  }
+
+  toMonster(figure: Figure): Monster {
+    return figure as Monster;
   }
 
   getMonsterData(name: String): MonsterData {
@@ -137,10 +178,6 @@ export class GameManager {
     }
 
     return this.monstersData.filter((value: MonsterData) => value.name == name)[ 0 ];
-  }
-
-  toMonster(figure: Figure): Monster {
-    return figure as Monster;
   }
 
   toggleOff(figure: Figure) {
@@ -231,7 +268,7 @@ export class GameManager {
     let charCount = 0;
 
     this.game.figures.forEach((figure: Figure) => {
-      if (figure instanceof CharacterEntity) {
+      if (figure instanceof Character) {
         charLevel += figure.level;
         charCount += 1;
       }

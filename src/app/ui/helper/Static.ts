@@ -1,4 +1,3 @@
-import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Spoilable } from "src/app/game/model/Spoilable";
 
@@ -8,10 +7,6 @@ export function ghsUnit(): number {
 
 export function ghsUnitUnit(): string {
   return window.getComputedStyle(document.body).getPropertyValue('--ghs-width').replace(/[\d\+]/g, '').trim();
-}
-
-export function ghsColumnUnit(): number {
-  return ghsUnit() / +window.getComputedStyle(document.body).getPropertyValue('--ghs-columns');
 }
 
 export function ghsHasSpoilers(items: Spoilable[]): boolean {

@@ -2,7 +2,7 @@ import { Component, ViewEncapsulation } from "@angular/core";
 import packageJson from '../../../../../package.json';
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { CharacterEntity } from "src/app/game/model/CharacterEntity";
+import { Character } from "src/app/game/model/Character";
 import { CharacterData } from "src/app/game/model/data/CharacterData";
 import { MonsterData } from "src/app/game/model/data/MonsterData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
@@ -13,6 +13,11 @@ import { DialogComponent } from "src/app/ui/dialog/dialog";
 import { SwUpdate } from '@angular/service-worker';
 import { Scenario } from "src/app/game/model/Scenario";
 import { ghsHasSpoilers, ghsIsSpoiled, ghsNotSpoiled } from "../../helper/Static";
+import { Objective } from "src/app/game/model/Objective";
+
+export enum SubMenu {
+  main, edition, scenario, section, monster_add, monster_remove, character_add, character_remove, objective_remove, settings, language, datamanagement, about
+}
 
 @Component({
   selector: 'ghs-main-menu',
@@ -73,14 +78,32 @@ export class MainMenuComponent extends DialogComponent {
     gameManager.stateManager.after();
   }
 
-  characters(): CharacterEntity[] {
+  characters(): Character[] {
     return gameManager.game.figures.filter((figure: Figure) => {
-      return figure instanceof CharacterEntity;
+      return figure instanceof Character;
     }).map((figure: Figure) => {
-      return figure as CharacterEntity;
-    }).sort((a: CharacterEntity, b: CharacterEntity) => {
+      return figure as Character;
+    }).sort((a: Character, b: Character) => {
       const aName = a.title.toLowerCase() || settingsManager.getLabel('data.character.' + a.name).toLowerCase();
       const bName = b.title.toLowerCase() || settingsManager.getLabel('data.character.' + b.name).toLowerCase();
+      if (aName > bName) {
+        return 1;
+      }
+      if (aName < bName) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+
+  objectives(): Objective[] {
+    return gameManager.game.figures.filter((figure: Figure) => {
+      return figure instanceof Objective;
+    }).map((figure: Figure) => {
+      return figure as Objective;
+    }).sort((a: Objective, b: Objective) => {
+      const aName = a.title.toLowerCase() || settingsManager.getLabel(a.name).toLowerCase();
+      const bName = b.title.toLowerCase() || settingsManager.getLabel(a.name).toLowerCase();
       if (aName > bName) {
         return 1;
       }
@@ -187,7 +210,7 @@ export class MainMenuComponent extends DialogComponent {
     gameManager.stateManager.after();
   }
 
-  removeCharacter(character: CharacterEntity) {
+  removeCharacter(character: Character) {
     gameManager.stateManager.before();
     gameManager.characterManager.removeCharacter(character);
     if (this.characters().length == 0) {
@@ -198,9 +221,29 @@ export class MainMenuComponent extends DialogComponent {
 
   removeAllCharacters() {
     gameManager.stateManager.before();
-    gameManager.game.figures = gameManager.game.figures.filter((figure: Figure) => {
-      return !(figure instanceof CharacterEntity);
-    })
+    gameManager.game.figures = gameManager.game.figures.filter((figure: Figure) => !(figure instanceof Character))
+    this.close();
+    gameManager.stateManager.after();
+  }
+
+  addObjective() {
+    gameManager.stateManager.before();
+    gameManager.characterManager.addObjective();
+    gameManager.stateManager.after();
+  }
+
+  removeObjective(objective: Objective) {
+    gameManager.stateManager.before();
+    gameManager.characterManager.removeObjective(objective);
+    if (this.objectives().length == 0) {
+      this.close();
+    }
+    gameManager.stateManager.after();
+  }
+
+  removeAllObjectives() {
+    gameManager.stateManager.before();
+    gameManager.game.figures = gameManager.game.figures.filter((figure: Figure) => !(figure instanceof Objective))
     this.close();
     gameManager.stateManager.after();
   }
@@ -236,7 +279,7 @@ export class MainMenuComponent extends DialogComponent {
 
   hasCharacter(characterData: CharacterData) {
     return gameManager.game.figures.some((figure: Figure) => {
-      return figure instanceof CharacterEntity && characterData.name == figure.name;
+      return figure instanceof Character && characterData.name == figure.name;
     })
   }
 
@@ -264,8 +307,4 @@ export class MainMenuComponent extends DialogComponent {
     }
   }
 
-}
-
-export enum SubMenu {
-  main, edition, scenario, section, monster_add, monster_remove, character_add, character_remove, settings, language, datamanagement, about
 }

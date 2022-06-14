@@ -1,5 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { MonsterType } from "src/app/game/model/MonsterType";
@@ -37,8 +38,17 @@ export class MonsterNumberPicker extends DialogComponent {
   }
 
   override open(): void {
+    if (this.monster.entities.length == this.monster.count) {
+      return;
+    }
     if (this.max == 1) {
       this.pickNumber(1);
+    } else if (settingsManager.settings.randomStandees) {
+      let number = Math.floor(Math.random() * this.monster.count) + 1;
+      while (this.monster.entities.some((monsterEntity: MonsterEntity) => monsterEntity.number == number)) {
+        number = number = Math.floor(Math.random() * this.monster.count) + 1;
+      }
+      this.pickNumber(number);
     } else {
       super.open();
     }

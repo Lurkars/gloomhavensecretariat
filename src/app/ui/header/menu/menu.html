@@ -15,26 +15,44 @@
     <div class="line separator">
       <a (click)="active = SubMenu.edition">{{'edition' | ghsLabel}}</a>
     </div>
+    <div class="columns">
+      <div class="column separator">
+        <div class="line" [ngClass]="{'disabled' : hasAllMonster()}">
+          <a (click)="active = SubMenu.monster_add">{{'monster.add' | ghsLabel}}</a>
+        </div>
+        <div class="line" [ngClass]="{'disabled' : monsters().length == 0}">
+          <a (click)="active = SubMenu.monster_remove">{{'monster.remove' | ghsLabel}}</a>
+        </div>
+      </div>
+      <div class="column separator">
+        <div class="line">
+          <a (click)="active = SubMenu.scenario">{{'scenario' | ghsLabel}}</a>
+        </div>
+        <div class="line disabled">
+          <a (click)="active = SubMenu.section">{{'section' | ghsLabel}}</a>
+        </div>
+      </div>
+    </div>
 
-    <div class="line separator">
-      <a (click)="active = SubMenu.scenario">{{'scenario' | ghsLabel}}</a>
-    </div>
-    <div class="line disabled">
-      <a (click)="active = SubMenu.section">{{'section' | ghsLabel}}</a>
-    </div>
-
-    <div class="line separator" [ngClass]="{'disabled' : hasAllMonster()}">
-      <a (click)="active = SubMenu.monster_add">{{'monster.add' | ghsLabel}}</a>
-    </div>
-    <div class="line" [ngClass]="{'disabled' : monsters().length == 0}">
-      <a (click)="active = SubMenu.monster_remove">{{'monster.remove' | ghsLabel}}</a>
-    </div>
-
-    <div class="line separator" [ngClass]="{'disabled' : hasAllCharacter()}">
-      <a (click)="active = SubMenu.character_add">{{'character.add' | ghsLabel}}</a>
-    </div>
-    <div class="line" [ngClass]="{'disabled' : characters().length == 0}">
-      <a (click)="active = SubMenu.character_remove">{{'character.remove' | ghsLabel}}</a>
+    <div class="columns">
+      <div class="column separator">
+        <div class="line">
+          <a (click)="active = SubMenu.character_add">{{'character.add' | ghsLabel}}</a>
+        </div>
+        <div class="line" [ngClass]="{'disabled' : characters().length == 0}">
+          <a (click)="active = SubMenu.character_remove">{{'character.remove' | ghsLabel}}</a>
+        </div>
+      </div>
+      <div class="column separator">
+        <div class="line">
+          <a (click)="addObjective();">
+            {{'objective.add' | ghsLabel}}
+          </a>
+        </div>
+        <div class="line" [ngClass]="{'disabled' : objectives().length == 0}">
+          <a (click)="active = SubMenu.objective_remove">{{'objective.remove' | ghsLabel}}</a>
+        </div>
+      </div>
     </div>
 
     <div class="line separator">
@@ -63,13 +81,14 @@
       <div class="column spoilers"
         *ngFor="let edition of (gameManager.game.edition ? [gameManager.game.edition] : gameManager.editions);">
         <div class="line title sticky" *ngIf="!gameManager.game.edition">
-          <label>{{'data.edition.' + edition  | ghsLabel}}</label>
+          <label>{{'data.edition.' + edition | ghsLabel}}</label>
         </div>
         <div class="line" *ngFor="let characterData of characterData(edition)"
           [ngClass]="{'disabled' : hasCharacter(characterData), 'spoiler' : characterData.spoiler}">
           <a (click)="addCharacter(characterData);" *ngIf="isSpoiled(characterData)">
-            <img class="icon"
-              [src]="gameManager.characterManager.characterIcon(characterData)" />{{'data.character.' + characterData.name | ghsLabel}}
+            <img class="icon" [src]="gameManager.characterManager.characterIcon(characterData)" />{{'data.character.'
+            +
+            characterData.name | ghsLabel}}
           </a>
           <a (click)="settingsManager.addSpoiler(characterData.name);" *ngIf="!isSpoiled(characterData)">
             <img class="icon" [src]="gameManager.characterManager.characterIcon(characterData)" />
@@ -79,7 +98,8 @@
           </a>
         </div>
         <div class="line separator" *ngIf="hasSpoilers(characterData(edition))">
-          <a (click)="settingsManager.addSpoilers(notSpoiled(characterData(edition)))">{{'spoiler.all' | ghsLabel}}</a>
+          <a (click)="settingsManager.addSpoilers(notSpoiled(characterData(edition)))">{{'spoiler.all' |
+            ghsLabel}}</a>
         </div>
       </div>
     </div>
@@ -101,12 +121,28 @@
     </div>
   </div>
 
+  <div *ngSwitchCase="SubMenu.objective_remove" class="menu-container objective-remove">
+    <div class="line">
+      <a (click)="removeAllObjectives()">
+        &lt;{{'objective.removeAll' | ghsLabel}}&gt;
+      </a>
+    </div>
+    <div class="line" *ngFor="let objective of objectives()">
+      <a (click)="removeObjective(objective);">
+        <img class="icon" src="./assets/images/objective/icon.svg" /><span *ngIf="objective.title">{{objective.title}}
+          (</span>
+        {{'objective' | ghsLabel}}
+        <span *ngIf="objective.title">)</span>
+      </a>
+    </div>
+  </div>
+
   <div *ngSwitchCase="SubMenu.monster_add" class="menu-container monster-add">
     <div class="columns">
       <div class="column spoilers bosses"
         *ngFor="let edition of (gameManager.game.edition ? [gameManager.game.edition] : gameManager.editions);">
         <div class="line title sticky" *ngIf="!gameManager.game.edition">
-          <label>{{'data.edition.' + edition  | ghsLabel}}</label>
+          <label>{{'data.edition.' + edition | ghsLabel}}</label>
         </div>
         <div class="line" *ngFor="let monsterData of monsterData() | ghsEditionFilter:edition"
           [ngClass]="{'disabled' : hasMonster(monsterData), 'spoiler' : monsterData.spoiler, 'boss' : monsterData.boss}">
@@ -154,7 +190,8 @@
     <div class="line">
       <div class="columns">
         <div class="column">
-          <p><a href="https://github.com/Lurkars/gloomhavensecretary" target="_blank">{{'about.sourceCode' | ghsLabel}}</a></p>
+          <p><a href="https://github.com/Lurkars/gloomhavensecretary" target="_blank">{{'about.sourceCode' |
+              ghsLabel}}</a></p>
         </div>
         <div class="column">
           <p

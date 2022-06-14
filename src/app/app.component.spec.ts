@@ -51,8 +51,7 @@ describe('AppComponent', () => {
         MonsterNumberPicker,
         ActionsComponent, ActionComponent, ActionHexComponent,
         CardRevealDirective,
-        GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent, GhsHtmlLabelPipe,
-      ],
+        GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent, GhsHtmlLabelPipe ],
       imports: [
         ServiceWorkerModule.register('ngsw-worker.js', { enabled: false })
       ],

@@ -1,7 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 
-import { CharacterEntity } from "src/app/game/model/CharacterEntity";
+import { Character } from "src/app/game/model/Character";
 import { EntityValueFunction } from "src/app/game/model/Entity";
 import { Summon, SummonColor, SummonState } from "src/app/game/model/Summon";
 
@@ -14,7 +14,7 @@ import { DialogComponent } from "src/app/ui/dialog/dialog";
 })
 export class CharacterSummonDialog extends DialogComponent {
 
-  @Input() character!: CharacterEntity;
+  @Input() character!: Character;
 
   summonColors: SummonColor[] = Object.values(SummonColor).filter((summonColor: SummonColor) => summonColor != SummonColor.custom);
   summonColor: SummonColor = SummonColor.blue;

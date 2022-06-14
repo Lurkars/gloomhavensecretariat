@@ -31,6 +31,10 @@ import { GhsSvgComponent } from './ui/helper/svg/svg';
 import { CharacterImageComponent } from './ui/figures/character/cards/image';
 import { DatamanagementMenuComponent } from './ui/header/menu/datamanagement/datamanagement';
 import { ScenarioMenuComponent } from './ui/header/menu/scenario/scenario';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { CharacterInitiativeComponent } from './ui/figures/character/cards/initiative';
+import { ObjectiveComponent } from './ui/figures/objective/objective';
+import { ObjectiveInitiativeComponent } from './ui/figures/objective/cards/initiative';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,8 @@ import { ScenarioMenuComponent } from './ui/header/menu/scenario/scenario';
     AttackModifierComponent,
     LevelComponent,
     DialogComponent, PopupComponent,
-    CharacterComponent, CharacterImageComponent, CharacterSummonDialog,
+    CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent,
+    ObjectiveComponent, ObjectiveInitiativeComponent,
     SummonEntityComponent,
     MonsterComponent,
     MonsterEntityComponent,
@@ -52,10 +57,10 @@ import { ScenarioMenuComponent } from './ui/header/menu/scenario/scenario';
     MonsterNumberPicker,
     ActionsComponent, ActionComponent, ActionHexComponent,
     CardRevealDirective,
-    GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent, GhsHtmlLabelPipe,
-  ],
+    GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent, GhsHtmlLabelPipe ],
   imports: [
     BrowserModule,
+    DragDropModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the application is stable

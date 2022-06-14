@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { CharacterEntity } from 'src/app/game/model/CharacterEntity';
+import { Character } from 'src/app/game/model/Character';
 import { Condition } from 'src/app/game/model/Condition';
 import { GameState } from 'src/app/game/model/Game';
 import { Summon } from 'src/app/game/model/Summon';
@@ -15,15 +15,15 @@ import { DialogComponent } from '../../dialog/dialog';
 })
 export class CharacterComponent extends DialogComponent {
 
-  @Input() character!: CharacterEntity;
+  @Input() character!: Character;
 
   @ViewChild('charactertitle', { static: false }) titleInput!: ElementRef;
 
+  gameManager: GameManager = gameManager;
   characterManager: CharacterManager = gameManager.characterManager;
 
   GameState = GameState;
   Conditions = Condition;
-  conditions: Condition[] = [ Condition.stun, Condition.immobilize, Condition.disarm, Condition.wound, Condition.muddle, Condition.poison, Condition.strengthen, Condition.invisible ];
   health: number = 0;
   experience: number = 0;
   loot: number = 0;

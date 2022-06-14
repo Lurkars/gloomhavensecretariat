@@ -52,10 +52,13 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": {
-            "amount": 2,
-            "range": 2
-          }
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
         },
         {
           "type": "shield",
@@ -72,10 +75,13 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": {
-            "amount": 3,
-            "range": 2
-          }
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
         },
         {
           "type": "shield",
@@ -92,10 +98,13 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": {
-            "amount": 3,
-            "range": 2
-          }
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
         },
         {
           "type": "shield",
@@ -112,10 +121,13 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": {
-            "amount": 4,
-            "range": 2
-          }
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
         },
         {
           "type": "shield",
@@ -132,10 +144,13 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": {
-            "amount": 4,
-            "range": 3
-          }
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
         },
         {
           "type": "shield",
@@ -166,10 +181,13 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": {
-            "amount": 2,
-            "range": 2
-          }
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
         },
         {
           "type": "shield",
@@ -187,10 +205,13 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": {
-            "amount": 3,
-            "range": 2
-          }
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
         },
         {
           "type": "shield",
@@ -208,10 +229,13 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": {
-            "amount": 3,
-            "range": 3
-          }
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
         },
         {
           "type": "shield",
@@ -229,10 +253,13 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": {
-            "amount": 4,
-            "range": 3
-          }
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
         },
         {
           "type": "shield",
@@ -250,10 +277,13 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": {
-            "amount": 4,
-            "range": 3
-          }
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
         },
         {
           "type": "shield",
@@ -271,10 +301,13 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": {
-            "amount": 5,
-            "range": 3
-          }
+          "value": 5,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
         },
         {
           "type": "shield",
@@ -292,10 +325,13 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": {
-            "amount": 5,
-            "range": 4
-          }
+          "value": 5,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4
+            }
+          ]
         },
         {
           "type": "shield",

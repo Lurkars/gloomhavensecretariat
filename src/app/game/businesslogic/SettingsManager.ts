@@ -65,6 +65,12 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setRandomStandees(randomStandees: boolean) {
+    this.settings.randomStandees = randomStandees;
+    this.storeSettings();
+  }
+
+
   setFullscreen(fullscreen: boolean) {
     this.settings.fullscreen = fullscreen;
     this.storeSettings();
@@ -72,11 +78,6 @@ export class SettingsManager {
 
   setZoom(zoom: number) {
     this.settings.zoom = zoom;
-    this.storeSettings();
-  }
-
-  setColumns(columns: number) {
-    this.settings.columns = columns;
     this.storeSettings();
   }
 

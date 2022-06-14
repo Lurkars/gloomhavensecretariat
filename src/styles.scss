@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'ghs-normal';
-  src: url('~src/assets/font/nyala.ttf') format('truetype');
+  src: url('./assets/font/nyala.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'ghs-title';
-  src: url('~src/assets/font/PirataOne-Gloomhaven.ttf') format('truetype');
+  src: url('./assets/font/PirataOne-Gloomhaven.ttf') format('truetype');
 }
 
 * {
@@ -29,8 +29,6 @@ body {
   --ghs-width: 100px;
   --ghs-factor: 100;
   --ghs-unit: calc(var(--ghs-width) / var(--ghs-factor));
-  --ghs-columns: 1;
-  --ghs-column-unit: calc(var(--ghs-unit) / var(--ghs-columns));
   --ghs-color-white: #fff;
   --ghs-color-black: #000;
   --ghs-color-gray: #98b0b5;

@@ -8,7 +8,8 @@ footer {
   position: relative;
 
   .flex-shrink {
-    flex-basis: 100%; flex-shrink: 1;
+    flex-basis: 100%;
+    flex-shrink: 1;
   }
 
   &:before {
@@ -45,25 +46,56 @@ footer {
       height: calc(var(--ghs-unit) * 12);
       width: calc(var(--ghs-unit) * 12);
 
-      .round {
-        text-shadow: var(--ghs-outline);
-        position: absolute;
-        font-size: calc(var(--ghs-unit) * 2.5);
-        right: calc(var(--ghs-unit) * -0.5);
-        bottom: calc(var(--ghs-unit) * 0.5);
-      }
-
       &:hover {
         color: var(--ghs-color-white);
       }
 
       &.disabled {
         pointer-events: none;
-        color: var(--ghs-color-gray);
+        text-shadow: none;
+        font-weight: bold;
+        color: var(--ghs-color-darkgray);
       }
-  
+
     }
-    
+
+    .round {
+      color: var(--ghs-color-gray);
+      text-shadow: var(--ghs-outline);
+      position: absolute;
+      font-size: calc(var(--ghs-unit) * 2.5);
+      right: calc(var(--ghs-unit) * -0.5);
+      bottom: calc(var(--ghs-unit) * 0.5);
+    }
+
   }
 
+}
+
+.hint-container {
+
+  .hint {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(var(--ghs-unit) * 6);
+
+    p {
+      margin: 0;
+      padding: 0;
+      color: var(--ghs-color-gray);
+      font-size: calc(var(--ghs-unit) * 2.5);
+    }
+
+    a {
+      cursor: pointer;
+      margin-top: calc(var(--ghs-unit) * 2);
+      color: var(--ghs-color-gray);
+      font-size: calc(var(--ghs-unit) * 3);
+
+      &:hover {
+        color: var(--ghs-color-white);
+      }
+    }
+  }
 }

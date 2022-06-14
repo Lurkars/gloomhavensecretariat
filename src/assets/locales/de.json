@@ -1,6 +1,14 @@
 {
-  "draw": "Ziehen",
-  "next": "Nächste Runde",
+  "round": {
+    "draw": "Ziehen",
+    "next": "Nächste Runde",
+    "hint": {
+      "empty": "Vor der Runde bitte Charaktäre und Monster hinzufügen.",
+      "missingInitative": "Die Initaitive muss gesetzt sein. Zum Festlegen der Initiative auf das Charakter-Portrait klicken.",
+      "active": "Es waren noch nicht alle Figuren am Zug. Trotzdem die Runde beenden?",
+      "confirm": "Bestätigen"
+    }
+  },
   "state": {
     "undo": "Rückgängig",
     "redo": "Wiederherstellen",
@@ -11,9 +19,9 @@
     "all": "Alle Editionen"
   },
   "scenario": {
-    ".":  "Szenario auswählen",
+    ".": "Szenario auswählen",
     "custom": "Benutzerdefiniert",
-    "title" : "Titel"
+    "title": "Titel"
   },
   "section": "Sektion hinzufügen",
   "monster": {
@@ -26,15 +34,22 @@
     "remove": "Charakter entfernen",
     "removeAll": "Alle entfernen"
   },
+  "objective": {
+    ".": "Ziel",
+    "add": "Ziel hinzufügen",
+    "remove": "Ziel entfernen",
+    "removeAll": "Alle entfernen"
+  },
   "summon": {
     "addCustom": "Beschwörung '{0}'"
   },
   "settings": {
     ".": "Einstellungen",
     "calc": "Zeige berechnete Werte an",
-    "eliteFirst" : "Elite Monster zuerst",
-    "expireConditions" : "Automatisch Zustände löschen",
-    "moveElements" : "Automatisch Elementen Status ändern",
+    "eliteFirst": "Elite Aufsteller zuerst",
+    "expireConditions": "Automatisch Zustände löschen",
+    "moveElements": "Automatisch Elementen Status ändern",
+    "randomStandees": "Zufällige Aufsteller",
     "zoomIn": "Reinzoomen",
     "zoomOut": "Rauszoomen",
     "zoomReset": "Zoom zurücksetzen",
@@ -47,10 +62,10 @@
     }
   },
   "about": {
-    "." : "Über",
-    "ip" : "Gloomhaven und alle bezogenen Schutzrechte, Bilder und Texte gehören {0}.",
-    "license" : "Lizensiert unter {0}.",
-    "sourceCode" : "Quelltext"
+    ".": "Über",
+    "ip": "Gloomhaven und alle bezogenen Schutzrechte, Bilder und Texte gehören {0}.",
+    "license": "Lizensiert unter {0}.",
+    "sourceCode": "Quelltext"
   },
   "update": "Update (Neu Laden)",
   "game": {
@@ -60,9 +75,9 @@
       "move": "Bewegung",
       "jump": "Springen",
       "heal": "Heilen",
-      "specialTarget" : {
+      "specialTarget": {
         "self": "Selbst",
-        "selfAlliesAffect" : "Affect self and all allies",
+        "selfAlliesAffect": "Affect self and all allies",
         "ally": "Target one adjacent ally",
         "allAllies": "Target all allies",
         "allAlliesRange": "Target all allies within range",
@@ -111,7 +126,7 @@
     },
     "cards": {
       "shuffle": "Mischen",
-      "confirmReveal" : "Zum Aufdecken erneut klicken!",
+      "confirmReveal": "Zum Aufdecken erneut klicken!",
       "coverAll": "Alle Verdecken",
       "revealAll": "Alle Aufdecken?",
       "revealAllConfirm": "Alle Aufdecken!"

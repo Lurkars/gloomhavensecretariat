@@ -22,7 +22,7 @@
 
     &>.type {
       flex-basis: 100%;
-      margin-bottom: calc(var(--ghs-column-unit) * 1.5);
+      margin-bottom: calc(var(--ghs-unit) * 1.5);
     }
 
     ghs-actions {
@@ -45,7 +45,7 @@
   }
 
   .icon {
-    margin: 0 calc(var(--ghs-column-unit) * 0.5);
+    margin: 0 calc(var(--ghs-unit) * 0.5);
     height: 1em;
     width: auto;
   }
@@ -59,24 +59,24 @@
     flex-wrap: unset;
 
     >img {
-      height: calc(var(--ghs-column-unit) * 3);
+      height: calc(var(--ghs-unit) * 3);
       width: auto;
-      margin: calc(var(--ghs-column-unit) * 0.25);
+      margin: calc(var(--ghs-unit) * 0.25);
     }
 
     .minus {
       display: flex;
       align-items: center;
-      width: calc(var(--ghs-column-unit) * 1);
+      width: calc(var(--ghs-unit) * 1);
       position: relative;
 
       &:before {
         content: " ";
         display: block;
         position: absolute;
-        left: calc(var(--ghs-column-unit) * -3.2);
-        width: calc(var(--ghs-column-unit) * 3);
-        height: calc(var(--ghs-column-unit) * 3);
+        left: calc(var(--ghs-unit) * -3.2);
+        width: calc(var(--ghs-unit) * 3);
+        height: calc(var(--ghs-unit) * 3);
         background-image: url('~src/assets/images/element/minus.svg');
         background-size: cover;
       }
@@ -86,9 +86,9 @@
 
   ghs-action-hex {
     position: relative;
-    left: calc(var(--ghs-column-unit) * 1);
+    left: calc(var(--ghs-unit) * 1);
     top: 0;
-    transform: translate(50%, calc(-50% + calc(var(--ghs-column-unit) * 0.3)));
+    transform: translate(50%, calc(-50% + calc(var(--ghs-unit) * 0.3)));
     display: block;
   }
 
@@ -112,7 +112,7 @@
       }
 
       img.icon {
-        margin: 0 calc(var(--ghs-column-unit) * 0.25);
+        margin: 0 calc(var(--ghs-unit) * 0.25);
       }
     }
   }
@@ -122,7 +122,7 @@
     flex-direction: column;
     flex-basis: 100%;
     flex-shrink: 0;
-    max-width: calc(var(--ghs-column-unit) * 23);
+    max-width: calc(var(--ghs-unit) * 23);
 
 
     ghs-action {
@@ -141,7 +141,7 @@
       height: auto;
 
       ghs-action-hex {
-        transform: translate(50%, calc(var(--ghs-column-unit) * 0.3));
+        transform: translate(50%, calc(var(--ghs-unit) * 0.3));
       }
     }
 
@@ -167,20 +167,20 @@
 
     .element {
       flex-wrap: unset;
-      margin-top: calc(var(--ghs-column-unit) * 0.5);
+      margin-top: calc(var(--ghs-unit) * 0.5);
 
       >img {
-        height: calc(var(--ghs-column-unit) * 2);
-        margin: calc(var(--ghs-column-unit) * 0.1);
+        height: calc(var(--ghs-unit) * 2);
+        margin: calc(var(--ghs-unit) * 0.1);
       }
 
       .minus {
-        width: calc(var(--ghs-column-unit) *0.5);
+        width: calc(var(--ghs-unit) *0.5);
 
         &:before {
-          left: calc(var(--ghs-column-unit) * -2.2);
-          width: calc(var(--ghs-column-unit) * 2);
-          height: calc(var(--ghs-column-unit) * 2);
+          left: calc(var(--ghs-unit) * -2.2);
+          width: calc(var(--ghs-unit) * 2);
+          height: calc(var(--ghs-unit) * 2);
         }
       }
     }

@@ -1,4 +1,6 @@
-export enum Condition {
+export type Condition = ActionCondition | EntityCondition | RoundCondition;
+
+export enum ActionCondition {
   stun = "stun",
   immobilize = "immobilize",
   disarm = "disarm",
@@ -11,6 +13,17 @@ export enum Condition {
   bless = "bless",
 }
 
+export enum EntityCondition {
+  stun = "stun",
+  immobilize = "immobilize",
+  disarm = "disarm",
+  wound = "wound",
+  muddle = "muddle",
+  poison = "poison",
+  invisible = "invisible",
+  strengthen = "strengthen",
+}
+
 export enum RoundCondition {
   stun = "stun",
   immobilize = "immobilize",
@@ -19,3 +32,5 @@ export enum RoundCondition {
   invisible = "invisible",
   strengthen = "strengthen"
 }
+
+export const Condition = { ...ActionCondition, ...EntityCondition, ...RoundCondition };

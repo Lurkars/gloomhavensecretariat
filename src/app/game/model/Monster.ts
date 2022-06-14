@@ -5,6 +5,7 @@ import { MonsterData } from "./data/MonsterData";
 import { gameManager } from "../businesslogic/GameManager";
 import { SummonColor } from "./Summon";
 import { MonsterStat } from "./MonsterStat";
+import { MonsterManager } from "../businesslogic/MonsterManager";
 
 export class Monster extends MonsterData implements Figure {
 
@@ -16,18 +17,18 @@ export class Monster extends MonsterData implements Figure {
   active: boolean = false;
 
   getInitiative(): number {
-    return this.ability && this.ability.initiative || 0;
+    const ability: Ability | undefined = gameManager.monsterManager.getAbility(this);
+    return ability && ability.initiative || 0;
   }
 
   // Monster
-  ability: Ability | undefined = undefined;
-  availableAbilities: number[] = [];
-  discardedAbilities: number[] = [];
+  ability: number = -1;
+  abilities: number[] = [];
   entities: MonsterEntity[] = [];
 
   constructor(monsterData: MonsterData) {
     super(monsterData.name, monsterData.count, monsterData.baseStat, monsterData.stats, monsterData.edition, monsterData.deck, monsterData.boss, monsterData.thumbnail, monsterData.spoiler);
-    this.availableAbilities = gameManager.abilities(this.deck, this.edition).map((ability: Ability, index: number) => index);
+    this.abilities = gameManager.abilities(this.deck, this.edition).map((ability: Ability, index: number) => index);
     this.level = 0;
     if (monsterData.baseStat) {
       for (let stat of monsterData.stats) {
@@ -63,7 +64,7 @@ export class Monster extends MonsterData implements Figure {
   }
 
   toModel(): GameMonsterModel {
-    return new GameMonsterModel(this.name, this.level, this.off, this.active, this.ability ? gameManager.abilities(this.deck, this.edition).indexOf(this.ability) : -1, this.availableAbilities, this.discardedAbilities, this.entities.map((value: MonsterEntity) => value.toModel()))
+    return new GameMonsterModel(this.name, this.level, this.off, this.active, this.ability, this.abilities, this.entities.map((value: MonsterEntity) => value.toModel()))
   }
 
 
@@ -71,9 +72,8 @@ export class Monster extends MonsterData implements Figure {
     this.level = model.level;
     this.off = model.off;
     this.active = model.active;
-    this.availableAbilities = model.availableAbilities;
-    this.discardedAbilities = model.discardedAbilities;
-    this.ability = model.ability == -1 ? undefined : gameManager.abilities(this.deck, this.edition)[ model.ability ];
+    this.abilities = model.abilities || gameManager.abilities(this.deck, this.edition).map((ability: Ability, index: number) => index);
+    this.ability = model.ability;
     this.entities = model.entities.map((value: GameMonsterEntityModel) => {
       const entity = new MonsterEntity(value.number, value.type, this);
       entity.fromModel(value);
@@ -88,8 +88,7 @@ export class GameMonsterModel {
   off: boolean;
   active: boolean;
   ability: number;
-  availableAbilities: number[];
-  discardedAbilities: number[];
+  abilities: number[];
   entities: GameMonsterEntityModel[];
 
   constructor(name: String,
@@ -97,16 +96,14 @@ export class GameMonsterModel {
     off: boolean,
     active: boolean,
     ability: number,
-    availableAbilities: number[],
-    discardedAbilities: number[],
+    abilities: number[],
     entities: GameMonsterEntityModel[]) {
     this.name = name;
     this.level = level;
     this.off = off;
     this.active = active;
     this.ability = ability;
-    this.availableAbilities = availableAbilities;
-    this.discardedAbilities = discardedAbilities;
+    this.abilities = abilities;
     this.entities = entities;
   }
 }

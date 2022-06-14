@@ -9,8 +9,8 @@
   width: 100%;
 
   .title {
-    font-size: calc(var(--ghs-unit) * 2.5);
-    color: var(--ghs-color-white);
+    font-size: calc(var(--ghs-unit) * 3);
+    color: var(--ghs-color-gray);
     text-shadow: var(--ghs-outline-thin);
 
     .index {
@@ -28,14 +28,14 @@
       display: flex;
       height: 100%;
       align-items: center;
-      font-size: calc(var(--ghs-unit) * 2.5);
-      color: var(--ghs-color-white);
+      font-size: calc(var(--ghs-unit) * 3);
+      color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline-thin);
       margin-right: calc(var(--ghs-unit) * 2);
 
       img {
         margin-left: calc(var(--ghs-unit) * 0.5);
-        height: calc(var(--ghs-unit) * 2);
+        height: calc(var(--ghs-unit) * 3);
         width: auto;
       }
     }

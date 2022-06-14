@@ -29,6 +29,13 @@ export class SettingsMenuComponent {
     this.setZoom(factor);
   }
 
+  setZoom(zoom: number) {
+    settingsManager.setZoom(zoom);
+    document.body.style.setProperty('--ghs-factor', zoom + '');
+    if (this.setDialogPosition) {
+      this.setDialogPosition();
+    }
+  }
 
   zoomReset(): void {
     this.setZoom(100);
@@ -40,14 +47,6 @@ export class SettingsMenuComponent {
       document.body.requestFullscreen();
     } else {
       document.exitFullscreen();
-    }
-  }
-
-  setZoom(zoom: number) {
-    settingsManager.setZoom(zoom);
-    document.body.style.setProperty('--ghs-factor', zoom + '');
-    if (this.setDialogPosition) {
-      this.setDialogPosition();
     }
   }
 

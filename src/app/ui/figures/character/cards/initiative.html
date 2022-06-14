@@ -1,0 +1,23 @@
+<div class="overlay" *ngIf="showOverlay()" (click)="toggle()">
+</div>
+
+<div class="initiative" *ngIf="character.initiative > 0">
+  <img src="./assets/images/initiative.svg" />
+  <span (click)="toggle()">{{character.initiative}}</span>
+</div>
+
+<span #button></span>
+
+<div #dialog>
+  <div class="number-container">
+    <span></span>
+    <span class="value">{{value}}</span>
+    <span></span>
+    <span *ngFor="let number of [1,2,3,4,5,6,7,8,9]" class="number-button" (click)="pickNumber(number)">
+      <span class="number">{{number}}</span>
+    </span>
+    <span></span>
+    <span class="number-button" (click)="pickNumber(0)"><span class="number">0</span></span>
+    <span></span>
+  </div>
+</div>

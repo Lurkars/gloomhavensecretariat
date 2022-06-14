@@ -1,6 +1,14 @@
 {
-  "draw": "Draw",
-  "next": "Next Round",
+  "round": {
+    "draw": "Draw",
+    "next": "Next Round",
+    "hint": {
+      "empty": "Please add monsters and characters before round.",
+      "missingInitative": "Players initiative must be set. Select initiative by clicking on character portrait.",
+      "active": "Not all figures are done yet. End round anyway?",
+      "confirm": "Confirm"
+    }
+  },
   "state": {
     "undo": "Undo",
     "redo": "Redo",
@@ -13,7 +21,7 @@
   "scenario": {
     ".": "Set Scenario",
     "custom": "Custom",
-    "title" : "Title"
+    "title": "Title"
   },
   "section": "Add Section",
   "monster": {
@@ -26,15 +34,22 @@
     "remove": "Remove Character",
     "removeAll": "Remove All"
   },
+  "objective": {
+    ".": "Objective",
+    "add": "Add Objective",
+    "remove": "Remove Objective",
+    "removeAll": "Remove All"
+  },
   "summon": {
     "addCustom": "Summon '{0}'"
   },
   "settings": {
     ".": "Settings",
     "calc": "Show calculated stats",
-    "eliteFirst" : "Elite monsters first",
-    "expireConditions" : "Automatic expire condition",
-    "moveElements" : "Automatic update element state",
+    "eliteFirst": "Elite standees first",
+    "expireConditions": "Automatic expire condition",
+    "moveElements": "Automatic update element state",
+    "randomStandees": "Random standees",
     "zoomIn": "Zoom In",
     "zoomOut": "Zoom Out",
     "zoomReset": "Reset Zoom",
@@ -47,10 +62,10 @@
     }
   },
   "about": {
-    "." : "About",
-    "ip" : "Gloomhaven and all related properties, images and text are owned by {0}.",
-    "license" : "Licensed under {0}.",
-    "sourceCode" : "Source Code"
+    ".": "About",
+    "ip": "Gloomhaven and all related properties, images and text are owned by {0}.",
+    "license": "Licensed under {0}.",
+    "sourceCode": "Source Code"
   },
   "update": "Update (Reload)",
   "game": {
@@ -62,7 +77,7 @@
       "heal": "Heal",
       "specialTarget": {
         "self": "Self",
-        "selfAlliesAffect" : "Affect self and all allies",
+        "selfAlliesAffect": "Affect self and all allies",
         "ally": "Target one adjacent ally",
         "allAllies": "Target all allies",
         "allAlliesRange": "Target all allies within range",

@@ -34,10 +34,10 @@
   /*
   &::before {
     position: absolute;
-    width: calc(var(--ghs-column-unit) * 3.2);
-    height: calc(var(--ghs-column-unit) * 4);
-    top: calc(50% - var(--ghs-column-unit) * 1.5);
-    right: calc(var(--ghs-column-unit) * -2);
+    width: calc(var(--ghs-unit) * 3.2);
+    height: calc(var(--ghs-unit) * 4);
+    top: calc(50% - var(--ghs-unit) * 1.5);
+    right: calc(var(--ghs-unit) * -2);
     display: block;
     content: " ";
     background-image: url('~src/assets/images/dialog_arrow.png');
@@ -50,7 +50,7 @@
 
   &.left::before {
     right: auto;
-    left: calc(var(--ghs-column-unit) * -2);
+    left: calc(var(--ghs-unit) * -2);
     transform: scaleX(-1);
   }
   */

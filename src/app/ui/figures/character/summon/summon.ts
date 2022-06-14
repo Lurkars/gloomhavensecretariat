@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { CharacterEntity } from 'src/app/game/model/CharacterEntity';
+import { Character } from 'src/app/game/model/Character';
 import { Condition } from 'src/app/game/model/Condition';
 import { Summon, SummonState } from 'src/app/game/model/Summon';
 import { DialogComponent } from 'src/app/ui/dialog/dialog';
@@ -13,7 +13,7 @@ import { DialogComponent } from 'src/app/ui/dialog/dialog';
 export class SummonEntityComponent extends DialogComponent {
 
 
-  @Input() character!: CharacterEntity;
+  @Input() character!: Character;
   @Input() summon!: Summon;
   Conditions = Condition;
   SummonState = SummonState;

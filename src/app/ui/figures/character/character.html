@@ -1,6 +1,6 @@
 <div class="summons-container" [ngClass]="{'empty' : emptySummons() }">
   <span class="spacer"></span>
-  <span class="icon entity-animation" [ngClass]="{'hidden' : emptySummons()}">
+  <span class="icon entity-animation" [ngClass]="{'hidden' : emptySummons(), 'empty' : character.summons.length == 0}">
     <img [src]="characterManager.characterIcon(character)" />
   </span>
   <div class="summons">
@@ -13,12 +13,9 @@
 
   <ghs-character-image (click)="close()" [character]="character"></ghs-character-image>
 
-  <div class="stats">
-    <div class="initiative" *ngIf="character.initiative > 0">
-      <img src="./assets/images/initiative.svg" />
-      {{character.initiative}}
-    </div>
+  <ghs-character-initiative (click)="close()" [character]="character"></ghs-character-initiative>
 
+  <div class="stats">
     <div class="column col-1" (click)="toggle()">
       <div #button class="title"><img class="icon" [src]="characterManager.characterIcon(character)" />
         {{character.title || ('data.character.' + character.name | ghsLabel)}}</div>
@@ -114,7 +111,7 @@
 
 
     <div class="condition-container">
-      <span *ngFor="let condition of conditions">
+      <span *ngFor="let condition of gameManager.conditions">
         <a class="condition" [ngClass]="{'active' : hasCondition(condition)}" (click)="toggleCondition(condition)">
           <img src="./assets/images/condition/{{condition}}.svg" />
         </a>

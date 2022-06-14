@@ -6,7 +6,7 @@ import { CharacterData } from "./data/CharacterData";
 import { GameSummonModel, Summon, SummonColor, SummonState } from "./Summon";
 import { gameManager } from "../businesslogic/GameManager";
 
-export class CharacterEntity extends CharacterData implements Entity, Figure {
+export class Character extends CharacterData implements Entity, Figure {
   title: string = "";
   initiative: number = 0;
   experience: number = 0;
@@ -104,11 +104,11 @@ export class CharacterEntity extends CharacterData implements Entity, Figure {
     }
   }
 
-  toModel(): GameCharacterEntityModel {
-    return new GameCharacterEntityModel(this.name, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.conditions, this.turnConditions, this.summons.map((summon: Summon) => summon.toModel()));
+  toModel(): GameCharacterModel {
+    return new GameCharacterModel(this.name, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.conditions, this.turnConditions, this.summons.map((summon: Summon) => summon.toModel()));
   }
 
-  fromModel(model: GameCharacterEntityModel) {
+  fromModel(model: GameCharacterModel) {
     this.title = model.title;
     this.initiative = model.initiative;
     this.experience = model.experience;
@@ -131,7 +131,7 @@ export class CharacterEntity extends CharacterData implements Entity, Figure {
 }
 
 
-export class GameCharacterEntityModel {
+export class GameCharacterModel {
 
   name: string;
   title: string;

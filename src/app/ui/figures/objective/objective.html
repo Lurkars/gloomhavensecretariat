@@ -1,0 +1,73 @@
+<div class="objective" [ngClass]="{'off' : objective.off || objective.exhausted || objective.health <= 0}">
+
+  <a class="image-container" (click)="toggleOff()" [ngClass]="{'active-border' : objective.active}">
+    <div class="health-bar" [ngClass]="{'critical' : objective.health / objective.maxHealth < 0.35}">
+      <div class="health-bar-value" [style.width]="(objective.health / objective.maxHealth * 100) + '%'"></div>
+    </div>
+  </a>
+
+  <ghs-objective-initiative (click)="close()" [objective]="objective"></ghs-objective-initiative>
+
+  <div class="stats">
+    <div class="column col-1" (click)="toggle()">
+      <div #button class="title"><img class="icon" src="./assets/images/objective/icon.svg" />
+        {{objective.title || (objective.name | ghsLabel)}}</div>
+      <div class="health">
+        <img src="./assets/images/status/health.svg" />
+        {{objective.health}}/{{objective.maxHealth}}
+      </div>
+    </div>
+
+    <span class="spacer" (click)="toggle()"></span>
+
+    <div class="icon-container" (click)="toggle()">
+      <img src="./assets/images/objective/icon.svg" />
+    </div>
+  </div>
+</div>
+
+<div #dialog class="dialog">
+  <div class="status-container">
+    <div class="entity-container">
+      <span class="item">
+        <a class="button" [ngClass]="{'disabled' : objective.health == 0}" (click)="changeHealth(-1)">
+          -
+        </a>
+      </span>
+      <span class="item">
+        <img src="./assets/images/status/health.svg" />
+        <span class="badge health-count"
+          [ngClass]="{'health-negative' : health < 0, 'health-positive' : health > 0}">{{health | ghsValueSign}}</span>
+      </span>
+      <span class="item">
+        <a class="button" [ngClass]="{'disabled' : objective.health == objective.maxHealth}" (click)="changeHealth(1)">
+          +
+        </a>
+      </span>
+
+      <span class="item">
+        <a class="condition" [ngClass]="{'active' : objective.exhausted}" (click)="exhausted()">
+          <img src="./assets/images/status/dead.svg" />
+        </a>
+      </span>
+      <span class="item">
+
+      </span>
+      <span></span>
+    </div>
+
+    <div class="char-container">
+      <input #objectivetitle />
+      <a class="button" (click)="changeMaxHealth(-1)">
+        -
+      </a>
+      <span class="item">
+        <img src="./assets/images/status/health.svg" />
+        <span class="badge max-health">{{objective.health}}/{{objective.maxHealth}}</span>
+      </span>
+      <a class="button" (click)="changeMaxHealth(1)">
+        +
+      </a>
+    </div>
+  </div>
+</div>

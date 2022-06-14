@@ -1,40 +1,33 @@
-.image-container {
-  position: relative;
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
   display: block;
   width: calc(var(--ghs-unit) * 9);
   height: calc(var(--ghs-unit) * 9);
   margin: calc(var(--ghs-unit) * 3);
   cursor: pointer;
-  border-radius: calc(var(--ghs-unit) * 1);
-  overflow: hidden;
+}
 
-  .image {
-    width: auto;
-    height: 100%;
+.initiative {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'ghs-title';
+  font-size: calc(var(--ghs-unit) * 4.5);
+  margin-right: calc(var(--ghs-unit) * 1);
+  color: var(--ghs-color-white);
+  text-shadow: var(--ghs-outline);
+
+  img {
+    width: calc(var(--ghs-unit) * 4);
+    height: auto;
   }
 
-  .health-bar {
-    position: absolute;
-    bottom: 0;
-    width: calc(var(--ghs-unit) * 9);
-    left: 0;
-    height: calc(var(--ghs-unit) * 0.5);
-    border: none;
-    background-color: transparent;
-
-    .health-bar-value {
-      height: 100%;
-      max-width: 1000%;
-      transition: width 0.5s;
-      background-color: var(--ghs-color-green);
-      border-radius: calc(var(--ghs-unit) * 1);
-    }
-
-    &.critical {
-      .health-bar-value {
-        background-color: var(--ghs-color-red);
-      }
-    }
+  span {
+    cursor: pointer;
   }
 }
 

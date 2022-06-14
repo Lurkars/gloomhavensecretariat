@@ -5,17 +5,17 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1002;
-  min-width: calc(var(--ghs-column-unit) * 10);
-  min-height: calc(var(--ghs-column-unit) * 10);
+  min-width: calc(var(--ghs-unit) * 10);
+  min-height: calc(var(--ghs-unit) * 10);
   max-height: 100vh;
   max-width: 100vw;
   overflow: auto;
   text-align: center;
-  padding: calc(var(--ghs-column-unit) * 1);
+  padding: calc(var(--ghs-unit) * 1);
   border-image-source: url('~src/assets/images/dialog_border.png');
   border-image-slice: 64;
-  border-image-outset: calc(var(--ghs-column-unit) * -1);
-  border-image-width: calc(var(--ghs-column-unit) * 6);
+  border-image-outset: calc(var(--ghs-unit) * -1);
+  border-image-width: calc(var(--ghs-unit) * 6);
   background-color: var(--ghs-color-black);
 
   &.opened {
