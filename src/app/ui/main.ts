@@ -17,15 +17,9 @@ export class MainComponent implements OnInit {
   GameState = GameState;
 
   async ngOnInit() {
+    document.body.classList.add('no-select');
     await settingsManager.init();
-    const local: string | null = localStorage.getItem("ghs-game");
-    if (local != null) {
-      const gameModel: GameModel = Object.assign(new GameModel(), JSON.parse(local));
-      gameManager.game.fromModel(gameModel);
-    } else {
-      localStorage.setItem("ghs-game", JSON.stringify(this.gameManager.game.toModel()));
-    }
-
+    gameManager.stateManager.init();
     document.body.style.setProperty('--ghs-factor', settingsManager.settings.zoom + '');
   }
 

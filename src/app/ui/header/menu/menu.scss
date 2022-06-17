@@ -75,7 +75,7 @@
       flex-direction: row;
       align-items: center;
       font-family: 'ghs-title';
-      font-size: calc(var(--ghs-unit) * 3.5);
+      font-size: calc(var(--ghs-unit) * 3);
       color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
 
@@ -137,7 +137,7 @@
     }
   }
 
-  input[type="text"] {
+  input[type="text"], input[type="number"] {
     width: 100%;
     margin: 0;
     color: var(--ghs-color-white);
@@ -148,7 +148,7 @@
     border-radius: calc(var(--ghs-unit) * 1);
     user-select: auto;
     font-family: 'ghs-normal';
-    font-size: calc(var(--ghs-unit) * 3.5);
+    font-size: calc(var(--ghs-unit) * 3);
   }
 
 
@@ -156,8 +156,8 @@
     cursor: pointer;
     appearance: none;
     background-color: var(--form-background);
-    width: calc(var(--ghs-unit) * 3.5);
-    height: calc(var(--ghs-unit) * 3.5);
+    width: calc(var(--ghs-unit) * 3);
+    height: calc(var(--ghs-unit) * 3);
     border-width: calc(var(--ghs-unit) * 0.3);
     border-style: solid;
     display: grid;
@@ -170,8 +170,8 @@
       top: calc(var(--ghs-unit) * -0.5);
       position: relative;
       content: ' ';
-      width: calc(var(--ghs-unit) * 3.5);
-      height: calc(var(--ghs-unit) * 3.5);
+      width: calc(var(--ghs-unit) * 3);
+      height: calc(var(--ghs-unit) * 3);
       transform: scale(0);
       transform-origin: bottom left;
       transition: 120ms transform ease-in-out;
@@ -192,8 +192,8 @@
   input[type="radio"] {
     appearance: none;
     background-color: var(--form-background);
-    width: calc(var(--ghs-unit) * 3.5);
-    height: calc(var(--ghs-unit) * 3.5);
+    width: calc(var(--ghs-unit) * 3);
+    height: calc(var(--ghs-unit) * 3);
     border-width: calc(var(--ghs-unit) * 0.3);
     border-style: solid;
     display: grid;
@@ -206,8 +206,8 @@
       top: calc(var(--ghs-unit) * -0.5);
       position: relative;
       content: ' ';
-      width: calc(var(--ghs-unit) * 3.5);
-      height: calc(var(--ghs-unit) * 3.5);
+      width: calc(var(--ghs-unit) * 3);
+      height: calc(var(--ghs-unit) * 3);
       transform: scale(0);
       transform-origin: bottom left;
       transition: 120ms transform ease-in-out;

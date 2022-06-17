@@ -16,6 +16,7 @@ export class ActionsComponent {
 
   @Input() monster!: Monster;
   @Input() actions!: Action[];
+  @Input() relative: boolean = false;
   @Input() inline: boolean = false;
   @Input() right: boolean = false;
   @Input() hexSize!: number;
@@ -130,25 +131,15 @@ export class ActionComponent {
   selector: 'ghs-action-hex',
   template: '<canvas #canvas></canvas>'
 })
-export class ActionHexComponent implements OnInit, AfterViewInit, OnChanges {
+export class ActionHexComponent implements AfterViewInit, OnChanges {
 
   @Input() value!: string;
   @Input() size!: number;
   hexes: ActionHex[] = [];
   init: boolean = false;
 
-
   @ViewChild('canvas', { read: ElementRef }) canvas!: ElementRef<HTMLCanvasElement>;
   public context: CanvasRenderingContext2D | null = null;
-
-  ngOnInit(): void {
-    this.value.split('|').forEach((hexValue: string) => {
-      const hex: ActionHex | null = ActionHex.fromString(hexValue);
-      if (hex != null) {
-        this.hexes.push(hex);
-      }
-    })
-  }
 
   ngOnChanges(changes: any) {
     this.draw();
@@ -161,6 +152,13 @@ export class ActionHexComponent implements OnInit, AfterViewInit, OnChanges {
 
   draw() {
     if (this.init) {
+      this.hexes = [];
+      this.value.split('|').forEach((hexValue: string) => {
+        const hex: ActionHex | null = ActionHex.fromString(hexValue);
+        if (hex != null) {
+          this.hexes.push(hex);
+        }
+      })
       this.context = this.canvas.nativeElement.getContext('2d');
       if (this.context == null) {
         return;

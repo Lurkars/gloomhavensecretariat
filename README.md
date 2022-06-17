@@ -2,7 +2,7 @@
 
 [Latest Online Version](https://lurkars.github.io/gloomhavensecretary/)
 
-An open source Gloomhaven Helper clone made as web app with Angular.
+An open source [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (by [Esoteric Software®](http://esotericsoftware.com)) clone made as web app with Angular.
 
 This is basically a clone implementing the same functionality and look&feel of the original Gloomhaven Helper since I am not capable of good design/UX. So feel free to contribute better assets.
 
@@ -12,12 +12,13 @@ This is basically a clone implementing the same functionality and look&feel of t
 ## Missing / Upcoming
 
 - some monster data, most data of other editions
-- objectives, goals and section mechanic
+- tools like monster editor to create/update monster stats and abilities via UI (WIP)
+- goals and section mechanic
 - ~~i18n support~~
 - ~~summons~~
 - ~~standalone app with Electron\/PWA~~
 - ~~releases for easier self hosting~~
-- server part to sync states
+- ~~server part to sync states~~
 - ~~load (JSON-)data from URL, so easier custom content integration~~
 
 ## Install
@@ -25,7 +26,6 @@ This is basically a clone implementing the same functionality and look&feel of t
 ### Progressive Web App
 
 You can always install any hosted version as PWA if your OS/Browser supports installation of PWA. For example here is the [Latest Online Version](https://lurkars.github.io/gloomhavensecretary/) on GitHub Pages.
-
 
 ### Standalone
 
@@ -36,10 +36,9 @@ Download the corresponding files from the [latest release](https://github.com/Lu
 
 ### Selfhost
 
-To selfhost Gloomhaven Secretary on your webserver, simple download the zip file from the [latest release](https://github.com/Lurkars/gloomhavensecretary/releases/latest) and unzip to your webserver. 
+To selfhost Gloomhaven Secretary on your webserver, simple download the zip file from the [latest release](https://github.com/Lurkars/gloomhavensecretary/releases/latest) and unzip to your webserver.
 
 > The base url for this build is set to root. To use a different base url please [build your own package](#build-from-source).
-
 
 ## Build from source
 
@@ -68,10 +67,10 @@ Also pull requests are welcome!
 Gloomhaven and all related properties, images and text are owned by [Cephalofair Games](https://cephalofair.com).
 
 Assets used:
+
 - [Creator Pack by Isaac Childres](https://boardgamegeek.com/thread/1733586/files-creation) CC BY-NC-SA 4.0
 - [Worldhaven](https://github.com/any2cards/worldhaven)
 - [Haven Keeper](https://github.com/PrimalZed/haven-keeper)
 - some other assets used are public domain licensed
 
 Source code is licenced under [AGPL](/LICENSE)
-

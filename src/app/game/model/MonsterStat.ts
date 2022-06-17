@@ -11,7 +11,7 @@ export class MonsterStat {
   range: number;
   actions: Action[];
   immunities: Condition[];
-  special: Array<Action[]>;
+  special: Action[][];
   note: string;
 
   constructor(type: MonsterType,
@@ -22,7 +22,7 @@ export class MonsterStat {
     range: number,
     actions: Action[] = [],
     immunities: Condition[] = [],
-    special: Array<Action[]> = [],
+    special: Action[][] = [],
     note: string = ""
   ) {
     this.type = type;

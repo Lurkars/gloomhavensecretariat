@@ -7,7 +7,8 @@
       [ngClass]="{'active' : color == summonColor}">
       <img src="./assets/images/summons/{{color}}.png">
     </span>
-    <span *ngFor="let number of [1,2,3,4]" class="number-button" (click)="pickNumber(number)">
+    <span *ngFor="let number of [1,2,3,4]" class="number-button" (click)="pickNumber(number)"
+      [ngClass]="{'disabled' : disabled(number)}">
       <span class="number">{{number}}</span>
     </span>
     <span class="custom" *ngIf="hasCustom()" (click)="addCustom()">

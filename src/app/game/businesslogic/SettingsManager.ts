@@ -70,7 +70,6 @@ export class SettingsManager {
     this.storeSettings();
   }
 
-
   setFullscreen(fullscreen: boolean) {
     this.settings.fullscreen = fullscreen;
     this.storeSettings();
@@ -78,6 +77,23 @@ export class SettingsManager {
 
   setZoom(zoom: number) {
     this.settings.zoom = zoom;
+    this.storeSettings();
+  }
+
+  setServerAutoconnect(autoconnect: boolean) {
+    this.settings.serverAutoconnect = autoconnect;
+    this.storeSettings();
+  }
+
+  setServerWss(wss: boolean) {
+    this.settings.serverWss = wss;
+    this.storeSettings();
+  }
+
+  setServer(host: string, port: number, password: string): void {
+    this.settings.serverHost = host;
+    this.settings.serverPort = port;
+    this.settings.serverPassword = password;
     this.storeSettings();
   }
 

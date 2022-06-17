@@ -1,0 +1,22 @@
+<div class="action">
+  <label>Type</label>
+  <select type="number" [(ngModel)]="action.type" placeholder="type">
+    <option *ngFor="let actionType of ActionTypes" [value]="actionType">{{actionType}}</option>
+  </select>
+  <label>Value</label>
+  <input [(ngModel)]="action.value">
+  <label>ValueType</label>
+  <select type="number" [(ngModel)]="action.valueType" placeholder="valueType">
+    <option *ngFor="let valueType of ActionValueTypes" [value]="valueType">{{valueType}}</option>
+  </select>
+
+  <label>SubActions</label>
+  <div class="subActions">
+    <div class="subAction" *ngFor="let subAction of action.subActions; let i = index">
+      <ghs-monster-action-tool [(action)]="action.subActions[i]"></ghs-monster-action-tool>
+      <a (click)="removeSubAction(i)">Remove SubAction</a>
+    </div>
+
+    <a (click)="addSubAction()">Add SubAction</a>
+  </div>
+</div>

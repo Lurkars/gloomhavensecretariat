@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DialogComponent } from './ui/dialog/dialog';
 import { CharacterComponent } from './ui/figures/character/character';
@@ -35,13 +36,18 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CharacterInitiativeComponent } from './ui/figures/character/cards/initiative';
 import { ObjectiveComponent } from './ui/figures/objective/objective';
 import { ObjectiveInitiativeComponent } from './ui/figures/objective/cards/initiative';
+import { MonsterToolComponent } from './ui/tools/monster/monster';
+import { MonsterStatToolComponent } from './ui/tools/monster/stat/stat';
+import { FormsModule } from '@angular/forms';
+import { MonsterActionToolComponent } from './ui/tools/monster/action/action';
+import { ServerMenuComponent } from './ui/header/menu/server/server';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     HeaderComponent, ElementIconComponent,
-    MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent,
+    MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, ServerMenuComponent,
     FooterComponent,
     AttackModifierComponent,
     LevelComponent,
@@ -57,9 +63,12 @@ import { ObjectiveInitiativeComponent } from './ui/figures/objective/cards/initi
     MonsterNumberPicker,
     ActionsComponent, ActionComponent, ActionHexComponent,
     CardRevealDirective,
-    GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent, GhsHtmlLabelPipe ],
+    GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent, GhsHtmlLabelPipe,
+    MonsterToolComponent, MonsterActionToolComponent, MonsterStatToolComponent ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    FormsModule,
     DragDropModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,

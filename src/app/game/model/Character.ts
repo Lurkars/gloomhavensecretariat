@@ -121,10 +121,26 @@ export class Character extends CharacterData implements Entity, Figure {
     this.maxHealth = model.maxHealth;
     this.conditions = model.conditions;
     this.turnConditions = model.turnConditions;
-    this.summons = model.summons.map((value: GameSummonModel) => {
-      const entity = new Summon(value.level, value.number, value.color);
-      entity.fromModel(value);
-      return entity;
+
+    this.summons = this.summons.filter((summon: Summon) => {
+      let found: boolean = false;
+      model.summons.forEach((gsm: GameSummonModel) => {
+        if (gsm.number == summon.number && gsm.color == summon.color) {
+          found = true;
+          return;
+        }
+      })
+      return found;
+    });
+
+    model.summons.forEach((value: GameSummonModel) => {
+      let summon = new Summon(value.level, value.number, value.color);
+      if (this.summons.some((summonEntity: Summon) => summonEntity.number == summon.number && summonEntity.color == summon.color)) {
+        summon = this.summons.filter((summonEntity: Summon) => summonEntity.number == summon.number && summonEntity.color == summon.color)[ 0 ];
+      } else {
+        this.summons.push(summon);
+      }
+      summon.fromModel(value);
     })
   }
 

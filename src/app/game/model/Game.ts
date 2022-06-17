@@ -27,24 +27,45 @@ export class Game {
 
   fromModel(model: GameModel) {
     this.edition = model.edition;
-    this.figures = [];
+    this.figures = this.figures.filter((figure: Figure) =>
+      model.characters.map((gcm: GameCharacterModel) => gcm.name).indexOf(figure.name) != -1 ||
+      model.monsters.map((gmm: GameMonsterModel) => gmm.name).indexOf(figure.name) != -1 ||
+      model.objectives.map((gom: GameObjectiveModel) => gom.name).indexOf(figure.name) != -1
+    );
 
     model.characters.forEach((value: GameCharacterModel) => {
       let character = new Character(gameManager.getCharacterData(value.name), value.level);
+      if (this.figures.some((figure: Figure) => figure instanceof Character && figure.name == value.name)) {
+        character = this.figures.filter((figure: Figure) => figure instanceof Character && figure.name == value.name)[ 0 ] as Character;
+      } else {
+        this.figures.push(character);
+      }
+
       character.fromModel(value);
-      this.figures.push(character);
     });
 
     model.monsters.forEach((value: GameMonsterModel) => {
       let monster = new Monster(gameManager.getMonsterData(value.name));
+
+      if (this.figures.some((figure: Figure) => figure instanceof Monster && figure.name == value.name)) {
+        monster = this.figures.filter((figure: Figure) => figure instanceof Monster && figure.name == value.name)[ 0 ] as Monster;
+      } else {
+        this.figures.push(monster);
+      }
+
       monster.fromModel(value);
-      this.figures.push(monster);
     });
 
     model.objectives.forEach((value: GameObjectiveModel) => {
       let objective = new Objective();
+
+      if (this.figures.some((figure: Figure) => figure instanceof Objective && figure.name == value.name)) {
+        objective = this.figures.filter((figure: Figure) => figure instanceof Objective && figure.name == value.name)[ 0 ] as Objective;
+      } else {
+        this.figures.push(objective);
+      }
+
       objective.fromModel(objective);
-      this.figures.push(objective);
     });
 
     this.figures.sort((a: Figure, b: Figure) => model.figures.indexOf(a.name) - model.figures.indexOf(b.name));

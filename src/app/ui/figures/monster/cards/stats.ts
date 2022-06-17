@@ -48,7 +48,6 @@ export class MonsterStatsComponent extends DialogComponent {
       if (!this.monster.stats.some((monsterStat: MonsterStat) => {
         return monsterStat.level == this.monster.level && monsterStat.type == MonsterType.normal;
       })) {
-        console.warn(this.monster);
         throw Error("Could not find '" + MonsterType.normal + "' stats for monster: " + this.monster.name + " level: " + this.monster.level)
       }
 

@@ -28,6 +28,17 @@ import { CharacterImageComponent } from './ui/figures/character/cards/image';
 import { DatamanagementMenuComponent } from './ui/header/menu/datamanagement/datamanagement';
 import { ScenarioMenuComponent } from './ui/header/menu/scenario/scenario';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { ServerMenuComponent } from './ui/header/menu/server/server';
+import { CharacterInitiativeComponent } from './ui/figures/character/cards/initiative';
+import { ObjectiveInitiativeComponent } from './ui/figures/objective/cards/initiative';
+import { ObjectiveComponent } from './ui/figures/objective/objective';
+import { MonsterToolComponent } from './ui/tools/monster/monster';
+import { MonsterActionToolComponent } from './ui/tools/monster/action/action';
+import { MonsterStatToolComponent } from './ui/tools/monster/stat/stat';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -36,12 +47,13 @@ describe('AppComponent', () => {
         AppComponent,
         MainComponent,
         HeaderComponent, ElementIconComponent,
-        MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent,
+        MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, ServerMenuComponent,
         FooterComponent,
         AttackModifierComponent,
         LevelComponent,
         DialogComponent, PopupComponent,
-        CharacterComponent, CharacterImageComponent, CharacterSummonDialog,
+        CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent,
+        ObjectiveComponent, ObjectiveInitiativeComponent,
         SummonEntityComponent,
         MonsterComponent,
         MonsterEntityComponent,
@@ -51,8 +63,13 @@ describe('AppComponent', () => {
         MonsterNumberPicker,
         ActionsComponent, ActionComponent, ActionHexComponent,
         CardRevealDirective,
-        GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent, GhsHtmlLabelPipe ],
+        GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent, GhsHtmlLabelPipe,
+        MonsterToolComponent, MonsterActionToolComponent, MonsterStatToolComponent ],
       imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        DragDropModule,
         ServiceWorkerModule.register('ngsw-worker.js', { enabled: false })
       ],
     }).compileComponents();

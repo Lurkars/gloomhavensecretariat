@@ -16,7 +16,7 @@ import { ghsHasSpoilers, ghsIsSpoiled, ghsNotSpoiled } from "../../helper/Static
 import { Objective } from "src/app/game/model/Objective";
 
 export enum SubMenu {
-  main, edition, scenario, section, monster_add, monster_remove, character_add, character_remove, objective_remove, settings, language, datamanagement, about
+  main, edition, scenario, section, monster_add, monster_remove, character_add, character_remove, objective_remove, settings, server, datamanagement, about
 }
 
 @Component({
@@ -38,6 +38,7 @@ export class MainMenuComponent extends DialogComponent {
   isSpoiled = ghsIsSpoiled;
   notSpoiled = ghsNotSpoiled;
   version = packageJson.version;
+  WebSocket = WebSocket;
 
   constructor(private swUpdate: SwUpdate) {
     super();

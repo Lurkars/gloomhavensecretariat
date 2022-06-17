@@ -129,7 +129,11 @@ export class MonsterManager {
 
 
   shuffleAbilities(monster: Monster) {
-    monster.ability = -1;
+    if (gameManager.game.state == GameState.draw) {
+      monster.ability = -1;
+    } else {
+      monster.ability = 0;
+    }
     monster.abilities = monster.abilities
       .map((value) => ({ value, sort: Math.random() }))
       .sort((a, b) => a.sort - b.sort)

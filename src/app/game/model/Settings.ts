@@ -1,5 +1,5 @@
 export class Settings {
-  calculate: boolean = false;
+  calculate: boolean = true;
   eliteFirst: boolean = true;
   expireConditions: boolean = true;
   moveElements: boolean = true;
@@ -9,4 +9,9 @@ export class Settings {
   locale: string = "en";
   editionDataUrls: string[] = [ "./assets/data/gh.json", "./assets/data/jotl.json" ];
   spoilers: string[] = [];
+  serverHost: string | undefined;
+  serverPort: number | undefined;
+  serverPassword: string | undefined;
+  serverAutoconnect: boolean = true;
+  serverWss: boolean = false;
 }

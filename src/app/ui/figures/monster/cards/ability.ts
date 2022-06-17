@@ -43,7 +43,9 @@ export class AbilityComponent extends PopupComponent {
   }
 
   shuffle() {
+    gameManager.stateManager.before();
     gameManager.monsterManager.shuffleAbilities(this.monster);
+    gameManager.stateManager.after();
   }
 
   hexSize(): number {

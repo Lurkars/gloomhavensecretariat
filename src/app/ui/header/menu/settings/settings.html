@@ -74,10 +74,20 @@
       {{'settings.locale.' + locale | ghsLabel}}
     </label>
   </div>
-
-  <div class="line separator">
-    <a (click)="reset()">
-      &lt;{{'settings.reset' | ghsLabel}}&gt; (!)
-    </a>
+  <div class="columns">
+    <div class="column">
+      <div class="line separator">
+        <a (click)="resetGame()">
+          &lt;{{'settings.resetGame' | ghsLabel}}&gt; (!)
+        </a>
+      </div>
+    </div>
+    <div class="column">
+      <div class="line separator">
+        <a (click)="resetSettings()">
+          &lt;{{'settings.resetSettings' | ghsLabel}}&gt; (!)
+        </a>
+      </div>
+    </div>
   </div>
 </div>

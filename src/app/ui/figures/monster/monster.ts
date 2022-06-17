@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Ability } from 'src/app/game/model/Ability';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { MonsterStat } from 'src/app/game/model/MonsterStat';
@@ -11,14 +12,16 @@ import { MonsterType } from 'src/app/game/model/MonsterType';
   templateUrl: './monster.html',
   styleUrls: [ './monster.scss' ]
 })
-export class MonsterComponent {
+export class MonsterComponent implements OnInit {
 
   @Input() monster!: Monster;
   MonsterType = MonsterType;
   addMonsterEntityFunction!: Function;
   removeMonsterEntityFunction!: Function;
 
-  constructor() { }
+  ngOnInit(): void {
+    this.monster.abilities = gameManager.abilities(this.monster.deck, this.monster.edition).map((ability: Ability, index: number) => index);
+  }
 
   emptyEntities(): boolean {
     return this.monster.entities.length == 0 || this.monster.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead);

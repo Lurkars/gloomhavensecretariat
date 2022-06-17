@@ -1,0 +1,58 @@
+<div class="menu-container server">
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.serverAutoconnect"
+        (change)="settingsManager.setServerAutoconnect(!settingsManager.settings.serverAutoconnect)">
+      {{'server.autoconnect' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line" [ngSwitch]="gameManager.stateManager.wsState()">
+    <p *ngSwitchCase="WebSocket.OPEN">{{'server.connected' | ghsLabel}}</p>
+    <p *ngSwitchCase="WebSocket.CONNECTING">{{'server.connecting' | ghsLabel}}</p>
+    <p *ngSwitchCase="WebSocket.CLOSING">{{'server.closing' | ghsLabel}}</p>
+    <p *ngSwitchCase="WebSocket.CLOSED">{{'server.closed' | ghsLabel}}</p>
+    <p *ngSwitchDefault>{{'server.undefined' | ghsLabel}}</p>
+  </div>
+
+  <div class="line separator">
+    <label class="label">{{'server.host' | ghsLabel}}</label>
+    <input type="text" #serverHost [value]="settingsManager.settings.serverHost || ''" (keyup)="0"
+      placeholder="{{'server.host' | ghsLabel}}">
+  </div>
+  <div class="line">
+    <label class="label">{{'server.port' | ghsLabel}}</label>
+    <input type="number" #serverPort [value]="settingsManager.settings.serverPort || ''" (keyup)="0"
+      placeholder="{{'server.port' | ghsLabel}}">
+  </div>
+  <div class="line">
+    <label class="label">{{'server.password' | ghsLabel}}</label>
+    <input type="text" #serverPassword [value]="settingsManager.settings.serverPassword || ''" (keyup)="0"
+      placeholder="{{'server.password' | ghsLabel}}">
+  </div>
+
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.serverWss"
+        (change)="settingsManager.setServerWss(!settingsManager.settings.serverWss)">
+      {{'server.wss' | ghsLabel}}
+    </label>
+  </div>
+  <div class="columns">
+    <div class="column">
+      <div class="line">
+        <a (click)="connect(serverHost.value,serverPort.value,serverPassword.value)"
+          [ngClass]="{'disabled' : !serverHost.value || !serverPort.value || !serverPassword.value}">{{(gameManager.stateManager.wsState()
+          == WebSocket.OPEN ? 'server.reconnect' : 'server.connect') |
+          ghsLabel}}</a>
+      </div>
+    </div>
+    <div class="column" *ngIf="gameManager.stateManager.wsState() == WebSocket.OPEN">
+      <div class="line">
+        <a (click)="disconnect()">{{'server.disconnect' | ghsLabel}}</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -77,6 +77,11 @@
       border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
       border-radius: 100%;
     }
+
+    &.disabled {
+      pointer-events: none;
+      color: var(--ghs-color-darkgray);
+    }
   }
 
   .custom {

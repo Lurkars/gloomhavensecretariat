@@ -60,6 +60,14 @@
     </div>
 
     <div class="line separator">
+      <a (click)="active = SubMenu.server" [ngSwitch]="gameManager.stateManager.wsState()">
+        <span *ngSwitchCase="WebSocket.OPEN">{{'server.menu.connected' | ghsLabel}}</span>
+        <span *ngSwitchCase="WebSocket.CONNECTING">{{'server.connecting' | ghsLabel}}</span>
+        <span *ngSwitchDefault>{{'server.menu.connect' | ghsLabel}}</span>
+      </a>
+    </div>
+
+    <div class="line separator">
       <a (click)="active = SubMenu.datamanagement">{{'datamanagement' | ghsLabel}}</a>
     </div>
 
@@ -175,6 +183,8 @@
   </div>
 
   <ghs-settings-menu *ngSwitchCase="SubMenu.settings" [setDialogPosition]="setDialogPositionFunc"></ghs-settings-menu>
+
+  <ghs-server-menu *ngSwitchCase="SubMenu.server"></ghs-server-menu>
 
   <ghs-datamanagement-menu *ngSwitchCase="SubMenu.datamanagement"></ghs-datamanagement-menu>
 

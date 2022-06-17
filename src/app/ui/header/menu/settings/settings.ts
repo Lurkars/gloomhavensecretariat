@@ -50,8 +50,12 @@ export class SettingsMenuComponent {
     }
   }
 
-  reset(): void {
+  resetGame(): void {
     gameManager.stateManager.reset();
+    window.location.reload();
+  }
+
+  resetSettings(): void {
     settingsManager.reset();
     window.location.reload();
   }

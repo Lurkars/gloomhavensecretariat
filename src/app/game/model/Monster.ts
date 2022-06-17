@@ -4,15 +4,13 @@ import { Figure } from "./Figure";
 import { MonsterData } from "./data/MonsterData";
 import { gameManager } from "../businesslogic/GameManager";
 import { SummonColor } from "./Summon";
-import { MonsterStat } from "./MonsterStat";
-import { MonsterManager } from "../businesslogic/MonsterManager";
 
 export class Monster extends MonsterData implements Figure {
 
   summonColor: SummonColor = SummonColor.blue;
 
   // from figure
-  level: number;
+  level: number = 1;
   off: boolean = false;
   active: boolean = false;
 
@@ -28,8 +26,6 @@ export class Monster extends MonsterData implements Figure {
 
   constructor(monsterData: MonsterData) {
     super(monsterData.name, monsterData.count, monsterData.baseStat, monsterData.stats, monsterData.edition, monsterData.deck, monsterData.boss, monsterData.thumbnail, monsterData.spoiler);
-    this.abilities = gameManager.abilities(this.deck, this.edition).map((ability: Ability, index: number) => index);
-    this.level = 0;
     if (monsterData.baseStat) {
       for (let stat of monsterData.stats) {
         if (!stat.health) {
@@ -45,13 +41,16 @@ export class Monster extends MonsterData implements Figure {
           stat.range = monsterData.baseStat.range;
         }
         if (!stat.actions) {
-          stat.actions = monsterData.baseStat.actions;
+          stat.actions = Object.assign([], monsterData.baseStat.actions);
         }
         if (!stat.immunities) {
-          stat.immunities = monsterData.baseStat.immunities;
+          stat.immunities = Object.assign([], monsterData.baseStat.immunities);
         }
         if (!stat.special) {
-          stat.special = monsterData.baseStat.special;
+          stat.special = [];
+          for (let special of monsterData.baseStat.special) {
+            stat.special.push(Object.assign([], special));
+          }
         }
         if (!stat.note) {
           stat.note = monsterData.baseStat.note;
@@ -74,10 +73,16 @@ export class Monster extends MonsterData implements Figure {
     this.active = model.active;
     this.abilities = model.abilities || gameManager.abilities(this.deck, this.edition).map((ability: Ability, index: number) => index);
     this.ability = model.ability;
-    this.entities = model.entities.map((value: GameMonsterEntityModel) => {
-      const entity = new MonsterEntity(value.number, value.type, this);
+    this.entities = this.entities.filter((monsterEntity: MonsterEntity) => model.entities.map((gmem: GameMonsterEntityModel) => gmem.number).indexOf(monsterEntity.number) != -1);
+    model.entities.forEach((value: GameMonsterEntityModel) => {
+      let entity = new MonsterEntity(value.number, value.type, this);
+
+      if (this.entities.some((monsterEntity: MonsterEntity) => monsterEntity.number == value.number)) {
+        entity = this.entities.filter((monsterEntity: MonsterEntity) => monsterEntity.number == value.number)[ 0 ];
+      } else {
+        this.entities.push(entity);
+      }
       entity.fromModel(value);
-      return entity;
     })
   }
 }

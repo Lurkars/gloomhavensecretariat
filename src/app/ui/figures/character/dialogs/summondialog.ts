@@ -25,6 +25,10 @@ export class CharacterSummonDialog extends DialogComponent {
     gameManager.stateManager.after();
   }
 
+  disabled(number: number) {
+    return this.character.summons.some((summon: Summon) => summon.number == number && summon.color == this.summonColor);
+  }
+
   pickNumber(number: number) {
     this.close();
     let summon: Summon = new Summon(this.character.level, number, this.summonColor);

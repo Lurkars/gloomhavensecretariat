@@ -1,7 +1,8 @@
+<ghs-header></ghs-header>
 <main>
   <div class="figures" cdkDropList (cdkDropListDropped)="drop($event)" [cdkDropListAutoScrollStep]="20">
     <div class="figure" *ngFor="let figure of gameManager.game.figures" cdkDrag>
-      <ghs-character [character]="gameManager.toCharacter(figure)" *ngIf="gameManager.isCharacter(figure)" >
+      <ghs-character [character]="gameManager.toCharacter(figure)" *ngIf="gameManager.isCharacter(figure)">
       </ghs-character>
       <ghs-objective [objective]="gameManager.toObjective(figure)" *ngIf="gameManager.isObjective(figure)">
       </ghs-objective>
@@ -10,3 +11,4 @@
     </div>
   </div>
 </main>
+<ghs-footer></ghs-footer>

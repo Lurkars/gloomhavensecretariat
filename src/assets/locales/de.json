@@ -54,12 +54,32 @@
     "zoomOut": "Rauszoomen",
     "zoomReset": "Zoom zurücksetzen",
     "fullscreen": "Vollbild",
-    "reset": "Zurücksetzen",
+    "resetGame": "Spiel Zurücksetzen",
+    "resetSettings": "Einstellungen Zurücksetzen",
     "locale": {
       ".": "Sprache",
       "en": "Englisch (English)",
       "de": "Deutsch"
     }
+  },
+  "server": {
+    "menu": {
+      "connect": "Mit Server verbinden",
+      "connected": "Server Verbindung"
+    },
+    "host": "Host",
+    "port": "Port",
+    "password": "Passwort",
+    "connect": "Verbinden",
+    "reconnect": "Neu Verbinden",
+    "disconnect": "Trennen",
+    "connected": "Verbunden",
+    "connecting": "Verbinde",
+    "closing": "Schließen",
+    "closed": "Geschlossen",
+    "undefined": "Keine Verbingung",
+    "autoconnect" : "Automatisch Verbinden",
+    "wss" : "Verschlüsselte Verbindung"
   },
   "about": {
     ".": "Über",
