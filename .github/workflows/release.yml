@@ -88,7 +88,7 @@ jobs:
           GH_TOKEN: ${{ secrets.TOKEN }}
   publish:
     name: Publish Draft Release
-    needs: [create_release, release_electron]
+    needs: [create_release, release_zip, release_electron]
     runs-on: ubuntu-latest
     steps:
       - uses: eregon/publish-release@v1

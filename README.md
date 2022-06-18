@@ -74,3 +74,7 @@ Assets used:
 - some other assets used are public domain licensed
 
 Source code is licenced under [AGPL](/LICENSE)
+
+## Personal disclaimer
+
+This is a hobby project I do in my free-time. The software provides a practical need due to the end of the original Helper app and so I completely follow the **Quick'n'Dirty** approach to get things fast done. This leads of course to a lack of quality and testing and the code base does definitely not comply with my profession.
