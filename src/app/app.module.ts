@@ -41,6 +41,7 @@ import { MonsterStatToolComponent } from './ui/tools/monster/stat/stat';
 import { FormsModule } from '@angular/forms';
 import { MonsterActionToolComponent } from './ui/tools/monster/action/action';
 import { ServerMenuComponent } from './ui/header/menu/server/server';
+import { APP_BASE_HREF } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -77,7 +78,7 @@ import { ServerMenuComponent } from './ui/header/menu/server/server';
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [],
+  providers: [ { provide: APP_BASE_HREF, useValue: '.' } ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
