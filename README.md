@@ -6,6 +6,8 @@ An open source [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper
 
 This is basically a clone implementing the same functionality and look&feel of the original Gloomhaven Helper since I am not capable of good design/UX. So feel free to contribute better assets.
 
+For usage with multiple clients sharing the same game, the server component [Gloomhaven Secretary Server](https://github.com/Lurkars/ghs-server) is required. A public instance is available under `ghs.champonthis.de/server` port `443` with `secure` option.
+
 > SPOILER WARNING:
 > The `label.json` files inside the `data`-folder and therefore the final edition data files inside the `src/assets/data`-folder contain spoilers by including the corresponding label.
 
