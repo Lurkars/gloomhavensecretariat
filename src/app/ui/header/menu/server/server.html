@@ -17,9 +17,9 @@
   </div>
 
   <div class="line separator">
-    <label class="label">{{'server.host' | ghsLabel}}</label>
-    <input type="text" #serverHost [value]="settingsManager.settings.serverHost || ''" (keyup)="0"
-      placeholder="{{'server.host' | ghsLabel}}">
+    <label class="label">{{'server.url' | ghsLabel}}</label>
+    <input type="text" #serverUrl [value]="settingsManager.settings.serverUrl || ''" (keyup)="0"
+      placeholder="{{'server.url' | ghsLabel}}">
   </div>
   <div class="line">
     <label class="label">{{'server.port' | ghsLabel}}</label>
@@ -43,8 +43,8 @@
   <div class="columns">
     <div class="column">
       <div class="line">
-        <a (click)="connect(serverHost.value,serverPort.value,serverPassword.value)"
-          [ngClass]="{'disabled' : !serverHost.value || !serverPort.value || !serverPassword.value}">{{(gameManager.stateManager.wsState()
+        <a (click)="connect(serverUrl.value,serverPort.value,serverPassword.value)"
+          [ngClass]="{'disabled' : !serverUrl.value || !serverPort.value || !serverPassword.value}">{{(gameManager.stateManager.wsState()
           == WebSocket.OPEN ? 'server.reconnect' : 'server.connect') |
           ghsLabel}}</a>
       </div>

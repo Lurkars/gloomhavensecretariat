@@ -67,7 +67,7 @@
       "connect": "Mit Server verbinden",
       "connected": "Server Verbindung"
     },
-    "host": "Host",
+    "url": "Url",
     "port": "Port",
     "password": "Passwort",
     "connect": "Verbinden",

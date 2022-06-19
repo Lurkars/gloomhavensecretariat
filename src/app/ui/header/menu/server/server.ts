@@ -15,9 +15,9 @@ export class ServerMenuComponent {
 
   WebSocket = WebSocket;
 
-  connect(host: string, port: string, password: string): void {
-    if (host && !isNaN(+port) && password) {
-      settingsManager.setServer(host, +port, password);
+  connect(url: string, port: string, password: string): void {
+    if (url && !isNaN(+port) && password) {
+      settingsManager.setServer(url, +port, password);
       gameManager.stateManager.connect();
     }
   }

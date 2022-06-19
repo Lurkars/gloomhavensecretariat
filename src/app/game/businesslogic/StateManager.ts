@@ -12,7 +12,7 @@ export class StateManager {
   }
 
   init() {
-    if (settingsManager.settings.serverHost && settingsManager.settings.serverPort && settingsManager.settings.serverPassword && settingsManager.settings.serverAutoconnect) {
+    if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword && settingsManager.settings.serverAutoconnect) {
       this.connect();
     } else {
       const local: string | null = localStorage.getItem("ghs-game");
@@ -26,10 +26,16 @@ export class StateManager {
   }
 
   connect() {
-    if (settingsManager.settings.serverHost && settingsManager.settings.serverPort && settingsManager.settings.serverPassword) {
+    if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword) {
       this.disconnect();
       const protocol = settingsManager.settings.serverWss ? "wss://" : "ws://";
-      this.ws = new WebSocket(protocol + settingsManager.settings.serverHost + ":" + settingsManager.settings.serverPort);
+      let urls = settingsManager.settings.serverUrl.split("/");
+      const url = urls[ 0 ];
+      let path = "/";
+      if (urls.length > 1) {
+        path = path + urls.splice(1, urls.length).join("/");
+      }
+      this.ws = new WebSocket(protocol + url + ":" + settingsManager.settings.serverPort + path);
       this.ws.onmessage = this.onMessage;
       this.ws.onopen = this.request;
     }

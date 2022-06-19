@@ -90,8 +90,8 @@ export class SettingsManager {
     this.storeSettings();
   }
 
-  setServer(host: string, port: number, password: string): void {
-    this.settings.serverHost = host;
+  setServer(url: string, port: number, password: string): void {
+    this.settings.serverUrl = url;
     this.settings.serverPort = port;
     this.settings.serverPassword = password;
     this.storeSettings();

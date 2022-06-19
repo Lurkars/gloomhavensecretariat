@@ -9,7 +9,7 @@ export class Settings {
   locale: string = "en";
   editionDataUrls: string[] = [ "./assets/data/gh.json", "./assets/data/jotl.json" ];
   spoilers: string[] = [];
-  serverHost: string | undefined;
+  serverUrl: string | undefined;
   serverPort: number | undefined;
   serverPassword: string | undefined;
   serverAutoconnect: boolean = true;
