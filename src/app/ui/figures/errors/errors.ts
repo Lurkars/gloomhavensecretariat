@@ -12,4 +12,12 @@ export class FigureErrors extends DialogComponent {
 
   @Input() figure!: Monster | Character;
 
+
+  override ngOnInit(): void {
+    super.ngOnInit();
+    if (!this.figure.errors) {
+      this.figure.errors = [];
+    }
+  }
+
 }

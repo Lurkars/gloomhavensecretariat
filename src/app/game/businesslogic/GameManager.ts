@@ -154,7 +154,7 @@ export class GameManager {
   }
 
   abilities(figure: MonsterData | CharacterData): Ability[] {
-    const abilities = this.decksData(true).find((deck: DeckData) => deck.name == figure.name && deck.edition == figure.edition)?.abilities;
+    const abilities = this.decksData(true).find((deck: DeckData) => (deck.name == figure.deck || deck.name == figure.name) && deck.edition == figure.edition)?.abilities;
     if (!abilities) {
       console.error("Unknwon deck: " + figure.name + " for " + figure.edition);
       if (figure.errors.indexOf(FigureError.deck) == -1) {
