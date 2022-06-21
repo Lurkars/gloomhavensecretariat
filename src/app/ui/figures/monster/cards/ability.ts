@@ -25,21 +25,21 @@ export class AbilityComponent extends PopupComponent {
     if (this.index == -1) {
       this.ability = gameManager.monsterManager.getAbility(this.monster);
     } else {
-      this.ability = gameManager.abilities(this.monster.deck, this.monster.edition)[ this.index ];
+      this.ability = gameManager.abilities(this.monster)[ this.index ];
     }
     return gameManager.working && gameManager.game.state == GameState.draw || !gameManager.working && (gameManager.game.state == GameState.next && this.ability != undefined);
   }
 
   upcomingCards(): Ability[] {
-    return this.monster.abilities.filter((value: number, index: number) => index > this.monster.ability).map((value: number) => gameManager.abilities(this.monster.deck, this.monster.edition)[ value ]);
+    return this.monster.abilities.filter((value: number, index: number) => index > this.monster.ability).map((value: number) => gameManager.abilities(this.monster)[ value ]);
   }
 
   disgardedCards(): Ability[] {
-    return this.monster.abilities.filter((value: number, index: number) => index <= this.monster.ability).map((value: number) => gameManager.abilities(this.monster.deck, this.monster.edition)[ value ]);
+    return this.monster.abilities.filter((value: number, index: number) => index <= this.monster.ability).map((value: number) => gameManager.abilities(this.monster)[ value ]);
   }
 
   abilityIndex(ability: Ability) {
-    return gameManager.abilities(this.monster.deck, this.monster.edition).indexOf(ability);
+    return gameManager.abilities(this.monster).indexOf(ability);
   }
 
   shuffle() {

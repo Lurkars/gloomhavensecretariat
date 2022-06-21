@@ -126,6 +126,15 @@
     }
   }
 
+
+
+  ghs-figure-errors {
+    position: absolute;
+    left: calc(var(--ghs-unit) * 1);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
 }
 
 .summons-container {
@@ -188,23 +197,24 @@
     .condition-container {
       display: grid;
       grid-template-rows: calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7);
-      grid-template-columns: calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7);align-items: center;
+      grid-template-columns: calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7);
+      align-items: center;
       justify-items: center;
 
       .condition {
-  
+
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
         height: calc(var(--ghs-unit) * 6);
         width: calc(var(--ghs-unit) * 6);
-  
+
         &.active {
           border: calc(var(--ghs-unit) / 4) var(--ghs-color-white) solid;
           border-radius: 100%;
         }
-  
+
         &:hover {
           border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
           border-radius: 100%;

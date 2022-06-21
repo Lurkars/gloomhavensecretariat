@@ -1,9 +1,12 @@
 .actions {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   align-items: center;
   height: 100%;
+  overflow: auto;
+
+
+  
 
   &.inline {
     align-items: flex-start;
@@ -22,5 +25,13 @@
 
   ghs-action {
     position: relative;
+
+    &:first-child {
+      margin-top: auto;
+    }
+
+    &:last-child {
+      margin-bottom: auto;
+    }
   }
 }

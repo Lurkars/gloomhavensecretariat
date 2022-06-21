@@ -42,6 +42,7 @@ import { FormsModule } from '@angular/forms';
 import { MonsterActionToolComponent } from './ui/tools/monster/action/action';
 import { ServerMenuComponent } from './ui/header/menu/server/server';
 import { APP_BASE_HREF } from '@angular/common';
+import { FigureErrors } from './ui/figures/errors/errors';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { APP_BASE_HREF } from '@angular/common';
     MonsterStatsComponent, MonsterStatsPopupComponent,
     MonsterNumberPicker,
     ActionsComponent, ActionComponent, ActionHexComponent,
+    FigureErrors,
     CardRevealDirective,
     GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent, GhsHtmlLabelPipe,
     MonsterToolComponent, MonsterActionToolComponent, MonsterStatToolComponent ],

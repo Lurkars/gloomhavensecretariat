@@ -1,4 +1,5 @@
 import { Editional } from "../Editional";
+import { FigureError } from "../FigureError";
 import { MonsterStat } from "../MonsterStat";
 import { Spoilable } from "../Spoilable";
 
@@ -19,8 +20,12 @@ export class MonsterData implements Editional, Spoilable {
   // from Spoilable
   spoiler: boolean;
 
+  // error
+  errors: FigureError[];
+
   constructor(name: string, count: number, baseStat: MonsterStat, stats: MonsterStat[], edition: string, deck: string | undefined = undefined, boss: boolean = false, thumbnail: string | undefined = undefined,
     spoiler: boolean = false) {
+    this.errors = [];
     this.name = name;
     this.count = count;
     this.baseStat = baseStat;

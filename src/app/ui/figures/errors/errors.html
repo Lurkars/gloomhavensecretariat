@@ -1,0 +1,9 @@
+<div #button class="button">
+  <a *ngIf="figure.errors.length > 0">⚠️</a>
+</div>
+
+<div #dialog class="figure-errors-dialog">
+  <div class="figure-errors">
+    <div class="figure-error" *ngFor="let error of figure.errors">!{{'game.figure.error.' + error | ghsLabel}}</div>
+  </div>
+</div>

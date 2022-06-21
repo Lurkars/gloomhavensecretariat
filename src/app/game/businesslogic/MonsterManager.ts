@@ -10,6 +10,7 @@ import { Condition, RoundCondition } from "../model/Condition";
 import { Ability } from "../model/Ability";
 import { SummonState } from "../model/Summon";
 import { settingsManager } from "./SettingsManager";
+import { FigureError } from "../model/FigureError";
 
 export class MonsterManager {
 
@@ -34,7 +35,7 @@ export class MonsterManager {
       monster.level = gameManager.game.level;
       monster.off = true;
       if (!monster.abilities || monster.abilities.length == 0) {
-        monster.abilities = gameManager.abilities(monster.deck, monster.edition).map((ability: Ability, index: number) => index);
+        monster.abilities = gameManager.abilities(monster).map((ability: Ability, index: number) => index);
         this.shuffleAbilities(monster);
       }
       this.game.figures.push(monster);
@@ -53,6 +54,9 @@ export class MonsterManager {
       return monsterStat.type == type;
     })) {
       console.error("Missing type '" + type + "' for " + monster.name);
+      if (monster.errors.indexOf(FigureError.monsterType) == -1) {
+        monster.errors.push(FigureError.monsterType);
+      }
       return;
     }
 
@@ -149,7 +153,7 @@ export class MonsterManager {
       return undefined;
     }
 
-    return gameManager.abilities(monster.deck, monster.edition)[ monster.abilities[ monster.ability ] ]
+    return gameManager.abilities(monster)[ monster.abilities[ monster.ability ] ]
   }
 
 }

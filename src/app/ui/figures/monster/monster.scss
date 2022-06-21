@@ -15,6 +15,13 @@
     }
   }
 
+  ghs-figure-errors {
+    position: absolute;
+    left: calc(var(--ghs-unit) * 13.5);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
   ghs-monster-ability {
     margin: 0 calc(var(--ghs-unit) * 2);
   }

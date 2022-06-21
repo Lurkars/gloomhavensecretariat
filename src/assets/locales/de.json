@@ -78,9 +78,9 @@
     "closing": "Schließen",
     "closed": "Geschlossen",
     "undefined": "Keine Verbingung",
-    "autoconnect" : "Automatisch Verbinden",
-    "wss" : "Verschlüsselte Verbindung",
-    "settings" : "Einstellungen synchronisieren"
+    "autoconnect": "Automatisch Verbinden",
+    "wss": "Verschlüsselte Verbindung",
+    "settings": "Einstellungen synchronisieren"
   },
   "about": {
     ".": "Über",
@@ -117,7 +117,7 @@
       "area": "Fläche",
       "push": "Schieben",
       "retaliate": "Vergeltung",
-      "teleport" : "Teleport",
+      "teleport": "Teleport",
       "pull": "Ziehen",
       "loot": "Beute",
       "element": "Element",
@@ -153,7 +153,15 @@
       "coverAll": "Alle Verdecken",
       "revealAll": "Alle Aufdecken?",
       "revealAllConfirm": "Alle Aufdecken!",
-      "removeDrawnDiscards" : "Entferne gezogene Abgeworfene"
+      "removeDrawnDiscards": "Entferne gezogene Abgeworfene"
+    },
+    "figure": {
+      "error": {
+        "deck": "Fehlendes Deck",
+        "stat": "Fehlende Stats",
+        "monsterType": "Fehlender Monstertyp",
+        "unknown": "Unbekannte Figur"
+      }
     }
   },
   "datamanagement": {

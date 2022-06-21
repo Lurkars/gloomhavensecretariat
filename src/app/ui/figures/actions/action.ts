@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit, ViewChi
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Action, ActionHex, ActionType, ActionValueType } from 'src/app/game/model/Action';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
+import { FigureError } from 'src/app/game/model/FigureError';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { MonsterStat } from 'src/app/game/model/MonsterStat';
@@ -66,6 +67,9 @@ export class ActionComponent {
     });
     if (!stat) {
       console.error("Could not find '" + type + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
+      if (this.monster.errors.indexOf(FigureError.stat) == -1) {
+        this.monster.errors.push(FigureError.stat);
+      }
       return new MonsterStat(type, this.monster.level, 0, 0, 0, 0);
     }
     return stat;

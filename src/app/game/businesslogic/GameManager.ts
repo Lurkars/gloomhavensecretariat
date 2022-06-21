@@ -7,6 +7,7 @@ import { EditionData } from "../model/data/EditionData";
 import { MonsterData } from "../model/data/MonsterData";
 import { ScenarioData } from "../model/data/ScenarioData";
 import { Element } from "../model/Element";
+import { FigureError } from "../model/FigureError";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
@@ -152,10 +153,13 @@ export class GameManager {
     }
   }
 
-  abilities(name: string, edition: string): Ability[] {
-    const abilities = this.decksData(true).find((deck: DeckData) => deck.name == name && deck.edition == edition)?.abilities;
+  abilities(figure: MonsterData | CharacterData): Ability[] {
+    const abilities = this.decksData(true).find((deck: DeckData) => deck.name == figure.name && deck.edition == figure.edition)?.abilities;
     if (!abilities) {
-      console.error("Unknwon deck: " + name + " for " + edition);
+      console.error("Unknwon deck: " + figure.name + " for " + figure.edition);
+      if (figure.errors.indexOf(FigureError.deck) == -1) {
+        figure.errors.push(FigureError.deck);
+      }
       return [];
     }
     return abilities;
@@ -167,10 +171,12 @@ export class GameManager {
   }
 
   getCharacterData(name: string, edition: string): CharacterData {
-    const characterData = this.charactersData(true).find((value: CharacterData) => value.name == name && value.edition == edition)
+    let characterData = this.charactersData(true).find((value: CharacterData) => value.name == name && value.edition == edition)
     if (!characterData) {
       console.error("unknown character: " + name);
-      return new CharacterData(name, [], "");
+      characterData = new CharacterData(name, [], "")
+      characterData.errors.push(FigureError.unknown);
+      return characterData;
     }
     return characterData;
   }
@@ -207,10 +213,12 @@ export class GameManager {
   }
 
   getMonsterData(name: string, edition: string): MonsterData {
-    const monsterData = this.monstersData(true).find((value: MonsterData) => value.name == name && value.edition == edition);
+    let monsterData = this.monstersData(true).find((value: MonsterData) => value.name == name && value.edition == edition);
     if (!monsterData) {
       console.error("unknown monster '" + name + "' for edition '" + edition + "'");
-      return new MonsterData(name, 0, new MonsterStat(MonsterType.normal, 0, 0, 0, 0, 0), [], "");
+      monsterData = new MonsterData(name, 0, new MonsterStat(MonsterType.normal, 0, 0, 0, 0, 0), [], "");
+      monsterData.errors.push(FigureError.unknown);
+      return monsterData;
     }
 
     return monsterData;

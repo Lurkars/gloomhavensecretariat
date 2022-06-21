@@ -154,6 +154,14 @@
       "revealAll": "Reveal All?",
       "revealAllConfirm": "Reveal All!",
       "removeDrawnDiscards" : "Remove Drawn Discards"
+    },
+    "figure": {
+      "error": {
+        "deck": "Missing Deck",
+        "stat": "Missing Stat",
+        "monsterType": "Missing Monster Type",
+        "unknown": "Unknown Figure"
+      }
     }
   },
   "datamanagement": {

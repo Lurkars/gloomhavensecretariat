@@ -2,6 +2,7 @@ import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Figure } from 'src/app/game/model/Figure';
+import { FigureError } from 'src/app/game/model/FigureError';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { MonsterStat } from 'src/app/game/model/MonsterStat';
@@ -41,6 +42,9 @@ export class MonsterStatsComponent extends DialogComponent {
       });
       if (!stats) {
         console.error("Could not find '" + MonsterType.boss + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
+        if (this.monster.errors.indexOf(FigureError.stat) == -1) {
+          this.monster.errors.push(FigureError.stat);
+        }
       }
 
       this.stats = stats;
@@ -50,6 +54,9 @@ export class MonsterStatsComponent extends DialogComponent {
       });
       if (!stats) {
         console.error("Could not find '" + MonsterType.normal + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
+        if (this.monster.errors.indexOf(FigureError.stat) == -1) {
+          this.monster.errors.push(FigureError.stat);
+        }
       }
 
       const eliteStats = this.monster.stats.find((monsterStat: MonsterStat) => {
@@ -57,6 +64,9 @@ export class MonsterStatsComponent extends DialogComponent {
       });
       if (!eliteStats) {
         console.error("Could not find '" + MonsterType.elite + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
+        if (this.monster.errors.indexOf(FigureError.stat) == -1) {
+          this.monster.errors.push(FigureError.stat);
+        }
       }
 
       this.stats = stats;
@@ -70,6 +80,9 @@ export class MonsterStatsComponent extends DialogComponent {
     });
     if (!stat) {
       console.error("Could not find '" + type + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
+      if (this.monster.errors.indexOf(FigureError.stat) == -1) {
+        this.monster.errors.push(FigureError.stat);
+      }
       return new MonsterStat(type, this.monster.level, 0, 0, 0, 0);
     }
     return stat;
@@ -102,6 +115,9 @@ export class MonsterStatsComponent extends DialogComponent {
         if (stat == undefined) {
           console.error("Could not find '" + monsterEntity.type + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
           stat = new MonsterStat(monsterEntity.type, this.monster.level, 0, 0, 0, 0);
+          if (this.monster.errors.indexOf(FigureError.stat) == -1) {
+            this.monster.errors.push(FigureError.stat);
+          }
         }
 
         monsterEntity.level = this.monster.level;

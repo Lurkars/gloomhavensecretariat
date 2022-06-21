@@ -1,5 +1,6 @@
 import { CharacterStat } from "../CharacterStat";
 import { Editional } from "../Editional";
+import { FigureError } from "../FigureError";
 import { Spoilable } from "../Spoilable";
 import { SummonsData } from "./SummonData";
 
@@ -10,7 +11,7 @@ export class CharacterData implements Editional, Spoilable {
 
   icon: string | undefined;
   thumbnail: string | undefined;
-  
+
   deck: string;
 
   // from Editional
@@ -18,7 +19,11 @@ export class CharacterData implements Editional, Spoilable {
   // from Spoilable
   spoiler: boolean;
 
+  // error
+  errors: FigureError[];
+
   constructor(name: string, stats: CharacterStat[], edition: string, summon: SummonsData | undefined = undefined, icon: string | undefined = undefined, thumbnail: string | undefined = undefined, spoiler: boolean = false, deck: string | undefined = undefined) {
+    this.errors = [];
     this.name = name;
     this.stats = stats;
     this.summon = summon;

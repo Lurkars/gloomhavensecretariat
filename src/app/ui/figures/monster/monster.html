@@ -16,6 +16,8 @@
   <ghs-monster-numberpicker *ngIf="monster.boss" class="boss" [monster]="monster" [type]="MonsterType.boss"
     [max]="monster.count" [ngClass]="{'disabled' : monster.entities.length >= monster.count}">
   </ghs-monster-numberpicker>
+  
+  <ghs-figure-errors [figure]="monster"></ghs-figure-errors>
 </div>
 
 <div class="entities-container" [ngClass]="{'empty' : emptyEntities() }">

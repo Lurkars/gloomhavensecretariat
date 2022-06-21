@@ -5,6 +5,7 @@ import { CharacterStat } from "./CharacterStat";
 import { CharacterData } from "./data/CharacterData";
 import { GameSummonModel, Summon, SummonColor, SummonState } from "./Summon";
 import { gameManager } from "../businesslogic/GameManager";
+import { FigureError } from "./FigureError";
 
 export class Character extends CharacterData implements Entity, Figure {
   title: string = "";
@@ -32,7 +33,7 @@ export class Character extends CharacterData implements Entity, Figure {
 
   constructor(character: CharacterData, level: number) {
     super(character.name, character.stats, character.edition, character.summon, character.icon, character.thumbnail);
-
+    this.errors = character.errors;
     if (level < 1) {
       level = 1;
     } else if (level > 9) {
@@ -42,6 +43,9 @@ export class Character extends CharacterData implements Entity, Figure {
     const stat = this.stats.find((characterStat: CharacterStat) => characterStat.level == level)
     if (!stat) {
       console.error("No character stat found for level: " + level);
+      if (this.errors.indexOf(FigureError.stat) == -1) {
+        this.errors.push(FigureError.stat);
+      }
       this.stat = new CharacterStat(level, 0);
       this.level = 0;
       this.maxHealth = 0;
@@ -64,6 +68,9 @@ export class Character extends CharacterData implements Entity, Figure {
     const stat = this.stats.find((characterStat: CharacterStat) => characterStat.level == level)
     if (!stat) {
       console.error("No character stat found for level: " + level);
+      if (this.errors.indexOf(FigureError.stat) == -1) {
+        this.errors.push(FigureError.stat);
+      }
       this.stat = new CharacterStat(level, 0);
     } else {
       this.stat = stat;

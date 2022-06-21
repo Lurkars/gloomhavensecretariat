@@ -1,0 +1,14 @@
+.button {
+  cursor: pointer;
+  font-size: calc(var(--ghs-unit) * 3);
+}
+
+.figure-errors {
+  display: flex;
+  flex-direction: column;
+
+  .figure-error {
+    font-size: calc(var(--ghs-unit) * 3);
+    color: var(--ghs-color-white);
+  }
+}

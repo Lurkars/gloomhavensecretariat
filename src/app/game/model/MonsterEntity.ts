@@ -1,6 +1,7 @@
 import { NumberSymbol } from "@angular/common";
 import { Condition } from "./Condition";
 import { Entity, EntityValueFunction } from "./Entity";
+import { FigureError } from "./FigureError";
 import { Monster } from "./Monster";
 import { MonsterStat } from "./MonsterStat";
 import { MonsterType } from "./MonsterType";
@@ -31,6 +32,9 @@ export class MonsterEntity implements Entity {
     if (!stat) {
       console.error("No monster stat found for level '" + monster.level + "' and type '" + type + "'!");
       this.stat = new MonsterStat(type, monster.level, 0, 0, 0, 0);
+      if (monster.errors.indexOf(FigureError.stat) == -1) {
+        monster.errors.push(FigureError.stat);
+      }
     } else {
       this.stat = stat;
     }
