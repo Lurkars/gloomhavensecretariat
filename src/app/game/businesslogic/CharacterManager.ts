@@ -31,15 +31,13 @@ export class CharacterManager {
   }
 
   addCharacter(characterData: CharacterData) {
-    if (this.game.figures.some((element: Figure) => {
-      return element.name == characterData.name;
+    if (!this.game.figures.some((figure: Figure) => {
+      return figure instanceof CharacterData && figure.name == characterData.name && figure.edition == characterData.edition;
     })) {
-      return;
+      let entity: Character = new Character(characterData, this.game.level);
+      this.game.figures.push(entity);
+      gameManager.sortFigures();
     }
-
-    let entity: Character = new Character(characterData, this.game.level);
-    this.game.figures.push(entity);
-    gameManager.sortFigures();
   }
 
   removeCharacter(character: Character) {
@@ -56,7 +54,11 @@ export class CharacterManager {
 
 
   addObjective() {
-    this.game.figures.push(new Objective());
+    let id = 0;
+    while (this.game.figures.some((figure: Figure) => figure instanceof Objective && figure.id == id)) {
+      id++;
+    }
+    this.game.figures.push(new Objective(id));
     gameManager.sortFigures();
   }
 

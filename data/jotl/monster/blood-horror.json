@@ -3,43 +3,36 @@
   "count": 1,
   "deck": "boss",
   "edition": "jotl",
-  "name": "blood-tumor",
+  "name": "blood-horror",
   "baseStat": {
     "actions": [],
     "immunities": [
       "disarm",
+      "immobilize",
       "muddle",
       "stun"
     ],
     "special": [
       [
         {
-          "type": "heal",
-          "value": "C+2",
-          "valueType": "fixed",
-          "subActions": [
-            {
-              "subActions": [],
-              "type": "specialTarget",
-              "value": "self",
-              "valueType": "fixed"
-            }
-          ]
+          "type": "custom",
+          "value": "Jump to farthest dead Zealot and revive or jump to farthest character and Attack+0"
         }
       ],
       [
         {
-          "type": "heal",
-          "value": "2",
-          "valueType": "fixed",
-          "subActions": [
-            {
-              "subActions": [],
-              "type": "specialTarget",
-              "value": "allAllies",
-              "valueType": "fixed"
-            }
-          ]
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "custom",
+          "value": "Revive all dead Zealots in room"
         }
       ]
     ],
@@ -50,56 +43,56 @@
       "attack": "C-1",
       "health": "7xC",
       "level": 0,
-      "movement": 0,
+      "movement": 3,
       "range": 0
     },
     {
       "attack": "C",
       "health": "10xC",
       "level": 1,
-      "movement": 0,
+      "movement": 3,
       "range": 0
     },
     {
       "attack": "C",
       "health": "12xC",
       "level": 2,
-      "movement": 0,
+      "movement": 4,
       "range": 0
     },
     {
       "attack": "C+1",
       "health": "15xC",
       "level": 3,
-      "movement": 0,
+      "movement": 4,
       "range": 0
     },
     {
       "attack": "C+1",
       "health": "17xC",
       "level": 4,
-      "movement": 0,
+      "movement": 5,
       "range": 0
     },
     {
       "attack": "C+2",
       "health": "20xC",
       "level": 5,
-      "movement": 0,
-      "range": 0
-    },
-    {
-      "attack": "C+2",
-      "health": "23xC",
-      "level": 6,
-      "movement": 0,
+      "movement": 5,
       "range": 0
     },
     {
       "attack": "C+3",
+      "health": "23xC",
+      "level": 6,
+      "movement": 5,
+      "range": 0
+    },
+    {
+      "attack": "C+4",
       "health": "28xC",
       "level": 7,
-      "movement": 0,
+      "movement": 5,
       "range": 0
     }
   ]

@@ -39,14 +39,18 @@ export class Character extends CharacterData implements Entity, Figure {
       level = 9;
     }
 
-    if (!this.stats.some((characterStat: CharacterStat) => characterStat.level == level)) {
-      throw Error("Invalid character level: " + level);
+    const stat = this.stats.find((characterStat: CharacterStat) => characterStat.level == level)
+    if (!stat) {
+      console.error("No character stat found for level: " + level);
+      this.stat = new CharacterStat(level, 0);
+      this.level = 0;
+      this.maxHealth = 0;
+    } else {
+      this.stat = stat;
+      this.level = level;
+      this.maxHealth = this.stat.health;
     }
 
-    this.stat = this.stats.filter((characterStat: CharacterStat) => characterStat.level == level)[ 0 ];
-
-    this.level = level;
-    this.maxHealth = this.stat.health;
     this.health = this.maxHealth;
     this.conditions = [];
     this.turnConditions = [];
@@ -57,11 +61,14 @@ export class Character extends CharacterData implements Entity, Figure {
   }
 
   setLevel(level: number) {
-    if (!this.stats.some((characterStat: CharacterStat) => characterStat.level == level)) {
-      throw Error("Invalid character level: " + level);
+    const stat = this.stats.find((characterStat: CharacterStat) => characterStat.level == level)
+    if (!stat) {
+      console.error("No character stat found for level: " + level);
+      this.stat = new CharacterStat(level, 0);
+    } else {
+      this.stat = stat;
     }
 
-    this.stat = this.stats.filter((characterStat: CharacterStat) => characterStat.level == level)[ 0 ];
     this.level = level;
 
     if (this.health == this.maxHealth) {
@@ -74,8 +81,8 @@ export class Character extends CharacterData implements Entity, Figure {
     }
 
     if (this.summon) {
-      if (this.summons.some((summon: Summon) => summon.number == 0)) {
-        let summon = this.summons.filter((summon: Summon) => summon.number == 0)[ 0 ];
+      let summon = this.summons.find((summon: Summon) => summon.number == 0);
+      if (summon) {
         if (summon.health == summon.maxHealth) {
           summon.health = typeof this.summon.health == "number" ? this.summon.health : EntityValueFunction(this.summon.health, this.level);
         }
@@ -105,7 +112,7 @@ export class Character extends CharacterData implements Entity, Figure {
   }
 
   toModel(): GameCharacterModel {
-    return new GameCharacterModel(this.name, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.conditions, this.turnConditions, this.summons.map((summon: Summon) => summon.toModel()));
+    return new GameCharacterModel(this.name, this.edition, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.conditions, this.turnConditions, this.summons.map((summon: Summon) => summon.toModel()));
   }
 
   fromModel(model: GameCharacterModel) {
@@ -134,10 +141,9 @@ export class Character extends CharacterData implements Entity, Figure {
     });
 
     model.summons.forEach((value: GameSummonModel) => {
-      let summon = new Summon(value.level, value.number, value.color);
-      if (this.summons.some((summonEntity: Summon) => summonEntity.number == summon.number && summonEntity.color == summon.color)) {
-        summon = this.summons.filter((summonEntity: Summon) => summonEntity.number == summon.number && summonEntity.color == summon.color)[ 0 ];
-      } else {
+      let summon = this.summons.find((summonEntity: Summon) => summonEntity.number == value.number && summonEntity.color == value.color) as Summon;
+      if (!summon) {
+        summon = new Summon(value.level, value.number, value.color);
         this.summons.push(summon);
       }
       summon.fromModel(value);
@@ -150,6 +156,7 @@ export class Character extends CharacterData implements Entity, Figure {
 export class GameCharacterModel {
 
   name: string;
+  edition: string;
   title: string;
   initiative: number;
   experience: number;
@@ -166,6 +173,7 @@ export class GameCharacterModel {
 
 
   constructor(name: string,
+    edition: string,
     title: string,
     initiative: number,
     experience: number,
@@ -180,6 +188,7 @@ export class GameCharacterModel {
     turnConditions: Condition[],
     summons: GameSummonModel[]) {
     this.name = name;
+    this.edition = edition;
     this.title = title;
     this.initiative = initiative;
     this.experience = experience;

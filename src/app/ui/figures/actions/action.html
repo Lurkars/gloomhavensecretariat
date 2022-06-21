@@ -51,7 +51,7 @@
 
   <span class="default" [ngClass]="'action-' + action.type" *ngSwitchDefault>
     <span class="type">{{'game.action.' + action.type | ghsLabel}}</span>
-    <img src="./assets/images/action/{{action.type}}.svg" class="icon" />
+    <img src="./assets/images/action/{{action.type}}.svg" class="icon" [ngClass]="{'invert' : isInvertIcon(action.type)}" />
     <span *ngIf="!relative" class="value">{{getNormalValue()}}<span *ngIf="getNormalValue() != getEliteValue()">/<span
           class="elite">{{getEliteValue()}}</span>
       </span>

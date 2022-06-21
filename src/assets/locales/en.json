@@ -79,7 +79,8 @@
     "closed": "Closed",
     "undefined": "No Connection",
     "autoconnect" : "Connect Automatically",
-    "wss" : "Secure"
+    "wss" : "Secure",
+    "settings" : "Synchronize Settings"
   },
   "about": {
     ".": "About",
@@ -116,6 +117,7 @@
       "area": "Area",
       "push": "Push",
       "retaliate": "Retaliate",
+      "teleport" : "Teleport",
       "pull": "Pull",
       "loot": "Loot",
       "element": "Element",
@@ -132,6 +134,7 @@
       "poison": "poison",
       "invisible": "invisible",
       "strengthen": "strengthen",
+      "regenerate": "regenerate",
       "curse": "curse",
       "bless": "bless"
     },
@@ -149,7 +152,8 @@
       "confirmReveal": "Click again to reveal!",
       "coverAll": "Cover All",
       "revealAll": "Reveal All?",
-      "revealAllConfirm": "Reveal All!"
+      "revealAllConfirm": "Reveal All!",
+      "removeDrawnDiscards" : "Remove Drawn Discards"
     }
   },
   "datamanagement": {

@@ -11,6 +11,7 @@ export enum ActionCondition {
   strengthen = "strengthen",
   curse = "curse",
   bless = "bless",
+  regenerate = "regenerate",
 }
 
 export enum EntityCondition {
@@ -22,6 +23,7 @@ export enum EntityCondition {
   poison = "poison",
   invisible = "invisible",
   strengthen = "strengthen",
+  regenerate = "regenerate",
 }
 
 export enum RoundCondition {

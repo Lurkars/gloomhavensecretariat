@@ -1,8 +1,11 @@
 <div class="name-container">
-  <span class="name" (click)="toggle()">{{'data.monster.' + monster.name | ghsLabel}}</span>
+  <span class="name" (click)="toggle()">{{'data.monster.' + monster.name | ghsLabel}} <span class="edition"
+      *ngIf="getEdition()">[{{'data.edition.' + getEdition()| ghsLabel}}]</span></span>
 </div>
 
 <div #popup class="stats-popup">
+  <span class="name" (click)="toggle()">{{'data.monster.' + monster.name | ghsLabel}} <span class="edition"
+    *ngIf="getEdition()">[{{'data.edition.' + getEdition()| ghsLabel}}]</span></span>
   <div class="stats-container">
     <ghs-monster-stats [monster]="getMonsterForLevel(level)" *ngFor="let level of levels"></ghs-monster-stats>
   </div>

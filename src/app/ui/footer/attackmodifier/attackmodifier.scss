@@ -91,9 +91,12 @@
 
 .attack-modifiers-popup {
 
+  width: calc(var(--ghs-unit) * 46);
+
   .menu {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 
     a {
       cursor: pointer;

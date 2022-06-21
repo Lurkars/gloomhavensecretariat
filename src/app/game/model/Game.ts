@@ -1,5 +1,5 @@
 import { gameManager } from "../businesslogic/GameManager";
-import { AttackModifier, AttackModifierType } from "./AttackModifier";
+import { AttackModifier, AttackModifierType, defaultAttackModifier } from "./AttackModifier";
 import { Character, GameCharacterModel } from "./Character";
 import { Element } from "./Element";
 import { Figure } from "./Figure";
@@ -15,7 +15,7 @@ export class Game {
   level: number = 1;
   round: number = 0;
   attackModifier: number = -1;
-  attackModifiers: AttackModifier[] = [];
+  attackModifiers: AttackModifier[] = defaultAttackModifier;
   newElements: Element[] = [];
   strongElements: Element[] = [];
   elements: Element[] = [];
@@ -34,37 +34,36 @@ export class Game {
     );
 
     model.characters.forEach((value: GameCharacterModel) => {
-      let character = new Character(gameManager.getCharacterData(value.name), value.level);
-      if (this.figures.some((figure: Figure) => figure instanceof Character && figure.name == value.name)) {
-        character = this.figures.filter((figure: Figure) => figure instanceof Character && figure.name == value.name)[ 0 ] as Character;
-      } else {
+      let character = this.figures.find((figure: Figure) => figure instanceof Character && figure.name == value.name && figure.edition == value.edition) as Character;
+      if (!character) {
+        character = new Character(gameManager.getCharacterData(value.name, value.edition), value.level);
         this.figures.push(character);
       }
-
       character.fromModel(value);
     });
 
     model.monsters.forEach((value: GameMonsterModel) => {
-      let monster = new Monster(gameManager.getMonsterData(value.name));
-
-      if (this.figures.some((figure: Figure) => figure instanceof Monster && figure.name == value.name)) {
-        monster = this.figures.filter((figure: Figure) => figure instanceof Monster && figure.name == value.name)[ 0 ] as Monster;
-      } else {
+      let monster = this.figures.find((figure: Figure) => figure instanceof Monster && figure.name == value.name && figure.edition == value.edition) as Monster;
+      if (!monster) {
+        monster = new Monster(gameManager.getMonsterData(value.name, value.edition));
         this.figures.push(monster);
       }
-
       monster.fromModel(value);
     });
 
     model.objectives.forEach((value: GameObjectiveModel) => {
-      let objective = new Objective();
+      let objective = this.figures.find((figure: Figure) => figure instanceof Objective && figure.id == value.id) as Objective;
+      if (!objective) {
+        if (!value.id) {
+          value.id = 0;
+          while (this.figures.some((figure: Figure) => figure instanceof Objective && figure.id == value.id)) {
+            value.id++;
+          }
+        }
 
-      if (this.figures.some((figure: Figure) => figure instanceof Objective && figure.name == value.name)) {
-        objective = this.figures.filter((figure: Figure) => figure instanceof Objective && figure.name == value.name)[ 0 ] as Objective;
-      } else {
+        objective = new Objective(value.id);
         this.figures.push(objective);
       }
-
       objective.fromModel(objective);
     });
 
@@ -76,6 +75,9 @@ export class Game {
     this.round = model.round;
     this.attackModifier = model.attackModifier;
     this.attackModifiers = model.attackModifiers.map((value: AttackModifierType) => new AttackModifier(value));
+    if (!this.attackModifiers || this.attackModifiers.length == 0) {
+      this.attackModifiers = defaultAttackModifier;
+    }
     this.strongElements = model.strongElements;
     this.elements = model.elements;
   }

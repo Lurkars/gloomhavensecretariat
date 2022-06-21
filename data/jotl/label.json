@@ -10,7 +10,13 @@
       "jotl": "Die Pranken des Löwen"
     },
     "monster": {
+      "black-imp": "Schwarzwicht",
+      "black-sludge": "Schwarzschlick",
+      "blood-horror" : "Blutschrecken",
+      "blood-imp": "Blutwicht",
+      "blood-monstrosity" : "Blutmonstrisität",
       "blood-tumor": "Blutgeschwür",
+      "chaos-demon" : "Chaosdämon",
       "zealot": "Fanatiker"
     },
     "scenario": {}
@@ -26,7 +32,13 @@
       "jotl": "Jaws Of The Lion"
     },
     "monster": {
+      "black-imp": "Black Imp",
+      "black-sludge": "Black Sludge",
+      "blood-horror" : "Blood Horror",
+      "blood-imp": "Blood Imp",
+      "blood-monstrosity" : "Blood Monstrosity",
       "blood-tumor": "Blood Tumor",
+      "chaos-demon" : "Chaos Demon",
       "zealot": "Zealot"
     },
     "scenario": {}

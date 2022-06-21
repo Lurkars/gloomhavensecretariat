@@ -18,6 +18,22 @@
 }
 
 .stats-popup {
+
+  display: flex;
+  flex-direction: column;
+
+  .name {
+    display: block;
+    font-family: 'ghs-title';
+    color: var(--ghs-color-white);
+    font-size: calc(var(--ghs-unit) * 3.5);
+    text-align: center;
+    width: 100%;
+    border-bottom-color: var(--ghs-color-gray);
+    border-bottom-style: solid;
+    border-bottom-width: calc(var(--ghs-unit) * 0.2);
+  }
+
   .stats-container {
     display: flex;
     flex-direction: column;

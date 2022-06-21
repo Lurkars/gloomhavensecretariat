@@ -4,9 +4,8 @@ import { Game } from "../model/Game";
 export class AttackModifierManager {
   game: Game;
 
-  constructor(game: Game, attackModifiers: AttackModifier[]) {
+  constructor(game: Game) {
     this.game = game;
-    this.game.attackModifiers = attackModifiers;
     this.shuffleModifiers();
   }
 
@@ -14,7 +13,7 @@ export class AttackModifierManager {
     if (index < 0 || index > this.game.attackModifiers.length) {
       index =
         Math.random() *
-          (this.game.attackModifiers.length - this.game.attackModifier + 1) +
+        (this.game.attackModifiers.length - this.game.attackModifier + 1) +
         this.game.attackModifier;
     }
     this.game.attackModifiers.splice(index, 0, attackModifier);
@@ -42,6 +41,17 @@ export class AttackModifierManager {
       .map(({ value }) => value);
   }
 
+  removeDrawnDiscards() {
+    const before = this.game.attackModifiers.length;
+    this.game.attackModifiers = this.game.attackModifiers.filter(
+      (attackModifier: AttackModifier, index: number) =>
+        index > this.game.attackModifier ||
+        (attackModifier.type != AttackModifierType.bless &&
+          attackModifier.type != AttackModifierType.curse)
+    );
+    this.game.attackModifier = this.game.attackModifier - (before - this.game.attackModifiers.length);
+  }
+
   draw() {
     if (
       this.game.attackModifiers.some(
@@ -54,5 +64,5 @@ export class AttackModifierManager {
     }
   }
 
-  next() {}
+  next() { }
 }

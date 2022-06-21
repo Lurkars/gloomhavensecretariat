@@ -41,6 +41,8 @@ export class ActionComponent {
   ActionType = ActionType;
   ActionValueType = ActionValueType;
 
+  invertIcons: ActionType[] = [ ActionType.attack, ActionType.fly, ActionType.heal, ActionType.jump, ActionType.loot, ActionType.move, ActionType.range, ActionType.retaliate, ActionType.shield, ActionType.target, ActionType.teleport ];
+
   getNormalValue() {
     if (this.monster.boss) {
       return this.getValue(MonsterType.boss);
@@ -59,15 +61,14 @@ export class ActionComponent {
   }
 
   getStat(type: MonsterType): MonsterStat {
-    if (!this.monster.stats.some((monsterStat: MonsterStat) => {
+    const stat = this.monster.stats.find((monsterStat: MonsterStat) => {
       return monsterStat.level == this.monster.level && monsterStat.type == type;
-    })) {
-      throw Error("Could not find '" + type + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
+    });
+    if (!stat) {
+      console.error("Could not find '" + type + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
+      return new MonsterStat(type, this.monster.level, 0, 0, 0, 0);
     }
-
-    return this.monster.stats.filter((monsterStat: MonsterStat) => {
-      return monsterStat.level == this.monster.level && monsterStat.type == type;
-    })[ 0 ];
+    return stat;
   }
 
   getConditions(action: Action): string[] {
@@ -123,6 +124,10 @@ export class ActionComponent {
     } else {
       return this.action.value;
     }
+  }
+
+  isInvertIcon(type: ActionType) {
+    return this.invertIcons.indexOf(type) != -1;
   }
 
 }

@@ -1,5 +1,5 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { AttackModifier, AttackModifierType } from 'src/app/game/model/AttackModifier';
 import { Condition } from 'src/app/game/model/Condition';
 import { Monster } from 'src/app/game/model/Monster';
@@ -14,12 +14,12 @@ import { DialogComponent } from 'src/app/ui/dialog/dialog';
 })
 export class MonsterEntityComponent extends DialogComponent {
 
+  gameManager: GameManager = gameManager;
   @Input() monster!: Monster;
   @Input() entity!: MonsterEntity;
   Conditions = Condition;
   AttackModifierType = AttackModifierType;
   SummonState = SummonState;
-  conditions: Condition[] = [ Condition.stun, Condition.immobilize, Condition.disarm, Condition.wound, Condition.muddle, Condition.poison, Condition.strengthen, Condition.invisible ];
   health: number = 0;
 
   constructor(private elementRef: ElementRef) {
@@ -62,13 +62,13 @@ export class MonsterEntityComponent extends DialogComponent {
         return;
       }
       gameManager.attackModifierManager.addModifier(new AttackModifier(AttackModifierType.bless));
-    } else if (value < 0 && gameManager.game.attackModifiers.some((attackModifier: AttackModifier, index: number) => {
-      return attackModifier.type == AttackModifierType.bless;
-    })) {
-      const bless = gameManager.game.attackModifiers.filter((attackModifier: AttackModifier) => {
-        return attackModifier.type == AttackModifierType.bless;
-      })[ 0 ];
-      gameManager.game.attackModifiers.splice(gameManager.game.attackModifiers.indexOf(bless), 1);
+    } else if (value < 0) {
+      const bless = gameManager.game.attackModifiers.find((attackModifier: AttackModifier, index: number) => {
+        return attackModifier.type == AttackModifierType.bless && index > gameManager.game.attackModifier;
+      });
+      if (bless) {
+        gameManager.game.attackModifiers.splice(gameManager.game.attackModifiers.indexOf(bless), 1);
+      }
     }
     gameManager.stateManager.after();
   }
@@ -80,13 +80,13 @@ export class MonsterEntityComponent extends DialogComponent {
         return;
       }
       gameManager.attackModifierManager.addModifier(new AttackModifier(AttackModifierType.curse));
-    } else if (value < 0 && gameManager.game.attackModifiers.some((attackModifier: AttackModifier) => {
-      return attackModifier.type == AttackModifierType.curse;
-    })) {
-      const curse = gameManager.game.attackModifiers.filter((attackModifier: AttackModifier) => {
-        return attackModifier.type == AttackModifierType.curse;
-      })[ 0 ];
-      gameManager.game.attackModifiers.splice(gameManager.game.attackModifiers.indexOf(curse), 1);
+    } else if (value < 0) {
+      const curse = gameManager.game.attackModifiers.find((attackModifier: AttackModifier, index: number) => {
+        return attackModifier.type == AttackModifierType.curse && index > gameManager.game.attackModifier;
+      });
+      if (curse) {
+        gameManager.game.attackModifiers.splice(gameManager.game.attackModifiers.indexOf(curse), 1);
+      }
     }
     gameManager.stateManager.after();
   }

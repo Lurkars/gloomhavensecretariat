@@ -88,7 +88,7 @@
       </span>
     </div>
     <div class="condition-container">
-      <span *ngFor="let condition of conditions">
+      <span *ngFor="let condition of gameManager.conditions()">
         <a class="condition" [ngClass]="{'active' : hasCondition(condition)}" (click)="toggleCondition(condition)">
           <img src="./assets/images/condition/{{condition}}.svg" />
         </a>

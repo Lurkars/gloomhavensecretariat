@@ -13,5 +13,6 @@ export class Settings {
   serverPort: number | undefined;
   serverPassword: string | undefined;
   serverAutoconnect: boolean = true;
+  serverSettings: boolean = false;
   serverWss: boolean = false;
 }

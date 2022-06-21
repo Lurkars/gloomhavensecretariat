@@ -1,4 +1,5 @@
 import { Game, GameModel } from "../model/Game";
+import { Settings } from "../model/Settings";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 
@@ -37,7 +38,7 @@ export class StateManager {
       }
       this.ws = new WebSocket(protocol + url + ":" + settingsManager.settings.serverPort + path);
       this.ws.onmessage = this.onMessage;
-      this.ws.onopen = this.request;
+      this.ws.onopen = this.onOpen;
     }
   }
 
@@ -49,25 +50,70 @@ export class StateManager {
 
   onMessage(ev: MessageEvent<any>): any {
     try {
-      console.debug("[GHS] " + "WS receive", ev.data);
-      let gameModel: GameModel = JSON.parse(ev.data);
-      gameManager.stateManager.addToUndo();
-      gameManager.game.fromModel(gameModel);
-      gameManager.stateManager.saveLocal(0);
+      const message: any = JSON.parse(ev.data);
+      switch (message.type) {
+        case "game":
+          let gameModel: GameModel = message.payload as GameModel;
+          gameManager.stateManager.addToUndo();
+          gameManager.game.fromModel(gameModel);
+          gameManager.stateManager.saveLocal(0);
+          break;
+        case "settings":
+          if (settingsManager.settings.serverSettings) {
+            let settings: Settings = message.payload as Settings;
+
+            if (!settings.serverUrl) {
+              settings.serverUrl = settingsManager.settings.serverUrl;
+            }
+            if (!settings.serverPort) {
+              settings.serverPort = settingsManager.settings.serverPort;
+            }
+            if (!settings.serverPassword) {
+              settings.serverPassword = settingsManager.settings.serverPassword;
+            }
+            if (!settings.serverSettings) {
+              settings.serverSettings = settingsManager.settings.serverSettings;
+            }
+
+            settingsManager.settings = settings;
+            localStorage.setItem("ghs-settings", JSON.stringify(settingsManager.settings));
+          }
+          break;
+        case "error":
+          console.warn("[GHS] Error: " + message.message);
+          break;
+      }
     } catch (e) {
-      console.error("[GHS] " + ev.data);
+      console.error("[GHS] " + ev.data, e);
     }
   }
 
-  request(ev: Event) {
+  onOpen(ev: Event) {
     const ws = ev.target as WebSocket;
     if (ws && ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword) {
       let message = {
         "password": settingsManager.settings.serverPassword,
-        "type": "request"
+        "type": "request-game"
       }
-      console.debug("[GHS] " + "WS send", JSON.stringify(message));
       ws.send(JSON.stringify(message));
+
+      if (settingsManager.settings.serverSettings) {
+        let message = {
+          "password": settingsManager.settings.serverPassword,
+          "type": "request-settings"
+        }
+        ws.send(JSON.stringify(message));
+      }
+    }
+  }
+
+  requestSettings() {
+    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword && settingsManager.settings.serverSettings) {
+      let message = {
+        "password": settingsManager.settings.serverPassword,
+        "type": "request-settings"
+      }
+      this.ws.send(JSON.stringify(message));
     }
   }
 
@@ -108,6 +154,17 @@ export class StateManager {
     }
   }
 
+  saveSettings() {
+    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword && settingsManager.settings.serverSettings) {
+      let message = {
+        "password": settingsManager.settings.serverPassword,
+        "type": "settings",
+        "payload": settingsManager.settings
+      }
+      this.ws.send(JSON.stringify(message));
+    }
+  }
+
   before() {
     this.addToUndo();
   }
@@ -120,7 +177,6 @@ export class StateManager {
         "type": "game",
         "payload": this.game.toModel()
       }
-      console.debug("[GHS] " + "WS send", JSON.stringify(message));
       this.ws.send(JSON.stringify(message));
     }
   }

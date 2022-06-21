@@ -22,7 +22,7 @@ export class GhsSvgComponent implements OnInit {
         this.svg = this.sanitizer.bypassSecurityTrustHtml(data);
       })
       .catch((error: Error) => {
-        throw Error("Invalid src: " + this.src);
+        console.error("Invalid src: " + this.src);
       })
   }
 

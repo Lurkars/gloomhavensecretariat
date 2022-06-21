@@ -6,6 +6,14 @@
         (change)="settingsManager.setServerAutoconnect(!settingsManager.settings.serverAutoconnect)">
       {{'server.autoconnect' | ghsLabel}}
     </label>
+  </div>  
+  
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.serverSettings"
+        (change)="settingsManager.setServerSettings(!settingsManager.settings.serverSettings)">
+      {{'server.settings' | ghsLabel}}
+    </label>
   </div>
 
   <div class="line" [ngSwitch]="gameManager.stateManager.wsState()">

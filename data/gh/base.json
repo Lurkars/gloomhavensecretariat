@@ -1,5 +1,13 @@
 {
-  "attackModifiers": [],
-  "conditions": [],
+  "conditions": [
+    "stun",
+    "immobilize",
+    "disarm",
+    "wound",
+    "muddle",
+    "poison",
+    "invisible",
+    "strengthen"
+  ],
   "edition": "gh"
 }

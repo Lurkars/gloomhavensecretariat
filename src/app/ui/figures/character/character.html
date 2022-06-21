@@ -73,7 +73,7 @@
       </span>
       <span class="item">
         <img src="./assets/images/status/experience.svg" />
-        <span class="badge">{{experience  | ghsValueSign}}</span>
+        <span class="badge">{{experience | ghsValueSign}}</span>
       </span>
       <span class="item">
         <a class="button" (click)="changeExperience(1)">
@@ -88,7 +88,7 @@
       </span>
       <span class="item">
         <img src="./assets/images/status/loot.svg" />
-        <span class="badge">{{loot  | ghsValueSign}}</span>
+        <span class="badge">{{loot | ghsValueSign}}</span>
       </span>
       <span class="item">
         <a class="button" (click)="changeLoot(1)">
@@ -111,11 +111,10 @@
 
 
     <div class="condition-container">
-      <span *ngFor="let condition of gameManager.conditions">
-        <a class="condition" [ngClass]="{'active' : hasCondition(condition)}" (click)="toggleCondition(condition)">
-          <img src="./assets/images/condition/{{condition}}.svg" />
-        </a>
-      </span>
+      <a class="condition" [ngClass]="{'active' : hasCondition(condition)}" (click)="toggleCondition(condition)"
+        *ngFor="let condition of gameManager.conditions()">
+        <img src="./assets/images/condition/{{condition}}.svg" />
+      </a>
     </div>
   </div>
 

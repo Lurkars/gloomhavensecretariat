@@ -46,10 +46,6 @@ for (edition_path of edition_dirs) {
     edititon_data['edition'] = path.basename(edition_path);
   }
 
-  if (!edition_data['attackModifiers']) {
-    edititon_data['attackModifiers'] = [];
-  }
-
   if (!edition_data['conditions']) {
     edition_data['conditions'] = [];
   }

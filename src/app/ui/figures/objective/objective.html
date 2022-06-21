@@ -1,6 +1,9 @@
 <div class="objective" [ngClass]="{'off' : objective.off || objective.exhausted || objective.health <= 0}">
 
   <a class="image-container" (click)="toggleOff()" [ngClass]="{'active-border' : objective.active}">
+    <span class="image">
+      {{objectiveIdMap[objective.id]}}
+    </span>
     <div class="health-bar" [ngClass]="{'critical' : objective.health / objective.maxHealth < 0.35}">
       <div class="health-bar-value" [style.width]="(objective.health / objective.maxHealth * 100) + '%'"></div>
     </div>
@@ -29,6 +32,7 @@
 <div #dialog class="dialog">
   <div class="status-container">
     <div class="entity-container">
+
       <span class="item">
         <a class="button" [ngClass]="{'disabled' : objective.health == 0}" (click)="changeHealth(-1)">
           -
@@ -42,6 +46,20 @@
       <span class="item">
         <a class="button" [ngClass]="{'disabled' : objective.health == objective.maxHealth}" (click)="changeHealth(1)">
           +
+        </a>
+      </span>
+
+      <span class="item">
+        <a class="button" (click)="changeId(-1)">
+          &lt;
+        </a>
+      </span>
+      <span class="item">
+        <span class="id">{{objectiveIdMap[objective.id]}}</span>
+      </span>
+      <span class="item">
+        <a class="button" (click)="changeId(1)">
+          &gt;
         </a>
       </span>
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
-import { AttackModifier } from 'src/app/game/model/AttackModifier';
+import { AttackModifier, AttackModifierType } from 'src/app/game/model/AttackModifier';
 import { GameState } from 'src/app/game/model/Game';
 import { PopupComponent } from '../../popup/popup';
 
@@ -61,6 +61,21 @@ export class AttackModifierComponent extends PopupComponent {
     gameManager.attackModifierManager.shuffleModifiers();
     this.close();
     gameManager.stateManager.after();
+  }
+
+  removeDrawnDiscards() {
+    gameManager.stateManager.before();
+    gameManager.attackModifierManager.removeDrawnDiscards();
+    gameManager.stateManager.after();
+  }
+
+  hasDrawnDiscards(): boolean {
+    return gameManager.game.attackModifiers.some(
+      (attackModifier: AttackModifier, index: number) =>
+        index <= gameManager.game.attackModifier &&
+        (attackModifier.type == AttackModifierType.bless ||
+          attackModifier.type == AttackModifierType.curse)
+    );
   }
 
 }

@@ -28,16 +28,16 @@ export class Monster extends MonsterData implements Figure {
     super(monsterData.name, monsterData.count, monsterData.baseStat, monsterData.stats, monsterData.edition, monsterData.deck, monsterData.boss, monsterData.thumbnail, monsterData.spoiler);
     if (monsterData.baseStat) {
       for (let stat of monsterData.stats) {
-        if (!stat.health) {
+        if (!stat.health && stat.health != 0) {
           stat.health = monsterData.baseStat.health;
         }
-        if (!stat.movement) {
+        if (!stat.movement && stat.movement != 0) {
           stat.movement = monsterData.baseStat.movement;
         }
-        if (!stat.attack) {
+        if (!stat.attack && stat.attack != 0) {
           stat.attack = monsterData.baseStat.attack;
         }
-        if (!stat.range) {
+        if (!stat.range && stat.range != 0) {
           stat.range = monsterData.baseStat.range;
         }
         if (!stat.actions) {
@@ -48,8 +48,10 @@ export class Monster extends MonsterData implements Figure {
         }
         if (!stat.special) {
           stat.special = [];
-          for (let special of monsterData.baseStat.special) {
-            stat.special.push(Object.assign([], special));
+          if (monsterData.baseStat.special) {
+            for (let special of monsterData.baseStat.special) {
+              stat.special.push(Object.assign([], special));
+            }
           }
         }
         if (!stat.note) {
@@ -63,11 +65,12 @@ export class Monster extends MonsterData implements Figure {
   }
 
   toModel(): GameMonsterModel {
-    return new GameMonsterModel(this.name, this.level, this.off, this.active, this.ability, this.abilities, this.entities.map((value: MonsterEntity) => value.toModel()))
+    return new GameMonsterModel(this.name, this.edition, this.level, this.off, this.active, this.ability, this.abilities, this.entities.map((value: MonsterEntity) => value.toModel()))
   }
 
 
   fromModel(model: GameMonsterModel) {
+    this.edition = model.edition;
     this.level = model.level;
     this.off = model.off;
     this.active = model.active;
@@ -75,11 +78,9 @@ export class Monster extends MonsterData implements Figure {
     this.ability = model.ability;
     this.entities = this.entities.filter((monsterEntity: MonsterEntity) => model.entities.map((gmem: GameMonsterEntityModel) => gmem.number).indexOf(monsterEntity.number) != -1);
     model.entities.forEach((value: GameMonsterEntityModel) => {
-      let entity = new MonsterEntity(value.number, value.type, this);
-
-      if (this.entities.some((monsterEntity: MonsterEntity) => monsterEntity.number == value.number)) {
-        entity = this.entities.filter((monsterEntity: MonsterEntity) => monsterEntity.number == value.number)[ 0 ];
-      } else {
+      let entity = this.entities.find((monsterEntity: MonsterEntity) => monsterEntity.number == value.number) as MonsterEntity;
+      if (!entity) {
+        entity = new MonsterEntity(value.number, value.type, this);
         this.entities.push(entity);
       }
       entity.fromModel(value);
@@ -88,7 +89,8 @@ export class Monster extends MonsterData implements Figure {
 }
 
 export class GameMonsterModel {
-  name: String;
+  name: string;
+  edition: string;
   level: number;
   off: boolean;
   active: boolean;
@@ -96,7 +98,8 @@ export class GameMonsterModel {
   abilities: number[];
   entities: GameMonsterEntityModel[];
 
-  constructor(name: String,
+  constructor(name: string,
+    edition: string,
     level: number,
     off: boolean,
     active: boolean,
@@ -104,6 +107,7 @@ export class GameMonsterModel {
     abilities: number[],
     entities: GameMonsterEntityModel[]) {
     this.name = name;
+    this.edition = edition;
     this.level = level;
     this.off = off;
     this.active = active;

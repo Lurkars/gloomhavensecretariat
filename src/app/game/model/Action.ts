@@ -31,12 +31,16 @@ export enum ActionType {
   element = "element",
   condition = "condition",
   custom = "custom",
+  fly = "fly",
+  loot = "loot",
+  retaliate = "retaliate",
+  teleport = "teleport",
   special = "special"
 }
 
 export enum ActionValueType {
-  plus = "plus", 
-  minus = "minus", 
+  plus = "plus",
+  minus = "minus",
   fixed = "fixed"
 }
 

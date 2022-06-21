@@ -116,7 +116,7 @@ export class MainMenuComponent extends DialogComponent {
   }
 
   characterData(edition: string | undefined = undefined): CharacterData[] {
-    return gameManager.charactersData.filter((characterData: CharacterData) => !edition || characterData.edition == edition).sort((a: CharacterData, b: CharacterData) => {
+    return gameManager.charactersData().filter((characterData: CharacterData) => !edition || characterData.edition == edition).sort((a: CharacterData, b: CharacterData) => {
       const aName = settingsManager.getLabel('data.character.' + a.name).toLowerCase();
       const bName = settingsManager.getLabel('data.character.' + b.name).toLowerCase();
 
@@ -165,7 +165,7 @@ export class MainMenuComponent extends DialogComponent {
   }
 
   monsterData(): MonsterData[] {
-    return gameManager.monstersData.sort((a: MonsterData, b: MonsterData) => {
+    return gameManager.monstersData().sort((a: MonsterData, b: MonsterData) => {
       const aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
       const bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
 
@@ -280,26 +280,22 @@ export class MainMenuComponent extends DialogComponent {
 
   hasCharacter(characterData: CharacterData) {
     return gameManager.game.figures.some((figure: Figure) => {
-      return figure instanceof Character && characterData.name == figure.name;
+      return figure instanceof Character && characterData.name == figure.name && characterData.edition == figure.edition;
     })
   }
 
   hasAllCharacter() {
-    return gameManager.charactersData.filter((characterData: CharacterData) => !gameManager.game.edition || characterData.edition == gameManager.game.edition).length == gameManager.game.figures.filter((figure: Figure) =>
-      figure instanceof CharacterData && (!gameManager.game.edition || figure.edition == gameManager.game.edition)
-    ).length;
+    return gameManager.charactersData().every((characterData: CharacterData) => gameManager.game.figures.some((figure: Figure) => figure instanceof CharacterData && figure.name == characterData.name && figure.edition == characterData.edition));
   }
 
   hasMonster(monsterData: MonsterData) {
     return gameManager.game.figures.some((figure: Figure) => {
-      return figure instanceof Monster && monsterData.name == figure.name;
+      return figure instanceof Monster && monsterData.name == figure.name && monsterData.edition == figure.edition;
     })
   }
 
   hasAllMonster() {
-    return gameManager.monstersData.filter((monsterData: MonsterData) => !gameManager.game.edition || monsterData.edition == gameManager.game.edition).length == gameManager.game.figures.filter((figure: Figure) =>
-      figure instanceof Monster && (!gameManager.game.edition || figure.edition == gameManager.game.edition)
-    ).length;
+    return gameManager.monstersData().every((monsterData: MonsterData) => gameManager.game.figures.some((figure: Figure) => figure instanceof MonsterData && figure.name == monsterData.name && figure.edition == monsterData.edition));
   }
 
   update(): void {

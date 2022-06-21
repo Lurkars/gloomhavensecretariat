@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, ElementRef, Input, ViewChild } from '@ang
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Condition } from 'src/app/game/model/Condition';
+import { Figure } from 'src/app/game/model/Figure';
 import { GameState } from 'src/app/game/model/Game';
 import { Objective } from 'src/app/game/model/Objective';
 import { DialogComponent } from '../../dialog/dialog';
@@ -22,6 +23,9 @@ export class ObjectiveComponent extends DialogComponent {
   GameState = GameState;
   Conditions = Condition;
   health: number = 0;
+
+  objectiveIdMap = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" ];
+
   constructor(private changeDetectorRef: ChangeDetectorRef) {
     super();
   }
@@ -50,6 +54,27 @@ export class ObjectiveComponent extends DialogComponent {
     gameManager.stateManager.after();
   }
 
+  changeId(value: number) {
+    gameManager.stateManager.before();
+    let id = this.objective.id + value;
+    if (id < 0) {
+      id = this.objectiveIdMap.length - 1;
+    } else if (id >= this.objectiveIdMap.length) {
+      id = 0;
+    }
+
+    while (gameManager.game.figures.some((figure : Figure) => figure instanceof Objective && figure.id == id)) {
+      id = id + value;
+      if (id < 0) {
+        id = this.objectiveIdMap.length - 1;
+      } else if (id >= this.objectiveIdMap.length) {
+        id = 0;
+      }
+    }
+    this.objective.id = id;
+    gameManager.stateManager.after();
+  }
+
   exhausted() {
     gameManager.stateManager.before();
     this.objective.exhausted = !this.objective.exhausted;
@@ -74,7 +99,7 @@ export class ObjectiveComponent extends DialogComponent {
     super.close();
     this.health = 0;
     if (this.titleInput) {
-      if (this.titleInput.nativeElement.value && this.titleInput.nativeElement.value != new Objective().name) {
+      if (this.titleInput.nativeElement.value && this.titleInput.nativeElement.value != new Objective(0).name) {
         if (this.objective.title != this.titleInput.nativeElement.value) {
           gameManager.stateManager.before();
           this.objective.title = this.titleInput.nativeElement.value;

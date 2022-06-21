@@ -79,7 +79,8 @@
     "closed": "Geschlossen",
     "undefined": "Keine Verbingung",
     "autoconnect" : "Automatisch Verbinden",
-    "wss" : "Verschlüsselte Verbindung"
+    "wss" : "Verschlüsselte Verbindung",
+    "settings" : "Einstellungen synchronisieren"
   },
   "about": {
     ".": "Über",
@@ -116,6 +117,7 @@
       "area": "Fläche",
       "push": "Schieben",
       "retaliate": "Vergeltung",
+      "teleport" : "Teleport",
       "pull": "Ziehen",
       "loot": "Beute",
       "element": "Element",
@@ -132,6 +134,7 @@
       "poison": "Gift",
       "invisible": "Unsichtbarkeit",
       "strengthen": "Stärkung",
+      "regenerate": "Regeneration",
       "curse": "Fluch",
       "bless": "Segen"
     },
@@ -149,7 +152,8 @@
       "confirmReveal": "Zum Aufdecken erneut klicken!",
       "coverAll": "Alle Verdecken",
       "revealAll": "Alle Aufdecken?",
-      "revealAllConfirm": "Alle Aufdecken!"
+      "revealAllConfirm": "Alle Aufdecken!",
+      "removeDrawnDiscards" : "Entferne gezogene Abgeworfene"
     }
   },
   "datamanagement": {

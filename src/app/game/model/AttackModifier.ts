@@ -73,3 +73,12 @@ export enum AttackModifierValueType {
   multiply = "multiply"
 }
 
+export const defaultAttackModifier: AttackModifier[] = [
+  new AttackModifier(AttackModifierType.plus0), new AttackModifier(AttackModifierType.plus0), new AttackModifier(AttackModifierType.plus0), new AttackModifier(AttackModifierType.plus0), new AttackModifier(AttackModifierType.plus0), new AttackModifier(AttackModifierType.plus0), // 6x +0
+  new AttackModifier(AttackModifierType.plus1), new AttackModifier(AttackModifierType.plus1), new AttackModifier(AttackModifierType.plus1), new AttackModifier(AttackModifierType.plus1), new AttackModifier(AttackModifierType.plus1), // 5x +1
+  new AttackModifier(AttackModifierType.minus1), new AttackModifier(AttackModifierType.minus1), new AttackModifier(AttackModifierType.minus1), new AttackModifier(AttackModifierType.minus1), new AttackModifier(AttackModifierType.minus1), // 5x -1
+  new AttackModifier(AttackModifierType.plus2),
+  new AttackModifier(AttackModifierType.minus2),
+  new AttackModifier(AttackModifierType.double),
+  new AttackModifier(AttackModifierType.null)
+];

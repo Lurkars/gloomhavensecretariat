@@ -27,15 +27,18 @@ export class MonsterManager {
   }
 
   addMonster(monsterData: MonsterData) {
-    if (this.game.figures.some((element: Figure) => {
-      return element.name == monsterData.name;
+    if (!this.game.figures.some((figure: Figure) => {
+      return figure instanceof MonsterData && figure.name == monsterData.name && figure.edition == monsterData.edition;
     })) {
-      return;
+      const monster: Monster = new Monster(monsterData);
+      monster.level = gameManager.game.level;
+      monster.off = true;
+      if (!monster.abilities || monster.abilities.length == 0) {
+        monster.abilities = gameManager.abilities(monster.deck, monster.edition).map((ability: Ability, index: number) => index);
+        this.shuffleAbilities(monster);
+      }
+      this.game.figures.push(monster);
     }
-    const monster: Monster = new Monster(monsterData);
-    monster.level = gameManager.game.level;
-    monster.off = true;
-    this.game.figures.push(monster);
   }
 
   removeMonster(monster: Monster) {
@@ -46,10 +49,11 @@ export class MonsterManager {
 
 
   addMonsterEntity(monster: Monster, number: number, type: MonsterType, summon: boolean = false) {
-    if (!monster.stats.some((element: MonsterStat) => {
-      return element.type == type;
+    if (!monster.stats.some((monsterStat: MonsterStat) => {
+      return monsterStat.type == type;
     })) {
-      throw Error("Missing type '" + type + "' for " + monster.name);
+      console.error("Missing type '" + type + "' for " + monster.name);
+      return;
     }
 
     let monsterEntity: MonsterEntity = new MonsterEntity(number, type, monster);

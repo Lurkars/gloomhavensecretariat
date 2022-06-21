@@ -5,7 +5,7 @@
       &lt;{{'edition.all' | ghsLabel}}&gt;
     </label>
   </div>
-  <div class="line" *ngFor="let edition of gameManager.editions"
+  <div class="line" *ngFor="let edition of gameManager.editions()"
     [ngClass]="{'disabled' : gameManager.game.edition == edition}">
     <label>
       <input type="checkbox" [checked]="gameManager.game.edition == edition" (change)="setEdition(edition)">

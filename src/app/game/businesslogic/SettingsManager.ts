@@ -43,6 +43,9 @@ export class SettingsManager {
 
   storeSettings(): void {
     localStorage.setItem("ghs-settings", JSON.stringify(this.settings));
+    if (this.settings.serverSettings) {
+      gameManager.stateManager.saveSettings();
+    }
   }
 
   setCalculate(calculate: boolean) {
@@ -83,6 +86,15 @@ export class SettingsManager {
   setServerAutoconnect(autoconnect: boolean) {
     this.settings.serverAutoconnect = autoconnect;
     this.storeSettings();
+  }
+
+  setServerSettings(settings: boolean) {
+    this.settings.serverSettings = settings;
+    if (settings) {
+      gameManager.stateManager.requestSettings();
+    } else {
+      this.storeSettings();
+    }
   }
 
   setServerWss(wss: boolean) {
@@ -140,11 +152,7 @@ export class SettingsManager {
   }
 
   cleanEditionData() {
-    gameManager.editions = [];
-    gameManager.charactersData = [];
-    gameManager.monstersData = [];
-    gameManager.decksData = [];
-    gameManager.scenarioData = [];
+    gameManager.editionData = [];
   }
 
   async loadEditionData(url: string) {
@@ -152,24 +160,22 @@ export class SettingsManager {
       await fetch(url)
         .then(response => {
           if (!response.ok) {
-            throw Error("Invalid data url: " + url + " [" + response.statusText + "]");
+            console.error("Invalid data url: " + url + " [" + response.statusText + "]");
+            return;
           }
           return response.json();
         }).then((value: EditionData) => {
-          if (gameManager.editions.indexOf(value.edition) != -1) {
-            throw Error("Edition already exists: " + value.edition);
+          if (gameManager.editions().indexOf(value.edition) != -1) {
+            console.error("Edition already exists: " + value.edition);
+            return;
           }
 
-          gameManager.editions.push(value.edition);
-          gameManager.charactersData = gameManager.charactersData.concat(value.characters);
-          gameManager.monstersData = gameManager.monstersData.concat(value.monsters);
-          gameManager.decksData = gameManager.decksData.concat(value.decks);
-          gameManager.scenarioData = gameManager.scenarioData.concat(value.scenarios);
-
+          value.url = url;
+          gameManager.editionData.push(value);
           this.loadDataLabel(value);
         });
     } catch (error) {
-      throw Error("Invalid data url: " + url + " [" + error + "]");
+      console.error("Invalid data url: " + url + " [" + error + "]");
     }
   }
 
@@ -178,14 +184,15 @@ export class SettingsManager {
       await fetch(url)
         .then(response => {
           if (!response.ok) {
-            throw Error("Invalid data url: " + url + " [" + response.statusText + "]");
+            console.error("Invalid data url: " + url + " [" + response.statusText + "]");
+            return;
           }
           return response.json();
         }).then((value: EditionData) => {
           this.loadDataLabel(value);
         });
     } catch (error) {
-      throw Error("Invalid data url: " + url + " [" + error + "]");
+      console.error("Invalid data url: " + url + " [" + error + "]");
     }
   }
 
@@ -259,19 +266,25 @@ export class SettingsManager {
       .then(response => {
         return response.json();
       }).then((value: EditionData) => {
-        if (gameManager.editions.indexOf(value.edition) == -1) {
-          throw Error("Edition not found: " + value.edition);
+        if (gameManager.editions().indexOf(value.edition) == -1) {
+          console.error("Edition not found: " + value.edition);
+          return;
         }
 
-        gameManager.editions.splice(gameManager.editions.indexOf(value.edition), 1);
-        gameManager.charactersData = gameManager.charactersData.filter((characterData: CharacterData) => value.characters.indexOf(characterData) == -1);
-        gameManager.monstersData = gameManager.monstersData.filter((monstersData: MonsterData) => value.monsters.indexOf(monstersData) == -1);
-        gameManager.decksData = gameManager.decksData.filter((decksData: DeckData) => value.decks.indexOf(decksData) == -1);
-        gameManager.scenarioData = gameManager.scenarioData.filter((scenarioData: ScenarioData) => value.scenarios.indexOf(scenarioData) == -1);
+        gameManager.editionData.splice(gameManager.editions().indexOf(value.edition), 1);
       })
       .catch((error: Error) => {
-        throw Error("Invalid data url: " + url + " [" + error + "]");
+        console.error("Invalid data url: " + url + " [" + error + "]");
       })
+  }
+
+  getEditionByUrl(url: string) {
+    if (!gameManager.editionData.some((editionData: EditionData) => editionData.url == url)) {
+      console.error("No edition data found for url '" + url + "'");
+      return;
+    }
+
+    return gameManager.editionData.find((editionData: EditionData) => editionData.url == url)?.edition;
   }
 
   async addEditionDataUrl(editionDataUrl: string) {
@@ -310,7 +323,8 @@ export class SettingsManager {
         this.label = Object.assign(this.label, data);
       })
       .catch((error: Error) => {
-        throw Error("Invalid locale: " + locale);
+        console.error("Invalid locale: " + locale, error);
+        return;
       });
 
     for (let editionDataUrl of this.settings.editionDataUrls) {

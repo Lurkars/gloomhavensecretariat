@@ -24,15 +24,16 @@ export class MonsterEntity implements Entity {
     this.number = number;
     this.type = type;
 
-    if (!monster.stats.some((element: MonsterStat) => {
+    const stat = monster.stats.find((element: MonsterStat) => {
       return element.level == monster.level && element.type == type;
-    })) {
-      throw Error("Could not create monster entity.")
-    }
+    });
 
-    this.stat = monster.stats.filter((element: MonsterStat) => {
-      return element.level == monster.level && element.type == type;
-    })[ 0 ];
+    if (!stat) {
+      console.error("No monster stat found for level '" + monster.level + "' and type '" + type + "'!");
+      this.stat = new MonsterStat(type, monster.level, 0, 0, 0, 0);
+    } else {
+      this.stat = stat;
+    }
 
     if (typeof this.stat.health === "number") {
       this.maxHealth = this.stat.health;

@@ -3,7 +3,7 @@ import { Character } from "../model/Character";
 import { Condition, EntityCondition } from "../model/Condition";
 import { CharacterData } from "../model/data/CharacterData";
 import { DeckData } from "../model/data/DeckData";
-import { defaultAttackModifier, EditionData } from "../model/data/EditionData";
+import { EditionData } from "../model/data/EditionData";
 import { MonsterData } from "../model/data/MonsterData";
 import { ScenarioData } from "../model/data/ScenarioData";
 import { Element } from "../model/Element";
@@ -11,6 +11,8 @@ import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
+import { MonsterStat } from "../model/MonsterStat";
+import { MonsterType } from "../model/MonsterType";
 import { Objective } from "../model/Objective";
 import { Scenario } from "../model/Scenario";
 import { AttackModifierManager } from "./AttackModifierManager";
@@ -22,13 +24,8 @@ import { StateManager } from "./StateManager";
 
 export class GameManager {
 
-  editions: string[] = [];
   game: Game = new Game();
-  charactersData: CharacterData[] = [];
-  monstersData: MonsterData[] = [];
-  decksData: DeckData[] = [];
-  scenarioData: ScenarioData[] = [];
-  conditions: Condition[] = Object.values(EntityCondition);
+  editionData: EditionData[] = [];
   stateManager: StateManager;
   characterManager: CharacterManager;
   monsterManager: MonsterManager;
@@ -39,7 +36,35 @@ export class GameManager {
     this.stateManager = new StateManager(this.game);
     this.characterManager = new CharacterManager(this.game);
     this.monsterManager = new MonsterManager(this.game);
-    this.attackModifierManager = new AttackModifierManager(this.game, defaultAttackModifier);
+    this.attackModifierManager = new AttackModifierManager(this.game);
+  }
+
+  editions(): string[] {
+    return this.editionData.map((editionData: EditionData) => editionData.edition);
+  }
+
+  charactersData(all: boolean = false): CharacterData[] {
+    return this.editionData.filter((editionData: EditionData) => all || !this.game.edition || editionData.edition == this.game.edition).map((editionData: EditionData) => editionData.characters).flat();
+  }
+
+  monstersData(all: boolean = false): MonsterData[] {
+    return this.editionData.filter((editionData: EditionData) => all || !this.game.edition || editionData.edition == this.game.edition).map((editionData: EditionData) => editionData.monsters).flat();
+  }
+
+  decksData(all: boolean = false): DeckData[] {
+    return this.editionData.filter((editionData: EditionData) => all || !this.game.edition || editionData.edition == this.game.edition).map((editionData: EditionData) => editionData.decks).flat();
+  }
+
+  scenarioData(all: boolean = false): ScenarioData[] {
+    return this.editionData.filter((editionData: EditionData) => all || !this.game.edition || editionData.edition == this.game.edition).map((editionData: EditionData) => editionData.scenarios).flat();
+  }
+
+  conditions(all: boolean = false): Condition[] {
+    if (all || !this.game.edition) {
+      return Object.values(EntityCondition);
+    }
+
+    return this.editionData.filter((editionData: EditionData) => editionData.edition == this.game.edition).map((editionData: EditionData) => editionData.conditions).flat().filter((value: Condition, index: number, self: Condition[]) => self.indexOf(value) == index);
   }
 
   nextGameState(): void {
@@ -128,11 +153,12 @@ export class GameManager {
   }
 
   abilities(name: string, edition: string): Ability[] {
-    if (!this.decksData.some((deck: DeckData) => deck.name == name && deck.edition == edition)) {
-      throw Error("Unknwon deck: " + name + " for " + edition);
+    const abilities = this.decksData(true).find((deck: DeckData) => deck.name == name && deck.edition == edition)?.abilities;
+    if (!abilities) {
+      console.error("Unknwon deck: " + name + " for " + edition);
+      return [];
     }
-
-    return this.decksData.filter((deck: DeckData) => deck.name == name && deck.edition == edition)[ 0 ].abilities;
+    return abilities;
   }
 
   nextAvailable(): boolean {
@@ -140,12 +166,13 @@ export class GameManager {
     ));
   }
 
-  getCharacterData(name: String): CharacterData {
-    if (!this.charactersData.some((value: CharacterData) => value.name == name)) {
-      throw Error("unknown character: " + name);
+  getCharacterData(name: string, edition: string): CharacterData {
+    const characterData = this.charactersData(true).find((value: CharacterData) => value.name == name && value.edition == edition)
+    if (!characterData) {
+      console.error("unknown character: " + name);
+      return new CharacterData(name, [], "");
     }
-
-    return this.charactersData.filter((value: CharacterData) => value.name == name)[ 0 ];
+    return characterData;
   }
 
   isCharacter(figure: Figure): boolean {
@@ -172,12 +199,21 @@ export class GameManager {
     return figure as Monster;
   }
 
-  getMonsterData(name: String): MonsterData {
-    if (!this.monstersData.some((value: MonsterData) => value.name == name)) {
-      throw Error("unknown monster: " + name);
+  getEdition(figure: any): string {
+    if (this.game.figures.some((value: any) => typeof (figure) == typeof (value) && figure.name == value.name && figure.edition != value.edition || this.game.edition && figure.edition != this.game.edition)) {
+      return figure.edition;
+    }
+    return "";
+  }
+
+  getMonsterData(name: string, edition: string): MonsterData {
+    const monsterData = this.monstersData(true).find((value: MonsterData) => value.name == name && value.edition == edition);
+    if (!monsterData) {
+      console.error("unknown monster '" + name + "' for edition '" + edition + "'");
+      return new MonsterData(name, 0, new MonsterStat(MonsterType.normal, 0, 0, 0, 0, 0), [], "");
     }
 
-    return this.monstersData.filter((value: MonsterData) => value.name == name)[ 0 ];
+    return monsterData;
   }
 
   toggleOff(figure: Figure) {
@@ -185,7 +221,8 @@ export class GameManager {
     const index = figures.indexOf(figure);
 
     if (index == -1) {
-      throw Error("Invalid figure");
+      console.error("Invalid figure");
+      return;
     }
 
     if (!figure.active && !figure.off) {
@@ -286,8 +323,9 @@ export class GameManager {
     if (scenario && !scenario.custom) {
       this.game.figures = this.game.figures.filter((figure: Figure) => figure instanceof CharacterData);
       scenario.monsters.forEach((name: string) => {
-        if (this.monstersData.some((monsterData: MonsterData) => monsterData.name == name && monsterData.edition == scenario.edition)) {
-          this.monsterManager.addMonster(this.monstersData.filter((monsterData: MonsterData) => monsterData.name == name && monsterData.edition == scenario.edition)[ 0 ]);
+        const monsterData = this.monstersData(true).find((monsterData: MonsterData) => monsterData.name == name && monsterData.edition == scenario.edition);
+        if (monsterData) {
+          this.monsterManager.addMonster(monsterData);
         }
       });
     }

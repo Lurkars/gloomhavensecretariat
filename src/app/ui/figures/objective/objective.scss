@@ -79,7 +79,6 @@
     }
 
     .icon-container {
-
       width: calc(var(--ghs-unit) * 13);
       display: flex;
       justify-content: center;
@@ -94,13 +93,34 @@
 
   .image-container {
     position: relative;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: calc(var(--ghs-unit) * 9);
     height: calc(var(--ghs-unit) * 9);
     margin: calc(var(--ghs-unit) * 3);
     cursor: pointer;
     border-radius: calc(var(--ghs-unit) * 1);
     overflow: hidden;
+    flex-shrink: 0;
+
+    .image {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      width: calc(var(--ghs-unit) * 8);
+      height: calc(var(--ghs-unit) * 8);
+      overflow: hidden;
+      background-color: var(--ghs-color-red);
+      color: var(--ghs-color-white);
+      font-family: 'ghs-title';
+      font-size: calc(var(--ghs-unit) * 8);
+      line-height: calc(var(--ghs-unit) * 5);
+      border-radius: 100%;
+      border-color: var(--ghs-color-white);
+      border-style: solid;
+      border-width: calc(var(--ghs-unit) * 1);
+    }
 
     .health-bar {
       position: absolute;
@@ -139,6 +159,24 @@
     .entity-container {
       display: grid;
       grid-template-columns: calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7);
+   
+      .id {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        width: calc(var(--ghs-unit) * 6);
+        height: calc(var(--ghs-unit) * 6);
+        overflow: hidden;
+        background-color: var(--ghs-color-red);
+        color: var(--ghs-color-white);
+        font-family: 'ghs-title';
+        font-size: calc(var(--ghs-unit) * 6);
+        line-height: calc(var(--ghs-unit) * 4);
+        border-radius: 100%;
+        border-color: var(--ghs-color-white);
+        border-style: solid;
+        border-width: calc(var(--ghs-unit) * 0.6);
+      }
     }
   }
 

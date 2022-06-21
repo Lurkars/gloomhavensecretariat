@@ -4,6 +4,7 @@ import { Condition } from "./Condition";
 
 export class Objective implements Entity, Figure {
 
+  id: number;
   title: string = "";
   exhausted: boolean = false;
 
@@ -21,15 +22,20 @@ export class Objective implements Entity, Figure {
 
   initiative: number = 99;
 
+  constructor(id: number) {
+    this.id = id;
+  }
+
   getInitiative(): number {
     return this.initiative;
   }
 
   toModel(): GameObjectiveModel {
-    return new GameObjectiveModel(this.title, this.name, this.level, this.exhausted, this.off, this.active, this.health, this.maxHealth, this.initiative);
+    return new GameObjectiveModel(this.id, this.title, this.name, this.level, this.exhausted, this.off, this.active, this.health, this.maxHealth, this.initiative);
   }
 
   fromModel(model: GameObjectiveModel) {
+    this.id = model.id;
     this.title = model.title;
     this.name = model.name;
     this.level = model.level;
@@ -45,6 +51,7 @@ export class Objective implements Entity, Figure {
 
 export class GameObjectiveModel {
 
+  id: number;
   title: string;
   name: string;
   level: number;
@@ -56,6 +63,7 @@ export class GameObjectiveModel {
   initiative: number;
 
   constructor(
+    id: number,
     title: string,
     name: string,
     level: number,
@@ -65,6 +73,7 @@ export class GameObjectiveModel {
     health: number,
     maxHealth: number,
     initiative: number) {
+    this.id = id;
     this.title = title;
     this.name = name;
     this.level = level;
@@ -73,6 +82,6 @@ export class GameObjectiveModel {
     this.active = active;
     this.health = health;
     this.maxHealth = maxHealth;
-    this.initiative = initiative
+    this.initiative = initiative;
   }
 }

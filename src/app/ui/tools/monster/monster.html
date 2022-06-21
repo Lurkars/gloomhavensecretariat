@@ -20,7 +20,10 @@
 
       <div class="base" *ngIf="monsterData">
         <label>Base Stats</label>
-        <ghs-monster-stat-tool [stat]="monsterData.baseStat" (statChange)="basicStatChange($event)"></ghs-monster-stat-tool>
+        <div class="base-stats" *ngFor="let stat of monsterData.baseStat | keyvalue">
+          <label>{{stat.key}}</label>
+          <div>{{stat.value}}</div>
+        </div>
       </div>
 
       <div class="json">
@@ -32,11 +35,11 @@
     </div>
 
     <div class="stats-container" *ngIf="monsterData && monster">
-      <ghs-monster-stat-tool
+      <ghs-monster-stat-tool [monsterData]="monsterData"
         [(stat)]="monsterData.stats[getStatIndex(monsterData.boss ? MonsterType.boss : MonsterType.normal, monster.level)]">
       </ghs-monster-stat-tool>
       <ghs-monster-stats [monster]="monster"></ghs-monster-stats>
-      <ghs-monster-stat-tool *ngIf="!monsterData.boss"
+      <ghs-monster-stat-tool *ngIf="!monsterData.boss" [monsterData]="monsterData"
         [(stat)]="monsterData.stats[getStatIndex(MonsterType.elite, monster.level)]">
       </ghs-monster-stat-tool>
     </div>

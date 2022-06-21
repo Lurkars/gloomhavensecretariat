@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { Action, ActionType } from "src/app/game/model/Action";
+import { MonsterData } from "src/app/game/model/data/MonsterData";
 import { MonsterStat } from "src/app/game/model/MonsterStat";
 import { MonsterType } from "src/app/game/model/MonsterType";
 
@@ -11,6 +12,7 @@ import { MonsterType } from "src/app/game/model/MonsterType";
 export class MonsterStatToolComponent {
 
   @Input() stat!: MonsterStat;
+  @Input() monsterData!: MonsterData;
   @Output() statChange = new EventEmitter<MonsterStat>();
 
   monsterTypes: MonsterType[] = Object.values(MonsterType);

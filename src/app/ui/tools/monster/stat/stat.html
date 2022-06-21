@@ -10,7 +10,7 @@
   <label>Movement</label>
   <input type="number" [(ngModel)]="stat.movement" (change)="statChange.emit(stat)">
   <label>Attack</label>
-  <input type="number" [(ngModel)]="stat.attack" (change)="statChange.emit(stat)">
+  <input [(ngModel)]="stat.attack" (change)="statChange.emit(stat)">
   <label>Range</label>
   <input type="number" [(ngModel)]="stat.range" (change)="statChange.emit(stat)">
   <label>Actions</label>

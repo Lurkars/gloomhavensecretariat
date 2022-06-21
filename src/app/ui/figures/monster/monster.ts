@@ -12,16 +12,12 @@ import { MonsterType } from 'src/app/game/model/MonsterType';
   templateUrl: './monster.html',
   styleUrls: [ './monster.scss' ]
 })
-export class MonsterComponent implements OnInit {
+export class MonsterComponent {
 
   @Input() monster!: Monster;
   MonsterType = MonsterType;
   addMonsterEntityFunction!: Function;
   removeMonsterEntityFunction!: Function;
-
-  ngOnInit(): void {
-    this.monster.abilities = gameManager.abilities(this.monster.deck, this.monster.edition).map((ability: Ability, index: number) => index);
-  }
 
   emptyEntities(): boolean {
     return this.monster.entities.length == 0 || this.monster.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead);

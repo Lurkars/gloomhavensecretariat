@@ -15,7 +15,7 @@ export class ScenarioMenuComponent {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
-  edition: string | undefined = (!gameManager.game.scenario || !gameManager.game.scenario.custom) && (gameManager.game.edition || gameManager.editions[ 0 ]) || undefined;
+  edition: string | undefined = (!gameManager.game.scenario || !gameManager.game.scenario.custom) && (gameManager.game.edition || gameManager.editions()[ 0 ]) || undefined;
 
   setEdition(edition: string) {
     this.edition = edition;
@@ -28,7 +28,7 @@ export class ScenarioMenuComponent {
     if (!this.edition) {
       return [];
     }
-    return gameManager.scenarioData.filter((scenarioData: ScenarioData) => scenarioData.edition == this.edition).map((scenarioData: ScenarioData) => scenarioData.index).sort((a, b) => a - b);
+    return gameManager.scenarioData().filter((scenarioData: ScenarioData) => scenarioData.edition == this.edition).map((scenarioData: ScenarioData) => scenarioData.index).sort((a, b) => a - b);
   }
 
   maxScenario() {
@@ -36,7 +36,7 @@ export class ScenarioMenuComponent {
   }
 
   setScenario(index: number) {
-    const scenarioData: ScenarioData | undefined = gameManager.scenarioData.find((scenario: ScenarioData) => scenario.edition == this.edition && scenario.index == index);
+    const scenarioData: ScenarioData | undefined = gameManager.scenarioData().find((scenario: ScenarioData) => scenario.edition == this.edition && scenario.index == index);
     gameManager.stateManager.before();
     gameManager.setScenario(scenarioData as Scenario)
     gameManager.stateManager.after();

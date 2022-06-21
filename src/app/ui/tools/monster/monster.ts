@@ -33,53 +33,12 @@ export class MonsterToolComponent implements OnInit {
     }
   }
 
-  compactBasicStat(firstStat: any, compactData: any, field: string) {
-    if (compactData.stats.every((stat: any) =>
-      JSON.stringify(stat[ field ]) == JSON.stringify(firstStat[ field ]))) {
-      compactData.baseStat[ field ] = firstStat[ field ];
-      for (let stat of compactData.stats) {
-        delete stat[ field ];
-      }
-    } else {
-      delete compactData.baseStat[ field ];
-    }
-  }
-
   monsterDataToJson() {
     if (this.monsterData) {
       let compactData: any = JSON.parse(JSON.stringify(this.monsterData));
 
       if (!compactData.baseStat) {
         compactData.baseStat = {};
-      }
-
-      if (compactData.boss) {
-        compactData.baseStat.type = MonsterType.boss;
-        for (let stat of compactData.stats) {
-          delete stat.type;
-        }
-      } else {
-        compactData.baseStat.type = MonsterType.normal;
-        for (let stat of compactData.stats) {
-          if (stat.type == MonsterType.normal) {
-            delete stat.type;
-          }
-        }
-      }
-
-      let firstStat = compactData.stats.find((stat: any) =>
-        stat.level == 0 && !stat.type);
-
-      if (firstStat) {
-        this.compactBasicStat(firstStat, compactData, "level");
-        this.compactBasicStat(firstStat, compactData, "health");
-        this.compactBasicStat(firstStat, compactData, "movement");
-        this.compactBasicStat(firstStat, compactData, "attack");
-        this.compactBasicStat(firstStat, compactData, "range");
-        this.compactBasicStat(firstStat, compactData, "actions");
-        this.compactBasicStat(firstStat, compactData, "immunities");
-        this.compactBasicStat(firstStat, compactData, "special");
-        this.compactBasicStat(firstStat, compactData, "note");
       }
 
       this.inputMonsterData.nativeElement.value = JSON.stringify(compactData, null, 2);
@@ -103,11 +62,7 @@ export class MonsterToolComponent implements OnInit {
 
   updateType() {
     if (this.monsterData) {
-      if (!this.monsterData.baseStat) {
-        this.monsterData.baseStat = new MonsterStat(MonsterType.normal, 0, 0, 0, 0, 0);
-      }
       if (this.monsterData.boss) {
-        this.monsterData.baseStat.type = MonsterType.boss;
         this.monsterData.stats = this.monsterData.stats.filter((stat: MonsterStat) => !stat.type || stat.type == MonsterType.boss);
 
         for (let level of this.levels) {
@@ -116,7 +71,6 @@ export class MonsterToolComponent implements OnInit {
           }
         }
       } else {
-        this.monsterData.baseStat.type = MonsterType.normal;
         this.monsterData.stats = this.monsterData.stats.filter((stat: MonsterStat) => stat.type != MonsterType.boss);
         for (let level of this.levels) {
           if (!this.monsterData.stats.some((stat: MonsterStat) => stat.level == level && (!stat.type || stat.type == MonsterType.normal))) {
@@ -136,15 +90,17 @@ export class MonsterToolComponent implements OnInit {
   }
 
   getStatIndex(type: MonsterType, level: number): number {
-    if (this.monsterData && this.monsterData.stats.some((stat: MonsterStat) => stat.level == level && (stat.type == type || !stat.type && this.monsterData?.baseStat.type == type))) {
-      let stat: MonsterStat = this.monsterData.stats.filter((stat: MonsterStat) => stat.level == level && (stat.type == type || !stat.type && this.monsterData?.baseStat.type == type))[ 0 ];
-      return this.monsterData.stats.indexOf(stat);
+    if (this.monsterData) {
+      const stat = this.monsterData.stats.find((stat: MonsterStat) => stat.level == level && (stat.type == type || !stat.type && this.monsterData?.baseStat.type == type));
+      if (stat) {
+        return this.monsterData.stats.indexOf(stat);
+      }
     }
 
     return -1;
   }
 
-  basicStatChange(event : any) {
+  basicStatChange(event: any) {
     this.updateType();
   }
 
