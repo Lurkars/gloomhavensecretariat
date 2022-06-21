@@ -171,11 +171,14 @@ export class GameManager {
   }
 
   getCharacterData(name: string, edition: string): CharacterData {
-    let characterData = this.charactersData(true).find((value: CharacterData) => value.name == name && value.edition == edition)
+    let characterData = this.charactersData(true).find((value: CharacterData) => value.name == name && value.edition == edition);
     if (!characterData) {
       console.error("unknown character: " + name);
-      characterData = new CharacterData(name, [], "")
-      characterData.errors.push(FigureError.unknown);
+      characterData = this.charactersData(true).find((value: CharacterData) => value.name == name);
+      if (!characterData) {
+        characterData = new CharacterData(name, [], "")
+        characterData.errors.push(FigureError.unknown);
+      }
       return characterData;
     }
     return characterData;
@@ -216,8 +219,11 @@ export class GameManager {
     let monsterData = this.monstersData(true).find((value: MonsterData) => value.name == name && value.edition == edition);
     if (!monsterData) {
       console.error("unknown monster '" + name + "' for edition '" + edition + "'");
-      monsterData = new MonsterData(name, 0, new MonsterStat(MonsterType.normal, 0, 0, 0, 0, 0), [], "");
-      monsterData.errors.push(FigureError.unknown);
+      monsterData = this.monstersData(true).find((value: MonsterData) => value.name == name);
+      if (!monsterData) {
+        monsterData = new MonsterData(name, 0, new MonsterStat(MonsterType.normal, 0, 0, 0, 0, 0), [], "");
+        monsterData.errors.push(FigureError.unknown);
+      }
       return monsterData;
     }
 

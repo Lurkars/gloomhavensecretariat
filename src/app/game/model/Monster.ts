@@ -71,6 +71,14 @@ export class Monster extends MonsterData implements Figure {
 
   fromModel(model: GameMonsterModel) {
     this.edition = model.edition;
+    if (!this.edition) {
+      const monsterData = gameManager.monstersData(true).find((monsterData: MonsterData) => monsterData.name == model.name);
+      if (monsterData) {
+        this.edition = monsterData.edition;
+      } else {
+        this.edition = "";
+      }
+    }
     this.level = model.level;
     this.off = model.off;
     this.active = model.active;
