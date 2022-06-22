@@ -28,6 +28,7 @@ const load_subfolder = function (edition_path, folder, default_value) {
 
 const load_file = function (edition_path, file, default_value) {
   const file_path = path.join(edition_path, file);
+  console.log("Load file: '" + file_path);
   if (fs.lstatSync(file_path).isFile()) {
     const f = fs.readFileSync(file_path, 'utf8');
     return JSON.parse(f);
@@ -56,5 +57,10 @@ for (edition_path of edition_dirs) {
   edition_data['scenarios'] = load_file(edition_path, 'scenarios.json', []);
   edition_data['label'] = load_file(edition_path, 'label.json', {});
 
-  fs.writeFile(path.join(output_dir, (edition_data['edition']) + '.json'), JSON.stringify(edition_data), 'utf8', (err) => { });
+  console.log("Write file: '" + path.join(output_dir, (edition_data['edition']) + '.json') + "'");
+
+  fs.writeFile(path.join(output_dir, (edition_data['edition']) + '.json'), JSON.stringify(edition_data), 'utf8', (err) => {
+    console.err(err);
+  });
+
 }

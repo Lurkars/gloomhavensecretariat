@@ -44,7 +44,6 @@ jobs:
       - name: npm install and npm run build
         run: |
           npm i
-          node ./scripts/concat-data.js
           npm run build
       - name: Create Zip
         uses: thedoctor0/zip-release@main
