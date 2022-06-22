@@ -45,4 +45,8 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# ignore generated data files
+src/assets/data/*
+
+# temporay local files
 .local
