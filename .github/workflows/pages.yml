@@ -28,11 +28,9 @@ jobs:
       - name: npm install and npm run build
         run: |
           npm i
-          node ./scripts/concat-data.js
           npm run build -- --base-href gloomhavensecretary
       - name: Publish GitHub Pages
-        uses: tsunematsu21/actions-publish-gh-pages@v1.0.2
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          dir: dist/gloomhavensecretary/
-          branch: gh-pages
-          token: ${{ secrets.TOKEN }}
+          publish_dir: ./dist/gloomhavensecretary/
+          github_token: ${{ secrets.TOKEN }}
