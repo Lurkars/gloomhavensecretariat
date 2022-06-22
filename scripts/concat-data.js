@@ -60,7 +60,7 @@ for (edition_path of edition_dirs) {
   console.log("Write file: '" + path.join(output_dir, (edition_data['edition']) + '.json') + "'");
 
   fs.writeFile(path.join(output_dir, (edition_data['edition']) + '.json'), JSON.stringify(edition_data), 'utf8', (err) => {
-    console.err(err);
+    console.error(err);
   });
 
 }
