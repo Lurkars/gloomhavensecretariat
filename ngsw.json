@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1655930333957,
+  "timestamp": 1655930649685,
   "appData": {
     "version": "0.2.1"
   },
@@ -264,13 +264,20 @@
       "cacheQueryOptions": {
         "ignoreVary": true
       },
-      "urls": [],
+      "urls": [
+        "gloomhavensecretary/assets/data/.empty",
+        "gloomhavensecretary/assets/data/gh.json",
+        "gloomhavensecretary/assets/data/jotl.json"
+      ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
     "gloomhavensecretary/PirataOne-Gloomhaven.7a0430e6b6669ae2.ttf": "21c25adcd4f559bff7d01f1855b20c6ae30f7b9b",
+    "gloomhavensecretary/assets/data/.empty": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+    "gloomhavensecretary/assets/data/gh.json": "d55110997350efbaed56063b5e53d25e49ec4d9c",
+    "gloomhavensecretary/assets/data/jotl.json": "d5f0b3f5e81770d5d430403db3c0b715da4b8aa7",
     "gloomhavensecretary/assets/font/PirataOne-Gloomhaven.ttf": "21c25adcd4f559bff7d01f1855b20c6ae30f7b9b",
     "gloomhavensecretary/assets/font/nyala.ttf": "e29a8f8cd34c000e16badd6ad41b0dc49c342cf2",
     "gloomhavensecretary/assets/icons/icon-128x128.png": "90356e055a08e585ab799789a7624d336392e5b6",
