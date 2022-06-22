@@ -7,12 +7,14 @@ const output_dir = './src/assets/data'
 const load_subfolder = function (edition_path, folder, default_value) {
   const dir = path.join(edition_path, folder);
   if (fs.lstatSync(dir).isDirectory()) {
+    console.log("Load subfolder: '" + dir + "'");
     const files = fs.readdirSync(dir).map((file) => path.join(dir, file)).filter((file_path) =>
       fs.lstatSync(file_path).isFile()
     );
     files.sort((value) => value.toLowerCase());
     let result = [];
     for (let path of files) {
+      console.log("Read file: '" + path + "'");
       const f = fs.readFileSync(path, 'utf8');
       try {
         object = JSON.parse(f);
@@ -28,7 +30,7 @@ const load_subfolder = function (edition_path, folder, default_value) {
 
 const load_file = function (edition_path, file, default_value) {
   const file_path = path.join(edition_path, file);
-  console.log("Load file: '" + file_path);
+  console.log("Load file: '" + file_path + "'");
   if (fs.lstatSync(file_path).isFile()) {
     const f = fs.readFileSync(file_path, 'utf8');
     return JSON.parse(f);
