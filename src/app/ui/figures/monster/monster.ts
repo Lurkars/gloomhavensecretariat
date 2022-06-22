@@ -33,6 +33,7 @@ export class MonsterComponent {
       gameManager.stateManager.before();
       gameManager.monsterManager.removeMonsterEntity(this.monster, monsterEntity);
       gameManager.stateManager.after(1000);
+      gameManager.sortFigures();
     }, 2000);
   }
 

@@ -1,0 +1,140 @@
+{
+  "boss": false,
+  "count": 10,
+  "edition": "jotl",
+  "name": "giant-viper",
+  "baseStat": {
+    "actions": [
+      {
+        "type": "condition",
+        "value": "poison"
+      }
+    ],
+    "immunities": [],
+    "special": [],
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "attack": 1,
+      "health": 2,
+      "level": 0,
+      "movement": 2,
+      "range": 0
+    },
+    {
+      "attack": 1,
+      "health": 3,
+      "level": 1,
+      "movement": 2,
+      "range": 0
+    },
+    {
+      "attack": 1,
+      "health": 4,
+      "level": 2,
+      "movement": 3,
+      "range": 0
+    },
+    {
+      "attack": 2,
+      "health": 4,
+      "level": 3,
+      "movement": 3,
+      "range": 0
+    },
+    {
+      "attack": 2,
+      "health": 6,
+      "level": 4,
+      "movement": 3,
+      "range": 0
+    },
+    {
+      "attack": 3,
+      "health": 7,
+      "level": 5,
+      "movement": 3,
+      "range": 0
+    },
+    {
+      "attack": 3,
+      "health":8,
+      "level": 6,
+      "movement": 4,
+      "range": 0
+    },
+    {
+      "attack": 3,
+      "health": 10,
+      "level": 7,
+      "movement": 4,
+      "range": 0
+    },
+    {
+      "attack": 2,
+      "health": 3,
+      "level": 0,
+      "movement": 2,
+      "range": 0,
+      "type": "elite"
+    },
+    {
+      "attack": 2,
+      "health": 5,
+      "level": 1,
+      "movement": 2,
+      "range": 0,
+      "type": "elite"
+    },
+    {
+      "attack": 2,
+      "health": 7,
+      "level": 2,
+      "movement": 3,
+      "range": 0,
+      "type": "elite"
+    },
+    {
+      "attack": 3,
+      "health": 8,
+      "level": 3,
+      "movement":3,
+      "range": 0,
+      "type": "elite"
+    },
+    {
+      "attack": 3,
+      "health": 11,
+      "level": 4,
+      "movement": 3,
+      "range": 0,
+      "type": "elite"
+    },
+    {
+      "attack": 3,
+      "health": 13,
+      "level": 5,
+      "movement": 4,
+      "range": 0,
+      "type": "elite"
+    },
+    {
+      "attack": 4,
+      "health": 14,
+      "level": 6,
+      "movement": 4,
+      "range": 0,
+      "type": "elite"
+    },
+    {
+      "attack": 4,
+      "health": 18,
+      "immunities": [],
+      "level": 7,
+      "movement": 4,
+      "range": 0,
+      "type": "elite"
+    }
+  ]
+}

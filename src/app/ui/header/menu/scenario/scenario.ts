@@ -25,10 +25,11 @@ export class ScenarioMenuComponent {
   }
 
   scenarios(): number[] {
+    console.log(gameManager.scenarioData(true));
     if (!this.edition) {
       return [];
     }
-    return gameManager.scenarioData().filter((scenarioData: ScenarioData) => scenarioData.edition == this.edition).map((scenarioData: ScenarioData) => scenarioData.index).sort((a, b) => a - b);
+    return gameManager.scenarioData(true).filter((scenarioData: ScenarioData) => scenarioData.edition == this.edition).map((scenarioData: ScenarioData) => scenarioData.index).sort((a, b) => a - b);
   }
 
   maxScenario() {

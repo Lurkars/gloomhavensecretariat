@@ -55,4 +55,9 @@ export class AbilityComponent extends PopupComponent {
     }
     return size;
   }
+
+  override close(): void {
+    super.close();
+    this.reveal = 0;
+  }
 }

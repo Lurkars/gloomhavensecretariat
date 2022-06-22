@@ -27,7 +27,8 @@
   "monster": {
     "add": "Monster hinzufügen",
     "remove": "Monster entfernen",
-    "removeAll": "Alle entfernen"
+    "removeAll": "Alle entfernen",
+    "showHidden" : "Ausgeblendete Monster anzeigen"
   },
   "character": {
     "add": "Charakter hinzufügen",

@@ -30,6 +30,7 @@
     width: 100%;
     font-size: calc(var(--ghs-unit) * 2.3);
     transition: var(--hover-animation);
+    overflow: auto;
   }
 
   .name {
@@ -81,7 +82,6 @@
 
     ghs-actions {
       position: absolute;
-      overflow: hidden;
       top: calc(var(--ghs-unit) * 6);
       height: calc(var(--ghs-unit) * 13);
     }
@@ -168,8 +168,8 @@ ghs-action {
 
           ghs-actions {
             position: absolute;
-            top: calc(var(--ghs-unit) * 7);
-            height: calc(var(--ghs-unit) * 13);
+            top: calc(var(--ghs-unit) * 6);
+            height: calc(var(--ghs-unit) * 17.5);
           }
 
           .index {

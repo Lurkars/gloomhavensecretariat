@@ -16,7 +16,7 @@ export class Monster extends MonsterData implements Figure {
 
   getInitiative(): number {
     const ability: Ability | undefined = gameManager.monsterManager.getAbility(this);
-    return ability && ability.initiative || 0;
+    return this.entities.length == 0 ? 99 : ability && ability.initiative || 99;
   }
 
   // Monster

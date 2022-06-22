@@ -1,0 +1,241 @@
+{
+  "boss": false,
+  "count": 10,
+  "edition": "jotl",
+  "name": "rat-monstrosity",
+  "baseStat": {
+    "actions": [
+      {
+        "type": "custom",
+        "value": "On death, all adjacent figures suffer 1 damage"
+      }
+    ],
+    "immunities": [],
+    "special": [],
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "attack": 1,
+      "health": 4,
+      "level": 0,
+      "movement": 1,
+      "range": 0
+    },
+    {
+      "attack": 2,
+      "health": 4,
+      "level": 1,
+      "movement": 1,
+      "range": 0
+    },
+    {
+      "attack": 2,
+      "health": 5,
+      "level": 2,
+      "movement": 2,
+      "range": 0
+    },
+    {
+      "actions": [
+        {
+          "type": "custom",
+          "value": "On death, all adjacent figures suffer 2 damage"
+        }
+      ],
+      "attack": 3,
+      "health": 6,
+      "level": 3,
+      "movement": 2,
+      "range": 0
+    },
+    {
+      "actions": [
+        {
+          "type": "custom",
+          "value": "On death, all adjacent figures suffer 2 damage"
+        }
+      ],
+      "attack": 3,
+      "health": 8,
+      "level": 4,
+      "movement": 2,
+      "range": 0
+    },
+    {
+      "actions": [
+        {
+          "type": "custom",
+          "value": "On death, all adjacent figures suffer 2 damage"
+        }
+      ],
+      "attack": 3,
+      "health": 10,
+      "level": 5,
+      "movement": 3,
+      "range": 0
+    },
+    {
+      "actions": [
+        {
+          "type": "custom",
+          "value": "On death, all adjacent figures suffer 3 damage"
+        }
+      ],
+      "attack": 3,
+      "health": 12,
+      "level": 6,
+      "movement": 3,
+      "range": 0
+    },
+    {
+      "actions": [
+        {
+          "type": "custom",
+          "value": "On death, all adjacent figures suffer 3 damage"
+        }
+      ],
+      "attack": 4,
+      "health": 12,
+      "level": 7,
+      "movement": 3,
+      "range": 0
+    },
+    {
+      "attack": 2,
+      "health": 6,
+      "level": 0,
+      "movement": 1,
+      "range": 0,
+      "type": "elite"
+    },
+    {
+
+      "actions": [
+        {
+          "type": "custom",
+          "value": "On death, all adjacent figures suffer 2 damage"
+        },
+        {
+          "type": "custom",
+          "value": "Advantage"
+        }
+      ],
+      "attack": 2,
+      "health": 7,
+      "level": 1,
+      "movement": 1,
+      "range": 0,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "custom",
+          "value": "On death, all adjacent figures suffer 2 damage"
+        },
+        {
+          "type": "custom",
+          "value": "Advantage"
+        }
+      ],
+      "attack": 3,
+      "health": 8,
+      "level": 2,
+      "movement": 1,
+      "range": 0,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "custom",
+          "value": "On death, all adjacent figures suffer 2 damage"
+        },
+        {
+          "type": "custom",
+          "value": "Advantage"
+        }
+      ],
+      "attack": 3,
+      "health": 10,
+      "level": 3,
+      "movement": 2,
+      "range": 0,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "custom",
+          "value": "On death, all adjacent figures suffer 3 damage"
+        },
+        {
+          "type": "custom",
+          "value": "Advantage"
+        }
+      ],
+      "attack": 3,
+      "health": 12,
+      "level": 4,
+      "movement": 2,
+      "range": 0,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "custom",
+          "value": "On death, all adjacent figures suffer 3 damage"
+        },
+        {
+          "type": "custom",
+          "value": "Advantage"
+        }
+      ],
+      "attack":4,
+      "health": 13,
+      "level": 5,
+      "movement": 2,
+      "range": 0,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "custom",
+          "value": "On death, all adjacent figures suffer 2 damage"
+        },
+        {
+          "type": "custom",
+          "value": "Advantage"
+        }
+      ],
+      "attack": 4,
+      "health": 14,
+      "level": 6,
+      "movement": 3,
+      "range": 0,
+      "type": "elite"
+    },
+    {
+      "actions": [
+        {
+          "type": "custom",
+          "value": "On death, all adjacent figures suffer 2 damage"
+        },
+        {
+          "type": "custom",
+          "value": "Advantage"
+        }
+      ],
+      "attack": 5,
+      "health": 16,
+      "immunities": [],
+      "level": 7,
+      "movement": 3,
+      "range": 0,
+      "type": "elite"
+    }
+  ]
+}

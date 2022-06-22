@@ -28,7 +28,7 @@ export class Character extends CharacterData implements Entity, Figure {
   turnConditions: Condition[];
 
   getInitiative(): number {
-    return this.initiative;
+    return this.exhausted ? 99 : this.initiative;
   }
 
   constructor(character: CharacterData, level: number) {

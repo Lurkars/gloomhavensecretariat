@@ -161,6 +161,10 @@
       justify-content: flex-start;
     }
 
+    .custom-value {
+      text-align: left;
+    }
+
     .conditions {
       flex-direction: column;
     }
@@ -184,6 +188,20 @@
         }
       }
     }
+
+    ghs-action {
+      
+      &.subaction-area {
+        flex-basis: 0;
+        width: auto;
+        height: auto;
+        overflow: visible;
+
+        ghs-action-hex {
+          transform: none;
+        }
+      }
+    }
   }
 
   &.right {
@@ -198,6 +216,12 @@
     .element {
       justify-content: flex-end;
       text-align: right;
+    }
+
+    &.inline {
+      .custom-value {
+        text-align: right;
+      }
     }
 
     .icon.invert {

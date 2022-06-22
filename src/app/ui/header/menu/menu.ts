@@ -14,6 +14,7 @@ import { SwUpdate } from '@angular/service-worker';
 import { Scenario } from "src/app/game/model/Scenario";
 import { ghsHasSpoilers, ghsIsSpoiled, ghsNotSpoiled } from "../../helper/Static";
 import { Objective } from "src/app/game/model/Objective";
+import { ObjectiveIdMap } from "../../figures/objective/objective";
 
 export enum SubMenu {
   main, edition, scenario, section, monster_add, monster_remove, character_add, character_remove, objective_remove, settings, server, datamanagement, about
@@ -39,6 +40,9 @@ export class MainMenuComponent extends DialogComponent {
   notSpoiled = ghsNotSpoiled;
   version = packageJson.version;
   WebSocket = WebSocket;
+  objectiveIdMap = ObjectiveIdMap;
+
+  showHiddenMonster: boolean = false;
 
   constructor(private swUpdate: SwUpdate) {
     super();
@@ -164,8 +168,12 @@ export class MainMenuComponent extends DialogComponent {
     });
   }
 
+  hasHiddenMonster(): boolean {
+    return gameManager.monstersData(false).some((monsterData: MonsterData) => monsterData.hidden);
+  }
+
   monsterData(): MonsterData[] {
-    return gameManager.monstersData().sort((a: MonsterData, b: MonsterData) => {
+    return gameManager.monstersData(false).filter((monsterData: MonsterData) => !monsterData.hidden || monsterData.hidden == this.showHiddenMonster).sort((a: MonsterData, b: MonsterData) => {
       const aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
       const bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
 
@@ -174,6 +182,13 @@ export class MainMenuComponent extends DialogComponent {
       }
       if (!a.spoiler && b.spoiler) {
         return -1;
+      }
+
+      if (a.hidden && !b.hidden) {
+        return -1;
+      }
+      if (!a.hidden && b.hidden) {
+        return 1;
       }
 
       if (a.spoiler && b.spoiler) {

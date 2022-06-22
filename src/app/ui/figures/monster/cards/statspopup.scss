@@ -7,6 +7,8 @@
   color: var(--ghs-color-white);
   font-size: calc(var(--ghs-unit) * 2.5);
   text-align: left;
+  white-space: nowrap;
+  overflow: auto;
 
   .name {
     cursor: pointer;

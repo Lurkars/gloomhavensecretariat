@@ -75,6 +75,8 @@ export class MonsterManager {
       monster.off = false;
       monster.active = false;
     }
+
+    gameManager.sortFigures();
   }
 
 
@@ -87,6 +89,7 @@ export class MonsterManager {
       } else {
         monster.off = true;
       }
+      gameManager.sortFigures();
     }
   }
 

@@ -2,27 +2,27 @@
   <div #button class="level">{{monster.level}}</div>
 
   <div class="stats" *ngIf="monster.boss">
-    <div class="stat end">{{statsForType(MonsterType.boss).health | ghsValueCalc}}</div>
+    <div class="stat end">{{statsForType(MonsterType.boss).health | ghsValueCalc:'empty'}}</div>
 
-    <div class="stat end">{{statsForType(MonsterType.boss).movement | ghsValueCalc}}</div>
+    <div class="stat end">{{statsForType(MonsterType.boss).movement | ghsValueCalc:'empty'}}</div>
 
-    <div class="stat end">{{(statsForType(MonsterType.boss).attack) | ghsValueCalc}}</div>
+    <div class="stat end">{{(statsForType(MonsterType.boss).attack) | ghsValueCalc:'empty'}}</div>
 
-    <div class="stat end">{{statsForType(MonsterType.boss).range | ghsValueCalc}}</div>
+    <div class="stat end">{{statsForType(MonsterType.boss).range | ghsValueCalc:'empty'}}</div>
   </div>
 
   <div class="stats" *ngIf="!monster.boss">
-    <div class="stat end">{{statsForType(MonsterType.normal).health | ghsValueCalc}}</div>
-    <div class="stat start">{{statsForType(MonsterType.elite).health | ghsValueCalc}}</div>
+    <div class="stat end">{{statsForType(MonsterType.normal).health | ghsValueCalc:'empty'}}</div>
+    <div class="stat start">{{statsForType(MonsterType.elite).health | ghsValueCalc:'empty'}}</div>
 
-    <div class="stat end">{{statsForType(MonsterType.normal).movement | ghsValueCalc}}</div>
-    <div class="stat start">{{statsForType(MonsterType.elite).movement | ghsValueCalc}}</div>
+    <div class="stat end">{{statsForType(MonsterType.normal).movement | ghsValueCalc:'empty'}}</div>
+    <div class="stat start">{{statsForType(MonsterType.elite).movement | ghsValueCalc:'empty'}}</div>
 
-    <div class="stat end">{{statsForType(MonsterType.normal).attack | ghsValueCalc}}</div>
-    <div class="stat start">{{statsForType(MonsterType.elite).attack | ghsValueCalc}}</div>
+    <div class="stat end">{{statsForType(MonsterType.normal).attack | ghsValueCalc:'empty'}}</div>
+    <div class="stat start">{{statsForType(MonsterType.elite).attack | ghsValueCalc:'empty'}}</div>
 
-    <div class="stat end">{{statsForType(MonsterType.normal).range | ghsValueCalc}}</div>
-    <div class="stat start">{{statsForType(MonsterType.elite).range | ghsValueCalc}}</div>
+    <div class="stat end">{{statsForType(MonsterType.normal).range | ghsValueCalc:'empty'}}</div>
+    <div class="stat start">{{statsForType(MonsterType.elite).range | ghsValueCalc:'empty'}}</div>
   </div>
 
   <ng-container *ngIf="!monster.boss">

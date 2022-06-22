@@ -135,9 +135,15 @@
         margin-right: calc(var(--ghs-unit) * 1);
       }
     }
+
+
+    &.hidden-monster a {
+      font-style: italic;
+    }
   }
 
-  input[type="text"], input[type="number"] {
+  input[type="text"],
+  input[type="number"] {
     width: 100%;
     margin: 0;
     color: var(--ghs-color-white);
@@ -235,6 +241,25 @@
       margin-top: 0;
       border-top: none;
     }
+  }
+
+  .objective-id {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: calc(var(--ghs-unit) * 5);
+    height: calc(var(--ghs-unit) * 5);
+    overflow: hidden;
+    background-color: var(--ghs-color-red);
+    color: var(--ghs-color-white);
+    font-family: 'ghs-title';
+    font-size: calc(var(--ghs-unit) * 5);
+    line-height: calc(var(--ghs-unit) * 3.5);
+    border-radius: 100%;
+    border-color: var(--ghs-color-white);
+    border-style: solid;
+    border-width: calc(var(--ghs-unit) * 0.4);
+    margin-right: calc(var(--ghs-unit) * 0.4);
   }
 
   .spoilers {

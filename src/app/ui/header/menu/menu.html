@@ -130,7 +130,8 @@
           *ngIf="character.title">{{character.title}} (</span>
         {{'data.character.' + character.name | ghsLabel}}
         <span *ngIf="character.title">)</span><span class="edition"
-        *ngIf="gameManager.getEdition(character)">&nbsp;[{{'data.edition.' + gameManager.getEdition(character) | ghsLabel}}]</span>
+          *ngIf="gameManager.getEdition(character)">&nbsp;[{{'data.edition.' + gameManager.getEdition(character) |
+          ghsLabel}}]</span>
       </a>
     </div>
   </div>
@@ -143,7 +144,8 @@
     </div>
     <div class="line" *ngFor="let objective of objectives()">
       <a (click)="removeObjective(objective);">
-        <img class="icon" src="./assets/images/objective/icon.svg" /><span *ngIf="objective.title">{{objective.title}}
+        <span class="objective-id">{{objectiveIdMap[objective.id]}}</span>
+        <span *ngIf="objective.title">{{objective.title}}
           (</span>
         {{'objective' | ghsLabel}}
         <span *ngIf="objective.title">)</span>
@@ -159,7 +161,7 @@
           <label>{{'data.edition.' + edition | ghsLabel}}</label>
         </div>
         <div class="line" *ngFor="let monsterData of monsterData() | ghsEditionFilter:edition"
-          [ngClass]="{'disabled' : hasMonster(monsterData), 'spoiler' : monsterData.spoiler, 'boss' : monsterData.boss}">
+          [ngClass]="{'disabled' : hasMonster(monsterData), 'spoiler' : monsterData.spoiler, 'boss' : monsterData.boss, 'hidden-monster' : monsterData.hidden}">
           <a (click)="addMonster(monsterData);" *ngIf="isSpoiled(monsterData)">
             {{'data.monster.' + monsterData.name | ghsLabel}}
           </a>
@@ -169,6 +171,12 @@
           </a>
         </div>
       </div>
+    </div>
+    <div class="line" *ngIf="hasHiddenMonster()">
+      <label>
+        <input type="checkbox" [checked]="showHiddenMonster" (change)="showHiddenMonster=!showHiddenMonster">
+        {{'monster.showHidden' | ghsLabel}}
+      </label>
     </div>
     <div class="line" *ngIf="hasSpoilers(monsterData())">
       <a (click)="settingsManager.addSpoilers(notSpoiled(monsterData()))">{{'spoiler.all' | ghsLabel}}</a>
@@ -184,7 +192,8 @@
     <div class="line" *ngFor="let monster of monsters() | ghsSort">
       <a (click)="removeMonster(monster);">
         {{'data.monster.' + monster.name | ghsLabel}}<span class="edition"
-        *ngIf="gameManager.getEdition(monster)">&nbsp;[{{'data.edition.' + gameManager.getEdition(monster) | ghsLabel}}]</span>
+          *ngIf="gameManager.getEdition(monster)">&nbsp;[{{'data.edition.' + gameManager.getEdition(monster) |
+          ghsLabel}}]</span>
       </a>
     </div>
   </div>

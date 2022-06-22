@@ -112,8 +112,9 @@ export class GameManager {
   }
 
   sortFigures() {
-    if (this.game.state == GameState.draw) {
-      this.game.figures.sort((a: Figure, b: Figure) => {
+    this.game.figures.sort((a: Figure, b: Figure) => {
+
+      if (this.game.state == GameState.draw) {
         let aName = a.name.toLowerCase();
         if (a instanceof Character) {
           aName = a.title.toLowerCase() || settingsManager.getLabel('data.character.' + a.name).toLowerCase();
@@ -131,26 +132,16 @@ export class GameManager {
         } else if (b instanceof Objective) {
           bName = b.title.toLowerCase() || settingsManager.getLabel(b.name).toLowerCase();
         }
-
         if (a instanceof Character && b instanceof Monster) {
           return -1;
         } else if (a instanceof Monster && b instanceof Character) {
           return 1;
         }
         return aName < bName ? -1 : 1;
-      })
-    } else {
-      this.game.figures.sort((a: Figure, b: Figure) => {
-        if (a instanceof Character && a.exhausted) {
-          return 99;
-        }
-
-        if (b instanceof Character && b.exhausted) {
-          return 99;
-        }
+      } else {
         return a.getInitiative() - b.getInitiative();
-      });
-    }
+      }
+    });
   }
 
   abilities(figure: MonsterData | CharacterData): Ability[] {

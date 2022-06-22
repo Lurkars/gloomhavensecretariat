@@ -7,10 +7,10 @@
   "baseStat": {
     "actions": [],
     "immunities": [
-      "curse",
       "disarm",
-      "stun",
-      "wound"
+      "wound",
+      "curse",
+      "stun"
     ],
     "special": [
       [

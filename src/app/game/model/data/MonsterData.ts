@@ -23,6 +23,8 @@ export class MonsterData implements Editional, Spoilable {
   // error
   errors: FigureError[];
 
+  hidden : boolean = false;
+
   constructor(name: string, count: number, baseStat: MonsterStat, stats: MonsterStat[], edition: string, deck: string | undefined = undefined, boss: boolean = false, thumbnail: string | undefined = undefined,
     spoiler: boolean = false) {
     this.errors = [];

@@ -7,6 +7,9 @@ import { GameState } from 'src/app/game/model/Game';
 import { Objective } from 'src/app/game/model/Objective';
 import { DialogComponent } from '../../dialog/dialog';
 
+
+export const ObjectiveIdMap = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" ];
+
 @Component({
   selector: 'ghs-objective',
   templateUrl: './objective.html',
@@ -23,8 +26,8 @@ export class ObjectiveComponent extends DialogComponent {
   GameState = GameState;
   Conditions = Condition;
   health: number = 0;
+  objectiveIdMap = ObjectiveIdMap;
 
-  objectiveIdMap = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" ];
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {
     super();
@@ -63,7 +66,7 @@ export class ObjectiveComponent extends DialogComponent {
       id = 0;
     }
 
-    while (gameManager.game.figures.some((figure : Figure) => figure instanceof Objective && figure.id == id)) {
+    while (gameManager.game.figures.some((figure: Figure) => figure instanceof Objective && figure.id == id)) {
       id = id + value;
       if (id < 0) {
         id = this.objectiveIdMap.length - 1;

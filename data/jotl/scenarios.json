@@ -4,7 +4,7 @@
     "name": "Roadside Ambush",
     "index": "1",
     "monsters": [
-      "common-vermling-raider"
+      "basic-vermling-raider"
     ]
   },
   {
