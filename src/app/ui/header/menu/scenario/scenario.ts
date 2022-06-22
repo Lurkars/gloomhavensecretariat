@@ -25,7 +25,6 @@ export class ScenarioMenuComponent {
   }
 
   scenarios(): number[] {
-    console.log(gameManager.scenarioData(true));
     if (!this.edition) {
       return [];
     }
