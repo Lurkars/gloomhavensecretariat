@@ -1,0 +1,182 @@
+{
+  "round": {
+    "draw": "Draw",
+    "next": "Next Round",
+    "hint": {
+      "empty": "Please add monsters and characters before round.",
+      "missingInitative": "Players initiative must be set. Select initiative by clicking on character portrait.",
+      "active": "Not all figures are done yet. End round anyway?",
+      "confirm": "Confirm"
+    }
+  },
+  "state": {
+    "undo": "Undo",
+    "redo": "Redo",
+    "reset": "Reset"
+  },
+  "edition": {
+    ".": "Set Edition",
+    "all": "All Editions"
+  },
+  "scenario": {
+    ".": "Set Scenario",
+    "custom": "Custom",
+    "title": "Title"
+  },
+  "section": "Add Section",
+  "monster": {
+    "add": "Add Monster",
+    "remove": "Remove Monster",
+    "removeAll": "Remove All",
+    "showHidden" : "Show Hidden Monster"
+  },
+  "character": {
+    "add": "Add Character",
+    "remove": "Remove Character",
+    "removeAll": "Remove All"
+  },
+  "objective": {
+    ".": "Objective",
+    "add": "Add Objective",
+    "remove": "Remove Objective",
+    "removeAll": "Remove All"
+  },
+  "summon": {
+    "addCustom": "Summon '{0}'"
+  },
+  "settings": {
+    ".": "Settings",
+    "calc": "Show calculated stats",
+    "eliteFirst": "Elite standees first",
+    "expireConditions": "Automatic expire condition",
+    "moveElements": "Automatic update element state",
+    "randomStandees": "Random standees",
+    "zoomIn": "Zoom In",
+    "zoomOut": "Zoom Out",
+    "zoomReset": "Reset Zoom",
+    "fullscreen": "Fullscreen",
+    "resetGame": "Reset Game",
+    "resetSettings": "Reset Settings",
+    "locale": {
+      ".": "Language",
+      "en": "English",
+      "de": "German (Deutsch)"
+    }
+  },
+  "server": {
+    "menu": {
+      "connect": "Connect to Server",
+      "connected": "Server Connection"
+    },
+    "url": "Url",
+    "port": "Port",
+    "password": "Password",
+    "connect": "Connect",
+    "reconnect": "Reconnect",
+    "disconnect": "Disconnect",
+    "connected": "Connected",
+    "connecting": "Connecting",
+    "closing": "Closing",
+    "closed": "Closed",
+    "undefined": "No Connection",
+    "autoconnect" : "Connect Automatically",
+    "wss" : "Secure",
+    "settings" : "Synchronize Settings"
+  },
+  "about": {
+    ".": "About",
+    "ip": "Gloomhaven and all related properties, images and text are owned by {0}.",
+    "license": "Licensed under {0}.",
+    "sourceCode": "Source Code"
+  },
+  "update": "Update (Reload)",
+  "game": {
+    "action": {
+      "attack": "Attack",
+      "range": "Range",
+      "move": "Move",
+      "jump": "Jump",
+      "heal": "Heal",
+      "specialTarget": {
+        "self": "Self",
+        "selfAlliesAffect": "Affect self and all allies",
+        "ally": "Target one adjacent ally",
+        "allAllies": "Target all allies",
+        "allAlliesRange": "Target all allies within range",
+        "adjacentAllies": "Target all adjacent allies",
+        "adjacentAlliesAffect": "Affect all adjacent allies",
+        "enemy": "Target one adjacent enemy",
+        "enemyOneAll": "Target one enemy with all attacks",
+        "allEnemies": "Target all enemies",
+        "allEnemiesRange": "Target all enemies within range",
+        "adjacentEnemies": "Target all adjacent enemies",
+        "selfAlliesRange": "Target self and all allies within range"
+      },
+      "target": "Target",
+      "shield": "Shield",
+      "pierce": "Pierce",
+      "area": "Area",
+      "push": "Push",
+      "retaliate": "Retaliate",
+      "teleport" : "Teleport",
+      "pull": "Pull",
+      "loot": "Loot",
+      "element": "Element",
+      "condition": "Condition",
+      "custom": "Custom",
+      "special": "Special"
+    },
+    "condition": {
+      "stun": "stun",
+      "immobilize": "immobilize",
+      "disarm": "disarm",
+      "wound": "wound",
+      "muddle": "muddle",
+      "poison": "poison",
+      "invisible": "invisible",
+      "strengthen": "strengthen",
+      "regenerate": "regenerate",
+      "curse": "curse",
+      "bless": "bless"
+    },
+    "element": {
+      "all": "All",
+      "fire": "Fire",
+      "ice": "Ice",
+      "air": "Air",
+      "earth": "Earth",
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "cards": {
+      "shuffle": "Shuffle",
+      "confirmReveal": "Click again to reveal!",
+      "coverAll": "Cover All",
+      "revealAll": "Reveal All?",
+      "revealAllConfirm": "Reveal All!",
+      "removeDrawnDiscards" : "Remove Drawn Discards"
+    },
+    "figure": {
+      "error": {
+        "deck": "Missing Deck",
+        "stat": "Missing Stat",
+        "monsterType": "Missing Monster Type",
+        "unknown": "Unknown Figure"
+      }
+    }
+  },
+  "datamanagement": {
+    ".": "Data Management",
+    "spoilers": "Manage Spoilers",
+    "editionDataUrls": "Manage Edition Data",
+    "addEditionDataUrl": "Add Edition Data Url",
+    "restoreEditionDataUrls": "Restore Defaults",
+    "addSpoiler": "Add Spoiler",
+    "removeAllSpoilers": "Delete all"
+  },
+  "spoiler": {
+    "placeholder": "???",
+    "add": "Add Spoiler",
+    "all": "Reveal All Spoilers"
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "round": {
+    "draw": "Ziehen",
+    "next": "Nächste Runde",
+    "hint": {
+      "empty": "Vor der Runde bitte Charaktäre und Monster hinzufügen.",
+      "missingInitative": "Die Initaitive muss gesetzt sein. Zum Festlegen der Initiative auf das Charakter-Portrait klicken.",
+      "active": "Es waren noch nicht alle Figuren am Zug. Trotzdem die Runde beenden?",
+      "confirm": "Bestätigen"
+    }
+  },
+  "state": {
+    "undo": "Rückgängig",
+    "redo": "Wiederherstellen",
+    "reset": "Zurücksetzen"
+  },
+  "edition": {
+    ".": "Edition auswählen",
+    "all": "Alle Editionen"
+  },
+  "scenario": {
+    ".": "Szenario auswählen",
+    "custom": "Benutzerdefiniert",
+    "title": "Titel"
+  },
+  "section": "Sektion hinzufügen",
+  "monster": {
+    "add": "Monster hinzufügen",
+    "remove": "Monster entfernen",
+    "removeAll": "Alle entfernen",
+    "showHidden" : "Ausgeblendete Monster anzeigen"
+  },
+  "character": {
+    "add": "Charakter hinzufügen",
+    "remove": "Charakter entfernen",
+    "removeAll": "Alle entfernen"
+  },
+  "objective": {
+    ".": "Ziel",
+    "add": "Ziel hinzufügen",
+    "remove": "Ziel entfernen",
+    "removeAll": "Alle entfernen"
+  },
+  "summon": {
+    "addCustom": "Beschwörung '{0}'"
+  },
+  "settings": {
+    ".": "Einstellungen",
+    "calc": "Zeige berechnete Werte an",
+    "eliteFirst": "Elite Aufsteller zuerst",
+    "expireConditions": "Automatisch Zustände löschen",
+    "moveElements": "Automatisch Elementen Status ändern",
+    "randomStandees": "Zufällige Aufsteller",
+    "zoomIn": "Reinzoomen",
+    "zoomOut": "Rauszoomen",
+    "zoomReset": "Zoom zurücksetzen",
+    "fullscreen": "Vollbild",
+    "resetGame": "Spiel Zurücksetzen",
+    "resetSettings": "Einstellungen Zurücksetzen",
+    "locale": {
+      ".": "Sprache",
+      "en": "Englisch (English)",
+      "de": "Deutsch"
+    }
+  },
+  "server": {
+    "menu": {
+      "connect": "Mit Server verbinden",
+      "connected": "Server Verbindung"
+    },
+    "url": "Url",
+    "port": "Port",
+    "password": "Passwort",
+    "connect": "Verbinden",
+    "reconnect": "Neu Verbinden",
+    "disconnect": "Trennen",
+    "connected": "Verbunden",
+    "connecting": "Verbinde",
+    "closing": "Schließen",
+    "closed": "Geschlossen",
+    "undefined": "Keine Verbingung",
+    "autoconnect": "Automatisch Verbinden",
+    "wss": "Verschlüsselte Verbindung",
+    "settings": "Einstellungen synchronisieren"
+  },
+  "about": {
+    ".": "Über",
+    "ip": "Gloomhaven und alle bezogenen Schutzrechte, Bilder und Texte gehören {0}.",
+    "license": "Lizensiert unter {0}.",
+    "sourceCode": "Quelltext"
+  },
+  "update": "Update (Neu Laden)",
+  "game": {
+    "action": {
+      "attack": "Angriff",
+      "range": "Reichweite",
+      "move": "Bewegung",
+      "jump": "Springen",
+      "heal": "Heilen",
+      "specialTarget": {
+        "self": "Selbst",
+        "selfAlliesAffect": "Affect self and all allies",
+        "ally": "Target one adjacent ally",
+        "allAllies": "Target all allies",
+        "allAlliesRange": "Target all allies within range",
+        "adjacentAllies": "Target all adjacent allies",
+        "adjacentAlliesAffect": "Affect all adjacent allies",
+        "enemy": "Target one adjacent enemy",
+        "enemyOneAll": "Target one enemy with all attacks",
+        "allEnemies": "Target all enemies",
+        "allEnemiesRange": "Target all enemies within range",
+        "adjacentEnemies": "Target all adjacent enemies",
+        "selfAlliesRange": "Target self and all allies within range"
+      },
+      "target": "Ziel",
+      "shield": "Schild",
+      "pierce": "Durchstechen",
+      "area": "Fläche",
+      "push": "Schieben",
+      "retaliate": "Vergeltung",
+      "teleport": "Teleport",
+      "pull": "Ziehen",
+      "loot": "Beute",
+      "element": "Element",
+      "condition": "Zustand",
+      "custom": "Benutzerdefiniert",
+      "special": "Spezial"
+    },
+    "condition": {
+      "stun": "Betäubung",
+      "immobilize": "Lähmung",
+      "disarm": "Entwaffnen",
+      "wound": "Wunde",
+      "muddle": "Verwirrrung",
+      "poison": "Gift",
+      "invisible": "Unsichtbarkeit",
+      "strengthen": "Stärkung",
+      "regenerate": "Regeneration",
+      "curse": "Fluch",
+      "bless": "Segen"
+    },
+    "element": {
+      "all": "Alle",
+      "fire": "Feuer",
+      "ice": "Eis",
+      "air": "Luft",
+      "earth": "Erde",
+      "light": "Licht",
+      "dark": "Dunkel"
+    },
+    "cards": {
+      "shuffle": "Mischen",
+      "confirmReveal": "Zum Aufdecken erneut klicken!",
+      "coverAll": "Alle Verdecken",
+      "revealAll": "Alle Aufdecken?",
+      "revealAllConfirm": "Alle Aufdecken!",
+      "removeDrawnDiscards": "Entferne gezogene Abgeworfene"
+    },
+    "figure": {
+      "error": {
+        "deck": "Fehlendes Deck",
+        "stat": "Fehlende Stats",
+        "monsterType": "Fehlender Monstertyp",
+        "unknown": "Unbekannte Figur"
+      }
+    }
+  },
+  "datamanagement": {
+    ".": "Daten Verwalten",
+    "spoilers": "Spoiler bearbeiten",
+    "editionDataUrls": "Editionsdaten bearbeiten",
+    "addEditionDataUrl": "Editionasdaten Url hinzufügen",
+    "restoreEditionDataUrls": "Standard Wiederherstellen",
+    "addSpoiler": "Spoiler Hinzufügen",
+    "removeAllSpoilers": "Alle Löschen"
+  },
+  "spoiler": {
+    "placeholder": "???",
+    "add": "Spoiler hinzufügen",
+    "all": "Alle Spoiler Aufdecken"
+  }
+}
