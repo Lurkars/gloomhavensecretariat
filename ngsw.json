@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1655928512684,
+  "timestamp": 1655929213205,
   "appData": {
     "version": "0.2.1"
   },
@@ -265,7 +265,6 @@
         "ignoreVary": true
       },
       "urls": [
-        "gloomhavensecretary/assets/data/.gitignore",
         "gloomhavensecretary/assets/data/gh.json",
         "gloomhavensecretary/assets/data/jotl.json"
       ],
@@ -275,7 +274,6 @@
   "dataGroups": [],
   "hashTable": {
     "gloomhavensecretary/PirataOne-Gloomhaven.7a0430e6b6669ae2.ttf": "21c25adcd4f559bff7d01f1855b20c6ae30f7b9b",
-    "gloomhavensecretary/assets/data/.gitignore": "6d273a9788a31712c0511453ca96438209850016",
     "gloomhavensecretary/assets/data/gh.json": "d55110997350efbaed56063b5e53d25e49ec4d9c",
     "gloomhavensecretary/assets/data/jotl.json": "d5f0b3f5e81770d5d430403db3c0b715da4b8aa7",
     "gloomhavensecretary/assets/font/PirataOne-Gloomhaven.ttf": "21c25adcd4f559bff7d01f1855b20c6ae30f7b9b",
