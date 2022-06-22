@@ -60,9 +60,11 @@ for (edition_path of edition_dirs) {
   edition_data['scenarios'] = load_file(edition_path, 'scenarios.json', []);
   edition_data['label'] = load_file(edition_path, 'label.json', {});
 
-  console.log("\n> Write file: '" + path.join(output_dir, (edition_data['edition']) + '.json') + "'");
+  const output_path = path.join(output_dir, (edition_data['edition']) + '.json');
 
-  fs.writeFile(path.join(output_dir, (edition_data['edition']) + '.json'), JSON.stringify(edition_data), 'utf8', (err) => {
+  console.log("\n> Write file: '" + output_path + "'");
+
+  fs.writeFile(output_path, JSON.stringify(edition_data), 'utf8', (err) => {
     if (err) {
       console.error(err);
     }
