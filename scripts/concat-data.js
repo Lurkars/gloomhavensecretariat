@@ -6,7 +6,7 @@ const output_dir = './src/assets/data'
 
 const load_subfolder = function (edition_path, folder, default_value) {
   const dir = path.join(edition_path, folder);
-  if (fs.lstatSync(dir).isDirectory()) {
+  if (fs.existsSync(dir) && fs.lstatSync(dir).isDirectory()) {
     console.log("\nLoad subfolder: '" + dir + "'");
     const files = fs.readdirSync(dir).map((file) => path.join(dir, file)).filter((file_path) =>
       fs.lstatSync(file_path).isFile()
@@ -25,16 +25,18 @@ const load_subfolder = function (edition_path, folder, default_value) {
     }
     return result;
   }
+  console.warn("\nCould not load subfolder: '" + dir + "'");
   return default_value;
 }
 
 const load_file = function (edition_path, file, default_value) {
   const file_path = path.join(edition_path, file);
-  console.log("\nLoad file: '" + file_path + "'");
-  if (fs.lstatSync(file_path).isFile()) {
+  if (fs.existsSync(file_path) && fs.lstatSync(file_path).isFile()) {
+    console.log("\nLoad file: '" + file_path + "'");
     const f = fs.readFileSync(file_path, 'utf8');
     return JSON.parse(f);
   }
+  console.warn("\nCould not load file: '" + file_path + "'");
   return default_value;
 }
 
