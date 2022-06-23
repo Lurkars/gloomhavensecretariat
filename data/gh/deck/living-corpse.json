@@ -1,6 +1,10 @@
 {
+  "edition": "gh",
+  "name": "living-corpse",
   "abilities": [
     {
+      "cardId" : 564,
+      "initiative": 21,
       "actions": [
         {
           "type": "move",
@@ -8,36 +12,37 @@
           "valueType": "plus"
         },
         {
+          "type": "condition",
+          "value": "muddle|immobilize",
           "subActions": [
             {
               "type": "specialTarget",
               "value": "enemy"
             }
-          ],
-          "type": "condition",
-          "value": "muddle|immobilize"
+          ]
         }
-      ],
-      "initiative": 21,
-      "name": "Living Corpse"
+      ]
     },
     {
-      "actions": [
-        {
-          "type": "move",
-          "value": 1,
-          "valueType": "plus"
-        },
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
-        }
-      ],
+      "cardId" : 565,
       "initiative": 47,
-      "name": "Living Corpse"
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
     },
     {
+      "cardId" : 566,
+      "initiative": 66,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -49,12 +54,12 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "initiative": 66,
-      "name": "Living Corpse",
-      "shuffle": true
+      ]
     },
     {
+      "cardId" : 567,
+      "initiative": 66,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -66,12 +71,11 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "initiative": 66,
-      "name": "Living Corpse",
-      "shuffle": true
+      ]
     },
     {
+      "cardId" : 568,
+      "initiative": 82,
       "actions": [
         {
           "type": "move",
@@ -83,11 +87,11 @@
           "value": 1,
           "valueType": "plus"
         }
-      ],
-      "initiative": 82,
-      "name": "Living Corpse"
+      ]
     },
     {
+      "cardId" : 569,
+      "initiative": 91,
       "actions": [
         {
           "type": "move",
@@ -98,11 +102,11 @@
           "type": "custom",
           "value": "Living Corpse suffers 1 damage."
         }
-      ],
-      "initiative": 91,
-      "name": "Living Corpse"
+      ]
     },
     {
+      "cardId" : 570,
+      "initiative": 71,
       "actions": [
         {
           "type": "move",
@@ -115,41 +119,37 @@
           "valueType": "plus"
         },
         {
+          "type": "condition",
+          "value": "poison",
           "subActions": [
             {
               "type": "specialTarget",
               "value": "adjacentEnemies"
             }
-          ],
-          "type": "condition",
-          "value": "poison"
+          ]
         }
-      ],
-      "initiative": 71,
-      "name": "Living Corpse"
+      ]
     },
     {
+      "cardId" : 571,
+      "initiative": 32,
       "actions": [
         {
+          "type": "attack",
+          "value": 2,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "push",
               "value": 1
             }
-          ],
-          "type": "attack",
-          "value": 2,
-          "valueType": "plus"
+          ]
         },
         {
           "type": "custom",
           "value": "Living Corpse suffers 1 damage."
         }
-      ],
-      "initiative": 32,
-      "name": "Living Corpse"
+      ]
     }
-  ],
-  "edition": "gh",
-  "name": "living-corpse"
+  ]
 }

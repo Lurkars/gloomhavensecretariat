@@ -68,6 +68,13 @@
     }
   }
 
+  .index {
+    position: absolute;
+    font-size: calc(var(--ghs-unit) * 1.3);
+    bottom: calc(var(--ghs-unit) * 1);
+    left: calc(var(--ghs-unit) * 1);
+  }
+
 
   &:hover {
     background-position: top;
@@ -168,8 +175,8 @@ ghs-action {
 
           ghs-actions {
             position: absolute;
-            top: calc(var(--ghs-unit) * 6);
-            height: calc(var(--ghs-unit) * 17.5);
+            top: calc(var(--ghs-unit) * 5.5);
+            height: calc(var(--ghs-unit) * 18);
           }
 
           .index {

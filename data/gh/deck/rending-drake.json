@@ -1,44 +1,48 @@
 {
+  "edition": "gh",
+  "name": "rending-drake",
   "abilities": [
     {
-      "actions": [
-        {
-          "type": "move",
-          "value": 1,
-          "valueType": "plus"
-        },
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
-        }
-      ],
+      "cardId" : 548,
       "initiative": 12,
-      "name": "Rending Drake"
-    },
-    {
       "actions": [
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
-        },
         {
           "type": "move",
           "value": 1,
-          "valueType": "minus"
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "minus"
         }
-      ],
+      ]
+    },
+    {
+      "cardId" : 549,
       "initiative": 13,
-      "name": "Rending Drake",
-      "shuffle": true
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
     },
     {
+      "cardId" : 550,
+      "initiative": 25,
       "actions": [
         {
           "type": "move",
@@ -50,11 +54,11 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "initiative": 25,
-      "name": "Rending Drake"
+      ]
     },
     {
+      "cardId" : 551,
+      "initiative": 39,
       "actions": [
         {
           "type": "move",
@@ -66,11 +70,11 @@
           "value": 1,
           "valueType": "plus"
         }
-      ],
-      "initiative": 39,
-      "name": "Rending Drake"
+      ]
     },
     {
+      "cardId" : 552,
+      "initiative": 54,
       "actions": [
         {
           "type": "move",
@@ -78,6 +82,9 @@
           "valueType": "minus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "range",
@@ -91,16 +98,13 @@
               "type": "condition",
               "value": "poison"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 54,
-      "name": "Rending Drake"
+      ]
     },
     {
+      "cardId" : 553,
+      "initiative": 59,
       "actions": [
         {
           "type": "move",
@@ -108,21 +112,22 @@
           "valueType": "minus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "target",
               "value": 2
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 59,
-      "name": "Rending Drake"
+      ]
     },
     {
+      "cardId" : 554,
+      "initiative": 72,
+      "shuffle": true,
       "actions": [
         {
           "type": "attack",
@@ -139,42 +144,37 @@
           "value": 2,
           "valueType": "minus"
         }
-      ],
-      "initiative": 72,
-      "name": "Rending Drake",
-      "shuffle": true
+      ]
     },
     {
+      "cardId" : 555,
+      "initiative": 6,
       "actions": [
         {
           "type": "shield",
           "value": 2
         },
         {
+          "type": "heal",
+          "value": 2,
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self"
             }
-          ],
-          "type": "heal",
-          "value": 2
+          ]
         },
         {
+          "type": "condition",
+          "value": "strengthen",
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self"
             }
-          ],
-          "type": "condition",
-          "value": "strengthen"
+          ]
         }
-      ],
-      "initiative": 6,
-      "name": "Rending Drake"
+      ]
     }
-  ],
-  "edition": "gh",
-  "name": "rending-drake"
+  ]
 }

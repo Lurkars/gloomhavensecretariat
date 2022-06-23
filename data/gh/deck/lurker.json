@@ -1,38 +1,42 @@
 {
+  "edition": "gh",
+  "name": "lurker",
   "abilities": [
     {
+      "cardId" : 612,
+      "initiative": 11,
+      "shuffle": true,
       "actions": [
         {
           "type": "shield",
           "value": 1
         },
         {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
           "subActions": [
             {
               "type": "shield",
               "value": 2
             }
-          ],
-          "type": "element",
-          "value": "ice",
-          "valueType": "minus"
+          ]
         },
         {
+          "type": "condition",
+          "value": "wound",
           "subActions": [
             {
               "type": "specialTarget",
               "value": "adjacentEnemies"
             }
-          ],
-          "type": "condition",
-          "value": "wound"
+          ]
         }
-      ],
-      "initiative": 11,
-      "name": "Lurker",
-      "shuffle": true
+      ]
     },
     {
+      "cardId" : 613,
+      "initiative": 28,
       "actions": [
         {
           "type": "move",
@@ -44,11 +48,11 @@
           "value": 1,
           "valueType": "minus"
         }
-      ],
-      "initiative": 28,
-      "name": "Lurker"
+      ]
     },
     {
+      "cardId" : 614,
+      "initiative": 38,
       "actions": [
         {
           "type": "move",
@@ -60,11 +64,11 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "initiative": 38,
-      "name": "Lurker"
+      ]
     },
     {
+      "cardId" : 615,
+      "initiative": 38,
       "actions": [
         {
           "type": "move",
@@ -72,21 +76,21 @@
           "valueType": "plus"
         },
         {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "specialTarget",
               "value": "enemyOneAll"
             }
-          ],
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 38,
-      "name": "Lurker"
+      ]
     },
     {
+      "cardId" : 616,
+      "initiative": 61,
       "actions": [
         {
           "type": "move",
@@ -98,28 +102,28 @@
           "value": 1,
           "valueType": "plus"
         }
-      ],
-      "initiative": 61,
-      "name": "Lurker"
+      ]
     },
     {
+      "cardId" : 617,
+      "initiative": 64,
       "actions": [
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "specialTarget",
               "value": "adjacentEnemies"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 64,
-      "name": "Lurker"
+      ]
     },
     {
+      "cardId" : 618,
+      "initiative": 41,
       "actions": [
         {
           "type": "move",
@@ -127,38 +131,39 @@
           "valueType": "plus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "condition",
               "value": "wound"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         },
         {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
           "subActions": [
             {
+              "type": "condition",
+              "value": "strengthen",
               "subActions": [
                 {
                   "type": "specialTarget",
                   "value": "self"
                 }
-              ],
-              "type": "condition",
-              "value": "strengthen"
+              ]
             }
-          ],
-          "type": "element",
-          "value": "ice",
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 41,
-      "name": "Lurker"
+      ]
     },
     {
+      "cardId" : 619,
+      "initiative": 23,
+      "shuffle": true,
       "actions": [
         {
           "type": "shield",
@@ -178,12 +183,7 @@
           "type": "element",
           "value": "ice"
         }
-      ],
-      "initiative": 23,
-      "name": "Lurker",
-      "shuffle": true
+      ]
     }
-  ],
-  "edition": "gh",
-  "name": "lurker"
+  ]
 }

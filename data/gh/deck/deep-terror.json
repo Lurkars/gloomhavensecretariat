@@ -1,8 +1,15 @@
 {
+  "edition": "gh",
+  "name": "deep-terror",
   "abilities": [
     {
+      "cardId" : 732,
+      "initiative": 65,
       "actions": [
         {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "range",
@@ -16,18 +23,19 @@
               "type": "condition",
               "value": "curse"
             }
-          ],
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 65,
-      "name": "Deep Terror"
+      ]
     },
     {
+      "cardId" : 733,
+      "initiative": 60,
+      "shuffle": true,
       "actions": [
         {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "area",
@@ -37,19 +45,19 @@
               "type": "pierce",
               "value": 3
             }
-          ],
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 60,
-      "name": "Deep Terror",
-      "shuffle": true
+      ]
     },
     {
+      "cardId" : 734,
+      "initiative": 60,
+      "shuffle": true,
       "actions": [
         {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "area",
@@ -59,30 +67,29 @@
               "type": "pierce",
               "value": 3
             }
-          ],
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 60,
-      "name": "Deep Terror",
-      "shuffle": true
+      ]
     },
     {
+      "cardId" : 735,
+      "initiative": 84,
       "actions": [
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "specialTarget",
               "value": "adjacentEnemies"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         },
         {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "range",
@@ -92,29 +99,29 @@
               "type": "condition",
               "value": "wound"
             }
-          ],
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 84,
-      "name": "Deep Terror"
+      ]
     },
     {
+      "cardId" : 736,
+      "initiative": 75,
       "actions": [
         {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "condition",
               "value": "poison"
             }
-          ],
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
+          ]
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "range",
@@ -124,18 +131,18 @@
               "type": "condition",
               "value": "immobilize"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 75,
-      "name": "Deep Terror"
+      ]
     },
     {
+      "cardId" : 737,
+      "initiative": 75,
       "actions": [
         {
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "specialTarget",
@@ -145,12 +152,12 @@
               "type": "condition",
               "value": "disarm"
             }
-          ],
-          "type": "attack",
-          "value": 2,
-          "valueType": "minus"
+          ]
         },
         {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "range",
@@ -160,18 +167,18 @@
               "type": "target",
               "value": 2
             }
-          ],
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 75,
-      "name": "Deep Terror"
+      ]
     },
     {
+      "cardId" : 738,
+      "initiative": 96,
       "actions": [
         {
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "range",
@@ -181,43 +188,36 @@
               "type": "custom",
               "value": "Summon normal Deep Terror in a hex adjacent to the target"
             }
-          ],
-          "type": "attack",
-          "value": 2,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 96,
-      "name": "Deep Terror"
+      ]
     },
     {
+      "cardId" : 739,
+      "initiative": 54,
       "actions": [
         {
+          "type": "condition",
+          "value": "wound|poison",
           "subActions": [
             {
               "type": "specialTarget",
               "value": "adjacentEnemies"
             }
-          ],
-          "type": "condition",
-          "value": "wound|poison"
+          ]
         },
         {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "range",
               "value": 4
             }
-          ],
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 54,
-      "name": "Deep Terror"
+      ]
     }
-  ],
-  "edition": "gh",
-  "name": "deep-terror"
+  ]
 }

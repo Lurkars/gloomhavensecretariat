@@ -1,6 +1,10 @@
 {
+  "edition": "gh",
+  "name": "archer",
   "abilities": [
     {
+      "cardId" : 532,
+      "initiative": 16,
       "actions": [
         {
           "type": "move",
@@ -12,11 +16,11 @@
           "value": 1,
           "valueType": "minus"
         }
-      ],
-      "initiative": 16,
-      "name": "Archer"
+      ]
     },
     {
+      "cardId" : 533,
+      "initiative": 31,
       "actions": [
         {
           "type": "move",
@@ -28,11 +32,11 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "initiative": 31,
-      "name": "Archer"
+      ]
     },
     {
+      "cardId" : 534,
+      "initiative": 32,
       "actions": [
         {
           "type": "move",
@@ -40,21 +44,22 @@
           "valueType": "plus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "range",
-              "value": -1
+              "value": 1,
+              "valueType": "minus"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 32,
-      "name": "Archer"
+      ]
     },
     {
+      "cardId" : 535,
+      "initiative": 44,
       "actions": [
         {
           "type": "move",
@@ -66,46 +71,46 @@
           "value": 1,
           "valueType": "plus"
         }
-      ],
-      "initiative": 44,
-      "name": "Archer"
+      ]
     },
     {
+      "cardId" : 536,
+      "initiative": 56,
       "actions": [
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "target",
               "value": 2
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 56,
-      "name": "Archer"
+      ]
     },
     {
+      "cardId" : 537,
+      "initiative": 68,
+      "shuffle": true,
       "actions": [
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "range",
               "value": 1
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 68,
-      "name": "Archer",
-      "shuffle": true
+      ]
     },
     {
+      "cardId" : 538,
+      "initiative": 14,
       "actions": [
         {
           "type": "move",
@@ -113,21 +118,22 @@
           "valueType": "minus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "custom",
               "value": "Create a 3 damage trap in an adjacent empty hex closest to an enemy."
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 14,
-      "name": "Archer"
+      ]
     },
     {
+      "cardId" : 539,
+      "initiative": 29,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -135,6 +141,9 @@
           "valueType": "plus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "range",
@@ -145,17 +154,9 @@
               "type": "condition",
               "value": "immobilize"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 29,
-      "name": "Archer",
-      "shuffle": true
+      ]
     }
-  ],
-  "edition": "gh",
-  "name": "archer"
+  ]
 }

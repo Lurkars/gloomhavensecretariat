@@ -1,8 +1,8 @@
 {
-  "boss": false,
   "count": 10,
   "edition": "jotl",
   "name": "rat-monstrosity",
+  "deck": "monstrosity",
   "baseStat": {
     "actions": [
       {
@@ -110,7 +110,6 @@
       "type": "elite"
     },
     {
-
       "actions": [
         {
           "type": "custom",
@@ -193,7 +192,7 @@
           "value": "Advantage"
         }
       ],
-      "attack":4,
+      "attack": 4,
       "health": 13,
       "level": 5,
       "movement": 2,

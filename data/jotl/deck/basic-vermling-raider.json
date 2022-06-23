@@ -1,0 +1,101 @@
+{
+  "edition": "jotl",
+  "name": "basic-vermling-raider",
+  "abilities": [
+    {
+      "cardId" : 368,
+      "initiative": 85,
+      "name": "Screaming Shot",
+      "shuffle": true,
+      "hint": "Shuffle this deck at the end of the round.",
+      "actions": [
+        {
+          "type": "push",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 369,
+      "initiative": 36,
+      "name": "Carefule Throw",
+      "hint": "They will move to avoid being adjacent to their focus.",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 370,
+      "initiative": 59,
+      "name": "Dual Daggers",
+      "hint": "They are not moving this round.",
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            },
+            {
+              "type": "target",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 371,
+      "initiative": 50,
+      "name": "Nothing Special",
+      "hint": "This is exactly how they acted last scenario.",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    }
+  ]
+}

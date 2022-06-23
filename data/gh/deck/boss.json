@@ -1,68 +1,72 @@
 {
+  "edition": "gh",
+  "name": "boss",
   "abilities": [
     {
-      "actions": [
-        {
-          "type": "special",
-          "value": 2
-        }
-      ],
+      "cardId" : 572,
       "initiative": 11,
-      "name": "Boss"
-    },
-    {
       "actions": [
         {
           "type": "special",
           "value": 2
         }
-      ],
+      ]
+    },
+    {
+      "cardId" : 573,
       "initiative": 14,
-      "name": "Boss"
-    },
-    {
       "actions": [
         {
           "type": "special",
           "value": 2
         }
-      ],
+      ]
+    },
+    {
+      "cardId" : 574,
       "initiative": 17,
-      "name": "Boss",
-      "shuffle": true
-    },
-    {
+      "shuffle": true,
       "actions": [
         {
           "type": "special",
-          "value": 1
+          "value": 2
         }
-      ],
+      ]
+    },
+    {
+      "cardId" : 575,
       "initiative": 85,
-      "name": "Boss",
-      "shuffle": true
-    },
-    {
+      "shuffle": true,
       "actions": [
         {
           "type": "special",
           "value": 1
         }
-      ],
+      ]
+    },
+    {
+      "cardId" : 576,
       "initiative": 79,
-      "name": "Boss"
-    },
-    {
       "actions": [
         {
           "type": "special",
           "value": 1
         }
-      ],
-      "initiative": 73,
-      "name": "Boss"
+      ]
     },
     {
+      "cardId" : 577,
+      "initiative": 73,
+      "actions": [
+        {
+          "type": "special",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "cardId" : 578,
+      "initiative": 36,
       "actions": [
         {
           "type": "move",
@@ -74,11 +78,11 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "initiative": 36,
-      "name": "Boss"
+      ]
     },
     {
+      "cardId" : 579,
+      "initiative": 52,
       "actions": [
         {
           "type": "move",
@@ -86,6 +90,9 @@
           "valueType": "minus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "range",
@@ -95,16 +102,9 @@
               "type": "target",
               "value": 2
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 52,
-      "name": "Boss"
+      ]
     }
-  ],
-  "edition": "gh",
-  "name": "boss"
+  ]
 }

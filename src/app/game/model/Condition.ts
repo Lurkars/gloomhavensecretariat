@@ -1,4 +1,4 @@
-export type Condition = ActionCondition | EntityCondition | RoundCondition;
+export type Condition = ActionCondition | EntityCondition | CharacterCondition | UpgradeCondition | StackableCondition | RoundCondition;
 
 export enum ActionCondition {
   stun = "stun",
@@ -12,6 +12,14 @@ export enum ActionCondition {
   curse = "curse",
   bless = "bless",
   regenerate = "regenerate",
+  chill = "chill",
+  infect = "infect",
+  ward = "ward",
+  bane = "bane",
+  brittle = "brittle",
+  impair = "impair",
+  poison_upgrade = "poison_upgrade",
+  wound_upgrade = "wound_upgrade",
 }
 
 export enum EntityCondition {
@@ -24,6 +32,24 @@ export enum EntityCondition {
   invisible = "invisible",
   strengthen = "strengthen",
   regenerate = "regenerate",
+  chill = "chill",
+  infect = "infect",
+  ward = "ward",
+  bane = "bane",
+  brittle = "brittle",
+}
+
+export enum CharacterCondition {
+  impair = "impair",
+}
+
+export enum UpgradeCondition {
+  poison_upgrade = "poison_upgrade",
+  wound_upgrade = "wound_upgrade",
+}
+
+export enum StackableCondition {
+  ward = "ward",
 }
 
 export enum RoundCondition {
@@ -32,7 +58,7 @@ export enum RoundCondition {
   disarm = "disarm",
   muddle = "muddle",
   invisible = "invisible",
-  strengthen = "strengthen"
+  strengthen = "strengthen",
 }
 
-export const Condition = { ...ActionCondition, ...EntityCondition, ...RoundCondition };
+export const Condition = { ...ActionCondition, ...EntityCondition, ...CharacterCondition, ...UpgradeCondition, ...StackableCondition, ...RoundCondition };

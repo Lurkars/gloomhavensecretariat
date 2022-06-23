@@ -7,9 +7,14 @@
     <div class="card-back ability-back" (click)="open()">
       <div *ngIf="ability">
         <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
-        <span class="name">{{ability.name}}</span>
-        <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="hexSize()"></ghs-actions>
+        <span class="name">{{(ability.name ? 'data.ability.' + ability.name : (monster.deck != monster.name ? 'data.deck.' +
+          monster.deck : 'data.monster.' + monster.name)) |
+          ghsLabel}}</span>
+        <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="hexSize()" [hint]="ability.hint">
+        </ghs-actions>
         <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
+        <span class="index" *ngIf="!ability.cardId">[{{abilityIndex(ability) + 1}}]</span>
+        <span class="index" *ngIf="ability.cardId">{{ability.cardId}}</span>
       </div>
     </div>
   </div>
@@ -31,12 +36,16 @@
             <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
             <span class="name">{{'data.monster.' + monster.name | ghsLabel}}</span>
           </a>
-          <div class="card-back ability-back">
+          <div class="card-back ability-back" *ngIf="ability">
             <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
-            <span class="name">{{ability.name}}</span>
-            <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="hexSize()"></ghs-actions>
+            <span class="name">{{(ability.name ? 'data.ability.' + ability.name : (monster.deck != monster.name ? 'data.deck.' +
+              monster.deck : 'data.monster.' + monster.name)) |
+              ghsLabel}}</span>
+            <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="hexSize()" [hint]="ability.hint">
+            </ghs-actions>
             <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
-            <span class="index">{{abilityIndex(ability) + 1}}</span>
+            <span class="index" *ngIf="!ability.cardId">[{{abilityIndex(ability) + 1}}]</span>
+            <span class="index" *ngIf="ability.cardId">{{ability.cardId}}</span>
           </div>
         </div>
       </div>
@@ -48,12 +57,15 @@
         <div class="card flipped">
           <a class="card-front ability-front">
           </a>
-          <div class="card-back ability-back">
+          <div class="card-back ability-back" *ngIf="ability">
             <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
-            <span class="name">{{ability.name}}</span>
-            <ghs-actions [actions]="ability.actions" [monster]="monster"></ghs-actions>
+            <span class="name">{{(ability.name ? 'data.ability.' + ability.name : (monster.deck != monster.name ? 'data.deck.' +
+              monster.deck : 'data.monster.' + monster.name)) |
+              ghsLabel}}</span>
+            <ghs-actions [actions]="ability.actions" [monster]="monster" [hint]="ability.hint"></ghs-actions>
             <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
-            <span class="index">{{abilityIndex(ability) + 1}}</span>
+            <span class="index" *ngIf="!ability.cardId">[{{abilityIndex(ability) + 1}}]</span>
+            <span class="index" *ngIf="ability.cardId">{{ability.cardId}}</span>
           </div>
         </div>
       </div>

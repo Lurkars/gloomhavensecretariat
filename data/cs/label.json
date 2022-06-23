@@ -1,0 +1,27 @@
+{
+  "en": {
+    "character": {
+      "amber-aegis": "Amber Aegis",
+      "artificer": "Artificer",
+      "brightspark": "Brightspark",
+      "bombard": "Bombard",
+      "chainguard": "Chainguard",
+      "chieftain": "Chieftain",
+      "fire-knight": "Fire Knight",
+      "hierophant": "Hierophant",
+      "hollowpact": "Hollowpact",
+      "luminary": "Luminary",
+      "mirefoot": "Mirefoot",
+      "ruinmaw": "Ruinmaw",
+      "spirit-caller": "Spirit Caller",
+      "starslinger": "Starslinger"
+    },
+    "edition": {
+      "cs": "The Crimson Scales"
+    },
+    "monster": {},
+    "deck": {},
+    "ability": {},
+    "scenario": {}
+  }
+}

@@ -7,7 +7,8 @@ export class Settings {
   fullscreen: boolean = false;
   zoom: number = 100;
   locale: string = "en";
-  editionDataUrls: string[] = [ "./assets/data/gh.json", "./assets/data/jotl.json" ];
+  editionDataUrls: string[] = [];
+  excludeEditionDataUrls: string[] = [];
   spoilers: string[] = [];
   serverUrl: string | undefined;
   serverPort: number | undefined;

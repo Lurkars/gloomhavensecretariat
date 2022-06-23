@@ -1,8 +1,8 @@
 {
-  "boss": false,
-  "count": 10,
+  "count": 6,
   "edition": "jotl",
   "name": "blood-monstrosity",
+  "deck": "monstrosity",
   "baseStat": {
     "actions": [
       {

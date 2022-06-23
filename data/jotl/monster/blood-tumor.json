@@ -16,13 +16,10 @@
         {
           "type": "heal",
           "value": "C+2",
-          "valueType": "fixed",
           "subActions": [
             {
-              "subActions": [],
               "type": "specialTarget",
-              "value": "self",
-              "valueType": "fixed"
+              "value": "self"
             }
           ]
         }
@@ -31,13 +28,10 @@
         {
           "type": "heal",
           "value": "2",
-          "valueType": "fixed",
           "subActions": [
             {
-              "subActions": [],
               "type": "specialTarget",
-              "value": "allAllies",
-              "valueType": "fixed"
+              "value": "allAllies"
             }
           ]
         }

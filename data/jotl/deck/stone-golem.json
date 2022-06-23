@@ -1,0 +1,167 @@
+{
+  "edition": "jotl",
+  "name": "stone-golem",
+  "abilities": [
+    {
+      "cardId" : 404,
+      "initiative": 10,
+      "name": "Runic Feedback",
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Any time a figure attacks the Stone Golem this round, that figure suffers 3 damags."
+        }
+      ]
+    },
+    {
+      "cardId" : 405,
+      "initiative": 28,
+      "name": "Taxing Advance",
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "custom",
+          "value": "If the Move ability was perfomed, the Stone Gloem suffers 1 damage."
+        }
+      ]
+    },
+    {
+      "cardId" : 406,
+      "initiative": 51,
+      "name": "Hasty Assault",
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
+    },
+    {
+      "cardId" : 407,
+      "initiative": 65,
+      "name": "Nothing Special",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId" : 408,
+      "initiative": 72,
+      "name": "Sacrificial Hurl",
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            },
+            {
+              "type": "custom",
+              "value": "If this attack is perfomed, the Stone Golem suffers 2 damage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 409,
+      "initiative": 90,
+      "name": "Calculated Strike",
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId" : 410,
+      "initiative": 83,
+      "name": "Ground Pound",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 411,
+      "initiative": 28,
+      "name": "Runic Draw",
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            },
+            {
+              "type": "pull",
+              "value": 2
+            },
+            {
+              "type": "condition",
+              "value": "immobilize"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

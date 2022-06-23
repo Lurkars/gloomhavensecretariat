@@ -1,0 +1,174 @@
+{
+  "edition": "jotl",
+  "name": "vermling-scout",
+  "abilities": [
+    {
+      "cardId" : 460,
+      "initiative": 29,
+      "name": "Short Bow",
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 461,
+      "initiative": 40,
+      "name": "Hasty Assault",
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
+    },
+    {
+      "cardId" : 462,
+      "initiative": 53,
+      "name": "Nothing Special",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId" : 463,
+      "initiative": 53,
+      "name": "Rancid Arrow",
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            },
+            {
+              "type": "target",
+              "value": 2
+            },
+            {
+              "type": "condition",
+              "value": "poison"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 464,
+      "initiative": 69,
+      "name": "Calculated Strike",
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId" : 465,
+      "initiative": 92,
+      "name": "Noxious Blade",
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 466,
+      "initiative": 78,
+      "name": "Rapid Bolts",
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "munus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4
+            },
+            {
+              "type": "target",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 467,
+      "initiative": 40,
+      "name": "Greed",
+      "shuffle": 1,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump"
+            }
+          ]
+        },
+        {
+          "type": "loot",
+          "value": 1
+        }
+      ]
+    }
+  ]
+}

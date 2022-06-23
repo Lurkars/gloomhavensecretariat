@@ -1,6 +1,11 @@
 {
+  "edition": "gh",
+  "name": "living-spirit",
   "abilities": [
     {
+      "cardId" : 580,
+      "initiative": 22,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -8,22 +13,22 @@
           "valueType": "minus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "condition",
               "value": "muddle"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 22,
-      "name": "Living Spirit",
-      "shuffle": true
+      ]
     },
     {
+      "cardId" : 581,
+      "initiative": 33,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -31,22 +36,21 @@
           "valueType": "plus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "specialTarget",
               "value": "allEnemiesRange"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 33,
-      "name": "Living Spirit",
-      "shuffle": true
+      ]
     },
     {
+      "cardId" : 582,
+      "initiative": 48,
       "actions": [
         {
           "type": "move",
@@ -58,11 +62,11 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "initiative": 48,
-      "name": "Living Spirit"
+      ]
     },
     {
+      "cardId" : 583,
+      "initiative": 48,
       "actions": [
         {
           "type": "move",
@@ -74,32 +78,33 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "initiative": 48,
-      "name": "Living Spirit"
+      ]
     },
     {
+      "cardId" : 584,
+      "initiative": 61,
       "actions": [
         {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "range",
-              "value": -1
+              "value": 1,
+              "valueType": "minus"
             },
             {
               "type": "target",
               "value": 2
             }
-          ],
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 61,
-      "name": "Living Spirit"
+      ]
     },
     {
+      "cardId" : 585,
+      "initiative": 75,
       "actions": [
         {
           "type": "move",
@@ -107,31 +112,32 @@
           "valueType": "minus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "range",
-              "value": -1
+              "value": 1,
+              "valueType": "minus"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "plus"
+          ]
         },
         {
+          "type": "heal",
+          "value": 1,
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self"
             }
-          ],
-          "type": "heal",
-          "value": 1
+          ]
         }
-      ],
-      "initiative": 75,
-      "name": "Living Spirit"
+      ]
     },
     {
+      "cardId" : 586,
+      "initiative": 55,
       "actions": [
         {
           "type": "move",
@@ -139,24 +145,24 @@
           "valueType": "plus"
         },
         {
+          "type": "condition",
+          "value": "curse",
           "subActions": [
             {
               "type": "specialTarget",
               "value": "allEnemiesRange"
             }
-          ],
-          "type": "condition",
-          "value": "curse"
+          ]
         },
         {
           "type": "element",
           "value": "ice"
         }
-      ],
-      "initiative": 55,
-      "name": "Living Spirit"
+      ]
     },
     {
+      "cardId" : 587,
+      "initiative": 67,
       "actions": [
         {
           "type": "move",
@@ -169,21 +175,17 @@
           "valueType": "plus"
         },
         {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
           "subActions": [
             {
               "type": "condition",
               "value": "stun"
             }
-          ],
-          "type": "element",
-          "value": "ice",
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 67,
-      "name": "Living Spirit"
+      ]
     }
-  ],
-  "edition": "gh",
-  "name": "living-spirit"
+  ]
 }

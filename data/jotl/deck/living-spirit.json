@@ -1,0 +1,232 @@
+{
+  "edition": "jotl",
+  "name": "living-spirit",
+  "abilities": [
+    {
+      "cardId" : 452,
+      "initiative": 22,
+      "name": "Sap Strength",
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4
+            },
+            {
+              "type": "condition",
+              "value": "muddle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 453,
+      "initiative": 33,
+      "name": "Booming Scream",
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            },
+            {
+              "type": "specialTarget",
+              "value": "allEnemiesRange"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 454,
+      "initiative": 48,
+      "name": "Nothing Special",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 455,
+      "initiative": 48,
+      "name": "Nothing Special",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 456,
+      "initiative": 61,
+      "name": "Coubled Chain",
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            },
+            {
+              "type": "target",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 457,
+      "initiative": 75,
+      "name": "Leech Warmth",
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId" : 458,
+      "initiative": 55,
+      "name": "Angry Howl",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "condition",
+          "value": "curse",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            },
+            {
+              "type": "specialTarget",
+              "value": "allEnemiesRange"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice"
+        }
+      ]
+    },
+    {
+      "cardId" : 459,
+      "initiative": 67,
+      "name": "Icy Glare",
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "disarm"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

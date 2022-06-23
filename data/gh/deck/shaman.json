@@ -1,6 +1,10 @@
 {
+  "edition": "gh",
+  "name": "shaman",
   "abilities": [
     {
+      "cardId" : 588,
+      "initiative": 8,
       "actions": [
         {
           "type": "move",
@@ -8,21 +12,21 @@
           "valueType": "plus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "condition",
               "value": "disarm"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 8,
-      "name": "Shaman"
+      ]
     },
     {
+      "cardId" : 589,
+      "initiative": 8,
       "actions": [
         {
           "type": "move",
@@ -30,21 +34,22 @@
           "valueType": "minus"
         },
         {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "condition",
               "value": "immobilize"
             }
-          ],
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 8,
-      "name": "Shaman"
+      ]
     },
     {
+      "cardId" : 590,
+      "initiative": 23,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -52,21 +57,21 @@
           "valueType": "plus"
         },
         {
+          "type": "heal",
+          "value": 3,
           "subActions": [
             {
               "type": "range",
               "value": 3
             }
-          ],
-          "type": "heal",
-          "value": 3
+          ]
         }
-      ],
-      "initiative": 23,
-      "name": "Shaman",
-      "shuffle": true
+      ]
     },
     {
+      "cardId" : 591,
+      "initiative": 23,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -74,37 +79,36 @@
           "valueType": "plus"
         },
         {
+          "type": "heal",
+          "value": 3,
           "subActions": [
             {
               "type": "range",
               "value": 3
             }
-          ],
-          "type": "heal",
-          "value": 3
+          ]
         }
-      ],
-      "initiative": 23,
-      "name": "Shaman",
-      "shuffle": true
+      ]
     },
     {
-      "actions": [
-        {
-          "type": "move",
-          "value": 0,
-          "valueType": "plus"
-        },
-        {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
-        }
-      ],
+      "cardId" : 592,
       "initiative": 62,
-      "name": "Shaman"
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
     },
     {
+      "cardId" : 593,
+      "initiative": 74,
       "actions": [
         {
           "type": "move",
@@ -116,11 +120,11 @@
           "value": 1,
           "valueType": "plus"
         }
-      ],
-      "initiative": 74,
-      "name": "Shaman"
+      ]
     },
     {
+      "cardId" : 594,
+      "initiative": 89,
       "actions": [
         {
           "type": "move",
@@ -128,30 +132,30 @@
           "valueType": "minus"
         },
         {
+          "type": "heal",
+          "value": 1,
           "subActions": [
             {
               "type": "specialTarget",
               "value": "adjacentAlliesAffect"
             }
-          ],
-          "type": "heal",
-          "value": 1
+          ]
         },
         {
+          "type": "condition",
+          "value": "bless",
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self"
             }
-          ],
-          "type": "condition",
-          "value": "bless"
+          ]
         }
-      ],
-      "initiative": 89,
-      "name": "Shaman"
+      ]
     },
     {
+      "cardId" : 595,
+      "initiative": 9,
       "actions": [
         {
           "type": "move",
@@ -159,6 +163,9 @@
           "valueType": "plus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "condition",
@@ -168,16 +175,9 @@
               "type": "target",
               "value": 2
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 9,
-      "name": "Shaman"
+      ]
     }
-  ],
-  "edition": "gh",
-  "name": "shaman"
+  ]
 }

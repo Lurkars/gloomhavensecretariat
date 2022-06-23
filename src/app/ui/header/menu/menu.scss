@@ -99,6 +99,7 @@
       pointer-events: none;
       border-bottom: calc(var(--ghs-unit) * 0.1) solid var(--ghs-color-gray);
       margin-bottom: calc(var(--ghs-unit) * 1);
+      white-space: nowrap;
 
       a,
       label {

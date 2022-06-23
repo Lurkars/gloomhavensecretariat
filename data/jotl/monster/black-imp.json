@@ -1,8 +1,8 @@
 {
-  "boss": false,
   "count": 10,
   "edition": "jotl",
   "name": "black-imp",
+  "deck" : "imp",
   "baseStat": {
     "actions": [],
     "immunities": [],

@@ -1,6 +1,10 @@
 {
+  "edition": "gh",
+  "name": "ooze",
   "abilities": [
     {
+      "cardId" : 692,
+      "initiative": 36,
       "actions": [
         {
           "type": "move",
@@ -12,11 +16,11 @@
           "value": 1,
           "valueType": "minus"
         }
-      ],
-      "initiative": 36,
-      "name": "Ooze"
+      ]
     },
     {
+      "cardId" : 693,
+      "initiative": 57,
       "actions": [
         {
           "type": "move",
@@ -28,13 +32,16 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "initiative": 57,
-      "name": "Ooze"
+      ]
     },
     {
+      "cardId" : 694,
+      "initiative": 59,
       "actions": [
         {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "target",
@@ -44,16 +51,13 @@
               "type": "condition",
               "value": "poison"
             }
-          ],
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 59,
-      "name": "Ooze"
+      ]
     },
     {
+      "cardId" : 695,
+      "initiative": 66,
       "actions": [
         {
           "type": "move",
@@ -61,51 +65,51 @@
           "valueType": "minus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "range",
               "value": 1
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "plus"
+          ]
         }
-      ],
+      ]
+    },
+    {
+      "cardId" : 696,
+      "initiative": 94,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Ooze suffers 2 damage."
+        },
+        {
+          "type": "custom",
+          "value": "Summon normal Ooze with a hit point value equal to the summoning Ooze's current hit point value (limited by a normal Ooze's specified maximum hit point value)"
+        }
+      ]
+    },
+    {
+      "cardId" : 697,
+      "initiative": 94,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Ooze suffers 2 damage."
+        },
+        {
+          "type": "custom",
+          "value": "Summon normal Ooze with a hit point value equal to the summoning Ooze's current hit point value (limited by a normal Ooze's specified maximum hit point value)"
+        }
+      ]
+    },
+    {
+      "cardId" : 698,
       "initiative": 66,
-      "name": "Ooze"
-    },
-    {
-      "actions": [
-        {
-          "type": "custom",
-          "value": "Ooze suffers 2 damage."
-        },
-        {
-          "type": "custom",
-          "value": "Summon normal Ooze with a hit point value equal to the summoning Ooze's current hit point value (limited by a normal Ooze's specified maximum hit point value)"
-        }
-      ],
-      "initiative": 94,
-      "name": "Ooze",
-      "shuffle": true
-    },
-    {
-      "actions": [
-        {
-          "type": "custom",
-          "value": "Ooze suffers 2 damage."
-        },
-        {
-          "type": "custom",
-          "value": "Summon normal Ooze with a hit point value equal to the summoning Ooze's current hit point value (limited by a normal Ooze's specified maximum hit point value)"
-        }
-      ],
-      "initiative": 94,
-      "name": "Ooze",
-      "shuffle": true
-    },
-    {
       "actions": [
         {
           "type": "move",
@@ -117,47 +121,44 @@
           "value": 1
         },
         {
+          "type": "heal",
+          "value": 2,
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self"
             }
-          ],
-          "type": "heal",
-          "value": 2
+          ]
         }
-      ],
-      "initiative": 66,
-      "name": "Ooze"
+      ]
     },
     {
+      "cardId" : 699,
+      "initiative": 85,
       "actions": [
         {
+          "type": "condition",
+          "value": "push|poison",
           "subActions": [
             {
               "type": "specialTarget",
               "value": "adjacentEnemies"
             }
-          ],
-          "type": "condition",
-          "value": "push|poison"
+          ]
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "range",
-              "value": -1
+              "value": 1,
+              "valueType": "minus"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 85,
-      "name": "Ooze"
+      ]
     }
-  ],
-  "edition": "gh",
-  "name": "ooze"
+  ]
 }

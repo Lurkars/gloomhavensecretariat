@@ -21,6 +21,7 @@ export class ActionsComponent {
   @Input() inline: boolean = false;
   @Input() right: boolean = false;
   @Input() hexSize!: number;
+  @Input() hint!: string | undefined;
   ActionType = ActionType;
 
 }
@@ -75,7 +76,7 @@ export class ActionComponent {
     return stat;
   }
 
-  getConditions(action: Action): string[] {
+  getValues(action: Action): string[] {
     if (action.value && typeof action.value === "string") {
       return action.value.split('|');
     }

@@ -1,0 +1,270 @@
+{
+  "edition": "jotl",
+  "name": "chaos-demon",
+  "abilities": [
+    {
+      "cardId" : 412,
+      "initiative": 13,
+      "name": "Chilling Breath",
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(1,0,true)|(0,1,false)|(1,1,true)"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Any time a figure attacks the Chaos Demon this round, that figure suffer 2 damage"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 413,
+      "initiative": 1,
+      "name": "Heat Blast",
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "wound"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 414,
+      "initiative": 67,
+      "name": "Seismic Punch",
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "push",
+              "value": 2
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "area",
+                  "value": "(1,0,true)|(0,1,false)|(1,1,true)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 415,
+      "initiative": 20,
+      "name": "Whirlwind",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(1,0,true)|(0,1,true)|(1,1,true)"
+            },
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "air",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 416,
+      "initiative": 41,
+      "name": "Flashing Claws",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Advantage"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 4,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 417,
+      "initiative": 52,
+      "name": "Black Tendrils",
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "All enemies adjacent to the target suffer 1 damage"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 418,
+      "initiative": 76,
+      "name": "Mana Explosion",
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "fire|ice|air|earth|light|dark",
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId" : 419,
+      "initiative": 98,
+      "name": "Hungry Maw",
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "all",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "disarm"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

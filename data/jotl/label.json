@@ -30,6 +30,12 @@
       "vermling-scout": "Ratzenspäher",
       "zealot": "Fanatiker"
     },
+    "deck": {
+      "boss": "Boss",
+      "monstrosity": "Monstösität",
+      "imp": "Wicht"
+    },
+    "ability": {},
     "scenario": {
       "Roadside Ambush": "Straßenraub",
       "A Hole in the Wall": "Mauerloch",
@@ -89,6 +95,12 @@
       "vermling-scout": "Vermling Scout",
       "zealot": "Zealot"
     },
+    "deck": {
+      "boss": "Boss",
+      "monstrosity": "Monstrosity",
+      "imp": "Imp"
+    },
+    "ability": {},
     "scenario": {}
   }
 }

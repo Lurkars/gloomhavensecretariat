@@ -1,6 +1,6 @@
 import { Ability } from "../model/Ability";
 import { Character } from "../model/Character";
-import { Condition, EntityCondition } from "../model/Condition";
+import { CharacterCondition, Condition, EntityCondition, StackableCondition, UpgradeCondition } from "../model/Condition";
 import { CharacterData } from "../model/data/CharacterData";
 import { DeckData } from "../model/data/DeckData";
 import { EditionData } from "../model/data/EditionData";
@@ -60,12 +60,36 @@ export class GameManager {
     return this.editionData.filter((editionData: EditionData) => all || !this.game.edition || editionData.edition == this.game.edition).map((editionData: EditionData) => editionData.scenarios).flat();
   }
 
-  conditions(all: boolean = false): Condition[] {
+  characterConditions(all: boolean = false): Condition[] {
     if (all || !this.game.edition) {
-      return Object.values(EntityCondition);
+      return [ ...Object.values(EntityCondition), ...Object.values(CharacterCondition) ];
     }
 
-    return this.editionData.filter((editionData: EditionData) => editionData.edition == this.game.edition).map((editionData: EditionData) => editionData.conditions).flat().filter((value: Condition, index: number, self: Condition[]) => self.indexOf(value) == index);
+    return this.editionData.filter((editionData: EditionData) => editionData.edition == this.game.edition).map((editionData: EditionData) => editionData.conditions).flat().filter((value: Condition) => value in EntityCondition || value in CharacterCondition);
+  }
+
+  monsterConditions(all: boolean = false): Condition[] {
+    if (all || !this.game.edition) {
+      return [ ...Object.values(EntityCondition) ];
+    }
+
+    return this.editionData.filter((editionData: EditionData) => editionData.edition == this.game.edition).map((editionData: EditionData) => editionData.conditions).flat().filter((value: Condition) => value in EntityCondition);
+  }
+
+  upgradeConditions(all: boolean = false): Condition[] {
+    if (all || !this.game.edition) {
+      return Object.values(UpgradeCondition);
+    }
+
+    return this.editionData.filter((editionData: EditionData) => editionData.edition == this.game.edition).map((editionData: EditionData) => editionData.conditions).flat().filter((value: Condition) => value in UpgradeCondition);
+  }
+
+  stackableConditions(all: boolean = false): Condition[] {
+    if (all || !this.game.edition) {
+      return Object.values(StackableCondition);
+    }
+
+    return this.editionData.filter((editionData: EditionData) => editionData.edition == this.game.edition).map((editionData: EditionData) => editionData.conditions).flat().filter((value: Condition) => value in StackableCondition);
   }
 
   nextGameState(): void {

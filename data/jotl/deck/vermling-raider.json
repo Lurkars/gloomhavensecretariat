@@ -1,0 +1,192 @@
+{
+  "edition": "jotl",
+  "name": "vermling-raider",
+  "abilities": [
+    {
+      "cardId" : 372,
+      "initiative": 85,
+      "name": "Screaming Shot",
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "push",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 373,
+      "initiative": 36,
+      "name": "Carefule Throw",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 374,
+      "initiative": 59,
+      "name": "Dual Daggers",
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            },
+            {
+              "type": "target",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 375,
+      "initiative": 50,
+      "name": "Nothing Special",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId" : 376,
+      "initiative": 30,
+      "name": "Patch Wounds",
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "heal",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 377,
+      "initiative": 70,
+      "name": "Parry",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "disarm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 378,
+      "initiative": 77,
+      "name": "Vicious Spear",
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            },
+            {
+              "type": "condition",
+              "value": "wound"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 379,
+      "initiative": 20,
+      "name": "Spiked Pit",
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "Create one 3-damage trap in an adjacend empty hex closest to an enemey."
+        }
+      ]
+    }
+  ]
+}

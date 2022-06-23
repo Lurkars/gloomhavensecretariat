@@ -1,6 +1,10 @@
 {
+  "edition": "gh",
+  "name": "scout",
   "abilities": [
     {
+      "cardId" : 668,
+      "initiative": 29,
       "actions": [
         {
           "type": "move",
@@ -8,37 +12,37 @@
           "valueType": "minus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "range",
               "value": 3
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 29,
-      "name": "Scout"
+      ]
     },
     {
-      "actions": [
-        {
-          "type": "move",
-          "value": 1,
-          "valueType": "plus"
-        },
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
-        }
-      ],
+      "cardId" : 669,
       "initiative": 40,
-      "name": "Scout"
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
     },
     {
+      "cardId" : 670,
+      "initiative": 53,
       "actions": [
         {
           "type": "move",
@@ -50,11 +54,11 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "initiative": 53,
-      "name": "Scout"
+      ]
     },
     {
+      "cardId" : 671,
+      "initiative": 54,
       "actions": [
         {
           "type": "move",
@@ -62,6 +66,9 @@
           "valueType": "minus"
         },
         {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "range",
@@ -71,16 +78,13 @@
               "type": "condition",
               "value": "poison"
             }
-          ],
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 54,
-      "name": "Scout"
+      ]
     },
     {
+      "cardId" : 672,
+      "initiative": 69,
       "actions": [
         {
           "type": "move",
@@ -92,31 +96,34 @@
           "value": 1,
           "valueType": "plus"
         }
-      ],
-      "initiative": 69,
-      "name": "Scout"
+      ]
     },
     {
+      "cardId" : 673,
+      "initiative": 92,
+      "shuffle": true,
       "actions": [
         {
+          "type": "attack",
+          "value": 2,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "condition",
               "value": "poison"
             }
-          ],
-          "type": "attack",
-          "value": 2,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 92,
-      "name": "Scout",
-      "shuffle": true
+      ]
     },
     {
+      "cardId" : 674,
+      "initiative": 79,
       "actions": [
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "range",
@@ -126,37 +133,30 @@
               "type": "target",
               "value": 2
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 79,
-      "name": "Scout"
+      ]
     },
     {
+      "cardId" : 675,
+      "initiative": 35,
+      "shuffle": true,
       "actions": [
         {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "jump"
             }
-          ],
-          "type": "move",
-          "value": 1,
-          "valueType": "plus"
+          ]
         },
         {
           "type": "loot",
           "value": 1
         }
-      ],
-      "initiative": 35,
-      "name": "Scout",
-      "shuffle": true
+      ]
     }
-  ],
-  "edition": "gh",
-  "name": "scout"
+  ]
 }

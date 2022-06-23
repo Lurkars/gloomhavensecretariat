@@ -1,0 +1,14 @@
+{
+  "conditions": [
+    "stun",
+    "immobilize",
+    "disarm",
+    "wound",
+    "muddle",
+    "poison",
+    "invisible",
+    "strengthen",
+    "regenerate"
+  ],
+  "edition": "fc"
+}

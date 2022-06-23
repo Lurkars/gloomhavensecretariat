@@ -1,6 +1,10 @@
 {
+  "edition": "gh",
+  "name": "spitting-drake",
   "abilities": [
     {
+      "cardId" : 556,
+      "initiative": 32,
       "actions": [
         {
           "type": "move",
@@ -12,11 +16,11 @@
           "value": 1,
           "valueType": "minus"
         }
-      ],
-      "initiative": 32,
-      "name": "Spitting Drake"
+      ]
     },
     {
+      "cardId" : 557,
+      "initiative": 52,
       "actions": [
         {
           "type": "move",
@@ -28,11 +32,12 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "initiative": 52,
-      "name": "Spitting Drake"
+      ]
     },
     {
+      "cardId" : 558,
+      "initiative": 57,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -40,6 +45,9 @@
           "valueType": "plus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "area",
@@ -47,21 +55,21 @@
             },
             {
               "type": "range",
-              "value": -1
+              "value": 1,
+              "valueType": "minus"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 57,
-      "name": "Spitting Drake",
-      "shuffle": true
+      ]
     },
     {
+      "cardId" : 559,
+      "initiative": 27,
       "actions": [
         {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "target",
@@ -71,16 +79,13 @@
               "type": "condition",
               "value": "poison"
             }
-          ],
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 27,
-      "name": "Spitting Drake"
+      ]
     },
     {
+      "cardId" : 560,
+      "initiative": 87,
       "actions": [
         {
           "type": "move",
@@ -92,58 +97,59 @@
           "value": 1,
           "valueType": "plus"
         }
-      ],
-      "initiative": 87,
-      "name": "Spitting Drake"
+      ]
     },
     {
+      "cardId" : 561,
+      "initiative": 89,
       "actions": [
         {
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "condition",
               "value": "stun"
             }
-          ],
-          "type": "attack",
-          "value": 2,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 89,
-      "name": "Spitting Drake"
+      ]
     },
     {
+      "cardId" : 562,
+      "initiative": 6,
       "actions": [
         {
           "type": "shield",
           "value": 2
         },
         {
+          "type": "heal",
+          "value": 2,
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self"
             }
-          ],
-          "type": "heal",
-          "value": 2
+          ]
         },
         {
+          "type": "condition",
+          "value": "strengthen",
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self"
             }
-          ],
-          "type": "condition",
-          "value": "strengthen"
+          ]
         }
-      ],
-      "initiative": 6,
-      "name": "Spitting Drake"
+      ]
     },
     {
+      "cardId" : 563,
+      "initiative": 89,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -151,6 +157,9 @@
           "valueType": "minus"
         },
         {
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "area",
@@ -158,23 +167,16 @@
             },
             {
               "type": "range",
-              "value": -2
+              "value": 2,
+              "valueType": "minus"
             },
             {
               "type": "condition",
               "value": "poison"
             }
-          ],
-          "type": "attack",
-          "value": 2,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 89,
-      "name": "Spitting Drake",
-      "shuffle": true
+      ]
     }
-  ],
-  "edition": "gh",
-  "name": "spitting-drake"
+  ]
 }

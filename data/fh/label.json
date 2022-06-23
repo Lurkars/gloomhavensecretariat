@@ -1,0 +1,19 @@
+{
+  "en": {
+    "character": {
+      "banner-spear": "Banner Spear",
+      "blinkblade": "Blinkblade",
+      "boneshaper": "Boneshaper",
+      "deathwalker": "Deathwalker",
+      "drifter": "Drifter",
+      "geminate": "Geminate"
+    },
+    "edition": {
+      "fh": "Frosthaven"
+    },
+    "monster": {},
+    "deck": {},
+    "ability": {},
+    "scenario": {}
+  }
+}

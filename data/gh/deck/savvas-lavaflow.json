@@ -1,6 +1,10 @@
 {
+  "edition": "gh",
+  "name": "savvas-lavaflow",
   "abilities": [
     {
+      "cardId" : 716,
+      "initiative": 97,
       "actions": [
         {
           "type": "custom",
@@ -10,11 +14,11 @@
           "type": "element",
           "value": "fire"
         }
-      ],
-      "initiative": 97,
-      "name": "Savvas Lavaflow"
+      ]
     },
     {
+      "cardId" : 717,
+      "initiative": 97,
       "actions": [
         {
           "type": "custom",
@@ -24,11 +28,11 @@
           "type": "element",
           "value": "earth"
         }
-      ],
-      "initiative": 97,
-      "name": "Savvas Lavaflow"
+      ]
     },
     {
+      "cardId" : 718,
+      "initiative": 22,
       "actions": [
         {
           "type": "move",
@@ -36,32 +40,33 @@
           "valueType": "plus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "specialTarget",
               "value": "adjacentEnemies"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         },
         {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
           "subActions": [
             {
               "type": "retaliate",
               "value": 3
             }
-          ],
-          "type": "element",
-          "value": "fire",
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 22,
-      "name": "Savvas Lavaflow"
+      ]
     },
     {
+      "cardId" : 719,
+      "initiative": 68,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -69,6 +74,9 @@
           "valueType": "minus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "range",
@@ -78,21 +86,17 @@
               "type": "custom",
               "value": "All allies and enemies adjacent to the target suffer 2 damage"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "plus"
+          ]
         },
         {
           "type": "element",
           "value": "earth"
         }
-      ],
-      "initiative": 68,
-      "name": "Savvas Lavaflow",
-      "shuffle": true
+      ]
     },
     {
+      "cardId" : 720,
+      "initiative": 41,
       "actions": [
         {
           "type": "move",
@@ -109,6 +113,9 @@
               "value": "(1,0,false)|(1,1,true)|(2,2,true)|(2,3,true)"
             },
             {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
               "subActions": [
                 {
                   "type": "attack",
@@ -119,64 +126,63 @@
                   "type": "condition",
                   "value": "immobilize"
                 }
-              ],
-              "type": "element",
-              "value": "earth",
-              "valueType": "minus"
+              ]
             }
           ]
         }
-      ],
-      "initiative": 41,
-      "name": "Savvas Lavaflow"
+      ]
     },
     {
+      "cardId" : 721,
+      "initiative": 51,
       "actions": [
         {
           "type": "custom",
           "value": "All enemies suffer 2 damage."
         },
         {
-          "subActions": [
-            {
-              "subActions": [
-                {
-                  "type": "specialTarget",
-                  "value": "allEnemies"
-                }
-              ],
-              "type": "condition",
-              "value": "wound"
-            }
-          ],
           "type": "element",
           "value": "fire",
-          "valueType": "minus"
-        },
-        {
+          "valueType": "minus",
           "subActions": [
             {
+              "type": "condition",
+              "value": "wound",
               "subActions": [
                 {
                   "type": "specialTarget",
                   "value": "allEnemies"
                 }
-              ],
-              "type": "condition",
-              "value": "disarm"
+              ]
             }
-          ],
+          ]
+        },
+        {
           "type": "element",
           "value": "earth",
-          "valueType": "minus"
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "disarm",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "allEnemies"
+                }
+              ]
+            }
+          ]
         }
-      ],
-      "initiative": 51,
-      "name": "Savvas Lavaflow"
+      ]
     },
     {
+      "cardId" : 722,
+      "initiative": 31,
       "actions": [
         {
+          "type": "heal",
+          "value": 4,
           "subActions": [
             {
               "type": "range",
@@ -193,15 +199,14 @@
                 }
               ]
             }
-          ],
-          "type": "heal",
-          "value": 4
+          ]
         }
-      ],
-      "initiative": 31,
-      "name": "Savvas Lavaflow"
+      ]
     },
     {
+      "cardId" : 723,
+      "initiative": 68,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -209,6 +214,9 @@
           "valueType": "minus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "range",
@@ -218,21 +226,13 @@
               "type": "target",
               "value": 2
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         },
         {
           "type": "element",
           "value": "fire"
         }
-      ],
-      "initiative": 68,
-      "name": "Savvas Lavaflow",
-      "shuffle": true
+      ]
     }
-  ],
-  "edition": "gh",
-  "name": "savvas-lavaflow"
+  ]
 }

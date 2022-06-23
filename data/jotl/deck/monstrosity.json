@@ -1,0 +1,177 @@
+{
+  "edition": "jotl",
+  "name": "monstrosity",
+  "abilities": [
+    {
+      "cardId" : 420,
+      "initiative": 38,
+      "name": "Nothing Special",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId" : 421,
+      "initiative": 60,
+      "name": "Calculated Strike",
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId" : 422,
+      "initiative": 52,
+      "name": "Unstable Scratch",
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "If this attack is performed, the Monstrosity suffers 1 damags."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 423,
+      "initiative": 21,
+      "name": "Swarm",
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Add +1 Attack if the target is adjacent to any of the Monstrosity's allies."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 424,
+      "initiative": 21,
+      "name": "Swarm",
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Add +1 Attack if the target is adjacent to any of the Monstrosity's allies."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 425,
+      "initiative": 34,
+      "name": "Weakening Bite",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "muddle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 426,
+      "initiative": 9,
+      "name": "Explosive Blisters",
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "custom",
+          "value": "Any time a figure attacks the Monstrosity this round, that figure suffers 2 damage."
+        }
+      ]
+    },
+    {
+      "cardId" : 427,
+      "initiative": 74,
+      "name": "Unstable Frenzy",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "custom",
+          "value": "Monstrosity suffers 1 damage"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

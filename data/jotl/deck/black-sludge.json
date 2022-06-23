@@ -1,0 +1,237 @@
+{
+  "edition": "jotl",
+  "name": "black-sludge",
+  "abilities": [
+    {
+      "cardId" : 428,
+      "initiative": 36,
+      "name": "Hasty Assault",
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 429,
+      "initiative": 57,
+      "name": "Nothing Special",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 430,
+      "initiative": 57,
+      "name": "Toxic Explosion",
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            },
+            {
+              "type": "target",
+              "value": 2
+            },
+            {
+              "type": "condition",
+              "value": "poison"
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 1,
+                  "valueType": "plus"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 431,
+      "initiative": 66,
+      "name": "Calculated Strike",
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 432,
+      "initiative": 66,
+      "name": "Feed",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "loot",
+          "value": 1
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "heal",
+                  "value": 1,
+                  "valueType": "plus"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 433,
+      "initiative": 85,
+      "name": "Plasma Ward",
+      "actions": [
+        {
+          "type": "push",
+          "value": 1
+        },
+        {
+          "type": "condition",
+          "value": "poison",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 434,
+      "initiative": 85,
+      "name": "Black Hex",
+      "shuffle" : true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "The closest enemy in line-of-sight, regardless of range, suffer 1+L/2 (rounded up) damage"
+        },
+        {
+          "type": "heal",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId" : 435,
+      "initiative": 85,
+      "name": "Septic Hex",
+      "shuffle" : true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "The closest enemy in line-of-sight, regardless of range, suffer 1+L/2 (rounded up) damage"
+        },
+        {
+          "type": "heal",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "valueType": "plus"
+        }
+      ]
+    }
+  ]
+}

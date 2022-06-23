@@ -1,0 +1,179 @@
+{
+  "edition": "jotl",
+  "name": "living-corpse",
+  "abilities": [
+    {
+      "cardId" : 444,
+      "initiative": 21,
+      "name": "Rotting Embrace",
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "condition",
+          "value": "muddle|immobilize",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemy"
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "The target also suffers 2 damage."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 445,
+      "initiative": 47,
+      "name": "Hasty Assault",
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
+    },
+    {
+      "cardId" : 446,
+      "initiative": 68,
+      "name": "Nothing Special",
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId" : 447,
+      "initiative": 68,
+      "name": "Nothing Special",
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId" : 448,
+      "initiative": 81,
+      "name": "Calculated Strike",
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId" : 449,
+      "initiative": 91,
+      "name": "Reckless Charge",
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "plus"
+        },
+        {
+          "type": "custom",
+          "value": "If this movement is perfomred, the Living Corpse suffers 1 damage."
+        }
+      ]
+    },
+    {
+      "cardId" : 450,
+      "initiative": 71,
+      "name": "Release Gas",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "condition",
+          "value": "poison",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId" : 451,
+      "initiative": 32,
+      "name": "Violent Slam",
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "push",
+              "value": 1
+            },
+            {
+              "type": "custom",
+              "value": "If this attack is perfomered, the Living Corpse suffers 1 damage."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

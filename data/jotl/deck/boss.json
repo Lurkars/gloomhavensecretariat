@@ -1,106 +1,98 @@
 {
+  "edition": "jotl",
+  "name": "boss",
   "abilities": [
     {
-      "actions": [
-        {
-          "subActions": [],
-          "type": "special",
-          "value": 2,
-          "valueType": "fixed"
-        }
-      ],
+      "cardId" : 468,
       "initiative": 11,
       "name": "Accelerated Power",
-      "shuffle": false
-    },
-    {
       "actions": [
         {
-          "subActions": [],
           "type": "special",
-          "value": 2,
-          "valueType": "fixed"
+          "value": 2
         }
-      ],
+      ]
+    },
+    {
+      "cardId" : 469,
       "initiative": 14,
       "name": "Accelerated Power",
-      "shuffle": false
-    },
-    {
       "actions": [
         {
-          "subActions": [],
           "type": "special",
-          "value": 2,
-          "valueType": "fixed"
+          "value": 2
         }
-      ],
+      ]
+    },
+    {
+      "cardId" : 470,
       "initiative": 17,
       "name": "Accelerated Power",
-      "shuffle": true
-    },
-    {
+      "shuffle": true,
       "actions": [
         {
-          "subActions": [],
           "type": "special",
-          "value": 1,
-          "valueType": "fixed"
+          "value": 2
         }
-      ],
+      ]
+    },
+    {
+      "cardId" : 471,
       "initiative": 85,
       "name": "Lingering Strenth",
-      "shuffle": true
-    },
-    {
+      "shuffle": true,
       "actions": [
         {
-          "subActions": [],
           "type": "special",
-          "value": 1,
-          "valueType": "fixed"
+          "value": 1
         }
-      ],
+      ]
+    },
+    {
+      "cardId" : 472,
       "initiative": 79,
       "name": "Lingering Strenth",
-      "shuffle": false
-    },
-    {
       "actions": [
         {
-          "subActions": [],
           "type": "special",
-          "value": 1,
-          "valueType": "fixed"
+          "value": 1
         }
-      ],
+      ]
+    },
+    {
+      "cardId" : 473,
       "initiative": 73,
       "name": "Lingering Strenth",
-      "shuffle": false
-    },
-    {
       "actions": [
         {
-          "subActions": [],
+          "type": "special",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "cardId" : 474,
+      "initiative": 36,
+      "name": "Nothing Speical",
+      "actions": [
+        {
           "type": "move",
           "value": 0,
           "valueType": "plus"
         },
         {
-          "subActions": [],
           "type": "attack",
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "initiative": 36,
-      "name": "Nothing Speical",
-      "shuffle": false
+      ]
     },
     {
+      "cardId" : 475,
+      "initiative": 54,
+      "name": "Twin Missiles",
       "actions": [
         {
-          "subActions": [],
           "type": "move",
           "value": 1,
           "valueType": "minus"
@@ -108,28 +100,19 @@
         {
           "subActions": [
             {
-              "subActions": [],
               "type": "range",
-              "value": 3,
-              "valueType": "fixed"
+              "value": 3
             },
             {
-              "subActions": [],
               "type": "target",
-              "value": 2,
-              "valueType": "fixed"
+              "value": 2
             }
           ],
           "type": "attack",
           "value": 1,
           "valueType": "minus"
         }
-      ],
-      "initiative": 54,
-      "name": "Twin Missiles",
-      "shuffle": false
+      ]
     }
-  ],
-  "edition": "jotl",
-  "name": "boss"
+  ]
 }

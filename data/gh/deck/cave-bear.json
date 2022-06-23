@@ -1,6 +1,10 @@
 {
+  "edition": "gh",
+  "name": "cave-bear",
   "abilities": [
     {
+      "cardId" : 596,
+      "initiative": 13,
       "actions": [
         {
           "type": "move",
@@ -12,11 +16,11 @@
           "value": 1,
           "valueType": "minus"
         }
-      ],
-      "initiative": 13,
-      "name": "Cave Bear"
+      ]
     },
     {
+      "cardId" : 597,
+      "initiative": 14,
       "actions": [
         {
           "type": "move",
@@ -24,39 +28,39 @@
           "valueType": "minus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "condition",
               "value": "immobilize"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 14,
-      "name": "Cave Bear"
+      ]
     },
     {
+      "cardId" : 598,
+      "initiative": 34,
+      "shuffle": true,
       "actions": [
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "condition",
               "value": "wound"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 34,
-      "name": "Cave Bear",
-      "shuffle": true
+      ]
     },
     {
+      "cardId" : 599,
+      "initiative": 41,
       "actions": [
         {
           "type": "move",
@@ -68,11 +72,11 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "initiative": 41,
-      "name": "Cave Bear"
+      ]
     },
     {
+      "cardId" : 600,
+      "initiative": 60,
       "actions": [
         {
           "type": "move",
@@ -84,11 +88,12 @@
           "value": 1,
           "valueType": "plus"
         }
-      ],
-      "initiative": 60,
-      "name": "Cave Bear"
+      ]
     },
     {
+      "cardId" : 601,
+      "initiative": 80,
+      "shuffle": true,
       "actions": [
         {
           "type": "attack",
@@ -101,22 +106,21 @@
           "valueType": "minus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "condition",
               "value": "wound"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 80,
-      "name": "Cave Bear",
-      "shuffle": true
+      ]
     },
     {
+      "cardId" : 602,
+      "initiative": 61,
       "actions": [
         {
           "type": "move",
@@ -124,21 +128,21 @@
           "valueType": "plus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "target",
               "value": 2
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 61,
-      "name": "Cave Bear"
+      ]
     },
     {
+      "cardId" : 603,
+      "initiative": 3,
       "actions": [
         {
           "type": "shield",
@@ -149,20 +153,16 @@
           "value": 2
         },
         {
+          "type": "heal",
+          "value": 2,
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self"
             }
-          ],
-          "type": "heal",
-          "value": 2
+          ]
         }
-      ],
-      "initiative": 3,
-      "name": "Cave Bear"
+      ]
     }
-  ],
-  "edition": "gh",
-  "name": "cave-bear"
+  ]
 }

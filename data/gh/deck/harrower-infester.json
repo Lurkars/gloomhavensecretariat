@@ -1,6 +1,10 @@
 {
+  "edition": "gh",
+  "name": "harrower-infester",
   "abilities": [
     {
+      "cardId" : 724,
+      "initiative": 38,
       "actions": [
         {
           "type": "move",
@@ -8,21 +12,21 @@
           "valueType": "minus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "target",
               "value": 2
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 38,
-      "name": "Harrower Infester"
+      ]
     },
     {
+      "cardId" : 725,
+      "initiative": 7,
       "actions": [
         {
           "type": "move",
@@ -30,25 +34,25 @@
           "valueType": "plus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "condition",
               "value": "poison"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         },
         {
           "type": "element",
           "value": "dark"
         }
-      ],
-      "initiative": 7,
-      "name": "Harrower Infester"
+      ]
     },
     {
+      "cardId" : 726,
+      "initiative": 16,
       "actions": [
         {
           "type": "move",
@@ -61,62 +65,62 @@
           "valueType": "minus"
         },
         {
+          "type": "heal",
+          "value": 5,
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self"
             }
-          ],
-          "type": "heal",
-          "value": 5
+          ]
         }
-      ],
-      "initiative": 16,
-      "name": "Harrower Infester"
+      ]
     },
     {
+      "cardId" : 727,
+      "initiative": 16,
       "actions": [
         {
+          "type": "attack",
+          "value": 2,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "condition",
               "value": "immobilize"
             }
-          ],
-          "type": "attack",
-          "value": 2,
-          "valueType": "plus"
+          ]
         },
         {
           "type": "retaliate",
           "value": 2
         }
-      ],
-      "initiative": 16,
-      "name": "Harrower Infester"
+      ]
     },
     {
+      "cardId" : 728,
+      "initiative": 2,
+      "shuffle": true,
       "actions": [
         {
           "type": "shield",
           "value": 2
         },
         {
+          "type": "retaliate",
+          "value": 2,
           "subActions": [
             {
               "type": "range",
               "value": 3
             }
-          ],
-          "type": "retaliate",
-          "value": 2
+          ]
         }
-      ],
-      "initiative": 2,
-      "name": "Harrower Infester",
-      "shuffle": true
+      ]
     },
     {
+      "cardId" : 729,
+      "initiative": 30,
       "actions": [
         {
           "type": "move",
@@ -124,32 +128,32 @@
           "valueType": "minus"
         },
         {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "area",
               "value": "(1,0,false)|(1,1,true)|(2,2,true)|(2,3,true)"
             }
-          ],
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
+          ]
         },
         {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
           "subActions": [
             {
               "type": "custom",
               "value": "Perform \"Heal {H} 2, Self\" for each target damaged"
             }
-          ],
-          "type": "element",
-          "value": "dark",
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 30,
-      "name": "Harrower Infester"
+      ]
     },
     {
+      "cardId" : 730,
+      "initiative": 38,
       "actions": [
         {
           "type": "move",
@@ -157,17 +161,20 @@
           "valueType": "plus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "target",
               "value": 2
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         },
         {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
           "subActions": [
             {
               "type": "attack",
@@ -178,18 +185,19 @@
               "type": "condition",
               "value": "disarm"
             }
-          ],
-          "type": "element",
-          "value": "dark",
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 38,
-      "name": "Harrower Infester"
+      ]
     },
     {
+      "cardId" : 731,
+      "initiative": 7,
+      "shuffle": true,
       "actions": [
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "range",
@@ -199,27 +207,19 @@
               "type": "condition",
               "value": "muddle"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         },
         {
+          "type": "heal",
+          "value": 4,
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self"
             }
-          ],
-          "type": "heal",
-          "value": 4
+          ]
         }
-      ],
-      "initiative": 7,
-      "name": "Harrower Infester",
-      "shuffle": true
+      ]
     }
-  ],
-  "edition": "gh",
-  "name": "harrower-infester"
+  ]
 }

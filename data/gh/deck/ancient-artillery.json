@@ -1,72 +1,79 @@
 {
+  "edition": "gh",
+  "name": "ancient-artillery",
   "abilities": [
     {
+      "cardId" : 700,
+      "initiative": 46,
       "actions": [
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "range",
               "value": 2,
               "valueType": "plus"
             }
-          ],
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 701,
+      "initiative": 71,
+      "shuffle": true,
+      "actions": [
+        {
           "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "All adjacent enemies suffer 2 damage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 702,
+      "initiative": 71,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "All adjacent enemies suffer 2 damage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 703,
+      "initiative": 37,
+      "actions": [
+        {
+          "type": "push",
           "value": 1,
-          "valueType": "minus"
-        }
-      ],
-      "initiative": 46,
-      "name": "Ancient Artillery"
-    },
-    {
-      "actions": [
-        {
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "All adjacent enemies suffer 2 damage."
-            }
-          ],
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
-        }
-      ],
-      "initiative": 71,
-      "name": "Ancient Artillery",
-      "shuffle": true
-    },
-    {
-      "actions": [
-        {
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "All adjacent enemies suffer 2 damage."
-            }
-          ],
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
-        }
-      ],
-      "initiative": 71,
-      "name": "Ancient Artillery",
-      "shuffle": true
-    },
-    {
-      "actions": [
-        {
           "subActions": [
             {
               "type": "specialTarget",
               "value": "adjacentEnemies"
             }
-          ],
-          "type": "push",
-          "value": 1
+          ]
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "area",
@@ -74,30 +81,31 @@
             },
             {
               "type": "range",
-              "value": -1
+              "value": 1,
+              "valueType": "minus"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 37,
-      "name": "Ancient Artillery"
+      ]
     },
     {
+      "cardId" : 704,
+      "initiative": 37,
       "actions": [
         {
+          "type": "push",
+          "value": 1,
           "subActions": [
             {
               "type": "specialTarget",
               "value": "adjacent"
             }
-          ],
-          "type": "push",
-          "value": 1
+          ]
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "area",
@@ -105,39 +113,37 @@
             },
             {
               "type": "range",
-              "value": -1
+              "value": 1,
+              "valueType": "minus"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 37,
-      "name": "Ancient Artillery"
+      ]
     },
     {
+      "cardId" : 705,
+      "initiative": 95,
       "actions": [
         {
           "type": "attack",
           "value": 1,
           "valueType": "plus"
         }
-      ],
-      "initiative": 95,
-      "name": "Ancient Artillery"
+      ]
     },
     {
+      "cardId" : 706,
+      "initiative": 17,
       "actions": [
         {
+          "type": "push",
+          "value": 2,
           "subActions": [
             {
               "type": "specialTarget",
               "value": "adjacentEnemies"
             }
-          ],
-          "type": "push",
-          "value": 2
+          ]
         },
         {
           "type": "shield",
@@ -148,13 +154,16 @@
           "value": 2,
           "valueType": "minus"
         }
-      ],
-      "initiative": 17,
-      "name": "Ancient Artillery"
+      ]
     },
     {
+      "cardId" : 707,
+      "initiative": 46,
       "actions": [
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "area",
@@ -164,16 +173,9 @@
               "type": "condition",
               "value": "immobilize"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 46,
-      "name": "Ancient Artillery"
+      ]
     }
-  ],
-  "edition": "gh",
-  "name": "ancient-artillery"
+  ]
 }

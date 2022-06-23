@@ -13,21 +13,34 @@
     text-align: right;
   }
 
+  ghs-action {
+    position: relative;
+  }
+
   .divider {
     width: calc(var(--ghs-unit) * 5);
     border-top: calc(var(--ghs-unit) * 0.27) var(--ghs-color-white) dotted;
     margin: calc(var(--ghs-unit) * 0.5);
   }
 
-  ghs-action {
+  .hint {
     position: relative;
+    width: 60%;
+    background: rgb(124, 210, 224);
+    background: linear-gradient(90deg, rgba(124, 210, 224, 1) 0%, rgba(193, 236, 245, 1) 100%);
+    color: var(--ghs-color-black);
+    font-size: 70%;
+    font-weight: bold;
+    margin: calc(var(--ghs-unit) * 0.5);
+    margin-top: calc(var(--ghs-unit) * 1);
+    padding: calc(var(--ghs-unit) * 0.5);
+  }
 
-    &:first-child {
-      margin-top: auto;
-    }
+  :first-child {
+    margin-top: auto;
+  }
 
-    &:last-child {
-      margin-bottom: auto;
-    }
+  :last-child {
+    margin-bottom: auto;
   }
 }

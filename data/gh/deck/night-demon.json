@@ -1,6 +1,10 @@
 {
+  "edition": "gh",
+  "name": "night-demon",
   "abilities": [
     {
+      "cardId" : 660,
+      "initiative": 4,
       "actions": [
         {
           "type": "move",
@@ -16,11 +20,11 @@
           "type": "element",
           "value": "dark"
         }
-      ],
-      "initiative": 4,
-      "name": "Night Demon"
+      ]
     },
     {
+      "cardId" : 661,
+      "initiative": 7,
       "actions": [
         {
           "type": "move",
@@ -33,27 +37,27 @@
           "valueType": "minus"
         },
         {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
           "subActions": [
             {
+              "type": "condition",
+              "value": "invisible",
               "subActions": [
                 {
                   "type": "specialTarget",
                   "value": "self"
                 }
-              ],
-              "type": "condition",
-              "value": "invisible"
+              ]
             }
-          ],
-          "type": "element",
-          "value": "dark",
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 7,
-      "name": "Night Demon"
+      ]
     },
     {
+      "cardId" : 662,
+      "initiative": 22,
       "actions": [
         {
           "type": "move",
@@ -69,13 +73,16 @@
           "type": "element",
           "value": "dark"
         }
-      ],
-      "initiative": 22,
-      "name": "Night Demon"
+      ]
     },
     {
+      "cardId" : 663,
+      "initiative": 26,
       "actions": [
         {
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "range",
@@ -85,27 +92,25 @@
               "type": "target",
               "value": 3
             }
-          ],
-          "type": "attack",
-          "value": 2,
-          "valueType": "minus"
+          ]
         },
         {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
           "subActions": [
             {
               "type": "condition",
               "value": "muddle"
             }
-          ],
-          "type": "element",
-          "value": "dark",
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 26,
-      "name": "Night Demon"
+      ]
     },
     {
+      "cardId" : 664,
+      "initiative": 46,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -118,23 +123,23 @@
           "valueType": "plus"
         },
         {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
           "subActions": [
             {
               "type": "attack",
               "value": 2,
               "valueType": "plus"
             }
-          ],
-          "type": "element",
-          "value": "dark",
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 46,
-      "name": "Night Demon",
-      "shuffle": true
+      ]
     },
     {
+      "cardId" : 665,
+      "initiative": 41,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -150,12 +155,11 @@
           "type": "element",
           "value": "dark"
         }
-      ],
-      "initiative": 41,
-      "name": "Night Demon",
-      "shuffle": true
+      ]
     },
     {
+      "cardId" : 666,
+      "initiative": 35,
       "actions": [
         {
           "type": "attack",
@@ -163,38 +167,38 @@
           "valueType": "minus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "pierce",
               "value": 2
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         },
         {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
           "subActions": [
             {
+              "type": "condition",
+              "value": "curse",
               "subActions": [
                 {
                   "type": "specialTarget",
                   "value": "self"
                 }
-              ],
-              "type": "condition",
-              "value": "curse"
+              ]
             }
-          ],
-          "type": "element",
-          "value": "light",
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 35,
-      "name": "Night Demon"
+      ]
     },
     {
+      "cardId" : 667,
+      "initiative": 15,
       "actions": [
         {
           "type": "move",
@@ -202,32 +206,28 @@
           "valueType": "plus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "custom",
               "value": "All adjacent enemies and allies suffer 1 damage."
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         },
         {
+          "type": "element",
+          "value": "all",
+          "valueType": "minus",
           "subActions": [
             {
               "type": "element",
               "value": "dark"
             }
-          ],
-          "type": "element",
-          "value": "all",
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 15,
-      "name": "Night Demon"
+      ]
     }
-  ],
-  "edition": "gh",
-  "name": "night-demon"
+  ]
 }

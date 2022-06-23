@@ -1,26 +1,30 @@
 {
+  "edition": "gh",
+  "name": "imp",
   "abilities": [
     {
+      "cardId": 676,
+      "initiative": 5,
       "actions": [
         {
           "type": "shield",
           "value": 5
         },
         {
+          "type": "heal",
+          "value": 1,
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self"
             }
-          ],
-          "type": "heal",
-          "value": 1
+          ]
         }
-      ],
-      "initiative": 5,
-      "name": "Imp"
+      ]
     },
     {
+      "cardId": 677,
+      "initiative": 37,
       "actions": [
         {
           "type": "move",
@@ -32,11 +36,11 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "initiative": 37,
-      "name": "Imp"
+      ]
     },
     {
+      "cardId": 678,
+      "initiative": 37,
       "actions": [
         {
           "type": "move",
@@ -48,11 +52,11 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "initiative": 37,
-      "name": "Imp"
+      ]
     },
     {
+      "cardId": 679,
+      "initiative": 42,
       "actions": [
         {
           "type": "move",
@@ -60,20 +64,21 @@
           "valueType": "plus"
         },
         {
+          "type": "heal",
+          "value": 2,
           "subActions": [
             {
               "type": "range",
               "value": 3
             }
-          ],
-          "type": "heal",
-          "value": 2
+          ]
         }
-      ],
-      "initiative": 42,
-      "name": "Imp"
+      ]
     },
     {
+      "cardId": 680,
+      "initiative": 43,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -81,6 +86,9 @@
           "valueType": "plus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "target",
@@ -90,17 +98,13 @@
               "type": "condition",
               "value": "poison"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 43,
-      "name": "Imp",
-      "shuffle": true
+      ]
     },
     {
+      "cardId": 681,
+      "initiative": 76,
       "actions": [
         {
           "type": "move",
@@ -112,11 +116,12 @@
           "value": 1,
           "valueType": "plus"
         }
-      ],
-      "initiative": 76,
-      "name": "Imp"
+      ]
     },
     {
+      "cardId": 682,
+      "initiative": 43,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -124,6 +129,9 @@
           "valueType": "plus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "target",
@@ -133,19 +141,17 @@
               "type": "condition",
               "value": "curse"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 43,
-      "name": "Imp",
-      "shuffle": true
+      ]
     },
     {
+      "cardId": 683,
+      "initiative": 24,
       "actions": [
         {
+          "type": "condition",
+          "value": "strengthen",
           "subActions": [
             {
               "type": "range",
@@ -155,11 +161,11 @@
               "type": "specialTarget",
               "value": "allAlliesRange"
             }
-          ],
-          "type": "condition",
-          "value": "strengthen"
+          ]
         },
         {
+          "type": "condition",
+          "value": "muddle",
           "subActions": [
             {
               "type": "range",
@@ -169,15 +175,9 @@
               "type": "specialTarget",
               "value": "allEnemiesRange"
             }
-          ],
-          "type": "condition",
-          "value": "muddle"
+          ]
         }
-      ],
-      "initiative": 24,
-      "name": "Imp"
+      ]
     }
-  ],
-  "edition": "gh",
-  "name": "imp"
+  ]
 }

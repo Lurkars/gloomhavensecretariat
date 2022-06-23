@@ -13,9 +13,11 @@ For usage with multiple clients sharing the same game, the server component [Glo
 
 ## Missing / Upcoming
 
-- some monster data, most data of other editions
+- monster/scenario data of FC,FH, CS (WIP)
+- upgradable/stackable conditions (WIP)
 - tools like monster editor to create/update monster stats and abilities via UI (WIP)
 - goals and section mechanic
+- i18n/icons for custom actions
 - ~~i18n support~~
 - ~~summons~~
 - ~~standalone app with Electron\/PWA~~

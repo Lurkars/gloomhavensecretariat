@@ -1,8 +1,14 @@
 {
+  "edition": "gh",
+  "name": "frost-demon",
   "abilities": [
     {
+      "cardId" : 620,
+      "initiative": 18,
       "actions": [
         {
+          "type": "condition",
+          "value": "immobilize",
           "subActions": [
             {
               "type": "range",
@@ -12,48 +18,46 @@
               "type": "specialTarget",
               "value": "allEnemiesRange"
             }
-          ],
-          "type": "condition",
-          "value": "immobilize"
+          ]
         },
         {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
           "subActions": [
             {
+              "type": "heal",
+              "value": 3,
               "subActions": [
                 {
                   "type": "specialTarget",
                   "value": "self"
                 }
-              ],
-              "type": "heal",
-              "value": 3
+              ]
             }
-          ],
-          "type": "element",
-          "value": "ice",
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 18,
-      "name": "Frost Demon"
+      ]
     },
     {
-      "actions": [
-        {
-          "type": "move",
-          "value": 1,
-          "valueType": "plus"
-        },
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
-        }
-      ],
+      "cardId" : 621,
       "initiative": 38,
-      "name": "Frost Demon"
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
     },
     {
+      "cardId" : 622,
+      "initiative": 58,
       "actions": [
         {
           "type": "move",
@@ -65,11 +69,11 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "initiative": 58,
-      "name": "Frost Demon"
+      ]
     },
     {
+      "cardId" : 623,
+      "initiative": 58,
       "actions": [
         {
           "type": "move",
@@ -77,17 +81,20 @@
           "valueType": "minus"
         },
         {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "range",
               "value": 2
             }
-          ],
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
+          ]
         },
         {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
           "subActions": [
             {
               "type": "attack",
@@ -99,16 +106,67 @@
               "value": 1,
               "valueType": "plus"
             }
-          ],
-          "type": "element",
-          "value": "ice",
-          "valueType": "minus"
+          ]
         }
-      ],
+      ]
+    },
+    {
+      "cardId" : 624,
+      "initiative": 78,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,false)|(1,0,true)|(1,1,true)"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice"
+        }
+      ]
+    },
+    {
+      "cardId" : 625,
+      "initiative": 78,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,false)|(1,0,true)|(1,1,true)"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice"
+        }
+      ]
+    },
+    {
+      "cardId" : 626,
       "initiative": 58,
-      "name": "Frost Demon"
-    },
-    {
       "actions": [
         {
           "type": "move",
@@ -116,86 +174,32 @@
           "valueType": "minus"
         },
         {
-          "subActions": [
-            {
-              "type": "area",
-              "value": "(0,1,false)|(1,0,true)|(1,1,true)"
-            }
-          ],
           "type": "attack",
-          "value": 0,
-          "valueType": "plus"
-        },
-        {
-          "type": "element",
-          "value": "ice"
-        }
-      ],
-      "initiative": 78,
-      "name": "Frost Demon",
-      "shuffle": true
-    },
-    {
-      "actions": [
-        {
-          "type": "move",
           "value": 1,
-          "valueType": "minus"
-        },
-        {
-          "subActions": [
-            {
-              "type": "area",
-              "value": "(0,1,false)|(1,0,true)|(1,1,true)"
-            }
-          ],
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
-        },
-        {
-          "type": "element",
-          "value": "ice"
-        }
-      ],
-      "initiative": 78,
-      "name": "Frost Demon",
-      "shuffle": true
-    },
-    {
-      "actions": [
-        {
-          "type": "move",
-          "value": 1,
-          "valueType": "minus"
-        },
-        {
+          "valueType": "minus",
           "subActions": [
             {
               "type": "pierce",
               "value": 3
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         },
         {
+          "type": "element",
+          "value": "all",
+          "valueType": "minus",
           "subActions": [
             {
               "type": "element",
               "value": "ice"
             }
-          ],
-          "type": "element",
-          "value": "all",
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 58,
-      "name": "Frost Demon"
+      ]
     },
     {
+      "cardId" : 627,
+      "initiative": 18,
       "actions": [
         {
           "type": "shield",
@@ -207,21 +211,17 @@
           "valueType": "plus"
         },
         {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
           "subActions": [
             {
               "type": "custom",
               "value": "Frost Demon suffers 1 damage."
             }
-          ],
-          "type": "element",
-          "value": "fire",
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 18,
-      "name": "Frost Demon"
+      ]
     }
-  ],
-  "edition": "gh",
-  "name": "frost-demon"
+  ]
 }

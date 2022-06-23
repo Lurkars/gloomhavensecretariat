@@ -1,6 +1,10 @@
 {
+  "edition": "gh",
+  "name": "cultist",
   "abilities": [
     {
+      "cardId" : 604,
+      "initiative": 10,
       "actions": [
         {
           "type": "move",
@@ -13,27 +17,27 @@
           "valueType": "minus"
         },
         {
+          "type": "custom",
+          "value": "On death",
           "subActions": [
             {
+              "type": "attack",
+              "value": 2,
+              "valueType": "plus",
               "subActions": [
                 {
                   "type": "area",
                   "value": "(1,0,true)|(2,0,true)|(0,1,true)|(1,1,false)|(2,1,true)|(1,2,true)|(2,2,true)"
                 }
-              ],
-              "type": "attack",
-              "value": 2,
-              "valueType": "plus"
+              ]
             }
-          ],
-          "type": "custom",
-          "value": "On death"
+          ]
         }
-      ],
-      "initiative": 10,
-      "name": "Cultist"
+      ]
     },
     {
+      "cardId" : 605,
+      "initiative": 10,
       "actions": [
         {
           "type": "move",
@@ -46,27 +50,27 @@
           "valueType": "minus"
         },
         {
+          "type": "custom",
+          "value": "On death",
           "subActions": [
             {
+              "type": "attack",
+              "value": 2,
+              "valueType": "plus",
               "subActions": [
                 {
                   "type": "area",
                   "value": "(1,0,true)|(2,0,true)|(0,1,true)|(1,1,false)|(2,1,true)|(1,2,true)|(2,2,true)"
                 }
-              ],
-              "type": "attack",
-              "value": 2,
-              "valueType": "plus"
+              ]
             }
-          ],
-          "type": "custom",
-          "value": "On death"
+          ]
         }
-      ],
-      "initiative": 10,
-      "name": "Cultist"
+      ]
     },
     {
+      "cardId" : 606,
+      "initiative": 27,
       "actions": [
         {
           "type": "move",
@@ -78,11 +82,11 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "initiative": 27,
-      "name": "Cultist"
+      ]
     },
     {
+      "cardId" : 607,
+      "initiative": 27,
       "actions": [
         {
           "type": "move",
@@ -94,11 +98,11 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "initiative": 27,
-      "name": "Cultist"
+      ]
     },
     {
+      "cardId" : 608,
+      "initiative": 39,
       "actions": [
         {
           "type": "move",
@@ -111,20 +115,21 @@
           "valueType": "plus"
         },
         {
+          "type": "heal",
+          "value": 1,
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self"
             }
-          ],
-          "type": "heal",
-          "value": 1
+          ]
         }
-      ],
-      "initiative": 39,
-      "name": "Cultist"
+      ]
     },
     {
+      "cardId" : 609,
+      "initiative": 63,
+      "shuffle": true,
       "actions": [
         {
           "type": "custom",
@@ -134,12 +139,12 @@
           "type": "custom",
           "value": "Cultist suffers 2 damage."
         }
-      ],
-      "initiative": 63,
-      "name": "Cultist",
-      "shuffle": true
+      ]
     },
     {
+      "cardId" : 610,
+      "initiative": 63,
+      "shuffle": true,
       "actions": [
         {
           "type": "custom",
@@ -149,12 +154,11 @@
           "type": "custom",
           "value": "Cultist suffers 2 damage."
         }
-      ],
-      "initiative": 63,
-      "name": "Cultist",
-      "shuffle": true
+      ]
     },
     {
+      "cardId" : 611,
+      "initiative": 31,
       "actions": [
         {
           "type": "move",
@@ -162,20 +166,16 @@
           "valueType": "minus"
         },
         {
+          "type": "heal",
+          "value": 3,
           "subActions": [
             {
               "type": "range",
               "value": 3
             }
-          ],
-          "type": "heal",
-          "value": 3
+          ]
         }
-      ],
-      "initiative": 31,
-      "name": "Cultist"
+      ]
     }
-  ],
-  "edition": "gh",
-  "name": "cultist"
+  ]
 }

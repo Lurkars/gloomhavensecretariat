@@ -1,0 +1,221 @@
+{
+  "edition": "jotl",
+  "name": "imp",
+  "abilities": [
+    {
+      "cardId" : 436,
+      "initiative": 5,
+      "name": "Phase Out",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 5
+        },
+        {
+          "type": "heal",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "all"
+        }
+      ]
+    },
+    {
+      "cardId" : 437,
+      "initiative": 37,
+      "name": "Nothing Special",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 438,
+      "initiative": 37,
+      "name": "Nothing Special",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 439,
+      "initiative": 42,
+      "name": "Restoration",
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 440,
+      "initiative": 42,
+      "name": "Cripple",
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            },
+            {
+              "type": "target",
+              "value": 2
+            },
+            {
+              "type": "condition",
+              "value": "poison"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 441,
+      "initiative": 76,
+      "name": "Calculated Strike",
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 442,
+      "initiative": 42,
+      "name": "Dark Charm",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            },
+            {
+              "type": "target",
+              "value": 2
+            },
+            {
+              "type": "condition",
+              "value": "curse"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 443,
+      "initiative": 24,
+      "name": "Tip the Scales",
+      "actions": [
+        {
+          "type": "condition",
+          "value": "strengthen",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            },
+            {
+              "type": "specialTarget",
+              "value": "allAlliesRange"
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "muddle",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            },
+            {
+              "type": "specialTarget",
+              "value": "allEnemiesRange"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

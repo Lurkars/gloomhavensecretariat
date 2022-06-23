@@ -3,21 +3,24 @@
     <ghs-action-hex [value]="action.value + ''" [size]="hexSize"></ghs-action-hex>
   </span>
 
-  <span class="conditions" *ngSwitchCase="ActionType.condition">
-    <span class="condition" *ngFor="let condition of getConditions(action); let index = index;">
-      <span *ngIf="index > 0 && !inline">&nbsp;{{'and' | ghsLabel}}&nbsp;</span>
-      <span class="condition-value">{{'game.condition.' + condition | ghsLabel}}</span>
-      <img class="icon" src="./assets/images/condition/{{condition}}.svg" />
-      <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
-        [action]="subAction" [monster]="monster" [relative]="true" [inline]="inline" [right]="right"
-        [hexSize]="hexSize">
-      </ghs-action>
+  <span [ngClass]="'action-' + action.type" *ngSwitchCase="ActionType.condition">
+    <span class="conditions">
+      <span class="condition" *ngFor="let condition of getValues(action); let index = index;">
+        <span *ngIf="index > 0 && !inline">&nbsp;{{'and' | ghsLabel}}&nbsp;</span>
+        <span class="condition-value">{{'game.condition.' + condition | ghsLabel}}</span>
+        <img class="icon" src="./assets/images/condition/{{condition}}.svg" />
+      </span>
     </span>
+    <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
+      [action]="subAction" [monster]="monster" [relative]="true" [inline]="inline" [right]="right" [hexSize]="hexSize">
+    </ghs-action>
   </span>
 
   <span class="element" *ngSwitchCase="ActionType.element">
-    <img src="./assets/images/element/{{action.value}}.svg" />
-    <span class="minus" *ngIf="action.valueType == ActionValueType.minus">:</span>
+    <span class="elements" *ngFor="let element of getValues(action)">
+      <img src="./assets/images/element/{{element}}.svg" />
+      <span class="minus" *ngIf="action.valueType == ActionValueType.minus">:</span>
+    </span>
     <ng-container *ngIf="action.subActions && action.subActions.length > 0">
       <div class="element-subactions">
         <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
@@ -51,7 +54,8 @@
 
   <span class="default" [ngClass]="'action-' + action.type" *ngSwitchDefault>
     <span class="type">{{'game.action.' + action.type | ghsLabel}}</span>
-    <img src="./assets/images/action/{{action.type}}.svg" class="icon" [ngClass]="{'invert' : isInvertIcon(action.type)}" />
+    <img src="./assets/images/action/{{action.type}}.svg" class="icon"
+      [ngClass]="{'invert' : isInvertIcon(action.type)}" />
     <span *ngIf="!relative" class="value">{{getNormalValue()}}<span *ngIf="getNormalValue() != getEliteValue()">/<span
           class="elite">{{getEliteValue()}}</span>
       </span>

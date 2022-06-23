@@ -1,6 +1,11 @@
 {
+  "edition": "gh",
+  "name": "giant-viper",
   "abilities": [
     {
+      "cardId" : 684,
+      "initiative": 32,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -8,22 +13,22 @@
           "valueType": "plus"
         },
         {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "custom",
               "value": "Add +2 Attack {A} if the target is adjacent to any of the Giant Viper's allies."
             }
-          ],
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 32,
-      "name": "Giant Viper",
-      "shuffle": true
+      ]
     },
     {
+      "cardId" : 685,
+      "initiative": 32,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -31,22 +36,21 @@
           "valueType": "plus"
         },
         {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "custom",
               "value": "Add +2 Attack {A} if the target is adjacent to any of the Giant Viper's allies."
             }
-          ],
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 32,
-      "name": "Giant Viper",
-      "shuffle": true
+      ]
     },
     {
+      "cardId" : 686,
+      "initiative": 11,
       "actions": [
         {
           "type": "shield",
@@ -57,54 +61,54 @@
           "value": 1,
           "valueType": "minus"
         }
-      ],
-      "initiative": 11,
-      "name": "Giant Viper"
+      ]
     },
     {
+      "cardId" : 687,
+      "initiative": 43,
       "actions": [
         {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "jump"
             }
-          ],
-          "type": "move",
-          "value": 1,
-          "valueType": "plus"
+          ]
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "specialTarget",
               "value": "adjacentEnemies"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 43,
-      "name": "Giant Viper"
+      ]
     },
     {
-      "actions": [
-        {
-          "type": "move",
-          "value": 1,
-          "valueType": "minus"
-        },
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "plus"
-        }
-      ],
+      "cardId" : 688,
       "initiative": 58,
-      "name": "Giant Viper"
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ]
     },
     {
+      "cardId" : 689,
+      "initiative": 58,
       "actions": [
         {
           "type": "move",
@@ -112,48 +116,48 @@
           "valueType": "plus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "custom",
               "value": "All attacks targeting Giant Viper this round gain Disadvantage."
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
-      ],
-      "initiative": 58,
-      "name": "Giant Viper"
+      ]
     },
     {
+      "cardId" : 690,
+      "initiative": 43,
       "actions": [
         {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "jump"
             }
-          ],
-          "type": "move",
-          "value": 1,
-          "valueType": "minus"
+          ]
         },
         {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
             {
               "type": "target",
               "value": 2
             }
-          ],
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
+          ]
         }
-      ],
-      "initiative": 43,
-      "name": "Giant Viper"
+      ]
     },
     {
+      "cardId" : 691,
+      "initiative": 23,
       "actions": [
         {
           "type": "move",
@@ -161,26 +165,22 @@
           "valueType": "minus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "condition",
               "value": "immobilize"
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "minus"
         }
-      ],
-      "initiative": 23,
-      "name": "Giant Viper"
+      ]
     }
-  ],
-  "edition": "gh",
-  "name": "giant-viper"
+  ]
 }

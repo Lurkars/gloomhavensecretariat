@@ -1,0 +1,108 @@
+{
+  "edition": "jotl",
+  "name": "basic-zealot",
+  "abilities": [
+    {
+      "cardId" : 380,
+      "initiative": 46,
+      "name": "Boil Blood",
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            },
+            {
+              "type": "condition",
+              "value": "muddle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 381,
+      "initiative": 19,
+      "name": "Hex Whip",
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "curse"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 382,
+      "initiative": 77,
+      "name": "Vile Scourge",
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId" : 383,
+      "initiative": 27,
+      "name": "Drain Life",
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "heal",
+          "value": "1",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -9,6 +9,10 @@ import { gameManager } from "./GameManager";
 
 export class SettingsManager {
 
+
+  defaultLocale: string = 'en';
+  defaultEditionDataUrls: string[] = [ "./assets/data/gh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/fh.json", "./assets/data/cs.json" ];
+
   settings: Settings;
   label: any = {};
   locales: string[] = [ "en", "de" ];
@@ -36,6 +40,12 @@ export class SettingsManager {
   }
 
   async init() {
+    for (let defaultEditionDataUrl of this.defaultEditionDataUrls) {
+      if (settingsManager.settings.editionDataUrls.indexOf(defaultEditionDataUrl) == -1 && settingsManager.settings.excludeEditionDataUrls.indexOf(defaultEditionDataUrl) == -1) {
+        settingsManager.settings.editionDataUrls.push(defaultEditionDataUrl);
+      }
+    }
+
     for (let editionDataUrl of settingsManager.settings.editionDataUrls) {
       await settingsManager.loadEditionData(editionDataUrl);
     }
@@ -179,27 +189,16 @@ export class SettingsManager {
     }
   }
 
-  async loadEditionLabelData(url: string) {
-    try {
-      await fetch(url)
-        .then(response => {
-          if (!response.ok) {
-            console.error("Invalid data url: " + url + " [" + response.statusText + "]");
-            return;
-          }
-          return response.json();
-        }).then((value: EditionData) => {
-          this.loadDataLabel(value);
-        });
-    } catch (error) {
-      console.error("Invalid data url: " + url + " [" + error + "]");
-    }
-  }
-
   loadDataLabel(value: EditionData) {
     if (!this.label.data) {
       this.label.data = {};
     }
+
+    // default label
+    if (this.settings.locale != this.defaultLocale && value.label && value.label[ this.defaultLocale ]) {
+      this.label.data = this.merge(this.label.data, value.label[ this.defaultLocale ]);
+    }
+
     if (value.label && value.label[ this.settings.locale ]) {
       this.label.data = this.merge(this.label.data, value.label[ this.settings.locale ]);
     }
@@ -211,6 +210,12 @@ export class SettingsManager {
     }
     if (!this.label.data.monster) {
       this.label.data.monster = {};
+    }
+    if (!this.label.data.deck) {
+      this.label.data.deck = {};
+    }
+    if (!this.label.data.ability) {
+      this.label.data.ability = {};
     }
     if (!this.label.data.scenario) {
       this.label.data.scenario = {};
@@ -291,6 +296,9 @@ export class SettingsManager {
     if (this.settings.editionDataUrls.indexOf(editionDataUrl) == -1) {
       await this.loadEditionData(editionDataUrl);
       this.settings.editionDataUrls.push(editionDataUrl);
+      if (this.settings.excludeEditionDataUrls.indexOf(editionDataUrl) != -1) {
+        this.settings.excludeEditionDataUrls.splice(this.settings.excludeEditionDataUrls.indexOf(editionDataUrl), 1);
+      }
       this.storeSettings();
     }
   }
@@ -299,6 +307,9 @@ export class SettingsManager {
     if (this.settings.editionDataUrls.indexOf(editionDataUrl) != -1) {
       await this.unloadEditionData(editionDataUrl);
       this.settings.editionDataUrls.splice(this.settings.editionDataUrls.indexOf(editionDataUrl), 1);
+      if (this.defaultEditionDataUrls.indexOf(editionDataUrl) != -1) {
+        this.settings.excludeEditionDataUrls.push(editionDataUrl);
+      }
       this.storeSettings();
     }
   }
@@ -314,6 +325,21 @@ export class SettingsManager {
   }
 
   async setLocale(locale: string) {
+
+    // default label
+    if (locale != this.defaultLocale) {
+      await fetch('./assets/locales/' + this.defaultLocale + '.json')
+        .then(response => {
+          return response.json();
+        }).then(data => {
+          this.label = Object.assign(this.label, data);
+        })
+        .catch((error: Error) => {
+          console.error("Invalid locale: " + locale, error);
+          return;
+        });
+    }
+
     await fetch('./assets/locales/' + locale + '.json')
       .then(response => {
         this.settings.locale = locale;
@@ -327,8 +353,8 @@ export class SettingsManager {
         return;
       });
 
-    for (let editionDataUrl of this.settings.editionDataUrls) {
-      await this.loadEditionLabelData(editionDataUrl);
+    for (let editionData of gameManager.editionData) {
+      this.loadDataLabel(editionData);
     }
   }
 
