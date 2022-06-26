@@ -1,7 +1,8 @@
 {
   "count": 6,
   "edition": "jotl",
-  "name": "vermling-raider",
+  "name": "common-vermling-raider",
+  "hidden" : true,
   "baseStat": {
     "actions": [],
     "immunities": [],

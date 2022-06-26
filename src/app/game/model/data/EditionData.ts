@@ -15,13 +15,15 @@ export class EditionData implements Editional {
   scenarios: ScenarioData[];
   conditions: Condition[] = [];
   label: any = {};
-  url : string = "";
+  url: string = "";
+  extentions: string[] = [];
 
   constructor(edition: string, characters: CharacterData[],
     monsters: MonsterData[],
     decks: DeckData[],
     scenarios: ScenarioData[],
-    conditions: Condition[] | undefined = undefined) {
+    conditions: Condition[] | undefined = undefined,
+    extentions: string[] = []) {
     this.edition = edition;
     this.characters = characters;
     this.monsters = monsters;
@@ -30,6 +32,7 @@ export class EditionData implements Editional {
     if (conditions) {
       this.conditions = conditions;
     }
+    this.extentions = extentions;
   }
 
 }

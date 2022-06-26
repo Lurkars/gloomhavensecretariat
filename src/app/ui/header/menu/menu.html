@@ -91,30 +91,32 @@
 
   <div *ngSwitchCase="SubMenu.character_add" class="menu-container character-add">
     <div class="columns">
-      <div class="column spoilers"
+      <ng-container
         *ngFor="let edition of (gameManager.game.edition ? [gameManager.game.edition] : gameManager.editions());">
-        <div class="line title sticky" *ngIf="!gameManager.game.edition">
-          <label>{{'data.edition.' + edition | ghsLabel}}</label>
+        <div class="column spoilers" *ngIf="characterData(edition).length > 0">
+          <div class="line title sticky" *ngIf="!gameManager.game.edition">
+            <label>{{'data.edition.' + edition | ghsLabel}}</label>
+          </div>
+          <div class="line" *ngFor="let characterData of characterData(edition)"
+            [ngClass]="{'disabled' : hasCharacter(characterData), 'spoiler' : characterData.spoiler}">
+            <a (click)="addCharacter(characterData);" *ngIf="isSpoiled(characterData)">
+              <img class="icon" [src]="gameManager.characterManager.characterIcon(characterData)" />{{'data.character.'
+              +
+              characterData.name | ghsLabel}}
+            </a>
+            <a (click)="settingsManager.addSpoiler(characterData.name);" *ngIf="!isSpoiled(characterData)">
+              <img class="icon" [src]="gameManager.characterManager.characterIcon(characterData)" />
+              <span class="name">
+                {{'spoiler.placeholder' | ghsLabel}}</span>
+              <span class="add">{{'spoiler.add' | ghsLabel}}</span>
+            </a>
+          </div>
+          <div class="line separator" *ngIf="hasSpoilers(characterData(edition))">
+            <a (click)="settingsManager.addSpoilers(notSpoiled(characterData(edition)))">{{'spoiler.all' |
+              ghsLabel}}</a>
+          </div>
         </div>
-        <div class="line" *ngFor="let characterData of characterData(edition)"
-          [ngClass]="{'disabled' : hasCharacter(characterData), 'spoiler' : characterData.spoiler}">
-          <a (click)="addCharacter(characterData);" *ngIf="isSpoiled(characterData)">
-            <img class="icon" [src]="gameManager.characterManager.characterIcon(characterData)" />{{'data.character.'
-            +
-            characterData.name | ghsLabel}}
-          </a>
-          <a (click)="settingsManager.addSpoiler(characterData.name);" *ngIf="!isSpoiled(characterData)">
-            <img class="icon" [src]="gameManager.characterManager.characterIcon(characterData)" />
-            <span class="name">
-              {{'spoiler.placeholder' | ghsLabel}}</span>
-            <span class="add">{{'spoiler.add' | ghsLabel}}</span>
-          </a>
-        </div>
-        <div class="line separator" *ngIf="hasSpoilers(characterData(edition))">
-          <a (click)="settingsManager.addSpoilers(notSpoiled(characterData(edition)))">{{'spoiler.all' |
-            ghsLabel}}</a>
-        </div>
-      </div>
+      </ng-container>
     </div>
   </div>
 
@@ -155,22 +157,24 @@
 
   <div *ngSwitchCase="SubMenu.monster_add" class="menu-container monster-add">
     <div class="columns">
-      <div class="column spoilers bosses"
+      <ng-container
         *ngFor="let edition of (gameManager.game.edition ? [gameManager.game.edition] : gameManager.editions());">
-        <div class="line title sticky" *ngIf="!gameManager.game.edition">
-          <label>{{'data.edition.' + edition | ghsLabel}}</label>
+        <div class="column spoilers bosses" *ngIf="monsterData(edition).length > 0">
+          <div class="line title sticky" *ngIf="!gameManager.game.edition">
+            <label>{{'data.edition.' + edition | ghsLabel}}</label>
+          </div>
+          <div class="line" *ngFor="let monsterData of monsterData(edition)"
+            [ngClass]="{'disabled' : hasMonster(monsterData), 'spoiler' : monsterData.spoiler, 'boss' : monsterData.boss, 'hidden-monster' : monsterData.hidden}">
+            <a (click)="addMonster(monsterData);" *ngIf="isSpoiled(monsterData)">
+              {{'data.monster.' + monsterData.name | ghsLabel}}
+            </a>
+            <a (click)="settingsManager.addSpoiler(monsterData.name);" *ngIf="!isSpoiled(monsterData)">
+              <span class="name">{{'spoiler.placeholder' | ghsLabel}}</span>
+              <span class="add">{{'spoiler.add' | ghsLabel}}</span>
+            </a>
+          </div>
         </div>
-        <div class="line" *ngFor="let monsterData of monsterData() | ghsEditionFilter:edition"
-          [ngClass]="{'disabled' : hasMonster(monsterData), 'spoiler' : monsterData.spoiler, 'boss' : monsterData.boss, 'hidden-monster' : monsterData.hidden}">
-          <a (click)="addMonster(monsterData);" *ngIf="isSpoiled(monsterData)">
-            {{'data.monster.' + monsterData.name | ghsLabel}}
-          </a>
-          <a (click)="settingsManager.addSpoiler(monsterData.name);" *ngIf="!isSpoiled(monsterData)">
-            <span class="name">{{'spoiler.placeholder' | ghsLabel}}</span>
-            <span class="add">{{'spoiler.add' | ghsLabel}}</span>
-          </a>
-        </div>
-      </div>
+      </ng-container>
     </div>
     <div class="line" *ngIf="hasHiddenMonster()">
       <label>

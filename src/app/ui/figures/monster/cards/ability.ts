@@ -5,6 +5,7 @@ import { Monster } from 'src/app/game/model/Monster';
 import { Ability } from 'src/app/game/model/Ability';
 import { PopupComponent } from 'src/app/ui/popup/popup';
 import { ghsUnit, ghsUnitUnit } from 'src/app/ui/helper/Static';
+import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 
 @Component({
   selector: 'ghs-monster-ability',
@@ -27,7 +28,7 @@ export class AbilityComponent extends PopupComponent {
     } else {
       this.ability = gameManager.abilities(this.monster)[ this.index ];
     }
-    return gameManager.working && gameManager.game.state == GameState.draw || !gameManager.working && (gameManager.game.state == GameState.next && this.ability != undefined);
+    return gameManager.working && gameManager.game.state == GameState.draw || !gameManager.working && gameManager.game.state == GameState.next && this.ability != undefined && this.monster.entities.filter((monsterEntity: MonsterEntity) => !monsterEntity.dead).length > 0;
   }
 
   upcomingCards(): Ability[] {

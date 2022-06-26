@@ -15,5 +15,8 @@
     "poison_upgrade",
     "wound_upgrade"
   ],
-  "edition": "cs"
+  "edition": "cs",
+  "extentions": [
+    "gh"
+  ]
 }

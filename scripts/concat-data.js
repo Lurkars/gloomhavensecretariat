@@ -56,6 +56,10 @@ for (edition_path of edition_dirs) {
     edition_data['conditions'] = [];
   }
 
+  if (!edition_data['extensions']) {
+    edition_data['extensions'] = [];
+  }
+
   edition_data['characters'] = load_subfolder(edition_path, 'character', []);
   edition_data['monsters'] = load_subfolder(edition_path, 'monster', []);
   edition_data['decks'] = load_subfolder(edition_path, 'deck', []);

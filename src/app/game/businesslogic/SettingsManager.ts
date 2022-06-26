@@ -1,8 +1,4 @@
-import { CharacterData } from "../model/data/CharacterData";
-import { DeckData } from "../model/data/DeckData";
 import { EditionData } from "../model/data/EditionData";
-import { MonsterData } from "../model/data/MonsterData";
-import { ScenarioData } from "../model/data/ScenarioData";
 import { Settings } from "../model/Settings";
 import { Spoilable } from "../model/Spoilable";
 import { gameManager } from "./GameManager";

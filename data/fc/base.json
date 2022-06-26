@@ -10,5 +10,8 @@
     "strengthen",
     "regenerate"
   ],
-  "edition": "fc"
+  "edition": "fc",
+  "extentions": [
+    "gh"
+  ]
 }

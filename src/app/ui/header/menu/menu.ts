@@ -172,8 +172,8 @@ export class MainMenuComponent extends DialogComponent {
     return gameManager.monstersData(false).some((monsterData: MonsterData) => monsterData.hidden);
   }
 
-  monsterData(): MonsterData[] {
-    return gameManager.monstersData(false).filter((monsterData: MonsterData) => !monsterData.hidden || monsterData.hidden == this.showHiddenMonster).sort((a: MonsterData, b: MonsterData) => {
+  monsterData(edition: string | undefined = undefined): MonsterData[] {
+    return gameManager.monstersData(false).filter((monsterData: MonsterData) => (!monsterData.hidden || monsterData.hidden == this.showHiddenMonster) && (!edition || monsterData.edition == edition)).sort((a: MonsterData, b: MonsterData) => {
       const aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
       const bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
 
