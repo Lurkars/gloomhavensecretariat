@@ -210,3 +210,19 @@ ghs-main {
     -webkit-transform: translateX(0);
   }
 }
+
+.placeholder {
+  position: relative;
+
+  &.condition {
+    text-transform: uppercase;
+  }
+
+  .icon {
+    position: relative;
+    width: 1em;
+    height: auto;
+    top: 0.3em;
+    margin: 0 0.2em;
+  }
+}

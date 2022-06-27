@@ -16,7 +16,7 @@
       [
         {
           "type": "custom",
-          "value": "Summon Living Bones"
+          "value": "%game.custom.summon% %data.monster.living-bones%"
         },
         {
           "type": "attack",
@@ -33,7 +33,7 @@
       [
         {
           "type": "custom",
-          "value": "Summon Living Corpse"
+          "value": "%game.custom.summon% %data.monster.living-corpse%"
         },
         {
           "type": "move",

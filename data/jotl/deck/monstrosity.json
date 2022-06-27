@@ -77,7 +77,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Add +1 Attack if the target is adjacent to any of the Monstrosity's allies."
+              "value": "Add +1 %game.action.attack% if the target is adjacent to any of the Monstrosity's allies."
             }
           ]
         }
@@ -100,7 +100,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Add +1 Attack if the target is adjacent to any of the Monstrosity's allies."
+              "value": "Add +1 %game.action.attack% if the target is adjacent to any of the Monstrosity's allies."
             }
           ]
         }

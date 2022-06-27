@@ -88,7 +88,7 @@
         },
         {
           "type": "custom",
-          "value": "Summon normal Ooze with a hit point value equal to the summoning Ooze's current hit point value (limited by a normal Ooze's specified maximum hit point value)"
+          "value": "%game.custom.summon% %data.monster.ooze% (%monster.normal%) with a hit point value equal to the summoning Ooze's current hit point value (limited by a normal Ooze's specified maximum hit point value)"
         }
       ]
     },
@@ -103,7 +103,7 @@
         },
         {
           "type": "custom",
-          "value": "Summon normal Ooze with a hit point value equal to the summoning Ooze's current hit point value (limited by a normal Ooze's specified maximum hit point value)"
+          "value": "%game.custom.summon% %data.monster.ooze% (%monster.normal%) with a hit point value equal to the summoning Ooze's current hit point value (limited by a normal Ooze's specified maximum hit point value)"
         }
       ]
     },

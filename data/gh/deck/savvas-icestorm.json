@@ -53,7 +53,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Summon normal Wind Demon"
+          "value": "%game.custom.summon% %data.monster.wind-demon% (%monster.normal%)"
         },
         {
           "type": "element",
@@ -67,7 +67,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Summon normal Frost Demon"
+          "value": "%game.custom.summon% %data.monster.frost-demon% (%monster.normal%)"
         },
         {
           "type": "element",

@@ -37,7 +37,7 @@
         },
         {
           "type": "custom",
-          "value": "Summon 2 Zephyrs"
+          "value": "%game.custom.summon% 2 %data.monster.zephyrs%"
         }
       ]
     ],

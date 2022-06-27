@@ -262,23 +262,6 @@ export class SettingsManager {
     return result;
   };
 
-  async unloadEditionData(url: string) {
-    await fetch(url)
-      .then(response => {
-        return response.json();
-      }).then((value: EditionData) => {
-        if (gameManager.editions().indexOf(value.edition) == -1) {
-          console.error("Edition not found: " + value.edition);
-          return;
-        }
-
-        gameManager.editionData.splice(gameManager.editions().indexOf(value.edition), 1);
-      })
-      .catch((error: Error) => {
-        console.error("Invalid data url: " + url + " [" + error + "]");
-      })
-  }
-
   getEditionByUrl(url: string) {
     if (!gameManager.editionData.some((editionData: EditionData) => editionData.url == url)) {
       console.error("No edition data found for url '" + url + "'");
@@ -301,7 +284,7 @@ export class SettingsManager {
 
   async removeEditionDataUrl(editionDataUrl: string) {
     if (this.settings.editionDataUrls.indexOf(editionDataUrl) != -1) {
-      await this.unloadEditionData(editionDataUrl);
+      gameManager.editionData = gameManager.editionData.filter((editionData: EditionData) => editionData.url != editionDataUrl);
       this.settings.editionDataUrls.splice(this.settings.editionDataUrls.indexOf(editionDataUrl), 1);
       if (this.defaultEditionDataUrls.indexOf(editionDataUrl) != -1) {
         this.settings.excludeEditionDataUrls.push(editionDataUrl);
@@ -311,10 +294,11 @@ export class SettingsManager {
   }
 
   async restoreDefaultEditionDataUrls() {
-    this.settings.editionDataUrls = new Settings().editionDataUrls;
-    this.cleanEditionData();
-    for (let editionDataUrl of this.settings.editionDataUrls) {
-      await this.loadEditionData(editionDataUrl);
+    for (let editionDataUrl of this.defaultEditionDataUrls) {
+      if (this.settings.editionDataUrls.indexOf(editionDataUrl) == -1) {
+        this.settings.editionDataUrls.push(editionDataUrl);
+        await this.loadEditionData(editionDataUrl);
+      }
     }
 
     this.storeSettings();

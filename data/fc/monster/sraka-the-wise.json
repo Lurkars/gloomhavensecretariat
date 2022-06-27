@@ -1,0 +1,214 @@
+{
+  "boss": true,
+  "count": 1,
+  "edition": "fc",
+  "name": "sraka-the-wise",
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "stun",
+      "wound"
+    ],
+    "special": [],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Double all Heal values. Heals target The Steel Lion if able"
+        },
+        {
+          "type": "custom",
+          "value": "If you apply %game.condition.curse% or %game.condition.bless%, apply a second %game.condition.curse% or %game.condition.bless%"
+        },
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ],
+      "attack": 2,
+      "health": "2xC",
+      "level": 0,
+      "movement": 3,
+      "range": 3
+    },
+    {
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Double all Heal values. Heals target The Steel Lion if able"
+        },
+        {
+          "type": "custom",
+          "value": "If you apply %game.condition.curse% or %game.condition.bless%, apply a second %game.condition.curse% or %game.condition.bless%"
+        },
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ],
+      "attack": 2,
+      "health": "2xC",
+      "level": 1,
+      "movement": 2,
+      "range": 3
+    },
+    {
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Double all Heal values. Heals target The Steel Lion if able"
+        },
+        {
+          "type": "custom",
+          "value": "If you apply %game.condition.curse% or %game.condition.bless%, apply a second %game.condition.curse% or %game.condition.bless%"
+        },
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ],
+      "attack": 2,
+      "health": "2xC",
+      "level": 2,
+      "movement": 3,
+      "range": 4
+    },
+    {
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Double all Heal values. Heals target The Steel Lion if able"
+        },
+        {
+          "type": "custom",
+          "value": "If you apply %game.condition.curse% or %game.condition.bless%, apply a second %game.condition.curse% or %game.condition.bless%"
+        },
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ],
+      "attack": 3,
+      "health": "3xC",
+      "level": 3,
+      "movement": 3,
+      "range": 4
+    },
+    {
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Double all Heal values. Heals target The Steel Lion if able"
+        },
+        {
+          "type": "custom",
+          "value": "If you apply %game.condition.curse% or %game.condition.bless%, apply a second %game.condition.curse% or %game.condition.bless%"
+        },
+        {
+          "type": "shield",
+          "value": 4
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ],
+      "attack": 3,
+      "health": "3xC",
+      "level": 4,
+      "movement": 3,
+      "range": 4
+    },
+    {
+   
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Double all Heal values. Heals target The Steel Lion if able"
+        },
+        {
+          "type": "custom",
+          "value": "If you apply %game.condition.curse% or %game.condition.bless%, apply a second %game.condition.curse% or %game.condition.bless%"
+        },
+        {
+          "type": "shield",
+          "value": 4
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ],
+      "attack": 4,
+      "health": "3xC",
+      "level": 5,
+      "movement": 3,
+      "range": 4
+    },
+    {
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Double all Heal values. Heals target The Steel Lion if able"
+        },
+        {
+          "type": "custom",
+          "value": "If you apply %game.condition.curse% or %game.condition.bless%, apply a second %game.condition.curse% or %game.condition.bless%"
+        },
+        {
+          "type": "shield",
+          "value": 5
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ],
+      "immunities": [
+        "stun",
+        "wound",
+        "disarm",
+        "pierce"
+      ],
+      "attack": 4,
+      "health": "3xC",
+      "level": 6,
+      "movement": 3,
+      "range": 4
+    },
+    {
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Double all Heal values. Heals target The Steel Lion if able"
+        },
+        {
+          "type": "custom",
+          "value": "If you apply %game.condition.curse% or %game.condition.bless%, apply a second %game.condition.curse% or %game.condition.bless%"
+        },
+        {
+          "type": "shield",
+          "value": 5
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ],
+      "immunities": [
+        "stun",
+        "wound",
+        "disarm",
+        "pierce"
+      ],
+      "attack": 4,
+      "health": "4xC",
+      "level": 7,
+      "movement": 3,
+      "range": 4
+    }
+  ]
+}

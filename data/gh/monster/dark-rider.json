@@ -33,7 +33,7 @@
         },
         {
           "type": "custom",
-          "value": "Summon Imp"
+          "value": "%game.custom.summon% %data.monster.imp%"
         },
         {
           "type": "attack",

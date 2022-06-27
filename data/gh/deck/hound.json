@@ -62,7 +62,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Add +2 Attack {A} if the target is adjacent to any of the Hound's allies."
+              "value": "Add +2 %game.action.attack% if the target is adjacent to any of the Hound's allies."
             }
           ]
         }
@@ -85,7 +85,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Add +2 Attack {A} if the target is adjacent to any of the Hound's allies."
+              "value": "Add +2 %game.action.attack% if the target is adjacent to any of the Hound's allies."
             }
           ]
         }

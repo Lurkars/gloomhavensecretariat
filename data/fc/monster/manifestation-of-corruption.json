@@ -1,0 +1,83 @@
+{
+  "boss": true,
+  "count": 1,
+  "edition": "fc",
+  "name": "manifestation-of-corruption",
+  "baseStat": {
+    "actions": [
+      {
+        "type": "custom",
+        "value": "Play top two cards, using the first card as initiative. Perfom the bottom action of the first card, then the top action of the second card"
+      }
+    ],
+    "immunities": [
+      "wound",
+      "poison",
+      "disarm",
+      "immobilize",
+      "stun",
+      "muddle",
+      "curse"
+    ],
+    "special": [],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "attack": 5,
+      "health": "22xC",
+      "level": 0,
+      "movement": 0,
+      "range": 3
+    },
+    {
+      "attack": 5,
+      "health": "27xc",
+      "level": 1,
+      "movement": 0,
+      "range": 4
+    },
+    {
+      "attack": 6,
+      "health": "32xC",
+      "level": 2,
+      "movement": 0,
+      "range": 4
+    },
+    {
+      "attack": 6,
+      "health": "38xC",
+      "level": 3,
+      "movement": 0,
+      "range": 5
+    },
+    {
+      "attack": 7,
+      "health": "44xC",
+      "level": 4,
+      "movement": 0,
+      "range": 5
+    },
+    {
+      "attack": 7,
+      "health": "49xC",
+      "level": 5,
+      "movement": 0,
+      "range": 6
+    },
+    {
+      "attack": 8,
+      "health": "56xC",
+      "level": 6,
+      "movement": 0,
+      "range": 6
+    },
+    {
+      "attack": 8,
+      "health": "56xC",
+      "level": 7,
+      "movement": 0,
+      "range": 7
+    }
+  ]
+}

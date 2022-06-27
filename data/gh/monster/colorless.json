@@ -22,7 +22,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Summon Night Demon"
+              "value": "%game.custom.summon% %data.monster.night-demon%"
             }
           ]
         },
@@ -45,7 +45,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Summon Sun Demon"
+              "value": "%game.custom.summon% %data.monster.sun-demon%"
             }
           ]
         },

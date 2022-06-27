@@ -26,8 +26,33 @@ main {
 }
 
 .figure {
+  position: relative;
   max-width: 100%;
   margin: calc(var(--ghs-unit) * 1);
+
+  :nth-child(2) {
+    display: block;
+  }
+}
+
+.handle {
+  position: absolute;
+  cursor: move;
+  top: 0;
+  left: calc(var(--ghs-unit) * -3);
+  width: calc(var(--ghs-unit) * 5);
+  height: 100%;
+  z-index: 2;
+
+  &:hover {
+    ~* {
+      box-shadow: 0px 0px calc(var(--ghs-unit) * 1) calc(var(--ghs-unit) * 0.5) var(--ghs-color-gray);
+    }
+  }
+}
+
+.cdk-drag-preview {
+  box-shadow: 0px 0px calc(var(--ghs-unit) * 1) calc(var(--ghs-unit) * 0.5) var(--ghs-color-gray);
 }
 
 .cdk-drag-placeholder {

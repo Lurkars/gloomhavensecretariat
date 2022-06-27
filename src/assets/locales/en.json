@@ -28,7 +28,9 @@
     "add": "Add Monster",
     "remove": "Remove Monster",
     "removeAll": "Remove All",
-    "showHidden" : "Show Hidden Monster"
+    "showHidden" : "Show Hidden Monster",
+    "normal" : "Normal",
+    "elite" : "Elite"
   },
   "character": {
     "add": "Add Character",
@@ -163,6 +165,10 @@
         "monsterType": "Missing Monster Type",
         "unknown": "Unknown Figure"
       }
+    },
+    "custom" : {
+      "advantage" : "Advantage",
+      "summon" : "Summon"
     }
   },
   "datamanagement": {

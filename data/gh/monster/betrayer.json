@@ -17,7 +17,7 @@
       [
         {
           "type": "custom",
-          "value": "Summon Giant Viper and Fear"
+          "value": "%game.custom.summon% %data.monster.giant-viper% and %data.monster.fear%"
         }
       ],
       [

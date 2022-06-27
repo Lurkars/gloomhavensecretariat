@@ -159,7 +159,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Advantage"
+              "value": "%game.custom.advantage%"
             }
           ]
         },

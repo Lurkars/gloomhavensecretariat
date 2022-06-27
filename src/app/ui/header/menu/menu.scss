@@ -34,14 +34,11 @@
 
   .columns {
     display: flex;
-    max-height: calc(100vh - var(--ghs-unit) * 7);
-    overflow: auto;
 
     .column {
       display: flex;
       flex-direction: column;
       max-height: 100%;
-      overflow: auto;
       padding-right: calc(var(--ghs-unit) * 2);
       flex-grow: 1;
     }
@@ -78,6 +75,7 @@
       font-size: calc(var(--ghs-unit) * 3);
       color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
+      white-space: nowrap;
 
       &:hover {
         color: var(--ghs-color-white);

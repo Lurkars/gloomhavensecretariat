@@ -8,7 +8,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Summon normal Flame Demon"
+          "value": "%game.custom.summon% %data.monster.flame-demon% (%monster.normal%)"
         },
         {
           "type": "element",
@@ -22,7 +22,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Summon normal Earth Demon"
+          "value": "%game.custom.summon% %data.monster.earth-demon% (%monster.normal%)"
         },
         {
           "type": "element",

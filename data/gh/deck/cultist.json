@@ -133,7 +133,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Summon normal Living Bones"
+          "value": "%game.custom.summon% %data.monster.living-bones% (%monster.normal%)"
         },
         {
           "type": "custom",
@@ -148,7 +148,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Summon normal Living Bones"
+          "value": "%game.custom.summon% %data.monster.living-bones% (%monster.normal%)"
         },
         {
           "type": "custom",

@@ -21,7 +21,7 @@
       [
         {
           "type": "custom",
-          "value": "Summon Living Bones"
+          "value": "%game.custom.summon% %data.monster.living-bones%"
         }
       ]
     ],

@@ -30,8 +30,7 @@
       ],
       [
         {
-          "type": "custom",
-          "value": "Teleport"
+          "type": "teleport"
         },
         {
           "type": "attack",

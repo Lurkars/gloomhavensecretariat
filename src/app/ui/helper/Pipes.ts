@@ -124,7 +124,28 @@ export class GhsHtmlLabelPipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) { }
 
   transform(value: string, ...args: string[]): SafeHtml {
-    return this.sanitizer.bypassSecurityTrustHtml(settingsManager.getLabel(value, args));
+    return this.sanitizer.bypassSecurityTrustHtml(this.applyPlaceholder(settingsManager.getLabel(value, args)));
+  }
+
+  applyPlaceholder(value: string): string {
+    while (value.match(/\%((\w+|\.|\-)+)\%/)) {
+      value = value.replace(/\%((\w+|\.|\-)+)\%/, (match, ...args) => {
+        const label = args[ 0 ];
+        const split: string[] = label.split('.');
+        const group = split[ 0 ];
+        const type = split[ 1 ];
+
+        let image = '';
+        if (type == "condition" || type == "action" && split.length == 3) {
+          split.splice(0, 1);
+          image = '<img  src="./assets/images/' + split.join('/') + '.svg" class="icon">';
+        }
+        
+        return '<span class="placeholder ' + type + '">'
+          + settingsManager.getLabel(label) + image + '</span>';
+      });
+    }
+    return value;
   }
 
 }

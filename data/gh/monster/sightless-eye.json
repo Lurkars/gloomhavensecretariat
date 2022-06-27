@@ -19,7 +19,7 @@
       [
         {
           "type": "custom",
-          "value": "Summon Deep Terror"
+          "value": "%game.custom.summon% %data.monster.deep-terror%"
         },
         {
           "type": "attack",
@@ -36,7 +36,7 @@
       [
         {
           "type": "custom",
-          "value": "Summon Deep Terror"
+          "value": "%game.custom.summon% %data.monster.deep-terror%"
         },
         {
           "type": "attack",

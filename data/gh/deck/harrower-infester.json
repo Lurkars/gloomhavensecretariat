@@ -145,7 +145,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Perform \"Heal {H} 2, Self\" for each target damaged"
+              "value": "Perform \"%game.action.heal% 2, %game.action.specialTarget.self%\" for each target damaged"
             }
           ]
         }

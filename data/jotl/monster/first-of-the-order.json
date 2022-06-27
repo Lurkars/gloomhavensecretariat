@@ -17,7 +17,7 @@
       [
         {
           "type": "custom",
-          "value": "All enemies within Range 2 suffer 2 damager"
+          "value": "All enemies within %game.action.range% 2 suffer 2 damager"
         },
         {
           "type": "custom",
@@ -37,7 +37,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "within Range 2 of target"
+              "value": "within %game.action.range% 2 of target"
             }
           ]
         },
@@ -48,7 +48,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "within Range 2 of target"
+              "value": "within %game.action.range% 2 of target"
             }
           ]
         }

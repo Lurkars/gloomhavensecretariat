@@ -16,7 +16,7 @@
       [
         {
           "type": "custom",
-          "value": "Jump to farthest dead Zealot and revive or jump to farthest character and Attack+0"
+          "value": "Jump to farthest dead %data.monster.zealot% and revive or jump to farthest character and %game.action.attack%+0"
         }
       ],
       [
@@ -32,7 +32,7 @@
         },
         {
           "type": "custom",
-          "value": "Revive all dead Zealots in room"
+          "value": "Revive all dead %data.monster.zealot% in room"
         }
       ]
     ],

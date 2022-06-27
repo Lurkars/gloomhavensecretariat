@@ -1,0 +1,174 @@
+{
+  "boss": true,
+  "count": 1,
+  "edition": "fc",
+  "name": "selah-naberis",
+  "baseStat": {
+    "actions": [
+      {
+        "type": "pierce",
+        "value": 11
+      },
+      {
+        "type": "target",
+        "value": "C"
+      }
+    ],
+    "immunities": [
+      "stun",
+      "disarm"
+    ],
+    "special": [],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 10
+        },
+        {
+          "type": "target",
+          "value": "C"
+        }
+      ],
+      "attack": 3,
+      "health": 9,
+      "level": 0,
+      "movement": 2,
+      "range": 4
+    },
+    {
+      "attack": 3,
+      "health": 11,
+      "level": 1,
+      "movement": 2,
+      "range": 5
+    },
+    {
+      "attack": 4,
+      "health": 12,
+      "level": 2,
+      "movement": 2,
+      "range": 5
+    },
+    {
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 11
+        },
+        {
+          "type": "push",
+          "value": 1
+        },
+        {
+          "type": "target",
+          "value": "C"
+        }
+      ],
+      "attack": 4,
+      "health": 14,
+      "level": 3,
+      "movement": 2,
+      "range": 6
+    },
+    {
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 12
+        },
+        {
+          "type": "push",
+          "value": 1
+        },
+        {
+          "type": "target",
+          "value": "C"
+        }
+      ],
+      "attack": 4,
+      "health": 16,
+      "level": 4,
+      "movement": 3,
+      "range": 7
+    },
+    {
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 12
+        },
+        {
+          "type": "push",
+          "value": 1
+        },
+        {
+          "type": "target",
+          "value": "C"
+        }
+      ],
+      "attack": 5,
+      "health": 18,
+      "level": 5,
+      "movement": 3,
+      "range": 7
+    },
+    {
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 12
+        },
+        {
+          "type": "push",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": "C"
+        }
+      ],
+      "immunities" : [
+        "stun",
+        "immobilize",
+        "muddle",
+        "poison"
+      ],
+      "attack": 5,
+      "health": 21,
+      "level": 6,
+      "movement": 3,
+      "range": 8
+    },
+    {
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 13
+        },
+        {
+          "type": "push",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": "C"
+        }
+      ],
+      "immunities" : [
+        "stun",
+        "immobilize",
+        "muddle",
+        "poison"
+      ],
+      "attack": 6,
+      "health": 24,
+      "level": 7,
+      "movement": 3,
+      "range": 8
+    }
+  ]
+}
