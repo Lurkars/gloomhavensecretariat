@@ -28,7 +28,9 @@
     "add": "Add Monster",
     "remove": "Remove Monster",
     "removeAll": "Remove All",
-    "showHidden" : "Show Hidden Monster"
+    "showHidden" : "Show Hidden Monster",
+    "normal" : "Normal",
+    "elite" : "Elite"
   },
   "character": {
     "add": "Add Character",
@@ -78,7 +80,8 @@
     "connecting": "Connecting",
     "closing": "Closing",
     "closed": "Closed",
-    "undefined": "No Connection",
+    "disconnected": "No Connection",
+    "undefined": "Connection not specified",
     "autoconnect" : "Connect Automatically",
     "wss" : "Secure",
     "settings" : "Synchronize Settings"
@@ -90,6 +93,7 @@
     "sourceCode": "Source Code"
   },
   "update": "Update (Reload)",
+  "and" : "and",
   "game": {
     "action": {
       "attack": "Attack",
@@ -163,6 +167,13 @@
         "monsterType": "Missing Monster Type",
         "unknown": "Unknown Figure"
       }
+    },
+    "custom" : {
+      "advantage" : "Advantage",
+      "summon" : "Summon",
+      "ondeath" : "On death",
+      "instead" : "Instead",
+      "disadvantage" : "Attackers gain Disadvantage"
     }
   },
   "datamanagement": {
