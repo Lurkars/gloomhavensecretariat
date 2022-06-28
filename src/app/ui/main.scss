@@ -52,7 +52,7 @@ main {
         left: calc(var(--ghs-unit) * 1);
         width: calc(var(--ghs-unit) * 1);
         height: 100%;
-        background-color: var(--ghs-color-gray);
+        background-color: var(--ghs-color-darkgray);
         opacity: 0.5;
         border-radius: calc(var(--ghs-unit) * 1);
       }
@@ -73,7 +73,7 @@ main {
       left: calc(var(--ghs-unit) * 1);
       width: calc(var(--ghs-unit) * 1);
       height: 100%;
-      background-color: var(--ghs-color-gray);
+      background-color: var(--ghs-color-darkgray);
       opacity: 0.5 !important;
       border-radius: calc(var(--ghs-unit) * 1);
     }

@@ -124,6 +124,10 @@ export class CharacterComponent extends DialogComponent {
 
   override close(): void {
     super.close();
+    if (this.health > 0 && this.character.exhausted) {
+      this.character.exhausted = false;
+    }
+
     this.health = 0;
     this.experience = 0;
     this.loot = 0;
