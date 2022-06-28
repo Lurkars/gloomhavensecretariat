@@ -3,7 +3,7 @@ import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 
 @Component({
   selector: 'ghs-svg',
-  template: '<span [innerHTML]="svg"></span>',
+  template: '<span class="inline-svg" [innerHTML]="svg"></span>',
   encapsulation: ViewEncapsulation.None,
   styleUrls: [ 'svg.scss' ]
 })

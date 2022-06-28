@@ -1,17 +1,19 @@
 .button {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: calc(var(--ghs-unit) * 9);
-  height: calc(var(--ghs-unit) * 13);
+  display: inline-block;
+  width: calc(var(--ghs-unit) * 5);
+  height: calc(var(--ghs-unit) * 5);
   cursor: pointer;
   font-size: calc(var(--ghs-unit) * 10);
   color: var(--ghs-color-gray);
-  text-shadow: var(--ghs-outline);
+  fill: var(--ghs-color-gray);
+  stroke: var(--ghs-color-black);
+  stroke-width: calc(var(--ghs-unit) * 1.5);
+  margin: calc(var(--ghs-unit) * 1);
 
   &:hover {
     color: var(--ghs-color-white);
+    fill: var(--ghs-color-white);
   }
 
 }

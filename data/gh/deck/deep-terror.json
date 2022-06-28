@@ -186,7 +186,7 @@
             },
             {
               "type": "custom",
-              "value": "%game.custom.summon% %data.monster.deep-terror% (%monster.normal%) in a hex adjacent to the target"
+              "value": "%data.custom.gh.deep-terror.1%"
             }
           ]
         }

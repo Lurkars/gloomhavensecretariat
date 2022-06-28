@@ -8,7 +8,7 @@
   max-width: 90vw;
   overflow: auto;
   text-align: center;
-  padding: calc(var(--ghs-unit) * 1); 
+  padding: calc(var(--ghs-unit) * 1);
   border: calc(var(--ghs-unit) * 1) solid transparent;
   border-image-source: url('~src/assets/images/dialog_border.png');
   border-image-slice: 64;
@@ -19,6 +19,14 @@
 
   &.opened {
     display: block;
+  }
+  
+  ghs-svg {
+    color: var(--ghs-color-white);
+    fill: var(--ghs-color-white);
+    width: calc(var(--ghs-unit) * 3);
+    height: calc(var(--ghs-unit) * 3);
+    display: inline-block;
   }
 }
 
@@ -68,4 +76,5 @@
     border: 0px;
     border-radius: calc(var(--ghs-unit) * 1);
   }
+
 }

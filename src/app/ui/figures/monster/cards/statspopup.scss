@@ -6,6 +6,7 @@
   font-family: 'ghs-title';
   color: var(--ghs-color-white);
   font-size: calc(var(--ghs-unit) * 2.5);
+  filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
   text-align: left;
   white-space: nowrap;
   overflow: auto;
@@ -41,7 +42,8 @@
     flex-direction: column;
     margin: calc(var(--ghs-unit) * 1);
     max-height: 80vh;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 
     ghs-monster-stats {
       pointer-events: none;

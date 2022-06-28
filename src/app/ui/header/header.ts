@@ -12,6 +12,7 @@ export class HeaderComponent {
 
   gameManager: GameManager = gameManager;
   GameState = GameState;
+  WebSocket = WebSocket;
 
   elements: Element[] = [ Element.fire, Element.ice, Element.air, Element.earth, Element.light, Element.dark ];
 

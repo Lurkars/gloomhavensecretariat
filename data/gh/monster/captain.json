@@ -28,7 +28,7 @@
       [
         {
           "type": "custom",
-          "value": "All allies add +1 %game.action.attack% to all attacks this round"
+          "value": "%data.custom.gh.captain.1%"
         },
         {
           "type": "attack",

@@ -9,7 +9,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Any time a figure attacks the Stone Golem this round, that figure suffers 3 damags."
+          "value": "%data.custom.jotl.stone-golem.1%"
         }
       ]
     },
@@ -30,7 +30,7 @@
         },
         {
           "type": "custom",
-          "value": "If the Move ability was perfomed, the Stone Gloem suffers 1 damage."
+          "value": "%data.custom.jotl.stone-golem.2%"
         }
       ]
     },
@@ -85,7 +85,7 @@
             },
             {
               "type": "custom",
-              "value": "If this attack is perfomed, the Stone Golem suffers 2 damage."
+              "value": "%data.custom.jotl.stone-golem.3%"
             }
           ]
         }

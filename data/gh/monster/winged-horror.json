@@ -39,13 +39,13 @@
         },
         {
           "type": "custom",
-          "value": "Hatch eggs"
+          "value": "%data.custom.gh.winged-horror.1%"
         }
       ],
       [
         {
           "type": "custom",
-          "value": "Summon C eggs"
+          "value": "%data.custom.gh.winged-horror.2%"
         },
         {
           "type": "move",

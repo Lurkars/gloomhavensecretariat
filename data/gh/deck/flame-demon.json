@@ -148,7 +148,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Flame Demon suffers 1 damage."
+              "value": "%data.custom-flame-demon.1%"
             }
           ]
         }
@@ -186,7 +186,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "All adjacent enemies suffer 2 damage."
+              "value": "%data.custom-flame-demon.2%"
             }
           ]
         }
@@ -203,7 +203,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Create a 4 damage trap in an adjacent empty hex closest to an enemy."
+              "value": "%data.custom-flame-demon.3%"
             }
           ]
         },

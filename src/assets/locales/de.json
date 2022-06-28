@@ -80,7 +80,8 @@
     "connecting": "Verbinde",
     "closing": "Schließen",
     "closed": "Geschlossen",
-    "undefined": "Keine Verbingung",
+    "disconnected": "Keine Verbindung",
+    "undefined": "Verbindung nicht definiert",
     "autoconnect": "Automatisch Verbinden",
     "wss": "Verschlüsselte Verbindung",
     "settings": "Einstellungen synchronisieren"
@@ -92,6 +93,7 @@
     "sourceCode": "Quelltext"
   },
   "update": "Update (Neu Laden)",
+  "and" : "und",
   "game": {
     "action": {
       "attack": "Angriff",
@@ -168,7 +170,10 @@
     },
     "custom" : {
       "advantage" : "Vorteil",
-      "summon" : "Beschwöre"
+      "summon" : "Beschwöre",
+      "ondeath" : "Bei Tod",
+      "instead" : "Stattdessen",
+      "disadvantage" : "Angreifer erhalten Nachteil"
     }
   },
   "datamanagement": {

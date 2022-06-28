@@ -118,7 +118,11 @@ export class StateManager {
   }
 
   wsState(): number {
-    return this.ws?.readyState || -1;
+    if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword) {
+      return this.ws && this.ws.readyState || -1;
+    } else {
+      return -99;
+    }
   }
 
   reset() {

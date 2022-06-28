@@ -27,7 +27,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "instead"
+                  "value": "%game.custom.instead%"
                 }
               ]
             }

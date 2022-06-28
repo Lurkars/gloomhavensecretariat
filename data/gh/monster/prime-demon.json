@@ -18,7 +18,7 @@
       [
         {
           "type": "custom",
-          "value": "Throne moves"
+          "value": "%data.custom.gh.prime-demon.1%"
         },
         {
           "type": "custom",
@@ -38,7 +38,7 @@
       [
         {
           "type": "custom",
-          "value": "Throne moves"
+          "value": "%data.custom.gh.prime-demon.1%"
         },
         {
           "type": "custom",

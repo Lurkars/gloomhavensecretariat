@@ -85,7 +85,7 @@
             },
             {
               "type": "custom",
-              "value": "X is damage suffered by target of attack"
+              "value": "%data.custom.jotl.zealot.1%"
             }
           ]
         },

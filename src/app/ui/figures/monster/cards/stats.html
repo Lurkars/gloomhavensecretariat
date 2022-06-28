@@ -41,7 +41,7 @@
         {{index+1}}: <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [right]="true"
           [hexSize]="hexSize()"></ghs-actions>
       </div>
-      <div class="notes">{{statsForType(MonsterType.normal).note}}</div>
+      <div class="notes" [innerHTML]="statsForType(MonsterType.normal).note | ghsHtmlLabel"></div>
     </div>
     <div class="extra elite">
       <div class="immunities">
@@ -58,7 +58,7 @@
         {{index+1}}: <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [hexSize]="hexSize()">
         </ghs-actions>
       </div>
-      <div class="notes">{{statsForType(MonsterType.elite).note}}</div>
+      <div class="notes"  [innerHTML]="statsForType(MonsterType.elite).note | ghsHtmlLabel"></div>
     </div>
   </ng-container>
   <div class="extra boss" *ngIf="monster.boss">
@@ -76,7 +76,7 @@
       <span>{{index+1}}:</span>
       <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [hexSize]="hexSize()"></ghs-actions>
     </div>
-    <div class="notes">{{statsForType(MonsterType.boss).note}}</div>
+    <div class="notes" [innerHTML]="statsForType(MonsterType.boss).note | ghsHtmlLabel"></div>
   </div>
 </div>
 

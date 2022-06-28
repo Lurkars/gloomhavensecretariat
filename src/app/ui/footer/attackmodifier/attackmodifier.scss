@@ -42,8 +42,8 @@
       text-shadow: var(--ghs-outline);
       position: absolute;
       font-size: calc(var(--ghs-unit) * 2.5);
-      right: calc(var(--ghs-unit) * 0.1);
-      bottom: calc(var(--ghs-unit) * 0.1);
+      right: calc(var(--ghs-unit) * 1);
+      bottom: 0;
       z-index: 1000;
 
       img {
@@ -116,7 +116,8 @@
     flex-direction: row;
     margin: calc(var(--ghs-unit) * 1);
     max-height: 80vh;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 
     .upcoming,
     .disgarded {
@@ -142,7 +143,7 @@
             align-items: center;
             color: var(--ghs-color-white);
             font-size: calc(var(--ghs-unit) * 2.5);
-            text-shadow: var(--ghs-outline);
+            filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
           }
         }
       }

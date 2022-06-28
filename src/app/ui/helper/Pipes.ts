@@ -124,6 +124,9 @@ export class GhsHtmlLabelPipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) { }
 
   transform(value: string, ...args: string[]): SafeHtml {
+    if (!value) {
+      return "";
+    }
     return this.sanitizer.bypassSecurityTrustHtml(this.applyPlaceholder(settingsManager.getLabel(value, args)));
   }
 
@@ -140,7 +143,7 @@ export class GhsHtmlLabelPipe implements PipeTransform {
           split.splice(0, 1);
           image = '<img  src="./assets/images/' + split.join('/') + '.svg" class="icon">';
         }
-        
+
         return '<span class="placeholder ' + type + '">'
           + settingsManager.getLabel(label) + image + '</span>';
       });

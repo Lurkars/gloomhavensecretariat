@@ -7,7 +7,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "On death, all adjacent figures suffer 1 damage"
+        "value": "%data.custom.jotl.rat-monstrosity.1%"
       }
     ],
     "immunities": [],
@@ -40,7 +40,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 2 damage"
+          "value": "%data.custom.jotl.rat-monstrosity.2%"
         }
       ],
       "attack": 3,
@@ -53,7 +53,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 2 damage"
+          "value": "%data.custom.jotl.rat-monstrosity.2%"
         }
       ],
       "attack": 3,
@@ -66,7 +66,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 2 damage"
+          "value": "%data.custom.jotl.rat-monstrosity.2%"
         }
       ],
       "attack": 3,
@@ -79,7 +79,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 3 damage"
+          "value": "%data.custom.jotl.rat-monstrosity.3%"
         }
       ],
       "attack": 3,
@@ -92,7 +92,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 3 damage"
+          "value": "%data.custom.jotl.rat-monstrosity.3%"
         }
       ],
       "attack": 4,
@@ -113,7 +113,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 2 damage"
+          "value": "%data.custom.jotl.rat-monstrosity.2%"
         },
         {
           "type": "custom",
@@ -131,7 +131,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 2 damage"
+          "value": "%data.custom.jotl.rat-monstrosity.2%"
         },
         {
           "type": "custom",
@@ -149,7 +149,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 2 damage"
+          "value": "%data.custom.jotl.rat-monstrosity.2%"
         },
         {
           "type": "custom",
@@ -167,7 +167,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 3 damage"
+          "value": "%data.custom.jotl.rat-monstrosity.3%"
         },
         {
           "type": "custom",
@@ -185,7 +185,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 3 damage"
+          "value": "%data.custom.jotl.rat-monstrosity.3%"
         },
         {
           "type": "custom",
@@ -203,7 +203,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 2 damage"
+          "value": "%data.custom.jotl.rat-monstrosity.3%"
         },
         {
           "type": "custom",
@@ -221,7 +221,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 2 damage"
+          "value": "%data.custom.jotl.rat-monstrosity.4%"
         },
         {
           "type": "custom",

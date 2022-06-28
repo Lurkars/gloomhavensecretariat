@@ -24,8 +24,8 @@
     },
     "monster": {
       "ancient-artillery": "Antike Artillerie",
-      "bandit-archer": "Banditen-Schützin",
-      "bandit-commander": "Bandit Commander",
+      "bandit-archer": "Banditen Schützin",
+      "bandit-commander": "Banditen Kommandeur",
       "bandit-guard": "Banditen-Wache",
       "betrayer": "Der Abtrünnige",
       "black-imp": "Schwarzwicht",
@@ -44,12 +44,12 @@
       "frost-demon": "Frostdämon",
       "giant-viper": "Riesenviper",
       "gloom": "Das Grauen",
-      "harrower-infester": "Schwarmling-Kontagion",
+      "harrower-infester": "Schwarmling Kontagion",
       "hound": "Grimmwolf",
-      "inox-archer": "Inox-Schütze",
-      "inox-bodyguard": "Inox-Leibwache",
-      "inox-guard": "Inox-Wache",
-      "inox-shaman": "Inox-Schamane",
+      "inox-archer": "Inox Schütze",
+      "inox-bodyguard": "Inox Leibwache",
+      "inox-guard": "Inox Wache",
+      "inox-shaman": "Inox Schamane",
       "jekserah": "Jekserah",
       "living-bones": "Wandelndes Skelett",
       "living-corpse": "Wandelnde Leiche",
@@ -60,8 +60,8 @@
       "ooze": "Schleim",
       "prime-demon": "Erzdämon",
       "rending-drake": "Reißdrachen",
-      "savvas-icestorm": "Savvas-Eissturm",
-      "savvas-lavaflow": "Savvas-Lavastrom",
+      "savvas-icestorm": "Savvas Eissturm",
+      "savvas-lavaflow": "Savvas Lavastrom",
       "sightless-eye": "Das Blicklose Auge",
       "spitting-drake": "Speidrachen",
       "stone-golem": "Steingolem",
@@ -72,7 +72,7 @@
       "winged-horror": "Der Geflügelte Schrecken"
     },
     "deck": {
-      "archer" : "Schütze",
+      "archer": "Schütze",
       "boss": "Boss",
       "guard": "Wache",
       "imp": "Wicht",
@@ -254,7 +254,7 @@
       "winged-horror": "Winged Horror"
     },
     "deck": {
-      "archer" : "Archer",
+      "archer": "Archer",
       "boss": "Boss",
       "guard": "Guard",
       "imp": "Imp",
@@ -265,6 +265,82 @@
     "scenario": {},
     "summon": {
       "two-mini": "Bear"
+    },
+    "custom": {
+      "gh": {
+        "ancient-artillery": {
+          "1": "All adjacent enemies suffer 2 damage."
+        },
+        "archer": {
+          "1": "Create a 3 damage trap in an adjacent empty hex closest to an enemy."
+        },
+        "cultist": {
+          "1": "%data.monster.cultist% suffers 2 damage."
+        },
+        "deep-terror": {
+          "1": "%game.custom.summon% %data.monster.deep-terror% (%monster.normal%) in a hex adjacent to the target"
+        },
+        "flame-demon": {
+          "1": "%data.monster.flame-demon% suffers 1 damage.",
+          "2": "All adjacent enemies suffer 2 damage.",
+          "3": "Create a 4 damage trap in an adjacent empty hex closest to an enemy."
+        },
+        "frost-demon": {
+          "1": "%data.monster.frost-demon% suffers 1 damage."
+        },
+        "giant-viper": {
+          "1": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.giant-viper%'s allies.",
+          "2": "All attacks targeting %data.monster.giant-viper% this round gain Disadvantage."
+        },
+        "harrower-infester": {
+          "1": "Perform \"%game.action.heal% 2, %game.action.specialTarget.self%\" for each target damaged"
+        },
+        "hound": {
+          "1": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.hound%'s allies."
+        },
+        "imp": {
+          "1": "Affect all allies withing %game.action.range% 2",
+          "2": "Target all enenmies withing %game.action.range% 2"
+        },
+        "living-corpse": {
+          "1": "%data.monster.living-corpse% suffers 1 damage."
+        },
+        "night-demon": {
+          "1": "All adjacent enemies and allies suffer 1 damage."
+        },
+        "ooze": {
+          "1": "Ooze suffers 2 damage.",
+          "2": "%game.custom.summon% %data.monster.ooze% (%monster.normal%) with a hit point value equal to the summoning %data.monster.ooze%'s current hit point value (limited by a normal %data.monster.ooze%'s specified maximum hit point value)"
+        },
+        "savvas-lavaflow": {
+          "1": "All allies and enemies adjacent to the target suffer 2 damage",
+          "2": "All enemies suffer 2 damage."
+        },
+        "stone-golem": {
+          "1": "%data.monster.stone-golem% suffers 1 damage.",
+          "2": "%data.monster.stone-golem% suffers 2 damage."
+        },
+        "bandit-commander": {
+          "1": "Move to next door and reveal room"
+        },
+        "betrayer": {
+          "1": "Mind Control"
+        },
+        "captain": {
+          "1": "All allies add +1 %game.action.attack% to all attacks this round"
+        },
+        "merciless-overseer": {
+          "1": "All Scouts act again",
+          "2": "V = Number of Scouts present"
+        },
+        "prime-demon": {
+          "1": "Throne moves"
+        },
+        "winged-horror": {
+          "1": "Hatch eggs",
+          "2": "Summon C eggs"
+        }
+      }
     }
   }
 }

@@ -5,10 +5,10 @@
     <span *ngIf="gameManager.game.scenario" class="name">{{'data.scenario.' + gameManager.game.scenario.name | ghsLabel}}</span>
   </div>
   <div class="values">
-    <span class="level">{{gameManager.game.level}} <img src="./assets/images/level.svg" /></span>
-    <span class="loot">x{{loot()}} <img src="./assets/images/loot.svg" /></span>
-    <span class="trap">{{trap()}} <img src="./assets/images/trap.svg" /></span>
-    <span class="experience">+{{experience()}} <img src="./assets/images/experience.svg" /></span>
+    <span class="level"><ghs-svg src="./assets/images/level.svg"></ghs-svg> {{gameManager.game.level}}</span>
+    <span class="loot"><ghs-svg src="./assets/images/loot.svg"></ghs-svg> x{{loot()}}</span>
+    <span class="trap"><ghs-svg src="./assets/images/trap.svg"></ghs-svg> {{trap()}}</span>
+    <span class="experience"><ghs-svg  src="./assets/images/experience.svg"></ghs-svg> +{{experience()}}</span>
   </div>
 </div>
 

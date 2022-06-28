@@ -17,11 +17,11 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Double all Heal values. Heals target The Steel Lion if able"
+          "value": "%data.custom.fc.sraka-the-wise.1%"
         },
         {
           "type": "custom",
-          "value": "If you apply %game.condition.curse% or %game.condition.bless%, apply a second %game.condition.curse% or %game.condition.bless%"
+          "value": "%data.custom.fc.sraka-the-wise.2%"
         },
         {
           "type": "shield",
@@ -38,11 +38,11 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Double all Heal values. Heals target The Steel Lion if able"
+          "value": "%data.custom.fc.sraka-the-wise.1%"
         },
         {
           "type": "custom",
-          "value": "If you apply %game.condition.curse% or %game.condition.bless%, apply a second %game.condition.curse% or %game.condition.bless%"
+          "value": "%data.custom.fc.sraka-the-wise.2%"
         },
         {
           "type": "shield",
@@ -59,11 +59,11 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Double all Heal values. Heals target The Steel Lion if able"
+          "value": "%data.custom.fc.sraka-the-wise.1%"
         },
         {
           "type": "custom",
-          "value": "If you apply %game.condition.curse% or %game.condition.bless%, apply a second %game.condition.curse% or %game.condition.bless%"
+          "value": "%data.custom.fc.sraka-the-wise.2%"
         },
         {
           "type": "shield",
@@ -80,11 +80,11 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Double all Heal values. Heals target The Steel Lion if able"
+          "value": "%data.custom.fc.sraka-the-wise.1%"
         },
         {
           "type": "custom",
-          "value": "If you apply %game.condition.curse% or %game.condition.bless%, apply a second %game.condition.curse% or %game.condition.bless%"
+          "value": "%data.custom.fc.sraka-the-wise.2%"
         },
         {
           "type": "shield",
@@ -101,11 +101,11 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Double all Heal values. Heals target The Steel Lion if able"
+          "value": "%data.custom.fc.sraka-the-wise.1%"
         },
         {
           "type": "custom",
-          "value": "If you apply %game.condition.curse% or %game.condition.bless%, apply a second %game.condition.curse% or %game.condition.bless%"
+          "value": "%data.custom.fc.sraka-the-wise.2%"
         },
         {
           "type": "shield",
@@ -127,11 +127,11 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Double all Heal values. Heals target The Steel Lion if able"
+          "value": "%data.custom.fc.sraka-the-wise.1%"
         },
         {
           "type": "custom",
-          "value": "If you apply %game.condition.curse% or %game.condition.bless%, apply a second %game.condition.curse% or %game.condition.bless%"
+          "value": "%data.custom.fc.sraka-the-wise.2%"
         },
         {
           "type": "shield",
@@ -152,11 +152,11 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Double all Heal values. Heals target The Steel Lion if able"
+          "value": "%data.custom.fc.sraka-the-wise.1%"
         },
         {
           "type": "custom",
-          "value": "If you apply %game.condition.curse% or %game.condition.bless%, apply a second %game.condition.curse% or %game.condition.bless%"
+          "value": "%data.custom.fc.sraka-the-wise.2%"
         },
         {
           "type": "shield",
@@ -183,11 +183,11 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Double all Heal values. Heals target The Steel Lion if able"
+          "value": "%data.custom.fc.sraka-the-wise.1%"
         },
         {
           "type": "custom",
-          "value": "If you apply %game.condition.curse% or %game.condition.bless%, apply a second %game.condition.curse% or %game.condition.bless%"
+          "value": "%data.custom.fc.sraka-the-wise.2%"
         },
         {
           "type": "shield",

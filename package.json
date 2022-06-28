@@ -1,6 +1,6 @@
 {
   "name": "gloomhavensecretary",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "license": "AGPL3",
   "description": "Gloomhaven Secretary is an angular based Gloomhaven Helper clone.",
   "author": {
@@ -66,8 +66,8 @@
     "@angular/cli": "^14.0.2",
     "@angular/compiler-cli": "^14.0.1",
     "@types/jasmine": "~4.0.3",
-    "electron": "^19.0.4",
-    "electron-builder": "^23.0.3",
+    "electron": "^19.0.6",
+    "electron-builder": "^23.1.0",
     "http-server": "^14.1.1",
     "jasmine-core": "~4.2.0",
     "karma": "~6.4.0",

@@ -34,7 +34,7 @@
         },
         {
           "type": "custom",
-          "value": "Stone Gloem suffers 1 damage."
+          "value": "%data.custom.gh.stone-golem.1%"
         }
       ]
     },
@@ -88,7 +88,7 @@
         },
         {
           "type": "custom",
-          "value": "Stone Golem suffers 2 damage."
+          "value": "%data.custom.gh.stone-golem.2%"
         }
       ]
     },

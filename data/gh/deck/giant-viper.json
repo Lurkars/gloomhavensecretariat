@@ -19,7 +19,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Add +2 %game.action.attack% if the target is adjacent to any of the Giant Viper's allies."
+              "value": "%data.custom.gh.giant-viper.1%"
             }
           ]
         }
@@ -42,7 +42,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Add +2 %game.action.attack% if the target is adjacent to any of the Giant Viper's allies."
+              "value": "%data.custom.gh.giant-viper.1%"
             }
           ]
         }
@@ -122,7 +122,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "All attacks targeting Giant Viper this round gain Disadvantage."
+              "value": "%data.custom.gh.giant-viper.2%"
             }
           ]
         }

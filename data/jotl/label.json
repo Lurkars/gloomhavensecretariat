@@ -25,6 +25,7 @@
       "giant-viper": "Riesenviper",
       "living-corpse": "Wandelnde Leiche",
       "living-spirit": "Wandelnde Seele",
+      "monstrosity": "Monströsität",
       "rat-monstrosity": "Rattenmonströsität",
       "stone-golem": "Steingolem",
       "vermling-raider": "Ratzenräuber",
@@ -91,6 +92,7 @@
       "giant-viper": "Giant Viper",
       "living-corpse": "Living Corpse",
       "living-spirit": "Living Spirit",
+      "monstrosity": "Monstrosity",
       "rat-monstrosity": "Rat Monstrosity",
       "stone-golem": "Stone Golem",
       "vermling-raider": "Vermling Raider",
@@ -103,6 +105,65 @@
       "imp": "Imp"
     },
     "ability": {},
-    "scenario": {}
+    "scenario": {},
+    "custom": {
+      "jotl": {
+        "giant-viper": {
+          "1": "All attacks targeting %data.monster.giant-viper% gain Disadvantage this round.",
+          "2": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.giant-viper%'s allies."
+        },
+        "black-sludge": {
+          "1": "The closest enemy in line-of-sight, regardless of range, suffer 1+L/2 (rounded up) damage"
+        },
+        "chaos-demon": {
+          "1": "Any time a figure attacks the %data.monster.chaos-demon% this round, that figure suffer 2 damage",
+          "2": "All enemies adjacent to the target suffer 1 damage"
+        },
+        "living-corpse": {
+          "1": "The target also suffers 2 damage.",
+          "2": "If this movement is perfomred, the %data.monster.living-corpse% suffers 1 damage.",
+          "3": "If this attack is perfomered, the %data.monster.living-corpse% suffers 1 damage."
+        },
+        "imp": {
+          "1": "Target self and all allies withing %game.action.range% 2",
+          "2": "Target all enenmies withing %game.action.range% 2"
+        },
+        "monstrosity": {
+          "1": "If this attack is performed, the %data.monster.monstrosity% suffers 1 damage.",
+          "2": "Add +1 %game.action.attack% if the target is adjacent to any of the %data.monster.monstrosity%'s allies.",
+          "3": "Any time a figure attacks the %data.monster.monstrosity% this round, that figure suffers 2 damage.",
+          "4": "%data.monster.monstrosity% suffers 1 damage"
+        },
+        "stone-golem": {
+          "1": "Any time a figure attacks the %data.monster.stone-golem% this round, that figure suffers 3 damags.",
+          "2": "If the Move ability was perfomed, the %data.monster.stone-golem% suffers 1 damage.",
+          "3": "If this attack is perfomed, the %data.monster.stone-golem% suffers 2 damage."
+        },
+        "vermling-raider": {
+          "1": "Create one 3-damage trap in an adjacend empty hex closest to an enemey."
+        },
+        "zealot": {
+          "1": "X is damage suffered by target of attack"
+        },
+        "blood-horror": {
+          "1": "Jump to farthest dead %data.monster.zealot% and revive or jump to farthest character and %game.action.attack%+0",
+          "2": "Revive all dead %data.monster.zealot% in room"
+        },
+        "blood-monstrosity": {
+          "1": "On death, all adjacent figures suffer 1 damage"
+        },
+        "first-of-the-order": {
+          "1": "All enemies within %game.action.range% 2 suffer 2 damage",
+          "2": "Spawn C/2 %data.monster.black-imp%s",
+          "3": "within %game.action.range% 2 of target"
+        },
+        "rat-monstrosity": {
+          "1": "On death, all adjacent figures suffer 1 damage",
+          "2": "On death, all adjacent figures suffer 2 damage",
+          "3": "On death, all adjacent figures suffer 3 damage",
+          "4": "On death, all adjacent figures suffer 4 damage"
+        }
+      }
+    }
   }
 }

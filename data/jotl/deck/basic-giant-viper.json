@@ -52,7 +52,7 @@
         },
         {
           "type": "custom",
-          "value": "All attacks targeting Giant Viper gain Disadvantage this round."
+          "value": "%data.custom.jotl.giant-viper.1%"
         }
       ]
     },

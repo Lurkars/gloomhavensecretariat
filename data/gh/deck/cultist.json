@@ -18,7 +18,7 @@
         },
         {
           "type": "custom",
-          "value": "On death",
+          "value": "%game.custom.ondeath%",
           "subActions": [
             {
               "type": "attack",
@@ -51,7 +51,7 @@
         },
         {
           "type": "custom",
-          "value": "On death",
+          "value": "%game.custom.ondeath%",
           "subActions": [
             {
               "type": "attack",
@@ -137,7 +137,7 @@
         },
         {
           "type": "custom",
-          "value": "Cultist suffers 2 damage."
+          "value": "%data.custom.gh.cultist.1%"
         }
       ]
     },
@@ -152,7 +152,7 @@
         },
         {
           "type": "custom",
-          "value": "Cultist suffers 2 damage."
+          "value": "%data.custom.gh.cultist.1%"
         }
       ]
     },

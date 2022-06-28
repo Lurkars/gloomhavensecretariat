@@ -1,5 +1,21 @@
 <header>
   <ghs-main-menu></ghs-main-menu>
+  <ng-container [ngSwitch]="gameManager.stateManager.wsState()">
+    <ghs-svg [src]="'./assets/images/server-connection.svg'" class="server-connection connected"
+      *ngSwitchCase="WebSocket.OPEN" [title]="'server.connected' | ghsLabel">
+    </ghs-svg>
+    <ghs-svg [src]="'./assets/images/server-connection.svg'" class="server-connection connecting"
+      *ngSwitchCase="WebSocket.CONNECTING" [title]="'server.connecting' | ghsLabel"></ghs-svg>
+    <ghs-svg [src]="'./assets/images/server-connection.svg'" class="server-connection closing"
+      *ngSwitchCase="WebSocket.CLOSING" [title]="'server.closing' | ghsLabel">
+    </ghs-svg>
+    <ghs-svg [src]="'./assets/images/server-connection.svg'" class="server-connection closed"
+      *ngSwitchCase="WebSocket.CLOSED" [title]="'server.closed' | ghsLabel">
+    </ghs-svg>
+    <ghs-svg [src]="'./assets/images/server-connection.svg'" class="server-connection disconnected"
+      *ngSwitchCase="-1" [title]="'server.disconnected' | ghsLabel">
+    </ghs-svg>
+  </ng-container>
   <span class="spacer"></span>
   <div class="elements">
     <ghs-element-icon *ngFor="let element of elements" [element]="element"></ghs-element-icon>

@@ -64,7 +64,7 @@ export class Game {
         objective = new Objective(value.id);
         this.figures.push(objective);
       }
-      objective.fromModel(objective);
+      objective.fromModel(value);
     });
 
     this.figures.sort((a: Figure, b: Figure) => model.figures.indexOf(a.name) - model.figures.indexOf(b.name));

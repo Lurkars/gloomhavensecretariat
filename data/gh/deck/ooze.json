@@ -84,11 +84,11 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Ooze suffers 2 damage."
+          "value": "%data.custom.gh.ooze.1%"
         },
         {
           "type": "custom",
-          "value": "%game.custom.summon% %data.monster.ooze% (%monster.normal%) with a hit point value equal to the summoning Ooze's current hit point value (limited by a normal Ooze's specified maximum hit point value)"
+          "value": "%data.custom.gh.ooze.2%"
         }
       ]
     },
@@ -99,11 +99,11 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Ooze suffers 2 damage."
+          "value": "%data.custom.gh.ooze.1%"
         },
         {
           "type": "custom",
-          "value": "%game.custom.summon% %data.monster.ooze% (%monster.normal%) with a hit point value equal to the summoning Ooze's current hit point value (limited by a normal Ooze's specified maximum hit point value)"
+          "value": "%data.custom.gh.ooze.2%"
         }
       ]
     },

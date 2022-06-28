@@ -1,5 +1,10 @@
 @font-face {
   font-family: 'ghs-normal';
+  src: url('./assets/font/majallab.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'ghs-text';
   src: url('./assets/font/nyala.ttf') format('truetype');
 }
 
@@ -50,6 +55,26 @@ body {
     -ms-user-select: none;
     user-select: none;
   }
+
+
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  border-radius: 10px;
+
+  &:hover {
+    width: 8px;
+    height: 12px;
+    background-color: var(--ghs-color-darkgray);
+  }
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--ghs-color-gray);
+  border-radius: 10px;
+  border: 5px solid transparent;
 }
 
 @media (max-width: 500px) {
@@ -220,7 +245,7 @@ ghs-main {
 
   .icon {
     position: relative;
-    width: 1em;
+    width: 0.8em;
     height: auto;
     top: 0.3em;
     margin: 0 0.2em;

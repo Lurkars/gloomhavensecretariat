@@ -21,25 +21,25 @@
     <p *ngSwitchCase="WebSocket.CONNECTING">{{'server.connecting' | ghsLabel}}</p>
     <p *ngSwitchCase="WebSocket.CLOSING">{{'server.closing' | ghsLabel}}</p>
     <p *ngSwitchCase="WebSocket.CLOSED">{{'server.closed' | ghsLabel}}</p>
+    <p *ngSwitchCase="-1">{{'server.disconnected' | ghsLabel}}</p>
     <p *ngSwitchDefault>{{'server.undefined' | ghsLabel}}</p>
   </div>
 
   <div class="line separator">
     <label class="label">{{'server.url' | ghsLabel}}</label>
-    <input type="text" #serverUrl [value]="settingsManager.settings.serverUrl || ''" (keyup)="0"
+    <input type="text" #serverUrl [value]="settingsManager.settings.serverUrl || ''" (keyup)="0" (change)="setServerUrl($event)"
       placeholder="{{'server.url' | ghsLabel}}">
   </div>
   <div class="line">
     <label class="label">{{'server.port' | ghsLabel}}</label>
-    <input type="number" #serverPort [value]="settingsManager.settings.serverPort || ''" (keyup)="0"
+    <input type="number" #serverPort [value]="settingsManager.settings.serverPort || ''" (keyup)="0"  (change)="setServerPort($event)"
       placeholder="{{'server.port' | ghsLabel}}">
   </div>
   <div class="line">
     <label class="label">{{'server.password' | ghsLabel}}</label>
-    <input type="text" #serverPassword [value]="settingsManager.settings.serverPassword || ''" (keyup)="0"
+    <input type="text" #serverPassword [value]="settingsManager.settings.serverPassword || ''" (keyup)="0"  (change)="setServerPassword($event)"
       placeholder="{{'server.password' | ghsLabel}}">
   </div>
-
 
   <div class="line">
     <label>

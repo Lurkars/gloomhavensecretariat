@@ -7,7 +7,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "On death, all adjacent figures suffer 1 damage"
+        "value": "%data.custom.jotl.blood-monstrosity.1%"
       }
     ],
     "immunities": [],
@@ -47,7 +47,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 1 damage"
+          "value": "%data.custom.jotl.blood-monstrosity.1%"
         },
         {
           "type": "shield",
@@ -64,7 +64,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 1 damage"
+          "value": "%data.custom.jotl.blood-monstrosity.1%"
         },
         {
           "type": "shield",
@@ -81,7 +81,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 1 damage"
+          "value": "%data.custom.jotl.blood-monstrosity.1%"
         },
         {
           "type": "shield",
@@ -98,7 +98,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 1 damage"
+          "value": "%data.custom.jotl.blood-monstrosity.1%"
         },
         {
           "type": "shield",
@@ -123,7 +123,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 1 damage"
+          "value": "%data.custom.jotl.blood-monstrosity.1%"
         },
         {
           "type": "shield",
@@ -141,7 +141,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 1 damage"
+          "value": "%data.custom.jotl.blood-monstrosity.1%"
         },
         {
           "type": "shield",
@@ -159,7 +159,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 1 damage"
+          "value": "%data.custom.jotl.blood-monstrosity.1%"
         },
         {
           "type": "shield",
@@ -177,7 +177,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 1 damage"
+          "value": "%data.custom.jotl.blood-monstrosity.1%"
         },
         {
           "type": "shield",
@@ -195,7 +195,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 1 damage"
+          "value": "%data.custom.jotl.blood-monstrosity.1%"
         },
         {
           "type": "shield",
@@ -213,7 +213,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 1 damage"
+          "value": "%data.custom.jotl.blood-monstrosity.1%"
         },
         {
           "type": "shield",
@@ -231,7 +231,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death, all adjacent figures suffer 1 damage"
+          "value": "%data.custom.jotl.blood-monstrosity.1%"
         },
         {
           "type": "shield",

@@ -100,7 +100,7 @@
         },
         {
           "type": "custom",
-          "value": "Living Corpse suffers 1 damage."
+          "value": "%data.custom.gh.living-corpse.1%"
         }
       ]
     },
@@ -147,7 +147,7 @@
         },
         {
           "type": "custom",
-          "value": "Living Corpse suffers 1 damage."
+          "value": "%data.custom.gh.living-corpse.1%"
         }
       ]
     }

@@ -124,7 +124,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Create a 3 damage trap in an adjacent empty hex closest to an enemy."
+              "value": "%data.custom.gh.archer.1%"
             }
           ]
         }

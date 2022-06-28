@@ -27,7 +27,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "The target also suffers 2 damage."
+                  "value": "%data.custom.jotl.living-corpse.1%"
                 }
               ]
             }
@@ -117,7 +117,7 @@
         },
         {
           "type": "custom",
-          "value": "If this movement is perfomred, the Living Corpse suffers 1 damage."
+          "value": "%data.custom.jotl.living-corpse.2%"
         }
       ]
     },
@@ -169,7 +169,7 @@
             },
             {
               "type": "custom",
-              "value": "If this attack is perfomered, the Living Corpse suffers 1 damage."
+              "value": "%data.custom.jotl.living-corpse.3%"
             }
           ]
         }

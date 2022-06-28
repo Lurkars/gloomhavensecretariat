@@ -25,6 +25,7 @@ footer {
   }
 
   .round-container {
+    cursor: pointer;
     position: relative;
     display: flex;
     align-items: center;
@@ -34,7 +35,6 @@ footer {
     text-align: center;
 
     a {
-      cursor: pointer;
       font-family: 'ghs-title';
       color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
@@ -46,26 +46,38 @@ footer {
       height: calc(var(--ghs-unit) * 12);
       width: calc(var(--ghs-unit) * 12);
 
-      &:hover {
-        color: var(--ghs-color-white);
-      }
-
-      &.disabled {
-        pointer-events: none;
-        text-shadow: none;
-        font-weight: bold;
-        color: var(--ghs-color-darkgray);
-      }
-
     }
 
     .round {
       color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
       position: absolute;
-      font-size: calc(var(--ghs-unit) * 2.5);
+      font-size: calc(var(--ghs-unit) * 3);
       right: calc(var(--ghs-unit) * -0.5);
       bottom: calc(var(--ghs-unit) * 0.5);
+    }
+
+    &:hover {
+
+      a,
+      .round {
+        color: var(--ghs-color-white);
+      }
+    }
+
+    &.disabled {
+      cursor: help;
+
+      a {
+        text-shadow: none;
+        font-weight: bold;
+        color: var(--ghs-color-darkgray);
+      }
+
+      .round {
+        text-shadow: none;
+        color: var(--ghs-color-darkgray);
+      }
     }
 
   }
@@ -73,6 +85,8 @@ footer {
 }
 
 .hint-container {
+
+  font-family: 'ghs-text';
 
   .hint {
     display: flex;

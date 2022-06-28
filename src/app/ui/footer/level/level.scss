@@ -9,9 +9,9 @@
   width: 100%;
 
   .title {
+    font-family: 'ghs-text';
     font-size: calc(var(--ghs-unit) * 3);
-    color: var(--ghs-color-gray);
-    text-shadow: var(--ghs-outline-thin);
+    color: var(--ghs-color-darkgray);
 
     .index {
       margin-right: calc(var(--ghs-unit) * 1);
@@ -24,13 +24,20 @@
     width: 100%;
     justify-content: center;
 
+    ghs-svg {
+      fill: var(--ghs-color-darkgray);
+      width: calc(var(--ghs-unit) * 3);
+      height: calc(var(--ghs-unit) * 3);
+      margin: 0 calc(var(--ghs-unit) * 0.5);
+      display: inline-block;
+    }
+
     span {
       display: flex;
       height: 100%;
       align-items: center;
       font-size: calc(var(--ghs-unit) * 3);
-      color: var(--ghs-color-gray);
-      text-shadow: var(--ghs-outline-thin);
+      color: var(--ghs-color-darkgray);
       margin-right: calc(var(--ghs-unit) * 2);
 
       img {

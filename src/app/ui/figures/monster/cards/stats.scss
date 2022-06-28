@@ -25,28 +25,30 @@
 
   .stats {
     position: absolute;
-    top: calc(var(--ghs-unit) * 5.5);
+    top: calc(var(--ghs-unit) * 5.6);
     left: 0;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: calc(var(--ghs-unit) * 3.5);
+    filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
 
     .stat {
-      font-size: calc(var(--ghs-unit) * 2.1);
-      font-weight: bold;
-      padding-top: calc(var(--ghs-unit) * 0.5);
+      font-size: calc(var(--ghs-unit) * 2.2);
+      padding-top: calc(var(--ghs-unit) * 0);
+      line-height: 1.3em;
 
       &.end {
         justify-self: end;
         text-align: right;
+        filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-white));
       }
 
       &.start {
         justify-self: start;
         text-align: left;
         color: var(--ghs-color-white);
-        text-shadow: var(--ghs-outline);
+        filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
       }
     }
 
@@ -64,11 +66,11 @@
 
   .extra {
     position: absolute;
-    top: calc(var(--ghs-unit) * 6);
+    top: calc(var(--ghs-unit) * 5.5);
     width: calc(var(--ghs-unit) * 12);
     display: flex;
     flex-direction: column;
-    font-size: calc(var(--ghs-unit) * 1.4);
+    font-size: calc(var(--ghs-unit) * 1.8);
 
     .immunities {
       position: absolute;

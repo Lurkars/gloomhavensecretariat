@@ -1,5 +1,4 @@
-<div class="objective" [ngClass]="{'off' : objective.off || objective.exhausted || objective.health <= 0}">
-
+<div class="objective" [ngClass]="{'off' : objective.off || objective.exhausted || (objective.health <= 0)}">
   <a class="image-container" (click)="toggleOff()" [ngClass]="{'active-border' : objective.active}">
     <span class="image">
       {{objectiveIdMap[objective.id]}}
@@ -35,7 +34,7 @@
 
       <span class="item">
         <a class="button" [ngClass]="{'disabled' : objective.health == 0}" (click)="changeHealth(-1)">
-          -
+          <ghs-svg [src]="'./assets/images/minus.svg'"></ghs-svg>
         </a>
       </span>
       <span class="item">
@@ -45,13 +44,13 @@
       </span>
       <span class="item">
         <a class="button" [ngClass]="{'disabled' : objective.health == objective.maxHealth}" (click)="changeHealth(1)">
-          +
+          <ghs-svg [src]="'./assets/images/plus.svg'"></ghs-svg>
         </a>
       </span>
 
       <span class="item">
         <a class="button" (click)="changeId(-1)">
-          &lt;
+          <ghs-svg [src]="'./assets/images/left.svg'"></ghs-svg>
         </a>
       </span>
       <span class="item">
@@ -59,7 +58,7 @@
       </span>
       <span class="item">
         <a class="button" (click)="changeId(1)">
-          &gt;
+          <ghs-svg [src]="'./assets/images/right.svg'"></ghs-svg>
         </a>
       </span>
 
@@ -77,14 +76,14 @@
     <div class="char-container">
       <input #objectivetitle />
       <a class="button" (click)="changeMaxHealth(-1)">
-        -
+        <ghs-svg [src]="'./assets/images/minus.svg'"></ghs-svg>
       </a>
       <span class="item">
         <img src="./assets/images/status/health.svg" />
         <span class="badge max-health">{{objective.health}}/{{objective.maxHealth}}</span>
       </span>
       <a class="button" (click)="changeMaxHealth(1)">
-        +
+        <ghs-svg [src]="'./assets/images/plus.svg'"></ghs-svg>
       </a>
     </div>
   </div>

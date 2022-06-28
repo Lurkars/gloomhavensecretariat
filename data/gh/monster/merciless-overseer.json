@@ -16,7 +16,7 @@
       [
         {
           "type": "custom",
-          "value": "All Scouts act again"
+          "value": "%data.custom.gh.merciless-overseer.1%"
         }
       ],
       [
@@ -27,7 +27,7 @@
       ]
     ],
     "type": "boss",
-    "note": "V = Number of Scouts present"
+    "note": "%data.custom.gh.merciless-overseer.2%"
   },
   "stats": [
     {

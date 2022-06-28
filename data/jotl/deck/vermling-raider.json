@@ -184,7 +184,7 @@
         },
         {
           "type": "custom",
-          "value": "Create one 3-damage trap in an adjacend empty hex closest to an enemey."
+          "value": "%data.custom.jotl.vermling-raider.1%"
         }
       ]
     }

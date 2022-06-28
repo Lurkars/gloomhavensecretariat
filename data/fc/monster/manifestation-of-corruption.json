@@ -7,7 +7,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Play top two cards, using the first card as initiative. Perfom the bottom action of the first card, then the top action of the second card"
+        "value": "%data.custom.fc.manifestation-of-corruption.1%"
       }
     ],
     "immunities": [
@@ -32,7 +32,7 @@
     },
     {
       "attack": 5,
-      "health": "27xc",
+      "health": "27xC",
       "level": 1,
       "movement": 0,
       "range": 4

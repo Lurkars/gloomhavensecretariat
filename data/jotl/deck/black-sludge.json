@@ -187,7 +187,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "The closest enemy in line-of-sight, regardless of range, suffer 1+L/2 (rounded up) damage"
+          "value": "%data.custom.jotl.black-sludge.1%"
         },
         {
           "type": "heal",
@@ -214,7 +214,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "The closest enemy in line-of-sight, regardless of range, suffer 1+L/2 (rounded up) damage"
+          "value": "%data.custom.jotl.black-sludge.1%"
         },
         {
           "type": "heal",

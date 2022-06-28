@@ -1,5 +1,5 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { Component, ElementRef, Input } from '@angular/core';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Character } from 'src/app/game/model/Character';
 import { Condition } from 'src/app/game/model/Condition';
 import { Summon, SummonState } from 'src/app/game/model/Summon';
@@ -17,9 +17,9 @@ export class SummonEntityComponent extends DialogComponent {
   @Input() summon!: Summon;
   Conditions = Condition;
   SummonState = SummonState;
-  conditions: Condition[] = [ Condition.stun, Condition.immobilize, Condition.disarm, Condition.wound, Condition.muddle, Condition.poison, Condition.strengthen, Condition.invisible ];
   health: number = 0;
   levelDialog: boolean = false;
+  gameManager: GameManager = gameManager;
 
   constructor(private elementRef: ElementRef) {
     super();
@@ -90,6 +90,13 @@ export class SummonEntityComponent extends DialogComponent {
     this.removeSummon(this.summon);
   }
 
+  toggleStatus() {
+    if (this.summon.state == SummonState.new) {
+      this.summon.state = SummonState.true;
+    } else {
+      this.summon.state = SummonState.new;
+    }
+  }
 
   changeMaxHealth(value: number) {
     gameManager.stateManager.before();

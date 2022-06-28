@@ -15,7 +15,7 @@
       [
         {
           "type": "custom",
-          "value": "Move to next door and reveal room"
+          "value": "%data.custom.gh.bandit-commander.1%"
         }
       ],
       [

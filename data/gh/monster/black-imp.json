@@ -154,7 +154,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Attackers gain Disadvantage"
+          "value": "%game.custom.disadvantage%"
         },
         {
           "type": "condition",
@@ -172,7 +172,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Attackers gain Disadvantage"
+          "value": "%game.custom.disadvantage%"
         },
         {
           "type": "condition",
@@ -190,7 +190,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Attackers gain Disadvantage"
+          "value": "%game.custom.disadvantage%"
         },
         {
           "type": "condition",
@@ -208,7 +208,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Attackers gain Disadvantage"
+          "value": "%game.custom.disadvantage%"
         },
         {
           "type": "condition",
@@ -226,7 +226,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Attackers gain Disadvantage"
+          "value": "%game.custom.disadvantage%"
         },
         {
           "type": "condition",

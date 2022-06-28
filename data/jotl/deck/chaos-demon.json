@@ -30,7 +30,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Any time a figure attacks the Chaos Demon this round, that figure suffer 2 damage"
+              "value": "%data.custom.jotl.chaos-demon.1%"
             }
           ]
         }
@@ -204,7 +204,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "All enemies adjacent to the target suffer 1 damage"
+                  "value": "%data.custom.jotl.chaos-demon.2%"
                 }
               ]
             }

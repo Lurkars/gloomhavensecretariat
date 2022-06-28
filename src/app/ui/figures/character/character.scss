@@ -241,6 +241,10 @@
     &.disabled {
       pointer-events: none;
       color: var(--ghs-color-gray);
+
+      ghs-svg {
+        fill: var(--ghs-color-gray) !important;
+      }
     }
   }
 
@@ -341,7 +345,7 @@
         border-color: var(--ghs-color-gray);
         border-radius: calc(var(--ghs-unit) * 1);
         user-select: auto;
-        font-family: 'ghs-normal';
+        font-family: 'ghs-text';
         font-size: calc(var(--ghs-unit) * 2);
       }
     }

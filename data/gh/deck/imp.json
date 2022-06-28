@@ -154,12 +154,8 @@
           "value": "strengthen",
           "subActions": [
             {
-              "type": "range",
-              "value": 2
-            },
-            {
-              "type": "specialTarget",
-              "value": "allAlliesRange"
+              "type": "custom",
+              "value": "%data.custom.gh.imp.1%"
             }
           ]
         },
@@ -168,12 +164,8 @@
           "value": "muddle",
           "subActions": [
             {
-              "type": "range",
-              "value": 2
-            },
-            {
-              "type": "specialTarget",
-              "value": "allEnemiesRange"
+              "type": "custom",
+              "value": "%data.custom.gh.imp.2%"
             }
           ]
         }

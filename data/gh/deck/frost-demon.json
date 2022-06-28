@@ -217,7 +217,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Frost Demon suffers 1 damage."
+              "value": "%data.custom.gh.frost-demont.1%"
             }
           ]
         }

@@ -17,13 +17,13 @@
       [
         {
           "type": "custom",
-          "value": "%game.custom.summon% %data.monster.giant-viper% and %data.monster.fear%"
+          "value": "%game.custom.summon% %data.monster.giant-viper% %and% %data.monster.fear%"
         }
       ],
       [
         {
           "type": "custom",
-          "value": "Mind Control"
+          "value": "%data.custom.gh.betrayer.1%"
         }
       ]
     ],

@@ -9,6 +9,17 @@
     "monster": {},
     "deck": {},
     "ability": {},
-    "scenario": {}
+    "scenario": {},
+    "custom": {
+      "fc": {
+        "manifestation-of-corruption": {
+          "1": "Play top two cards, using the first card as initiative. Perfom the bottom action of the first card, then the top action of the second card"
+        },
+        "sraka-the-wise": {
+          "1": "Double all Heal values. Heals target The Steel Lion if able",
+          "2": "If you apply %game.condition.curse% or %game.condition.bless%, apply a second %game.condition.curse% or %game.condition.bless%"
+        }
+      }
+    }
   }
 }

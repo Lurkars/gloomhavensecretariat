@@ -16,7 +16,7 @@
       [
         {
           "type": "custom",
-          "value": "Jump to farthest dead %data.monster.zealot% and revive or jump to farthest character and %game.action.attack%+0"
+          "value": "%data.custom.jotl.blood-horror.1%"
         }
       ],
       [
@@ -32,7 +32,7 @@
         },
         {
           "type": "custom",
-          "value": "Revive all dead %data.monster.zealot% in room"
+          "value": "%data.custom.jotl.blood-horror.2%"
         }
       ]
     ],

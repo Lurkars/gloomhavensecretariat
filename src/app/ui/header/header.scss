@@ -17,6 +17,35 @@ header {
     bottom: 0;
   }
 
+  .server-connection {
+
+    display: flex;
+    width: calc(var(--ghs-unit) * 2.5);
+    height: calc(var(--ghs-unit) * 2.5);
+    align-self: center;
+
+    &.connected {
+      fill: var(--ghs-color-green);
+    }
+
+    &.connecting {
+      fill: var(--ghs-color-blue);
+    }
+
+    &.closing {
+      fill: var(--ghs-color-yellow);
+    }
+
+    &.closed {
+      fill: var(--ghs-color-red);
+    }
+
+    &.disconnected {
+      fill: var(--ghs-color-darkgray);
+    }
+  }
+
+
   .elements {
     display: flex;
     height: 100%;

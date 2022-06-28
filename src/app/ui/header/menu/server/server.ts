@@ -25,4 +25,19 @@ export class ServerMenuComponent {
   disconnect() {
     gameManager.stateManager.disconnect();
   }
+
+  setServerUrl(event: any) {
+    settingsManager.settings.serverUrl = event.target.value;
+    settingsManager.storeSettings();
+  }
+
+  setServerPort(event: any) {
+    settingsManager.settings.serverPort = event.target.value;
+    settingsManager.storeSettings();
+  }
+  
+  setServerPassword(event: any) {
+    settingsManager.settings.serverPassword = event.target.value;
+    settingsManager.storeSettings();
+  }
 }

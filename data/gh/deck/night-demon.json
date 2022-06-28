@@ -212,7 +212,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "All adjacent enemies and allies suffer 1 damage."
+              "value": "%data.custom.gh.night-demon.1%"
             }
           ]
         },

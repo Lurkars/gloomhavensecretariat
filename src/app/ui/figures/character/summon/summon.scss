@@ -207,6 +207,10 @@
     &.disabled {
       pointer-events: none;
       color: var(--ghs-color-gray);
+
+      ghs-svg {
+        fill: var(--ghs-color-gray) !important;
+      }
     }
   }
 
@@ -236,6 +240,22 @@
     }
   }
 
+  .summon-state {
+    height: calc(var(--ghs-unit) * 4);
+    position: relative;
+    display: flex;
+
+    &.new:after {
+      content: " ";
+      display: block;
+      position: absolute;
+      width: calc(var(--ghs-unit) * 4);
+      height: calc(var(--ghs-unit) * 4);
+      background-image: url('~src/assets/images/summons/minus.svg');
+      background-size: cover;
+    }
+  }
+
 
   .badge {
     position: absolute;
@@ -258,7 +278,7 @@
 
       .badge {
         left: 50%;
-        transform: translateX(-50%);
+        transform: translate(-50%, calc(var(--ghs-unit) * 1));
       }
 
     }

@@ -84,7 +84,7 @@
             },
             {
               "type": "custom",
-              "value": "All allies and enemies adjacent to the target suffer 2 damage"
+              "value": "%data.custom.gh.savvas-lavaflow.1%"
             }
           ]
         },
@@ -138,7 +138,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "All enemies suffer 2 damage."
+          "value": "%data.custom.gh.savvas-lavaflow.2%"
         },
         {
           "type": "element",

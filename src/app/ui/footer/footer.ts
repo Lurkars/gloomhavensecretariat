@@ -16,7 +16,7 @@ export class FooterComponent extends DialogComponent {
   GameState = GameState;
 
   next(force: boolean = false): void {
-    if (!force && (gameManager.game.state == GameState.draw && this.drawDisabled() || gameManager.game.state == GameState.next && this.nextDisabled())) {
+    if (!force && this.disabled()) {
       this.open();
     } else {
       this.close();
@@ -37,6 +37,10 @@ export class FooterComponent extends DialogComponent {
   active(): boolean {
     return gameManager.game.figures.some((figure: Figure) => figure.active && !figure.off);
   };
+
+  disabled(): boolean {
+    return (gameManager.game.state == GameState.draw && this.drawDisabled() || gameManager.game.state == GameState.next && this.nextDisabled());
+  }
 
   drawDisabled(): boolean {
     return this.empty() || this.missingInitative();

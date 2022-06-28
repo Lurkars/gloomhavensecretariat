@@ -23,7 +23,7 @@
     <div class="entity-container">
       <span class="item">
         <a class="button" [ngClass]="{'disabled' : entity.health == 0}" (click)="changeHealth(-1)">
-          -
+          <ghs-svg [src]="'./assets/images/minus.svg'"></ghs-svg>
         </a>
       </span>
       <span class="item">
@@ -33,14 +33,14 @@
       </span>
       <span class="item">
         <a class="button" [ngClass]="{'disabled' : entity.health == entity.maxHealth}" (click)="changeHealth(1)">
-          +
+          <ghs-svg [src]="'./assets/images/plus.svg'"></ghs-svg>
         </a>
       </span>
 
       <span class="item">
         <a class="button" [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.bless) == 0}"
           (click)="changeBless(-1)">
-          -
+          <ghs-svg [src]="'./assets/images/minus.svg'"></ghs-svg>
         </a>
       </span>
       <span class="item">
@@ -50,14 +50,14 @@
       <span class="item">
         <a class="button" [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.bless) >= 10}"
           (click)="changeBless(1)">
-          +
+          <ghs-svg [src]="'./assets/images/plus.svg'"></ghs-svg>
         </a>
       </span>
 
       <span class="item">
         <a class="button" [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.curse) == 0}"
           (click)="changeCurse(-1)">
-          -
+          <ghs-svg [src]="'./assets/images/minus.svg'"></ghs-svg>
         </a>
       </span>
       <span class="item">
@@ -67,7 +67,7 @@
       <span class="item">
         <a class="button" [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.curse) >= 10}"
           (click)="changeCurse(1)">
-          +
+          <ghs-svg [src]="'./assets/images/plus.svg'"></ghs-svg>
         </a>
       </span>
 
@@ -76,14 +76,14 @@
           <img src="./assets/images/status/dead.svg" />
         </a>
       </span>
-      <span class="max-health-container">
+      <span class="item max-health-container">
         <a class="button" (click)="changeMaxHealth(-1)">
-          -
+          <ghs-svg [src]="'./assets/images/minus.svg'"></ghs-svg>
         </a>
         <img src="./assets/images/status/health.svg" />
         <span class="badge max-health">{{entity.health}}/{{entity.maxHealth}}</span>
         <a class="button" (click)="changeMaxHealth(1)">
-          +
+          <ghs-svg [src]="'./assets/images/plus.svg'"></ghs-svg>
         </a>
       </span>
     </div>

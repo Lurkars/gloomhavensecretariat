@@ -17,11 +17,11 @@
       [
         {
           "type": "custom",
-          "value": "All enemies within %game.action.range% 2 suffer 2 damager"
+          "value": "%data.custom.jotl.first-of-the-order.1%"
         },
         {
           "type": "custom",
-          "value": "Spawn C/2 Black Imps"
+          "value": "%data.custom.jotl.first-of-the-order.2%"
         }
       ],
       [
@@ -37,7 +37,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "within %game.action.range% 2 of target"
+              "value": "%data.custom.jotl.first-of-the-order.3%"
             }
           ]
         },
@@ -48,7 +48,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "within %game.action.range% 2 of target"
+              "value": "%data.custom.jotl.first-of-the-order.3%"
             }
           ]
         }

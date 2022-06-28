@@ -198,6 +198,10 @@
     &.disabled {
       pointer-events: none;
       color: var(--ghs-color-gray);
+
+      ghs-svg {
+        fill: var(--ghs-color-gray) !important;
+      }
     }
   }
 
@@ -214,18 +218,6 @@
     color: var(--ghs-color-red) !important;
   }
 
-  .max-health-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: calc(var(--ghs-unit) * 12);
-
-    img {
-      height: calc(var(--ghs-unit) * 3);
-      width: auto;
-    }
-  }
 
 
   .badge {
@@ -235,6 +227,20 @@
     color: var(--ghs-color-white);
     font-size: calc(var(--ghs-unit) * 2);
     text-shadow: var(--ghs-outline);
+  }
+
+  .max-health-container {
+    justify-content: space-evenly !important;
+    width: calc(var(--ghs-unit) * 12) !important;
+
+    img {
+      height: calc(var(--ghs-unit) * 3.5);
+      width: auto;
+    }
+
+    .badge {
+      right: calc(var(--ghs-unit) * 3);
+    }
   }
 
 
