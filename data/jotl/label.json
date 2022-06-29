@@ -113,7 +113,7 @@
           "2": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.giant-viper%'s allies."
         },
         "black-sludge": {
-          "1": "The closest enemy in line-of-sight, regardless of range, suffer 1+L/2 (rounded up) damage"
+          "1": "The closest enemy in line-of-sight, regardless of range, suffer [1+L/2{%math.ceil}] damage"
         },
         "chaos-demon": {
           "1": "Any time a figure attacks the %data.monster.chaos-demon% this round, that figure suffer 2 damage",
@@ -154,7 +154,7 @@
         },
         "first-of-the-order": {
           "1": "All enemies within %game.action.range% 2 suffer 2 damage",
-          "2": "Spawn C/2 %data.monster.black-imp%s",
+          "2": "Spawn [C/2{math.ceil}] %data.monster.black-imp%",
           "3": "within %game.action.range% 2 of target"
         },
         "rat-monstrosity": {

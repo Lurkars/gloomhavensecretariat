@@ -179,11 +179,13 @@
             {
               "type": "attack",
               "value": 2,
-              "valueType": "plus"
-            },
-            {
-              "type": "condition",
-              "value": "disarm"
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "disarm"
+                }
+              ]
             }
           ]
         }

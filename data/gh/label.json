@@ -280,6 +280,9 @@
         "deep-terror": {
           "1": "%game.custom.summon% %data.monster.deep-terror% (%monster.normal%) in a hex adjacent to the target"
         },
+        "earth-demon": {
+          "1": "Target all enenmies withing %game.action.range% 3"
+        },
         "flame-demon": {
           "1": "%data.monster.flame-demon% suffers 1 damage.",
           "2": "All adjacent enemies suffer 2 damage.",
@@ -338,7 +341,7 @@
         },
         "winged-horror": {
           "1": "Hatch eggs",
-          "2": "Summon C eggs"
+          "2": "Summon [C] eggs"
         }
       }
     }

@@ -6,6 +6,7 @@ import { Ability } from 'src/app/game/model/Ability';
 import { PopupComponent } from 'src/app/ui/popup/popup';
 import { ghsUnit, ghsUnitUnit } from 'src/app/ui/helper/Static';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 
 @Component({
   selector: 'ghs-monster-ability',
@@ -60,5 +61,21 @@ export class AbilityComponent extends PopupComponent {
   override close(): void {
     super.close();
     this.reveal = 0;
+  }
+
+  abilityLabel(ability: Ability): string {
+    let label = 'data.monster.' + this.monster.name;
+    if (ability?.name) {
+      label = 'data.ability.' + ability.name;
+    } else if (this.monster.deck != this.monster.name) {
+      label = 'data.deck.' + this.monster.deck;
+    }
+
+    if (label === settingsManager.getLabel(label)) {
+      label = 'data.monster.' + this.monster.name;
+    }
+
+    return settingsManager.getLabel(label);
+
   }
 }

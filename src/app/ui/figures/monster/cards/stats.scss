@@ -89,23 +89,6 @@
         width: calc(var(--ghs-unit) * 2.3);
         height: calc(var(--ghs-unit) * 2.3);
 
-        img {
-          height: calc(var(--ghs-unit) * 2.3);
-          width: auto;
-        }
-
-        &:before {
-          content: " ";
-          display: block;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: calc(var(--ghs-unit) * 2.3);
-          height: calc(var(--ghs-unit) * 2.3);
-          background-image: url('~src/assets/images/condition/immunity.svg');
-          background-size: cover;
-        }
-
         &:nth-child(1) {
           grid-column-start: 2;
           grid-column-end: 4;
@@ -177,23 +160,27 @@
     }
 
     &.boss {
-      width: calc(var(--ghs-unit) * 18);
-      right: calc(var(--ghs-unit) * 1);
+      width: calc(var(--ghs-unit) * 19);
+      right: calc(var(--ghs-unit) * 0.3);
       color: var(--ghs-color-white);
 
       .immunities {
         top: calc(var(--ghs-unit) * -0.5);
         left: calc(var(--ghs-unit) * -16.5);
       }
+    }
 
-      .additional {
-        display: flex;
+    .additional, .specials {
+      margin-top: calc(var(--ghs-unit) * 0.5);
+      display: flex;
+      align-items: baseline;
 
-        ghs-actions {
-          flex-basis: 0;
-          flex-grow: 1;
-        }
+      ghs-actions {
+        flex-basis: 0;
+        flex-grow: 1;
+        margin-left: calc(var(--ghs-unit) * 0.5);
       }
+
     }
   }
 

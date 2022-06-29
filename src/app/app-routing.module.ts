@@ -7,7 +7,7 @@ import { MainComponent } from './ui/main';
 const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'tools/monster', component: MonsterToolComponent },
-  {path: '**', redirectTo:'', pathMatch: 'full'}
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({

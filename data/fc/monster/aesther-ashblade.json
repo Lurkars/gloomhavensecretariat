@@ -1,7 +1,7 @@
 {
-  "name": "aesther-scout",
+  "name": "aesther-ashblade",
   "edition": "fc",
-  "deck": "scout",
+  "deck" : "ashblade",
   "count": 6,
   "baseStat": {
     "actions": [],
@@ -26,34 +26,34 @@
     },
     {
       "attack": 3,
-      "health": 12,
+      "health": 13,
       "level": 2,
       "movement": 3,
       "range": 0
     },
     {
       "attack": 3,
-      "health": 14,
+      "health": 15,
       "level": 3,
-      "movement": 4,
+      "movement": 3,
       "range": 0,
       "actions": [
         {
           "type": "condition",
-          "value": "muddle"
+          "value": "poison"
         }
       ]
     },
     {
       "attack": 4,
-      "health": 16,
+      "health": 15,
       "level": 4,
       "movement": 4,
       "range": 0,
       "actions": [
         {
           "type": "condition",
-          "value": "muddle"
+          "value": "poison"
         }
       ]
     },
@@ -66,11 +66,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "muddle"
-        },
-        {
-          "type": "condition",
-          "value": "curse"
+          "value": "poison"
         }
       ]
     },
@@ -83,38 +79,36 @@
       "actions": [
         {
           "type": "condition",
-          "value": "muddle"
-        },
-        {
-          "type": "condition",
-          "value": "curse"
+          "value": "poison"
         }
       ]
     },
     {
-      "attack": 4,
+      "attack": 5,
       "health": 24,
       "level": 7,
-      "movement": 5,
+      "movement": 4,
       "range": 0,
       "actions": [
         {
           "type": "condition",
-          "value": "muddle"
-        },
-        {
-          "type": "condition",
-          "value": "curse"
+          "value": "poison"
         }
       ]
     },
     {
       "attack": 3,
-      "health": 13,
+      "health": 12,
       "level": 0,
       "movement": 3,
       "range": 0,
-      "type": "elite"
+      "type": "elite",
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
     },
     {
       "attack": 3,
@@ -126,13 +120,13 @@
       "actions": [
         {
           "type": "condition",
-          "value": "muddle"
+          "value": "poison"
         }
       ]
     },
     {
-      "attack": 3,
-      "health": 17,
+      "attack": 4,
+      "health": 16,
       "level": 2,
       "movement": 4,
       "range": 0,
@@ -140,98 +134,97 @@
       "actions": [
         {
           "type": "condition",
-          "value": "muddle"
+          "value": "poison"
         }
       ]
     },
     {
       "attack": 4,
-      "health": 19,
+      "health": 18,
       "level": 3,
       "movement": 4,
       "range": 0,
       "type": "elite",
       "actions": [
         {
-          "type": "condition",
-          "value": "muddle"
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
         },
         {
           "type": "condition",
-          "value": "curse"
+          "value": "poison"
         }
       ]
     },
     {
-      "attack": 4,
-      "health": 23,
+      "attack": 5,
+      "health": 21,
       "level": 4,
       "movement": 4,
       "range": 0,
       "type": "elite",
       "actions": [
         {
-          "type": "condition",
-          "value": "muddle"
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
         },
         {
           "type": "condition",
-          "value": "curse"
+          "value": "poison"
         }
       ]
     },
     {
       "attack": 5,
-      "health": 26,
+      "health": 25,
       "level": 5,
       "movement": 4,
       "range": 0,
       "type": "elite",
       "actions": [
         {
-          "type": "condition",
-          "value": "muddle"
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
         },
         {
           "type": "condition",
-          "value": "curse"
-        }
-      ]
-    },
-    {
-      "attack": 5,
-      "health": 29,
-      "level": 6,
-      "movement": 5,
-      "range": 0,
-      "type": "elite",
-      "actions": [
-        {
-          "type": "condition",
-          "value": "muddle"
-        },
-        {
-          "type": "condition",
-          "value": "curse"
+          "value": "poison"
         }
       ]
     },
     {
       "attack": 6,
-      "health": 33,
-      "immunities": [],
+      "health": 28,
+      "level": 6,
+      "movement": 4,
+      "range": 0,
+      "type": "elite",
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "attack": 6,
+      "health": 32,
       "level": 7,
       "movement": 5,
       "range": 0,
       "type": "elite",
       "actions": [
         {
-          "type": "condition",
-          "value": "muddle"
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
         },
         {
           "type": "condition",
-          "value": "curse"
+          "value": "poison"
         }
       ]
     }

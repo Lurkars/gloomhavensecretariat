@@ -31,6 +31,7 @@
     font-size: calc(var(--ghs-unit) * 2.5);
     transition: var(--hover-animation);
     overflow: auto;
+    z-index: 1;
   }
 
   .name {
@@ -64,6 +65,7 @@
     bottom: calc(var(--ghs-unit) * 1.5);
     right: calc(var(--ghs-unit) * 2.5);
     transition: var(--hover-animation);
+    z-index: 0;
 
     img {
       width: calc(var(--ghs-unit) * 3);

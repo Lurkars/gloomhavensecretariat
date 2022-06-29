@@ -1,0 +1,103 @@
+{
+  "name": "uyart-ikkuma",
+  "edition": "fc",
+  "boss": true,
+  "deck": "savvas-lavaflow",
+  "count": 1,
+  "baseStat": {
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%data.custom.fc.uyart-ikkuma.1%"
+      },
+      {
+        "type": "custom",
+        "value": "%data.custom.fc.uyart-ikkuma.2%"
+      },
+      {
+        "type": "condition",
+        "value": "poison"
+      },
+      {
+        "type": "condition",
+        "value": "wound"
+      }
+    ],
+    "immunities": [
+      "stun",
+      "poison"
+    ],
+    "special": [],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "attack": 3,
+      "health": "7xC",
+      "level": 0,
+      "movement": 3,
+      "range": 0
+    },
+    {
+      "attack": 3,
+      "health": "8xC",
+      "level": 1,
+      "movement": 3,
+      "range": 0
+    },
+    {
+      "attack": 3,
+      "health": "9xC",
+      "level": 2,
+      "movement": 3,
+      "range": 0
+    },
+    {
+      "attack": 4,
+      "health": "11xC",
+      "level": 3,
+      "movement": 3,
+      "range": 0
+    },
+    {
+      "attack": 4,
+      "health": "12xC",
+      "level": 4,
+      "movement": 4,
+      "range": 0
+    },
+    {
+      "attack": 5,
+      "health": "14xC",
+      "level": 5,
+      "movement": 4,
+      "range": 0
+    },
+    {
+      "attack": 6,
+      "health": "15xC",
+      "level": 6,
+      "movement": 4,
+      "range": 0,
+      "immunities": [
+        "stun",
+        "poison",
+        "muddle",
+        "immobilize"
+      ]
+    },
+    {
+      "attack": 6,
+      "health": "18xC",
+      "level": 7,
+      "movement": 4,
+      "range": 0,
+      "immunities": [
+        "stun",
+        "poison",
+        "muddle",
+        "immobilize"
+      ]
+    }
+  ]
+}

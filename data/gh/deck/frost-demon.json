@@ -217,7 +217,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.frost-demont.1%"
+              "value": "%data.custom.gh.frost-demon.1%"
             }
           ]
         }

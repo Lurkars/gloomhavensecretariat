@@ -251,3 +251,51 @@ ghs-main {
     margin: 0 0.2em;
   }
 }
+
+.element {
+  display: inline-block;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  &.inline {
+    width: 1em;
+    height: 1em;
+    transform: translateY(25%);
+  }
+
+  &.consume {
+    &:before {
+      content: " ";
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('~src/assets/images/element/minus.svg');
+      background-size: cover;
+    }
+  }
+}
+
+.immunity {
+  img {
+    height: 100%;
+    width: 100%;
+  }
+
+  &:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('~src/assets/images/condition/immunity.svg');
+    background-size: cover;
+  }
+}

@@ -44,6 +44,11 @@ export class GameManager {
     return this.editionData.map((editionData: EditionData) => editionData.edition);
   }
 
+  editionExtensions(edition: string): string[] {
+    const editionData = this.editionData.find((editionData: EditionData) => editionData.edition == edition);
+    return editionData && editionData.extentions || [];
+  }
+
   charactersData(all: boolean = false): CharacterData[] {
     return this.editionData.filter((editionData: EditionData) => all || !this.game.edition || editionData.edition == this.game.edition || editionData.extentions && editionData.extentions.indexOf(this.game.edition) != -1).map((editionData: EditionData) => editionData.characters).flat();
   }
@@ -169,9 +174,15 @@ export class GameManager {
   }
 
   abilities(figure: MonsterData | CharacterData): Ability[] {
-    const abilities = this.decksData(true).find((deck: DeckData) => (deck.name == figure.deck || deck.name == figure.name) && deck.edition == figure.edition)?.abilities;
+    let abilities = this.decksData(true).find((deck: DeckData) => (deck.name == figure.deck || deck.name == figure.name) && deck.edition == figure.edition)?.abilities;
+
+    // find extensions decks
     if (!abilities) {
-      console.error("Unknwon deck: " + figure.name + " for " + figure.edition);
+      abilities = this.decksData(true).find((deck: DeckData) => (deck.name == figure.deck || deck.name == figure.name) && this.editionExtensions(figure.edition).indexOf(deck.edition) != -1)?.abilities;
+    }
+
+    if (!abilities) {
+      console.error("Unknwon deck: " + figure.name + (figure.deck ? "[" + figure.deck + "]" : "") + " for " + figure.edition);
       if (figure.errors.indexOf(FigureError.deck) == -1) {
         figure.errors.push(FigureError.deck);
       }
@@ -357,7 +368,7 @@ export class GameManager {
         return;
       }
       scenario.monsters.forEach((name: string) => {
-        const monsterData = this.monstersData(true).find((monsterData: MonsterData) => monsterData.name == name && monsterData.edition == editionData.edition || editionData.extentions && editionData.extentions.indexOf(monsterData.edition) != -1);
+        const monsterData = this.monstersData(true).find((monsterData: MonsterData) => monsterData.name == name && (monsterData.edition == editionData.edition || editionData.extentions && editionData.extentions.indexOf(monsterData.edition) != -1));
         if (monsterData) {
           this.monsterManager.addMonster(monsterData);
         }

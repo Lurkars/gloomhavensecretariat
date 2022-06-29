@@ -1,6 +1,7 @@
 {
   "boss": true,
   "count": 1,
+  "deck": "shaman",
   "edition": "fc",
   "name": "sraka-the-wise",
   "baseStat": {
@@ -123,7 +124,6 @@
       "range": 4
     },
     {
-   
       "actions": [
         {
           "type": "custom",

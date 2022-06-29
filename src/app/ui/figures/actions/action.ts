@@ -23,6 +23,7 @@ export class ActionsComponent {
   @Input() hexSize!: number;
   @Input() hint!: string | undefined;
   ActionType = ActionType;
+  ActionValueType = ActionValueType;
 
 }
 

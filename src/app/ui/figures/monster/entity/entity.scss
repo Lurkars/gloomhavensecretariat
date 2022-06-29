@@ -134,11 +134,20 @@
       grid-template-columns: calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7);
     }
 
+
+
+    .condition {
+      display: flex;
+      position: relative;
+      width: calc(var(--ghs-unit) * 4);
+      height: calc(var(--ghs-unit) * 4);
+    }
+
     .condition-container {
       display: grid;
       grid-template-columns: calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7);
 
-      .condition,
+      .item,
       .summon {
 
         position: relative;
@@ -158,6 +167,7 @@
           border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
           border-radius: 100%;
         }
+
       }
 
       .summon {

@@ -121,6 +121,9 @@ export class GhsLabelPipe implements PipeTransform {
 })
 export class GhsHtmlLabelPipe implements PipeTransform {
 
+
+  valuePipe = new GhsValueCalcPipe();
+
   constructor(private sanitizer: DomSanitizer) { }
 
   transform(value: string, ...args: string[]): SafeHtml {
@@ -131,23 +134,67 @@ export class GhsHtmlLabelPipe implements PipeTransform {
   }
 
   applyPlaceholder(value: string): string {
-    while (value.match(/\%((\w+|\.|\-)+)\%/)) {
-      value = value.replace(/\%((\w+|\.|\-)+)\%/, (match, ...args) => {
+
+    const labelRegex = /\%((\w+|\.|\-)+)\%/;
+
+    while (value.match(labelRegex)) {
+      value = value.replace(labelRegex, (match, ...args) => {
         const label = args[ 0 ];
         const split: string[] = label.split('.');
-        const group = split[ 0 ];
         const type = split[ 1 ];
 
         let image = '';
         if (type == "condition" || type == "action" && split.length == 3) {
           split.splice(0, 1);
           image = '<img  src="./assets/images/' + split.join('/') + '.svg" class="icon">';
+        } else if (type == "element") {
+          let element = split[ 2 ];
+          if (element == "consume") {
+            image = '<span class="element inline consume">';
+            element = split[ 3 ];
+          } else {
+            image = '<span class="element inline">';
+          }
+          image += '<img src="./assets/images/element/' + element + '.svg"></span>';
+          return image;
         }
 
-        return '<span class="placeholder ' + type + '">'
-          + settingsManager.getLabel(label) + image + '</span>';
+        return settingsManager.getLabel(label) + image;
       });
     }
+
+    const calcRegex = /\[(([a-zA-Z0-9\+\/\-\*])+)(\{(.*)\})?\]/;
+
+    while (value.match(calcRegex)) {
+      value = value.replace(calcRegex, (match, ...args) => {
+        const expression = args[ 0 ];
+        let func = args[ 3 ];
+        const funcLabel = func && func.startsWith('%');
+        if (funcLabel) {
+          func = func.replace('%', '');
+        }
+        if (settingsManager.settings.calculate) {
+          let result = this.valuePipe.transform(expression) as number;
+          if (func) {
+            switch (func) {
+              case 'math.ceil':
+                result = Math.ceil(result);
+                break;
+              case 'math.floor':
+                result = Math.floor(result);
+                break;
+              default:
+                console.error("Unknown expression: " + func + "(" + match + ")");
+                break;
+            }
+          }
+          return "" + result;
+        } else {
+          return funcLabel ? expression + ' ' + settingsManager.getLabel('game.custom.' + func) : expression;
+        }
+      });
+    }
+
     return value;
   }
 

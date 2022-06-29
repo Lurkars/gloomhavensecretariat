@@ -1,5 +1,5 @@
 <span class="action" [ngSwitch]="action.type" [ngClass]="{'inline' : inline, 'right' : right}">
-  <span *ngSwitchCase="ActionType.area">
+  <span class="action-area" *ngSwitchCase="ActionType.area">
     <ghs-action-hex [value]="action.value + ''" [size]="hexSize"></ghs-action-hex>
   </span>
 
@@ -19,27 +19,27 @@
     </div>
   </span>
 
-  <span class="element" *ngSwitchCase="ActionType.element">
+  <span class="action-element" *ngSwitchCase="ActionType.element">
     <span class="elements" *ngFor="let element of getValues(action)">
-      <img src="./assets/images/element/{{element}}.svg" />
+      <span class="element" [ngClass]="{'consume' : action.valueType == ActionValueType.minus}">
+        <img src="./assets/images/element/{{element}}.svg" />
+      </span>
       <span class="minus" *ngIf="action.valueType == ActionValueType.minus">:</span>
     </span>
-    <ng-container *ngIf="action.subActions && action.subActions.length > 0">
-      <div class="subactions element-subactions">
-        <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
-          [action]="subAction" [monster]="monster" [relative]="true" [inline]="inline" [right]="right"
-          [hexSize]="hexSize">
-        </ghs-action>
-      </div>
-    </ng-container>
+    <div class="element-subactions" *ngIf="action.subActions && action.subActions.length > 0">
+      <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
+        [action]="subAction" [monster]="monster" [relative]="true" [inline]="inline" [right]="right"
+        [hexSize]="hexSize">
+      </ghs-action>
+    </div>
   </span>
 
-  <span class="specialTarget" *ngSwitchCase="ActionType.specialTarget">
+  <span class="action-specialTarget" *ngSwitchCase="ActionType.specialTarget">
     <span class="specialTarget-value">{{'game.action.specialTarget.' + action.value | ghsLabel}}</span>
   </span>
 
-  <span class="custom" *ngSwitchCase="ActionType.custom">
-    <span class="custom-value" [innerHTML]="action.value + '' | ghsHtmlLabel"></span>
+  <span class="action-custom" *ngSwitchCase="ActionType.custom">
+    <span class="custom-value placeholder" [innerHTML]="action.value + '' | ghsHtmlLabel"></span>
     <ng-container *ngIf="action.subActions && action.subActions.length > 0">
       <span>:</span>
       <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
@@ -48,16 +48,14 @@
     </ng-container>
   </span>
 
-  <span class="default special" *ngSwitchCase="ActionType.special">
+  <span class="action-default action-special" *ngSwitchCase="ActionType.special">
     <span class="type">{{'game.action.' + action.type | ghsLabel}} {{action.value}}:</span>
-    <div class="subactions">
-      <ghs-actions [actions]="getSpecial(action)" [monster]="monster" [inline]="inline" [right]="right"
-        [hexSize]="hexSize">
-      </ghs-actions>
-    </div>
+    <ghs-actions [actions]="getSpecial(action)" [monster]="monster" [inline]="inline" [right]="right"
+      [hexSize]="hexSize">
+    </ghs-actions>
   </span>
 
-  <span class="default" [ngClass]="'action-' + action.type" *ngSwitchDefault>
+  <span class="action-default" [ngClass]="'action-' + action.type" *ngSwitchDefault>
     <span class="type">{{'game.action.' + action.type | ghsLabel}}</span>
     <img src="./assets/images/action/{{action.type}}.svg" class="icon"
       [ngClass]="{'invert' : isInvertIcon(action.type)}" />
@@ -69,11 +67,9 @@
           class="elite">{{getEliteValue()}}</span>
       </span>&nbsp;
     </span>
-    <div class="subactions">
-      <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
-        [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize">
-      </ghs-action>
-    </div>
+    <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
+      [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize">
+    </ghs-action>
   </span>
 
 </span>

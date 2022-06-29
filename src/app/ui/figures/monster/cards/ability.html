@@ -7,9 +7,7 @@
     <div class="card-back ability-back" (click)="open()">
       <div *ngIf="ability">
         <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
-        <span class="name">{{(ability.name ? 'data.ability.' + ability.name : (monster.deck != monster.name ? 'data.deck.' +
-          monster.deck : 'data.monster.' + monster.name)) |
-          ghsLabel}}</span>
+        <span class="name">{{abilityLabel(ability)}}</span>
         <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="hexSize()" [hint]="ability.hint">
         </ghs-actions>
         <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
@@ -38,9 +36,7 @@
           </a>
           <div class="card-back ability-back" *ngIf="ability">
             <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
-            <span class="name">{{(ability.name ? 'data.ability.' + ability.name : (monster.deck != monster.name ? 'data.deck.' +
-              monster.deck : 'data.monster.' + monster.name)) |
-              ghsLabel}}</span>
+            <span class="name">{{abilityLabel(ability)}}</span>
             <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="hexSize()" [hint]="ability.hint">
             </ghs-actions>
             <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
@@ -54,7 +50,7 @@
     <div class="disgarded">
       <div class="empty" *ngIf="disgardedCards().length == 0"></div>
       <div class="card-container ability" *ngFor="let ability of disgardedCards();">
-        <div class="card flipped">
+        <div class="card" [ngClass]="{'flipped' : ability}">
           <a class="card-front ability-front">
           </a>
           <div class="card-back ability-back" *ngIf="ability">

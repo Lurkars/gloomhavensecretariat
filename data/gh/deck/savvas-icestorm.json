@@ -3,7 +3,7 @@
   "name": "savvas-icestorm",
   "abilities": [
     {
-      "cardId" : 708,
+      "cardId": 708,
       "initiative": 70,
       "actions": [
         {
@@ -48,7 +48,7 @@
       ]
     },
     {
-      "cardId" : 709,
+      "cardId": 709,
       "initiative": 98,
       "actions": [
         {
@@ -62,7 +62,7 @@
       ]
     },
     {
-      "cardId" : 710,
+      "cardId": 710,
       "initiative": 98,
       "actions": [
         {
@@ -76,7 +76,7 @@
       ]
     },
     {
-      "cardId" : 711,
+      "cardId": 711,
       "initiative": 19,
       "actions": [
         {
@@ -117,7 +117,7 @@
       ]
     },
     {
-      "cardId" : 712,
+      "cardId": 712,
       "initiative": 14,
       "actions": [
         {
@@ -133,11 +133,13 @@
             {
               "type": "attack",
               "value": 2,
-              "valueType": "plus"
-            },
-            {
-              "type": "condition",
-              "value": "immobilize"
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "immobilize"
+                }
+              ]
             }
           ]
         },
@@ -152,7 +154,7 @@
       ]
     },
     {
-      "cardId" : 713,
+      "cardId": 713,
       "initiative": 14,
       "actions": [
         {
@@ -196,7 +198,7 @@
       ]
     },
     {
-      "cardId" : 714,
+      "cardId": 714,
       "initiative": 47,
       "shuffle": true,
       "actions": [
@@ -227,7 +229,7 @@
       ]
     },
     {
-      "cardId" : 715,
+      "cardId": 715,
       "initiative": 35,
       "shuffle": true,
       "actions": [

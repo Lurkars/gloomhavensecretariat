@@ -38,34 +38,42 @@
       </span>
 
       <span class="item">
-        <a class="button" [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.bless) == 0}"
+        <a class="button"
+          [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.bless) == 0 || isImmune(Condition.bless)}"
           (click)="changeBless(-1)">
           <ghs-svg [src]="'./assets/images/minus.svg'"></ghs-svg>
         </a>
       </span>
-      <span class="item">
-        <img src="./assets/images/status/bless.svg" />
+      <span class="item">u
+        <span class="condition" [ngClass]="{'immunity' : isImmune(Condition.bless)}">
+          <img src="./assets/images/status/bless.svg" />
+        </span>
         <span class="badge bless-count">{{countAttackModifier(AttackModifierType.bless)}}</span>
       </span>
       <span class="item">
-        <a class="button" [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.bless) >= 10}"
+        <a class="button"
+          [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.bless) >= 10 || isImmune(Condition.bless)}"
           (click)="changeBless(1)">
           <ghs-svg [src]="'./assets/images/plus.svg'"></ghs-svg>
         </a>
       </span>
 
       <span class="item">
-        <a class="button" [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.curse) == 0}"
+        <a class="button"
+          [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.curse) == 0 || isImmune(Condition.curse)}"
           (click)="changeCurse(-1)">
           <ghs-svg [src]="'./assets/images/minus.svg'"></ghs-svg>
         </a>
       </span>
       <span class="item">
-        <img src="./assets/images/status/curse.svg" />
+        <span class="condition" [ngClass]="{'immunity' : isImmune(Condition.curse)}">
+          <img src="./assets/images/status/curse.svg" />
+        </span>
         <span class="badge curse-count">{{countAttackModifier(AttackModifierType.curse)}}</span>
       </span>
       <span class="item">
-        <a class="button" [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.curse) >= 10}"
+        <a class="button"
+          [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.curse) >= 10  || isImmune(Condition.curse)}"
           (click)="changeCurse(1)">
           <ghs-svg [src]="'./assets/images/plus.svg'"></ghs-svg>
         </a>
@@ -89,8 +97,11 @@
     </div>
     <div class="condition-container">
       <span *ngFor="let condition of gameManager.monsterConditions()">
-        <a class="condition" [ngClass]="{'active' : hasCondition(condition)}" (click)="toggleCondition(condition)">
-          <img src="./assets/images/condition/{{condition}}.svg" />
+        <a class="item" [ngClass]="{'active' : hasCondition(condition), 'disabled' : isImmune(condition)}"
+          (click)="toggleCondition(condition)">
+          <span class="condition" [ngClass]="{'immunity' : isImmune(condition)}">
+            <img src="./assets/images/condition/{{condition}}.svg" />
+          </span>
         </a>
       </span>
       <span class="summon-button">

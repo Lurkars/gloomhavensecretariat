@@ -6,7 +6,17 @@
     "edition": {
       "fc": "Forgotten Circles"
     },
-    "monster": {},
+    "monster": {
+      "aesther-ashblade": "Aesther Ashblade",
+      "aesther-scout": "Aesther Scout",
+      "human-commander": "Human Commander",
+      "manifestation-of-corruption": "Manifestation Of Corruption",
+      "selah-naberis": "Selah Naberis",
+      "sraka-the-wise" : "Sraka The Wise",
+      "the-steel-lion" : "The Steel Lion",
+      "uyart-ikkuma" : "Uyart Ikkuma",
+      "valrath-commander" : "Valrath Commander"
+    },
     "deck": {},
     "ability": {},
     "scenario": {},
@@ -18,6 +28,14 @@
         "sraka-the-wise": {
           "1": "Double all Heal values. Heals target The Steel Lion if able",
           "2": "If you apply %game.condition.curse% or %game.condition.bless%, apply a second %game.condition.curse% or %game.condition.bless%"
+        },
+        "the-steel-lion": {
+          "1": "Attacks targeting adjacent allies, target you instead",
+          "2": "The first [C] times you suffer 6 or more damage, suffer no damage instead"
+        },
+        "uyart-ikkuma": {
+          "1": "All its summons are elite for three or for characters",
+          "2": "It may consume %game.element.consume.fire% / %game.element.consume.earth% as if the element is currently strong when a %data.monster.flame-demon% / %data.monster.earth-demon% is present on the map"
         }
       }
     }

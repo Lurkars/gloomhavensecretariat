@@ -1,0 +1,416 @@
+{
+  "boss": true,
+  "count": 1,
+  "deck": "boss",
+  "edition": "fc",
+  "name": "valrath-commander",
+  "baseStat": {
+    "actions": [
+      {
+        "type": "condition",
+        "value": "wound"
+      },
+      {
+        "type": "condition",
+        "value": "poison"
+      }
+    ],
+    "immunities": [
+      "disarm",
+      "immobilize",
+      "muddle",
+      "wound",
+      "curse",
+      "stun"
+    ],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "attack": 3,
+      "health": "10xC",
+      "level": 0,
+      "movement": 2,
+      "range": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "special": [
+        [
+          {
+            "type": "custom",
+            "value": "%game.custom.summon% %data.monster.valrath-tracker%"
+          },
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "minus"
+          },
+          {
+            "type": "heal",
+            "value": 2,
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "adjacentAlliesAffect"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "custom",
+            "value": "%game.custom.summon% %data.monster.valrath-savage%"
+          }
+        ]
+      ]
+    },
+    {
+      "attack": 4,
+      "health": "12xC",
+      "level": 1,
+      "movement": 2,
+      "range": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "special": [
+        [
+          {
+            "type": "custom",
+            "value": "%game.custom.summon% %data.monster.valrath-tracker%"
+          },
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "minus"
+          },
+          {
+            "type": "heal",
+            "value": 2,
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "adjacentAlliesAffect"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "custom",
+            "value": "%game.custom.summon% %data.monster.valrath-savage%"
+          }
+        ]
+      ]
+    },
+    {
+      "attack": 4,
+      "health": "15xC",
+      "level": 2,
+      "movement": 3,
+      "range": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "special": [
+        [
+          {
+            "type": "custom",
+            "value": "%game.custom.summon% %data.monster.valrath-tracker%"
+          },
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "minus"
+          },
+          {
+            "type": "heal",
+            "value": 3,
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "adjacentAlliesAffect"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "custom",
+            "value": "%game.custom.summon% %data.monster.valrath-savage%"
+          }
+        ]
+      ]
+    },
+    {
+      "attack": 5,
+      "health": "18xC",
+      "level": 3,
+      "movement": 3,
+      "range": 3,
+      "special": [
+        [
+          {
+            "type": "custom",
+            "value": "%game.custom.summon% %data.monster.valrath-tracker%"
+          },
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "minus"
+          },
+          {
+            "type": "heal",
+            "value": 3,
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "adjacentAlliesAffect"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "custom",
+            "value": "%game.custom.summon% %data.monster.valrath-savage%"
+          }
+        ]
+      ]
+    },
+    {
+      "attack": 5,
+      "health": "21xC",
+      "level": 4,
+      "movement": 3,
+      "range": 4,
+      "special": [
+        [
+          {
+            "type": "custom",
+            "value": "%game.custom.summon% %data.monster.valrath-tracker%"
+          },
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "minus"
+          },
+          {
+            "type": "heal",
+            "value": 4,
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "adjacentAlliesAffect"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "custom",
+            "value": "%game.custom.summon% %data.monster.valrath-savage%"
+          }
+        ]
+      ]
+    },
+    {
+      "attack": 6,
+      "health": "24xC",
+      "level": 5,
+      "movement": 3,
+      "range": 4,
+      "special": [
+        [
+          {
+            "type": "custom",
+            "value": "%game.custom.summon% %data.monster.valrath-tracker%"
+          },
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "minus"
+          },
+          {
+            "type": "heal",
+            "value": 4,
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "adjacentAlliesAffect"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "custom",
+            "value": "%game.custom.summon% %data.monster.valrath-savage%"
+          }
+        ]
+      ]
+    },
+    {
+      "attack": 6,
+      "health": "28xC",
+      "level": 6,
+      "movement": 4,
+      "range": 4,
+      "special": [
+        [
+          {
+            "type": "custom",
+            "value": "%game.custom.summon% %data.monster.valrath-tracker%"
+          },
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "minus"
+          },
+          {
+            "type": "heal",
+            "value": 4,
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "adjacentAlliesAffect"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "custom",
+            "value": "%game.custom.summon% %data.monster.valrath-savage%"
+          }
+        ]
+      ]
+    },
+    {
+      "attack": 7,
+      "health": "33xC",
+      "level": 7,
+      "movement": 4,
+      "range": 5,
+      "special": [
+        [
+          {
+            "type": "custom",
+            "value": "%game.custom.summon% %data.monster.valrath-tracker%"
+          },
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "minus"
+          },
+          {
+            "type": "heal",
+            "value": 5,
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "adjacentAlliesAffect"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "custom",
+            "value": "%game.custom.summon% %data.monster.valrath-savage%"
+          }
+        ]
+      ]
+    }
+  ]
+}

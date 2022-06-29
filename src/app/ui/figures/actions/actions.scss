@@ -6,11 +6,28 @@
 
   &.inline {
     align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    ghs-action:not(:last-child) {
+      padding-right: calc(var(--ghs-unit) * 1);
+    }
+
+    ghs-action:not(:last-child):before {
+      content: ',';
+      position: absolute;
+      right: calc(var(--ghs-unit) * 0.5);
+      top: calc(var(--ghs-unit) * -0.5);
+    }
   }
 
   &.right {
     align-items: flex-end;
     text-align: right;
+
+    ghs-action {
+      margin-left: auto;
+    }
   }
 
   ghs-action {
