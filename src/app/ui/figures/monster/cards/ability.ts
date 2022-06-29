@@ -69,9 +69,12 @@ export class AbilityComponent extends PopupComponent {
       label = 'data.ability.' + ability.name;
     } else if (this.monster.deck != this.monster.name) {
       label = 'data.deck.' + this.monster.deck;
+      if (label.split('.')[ label.split('.').length - 1 ] === settingsManager.getLabel(label) && this.monster.deck) {
+        label = 'data.monster.' + this.monster.deck;
+      }
     }
 
-    if (label === settingsManager.getLabel(label)) {
+    if (label.split('.')[ label.split('.').length - 1 ] === settingsManager.getLabel(label)) {
       label = 'data.monster.' + this.monster.name;
     }
 
