@@ -103,6 +103,7 @@
       "heal": "Heal",
       "specialTarget": {
         "self": "Self",
+        "selfAllies": "Self and all allies",
         "selfAlliesAffect": "Affect self and all allies",
         "ally": "Target one adjacent ally",
         "allAllies": "Target all allies",
@@ -173,7 +174,11 @@
       "summon" : "Summon",
       "ondeath" : "On death",
       "instead" : "Instead",
-      "disadvantage" : "Attackers gain Disadvantage"
+      "disadvantage" : "Attackers gain Disadvantage",
+      "math" : {
+        "ceil" : "(rounded up)",
+        "floor" : "(rounded down)"
+      }
     }
   },
   "datamanagement": {

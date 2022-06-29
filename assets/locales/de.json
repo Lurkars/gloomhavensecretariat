@@ -103,6 +103,7 @@
       "heal": "Heilen",
       "specialTarget": {
         "self": "Selbst",
+        "selfAllies": "Self and all allies",
         "selfAlliesAffect": "Affect self and all allies",
         "ally": "Target one adjacent ally",
         "allAllies": "Target all allies",
@@ -173,7 +174,11 @@
       "summon" : "Beschwöre",
       "ondeath" : "Bei Tod",
       "instead" : "Stattdessen",
-      "disadvantage" : "Angreifer erhalten Nachteil"
+      "disadvantage" : "Angreifer erhalten Nachteil",
+      "math" : {
+        "ceil" : "(aufgerundet)",
+        "floor" : "(abgerundet)"
+      }
     }
   },
   "datamanagement": {
