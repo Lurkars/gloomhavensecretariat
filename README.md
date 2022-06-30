@@ -2,7 +2,7 @@
 
 [Latest Online Version](https://lurkars.github.io/gloomhavensecretary/)
 
-An open source [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (by [Esoteric Software®](http://esotericsoftware.com)) clone made as web app with Angular.
+An open source [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (by [Esoteric Software®](http://esotericsoftware.com)) clone made as web app with Angular. *Gloomhaven Secretary* is a companion app and does basically bookkeeping of all entities values to gain more focus on gameplay.
 
 This is basically a clone implementing the same functionality and look&feel of the original Gloomhaven Helper since I am not capable of good design/UX. So feel free to contribute better assets.
 
@@ -11,13 +11,39 @@ For usage with multiple clients sharing the same game, the server component [Glo
 > SPOILER WARNING:
 > The `label.json` files inside the `data`-folder and therefore the final edition data files inside the `src/assets/data`-folder contain spoilers by including the corresponding label.
 
+## Current Features
+
+- Feature complete for base GH and JOTL (mostly complete for FC, only Diviner mechanics missing)
+- Tracking:
+  - **initiative** sorting
+  - **health** automatic exhausting/dead, max values for every level
+  - **conditions** automatic expire
+  - **level**, **loot**, **experience** of Characters
+  - **Elements** automatic update state
+  - **Monster Stats**
+  - **Monster Standees**
+  - **Monster Modifier Deck** addition of **Blesses** and **Curses**, auto-shuffling
+  - **Monster Ability Cards** auto-shuffling, calculated values (separated for normal and elite)
+  - **Character Summons**
+  - **Scenarios** and **Sections**
+  - **Markers** (currently Hatchet only)
+- Eliminating the following physical components:
+  - monster ability cards
+  - monster stats sheets
+  - monster attack modifier deck
+  - damage tokens
+  - condition tokens
+  - element board, element discs, round tracker, initiative tracker
+  - character HP/XP dials
+  - character boards
+
 ## Missing / Upcoming
 
-- monster/scenario data of FC,FH, CS (WIP)
+- monster/scenario data of FH, CS (WIP)
 - upgradable/stackable conditions (WIP)
 - tools like monster editor to create/update monster stats and abilities via UI (WIP)
-- goals and section mechanic
-- i18n/icons for custom actions
+- goals ~~and section~~ mechanic
+- ~~i18n/icons for custom actions~~
 - ~~i18n support~~
 - ~~summons~~
 - ~~standalone app with Electron\/PWA~~
@@ -40,7 +66,7 @@ Download the corresponding files from the [latest release](https://github.com/Lu
 
 ### Selfhost
 
-To selfhost Gloomhaven Secretary on your webserver, simple download the zip file from the [latest release](https://github.com/Lurkars/gloomhavensecretary/releases/latest) and unzip to your webserver.
+To selfhost *Gloomhaven Secretary* on your webserver, simple download the zip file from the [latest release](https://github.com/Lurkars/gloomhavensecretary/releases/latest) and unzip to your webserver.
 
 > The base url for this build is set to root. To use a different base url please [build your own package](#build-from-source).
 
