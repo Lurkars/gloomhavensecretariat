@@ -21,7 +21,7 @@
 .container {
 
   display: grid;
-  grid-template-columns: calc(var(--ghs-unit) * 8) calc(var(--ghs-unit) * 8) calc(var(--ghs-unit) * 8) calc(var(--ghs-unit) * 8);
+  grid-template-columns: repeat(4, calc(var(--ghs-unit) * 8));
 
 
   .value {

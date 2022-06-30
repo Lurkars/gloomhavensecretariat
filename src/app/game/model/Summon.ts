@@ -36,6 +36,7 @@ export class Summon implements Entity {
   maxHealth: number;
   conditions: Condition[] = [];
   turnConditions: Condition[] = [];
+  markers: string[] = [];
 
   constructor(level: number, number: number, color: SummonColor, maxHealth: number = 2, attack: number = 0,
     movement: number = 0,
@@ -51,7 +52,7 @@ export class Summon implements Entity {
   }
 
   toModel(): GameSummonModel {
-    return new GameSummonModel(this.number, this.color, this.attack, this.movement, this.range, this.dead, this.state, this.level, this.health, this.maxHealth, this.conditions, this.turnConditions);
+    return new GameSummonModel(this.number, this.color, this.attack, this.movement, this.range, this.dead, this.state, this.level, this.health, this.maxHealth, this.conditions, this.turnConditions, this.markers);
   }
 
   fromModel(model: GameSummonModel) {
@@ -67,6 +68,7 @@ export class Summon implements Entity {
     this.maxHealth = model.maxHealth;
     this.conditions = model.conditions;
     this.turnConditions = model.turnConditions;
+    this.markers = model.markers;
     this.init = false;
   }
 
@@ -85,6 +87,7 @@ export class GameSummonModel {
   maxHealth: number;
   conditions: Condition[];
   turnConditions: Condition[];
+  markers: string[];
 
 
   constructor(number: number,
@@ -98,7 +101,7 @@ export class GameSummonModel {
     health: number,
     maxHealth: number,
     conditions: Condition[],
-    turnConditions: Condition[],) {
+    turnConditions: Condition[], markers: string[]) {
     this.number = number;
     this.color = color;
     this.attack = attack;
@@ -111,5 +114,6 @@ export class GameSummonModel {
     this.maxHealth = maxHealth;
     this.conditions = conditions;
     this.turnConditions = turnConditions;
+    this.markers = markers;
   }
 }

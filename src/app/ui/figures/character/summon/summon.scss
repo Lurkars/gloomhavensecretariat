@@ -128,7 +128,7 @@
 
     .summon-container {
       display: grid;
-      grid-template-columns: calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7);
+      grid-template-columns: repeat(3, calc(var(--ghs-unit) * 7));
     }
 
     .stats-container {
@@ -138,6 +138,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      margin-bottom: auto;
 
       .stat {
         cursor: pointer;
@@ -157,7 +158,12 @@
 
     .condition-container {
       display: grid;
-      grid-template-columns: calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7);
+      grid-template-columns: repeat(3, calc(var(--ghs-unit) * 7));
+      column-gap: calc(var(--ghs-unit) * 0.5);
+      row-gap: calc(var(--ghs-unit) * 1.5);
+      align-items: center;
+      justify-items: center;
+      margin-bottom: auto;
     }
 
     .condition,
@@ -167,8 +173,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      height: calc(var(--ghs-unit) * 7);
-      width: calc(var(--ghs-unit) * 7);
+      height: calc(var(--ghs-unit) * 6);
+      width: calc(var(--ghs-unit) * 6);
 
       &.active,
       &.new {
@@ -269,7 +275,7 @@
   .level-dialog {
     .summon-container {
       display: grid;
-      grid-template-columns: calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7);
+      grid-template-columns: repeat(3, calc(var(--ghs-unit) * 7));
 
       img {
         height: calc(var(--ghs-unit) * 3);

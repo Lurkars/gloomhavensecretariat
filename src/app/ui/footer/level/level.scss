@@ -72,7 +72,7 @@
 
   .level-container {
     display: grid;
-    grid-template-columns: calc(var(--ghs-unit) * 8) calc(var(--ghs-unit) * 8) calc(var(--ghs-unit) * 8) calc(var(--ghs-unit) * 8) calc(var(--ghs-unit) * 8);
+    grid-template-columns: repeat(5, calc(var(--ghs-unit) * 8));
     margin: calc(var(--ghs-unit) * 0.5);
 
     .level {

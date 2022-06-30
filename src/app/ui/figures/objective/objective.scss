@@ -182,7 +182,7 @@
 
     .entity-container {
       display: grid;
-      grid-template-columns: calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7);
+      grid-template-columns: repeat(3, calc(var(--ghs-unit) * 7));
 
       .id {
         display: flex;
@@ -240,10 +240,12 @@
 
   .condition-container {
     display: grid;
-    grid-template-rows: calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7);
-    grid-template-columns: calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7) calc(var(--ghs-unit) * 7);
+    grid-template-columns: repeat(3, calc(var(--ghs-unit) * 7));
+    column-gap: calc(var(--ghs-unit) * 0.5);
+    row-gap: calc(var(--ghs-unit) * 1.5);
     align-items: center;
     justify-items: center;
+    margin-bottom: auto;
   }
 
   .condition {

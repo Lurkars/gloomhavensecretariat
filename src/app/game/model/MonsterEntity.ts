@@ -20,6 +20,7 @@ export class MonsterEntity implements Entity {
   maxHealth: number;
   conditions: Condition[] = [];
   turnConditions: Condition[] = [];
+  markers: string[] = [];
 
   constructor(number: number, type: MonsterType, monster: Monster) {
     this.number = number;
@@ -49,7 +50,7 @@ export class MonsterEntity implements Entity {
   }
 
   toModel(): GameMonsterEntityModel {
-    return new GameMonsterEntityModel(this.number, this.type, this.dead, this.summon, this.health, this.maxHealth, this.conditions, this.turnConditions);
+    return new GameMonsterEntityModel(this.number, this.type, this.dead, this.summon, this.health, this.maxHealth, this.conditions, this.turnConditions, this.markers);
   }
 
   fromModel(model: GameMonsterEntityModel) {
@@ -59,6 +60,7 @@ export class MonsterEntity implements Entity {
     this.maxHealth = model.maxHealth;
     this.conditions = model.conditions;
     this.turnConditions = model.turnConditions;
+    this.markers = model.markers;
   }
 
 
@@ -73,6 +75,7 @@ export class GameMonsterEntityModel {
   maxHealth: number;
   conditions: Condition[];
   turnConditions: Condition[];
+  markers: string[];
 
 
   constructor(number: number,
@@ -82,7 +85,7 @@ export class GameMonsterEntityModel {
     health: NumberSymbol,
     maxHealth: number,
     conditions: Condition[],
-    turnConditions: Condition[]) {
+    turnConditions: Condition[], markers: string[]) {
     this.number = number;
     this.type = type;
     this.dead = dead;
@@ -91,5 +94,6 @@ export class GameMonsterEntityModel {
     this.maxHealth = maxHealth;
     this.conditions = conditions;
     this.turnConditions = turnConditions;
+    this.markers = markers;
   }
 }

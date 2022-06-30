@@ -105,6 +105,10 @@ export class GameManager {
     return this.editionData.filter((editionData: EditionData) => editionData.edition == this.game.edition).map((editionData: EditionData) => editionData.conditions).flat().filter((value: Condition) => value in StackableCondition);
   }
 
+  markers(): string[] {
+    return this.game.figures.filter((figure: Figure) => figure instanceof Character && figure.marker).map((figure: Figure) => (figure as Character).edition + '-' + figure.name);
+  }
+
   nextGameState(): void {
     this.working = true;
     if (this.game.state == GameState.next) {

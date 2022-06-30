@@ -115,6 +115,21 @@ export class MonsterEntityComponent extends DialogComponent {
     this.setDialogPosition();
   }
 
+  hasMarker(marker: string) {
+    return this.entity.markers && this.entity.markers.indexOf(marker) != -1;
+  }
+
+  toggleMarker(marker: string) {
+    gameManager.stateManager.before();
+    if (this.hasMarker(marker)) {
+      this.entity.markers.splice(this.entity.markers.indexOf(marker), 1);
+    } else {
+      this.entity.markers.push(marker);
+    }
+    gameManager.stateManager.after();
+    this.setDialogPosition();
+  }
+
   toggleSummon() {
     gameManager.stateManager.before();
     if (this.entity.summon == SummonState.false) {

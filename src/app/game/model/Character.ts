@@ -26,13 +26,14 @@ export class Character extends CharacterData implements Entity, Figure {
   maxHealth: number;
   conditions: Condition[];
   turnConditions: Condition[];
+  markers: string[];
 
   getInitiative(): number {
     return this.exhausted ? 99 : this.initiative;
   }
 
   constructor(character: CharacterData, level: number) {
-    super(character.name, character.stats, character.edition, character.summon, character.icon, character.thumbnail, character.color);
+    super(character.name, character.stats, character.edition, character.summon, character.icon, character.thumbnail, character.color, character.marker);
     this.errors = character.errors;
     if (level < 1) {
       level = 1;
@@ -58,6 +59,7 @@ export class Character extends CharacterData implements Entity, Figure {
     this.health = this.maxHealth;
     this.conditions = [];
     this.turnConditions = [];
+    this.markers = [];
 
     if (this.summon && this.summon.automatic && (!this.summon.level || this.summon.level <= this.level)) {
       this.createSummon();
@@ -119,7 +121,7 @@ export class Character extends CharacterData implements Entity, Figure {
   }
 
   toModel(): GameCharacterModel {
-    return new GameCharacterModel(this.name, this.edition, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.conditions, this.turnConditions, this.summons.map((summon: Summon) => summon.toModel()));
+    return new GameCharacterModel(this.name, this.edition, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.conditions, this.turnConditions, this.markers, this.summons.map((summon: Summon) => summon.toModel()));
   }
 
   fromModel(model: GameCharacterModel) {
@@ -145,6 +147,7 @@ export class Character extends CharacterData implements Entity, Figure {
     this.maxHealth = model.maxHealth;
     this.conditions = model.conditions;
     this.turnConditions = model.turnConditions;
+    this.markers = model.markers;
 
     this.summons = this.summons.filter((summon: Summon) => {
       let found: boolean = false;
@@ -186,6 +189,7 @@ export class GameCharacterModel {
   maxHealth: number;
   conditions: Condition[];
   turnConditions: Condition[];
+  markers: string[];
   summons: GameSummonModel[];
 
 
@@ -203,6 +207,7 @@ export class GameCharacterModel {
     maxHealth: number,
     conditions: Condition[],
     turnConditions: Condition[],
+    markers: string[],
     summons: GameSummonModel[]) {
     this.name = name;
     this.edition = edition;
@@ -218,6 +223,7 @@ export class GameCharacterModel {
     this.maxHealth = maxHealth;
     this.conditions = conditions;
     this.turnConditions = turnConditions;
+    this.markers = markers;
     this.summons = summons;
   }
 

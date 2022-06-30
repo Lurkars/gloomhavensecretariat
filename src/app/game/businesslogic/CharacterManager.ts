@@ -6,6 +6,8 @@ import { SectionData } from "../model/data/SectionData";
 import { EntityValueFunction } from "../model/Entity";
 import { Figure } from "../model/Figure";
 import { Game } from "../model/Game";
+import { Monster } from "../model/Monster";
+import { MonsterEntity } from "../model/MonsterEntity";
 import { Objective } from "../model/Objective";
 import { Summon, SummonState } from "../model/Summon";
 import { gameManager } from "./GameManager";
@@ -45,6 +47,28 @@ export class CharacterManager {
 
   removeCharacter(character: Character) {
     this.game.figures.splice(this.game.figures.indexOf(character), 1);
+
+    if (character.marker) {
+      // remove marker
+      const marker = character.edition + '-' + character.name;
+      this.game.figures.forEach((figure: Figure) => {
+        if (figure instanceof Character) {
+          figure.markers.splice(figure.markers.indexOf(marker), 1);
+          if (figure.summons) {
+            figure.summons.forEach((summon: Summon) => {
+              summon.markers.splice(summon.markers.indexOf(marker), 1);
+            })
+          }
+        } else if (figure instanceof Objective) {
+          figure.markers.splice(figure.markers.indexOf(marker), 1);
+        } else if (figure instanceof Monster) {
+          figure.entities.forEach((entity: MonsterEntity) => {
+            entity.markers.splice(entity.markers.indexOf(marker), 1);
+          })
+        }
+      })
+    }
+
   }
 
   addSummon(character: Character, summon: Summon) {

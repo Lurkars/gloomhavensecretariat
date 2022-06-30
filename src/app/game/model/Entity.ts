@@ -9,6 +9,7 @@ export interface Entity {
   maxHealth: number | string;
   conditions: Condition[];
   turnConditions: Condition[];
+  markers: string[];
 }
 
 export function EntityValueFunction(value: string, L: number | undefined = undefined): number {
