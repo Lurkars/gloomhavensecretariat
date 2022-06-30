@@ -43,6 +43,10 @@
     "remove": "Remove Objective",
     "removeAll": "Remove All"
   },
+  "escort": {
+    ".": "Escort",
+    "add": "Add Escort"
+  },
   "summon": {
     "addCustom": "Summon '{0}'"
   },

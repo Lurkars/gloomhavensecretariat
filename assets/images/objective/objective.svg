@@ -2,12 +2,12 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="81.624306mm"
-   height="81.624664mm"
-   viewBox="0 0 81.624308 81.624663"
+   width="95mm"
+   height="95mm"
+   viewBox="0 0 95.000003 94.999999"
    version="1.1"
    id="svg5"
-   sodipodi:docname="icon.svg"
+   sodipodi:docname="objective.svg"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -23,15 +23,19 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="2.5348241"
-     inkscape:cx="154.05408"
-     inkscape:cy="154.64584"
+     inkscape:zoom="0.89619566"
+     inkscape:cx="-88.708308"
+     inkscape:cy="32.359005"
      inkscape:window-width="1850"
      inkscape:window-height="1043"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg5" />
+     inkscape:current-layer="svg5"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <defs
      id="defs2">
     <clipPath
@@ -113,13 +117,12 @@
     </clipPath>
   </defs>
   <g
-     id="layer1"
-     transform="translate(-56.017804,136.19769)"
-     style="fill:#7da82a;fill-opacity:1">
+     id="g3310"
+     transform="matrix(0.896444,0,0,0.896444,10.632402,0.31563013)">
     <g
        id="g3318"
        clip-path="url(#clipPath3322)"
-       transform="matrix(0.35277777,0,0,-0.35277777,43.913399,-42.468655)"
+       transform="matrix(0.35277777,0,0,-0.35277777,-12.104405,106.22568)"
        style="fill:#7da82a;fill-opacity:1">
       <g
          id="g3324"
@@ -140,5 +143,10 @@
            id="path3330" />
       </g>
     </g>
+    <path
+       id="polygon4"
+       d="M 64.505452,24.573991 39.00381,50.042049 c -0.925871,4.150659 -0.450422,7.162203 6.113101,5.224834 L 69.91326,29.652589 85.232153,27.404037 95,15.496643 80.603841,17.394126 85.003797,13.740249 c 0.568212,-2.79541 0.486744,-5.0754398 -3.936993,-3.9108274 L 76.578854,13.443189 77.784734,0 67.526109,11.431981 Z"
+       sodipodi:nodetypes="ccccccccccccc"
+       style="fill:#7da82a;fill-opacity:1;stroke-width:0.0435441" />
   </g>
 </svg>
