@@ -1,6 +1,7 @@
 {
   "edition": "gh",
   "name": "spellweaver",
+  "color": "#b28ac2",
   "stats": [
     {
       "health": 6,

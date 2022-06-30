@@ -21,6 +21,9 @@ import { CharacterManager } from "./CharacterManager";
 import { MonsterManager } from "./MonsterManager";
 import { settingsManager } from "./SettingsManager";
 import { StateManager } from "./StateManager";
+import { SectionData } from "../model/data/SectionData";
+import { ObjectiveData } from "../model/data/ObjectiveData";
+import { EntityValueFunction } from "../model/Entity";
 
 
 export class GameManager {
@@ -64,6 +67,11 @@ export class GameManager {
   scenarioData(all: boolean = false): ScenarioData[] {
     return this.editionData.filter((editionData: EditionData) => all || !this.game.edition || editionData.edition == this.game.edition || editionData.extentions && editionData.extentions.indexOf(this.game.edition) != -1).map((editionData: EditionData) => editionData.scenarios).flat();
   }
+
+  sectionData(all: boolean = false): SectionData[] {
+    return this.editionData.filter((editionData: EditionData) => all || !this.game.edition || editionData.edition == this.game.edition || editionData.extentions && editionData.extentions.indexOf(this.game.edition) != -1).map((editionData: EditionData) => editionData.sections).flat();
+  }
+
 
   characterConditions(all: boolean = false): Condition[] {
     if (all || !this.game.edition) {
@@ -150,7 +158,7 @@ export class GameManager {
         } else if (a instanceof Monster) {
           aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
         } else if (a instanceof Objective) {
-          aName = a.title.toLowerCase() || settingsManager.getLabel(a.name).toLowerCase();
+          aName = (a.title ? a.title : settingsManager.getLabel(a.name ? 'data.objective.' + a.name : (a.escort ? 'escort' : 'objective')).toLowerCase());
         }
 
         let bName = b.name.toLowerCase();
@@ -159,7 +167,7 @@ export class GameManager {
         } else if (b instanceof Monster) {
           bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
         } else if (b instanceof Objective) {
-          bName = b.title.toLowerCase() || settingsManager.getLabel(b.name).toLowerCase();
+          bName = (b.title ? b.title : settingsManager.getLabel(b.name ? 'data.objective.' + b.name : (b.escort ? 'escort' : 'objective')).toLowerCase());
         }
         if (a instanceof Character && b instanceof Monster) {
           return -1;
@@ -361,18 +369,43 @@ export class GameManager {
   setScenario(scenario: Scenario | undefined) {
     this.game.scenario = scenario;
     if (scenario && !scenario.custom) {
-      this.game.figures = this.game.figures.filter((figure: Figure) => figure instanceof CharacterData);
       const editionData: EditionData | undefined = this.editionData.find((value: EditionData) => value.edition == scenario.edition);
       if (!editionData) {
         console.error("Could not find edition data!");
         return;
       }
-      scenario.monsters.forEach((name: string) => {
+      this.game.figures = this.game.figures.filter((figure: Figure) => figure instanceof CharacterData);
+      this.applyScenarioData(editionData, scenario);
+    }
+  }
+
+  addSection(section: SectionData) {
+    const editionData: EditionData | undefined = this.editionData.find((value: EditionData) => value.edition == section.edition);
+    if (!editionData) {
+      console.error("Could not find edition data!");
+      return;
+    }
+
+    if (!this.game.sections.some((value: SectionData) => value.edition == section.edition && value.index == section.index)) {
+      this.game.sections.push(section);
+      this.applyScenarioData(editionData, section);
+    }
+  }
+
+  applyScenarioData(editionData: EditionData, scenarioData: ScenarioData) {
+    if (scenarioData.monsters) {
+      scenarioData.monsters.forEach((name: string) => {
         const monsterData = this.monstersData(true).find((monsterData: MonsterData) => monsterData.name == name && (monsterData.edition == editionData.edition || editionData.extentions && editionData.extentions.indexOf(monsterData.edition) != -1));
         if (monsterData) {
           this.monsterManager.addMonster(monsterData);
         }
       });
+    }
+
+    if (scenarioData.objectives) {
+      scenarioData.objectives.forEach((objectiveData: ObjectiveData) => {
+        this.characterManager.addObjective(objectiveData)
+      })
     }
   }
 

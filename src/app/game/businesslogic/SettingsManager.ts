@@ -216,6 +216,12 @@ export class SettingsManager {
     if (!this.label.data.scenario) {
       this.label.data.scenario = {};
     }
+    if (!this.label.data.section) {
+      this.label.data.section = {};
+    }
+    if (!this.label.data.objective) {
+      this.label.data.objective = {};
+    }
     if (!this.label.data.summon) {
       this.label.data.summon = {};
     }
@@ -341,13 +347,13 @@ export class SettingsManager {
   getLabel(key: string, args: string[] = [], from: any = this.label, path: string = "", empty: boolean = false): string {
     key += '';
     if (!from) {
-      return empty ? this.emptyLabel(key, args, path) : (key || "");
+      return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : key || "");
     } else if (from[ key ]) {
       if (typeof from[ key ] === 'object') {
         if (from[ key ][ "." ]) {
           return this.insertLabelArguments(from[ key ][ "." ], args);
         }
-        return empty ? this.emptyLabel(key, args, path) : (key || "");
+        return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : key || "");
       }
       return this.insertLabelArguments(from[ key ], args);
     } else {
@@ -358,7 +364,7 @@ export class SettingsManager {
       }
     }
 
-    return empty ? this.emptyLabel(key, args, path) : (key || "");
+    return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : key || "");
   }
 
   emptyLabel(key: string, args: string[], path: string): string {

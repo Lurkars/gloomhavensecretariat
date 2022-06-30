@@ -34,12 +34,12 @@
       </div>
       <div class="additional">
         <ghs-actions [actions]="statsForType(MonsterType.normal).actions" [monster]="monster" [inline]="true"
-          [right]="true" [hexSize]="hexSize()">
+          [right]="true" [hexSize]="0.5">
         </ghs-actions>
       </div>
       <div class="specials" *ngFor="let special of (statsForType(MonsterType.normal).special); let index = index;">
         <span class="special">{{index+1}}:</span>
-        <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [right]="true" [hexSize]="hexSize()">
+        <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [right]="true" [hexSize]="0.5">
         </ghs-actions>
       </div>
       <div class="notes" [innerHTML]="statsForType(MonsterType.normal).note | ghsHtmlLabel"></div>
@@ -52,12 +52,12 @@
       </div>
       <div class="additional">
         <ghs-actions [actions]="statsForType(MonsterType.elite).actions" [monster]="monster" [inline]="true"
-          [hexSize]="hexSize()">
+          [hexSize]="0.5">
         </ghs-actions>
       </div>
       <div class="specials" *ngFor="let special of (statsForType(MonsterType.elite).special); let index = index;">
         <span class="special">{{index+1}}:</span>
-        <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [hexSize]="hexSize()">
+        <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [hexSize]="0.5">
         </ghs-actions>
       </div>
       <div class="notes" [innerHTML]="statsForType(MonsterType.elite).note | ghsHtmlLabel"></div>
@@ -71,12 +71,12 @@
     </div>
     <div class="additional">
       <ghs-actions [actions]="statsForType(MonsterType.boss).actions" [monster]="monster" [inline]="true"
-        [hexSize]="hexSize()">
+        [hexSize]="0.5">
       </ghs-actions>
     </div>
     <div class="specials" *ngFor="let special of (statsForType(MonsterType.boss).special); let index = index;">
       <span class="special">{{index+1}}:</span>
-      <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [hexSize]="hexSize()"></ghs-actions>
+      <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [hexSize]="0.5"></ghs-actions>
     </div>
     <div class="notes" [innerHTML]="statsForType(MonsterType.boss).note | ghsHtmlLabel"></div>
   </div>

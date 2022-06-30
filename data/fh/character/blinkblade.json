@@ -1,6 +1,7 @@
 {
   "edition": "fh",
   "name": "blinkblade",
+  "color": "#009ec6",
   "stats": [
     {
       "health": 8,

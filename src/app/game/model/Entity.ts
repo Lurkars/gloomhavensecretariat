@@ -6,7 +6,7 @@ import { Figure } from "./Figure";
 export interface Entity {
   health: number;
   level: number;
-  maxHealth: number;
+  maxHealth: number | string;
   conditions: Condition[];
   turnConditions: Condition[];
 }

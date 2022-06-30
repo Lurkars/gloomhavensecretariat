@@ -32,7 +32,7 @@ export class Character extends CharacterData implements Entity, Figure {
   }
 
   constructor(character: CharacterData, level: number) {
-    super(character.name, character.stats, character.edition, character.summon, character.icon, character.thumbnail);
+    super(character.name, character.stats, character.edition, character.summon, character.icon, character.thumbnail, character.color);
     this.errors = character.errors;
     if (level < 1) {
       level = 1;

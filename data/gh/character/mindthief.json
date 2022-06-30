@@ -1,6 +1,7 @@
 {
   "edition": "gh",
   "name": "mindthief",
+  "color": "#6279a5",
   "stats": [
     {
       "health": 6,

@@ -50,14 +50,6 @@ export class AbilityComponent extends PopupComponent {
     gameManager.stateManager.after();
   }
 
-  hexSize(): number {
-    let size = ghsUnit();
-    if (ghsUnitUnit() == 'vw') {
-      size = window.innerWidth / 100 * ghsUnit();
-    }
-    return size;
-  }
-
   override close(): void {
     super.close();
     this.reveal = 0;

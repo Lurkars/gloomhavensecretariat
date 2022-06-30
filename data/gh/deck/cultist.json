@@ -27,7 +27,7 @@
               "subActions": [
                 {
                   "type": "area",
-                  "value": "(1,0,true)|(2,0,true)|(0,1,true)|(1,1,false)|(2,1,true)|(1,2,true)|(2,2,true)"
+                  "value": "(1,0,target)|(2,0,target)|(0,1,target)|(1,1,active)|(2,1,target)|(1,2,target)|(2,2,target)"
                 }
               ]
             }
@@ -60,7 +60,7 @@
               "subActions": [
                 {
                   "type": "area",
-                  "value": "(1,0,true)|(2,0,true)|(0,1,true)|(1,1,false)|(2,1,true)|(1,2,true)|(2,2,true)"
+                  "value": "(1,0,target)|(2,0,target)|(0,1,target)|(1,1,active)|(2,1,target)|(1,2,target)|(2,2,target)"
                 }
               ]
             }

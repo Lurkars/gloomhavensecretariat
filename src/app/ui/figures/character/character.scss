@@ -3,11 +3,22 @@
   z-index: 1;
   height: 100%;
   width: calc(var(--ghs-unit) * 89);
-  height: calc(var(--ghs-unit) * 16);
+  height: calc(var(--ghs-unit) * 15);
   background-image: url('~src/assets/images/character/char-mat.png');
   background-color: var(--ghs-color-gray);
   background-size: cover;
   display: flex;
+  --ghs-character-color: #000;
+
+  &::before {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--ghs-character-color);
+    opacity: 0.2;
+    pointer-events: none;
+  }
 
   &.off {
 
@@ -118,6 +129,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-right: calc(var(--ghs-unit) * 2.8);
 
       img {
         height: calc(var(--ghs-unit) * 8);

@@ -1,0 +1,14 @@
+<div class="menu-container scenario">
+  <div class="line editions">
+    <label *ngFor="let e of (gameManager.game.edition ? [gameManager.game.edition] : editions());">
+      <input type="radio" name="radio" [value]="e" (change)="edition = e" [checked]="edition == e">
+      {{'data.edition.' + e | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line sections">
+    <span (click)="addSection(section)" class="section" [ngClass]="{'disabled' : hasSection(section)}"
+      *ngFor="let section of sections()"><span *ngIf="maxSection() > 99 && section.index < 100">0</span><span
+        *ngIf="maxSection() > 9 && section.index < 10">0</span>{{section.index}}</span>
+  </div>
+</div>

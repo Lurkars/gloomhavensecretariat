@@ -1,6 +1,7 @@
 {
   "edition": "gh",
   "name": "saw",
+  "color": "#d5ca9c",
   "spoiler": true,
   "stats": [
     {

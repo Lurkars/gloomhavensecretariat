@@ -43,13 +43,14 @@ import { MonsterActionToolComponent } from './ui/tools/monster/action/action';
 import { ServerMenuComponent } from './ui/header/menu/server/server';
 import { APP_BASE_HREF } from '@angular/common';
 import { FigureErrors } from './ui/figures/errors/errors';
+import { SectionMenuComponent } from './ui/header/menu/section/section';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     HeaderComponent, ElementIconComponent,
-    MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, ServerMenuComponent,
+    MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent,
     FooterComponent,
     AttackModifierComponent,
     LevelComponent,

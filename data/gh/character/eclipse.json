@@ -1,6 +1,7 @@
 {
   "edition": "gh",
   "name": "eclipse",
+  "color": "#7440d4",
   "spoiler": true,
   "stats": [
     {

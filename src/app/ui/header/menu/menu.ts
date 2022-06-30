@@ -15,9 +15,11 @@ import { Scenario } from "src/app/game/model/Scenario";
 import { ghsHasSpoilers, ghsIsSpoiled, ghsNotSpoiled } from "../../helper/Static";
 import { Objective } from "src/app/game/model/Objective";
 import { ObjectiveIdMap } from "../../figures/objective/objective";
+import { EditionData } from "src/app/game/model/data/EditionData";
+import { ObjectiveData } from "src/app/game/model/data/ObjectiveData";
 
 export enum SubMenu {
-  main, edition, scenario, section, monster_add, monster_remove, character_add, character_remove, objective_remove, settings, server, datamanagement, about
+  main, edition, scenario, section, monster_add, monster_remove, character_add, character_remove, objective_add, objective_remove, settings, server, datamanagement, about
 }
 
 @Component({
@@ -77,6 +79,16 @@ export class MainMenuComponent extends DialogComponent {
     return this.setDialogPosition.bind(this);
   }
 
+  hasScenarios(): boolean {
+    return gameManager.editionData.some((editionData: EditionData) => (!gameManager.game.edition || editionData.edition == gameManager.game.edition) && editionData.scenarios && editionData.scenarios.length > 0);
+  }
+
+
+  hasSections(): boolean {
+    return gameManager.editionData.some((editionData: EditionData) => (!gameManager.game.edition || editionData.edition == gameManager.game.edition) && editionData.sections && editionData.sections.length > 0);
+  }
+
+
   setScenario(scenarioData: ScenarioData | undefined) {
     gameManager.stateManager.before();
     gameManager.setScenario(scenarioData as Scenario)
@@ -107,15 +119,15 @@ export class MainMenuComponent extends DialogComponent {
     }).map((figure: Figure) => {
       return figure as Objective;
     }).sort((a: Objective, b: Objective) => {
-      const aName = a.title.toLowerCase() || settingsManager.getLabel(a.name).toLowerCase();
-      const bName = b.title.toLowerCase() || settingsManager.getLabel(a.name).toLowerCase();
+      const aName = (a.title ? a.title : settingsManager.getLabel(a.name ? 'data.objective.' + a.name : (a.escort ? 'escort' : 'objective'))).toLowerCase();
+      const bName = (b.title ? b.title : settingsManager.getLabel(b.name ? 'data.objective.' + b.name : (b.escort ? 'escort' : 'objective'))).toLowerCase();
       if (aName > bName) {
         return 1;
       }
       if (aName < bName) {
         return -1;
       }
-      return 0;
+      return a.id - b.id;
     });
   }
 
@@ -248,6 +260,12 @@ export class MainMenuComponent extends DialogComponent {
     gameManager.stateManager.after();
   }
 
+  addEscort() {
+    gameManager.stateManager.before();
+    gameManager.characterManager.addObjective(new ObjectiveData("escort", 3, true));
+    gameManager.stateManager.after();
+  }
+
   removeObjective(objective: Objective) {
     gameManager.stateManager.before();
     gameManager.characterManager.removeObjective(objective);
@@ -278,7 +296,6 @@ export class MainMenuComponent extends DialogComponent {
     gameManager.monsterManager.removeMonster(monster);
     if (this.monsters().length == 0) {
       this.close();
-      this.setScenario(undefined);
     }
     gameManager.stateManager.after();
   }

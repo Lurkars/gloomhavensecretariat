@@ -203,6 +203,13 @@
       "living-bones",
       "living-spirit",
       "living-corpse"
+    ],
+    "objectives": [
+      {
+        "name": "Hail",
+        "maxHealth": 6,
+        "escort": true
+      }
     ]
   },
   {
@@ -525,7 +532,7 @@
   },
   {
     "edition": "gh",
-    "name": "- Shadow Weald",
+    "name": "Shadow Weald",
     "index": "48",
     "monsters": [
       "forest-imp",

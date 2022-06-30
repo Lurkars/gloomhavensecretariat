@@ -1,6 +1,7 @@
 {
   "edition": "gh",
   "name": "brute",
+  "color": "#35acd5",
   "stats": [
     {
       "health": 10,

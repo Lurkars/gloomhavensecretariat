@@ -25,9 +25,9 @@
      showgrid="false"
      inkscape:zoom="0.64765011"
      inkscape:cx="-135.10381"
-     inkscape:cy="555.08367"
+     inkscape:cy="554.31165"
      inkscape:window-width="1850"
-     inkscape:window-height="1016"
+     inkscape:window-height="1043"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -49,36 +49,36 @@
     <g
        id="g1356"
        transform="matrix(7.1702338,0,0,-7.1702338,-1138.3413,1744.864)"
-       style="fill:#ebb624;fill-opacity:1">
+       style="fill:#e7b32e;fill-opacity:1">
       <g
          id="g1358"
          clip-path="url(#clipPath1362)"
-         style="fill:#ebb624;fill-opacity:1">
+         style="fill:#e7b32e;fill-opacity:1">
         <g
            id="g1364"
            transform="translate(164.8954,238.9752)"
-           style="fill:#ebb624;fill-opacity:1">
+           style="fill:#e7b32e;fill-opacity:1">
           <path
              d="M 0,0 C -0.016,-0.004 -0.024,-0.023 -0.016,-0.037 0.037,-0.134 0.205,-0.468 0.247,-0.88 0.29,-1.291 0.207,-1.69 0.18,-1.808 0.176,-1.825 0.189,-1.841 0.207,-1.84 c 0.198,0.017 1.186,0.046 2.499,-0.679 0.068,1.175 -0.49,2.02 -0.49,2.02 0,0 -1.336,0.742 -2.216,0.499"
-             style="fill:#ebb624;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             style="fill:#e7b32e;fill-opacity:1;fill-rule:nonzero;stroke:none"
              id="path1366" />
         </g>
         <g
            id="g1368"
            transform="translate(166.4695,236.6166)"
-           style="fill:#ebb624;fill-opacity:1">
+           style="fill:#e7b32e;fill-opacity:1">
           <path
              d="M 0,0 C 0,0 0.634,-0.161 1.073,-0.456 0.98,-0.963 0.676,-1.623 0.668,-2.189 0.66,-2.726 0.803,-3.315 0.934,-3.541 0.939,-3.55 0.929,-3.56 0.92,-3.554 0.471,-3.279 0.096,-2.613 -0.101,-1.69 -0.304,-0.744 0,0 0,0"
-             style="fill:#ebb624;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             style="fill:#e7b32e;fill-opacity:1;fill-rule:nonzero;stroke:none"
              id="path1370" />
         </g>
         <g
            id="g1372"
            transform="translate(165.7013,231.693)"
-           style="fill:#ebb624;fill-opacity:1">
+           style="fill:#e7b32e;fill-opacity:1">
           <path
              d="m 0,0 c 0,0 -0.092,0.188 -0.177,0.358 -0.209,1.491 -0.984,6.961 -0.984,6.961 0,0 0.153,0.377 0.209,0.636 -0.054,0.516 -0.485,2.35 -0.757,2.896 -0.004,0.009 -0.018,0.008 -0.02,-0.002 -0.155,-0.67 -0.108,-2.244 -0.108,-2.832 0.282,-0.394 0.36,-0.698 0.36,-0.698 0,0 0.875,-5.806 1.081,-7.17 -0.001,-0.001 -0.001,-0.003 -0.001,-0.003 0,0 -0.026,-0.27 -0.042,-0.388 0,0 0.191,-0.896 0.428,-1.251 C 0.107,-0.716 0,0 0,0"
-             style="fill:#ebb624;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             style="fill:#e7b32e;fill-opacity:1;fill-rule:nonzero;stroke:none"
              id="path1374" />
         </g>
       </g>

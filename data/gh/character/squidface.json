@@ -1,6 +1,7 @@
 {
   "edition": "gh",
   "name": "squidface",
+  "color": "#72e0be",
   "spoiler": true,
   "stats": [
     {

@@ -1,6 +1,7 @@
 {
   "edition": "jotl",
   "name": "voidwarden",
+  "color" : "#e8e9e9",
   "stats": [
     {
       "health": 6,

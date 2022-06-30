@@ -1,6 +1,7 @@
 {
   "edition": "fh",
   "name": "deathwalker",
+  "color": "#707d91",
   "stats": [
     {
       "health": 6,

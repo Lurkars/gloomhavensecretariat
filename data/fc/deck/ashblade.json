@@ -1,0 +1,220 @@
+{
+  "edition": "fc",
+  "name": "ashblade",
+  "abilities": [
+    {
+      "cardId": 1007,
+      "initiative": 42,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId": 1008,
+      "initiative": 47,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId": 1009,
+      "initiative": 24,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "pierce",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId": 1010,
+      "initiative": 28,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            },
+            {
+              "type": "condition",
+              "value": "immobilize"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1011,
+      "initiative": 17,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "disarm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1012,
+      "initiative": 9,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "invisible",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1013,
+      "initiative": 36,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "curse"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1014,
+      "initiative": 2,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.ashblade.1%"
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.ashblade.2%"
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus"
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "plus"
+        }
+      ]
+    }
+  ]
+}

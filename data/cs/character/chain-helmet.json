@@ -1,0 +1,44 @@
+{
+  "edition": "cs",
+  "name": "chain-helmet",
+  "color": "#ce6d2f",
+  "spoiler": true,
+  "stats": [
+    {
+      "health": 10,
+      "level": 1
+    },
+    {
+      "health": 12,
+      "level": 2
+    },
+    {
+      "health": 14,
+      "level": 3
+    },
+    {
+      "health": 16,
+      "level": 4
+    },
+    {
+      "health": 18,
+      "level": 5
+    },
+    {
+      "health": 20,
+      "level": 6
+    },
+    {
+      "health": 22,
+      "level": 7
+    },
+    {
+      "health": 24,
+      "level": 8
+    },
+    {
+      "health": 26,
+      "level": 9
+    }
+  ]
+}

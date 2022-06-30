@@ -1,0 +1,44 @@
+{
+  "edition": "cs",
+  "name": "vortex",
+  "color": "#a04aa5",
+  "spoiler": true,
+  "stats": [
+    {
+      "health": 7,
+      "level": 1
+    },
+    {
+      "health": 8,
+      "level": 2
+    },
+    {
+      "health": 9,
+      "level": 3
+    },
+    {
+      "health": 10,
+      "level": 4
+    },
+    {
+      "health": 12,
+      "level": 5
+    },
+    {
+      "health": 13,
+      "level": 6
+    },
+    {
+      "health": 14,
+      "level": 7
+    },
+    {
+      "health": 15,
+      "level": 8
+    },
+    {
+      "health": 17,
+      "level": 9
+    }
+  ]
+}

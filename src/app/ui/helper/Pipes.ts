@@ -147,6 +147,7 @@ export class GhsHtmlLabelPipe implements PipeTransform {
         if (type == "condition" || type == "action" && split.length == 3) {
           split.splice(0, 1);
           image = '<img  src="./assets/images/' + split.join('/') + '.svg" class="icon">';
+          return '<span class="placeholder-condition">' + settingsManager.getLabel(label) + '</span>' + image;
         } else if (type == "element") {
           let element = split[ 2 ];
           if (element == "consume") {

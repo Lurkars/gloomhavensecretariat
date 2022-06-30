@@ -24,7 +24,7 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(1,0,false)|(2,0,false)|(3,0,true)|(4,0,true)|(1,1,false)|(2,1,true)|(3,1,true)|(2,2,true)|(3,2,true)|(2,3,true)"
+              "value": "(1,0,active)|(2,0,active)|(3,0,target)|(4,0,target)|(1,1,active)|(2,1,target)|(3,1,target)|(2,2,target)|(3,2,target)|(2,3,target)"
             }
           ]
         }
@@ -41,6 +41,7 @@
         }
       ]
     ],
+    "movement" : 0,
     "type": "boss"
   },
   "stats": [

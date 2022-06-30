@@ -129,7 +129,6 @@
     {
       "attack": 4,
       "health": 18,
-      "immunities": [],
       "level": 7,
       "movement": 4,
       "range": 0,

@@ -1,6 +1,7 @@
 {
   "edition": "fc",
   "name": "diviner",
+  "color": "#c8e3ea",
   "stats": [
     {
       "health": 6,

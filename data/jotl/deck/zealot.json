@@ -150,7 +150,7 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(0,1,false)|(1,0,true)|(1,1,true)"
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)"
             },
             {
               "type": "condition",

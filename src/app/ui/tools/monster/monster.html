@@ -56,7 +56,7 @@
           <div class="card-back ability-back">
             <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
             <span class="name">{{ability.name}}</span>
-            <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="hexSize()"></ghs-actions>
+            <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="1"></ghs-actions>
             <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
             <span class="index">{{i + 1}}</span>
           </div>

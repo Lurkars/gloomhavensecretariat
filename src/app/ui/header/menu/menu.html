@@ -25,10 +25,10 @@
         </div>
       </div>
       <div class="column separator">
-        <div class="line">
+        <div class="line" [ngClass]="{'disabled' : !hasScenarios()}">
           <a (click)="active = SubMenu.scenario">{{'scenario' | ghsLabel}}</a>
         </div>
-        <div class="line disabled">
+        <div class="line" [ngClass]="{'disabled' : !hasSections()}">
           <a (click)="active = SubMenu.section">{{'section' | ghsLabel}}</a>
         </div>
       </div>
@@ -45,9 +45,7 @@
       </div>
       <div class="column">
         <div class="line">
-          <a (click)="addObjective();">
-            {{'objective.add' | ghsLabel}}
-          </a>
+          <a (click)="active = SubMenu.objective_add">{{'objective.add' | ghsLabel}}</a>
         </div>
         <div class="line" [ngClass]="{'disabled' : objectives().length == 0}">
           <a (click)="active = SubMenu.objective_remove">{{'objective.remove' | ghsLabel}}</a>
@@ -89,6 +87,8 @@
 
   <ghs-scenario-menu *ngSwitchCase="SubMenu.scenario"></ghs-scenario-menu>
 
+  <ghs-section-menu *ngSwitchCase="SubMenu.section"></ghs-section-menu>
+
   <div *ngSwitchCase="SubMenu.character_add" class="menu-container character-add">
     <div class="columns">
       <ng-container
@@ -101,8 +101,7 @@
             [ngClass]="{'disabled' : hasCharacter(characterData), 'spoiler' : characterData.spoiler}">
             <a (click)="addCharacter(characterData);" *ngIf="isSpoiled(characterData)">
               <img class="icon" [src]="gameManager.characterManager.characterIcon(characterData)" />{{'data.character.'
-              +
-              characterData.name | ghsLabel}}
+              + characterData.name | ghsLabel}}
             </a>
             <a (click)="settingsManager.addSpoiler(characterData.name);" *ngIf="!isSpoiled(characterData)">
               <img class="icon" [src]="gameManager.characterManager.characterIcon(characterData)" />
@@ -138,6 +137,22 @@
     </div>
   </div>
 
+
+  <div *ngSwitchCase="SubMenu.objective_add" class="menu-container objective-add">
+    <div class="line">
+      <a (click)="addObjective();">
+        <img class="icon" src="./assets/images/objective/objective.svg" />
+        {{'objective.add' | ghsLabel}}
+      </a>
+    </div>
+    <div class="line">
+      <a (click)="addEscort();">
+        <img class="icon" src="./assets/images/objective/escort.svg" />
+        {{'escort.add' | ghsLabel}}
+      </a>
+    </div>
+  </div>
+
   <div *ngSwitchCase="SubMenu.objective_remove" class="menu-container objective-remove">
     <div class="line">
       <a (click)="removeAllObjectives()">
@@ -146,11 +161,15 @@
     </div>
     <div class="line" *ngFor="let objective of objectives()">
       <a (click)="removeObjective(objective);">
-        <span class="objective-id">{{objectiveIdMap[objective.id]}}</span>
-        <span *ngIf="objective.title">{{objective.title}}
+        <img class="icon" src="./assets/images/objective/objective.svg" *ngIf="!objective.escort" />
+        <img class="icon" src="./assets/images/objective/escort.svg" *ngIf="objective.escort" />
+        <span *ngIf="objective.title || objective.name">{{objective.title ? objective.title : ('data.objective.' +
+          objective.name | ghsLabel)}}
           (</span>
-        {{'objective' | ghsLabel}}
-        <span *ngIf="objective.title">)</span>
+        {{(objective.escort ? 'escort' : 'objective') | ghsLabel}}
+        <span *ngIf="objective.name">)</span>
+        <span class="spacer"></span>
+        <span class="objective-id">{{objectiveIdMap[objective.id]}}</span>
       </a>
     </div>
   </div>

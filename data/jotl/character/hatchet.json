@@ -1,6 +1,7 @@
 {
   "edition": "jotl",
   "name": "hatchet",
+  "color" : "#7bbbd6",
   "stats": [
     {
       "health": 8,

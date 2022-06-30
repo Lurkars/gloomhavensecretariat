@@ -11,6 +11,7 @@ export class CharacterData implements Editional, Spoilable {
 
   icon: string | undefined;
   thumbnail: string | undefined;
+  color: string;
 
   deck: string;
 
@@ -22,7 +23,7 @@ export class CharacterData implements Editional, Spoilable {
   // error
   errors: FigureError[];
 
-  constructor(name: string, stats: CharacterStat[], edition: string, summon: SummonsData | undefined = undefined, icon: string | undefined = undefined, thumbnail: string | undefined = undefined, spoiler: boolean = false, deck: string | undefined = undefined) {
+  constructor(name: string, stats: CharacterStat[], edition: string, summon: SummonsData | undefined = undefined, icon: string | undefined = undefined, thumbnail: string | undefined = undefined, color: string = "#000000", spoiler: boolean = false, deck: string | undefined = undefined) {
     this.errors = [];
     this.name = name;
     this.stats = stats;
@@ -30,6 +31,7 @@ export class CharacterData implements Editional, Spoilable {
     this.edition = edition;
     this.icon = icon;
     this.thumbnail = thumbnail;
+    this.color = color;
     this.spoiler = spoiler;
     this.deck = name;
     if (deck) {

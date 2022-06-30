@@ -196,7 +196,7 @@
           "subActions": [
             {
               "type": "area",
-              "value": "(0,1,false)|(1,1,true)|(1,0,true)|(2,0,true)"
+              "value": "(0,1,active)|(1,1,target)|(1,0,target)|(2,0,target)"
             }
           ]
         },

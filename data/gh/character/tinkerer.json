@@ -1,6 +1,7 @@
 {
   "edition": "gh",
   "name": "tinkerer",
+  "color": "#d1c3a2",
   "stats": [
     {
       "health": 8,

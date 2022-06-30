@@ -1,6 +1,7 @@
 {
   "edition": "gh",
   "name": "three-spears",
+  "color": "#ad9477",
   "spoiler": true,
   "stats": [
     {

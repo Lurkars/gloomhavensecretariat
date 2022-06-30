@@ -1,6 +1,7 @@
 {
   "edition": "jotl",
   "name": "red-guard",
+  "color" : "#d8585d",
   "stats": [
     {
       "health": 10,

@@ -1,6 +1,7 @@
 {
   "edition": "gh",
   "name": "angry-face",
+  "color": "#5bc5dc",
   "spoiler": true,
   "stats": [
     {

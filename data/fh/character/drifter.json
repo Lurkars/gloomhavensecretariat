@@ -1,6 +1,7 @@
 {
   "edition": "fh",
   "name": "drifter",
+  "color": "#a28b7b",
   "stats": [
     {
       "health": 10,

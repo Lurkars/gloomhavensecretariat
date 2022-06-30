@@ -1,6 +1,7 @@
 {
   "edition": "jotl",
   "name": "demolitionist",
+  "color" : "#e5a26f",
   "stats": [
     {
       "health": 8,

@@ -1,6 +1,7 @@
 {
   "edition": "gh",
   "name": "cragheart",
+  "color": "#828b3b",
   "stats": [
     {
       "health": 10,

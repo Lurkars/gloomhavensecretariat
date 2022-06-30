@@ -1,6 +1,7 @@
 {
   "edition": "fh",
   "name": "banner-spear",
+  "color": "#e7b32e",
   "stats": [
     {
       "health": 10,

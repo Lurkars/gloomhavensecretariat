@@ -68,7 +68,14 @@
     "edition": "fc",
     "name": "Where It Is Needed",
     "index": "103",
-    "monsters": []
+    "monsters": [],
+    "objectives": [
+      {
+        "name": "Orchid caravan",
+        "maxHealth": "2x(C+L)+3",
+        "escort": true
+      }
+    ]
   },
   {
     "edition": "fc",
@@ -78,6 +85,13 @@
       "harrower-infester",
       "lurker",
       "spitting-drake"
+    ],
+    "objectives": [
+      {
+        "name": "Hail",
+        "maxHealth": "6+2xL",
+        "escort": true
+      }
     ]
   },
   {
@@ -167,6 +181,13 @@
     "index": "113",
     "monsters": [
       "stone-golem"
+    ],
+    "objectives": [
+      {
+        "name": "Naaret",
+        "maxHealth": "4+2xL",
+        "escort": true
+      }
     ]
   },
   {
@@ -177,6 +198,13 @@
       "aesther-ashblade",
       "aesther-scout",
       "wind-demon"
+    ],
+    "objectives": [
+      {
+        "name": "Hail",
+        "maxHealth": "4+2xL",
+        "escort": true
+      }
     ]
   },
   {

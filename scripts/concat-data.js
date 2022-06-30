@@ -64,6 +64,7 @@ for (edition_path of edition_dirs) {
   edition_data['monsters'] = load_subfolder(edition_path, 'monster', []);
   edition_data['decks'] = load_subfolder(edition_path, 'deck', []);
   edition_data['scenarios'] = load_file(edition_path, 'scenarios.json', []);
+  edition_data['sections'] = load_file(edition_path, 'sections.json', []);
   edition_data['label'] = load_file(edition_path, 'label.json', {});
 
   const output_path = path.join(output_dir, (edition_data['edition']) + '.json');

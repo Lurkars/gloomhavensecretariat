@@ -1,6 +1,7 @@
 {
   "edition": "fh",
   "name": "boneshaper",
+  "color": "#279e55",
   "stats": [
     {
       "health": 6,

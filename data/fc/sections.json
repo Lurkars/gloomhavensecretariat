@@ -1,0 +1,505 @@
+[
+  {
+    "edition": "fc",
+    "name": "Volcanic Wasteland",
+    "index": "1",
+    "monsters": [
+      "flame-demon"
+    ],
+    "objectives": [
+      {
+        "name": "Altar of Wildfire",
+        "maxHealth": "C+L+1"
+      }
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Barge Ablaze",
+    "index": "4",
+    "monsters": [
+      "bandit-archer",
+      "bandit-guard",
+      "spitting-drake"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Kennel of Things",
+    "index": "6",
+    "monsters": [
+      "bandit-guard",
+      "valrath-tracker",
+      "wolf-viper-abomination"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "A Life Taken, a Life Given",
+    "index": "8",
+    "monsters": [
+      "valrath-savage"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Shrine of Ashtar",
+    "index": "13",
+    "monsters": [
+      "ancient-artillery",
+      "earth-demon",
+      "flame-demon",
+      "savvas-lavaflow"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "The Floor Moves",
+    "index": "14",
+    "monsters": [
+      "living-spirit",
+      "stone-golem"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Trash Dump",
+    "index": "15",
+    "monsters": [
+      "vermling-scout",
+      "vermling-shaman"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Escape is Not So Easy",
+    "index": "17",
+    "monsters": [
+      "aesther-ashblade",
+      "aesther-scout",
+      "wind-demon"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "A Rumbling Sound",
+    "index": "22",
+    "monsters": [
+      "living-spirit"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Narrow Vault",
+    "index": "23",
+    "monsters": [
+      "living-bones",
+      "living-corpse"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Withered Grove",
+    "index": "24",
+    "monsters": [
+      "earth-demon"
+    ],
+    "objectives": [
+      {
+        "name": "Altar of Rot",
+        "maxHealth": "Cx2+L+4"
+      }
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Secret Library",
+    "index": "26",
+    "monsters": [
+      "ancient-artillery"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "A Bear of a Drake",
+    "index": "28",
+    "monsters": [
+      "bandit-guard",
+      "valrath-tracker",
+      "bear-drake-abomination"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Serene Path",
+    "index": "29",
+    "monsters": [
+      "valrath-savage"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Seal of Attraction",
+    "index": "30",
+    "monsters": [
+      "deep-terror",
+      "living-bones"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Flaming Caravel",
+    "index": "32",
+    "monsters": [
+      "bandit-archer",
+      "bandit-guard",
+      "spitting-drake"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Frozen Cave",
+    "index": "34",
+    "monsters": [
+      "frost-demon"
+    ],
+    "objectives": [
+      {
+        "name": "Altar of Blizzards",
+        "maxHealth": "Cx2+L"
+      }
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Shrine of Thelija",
+    "index": "35",
+    "monsters": [
+      "ancient-artillery",
+      "frost-demon",
+      "savvas-icestorm",
+      "wind-demon"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Aiding Diamara",
+    "index": "37"
+  },
+  {
+    "edition": "fc",
+    "name": "Another Revolution",
+    "index": "39",
+    "monsters": [
+      "ancient-artillery"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Venerated Tomb",
+    "index": "40",
+    "monsters": [
+      "living-bones",
+      "living-corpse"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "A Sphere of Nightmares",
+    "index": "41",
+    "monsters": [
+      "living-spirit",
+      "night-demon"
+    ],
+    "objectives": [
+      {
+        "name": "Altar",
+        "maxHealth": "20+L+2xC"
+      }
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Collapsed Atrium",
+    "index": "42",
+    "monsters": [
+      "living-spirit"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Quick Turn",
+    "index": "46",
+    "monsters": [
+      "living-spirit"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Hall of Horrors",
+    "index": "47",
+    "monsters": [
+      "black-imp",
+      "deep-terror",
+      "harrower-infester"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Slow Turn",
+    "index": "50",
+    "monsters": [
+      "living-spirit"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Seal of Repulsion",
+    "index": "60",
+    "monsters": [
+      "living-corpse",
+      "living-spirit"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Flooded Catacombs",
+    "index": "64",
+    "monsters": [
+      "living-bones",
+      "living-corpse"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Branching Alleyway",
+    "index": "67",
+    "monsters": [
+      "aesther-scout",
+      "black-imp",
+      "night-demon"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Quiet Rotation",
+    "index": "71",
+    "monsters": [
+      "living-spirit",
+      "stone-golem"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Clinging Fog",
+    "index": "72",
+    "monsters": [
+      "living-spirit",
+      "night-demon"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Reflecting Road",
+    "index": "73",
+    "monsters": [
+      "valrath-savage"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Narrow Street",
+    "index": "81",
+    "monsters": [
+      "aesther-scout",
+      "black-imp",
+      "night-demon"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Gateway to the Firmament",
+    "index": "84",
+    "monsters": [
+      "aesther-ashblade",
+      "earth-demon",
+      "flame-demon",
+      "frost-demon",
+      "savvas-icestorm",
+      "savvas-lavaflow"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Misty Glade",
+    "index": "90",
+    "monsters": [
+      "valrath-savage"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Nesting Grounds",
+    "index": "92",
+    "monsters": [
+      "vermling-scout",
+      "vermling-shaman"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Rays of Sunlight",
+    "index": "93",
+    "monsters": [
+      "living-spirit",
+      "night-demon"
+    ],
+    "objectives": [
+      {
+        "name": "Altar",
+        "maxHealth": "5+L+2xC"
+      }
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Seal of Reanimation",
+    "index": "94",
+    "monsters": [
+      "living-corpse",
+      "living-spirit"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "The Horde's Kitchen",
+    "index": "95",
+    "monsters": [
+      "vermling-scout"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Haunted Treasury",
+    "index": "96",
+    "monsters": [
+      "living-spirit"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Sekhem Fountain",
+    "index": "100",
+    "monsters": [
+      "black-imp",
+      "cultist",
+      "deep-terror"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "The Thorns of Hate",
+    "index": "103",
+    "monsters": [
+      "earth-demon",
+      "forest-imp",
+      "wind-demon"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Strangler's Park",
+    "index": "106",
+    "monsters": [
+      "harrower-infester",
+      "vermling-shaman"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Seal of Distortion",
+    "index": "108",
+    "monsters": [
+      "deep-terror",
+      "living-bones"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Access Hall",
+    "index": "112",
+    "monsters": [
+      "aesther-scout"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "A Multitude of Tomes",
+    "index": "119",
+    "monsters": [
+      "black-imp",
+      "deep-terror"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Lingering Darkness",
+    "index": "123",
+    "monsters": [
+      "living-spirit",
+      "night-demon"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Training Maneuvers",
+    "index": "126",
+    "monsters": [
+      "vermling-scout",
+      "vermling-shaman"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Guarded Nursery",
+    "index": "127",
+    "monsters": [
+      "vermling-scout",
+      "vermling-shaman"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Fighting Dirty",
+    "index": "129",
+    "monsters": [
+      "ooze"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Near the Gates",
+    "index": "132",
+    "monsters": [
+      "aesther-scout",
+      "black-imp",
+      "night-demon"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "A Secret Floor",
+    "index": "133",
+    "monsters": [
+      "ancient-artillery"
+    ]
+  },
+  {
+    "edition": "fc",
+    "name": "Clawing at Victory",
+    "index": "134",
+    "monsters": [
+      "lurker"
+    ]
+  }
+]

@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<div class="character" [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0}">
+<div class="character" [style.--ghs-character-color]="character.color" [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0}">
 
   <ghs-character-image (click)="close()" [character]="character"></ghs-character-image>
 

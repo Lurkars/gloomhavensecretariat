@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Action, ActionHex, ActionType, ActionValueType } from 'src/app/game/model/Action';
+import { Action, ActionHex, ActionHexType, ActionType, ActionValueType } from 'src/app/game/model/Action';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { FigureError } from 'src/app/game/model/FigureError';
 import { Monster } from 'src/app/game/model/Monster';
@@ -140,105 +140,24 @@ export class ActionComponent {
 
 @Component({
   selector: 'ghs-action-hex',
-  template: '<canvas #canvas></canvas>'
+  templateUrl: './hex.html',
+  styleUrls: [ './hex.scss' ]
 })
-export class ActionHexComponent implements AfterViewInit, OnChanges {
+export class ActionHexComponent implements OnChanges {
 
   @Input() value!: string;
   @Input() size!: number;
   hexes: ActionHex[] = [];
-  init: boolean = false;
-
-  @ViewChild('canvas', { read: ElementRef }) canvas!: ElementRef<HTMLCanvasElement>;
-  public context: CanvasRenderingContext2D | null = null;
+  ActionHex = ActionHex;
 
   ngOnChanges(changes: any) {
-    this.draw();
-  }
-
-  ngAfterViewInit(): void {
-    this.init = true;
-    this.draw();
-  }
-
-  draw() {
-    if (this.init) {
-      this.hexes = [];
-      this.value.split('|').forEach((hexValue: string) => {
-        const hex: ActionHex | null = ActionHex.fromString(hexValue);
-        if (hex != null) {
-          this.hexes.push(hex);
-        }
-      })
-      this.context = this.canvas.nativeElement.getContext('2d');
-      if (this.context == null) {
-        return;
+    this.hexes = [];
+    this.value.split('|').forEach((hexValue: string) => {
+      const hex: ActionHex | null = ActionHex.fromString(hexValue);
+      if (hex != null) {
+        this.hexes.push(hex);
       }
-      let size: number = this.size;
-      let mX = 1;
-      let mY = 1;
-
-      this.hexes.forEach((hex: ActionHex) => {
-        mX = Math.max(mX, hex.x + 1);
-        mY = Math.max(mY, hex.y + 1);
-      });
-
-      this.canvas.nativeElement.width = size * mX * 2;
-      this.canvas.nativeElement.height = size * mY * 2 + (mY == 1 ? size : 0);
-
-      setTimeout(() => {
-        this.hexes.forEach((hex: ActionHex) => {
-          this.drawHexagon(hex, size);
-        });
-      }, 1);
-    }
-  }
-
-
-  drawHexagon(hex: ActionHex, size: number) {
-    if (this.context == null) {
-      return;
-    }
-
-    const a = Math.PI / 6;
-    const m = size * 0.2;
-    const h = Math.sin(a) * size;
-    const r = Math.cos(a) * size;
-    const rH = size + 2 * h;
-    const rW = 2 * r;
-    const oX = -size / 2;
-    const oY = size / 2;
-
-    const x = hex.x * rW + ((hex.y % 2) * r) + oX;
-    const y = hex.y * (size + h) + oY;
-
-    this.context.beginPath();
-    this.context.moveTo(x + r, y);
-    this.context.lineTo(x + rW, y + h);
-    this.context.lineTo(x + rW, y + h + size);
-    this.context.lineTo(x + r, y + rH);
-    this.context.lineTo(x, y + size + h);
-    this.context.lineTo(x, y + h);
-    this.context.closePath();
-
-    this.context.fillStyle = "#ffffff";
-    this.context.stroke();
-    this.context.fill();
-
-    this.context.beginPath();
-    this.context.moveTo(x + r, y + m);
-    this.context.lineTo(x + rW - m, y + h + m / 2);
-    this.context.lineTo(x + rW - m, y + h + size - m / 2);
-    this.context.lineTo(x + r, y + rH - m);
-    this.context.lineTo(x + m, y + size + h - m / 2);
-    this.context.lineTo(x + m, y + h + m / 2);
-    this.context.closePath();
-
-    this.context.fillStyle = "#333333";
-    if (hex.active) {
-      this.context.fillStyle = "#ff0000";
-    }
-    this.context.fill();
+    })
   }
 
 }

@@ -1,6 +1,7 @@
 import { gameManager } from "../businesslogic/GameManager";
 import { AttackModifier, AttackModifierType, defaultAttackModifier } from "./AttackModifier";
 import { Character, GameCharacterModel } from "./Character";
+import { SectionData } from "./data/SectionData";
 import { Element } from "./Element";
 import { Figure } from "./Figure";
 import { GameMonsterModel, Monster } from "./Monster";
@@ -12,6 +13,7 @@ export class Game {
   figures: Figure[] = [];
   state: GameState = GameState.draw;
   scenario: Scenario | undefined = undefined;
+  sections: SectionData[] = [];
   level: number = 1;
   round: number = 0;
   attackModifier: number = -1;
@@ -22,7 +24,7 @@ export class Game {
 
 
   toModel(): GameModel {
-    return new GameModel(this.edition, this.figures.map((figure: Figure) => figure.name), this.figures.filter((figure: Figure) => figure instanceof Character).map((figure: Figure) => ((figure as Character).toModel())), this.figures.filter((figure: Figure) => figure instanceof Monster).map((figure: Figure) => ((figure as Monster).toModel())), this.figures.filter((figure: Figure) => figure instanceof Objective).map((figure: Figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.level, this.round, this.attackModifier, this.attackModifiers.map((value: AttackModifier) => value.type), this.newElements, this.strongElements, this.elements);
+    return new GameModel(this.edition, this.figures.map((figure: Figure) => figure.name), this.figures.filter((figure: Figure) => figure instanceof Character).map((figure: Figure) => ((figure as Character).toModel())), this.figures.filter((figure: Figure) => figure instanceof Monster).map((figure: Figure) => ((figure as Monster).toModel())), this.figures.filter((figure: Figure) => figure instanceof Objective).map((figure: Figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.round, this.attackModifier, this.attackModifiers.map((value: AttackModifier) => value.type), this.newElements, this.strongElements, this.elements);
   }
 
   fromModel(model: GameModel) {
@@ -71,6 +73,7 @@ export class Game {
 
     this.state = model.state;
     this.scenario = model.scenario;
+    this.sections = model.sections || [];
     this.level = model.level;
     this.round = model.round;
     this.attackModifier = model.attackModifier;
@@ -97,6 +100,7 @@ export class GameModel {
   objectives: GameObjectiveModel[];
   state: GameState;
   scenario: Scenario | undefined;
+  sections: SectionData[] = [];
   level: number;
   round: number;
   attackModifier: number;
@@ -112,6 +116,7 @@ export class GameModel {
     objectives: GameObjectiveModel[] = [],
     state: GameState = GameState.next,
     scenario: Scenario | undefined = undefined,
+    sections: SectionData[] = [],
     level: number = 0,
     round: number = 0,
     attackModifier: number = -1,
@@ -126,6 +131,7 @@ export class GameModel {
     this.objectives = objectives;
     this.state = state;
     this.scenario = scenario;
+    this.sections = sections;
     this.level = level;
     this.round = round;
     this.attackModifier = attackModifier;

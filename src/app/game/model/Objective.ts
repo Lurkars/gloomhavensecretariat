@@ -7,16 +7,17 @@ export class Objective implements Entity, Figure {
   id: number;
   title: string = "";
   exhausted: boolean = false;
+  escort: boolean = false;
 
   // from figure
-  name: string = "objective";
+  name: string = "";
   level: number = 0;
   off: boolean = false;
   active: boolean = false;
 
   // from entity
   health: number = 7;
-  maxHealth: number = 7;
+  maxHealth: number | string = 7;
   conditions: Condition[] = [];
   turnConditions: Condition[] = [];
 
@@ -31,13 +32,14 @@ export class Objective implements Entity, Figure {
   }
 
   toModel(): GameObjectiveModel {
-    return new GameObjectiveModel(this.id, this.title, this.name, this.level, this.exhausted, this.off, this.active, this.health, this.maxHealth, this.initiative);
+    return new GameObjectiveModel(this.id, this.title, this.name, this.escort, this.level, this.exhausted, this.off, this.active, this.health, this.maxHealth, this.initiative);
   }
 
   fromModel(model: GameObjectiveModel) {
     this.id = model.id;
     this.title = model.title;
     this.name = model.name;
+    this.escort = model.escort;
     this.level = model.level;
     this.exhausted = model.exhausted;
     this.off = model.off;
@@ -54,28 +56,31 @@ export class GameObjectiveModel {
   id: number;
   title: string;
   name: string;
+  escort: boolean;
   level: number;
   exhausted: boolean;
   off: boolean;
   active: boolean;
   health: number;
-  maxHealth: number;
+  maxHealth: number | string;
   initiative: number;
 
   constructor(
     id: number,
     title: string,
     name: string,
+    escort: boolean,
     level: number,
     exhausted: boolean,
     off: boolean,
     active: boolean,
     health: number,
-    maxHealth: number,
+    maxHealth: number | string,
     initiative: number) {
     this.id = id;
     this.title = title;
     this.name = name;
+    this.escort = escort;
     this.level = level;
     this.exhausted = exhausted;
     this.off = off;

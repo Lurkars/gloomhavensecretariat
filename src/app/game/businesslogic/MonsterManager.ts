@@ -46,6 +46,8 @@ export class MonsterManager {
     monster.entities = [];
     this.shuffleAbilities(monster);
     this.game.figures.splice(this.game.figures.indexOf(monster), 1);
+    this.game.scenario = undefined;
+    this.game.sections = [];
   }
 
 

@@ -115,12 +115,4 @@ export class MonsterToolComponent implements OnInit {
       }
     }
   }
-
-  hexSize(): number {
-    let size = ghsUnit();
-    if (ghsUnitUnit() == 'vw') {
-      size = window.innerWidth / 100 * ghsUnit();
-    }
-    return size;
-  }
 }

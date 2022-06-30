@@ -1,6 +1,7 @@
 {
   "edition": "gh",
   "name": "triangles",
+  "color": "#dcdcdc",
   "spoiler": true,
   "stats": [
     {

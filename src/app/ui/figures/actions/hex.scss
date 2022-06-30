@@ -1,0 +1,16 @@
+.hex-grid {
+  --ghs-hex-size: 1;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: calc(var(--ghs-unit) * var(--ghs-hex-size));
+
+  .hex {
+    width: calc(var(--ghs-unit) * var(--ghs-hex-size) * 2);
+    height: calc(var(--ghs-unit) * var(--ghs-hex-size) * 1.7);
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

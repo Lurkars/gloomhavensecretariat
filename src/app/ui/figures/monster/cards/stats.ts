@@ -142,14 +142,6 @@ export class MonsterStatsComponent extends DialogComponent {
     }
   }
 
-  hexSize(): number {
-    let size = ghsUnit() * 0.5;
-    if (ghsUnitUnit() == 'vw') {
-      size = window.innerWidth / 100 * ghsUnit() * 0.5;
-    }
-    return size;
-  }
-
   override close(): void {
     super.close();
     this.statOverview = false;

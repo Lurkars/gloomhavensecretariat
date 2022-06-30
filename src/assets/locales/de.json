@@ -43,6 +43,10 @@
     "remove": "Ziel entfernen",
     "removeAll": "Alle entfernen"
   },
+  "escort": {
+    ".": "Begleiter",
+    "add": "Begleiter hinzufügen"
+  },
   "summon": {
     "addCustom": "Beschwörung '{0}'"
   },

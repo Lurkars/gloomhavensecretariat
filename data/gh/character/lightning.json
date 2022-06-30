@@ -1,6 +1,7 @@
 {
   "edition": "gh",
   "name": "lightning",
+  "color": "#f07c4e",
   "spoiler": true,
   "stats": [
     {

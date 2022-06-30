@@ -1,6 +1,7 @@
 {
   "edition": "gh",
   "name": "music-note",
+  "color": "#db6e8d",
   "spoiler": true,
   "stats": [
     {

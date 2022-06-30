@@ -1,6 +1,7 @@
 {
   "edition": "gh",
   "name": "circles",
+  "color": "#e570b3",
   "spoiler": true,
   "stats": [
     {

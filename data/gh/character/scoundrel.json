@@ -1,6 +1,7 @@
 {
   "edition": "gh",
   "name": "scoundrel",
+  "color": "#9ecf5f",
   "stats": [
     {
       "health": 8,

@@ -1,6 +1,7 @@
 {
   "edition": "fh",
   "name": "geminate",
+  "color": "#cf4471",
   "stats": [
     {
       "health": 8,

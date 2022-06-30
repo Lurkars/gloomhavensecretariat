@@ -46,7 +46,7 @@ export class ScenarioMenuComponent {
     if (!gameManager.game.scenario || !gameManager.game.scenario.custom) {
       this.edition = undefined;
       gameManager.stateManager.before();
-      gameManager.setScenario(new Scenario("", 0, [], "", false, true));
+      gameManager.setScenario(new Scenario("", 0, [], [], "", false, true));
       gameManager.stateManager.after();
     }
   }

@@ -12,18 +12,31 @@
       "human-commander": "Human Commander",
       "manifestation-of-corruption": "Manifestation Of Corruption",
       "selah-naberis": "Selah Naberis",
-      "sraka-the-wise" : "Sraka The Wise",
-      "the-steel-lion" : "The Steel Lion",
-      "uyart-ikkuma" : "Uyart Ikkuma",
-      "valrath-commander" : "Valrath Commander"
+      "sraka-the-wise": "Sraka The Wise",
+      "the-steel-lion": "The Steel Lion",
+      "uyart-ikkuma": "Uyart Ikkuma",
+      "valrath-commander": "Valrath Commander",
+      "valrath-savage": "Valrath Savage",
+      "valrath-tracker": "Valrath Tracker"
     },
-    "deck": {},
+    "deck": {
+      "ashblade": "Ashblade",
+      "savage": "Savage",
+      "tracker": "Tracker"
+    },
     "ability": {},
     "scenario": {},
     "custom": {
       "fc": {
+        "ashblade": {
+          "1": "Focus on the enemy with the highest initiative.",
+          "2": "%game.action.teleport% to the closest unoccupied hex adjacent to the focus."
+        },
         "manifestation-of-corruption": {
           "1": "Play top two cards, using the first card as initiative. Perfom the bottom action of the first card, then the top action of the second card"
+        },
+        "savage": {
+          "1": "%data.deck.savage% suffers 2 damage."
         },
         "sraka-the-wise": {
           "1": "Double all Heal values. Heals target The Steel Lion if able",
@@ -33,9 +46,17 @@
           "1": "Attacks targeting adjacent allies, target you instead",
           "2": "The first [C] times you suffer 6 or more damage, suffer no damage instead"
         },
+        "tracker": {
+          "1": "Create one %game.condition.disarm% trap in any adjacent empty hex closest to an enemty.",
+          "2": "Focus on the enemy with the lowest current hit point value."
+        },
         "uyart-ikkuma": {
           "1": "All its summons are elite for three or for characters",
           "2": "It may consume %game.element.consume.fire% / %game.element.consume.earth% as if the element is currently strong when a %data.monster.flame-demon% / %data.monster.earth-demon% is present on the map"
+        },
+        "valrath-savage": {
+          "1": "All adjacent allies add +1 %game.action.attack% to all attacks",
+          "2": "All adjacent allies add +2 %game.action.attack% to all attacks"
         }
       }
     }

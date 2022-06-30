@@ -1,6 +1,7 @@
 {
   "edition": "gh",
   "name": "sun",
+  "color": "#fce434",
   "spoiler": true,
   "stats": [
     {

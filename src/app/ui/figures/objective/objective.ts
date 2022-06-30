@@ -1,7 +1,8 @@
 import { ChangeDetectorRef, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Condition } from 'src/app/game/model/Condition';
+import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Figure } from 'src/app/game/model/Figure';
 import { GameState } from 'src/app/game/model/Game';
 import { Objective } from 'src/app/game/model/Objective';
@@ -19,10 +20,11 @@ export class ObjectiveComponent extends DialogComponent {
 
   @Input() objective!: Objective;
 
-  @ViewChild('objectivetitle', { static: false }) titleInput!: ElementRef;
+  @ViewChild('objectiveTitle', { static: false }) titleInput!: ElementRef;
 
   characterManager: CharacterManager = gameManager.characterManager;
 
+  gameManager: GameManager = gameManager;
   GameState = GameState;
   Conditions = Condition;
   health: number = 0;
@@ -32,6 +34,15 @@ export class ObjectiveComponent extends DialogComponent {
   constructor(private changeDetectorRef: ChangeDetectorRef) {
     super();
   }
+
+  maxHealth(): number {
+    return EntityValueFunction(this.objective.maxHealth + "");
+  }
+
+  showMaxHealth(): boolean {
+    return typeof this.objective.maxHealth === 'number';
+  }
+
 
   toggleOff(): void {
     if ((gameManager.game.state == GameState.draw || this.objective.initiative <= 0) && !this.objective.exhausted && this.objective.health > 0) {
@@ -47,8 +58,8 @@ export class ObjectiveComponent extends DialogComponent {
     gameManager.stateManager.before();
     this.objective.health += value;
     this.health += value;
-    if (this.objective.health > this.objective.maxHealth) {
-      this.objective.health = this.objective.maxHealth;
+    if (this.objective.health > this.maxHealth()) {
+      this.objective.health = this.maxHealth();
       this.health -= value;
     } else if (this.objective.health < 0) {
       this.objective.health = 0;
@@ -85,15 +96,31 @@ export class ObjectiveComponent extends DialogComponent {
   }
 
   changeMaxHealth(value: number) {
-    gameManager.stateManager.before();
-    this.objective.maxHealth += value;
+    if (typeof this.objective.maxHealth === 'number') {
+      gameManager.stateManager.before();
+      this.objective.maxHealth += value;
 
-    if (this.objective.maxHealth <= 1) {
-      this.objective.maxHealth = 1;
+      if (this.objective.maxHealth <= 1) {
+        this.objective.maxHealth = 1;
+      }
+
+      if (value < 0) {
+        this.objective.health = this.objective.maxHealth;
+      }
+      gameManager.stateManager.after();
     }
+  }
 
-    if (value < 0) {
-      this.objective.health = this.objective.maxHealth;
+  hasCondition(condition: Condition) {
+    return this.objective.conditions.indexOf(condition) != -1;
+  }
+
+  toggleCondition(condition: Condition) {
+    gameManager.stateManager.before();
+    if (!this.hasCondition(condition)) {
+      this.objective.conditions.push(condition);
+    } else {
+      this.objective.conditions.splice(this.objective.conditions.indexOf(condition), 1);
     }
     gameManager.stateManager.after();
   }

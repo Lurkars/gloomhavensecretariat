@@ -8,7 +8,7 @@
       <div *ngIf="ability">
         <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
         <span class="name">{{abilityLabel(ability)}}</span>
-        <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="hexSize()" [hint]="ability.hint">
+        <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="1" [hint]="ability.hint">
         </ghs-actions>
         <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
         <span class="index" *ngIf="!ability.cardId">[{{abilityIndex(ability) + 1}}]</span>
@@ -37,7 +37,7 @@
           <div class="card-back ability-back" *ngIf="ability">
             <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
             <span class="name">{{abilityLabel(ability)}}</span>
-            <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="hexSize()" [hint]="ability.hint">
+            <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="1" [hint]="ability.hint">
             </ghs-actions>
             <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
             <span class="index" *ngIf="!ability.cardId">[{{abilityIndex(ability) + 1}}]</span>

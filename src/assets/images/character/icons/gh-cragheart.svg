@@ -6,7 +6,7 @@
    viewBox="0 0 283.46456 283.46458"
    preserveAspectRatio="xMidYMid meet"
    id="svg14"
-   sodipodi:docname="cragheart.svg"
+   sodipodi:docname="gh-cragheart.svg"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -27,10 +27,10 @@
      units="mm"
      width="100mm"
      inkscape:zoom="0.24527665"
-     inkscape:cx="1327.0729"
-     inkscape:cy="1477.923"
+     inkscape:cx="-75.425035"
+     inkscape:cy="1479.9615"
      inkscape:window-width="1850"
-     inkscape:window-height="1016"
+     inkscape:window-height="1043"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -44,22 +44,22 @@ Created by potrace 1.16, written by Peter Selinger 2001-2019
      fill="#000000"
      stroke="none"
      id="g12"
-     style="fill:#b6c445;fill-opacity:1">
+     style="fill:#828b3b;fill-opacity:1">
     <path
        d="m 10068,22073 c -289,-349 -1247,-1561 -4157,-5258 -710,-902 -1289,-1644 -1288,-1649 3,-9 987,-683 3297,-2259 1505,-1027 1820,-1240 1826,-1235 19,20 932,2229 2059,4982 733,1792 925,2269 925,2297 0,35 -367,509 -1864,2409 -582,738 -667,845 -676,848 -4,2 -59,-59 -122,-135 z"
        id="path4"
-       style="fill:#b6c445;fill-opacity:1" />
+       style="fill:#828b3b;fill-opacity:1" />
     <path
        d="m 14637,18168 c -378,-763 -2228,-4594 -2819,-5838 l -140,-294 33,-29 c 168,-140 5279,-4109 5287,-4105 5,2 451,500 992,1108 1109,1245 1881,2112 1917,2151 l 24,27 -1518,2193 c -1514,2187 -2757,3980 -3292,4749 -155,223 -285,406 -290,408 -5,2 -92,-165 -194,-370 z"
        id="path6"
-       style="fill:#b6c445;fill-opacity:1" />
+       style="fill:#828b3b;fill-opacity:1" />
     <path
        d="M 2788,14163 C 2514,13862 1497,12725 461,11560 233,11304 36,11083 23,11068 L -2,11042 1437,8963 C 2990,6722 4562,4453 4890,3983 c 112,-161 207,-293 211,-293 19,0 1255,2545 2980,6135 l 168,350 -42,39 c -117,107 -1436,1139 -3827,2992 -1187,921 -1411,1093 -1432,1105 -14,7 -43,-20 -160,-148 z"
        id="path8"
-       style="fill:#b6c445;fill-opacity:1" />
+       style="fill:#828b3b;fill-opacity:1" />
     <path
        d="M 9620,9538 C 8393,6541 7137,3469 7063,3284 7058,3271 7196,3091 7869,2230 9086,673 9621,-3 9630,7 c 26,29 4154,5268 5230,6637 l 313,400 -36,31 c -84,73 -492,356 -2042,1416 -1644,1125 -3042,2079 -3047,2079 -3,0 -195,-465 -428,-1032 z"
        id="path10"
-       style="fill:#b6c445;fill-opacity:1" />
+       style="fill:#828b3b;fill-opacity:1" />
   </g>
 </svg>

@@ -1,10 +1,11 @@
-<div class="objective" [ngClass]="{'off' : objective.off || objective.exhausted || (objective.health <= 0)}">
+<div class="objective"
+  [ngClass]="{'off' : objective.off || objective.exhausted || (objective.health <= 0), 'escort' : objective.escort}">
   <a class="image-container" (click)="toggleOff()" [ngClass]="{'active-border' : objective.active}">
     <span class="image">
       {{objectiveIdMap[objective.id]}}
     </span>
-    <div class="health-bar" [ngClass]="{'critical' : objective.health / objective.maxHealth < 0.35}">
-      <div class="health-bar-value" [style.width]="(objective.health / objective.maxHealth * 100) + '%'"></div>
+    <div class="health-bar" [ngClass]="{'critical' : objective.health / maxHealth() < 0.35}">
+      <div class="health-bar-value" [style.width]="(objective.health / maxHealth() * 100) + '%'"></div>
     </div>
   </a>
 
@@ -12,18 +13,24 @@
 
   <div class="stats">
     <div class="column col-1" (click)="toggle()">
-      <div #button class="title"><img class="icon" src="./assets/images/objective/icon.svg" />
-        {{objective.title || (objective.name | ghsLabel)}}</div>
+      <div #button class="title"><img class="icon"
+          [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
+        {{objective.title ? objective.title : ((objective.name ? ('data.objective.' + objective.name) :
+        (objective.escort ? 'escort' : 'objective')) |
+        ghsLabel)}}</div>
       <div class="health">
         <img src="./assets/images/status/health.svg" />
-        {{objective.health}}/{{objective.maxHealth}}
+        {{objective.health}}/{{maxHealth()}}
+        <div class="conditions">
+          <img *ngFor="let condition of objective.conditions" src="./assets/images/condition/{{condition}}.svg" />
+        </div>
       </div>
     </div>
 
     <span class="spacer" (click)="toggle()"></span>
 
     <div class="icon-container" (click)="toggle()">
-      <img src="./assets/images/objective/icon.svg" />
+      <img [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
     </div>
   </div>
 </div>
@@ -73,18 +80,27 @@
       <span></span>
     </div>
 
-    <div class="char-container">
-      <input #objectivetitle />
+    <div class="condition-container" *ngIf="objective.escort">
+      <a class="condition" [ngClass]="{'active' : hasCondition(condition)}" (click)="toggleCondition(condition)"
+        *ngFor="let condition of gameManager.characterConditions()">
+        <img src="./assets/images/condition/{{condition}}.svg" />
+      </a>
+    </div>
+  </div>
+
+  <div class="char-container">
+    <input #objectiveTitle [value]="objective.title || ''" />
+    <ng-container *ngIf="showMaxHealth()">
       <a class="button" (click)="changeMaxHealth(-1)">
         <ghs-svg [src]="'./assets/images/minus.svg'"></ghs-svg>
       </a>
       <span class="item">
         <img src="./assets/images/status/health.svg" />
-        <span class="badge max-health">{{objective.health}}/{{objective.maxHealth}}</span>
+        <span class="badge max-health">{{objective.health}}/{{maxHealth()}}</span>
       </span>
       <a class="button" (click)="changeMaxHealth(1)">
         <ghs-svg [src]="'./assets/images/plus.svg'"></ghs-svg>
       </a>
-    </div>
+    </ng-container>
   </div>
 </div>
