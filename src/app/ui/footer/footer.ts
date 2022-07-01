@@ -21,6 +21,10 @@ export class FooterComponent extends DialogComponent {
     } else {
       this.close();
       gameManager.stateManager.before();
+      const activeFigure = gameManager.game.figures.find((figure: Figure) => figure.active && !figure.off);
+      if (!this.active() && activeFigure) {
+        gameManager.endTurn(activeFigure);
+      }
       gameManager.nextGameState();
       gameManager.stateManager.after(1000);
     }
