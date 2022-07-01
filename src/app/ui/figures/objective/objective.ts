@@ -92,6 +92,9 @@ export class ObjectiveComponent extends DialogComponent {
   exhausted() {
     gameManager.stateManager.before();
     this.objective.exhausted = !this.objective.exhausted;
+    if (this.objective.exhausted) {
+      gameManager.endTurn(this.objective);
+    }
     gameManager.stateManager.after();
   }
 

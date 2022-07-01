@@ -8,6 +8,7 @@
   background-color: var(--ghs-color-gray);
   background-size: cover;
   display: flex;
+  border-radius: calc(var(--ghs-unit) * 0.5);
 
   &::before {
     content: ' ';

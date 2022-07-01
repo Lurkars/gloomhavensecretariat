@@ -100,6 +100,9 @@ export class CharacterComponent extends DialogComponent {
   exhausted() {
     gameManager.stateManager.before();
     this.character.exhausted = !this.character.exhausted;
+    if (this.character.exhausted) {
+      gameManager.endTurn(this.character);
+    }
     gameManager.sortFigures();
     gameManager.stateManager.after();
   }

@@ -321,6 +321,10 @@ export class GameManager {
     }
   }
 
+  permanentDead(figure: Figure): boolean {
+    return ((figure instanceof Character || figure instanceof Objective) && (figure.exhausted || figure.health == 0)) || figure instanceof Monster && figure.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead || monsterEntity.health == 0);
+  }
+
   restoreConditions(entity: Entity) {
     entity.expiredConditions.forEach((condition: Condition) => {
       if (entity.conditions.indexOf(condition) == -1) {
@@ -337,19 +341,21 @@ export class GameManager {
   }
 
   beforeTurn(figure: Figure) {
-    figure.off = false;
-    if (settingsManager.settings.expireConditions) {
-      if (figure instanceof Character) {
-        this.restoreConditions(figure);
-        figure.summons.forEach((summon: Summon) => {
-          this.restoreConditions(summon);
-        });
-      } if (figure instanceof Objective) {
-        this.restoreConditions(figure);
-      } else if (figure instanceof Monster) {
-        figure.entities.forEach((monsterEntity: MonsterEntity) => {
-          this.restoreConditions(monsterEntity);
-        });
+    if (figure.off && !this.permanentDead(figure)) {
+      figure.off = false;
+      if (settingsManager.settings.expireConditions) {
+        if (figure instanceof Character) {
+          this.restoreConditions(figure);
+          figure.summons.forEach((summon: Summon) => {
+            this.restoreConditions(summon);
+          });
+        } if (figure instanceof Objective) {
+          this.restoreConditions(figure);
+        } else if (figure instanceof Monster) {
+          figure.entities.forEach((monsterEntity: MonsterEntity) => {
+            this.restoreConditions(monsterEntity);
+          });
+        }
       }
     }
   }

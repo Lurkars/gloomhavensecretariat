@@ -9,6 +9,7 @@
   background-size: cover;
   display: flex;
   --ghs-character-color: #000;
+  border-radius: calc(var(--ghs-unit) * 0.5);
 
   &::before {
     content: ' ';
