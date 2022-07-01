@@ -66,10 +66,6 @@ export class AbilityComponent extends PopupComponent {
       }
     }
 
-    if (label.split('.')[ label.split('.').length - 1 ] === settingsManager.getLabel(label)) {
-      label = 'data.monster.' + this.monster.name;
-    }
-
     return settingsManager.getLabel(label);
 
   }

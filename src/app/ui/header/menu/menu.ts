@@ -257,12 +257,14 @@ export class MainMenuComponent extends DialogComponent {
   addObjective() {
     gameManager.stateManager.before();
     gameManager.characterManager.addObjective();
+    this.close();
     gameManager.stateManager.after();
   }
 
   addEscort() {
     gameManager.stateManager.before();
     gameManager.characterManager.addObjective(new ObjectiveData("escort", 3, true));
+    this.close();
     gameManager.stateManager.after();
   }
 

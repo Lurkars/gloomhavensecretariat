@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { AttackModifier, AttackModifierType } from 'src/app/game/model/AttackModifier';
-import { Condition } from 'src/app/game/model/Condition';
+import { Condition, RoundCondition } from 'src/app/game/model/Condition';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { MonsterStat } from 'src/app/game/model/MonsterStat';
@@ -108,8 +108,17 @@ export class MonsterEntityComponent extends DialogComponent {
     gameManager.stateManager.before();
     if (!this.hasCondition(condition)) {
       this.entity.conditions.push(condition);
+      if (!this.monster.active) {
+        for (let roundCondition in RoundCondition) {
+          if (this.entity.conditions.indexOf(roundCondition as Condition) != -1 && this.entity.turnConditions.indexOf(roundCondition as Condition) == -1) {
+            this.entity.turnConditions.push(roundCondition as Condition);
+          }
+        }
+      }
     } else {
       this.entity.conditions.splice(this.entity.conditions.indexOf(condition), 1);
+      this.entity.turnConditions.splice(this.entity.turnConditions.indexOf(condition), 1);
+      this.entity.expiredConditions.splice(this.entity.expiredConditions.indexOf(condition), 1);
     }
     gameManager.stateManager.after();
     this.setDialogPosition();

@@ -1,6 +1,8 @@
 .button {
   position: relative;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   font-size: calc(var(--ghs-unit) * 8);
   line-height: calc(var(--ghs-unit) * 4);
@@ -11,6 +13,11 @@
   width: calc(var(--ghs-unit) * 5);
   height: calc(var(--ghs-unit) * 5);
   text-align: center;
+
+  ghs-svg {
+    width: 80%;
+    height: 80%;
+  }
 
   stroke: var(--ghs-color-black);
   stroke-width: calc(var(--ghs-unit) * 2);

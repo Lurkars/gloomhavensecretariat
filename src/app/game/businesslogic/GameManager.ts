@@ -1,6 +1,6 @@
 import { Ability } from "../model/Ability";
 import { Character } from "../model/Character";
-import { CharacterCondition, Condition, EntityCondition, StackableCondition, UpgradeCondition } from "../model/Condition";
+import { CharacterCondition, Condition, EntityCondition, RoundCondition, StackableCondition, UpgradeCondition } from "../model/Condition";
 import { CharacterData } from "../model/data/CharacterData";
 import { DeckData } from "../model/data/DeckData";
 import { EditionData } from "../model/data/EditionData";
@@ -23,7 +23,8 @@ import { settingsManager } from "./SettingsManager";
 import { StateManager } from "./StateManager";
 import { SectionData } from "../model/data/SectionData";
 import { ObjectiveData } from "../model/data/ObjectiveData";
-import { EntityValueFunction } from "../model/Entity";
+import { Entity, EntityValueFunction } from "../model/Entity";
+import { Summon, SummonState } from "../model/Summon";
 
 
 export class GameManager {
@@ -185,22 +186,28 @@ export class GameManager {
     });
   }
 
-  abilities(figure: MonsterData | CharacterData): Ability[] {
-    let abilities = this.decksData(true).find((deck: DeckData) => (deck.name == figure.deck || deck.name == figure.name) && deck.edition == figure.edition)?.abilities;
+
+  deckData(figure: MonsterData | CharacterData): DeckData {
+    let deckData = this.decksData(true).find((deck: DeckData) => (deck.name == figure.deck || deck.name == figure.name) && deck.edition == figure.edition);
 
     // find extensions decks
-    if (!abilities) {
-      abilities = this.decksData(true).find((deck: DeckData) => (deck.name == figure.deck || deck.name == figure.name) && this.editionExtensions(figure.edition).indexOf(deck.edition) != -1)?.abilities;
+    if (!deckData) {
+      deckData = this.decksData(true).find((deck: DeckData) => (deck.name == figure.deck || deck.name == figure.name) && this.editionExtensions(figure.edition).indexOf(deck.edition) != -1);
     }
 
-    if (!abilities) {
+    if (!deckData) {
       console.error("Unknwon deck: " + figure.name + (figure.deck ? "[" + figure.deck + "]" : "") + " for " + figure.edition);
       if (figure.errors.indexOf(FigureError.deck) == -1) {
         figure.errors.push(FigureError.deck);
       }
-      return [];
+      return new DeckData('', [], '');
     }
-    return abilities;
+
+    return deckData;
+  }
+
+  abilities(figure: MonsterData | CharacterData): Ability[] {
+    return this.deckData(figure).abilities;
   }
 
   nextAvailable(): boolean {
@@ -280,40 +287,119 @@ export class GameManager {
     if (!figure.active && !figure.off) {
       figure.active = true;
     } else if (figure.active && !figure.off) {
-      figure.off = true;
-      figure.active = false;
+      this.endTurn(figure)
     } else {
-      figure.off = false;
+      this.beforeTurn(figure);
       figure.active = !figures.some((other: Figure, otherIndex: number) => otherIndex < index && other.active);
     }
 
     for (let i = 0; i < figures.length; i++) {
+
+      const otherFigure = figures[ i ];
+
       if (figure.active) {
         if (i != index) {
-          figures[ i ].active = false;
+          otherFigure.active = false;
         }
         if (i < index) {
-          figures[ i ].off = true;
-        } else {
-          figures[ i ].off = false;
+          this.endTurn(otherFigure);
+        } else if (!(otherFigure instanceof Monster) || (otherFigure instanceof Monster && otherFigure.entities.length > 0)) {
+          this.beforeTurn(otherFigure);
         }
       }
       if (figure.off) {
-        if (i < index) {
-          figures[ i ].off = true;
-          figures[ i ].active = false;
-        }
-        if (i > index) {
-          figures[ i ].off = false;
-          if (i == index + 1) {
-            figures[ i ].active = true;
+        if (i < index && !otherFigure.off) {
+          otherFigure.active = true;
+        } else if (i > index && (!(otherFigure instanceof Monster) || (otherFigure instanceof Monster && otherFigure.entities.length > 0))) {
+          if (!otherFigure.off && i == index + 1) {
+            otherFigure.active = true;
           } else {
-            figures[ i ].active = false;
+            otherFigure.active = false;
           }
         }
       }
     }
+  }
 
+  restoreConditions(entity: Entity) {
+    entity.expiredConditions.forEach((condition: Condition) => {
+      if (entity.conditions.indexOf(condition) == -1) {
+        entity.conditions.push(condition);
+      }
+      if (entity.turnConditions.indexOf(condition) == -1) {
+        entity.turnConditions.push(condition);
+      } else {
+        entity.turnConditions.splice(entity.turnConditions.indexOf(condition), 1);
+      }
+    });
+
+    entity.expiredConditions = [];
+  }
+
+  beforeTurn(figure: Figure) {
+    figure.off = false;
+    if (settingsManager.settings.expireConditions) {
+      if (figure instanceof Character) {
+        this.restoreConditions(figure);
+        figure.summons.forEach((summon: Summon) => {
+          this.restoreConditions(summon);
+        });
+      } if (figure instanceof Objective) {
+        this.restoreConditions(figure);
+      } else if (figure instanceof Monster) {
+        figure.entities.forEach((monsterEntity: MonsterEntity) => {
+          this.restoreConditions(monsterEntity);
+        });
+      }
+    }
+  }
+
+  expireConditions(entity: Entity) {
+    for (let roundCondition in RoundCondition) {
+      if (entity.conditions.indexOf(roundCondition as Condition) != -1 && entity.turnConditions.indexOf(roundCondition as Condition) == -1) {
+        entity.turnConditions.push(roundCondition as Condition);
+        entity.expiredConditions.push(roundCondition as Condition);
+      } else if (entity.turnConditions.indexOf(roundCondition as Condition) != -1) {
+        entity.conditions.splice(entity.conditions.indexOf(roundCondition as Condition), 1);
+        entity.turnConditions.splice(entity.turnConditions.indexOf(roundCondition as Condition), 1);
+        entity.expiredConditions.push(roundCondition as Condition);
+      }
+    }
+  }
+
+  endTurn(figure: Figure) {
+    if (!figure.off) {
+      figure.off = true;
+      figure.active = false;
+      if (settingsManager.settings.expireConditions) {
+        if (figure instanceof Character) {
+          this.expireConditions(figure);
+          figure.summons.forEach((summon: Summon) => {
+            this.expireConditions(summon);
+          });
+        } if (figure instanceof Objective) {
+          this.expireConditions(figure);
+        } else if (figure instanceof Monster) {
+          figure.entities.forEach((monsterEntity: MonsterEntity) => {
+            this.expireConditions(monsterEntity);
+          });
+        }
+      }
+
+      if (figure instanceof Character) {
+        for (let summon of figure.summons) {
+          if (summon.state == SummonState.new) {
+            summon.state = SummonState.true;
+          }
+        }
+      } else if (figure instanceof Monster) {
+        figure.entities.forEach((monsterEntity: MonsterEntity) => {
+          if (monsterEntity.summon == SummonState.new) {
+            monsterEntity.summon = SummonState.true;
+          }
+        })
+      }
+    }
   }
 
   toggleElement(element: Element) {

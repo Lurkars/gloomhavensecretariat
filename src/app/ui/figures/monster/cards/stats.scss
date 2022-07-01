@@ -6,6 +6,7 @@
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-image: url('~src/assets/images/monster/stats/standard.png');
+  border-radius: calc(var(--ghs-unit) * 1);
 
   .level {
     position: absolute;
@@ -66,11 +67,16 @@
 
   .extra {
     position: absolute;
-    top: calc(var(--ghs-unit) * 5.5);
+    top: calc(var(--ghs-unit) * 5);
     width: calc(var(--ghs-unit) * 12);
     display: flex;
     flex-direction: column;
     font-size: calc(var(--ghs-unit) * 1.8);
+
+    .extra-container {
+      overflow-x: unset;
+      overflow-y: auto;
+    }
 
     .immunities {
       position: absolute;
@@ -147,6 +153,7 @@
 
       .immunities {
         left: calc(var(--ghs-unit) * -1.5);
+        width: calc(var(--ghs-unit) * 12);
       }
 
       .condition {
@@ -157,6 +164,10 @@
     &.elite {
       right: calc(var(--ghs-unit) * 1);
       color: var(--ghs-color-white);
+
+      .immunities {
+        width: calc(var(--ghs-unit) * 12);
+      }
     }
 
     &.boss {
@@ -164,14 +175,18 @@
       right: calc(var(--ghs-unit) * 0.3);
       color: var(--ghs-color-white);
 
+      .extra-container {
+        height: calc(var(--ghs-unit) * 13.5);
+      }
+
       .immunities {
         top: calc(var(--ghs-unit) * -0.5);
         left: calc(var(--ghs-unit) * -16.5);
       }
     }
 
-    .additional, .specials {
-      margin-top: calc(var(--ghs-unit) * 0.5);
+    .additional,
+    .specials {
       display: flex;
       align-items: baseline;
 
@@ -179,6 +194,10 @@
         flex-basis: 0;
         flex-grow: 1;
         margin-left: calc(var(--ghs-unit) * 0.5);
+
+        &:first-child {
+          margin-top: calc(var(--ghs-unit) * 0.5);
+        }
       }
 
     }

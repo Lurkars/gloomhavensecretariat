@@ -9,6 +9,7 @@ export interface Entity {
   maxHealth: number | string;
   conditions: Condition[];
   turnConditions: Condition[];
+  expiredConditions: Condition[];
   markers: string[];
 }
 

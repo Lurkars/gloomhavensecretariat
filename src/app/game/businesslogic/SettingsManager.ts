@@ -84,6 +84,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setBrowserNavigation(browserNavigation: boolean) {
+    this.settings.browserNavigation = browserNavigation;
+    this.storeSettings();
+  }
+
   setZoom(zoom: number) {
     this.settings.zoom = zoom;
     this.storeSettings();

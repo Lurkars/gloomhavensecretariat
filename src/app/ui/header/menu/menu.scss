@@ -112,21 +112,6 @@
       }
     }
 
-
-
-    &.disabled {
-      pointer-events: none;
-
-      a,
-      label {
-        color: var(--ghs-color-darkgray);
-
-        input[type="checkbox"]:before {
-          background-color: var(--ghs-color-darkgray);
-        }
-      }
-    }
-
     .state {
       display: flex;
       justify-content: space-between;
@@ -139,6 +124,26 @@
 
     &.hidden-monster a {
       font-style: italic;
+    }
+  }
+
+  .disabled {
+    pointer-events: none;
+    color: var(--ghs-color-darkgray);
+
+    a,
+    label {
+      color: var(--ghs-color-darkgray);
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+
+      color: var(--ghs-color-darkgray);
+
+      &:before {
+        background-color: var(--ghs-color-darkgray) !important;
+      }
     }
   }
 

@@ -10,6 +10,7 @@ export class Settings {
   editionDataUrls: string[] = [];
   excludeEditionDataUrls: string[] = [];
   spoilers: string[] = [];
+  browserNavigation: boolean = false;
   serverUrl: string | undefined;
   serverPort: number | undefined;
   serverPassword: string | undefined;

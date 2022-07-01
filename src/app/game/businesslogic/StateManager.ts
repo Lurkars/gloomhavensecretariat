@@ -24,19 +24,30 @@ export class StateManager {
         localStorage.setItem("ghs-game", JSON.stringify(this.game.toModel()));
       }
     }
+
+    window.addEventListener('popstate', ((event: any) => {
+      if (settingsManager.settings.browserNavigation) {
+       // TODO: undo/redo on state
+      }
+    }))
+  }
+
+  buildWsUrl(protocol: string, serverUrl: string, port: number | string) {
+    let urls = serverUrl.split("/");
+    const url = urls[ 0 ];
+    let path = "/";
+    if (urls.length > 1) {
+      path = path + urls.splice(1, urls.length).join("/");
+    }
+
+    return protocol + url + ":" + port + '' + path;
   }
 
   connect() {
     if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword) {
       this.disconnect();
       const protocol = settingsManager.settings.serverWss ? "wss://" : "ws://";
-      let urls = settingsManager.settings.serverUrl.split("/");
-      const url = urls[ 0 ];
-      let path = "/";
-      if (urls.length > 1) {
-        path = path + urls.splice(1, urls.length).join("/");
-      }
-      this.ws = new WebSocket(protocol + url + ":" + settingsManager.settings.serverPort + path);
+      this.ws = new WebSocket(this.buildWsUrl(protocol, settingsManager.settings.serverUrl, settingsManager.settings.serverPort));
       this.ws.onmessage = this.onMessage;
       this.ws.onopen = this.onOpen;
     }
@@ -144,6 +155,10 @@ export class StateManager {
 
     localStorage.setItem("ghs-undo", JSON.stringify(undo));
     localStorage.setItem("ghs-redo", "[]");
+
+    if (settingsManager.settings.browserNavigation) {
+      // TODO: push state
+    }
   }
 
   saveLocal(timeout: number = 0) {

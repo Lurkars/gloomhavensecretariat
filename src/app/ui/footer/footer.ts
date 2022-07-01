@@ -26,6 +26,11 @@ export class FooterComponent extends DialogComponent {
     }
   }
 
+  confirmTurns() {
+    gameManager.game.figures.forEach((figure: Figure) => gameManager.endTurn(figure));
+    this.next(true);
+  }
+
   empty(): boolean {
     return gameManager.game.figures.length == 0;
   }
@@ -35,7 +40,13 @@ export class FooterComponent extends DialogComponent {
   }
 
   active(): boolean {
-    return gameManager.game.figures.some((figure: Figure) => figure.active && !figure.off);
+    const activeFigure = gameManager.game.figures.find((figure: Figure) => figure.active && !figure.off);
+
+    if (!activeFigure) {
+      return false;
+    }
+
+    return gameManager.game.figures.find((figure: Figure, index: number) => !figure.off && index > gameManager.game.figures.indexOf(activeFigure)) != undefined;
   };
 
   disabled(): boolean {

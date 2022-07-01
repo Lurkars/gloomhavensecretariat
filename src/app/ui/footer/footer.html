@@ -18,5 +18,7 @@
     <p *ngIf="active()">{{'round.hint.active' | ghsLabel}}</p>
     <a *ngIf="active()" (click)="next(true)">{{'round.hint.confirm' |
       ghsLabel}}</a>
+    <a *ngIf="active()" (click)="confirmTurns()">{{'round.hint.confirmTurns' |
+      ghsLabel}}</a>
   </div>
 </div>

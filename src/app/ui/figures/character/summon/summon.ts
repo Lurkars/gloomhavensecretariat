@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Character } from 'src/app/game/model/Character';
-import { Condition } from 'src/app/game/model/Condition';
+import { Condition, RoundCondition } from 'src/app/game/model/Condition';
 import { Summon, SummonState } from 'src/app/game/model/Summon';
 import { DialogComponent } from 'src/app/ui/dialog/dialog';
 
@@ -75,8 +75,17 @@ export class SummonEntityComponent extends DialogComponent {
     gameManager.stateManager.before();
     if (!this.hasCondition(condition)) {
       this.summon.conditions.push(condition);
+      if (!this.character.active) {
+        for (let roundCondition in RoundCondition) {
+          if (this.summon.conditions.indexOf(roundCondition as Condition) != -1 && this.summon.turnConditions.indexOf(roundCondition as Condition) == -1) {
+            this.summon.turnConditions.push(roundCondition as Condition);
+          }
+        }
+      }
     } else {
       this.summon.conditions.splice(this.summon.conditions.indexOf(condition), 1);
+      this.summon.turnConditions.splice(this.summon.turnConditions.indexOf(condition), 1);
+      this.summon.expiredConditions.splice(this.summon.expiredConditions.indexOf(condition), 1);
     }
     gameManager.stateManager.after();
     this.setDialogPosition();

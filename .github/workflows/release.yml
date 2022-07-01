@@ -49,7 +49,7 @@ jobs:
         uses: thedoctor0/zip-release@main
         with:
           type: "zip"
-          directory: "dist/gloomhavensecretary/"
+          directory: "dist/gloomhavensecretary"
           filename: "gloomhavensecretary-${{github.ref_name}}.zip"
       - name: Upload release zip
         uses: actions/upload-release-asset@v1

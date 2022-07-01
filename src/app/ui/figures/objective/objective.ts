@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { Condition } from 'src/app/game/model/Condition';
+import { Condition, RoundCondition } from 'src/app/game/model/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Figure } from 'src/app/game/model/Figure';
 import { GameState } from 'src/app/game/model/Game';
@@ -119,8 +119,17 @@ export class ObjectiveComponent extends DialogComponent {
     gameManager.stateManager.before();
     if (!this.hasCondition(condition)) {
       this.objective.conditions.push(condition);
+      if (!this.objective.active) {
+        for (let roundCondition in RoundCondition) {
+          if (this.objective.conditions.indexOf(roundCondition as Condition) != -1 && this.objective.turnConditions.indexOf(roundCondition as Condition) == -1) {
+            this.objective.turnConditions.push(roundCondition as Condition);
+          }
+        }
+      }
     } else {
       this.objective.conditions.splice(this.objective.conditions.indexOf(condition), 1);
+      this.objective.turnConditions.splice(this.objective.turnConditions.indexOf(condition), 1);
+      this.objective.expiredConditions.splice(this.objective.expiredConditions.indexOf(condition), 1);
     }
     gameManager.stateManager.after();
   }

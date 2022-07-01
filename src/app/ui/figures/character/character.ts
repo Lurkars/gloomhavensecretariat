@@ -3,7 +3,7 @@ import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { Condition } from 'src/app/game/model/Condition';
+import { Condition, RoundCondition } from 'src/app/game/model/Condition';
 import { GameState } from 'src/app/game/model/Game';
 import { Summon } from 'src/app/game/model/Summon';
 import { DialogComponent } from '../../dialog/dialog';
@@ -82,8 +82,17 @@ export class CharacterComponent extends DialogComponent {
     gameManager.stateManager.before();
     if (!this.hasCondition(condition)) {
       this.character.conditions.push(condition);
+      if (!this.character.active) {
+        for (let roundCondition in RoundCondition) {
+          if (this.character.conditions.indexOf(roundCondition as Condition) != -1 && this.character.turnConditions.indexOf(roundCondition as Condition) == -1) {
+            this.character.turnConditions.push(roundCondition as Condition);
+          }
+        }
+      }
     } else {
       this.character.conditions.splice(this.character.conditions.indexOf(condition), 1);
+      this.character.turnConditions.splice(this.character.turnConditions.indexOf(condition), 1);
+      this.character.expiredConditions.splice(this.character.expiredConditions.indexOf(condition), 1);
     }
     gameManager.stateManager.after();
   }

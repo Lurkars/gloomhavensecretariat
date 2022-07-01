@@ -6,7 +6,6 @@ import { MonsterType } from "../model/MonsterType";
 import { MonsterStat } from "../model/MonsterStat";
 import { MonsterEntity } from "../model/MonsterEntity";
 import { MonsterData } from "../model/data/MonsterData";
-import { Condition, RoundCondition } from "../model/Condition";
 import { Ability } from "../model/Ability";
 import { SummonState } from "../model/Summon";
 import { settingsManager } from "./SettingsManager";
@@ -35,8 +34,10 @@ export class MonsterManager {
       monster.level = gameManager.game.level;
       monster.off = true;
       if (!monster.abilities || monster.abilities.length == 0) {
-        monster.abilities = gameManager.abilities(monster).map((ability: Ability, index: number) => index);
-        this.shuffleAbilities(monster);
+        if (!this.applySameDeck(monster)) {
+          monster.abilities = gameManager.abilities(monster).map((ability: Ability, index: number) => index);
+          this.shuffleAbilities(monster);
+        }
       }
       this.game.figures.push(monster);
     }
@@ -70,24 +71,26 @@ export class MonsterManager {
     monster.entities.push(monsterEntity);
 
     if (this.game.state == GameState.next && monster.ability == -1) {
-      monster.ability = 0;
+      if (!this.applySameDeck(monster)) {
+        monster.ability = 0;
+      }
     }
+
+    gameManager.sortFigures();
 
     if (monster.off) {
       monster.off = false;
       monster.active = false;
     }
 
-    gameManager.sortFigures();
   }
-
 
   removeMonsterEntity(monster: Monster, monsterEntity: MonsterEntity) {
     monster.entities.splice(monster.entities.indexOf(monsterEntity), 1);
     if (monster.entities.length == 0) {
       if (!monster.off && gameManager.game.state == GameState.next) {
-        monster.active = true;
         gameManager.toggleOff(monster);
+        monster.active = false;
       } else {
         monster.off = true;
       }
@@ -95,34 +98,36 @@ export class MonsterManager {
     }
   }
 
+  applySameDeck(monster: Monster): boolean {
+    const sameDeckMonster = this.game.figures.find((figure: Figure) => figure instanceof Monster && (figure.name != monster.name || figure.edition != monster.edition) && gameManager.deckData(figure).name == gameManager.deckData(monster).name && gameManager.deckData(figure).edition == gameManager.deckData(monster).edition) as Monster;
+
+    if (sameDeckMonster) {
+      monster.abilities = sameDeckMonster.abilities;
+      monster.ability = sameDeckMonster.ability;
+      return true;
+    }
+    return false;
+  }
+
   async draw() {
-    this.game.figures.forEach((figure: Figure) => {
+    this.game.figures.forEach((figure: Figure, index: number) => {
       if (figure instanceof Monster) {
-        const ability = this.getAbility(figure);
-        if (ability) {
-          if (ability.shuffle || figure.ability == figure.abilities.length - 1) {
-            this.shuffleAbilities(figure);
-          }
-        }
-        figure.off = figure.entities.length == 0;
-
-        figure.entities.forEach((monsterEntity: MonsterEntity) => {
-
-          if (monsterEntity.summon == SummonState.new) {
-            monsterEntity.summon = SummonState.true;
-          }
-
-          if (settingsManager.settings.expireConditions) {
-            for (let roundCondition in RoundCondition) {
-              if (monsterEntity.conditions.indexOf(roundCondition as Condition) != -1 && monsterEntity.turnConditions.indexOf(roundCondition as Condition) == -1) {
-                monsterEntity.turnConditions.push(roundCondition as Condition);
-              } else if (monsterEntity.turnConditions.indexOf(roundCondition as Condition) != -1) {
-                monsterEntity.conditions.splice(monsterEntity.conditions.indexOf(roundCondition as Condition), 1);
-                monsterEntity.turnConditions.splice(monsterEntity.turnConditions.indexOf(roundCondition as Condition), 1);
-              }
+        if (!this.applySameDeck(figure)) {
+          const ability = this.getAbility(figure);
+          if (ability) {
+            if (ability.shuffle || figure.ability == figure.abilities.length - 1) {
+              this.shuffleAbilities(figure);
             }
           }
-        })
+        }
+
+        if (settingsManager.settings.expireConditions) {
+          figure.entities.forEach((monsterEntity: MonsterEntity) => {
+            monsterEntity.expiredConditions = [];
+          });
+        }
+
+        figure.off = figure.entities.length == 0;
       }
     })
   }
@@ -151,6 +156,14 @@ export class MonsterManager {
       .map((value) => ({ value, sort: Math.random() }))
       .sort((a, b) => a.sort - b.sort)
       .map(({ value }) => value);
+
+    this.game.figures.forEach((figure: Figure) => {
+      if (figure instanceof Monster && (figure.name != monster.name || figure.edition != monster.edition) && gameManager.deckData(figure).name == gameManager.deckData(monster).name && gameManager.deckData(figure).edition == gameManager.deckData(monster).edition) {
+        figure.abilities = monster.abilities;
+        figure.ability = monster.ability;
+      }
+    })
+
   }
 
   getAbility(monster: Monster): Ability | undefined {

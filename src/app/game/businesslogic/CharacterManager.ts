@@ -114,23 +114,18 @@ export class CharacterManager {
         figure.initiative = 0;
         figure.off = false;
         if (settingsManager.settings.expireConditions) {
-          for (let roundCondition in RoundCondition) {
-            if (figure.conditions.indexOf(roundCondition as Condition) != -1) {
-              figure.turnConditions.push(roundCondition as Condition);
-            } else if (figure.turnConditions.indexOf(roundCondition as Condition) != -1) {
-              figure.conditions.splice(figure.conditions.indexOf(roundCondition as Condition), 1);
-              figure.turnConditions.splice(figure.turnConditions.indexOf(roundCondition as Condition), 1);
-            }
-          }
+          figure.expiredConditions = [];
+          figure.summons.forEach((summon: Summon) => {
+            summon.expiredConditions = [];
+          });
         }
 
-        for (let summon of figure.summons) {
-          if (summon.state == SummonState.new) {
-            summon.state = SummonState.true;
-          }
-        }
       } else if (figure instanceof Objective) {
         figure.off = false;
+
+        if (settingsManager.settings.expireConditions) {
+          figure.expiredConditions = [];
+        }
       }
     })
   }

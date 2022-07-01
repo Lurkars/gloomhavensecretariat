@@ -20,6 +20,7 @@ export class Objective implements Entity, Figure {
   maxHealth: number | string = 7;
   conditions: Condition[] = [];
   turnConditions: Condition[] = [];
+  expiredConditions: Condition[] = [];
   markers: string[] = [];
 
   initiative: number = 99;
@@ -33,7 +34,7 @@ export class Objective implements Entity, Figure {
   }
 
   toModel(): GameObjectiveModel {
-    return new GameObjectiveModel(this.id, this.title, this.name, this.escort, this.level, this.exhausted, this.off, this.active, this.health, this.maxHealth, this.conditions, this.turnConditions, this.markers, this.initiative);
+    return new GameObjectiveModel(this.id, this.title, this.name, this.escort, this.level, this.exhausted, this.off, this.active, this.health, this.maxHealth, this.conditions, this.turnConditions, this.expiredConditions, this.markers, this.initiative);
   }
 
   fromModel(model: GameObjectiveModel) {
@@ -69,6 +70,7 @@ export class GameObjectiveModel {
   maxHealth: number | string;
   conditions: Condition[] = [];
   turnConditions: Condition[] = [];
+  expiredConditions: Condition[];
   markers: string[] = [];
   initiative: number;
 
@@ -85,6 +87,7 @@ export class GameObjectiveModel {
     maxHealth: number | string,
     conditions: Condition[],
     turnConditions: Condition[],
+    expiredConditions: Condition[],
     markers: string[],
     initiative: number) {
     this.id = id;
@@ -99,6 +102,7 @@ export class GameObjectiveModel {
     this.maxHealth = maxHealth;
     this.conditions = conditions;
     this.turnConditions = turnConditions;
+    this.expiredConditions = expiredConditions;
     this.markers = markers;
     this.initiative = initiative;
   }

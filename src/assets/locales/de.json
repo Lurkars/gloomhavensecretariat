@@ -6,7 +6,8 @@
       "empty": "Vor der Runde bitte Charaktäre und Monster hinzufügen.",
       "missingInitative": "Die Initaitive muss gesetzt sein. Zum Festlegen der Initiative auf das Charakter-Portrait klicken.",
       "active": "Es waren noch nicht alle Figuren am Zug. Trotzdem die Runde beenden?",
-      "confirm": "Bestätigen"
+      "confirm": "Bestätigen",
+      "confirmTurns" : "Bestätigen und alle Züge beenden."
     }
   },
   "state": {
@@ -28,9 +29,9 @@
     "add": "Monster hinzufügen",
     "remove": "Monster entfernen",
     "removeAll": "Alle entfernen",
-    "showHidden" : "Ausgeblendete Monster anzeigen",
-    "normal" : "Normal",
-    "elite" : "Elite"
+    "showHidden": "Ausgeblendete Monster anzeigen",
+    "normal": "Normal",
+    "elite": "Elite"
   },
   "character": {
     "add": "Charakter hinzufügen",
@@ -63,6 +64,7 @@
     "fullscreen": "Vollbild",
     "resetGame": "Spiel Zurücksetzen",
     "resetSettings": "Einstellungen Zurücksetzen",
+    "browserNavigation" : "Rückgängig/Wiederherstellen über Navigation",
     "locale": {
       ".": "Sprache",
       "en": "Englisch (English)",
@@ -87,7 +89,10 @@
     "disconnected": "Keine Verbindung",
     "undefined": "Verbindung nicht definiert",
     "autoconnect": "Automatisch Verbinden",
-    "wss": "Verschlüsselte Verbindung",
+    "wss": {
+      ".": "Verschlüsselte Verbindung",
+      "accept": "Accept?"
+    },
     "settings": "Einstellungen synchronisieren"
   },
   "about": {
@@ -97,7 +102,7 @@
     "sourceCode": "Quelltext"
   },
   "update": "Update (Neu Laden)",
-  "and" : "und",
+  "and": "und",
   "game": {
     "action": {
       "attack": "Angriff",
@@ -173,15 +178,15 @@
         "unknown": "Unbekannte Figur"
       }
     },
-    "custom" : {
-      "advantage" : "Vorteil",
-      "summon" : "Beschwöre",
-      "ondeath" : "Bei Tod",
-      "instead" : "Stattdessen",
-      "disadvantage" : "Angreifer erhalten Nachteil",
-      "math" : {
-        "ceil" : "(aufgerundet)",
-        "floor" : "(abgerundet)"
+    "custom": {
+      "advantage": "Vorteil",
+      "summon": "Beschwöre",
+      "ondeath": "Bei Tod",
+      "instead": "Stattdessen",
+      "disadvantage": "Angreifer erhalten Nachteil",
+      "math": {
+        "ceil": "(aufgerundet)",
+        "floor": "(abgerundet)"
       }
     }
   },
