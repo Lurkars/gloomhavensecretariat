@@ -6,7 +6,8 @@
       "empty": "Please add monsters and characters before round.",
       "missingInitative": "Players initiative must be set. Select initiative by clicking on character portrait.",
       "active": "Not all figures are done yet. End round anyway?",
-      "confirm": "Confirm"
+      "confirm": "Confirm",
+      "confirmTurns" : "Confirm and end all turns."
     }
   },
   "state": {
@@ -28,9 +29,9 @@
     "add": "Add Monster",
     "remove": "Remove Monster",
     "removeAll": "Remove All",
-    "showHidden" : "Show Hidden Monster",
-    "normal" : "Normal",
-    "elite" : "Elite"
+    "showHidden": "Show Hidden Monster",
+    "normal": "Normal",
+    "elite": "Elite"
   },
   "character": {
     "add": "Add Character",
@@ -61,6 +62,7 @@
     "zoomOut": "Zoom Out",
     "zoomReset": "Reset Zoom",
     "fullscreen": "Fullscreen",
+    "browserNavigation" : "Undo/Redo with navigation",
     "resetGame": "Reset Game",
     "resetSettings": "Reset Settings",
     "locale": {
@@ -86,9 +88,12 @@
     "closed": "Closed",
     "disconnected": "No Connection",
     "undefined": "Connection not specified",
-    "autoconnect" : "Connect Automatically",
-    "wss" : "Secure",
-    "settings" : "Synchronize Settings"
+    "autoconnect": "Connect Automatically",
+    "wss": {
+      ".": "Secure",
+      "accept": "Accept?"
+    },
+    "settings": "Synchronize Settings"
   },
   "about": {
     ".": "About",
@@ -97,7 +102,7 @@
     "sourceCode": "Source Code"
   },
   "update": "Update (Reload)",
-  "and" : "and",
+  "and": "and",
   "game": {
     "action": {
       "attack": "Attack",
@@ -127,7 +132,7 @@
       "area": "Area",
       "push": "Push",
       "retaliate": "Retaliate",
-      "teleport" : "Teleport",
+      "teleport": "Teleport",
       "pull": "Pull",
       "loot": "Loot",
       "element": "Element",
@@ -163,7 +168,7 @@
       "coverAll": "Cover All",
       "revealAll": "Reveal All?",
       "revealAllConfirm": "Reveal All!",
-      "removeDrawnDiscards" : "Remove Drawn Discards"
+      "removeDrawnDiscards": "Remove Drawn Discards"
     },
     "figure": {
       "error": {
@@ -173,15 +178,15 @@
         "unknown": "Unknown Figure"
       }
     },
-    "custom" : {
-      "advantage" : "Advantage",
-      "summon" : "Summon",
-      "ondeath" : "On death",
-      "instead" : "Instead",
-      "disadvantage" : "Attackers gain Disadvantage",
-      "math" : {
-        "ceil" : "(rounded up)",
-        "floor" : "(rounded down)"
+    "custom": {
+      "advantage": "Advantage",
+      "summon": "Summon",
+      "ondeath": "On death",
+      "instead": "Instead",
+      "disadvantage": "Attackers gain Disadvantage",
+      "math": {
+        "ceil": "(rounded up)",
+        "floor": "(rounded down)"
       }
     }
   },
