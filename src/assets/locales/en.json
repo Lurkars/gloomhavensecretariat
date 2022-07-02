@@ -168,7 +168,8 @@
       "coverAll": "Cover All",
       "revealAll": "Reveal All?",
       "revealAllConfirm": "Reveal All!",
-      "removeDrawnDiscards": "Remove Drawn Discards"
+      "removeDrawnDiscards": "Remove Drawn Discards",
+      "drawExtra" : "Draw Extra"
     },
     "figure": {
       "error": {

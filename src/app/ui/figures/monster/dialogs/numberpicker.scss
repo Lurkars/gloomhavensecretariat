@@ -27,6 +27,11 @@
     fill: var(--ghs-color-yellow);
   }
 
+  &.boss {
+    color: var(--ghs-color-red);
+    fill: var(--ghs-color-red);
+  }
+
   &:hover,
   &.active-button {
     color: var(--ghs-color-white);
@@ -61,6 +66,10 @@
 
     &.elite {
       color: var(--ghs-color-yellow);
+    }  
+    
+    &.boss {
+      color: var(--ghs-color-red);
     }
 
     &:hover {

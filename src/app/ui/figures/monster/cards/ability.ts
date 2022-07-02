@@ -37,7 +37,7 @@ export class AbilityComponent extends PopupComponent {
   }
 
   disgardedCards(): Ability[] {
-    return this.monster.abilities.filter((value: number, index: number) => index <= this.monster.ability).map((value: number) => gameManager.abilities(this.monster)[ value ]);
+    return this.monster.abilities.filter((value: number, index: number) => index <= this.monster.ability).map((value: number) => gameManager.abilities(this.monster)[ value ]).reverse();
   }
 
   abilityIndex(ability: Ability) {
@@ -55,6 +55,20 @@ export class AbilityComponent extends PopupComponent {
     this.reveal = 0;
   }
 
+  toggleDrawExtra() {
+    if (this.monster.drawExtra) {
+      gameManager.stateManager.before();
+      this.monster.drawExtra = false;
+      gameManager.monsterManager.applySameDeck(this.monster);
+      gameManager.stateManager.after();
+    } else if (gameManager.monsterManager.applySameDeck(this.monster)) {
+      gameManager.stateManager.before();
+      this.monster.drawExtra = true;
+      gameManager.monsterManager.drawExtra(this.monster);
+      gameManager.stateManager.after();
+    }
+  }
+
   abilityLabel(ability: Ability): string {
     let label = 'data.monster.' + this.monster.name;
     if (ability?.name) {
@@ -67,6 +81,5 @@ export class AbilityComponent extends PopupComponent {
     }
 
     return settingsManager.getLabel(label);
-
   }
 }

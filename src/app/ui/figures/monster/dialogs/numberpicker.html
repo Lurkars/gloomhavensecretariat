@@ -3,7 +3,8 @@
 </a>
 <div #dialog>
   <div class="number-container">
-    <div *ngFor="let number of range" class="number-button" [ngClass]="{'disabled' : hasNumber(number), 'elite' : elite }"
+    <div *ngFor="let number of range" class="number-button"
+      [ngClass]="{'disabled' : hasNumber(number), 'elite' : type == MonsterType.elite, 'boss' : type == MonsterType.boss }"
       (click)="pickNumber(number)">
       <span class="number">{{number}}</span>
     </div>

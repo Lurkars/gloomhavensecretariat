@@ -45,17 +45,31 @@ main {
   z-index: 2;
 
   &:hover {
+    &:before {
+      display: block;
+      content: ' ';
+      position: absolute;
+      left: calc(var(--ghs-unit) * 1);
+      width: calc(var(--ghs-unit) * 1);
+      height: 100%;
+      background-color: var(--ghs-color-darkgray);
+      opacity: 0.5;
+      border-radius: calc(var(--ghs-unit) * 1);
+    }
+  }
+
+
+
+  &.right {
+    right: calc(var(--ghs-unit) * -3);
+    left: auto;
+
+    &:hover {
       &:before {
-        display: block;
-        content: ' ';
-        position: absolute;
-        left: calc(var(--ghs-unit) * 1);
-        width: calc(var(--ghs-unit) * 1);
-        height: 100%;
-        background-color: var(--ghs-color-darkgray);
-        opacity: 0.5;
-        border-radius: calc(var(--ghs-unit) * 1);
+        right: calc(var(--ghs-unit) * 1);
+        left: auto;
       }
+    }
   }
 }
 
@@ -76,6 +90,13 @@ main {
       background-color: var(--ghs-color-darkgray);
       opacity: 0.5 !important;
       border-radius: calc(var(--ghs-unit) * 1);
+    }
+
+    &.right {
+        &:before {
+          right: calc(var(--ghs-unit) * 1);
+          left: auto;
+        }
     }
   }
 }

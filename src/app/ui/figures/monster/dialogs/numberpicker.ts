@@ -18,8 +18,8 @@ export class MonsterNumberPicker extends DialogComponent {
   @Input() min: number = 1;
   @Input() max: number = 10;
   @Input() range: number[] = [];
-  @Input() elite: boolean = false;
   summon: boolean = false;
+  MonsterType = MonsterType;
 
   override ngOnInit(): void {
     super.ngOnInit();
@@ -41,8 +41,12 @@ export class MonsterNumberPicker extends DialogComponent {
     if (this.monster.entities.length == this.monster.count) {
       return;
     }
-    if (this.max == 1) {
-      this.pickNumber(1);
+    if (this.monster.entities.length == this.max - 1) {
+      for (let i = 0; i < this.max; i++) {
+        if (!this.monster.entities.some((me: MonsterEntity) => me.number == i + 1)) {
+          this.pickNumber(i + 1);
+        }
+      }
     } else if (settingsManager.settings.randomStandees) {
       let number = Math.floor(Math.random() * this.monster.count) + 1;
       while (this.monster.entities.some((monsterEntity: MonsterEntity) => monsterEntity.number == number)) {

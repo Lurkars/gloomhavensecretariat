@@ -168,7 +168,8 @@
       "coverAll": "Alle Verdecken",
       "revealAll": "Alle Aufdecken?",
       "revealAllConfirm": "Alle Aufdecken!",
-      "removeDrawnDiscards": "Entferne gezogene Abgeworfene"
+      "removeDrawnDiscards": "Entferne gezogene Abgeworfene",
+      "drawExtra" : "Zusätzlich Aufdecken"
     },
     "figure": {
       "error": {

@@ -146,8 +146,11 @@ ghs-action {
     display: flex;
     justify-content: space-evenly;
 
-    a {
+    a,
+    label {
       cursor: pointer;
+      display: flex;
+      align-items: center;
       font-family: 'ghs-title';
       font-size: calc(var(--ghs-unit) * 4);
       color: var(--ghs-color-gray);
@@ -155,6 +158,43 @@ ghs-action {
 
       &:hover {
         color: var(--ghs-color-white);
+      }
+    }
+
+    input[type="checkbox"] {
+      cursor: pointer;
+      appearance: none;
+      background-color: var(--form-background);
+      width: calc(var(--ghs-unit) * 3);
+      height: calc(var(--ghs-unit) * 3);
+      border-width: calc(var(--ghs-unit) * 0.3);
+      border-style: solid;
+      display: grid;
+      place-content: center;
+      margin-right: calc(var(--ghs-unit) * 1);
+      color: var(--ghs-color-gray);
+
+      &:before {
+        left: calc(var(--ghs-unit) * 0.5);
+        top: calc(var(--ghs-unit) * -0.5);
+        position: relative;
+        content: ' ';
+        width: calc(var(--ghs-unit) * 3);
+        height: calc(var(--ghs-unit) * 3);
+        transform: scale(0);
+        transform-origin: bottom left;
+        transition: 120ms transform ease-in-out;
+        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        color: var(--ghs-color-gray);
+        background-color: var(--ghs-color-gray);
+      }
+
+      &:checked::before {
+        transform: scale(1);
+      }
+
+      &:hover::before {
+        background-color: var(--ghs-color-white);
       }
     }
   }
