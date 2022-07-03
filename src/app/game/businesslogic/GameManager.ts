@@ -294,9 +294,7 @@ export class GameManager {
     }
 
     for (let i = 0; i < figures.length; i++) {
-
       const otherFigure = figures[ i ];
-
       if (figure.active) {
         if (i != index) {
           otherFigure.active = false;
@@ -311,7 +309,7 @@ export class GameManager {
         if (i < index && !otherFigure.off) {
           otherFigure.active = true;
         } else if (i > index && (!(otherFigure instanceof Monster) || (otherFigure instanceof Monster && otherFigure.entities.length > 0))) {
-          if (!otherFigure.off && i == index + 1) {
+          if (!otherFigure.off && i > index && !figures.some((figure: Figure, activeIndex: number) => figure.active && activeIndex < i)) {
             otherFigure.active = true;
           } else {
             otherFigure.active = false;
