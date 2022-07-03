@@ -120,6 +120,7 @@
           position: absolute;
           bottom: calc(var(--ghs-unit) * 0.25);
           right: calc(var(--ghs-unit) * 0.5);
+          filter: var(--ghs-filter-white);
 
           img {
             width: calc(var(--ghs-unit) * 3.5);

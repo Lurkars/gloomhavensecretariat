@@ -52,7 +52,7 @@ export class AttackModifierManager {
     this.game.attackModifier = this.game.attackModifier - (before - this.game.attackModifiers.length);
   }
 
-  draw() {
+  next() {
     if (
       this.game.attackModifiers.some(
         (attackModifier: AttackModifier, index: number) => {
@@ -64,5 +64,5 @@ export class AttackModifierManager {
     }
   }
 
-  next() { }
+  draw() { }
 }

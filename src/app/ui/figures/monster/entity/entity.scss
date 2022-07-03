@@ -5,14 +5,14 @@
     content: ' ';
     display: block;
     position: absolute;
-    top: calc(var(--ghs-unit) * 0.8);
+    top: calc(var(--ghs-unit) * 1.2);
     left: calc(var(--ghs-unit) * 4);
-    bottom: calc(var(--ghs-unit) * 0.8);
+    bottom: calc(var(--ghs-unit) * 0.7);
     right: calc(var(--ghs-unit) * 1.8);
     border-width: calc(var(--ghs-unit) * 0.4);
     border-style: solid;
     border-color: var(--ghs-color-gray);
-    border-radius: calc(var(--ghs-unit) * 1);
+    border-radius: calc(var(--ghs-unit) * 0.7);
   }
 }
 
@@ -76,7 +76,6 @@
     grid-template-rows: repeat(2, auto);
     grid-auto-flow: column;
     max-height: calc(var(--ghs-unit) * 6);
-    padding-left: calc(var(--ghs-unit) * 0.5);
 
     .condition,
     .summon {

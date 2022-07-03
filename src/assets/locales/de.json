@@ -7,7 +7,7 @@
       "missingInitative": "Die Initaitive muss gesetzt sein. Zum Festlegen der Initiative auf das Charakter-Portrait klicken.",
       "active": "Es waren noch nicht alle Figuren am Zug. Trotzdem die Runde beenden?",
       "confirm": "Bestätigen",
-      "confirmTurns" : "Bestätigen und alle Züge beenden."
+      "confirmTurns": "Bestätigen und alle Züge beenden"
     }
   },
   "state": {
@@ -64,7 +64,7 @@
     "fullscreen": "Vollbild",
     "resetGame": "Spiel Zurücksetzen",
     "resetSettings": "Einstellungen Zurücksetzen",
-    "browserNavigation" : "Rückgängig/Wiederherstellen über Navigation",
+    "browserNavigation": "Rückgängig/Wiederherstellen über Navigation",
     "locale": {
       ".": "Sprache",
       "en": "Englisch (English)",
@@ -169,7 +169,9 @@
       "revealAll": "Alle Aufdecken?",
       "revealAllConfirm": "Alle Aufdecken!",
       "removeDrawnDiscards": "Entferne gezogene Abgeworfene",
-      "drawExtra" : "Zusätzlich Aufdecken"
+      "drawExtra": "Zusätzlich Aufdecken",
+      "edit": "Editieren",
+      "restore": "Standard wiederherstellen"
     },
     "figure": {
       "error": {

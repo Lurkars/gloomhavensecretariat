@@ -17,8 +17,8 @@
     <div class="card" [ngClass]="{'flipped' : disgarded(attackModifier) || current(attackModifier)}"
       (click)="click(attackModifier)">
       <a class="card-front front">
-        <span class="number"
-          *ngIf="!disgarded(attackModifier) && !current(attackModifier)">{{ gameManager.game.attackModifiers.length - gameManager.game.attackModifier - 1 }}</span>
+        <span class="number" *ngIf="!disgarded(attackModifier) && !current(attackModifier)">{{
+          gameManager.game.attackModifiers.length - gameManager.game.attackModifier - 1 }}</span>
       </a>
       <div class="card-back back">
         <img src="./assets/images/attackmodifier/{{attackModifier.type}}.png" />
@@ -27,31 +27,48 @@
   </div>
 </div>
 
-
 <div #popup class="attack-modifiers-popup">
   <div class="menu">
-    <a (click)="reveal = (reveal + 1) % 3">{{(reveal == 2 ? 'game.cards.coverAll' : (reveal == 0 ? 'game.cards.revealAll' : 'game.cards.revealAllConfirm')) | ghsLabel}}</a>
+    <a (click)="reveal = (reveal + 1) % 3">{{(reveal == 2 ? 'game.cards.coverAll' : (reveal == 0 ?
+      'game.cards.revealAll' : 'game.cards.revealAllConfirm')) | ghsLabel}}</a>
     <a (click)="shuffle()">{{'game.cards.shuffle' | ghsLabel}}</a>
     <a *ngIf="hasDrawnDiscards()" (click)="removeDrawnDiscards()">{{'game.cards.removeDrawnDiscards' | ghsLabel}}</a>
+    <label><input type="checkbox" (click)="toggleEdit()" [checked]="edit">{{'game.cards.edit' | ghsLabel}}</label>
+    <a *ngIf="edit" (click)="restoreDefault()">{{'game.cards.restore' | ghsLabel}}</a>
+    <div *ngIf="edit" class="insert-menu">
+      <a class="icon-button" (click)="newShuffle(type)"><img class="ghs-svg" src="./assets/images/shuffle.svg"></a>
+      <a class="icon-button" (click)="changeType(true)"><img class="ghs-svg" src="./assets/images/left.svg"></a>
+      <span class="attack-modifier"><img src="./assets/images/attackmodifier/{{type}}.png" /></span>
+      <a class="icon-button" (click)="changeType()"><img class="ghs-svg" src="./assets/images/right.svg"></a>
+      <a class="icon-button" (click)="newFirst(type)"><img class="ghs-svg" src="./assets/images/plus.svg"></a>
+    </div>
   </div>
   <div class="attack-modifiers-container">
-    <div class="upcoming">
+    <div class="upcoming drop-list" cdkDropList [cdkDropListDisabled]="!edit" #upcomingList="cdkDropList"
+      [cdkDropListConnectedTo]="disgardedList" (cdkDropListDropped)="dropUpcoming($event)"
+      [cdkDropListAutoScrollStep]="20">
       <div class="empty" *ngIf="upcomingCards().length == 0"></div>
-      <div class="card-container attack-modifier" *ngFor="let attackModifier of upcomingCards();">
-        <div class="card" card-reveal [ngClass]="{'flipped' : reveal == 2}">
+      <div class="card-container attack-modifier" *ngFor="let attackModifier of upcomingCards();let index = index;"
+        cdkDrag>
+        <div class="card" card-reveal (change)="onChange(attackModifier, $event)"
+          [ngClass]="{'flipped' : reveal == 2 || attackModifier.revealed}">
           <a class="card-front front">
             <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
           </a>
           <div class="card-back back">
             <img src="./assets/images/attackmodifier/{{attackModifier.type}}.png" />
+            <a class="button-remove" *ngIf="edit" (click)="remove(index)"><img class="ghs-svg"
+                src="./assets/images/minus.svg"></a>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="disgarded">
+    <div class="disgarded drop-list" cdkDropList [cdkDropListDisabled]="!edit" #disgardedList="cdkDropList"
+      [cdkDropListConnectedTo]="upcomingList" (cdkDropListDropped)="dropDisgarded($event)"
+      [cdkDropListAutoScrollStep]="20">
       <div class="empty" *ngIf="disgardedCards().length == 0"></div>
-      <div class="card-container attack-modifier" *ngFor="let attackModifier of disgardedCards();">
+      <div class="card-container attack-modifier" *ngFor="let attackModifier of disgardedCards();" cdkDrag>
         <div class="card flipped">
           <a class="card-front front">
           </a>

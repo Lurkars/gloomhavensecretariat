@@ -7,12 +7,14 @@ export class AttackModifier {
   valueType: AttackModifierValueType;
   shuffle: boolean;
   actions: Action[];
+  revealed: boolean;
 
-  constructor(type: AttackModifierType, actions: Action[] = []) {
+  constructor(type: AttackModifierType, actions: Action[] = [], revealed: boolean = false) {
     this.type = type;
     this.valueType = AttackModifierValueType.plus;
     this.shuffle = false;
     this.actions = actions;
+    this.revealed = revealed;
     switch (type) {
       case AttackModifierType.plus0:
         this.value = 0;

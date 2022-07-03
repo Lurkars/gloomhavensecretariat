@@ -2,7 +2,7 @@
   <ghs-monster-image [monster]="monster"></ghs-monster-image>
   <ghs-monster-ability [monster]="monster"></ghs-monster-ability>
   <ghs-monster-stats [monster]="monster"></ghs-monster-stats>
-
+  {{monster.ability}}
   <ghs-monster-stats-popup [monster]="monster"></ghs-monster-stats-popup>
 
   <ghs-monster-numberpicker *ngIf="!monster.boss" class="normal" [monster]="monster" [type]="MonsterType.normal"

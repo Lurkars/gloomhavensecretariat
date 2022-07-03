@@ -67,6 +67,7 @@
     right: calc(var(--ghs-unit) * 2.5);
     transition: var(--hover-animation);
     z-index: 0;
+    filter: var(--ghs-filter-white);
 
     img {
       width: calc(var(--ghs-unit) * 3);

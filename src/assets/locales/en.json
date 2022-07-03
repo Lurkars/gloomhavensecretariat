@@ -7,7 +7,7 @@
       "missingInitative": "Players initiative must be set. Select initiative by clicking on character portrait.",
       "active": "Not all figures are done yet. End round anyway?",
       "confirm": "Confirm",
-      "confirmTurns" : "Confirm and end all turns."
+      "confirmTurns": "Confirm and end all turns"
     }
   },
   "state": {
@@ -62,7 +62,7 @@
     "zoomOut": "Zoom Out",
     "zoomReset": "Reset Zoom",
     "fullscreen": "Fullscreen",
-    "browserNavigation" : "Undo/Redo with navigation",
+    "browserNavigation": "Undo/Redo with navigation",
     "resetGame": "Reset Game",
     "resetSettings": "Reset Settings",
     "locale": {
@@ -169,7 +169,9 @@
       "revealAll": "Reveal All?",
       "revealAllConfirm": "Reveal All!",
       "removeDrawnDiscards": "Remove Drawn Discards",
-      "drawExtra" : "Draw Extra"
+      "drawExtra": "Draw Extra",
+      "edit": "Edit",
+      "restore": "Restore defaults"
     },
     "figure": {
       "error": {

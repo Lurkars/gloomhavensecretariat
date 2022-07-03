@@ -108,7 +108,7 @@ export class CharacterManager {
     this.game.figures.splice(this.game.figures.indexOf(objective), 1);
   }
 
-  draw() {
+  next() {
     this.game.figures.forEach((figure: Figure) => {
       if (figure instanceof Character) {
         figure.initiative = 0;
@@ -130,7 +130,7 @@ export class CharacterManager {
     })
   }
 
-  next() {
+  draw() {
     this.game.figures.forEach((figure: Figure) => {
       if (figure instanceof Character || figure instanceof Objective) {
         if (!figure.exhausted && figure.health <= 0) {

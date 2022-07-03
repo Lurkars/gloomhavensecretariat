@@ -52,8 +52,6 @@ export class MonsterManager {
         if (figure instanceof Monster && figure.drawExtra && (figure.name != monster.name || figure.edition != monster.edition) && gameManager.deckData(figure).name == gameManager.deckData(monster).name && gameManager.deckData(figure).edition == gameManager.deckData(monster).edition) {
           if (!this.getSameDeckMonster(figure)) {
             figure.drawExtra = false;
-          } else {
-            this.drawExtra(figure);
           }
         }
       })
@@ -133,7 +131,7 @@ export class MonsterManager {
       const sameDeckMonster = this.getSameDeckMonster(monster);
       if (!sameDeckMonster) {
         console.error("Draw extra for '" + monster.name + "' (" + monster.deck + " not possible, not same deck monster found!");
-        monster.ability = 0;
+        monster.drawExtra = false;
         return;
       }
 
@@ -143,15 +141,13 @@ export class MonsterManager {
     }
   }
 
-  async draw() {
+  next() {
     this.game.figures.forEach((figure: Figure, index: number) => {
       if (figure instanceof Monster) {
-        if (!this.applySameDeck(figure)) {
-          const ability = this.getAbility(figure);
-          if (ability) {
-            if (ability.shuffle || figure.ability == figure.abilities.length - 1) {
-              this.shuffleAbilities(figure);
-            }
+        const ability = this.getAbility(figure);
+        if (ability) {
+          if (ability.shuffle || figure.ability >= figure.abilities.length) {
+            this.shuffleAbilities(figure);
           }
         }
 
@@ -166,13 +162,13 @@ export class MonsterManager {
     })
   }
 
-  async next() {
+  draw() {
     this.game.figures.filter((figure: Figure) => figure instanceof Monster && !figure.drawExtra).forEach((figure: Figure) => {
       if (figure instanceof Monster) {
         if (figure.entities.length > 0) {
-          figure.ability = figure.ability + 1 + this.game.figures.filter((f: Figure) => f instanceof Monster && (f.name != figure.name || f.edition != figure.edition) && gameManager.deckData(f).name == gameManager.deckData(figure).name && gameManager.deckData(f).edition == gameManager.deckData(figure).edition && f.drawExtra).length;
+          figure.ability = figure.ability + 1 + this.game.figures.filter((f: Figure) => f instanceof Monster && (f.name != figure.name || f.edition != figure.edition) && gameManager.deckData(f).name == gameManager.deckData(figure).name && gameManager.deckData(f).edition == gameManager.deckData(figure).edition && f.drawExtra && f.ability > -1).length;
 
-          if (figure.ability == figure.abilities.length) {
+          if (figure.ability >= figure.abilities.length) {
             this.shuffleAbilities(figure);
           }
         }
@@ -182,6 +178,10 @@ export class MonsterManager {
     this.game.figures.filter((figure: Figure) => figure instanceof Monster && figure.drawExtra).forEach((figure: Figure) => {
       if (figure instanceof Monster) {
         this.drawExtra(figure);
+
+        if (figure.ability >= figure.abilities.length) {
+          this.shuffleAbilities(figure);
+        }
       }
     });
   }
@@ -192,22 +192,36 @@ export class MonsterManager {
       monster.ability = -1;
     } else {
       monster.ability = 0;
-      if (monster.drawExtra) {
-        monster.ability = 1;
-      }
     }
+
+    if (monster.drawExtra) {
+      const sameDeckMonster = this.getSameDeckMonster(monster);
+      if (!sameDeckMonster) {
+        console.error("Shuffle for '" + monster.name + "' (" + monster.deck + " not possible, not same deck monster found!");
+        monster.drawExtra = false;
+        this.shuffleAbilities(monster);
+        return;
+      }
+      this.shuffleAbilities(sameDeckMonster);
+      return;
+    }
+
     monster.abilities = monster.abilities
       .map((value) => ({ value, sort: Math.random() }))
       .sort((a, b) => a.sort - b.sort)
       .map(({ value }) => value);
 
     this.game.figures.forEach((figure: Figure) => {
-      if (figure instanceof Monster && (figure.name != monster.name || figure.edition != monster.edition) && gameManager.deckData(figure).name == gameManager.deckData(monster).name && gameManager.deckData(figure).edition == gameManager.deckData(monster).edition) {
+      if (figure instanceof Monster && this.getSameDeckMonster(figure)) {
         figure.abilities = monster.abilities;
-        figure.ability = monster.drawExtra ? monster.ability - 1 : monster.ability;
+        if (gameManager.game.state == GameState.draw) {
+          figure.ability = -1;
+        } else {
+          figure.ability = monster.ability;
 
-        if (figure.drawExtra) {
-          this.drawExtra(figure);
+          if (figure.drawExtra) {
+            this.drawExtra(figure);
+          }
         }
       }
     })

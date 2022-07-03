@@ -64,7 +64,9 @@ export class AbilityComponent extends PopupComponent {
     } else if (gameManager.monsterManager.applySameDeck(this.monster)) {
       gameManager.stateManager.before();
       this.monster.drawExtra = true;
-      gameManager.monsterManager.drawExtra(this.monster);
+      if (gameManager.game.state == GameState.next) {
+        gameManager.monsterManager.drawExtra(this.monster);
+      }
       gameManager.stateManager.after();
     }
   }
