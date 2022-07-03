@@ -24,8 +24,8 @@
     width: 100%;
     justify-content: center;
 
-    ghs-svg {
-      fill: var(--ghs-color-darkgray);
+    .ghs-svg {
+      filter: var(--ghs-filter-darkgray);
       width: calc(var(--ghs-unit) * 3);
       height: calc(var(--ghs-unit) * 3);
       margin: 0 calc(var(--ghs-unit) * 0.5);

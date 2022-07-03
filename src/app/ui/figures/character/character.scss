@@ -261,8 +261,8 @@
       pointer-events: none;
       color: var(--ghs-color-gray);
 
-      ghs-svg {
-        fill: var(--ghs-color-gray) !important;
+      .ghs-svg {
+        filter: var(--ghs-filter-gray) !important;
       }
     }
   }

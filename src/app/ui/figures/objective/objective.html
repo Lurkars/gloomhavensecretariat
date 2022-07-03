@@ -41,7 +41,7 @@
 
       <span class="item">
         <a class="button" [ngClass]="{'disabled' : objective.health == 0}" (click)="changeHealth(-1)">
-          <ghs-svg [src]="'./assets/images/minus.svg'"></ghs-svg>
+          <img class="ghs-svg" src="./assets/images/minus.svg">
         </a>
       </span>
       <span class="item">
@@ -51,13 +51,13 @@
       </span>
       <span class="item">
         <a class="button" [ngClass]="{'disabled' : objective.health == objective.maxHealth}" (click)="changeHealth(1)">
-          <ghs-svg [src]="'./assets/images/plus.svg'"></ghs-svg>
+          <img class="ghs-svg" src="./assets/images/plus.svg">
         </a>
       </span>
 
       <span class="item">
         <a class="button" (click)="changeId(-1)">
-          <ghs-svg [src]="'./assets/images/left.svg'"></ghs-svg>
+          <img class="ghs-svg" src="./assets/images/left.svg">
         </a>
       </span>
       <span class="item">
@@ -65,7 +65,7 @@
       </span>
       <span class="item">
         <a class="button" (click)="changeId(1)">
-          <ghs-svg [src]="'./assets/images/right.svg'"></ghs-svg>
+          <img class="ghs-svg" src="./assets/images/right.svg">
         </a>
       </span>
 
@@ -92,14 +92,14 @@
     <input #objectiveTitle [value]="objective.title || ''" />
     <ng-container *ngIf="showMaxHealth()">
       <a class="button" (click)="changeMaxHealth(-1)">
-        <ghs-svg [src]="'./assets/images/minus.svg'"></ghs-svg>
+        <img class="ghs-svg" src="./assets/images/minus.svg">
       </a>
       <span class="item">
         <img src="./assets/images/status/health.svg" />
         <span class="badge max-health">{{objective.health}}/{{maxHealth()}}</span>
       </span>
       <a class="button" (click)="changeMaxHealth(1)">
-        <ghs-svg [src]="'./assets/images/plus.svg'"></ghs-svg>
+        <img class="ghs-svg" src="./assets/images/plus.svg">
       </a>
     </ng-container>
   </div>

@@ -1,19 +1,19 @@
 .button {
   position: relative;
-  display: inline-block;
+  display: flex;
   width: calc(var(--ghs-unit) * 5);
   height: calc(var(--ghs-unit) * 5);
   cursor: pointer;
   font-size: calc(var(--ghs-unit) * 10);
   color: var(--ghs-color-gray);
-  fill: var(--ghs-color-gray);
+  filter: var(--ghs-filter-gray);
   stroke: var(--ghs-color-black);
   stroke-width: calc(var(--ghs-unit) * 1.5);
   margin: calc(var(--ghs-unit) * 1);
 
   &:hover {
     color: var(--ghs-color-white);
-    fill: var(--ghs-color-white);
+    filter: var(--ghs-filter-white);
   }
 
 }

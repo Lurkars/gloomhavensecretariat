@@ -24,7 +24,7 @@
     <div class="summon-container">
       <span class="item">
         <a class="button" [ngClass]="{'disabled' : summon.health == 0}" (click)="changeHealth(-1)">
-          <ghs-svg [src]="'./assets/images/minus.svg'"></ghs-svg>
+          <img class="ghs-svg" src="./assets/images/minus.svg">
         </a>
       </span>
       <span class="item">
@@ -34,7 +34,7 @@
       </span>
       <span class="item">
         <a class="button" [ngClass]="{'disabled' : summon.health == summon.maxHealth}" (click)="changeHealth(1)">
-          <ghs-svg [src]="'./assets/images/plus.svg'"></ghs-svg>
+          <img class="ghs-svg" src="./assets/images/plus.svg">
         </a>
       </span>
 
@@ -85,47 +85,47 @@
   <div *ngIf="levelDialog" class="level-dialog">
     <div class="summon-container">
       <a class="button" (click)="changeMaxHealth(-1)">
-        <ghs-svg [src]="'./assets/images/minus.svg'"></ghs-svg>
+        <img class="ghs-svg" src="./assets/images/minus.svg">
       </a>
       <span class="item">
         <img src="./assets/images/status/health.svg" />
         <span class="badge max-health">{{summon.health}}/{{summon.maxHealth}}</span>
       </span>
       <a class="button" (click)="changeMaxHealth(1)">
-        <ghs-svg [src]="'./assets/images/plus.svg'"></ghs-svg>
+        <img class="ghs-svg" src="./assets/images/plus.svg">
       </a>
 
       <a class="button" (click)="changeMovement(-1)">
-        <ghs-svg [src]="'./assets/images/minus.svg'"></ghs-svg>
+        <img class="ghs-svg" src="./assets/images/minus.svg">
       </a>
       <span class="item">
         <img src="./assets/images/action/move.svg" />
         <span class="badge">{{summon.movement | ghsValueCalc:'empty'}}</span>
       </span>
       <a class="button" (click)="changeMovement(1)">
-        <ghs-svg [src]="'./assets/images/plus.svg'"></ghs-svg>
+        <img class="ghs-svg" src="./assets/images/plus.svg">
       </a>
 
       <a class="button" (click)="changeAttack(-1)">
-        <ghs-svg [src]="'./assets/images/minus.svg'"></ghs-svg>
+        <img class="ghs-svg" src="./assets/images/minus.svg">
       </a>
       <span class="item">
         <img src="./assets/images/action/attack.svg" />
         <span class="badge">{{summon.attack | ghsValueCalc:'empty'}}</span>
       </span>
       <a class="button" (click)="changeAttack(1)">
-        <ghs-svg [src]="'./assets/images/plus.svg'"></ghs-svg>
+        <img class="ghs-svg" src="./assets/images/plus.svg">
       </a>
 
       <a class="button" (click)="changeRange(-1)">
-        <ghs-svg [src]="'./assets/images/minus.svg'"></ghs-svg>
+        <img class="ghs-svg" src="./assets/images/minus.svg">
       </a>
       <span class="item">
         <img src="./assets/images/action/range.svg" />
         <span class="badge">{{summon.range | ghsValueCalc:'empty'}}</span>
       </span>
       <a class="button" (click)="changeRange(1)">
-        <ghs-svg [src]="'./assets/images/plus.svg'"></ghs-svg>
+        <img class="ghs-svg" src="./assets/images/plus.svg">
       </a>
 
     </div>

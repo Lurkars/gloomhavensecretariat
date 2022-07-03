@@ -25,23 +25,23 @@ header {
     align-self: center;
 
     &.connected {
-      fill: var(--ghs-color-green);
+      filter: var(--ghs-filter-green);
     }
 
     &.connecting {
-      fill: var(--ghs-color-blue);
+      filter: var(--ghs-filter-blue);
     }
 
     &.closing {
-      fill: var(--ghs-color-yellow);
+      filter: var(--ghs-filter-yellow);
     }
 
     &.closed {
-      fill: var(--ghs-color-red);
+      filter: var(--ghs-filter-red);
     }
 
     &.disconnected {
-      fill: var(--ghs-color-darkgray);
+      filter: var(--ghs-filter-darkgray);
     }
   }
 

@@ -6,7 +6,7 @@
   font-size: calc(var(--ghs-unit) * 4);
   text-shadow: var(--ghs-outline);
   color: var(--ghs-color-darkgray);
-  fill: var(--ghs-color-darkgray);
+  filter: var(--ghs-filter-darkgray);
   width: calc(var(--ghs-unit) * 4);
   height: calc(var(--ghs-unit) * 4);
   margin: calc(var(--ghs-unit) * 2.5);
@@ -16,7 +16,7 @@
   &:hover,
   &.active-button {
     color: var(--ghs-color-white);
-    fill: var(--ghs-color-white);
+    filter: var(--ghs-filter-white);
   }
 
 }
