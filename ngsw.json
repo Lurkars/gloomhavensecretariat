@@ -1,8 +1,8 @@
 {
   "configVersion": 1,
-  "timestamp": 1656878306516,
+  "timestamp": 1656879502881,
   "appData": {
-    "version": "0.8.3"
+    "version": "0.8.2"
   },
   "index": "gloomhavensecretary/index.html",
   "assetGroups": [
@@ -16,7 +16,7 @@
       "urls": [
         "gloomhavensecretary/favicon.ico",
         "gloomhavensecretary/index.html",
-        "gloomhavensecretary/main.c6c28b12df878166.js",
+        "gloomhavensecretary/main.f214fcfddc578527.js",
         "gloomhavensecretary/manifest.webmanifest",
         "gloomhavensecretary/polyfills.784fa05217d04250.js",
         "gloomhavensecretary/runtime.0269065d32db7f2e.js",
@@ -780,8 +780,8 @@
     "gloomhavensecretary/front.fd30122e0a945f58.png": "a0c88ff33c0625b444f79a5c8db61bcfb7ba1093",
     "gloomhavensecretary/header.24c0469502696b46.png": "25f3ece27efd7584a50c341ea90ba9a0513c7841",
     "gloomhavensecretary/immunity.5d026de2db8a1d8f.svg": "ad20fc18e93269c79312170674c6008615438f9b",
-    "gloomhavensecretary/index.html": "3403422bcafb61ebbf2577e9370b8d7763017ccc",
-    "gloomhavensecretary/main.c6c28b12df878166.js": "ecfb6a73ee97f20c0c5b3e699e13fccd3268dd66",
+    "gloomhavensecretary/index.html": "c931404e57ac1c0883a19b00fa3ce04e0379e770",
+    "gloomhavensecretary/main.f214fcfddc578527.js": "e09bb5add53403a60eddf22fc8e993f13a4f5749",
     "gloomhavensecretary/majallab.00c7b4c865792c45.ttf": "cd2e9e61aca39d2b987b66e4c2a0a3ea13c3be48",
     "gloomhavensecretary/manifest.webmanifest": "20b7c49ef090b8f20d2397f9f631bdca2c64ffcd",
     "gloomhavensecretary/minus.97c98a810771fceb.svg": "de4a30390082572ba48e52e102dd4fb2dabffa81",
