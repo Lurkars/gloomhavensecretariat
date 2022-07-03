@@ -1,8 +1,8 @@
 {
   "configVersion": 1,
-  "timestamp": 1656825079112,
+  "timestamp": 1656877899627,
   "appData": {
-    "version": "0.8.2"
+    "version": "0.8.3"
   },
   "index": "gloomhavensecretary/index.html",
   "assetGroups": [
@@ -16,11 +16,11 @@
       "urls": [
         "gloomhavensecretary/favicon.ico",
         "gloomhavensecretary/index.html",
-        "gloomhavensecretary/main.3a2cb9f06832b2f5.js",
+        "gloomhavensecretary/main.c6c28b12df878166.js",
         "gloomhavensecretary/manifest.webmanifest",
         "gloomhavensecretary/polyfills.784fa05217d04250.js",
         "gloomhavensecretary/runtime.0269065d32db7f2e.js",
-        "gloomhavensecretary/styles.8fcabf1fc1ec54a9.css"
+        "gloomhavensecretary/styles.d040ae9e75f76503.css"
       ],
       "patterns": []
     },
@@ -84,7 +84,6 @@
         "gloomhavensecretary/assets/images/attackmodifier/plus0.png",
         "gloomhavensecretary/assets/images/attackmodifier/plus1.png",
         "gloomhavensecretary/assets/images/attackmodifier/plus2.png",
-        "gloomhavensecretary/assets/images/background.png",
         "gloomhavensecretary/assets/images/bg.png",
         "gloomhavensecretary/assets/images/character/border.png",
         "gloomhavensecretary/assets/images/character/char-bg.png",
@@ -173,7 +172,6 @@
         "gloomhavensecretary/assets/images/character/thumbnail/jotl-hatchet.png",
         "gloomhavensecretary/assets/images/character/thumbnail/jotl-red-guard.png",
         "gloomhavensecretary/assets/images/character/thumbnail/jotl-voidwarden.png",
-        "gloomhavensecretary/assets/images/check.svg",
         "gloomhavensecretary/assets/images/condition/bane.svg",
         "gloomhavensecretary/assets/images/condition/bless.svg",
         "gloomhavensecretary/assets/images/condition/brittle.svg",
@@ -225,7 +223,6 @@
         "gloomhavensecretary/assets/images/condition/ward.svg",
         "gloomhavensecretary/assets/images/condition/wound.svg",
         "gloomhavensecretary/assets/images/condition/wound_upgrade.svg",
-        "gloomhavensecretary/assets/images/dialog_arrow.png",
         "gloomhavensecretary/assets/images/dialog_border.png",
         "gloomhavensecretary/assets/images/element/air.svg",
         "gloomhavensecretary/assets/images/element/all.svg",
@@ -420,7 +417,7 @@
     "gloomhavensecretary/assets/data/cs.json": "6b1c21099588aeeadb08e033e9f9ad5cdd53d676",
     "gloomhavensecretary/assets/data/fc.json": "b42f5dca7f86eb62e9d10ba5e3fd15f298994b76",
     "gloomhavensecretary/assets/data/fh.json": "4bd55175fbd9bcc1dec1c9661251a2a1c2840c1b",
-    "gloomhavensecretary/assets/data/gh.json": "6432e14a134f4600583ea9e67df801ca8539bc5c",
+    "gloomhavensecretary/assets/data/gh.json": "4d233af9845eb58821ef82689e0a5ddc6614b41c",
     "gloomhavensecretary/assets/data/jotl.json": "5dcdd271266e13ff7b54940e3fead9756b90a657",
     "gloomhavensecretary/assets/font/HighTower.ttf": "0a26624d0fde9147ce63bb804ad1c2e2ddc7a804",
     "gloomhavensecretary/assets/font/PirataOne-Gloomhaven.ttf": "21c25adcd4f559bff7d01f1855b20c6ae30f7b9b",
@@ -467,7 +464,6 @@
     "gloomhavensecretary/assets/images/attackmodifier/plus0.png": "81def15238dc9a753449730789ac5b9cb95da1ad",
     "gloomhavensecretary/assets/images/attackmodifier/plus1.png": "3ae63c0caed29405a4ae037798d7850ad6c282dc",
     "gloomhavensecretary/assets/images/attackmodifier/plus2.png": "a028c8f375e946e9670dad0bec1952e4cd301b18",
-    "gloomhavensecretary/assets/images/background.png": "d8934ed81e8157a35414844bb2b9b39651295341",
     "gloomhavensecretary/assets/images/bg.png": "2add9d91e8baa79476b16a9ceab862aeb4e31328",
     "gloomhavensecretary/assets/images/character/border.png": "a4ff0f23c1383af797759ad92e53daeb4d238c82",
     "gloomhavensecretary/assets/images/character/char-bg.png": "8e5eeac1ab9d0c8b20da051681f1269d352fc106",
@@ -556,7 +552,6 @@
     "gloomhavensecretary/assets/images/character/thumbnail/jotl-hatchet.png": "65a5d3ed9f1e4cefc6c5ef6022509788b9464e4e",
     "gloomhavensecretary/assets/images/character/thumbnail/jotl-red-guard.png": "122247a9a250c252986ec9088d2788acedbe1a6c",
     "gloomhavensecretary/assets/images/character/thumbnail/jotl-voidwarden.png": "83776ff8f4087b08c3575c04a8fdc1e37cfbf8a1",
-    "gloomhavensecretary/assets/images/check.svg": "635f447f6ce9f7f411aecafeaa96bbcbe8464412",
     "gloomhavensecretary/assets/images/condition/bane.svg": "b382c4fca70a8043042385328bd941d819862999",
     "gloomhavensecretary/assets/images/condition/bless.svg": "55dd5565a407caf2630cfd9ee575dea834d0d44a",
     "gloomhavensecretary/assets/images/condition/brittle.svg": "acda5fc194bdedae389c292998cd747cdcdd5c4c",
@@ -608,7 +603,6 @@
     "gloomhavensecretary/assets/images/condition/ward.svg": "7e058e02b082145c08195e86ec632d9780b6fa9b",
     "gloomhavensecretary/assets/images/condition/wound.svg": "2ef2ebd3d2cd213c33b23519eaa462e90a692bcf",
     "gloomhavensecretary/assets/images/condition/wound_upgrade.svg": "5fad5327719e84955783ed9410ada31c75945043",
-    "gloomhavensecretary/assets/images/dialog_arrow.png": "c26f2a3c1e3222a03fb70b08386eb8f51c666a2f",
     "gloomhavensecretary/assets/images/dialog_border.png": "85dfa2212ac8e4989990607a65664f7471c145e3",
     "gloomhavensecretary/assets/images/element/air.svg": "519aad7d78976032fb06931f86020eda25d07477",
     "gloomhavensecretary/assets/images/element/all.svg": "4e1cb3ca2323d9cbb335acffdfef376861874733",
@@ -751,7 +745,7 @@
     "gloomhavensecretary/assets/images/plus.svg": "460dc9eff3d74bdd1f32e41e5217da4015f4f648",
     "gloomhavensecretary/assets/images/right.svg": "e87d519bef6fa1def8f4dba26188e97461203eb8",
     "gloomhavensecretary/assets/images/server-connection.svg": "45bb663e88eef6d629da47b36143c82f3061c2e2",
-    "gloomhavensecretary/assets/images/shuffle.svg": "541c23d3ed2fee1e76998ca4829f952719315137",
+    "gloomhavensecretary/assets/images/shuffle.svg": "77677f9a40e7231c8dc749ce3b45103ed75f505a",
     "gloomhavensecretary/assets/images/status/bless.svg": "55dd5565a407caf2630cfd9ee575dea834d0d44a",
     "gloomhavensecretary/assets/images/status/curse.svg": "ca63cd53aa09ba0bad464e77018c7b4c3e746eb2",
     "gloomhavensecretary/assets/images/status/dead.svg": "fc42c327d7a029d7bb887c1afbdc546489a36ac6",
@@ -772,8 +766,8 @@
     "gloomhavensecretary/assets/images/summons/yellow.png": "6d83dfe42ff5b23f49f324ead11784ef4e3e95c3",
     "gloomhavensecretary/assets/images/trap.svg": "8196ce436d2adf0eedb5c5baf3245f165909ac47",
     "gloomhavensecretary/assets/images/warning.svg": "e091847da80ee70b51c266f09e2e6ec91da5cb65",
-    "gloomhavensecretary/assets/locales/de.json": "4bb18c36b364fb1c940b2ea785fe77f91487a982",
-    "gloomhavensecretary/assets/locales/en.json": "6dfbec22254cfbecdc9d5ee71cacbb72a98f93e2",
+    "gloomhavensecretary/assets/locales/de.json": "8a3bcbf2cc2a808ae75d2dbd9359d830d4398f32",
+    "gloomhavensecretary/assets/locales/en.json": "e10871091fe7fc024374882f802e1e30beff1a99",
     "gloomhavensecretary/bg.8dca3c92b9f01fe4.png": "2add9d91e8baa79476b16a9ceab862aeb4e31328",
     "gloomhavensecretary/boss.7cd3a0cd2a819afa.png": "b1e39d37ea500e6cbebc911155be4cced7bd920b",
     "gloomhavensecretary/card.05eaba98487aab01.png": "2cda62899c14feea2a5dfa9c39a632e3acc77f67",
@@ -786,8 +780,8 @@
     "gloomhavensecretary/front.fd30122e0a945f58.png": "a0c88ff33c0625b444f79a5c8db61bcfb7ba1093",
     "gloomhavensecretary/header.24c0469502696b46.png": "25f3ece27efd7584a50c341ea90ba9a0513c7841",
     "gloomhavensecretary/immunity.5d026de2db8a1d8f.svg": "ad20fc18e93269c79312170674c6008615438f9b",
-    "gloomhavensecretary/index.html": "6376de5313cddddab72231e10e7ceecd0c2a6e75",
-    "gloomhavensecretary/main.3a2cb9f06832b2f5.js": "7142d4db7f05f62c20631ffe542b0431caa7b4dd",
+    "gloomhavensecretary/index.html": "3403422bcafb61ebbf2577e9370b8d7763017ccc",
+    "gloomhavensecretary/main.c6c28b12df878166.js": "ecfb6a73ee97f20c0c5b3e699e13fccd3268dd66",
     "gloomhavensecretary/majallab.00c7b4c865792c45.ttf": "cd2e9e61aca39d2b987b66e4c2a0a3ea13c3be48",
     "gloomhavensecretary/manifest.webmanifest": "20b7c49ef090b8f20d2397f9f631bdca2c64ffcd",
     "gloomhavensecretary/minus.97c98a810771fceb.svg": "de4a30390082572ba48e52e102dd4fb2dabffa81",
@@ -798,7 +792,7 @@
     "gloomhavensecretary/polyfills.784fa05217d04250.js": "133ddc84a5d771343106e99cc30e6cccc62467e4",
     "gloomhavensecretary/runtime.0269065d32db7f2e.js": "b302558fd0ee2307d99ca4df1eb66f6f672d5046",
     "gloomhavensecretary/standard.a54477c1eda06c8b.png": "b7464c7a959660e975135cd86cac578f69c63a30",
-    "gloomhavensecretary/styles.8fcabf1fc1ec54a9.css": "307ec4874c5e823829fb0741816bb00bf5a34ed7"
+    "gloomhavensecretary/styles.d040ae9e75f76503.css": "1661dc7e49a8bff31032272929568c1e80ac31cd"
   },
   "navigationUrls": [
     {
