@@ -56,6 +56,7 @@
     "calc": "Zeige berechnete Werte an",
     "eliteFirst": "Elite Aufsteller zuerst",
     "expireConditions": "Automatisch Zustände löschen",
+    "applyConditions" : "Zustände automatisch anweden",
     "moveElements": "Automatisch Elementen Status ändern",
     "randomStandees": "Zufällige Aufsteller",
     "zoomIn": "Reinzoomen",
