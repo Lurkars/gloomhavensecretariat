@@ -3,7 +3,7 @@ import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { Condition, RoundCondition } from 'src/app/game/model/Condition';
+import { Condition, ConditionType } from 'src/app/game/model/Condition';
 import { GameState } from 'src/app/game/model/Game';
 import { Summon } from 'src/app/game/model/Summon';
 import { DialogComponent } from '../../dialog/dialog';
@@ -23,7 +23,7 @@ export class CharacterComponent extends DialogComponent {
   characterManager: CharacterManager = gameManager.characterManager;
 
   GameState = GameState;
-  Conditions = Condition;
+  ConditionType = ConditionType;
   health: number = 0;
   experience: number = 0;
   loot: number = 0;
@@ -39,15 +39,9 @@ export class CharacterComponent extends DialogComponent {
 
   changeHealth(value: number) {
     gameManager.stateManager.before();
-    this.character.health += value;
-    this.health += value;
-    if (this.character.health > this.character.maxHealth) {
-      this.character.health = this.character.maxHealth;
-      this.health -= value;
-    } else if (this.character.health < 0) {
-      this.character.health = 0;
-      this.health -= value;
-    }
+    const old = this.character.health;
+    gameManager.entityManager.changeHealth(this.character, value);
+    this.health += this.character.health - old;
     gameManager.stateManager.after();
   }
 
@@ -75,25 +69,12 @@ export class CharacterComponent extends DialogComponent {
   }
 
   hasCondition(condition: Condition) {
-    return this.character.conditions.indexOf(condition) != -1;
+    return gameManager.entityManager.hasCondition(this.character, condition);
   }
 
   toggleCondition(condition: Condition) {
     gameManager.stateManager.before();
-    if (!this.hasCondition(condition)) {
-      this.character.conditions.push(condition);
-      if (!this.character.active) {
-        for (let roundCondition in RoundCondition) {
-          if (this.character.conditions.indexOf(roundCondition as Condition) != -1 && this.character.turnConditions.indexOf(roundCondition as Condition) == -1) {
-            this.character.turnConditions.push(roundCondition as Condition);
-          }
-        }
-      }
-    } else {
-      this.character.conditions.splice(this.character.conditions.indexOf(condition), 1);
-      this.character.turnConditions.splice(this.character.turnConditions.indexOf(condition), 1);
-      this.character.expiredConditions.splice(this.character.expiredConditions.indexOf(condition), 1);
-    }
+    gameManager.entityManager.toggleCondition(this.character, condition, this.character.active, this.character.off);
     gameManager.stateManager.after();
   }
 
@@ -101,7 +82,7 @@ export class CharacterComponent extends DialogComponent {
     gameManager.stateManager.before();
     this.character.exhausted = !this.character.exhausted;
     if (this.character.exhausted) {
-      gameManager.endTurn(this.character);
+      gameManager.afterTurn(this.character);
     }
     gameManager.sortFigures();
     gameManager.stateManager.after();

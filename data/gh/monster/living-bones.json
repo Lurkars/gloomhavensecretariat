@@ -74,6 +74,10 @@
         {
           "type": "target",
           "value": 2
+        },
+        {
+          "type": "shield",
+          "value": 1
         }
       ],
       "attack": 3,

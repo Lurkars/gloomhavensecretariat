@@ -14,6 +14,7 @@ export class FooterComponent extends DialogComponent {
 
   gameManager: GameManager = gameManager;
   GameState = GameState;
+  currentTime: string = "";
 
   next(force: boolean = false): void {
     if (!force && this.disabled()) {
@@ -23,7 +24,7 @@ export class FooterComponent extends DialogComponent {
       gameManager.stateManager.before();
       const activeFigure = gameManager.game.figures.find((figure: Figure) => figure.active && !figure.off);
       if (!this.active() && activeFigure) {
-        gameManager.endTurn(activeFigure);
+        gameManager.afterTurn(activeFigure);
       }
       gameManager.nextGameState();
       gameManager.stateManager.after(1000);
@@ -31,7 +32,7 @@ export class FooterComponent extends DialogComponent {
   }
 
   confirmTurns() {
-    gameManager.game.figures.forEach((figure: Figure) => gameManager.endTurn(figure));
+    gameManager.game.figures.forEach((figure: Figure) => gameManager.afterTurn(figure));
     this.next(true);
   }
 
@@ -64,5 +65,26 @@ export class FooterComponent extends DialogComponent {
   nextDisabled(): boolean {
     return this.active();
   }
+
+
+  override ngOnInit(): void {
+    super.ngOnInit();
+
+    setInterval(() => {
+      let seconds = (new Date().getTime() - gameManager.sessionTimestamp) / 1000;
+      this.currentTime = "";
+      if (seconds / 3600 >= 1) {
+        this.currentTime += Math.floor(seconds / 3600) + "h ";
+        seconds = seconds % 3600;
+      }
+
+      if (seconds / 60 >= 1) {
+        this.currentTime += (this.currentTime && Math.floor(seconds / 60) < 10 ? '0' : '') + Math.floor(seconds / 60) + "m ";
+        seconds = seconds % 60;
+      }
+      this.currentTime += (seconds < 10 ? '0' : '') + Math.floor(seconds) + "s";
+    }, 1000)
+  }
+
 }
 

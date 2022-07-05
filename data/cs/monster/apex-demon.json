@@ -1,0 +1,101 @@
+{
+  "name": "apex-demon",
+  "edition": "cs",
+  "thumbnail" : "gh-earth-demon",
+  "deck": "boss",
+  "count": 6,
+  "boss": true,
+  "hidden": true,
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "immobilize",
+      "disarm",
+      "curse",
+      "wound",
+      "stun"
+    ],
+    "special": [],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "10x(C+1)",
+      "movement": 2,
+      "attack": 4
+    },
+    {
+      "level": 1,
+      "health": "13x(C+1)",
+      "movement": 2,
+      "attack": 4
+    },
+    {
+      "level": 2,
+      "health": "18x(C+1)",
+      "movement": 2,
+      "attack": 4
+    },
+    {
+      "level": 3,
+      "health": "20x(C+1)",
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "21x(C+1)",
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "25x(C+1)",
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "27x(C+1)",
+      "movement": 3,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "32x(C+1)",
+      "movement": 3,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    }
+  ]
+}

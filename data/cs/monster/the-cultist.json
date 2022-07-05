@@ -1,0 +1,84 @@
+{
+  "name": "the-cultist",
+  "edition": "cs",
+  "thumbnail": "gh-cultist",
+  "deck": "boss",
+  "count": 6,
+  "boss": true,
+  "hidden": true,
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "immobilize",
+      "disarm",
+      "stun"
+    ],
+    "special": [],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "7x(C+1)",
+      "movement": 2,
+      "attack": 2
+    },
+    {
+      "level": 1,
+      "health": "9x(C+1)",
+      "movement": 2,
+      "attack": 2
+    },
+    {
+      "level": 2,
+      "health": "12x(C+1)",
+      "movement": 2,
+      "attack": 2
+    },
+    {
+      "level": 3,
+      "health": "13x(C+1)",
+      "movement": 3,
+      "attack": 2,
+      "actions": [
+        {}
+      ]
+    },
+    {
+      "level": 4,
+      "health": "15x(C+1)",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {}
+      ]
+    },
+    {
+      "level": 5,
+      "health": "18x(C+1)",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {}
+      ]
+    },
+    {
+      "level": 6,
+      "health": "22x(C+1)",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {}
+      ]
+    },
+    {
+      "level": 7,
+      "health": "25x(C+1)",
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {}
+      ]
+    }
+  ]
+}

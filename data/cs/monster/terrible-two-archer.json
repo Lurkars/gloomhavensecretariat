@@ -1,0 +1,174 @@
+{
+  "name": "terrible-two-archer",
+  "edition": "cs",
+  "thumbnail": "gh-bandit-archer",
+  "deck": "boss",
+  "count": 6,
+  "boss": true,
+  "hidden": true,
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "disarm",
+      "muddle",
+      "stun",
+      "curse"
+    ],
+    "special": [],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "6x(C+2)",
+      "movement": 2,
+      "attack": 3,
+      "range": 3,
+      "actions": [
+        {
+          "type": "target",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "jump"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": "7x(C+2)",
+      "movement": 2,
+      "attack": 3,
+      "range": 5,
+      "actions": [
+        {
+          "type": "target",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "jump"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "9x(C+2)",
+      "movement": 3,
+      "attack": 3,
+      "range": 5,
+      "actions": [
+        {
+          "type": "target",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "jump"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "10x(C+2)",
+      "movement": 3,
+      "attack": 4,
+      "range": 5,
+      "actions": [
+        {
+          "type": "target",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "jump"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "10x(C+2)",
+      "movement": 3,
+      "attack": 4,
+      "range": 6,
+      "actions": [
+        {
+          "type": "target",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "jump"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "12x(C+2)",
+      "movement": 4,
+      "attack": 4,
+      "range": 6,
+      "actions": [
+        {
+          "type": "target",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "jump"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "13x(C+2)",
+      "movement": 4,
+      "attack": 5,
+      "range": 6,
+      "actions": [
+        {
+          "type": "target",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "jump"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "17x(C+2)",
+      "movement": 4,
+      "attack": 5,
+      "range": 6,
+      "actions": [
+        {
+          "type": "target",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "jump"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    }
+  ]
+}

@@ -19,23 +19,40 @@ export class ScenarioMenuComponent {
 
   setEdition(edition: string) {
     this.edition = edition;
-    gameManager.stateManager.before();
-    gameManager.setScenario(undefined);
-    gameManager.stateManager.after();
   }
 
-  scenarios(): number[] {
+  groups(): (string | undefined)[] {
     if (!this.edition) {
       return [];
     }
-    return gameManager.scenarioData(true).filter((scenarioData: ScenarioData) => scenarioData.edition == this.edition).map((scenarioData: ScenarioData) => scenarioData.index).sort((a, b) => a - b);
+
+    return gameManager.scenarioData(true).filter((scenarioData: ScenarioData) => scenarioData.edition == this.edition).map((scenarioData: ScenarioData) => scenarioData.group).filter((value: string | undefined, index: number, self: (string | undefined)[]) => self.indexOf(value) === index);
+  }
+
+  scenarios(group: string | undefined = undefined): ScenarioData[] {
+    if (!this.edition) {
+      return [];
+    }
+
+    return gameManager.scenarioData(true).filter((scenarioData: ScenarioData) => scenarioData.edition == this.edition && scenarioData.group == group).sort((a, b) => {
+      if (!isNaN(+a.index) && !isNaN(+b.index)) {
+        return +a.index - +b.index;
+      }
+
+      return a.index.toLowerCase() < b.index.toLowerCase() ? -1 : 1
+    });
   }
 
   maxScenario() {
-    return Math.max(...this.scenarios());
+    return Math.max(...this.scenarios().map((scnearioData: ScenarioData) => scnearioData.index.length));
   }
 
-  setScenario(index: number) {
+  hasScenario(scnearioData: ScenarioData): boolean {
+    return gameManager.game.scenario != undefined && gameManager.game.scenario.edition == scnearioData.edition && gameManager.game.scenario.index == scnearioData.index && gameManager.game.scenario.group == scnearioData.group;
+
+  }
+
+  setScenario(index: string) {
     const scenarioData: ScenarioData | undefined = gameManager.scenarioData().find((scenario: ScenarioData) => scenario.edition == this.edition && scenario.index == index);
     gameManager.stateManager.before();
     gameManager.setScenario(scenarioData as Scenario)
@@ -46,7 +63,7 @@ export class ScenarioMenuComponent {
     if (!gameManager.game.scenario || !gameManager.game.scenario.custom) {
       this.edition = undefined;
       gameManager.stateManager.before();
-      gameManager.setScenario(new Scenario("", 0, [], [], "", false, true));
+      gameManager.setScenario(new Scenario("", "0", [], [], "", true));
       gameManager.stateManager.after();
     }
   }

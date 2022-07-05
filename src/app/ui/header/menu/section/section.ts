@@ -22,19 +22,36 @@ export class SectionMenuComponent {
     return gameManager.editionData.filter((editionData: EditionData) => editionData.sections && editionData.sections.length > 0).map((editionData: EditionData) => editionData.edition);
   }
 
-  sections(): SectionData[] {
+
+  groups(): (string | undefined)[] {
     if (!this.edition) {
       return [];
     }
-    return gameManager.sectionData(true).filter((sectionData: SectionData) => sectionData.edition == this.edition).sort((a, b) => a.index - b.index);
+
+    return gameManager.sectionData(true).filter((sectionData: SectionData) => sectionData.edition == this.edition).map((sectionData: SectionData) => sectionData.group).filter((value: string | undefined, index: number, self: (string | undefined)[]) => self.indexOf(value) === index);
+  }
+
+  sections(group: string | undefined = undefined): SectionData[] {
+    if (!this.edition) {
+      return [];
+    }
+    return gameManager.sectionData(true).filter((sectionData: SectionData) => sectionData.edition == this.edition && sectionData.group == group).sort((sA, sB) => {
+      const a = sA.index;
+      const b = sB.index;
+      if (!isNaN(+a) && !isNaN(+b)) {
+        return +a - +b;
+      }
+
+      return a.toLowerCase() < b.toLowerCase() ? -1 : 1
+    });
   }
 
   maxSection() {
-    return Math.max(...this.sections().map((sectionData: SectionData) => sectionData.index));
+    return Math.max(...this.sections().map((sectionData: SectionData) => sectionData.index.length));
   }
 
   hasSection(sectionData: SectionData): boolean {
-    return gameManager.game.sections && gameManager.game.sections.some((value: SectionData) => value.edition == sectionData.edition && value.index == sectionData.index);
+    return gameManager.game.sections && gameManager.game.sections.some((value: SectionData) => value.edition == sectionData.edition && value.index == sectionData.index && value.group == sectionData.group);
   }
 
   addSection(sectionData: SectionData) {

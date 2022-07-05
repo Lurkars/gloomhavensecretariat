@@ -3,6 +3,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Action, ActionValueType } from 'src/app/game/model/Action';
+import { EntityCondition } from 'src/app/game/model/Condition';
 import { Editional } from 'src/app/game/model/Editional';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 
@@ -102,6 +103,17 @@ export class GhsEditionFilterPipe implements PipeTransform {
       return value.filter((value: Editional) => value.edition == args[ 0 ]);
     }
     return value.filter((value: Editional) => gameManager.game.edition == undefined || value.edition == gameManager.game.edition);
+  }
+}
+
+
+@Pipe({
+  name: 'ghsActiveConditions', pure: false
+})
+export class GhsActiveConditionsPipe implements PipeTransform {
+
+  transform(value: EntityCondition[], ...args: string[]): any[] {
+    return value.filter((value: EntityCondition) => !value.expired);
   }
 }
 

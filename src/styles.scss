@@ -217,29 +217,44 @@ ghs-main {
   }
 }
 
-@keyframes shake-animation {
+@keyframes shake {
 
   8%,
   41% {
-    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
   }
 
   25%,
   58% {
-    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
   }
 
   75% {
-    -webkit-transform: translateX(-5px);
+    transform: translateX(-5px);
   }
 
   92% {
-    -webkit-transform: translateX(5px);
+    transform: translateX(5px);
   }
 
   0%,
   100% {
-    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+@keyframes condition-hightlight {
+
+  0% {
+    transform: scale(0);
+  }
+
+  25%, 50% {
+    transform: scale(1) translateY(-70%);
+  }
+
+  100% {
+    transform: scale(0);
   }
 }
 

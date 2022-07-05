@@ -1,0 +1,423 @@
+{
+  "name": "inox-bloodguard",
+  "edition": "cs",
+  "deck": "boss",
+  "count": 2,
+  "boss": true,
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "muddle",
+      "immobilize",
+      "stun",
+      "curse",
+      "disarm"
+    ],
+    "special": [],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "8xC",
+      "movement": 3,
+      "attack": 2,
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": "1",
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "jump"
+              }
+            ]
+          },
+          {
+            "type": "attack",
+            "value": "1",
+            "valueType": "plus"
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "push",
+            "value": "3"
+          },
+          {
+            "type": "shield",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "level": 1,
+      "health": "9xC",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "1"
+        }
+      ],
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": "1",
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "jump"
+              }
+            ]
+          },
+          {
+            "type": "attack",
+            "value": "1",
+            "valueType": "plus"
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "push",
+            "value": "3"
+          },
+          {
+            "type": "shield",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "level": 2,
+      "health": "11xC",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "1"
+        }
+      ],
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": "1",
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "jump"
+              }
+            ]
+          },
+          {
+            "type": "attack",
+            "value": "1",
+            "valueType": "plus"
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "push",
+            "value": "3"
+          },
+          {
+            "type": "shield",
+            "value": "1"
+          }
+        ]
+      ]
+    },
+    {
+      "level": 3,
+      "health": "13xC",
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "2"
+        }
+      ],
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": "1",
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "jump"
+              }
+            ]
+          },
+          {
+            "type": "attack",
+            "value": "1",
+            "valueType": "plus"
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "push",
+            "value": "3"
+          },
+          {
+            "type": "shield",
+            "value": "2"
+          }
+        ]
+      ]
+    },
+    {
+      "level": 4,
+      "health": "16xC",
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "2"
+        }
+      ],
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": "1",
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "jump"
+              }
+            ]
+          },
+          {
+            "type": "attack",
+            "value": "1",
+            "valueType": "plus"
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "push",
+            "value": "3"
+          },
+          {
+            "type": "shield",
+            "value": "2"
+          }
+        ]
+      ]
+    },
+    {
+      "level": 5,
+      "health": "18xC",
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "3"
+        }
+      ],
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": "1",
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "jump"
+              }
+            ]
+          },
+          {
+            "type": "attack",
+            "value": "1",
+            "valueType": "plus"
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "push",
+            "value": "3"
+          },
+          {
+            "type": "shield",
+            "value": "3"
+          }
+        ]
+      ]
+    },
+    {
+      "level": 6,
+      "health": "24xC",
+      "movement": 5,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "3"
+        }
+      ],
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": "1",
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "jump"
+              }
+            ]
+          },
+          {
+            "type": "attack",
+            "value": "1",
+            "valueType": "plus"
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "push",
+            "value": "3"
+          },
+          {
+            "type": "shield",
+            "value": "3"
+          }
+        ]
+      ]
+    },
+    {
+      "level": 7,
+      "health": "24xC",
+      "movement": 5,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "4"
+        }
+      ],
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": "1",
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "jump"
+              }
+            ]
+          },
+          {
+            "type": "attack",
+            "value": "1",
+            "valueType": "plus"
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": "0",
+            "valueType": "plus"
+          },
+          {
+            "type": "push",
+            "value": "3"
+          },
+          {
+            "type": "shield",
+            "value": "4"
+          }
+        ]
+      ]
+    }
+  ]
+}

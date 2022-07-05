@@ -1,0 +1,301 @@
+{
+  "name": "harrower-aegis",
+  "edition": "cs",
+  "count": 1,
+  "baseStat": {
+    "actions": [],
+    "immunities": [],
+    "special": [],
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 8,
+      "movement": 1,
+      "attack": 1,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "1"
+        },
+        {
+          "type": "range",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": 11,
+      "movement": 1,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "1"
+        },
+        {
+          "type": "range",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 14,
+      "movement": 1,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "1"
+        },
+        {
+          "type": "range",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 17,
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "1"
+        },
+        {
+          "type": "range",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 20,
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "2"
+        },
+        {
+          "type": "range",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 23,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "2"
+        },
+        {
+          "type": "range",
+          "value": "^3"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 26,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "3"
+        },
+        {
+          "type": "range",
+          "value": "3"
+        },
+        {
+          "type": "condition",
+          "value": "stun"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 30,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "4"
+        },
+        {
+          "type": "range",
+          "value": "3"
+        },
+        {
+          "type": "condition",
+          "value": "stun"
+        }
+      ]
+    },
+    {
+      "level": 0,
+      "health": 12,
+      "movement": 1,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "1"
+        },
+        {
+          "type": "range",
+          "value": "2"
+        }
+      ],
+      "type": "elite"
+    },
+    {
+      "level": 1,
+      "health": 16,
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "1"
+        },
+        {
+          "type": "range",
+          "value": "2"
+        }
+      ],
+      "type": "elite"
+    },
+    {
+      "level": 2,
+      "health": 20,
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "1"
+        },
+        {
+          "type": "range",
+          "value": "3"
+        }
+      ],
+      "type": "elite"
+    },
+    {
+      "level": 3,
+      "health": 24,
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "2"
+        },
+        {
+          "type": "range",
+          "value": "3"
+        }
+      ],
+      "type": "elite"
+    },
+    {
+      "level": 4,
+      "health": 28,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "2"
+        },
+        {
+          "type": "range",
+          "value": "3"
+        },
+        {
+          "type": "condition",
+          "value": "stun"
+        }
+      ],
+      "type": "elite"
+    },
+    {
+      "level": 5,
+      "health": 32,
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "3"
+        },
+        {
+          "type": "range",
+          "value": "3"
+        },
+        {
+          "type": "condition",
+          "value": "stun"
+        }
+      ],
+      "type": "elite"
+    },
+    {
+      "level": 6,
+      "health": 38,
+      "movement": 3,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "4"
+        },
+        {
+          "type": "range",
+          "value": "3"
+        },
+        {
+          "type": "condition",
+          "value": "stun"
+        }
+      ],
+      "type": "elite"
+    },
+    {
+      "level": 7,
+      "health": 42,
+      "movement": 3,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "4"
+        },
+        {
+          "type": "range",
+          "value": "3"
+        },
+        {
+          "type": "condition",
+          "value": "stun"
+        }
+      ],
+      "type": "elite"
+    }
+  ]
+}

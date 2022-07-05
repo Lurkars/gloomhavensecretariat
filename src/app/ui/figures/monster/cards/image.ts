@@ -14,10 +14,10 @@ export class MonsterImageComponent {
   gameManager: GameManager = gameManager;
   GameState = GameState;
 
-  toggleOff() {
+  toggleFigure() {
     if (gameManager.game.state == GameState.next) {
       gameManager.stateManager.before();
-      gameManager.toggleOff(this.monster);
+      gameManager.toggleFigure(this.monster);
       gameManager.stateManager.after();
     }
   }

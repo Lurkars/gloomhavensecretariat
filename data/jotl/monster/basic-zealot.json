@@ -2,6 +2,7 @@
   "count": 6,
   "edition": "jotl",
   "name": "basic-zealot",
+  "thumbnail" : "jotl-zealot",
   "hidden" : true,
   "baseStat": {
     "actions": [],

@@ -10,6 +10,7 @@ import { Ability } from "../model/Ability";
 import { SummonState } from "../model/Summon";
 import { settingsManager } from "./SettingsManager";
 import { FigureError } from "../model/FigureError";
+import { ConditionType, EntityCondition, EntityConditionState } from "../model/Condition";
 
 export class MonsterManager {
 
@@ -20,10 +21,14 @@ export class MonsterManager {
   }
 
   monsterThumbnail(monsterData: MonsterData) {
-    if (monsterData.thumbnail) {
-      return monsterData.thumbnail;
+    if (monsterData.thumbnailUrl) {
+      return monsterData.thumbnailUrl;
     }
-    return './assets/images/monster/thumbnail/' + monsterData.edition + '-' + monsterData.name + '.png';
+
+    if (!monsterData.thumbnail) {
+      monsterData.thumbnail = monsterData.edition + '-' + monsterData.name;
+    }
+    return './assets/images/monster/thumbnail/' + monsterData.thumbnail + '.png';
   }
 
   addMonster(monsterData: MonsterData) {
@@ -96,7 +101,7 @@ export class MonsterManager {
     monster.entities.splice(monster.entities.indexOf(monsterEntity), 1);
     if (monster.entities.length == 0) {
       if (!monster.off && gameManager.game.state == GameState.next) {
-        gameManager.toggleOff(monster);
+        gameManager.toggleFigure(monster);
         monster.active = false;
       } else {
         monster.off = true;
@@ -153,7 +158,13 @@ export class MonsterManager {
 
         if (settingsManager.settings.expireConditions) {
           figure.entities.forEach((monsterEntity: MonsterEntity) => {
-            monsterEntity.expiredConditions = [];
+            monsterEntity.entityConditions = monsterEntity.entityConditions.filter((entityCondition: EntityCondition) => !entityCondition.expired);
+          });
+        }
+
+        if (settingsManager.settings.calculate) {
+          figure.entities.forEach((monsterEntity: MonsterEntity) => {
+            monsterEntity.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn)).forEach((entityCondition: EntityCondition) => entityCondition.state = EntityConditionState.normal);
           });
         }
 

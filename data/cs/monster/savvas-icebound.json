@@ -1,0 +1,177 @@
+{
+  "name": "savvas-icebound",
+  "edition": "cs",
+  "thumbnail": "gh-savvas-icestorm",
+  "deck": "boss",
+  "count": 4,
+  "boss": true,
+  "hidden": true,
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "immobilize",
+      "disarm",
+      "stun",
+      "poison",
+      "pull",
+      "push"
+    ],
+    "special": [
+      [
+        {
+          "type": "custom",
+          "value": "Reference the scenario"
+        },
+        {
+          "type": "custom",
+          "value": "Special Rules"
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "Reference the scenario"
+        },
+        {
+          "type": "custom",
+          "value": "Special Rules"
+        }
+      ]
+    ],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "12xC",
+      "movement": 2,
+      "attack": 3,
+      "range": 4,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": "12xC",
+      "movement": 2,
+      "attack": 3,
+      "range": 5,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "3"
+        },
+        {
+          "type": "shield",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "15xC",
+      "movement": 3,
+      "attack": 3,
+      "range": 5,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "3"
+        },
+        {
+          "type": "shield",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "18xC",
+      "movement": 3,
+      "attack": 4,
+      "range": 6,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "3"
+        },
+        {
+          "type": "shield",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "19xC",
+      "movement": 4,
+      "attack": 4,
+      "range": 6,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "3"
+        },
+        {
+          "type": "shield",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "21xC",
+      "movement": 4,
+      "attack": 5,
+      "range": 6,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "3"
+        },
+        {
+          "type": "shield",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "23xC",
+      "movement": 4,
+      "attack": 6,
+      "range": 6,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "3"
+        },
+        {
+          "type": "shield",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "24xC",
+      "movement": 4,
+      "attack": 6,
+      "range": 6,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "4"
+        },
+        {
+          "type": "shield",
+          "value": "3"
+        }
+      ]
+    }
+  ]
+}

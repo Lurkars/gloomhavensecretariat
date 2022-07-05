@@ -11,9 +11,13 @@ For usage with multiple clients sharing the same game, the server component [Glo
 > SPOILER WARNING:
 > The `label.json` files inside the `data`-folder and therefore the final edition data files inside the `src/assets/data`-folder contain spoilers by including the corresponding label.
 
+## Support
+
+☕ [Buy me a coffee?](https://www.buymeacoffee.com/Lurkars)
+
 ## Current Features
 
-- Feature complete for base GH and JOTL (mostly complete for FC, only Diviner mechanics missing)
+- Feature complete for base GH, JOTL and FC
 - Tracking:
   - **initiative** sorting
   - **health** automatic exhausting/dead, max values for every level
@@ -40,9 +44,9 @@ For usage with multiple clients sharing the same game, the server component [Glo
 ## Missing / Upcoming
 
 - monster/scenario data of FH, CS (WIP)
-- upgradable/stackable conditions (WIP)
 - tools like monster editor to create/update monster stats and abilities via UI (WIP)
 - goals ~~and section~~ mechanic
+- ~~upgradable/stackable conditions~~
 - ~~i18n/icons for custom actions~~
 - ~~i18n support~~
 - ~~summons~~
@@ -96,10 +100,11 @@ Also pull requests are welcome!
 
 Gloomhaven and all related properties, images and text are owned by [Cephalofair Games](https://cephalofair.com).
 
-Assets used:
+Assets/Data used:
 
 - [Creator Pack by Isaac Childres](https://boardgamegeek.com/thread/1733586/files-creation) CC BY-NC-SA 4.0
 - [Worldhaven](https://github.com/any2cards/worldhaven)
+- [FrosthavenAssistant](https://github.com/Tarmslitaren/FrosthavenAssistant)
 - [Haven Keeper](https://github.com/PrimalZed/haven-keeper)
 - some other assets used are public domain licensed
 

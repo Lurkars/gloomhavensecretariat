@@ -1,4 +1,4 @@
-import { Condition } from "./Condition";
+import { ConditionName, EntityCondition, EntityConditionState, GameEntityConditionModel } from "./Condition";
 import { Entity } from "./Entity";
 
 export enum SummonState {
@@ -34,9 +34,7 @@ export class Summon implements Entity {
   level: number;
   health: number;
   maxHealth: number;
-  conditions: Condition[] = [];
-  turnConditions: Condition[] = [];
-  expiredConditions: Condition[] = [];
+  entityConditions: EntityCondition[] = [];
   markers: string[] = [];
 
   constructor(level: number, number: number, color: SummonColor, maxHealth: number = 2, attack: number = 0,
@@ -53,7 +51,7 @@ export class Summon implements Entity {
   }
 
   toModel(): GameSummonModel {
-    return new GameSummonModel(this.number, this.color, this.attack, this.movement, this.range, this.dead, this.state, this.level, this.health, this.maxHealth, this.conditions, this.turnConditions, this.expiredConditions, this.markers);
+    return new GameSummonModel(this.number, this.color, this.attack, this.movement, this.range, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition: EntityCondition) => condition.toModel()), this.markers);
   }
 
   fromModel(model: GameSummonModel) {
@@ -67,10 +65,31 @@ export class Summon implements Entity {
     this.level = model.level;
     this.health = model.health;
     this.maxHealth = model.maxHealth;
-    this.conditions = model.conditions;
-    this.turnConditions = model.turnConditions;
+    this.entityConditions = [];
+    if (model.entityConditions) {
+      this.entityConditions = model.entityConditions.map((gecm: GameEntityConditionModel) => {
+        let condition = new EntityCondition(gecm.name, gecm.value);
+        condition.fromModel(gecm);
+        return condition;
+      });
+    }
+
     this.markers = model.markers;
     this.init = false;
+
+    // migration
+    if (model.conditions) {
+      model.conditions.forEach((value: string) => {
+        let entityCondition = new EntityCondition(value as ConditionName);
+        if (model.turnConditions && model.turnConditions.indexOf(value) != -1) {
+          entityCondition.state = EntityConditionState.expire;
+        }
+        if (model.expiredConditions && model.expiredConditions.indexOf(value) != -1) {
+          entityCondition.expired = true;
+        }
+        this.entityConditions.push(entityCondition);
+      })
+    }
   }
 
 }
@@ -86,10 +105,13 @@ export class GameSummonModel {
   level: number;
   health: number;
   maxHealth: number;
-  conditions: Condition[];
-  turnConditions: Condition[];
-  expiredConditions: Condition[];
+  entityConditions: GameEntityConditionModel[];
   markers: string[];
+
+  // depreacted
+  conditions: string[] = [];
+  turnConditions: string[] = [];
+  expiredConditions: string[] = [];
 
 
   constructor(number: number,
@@ -102,9 +124,7 @@ export class GameSummonModel {
     level: number,
     health: number,
     maxHealth: number,
-    conditions: Condition[],
-    turnConditions: Condition[],
-    expiredConditions: Condition[],
+    entityConditions: GameEntityConditionModel[],
     markers: string[]) {
     this.number = number;
     this.color = color;
@@ -116,9 +136,7 @@ export class GameSummonModel {
     this.level = level;
     this.health = health;
     this.maxHealth = maxHealth;
-    this.conditions = conditions;
-    this.turnConditions = turnConditions;
-    this.expiredConditions = expiredConditions;
+    this.entityConditions = entityConditions;
     this.markers = markers;
   }
 }

@@ -1,4 +1,4 @@
-<a class="image-container" (click)="toggleOff()" [ngClass]="{'active-border' : character.active}">
+<a class="image-container" (click)="toggleFigure()" [ngClass]="{'active-border' : character.active}">
   <img class="image" [src]="characterManager.characterThumbnail(character)" />
   <div class="health-bar" [ngClass]="{'critical' : character.health / character.maxHealth < 0.35}">
     <div class="health-bar-value" [style.width]="(character.health / character.maxHealth * 100) + '%'"></div>

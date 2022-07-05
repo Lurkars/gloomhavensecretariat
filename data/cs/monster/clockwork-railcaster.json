@@ -1,0 +1,439 @@
+{
+  "name": "clockwork-railcaster",
+  "edition": "cs",
+  "thumbnail" : "gh-city-archer",
+  "deck": "archer",
+  "count": 6,
+  "hidden": true,
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "wound",
+      "poison"
+    ],
+    "special": [],
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 4,
+      "movement": 1,
+      "attack": 2,
+      "range": 3,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "immune to:"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": 5,
+      "movement": 1,
+      "attack": 2,
+      "range": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "immune to:"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 6,
+      "movement": 1,
+      "attack": 3,
+      "range": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "immune to:"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 6,
+      "movement": 2,
+      "attack": 3,
+      "range": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "1"
+        },
+        {
+          "type": "custom",
+          "value": "immune to:"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 8,
+      "movement": 2,
+      "attack": 3,
+      "range": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "1"
+        },
+        {
+          "type": "custom",
+          "value": "immune to:"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 9,
+      "movement": 2,
+      "attack": 4,
+      "range": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "1"
+        },
+        {
+          "type": "custom",
+          "value": "immune to:"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 9,
+      "movement": 3,
+      "attack": 4,
+      "range": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "2"
+        },
+        {
+          "type": "custom",
+          "value": "immune to:"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 10,
+      "movement": 3,
+      "attack": 4,
+      "range": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "2"
+        },
+        {
+          "type": "custom",
+          "value": "immune to:"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 0,
+      "health": 6,
+      "movement": 1,
+      "attack": 3,
+      "range": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "immune to:"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "type": "elite"
+    },
+    {
+      "level": 1,
+      "health": 6,
+      "movement": 1,
+      "attack": 3,
+      "range": 5,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "1"
+        },
+        {
+          "type": "shield",
+          "value": "1"
+        },
+        {
+          "type": "custom",
+          "value": "immune to:"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "type": "elite"
+    },
+    {
+      "level": 2,
+      "health": 7,
+      "movement": 1,
+      "attack": 4,
+      "range": 5,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "2"
+        },
+        {
+          "type": "shield",
+          "value": "1"
+        },
+        {
+          "type": "custom",
+          "value": "immune to:"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "type": "elite"
+    },
+    {
+      "level": 3,
+      "health": 8,
+      "movement": 2,
+      "attack": 4,
+      "range": 5,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "2"
+        },
+        {
+          "type": "shield",
+          "value": "2"
+        },
+        {
+          "type": "custom",
+          "value": "immune to:"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "type": "elite"
+    },
+    {
+      "level": 4,
+      "health": 10,
+      "movement": 2,
+      "attack": 4,
+      "range": 6,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "2"
+        },
+        {
+          "type": "shield",
+          "value": "2"
+        },
+        {
+          "type": "custom",
+          "value": "immune to:"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "type": "elite"
+    },
+    {
+      "level": 5,
+      "health": 11,
+      "movement": 2,
+      "attack": 5,
+      "range": 6,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "3"
+        },
+        {
+          "type": "shield",
+          "value": "2"
+        },
+        {
+          "type": "custom",
+          "value": "immune to:"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "type": "elite"
+    },
+    {
+      "level": 6,
+      "health": 12,
+      "movement": 3,
+      "attack": 6,
+      "range": 6,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "3"
+        },
+        {
+          "type": "shield",
+          "value": "2"
+        },
+        {
+          "type": "custom",
+          "value": "immune to:"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "type": "elite"
+    },
+    {
+      "level": 7,
+      "health": 13,
+      "movement": 3,
+      "attack": 6,
+      "range": 7,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "3"
+        },
+        {
+          "type": "shield",
+          "value": "3"
+        },
+        {
+          "type": "custom",
+          "value": "immune to:"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "type": "elite"
+    }
+  ]
+}

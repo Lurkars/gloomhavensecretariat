@@ -3,13 +3,19 @@
     <span class="number"><span *ngIf="summon.number == 0">-</span><span
         *ngIf="summon.number > 0">{{summon.number}}</span></span> <span class="health">{{summon.health}}</span>
 
+    <div class="highlight-conditions">
+      <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.highlightedConditions(summon)">
+        <img src="./assets/images/condition/{{entityCondition.name}}.svg" />
+      </span>
+    </div>
+
     <div class="conditions">
-      <span class="condition" *ngFor="let condition of summon.conditions; let index = index;">
-        <img src="./assets/images/condition/{{condition}}.svg" />
+      <span class="condition" *ngFor="let entityCondition of summon.entityConditions | ghsActiveConditions">
+        <img src="./assets/images/condition/{{entityCondition.name}}.svg" />
       </span>
 
       <span class="summon-state"
-        [ngClass]="{'active' : summon.state == SummonState.true, 'new' : summon.state == SummonState.new, 'center' : (summon.conditions.length % 2) == 0}">
+        [ngClass]="{'active' : summon.state == SummonState.true, 'new' : summon.state == SummonState.new, 'center' : (summon.entityConditions.length % 2) == 0}">
         <img src="./assets/images/summons/{{summon.color}}.png">
       </span>
 
@@ -73,13 +79,8 @@
         </a>
       </span>
     </div>
-    <div class="condition-container">
-      <span *ngFor="let condition of gameManager.characterConditions()">
-        <a class="condition" [ngClass]="{'active' : hasCondition(condition)}" (click)="toggleCondition(condition)">
-          <img src="./assets/images/condition/{{condition}}.svg" />
-        </a>
-      </span>
-    </div>
+
+    <ghs-conditions [entity]="summon" [figure]="character" type="monster"></ghs-conditions>
   </div>
 
   <div *ngIf="levelDialog" class="level-dialog">

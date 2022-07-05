@@ -22,7 +22,7 @@ import { EditionMenuComponent } from './ui/header/menu/edition/edition';
 import { MainMenuComponent } from './ui/header/menu/menu';
 import { SettingsMenuComponent } from './ui/header/menu/settings/settings';
 import { CardRevealDirective } from './ui/helper/CardReveal';
-import { GhsEditionFilterPipe, GhsHtmlLabelPipe, GhsLabelPipe, GhsSortPipe, GhsValueCalcPipe, GhsValueSignPipe } from './ui/helper/Pipes';
+import { GhsActiveConditionsPipe, GhsEditionFilterPipe, GhsHtmlLabelPipe, GhsLabelPipe, GhsSortPipe, GhsValueCalcPipe, GhsValueSignPipe } from './ui/helper/Pipes';
 import { MainComponent } from './ui/main';
 import { PopupComponent } from './ui/popup/popup';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -35,7 +35,6 @@ import { ScenarioMenuComponent } from './ui/header/menu/scenario/scenario';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CharacterInitiativeComponent } from './ui/figures/character/cards/initiative';
 import { ObjectiveComponent } from './ui/figures/objective/objective';
-import { ObjectiveInitiativeComponent } from './ui/figures/objective/cards/initiative';
 import { MonsterToolComponent } from './ui/tools/monster/monster';
 import { MonsterStatToolComponent } from './ui/tools/monster/stat/stat';
 import { FormsModule } from '@angular/forms';
@@ -44,6 +43,7 @@ import { ServerMenuComponent } from './ui/header/menu/server/server';
 import { APP_BASE_HREF } from '@angular/common';
 import { FigureErrors } from './ui/figures/errors/errors';
 import { SectionMenuComponent } from './ui/header/menu/section/section';
+import { ConditionsComponent } from './ui/figures/conditions/conditions';
 
 @NgModule({
   declarations: [
@@ -55,8 +55,9 @@ import { SectionMenuComponent } from './ui/header/menu/section/section';
     AttackModifierComponent,
     LevelComponent,
     DialogComponent, PopupComponent,
+    ConditionsComponent,
     CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent,
-    ObjectiveComponent, ObjectiveInitiativeComponent,
+    ObjectiveComponent, 
     SummonEntityComponent,
     MonsterComponent,
     MonsterEntityComponent,
@@ -67,7 +68,7 @@ import { SectionMenuComponent } from './ui/header/menu/section/section';
     ActionsComponent, ActionComponent, ActionHexComponent,
     FigureErrors,
     CardRevealDirective,
-    GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent, GhsHtmlLabelPipe,
+    GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsActiveConditionsPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent, GhsHtmlLabelPipe,
     MonsterToolComponent, MonsterActionToolComponent, MonsterStatToolComponent ],
   imports: [
     BrowserModule,

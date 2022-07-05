@@ -1,6 +1,6 @@
 import { Figure } from "./Figure";
 import { Entity } from "./Entity";
-import { Condition } from "./Condition";
+import { ConditionName, EntityCondition, EntityConditionState, GameEntityConditionModel } from "./Condition";
 
 export class Objective implements Entity, Figure {
 
@@ -18,9 +18,7 @@ export class Objective implements Entity, Figure {
   // from entity
   health: number = 7;
   maxHealth: number | string = 7;
-  conditions: Condition[] = [];
-  turnConditions: Condition[] = [];
-  expiredConditions: Condition[] = [];
+  entityConditions: EntityCondition[] = [];
   markers: string[] = [];
 
   initiative: number = 99;
@@ -34,7 +32,7 @@ export class Objective implements Entity, Figure {
   }
 
   toModel(): GameObjectiveModel {
-    return new GameObjectiveModel(this.id, this.title, this.name, this.escort, this.level, this.exhausted, this.off, this.active, this.health, this.maxHealth, this.conditions, this.turnConditions, this.expiredConditions, this.markers, this.initiative);
+    return new GameObjectiveModel(this.id, this.title, this.name, this.escort, this.level, this.exhausted, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition: EntityCondition) => condition.toModel()), this.markers, this.initiative);
   }
 
   fromModel(model: GameObjectiveModel) {
@@ -48,10 +46,30 @@ export class Objective implements Entity, Figure {
     this.active = model.active;
     this.health = model.health;
     this.maxHealth = model.maxHealth;
-    this.conditions = model.conditions;
-    this.turnConditions = model.turnConditions;
+    this.entityConditions = [];
+    if (model.entityConditions) {
+      this.entityConditions = model.entityConditions.map((gecm: GameEntityConditionModel) => {
+        let condition = new EntityCondition(gecm.name, gecm.value);
+        condition.fromModel(gecm);
+        return condition;
+      });
+    }
     this.markers = model.markers;
     this.initiative = model.initiative
+
+    // migration
+    if (model.conditions) {
+      model.conditions.forEach((value: string) => {
+        let entityCondition = new EntityCondition(value as ConditionName);
+        if (model.turnConditions && model.turnConditions.indexOf(value) != -1) {
+          entityCondition.state = EntityConditionState.expire;
+        }
+        if (model.expiredConditions && model.expiredConditions.indexOf(value) != -1) {
+          entityCondition.expired = true;
+        }
+        this.entityConditions.push(entityCondition);
+      })
+    }
   }
 
 }
@@ -68,11 +86,14 @@ export class GameObjectiveModel {
   active: boolean;
   health: number;
   maxHealth: number | string;
-  conditions: Condition[] = [];
-  turnConditions: Condition[] = [];
-  expiredConditions: Condition[];
+  entityConditions: GameEntityConditionModel[] = [];
   markers: string[] = [];
   initiative: number;
+
+  // depreacted
+  conditions: string[] = [];
+  turnConditions: string[] = [];
+  expiredConditions: string[] = [];
 
   constructor(
     id: number,
@@ -85,9 +106,7 @@ export class GameObjectiveModel {
     active: boolean,
     health: number,
     maxHealth: number | string,
-    conditions: Condition[],
-    turnConditions: Condition[],
-    expiredConditions: Condition[],
+    entityConditions: GameEntityConditionModel[],
     markers: string[],
     initiative: number) {
     this.id = id;
@@ -100,9 +119,7 @@ export class GameObjectiveModel {
     this.active = active;
     this.health = health;
     this.maxHealth = maxHealth;
-    this.conditions = conditions;
-    this.turnConditions = turnConditions;
-    this.expiredConditions = expiredConditions;
+    this.entityConditions = entityConditions;
     this.markers = markers;
     this.initiative = initiative;
   }

@@ -1,0 +1,176 @@
+{
+  "name": "drake-porter",
+  "edition": "cs",
+  "thumbnail" : "gh-vermling-shaman",
+  "deck": "boss",
+  "count": 6,
+  "boss": true,
+  "hidden": true,
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "immobilize",
+      "wound",
+      "stun",
+      "disarm"
+    ],
+    "special": [
+      [
+        {
+          "type": "heal",
+          "value": "1.Summon",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "Rending Drake"
+        }
+      ],
+      [
+        {
+          "type": "shield",
+          "value": "1",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "Summon Spitting"
+        },
+        {
+          "type": "custom",
+          "value": "Drake. See"
+        },
+        {
+          "type": "custom",
+          "value": "Special Rules"
+        }
+      ]
+    ],
+    "type": "boss",
+    "movement": 3
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "3x(C+2)",
+      "attack": 2,
+      "range": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": "3x(C+2)",
+      "attack": 2,
+      "range": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "4x(C+2)",
+      "attack": 2,
+      "range": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "5x(C+2)",
+      "attack": 3,
+      "range": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "5x(C+2)",
+      "attack": 3,
+      "range": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        },
+        {
+          "type": "shield",
+          "value": "4"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "6x(C+2)",
+      "attack": 4,
+      "range": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        },
+        {
+          "type": "shield",
+          "value": "4"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "6x(C+2)",
+      "attack": 4,
+      "range": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        },
+        {
+          "type": "shield",
+          "value": "5"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "8x(C+2)",
+      "attack": 4,
+      "range": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        },
+        {
+          "type": "shield",
+          "value": "5"
+        }
+      ]
+    }
+  ]
+}

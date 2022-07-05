@@ -1,0 +1,161 @@
+{
+  "name": "living-wall",
+  "edition": "cs",  
+  "thumbnail": "cs-harrower-aegis",
+  "deck": "boss",
+  "count": 1,
+  "boss": true,
+  "hidden": true,
+  "baseStat": {
+    "actions": [],
+    "immunities": [],
+    "special": [],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "12xC/2",
+      "movement": 1,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "1"
+        },
+        {
+          "type": "range",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": "16xC/2",
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "1"
+        },
+        {
+          "type": "range",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "20xC/2",
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "1"
+        },
+        {
+          "type": "range",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "24xC/2",
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "2"
+        },
+        {
+          "type": "range",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "28xC/2",
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "2"
+        },
+        {
+          "type": "range",
+          "value": "3"
+        },
+        {
+          "type": "condition",
+          "value": "stun"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "32xC/2",
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "3"
+        },
+        {
+          "type": "range",
+          "value": "3"
+        },
+        {
+          "type": "condition",
+          "value": "stun"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "38xC/2",
+      "movement": 3,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "4"
+        },
+        {
+          "type": "range",
+          "value": "3"
+        },
+        {
+          "type": "condition",
+          "value": "stun"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "42xC/2",
+      "movement": 3,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "4"
+        },
+        {
+          "type": "range",
+          "value": "3"
+        },
+        {
+          "type": "condition",
+          "value": "stun"
+        }
+      ]
+    }
+  ]
+}

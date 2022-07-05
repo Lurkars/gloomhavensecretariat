@@ -3,9 +3,9 @@
   z-index: 1;
   height: 100%;
   width: calc(var(--ghs-unit) * 89);
-  height: calc(var(--ghs-unit) * 15);
+  height: calc(var(--ghs-unit) * 15.3);
   background-image: url('~src/assets/images/character/char-mat.png');
-  background-color: var(--ghs-color-gray);
+  background-color: var(--ghs-character-color);
   background-size: cover;
   display: flex;
   --ghs-character-color: #000;
@@ -23,6 +23,8 @@
 
   &.off {
 
+    background-color: var(--ghs-color-gray);
+
     ghs-character-image,
     .title,
     .conditions,
@@ -33,9 +35,40 @@
     }
   }
 
-  .stats {
+  .highlight-conditions {
+    pointer-events: none;
+    position: absolute;
+    left: calc(var(--ghs-unit) * 3);
     top: 0;
-    left: calc(var(--ghs-unit) * 16);
+    width: calc(var(--ghs-unit) * 8);
+    height: 100%;
+
+    .condition {
+      animation: condition-hightlight 1s ease-in-out;
+      position: absolute;
+      bottom: calc(var(--ghs-unit) * 3);
+      left: 25%;
+      transform: translateX(-50%);
+
+      img {
+        height: calc(var(--ghs-unit) * 5);
+        width: auto;
+      }
+
+      .value {
+        font-family: 'ghs-title';
+        font-size: calc(var(--ghs-unit) * 2);
+        color: var(--ghs-color-white);
+        position: absolute;
+        top: calc(var(--ghs-unit) * 2.5);
+        left: calc(var(--ghs-unit) * 2.5);
+        text-shadow: none;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .stats {
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -92,14 +125,32 @@
       }
 
       .conditions {
+        position: relative;
         display: flex;
         flex-direction: row;
         margin-left: calc(var(--ghs-unit) * 1);
 
-        img {
-          width: calc(var(--ghs-unit) * 3);
-          height: calc(var(--ghs-unit) * 3);
-          margin: 0;
+        .condition {
+          position: relative;
+          display: flex;
+          flex-direction: row;
+
+          img {
+            width: calc(var(--ghs-unit) * 3);
+            height: calc(var(--ghs-unit) * 3);
+            margin: 0;
+          }
+
+          .value {
+            font-family: "ghs-title";
+            font-size: calc(var(--ghs-unit) * 1.2);
+            color: var(--ghs-color-white);
+            position: absolute;
+            top: calc(var(--ghs-unit) * 1.5);
+            left: calc(var(--ghs-unit) * 1.5);
+            text-shadow: none;
+            transform: translateX(-50%);
+          }
         }
       }
     }

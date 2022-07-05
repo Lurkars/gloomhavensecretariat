@@ -6,9 +6,12 @@
     </label>
   </div>
 
-  <div class="line sections">
-    <span (click)="addSection(section)" class="section" [ngClass]="{'disabled' : hasSection(section)}"
-      *ngFor="let section of sections()"><span *ngIf="maxSection() > 99 && section.index < 100">0</span><span
-        *ngIf="maxSection() > 9 && section.index < 10">0</span>{{section.index}}</span>
-  </div>
+  <ng-container *ngFor="let group of groups()">
+    <div *ngIf="group" class="line title"><label>{{group}}</label></div>
+    <div class="line sections">
+      <span (click)="addSection(section)" class="section" [ngClass]="{'disabled' : hasSection(section)}"
+        *ngFor="let section of sections(group)"><span *ngIf="maxSection() > 2 && section.index.length < 3">0</span><span
+          *ngIf="maxSection() > 1 && section.index.length < 2">0</span>{{section.index}}</span>
+    </div>
+  </ng-container>
 </div>

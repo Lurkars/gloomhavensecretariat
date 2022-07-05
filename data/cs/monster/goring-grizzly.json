@@ -1,0 +1,131 @@
+{
+  "name": "goring-grizzly",
+  "edition": "cs",
+  "thumbnail": "gh-cave-bear",
+  "deck": "boss",
+  "count": 4,
+  "boss": true,
+  "hidden": true,
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "poison"
+    ],
+    "special": [],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 11,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "C"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": 14,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "C"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 17,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "C"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 20,
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "C"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 21,
+      "movement": 5,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        },
+        {
+          "type": "shield",
+          "value": "C"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 24,
+      "movement": 5,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        },
+        {
+          "type": "shield",
+          "value": "C"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 28,
+      "movement": 5,
+      "attack": 7,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        },
+        {
+          "type": "shield",
+          "value": "C"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 33,
+      "movement": 5,
+      "attack": 7,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        },
+        {
+          "type": "shield",
+          "value": "C"
+        }
+      ]
+    }
+  ]
+}

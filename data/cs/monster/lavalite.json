@@ -1,0 +1,135 @@
+{
+  "name": "lavalite",
+  "edition": "cs",
+  "thumbnail" : "gh-savvas-lavaflow"
+  "deck": "boss",
+  "count": 4,
+  "boss": true,
+  "hidden": true,
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "muddle",
+      "disarm",
+      "stun"
+    ],
+    "special": [],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "13x(C+1)",
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "level": 1,
+      "health": "15x(C+1)",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "18x(C+1)",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "21x(C+1)",
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "24x(C+1)",
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "27x(C+1)",
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "30x(C+1)",
+      "movement": 4,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "35x(C+1)",
+      "movement": 4,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    }
+  ]
+}

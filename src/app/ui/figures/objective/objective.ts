@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { Condition, RoundCondition } from 'src/app/game/model/Condition';
+import { Condition, ConditionType } from 'src/app/game/model/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Figure } from 'src/app/game/model/Figure';
 import { GameState } from 'src/app/game/model/Game';
@@ -26,7 +26,7 @@ export class ObjectiveComponent extends DialogComponent {
 
   gameManager: GameManager = gameManager;
   GameState = GameState;
-  Conditions = Condition;
+  ConditionType = ConditionType;
   health: number = 0;
   objectiveIdMap = ObjectiveIdMap;
 
@@ -44,27 +44,21 @@ export class ObjectiveComponent extends DialogComponent {
   }
 
 
-  toggleOff(): void {
+  toggleFigure(): void {
     if ((gameManager.game.state == GameState.draw || this.objective.initiative <= 0) && !this.objective.exhausted && this.objective.health > 0) {
       //
     } else {
       gameManager.stateManager.before();
-      gameManager.toggleOff(this.objective);
+      gameManager.toggleFigure(this.objective);
       gameManager.stateManager.after();
     }
   }
 
   changeHealth(value: number) {
     gameManager.stateManager.before();
-    this.objective.health += value;
-    this.health += value;
-    if (this.objective.health > this.maxHealth()) {
-      this.objective.health = this.maxHealth();
-      this.health -= value;
-    } else if (this.objective.health < 0) {
-      this.objective.health = 0;
-      this.health -= value;
-    }
+    const old = this.objective.health;
+    gameManager.entityManager.changeHealth(this.objective, value);
+    this.health += this.objective.health - old;
     gameManager.stateManager.after();
   }
 
@@ -93,7 +87,7 @@ export class ObjectiveComponent extends DialogComponent {
     gameManager.stateManager.before();
     this.objective.exhausted = !this.objective.exhausted;
     if (this.objective.exhausted) {
-      gameManager.endTurn(this.objective);
+      gameManager.afterTurn(this.objective);
     }
     gameManager.stateManager.after();
   }
@@ -115,27 +109,15 @@ export class ObjectiveComponent extends DialogComponent {
   }
 
   hasCondition(condition: Condition) {
-    return this.objective.conditions.indexOf(condition) != -1;
+    return gameManager.entityManager.hasCondition(this.objective, condition);
   }
 
   toggleCondition(condition: Condition) {
     gameManager.stateManager.before();
-    if (!this.hasCondition(condition)) {
-      this.objective.conditions.push(condition);
-      if (!this.objective.active) {
-        for (let roundCondition in RoundCondition) {
-          if (this.objective.conditions.indexOf(roundCondition as Condition) != -1 && this.objective.turnConditions.indexOf(roundCondition as Condition) == -1) {
-            this.objective.turnConditions.push(roundCondition as Condition);
-          }
-        }
-      }
-    } else {
-      this.objective.conditions.splice(this.objective.conditions.indexOf(condition), 1);
-      this.objective.turnConditions.splice(this.objective.turnConditions.indexOf(condition), 1);
-      this.objective.expiredConditions.splice(this.objective.expiredConditions.indexOf(condition), 1);
-    }
+    gameManager.entityManager.toggleCondition(this.objective, condition, this.objective.active, this.objective.off);
     gameManager.stateManager.after();
   }
+
 
   override close(): void {
     super.close();

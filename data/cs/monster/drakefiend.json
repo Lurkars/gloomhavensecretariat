@@ -1,0 +1,87 @@
+{
+  "name": "drakefiend",
+  "edition": "cs",
+  "thumbnail" : "gh-elder-drake",
+  "deck": "boss",
+  "count": 1,
+  "boss": true,
+  "hidden": true,
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "wound",
+      "poison",
+      "disarm",
+      "immobilize",
+      "stun",
+      "pull",
+      "push"
+    ],
+    "special": [
+      [
+        {
+          "type": "custom",
+          "value": "Reference the scenario"
+        },
+        {
+          "type": "custom",
+          "value": "Special Rules"
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "Reference the scenario"
+        },
+        {
+          "type": "custom",
+          "value": "Special Rules"
+        }
+      ]
+    ],
+    "type": "boss",
+    "movement": 0
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "11xC",
+      "attack": 3
+    },
+    {
+      "level": 1,
+      "health": "12xC",
+      "attack": 4
+    },
+    {
+      "level": 2,
+      "health": "15xC",
+      "attack": 4
+    },
+    {
+      "level": 3,
+      "health": "16xC",
+      "attack": 5
+    },
+    {
+      "level": 4,
+      "health": "20xC",
+      "attack": 5
+    },
+    {
+      "level": 5,
+      "health": "22xC",
+      "attack": 6
+    },
+    {
+      "level": 6,
+      "health": "27xC",
+      "attack": 6
+    },
+    {
+      "level": 7,
+      "health": "29xC",
+      "attack": 7
+    }
+  ]
+}

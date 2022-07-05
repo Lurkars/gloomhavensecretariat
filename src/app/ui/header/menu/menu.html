@@ -92,9 +92,9 @@
   <div *ngSwitchCase="SubMenu.character_add" class="menu-container character-add">
     <div class="columns">
       <ng-container
-        *ngFor="let edition of (gameManager.game.edition ? [gameManager.game.edition] : gameManager.editions());">
+        *ngFor="let edition of gameManager.currentEditions()">
         <div class="column spoilers" *ngIf="characterData(edition).length > 0">
-          <div class="line title sticky" *ngIf="!gameManager.game.edition">
+          <div class="line title sticky" *ngIf="gameManager.currentEditions().length > 1">
             <label>{{'data.edition.' + edition | ghsLabel}}</label>
           </div>
           <div class="line" *ngFor="let characterData of characterData(edition)"
@@ -177,9 +177,9 @@
   <div *ngSwitchCase="SubMenu.monster_add" class="menu-container monster-add">
     <div class="columns">
       <ng-container
-        *ngFor="let edition of (gameManager.game.edition ? [gameManager.game.edition] : gameManager.editions());">
+        *ngFor="let edition of gameManager.currentEditions()">
         <div class="column spoilers bosses" *ngIf="monsterData(edition).length > 0">
-          <div class="line title sticky" *ngIf="!gameManager.game.edition">
+          <div class="line title sticky" *ngIf="gameManager.currentEditions().length > 1">
             <label>{{'data.edition.' + edition | ghsLabel}}</label>
           </div>
           <div class="line" *ngFor="let monsterData of monsterData(edition)"

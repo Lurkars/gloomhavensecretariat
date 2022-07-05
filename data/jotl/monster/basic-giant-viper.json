@@ -2,6 +2,7 @@
   "count": 10,
   "edition": "jotl",
   "name": "basic-giant-viper",
+  "thumbnail" : "jotl-giant-viper",
   "hidden" : true,
   "baseStat": {
     "actions": [

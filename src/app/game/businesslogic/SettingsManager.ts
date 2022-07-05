@@ -69,6 +69,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setApplyConditions(applyConditions: boolean) {
+    this.settings.applyConditions = applyConditions;
+    this.storeSettings();
+  }
+
   setMoveElements(moveElements: boolean) {
     this.settings.moveElements = moveElements;
     this.storeSettings();

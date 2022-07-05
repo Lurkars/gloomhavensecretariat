@@ -2,7 +2,7 @@
   <div class="card" [ngClass]="{'flipped' : flipped() }">
     <div class="card-front ability-front" (click)="open()">
       <span class="name">{{'data.monster.' + monster.name | ghsLabel}}</span>
-      <span class="left-abilities">{{upcomingCards().length}}</span>
+      <span class="left-abilities">{{monster.abilities.length - ( monster.ability >= 0 ? monster.ability : 0)}}</span>
     </div>
     <div class="card-back ability-back" (click)="open()">
       <div *ngIf="ability">
@@ -24,11 +24,11 @@
     <a (click)="reveal = (reveal + 1) % 3">{{(reveal == 2 ? 'game.cards.coverAll' : (reveal == 0 ?
       'game.cards.revealAll' : 'game.cards.revealAllConfirm')) | ghsLabel}}</a>
     <a (click)="shuffle()">{{'game.cards.shuffle' | ghsLabel}}</a>
-    <label *ngIf="gameManager.monsterManager.getSameDeckMonster(monster)"><input type="checkbox" (click)="toggleDrawExtra()"
-        [checked]="monster.drawExtra">{{'game.cards.drawExtra' |
+    <label *ngIf="opened && gameManager.monsterManager.getSameDeckMonster(monster)"><input type="checkbox"
+        (click)="toggleDrawExtra()" [checked]="monster.drawExtra">{{'game.cards.drawExtra' |
       ghsLabel}}</label>
   </div>
-  <div class="abilities-container">
+  <div *ngIf="opened" class="abilities-container">
     <div class="upcoming">
       <div class="empty" *ngIf="upcomingCards().length == 0"></div>
       <div class="card-container ability" *ngFor="let ability of upcomingCards();">

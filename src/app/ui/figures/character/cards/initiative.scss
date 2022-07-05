@@ -22,12 +22,41 @@
   text-shadow: var(--ghs-outline);
 
   img {
+    cursor: pointer;
     width: calc(var(--ghs-unit) * 4);
     height: auto;
+    filter: var(--ghs-filter-white);
+
+    &:hover {
+    filter: var(--ghs-filter-gray);
+    }
   }
 
-  span {
+  input {
     cursor: pointer;
+    text-align: center;
+    border: none;
+    background: none;
+    width: calc(var(--ghs-unit) * 4.5);
+    font-family: 'ghs-title';
+    color: var(--ghs-color-white);
+    text-shadow: var(--ghs-outline);
+    font-size: calc(var(--ghs-unit) * 4.5);
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &:focus-visible,
+    &:active,
+    &:hover {
+      border: none;
+      outline: none !important;
+    }
+
+    -moz-appearance: textfield;
   }
 }
 

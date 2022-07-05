@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Character } from 'src/app/game/model/Character';
-import { Condition, RoundCondition } from 'src/app/game/model/Condition';
+import { Condition } from 'src/app/game/model/Condition';
 import { Summon, SummonState } from 'src/app/game/model/Summon';
 import { DialogComponent } from 'src/app/ui/dialog/dialog';
 
@@ -15,7 +15,6 @@ export class SummonEntityComponent extends DialogComponent {
 
   @Input() character!: Character;
   @Input() summon!: Summon;
-  Conditions = Condition;
   SummonState = SummonState;
   health: number = 0;
   levelDialog: boolean = false;
@@ -54,39 +53,20 @@ export class SummonEntityComponent extends DialogComponent {
 
   changeHealth(value: number) {
     gameManager.stateManager.before();
-    this.summon.health += value;
-    this.health += value;
-    if (this.summon.health > this.summon.maxHealth) {
-      this.summon.health = this.summon.maxHealth;
-      this.health -= value;
-    } else if (this.summon.health < 0) {
-      this.summon.health = 0;
-      this.health -= value;
-    }
+    const old = this.summon.health;
+    gameManager.entityManager.changeHealth(this.summon, value);
+    this.health += this.summon.health - old;
     gameManager.stateManager.after();
   }
 
 
   hasCondition(condition: Condition) {
-    return this.summon.conditions.indexOf(condition) != -1;
+    return gameManager.entityManager.hasCondition(this.summon, condition);
   }
 
   toggleCondition(condition: Condition) {
     gameManager.stateManager.before();
-    if (!this.hasCondition(condition)) {
-      this.summon.conditions.push(condition);
-      if (!this.character.active) {
-        for (let roundCondition in RoundCondition) {
-          if (this.summon.conditions.indexOf(roundCondition as Condition) != -1 && this.summon.turnConditions.indexOf(roundCondition as Condition) == -1) {
-            this.summon.turnConditions.push(roundCondition as Condition);
-          }
-        }
-      }
-    } else {
-      this.summon.conditions.splice(this.summon.conditions.indexOf(condition), 1);
-      this.summon.turnConditions.splice(this.summon.turnConditions.indexOf(condition), 1);
-      this.summon.expiredConditions.splice(this.summon.expiredConditions.indexOf(condition), 1);
-    }
+    gameManager.entityManager.toggleCondition(this.summon, condition, this.character.active, this.character.off);
     gameManager.stateManager.after();
     this.setDialogPosition();
   }

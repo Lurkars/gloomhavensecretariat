@@ -1,6 +1,5 @@
 import { Ability } from "../model/Ability";
 import { Character } from "../model/Character";
-import { CharacterCondition, Condition, EntityCondition, RoundCondition, StackableCondition, UpgradeCondition } from "../model/Condition";
 import { CharacterData } from "../model/data/CharacterData";
 import { DeckData } from "../model/data/DeckData";
 import { EditionData } from "../model/data/EditionData";
@@ -25,6 +24,8 @@ import { SectionData } from "../model/data/SectionData";
 import { ObjectiveData } from "../model/data/ObjectiveData";
 import { Entity, EntityValueFunction } from "../model/Entity";
 import { Summon, SummonState } from "../model/Summon";
+import { Condition, ConditionName, Conditions, ConditionType, EntityCondition, EntityConditionState } from "../model/Condition";
+import { EntityManager } from "./EntityManager";
 
 
 export class GameManager {
@@ -32,20 +33,33 @@ export class GameManager {
   game: Game = new Game();
   editionData: EditionData[] = [];
   stateManager: StateManager;
+  entityManager: EntityManager;
   characterManager: CharacterManager;
   monsterManager: MonsterManager;
   attackModifierManager: AttackModifierManager;
   working: boolean = false;
 
+  sessionTimestamp: number = 0;
+
   constructor() {
     this.stateManager = new StateManager(this.game);
+    this.entityManager = new EntityManager(this.game);
     this.characterManager = new CharacterManager(this.game);
     this.monsterManager = new MonsterManager(this.game);
     this.attackModifierManager = new AttackModifierManager(this.game);
+    this.sessionTimestamp = new Date().getTime();
   }
 
   editions(): string[] {
     return this.editionData.map((editionData: EditionData) => editionData.edition);
+  }
+
+  currentEditions(): string[] {
+    if (!this.game.edition) {
+      return this.editions();
+    }
+
+    return [ this.game.edition, ...this.editionExtensions(this.game.edition) ];
   }
 
   editionExtensions(edition: string): string[] {
@@ -73,37 +87,32 @@ export class GameManager {
     return this.editionData.filter((editionData: EditionData) => all || !this.game.edition || editionData.edition == this.game.edition || editionData.extentions && editionData.extentions.indexOf(this.game.edition) != -1).map((editionData: EditionData) => editionData.sections).flat();
   }
 
-
-  characterConditions(all: boolean = false): Condition[] {
+  conditions(all: boolean = false): Condition[] {
     if (all || !this.game.edition) {
-      return [ ...Object.values(EntityCondition), ...Object.values(CharacterCondition) ];
+      return Conditions;
     }
 
-    return this.editionData.filter((editionData: EditionData) => editionData.edition == this.game.edition).map((editionData: EditionData) => editionData.conditions).flat().filter((value: Condition) => value in EntityCondition || value in CharacterCondition);
+    const editionData = this.editionData.find((value: EditionData) => value.edition == this.game.edition);
+
+    if (editionData && editionData.conditions) {
+      return editionData.conditions.map((value: String) => {
+        if (value.split(':').length > 1) {
+          return new Condition(value.split(':')[ 0 ] as ConditionName, + value.split(':')[ 1 ]);
+        } else {
+          return new Condition(value as ConditionName);
+        }
+      })
+    }
+
+    return [];
   }
 
-  monsterConditions(all: boolean = false): Condition[] {
-    if (all || !this.game.edition) {
-      return [ ...Object.values(EntityCondition) ];
-    }
-
-    return this.editionData.filter((editionData: EditionData) => editionData.edition == this.game.edition).map((editionData: EditionData) => editionData.conditions).flat().filter((value: Condition) => value in EntityCondition);
+  conditionForTypes(...types: string[]) {
+    return this.conditions(false).filter((condition: Condition) => types.every((type: string) => condition.types.indexOf(type as ConditionType) != -1));
   }
 
-  upgradeConditions(all: boolean = false): Condition[] {
-    if (all || !this.game.edition) {
-      return Object.values(UpgradeCondition);
-    }
-
-    return this.editionData.filter((editionData: EditionData) => editionData.edition == this.game.edition).map((editionData: EditionData) => editionData.conditions).flat().filter((value: Condition) => value in UpgradeCondition);
-  }
-
-  stackableConditions(all: boolean = false): Condition[] {
-    if (all || !this.game.edition) {
-      return Object.values(StackableCondition);
-    }
-
-    return this.editionData.filter((editionData: EditionData) => editionData.edition == this.game.edition).map((editionData: EditionData) => editionData.conditions).flat().filter((value: Condition) => value in StackableCondition);
+  allConditionForTypes(...types: string[]) {
+    return this.conditions(true).filter((condition: Condition) => types.every((type: string) => condition.types.indexOf(type as ConditionType) != -1));
   }
 
   markers(): string[] {
@@ -112,6 +121,9 @@ export class GameManager {
 
   nextGameState(): void {
     this.working = true;
+    this.game.playSeconds += (new Date().getTime() - this.sessionTimestamp) / 1000;
+    this.game.totalSeconds += this.game.playSeconds;
+    this.game.playSeconds = 0;
     if (this.game.state == GameState.next) {
       this.game.state = GameState.draw;
       this.characterManager.next();
@@ -178,6 +190,8 @@ export class GameManager {
           return -1;
         } else if (a instanceof Monster && b instanceof Character) {
           return 1;
+        } else if (a instanceof Monster && b instanceof Monster && a.entities.length != b.entities.length) {
+          return b.entities.length - a.entities.length;
         }
         return aName < bName ? -1 : 1;
       } else {
@@ -275,7 +289,7 @@ export class GameManager {
     return monsterData;
   }
 
-  toggleOff(figure: Figure) {
+  toggleFigure(figure: Figure) {
     const figures: Figure[] = this.game.figures;
     const index = figures.indexOf(figure);
 
@@ -285,12 +299,14 @@ export class GameManager {
     }
 
     if (!figure.active && !figure.off) {
-      figure.active = true;
+      this.turn(figure);
     } else if (figure.active && !figure.off) {
-      this.endTurn(figure)
+      this.afterTurn(figure)
     } else {
       this.beforeTurn(figure);
-      figure.active = !figures.some((other: Figure, otherIndex: number) => otherIndex < index && other.active);
+      if (!figures.some((other: Figure, otherIndex: number) => otherIndex < index && other.active)) {
+        this.turn(figure)
+      }
     }
 
     for (let i = 0; i < figures.length; i++) {
@@ -300,17 +316,17 @@ export class GameManager {
           otherFigure.active = false;
         }
         if (i < index) {
-          this.endTurn(otherFigure);
+          this.afterTurn(otherFigure);
         } else if (!(otherFigure instanceof Monster) || (otherFigure instanceof Monster && otherFigure.entities.length > 0)) {
           this.beforeTurn(otherFigure);
         }
       }
       if (figure.off) {
         if (i < index && !otherFigure.off) {
-          otherFigure.active = true;
+          this.turn(otherFigure);
         } else if (i > index && (!(otherFigure instanceof Monster) || (otherFigure instanceof Monster && otherFigure.entities.length > 0))) {
           if (!otherFigure.off && i > index && !figures.some((figure: Figure, activeIndex: number) => figure.active && activeIndex < i)) {
-            otherFigure.active = true;
+            this.turn(otherFigure);
           } else {
             otherFigure.active = false;
           }
@@ -319,73 +335,94 @@ export class GameManager {
     }
   }
 
-  permanentDead(figure: Figure): boolean {
-    return ((figure instanceof Character || figure instanceof Objective) && (figure.exhausted || figure.health == 0)) || figure instanceof Monster && figure.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead || monsterEntity.health == 0);
-  }
-
-  restoreConditions(entity: Entity) {
-    entity.expiredConditions.forEach((condition: Condition) => {
-      if (entity.conditions.indexOf(condition) == -1) {
-        entity.conditions.push(condition);
-      }
-      if (entity.turnConditions.indexOf(condition) == -1) {
-        entity.turnConditions.push(condition);
-      } else {
-        entity.turnConditions.splice(entity.turnConditions.indexOf(condition), 1);
-      }
-    });
-
-    entity.expiredConditions = [];
-  }
 
   beforeTurn(figure: Figure) {
-    if (figure.off && !this.permanentDead(figure)) {
-      figure.off = false;
-      if (settingsManager.settings.expireConditions) {
-        if (figure instanceof Character) {
-          this.restoreConditions(figure);
-          figure.summons.forEach((summon: Summon) => {
-            this.restoreConditions(summon);
-          });
-        } if (figure instanceof Objective) {
-          this.restoreConditions(figure);
-        } else if (figure instanceof Monster) {
-          figure.entities.forEach((monsterEntity: MonsterEntity) => {
-            this.restoreConditions(monsterEntity);
-          });
+    if (!this.permanentDead(figure)) {
+      if (figure.off) {
+        figure.off = false;
+        if (settingsManager.settings.expireConditions) {
+          if (figure instanceof Character) {
+            this.entityManager.restoreConditions(figure);
+            figure.summons.forEach((summon: Summon) => {
+              this.entityManager.restoreConditions(summon);
+            });
+          } if (figure instanceof Objective) {
+            this.entityManager.restoreConditions(figure);
+          } else if (figure instanceof Monster) {
+            figure.entities.forEach((monsterEntity: MonsterEntity) => {
+              this.entityManager.restoreConditions(monsterEntity);
+            });
+          }
+        }
+      }
+
+      if (settingsManager.settings.applyConditions) {
+        if (!figure.active) {
+          if (figure instanceof Character) {
+            this.entityManager.unapplyConditions(figure);
+            figure.summons.forEach((summon: Summon) => {
+              this.entityManager.unapplyConditions(summon);
+            });
+          } if (figure instanceof Objective) {
+            this.entityManager.unapplyConditions(figure);
+          } else if (figure instanceof Monster) {
+            figure.entities.forEach((monsterEntity: MonsterEntity) => {
+              this.entityManager.unapplyConditions(monsterEntity);
+            });
+          }
         }
       }
     }
   }
 
-  expireConditions(entity: Entity) {
-    for (let roundCondition in RoundCondition) {
-      if (entity.conditions.indexOf(roundCondition as Condition) != -1 && entity.turnConditions.indexOf(roundCondition as Condition) == -1) {
-        entity.turnConditions.push(roundCondition as Condition);
-        entity.expiredConditions.push(roundCondition as Condition);
-      } else if (entity.turnConditions.indexOf(roundCondition as Condition) != -1) {
-        entity.conditions.splice(entity.conditions.indexOf(roundCondition as Condition), 1);
-        entity.turnConditions.splice(entity.turnConditions.indexOf(roundCondition as Condition), 1);
-        entity.expiredConditions.push(roundCondition as Condition);
+  turn(figure: Figure) {
+    figure.active = true;
+    if (settingsManager.settings.applyConditions) {
+      if (figure instanceof Character) {
+        this.entityManager.applyConditions(figure);
+        figure.summons.forEach((summon: Summon) => {
+          this.entityManager.applyConditions(summon);
+        });
+      } if (figure instanceof Objective) {
+        this.entityManager.applyConditions(figure);
+      } else if (figure instanceof Monster) {
+        figure.entities.forEach((monsterEntity: MonsterEntity) => {
+          this.entityManager.applyConditions(monsterEntity);
+        });
       }
     }
   }
 
-  endTurn(figure: Figure) {
+  afterTurn(figure: Figure) {
     if (!figure.off) {
       figure.off = true;
       figure.active = false;
       if (settingsManager.settings.expireConditions) {
         if (figure instanceof Character) {
-          this.expireConditions(figure);
+          this.entityManager.expireConditions(figure);
           figure.summons.forEach((summon: Summon) => {
-            this.expireConditions(summon);
+            this.entityManager.expireConditions(summon);
           });
         } if (figure instanceof Objective) {
-          this.expireConditions(figure);
+          this.entityManager.expireConditions(figure);
         } else if (figure instanceof Monster) {
           figure.entities.forEach((monsterEntity: MonsterEntity) => {
-            this.expireConditions(monsterEntity);
+            this.entityManager.expireConditions(monsterEntity);
+          });
+        }
+      }
+
+      if (settingsManager.settings.applyConditions) {
+        if (figure instanceof Character) {
+          this.entityManager.applyConditions(figure);
+          figure.summons.forEach((summon: Summon) => {
+            this.entityManager.applyConditions(summon);
+          });
+        } if (figure instanceof Objective) {
+          this.entityManager.applyConditions(figure);
+        } else if (figure instanceof Monster) {
+          figure.entities.forEach((monsterEntity: MonsterEntity) => {
+            this.entityManager.applyConditions(monsterEntity);
           });
         }
       }
@@ -404,6 +441,10 @@ export class GameManager {
         })
       }
     }
+  }
+
+  permanentDead(figure: Figure): boolean {
+    return ((figure instanceof Character || figure instanceof Objective) && (figure.exhausted || figure.health == 0)) || figure instanceof Monster && figure.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead || monsterEntity.health == 0);
   }
 
   toggleElement(element: Element) {
@@ -468,9 +509,31 @@ export class GameManager {
         console.error("Could not find edition data!");
         return;
       }
-      this.game.figures = this.game.figures.filter((figure: Figure) => figure instanceof CharacterData);
+      this.resetRound();
       this.applyScenarioData(editionData, scenario);
     }
+  }
+
+  resetRound() {
+    this.sessionTimestamp = new Date().getTime();
+    this.game.playSeconds = 0;
+    this.game.sections = [];
+    this.game.round = 0;
+    this.game.state = GameState.draw;
+    this.game.figures = this.game.figures.filter((figure: Figure) => figure instanceof Character);
+    this.game.figures.forEach((figure: Figure) => {
+      if (figure instanceof Character) {
+        figure.health = figure.maxHealth;
+        figure.loot = 0;
+        figure.experience = 0;
+        figure.entityConditions = [];
+        figure.summons = [];
+        figure.initiative = 0;
+        figure.active = false;
+        figure.off = false;
+        figure.exhausted = false;
+      }
+    })
   }
 
   addSection(section: SectionData) {

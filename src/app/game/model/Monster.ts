@@ -26,7 +26,7 @@ export class Monster extends MonsterData implements Figure {
   entities: MonsterEntity[] = [];
 
   constructor(monsterData: MonsterData) {
-    super(monsterData.name, monsterData.count, monsterData.baseStat, monsterData.stats, monsterData.edition, monsterData.deck, monsterData.boss, monsterData.thumbnail, monsterData.spoiler);
+    super(monsterData.name, monsterData.count, monsterData.baseStat, monsterData.stats, monsterData.edition, monsterData.deck, monsterData.boss, monsterData.thumbnail, monsterData.thumbnailUrl, monsterData.spoiler);
     if (monsterData.baseStat) {
       for (let stat of monsterData.stats) {
         if (!stat.health && stat.health != 0) {

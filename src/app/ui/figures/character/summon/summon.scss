@@ -48,6 +48,28 @@
     height: calc(var(--ghs-unit) * 5);
   }
 
+  .highlight-conditions {
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: calc(var(--ghs-unit) * 8);
+    height: 100%;
+
+    .condition {
+      position: absolute;
+      bottom: calc(var(--ghs-unit) * -2);
+      left: 50%;
+      transform: translateX(-50%);
+
+      img {
+        animation: condition-hightlight 1s ease-in-out;
+        height: calc(var(--ghs-unit) * 5);
+        width: auto;
+      }
+    }
+  }
+
   .conditions {
     position: relative;
     display: grid;

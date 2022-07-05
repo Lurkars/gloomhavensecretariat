@@ -1,7 +1,7 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { AttackModifier, AttackModifierType } from 'src/app/game/model/AttackModifier';
-import { Condition, RoundCondition } from 'src/app/game/model/Condition';
+import { Condition, ConditionName, ConditionType } from 'src/app/game/model/Condition';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { MonsterStat } from 'src/app/game/model/MonsterStat';
@@ -21,7 +21,8 @@ export class MonsterEntityComponent extends DialogComponent {
   Conditions = Condition;
   AttackModifierType = AttackModifierType;
   SummonState = SummonState;
-  Condition = Condition;
+  ConditionName = ConditionName;
+  ConditionType = ConditionType;
   health: number = 0;
 
   constructor(private elementRef: ElementRef) {
@@ -39,15 +40,9 @@ export class MonsterEntityComponent extends DialogComponent {
 
   changeHealth(value: number) {
     gameManager.stateManager.before();
-    this.entity.health += value;
-    this.health += value;
-    if (this.entity.health > this.entity.maxHealth) {
-      this.entity.health = this.entity.maxHealth;
-      this.health -= value;
-    } else if (this.entity.health < 0) {
-      this.entity.health = 0;
-      this.health -= value;
-    }
+    const old = this.entity.health;
+    gameManager.entityManager.changeHealth(this.entity, value);
+    this.health += this.entity.health - old;
     gameManager.stateManager.after();
   }
 
@@ -93,48 +88,31 @@ export class MonsterEntityComponent extends DialogComponent {
     gameManager.stateManager.after();
   }
 
-  hasCondition(condition: Condition) {
-    return this.entity.conditions.indexOf(condition) != -1;
-  }
 
-  isImmune(condition: Condition) {
+  isImmune(conditionName: ConditionName) {
     const stat = this.monster.stats.find((monsterStat: MonsterStat) => monsterStat.level == this.entity.level && monsterStat.type == this.entity.type);
 
-    return stat && stat.immunities && stat.immunities.indexOf(condition) != -1;
+    return stat && stat.immunities && stat.immunities.indexOf(conditionName as string) != -1;
   }
 
+  hasCondition(condition: Condition) {
+    return gameManager.entityManager.hasCondition(this.entity, condition);
+  }
 
   toggleCondition(condition: Condition) {
     gameManager.stateManager.before();
-    if (!this.hasCondition(condition)) {
-      this.entity.conditions.push(condition);
-      if (!this.monster.active) {
-        for (let roundCondition in RoundCondition) {
-          if (this.entity.conditions.indexOf(roundCondition as Condition) != -1 && this.entity.turnConditions.indexOf(roundCondition as Condition) == -1) {
-            this.entity.turnConditions.push(roundCondition as Condition);
-          }
-        }
-      }
-    } else {
-      this.entity.conditions.splice(this.entity.conditions.indexOf(condition), 1);
-      this.entity.turnConditions.splice(this.entity.turnConditions.indexOf(condition), 1);
-      this.entity.expiredConditions.splice(this.entity.expiredConditions.indexOf(condition), 1);
-    }
+    gameManager.entityManager.toggleCondition(this.entity, condition, this.monster.active, this.monster.off);
     gameManager.stateManager.after();
     this.setDialogPosition();
   }
 
   hasMarker(marker: string) {
-    return this.entity.markers && this.entity.markers.indexOf(marker) != -1;
+    return gameManager.entityManager.hasMarker(this.entity, marker);
   }
 
   toggleMarker(marker: string) {
     gameManager.stateManager.before();
-    if (this.hasMarker(marker)) {
-      this.entity.markers.splice(this.entity.markers.indexOf(marker), 1);
-    } else {
-      this.entity.markers.push(marker);
-    }
+    gameManager.entityManager.toggleMarker(this.entity, marker);
     gameManager.stateManager.after();
     this.setDialogPosition();
   }

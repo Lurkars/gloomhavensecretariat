@@ -1,5 +1,5 @@
 import { Character } from "../model/Character";
-import { Condition, RoundCondition } from "../model/Condition";
+import { ConditionType, EntityCondition, EntityConditionState } from "../model/Condition";
 import { CharacterData } from "../model/data/CharacterData";
 import { ObjectiveData } from "../model/data/ObjectiveData";
 import { SectionData } from "../model/data/SectionData";
@@ -9,7 +9,7 @@ import { Game } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
 import { Objective } from "../model/Objective";
-import { Summon, SummonState } from "../model/Summon";
+import { Summon } from "../model/Summon";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 
@@ -93,6 +93,9 @@ export class CharacterManager {
       objective.maxHealth = objectiveData.maxHealth;
       objective.health = EntityValueFunction("" + objective.maxHealth);
       objective.escort = objectiveData.escort;
+      if (objectiveData.initiative) {
+        objective.initiative = objectiveData.initiative;
+      }
     }
 
     this.game.figures.push(objective);
@@ -114,9 +117,15 @@ export class CharacterManager {
         figure.initiative = 0;
         figure.off = false;
         if (settingsManager.settings.expireConditions) {
-          figure.expiredConditions = [];
+          figure.entityConditions = figure.entityConditions.filter((entityCondition: EntityCondition) => !entityCondition.expired);
+          if (settingsManager.settings.calculate) {
+            figure.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn)).forEach((entityCondition: EntityCondition) => entityCondition.state = EntityConditionState.normal);
+          }
           figure.summons.forEach((summon: Summon) => {
-            summon.expiredConditions = [];
+            summon.entityConditions = summon.entityConditions.filter((entityCondition: EntityCondition) => !entityCondition.expired);
+            if (settingsManager.settings.calculate) {
+              summon.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn)).forEach((entityCondition: EntityCondition) => entityCondition.state = EntityConditionState.normal);
+            }
           });
         }
 
@@ -124,7 +133,12 @@ export class CharacterManager {
         figure.off = false;
 
         if (settingsManager.settings.expireConditions) {
-          figure.expiredConditions = [];
+          figure.entityConditions = figure.entityConditions.filter((entityCondition: EntityCondition) => !entityCondition.expired);
+        }
+
+
+        if (settingsManager.settings.calculate) {
+          figure.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn)).forEach((entityCondition: EntityCondition) => entityCondition.state = EntityConditionState.normal);
         }
       }
     })

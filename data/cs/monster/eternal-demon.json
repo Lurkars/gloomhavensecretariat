@@ -1,0 +1,126 @@
+{
+  "name": "eternal-demon",
+  "edition": "cs",
+  "thumbnail" : "gh-earth-demon",
+  "deck": "boss",
+  "count": 6,
+  "boss": true,
+  "hidden": true,
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "immobilize",
+      "muddle",
+      "disarm",
+      "curse",
+      "wound",
+      "stun",
+      "poison",
+      "bane",
+      "brittle"
+    ],
+    "special": [
+      [
+        {
+          "type": "custom",
+          "value": "Reference the scenario"
+        },
+        {
+          "type": "custom",
+          "value": "Special Rules"
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "Reference the scenario"
+        },
+        {
+          "type": "custom",
+          "value": "Special Rules"
+        }
+      ]
+    ],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "10xC",
+      "movement": 2,
+      "attack": 4
+    },
+    {
+      "level": 1,
+      "health": "13xC",
+      "movement": 2,
+      "attack": 4
+    },
+    {
+      "level": 2,
+      "health": "18xC",
+      "movement": 2,
+      "attack": 4
+    },
+    {
+      "level": 3,
+      "health": "20xC",
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "21xC",
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "25xC",
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "27xC",
+      "movement": 3,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "32xC",
+      "movement": 3,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    }
+  ]
+}

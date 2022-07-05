@@ -2,6 +2,7 @@
   "count": 6,
   "edition": "jotl",
   "name": "common-vermling-raider",
+  "thumbnail" : "jotl-vermling-raider",
   "hidden" : true,
   "baseStat": {
     "actions": [],

@@ -1,15 +1,13 @@
 import { gameManager } from "../businesslogic/GameManager";
 import { Character } from "./Character";
-import { Condition } from "./Condition";
+import {  EntityCondition } from "./Condition";
 import { Figure } from "./Figure";
 
 export interface Entity {
   health: number;
   level: number;
   maxHealth: number | string;
-  conditions: Condition[];
-  turnConditions: Condition[];
-  expiredConditions: Condition[];
+  entityConditions: EntityCondition[];
   markers: string[];
 }
 

@@ -52,7 +52,7 @@
     margin: 0 !important;
 
     &.error {
-      animation: shake-animation .5s linear;
+      animation: shake .5s linear;
       color: var(--ghs-color-red) !important;
     }
   }

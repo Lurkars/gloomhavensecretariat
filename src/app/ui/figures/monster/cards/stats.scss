@@ -72,10 +72,12 @@
     display: flex;
     flex-direction: column;
     font-size: calc(var(--ghs-unit) * 1.8);
+    height: calc(100% - calc(var(--ghs-unit) * 5));
 
     .extra-container {
       overflow-x: unset;
       overflow-y: auto;
+      height: 100%;
     }
 
     .immunities {

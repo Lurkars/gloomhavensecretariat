@@ -1,0 +1,97 @@
+{
+  "name": "rogue-hollowpact",
+  "edition": "cs",
+  "thumbnail" : "gh-colorless",
+  "deck": "boss",
+  "count": 1,
+  "boss": true,
+  "hidden": true,
+  "baseStat": {
+    "actions": [
+      {
+        "type": "condition",
+        "value": "muddle"
+      }
+    ],
+    "immunities": [
+      "wound",
+      "poison",
+      "muddle",
+      "stun",
+      "curse"
+    ],
+    "special": [
+      [
+        {
+          "type": "custom",
+          "value": "Reference the scenario"
+        },
+        {
+          "type": "custom",
+          "value": "Special Rules"
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "Reference the scenario"
+        },
+        {
+          "type": "custom",
+          "value": "Special Rules"
+        }
+      ]
+    ],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "9xC",
+      "movement": 3,
+      "attack": 2
+    },
+    {
+      "level": 1,
+      "health": "10xC",
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "level": 2,
+      "health": "11xC",
+      "movement": 4,
+      "attack": 3
+    },
+    {
+      "level": 3,
+      "health": "12xC",
+      "movement": 4,
+      "attack": 4
+    },
+    {
+      "level": 4,
+      "health": "14xC",
+      "movement": 4,
+      "attack": 4
+    },
+    {
+      "level": 5,
+      "health": "15xC",
+      "movement": 4,
+      "attack": 5
+    },
+    {
+      "level": 6,
+      "health": "17xC",
+      "movement": 4,
+      "attack": 6
+    },
+    {
+      "level": 7,
+      "health": "19xC",
+      "movement": 5,
+      "attack": 7
+    }
+  ]
+}

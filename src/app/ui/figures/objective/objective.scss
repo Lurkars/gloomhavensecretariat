@@ -3,14 +3,14 @@
   z-index: 1;
   height: 100%;
   width: calc(var(--ghs-unit) * 89);
-  height: calc(var(--ghs-unit) * 15);
-  background-image: url('~src/assets/images/objective/objective-mat.png');
-  background-color: var(--ghs-color-gray);
+  height: calc(var(--ghs-unit) * 15.3);
+  background-image: url('~src/assets/images/character/char-mat.png');
+  background-color: var(--ghs-character-green);
   background-size: cover;
   display: flex;
   border-radius: calc(var(--ghs-unit) * 0.5);
 
-  &::before {
+  &:before {
     content: ' ';
     position: absolute;
     width: 100%;
@@ -20,22 +20,60 @@
     pointer-events: none;
   }
 
-  &.escort::before {
+  &.escort {
     background-color: var(--ghs-color-red);
+
+    &:before {
+      background-color: var(--ghs-color-red);
+    }
   }
 
   &.off {
 
+    background-color: var(--ghs-color-gray);
+
     .title,
+    .conditions,
     .image-container,
     .icon-container {
       filter: grayscale(100%);
     }
   }
 
-  .stats {
+  .highlight-conditions {
+    pointer-events: none;
+    position: absolute;
+    left: calc(var(--ghs-unit) * 3);
     top: 0;
-    left: calc(var(--ghs-unit) * 16);
+    width: calc(var(--ghs-unit) * 8);
+    height: 100%;
+
+    .condition {
+      animation: condition-hightlight 1s ease-in-out;
+      position: absolute;
+      bottom: calc(var(--ghs-unit) * 3);
+      left: 25%;
+      transform: translateX(-50%);
+
+      img {
+        height: calc(var(--ghs-unit) * 5);
+        width: auto;
+      }
+
+      .value {
+        font-family: 'ghs-title';
+        font-size: calc(var(--ghs-unit) * 2);
+        color: var(--ghs-color-white);
+        position: absolute;
+        top: calc(var(--ghs-unit) * 2.5);
+        left: calc(var(--ghs-unit) * 2.5);
+        text-shadow: none;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .stats {
     height: 100%;
     display: flex;
     flex-direction: row;
@@ -84,6 +122,7 @@
       color: var(--ghs-color-white);
       text-shadow: var(--ghs-outline);
 
+
       img {
         margin: calc(var(--ghs-unit) * 0.5);
         height: calc(var(--ghs-unit) * 3);
@@ -91,14 +130,32 @@
       }
 
       .conditions {
+        position: relative;
         display: flex;
         flex-direction: row;
         margin-left: calc(var(--ghs-unit) * 1);
 
-        img {
-          width: calc(var(--ghs-unit) * 3);
-          height: calc(var(--ghs-unit) * 3);
-          margin: 0;
+        .condition {
+          position: relative;
+          display: flex;
+          flex-direction: row;
+
+          img {
+            width: calc(var(--ghs-unit) * 3);
+            height: calc(var(--ghs-unit) * 3);
+            margin: 0;
+          }
+
+          .value {
+            font-family: "ghs-title";
+            font-size: calc(var(--ghs-unit) * 1.2);
+            color: var(--ghs-color-white);
+            position: absolute;
+            top: calc(var(--ghs-unit) * 1.5);
+            left: calc(var(--ghs-unit) * 1.5);
+            text-shadow: none;
+            transform: translateX(-50%);
+          }
         }
       }
     }
@@ -127,7 +184,6 @@
     margin: calc(var(--ghs-unit) * 3);
     cursor: pointer;
     border-radius: calc(var(--ghs-unit) * 1);
-    overflow: hidden;
     flex-shrink: 0;
 
     .image {
@@ -240,36 +296,6 @@
     color: var(--ghs-color-red) !important;
   }
 
-  .condition-container {
-    display: grid;
-    grid-template-columns: repeat(3, calc(var(--ghs-unit) * 7));
-    column-gap: calc(var(--ghs-unit) * 0.5);
-    row-gap: calc(var(--ghs-unit) * 1.5);
-    align-items: center;
-    justify-items: center;
-    margin-bottom: auto;
-  }
-
-  .condition {
-
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: calc(var(--ghs-unit) * 6);
-    width: calc(var(--ghs-unit) * 6);
-
-    &.active {
-      border: calc(var(--ghs-unit) / 4) var(--ghs-color-white) solid;
-      border-radius: 100%;
-    }
-
-    &:hover {
-      border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
-      border-radius: 100%;
-    }
-  }
-
   .max-health-container {
     position: relative;
     display: flex;
@@ -282,7 +308,6 @@
       width: auto;
     }
   }
-
 
   .badge {
     position: absolute;

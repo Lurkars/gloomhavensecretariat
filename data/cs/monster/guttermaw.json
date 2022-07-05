@@ -1,0 +1,325 @@
+{
+  "name": "guttermaw",
+  "edition": "cs",
+  "thumbnail": "cs-ravenous-gharial",
+  "deck": "boss",
+  "count": 6,
+  "boss": true,
+  "hidden": true,
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "disarm",
+      "immobilize",
+      "stun"
+    ],
+    "special": [],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "10xC",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "2",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "undefinedline-2"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "*Unaffected by"
+        },
+        {
+          "type": "custom",
+          "value": "*water hexes"
+        },
+        {
+          "type": "shield",
+          "value": "*1%"
+        },
+        {
+          "type": "custom",
+          "value": "*Shield only applies on ranged"
+        },
+        {
+          "type": "custom",
+          "value": "*attacks"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": "12xC",
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "2",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "undefinedline-2"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "*Unaffected by"
+        },
+        {
+          "type": "custom",
+          "value": "*water hexes"
+        },
+        {
+          "type": "shield",
+          "value": "*1%"
+        },
+        {
+          "type": "custom",
+          "value": "*Shield only applies on ranged"
+        },
+        {
+          "type": "custom",
+          "value": "*attacks"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "14xC",
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "2",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "undefinedline-2"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "*Unaffected by"
+        },
+        {
+          "type": "custom",
+          "value": "*water hexes"
+        },
+        {
+          "type": "shield",
+          "value": "*2%"
+        },
+        {
+          "type": "custom",
+          "value": "*Shield only applies on ranged"
+        },
+        {
+          "type": "custom",
+          "value": "*attacks"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "16xC",
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "2",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "undefinedline-2"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "*Unaffected by"
+        },
+        {
+          "type": "custom",
+          "value": "*water hexes"
+        },
+        {
+          "type": "shield",
+          "value": "*2%"
+        },
+        {
+          "type": "custom",
+          "value": "*Shield only applies on ranged"
+        },
+        {
+          "type": "custom",
+          "value": "*attacks"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "16xC",
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "2",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "undefinedline-2"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "*Unaffected by"
+        },
+        {
+          "type": "custom",
+          "value": "*water hexes"
+        },
+        {
+          "type": "shield",
+          "value": "*3%"
+        },
+        {
+          "type": "custom",
+          "value": "*Shield only applies on ranged"
+        },
+        {
+          "type": "custom",
+          "value": "*attacks"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "19xC",
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "2",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "undefinedline-2"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "*Unaffected by"
+        },
+        {
+          "type": "custom",
+          "value": "*water hexes"
+        },
+        {
+          "type": "shield",
+          "value": "*3%"
+        },
+        {
+          "type": "custom",
+          "value": "*Shield only applies on ranged"
+        },
+        {
+          "type": "custom",
+          "value": "*attacks"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "20xC",
+      "movement": 5,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "2",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "undefinedline-2"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "*Unaffected by"
+        },
+        {
+          "type": "custom",
+          "value": "*water hexes"
+        },
+        {
+          "type": "shield",
+          "value": "*4%"
+        },
+        {
+          "type": "custom",
+          "value": "*Shield only applies on ranged"
+        },
+        {
+          "type": "custom",
+          "value": "*attacks"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "22xC",
+      "movement": 5,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": "2",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "undefinedline-2"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "*Unaffected by"
+        },
+        {
+          "type": "custom",
+          "value": "*water hexes"
+        },
+        {
+          "type": "shield",
+          "value": "*4%"
+        },
+        {
+          "type": "custom",
+          "value": "*Shield only applies on ranged"
+        },
+        {
+          "type": "custom",
+          "value": "*attacks"
+        }
+      ]
+    }
+  ]
+}

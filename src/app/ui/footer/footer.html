@@ -3,6 +3,7 @@
     <a (click)="next()">{{ (gameManager.game.state == GameState.next ?
       'round.next' : 'round.draw') | ghsLabel}} </a>
     <span class="round" *ngIf="gameManager.game.round > 0">{{gameManager.game.round}}</span>
+    <span class="time">{{ currentTime }}</span>
     <span #button></span>
   </div>
   <div class="flex-shrink"></div>

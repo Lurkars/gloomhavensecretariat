@@ -1,0 +1,248 @@
+{
+  "name": "bandit-archer-hired-muscle",
+  "edition": "cs",
+  "thumbnail" : "gh-bandit-archer",
+  "deck": "archer",
+  "count": 6,
+  "hidden": true,
+  "baseStat": {
+    "actions": [],
+    "immunities": [],
+    "special": [],
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 4,
+      "movement": 2,
+      "attack": 2,
+      "range": 3,
+      "actions": [
+        {
+          "type": "pull",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": 5,
+      "movement": 2,
+      "attack": 2,
+      "range": 4,
+      "actions": [
+        {
+          "type": "pull",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 6,
+      "movement": 3,
+      "attack": 2,
+      "range": 4,
+      "actions": [
+        {
+          "type": "pull",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 6,
+      "movement": 3,
+      "attack": 3,
+      "range": 4,
+      "actions": [
+        {
+          "type": "pull",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 8,
+      "movement": 3,
+      "attack": 3,
+      "range": 4,
+      "actions": [
+        {
+          "type": "pull",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 10,
+      "movement": 3,
+      "attack": 3,
+      "range": 5,
+      "actions": [
+        {
+          "type": "pull",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 10,
+      "movement": 3,
+      "attack": 4,
+      "range": 5,
+      "actions": [
+        {
+          "type": "pull",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 13,
+      "movement": 3,
+      "attack": 4,
+      "range": 5,
+      "actions": [
+        {
+          "type": "pull",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "level": 0,
+      "health": 6,
+      "movement": 2,
+      "attack": 3,
+      "range": 3,
+      "actions": [
+        {
+          "type": "pull",
+          "value": "1"
+        }
+      ],
+      "type": "elite"
+    },
+    {
+      "level": 1,
+      "health": 7,
+      "movement": 2,
+      "attack": 3,
+      "range": 5,
+      "actions": [
+        {
+          "type": "pull",
+          "value": "1"
+        }
+      ],
+      "type": "elite"
+    },
+    {
+      "level": 2,
+      "health": 9,
+      "movement": 3,
+      "attack": 3,
+      "range": 5,
+      "actions": [
+        {
+          "type": "pull",
+          "value": "1"
+        }
+      ],
+      "type": "elite"
+    },
+    {
+      "level": 3,
+      "health": 10,
+      "movement": 3,
+      "attack": 4,
+      "range": 5,
+      "actions": [
+        {
+          "type": "pull",
+          "value": "1"
+        }
+      ],
+      "type": "elite"
+    },
+    {
+      "level": 4,
+      "health": 10,
+      "movement": 3,
+      "attack": 4,
+      "range": 6,
+      "actions": [
+        {
+          "type": "pull",
+          "value": "1"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ],
+      "type": "elite"
+    },
+    {
+      "level": 5,
+      "health": 12,
+      "movement": 4,
+      "attack": 4,
+      "range": 6,
+      "actions": [
+        {
+          "type": "pull",
+          "value": "1"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ],
+      "type": "elite"
+    },
+    {
+      "level": 6,
+      "health": 13,
+      "movement": 4,
+      "attack": 5,
+      "range": 6,
+      "actions": [
+        {
+          "type": "pull",
+          "value": "1"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ],
+      "type": "elite"
+    },
+    {
+      "level": 7,
+      "health": 17,
+      "movement": 4,
+      "attack": 5,
+      "range": 6,
+      "actions": [
+        {
+          "type": "pull",
+          "value": "1"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ],
+      "type": "elite"
+    }
+  ]
+}

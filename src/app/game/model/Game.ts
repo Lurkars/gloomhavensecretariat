@@ -16,6 +16,8 @@ export class Game {
   sections: SectionData[] = [];
   level: number = 1;
   round: number = 0;
+  playSeconds: number = 0;
+  totalSeconds: number = 0;
   attackModifier: number = -1;
   attackModifiers: AttackModifier[] = defaultAttackModifier;
   newElements: Element[] = [];
@@ -24,7 +26,7 @@ export class Game {
 
 
   toModel(): GameModel {
-    return new GameModel(this.edition, this.figures.map((figure: Figure) => figure.name), this.figures.filter((figure: Figure) => figure instanceof Character).map((figure: Figure) => ((figure as Character).toModel())), this.figures.filter((figure: Figure) => figure instanceof Monster).map((figure: Figure) => ((figure as Monster).toModel())), this.figures.filter((figure: Figure) => figure instanceof Objective).map((figure: Figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.round, this.attackModifier, this.attackModifiers.map((value: AttackModifier) => value.type), this.newElements, this.strongElements, this.elements);
+    return new GameModel(this.edition, this.figures.map((figure: Figure) => figure.name), this.figures.filter((figure: Figure) => figure instanceof Character).map((figure: Figure) => ((figure as Character).toModel())), this.figures.filter((figure: Figure) => figure instanceof Monster).map((figure: Figure) => ((figure as Monster).toModel())), this.figures.filter((figure: Figure) => figure instanceof Objective).map((figure: Figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.round, this.playSeconds, this.totalSeconds, this.attackModifier, this.attackModifiers.map((value: AttackModifier) => value.type), this.newElements, this.strongElements, this.elements);
   }
 
   fromModel(model: GameModel) {
@@ -76,6 +78,8 @@ export class Game {
     this.sections = model.sections || [];
     this.level = model.level;
     this.round = model.round;
+    this.playSeconds = model.playSeconds;
+    this.totalSeconds = model.totalSeconds;
     this.attackModifier = model.attackModifier;
     this.attackModifiers = model.attackModifiers.map((value: AttackModifierType) => new AttackModifier(value));
     if (!this.attackModifiers || this.attackModifiers.length == 0) {
@@ -103,6 +107,8 @@ export class GameModel {
   sections: SectionData[] = [];
   level: number;
   round: number;
+  playSeconds: number;
+  totalSeconds: number;
   attackModifier: number;
   attackModifiers: AttackModifierType[];
   newElements: Element[];
@@ -119,6 +125,8 @@ export class GameModel {
     sections: SectionData[] = [],
     level: number = 0,
     round: number = 0,
+    playSeconds: number = 0,
+    totalSeconds: number = 0,
     attackModifier: number = -1,
     attackModifieres: AttackModifierType[] = [],
     newElements: Element[] = [],
@@ -134,6 +142,8 @@ export class GameModel {
     this.sections = sections;
     this.level = level;
     this.round = round;
+    this.playSeconds = playSeconds;
+    this.totalSeconds = totalSeconds;
     this.attackModifier = attackModifier;
     this.attackModifiers = attackModifieres;
     this.newElements = newElements;

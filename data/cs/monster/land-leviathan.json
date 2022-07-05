@@ -1,0 +1,127 @@
+{
+  "name": "land-leviathan",
+  "edition": "cs",
+  "thumbnail": "gh-deep-terror",
+  "deck": "boss",
+  "count": 10,
+  "boss": true,
+  "hidden": true,
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "stun",
+      "disarm",
+      "poison",
+      "push",
+      "pull"
+    ],
+    "special": [
+      [
+        {
+          "type": "custom",
+          "value": "Reference the scenario"
+        },
+        {
+          "type": "custom",
+          "value": "Special Rules"
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "Reference the scenario"
+        },
+        {
+          "type": "custom",
+          "value": "Special Rules"
+        }
+      ]
+    ],
+    "type": "boss",
+    "movement": 0
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "5x(Cx2)-1",
+      "attack": 3
+    },
+    {
+      "level": 1,
+      "health": "6x(Cx2)-1",
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "7x(Cx2)-1",
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "8x(Cx2)-1",
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "9x(Cx2)-1",
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "11x(Cx2)-1",
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "13x(Cx2)-1",
+      "attack": 6,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "15x(Cx2)-1",
+      "attack": 6,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "4"
+        }
+      ]
+    }
+  ]
+}

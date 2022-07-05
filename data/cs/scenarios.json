@@ -1,0 +1,1008 @@
+[
+  {
+    "edition": "cs",
+    "name": "The Dark Lake",
+    "index": "1",
+    "monsters": [
+      "spitting-drake",
+      "vermling-scout",
+      "water-spirit"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Underground Channels",
+    "index": "2",
+    "monsters": [
+      "deep-terror",
+      "inox-archer",
+      "inox-guard",
+      "water-spirit"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Flooded Cavern",
+    "index": "3",
+    "monsters": [
+      "giant-viper",
+      "lurker",
+      "hydra-spirit"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Infected Warriors",
+    "index": "4",
+    "monsters": [
+      "city-archer",
+      "city-guard",
+      "blood-ooze",
+      "flaming-drake",
+      "toxic-imp"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Blood of the Oozes",
+    "index": "5",
+    "monsters": [
+      "blood-ooze",
+      "earth-demon",
+      "flaming-drake",
+      "toxic-imp"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Poisoned Water",
+    "index": "6",
+    "monsters": [
+      "blood-ooze",
+      "flaming-drake",
+      "toxic-imp",
+      "water-spirit"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Golden Eggs",
+    "index": "7",
+    "monsters": [
+      "cave-bear",
+      "forest-imp",
+      "giant-viper",
+      "hound",
+      "spitting-drake",
+      "rending-drake"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Shattered Fortress",
+    "index": "8",
+    "monsters": [
+      "ancient-artillery",
+      "living-spirit",
+      "stone-golem"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Rescue Mission",
+    "index": "9",
+    "monsters": [
+      "ancient-artillery",
+      "cave-bear",
+      "city-archer",
+      "city-guard"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Den of Monstrosity",
+    "index": "10",
+    "monsters": [
+      "black-imp",
+      "lurker"
+    ],
+    "objectives": [
+      {
+        "name": "Supply Crate 1",
+        "health": "2x(C+L+1)"
+      },
+      {
+        "name": "Supply Crate 2",
+        "health": "2x(C+L+1)"
+      },
+      {
+        "name": "Supply Crate 3",
+        "health": "2x(C+L+1)"
+      },
+      {
+        "name": "Supply Crate 4",
+        "health": "2x(C+L+1)"
+      },
+      {
+        "name": "Supply Crate 5",
+        "health": "2x(C+L+1)"
+      },
+      {
+        "name": "Supply Crate 6",
+        "health": "2x(C+L+1)"
+      }
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Voyage Abound",
+    "index": "11",
+    "monsters": [
+      "flame-demon",
+      "inox-archer",
+      "inox-guard",
+      "inox-shaman",
+      "night-demon"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Uncovering the Source",
+    "index": "12",
+    "monsters": [
+      "flame-demon",
+      "giant-viper",
+      "rending-drake",
+      "spitting-drake"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Corpse Cavern",
+    "index": "13",
+    "monsters": [
+      "living-corpse",
+      "lurker",
+      "ooze"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Cultist Cave",
+    "index": "14",
+    "monsters": [
+      "cultist",
+      "deep-terror",
+      "living-corpse",
+      "living-bones"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Ambush of Beasts",
+    "index": "15",
+    "monsters": [
+      "cave-bear",
+      "giant-viper",
+      "hound",
+      "lurker",
+      "rending-drake"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Preto Krisanta",
+    "index": "16",
+    "monsters": [
+      "black-imp",
+      "flame-demon",
+      "night-demon",
+      "sun-demon"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Orb Extraction",
+    "index": "17",
+    "monsters": [
+      "earth-demon",
+      "flame-demon",
+      "frost-demon",
+      "savvas-icestorm",
+      "wind-demon"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Grab and Go",
+    "index": "18",
+    "monsters": [
+      "black-imp",
+      "deep-terror",
+      "harrower-infester",
+      "night-demon"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Elemental Experiments",
+    "index": "19",
+    "monsters": [
+      "earth-demon",
+      "flame-demon",
+      "frost-demon",
+      "night-demon",
+      "sun-demon",
+      "vermling-scout",
+      "wind-demon"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Midnight Ritual",
+    "index": "20",
+    "monsters": [
+      "the-cultist",
+      "deep-terror",
+      "living-spirit",
+      "living-bones"
+    ],
+    "objectives": [
+      {
+        "name": "Altar A",
+        "health": "3x(C+L)"
+      },
+      {
+        "name": "Altar B",
+        "health": "3x(C+L)"
+      },
+      {
+        "name": "Altar C",
+        "health": "3x(C+L)"
+      }
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "A Fiery Death",
+    "index": "21",
+    "monsters": [
+      "earth-demon",
+      "flame-demon"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Imp Temple",
+    "index": "22",
+    "monsters": [
+      "black-imp",
+      "forest-imp",
+      "harrower-infester"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Icicle Chambers",
+    "index": "23",
+    "monsters": [
+      "frozen-cadaver",
+      "hail-demon",
+      "harrower-icecrawlers"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Eerie Grotto",
+    "index": "24",
+    "monsters": [
+      "frozen-cadaver",
+      "hail-demon",
+      "harrower-icecrawlers"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Brightspark, Behold!",
+    "index": "25",
+    "monsters": [
+      "forest-imp",
+      "giant-viper",
+      "lurker",
+      "spitting-drake",
+      "sun-demon"
+    ],
+    "objectives": [
+      {
+        "name": "Brightspark",
+        "escort": true,
+        "health": "C+(L*3)",
+        "initiative": 50
+      }
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Thermal Stone Peak",
+    "index": "26",
+    "monsters": [
+      "frozen-cadaver",
+      "hail-demon",
+      "harrower-icecrawlers"
+    ],
+    "objectives": [
+      {
+        "name": "Cold thermal stone 1",
+        "health": "C+3"
+      },
+      {
+        "name": "Cold thermal stone 2",
+        "health": "C+3"
+      }
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Frostbite Cavern",
+    "index": "27",
+    "monsters": [
+      "frost-demon",
+      "stone-golem",
+      "wind-demon"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Fountain of Bones",
+    "index": "28",
+    "monsters": [
+      "cultist",
+      "living-bones",
+      "ooze"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Burial Chamber",
+    "index": "29",
+    "monsters": [
+      "living-bones",
+      "living-corpse",
+      "living-spirit"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Undead Terrors",
+    "index": "30",
+    "monsters": [
+      "black-imp",
+      "living-corpse",
+      "stone-golem"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Eternal Portals",
+    "index": "31",
+    "monsters": [
+      "harrower-infester",
+      "living-spirit",
+      "rending-drake",
+      "spitting-drake"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Confronting the Past",
+    "index": "32",
+    "monsters": [
+      "ancient-artillery",
+      "inox-archer",
+      "inox-bodyguard",
+      "inox-guard",
+      "living-bones",
+      "jekserah"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Siege Tower",
+    "index": "33",
+    "monsters": [
+      "inox-archer",
+      "inox-bodyguard",
+      "inox-guard",
+      "inox-shaman"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Great Oak Rescue",
+    "index": "34",
+    "monsters": [
+      "hound",
+      "inox-archer",
+      "inox-guard",
+      "inox-shaman"
+    ],
+    "objectives": [
+      {
+        "name": "Sacred Monk 1",
+        "health": "C+L+2"
+      },
+      {
+        "name": "Sacred Monk 2",
+        "health": "C+L+2"
+      },
+      {
+        "name": "Sacred Monk 3",
+        "health": "C+L+2"
+      },
+      {
+        "name": "Sacred Monk 4",
+        "health": "C+L+2"
+      }
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Prison Riot",
+    "index": "35",
+    "monsters": [
+      "bandit-archer",
+      "bandit-guard",
+      "night-demon",
+      "wind-demon"
+    ],
+    "objectives": [
+      {
+        "name": "Chainguard",
+        "escort": true,
+        "health": "6+(3xL)",
+        "initiative": 50
+      }
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Hunters Bounty",
+    "index": "36",
+    "monsters": [
+      "bandit-archer",
+      "bandit-guard",
+      "hound"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Burning Stones",
+    "index": "37",
+    "monsters": [
+      "flame-demon",
+      "frost-demon",
+      "night-demon",
+      "sun-demon",
+      "vermling-scout"
+    ],
+    "objectives": [
+      {
+        "name": "Radiant Stone",
+        "health": "L+C+2"
+      },
+      {
+        "name": "Flaming Stone",
+        "health": "L+C+2"
+      }
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Altars of Confusion",
+    "index": "38",
+    "monsters": [
+      "black-imp",
+      "living-spirit",
+      "night-demon",
+      "stone-golem"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Festering Mire",
+    "index": "39",
+    "monsters": [
+      "earth-demon",
+      "giant-viper"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Smugglers Hideout",
+    "index": "40",
+    "monsters": [
+      "rending-drake",
+      "spitting-drake"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Curse of the Void",
+    "index": "41",
+    "monsters": [
+      "bandit-archer",
+      "bandit-guard"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Unnatural Beasts",
+    "index": "42",
+    "monsters": [
+      "cave-bear",
+      "giant-viper",
+      "hound"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Mansion Maze",
+    "index": "43",
+    "monsters": [
+      "ancient-artillery",
+      "city-guard",
+      "stone-golem"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Haunted Manor",
+    "index": "44",
+    "monsters": [
+      "harrower-infester",
+      "living-spirit",
+      "night-demon"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Defend the Swamp",
+    "index": "45",
+    "monsters": [
+      "black-imp",
+      "land-leviathan",
+      "forest-imp"
+    ],
+    "objectives": []
+  },
+  {
+    "edition": "cs",
+    "name": "Vermling Gardens",
+    "index": "46",
+    "monsters": [
+      "cave-bear",
+      "hound",
+      "vermling-scout",
+      "vermling-shaman"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Viper Marsh",
+    "index": "47",
+    "monsters": [
+      "earth-demon",
+      "giant-viper",
+      "ooze"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Forest Fire",
+    "index": "48",
+    "monsters": [
+      "giant-viper",
+      "inox-archer",
+      "inox-guard",
+      "inox-shaman",
+      "spitting-drake"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Oak Invasion A",
+    "index": "49",
+    "monsters": [
+      "city-archer",
+      "city-guard",
+      "inox-archer",
+      "inox-bodyguard",
+      "inox-guard",
+      "inox-shaman"
+    ],
+    "objectives": []
+  },
+  {
+    "edition": "cs",
+    "name": "Oak Invasion B",
+    "index": "50",
+    "monsters": [
+      "captain-of-the-guard",
+      "cave-bear",
+      "city-archer",
+      "city-guard",
+      "inox-archer",
+      "inox-guard"
+    ],
+    "objectives": []
+  },
+  {
+    "edition": "cs",
+    "name": "Rodent Warehouse",
+    "index": "51",
+    "monsters": [
+      "flame-demon",
+      "sun-demon",
+      "vermling-scout",
+      "vermling-shaman"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Wishing Well",
+    "index": "52",
+    "monsters": [
+      "black-imp",
+      "living-corpse",
+      "ooze",
+      "spitting-drake"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Cave of Currents",
+    "index": "53",
+    "monsters": [
+      "lurker",
+      "spitting-drake",
+      "water-spirit"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Lair of Horrors",
+    "index": "54",
+    "monsters": [
+      "hanging-snake",
+      "dark-lurker"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Catacomb Plunder",
+    "index": "55",
+    "monsters": [
+      "bandit-archer",
+      "earth-demon",
+      "harrower-infester",
+      "living-bones",
+      "living-corpse",
+      "stone-golem"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Disarm the Machine",
+    "index": "56",
+    "monsters": [
+      "ancient-artillery",
+      "stone-golem"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Elemental Converter",
+    "index": "57",
+    "monsters": [
+      "black-imp",
+      "deep-terror",
+      "hound",
+      "lurker",
+      "rending-drake",
+      "spitting-drake"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Penitentiary Lockdown",
+    "index": "58",
+    "monsters": [
+      "bandit-archer",
+      "bandit-guard"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Forest Invaders",
+    "index": "59",
+    "monsters": [
+      "cave-bear",
+      "giant-viper",
+      "hound",
+      "vermling-scout",
+      "vermling-shaman"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Through the Fire and the Flames",
+    "index": "60",
+    "monsters": [
+      "flame-demon",
+      "rending-drake",
+      "savvas-lavaflow",
+      "spitting-drake"
+    ],
+    "objectives": []
+  },
+  {
+    "edition": "cs",
+    "name": "Archaic Preservation",
+    "index": "61",
+    "monsters": [
+      "ancient-artillery",
+      "black-imp",
+      "lurker",
+      "rending-drake",
+      "stone-golem"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Hallow Redemption",
+    "index": "62",
+    "monsters": [
+      "aesther-ashblade",
+      "cave-bear",
+      "forest-imp",
+      "vermling-shaman"
+    ],
+    "objectives": []
+  },
+  {
+    "edition": "cs",
+    "name": "A Cornered Viper",
+    "index": "63",
+    "monsters": [
+      "cave-bear",
+      "giant-viper",
+      "inox-archer",
+      "living-corpse",
+      "living-spirit",
+      "stone-golem"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Glowing Crystals",
+    "index": "64",
+    "monsters": [
+      "deep-terror",
+      "lurker"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Beyond the Grave",
+    "index": "65",
+    "monsters": [
+      "vermling-shaman"
+    ],
+    "objectives": [
+      {
+        "name": "Angry Spirit 1",
+        "health": "6"
+      },
+      {
+        "name": "Angry Spirit 2",
+        "health": "6"
+      }
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Otherworldly Strangers",
+    "index": "66",
+    "monsters": [
+      "city-archer",
+      "city-guard",
+      "earth-demon",
+      "harrower-infester",
+      "night-demon",
+      "sun-demon"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "The Riches of the Steelsilk",
+    "index": "1",
+    "monsters": [
+      "harrower-aegis",
+      "hound",
+      "bandit-archer",
+      "bandit-guard",
+      "wind-demon",
+      "frost-demon"
+    ],
+    "group": "AA"
+  },
+  {
+    "edition": "cs",
+    "name": "Malign Echoes",
+    "index": "2",
+    "monsters": [
+      "giant-viper",
+      "ravenous-gharial",
+      "black-imp",
+      "harrower-aegis",
+      "harrower-infester"
+    ],
+    "group": "AA"
+  },
+  {
+    "edition": "cs",
+    "name": "Solo: Hive Guardian",
+    "index": "3",
+    "monsters": [
+      "flame-demon",
+      "frost-demon",
+      "wind-demon",
+      "earth-demon",
+      "night-demon",
+      "sun-demon"
+    ],
+    "objectives": [
+      {
+        "name": "Soul Leech Egg 1",
+        "escort": true,
+        "health": "3+L",
+        "initiative": 25
+      },
+      {
+        "name": "Soul Leech Egg 2",
+        "escort": true,
+        "health": "3+L",
+        "initiative": 25
+      }
+    ],
+    "group": "AA"
+  },
+  {
+    "edition": "cs",
+    "name": "Capstone Test",
+    "index": "1",
+    "monsters": [
+      "clockwork-soldier",
+      "clockwork-railcaster"
+    ],
+    "group": "QA"
+  },
+  {
+    "edition": "cs",
+    "name": "Mother Lode",
+    "index": "2",
+    "monsters": [
+      "giant-viper",
+      "living-bones",
+      "ooze",
+      "living-corpse",
+      "living-spirit"
+    ],
+    "group": "QA"
+  },
+  {
+    "edition": "cs",
+    "name": "Solo: Magnum Opus",
+    "index": "3",
+    "monsters": [
+      "clockwork-soldier",
+      "clockwork-railcaster"
+    ],
+    "group": "QA"
+  },
+  {
+    "edition": "cs",
+    "name": "Mind Your Manners",
+    "index": "1",
+    "monsters": [
+      "bandit-guard-hired-muscle",
+      "bandit-archer-hired-muscle",
+      "inox-guard",
+      "inox-archer"
+    ],
+    "group": "RM"
+  },
+  {
+    "edition": "cs",
+    "name": "Sinking Kingpin",
+    "index": "2",
+    "monsters": [
+      "bandit-guard",
+      "bandit-archer",
+      "inox-guard",
+      "inox-archer",
+      "inox-bloodguard",
+      "goremyon-shatter-mind"
+    ],
+    "group": "RM"
+  },
+  {
+    "edition": "cs",
+    "name": "Ruined Colony",
+    "index": "3",
+    "monsters": [
+      "hound",
+      "giant-viper",
+      "cave-bear",
+      "ooze",
+      "gnashing-drake"
+    ],
+    "group": "RM"
+  },
+  {
+    "edition": "cs",
+    "name": "Terrorscale Lair",
+    "index": "4",
+    "monsters": [
+      "terrorscale-drake",
+      "gnashing-drake",
+      "spitting-drake",
+      "rending-drake"
+    ],
+    "group": "RM"
+  },
+  {
+    "edition": "cs",
+    "name": "Unseen Plight",
+    "index": "5",
+    "monsters": [
+      "ravenous-gharial",
+      "black-imp"
+    ],
+    "group": "RM"
+  },
+  {
+    "edition": "cs",
+    "name": "Solo: The Fall of Shadow’s Respite",
+    "index": "6",
+    "monsters": [
+      "gnashing-drake",
+      "spitting-drake",
+      "rending-drake",
+      "vermling-scout-ally",
+      "vermling-shaman-ally"
+    ],
+    "objectives": [
+      {
+        "name": "The Chosen",
+        "escort": true,
+        "health": "6+L",
+        "initiative": 99
+      }
+    ],
+    "group": "RM"
+  },
+  {
+    "edition": "cs",
+    "name": "Insatiable",
+    "index": "7",
+    "monsters": [
+      "hound",
+      "ruinmaw",
+      "vermling-shaman",
+      "vermling-scout",
+      "giant-viper"
+    ],
+    "group": "RM"
+  }
+]

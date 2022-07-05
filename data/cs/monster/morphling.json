@@ -1,0 +1,182 @@
+{
+  "name": "morphling",
+  "edition": "cs",
+  "thumbnail": "cs-water-spirit",
+  "deck": "boss",
+  "count": 6,
+  "boss": true,
+  "hidden": true,
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "immobilize",
+      "muddle",
+      "disarm",
+      "curse",
+      "wound",
+      "stun",
+      "poison",
+      "bane",
+      "brittle",
+      "push",
+      "pull"
+    ],
+    "special": [],
+    "type": "boss",
+    "movement": 3
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "7x(Cx2)",
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "1"
+        },
+        {
+          "type": "custom",
+          "value": "Shield only applies before"
+        },
+        {
+          "type": "custom",
+          "value": "its turn"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": "9x(Cx2)",
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "2"
+        },
+        {
+          "type": "custom",
+          "value": "Shield only applies before"
+        },
+        {
+          "type": "custom",
+          "value": "its turn"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "10x(Cx2)",
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "2"
+        },
+        {
+          "type": "custom",
+          "value": "Shield only applies before"
+        },
+        {
+          "type": "custom",
+          "value": "its turn"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "12x(Cx2)",
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "3"
+        },
+        {
+          "type": "custom",
+          "value": "Shield only applies before"
+        },
+        {
+          "type": "custom",
+          "value": "its turn"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "12x(Cx2)",
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "4"
+        },
+        {
+          "type": "custom",
+          "value": "Shield only applies before"
+        },
+        {
+          "type": "custom",
+          "value": "its turn"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "14x(Cx2)",
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "4"
+        },
+        {
+          "type": "custom",
+          "value": "Shield only applies before"
+        },
+        {
+          "type": "custom",
+          "value": "its turn"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "16x(Cx2)",
+      "attack": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "5"
+        },
+        {
+          "type": "custom",
+          "value": "Shield only applies before"
+        },
+        {
+          "type": "custom",
+          "value": "its turn"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "19x(Cx2)",
+      "attack": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "6"
+        },
+        {
+          "type": "custom",
+          "value": "Shield only applies before"
+        },
+        {
+          "type": "custom",
+          "value": "its turn"
+        }
+      ]
+    }
+  ]
+}

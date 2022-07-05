@@ -2,6 +2,7 @@ export class Settings {
   calculate: boolean = true;
   eliteFirst: boolean = true;
   expireConditions: boolean = true;
+  applyConditions: boolean = true;
   moveElements: boolean = true;
   randomStandees: boolean = false;
   fullscreen: boolean = false;

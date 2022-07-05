@@ -1,0 +1,102 @@
+.condition-container {
+  display: grid;
+  grid-template-columns: repeat(3, calc(var(--ghs-unit) * 7));
+  column-gap: calc(var(--ghs-unit) * 0.5);
+  row-gap: calc(var(--ghs-unit) * 1.5);
+  align-items: center;
+  justify-items: center;
+  margin-bottom: auto;
+
+  &:not(:first-child) {
+    margin-top: calc(var(--ghs-unit) * 1.5);
+  }
+}
+
+.item {
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(var(--ghs-unit) * 6);
+  width: calc(var(--ghs-unit) * 6);
+
+  .condition {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    position: relative;
+    width: calc(var(--ghs-unit) * 4);
+    height: calc(var(--ghs-unit) * 4);
+
+    &:after {
+      pointer-events: none;
+      content: ' ';
+      height: calc(var(--ghs-unit) * 6);
+      width: calc(var(--ghs-unit) * 6);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    img {
+      height: 100%;
+      width: auto;
+    }
+
+    .value {
+      font-family: 'ghs-title';
+      font-size: calc(var(--ghs-unit) * 1.3);
+      color: var(--ghs-color-white);
+      position: absolute;
+      bottom: 0;
+      left: calc(var(--ghs-unit) * 2);
+      transform: translateX(-50%);
+
+      &.stack {
+        left: calc(var(--ghs-unit) * 3.5);
+        bottom: calc(var(--ghs-unit) * -0.5);
+      }
+    }
+
+    &.active::after {
+      border: calc(var(--ghs-unit) / 4) var(--ghs-color-white) solid;
+      border-radius: 100%;
+    }
+
+    &:hover::after {
+      border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
+      border-radius: 100%;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      color: var(--ghs-color-gray);
+
+      .ghs-svg {
+        filter: var(--ghs-filter-gray) !important;
+      }
+    }
+
+  }
+
+  .dec,
+  .inc {
+    cursor: pointer;
+    position: absolute;
+    width: calc(var(--ghs-unit) * 1);
+    height: auto;
+
+    &.dec {
+      left: 0;
+    }
+
+    &.inc {
+      right: 0;
+    }
+
+    top: calc(var(--ghs-unit) * 3);
+    transform: translateY(-50%);
+  }
+}

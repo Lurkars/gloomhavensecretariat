@@ -132,7 +132,7 @@ export class MainMenuComponent extends DialogComponent {
   }
 
   characterData(edition: string | undefined = undefined): CharacterData[] {
-    return gameManager.charactersData().filter((characterData: CharacterData) => !edition || characterData.edition == edition).sort((a: CharacterData, b: CharacterData) => {
+    return gameManager.charactersData(true).filter((characterData: CharacterData) => !edition || characterData.edition == edition).sort((a: CharacterData, b: CharacterData) => {
       const aName = settingsManager.getLabel('data.character.' + a.name).toLowerCase();
       const bName = settingsManager.getLabel('data.character.' + b.name).toLowerCase();
 
@@ -185,7 +185,7 @@ export class MainMenuComponent extends DialogComponent {
   }
 
   monsterData(edition: string | undefined = undefined): MonsterData[] {
-    return gameManager.monstersData(false).filter((monsterData: MonsterData) => (!monsterData.hidden || monsterData.hidden == this.showHiddenMonster) && (!edition || monsterData.edition == edition)).sort((a: MonsterData, b: MonsterData) => {
+    return gameManager.monstersData(true).filter((monsterData: MonsterData) => (!monsterData.hidden || monsterData.hidden == this.showHiddenMonster) && (!edition || monsterData.edition == edition)).sort((a: MonsterData, b: MonsterData) => {
       const aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
       const bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
 

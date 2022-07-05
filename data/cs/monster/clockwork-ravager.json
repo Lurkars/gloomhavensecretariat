@@ -1,0 +1,178 @@
+{
+  "name": "clockwork-ravager",
+  "edition": "cs",
+  "thumbnail": "gh-living-bones",
+  "deck": "boss",
+  "count": 10,
+  "boss": true,
+  "hidden": true,
+  "baseStat": {
+    "actions": [],
+    "immunities": [
+      "wound",
+      "poison",
+      "disarm",
+      "stun"
+    ],
+    "special": [],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "6xC",
+      "movement": 4,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "target",
+          "value": "2"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": "6xC",
+      "movement": 4,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "target",
+          "value": "3"
+        },
+        {
+          "type": "shield",
+          "value": "1"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "7xC",
+      "movement": 4,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "target",
+          "value": "3"
+        },
+        {
+          "type": "shield",
+          "value": "1"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "10xC",
+      "movement": 4,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "target",
+          "value": "3"
+        },
+        {
+          "type": "shield",
+          "value": "1"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "11xC",
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "target",
+          "value": "3"
+        },
+        {
+          "type": "shield",
+          "value": "1"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "11xC",
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "target",
+          "value": "3"
+        },
+        {
+          "type": "shield",
+          "value": "2"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "11xC",
+      "movement": 6,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "target",
+          "value": "3"
+        },
+        {
+          "type": "shield",
+          "value": "2"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "14xC",
+      "movement": 6,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "target",
+          "value": "3"
+        },
+        {
+          "type": "shield",
+          "value": "2"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    }
+  ]
+}

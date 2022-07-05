@@ -9,11 +9,20 @@
   </div>
 </div>
 
-<div class="character" [style.--ghs-character-color]="character.color" [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0}">
+<div class="character" [style.--ghs-character-color]="character.color"
+  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0}">
 
   <ghs-character-image (click)="close()" [character]="character"></ghs-character-image>
 
   <ghs-character-initiative (click)="close()" [character]="character"></ghs-character-initiative>
+
+  <div class="highlight-conditions">
+    <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.highlightedConditions(character)">
+      <img src="./assets/images/condition/{{entityCondition.name}}.svg" />
+      <span class="value"
+        *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
+    </span>
+  </div>
 
   <div class="stats">
     <div class="column col-1" (click)="toggle()">
@@ -23,7 +32,11 @@
         <img src="./assets/images/status/health.svg" />
         {{character.health}}/{{character.maxHealth}}
         <div class="conditions">
-          <img *ngFor="let condition of character.conditions" src="./assets/images/condition/{{condition}}.svg" />
+          <span class="condition" *ngFor="let entityCondition of character.entityConditions | ghsActiveConditions">
+            <img src="./assets/images/condition/{{entityCondition.name}}.svg" />
+            <span class="value"
+              *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
+          </span>
         </div>
       </div>
     </div>
@@ -111,12 +124,7 @@
       <span></span>
     </div>
 
-    <div class="condition-container">
-      <a class="condition" [ngClass]="{'active' : hasCondition(condition)}" (click)="toggleCondition(condition)"
-        *ngFor="let condition of gameManager.characterConditions()">
-        <img src="./assets/images/condition/{{condition}}.svg" />
-      </a>
-    </div>
+    <ghs-conditions [entity]="character" [figure]="character" type="character"></ghs-conditions>
   </div>
 
   <div *ngIf="levelDialog" class="level-dialog">

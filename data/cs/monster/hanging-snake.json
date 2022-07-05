@@ -1,0 +1,125 @@
+{
+  "name": "hanging-snake",
+  "edition": "cs",
+  "thumbnail": "gh-giant-viper",
+  "deck": "giant-viper",
+  "count": 10,
+  "hidden": true,
+  "baseStat": {
+    "actions": [
+      {
+        "type": "condition",
+        "value": "poison"
+      }
+    ],
+    "immunities": [],
+    "special": [],
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 4,
+      "movement": 2,
+      "attack": 1
+    },
+    {
+      "level": 1,
+      "health": 6,
+      "movement": 2,
+      "attack": 1
+    },
+    {
+      "level": 2,
+      "health": 8,
+      "movement": 3,
+      "attack": 1
+    },
+    {
+      "level": 3,
+      "health": 8,
+      "movement": 3,
+      "attack": 2
+    },
+    {
+      "level": 4,
+      "health": 12,
+      "movement": 3,
+      "attack": 2
+    },
+    {
+      "level": 5,
+      "health": 14,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "level": 6,
+      "health": 16,
+      "movement": 4,
+      "attack": 3
+    },
+    {
+      "level": 7,
+      "health": 20,
+      "movement": 4,
+      "attack": 3
+    },
+    {
+      "level": 0,
+      "health": 6,
+      "movement": 2,
+      "attack": 2,
+      "type": "elite"
+    },
+    {
+      "level": 1,
+      "health": 10,
+      "movement": 2,
+      "attack": 2,
+      "type": "elite"
+    },
+    {
+      "level": 2,
+      "health": 14,
+      "movement": 3,
+      "attack": 2,
+      "type": "elite"
+    },
+    {
+      "level": 3,
+      "health": 16,
+      "movement": 3,
+      "attack": 3,
+      "type": "elite"
+    },
+    {
+      "level": 4,
+      "health": 22,
+      "movement": 3,
+      "attack": 3,
+      "type": "elite"
+    },
+    {
+      "level": 5,
+      "health": 26,
+      "movement": 4,
+      "attack": 3,
+      "type": "elite"
+    },
+    {
+      "level": 6,
+      "health": 28,
+      "movement": 4,
+      "attack": 4,
+      "type": "elite"
+    },
+    {
+      "level": 7,
+      "health": 34,
+      "movement": 4,
+      "attack": 4,
+      "type": "elite"
+    }
+  ]
+}

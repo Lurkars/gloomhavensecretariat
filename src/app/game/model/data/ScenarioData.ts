@@ -5,7 +5,8 @@ import { ObjectiveData } from "./ObjectiveData";
 export class ScenarioData implements Editional, Spoilable {
 
   name: string;
-  index: number;
+  index: string;
+  group: string | undefined;
   monsters: string[];
   objectives: ObjectiveData[];
 
@@ -15,13 +16,14 @@ export class ScenarioData implements Editional, Spoilable {
   // from Spoilable
   spoiler: boolean;
 
-  constructor(name: string, index: number, monsters: string[], objectives: ObjectiveData[], edition: string,
+  constructor(name: string, index: string, monsters: string[], objectives: ObjectiveData[], edition: string, group: string | undefined = undefined,
     spoiler: boolean = false) {
     this.name = name;
     this.index = index;
     this.monsters = monsters;
     this.edition = edition;
     this.objectives = objectives;
+    this.group = group;
     this.spoiler = spoiler;
   }
 

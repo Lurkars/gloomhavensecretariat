@@ -2,8 +2,8 @@
 </div>
 
 <div class="initiative" *ngIf="character.initiative > 0">
-  <img src="./assets/images/initiative.svg" />
-  <span (click)="toggle()">{{character.initiative}}</span>
+  <img (click)="toggle()" class="ghs-svg" src="./assets/images/initiative.svg" />
+  <input [value]="character.initiative" (change)="setInitiative($event)" type="number" min="1" max="99" maxlength="2">
 </div>
 
 <span #button></span>

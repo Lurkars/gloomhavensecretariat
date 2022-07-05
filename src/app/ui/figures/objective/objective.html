@@ -1,7 +1,7 @@
 <div class="objective"
   [ngClass]="{'off' : objective.off || objective.exhausted || (objective.health <= 0), 'escort' : objective.escort}">
-  <a class="image-container" (click)="toggleOff()" [ngClass]="{'active-border' : objective.active}">
-    <span class="image">
+  <a class="image-container" (click)="toggleFigure()">
+    <span class="image" [ngClass]="{'active-border' : objective.active}">
       {{objectiveIdMap[objective.id]}}
     </span>
     <div class="health-bar" [ngClass]="{'critical' : objective.health / maxHealth() < 0.35}">
@@ -9,7 +9,14 @@
     </div>
   </a>
 
-  <ghs-objective-initiative (click)="close()" [objective]="objective"></ghs-objective-initiative>
+  <ghs-character-initiative (click)="close()" [character]="objective"></ghs-character-initiative>
+
+  <div class="highlight-conditions">
+    <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.highlightedConditions(objective)">
+      <img src="./assets/images/condition/{{entityCondition.name}}.svg" />
+      <span class="value" *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
+    </span>
+  </div>
 
   <div class="stats">
     <div class="column col-1" (click)="toggle()">
@@ -22,7 +29,10 @@
         <img src="./assets/images/status/health.svg" />
         {{objective.health}}/{{maxHealth()}}
         <div class="conditions">
-          <img *ngFor="let condition of objective.conditions" src="./assets/images/condition/{{condition}}.svg" />
+          <span class="condition" *ngFor="let entityCondition of objective.entityConditions | ghsActiveConditions">
+            <img src="./assets/images/condition/{{entityCondition.name}}.svg" />
+            <span class="value" *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
+          </span>
         </div>
       </div>
     </div>
@@ -80,12 +90,7 @@
       <span></span>
     </div>
 
-    <div class="condition-container" *ngIf="objective.escort">
-      <a class="condition" [ngClass]="{'active' : hasCondition(condition)}" (click)="toggleCondition(condition)"
-        *ngFor="let condition of gameManager.characterConditions()">
-        <img src="./assets/images/condition/{{condition}}.svg" />
-      </a>
-    </div>
+    <ghs-conditions [entity]="objective" [figure]="objective" type="character"></ghs-conditions>
   </div>
 
   <div class="char-container">

@@ -7,6 +7,12 @@
   height: calc(var(--ghs-unit) * 3);
   filter: var(--ghs-filter-yellow);
 
+  a {
+    display: flex;
+    width: calc(var(--ghs-unit) * 3);
+    height: calc(var(--ghs-unit) * 3);
+  }
+
 }
 
 .figure-errors {

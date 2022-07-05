@@ -1,0 +1,476 @@
+[
+  {
+    "edition": "cs",
+    "name": "Scenario 5",
+    "index": "8A",
+    "monsters": [
+      "gelatinous-giant"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 16",
+    "index": "17D",
+    "monsters": [
+      "apex-demon"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 21",
+    "index": "21B",
+    "monsters": [
+      "lavalite"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 26",
+    "index": "27C",
+    "objectives": [
+      {
+        "name": "Hot thermal stone 1",
+        "health": "C+3"
+      },
+      {
+        "name": "Hot thermal stone 2",
+        "health": "C+3"
+      }
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 26",
+    "index": "28A",
+    "objectives": [
+      {
+        "name": "Icy Flame thermal stone",
+        "health": "C+6"
+      }
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 27",
+    "index": "29A",
+    "monsters": [
+      "savvas-icebound"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 28",
+    "index": "30B",
+    "objectives": [
+      {
+        "name": "Fountain of Bones",
+        "health": "Cx(L+8)"
+      }
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 30",
+    "index": "32A",
+    "monsters": [
+      "shadow-demon"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 30",
+    "index": "32B",
+    "monsters": [
+      "twin-corpse"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 31",
+    "index": "33C",
+    "monsters": [
+      "eternal-demon"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 34",
+    "index": "36B",
+    "objectives": [
+      {
+        "name": "Holy Monk 1",
+        "health": "C+L+2"
+      },
+      {
+        "name": "Holy Monk 2",
+        "health": "C+L+2"
+      },
+      {
+        "name": "Holy Monk 3",
+        "health": "C+L+2"
+      }
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 34",
+    "index": "37C",
+    "objectives": [
+      {
+        "name": "Revered Monk 1",
+        "health": "C+L+2"
+      },
+      {
+        "name": "Revered Monk 2",
+        "health": "C+L+2"
+      }
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 34",
+    "index": "38A",
+    "objectives": [
+      {
+        "name": "Ordained Monk",
+        "health": "C+L+2"
+      }
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 36",
+    "index": "40A",
+    "monsters": [
+      "terrible-two-archer"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 36",
+    "index": "40B",
+    "monsters": [
+      "terrible-two-guard"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 38",
+    "index": "42B",
+    "objectives": [
+      {
+        "name": "Altar of Mystification",
+        "health": "Cx(L+3)"
+      }
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 38",
+    "index": "43A",
+    "objectives": [
+      {
+        "name": "Altar of Disorientation",
+        "health": "Cx(L+4)"
+      }
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 38",
+    "index": "43B",
+    "objectives": [
+      {
+        "name": "Altar of Perplexity",
+        "health": "Cx(L+3)"
+      }
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 40",
+    "index": "44C",
+    "monsters": [
+      "drake-porter"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 41",
+    "index": "46A",
+    "monsters": [
+      "rogue-hollowpact"
+    ],
+    "objectives": [
+      {
+        "name": "Void Pit 1",
+        "health": "C+L"
+      },
+      {
+        "name": "Void Pit 2",
+        "health": "C+L"
+      },
+      {
+        "name": "Void Pit 3",
+        "health": "C+L"
+      },
+      {
+        "name": "Void Pit 4",
+        "health": "C+L"
+      },
+      {
+        "name": "Void Pit 5",
+        "health": "C+L"
+      },
+      {
+        "name": "Void Pit 6",
+        "health": "C+L"
+      }
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 42",
+    "index": "45D",
+    "monsters": [
+      "goring-grizzly"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 42",
+    "index": "46B",
+    "monsters": [
+      "king-cobra"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 42",
+    "index": "47A",
+    "monsters": [
+      "sly-wolf"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 46",
+    "index": "52C",
+    "objectives": [
+      {
+        "name": "Tree of Death",
+        "health": "Cx(L+5)"
+      }
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 53",
+    "index": "60A",
+    "monsters": [
+      "morphling"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 54",
+    "index": "61B",
+    "monsters": [
+      "undead-archer",
+      "terror-drone"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 54",
+    "index": "62A",
+    "monsters": [
+      "black-bear",
+      "cave-imp"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 60",
+    "index": "68A",
+    "monsters": [
+      "drakefiend"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 62",
+    "index": "71A",
+    "monsters": [
+      "your-shadow"
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 65",
+    "index": "73C",
+    "objectives": [
+      {
+        "name": "Vile Spirit 1",
+        "health": "4"
+      },
+      {
+        "name": "Vile Spirit 2",
+        "health": "4"
+      }
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "Scenario 65",
+    "index": "73D",
+    "objectives": [
+      {
+        "name": "Haunted Ghoul Spirit 1",
+        "health": "10"
+      }
+    ]
+  },
+  {
+    "edition": "cs",
+    "name": "The Gilded Condescent",
+    "index": "1",
+    "monsters": [
+      "the-gilded-one"
+    ],
+    "objectives": [],
+    "group": "AA"
+  },
+  {
+    "edition": "cs",
+    "name": "The Banishment",
+    "index": "2",
+    "monsters": [
+      "the-echo"
+    ],
+    "group": "AA"
+  },
+  {
+    "edition": "cs",
+    "name": "Power Conduit Relay",
+    "index": "1-1",
+    "monsters": [
+      "clockwork-ravager"
+    ],
+    "group": "QA"
+  },
+  {
+    "edition": "cs",
+    "name": "Refractor Assembly",
+    "index": "2-1",
+    "monsters": [
+      "clockwork-bombard"
+    ],
+    "group": "QA"
+  },
+  {
+    "edition": "cs",
+    "name": "Cooling Chamber",
+    "index": "3-1",
+    "monsters": [
+      "clockwork-guardian"
+    ],
+    "group": "QA"
+  },
+  {
+    "edition": "cs",
+    "name": "Inspection Chamber",
+    "index": "3-2",
+    "monsters": [
+      "steel-construct"
+    ],
+    "group": "QA"
+  },
+  {
+    "edition": "cs",
+    "name": "Cooling Chamber",
+    "index": "5-2",
+    "objectives": [
+      {
+        "name": "Stalagmite 1",
+        "health": "C+L"
+      },
+      {
+        "name": "Stalagmite 2",
+        "health": "C+L"
+      }
+    ],
+    "group": "QA"
+  },
+  {
+    "edition": "cs",
+    "name": "Mechanical Menace",
+    "index": "2-3",
+    "monsters": [
+      "clockwork-devastator"
+    ],
+    "group": "QA"
+  },
+  {
+    "edition": "cs",
+    "name": "Courtyard",
+    "index": "2-1",
+    "monsters": [
+      "living-wall"
+    ],
+    "group": "RM"
+  },
+  {
+    "edition": "cs",
+    "name": "Broken Homes",
+    "index": "1-5",
+    "monsters": [
+      "carrion-scavenger"
+    ],
+    "group": "RM"
+  },
+  {
+    "edition": "cs",
+    "name": "Guttermaw’s Lair",
+    "index": "2-5",
+    "monsters": [
+      "guttermaw"
+    ],
+    "group": "RM"
+  },
+  {
+    "edition": "cs",
+    "name": "Wrong Turn",
+    "index": "3-5",
+    "objectives": [
+      {
+        "name": "Vermling 1",
+        "escort": true,
+        "health": "C+L",
+        "initiative": 35
+      },
+      {
+        "name": "Vermling 2",
+        "escort": true,
+        "health": "C+L",
+        "initiative": 35
+      },
+      {
+        "name": "Vermling 3",
+        "escort": true,
+        "health": "C+L",
+        "initiative": 35
+      }
+    ],
+    "group": "RM"
+  },
+  {
+    "edition": "cs",
+    "name": "The Shadow Falls",
+    "index": "4-6",
+    "monsters": [
+      "brood-mother"
+    ],
+    "group": "RM"
+  }
+]
