@@ -30,7 +30,6 @@ import { ScenarioMenuComponent } from './ui/header/menu/scenario/scenario';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { ServerMenuComponent } from './ui/header/menu/server/server';
 import { CharacterInitiativeComponent } from './ui/figures/character/cards/initiative';
-import { ObjectiveInitiativeComponent } from './ui/figures/objective/cards/initiative';
 import { ObjectiveComponent } from './ui/figures/objective/objective';
 import { MonsterToolComponent } from './ui/tools/monster/monster';
 import { MonsterActionToolComponent } from './ui/tools/monster/action/action';
@@ -53,7 +52,7 @@ describe('AppComponent', () => {
         LevelComponent,
         DialogComponent, PopupComponent,
         CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent,
-        ObjectiveComponent, ObjectiveInitiativeComponent,
+        ObjectiveComponent,
         SummonEntityComponent,
         MonsterComponent,
         MonsterEntityComponent,
