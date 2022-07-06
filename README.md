@@ -2,14 +2,16 @@
 
 [Latest Online Version](https://lurkars.github.io/gloomhavensecretary/)
 
-An open source [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (by [Esoteric Software®](http://esotericsoftware.com)) clone made as web app with Angular. *Gloomhaven Secretary* is a companion app and does basically bookkeeping of all entities values to gain more focus on gameplay.
+*Gloomhaven Secretary* is a **Gloomhaven companion app** and does basically bookkeeping of all entities values to gain more focus on gameplay. It is an open source web app made with [Angular](https://angular.io/).
 
-This is basically a clone implementing the same functionality and look&feel of the original Gloomhaven Helper since I am not capable of good design/UX. So feel free to contribute better assets.
+GHS is basically a full clone implementing the same functionality and look&feel of the original [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (by [Esoteric Software®](http://esotericsoftware.com)). Since GHH is discontinued and not available anymore, GHS should become a well maintained successor. 
+
+As open source software this is meant for the community to actively [contribute](#contributing) with ideas, suggestions and of course feedback. As I am not capable of good design/UX also feel free to contribute better assets.
 
 For usage with multiple clients sharing the same game, the server component [Gloomhaven Secretary Server](https://github.com/Lurkars/ghs-server) is required. A public instance is available under `ghs.champonthis.de/server` port `443` with `secure` option.
 
 > SPOILER WARNING:
-> The `label.json` files inside the `data`-folder and therefore the final edition data files inside the `src/assets/data`-folder contain spoilers by including the corresponding label.
+> The `label.json` files inside the `data`-folders and therefore the final edition data files inside the `src/assets/data`-folder contain spoilers by including the corresponding label.
 
 ## Support
 
@@ -40,20 +42,29 @@ For usage with multiple clients sharing the same game, the server component [Glo
   - element board, element discs, round tracker, initiative tracker
   - character HP/XP dials
   - character boards
+- Other features:
+  - i18n support (translations required!) for everything!
+  - PWA for installation on all devices!
+  - Synchronize state (+ settings) with [GHS Server](https://github.com/Lurkars/ghs-server)!
+  - load custom JSON edition data for custom content!
+
 
 ## Missing / Upcoming
 
-- monster/scenario data of FH, CS (WIP)
+- monster decks for CS + validation of existing CS data
+- complete monster/scenario data of FH
 - tools like monster editor to create/update monster stats and abilities via UI (WIP)
-- goals ~~and section~~ mechanic
-- ~~upgradable/stackable conditions~~
-- ~~i18n/icons for custom actions~~
-- ~~i18n support~~
-- ~~summons~~
-- ~~standalone app with Electron\/PWA~~
-- ~~releases for easier self hosting~~
-- ~~server part to sync states~~
-- ~~load (JSON-)data from URL, so easier custom content integration~~
+- goals mechanic
+
+## Short term plans
+
+- adding and validation all data
+- improve code base (many repeated component for now for figures/entities)
+- two column view
+
+## Long term plans
+
+- support for managing character (ability cards, perks, attack modifier deck, items)
 
 ## Install
 
