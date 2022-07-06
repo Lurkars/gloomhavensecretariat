@@ -25,7 +25,7 @@ export class CharacterImageComponent {
     } else {
       gameManager.stateManager.before();
       gameManager.toggleFigure(this.character);
-      gameManager.stateManager.after(500);
+      gameManager.stateManager.after(250);
     }
   }
 

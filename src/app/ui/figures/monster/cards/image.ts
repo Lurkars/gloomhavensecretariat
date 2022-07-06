@@ -18,7 +18,7 @@ export class MonsterImageComponent {
     if (gameManager.game.state == GameState.next) {
       gameManager.stateManager.before();
       gameManager.toggleFigure(this.monster);
-      gameManager.stateManager.after(500);
+      gameManager.stateManager.after(250);
     }
   }
 

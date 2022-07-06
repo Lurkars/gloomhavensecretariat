@@ -18,7 +18,7 @@ import { EditionMenuComponent } from './ui/header/menu/edition/edition';
 import { MainMenuComponent } from './ui/header/menu/menu';
 import { SettingsMenuComponent } from './ui/header/menu/settings/settings';
 import { CardRevealDirective } from './ui/helper/CardReveal';
-import { GhsEditionFilterPipe, GhsHtmlLabelPipe, GhsLabelPipe, GhsSortPipe, GhsValueCalcPipe, GhsValueSignPipe } from './ui/helper/Pipes';
+import { GhsActiveConditionsPipe, GhsEditionFilterPipe, GhsHtmlLabelPipe, GhsLabelPipe, GhsRangePipe, GhsSortPipe, GhsValueCalcPipe, GhsValueSignPipe } from './ui/helper/Pipes';
 import { MainComponent } from './ui/main';
 import { PopupComponent } from './ui/popup/popup';
 import { CharacterSummonDialog } from './ui/figures/character/dialogs/summondialog';
@@ -38,6 +38,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ConditionsComponent } from './ui/figures/conditions/conditions';
+import { FigureErrors } from './ui/figures/errors/errors';
+import { SectionMenuComponent } from './ui/header/menu/section/section';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -46,11 +49,12 @@ describe('AppComponent', () => {
         AppComponent,
         MainComponent,
         HeaderComponent, ElementIconComponent,
-        MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, ServerMenuComponent,
+        MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent,
         FooterComponent,
         AttackModifierComponent,
         LevelComponent,
         DialogComponent, PopupComponent,
+        ConditionsComponent,
         CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent,
         ObjectiveComponent,
         SummonEntityComponent,
@@ -61,8 +65,9 @@ describe('AppComponent', () => {
         MonsterStatsComponent, MonsterStatsPopupComponent,
         MonsterNumberPicker,
         ActionsComponent, ActionComponent, ActionHexComponent,
+        FigureErrors,
         CardRevealDirective,
-        GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent, GhsHtmlLabelPipe,
+        GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsActiveConditionsPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent, GhsHtmlLabelPipe, GhsRangePipe,
         MonsterToolComponent, MonsterActionToolComponent, MonsterStatToolComponent ],
       imports: [
         BrowserModule,
