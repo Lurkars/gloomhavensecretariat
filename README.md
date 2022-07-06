@@ -61,6 +61,7 @@ For usage with multiple clients sharing the same game, the server component [Glo
 - adding and validation all data
 - improve code base (many repeated component for now for figures/entities)
 - two column view
+- FH style
 
 ### Long term plans
 
@@ -104,6 +105,9 @@ Afterwards run `npm run start` to create a development server at [http://localho
 ## Contributing
 
 Feel free to file a [new issue](https://github.com/Lurkars/gloomhavensecretary/issues/new/choose) for bugs, features, improvements, help or feedback.
+
+All game data is inside the [data](./data/) folder with subfolders for every edition. A review of all data by a third person would be awesome. As all files are JSON data it should be easily human readable. Every character, monster and monster deck has it's own file, so it should be easy to check.
+Every edition folder get concatenated to a single edition data file on build.
 
 Also pull requests are welcome!
 
