@@ -26,7 +26,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -38,7 +38,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -50,7 +50,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -62,7 +62,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -74,7 +74,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -86,7 +86,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -98,7 +98,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -117,11 +117,11 @@
       "actions": [
         {
           "type": "target",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ],
       "type": "elite"
@@ -134,11 +134,11 @@
       "actions": [
         {
           "type": "target",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ],
       "type": "elite"
@@ -151,11 +151,11 @@
       "actions": [
         {
           "type": "target",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ],
       "type": "elite"
@@ -168,11 +168,11 @@
       "actions": [
         {
           "type": "target",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ],
       "type": "elite"
@@ -185,11 +185,11 @@
       "actions": [
         {
           "type": "target",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         }
       ],
       "type": "elite"
@@ -202,11 +202,11 @@
       "actions": [
         {
           "type": "target",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         }
       ],
       "type": "elite"
@@ -219,11 +219,11 @@
       "actions": [
         {
           "type": "target",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         }
       ],
       "type": "elite"

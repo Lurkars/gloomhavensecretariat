@@ -203,14 +203,30 @@ ghs-main {
   background: rgba(0, 0, 0, 0.5);
 }
 
-.entity-animation {
-  transition: opacity 1.5s linear, transform 1.5s ease-out;
-  opacity: 1;
-  transform: translate(0, 0);
-  overflow: visible;
-  filter: none;
+@keyframes entity-alive-animation {
+  0% {
+    max-width: 100%;
+    opacity: 0;
+    transform: translate(0%, 100%)  scale(1);
+    filter: grayscale(100%);
+  }
 
-  &.hidden {
+  100% {
+    max-width: 100%;
+    opacity: 1;
+    transform: translate(0,0);
+  }
+}
+
+@keyframes entity-dead-animation {
+  0% {
+    max-width: 100%;
+    opacity: 1;
+    transform: translate(0,0);
+  }
+
+  100% {
+    max-width: 100%;
     opacity: 0;
     transform: translate(0%, 100%);
     filter: grayscale(100%);
@@ -272,9 +288,9 @@ ghs-main {
 
   .icon {
     position: relative;
-    width: 0.8em;
+    width: 0.7em;
     height: auto;
-    top: 0.3em;
+    top: 0.2em;
     margin: 0 0.2em;
   }
 }

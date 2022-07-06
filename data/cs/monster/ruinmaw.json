@@ -18,21 +18,13 @@
       [
         {
           "type": "custom",
-          "value": "Reference the scenario"
-        },
-        {
-          "type": "custom",
-          "value": "Special Rules"
+          "value": "%game.custom.scenarioBook%"
         }
       ],
       [
         {
           "type": "custom",
-          "value": "Reference the scenario"
-        },
-        {
-          "type": "custom",
-          "value": "Special Rules"
+          "value": "%game.custom.scenarioBook%"
         }
       ]
     ],

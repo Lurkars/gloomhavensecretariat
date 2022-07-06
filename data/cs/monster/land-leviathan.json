@@ -18,22 +18,39 @@
     "special": [
       [
         {
-          "type": "custom",
-          "value": "Reference the scenario"
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 5
+            },
+            {
+              "type": "target",
+              "value": 2
+            }
+          ]
         },
         {
           "type": "custom",
-          "value": "Special Rules"
+          "value": "%data.custom.cs.land-leviathan.1%"
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
         }
       ],
       [
         {
           "type": "custom",
-          "value": "Reference the scenario"
-        },
-        {
-          "type": "custom",
-          "value": "Special Rules"
+          "value": "%game.custom.scenarioBook%"
         }
       ]
     ],
@@ -53,7 +70,7 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -64,7 +81,7 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -75,7 +92,7 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "2"
+          "value": 2
         }
       ]
     },
@@ -86,7 +103,7 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "2"
+          "value": 2
         }
       ]
     },
@@ -97,7 +114,7 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "3"
+          "value": 3
         }
       ]
     },
@@ -108,7 +125,7 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "3"
+          "value": 3
         }
       ]
     },
@@ -119,7 +136,7 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "4"
+          "value": 4
         }
       ]
     }

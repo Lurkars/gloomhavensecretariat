@@ -1,4 +1,4 @@
-<div class="entity-border">
+<div class="entity-border" [ngClass]="{'dead' : entity.dead}">
   <div #button class="entity" [ngClass]="entity.type">
     <span class="number">{{entity.number}}</span> <span class="health">{{entity.health}}</span>
 
@@ -11,7 +11,8 @@
     <div class="highlight-conditions">
       <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.highlightedConditions(entity)">
         <img src="./assets/images/condition/{{entityCondition.name}}.svg" />
-        <span class="value" *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
+        <span class="value"
+          *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
       </span>
     </div>
 
@@ -20,7 +21,8 @@
         *ngFor="let entityCondition of entity.entityConditions | ghsActiveConditions; let index = index;"
         [ngClass]="{'center' : entity.summon == SummonState.false && ((entity.entityConditions | ghsActiveConditions).length % 2) == 1 && (entity.entityConditions | ghsActiveConditions).length == index + 1}">
         <img *ngIf="!entityCondition.expired" src="./assets/images/condition/{{entityCondition.name}}.svg" />
-        <span class="value" *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
+        <span class="value"
+          *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
       </span>
       <span *ngIf="entity.summon != SummonState.false" class="summon"
         [ngClass]="{'active' : entity.summon == SummonState.true, 'new' : entity.summon == SummonState.new, 'center' : (entity.entityConditions.length % 2) == 0}">

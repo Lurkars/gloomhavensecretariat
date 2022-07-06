@@ -1,6 +1,6 @@
 import { gameManager } from "../businesslogic/GameManager";
 import { Character } from "./Character";
-import {  EntityCondition } from "./Condition";
+import { EntityCondition } from "./Condition";
 import { Figure } from "./Figure";
 
 export interface Entity {
@@ -11,9 +11,26 @@ export interface Entity {
   markers: string[];
 }
 
-export function EntityValueFunction(value: string, L: number | undefined = undefined): number {
-  let C = gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).length;
+export const EntityValueRegex = /\[(([a-zA-Z0-9\+\/\-\*])+)(\{(.*)\})?\]/;
 
+export function EntityValueFunction(value: string, L: number | undefined = undefined): number {
+
+  if (!value) {
+    return 0;
+  }
+
+  let expression = value;
+  let func = undefined;
+
+  const match = value.match(EntityValueRegex);
+
+  if (match && match[ 0 ].length == value.length) {
+    expression = match[ 1 ];
+    func = match[ 4 ];
+  }
+
+
+  let C = gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).length;
   if (C < 1) {
     C = 1;
   }
@@ -21,9 +38,28 @@ export function EntityValueFunction(value: string, L: number | undefined = undef
     L = gameManager.game.level;
   }
 
-  value = value.replace(/[x]/g, "*");
-  value = value.replace(/[C]/g, "" + C);
-  value = value.replace(/[L]/g, "" + L);
-  const result = eval(value)
-  return result as number;
+  expression = expression.replace(/[x]/g, "*");
+  expression = expression.replace(/[C]/g, "" + C);
+  expression = expression.replace(/[L]/g, "" + L);
+
+  let result = eval(expression) as number;
+
+  if (func && func.startsWith('%')) {
+    func = func.replace('%', '');
+  }
+
+  if (func) {
+    switch (func) {
+      case 'math.ceil':
+        result = Math.ceil(result);
+        break;
+      case 'math.floor':
+        result = Math.floor(result);
+        break;
+      default:
+        console.error("Unknown expression: " + func + "(" + match + ")");
+        break;
+    }
+  }
+  return result;
 }

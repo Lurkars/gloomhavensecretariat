@@ -13,15 +13,15 @@ For usage with multiple clients sharing the same game, the server component [Glo
 
 ## Support
 
-☕ [Buy me a coffee?](https://www.buymeacoffee.com/Lurkars)
+☕ [Buy me a coffee?](https://ko-fi.com/lurkars)
 
 ## Current Features
 
-- Feature complete for base GH, JOTL and FC
+- Feature complete for base GH, JOTL and FC (CS about to be!)
 - Tracking:
   - **initiative** sorting
   - **health** automatic exhausting/dead, max values for every level
-  - **conditions** automatic expire
+  - **conditions** automatic expire + automatic apply (wound, wound_x, regenerate, bane)
   - **level**, **loot**, **experience** of Characters
   - **Elements** automatic update state
   - **Monster Stats**

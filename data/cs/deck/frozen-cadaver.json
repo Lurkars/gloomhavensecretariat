@@ -1,0 +1,194 @@
+{
+  "name": "frozen-cadaver",
+  "edition": "cs",
+  "abilies": [
+    {
+      "cardId": 1214,
+      "shuffle": true,
+      "initiavie": 34,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "condition",
+          "value": "chill",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target all adjacent enemies that do"
+            },
+            {
+              "type": "condition",
+              "value": "chill"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1215,
+      "shuffle": true,
+      "initiavie": 34,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "custom",
+          "value": "%All adjacent enemies with",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "chill"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1216,
+      "shuffle": false,
+      "initiavie": 60,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {}
+      ]
+    },
+    {
+      "cardId": 1217,
+      "shuffle": false,
+      "initiavie": 45,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "2",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "chill"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice"
+        }
+      ]
+    },
+    {
+      "cardId": 1218,
+      "shuffle": false,
+      "initiavie": 86,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": "Add+2ifthetarget"
+            },
+            {
+              "type": "condition",
+              "value": "chill"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1219,
+      "shuffle": false,
+      "initiavie": 86,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": "Add+2ifthetarget"
+            },
+            {
+              "type": "condition",
+              "value": "chill"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1220,
+      "shuffle": false,
+      "initiavie": 94,
+      "actions": [
+        {
+          "type": "move",
+          "value": "2",
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus"
+        },
+        {
+          "type": "heal",
+          "value": "!^2"
+        },
+        {
+          "type": "custom",
+          "value": "!^Self"
+        }
+      ]
+    },
+    {
+      "cardId": 1221,
+      "shuffle": false,
+      "initiavie": 77,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "stun"
+        },
+        {
+          "type": "push",
+          "value": "1",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target one adjacent enemy"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "name": "the-echo",
   "edition": "cs",
   "thumbnail": "gh-living-spirit",
-  "deck": "boss",
+  "deck": "living-spirit",
   "count": 6,
   "boss": true,
   "hidden": true,
@@ -36,7 +36,7 @@
         },
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         }
       ]
     },
@@ -52,7 +52,7 @@
         },
         {
           "type": "shield",
-          "value": "3"
+          "value": 3
         }
       ]
     },
@@ -68,7 +68,7 @@
         },
         {
           "type": "shield",
-          "value": "3"
+          "value": 3
         }
       ]
     },
@@ -84,7 +84,7 @@
         },
         {
           "type": "shield",
-          "value": "3"
+          "value": 3
         }
       ]
     },
@@ -100,7 +100,7 @@
         },
         {
           "type": "shield",
-          "value": "4"
+          "value": 4
         }
       ]
     },
@@ -116,7 +116,7 @@
         },
         {
           "type": "shield",
-          "value": "4"
+          "value": 4
         }
       ]
     },
@@ -132,7 +132,7 @@
         },
         {
           "type": "shield",
-          "value": "4"
+          "value": 4
         }
       ]
     },
@@ -148,7 +148,7 @@
         },
         {
           "type": "shield",
-          "value": "4"
+          "value": 4
         }
       ]
     }

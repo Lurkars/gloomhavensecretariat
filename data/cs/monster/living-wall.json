@@ -2,7 +2,7 @@
   "name": "living-wall",
   "edition": "cs",  
   "thumbnail": "cs-harrower-aegis",
-  "deck": "boss",
+  "deck": "harrower-aegis",
   "count": 1,
   "boss": true,
   "hidden": true,
@@ -21,11 +21,11 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "1"
+          "value": 1
         },
         {
           "type": "range",
-          "value": "2"
+          "value": 2
         }
       ]
     },
@@ -37,11 +37,11 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "1"
+          "value": 1
         },
         {
           "type": "range",
-          "value": "2"
+          "value": 2
         }
       ]
     },
@@ -53,11 +53,11 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "1"
+          "value": 1
         },
         {
           "type": "range",
-          "value": "3"
+          "value": 3
         }
       ]
     },
@@ -69,11 +69,11 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "range",
-          "value": "3"
+          "value": 3
         }
       ]
     },
@@ -85,11 +85,11 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "range",
-          "value": "3"
+          "value": 3
         },
         {
           "type": "condition",
@@ -105,11 +105,11 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "3"
+          "value": 3
         },
         {
           "type": "range",
-          "value": "3"
+          "value": 3
         },
         {
           "type": "condition",
@@ -125,11 +125,11 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "4"
+          "value": 4
         },
         {
           "type": "range",
-          "value": "3"
+          "value": 3
         },
         {
           "type": "condition",
@@ -145,11 +145,11 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "4"
+          "value": 4
         },
         {
           "type": "range",
-          "value": "3"
+          "value": 3
         },
         {
           "type": "condition",

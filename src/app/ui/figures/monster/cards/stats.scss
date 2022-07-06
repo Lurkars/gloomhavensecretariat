@@ -138,13 +138,12 @@
 
         &:nth-child(8) {
           grid-column: 4;
-          grid-row: 6;
+          grid-row: 4;
         }
 
         &:nth-child(9) {
-          grid-column-start: 4;
-          grid-column-end: 6;
-          grid-row: 7;
+          grid-column: 4;
+          grid-row: 6;
         }
       }
     }
@@ -185,6 +184,11 @@
         top: calc(var(--ghs-unit) * -0.5);
         left: calc(var(--ghs-unit) * -16.5);
       }
+    }
+
+    .notes {
+      margin-top: calc(var(--ghs-unit) * 0.5);
+      line-height: 0.8em;
     }
 
     .additional,

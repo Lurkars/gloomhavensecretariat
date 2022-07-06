@@ -99,7 +99,7 @@ export class ActionComponent {
             statValue = stat.attack;
           } else {
             try {
-              statValue = EntityValueFunction(stat.attack);
+              statValue = EntityValueFunction(stat.attack, this.monster.level);
             } catch {
               sign = false;
             }

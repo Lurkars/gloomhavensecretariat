@@ -5,14 +5,14 @@ import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Action, ActionValueType } from 'src/app/game/model/Action';
 import { EntityCondition } from 'src/app/game/model/Condition';
 import { Editional } from 'src/app/game/model/Editional';
-import { EntityValueFunction } from 'src/app/game/model/Entity';
+import { EntityValueFunction, EntityValueRegex } from 'src/app/game/model/Entity';
 
 @Pipe({
   name: 'ghsValueCalc', pure: false
 })
 export class GhsValueCalcPipe implements PipeTransform {
 
-  transform(value: Action | string | number, ...args: any[]): string | number {
+  transform(value: string | number, ...args: any[]): string | number {
     const empty: boolean = args.indexOf("empty") != -1;
     if (typeof value === "number") {
       if (empty && value == 0) {
@@ -26,50 +26,29 @@ export class GhsValueCalcPipe implements PipeTransform {
       return "-";
     }
 
-    if (value instanceof Action) {
-      const action: Action = value;
-      if (settingsManager.settings.calculate && isNaN(+action.value)) {
-        let statValue = 0;
-        if (args.length > 0) {
-          statValue = args[ 0 ];
-        }
-        if (action.valueType == ActionValueType.plus) {
-          if (typeof statValue == "number") {
-            return statValue + (action.value as number);
-          } else {
-            return (this.transform(statValue) as number) + (action.value as number);
-          }
-        } else if (action.valueType == ActionValueType.minus) {
-          if (typeof statValue == "number") {
-            return statValue - (action.value as number);
-          } else {
-            return (this.transform(statValue) as number) - (action.value as number);
-          }
-        }
-      }
-
-      if (!isNaN(+action.value)) {
-        if (action.valueType == ActionValueType.plus) {
-          return "+" + action.value;
-        } else if (action.valueType == ActionValueType.minus) {
-          return "-" + action.value;
-        }
-      }
-
-      return action.value;
-    }
-
     let L = gameManager.game.level;
     if (args.length > 0) {
       L = args[ 0 ];
     }
 
+
     if (settingsManager.settings.calculate) {
       try {
         return EntityValueFunction(value, L)
       } catch {
+        console.error("Could not calculate value for: ", value);
         return value;
       }
+    }
+
+    const match = value.match(EntityValueRegex);
+    if (match) {
+      let func = match[ 4 ];
+      const funcLabel = func && func.startsWith('%');
+      if (funcLabel) {
+        func = func.replace('%', '');
+      }
+      return funcLabel ? match[ 1 ] + ' ' + settingsManager.getLabel('game.custom.' + func) : match[ 1 ];
     }
 
     return value;
@@ -156,10 +135,14 @@ export class GhsHtmlLabelPipe implements PipeTransform {
         const type = split[ 1 ];
 
         let image = '';
-        if (type == "condition" || type == "action" && split.length == 3) {
+        if (type == "condition") {
           split.splice(0, 1);
           image = '<img  src="./assets/images/' + split.join('/') + '.svg" class="icon">';
           return '<span class="placeholder-condition">' + settingsManager.getLabel(label) + '</span>' + image;
+        } else if (type == "action" && split.length == 3) {
+          split.splice(0, 1);
+          image = '<img  src="./assets/images/' + split.join('/') + '.svg" class="icon">';
+          return '<span class="placeholder-action">' + settingsManager.getLabel(label) + '</span>' + image;
         } else if (type == "element") {
           let element = split[ 2 ];
           if (element == "consume") {
@@ -176,34 +159,18 @@ export class GhsHtmlLabelPipe implements PipeTransform {
       });
     }
 
-    const calcRegex = /\[(([a-zA-Z0-9\+\/\-\*])+)(\{(.*)\})?\]/;
-
-    while (value.match(calcRegex)) {
-      value = value.replace(calcRegex, (match, ...args) => {
-        const expression = args[ 0 ];
-        let func = args[ 3 ];
-        const funcLabel = func && func.startsWith('%');
-        if (funcLabel) {
-          func = func.replace('%', '');
-        }
+    while (value.match(EntityValueRegex)) {
+      value = value.replace(EntityValueRegex, (match, ...args) => {
         if (settingsManager.settings.calculate) {
-          let result = this.valuePipe.transform(expression) as number;
-          if (func) {
-            switch (func) {
-              case 'math.ceil':
-                result = Math.ceil(result);
-                break;
-              case 'math.floor':
-                result = Math.floor(result);
-                break;
-              default:
-                console.error("Unknown expression: " + func + "(" + match + ")");
-                break;
-            }
-          }
+          const result = EntityValueFunction(match)
           return "" + result;
         } else {
-          return funcLabel ? expression + ' ' + settingsManager.getLabel('game.custom.' + func) : expression;
+          let func = args[ 3 ];
+          const funcLabel = func && func.startsWith('%');
+          if (funcLabel) {
+            func = func.replace('%', '');
+          }
+          return funcLabel ? args[ 0 ] + ' ' + settingsManager.getLabel('game.custom.' + func) : args[ 0 ];
         }
       });
     }
@@ -236,3 +203,17 @@ export class GhsSortPipe implements PipeTransform {
     })
   }
 }
+
+@Pipe({
+  name: 'ghsRange',
+  pure: false
+})
+export class GhsRangePipe implements PipeTransform {
+  transform(items: any[], quantity: number): any {
+    items.length = 0;
+    for (let i = 0; i < quantity; i++) {
+      items.push(i);
+    }
+    return items;
+  }
+}  

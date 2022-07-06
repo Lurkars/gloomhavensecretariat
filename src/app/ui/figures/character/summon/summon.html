@@ -1,4 +1,4 @@
-<div class="summon-border">
+<div class="summon-border" [ngClass]="{'dead' : summon.dead}">
   <div #button class="summon">
     <span class="number"><span *ngIf="summon.number == 0">-</span><span
         *ngIf="summon.number > 0">{{summon.number}}</span></span> <span class="health">{{summon.health}}</span>
@@ -12,6 +12,8 @@
     <div class="conditions">
       <span class="condition" *ngFor="let entityCondition of summon.entityConditions | ghsActiveConditions">
         <img src="./assets/images/condition/{{entityCondition.name}}.svg" />
+        <span class="value"
+          *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
       </span>
 
       <span class="summon-state"

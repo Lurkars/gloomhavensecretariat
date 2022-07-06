@@ -6,7 +6,8 @@
     "actions": [],
     "immunities": [],
     "special": [],
-    "type": "normal"
+    "type": "normal",
+    "note": "%data.custom.cs.ravenous-gharial.1%"
   },
   "stats": [
     {
@@ -16,32 +17,14 @@
       "attack": 2,
       "actions": [
         {
-          "type": "custom",
-          "value": "*Unaffected by"
-        },
-        {
-          "type": "custom",
-          "value": "*water hexes"
-        },
-        {
           "type": "shield",
-          "value": "*1%"
-        },
-        {
-          "type": "custom",
-          "value": "*Shield only"
-        },
-        {
-          "type": "custom",
-          "value": "*applies on"
-        },
-        {
-          "type": "custom",
-          "value": "*ranged"
-        },
-        {
-          "type": "custom",
-          "value": "*attacks"
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.ravenous-gharial.2%"
+            }
+          ]
         }
       ]
     },
@@ -52,32 +35,14 @@
       "attack": 3,
       "actions": [
         {
-          "type": "custom",
-          "value": "*Unaffected by"
-        },
-        {
-          "type": "custom",
-          "value": "*water hexes"
-        },
-        {
           "type": "shield",
-          "value": "*1%"
-        },
-        {
-          "type": "custom",
-          "value": "*Shield only"
-        },
-        {
-          "type": "custom",
-          "value": "*applies on"
-        },
-        {
-          "type": "custom",
-          "value": "*ranged"
-        },
-        {
-          "type": "custom",
-          "value": "*attacks"
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.ravenous-gharial.2%"
+            }
+          ]
         }
       ]
     },
@@ -88,32 +53,14 @@
       "attack": 3,
       "actions": [
         {
-          "type": "custom",
-          "value": "*Unaffected by"
-        },
-        {
-          "type": "custom",
-          "value": "*water hexes"
-        },
-        {
           "type": "shield",
-          "value": "*1%"
-        },
-        {
-          "type": "custom",
-          "value": "*Shield only"
-        },
-        {
-          "type": "custom",
-          "value": "*applies on"
-        },
-        {
-          "type": "custom",
-          "value": "*ranged"
-        },
-        {
-          "type": "custom",
-          "value": "*attacks"
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.ravenous-gharial.2%"
+            }
+          ]
         }
       ]
     },
@@ -124,32 +71,14 @@
       "attack": 3,
       "actions": [
         {
-          "type": "custom",
-          "value": "*Unaffected by"
-        },
-        {
-          "type": "custom",
-          "value": "*water hexes"
-        },
-        {
           "type": "shield",
-          "value": "*1%"
-        },
-        {
-          "type": "custom",
-          "value": "*Shield only"
-        },
-        {
-          "type": "custom",
-          "value": "*applies on"
-        },
-        {
-          "type": "custom",
-          "value": "*ranged"
-        },
-        {
-          "type": "custom",
-          "value": "*attacks"
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.ravenous-gharial.2%"
+            }
+          ]
         }
       ]
     },
@@ -160,32 +89,14 @@
       "attack": 4,
       "actions": [
         {
-          "type": "custom",
-          "value": "*Unaffected by"
-        },
-        {
-          "type": "custom",
-          "value": "*water hexes"
-        },
-        {
           "type": "shield",
-          "value": "*2%"
-        },
-        {
-          "type": "custom",
-          "value": "*Shield only"
-        },
-        {
-          "type": "custom",
-          "value": "*applies on"
-        },
-        {
-          "type": "custom",
-          "value": "*ranged"
-        },
-        {
-          "type": "custom",
-          "value": "*attacks"
+          "value": 2,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.ravenous-gharial.2%"
+            }
+          ]
         }
       ]
     },
@@ -196,32 +107,14 @@
       "attack": 4,
       "actions": [
         {
-          "type": "custom",
-          "value": "*Unaffected by"
-        },
-        {
-          "type": "custom",
-          "value": "*water hexes"
-        },
-        {
           "type": "shield",
-          "value": "*2%"
-        },
-        {
-          "type": "custom",
-          "value": "*Shield only"
-        },
-        {
-          "type": "custom",
-          "value": "*applies on"
-        },
-        {
-          "type": "custom",
-          "value": "*ranged"
-        },
-        {
-          "type": "custom",
-          "value": "*attacks"
+          "value": 2,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.ravenous-gharial.2%"
+            }
+          ]
         }
       ]
     },
@@ -232,32 +125,14 @@
       "attack": 4,
       "actions": [
         {
-          "type": "custom",
-          "value": "*Unaffected by"
-        },
-        {
-          "type": "custom",
-          "value": "*water hexes"
-        },
-        {
           "type": "shield",
-          "value": "*2%"
-        },
-        {
-          "type": "custom",
-          "value": "*Shield only"
-        },
-        {
-          "type": "custom",
-          "value": "*applies on"
-        },
-        {
-          "type": "custom",
-          "value": "*ranged"
-        },
-        {
-          "type": "custom",
-          "value": "*attacks"
+          "value": 2,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.ravenous-gharial.2%"
+            }
+          ]
         }
       ]
     },
@@ -268,32 +143,14 @@
       "attack": 5,
       "actions": [
         {
-          "type": "custom",
-          "value": "*Unaffected by"
-        },
-        {
-          "type": "custom",
-          "value": "*water hexes"
-        },
-        {
           "type": "shield",
-          "value": "*2%"
-        },
-        {
-          "type": "custom",
-          "value": "*Shield only"
-        },
-        {
-          "type": "custom",
-          "value": "*applies on"
-        },
-        {
-          "type": "custom",
-          "value": "*ranged"
-        },
-        {
-          "type": "custom",
-          "value": "*attacks"
+          "value": 2,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.ravenous-gharial.2%"
+            }
+          ]
         }
       ]
     },
@@ -304,24 +161,14 @@
       "attack": 3,
       "actions": [
         {
-          "type": "custom",
-          "value": "*Unaffected by"
-        },
-        {
-          "type": "custom",
-          "value": "*water hexes"
-        },
-        {
           "type": "shield",
-          "value": "*1%"
-        },
-        {
-          "type": "custom",
-          "value": "*Shield only applies on ranged"
-        },
-        {
-          "type": "custom",
-          "value": "*attacks"
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.ravenous-gharial.2%"
+            }
+          ]
         }
       ],
       "type": "elite"
@@ -333,24 +180,14 @@
       "attack": 4,
       "actions": [
         {
-          "type": "custom",
-          "value": "*Unaffected by"
-        },
-        {
-          "type": "custom",
-          "value": "*water hexes"
-        },
-        {
           "type": "shield",
-          "value": "*1%"
-        },
-        {
-          "type": "custom",
-          "value": "*Shield only applies on ranged"
-        },
-        {
-          "type": "custom",
-          "value": "*attacks"
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.ravenous-gharial.2%"
+            }
+          ]
         }
       ],
       "type": "elite"
@@ -362,24 +199,14 @@
       "attack": 4,
       "actions": [
         {
-          "type": "custom",
-          "value": "*Unaffected by"
-        },
-        {
-          "type": "custom",
-          "value": "*water hexes"
-        },
-        {
           "type": "shield",
-          "value": "*2%"
-        },
-        {
-          "type": "custom",
-          "value": "*Shield only applies on ranged"
-        },
-        {
-          "type": "custom",
-          "value": "*attacks"
+          "value": 2,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.ravenous-gharial.2%"
+            }
+          ]
         }
       ],
       "type": "elite"
@@ -391,24 +218,14 @@
       "attack": 4,
       "actions": [
         {
-          "type": "custom",
-          "value": "*Unaffected by"
-        },
-        {
-          "type": "custom",
-          "value": "*water hexes"
-        },
-        {
           "type": "shield",
-          "value": "*2%"
-        },
-        {
-          "type": "custom",
-          "value": "*Shield only applies on ranged"
-        },
-        {
-          "type": "custom",
-          "value": "*attacks"
+          "value": 2,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.ravenous-gharial.2%"
+            }
+          ]
         }
       ],
       "type": "elite"
@@ -420,24 +237,14 @@
       "attack": 5,
       "actions": [
         {
-          "type": "custom",
-          "value": "*Unaffected by"
-        },
-        {
-          "type": "custom",
-          "value": "*water hexes"
-        },
-        {
           "type": "shield",
-          "value": "*3%"
-        },
-        {
-          "type": "custom",
-          "value": "*Shield only applies on ranged"
-        },
-        {
-          "type": "custom",
-          "value": "*attacks"
+          "value": 3,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.ravenous-gharial.2%"
+            }
+          ]
         }
       ],
       "type": "elite"
@@ -449,24 +256,14 @@
       "attack": 5,
       "actions": [
         {
-          "type": "custom",
-          "value": "*Unaffected by"
-        },
-        {
-          "type": "custom",
-          "value": "*water hexes"
-        },
-        {
           "type": "shield",
-          "value": "*3%"
-        },
-        {
-          "type": "custom",
-          "value": "*Shield only applies on ranged"
-        },
-        {
-          "type": "custom",
-          "value": "*attacks"
+          "value": 3,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.ravenous-gharial.2%"
+            }
+          ]
         }
       ],
       "type": "elite"
@@ -478,24 +275,14 @@
       "attack": 5,
       "actions": [
         {
-          "type": "custom",
-          "value": "*Unaffected by"
-        },
-        {
-          "type": "custom",
-          "value": "*water hexes"
-        },
-        {
           "type": "shield",
-          "value": "*4%"
-        },
-        {
-          "type": "custom",
-          "value": "*Shield only applies on ranged"
-        },
-        {
-          "type": "custom",
-          "value": "*attacks"
+          "value": 4,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.ravenous-gharial.2%"
+            }
+          ]
         }
       ],
       "type": "elite"
@@ -507,24 +294,14 @@
       "attack": 6,
       "actions": [
         {
-          "type": "custom",
-          "value": "*Unaffected by"
-        },
-        {
-          "type": "custom",
-          "value": "*water hexes"
-        },
-        {
           "type": "shield",
-          "value": "*4%"
-        },
-        {
-          "type": "custom",
-          "value": "*Shield only applies on ranged"
-        },
-        {
-          "type": "custom",
-          "value": "*attacks"
+          "value": 4,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.ravenous-gharial.2%"
+            }
+          ]
         }
       ],
       "type": "elite"

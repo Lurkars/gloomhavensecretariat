@@ -303,9 +303,10 @@ export class GameManager {
     } else if (figure.active && !figure.off) {
       this.afterTurn(figure)
     } else {
-      this.beforeTurn(figure);
       if (!figures.some((other: Figure, otherIndex: number) => otherIndex < index && other.active)) {
-        this.turn(figure)
+        figure.active = true;
+      } else {
+        this.beforeTurn(figure);
       }
     }
 
@@ -346,7 +347,7 @@ export class GameManager {
             figure.summons.forEach((summon: Summon) => {
               this.entityManager.restoreConditions(summon);
             });
-          } if (figure instanceof Objective) {
+          } else if (figure instanceof Objective) {
             this.entityManager.restoreConditions(figure);
           } else if (figure instanceof Monster) {
             figure.entities.forEach((monsterEntity: MonsterEntity) => {
@@ -359,18 +360,37 @@ export class GameManager {
       if (settingsManager.settings.applyConditions) {
         if (!figure.active) {
           if (figure instanceof Character) {
-            this.entityManager.unapplyConditions(figure);
+            this.entityManager.unapplyConditionsTurn(figure);
             figure.summons.forEach((summon: Summon) => {
-              this.entityManager.unapplyConditions(summon);
+              this.entityManager.unapplyConditionsTurn(summon);
             });
-          } if (figure instanceof Objective) {
-            this.entityManager.unapplyConditions(figure);
+          } else if (figure instanceof Objective) {
+            this.entityManager.unapplyConditionsTurn(figure);
           } else if (figure instanceof Monster) {
             figure.entities.forEach((monsterEntity: MonsterEntity) => {
-              this.entityManager.unapplyConditions(monsterEntity);
+              this.entityManager.unapplyConditionsTurn(monsterEntity);
             });
           }
         }
+      }
+    }
+
+    if (settingsManager.settings.applyConditions) {
+      if (figure instanceof Character) {
+        this.entityManager.unapplyConditionsAfter(figure);
+        figure.summons.forEach((summon: Summon) => {
+          this.entityManager.unapplyConditionsAfter(summon);
+        });
+      } else if (figure instanceof Objective) {
+        this.entityManager.unapplyConditionsAfter(figure);
+      } else if (figure instanceof Monster) {
+        figure.entities.forEach((monsterEntity: MonsterEntity) => {
+          this.entityManager.unapplyConditionsAfter(monsterEntity);
+        });
+      }
+
+      if (figure.off && !this.permanentDead(figure)) {
+        figure.off = false;
       }
     }
   }
@@ -379,15 +399,15 @@ export class GameManager {
     figure.active = true;
     if (settingsManager.settings.applyConditions) {
       if (figure instanceof Character) {
-        this.entityManager.applyConditions(figure);
+        this.entityManager.applyConditionsTurn(figure);
         figure.summons.forEach((summon: Summon) => {
-          this.entityManager.applyConditions(summon);
+          this.entityManager.applyConditionsTurn(summon);
         });
-      } if (figure instanceof Objective) {
-        this.entityManager.applyConditions(figure);
+      } else if (figure instanceof Objective) {
+        this.entityManager.applyConditionsTurn(figure);
       } else if (figure instanceof Monster) {
         figure.entities.forEach((monsterEntity: MonsterEntity) => {
-          this.entityManager.applyConditions(monsterEntity);
+          this.entityManager.applyConditionsTurn(monsterEntity);
         });
       }
     }
@@ -403,7 +423,7 @@ export class GameManager {
           figure.summons.forEach((summon: Summon) => {
             this.entityManager.expireConditions(summon);
           });
-        } if (figure instanceof Objective) {
+        } else if (figure instanceof Objective) {
           this.entityManager.expireConditions(figure);
         } else if (figure instanceof Monster) {
           figure.entities.forEach((monsterEntity: MonsterEntity) => {
@@ -414,15 +434,28 @@ export class GameManager {
 
       if (settingsManager.settings.applyConditions) {
         if (figure instanceof Character) {
-          this.entityManager.applyConditions(figure);
+          this.entityManager.applyConditionsTurn(figure);
           figure.summons.forEach((summon: Summon) => {
-            this.entityManager.applyConditions(summon);
+            this.entityManager.applyConditionsTurn(summon);
           });
-        } if (figure instanceof Objective) {
-          this.entityManager.applyConditions(figure);
+        } else if (figure instanceof Objective) {
+          this.entityManager.applyConditionsTurn(figure);
         } else if (figure instanceof Monster) {
           figure.entities.forEach((monsterEntity: MonsterEntity) => {
-            this.entityManager.applyConditions(monsterEntity);
+            this.entityManager.applyConditionsTurn(monsterEntity);
+          });
+        }
+
+        if (figure instanceof Character) {
+          this.entityManager.applyConditionsAfter(figure);
+          figure.summons.forEach((summon: Summon) => {
+            this.entityManager.applyConditionsAfter(summon);
+          });
+        } else if (figure instanceof Objective) {
+          this.entityManager.applyConditionsAfter(figure);
+        } else if (figure instanceof Monster) {
+          figure.entities.forEach((monsterEntity: MonsterEntity) => {
+            this.entityManager.applyConditionsAfter(monsterEntity);
           });
         }
       }

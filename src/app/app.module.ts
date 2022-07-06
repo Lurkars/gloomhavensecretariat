@@ -22,7 +22,7 @@ import { EditionMenuComponent } from './ui/header/menu/edition/edition';
 import { MainMenuComponent } from './ui/header/menu/menu';
 import { SettingsMenuComponent } from './ui/header/menu/settings/settings';
 import { CardRevealDirective } from './ui/helper/CardReveal';
-import { GhsActiveConditionsPipe, GhsEditionFilterPipe, GhsHtmlLabelPipe, GhsLabelPipe, GhsSortPipe, GhsValueCalcPipe, GhsValueSignPipe } from './ui/helper/Pipes';
+import { GhsActiveConditionsPipe, GhsEditionFilterPipe, GhsHtmlLabelPipe, GhsLabelPipe, GhsRangePipe, GhsSortPipe, GhsValueCalcPipe, GhsValueSignPipe } from './ui/helper/Pipes';
 import { MainComponent } from './ui/main';
 import { PopupComponent } from './ui/popup/popup';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -57,7 +57,7 @@ import { ConditionsComponent } from './ui/figures/conditions/conditions';
     DialogComponent, PopupComponent,
     ConditionsComponent,
     CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent,
-    ObjectiveComponent, 
+    ObjectiveComponent,
     SummonEntityComponent,
     MonsterComponent,
     MonsterEntityComponent,
@@ -68,7 +68,7 @@ import { ConditionsComponent } from './ui/figures/conditions/conditions';
     ActionsComponent, ActionComponent, ActionHexComponent,
     FigureErrors,
     CardRevealDirective,
-    GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsActiveConditionsPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent, GhsHtmlLabelPipe,
+    GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsActiveConditionsPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent, GhsHtmlLabelPipe, GhsRangePipe,
     MonsterToolComponent, MonsterActionToolComponent, MonsterStatToolComponent ],
   imports: [
     BrowserModule,

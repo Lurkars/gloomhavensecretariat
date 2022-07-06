@@ -2,7 +2,7 @@
   "name": "steel-construct",
   "edition": "cs",
   "thumbnail" : "gh-stone-golem",
-  "deck": "boss",
+  "deck": "stone-golem",
   "count": 6,
   "boss": true,
   "hidden": true,
@@ -31,7 +31,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -43,7 +43,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -55,7 +55,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         }
       ]
     },
@@ -67,7 +67,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         }
       ]
     },
@@ -79,7 +79,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         }
       ]
     },
@@ -91,7 +91,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         }
       ]
     },
@@ -103,7 +103,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "3"
+          "value": 3
         }
       ]
     }

@@ -125,7 +125,10 @@
         "allEnemies": "Target all enemies",
         "allEnemiesRange": "Target all enemies within range",
         "adjacentEnemies": "Target all adjacent enemies",
-        "selfAlliesRange": "Target self and all allies within range"
+        "selfAlliesRange": "Target self and all allies within range",
+        "allFigures": "Target all figures",
+        "allFiguresRange": "Target all figures within range",
+        "adjacentFigures": "Target all adjacent figures"
       },
       "target": "Target",
       "shield": "Shield",
@@ -191,7 +194,8 @@
       "math": {
         "ceil": "(rounded up)",
         "floor": "(rounded down)"
-      }
+      },
+      "scenarioBook" : "Reference the scenario book"
     }
   },
   "datamanagement": {

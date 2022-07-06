@@ -28,12 +28,9 @@ export class MonsterComponent {
 
   removeMonsterEntity(monsterEntity: MonsterEntity) {
     monsterEntity.dead = true;
-    setTimeout(() => {
-      gameManager.stateManager.before();
-      gameManager.monsterManager.removeMonsterEntity(this.monster, monsterEntity);
-      gameManager.stateManager.after(1000);
-      gameManager.sortFigures();
-    }, 2000);
+    gameManager.stateManager.before();
+    gameManager.monsterManager.removeMonsterEntity(this.monster, monsterEntity);
+    gameManager.stateManager.after();
   }
 
   sortedEntites(): MonsterEntity[] {
@@ -57,6 +54,10 @@ export class MonsterComponent {
 
   getEntities(type: MonsterType): MonsterEntity[] {
     return this.monster.entities.filter((value: MonsterEntity) => value.type == type).sort((a: MonsterEntity, b: MonsterEntity) => a.number - b.number);
+  }
+
+  nonDead(): number {
+    return this.monster.entities.filter((monsterEntity: MonsterEntity) => !monsterEntity.dead).length;
   }
 
 }

@@ -2,7 +2,6 @@
   "name": "apex-demon",
   "edition": "cs",
   "thumbnail" : "gh-earth-demon",
-  "deck": "boss",
   "count": 6,
   "boss": true,
   "hidden": true,

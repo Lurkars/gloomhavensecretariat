@@ -43,7 +43,7 @@
       ]
     ],
     "type": "boss",
-    "note": "X = Hexes moved"
+    "note": "%data.custom.gh.dark-rider.1%"
   },
   "stats": [
     {

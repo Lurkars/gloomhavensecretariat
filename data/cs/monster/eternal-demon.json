@@ -1,7 +1,7 @@
 {
   "name": "eternal-demon",
   "edition": "cs",
-  "thumbnail" : "gh-earth-demon",
+  "thumbnail": "gh-earth-demon",
   "deck": "boss",
   "count": 6,
   "boss": true,
@@ -22,22 +22,40 @@
     "special": [
       [
         {
-          "type": "custom",
-          "value": "Reference the scenario"
+          "type": "jump",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.eternal-demon.1%"
+            }
+          ]
         },
         {
-          "type": "custom",
-          "value": "Special Rules"
+          "type": "heal",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.eternal-demon.2%"
+            }
+          ]
         }
       ],
       [
         {
-          "type": "custom",
-          "value": "Reference the scenario"
-        },
-        {
-          "type": "custom",
-          "value": "Special Rules"
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.eternal-demon.3%"
+            }
+          ]
         }
       ]
     ],

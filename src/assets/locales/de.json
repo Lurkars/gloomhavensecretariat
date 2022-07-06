@@ -191,7 +191,8 @@
       "math": {
         "ceil": "(aufgerundet)",
         "floor": "(abgerundet)"
-      }
+      },
+      "scenarioBook" : "Im Szenariobuch nachschlagen"
     }
   },
   "datamanagement": {

@@ -2,7 +2,7 @@
   "name": "king-cobra",
   "edition": "cs",
   "thumbnail": "gh-giant-viper",
-  "deck": "boss",
+  "deck": "giant-viper",
   "count": 10,
   "boss": true,
   "hidden": true,

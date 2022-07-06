@@ -1,0 +1,212 @@
+{
+  "name": "hail-demon",
+  "edition": "cs",
+  "abilies": [
+    {
+      "cardId": 1222,
+      "shuffle": true,
+      "initiavie": 13,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "Targetallenemieswithin3"
+            },
+            {
+              "type": "condition",
+              "value": "chill"
+            }
+          ]
+        },
+        {}
+      ]
+    },
+    {
+      "cardId": 1223,
+      "shuffle": true,
+      "initiavie": 38,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "1",
+              "valueType": "plus"
+            }
+          ]
+        },
+        {},
+        {
+          "type": "condition",
+          "value": "chill"
+        }
+      ]
+    },
+    {
+      "cardId": 1224,
+      "shuffle": false,
+      "initiavie": "05",
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {},
+        {
+          "type": "pull",
+          "value": "!^2"
+        }
+      ]
+    },
+    {
+      "cardId": 1225,
+      "shuffle": false,
+      "initiavie": 30,
+      "actions": [
+        {
+          "type": "heal",
+          "value": "2",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Self"
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "chill",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "chill"
+            },
+            {
+              "type": "range",
+              "value": "tokenswithin3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1226,
+      "shuffle": false,
+      "initiavie": 26,
+      "actions": [
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus"
+        },
+        {
+          "type": "condition",
+          "value": "chill",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "empty hex closest to an enemy."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1227,
+      "shuffle": false,
+      "initiavie": 10,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "3",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "3"
+            }
+          ]
+        },
+        {},
+        {
+          "type": "attack",
+          "value": "!^-1"
+        },
+        {
+          "type": "range",
+          "value": "!^-1"
+        }
+      ]
+    },
+    {
+      "cardId": 1228,
+      "shuffle": false,
+      "initiavie": 22,
+      "actions": [
+        {
+          "type": "pull",
+          "value": "2",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "Targetoneenemywithin3"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "arc-3"
+            }
+          ]
+        },
+        {}
+      ]
+    },
+    {
+      "cardId": 1229,
+      "shuffle": false,
+      "initiavie": 19,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "Targetallenemieswithin2"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus"
+        },
+        {}
+      ]
+    }
+  ]
+}

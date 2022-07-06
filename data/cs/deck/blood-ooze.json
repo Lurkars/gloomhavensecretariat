@@ -1,0 +1,236 @@
+{
+  "name": "blood-ooze",
+  "edition": "cs",
+  "abilies": [
+    {
+      "cardId": 1198,
+      "shuffle": true,
+      "initiavie": 96,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "*Summon one normal Blood Ooze in a hex adjacent to the target with a hit point value equal to the summoning Blood Ooze's current hit point value minus 2 (limited by a normal Blood Ooze's specifiec maximum hit point value)"
+        }
+      ]
+    },
+    {
+      "cardId": 1199,
+      "shuffle": true,
+      "initiavie": 96,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "^Summon one normal",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Blood Ooze with a current"
+            },
+            {
+              "type": "custom",
+              "value": "hit point value equal to four."
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus"
+        },
+        {
+          "type": "custom",
+          "value": "!^Hit point value equal"
+        },
+        {
+          "type": "custom",
+          "value": "!^to three instead"
+        }
+      ]
+    },
+    {
+      "cardId": 1200,
+      "shuffle": false,
+      "initiavie": 71,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "^All adjacent enemies",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "suffer one damage."
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "heal",
+          "value": "1",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target all adjacent Blood Oozes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1201,
+      "shuffle": false,
+      "initiavie": 29,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target one adjacent enemy"
+            },
+            {
+              "type": "attack",
+              "value": "Add+2ifthetargetis"
+            },
+            {
+              "type": "custom",
+              "value": "adjacent to at least two Blood Oozes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1202,
+      "shuffle": false,
+      "initiavie": 62,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison"
+            },
+            {
+              "type": "custom",
+              "value": "Target one adjacent enemy"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "Targetoneenemyatexactly2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1203,
+      "shuffle": false,
+      "initiavie": 53,
+      "actions": [
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "loot",
+          "value": "1"
+        },
+        {
+          "type": "custom",
+          "value": "^If at least one money token was looted:"
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId": 1204,
+      "shuffle": false,
+      "initiavie": 17,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "1",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "condition",
+          "value": "wound",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target all adjacent enemies"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1205,
+      "shuffle": false,
+      "initiavie": 80,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "^Blood Ooze suffers two damage."
+        },
+        {
+          "type": "condition",
+          "value": "invisible",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Self"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

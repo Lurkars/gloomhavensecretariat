@@ -21,7 +21,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         }
       ]
     },
@@ -34,7 +34,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "3"
+          "value": 3
         }
       ]
     },
@@ -47,7 +47,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "3"
+          "value": 3
         }
       ]
     },
@@ -60,7 +60,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "3"
+          "value": 3
         }
       ]
     },
@@ -77,7 +77,7 @@
         },
         {
           "type": "shield",
-          "value": "3"
+          "value": 3
         }
       ]
     },
@@ -94,7 +94,7 @@
         },
         {
           "type": "shield",
-          "value": "3"
+          "value": 3
         }
       ]
     },
@@ -111,7 +111,7 @@
         },
         {
           "type": "shield",
-          "value": "3"
+          "value": 3
         }
       ]
     },
@@ -128,7 +128,7 @@
         },
         {
           "type": "shield",
-          "value": "3"
+          "value": 3
         }
       ]
     },
@@ -141,7 +141,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         }
       ],
       "type": "elite"
@@ -155,7 +155,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "3"
+          "value": 3
         }
       ],
       "type": "elite"
@@ -169,7 +169,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "3"
+          "value": 3
         }
       ],
       "type": "elite"
@@ -183,7 +183,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "3"
+          "value": 3
         }
       ],
       "type": "elite"
@@ -201,7 +201,7 @@
         },
         {
           "type": "shield",
-          "value": "4"
+          "value": 4
         }
       ],
       "type": "elite"
@@ -219,7 +219,7 @@
         },
         {
           "type": "shield",
-          "value": "4"
+          "value": 4
         }
       ],
       "type": "elite"
@@ -237,7 +237,7 @@
         },
         {
           "type": "shield",
-          "value": "5"
+          "value": 5
         }
       ],
       "type": "elite"
@@ -255,7 +255,7 @@
         },
         {
           "type": "shield",
-          "value": "5"
+          "value": 5
         }
       ],
       "type": "elite"

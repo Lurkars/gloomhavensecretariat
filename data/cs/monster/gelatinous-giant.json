@@ -23,35 +23,42 @@
       [
         {
           "type": "move",
-          "value": "0Allother",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "custom",
-          "value": "Blood Oozes perform"
-        },
-        {
-          "type": "attack",
-          "value": "1",
-          "valueType": "minus"
-        },
-        {
-          "type": "custom",
-          "value": " Target one"
-        },
-        {
-          "type": "custom",
-          "value": "adjacent enemy"
+          "value": "%data.custom.cs.gelatinous-giant.1%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "enemy"
+                }
+              ]
+            }
+          ]
         }
       ],
       [
         {
-          "type": "custom",
-          "value": "Reference scenario"
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.gelatinous-giant.2%"
+            }
+          ]
         },
         {
           "type": "custom",
-          "value": "Special Rules"
+          "value": "%game.custom.scenarioBook%"
         }
       ]
     ],
@@ -74,7 +81,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -87,7 +94,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -104,7 +111,7 @@
         },
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -121,7 +128,7 @@
         },
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -138,7 +145,7 @@
         },
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -155,7 +162,7 @@
         },
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         }
       ]
     },
@@ -172,7 +179,7 @@
         },
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         }
       ]
     }

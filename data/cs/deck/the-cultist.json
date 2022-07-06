@@ -1,0 +1,187 @@
+{
+  "name": "the-cultist",
+  "edition": "cs",
+  "abilies": [
+    {
+      "cardId": 604,
+      "shuffle": false,
+      "initiavie": 10,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "2",
+          "valueType": "plus"
+        },
+        {
+          "type": "custom",
+          "value": "On Death:",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": "5",
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "area",
+                  "value": "circle-with-middle-black"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 605,
+      "shuffle": false,
+      "initiavie": 10,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "2",
+          "valueType": "plus"
+        },
+        {
+          "type": "custom",
+          "value": "On Death:",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": "5",
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "area",
+                  "value": "circle-with-middle-black"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 606,
+      "shuffle": false,
+      "initiavie": 27,
+      "actions": [
+        {
+          "type": "move",
+          "value": "2",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "3",
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId": 607,
+      "shuffle": false,
+      "initiavie": 27,
+      "actions": [
+        {
+          "type": "move",
+          "value": "2",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "3",
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId": 608,
+      "shuffle": false,
+      "initiavie": 39,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "3",
+          "valueType": "plus"
+        },
+        {
+          "type": "heal",
+          "value": "1",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Self"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 609,
+      "shuffle": true,
+      "initiavie": 63,
+      "actions": [
+        {
+          "type": "custom",
+          "value": " "
+        },
+        {
+          "type": "custom",
+          "value": "Summon normal Living Spirits"
+        }
+      ]
+    },
+    {
+      "cardId": 610,
+      "shuffle": true,
+      "initiavie": 63,
+      "actions": [
+        {
+          "type": "custom",
+          "value": " "
+        },
+        {
+          "type": "custom",
+          "value": "Summon normal Living Spirits"
+        }
+      ]
+    },
+    {
+      "cardId": 611,
+      "shuffle": false,
+      "initiavie": 31,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "heal",
+          "value": "3",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "3"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

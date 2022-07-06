@@ -2,7 +2,6 @@
   "name": "clockwork-devastator",
   "edition": "cs",
   "thumbnail" : "gh-lurker",
-  "deck": "boss",
   "count": 6,
   "boss": true,
   "hidden": true,
@@ -26,11 +25,11 @@
       "actions": [
         {
           "type": "target",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -42,15 +41,15 @@
       "actions": [
         {
           "type": "target",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "pierce",
-          "value": "1"
+          "value": 1
         },
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -62,15 +61,15 @@
       "actions": [
         {
           "type": "target",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "pierce",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -82,15 +81,15 @@
       "actions": [
         {
           "type": "target",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "pierce",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -102,15 +101,15 @@
       "actions": [
         {
           "type": "target",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "pierce",
-          "value": "3"
+          "value": 3
         },
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         }
       ]
     },
@@ -122,15 +121,15 @@
       "actions": [
         {
           "type": "target",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "pierce",
-          "value": "3"
+          "value": 3
         },
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         }
       ]
     },
@@ -142,15 +141,15 @@
       "actions": [
         {
           "type": "target",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "pierce",
-          "value": "4"
+          "value": 4
         },
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         }
       ]
     },
@@ -162,15 +161,15 @@
       "actions": [
         {
           "type": "target",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "pierce",
-          "value": "4"
+          "value": 4
         },
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         }
       ]
     }

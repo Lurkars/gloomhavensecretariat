@@ -20,7 +20,7 @@
       "actions": [
         {
           "type": "push",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -32,7 +32,7 @@
       "actions": [
         {
           "type": "push",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -44,7 +44,7 @@
       "actions": [
         {
           "type": "push",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -56,7 +56,7 @@
       "actions": [
         {
           "type": "push",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -68,7 +68,7 @@
       "actions": [
         {
           "type": "push",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -80,7 +80,7 @@
       "actions": [
         {
           "type": "push",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -92,7 +92,7 @@
       "actions": [
         {
           "type": "push",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -104,7 +104,7 @@
       "actions": [
         {
           "type": "push",
-          "value": "1"
+          "value": 1
         }
       ]
     },
@@ -116,11 +116,11 @@
       "actions": [
         {
           "type": "push",
-          "value": "1"
+          "value": 1
         },
         {
           "type": "push",
-          "value": "1"
+          "value": 1
         }
       ],
       "type": "elite"
@@ -133,11 +133,11 @@
       "actions": [
         {
           "type": "push",
-          "value": "1"
+          "value": 1
         },
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ],
       "type": "elite"
@@ -150,11 +150,11 @@
       "actions": [
         {
           "type": "push",
-          "value": "1"
+          "value": 1
         },
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         }
       ],
       "type": "elite"
@@ -167,11 +167,11 @@
       "actions": [
         {
           "type": "push",
-          "value": "1"
+          "value": 1
         },
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         }
       ],
       "type": "elite"
@@ -184,7 +184,7 @@
       "actions": [
         {
           "type": "push",
-          "value": "1"
+          "value": 1
         },
         {
           "type": "condition",
@@ -192,7 +192,7 @@
         },
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         }
       ],
       "type": "elite"
@@ -205,7 +205,7 @@
       "actions": [
         {
           "type": "push",
-          "value": "1"
+          "value": 1
         },
         {
           "type": "condition",
@@ -213,7 +213,7 @@
         },
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         }
       ],
       "type": "elite"
@@ -226,7 +226,7 @@
       "actions": [
         {
           "type": "push",
-          "value": "1"
+          "value": 1
         },
         {
           "type": "condition",
@@ -234,7 +234,7 @@
         },
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         }
       ],
       "type": "elite"
@@ -247,7 +247,7 @@
       "actions": [
         {
           "type": "push",
-          "value": "1"
+          "value": 1
         },
         {
           "type": "condition",
@@ -255,7 +255,7 @@
         },
         {
           "type": "shield",
-          "value": "3"
+          "value": 3
         }
       ],
       "type": "elite"

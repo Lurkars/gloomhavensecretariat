@@ -26,24 +26,24 @@ export class MonsterNumberPicker extends DialogComponent {
     this.range = Array.from(Array(this.max).keys()).map(x => x + this.min);
   }
 
-  isFull() {
-    return this.monster.entities.length >= this.max;
+  nonDead(): number {
+    return this.monster.entities.filter((monsterEntity: MonsterEntity) => !monsterEntity.dead).length;
   }
 
 
   hasNumber(number: number) {
     return this.monster.entities.some((monsterEntity: MonsterEntity) => {
-      return monsterEntity.number == number;
+      return monsterEntity.number == number && !monsterEntity.dead;
     })
   }
 
   override open(): void {
-    if (this.monster.entities.length == this.monster.count) {
+    if (this.nonDead() >= this.max) {
       return;
     }
-    if (this.monster.entities.length == this.max - 1) {
+    if (this.nonDead() == this.max - 1) {
       for (let i = 0; i < this.max; i++) {
-        if (!this.monster.entities.some((me: MonsterEntity) => me.number == i + 1)) {
+        if (!this.monster.entities.some((me: MonsterEntity) => !me.dead && me.number == i + 1)) {
           this.pickNumber(i + 1);
         }
       }
@@ -61,6 +61,10 @@ export class MonsterNumberPicker extends DialogComponent {
   pickNumber(number: number) {
     if (!this.hasNumber(number) && this.type) {
       gameManager.stateManager.before();
+      const dead = this.monster.entities.find((monsterEntity: MonsterEntity) => monsterEntity.number == number);
+      if (dead) {
+        gameManager.monsterManager.removeMonsterEntity(this.monster, dead);
+      }
       gameManager.monsterManager.addMonsterEntity(this.monster, number, this.type, this.summon);
       gameManager.stateManager.after();
       if (this.monster.entities.length == this.monster.count) {

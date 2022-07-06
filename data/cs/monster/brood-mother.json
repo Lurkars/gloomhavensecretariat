@@ -2,7 +2,6 @@
   "name": "brood-mother",
   "edition": "cs",
   "thumbnail": "cs-terrorscale-drake",
-  "deck": "boss",
   "count": 1,
   "boss": true,
   "baseStat": {
@@ -30,15 +29,15 @@
         },
         {
           "type": "shield",
-          "value": "3"
+          "value": 3
         },
         {
           "type": "retaliate",
-          "value": "3"
+          "value": 3
         },
         {
           "type": "heal",
-          "value": "3",
+          "value": 3,
           "subActions": [
             {
               "type": "specialTarget",
@@ -60,15 +59,15 @@
         },
         {
           "type": "shield",
-          "value": "4"
+          "value": 4
         },
         {
           "type": "retaliate",
-          "value": "4"
+          "value": 4
         },
         {
           "type": "heal",
-          "value": "4",
+          "value": 4,
           "subActions": [
             {
               "type": "specialTarget",
@@ -90,15 +89,15 @@
         },
         {
           "type": "shield",
-          "value": "4"
+          "value": 4
         },
         {
           "type": "retaliate",
-          "value": "4"
+          "value": 4
         },
         {
           "type": "heal",
-          "value": "4",
+          "value": 4,
           "subActions": [
             {
               "type": "specialTarget",
@@ -120,15 +119,15 @@
         },
         {
           "type": "shield",
-          "value": "4"
+          "value": 4
         },
         {
           "type": "retaliate",
-          "value": "4"
+          "value": 4
         },
         {
           "type": "heal",
-          "value": "4",
+          "value": 4,
           "subActions": [
             {
               "type": "specialTarget",
@@ -150,15 +149,15 @@
         },
         {
           "type": "shield",
-          "value": "5"
+          "value": 5
         },
         {
           "type": "retaliate",
-          "value": "5"
+          "value": 5
         },
         {
           "type": "heal",
-          "value": "5",
+          "value": 5,
           "subActions": [
             {
               "type": "specialTarget",
@@ -180,15 +179,15 @@
         },
         {
           "type": "shield",
-          "value": "5"
+          "value": 5
         },
         {
           "type": "retaliate",
-          "value": "5"
+          "value": 5
         },
         {
           "type": "heal",
-          "value": "5",
+          "value": 5,
           "subActions": [
             {
               "type": "specialTarget",
@@ -210,15 +209,15 @@
         },
         {
           "type": "shield",
-          "value": "5"
+          "value": 5
         },
         {
           "type": "retaliate",
-          "value": "5"
+          "value": 5
         },
         {
           "type": "heal",
-          "value": "5",
+          "value": 5,
           "subActions": [
             {
               "type": "specialTarget",
@@ -240,15 +239,15 @@
         },
         {
           "type": "shield",
-          "value": "6"
+          "value": 6
         },
         {
           "type": "retaliate",
-          "value": "6"
+          "value": 6
         },
         {
           "type": "heal",
-          "value": "6",
+          "value": 6,
           "subActions": [
             {
               "type": "specialTarget",

@@ -1,0 +1,230 @@
+{
+  "name": "harrower-icecrawlers",
+  "edition": "cs",
+  "abilies": [
+    {
+      "cardId": 1230,
+      "shuffle": true,
+      "initiavie": 44,
+      "actions": [
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "ice"
+        }
+      ]
+    },
+    {
+      "cardId": 1231,
+      "shuffle": true,
+      "initiavie": 44,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "ice"
+        }
+      ]
+    },
+    {
+      "cardId": 1232,
+      "shuffle": false,
+      "initiavie": 12,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "2",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Self"
+            }
+          ]
+        },
+        {
+          "type": "retaliate",
+          "value": "^Ifanenemysuffersdamage",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "from attacking an Icecrawler this round,"
+            },
+            {
+              "type": "condition",
+              "value": "chill"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1233,
+      "shuffle": false,
+      "initiavie": 63,
+      "actions": [
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "triangle-2-side-with-black"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus"
+        },
+        {
+          "type": "pierce",
+          "value": "!^2"
+        }
+      ]
+    },
+    {
+      "cardId": 1234,
+      "shuffle": false,
+      "initiavie": 55,
+      "actions": [
+        {
+          "type": "move",
+          "value": "2",
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus"
+        },
+        {
+          "type": "pierce",
+          "value": "!^2"
+        }
+      ]
+    },
+    {
+      "cardId": 1235,
+      "shuffle": false,
+      "initiavie": 16,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus"
+        },
+        {
+          "type": "custom",
+          "value": "!^All enemies adjacent to the"
+        },
+        {
+          "type": "custom",
+          "value": "!^target suffer one damage"
+        }
+      ]
+    },
+    {
+      "cardId": 1236,
+      "shuffle": false,
+      "initiavie": 68,
+      "actions": [
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "star-with-side-black"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1237,
+      "shuffle": false,
+      "initiavie": 9,
+      "actions": [
+        {
+          "type": "range",
+          "value": "^Gain3onall",
+          "subActions": [
+            {
+              "type": "retaliate",
+              "value": "abilities."
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "heal",
+          "value": "2",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "3"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

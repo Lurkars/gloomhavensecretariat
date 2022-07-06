@@ -1,8 +1,8 @@
 {
   "name": "lavalite",
   "edition": "cs",
-  "thumbnail" : "gh-savvas-lavaflow"
-  "deck": "boss",
+  "thumbnail" : "gh-savvas-lavaflow",
+  "deck": "savvas-lavaflow",
   "count": 4,
   "boss": true,
   "hidden": true,

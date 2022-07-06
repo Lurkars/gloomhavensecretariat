@@ -43,7 +43,7 @@
         },
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "minus"
         },
         {
@@ -118,7 +118,7 @@
           },
           {
             "type": "move",
-            "value": "1",
+            "value": 1,
             "valueType": "minus"
           },
           {
@@ -170,7 +170,7 @@
           },
           {
             "type": "move",
-            "value": "1",
+            "value": 1,
             "valueType": "minus"
           },
           {
@@ -222,7 +222,7 @@
           },
           {
             "type": "move",
-            "value": "1",
+            "value": 1,
             "valueType": "minus"
           },
           {
@@ -274,7 +274,7 @@
           },
           {
             "type": "move",
-            "value": "1",
+            "value": 1,
             "valueType": "minus"
           },
           {
@@ -326,7 +326,7 @@
           },
           {
             "type": "move",
-            "value": "1",
+            "value": 1,
             "valueType": "minus"
           },
           {

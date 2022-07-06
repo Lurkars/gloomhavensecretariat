@@ -50,7 +50,7 @@ export class ObjectiveComponent extends DialogComponent {
     } else {
       gameManager.stateManager.before();
       gameManager.toggleFigure(this.objective);
-      gameManager.stateManager.after();
+      gameManager.stateManager.after(500);
     }
   }
 

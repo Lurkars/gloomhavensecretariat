@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Character } from 'src/app/game/model/Character';
-import { Condition } from 'src/app/game/model/Condition';
+import { Condition, ConditionType } from 'src/app/game/model/Condition';
 import { Summon, SummonState } from 'src/app/game/model/Summon';
 import { DialogComponent } from 'src/app/ui/dialog/dialog';
 
@@ -16,34 +16,13 @@ export class SummonEntityComponent extends DialogComponent {
   @Input() character!: Character;
   @Input() summon!: Summon;
   SummonState = SummonState;
+  ConditionType = ConditionType;
   health: number = 0;
   levelDialog: boolean = false;
   gameManager: GameManager = gameManager;
 
-  constructor(private elementRef: ElementRef) {
-    super();
-    this.elementRef.nativeElement.classList.add("entity-animation");
-    this.elementRef.nativeElement.classList.add("hidden");
-  }
-
-
-  removeSummon(summon: Summon) {
-    summon.dead = true;
-    setTimeout(() => {
-      gameManager.stateManager.before();
-      gameManager.characterManager.removeSummon(this.character, summon);
-      gameManager.stateManager.after();
-    }, 2000)
-  }
-
-
   override ngOnInit(): void {
     super.ngOnInit();
-
-    setTimeout(() => {
-      this.elementRef.nativeElement.classList.remove('hidden');
-    }, 0);
-
     if (this.summon.init) {
       this.levelDialog = true;
       this.open();
@@ -72,11 +51,12 @@ export class SummonEntityComponent extends DialogComponent {
   }
 
   dead() {
+    gameManager.stateManager.before();
     if (this.opened) {
       this.close();
     }
-    this.elementRef.nativeElement.classList.add('hidden');
-    this.removeSummon(this.summon);
+    this.summon.dead = true;
+    gameManager.stateManager.after();
   }
 
   toggleStatus() {

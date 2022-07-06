@@ -80,6 +80,63 @@
     },
     "deck": {},
     "ability": {},
-    "scenario": {}
+    "scenario": {},
+    "custom": {
+      "cs": {
+        "drake-porter": {
+          "1": "Every time you kill a drake, the %data.monster.drake-porter% suffers 2 damage."
+        },
+        "drakefiend": {
+          "1": "All adjacent figures with %condition.wound% suffer 1 damage."
+        },
+        "eternal-demon": {
+          "1": "to a map tile occupied by the least ammount of characters.",
+          "2": "where X is equal to the number of characters on different map tiles not occupied by the %data.monster.eternal-demon%.",
+          "3": "Target all enemies sharing the same map tile."
+        },
+        "gelatinous-giant": {
+          "1": "All %data.monster.blood-ooze% perform:",
+          "2": "Target all enenemies withing %game.action.range% 3."
+        },
+        "goremyon-shatter-mind": {
+          "1": "Normal ally with the fewest hit points performs:",
+          "2": "this figure is killed",
+          "3": "The character with the slowest initiative is forced to perfom:",
+          "4": "where X is the value on the stat card",
+          "5": "as if their allies where enemies and their enemies were allies.",
+          "6": "%data.monster.goremyon-shatter-mind% is immune to all forced movement, including %game.action.teleport%."
+        },
+        "guttermaw": {
+          "1": "attacks without target area gain"
+        },
+        "land-leviathan": {
+          "1": "Increase the %data.monster.land-leviathan%'s maximum hit point value by 2."
+        },
+        "morphling": {
+          "1": "Shield only applies before its turn."
+        },
+        "ravenous-gharial": {
+          "1": "Unaffected by water hexes",
+          "2": "Shield only applies on ranged attacks"
+        },
+        "rogue-hollowpact": {
+          "1": "where X is equal to the number of Void Pit obstacles",
+          "2": "Jump to an empty hex adjacent to a Void Pit abstacle furthest away from a character withing %game.action.range% 4.",
+          "3": "All enemies adjacent to a Void Pit obstacle suffer 2 damage."
+        },
+        "terrorscale-drake": {
+          "1": "all enemies adjacent to the target suffer 1 damage",
+          "2": "destroy the occupied obstacle"
+        },
+        "water-spirit": {
+          "1": "Shield only applies before its turn."
+        },
+        "your-shadow" : {
+          "1" : "your maximum hit point value",
+          "2" : "%game.action.teleport% to an unoccupied hex adjacent to the enemy and perform",
+          "3" : "If no legal hex exists for the %game.action.teleport% perfom instead"
+        }
+      }
+    }
   }
 }

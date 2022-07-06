@@ -1,0 +1,234 @@
+{
+  "name": "brood-mother",
+  "edition": "cs",
+  "abilies": [
+    {
+      "cardId": 549,
+      "shuffle": true,
+      "initiavie": 13,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 551,
+      "shuffle": false,
+      "initiavie": 39,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 555,
+      "shuffle": false,
+      "initiavie": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "2",
+          "valueType": "plus"
+        },
+        {
+          "type": "heal",
+          "value": "2",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Self"
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "strengthen",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Self"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 554,
+      "shuffle": true,
+      "initiavie": 72,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": "2",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 557,
+      "shuffle": false,
+      "initiavie": 52,
+      "actions": [
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 558,
+      "shuffle": true,
+      "initiavie": 57,
+      "actions": [
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "triangle-2-side"
+            },
+            {
+              "type": "range",
+              "value": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 559,
+      "shuffle": false,
+      "initiavie": 27,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "3"
+            },
+            {
+              "type": "target",
+              "value": "2"
+            },
+            {
+              "type": "condition",
+              "value": "poison"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 560,
+      "shuffle": false,
+      "initiavie": 87,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "3"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

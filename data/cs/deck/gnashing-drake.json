@@ -1,0 +1,225 @@
+{
+  "name": "gnashing-drake",
+  "edition": "cs",
+  "abilies": [
+    {
+      "cardId": 2000,
+      "shuffle": false,
+      "initiavie": "06",
+      "actions": [
+        {
+          "type": "shield",
+          "value": "2",
+          "valueType": "plus"
+        },
+        {
+          "type": "heal",
+          "value": "2",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Self"
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "strengthen",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Self"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 2001,
+      "shuffle": false,
+      "initiavie": 18,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus"
+        }
+      ]
+    },
+    {
+      "cardId": 2002,
+      "shuffle": true,
+      "initiavie": 24,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "^-1"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        },
+        {
+          "type": "custom",
+          "value": "*Focus on the enemy farthest away.",
+          "subActions": [
+            {
+              "type": "move",
+              "value": "0",
+              "valueType": "plus"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": "^-1"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        },
+        {
+          "type": "custom",
+          "value": "*Target one adjacent enemy"
+        }
+      ]
+    },
+    {
+      "cardId": 2003,
+      "shuffle": false,
+      "initiavie": 30,
+      "actions": [
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": "Add+1ifthetarget'scurrent"
+            },
+            {
+              "type": "custom",
+              "value": "hit point value is less than maximum."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 2004,
+      "shuffle": false,
+      "initiavie": 35,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "4-with-black"
+            },
+            {
+              "type": "condition",
+              "value": "poison"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 2005,
+      "shuffle": false,
+      "initiavie": 44,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "3"
+            },
+            {
+              "type": "target",
+              "value": "2"
+            },
+            {
+              "type": "attack",
+              "value": "Add+1ifthetarget'scurrent"
+            },
+            {
+              "type": "custom",
+              "value": "hit point value is less than maximum."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 2006,
+      "shuffle": true,
+      "initiavie": 62,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "triangle-2-side"
+            },
+            {
+              "type": "range",
+              "value": "2"
+            },
+            {
+              "type": "condition",
+              "value": "muddle"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 2007,
+      "shuffle": false,
+      "initiavie": 73,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "plus"
+        }
+      ]
+    }
+  ]
+}

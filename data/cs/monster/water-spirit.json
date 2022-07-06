@@ -17,15 +17,13 @@
       "actions": [
         {
           "type": "shield",
-          "value": "1"
-        },
-        {
-          "type": "custom",
-          "value": "Shield only applies before"
-        },
-        {
-          "type": "custom",
-          "value": "its turn"
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.water-spirit.1%"
+            }
+          ]
         }
       ]
     },
@@ -37,15 +35,13 @@
       "actions": [
         {
           "type": "shield",
-          "value": "1"
-        },
-        {
-          "type": "custom",
-          "value": "Shield only applies before"
-        },
-        {
-          "type": "custom",
-          "value": "its turn"
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.water-spirit.1%"
+            }
+          ]
         }
       ]
     },
@@ -57,15 +53,13 @@
       "actions": [
         {
           "type": "shield",
-          "value": "1"
-        },
-        {
-          "type": "custom",
-          "value": "Shield only applies before"
-        },
-        {
-          "type": "custom",
-          "value": "its turn"
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.water-spirit.1%"
+            }
+          ]
         }
       ]
     },
@@ -77,15 +71,13 @@
       "actions": [
         {
           "type": "shield",
-          "value": "2"
-        },
-        {
-          "type": "custom",
-          "value": "Shield only applies before"
-        },
-        {
-          "type": "custom",
-          "value": "its turn"
+          "value": 2,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.water-spirit.1%"
+            }
+          ]
         }
       ]
     },
@@ -97,15 +89,13 @@
       "actions": [
         {
           "type": "shield",
-          "value": "3"
-        },
-        {
-          "type": "custom",
-          "value": "Shield only applies before"
-        },
-        {
-          "type": "custom",
-          "value": "its turn"
+          "value": 3,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.water-spirit.1%"
+            }
+          ]
         }
       ]
     },
@@ -117,15 +107,13 @@
       "actions": [
         {
           "type": "shield",
-          "value": "3"
-        },
-        {
-          "type": "custom",
-          "value": "Shield only applies before"
-        },
-        {
-          "type": "custom",
-          "value": "its turn"
+          "value": 3,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.water-spirit.1%"
+            }
+          ]
         }
       ]
     },
@@ -137,15 +125,13 @@
       "actions": [
         {
           "type": "shield",
-          "value": "4"
-        },
-        {
-          "type": "custom",
-          "value": "Shield only applies before"
-        },
-        {
-          "type": "custom",
-          "value": "its turn"
+          "value": 4,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.water-spirit.1%"
+            }
+          ]
         }
       ]
     },
@@ -157,15 +143,13 @@
       "actions": [
         {
           "type": "shield",
-          "value": "4"
-        },
-        {
-          "type": "custom",
-          "value": "Shield only applies before"
-        },
-        {
-          "type": "custom",
-          "value": "its turn"
+          "value": 4,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.water-spirit.1%"
+            }
+          ]
         }
       ]
     },
@@ -177,15 +161,13 @@
       "actions": [
         {
           "type": "shield",
-          "value": "1"
-        },
-        {
-          "type": "custom",
-          "value": "Shield only applies before"
-        },
-        {
-          "type": "custom",
-          "value": "its turn"
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.water-spirit.1%"
+            }
+          ]
         }
       ],
       "type": "elite"
@@ -198,15 +180,13 @@
       "actions": [
         {
           "type": "shield",
-          "value": "2"
-        },
-        {
-          "type": "custom",
-          "value": "Shield only applies before"
-        },
-        {
-          "type": "custom",
-          "value": "its turn"
+          "value": 2,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.water-spirit.1%"
+            }
+          ]
         }
       ],
       "type": "elite"
@@ -219,15 +199,13 @@
       "actions": [
         {
           "type": "shield",
-          "value": "2"
-        },
-        {
-          "type": "custom",
-          "value": "Shield only applies before"
-        },
-        {
-          "type": "custom",
-          "value": "its turn"
+          "value": 2,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.water-spirit.1%"
+            }
+          ]
         }
       ],
       "type": "elite"
@@ -240,15 +218,13 @@
       "actions": [
         {
           "type": "shield",
-          "value": "3"
-        },
-        {
-          "type": "custom",
-          "value": "Shield only applies before"
-        },
-        {
-          "type": "custom",
-          "value": "its turn"
+          "value": 3,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.water-spirit.1%"
+            }
+          ]
         }
       ],
       "type": "elite"
@@ -261,15 +237,13 @@
       "actions": [
         {
           "type": "shield",
-          "value": "4"
-        },
-        {
-          "type": "custom",
-          "value": "Shield only applies before"
-        },
-        {
-          "type": "custom",
-          "value": "its turn"
+          "value": 4,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.water-spirit.1%"
+            }
+          ]
         }
       ],
       "type": "elite"
@@ -282,15 +256,13 @@
       "actions": [
         {
           "type": "shield",
-          "value": "4"
-        },
-        {
-          "type": "custom",
-          "value": "Shield only applies before"
-        },
-        {
-          "type": "custom",
-          "value": "its turn"
+          "value": 4,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.water-spirit.1%"
+            }
+          ]
         }
       ],
       "type": "elite"
@@ -303,15 +275,13 @@
       "actions": [
         {
           "type": "shield",
-          "value": "5"
-        },
-        {
-          "type": "custom",
-          "value": "Shield only applies before"
-        },
-        {
-          "type": "custom",
-          "value": "its turn"
+          "value": 5,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.water-spirit.1%"
+            }
+          ]
         }
       ],
       "type": "elite"
@@ -324,15 +294,13 @@
       "actions": [
         {
           "type": "shield",
-          "value": "6"
-        },
-        {
-          "type": "custom",
-          "value": "Shield only applies before"
-        },
-        {
-          "type": "custom",
-          "value": "its turn"
+          "value": 6,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.water-spirit.1%"
+            }
+          ]
         }
       ],
       "type": "elite"

@@ -1,7 +1,7 @@
 {
   "name": "carrion-scavenger",
   "edition": "cs",
-  "thumbnail" : "gh-hound",
+  "thumbnail": "gh-hound",
   "deck": "hound",
   "count": 6,
   "hidden": true,
@@ -20,19 +20,20 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death:"
-        },
-        {
-          "type": "custom",
-          "value": "attack +0"
-        },
-        {
-          "type": "target",
-          "value": "all"
-        },
-        {
-          "type": "custom",
-          "value": "adjacent"
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "adjacentFigures"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -44,23 +45,24 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "1"
+          "value": 1
         },
         {
           "type": "custom",
-          "value": "On death:"
-        },
-        {
-          "type": "custom",
-          "value": "attack +0"
-        },
-        {
-          "type": "target",
-          "value": "all"
-        },
-        {
-          "type": "custom",
-          "value": "adjacent"
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "adjacentFigures"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -72,23 +74,24 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "1"
+          "value": 1
         },
         {
           "type": "custom",
-          "value": "On death:"
-        },
-        {
-          "type": "custom",
-          "value": "attack +0"
-        },
-        {
-          "type": "target",
-          "value": "all"
-        },
-        {
-          "type": "custom",
-          "value": "adjacent"
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "adjacentFigures"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -100,23 +103,24 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "1"
+          "value": 1
         },
         {
           "type": "custom",
-          "value": "On death:"
-        },
-        {
-          "type": "custom",
-          "value": "attack +0"
-        },
-        {
-          "type": "target",
-          "value": "all"
-        },
-        {
-          "type": "custom",
-          "value": "adjacent"
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "adjacentFigures"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -128,23 +132,24 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "1"
+          "value": 1
         },
         {
           "type": "custom",
-          "value": "On death:"
-        },
-        {
-          "type": "custom",
-          "value": "attack +0"
-        },
-        {
-          "type": "target",
-          "value": "all"
-        },
-        {
-          "type": "custom",
-          "value": "adjacent"
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "adjacentFigures"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -156,23 +161,24 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "custom",
-          "value": "On death:"
-        },
-        {
-          "type": "custom",
-          "value": "attack +0"
-        },
-        {
-          "type": "target",
-          "value": "all"
-        },
-        {
-          "type": "custom",
-          "value": "adjacent"
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "adjacentFigures"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -184,23 +190,24 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "custom",
-          "value": "On death:"
-        },
-        {
-          "type": "custom",
-          "value": "attack +0"
-        },
-        {
-          "type": "target",
-          "value": "all"
-        },
-        {
-          "type": "custom",
-          "value": "adjacent"
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "adjacentFigures"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -212,23 +219,24 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "custom",
-          "value": "On death:"
-        },
-        {
-          "type": "custom",
-          "value": "attack +0"
-        },
-        {
-          "type": "target",
-          "value": "all"
-        },
-        {
-          "type": "custom",
-          "value": "adjacent"
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "adjacentFigures"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -240,19 +248,20 @@
       "actions": [
         {
           "type": "custom",
-          "value": "On death:"
-        },
-        {
-          "type": "custom",
-          "value": "attack +0"
-        },
-        {
-          "type": "target",
-          "value": "all"
-        },
-        {
-          "type": "custom",
-          "value": "adjacent"
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "adjacentFigures"
+                }
+              ]
+            }
+          ]
         }
       ],
       "type": "elite"
@@ -265,23 +274,24 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "custom",
-          "value": "On death:"
-        },
-        {
-          "type": "custom",
-          "value": "attack +0"
-        },
-        {
-          "type": "target",
-          "value": "all"
-        },
-        {
-          "type": "custom",
-          "value": "adjacent"
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "adjacentFigures"
+                }
+              ]
+            }
+          ]
         }
       ],
       "type": "elite"
@@ -294,23 +304,24 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "custom",
-          "value": "On death:"
-        },
-        {
-          "type": "custom",
-          "value": "attack +0"
-        },
-        {
-          "type": "target",
-          "value": "all"
-        },
-        {
-          "type": "custom",
-          "value": "adjacent"
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "adjacentFigures"
+                }
+              ]
+            }
+          ]
         }
       ],
       "type": "elite"
@@ -323,23 +334,24 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "custom",
-          "value": "On death:"
-        },
-        {
-          "type": "custom",
-          "value": "attack +0"
-        },
-        {
-          "type": "target",
-          "value": "all"
-        },
-        {
-          "type": "custom",
-          "value": "adjacent"
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "adjacentFigures"
+                }
+              ]
+            }
+          ]
         }
       ],
       "type": "elite"
@@ -352,23 +364,24 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "custom",
-          "value": "On death:"
-        },
-        {
-          "type": "custom",
-          "value": "attack +0"
-        },
-        {
-          "type": "target",
-          "value": "all"
-        },
-        {
-          "type": "custom",
-          "value": "adjacent"
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "adjacentFigures"
+                }
+              ]
+            }
+          ]
         }
       ],
       "type": "elite"
@@ -381,23 +394,24 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "3"
+          "value": 3
         },
         {
           "type": "custom",
-          "value": "On death:"
-        },
-        {
-          "type": "custom",
-          "value": "attack +0"
-        },
-        {
-          "type": "target",
-          "value": "all"
-        },
-        {
-          "type": "custom",
-          "value": "adjacent"
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "adjacentFigures"
+                }
+              ]
+            }
+          ]
         }
       ],
       "type": "elite"
@@ -410,23 +424,24 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "3"
+          "value": 3
         },
         {
           "type": "custom",
-          "value": "On death:"
-        },
-        {
-          "type": "custom",
-          "value": "attack +0"
-        },
-        {
-          "type": "target",
-          "value": "all"
-        },
-        {
-          "type": "custom",
-          "value": "adjacent"
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "adjacentFigures"
+                }
+              ]
+            }
+          ]
         }
       ],
       "type": "elite"
@@ -439,23 +454,24 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": "4"
+          "value": 4
         },
         {
           "type": "custom",
-          "value": "On death:"
-        },
-        {
-          "type": "custom",
-          "value": "attack +0"
-        },
-        {
-          "type": "target",
-          "value": "all"
-        },
-        {
-          "type": "custom",
-          "value": "adjacent"
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "adjacentFigures"
+                }
+              ]
+            }
+          ]
         }
       ],
       "type": "elite"

@@ -52,7 +52,6 @@
   <span class="action-custom" *ngSwitchCase="ActionType.custom">
     <span class="custom-value placeholder" [innerHTML]="action.value + '' | ghsHtmlLabel"></span>
     <ng-container *ngIf="action.subActions && action.subActions.length > 0">
-      <span>:</span>
       <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
         [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize">
       </ghs-action>
@@ -70,12 +69,12 @@
     <span class="type">{{'game.action.' + action.type | ghsLabel}}</span>
     <img src="./assets/images/action/{{action.type}}.svg" class="icon"
       [ngClass]="{'invert' : isInvertIcon(action.type)}" />
-    <span *ngIf="!relative" class="value"><span *ngIf="getNormalValue()">{{getNormalValue()}}</span><span
-        *ngIf="getNormalValue() != getEliteValue()">/<span class="elite">{{getEliteValue()}}</span>
+    <span *ngIf="!relative" class="value"><span *ngIf="getNormalValue()">{{getNormalValue()| ghsValueCalc:monster.level}}</span><span
+        *ngIf="getNormalValue() != getEliteValue()">/<span class="elite">{{getEliteValue()| ghsValueCalc:monster.level}}</span>
       </span>
     </span>
-    <span *ngIf="relative" class="value">{{getNormalValue()}}<span *ngIf="getNormalValue() != getEliteValue()">/<span
-          class="elite">{{getEliteValue()}}</span>
+    <span *ngIf="relative" class="value">{{getNormalValue()| ghsValueCalc:monster.level}}<span *ngIf="getNormalValue() != getEliteValue()">/<span
+          class="elite">{{getEliteValue()| ghsValueCalc:monster.level}}</span>
       </span>&nbsp;
     </span>
     <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"

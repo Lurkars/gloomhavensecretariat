@@ -1,0 +1,279 @@
+{
+  "name": "ravenous-gharial",
+  "edition": "cs",
+  "abilies": [
+    {
+      "name": "Death Roll",
+      "cardId": 2028,
+      "shuffle": false,
+      "initiavie": 30,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "^-2",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize"
+            },
+            {
+              "type": "custom",
+              "value": "- At 60, perform the following abilities -"
+            },
+            {
+              "type": "attack",
+              "value": "1",
+              "valueType": "minus"
+            },
+            {
+              "type": "condition",
+              "value": "wound"
+            },
+            {
+              "type": "custom",
+              "value": "- At 90, perform the following abilities -"
+            },
+            {
+              "type": "attack",
+              "value": "0",
+              "valueType": "plus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Swallow Whole",
+      "cardId": 2029,
+      "shuffle": true,
+      "initiavie": 65,
+      "actions": [
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "heal",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Self"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "*where X is the damage dealt"
+        },
+        {
+          "type": "custom",
+          "value": "*by the attack ability."
+        }
+      ]
+    },
+    {
+      "name": "Terrifying Lunge",
+      "cardId": 2030,
+      "shuffle": false,
+      "initiavie": 59,
+      "actions": [
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize"
+            }
+          ]
+        },
+        {
+          "type": "push",
+          "value": "1",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "Targetallenemiesexactlyat2or3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Drag Away",
+      "cardId": 2031,
+      "shuffle": true,
+      "initiavie": 34,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "2"
+            },
+            {
+              "type": "pull",
+              "value": "1"
+            },
+            {
+              "type": "condition",
+              "value": "wound"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Tail Swipe",
+      "cardId": 2032,
+      "shuffle": false,
+      "initiavie": 88,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "custom",
+          "value": "*This movement may move through all figures."
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "arc-3"
+            },
+            {
+              "type": "push",
+              "value": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Survival Instincts",
+      "cardId": 2033,
+      "shuffle": false,
+      "initiavie": "09",
+      "actions": [
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "retaliate",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": "whereXisthefigure'svalue."
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "^All ranged attacks targeting",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "this figure gain Disadvantage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Patient Predator",
+      "cardId": 2034,
+      "shuffle": false,
+      "initiavie": 18,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "invisible",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Self"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "*- At 50, perform the following abilities -"
+        },
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "If this attack was performed,"
+            },
+            {
+              "type": "condition",
+              "value": "invisible"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sundering Bite",
+      "cardId": 2035,
+      "shuffle": false,
+      "initiavie": 26,
+      "actions": [
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "pierce",
+              "value": "3"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

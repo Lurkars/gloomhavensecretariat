@@ -19,20 +19,26 @@ export class CharacterSummonDialog extends DialogComponent {
   summonColors: SummonColor[] = Object.values(SummonColor).filter((summonColor: SummonColor) => summonColor != SummonColor.custom);
   summonColor: SummonColor = SummonColor.blue;
 
+
   addSummon(summon: Summon) {
-    gameManager.stateManager.before();
+    const dead = this.character.summons.find((s: Summon) => s.dead && s.number == summon.number && s.color == summon.color);
+    if (dead) {
+      gameManager.characterManager.removeSummon(this.character, dead);
+    }
+
     gameManager.characterManager.addSummon(this.character, summon);
-    gameManager.stateManager.after();
   }
 
   disabled(number: number) {
-    return this.character.summons.some((summon: Summon) => summon.number == number && summon.color == this.summonColor);
+    return this.character.summons.some((summon: Summon) => !summon.dead && summon.number == number && summon.color == this.summonColor);
   }
 
   pickNumber(number: number) {
     this.close();
+    gameManager.stateManager.before();
     let summon: Summon = new Summon(this.character.level, number, this.summonColor);
     this.addSummon(summon);
+    gameManager.stateManager.after();
   }
 
   selectColor(color: SummonColor) {

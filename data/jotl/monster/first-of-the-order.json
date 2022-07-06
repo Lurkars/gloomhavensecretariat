@@ -27,12 +27,12 @@
       [
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
@@ -43,7 +43,7 @@
         },
         {
           "type": "attack",
-          "value": "2",
+          "value": 2,
           "valueType": "minus",
           "subActions": [
             {

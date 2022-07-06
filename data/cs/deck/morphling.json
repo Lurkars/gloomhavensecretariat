@@ -1,0 +1,17 @@
+{
+  "name": "morphling",
+  "edition": "cs",
+  "abilies": [
+    {
+      "cardId": 0,
+      "shuffle": false,
+      "initiavie": 0,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "(Use the deck you built during the scenario.)"
+        }
+      ]
+    }
+  ]
+}

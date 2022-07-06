@@ -116,6 +116,9 @@ export class CharacterManager {
       if (figure instanceof Character) {
         figure.initiative = 0;
         figure.off = false;
+
+        figure.summons = figure.summons.filter((summon: Summon) => !summon.dead && summon.health > 0);
+
         if (settingsManager.settings.expireConditions) {
           figure.entityConditions = figure.entityConditions.filter((entityCondition: EntityCondition) => !entityCondition.expired);
           if (settingsManager.settings.calculate) {

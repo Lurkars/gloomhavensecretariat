@@ -1,4 +1,4 @@
-<a #button class="button active-outline {{type}}" [ngClass]="{'disabled' : isFull() }">
+<a #button class="button active-outline {{type}}" [ngClass]="{'disabled' : nonDead() >= max }">
   <img class="ghs-svg" src="./assets/images/plus.svg">
 </a>
 <div #dialog>

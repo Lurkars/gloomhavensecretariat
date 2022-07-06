@@ -2,7 +2,7 @@
   "name": "goring-grizzly",
   "edition": "cs",
   "thumbnail": "gh-cave-bear",
-  "deck": "boss",
+  "deck": "cave-bear",
   "count": 4,
   "boss": true,
   "hidden": true,

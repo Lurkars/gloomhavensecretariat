@@ -168,6 +168,8 @@ export class MonsterManager {
           });
         }
 
+        figure.entities = figure.entities.filter((monsterEntity: MonsterEntity) => !monsterEntity.dead && monsterEntity.health > 0);
+
         figure.off = figure.entities.length == 0;
       }
     })

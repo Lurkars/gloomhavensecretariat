@@ -1,0 +1,194 @@
+{
+  "name": "clockwork-devastator",
+  "edition": "cs",
+  "abilies": [
+    {
+      "cardId": 613,
+      "shuffle": false,
+      "initiavie": 28,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus"
+        }
+      ]
+    },
+    {
+      "cardId": 614,
+      "shuffle": false,
+      "initiavie": 38,
+      "actions": [
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId": 615,
+      "shuffle": false,
+      "initiavie": 38,
+      "actions": [
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target one enemy with all attacks"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 619,
+      "shuffle": true,
+      "initiavie": 23,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus"
+        }
+      ]
+    },
+    {
+      "cardId": 733,
+      "shuffle": true,
+      "initiavie": 60,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "line-6-with-black"
+            },
+            {
+              "type": "pierce",
+              "value": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 734,
+      "shuffle": true,
+      "initiavie": 60,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "line-6-with-black"
+            },
+            {
+              "type": "pierce",
+              "value": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 735,
+      "shuffle": false,
+      "initiavie": 84,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target all adjacent enemies"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "4"
+            },
+            {
+              "type": "condition",
+              "value": "wound"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 739,
+      "shuffle": false,
+      "initiavie": 54,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        },
+        {
+          "type": "condition",
+          "value": "poison",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target all adjacent enemies"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "4"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

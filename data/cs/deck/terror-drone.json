@@ -1,0 +1,230 @@
+{
+  "name": "terror-drone",
+  "edition": "cs",
+  "abilies": [
+    {
+      "cardId": 732,
+      "shuffle": false,
+      "initiavie": 65,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "3"
+            },
+            {
+              "type": "target",
+              "value": "3"
+            },
+            {}
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 733,
+      "shuffle": true,
+      "initiavie": 60,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "line-6-with-black"
+            },
+            {
+              "type": "pierce",
+              "value": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 734,
+      "shuffle": true,
+      "initiavie": 60,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "line-6-with-black"
+            },
+            {
+              "type": "pierce",
+              "value": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 735,
+      "shuffle": false,
+      "initiavie": 84,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target all adjacent enemies"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "4"
+            },
+            {
+              "type": "condition",
+              "value": "wound"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 736,
+      "shuffle": false,
+      "initiavie": 75,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "5"
+            },
+            {
+              "type": "condition",
+              "value": "immobilize"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 737,
+      "shuffle": false,
+      "initiavie": 75,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "2",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target all adjacent enemies"
+            },
+            {
+              "type": "condition",
+              "value": "disarm"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "3"
+            },
+            {
+              "type": "target",
+              "value": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 738,
+      "shuffle": false,
+      "initiavie": 96,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "2",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "6"
+            },
+            {
+              "type": "custom",
+              "value": "Summon normal Undead Archer in a hex adjacent to the target"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 739,
+      "shuffle": false,
+      "initiavie": 54,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        },
+        {
+          "type": "condition",
+          "value": "poison",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target all adjacent enemies"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "4"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

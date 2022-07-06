@@ -25,19 +25,6 @@ export class MonsterEntityComponent extends DialogComponent {
   ConditionType = ConditionType;
   health: number = 0;
 
-  constructor(private elementRef: ElementRef) {
-    super();
-    this.elementRef.nativeElement.classList.add("entity-animation");
-    this.elementRef.nativeElement.classList.add("hidden");
-  }
-
-  override ngOnInit(): void {
-    super.ngOnInit();
-    setTimeout(() => {
-      this.elementRef.nativeElement.classList.remove('hidden');
-    }, 0)
-  }
-
   changeHealth(value: number) {
     gameManager.stateManager.before();
     const old = this.entity.health;
@@ -131,16 +118,12 @@ export class MonsterEntityComponent extends DialogComponent {
   }
 
   dead() {
+    gameManager.stateManager.before();
     if (this.opened) {
       this.close();
     }
-    this.elementRef.nativeElement.classList.add('hidden');
     this.entity.dead = true;
-    setTimeout(() => {
-      gameManager.stateManager.before();
-      gameManager.monsterManager.removeMonsterEntity(this.monster, this.entity);
-      gameManager.stateManager.after();
-    }, 2000);
+    gameManager.stateManager.after();
   }
 
 

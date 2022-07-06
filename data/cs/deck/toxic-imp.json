@@ -1,0 +1,218 @@
+{
+  "name": "toxic-imp",
+  "edition": "cs",
+  "abilies": [
+    {
+      "cardId": 1238,
+      "shuffle": true,
+      "initiavie": 41,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "condition",
+          "value": "infect"
+        }
+      ]
+    },
+    {
+      "cardId": 1239,
+      "shuffle": true,
+      "initiavie": 41,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "condition",
+          "value": "infect"
+        }
+      ]
+    },
+    {
+      "cardId": 1240,
+      "shuffle": false,
+      "initiavie": 35,
+      "actions": [
+        {
+          "type": "heal",
+          "value": "2",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "2"
+            },
+            {
+              "type": "target",
+              "value": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1241,
+      "shuffle": false,
+      "initiavie": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": "2",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Self"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target one adjacent enemy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1242,
+      "shuffle": false,
+      "initiavie": 23,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "^All attacks targeting Toxic Imp",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "this round gain Disadvantage."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1243,
+      "shuffle": false,
+      "initiavie": 47,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "1",
+              "valueType": "plus"
+            },
+            {
+              "type": "attack",
+              "value": "Add+1ifthetarget"
+            },
+            {
+              "type": "condition",
+              "value": "infect"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1244,
+      "shuffle": false,
+      "initiavie": 12,
+      "actions": [
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus"
+        },
+        {
+          "type": "custom",
+          "value": "^If an enemey targets Toxic Imp",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "with an attack, that enemy"
+            },
+            {
+              "type": "condition",
+              "value": "infect"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1245,
+      "shuffle": false,
+      "initiavie": 76,
+      "actions": [
+        {
+          "type": "heal",
+          "value": "2",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "3"
+            },
+            {
+              "type": "custom",
+              "value": "If a negative condition was removed"
+            },
+            {
+              "type": "custom",
+              "value": "with this heal, the target gains"
+            },
+            {
+              "type": "condition",
+              "value": "strengthen"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "name": "shadow-demon",
   "edition": "cs",
   "thumbnail": "gh-night-demon",
-  "deck": "boss",
+  "deck": "night-demon",
   "count": 6,
   "boss": true,
   "hidden": true,
@@ -10,7 +10,7 @@
     "actions": [
       {
         "type": "custom",
-        "value": "Attackers gain Disadvantage"
+        "value": "%game.custom.disadvantage%"
       }
     ],
     "immunities": [

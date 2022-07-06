@@ -1,0 +1,307 @@
+{
+  "name": "harrower-aegis",
+  "edition": "cs",
+  "abilies": [
+    {
+      "name": "Horned Carapace",
+      "cardId": 2020,
+      "shuffle": false,
+      "initiavie": 26,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "2",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "pierce",
+              "value": "2"
+            },
+            {
+              "type": "push",
+              "value": "2"
+            },
+            {
+              "type": "condition",
+              "value": "immobilize"
+            }
+          ]
+        },
+        {
+          "type": "retaliate",
+          "value": "1",
+          "subActions": [
+            {},
+            {
+              "type": "range",
+              "value": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Maddening Chatter",
+      "cardId": 2021,
+      "shuffle": false,
+      "initiavie": 29,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": "3",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "2or3"
+            },
+            {
+              "type": "range",
+              "value": "Affectallallieswithin3"
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "muddle",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "Targetallenemieswithin3"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "any",
+          "valueType": "minus"
+        },
+        {
+          "type": "element",
+          "value": "fire"
+        }
+      ]
+    },
+    {
+      "name": "Encasing Webs",
+      "cardId": 2022,
+      "shuffle": false,
+      "initiavie": 33,
+      "actions": [
+        {
+          "type": "heal",
+          "value": "5",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "Affectoneallywithin3"
+            },
+            {
+              "type": "pull",
+              "value": "2"
+            },
+            {
+              "type": "condition",
+              "value": "immobilize"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "valueType": "minus"
+        },
+        {
+          "type": "retaliate",
+          "value": "!^Theaffectedallygains\"1\"."
+        }
+      ]
+    },
+    {
+      "name": "Steelsilk Weaver",
+      "cardId": 2023,
+      "shuffle": false,
+      "initiavie": 41,
+      "actions": [
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "condition",
+          "value": "immobilize",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "3"
+            },
+            {
+              "type": "target",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus"
+        },
+        {
+          "type": "custom",
+          "value": "!^All targets suffer 1 damage"
+        }
+      ]
+    },
+    {
+      "name": "Coordinated Infestation",
+      "cardId": 2024,
+      "shuffle": true,
+      "initiavie": 50,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "condition",
+          "value": "ward",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Affect self and all adjacent allies"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire"
+        }
+      ]
+    },
+    {
+      "name": "Anti-Venom",
+      "cardId": 2025,
+      "shuffle": false,
+      "initiavie": 63,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison"
+            }
+          ]
+        },
+        {
+          "type": "heal",
+          "value": "3",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            },
+            {
+              "type": "custom",
+              "value": "Self"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Burning Stingers",
+      "cardId": 2026,
+      "shuffle": false,
+      "initiavie": 73,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "3"
+            },
+            {
+              "type": "target",
+              "value": "3"
+            },
+            {
+              "type": "custom",
+              "value": "All targets suffer 1 damage."
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire"
+        }
+      ]
+    },
+    {
+      "name": "Burrow Under",
+      "cardId": 2027,
+      "shuffle": true,
+      "initiavie": 88,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "^Focus on the enemy farthest away."
+        },
+        {
+          "type": "move",
+          "value": "2",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target all enemies within"
+            },
+            {
+              "type": "custom",
+              "value": "one hex along the path moved"
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus"
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "immobilize"
+        }
+      ]
+    }
+  ]
+}

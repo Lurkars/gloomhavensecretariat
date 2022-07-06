@@ -1,6 +1,8 @@
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "../model/Condition";
 import { Entity, EntityValueFunction } from "../model/Entity";
 import { Game } from "../model/Game";
+import { MonsterEntity } from "../model/MonsterEntity";
+import { Summon } from "../model/Summon";
 
 export class EntityManager {
 
@@ -14,22 +16,18 @@ export class EntityManager {
     entity.health += value;
 
     if (value < 0) {
-      entity.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.name == ConditionName.poison || entityCondition.name == ConditionName.poison_x).forEach((entityCondition: EntityCondition, index: number) => {
+      entity.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.name == ConditionName.poison || entityCondition.name == ConditionName.poison_x).forEach((entityCondition: EntityCondition) => {
+        entityCondition.highlight = true;
         setTimeout(() => {
-          entityCondition.highlight = true;
-          setTimeout(() => {
-            entityCondition.highlight = false;
-          }, 1000);
-        }, 1000 * index);
+          entityCondition.highlight = false;
+        }, 1000);
       })
     } else if (entity.health == entity.maxHealth) {
-      entity.entityConditions.filter((entityCondition: EntityCondition) => (entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x) && entityCondition.state == EntityConditionState.turn).forEach((entityCondition: EntityCondition, index: number) => {
+      entity.entityConditions.filter((entityCondition: EntityCondition) => (entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x) && entityCondition.state == EntityConditionState.turn).forEach((entityCondition: EntityCondition) => {
+        entityCondition.highlight = true;
         setTimeout(() => {
-          entityCondition.highlight = true;
-          setTimeout(() => {
-            entityCondition.highlight = false;
-          }, 1000);
-        }, 1000 * index);
+          entityCondition.highlight = false;
+        }, 1000);
       })
     }
 
@@ -111,35 +109,128 @@ export class EntityManager {
     })
   }
 
-  applyConditions(entity: Entity) {
-    entity.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.state == EntityConditionState.normal && entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition: EntityCondition, index: number) => {
+  applyConditionsTurn(entity: Entity) {
+
+    const regenerateCondition = entity.entityConditions.find((entityCondition: EntityCondition) => !entityCondition.expired && entityCondition.state == EntityConditionState.normal && entityCondition.name == ConditionName.regenerate);
+
+    if (regenerateCondition) {
+      const heal = entity.entityConditions.every((entityCondition: EntityCondition) => entityCondition.expired || entityCondition.types.indexOf(ConditionType.preventHeal) == -1) && entity.health < entity.maxHealth;
+
+      entity.entityConditions.filter((entityCondition: EntityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.clearHeal) != -1).forEach((entityCondition: EntityCondition) => entityCondition.expired = true);
+
+      if (heal) {
+        regenerateCondition.state = EntityConditionState.expire;
+        entity.health += regenerateCondition.value;
+        if (entity.health > EntityValueFunction("" + entity.maxHealth)) {
+          entity.health = EntityValueFunction("" + entity.maxHealth);
+        }
+      }
+
+      regenerateCondition.highlight = true;
+      setTimeout(() => {
+        regenerateCondition.highlight = false;
+      }, 1000);
+    }
+
+    entity.entityConditions.filter((entityCondition: EntityCondition) => !entityCondition.expired && entityCondition.state == EntityConditionState.normal && entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition: EntityCondition, index: number) => {
       entityCondition.state = EntityConditionState.turn;
       if (entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x) {
+
+
         entity.health = entity.health - entityCondition.value;
         if (entity.health < 0) {
           entity.health = 0;
         }
 
+        if (entity.health == 0 && (entity instanceof MonsterEntity || entity instanceof Summon) && !entity.dead) {
+          entity.dead = true;
+        }
+
+        entityCondition.highlight = true;
         setTimeout(() => {
-          entityCondition.highlight = true;
-          setTimeout(() => {
-            entityCondition.highlight = false;
-          }, 1000);
-        }, 1000 * index);
+          entityCondition.highlight = false;
+        }, 1000);
       }
     })
   }
 
-  unapplyConditions(entity: Entity) {
+  unapplyConditionsTurn(entity: Entity) {
     entity.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.state == EntityConditionState.turn && entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition: EntityCondition) => {
-      entityCondition.state = EntityConditionState.normal;
-      if (entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x) {
-        entity.health = entity.health + entityCondition.value;
-        if (entity.health > EntityValueFunction("" + entity.maxHealth)) {
-          entity.health = EntityValueFunction("" + entity.maxHealth);
+      if (entityCondition.expired) {
+        entityCondition.expired = false;
+      } else {
+        entityCondition.state = EntityConditionState.normal;
+        if (entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x) {
+
+          entity.health = entity.health + entityCondition.value;
+          if (entity.health > EntityValueFunction("" + entity.maxHealth)) {
+            entity.health = EntityValueFunction("" + entity.maxHealth);
+          }
+
+          if (entity.health > 0 && (entity instanceof MonsterEntity || entity instanceof Summon) && entity.dead) {
+            entity.dead = false;
+          }
+
         }
       }
-    })
+    });
+
+    const regenerateCondition = entity.entityConditions.find((entityCondition: EntityCondition) => entityCondition.name == ConditionName.regenerate);
+
+    if (regenerateCondition) {
+      const heal = entity.entityConditions.every((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.preventHeal) == -1) &&
+        regenerateCondition.state == EntityConditionState.expire;
+
+      entity.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.expired && entityCondition.types.indexOf(ConditionType.clearHeal) != -1).forEach((entityCondition: EntityCondition) => entityCondition.expired = false);
+
+      if (heal) {
+        regenerateCondition.state = EntityConditionState.normal;
+        entity.health -= regenerateCondition.value;
+        if (entity.health < 0) {
+          entity.health = 0;
+        }
+
+      }
+    }
+  }
+
+  applyConditionsAfter(entity: Entity) {
+    const baneCondition = entity.entityConditions.find((entityCondition: EntityCondition) => !entityCondition.expired && entityCondition.name == ConditionName.bane);
+
+    if (baneCondition) {
+
+      entity.health = entity.health - 10;
+      if (entity.health < 0) {
+        entity.health = 0;
+      }
+
+      if (entity.health == 0 && (entity instanceof MonsterEntity || entity instanceof Summon) && !entity.dead) {
+        entity.dead = true;
+      }
+
+      baneCondition.expired = true;
+      baneCondition.highlight = true;
+      setTimeout(() => {
+        baneCondition.highlight = false;
+      }, 1000);
+    }
+  }
+
+  unapplyConditionsAfter(entity: Entity) {
+    const baneCondition = entity.entityConditions.find((entityCondition: EntityCondition) => entityCondition.expired && entityCondition.name == ConditionName.bane);
+    if (baneCondition) {
+
+      entity.health = entity.health + 10;
+      if (entity.health > EntityValueFunction("" + entity.maxHealth)) {
+        entity.health = EntityValueFunction("" + entity.maxHealth);
+      }
+
+      if (entity.health > 0 && (entity instanceof MonsterEntity || entity instanceof Summon) && entity.dead) {
+        entity.dead = false;
+      }
+
+      baneCondition.expired = false;
+    }
   }
 
   highlightedConditions(entity: Entity): EntityCondition[] {

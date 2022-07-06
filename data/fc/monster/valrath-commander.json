@@ -63,7 +63,7 @@
         [
           {
             "type": "move",
-            "value": "0",
+            "value": 0,
             "valueType": "plus"
           },
           {
@@ -115,7 +115,7 @@
         [
           {
             "type": "move",
-            "value": "0",
+            "value": 0,
             "valueType": "plus"
           },
           {
@@ -167,7 +167,7 @@
         [
           {
             "type": "move",
-            "value": "0",
+            "value": 0,
             "valueType": "plus"
           },
           {
@@ -213,7 +213,7 @@
         [
           {
             "type": "move",
-            "value": "0",
+            "value": 0,
             "valueType": "plus"
           },
           {
@@ -259,7 +259,7 @@
         [
           {
             "type": "move",
-            "value": "0",
+            "value": 0,
             "valueType": "plus"
           },
           {
@@ -305,7 +305,7 @@
         [
           {
             "type": "move",
-            "value": "0",
+            "value": 0,
             "valueType": "plus"
           },
           {
@@ -351,7 +351,7 @@
         [
           {
             "type": "move",
-            "value": "0",
+            "value": 0,
             "valueType": "plus"
           },
           {
@@ -397,7 +397,7 @@
         [
           {
             "type": "move",
-            "value": "0",
+            "value": 0,
             "valueType": "plus"
           },
           {

@@ -2,7 +2,7 @@
   "name": "twin-corpse",
   "edition": "cs",
   "thumbnail": "gh-living-corpse",
-  "deck": "boss",
+  "deck": "living-corpse",
   "count": 6,
   "boss": true,
   "hidden": true,

@@ -1,0 +1,230 @@
+{
+  "name": "flaming-drake",
+  "edition": "cs",
+  "abilies": [
+    {
+      "cardId": 1206,
+      "shuffle": true,
+      "initiavie": 62,
+      "actions": [
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "line-2"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire"
+        }
+      ]
+    },
+    {
+      "cardId": 1207,
+      "shuffle": true,
+      "initiavie": 62,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "line-2"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire"
+        }
+      ]
+    },
+    {
+      "cardId": 1208,
+      "shuffle": false,
+      "initiavie": 88,
+      "actions": [
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus"
+        },
+        {
+          "type": "condition",
+          "value": "disarm",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target all adjacent enemies"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1209,
+      "shuffle": false,
+      "initiavie": "03",
+      "actions": [
+        {
+          "type": "shield",
+          "value": "2",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Self"
+            }
+          ]
+        },
+        {
+          "type": "heal",
+          "value": "2",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Self"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus"
+        },
+        {
+          "type": "heal",
+          "value": "!+2"
+        }
+      ]
+    },
+    {
+      "cardId": 1210,
+      "shuffle": false,
+      "initiavie": 56,
+      "actions": [
+        {
+          "type": "move",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "line-4-with-black"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "line-5-with-black"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": "!^+1"
+        }
+      ]
+    },
+    {
+      "cardId": 1211,
+      "shuffle": false,
+      "initiavie": 40,
+      "actions": [
+        {
+          "type": "move",
+          "value": "1",
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": "0",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus"
+            }
+          ]
+        },
+        {
+          "type": "range",
+          "value": "!^+2"
+        }
+      ]
+    },
+    {
+      "cardId": 1212,
+      "shuffle": false,
+      "initiavie": 49,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "1",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": "1",
+              "valueType": "minus"
+            },
+            {
+              "type": "target",
+              "value": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 1213,
+      "shuffle": false,
+      "initiavie": 77,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "2",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "circle"
+            },
+            {
+              "type": "condition",
+              "value": "immobilize"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

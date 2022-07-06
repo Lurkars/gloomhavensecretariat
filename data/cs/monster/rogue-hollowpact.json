@@ -1,7 +1,7 @@
 {
   "name": "rogue-hollowpact",
   "edition": "cs",
-  "thumbnail" : "gh-colorless",
+  "thumbnail": "gh-colorless",
   "deck": "boss",
   "count": 1,
   "boss": true,
@@ -23,22 +23,44 @@
     "special": [
       [
         {
-          "type": "custom",
-          "value": "Reference the scenario"
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump"
+            }
+          ]
         },
         {
-          "type": "custom",
-          "value": "Special Rules"
+          "type": "attack",
+          "value": 2,
+          "valueType": "plus"
+        },
+        {
+          "type": "heal",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.rogue-hollowpact.1%"
+            }
+          ]
         }
       ],
       [
         {
           "type": "custom",
-          "value": "Reference the scenario"
+          "value": "%data.custom.cs.rogue-hollowpact.2%"
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "plus"
         },
         {
           "type": "custom",
-          "value": "Special Rules"
+          "value": "%data.custom.cs.rogue-hollowpact.3%"
         }
       ]
     ],

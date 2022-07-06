@@ -1,6 +1,7 @@
-<div class="summons-container" [ngClass]="{'empty' : emptySummons() }">
+<div class="summons-container"
+  [ngClass]="{'empty' : emptySummons(), 'off' : character.off || character.exhausted || character.health <= 0  }">
   <span class="spacer"></span>
-  <span class="icon entity-animation" [ngClass]="{'hidden' : emptySummons(), 'empty' : character.summons.length == 0}">
+  <span class="icon" [ngClass]="{'empty' : emptySummons()}">
     <img [src]="characterManager.characterIcon(character)" />
   </span>
   <div class="summons">
@@ -34,6 +35,10 @@
         <div class="conditions">
           <span class="condition" *ngFor="let entityCondition of character.entityConditions | ghsActiveConditions">
             <img src="./assets/images/condition/{{entityCondition.name}}.svg" />
+            <ng-container *ngIf="entityCondition.types.indexOf(ConditionType.stack) != -1">
+              <img class="stack" *ngFor="let i of [] | ghsRange:(entityCondition.value - 1)"
+                src="./assets/images/condition/{{entityCondition.name}}.svg" />
+            </ng-container>
             <span class="value"
               *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
           </span>

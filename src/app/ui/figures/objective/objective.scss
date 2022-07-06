@@ -47,14 +47,13 @@
     top: 0;
     width: calc(var(--ghs-unit) * 8);
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     .condition {
-      animation: condition-hightlight 1s ease-in-out;
-      position: absolute;
-      bottom: calc(var(--ghs-unit) * 3);
-      left: 25%;
-      transform: translateX(-50%);
-
+      animation: condition-hightlight 1.1s ease-in-out;
       img {
         height: calc(var(--ghs-unit) * 5);
         width: auto;

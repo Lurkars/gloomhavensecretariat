@@ -2,7 +2,7 @@
   "name": "clockwork-ravager",
   "edition": "cs",
   "thumbnail": "gh-living-bones",
-  "deck": "boss",
+  "deck": "living-bones",
   "count": 10,
   "boss": true,
   "hidden": true,
@@ -26,7 +26,7 @@
       "actions": [
         {
           "type": "target",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "condition",
@@ -42,11 +42,11 @@
       "actions": [
         {
           "type": "target",
-          "value": "3"
+          "value": 3
         },
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         },
         {
           "type": "condition",
@@ -62,11 +62,11 @@
       "actions": [
         {
           "type": "target",
-          "value": "3"
+          "value": 3
         },
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         },
         {
           "type": "condition",
@@ -82,11 +82,11 @@
       "actions": [
         {
           "type": "target",
-          "value": "3"
+          "value": 3
         },
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         },
         {
           "type": "condition",
@@ -102,11 +102,11 @@
       "actions": [
         {
           "type": "target",
-          "value": "3"
+          "value": 3
         },
         {
           "type": "shield",
-          "value": "1"
+          "value": 1
         },
         {
           "type": "condition",
@@ -122,11 +122,11 @@
       "actions": [
         {
           "type": "target",
-          "value": "3"
+          "value": 3
         },
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "condition",
@@ -142,11 +142,11 @@
       "actions": [
         {
           "type": "target",
-          "value": "3"
+          "value": 3
         },
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "condition",
@@ -162,11 +162,11 @@
       "actions": [
         {
           "type": "target",
-          "value": "3"
+          "value": 3
         },
         {
           "type": "shield",
-          "value": "2"
+          "value": 2
         },
         {
           "type": "condition",

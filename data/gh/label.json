@@ -342,6 +342,9 @@
         "winged-horror": {
           "1": "Hatch eggs",
           "2": "Summon [C] eggs"
+        },
+        "dark-rider": {
+          "1": "X = Hexes moved"
         }
       }
     }
