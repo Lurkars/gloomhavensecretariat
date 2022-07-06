@@ -56,13 +56,13 @@ For usage with multiple clients sharing the same game, the server component [Glo
 - tools like monster editor to create/update monster stats and abilities via UI (WIP)
 - goals mechanic
 
-## Short term plans
+### Short term plans
 
 - adding and validation all data
 - improve code base (many repeated component for now for figures/entities)
 - two column view
 
-## Long term plans
+### Long term plans
 
 - support for managing character (ability cards, perks, attack modifier deck, items)
 
