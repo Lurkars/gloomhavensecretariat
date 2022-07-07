@@ -2,9 +2,9 @@
 
 [Latest Online Version](https://lurkars.github.io/gloomhavensecretary/)
 
-*Gloomhaven Secretary* is a **Gloomhaven companion app** and does basically bookkeeping of all entities values to gain more focus on gameplay. It is an open source web app made with [Angular](https://angular.io/).
+*Gloomhaven Secretary* is a **Gloomhaven companion app** and does bookkeeping of all entities values to gain more focus on gameplay. It is an open source web app made with [Angular](https://angular.io/).
 
-GHS is basically a full clone implementing the same functionality and look&feel of the original [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (by [Esoteric Software®](http://esotericsoftware.com)). Since GHH is discontinued and not available anymore, GHS should become a well maintained successor. 
+GHS is basically a full clone with the same functionality and look&feel of the original [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (by [Esoteric Software®](http://esotericsoftware.com)). Since GHH is discontinued and not available anymore, GHS should become a well maintained successor.
 
 As open source software this is meant for the community to actively [contribute](#contributing) with ideas, suggestions and of course feedback. As I am not capable of good design/UX also feel free to contribute better assets.
 
@@ -19,11 +19,11 @@ For usage with multiple clients sharing the same game, the server component [Glo
 
 ## Current Features
 
-- Feature complete for base GH, JOTL and FC (CS about to be!)
+- Feature complete for base GH, JOTL, FC and CS (all needs testing, so please [contribute](#contributing)!)
 - Tracking:
   - **initiative** sorting
   - **health** automatic exhausting/dead, max values for every level
-  - **conditions** automatic expire + automatic apply (wound, wound_x, regenerate, bane)
+  - **conditions** automatic expire + automatic apply (wound, wound_x, regenerate, bane, poison, poison_x, ward, brittle)
   - **level**, **loot**, **experience** of Characters
   - **Elements** automatic update state
   - **Monster Stats**
@@ -48,24 +48,18 @@ For usage with multiple clients sharing the same game, the server component [Glo
   - Synchronize state (+ settings) with [GHS Server](https://github.com/Lurkars/ghs-server)!
   - load custom JSON edition data for custom content!
 
-
-## Missing / Upcoming
-
-- monster decks for CS + validation of existing CS data
-- complete monster/scenario data of FH
-- tools like monster editor to create/update monster stats and abilities via UI (WIP)
-- goals mechanic
-
 ### Short term plans
 
-- adding and validation all data
+- validation of all existing data
 - improve code base (many repeated component for now for figures/entities)
+- start with FH data
+- tools like monster editor to create/update monster stats and abilities via UI (WIP)
 - two column view
-- FH style
 
 ### Long term plans
 
 - support for managing character (ability cards, perks, attack modifier deck, items)
+- FH style
 
 ## Install
 
