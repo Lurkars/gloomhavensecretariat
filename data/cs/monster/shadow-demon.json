@@ -1,12 +1,13 @@
 {
   "name": "shadow-demon",
-  "edition": "cs",
   "thumbnail": "gh-night-demon",
+  "edition": "cs",
   "deck": "night-demon",
-  "count": 6,
   "boss": true,
   "hidden": true,
+  "count": 6,
   "baseStat": {
+    "type": "boss",
     "actions": [
       {
         "type": "custom",
@@ -19,8 +20,7 @@
       "stun",
       "curse"
     ],
-    "special": [],
-    "type": "boss"
+    "special": []
   },
   "stats": [
     {

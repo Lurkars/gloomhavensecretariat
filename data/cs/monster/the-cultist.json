@@ -1,19 +1,20 @@
 {
   "name": "the-cultist",
-  "edition": "cs",
   "thumbnail": "gh-cultist",
-  "count": 6,
+  "edition": "cs",
   "boss": true,
   "hidden": true,
+  "count": 6,
   "baseStat": {
+    "type": "boss",
+    "note": "%data.custom.cs.the-cultist.2%",
     "actions": [],
     "immunities": [
       "immobilize",
       "disarm",
       "stun"
     ],
-    "special": [],
-    "type": "boss"
+    "special": []
   },
   "stats": [
     {

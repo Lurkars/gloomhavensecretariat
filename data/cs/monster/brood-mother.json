@@ -1,10 +1,12 @@
 {
   "name": "brood-mother",
-  "edition": "cs",
   "thumbnail": "cs-terrorscale-drake",
-  "count": 1,
+  "edition": "cs",
   "boss": true,
+  "count": 1,
   "baseStat": {
+    "type": "boss",
+    "note": "%data.custom.cs.brood-mother.1",
     "actions": [],
     "immunities": [
       "immobilize",
@@ -13,8 +15,7 @@
       "stun",
       "disarm"
     ],
-    "special": [],
-    "type": "boss"
+    "special": []
   },
   "stats": [
     {

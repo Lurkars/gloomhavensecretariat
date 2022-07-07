@@ -1,11 +1,11 @@
 {
-  "edition": "jotl",
   "name": "stone-golem",
+  "edition": "jotl",
   "abilities": [
     {
-      "cardId" : 404,
-      "initiative": 10,
       "name": "Runic Feedback",
+      "cardId": 404,
+      "initiative": 10,
       "actions": [
         {
           "type": "custom",
@@ -14,9 +14,9 @@
       ]
     },
     {
-      "cardId" : 405,
-      "initiative": 28,
       "name": "Taxing Advance",
+      "cardId": 405,
+      "initiative": 28,
       "actions": [
         {
           "type": "move",
@@ -35,9 +35,9 @@
       ]
     },
     {
-      "cardId" : 406,
-      "initiative": 51,
       "name": "Hasty Assault",
+      "cardId": 406,
+      "initiative": 51,
       "shuffle": true,
       "actions": [
         {
@@ -53,9 +53,9 @@
       ]
     },
     {
-      "cardId" : 407,
-      "initiative": 65,
       "name": "Nothing Special",
+      "cardId": 407,
+      "initiative": 65,
       "actions": [
         {
           "type": "move",
@@ -70,9 +70,9 @@
       ]
     },
     {
-      "cardId" : 408,
-      "initiative": 72,
       "name": "Sacrificial Hurl",
+      "cardId": 408,
+      "initiative": 72,
       "actions": [
         {
           "type": "attack",
@@ -92,9 +92,9 @@
       ]
     },
     {
-      "cardId" : 409,
-      "initiative": 90,
       "name": "Calculated Strike",
+      "cardId": 409,
+      "initiative": 90,
       "shuffle": true,
       "actions": [
         {
@@ -110,9 +110,9 @@
       ]
     },
     {
-      "cardId" : 410,
-      "initiative": 83,
       "name": "Ground Pound",
+      "cardId": 410,
+      "initiative": 83,
       "actions": [
         {
           "type": "move",
@@ -133,9 +133,9 @@
       ]
     },
     {
-      "cardId" : 411,
-      "initiative": 28,
       "name": "Runic Draw",
+      "cardId": 411,
+      "initiative": 28,
       "actions": [
         {
           "type": "move",

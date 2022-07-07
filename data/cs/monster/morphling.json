@@ -1,12 +1,14 @@
 {
   "name": "morphling",
-  "edition": "cs",
   "thumbnail": "cs-water-spirit",
+  "edition": "cs",
   "deck": "morphling",
-  "count": 6,
   "boss": true,
   "hidden": true,
+  "count": 6,
   "baseStat": {
+    "type": "boss",
+    "movement": 3,
     "actions": [],
     "immunities": [
       "immobilize",
@@ -21,9 +23,7 @@
       "push",
       "pull"
     ],
-    "special": [],
-    "type": "boss",
-    "movement": 3
+    "special": []
   },
   "stats": [
     {

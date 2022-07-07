@@ -8,7 +8,9 @@
   margin-bottom: auto;
 
   &:not(:first-child) {
-    margin-top: calc(var(--ghs-unit) * 1.5);
+    margin-top: calc(var(--ghs-unit) * 1);
+    padding-top: calc(var(--ghs-unit) * 1);
+    border-top: calc(var(--ghs-unit) * 0.1) solid var(--ghs-color-darkgray);
   }
 }
 
@@ -68,6 +70,10 @@
     &:hover::after {
       border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
       border-radius: 100%;
+    }
+
+    &.active:hover::after {
+      border: calc(var(--ghs-unit) / 5) var(--ghs-color-red) solid;
     }
 
     &.disabled {

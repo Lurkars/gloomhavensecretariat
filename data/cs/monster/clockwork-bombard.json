@@ -1,12 +1,14 @@
 {
   "name": "clockwork-bombard",
+  "thumbnail": "gh-ancient-artillery",
   "edition": "cs",
-  "thumbnail" : "gh-ancient-artillery",
   "deck": "ancient-artillery",
-  "count": 6,
   "boss": true,
   "hidden": true,
+  "count": 6,
   "baseStat": {
+    "type": "boss",
+    "movement": 0,
     "actions": [],
     "immunities": [
       "wound",
@@ -15,9 +17,7 @@
       "pull",
       "stun"
     ],
-    "special": [],
-    "type": "boss",
-    "movement": 0
+    "special": []
   },
   "stats": [
     {

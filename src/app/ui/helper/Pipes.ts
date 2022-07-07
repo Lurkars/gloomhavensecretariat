@@ -2,10 +2,11 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Action, ActionValueType } from 'src/app/game/model/Action';
 import { EntityCondition } from 'src/app/game/model/Condition';
 import { Editional } from 'src/app/game/model/Editional';
 import { EntityValueFunction, EntityValueRegex } from 'src/app/game/model/Entity';
+
+export const ghsLabelRegex = /\%((\w+|\.|\-)+)\%/;
 
 @Pipe({
   name: 'ghsValueCalc', pure: false
@@ -49,6 +50,13 @@ export class GhsValueCalcPipe implements PipeTransform {
         func = func.replace('%', '');
       }
       return funcLabel ? match[ 1 ] + ' ' + settingsManager.getLabel('game.custom.' + func) : match[ 1 ];
+    }
+
+
+    while (value.match(ghsLabelRegex)) {
+      value = value.replace(ghsLabelRegex, (match, ...args) => {
+        return settingsManager.getLabel(args[ 0 ]);
+      });
     }
 
     return value;
@@ -126,10 +134,9 @@ export class GhsHtmlLabelPipe implements PipeTransform {
 
   applyPlaceholder(value: string): string {
 
-    const labelRegex = /\%((\w+|\.|\-)+)\%/;
 
-    while (value.match(labelRegex)) {
-      value = value.replace(labelRegex, (match, ...args) => {
+    while (value.match(ghsLabelRegex)) {
+      value = value.replace(ghsLabelRegex, (match, ...args) => {
         const label = args[ 0 ];
         const split: string[] = label.split('.');
         const type = split[ 1 ];
@@ -138,11 +145,11 @@ export class GhsHtmlLabelPipe implements PipeTransform {
         if (type == "condition") {
           split.splice(0, 1);
           image = '<img  src="./assets/images/' + split.join('/') + '.svg" class="icon">';
-          return '<span class="placeholder-condition">' + settingsManager.getLabel(label) + '</span>' + image;
+          return '<span class="placeholder-condition">' + settingsManager.getLabel(label) + image + '</span>';
         } else if (type == "action" && split.length == 3) {
           split.splice(0, 1);
           image = '<img  src="./assets/images/' + split.join('/') + '.svg" class="icon">';
-          return '<span class="placeholder-action">' + settingsManager.getLabel(label) + '</span>' + image;
+          return '<span class="placeholder-action">' + settingsManager.getLabel(label) + image + '</span>';
         } else if (type == "element") {
           let element = split[ 2 ];
           if (element == "consume") {
@@ -153,6 +160,9 @@ export class GhsHtmlLabelPipe implements PipeTransform {
           }
           image += '<img src="./assets/images/element/' + element + '.svg"></span>';
           return image;
+        } else if (type == "initiative" && split.length == 3) {
+          image = '<img class="ghs-svg" src="./assets/images/initiative.svg"></span>'
+          return '<span class="placeholder-initiative">' + split[ 2 ] + image + '</span>';
         }
 
         return settingsManager.getLabel(label) + image;

@@ -4,38 +4,38 @@
   "deck": "scout",
   "count": 6,
   "baseStat": {
+    "type": "normal",
     "actions": [],
     "immunities": [],
-    "special": [],
-    "type": "normal"
+    "special": []
   },
   "stats": [
     {
-      "attack": 2,
+      "level": 0,
       "health": 8,
-      "level": 0,
       "movement": 3,
+      "attack": 2,
       "range": 0
     },
     {
-      "attack": 3,
+      "level": 1,
       "health": 9,
-      "level": 1,
       "movement": 3,
+      "attack": 3,
       "range": 0
     },
     {
-      "attack": 3,
+      "level": 2,
       "health": 12,
-      "level": 2,
       "movement": 3,
+      "attack": 3,
       "range": 0
     },
     {
-      "attack": 3,
-      "health": 14,
       "level": 3,
+      "health": 14,
       "movement": 4,
+      "attack": 3,
       "range": 0,
       "actions": [
         {
@@ -45,10 +45,10 @@
       ]
     },
     {
-      "attack": 4,
+      "level": 4,
       "health": 16,
-      "level": 4,
       "movement": 4,
+      "attack": 4,
       "range": 0,
       "actions": [
         {
@@ -58,10 +58,10 @@
       ]
     },
     {
-      "attack": 4,
+      "level": 5,
       "health": 18,
-      "level": 5,
       "movement": 4,
+      "attack": 4,
       "range": 0,
       "actions": [
         {
@@ -75,10 +75,10 @@
       ]
     },
     {
-      "attack": 4,
+      "level": 6,
       "health": 21,
-      "level": 6,
       "movement": 4,
+      "attack": 4,
       "range": 0,
       "actions": [
         {
@@ -92,10 +92,10 @@
       ]
     },
     {
-      "attack": 4,
+      "level": 7,
       "health": 24,
-      "level": 7,
       "movement": 5,
+      "attack": 4,
       "range": 0,
       "actions": [
         {
@@ -109,34 +109,34 @@
       ]
     },
     {
-      "attack": 3,
-      "health": 13,
+      "type": "elite",
       "level": 0,
+      "health": 13,
       "movement": 3,
-      "range": 0,
-      "type": "elite"
+      "attack": 3,
+      "range": 0
     },
     {
-      "attack": 3,
-      "health": 14,
+      "type": "elite",
       "level": 1,
+      "health": 14,
       "movement": 4,
-      "range": 0,
-      "type": "elite",
-      "actions": [
-        {
-          "type": "condition",
-          "value": "muddle"
-        }
-      ]
-    },
-    {
       "attack": 3,
-      "health": 17,
+      "range": 0,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "type": "elite",
       "level": 2,
+      "health": 17,
       "movement": 4,
+      "attack": 3,
       "range": 0,
-      "type": "elite",
       "actions": [
         {
           "type": "condition",
@@ -145,30 +145,30 @@
       ]
     },
     {
-      "attack": 4,
-      "health": 19,
+      "type": "elite",
       "level": 3,
+      "health": 19,
       "movement": 4,
-      "range": 0,
-      "type": "elite",
-      "actions": [
-        {
-          "type": "condition",
-          "value": "muddle"
-        },
-        {
-          "type": "condition",
-          "value": "curse"
-        }
-      ]
-    },
-    {
       "attack": 4,
-      "health": 23,
+      "range": 0,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        },
+        {
+          "type": "condition",
+          "value": "curse"
+        }
+      ]
+    },
+    {
+      "type": "elite",
       "level": 4,
+      "health": 23,
       "movement": 4,
+      "attack": 4,
       "range": 0,
-      "type": "elite",
       "actions": [
         {
           "type": "condition",
@@ -181,30 +181,12 @@
       ]
     },
     {
-      "attack": 5,
-      "health": 26,
+      "type": "elite",
       "level": 5,
+      "health": 26,
       "movement": 4,
-      "range": 0,
-      "type": "elite",
-      "actions": [
-        {
-          "type": "condition",
-          "value": "muddle"
-        },
-        {
-          "type": "condition",
-          "value": "curse"
-        }
-      ]
-    },
-    {
       "attack": 5,
-      "health": 29,
-      "level": 6,
-      "movement": 5,
       "range": 0,
-      "type": "elite",
       "actions": [
         {
           "type": "condition",
@@ -217,12 +199,30 @@
       ]
     },
     {
-      "attack": 6,
-      "health": 33,
-      "level": 7,
-      "movement": 5,
-      "range": 0,
       "type": "elite",
+      "level": 6,
+      "health": 29,
+      "movement": 5,
+      "attack": 5,
+      "range": 0,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        },
+        {
+          "type": "condition",
+          "value": "curse"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 33,
+      "movement": 5,
+      "attack": 6,
+      "range": 0,
       "actions": [
         {
           "type": "condition",

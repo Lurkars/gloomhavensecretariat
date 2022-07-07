@@ -3,6 +3,8 @@
   top: calc(var(--ghs-unit) * 0.6);
   right: 0;
   width: calc(var(--ghs-unit) * 28);
+  display: flex;
+  align-items: center;
   font-family: 'ghs-title';
   color: var(--ghs-color-white);
   font-size: calc(var(--ghs-unit) * 2.5);
@@ -16,6 +18,18 @@
 
     &:hover {
       color: var(--ghs-color-gray);
+    }
+  }
+
+  .flying {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+
+    img {
+      height: 1em;
+      width: auto;
     }
   }
 }

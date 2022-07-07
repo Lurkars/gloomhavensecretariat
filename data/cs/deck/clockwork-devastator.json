@@ -1,59 +1,56 @@
 {
   "name": "clockwork-devastator",
   "edition": "cs",
-  "abilies": [
+  "abilities": [
     {
       "cardId": 613,
-      "shuffle": false,
-      "initiavie": 28,
+      "initiative": 28,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus"
         }
       ]
     },
     {
       "cardId": 614,
-      "shuffle": false,
-      "initiavie": 38,
+      "initiative": 38,
       "actions": [
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         }
       ]
     },
     {
       "cardId": 615,
-      "shuffle": false,
-      "initiavie": 38,
+      "initiative": 38,
       "actions": [
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
-              "type": "custom",
-              "value": "Target one enemy with all attacks"
+              "type": "specialTarget",
+              "value": "enemyOneAll"
             }
           ]
         }
@@ -61,43 +58,42 @@
     },
     {
       "cardId": 619,
+      "initiative": 23,
       "shuffle": true,
-      "initiavie": 23,
       "actions": [
         {
           "type": "shield",
-          "value": "1",
-          "valueType": "plus"
+          "value": 1
         },
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus"
         }
       ]
     },
     {
       "cardId": 733,
+      "initiative": 60,
       "shuffle": true,
-      "initiavie": 60,
       "actions": [
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "area",
-              "value": "line-6-with-black"
+              "value": "(3,0,target)|(2,1,target)|(2,2,target)|(1,3,target)|(1,4,target)|(0,5,active)"
             },
             {
               "type": "pierce",
-              "value": "3"
+              "value": 3
             }
           ]
         }
@@ -105,21 +101,21 @@
     },
     {
       "cardId": 734,
+      "initiative": 60,
       "shuffle": true,
-      "initiavie": 60,
       "actions": [
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "area",
-              "value": "line-6-with-black"
+              "value": "(3,0,target)|(2,1,target)|(2,2,target)|(1,3,target)|(1,4,target)|(0,5,active)"
             },
             {
               "type": "pierce",
-              "value": "3"
+              "value": 3
             }
           ]
         }
@@ -127,28 +123,27 @@
     },
     {
       "cardId": 735,
-      "shuffle": false,
-      "initiavie": 84,
+      "initiative": 84,
       "actions": [
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
-              "type": "custom",
-              "value": "Target all adjacent enemies"
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
             }
           ]
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "range",
-              "value": "4"
+              "value": 4
             },
             {
               "type": "condition",
@@ -160,31 +155,26 @@
     },
     {
       "cardId": 739,
-      "shuffle": false,
-      "initiavie": 54,
+      "initiative": 54,
       "actions": [
         {
           "type": "condition",
-          "value": "wound"
-        },
-        {
-          "type": "condition",
-          "value": "poison",
+          "value": "wound|poison",
           "subActions": [
             {
-              "type": "custom",
-              "value": "Target all adjacent enemies"
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
             }
           ]
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "range",
-              "value": "4"
+              "value": 4
             }
           ]
         }

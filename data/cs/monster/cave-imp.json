@@ -1,15 +1,16 @@
 {
   "name": "cave-imp",
+  "thumbnail": "gh-forest-imp",
   "edition": "cs",
-  "thumbnail" : "gh-forest-imp",
   "deck": "ancient-artillery",
-  "count": 10,
+  "flying": true,
   "hidden": true,
+  "count": 10,
   "baseStat": {
+    "type": "normal",
     "actions": [],
     "immunities": [],
-    "special": [],
-    "type": "normal"
+    "special": []
   },
   "stats": [
     {
@@ -120,6 +121,7 @@
       ]
     },
     {
+      "type": "elite",
       "level": 0,
       "health": 8,
       "movement": 3,
@@ -130,10 +132,10 @@
           "type": "shield",
           "value": 1
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 1,
       "health": 10,
       "movement": 3,
@@ -144,10 +146,10 @@
           "type": "shield",
           "value": 1
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 2,
       "health": 12,
       "movement": 3,
@@ -159,10 +161,10 @@
           "type": "shield",
           "value": 1
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 3,
       "health": 14,
       "movement": 4,
@@ -174,10 +176,10 @@
           "type": "shield",
           "value": 1
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 4,
       "health": 14,
       "movement": 4,
@@ -189,10 +191,10 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 5,
       "health": 16,
       "movement": 4,
@@ -204,10 +206,10 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 6,
       "health": 18,
       "movement": 4,
@@ -219,10 +221,10 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 7,
       "health": 22,
       "movement": 4,
@@ -234,8 +236,7 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     }
   ]
 }

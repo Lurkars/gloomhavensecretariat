@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "boss",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 572,
+      "cardId": 572,
       "initiative": 11,
       "actions": [
         {
@@ -13,7 +13,7 @@
       ]
     },
     {
-      "cardId" : 573,
+      "cardId": 573,
       "initiative": 14,
       "actions": [
         {
@@ -23,7 +23,7 @@
       ]
     },
     {
-      "cardId" : 574,
+      "cardId": 574,
       "initiative": 17,
       "shuffle": true,
       "actions": [
@@ -34,7 +34,7 @@
       ]
     },
     {
-      "cardId" : 575,
+      "cardId": 575,
       "initiative": 85,
       "shuffle": true,
       "actions": [
@@ -45,7 +45,7 @@
       ]
     },
     {
-      "cardId" : 576,
+      "cardId": 576,
       "initiative": 79,
       "actions": [
         {
@@ -55,7 +55,7 @@
       ]
     },
     {
-      "cardId" : 577,
+      "cardId": 577,
       "initiative": 73,
       "actions": [
         {
@@ -65,7 +65,7 @@
       ]
     },
     {
-      "cardId" : 578,
+      "cardId": 578,
       "initiative": 36,
       "actions": [
         {
@@ -81,7 +81,7 @@
       ]
     },
     {
-      "cardId" : 579,
+      "cardId": 579,
       "initiative": 52,
       "actions": [
         {

@@ -1,12 +1,13 @@
 {
   "name": "terrible-two-archer",
-  "edition": "cs",
   "thumbnail": "gh-bandit-archer",
+  "edition": "cs",
   "deck": "archer",
-  "count": 6,
   "boss": true,
   "hidden": true,
+  "count": 6,
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [
       "disarm",
@@ -14,8 +15,7 @@
       "stun",
       "curse"
     ],
-    "special": [],
-    "type": "boss"
+    "special": []
   },
   "stats": [
     {

@@ -5,10 +5,6 @@ export function ghsUnit(): number {
   return +window.getComputedStyle(document.body).getPropertyValue('--ghs-width').replace(/[^\d\+]/g, '') / +window.getComputedStyle(document.body).getPropertyValue('--ghs-factor');
 }
 
-export function ghsUnitUnit(): string {
-  return window.getComputedStyle(document.body).getPropertyValue('--ghs-width').replace(/[\d\+]/g, '').trim();
-}
-
 export function ghsHasSpoilers(items: Spoilable[]): boolean {
   return items.some((spoilable: Spoilable) => spoilable.spoiler && settingsManager.settings.spoilers.indexOf(spoilable.name) == -1);
 }

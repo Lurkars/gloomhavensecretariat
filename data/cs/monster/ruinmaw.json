@@ -2,9 +2,10 @@
   "name": "ruinmaw",
   "edition": "cs",
   "deck": "boss",
-  "count": 1,
   "boss": true,
+  "count": 1,
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [
       "poison",
@@ -27,8 +28,7 @@
           "value": "%game.custom.scenarioBook%"
         }
       ]
-    ],
-    "type": "boss"
+    ]
   },
   "stats": [
     {

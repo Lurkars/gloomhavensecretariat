@@ -2,9 +2,12 @@
   "name": "goremyon-shatter-mind",
   "edition": "cs",
   "deck": "boss",
-  "count": 1,
   "boss": true,
+  "count": 1,
   "baseStat": {
+    "type": "boss",
+    "note": "%data.custom.cs.goremyon-shatter-mind.6%",
+    "movement": 0,
     "actions": [],
     "immunities": [
       "wound",
@@ -70,10 +73,7 @@
           ]
         }
       ]
-    ],
-    "note": "%data.custom.cs.goremyon-shatter-mind.6%",
-    "type": "boss",
-    "movement": 0
+    ]
   },
   "stats": [
     {

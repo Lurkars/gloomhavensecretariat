@@ -1,91 +1,63 @@
 {
-  "count": 10,
-  "edition": "gh",
   "name": "living-bones",
+  "edition": "gh",
+  "count": 10,
   "baseStat": {
+    "type": "normal",
     "actions": [],
     "immunities": [],
-    "special": [],
-    "type": "normal"
+    "special": []
   },
   "stats": [
     {
-      "actions": [
-        {
-          "type": "target",
-          "value": 2
-        }
-      ],
-      "attack": 1,
-      "health": 5,
       "level": 0,
-      "movement": 2
-    },
-    {
-      "actions": [
-        {
-          "type": "target",
-          "value": 2
-        },
-        {
-          "type": "shield",
-          "value": 1
-        }
-      ],
+      "health": 5,
+      "movement": 2,
       "attack": 1,
-      "health": 5,
+      "actions": [
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
       "level": 1,
-      "movement": 3
-    },
-    {
-      "actions": [
-        {
-          "type": "target",
-          "value": 2
-        },
-        {
-          "type": "shield",
-          "value": 1
-        }
-      ],
-      "attack": 2,
       "health": 5,
+      "movement": 3,
+      "attack": 1,
+      "actions": [
+        {
+          "type": "target",
+          "value": 2
+        },
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
       "level": 2,
-      "movement": 3
-    },
-    {
-      "actions": [
-        {
-          "type": "target",
-          "value": 2
-        },
-        {
-          "type": "shield",
-          "value": 1
-        }
-      ],
+      "health": 5,
+      "movement": 3,
       "attack": 2,
-      "health": 7,
+      "actions": [
+        {
+          "type": "target",
+          "value": 2
+        },
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
       "level": 3,
-      "movement": 3
-    },
-    {
-      "actions": [
-        {
-          "type": "target",
-          "value": 2
-        },
-        {
-          "type": "shield",
-          "value": 1
-        }
-      ],
-      "attack": 3,
       "health": 7,
-      "level": 4,
-      "movement": 3
-    },
-    {
+      "movement": 3,
+      "attack": 2,
       "actions": [
         {
           "type": "target",
@@ -95,13 +67,29 @@
           "type": "shield",
           "value": 1
         }
-      ],
+      ]
+    },
+    {
+      "level": 4,
+      "health": 7,
+      "movement": 3,
       "attack": 3,
+      "actions": [
+        {
+          "type": "target",
+          "value": 2
+        },
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 5,
       "health": 9,
-      "level": 5,
-      "movement": 3
-    },
-    {
+      "movement": 3,
+      "attack": 3,
       "actions": [
         {
           "type": "target",
@@ -111,13 +99,13 @@
           "type": "shield",
           "value": 1
         }
-      ],
-      "attack": 3,
-      "health": 10,
+      ]
+    },
+    {
       "level": 6,
-      "movement": 4
-    },
-    {
+      "health": 10,
+      "movement": 4,
+      "attack": 3,
       "actions": [
         {
           "type": "target",
@@ -127,44 +115,44 @@
           "type": "shield",
           "value": 1
         }
-      ],
-      "attack": 3,
+      ]
+    },
+    {
+      "level": 7,
       "health": 13,
-      "level": 7,
-      "movement": 4
-    },
-    {
+      "movement": 4,
+      "attack": 3,
       "actions": [
         {
           "type": "target",
           "value": 2
+        },
+        {
+          "type": "shield",
+          "value": 1
         }
-      ],
-      "attack": 2,
-      "health": 6,
+      ]
+    },
+    {
+      "type": "elite",
       "level": 0,
-      "movement": 4,
-      "special": [],
-      "type": "elite"
-    },
-    {
-      "actions": [
-        {
-          "type": "target",
-          "value": 3
-        },
-        {
-          "type": "shield",
-          "value": 1
-        }
-      ],
-      "attack": 2,
       "health": 6,
+      "movement": 4,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "target",
+          "value": 2
+        }
+      ],
+      "special": []
+    },
+    {
+      "type": "elite",
       "level": 1,
+      "health": 6,
       "movement": 4,
-      "type": "elite"
-    },
-    {
+      "attack": 2,
       "actions": [
         {
           "type": "target",
@@ -174,31 +162,14 @@
           "type": "shield",
           "value": 1
         }
-      ],
-      "attack": 3,
-      "health": 7,
+      ]
+    },
+    {
+      "type": "elite",
       "level": 2,
+      "health": 7,
       "movement": 4,
-      "type": "elite"
-    },
-    {
-      "actions": [
-        {
-          "type": "target",
-          "value": 3
-        },
-        {
-          "type": "shield",
-          "value": 1
-        }
-      ],
       "attack": 3,
-      "health": 10,
-      "level": 3,
-      "movement": 4,
-      "type": "elite"
-    },
-    {
       "actions": [
         {
           "type": "target",
@@ -208,14 +179,31 @@
           "type": "shield",
           "value": 1
         }
-      ],
-      "attack": 4,
-      "health": 11,
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 10,
+      "movement": 4,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "target",
+          "value": 3
+        },
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "type": "elite",
       "level": 4,
+      "health": 11,
       "movement": 4,
-      "type": "elite"
-    },
-    {
+      "attack": 4,
       "actions": [
         {
           "type": "target",
@@ -223,33 +211,16 @@
         },
         {
           "type": "shield",
-          "value": 2
+          "value": 1
         }
-      ],
-      "attack": 4,
-      "health": 11,
+      ]
+    },
+    {
+      "type": "elite",
       "level": 5,
-      "movement": 4,
-      "type": "elite"
-    },
-    {
-      "actions": [
-        {
-          "type": "target",
-          "value": 3
-        },
-        {
-          "type": "shield",
-          "value": 2
-        }
-      ],
-      "attack": 4,
       "health": 11,
-      "level": 6,
-      "movement": 6,
-      "type": "elite"
-    },
-    {
+      "movement": 4,
+      "attack": 4,
       "actions": [
         {
           "type": "target",
@@ -259,12 +230,41 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "attack": 4,
-      "health": 14,
-      "level": 7,
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 11,
       "movement": 6,
-      "type": "elite"
+      "attack": 4,
+      "actions": [
+        {
+          "type": "target",
+          "value": 3
+        },
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 14,
+      "movement": 6,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "target",
+          "value": 3
+        },
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
     }
   ]
 }

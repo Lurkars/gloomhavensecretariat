@@ -1,10 +1,11 @@
 {
+  "name": "captain",
+  "edition": "gh",
+  "deck": "boss",
   "boss": true,
   "count": 1,
-  "deck": "boss",
-  "edition": "gh",
-  "name": "captain",
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [
       "disarm",
@@ -36,57 +37,56 @@
           "valueType": "plus"
         }
       ]
-    ],
-    "type": "boss"
+    ]
   },
   "stats": [
     {
-      "attack": 3,
-      "health": "7xC",
       "level": 0,
-      "movement": 2
+      "health": "7xC",
+      "movement": 2,
+      "attack": 3
     },
     {
-      "attack": 3,
-      "health": "9xC",
       "level": 1,
-      "movement": 2
+      "health": "9xC",
+      "movement": 2,
+      "attack": 3
     },
     {
-      "attack": 4,
-      "health": "11xC",
       "level": 2,
-      "movement": 2
+      "health": "11xC",
+      "movement": 2,
+      "attack": 4
     },
     {
-      "attack": 4,
-      "health": "14xC",
       "level": 3,
-      "movement": 3
+      "health": "14xC",
+      "movement": 3,
+      "attack": 4
     },
     {
-      "attack": 5,
-      "health": "16xC",
       "level": 4,
-      "movement": 3
+      "health": "16xC",
+      "movement": 3,
+      "attack": 5
     },
     {
-      "attack": 5,
-      "health": "20xC",
       "level": 5,
-      "movement": 3
+      "health": "20xC",
+      "movement": 3,
+      "attack": 5
     },
     {
-      "attack": 6,
-      "health": "21xC",
       "level": 6,
-      "movement": 4
+      "health": "21xC",
+      "movement": 4,
+      "attack": 6
     },
     {
-      "attack": 6,
-      "health": "25xC",
       "level": 7,
-      "movement": 4
+      "health": "25xC",
+      "movement": 4,
+      "attack": 6
     }
   ]
 }

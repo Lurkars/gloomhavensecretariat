@@ -40,36 +40,13 @@
     }
   }
 
-  .highlight-conditions {
-    pointer-events: none;
+  ghs-highlight-conditions {
+    z-index: 3;
     position: absolute;
     left: calc(var(--ghs-unit) * 3);
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
     width: calc(var(--ghs-unit) * 8);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    .condition {
-      animation: condition-hightlight 1.1s ease-in-out;
-      img {
-        height: calc(var(--ghs-unit) * 5);
-        width: auto;
-      }
-
-      .value {
-        font-family: 'ghs-title';
-        font-size: calc(var(--ghs-unit) * 2);
-        color: var(--ghs-color-white);
-        position: absolute;
-        top: calc(var(--ghs-unit) * 2.5);
-        left: calc(var(--ghs-unit) * 2.5);
-        text-shadow: none;
-        transform: translateX(-50%);
-      }
-    }
   }
 
   .stats {

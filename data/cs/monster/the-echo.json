@@ -1,12 +1,15 @@
 {
   "name": "the-echo",
-  "edition": "cs",
   "thumbnail": "gh-living-spirit",
+  "edition": "cs",
   "deck": "living-spirit",
-  "count": 6,
   "boss": true,
+  "flying": true,
   "hidden": true,
+  "count": 6,
   "baseStat": {
+    "type": "boss",
+    "health": "6xC",
     "actions": [],
     "immunities": [
       "immobilize",
@@ -19,9 +22,7 @@
       "bane",
       "brittle"
     ],
-    "special": [],
-    "type": "boss",
-    "health": "6xC"
+    "special": []
   },
   "stats": [
     {

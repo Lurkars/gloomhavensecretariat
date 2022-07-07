@@ -1,12 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-import { first } from "rxjs";
-import { Ability } from "src/app/game/model/Ability";
 import { DeckData } from "src/app/game/model/data/DeckData";
 import { MonsterData } from "src/app/game/model/data/MonsterData";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterStat } from "src/app/game/model/MonsterStat";
 import { MonsterType } from "src/app/game/model/MonsterType";
-import { ghsUnit, ghsUnitUnit } from "src/app/ui/helper/Static";
 
 @Component({
   selector: 'ghs-monster-tool',

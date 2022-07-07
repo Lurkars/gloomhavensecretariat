@@ -23,6 +23,7 @@
 
 .menu-container {
 
+  position: relative;
   display: flex;
   flex-direction: column;
   max-height: calc(100vh - var(--ghs-unit) * 7);
@@ -104,12 +105,12 @@
       label {
         color: var(--ghs-color-darkgray);
       }
+    }
 
-      &.sticky {
-        position: sticky;
-        top: 0;
-        background-color: var(--ghs-color-black);
-      }
+    &.sticky {
+      position: sticky;
+      top: 0;
+      background-color: var(--ghs-color-black);
     }
 
     .state {
@@ -124,6 +125,7 @@
 
     &.hidden-monster a {
       font-style: italic;
+      font-size: calc(var(--ghs-unit) * 2.7);
     }
   }
 

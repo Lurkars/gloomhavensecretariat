@@ -1,10 +1,11 @@
 {
+  "name": "betrayer",
+  "edition": "gh",
+  "deck": "boss",
   "boss": true,
   "count": 1,
-  "deck": "boss",
-  "edition": "gh",
-  "name": "betrayer",
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [
       "wound",
@@ -26,64 +27,63 @@
           "value": "%data.custom.gh.betrayer.1%"
         }
       ]
-    ],
-    "type": "boss"
+    ]
   },
   "stats": [
     {
-      "attack": 4,
-      "health": "10xC",
       "level": 0,
+      "health": "10xC",
       "movement": 3,
+      "attack": 4,
       "range": 3
     },
     {
-      "attack": 5,
-      "health": "12xC",
       "level": 1,
+      "health": "12xC",
       "movement": 3,
+      "attack": 5,
       "range": 3
     },
     {
-      "attack": 6,
-      "health": "12xC",
       "level": 2,
+      "health": "12xC",
       "movement": 3,
+      "attack": 6,
       "range": 4
     },
     {
-      "attack": 7,
-      "health": "16xC",
       "level": 3,
+      "health": "16xC",
       "movement": 4,
+      "attack": 7,
       "range": 4
     },
     {
-      "attack": 8,
-      "health": "18xC",
       "level": 4,
+      "health": "18xC",
       "movement": 4,
+      "attack": 8,
       "range": 4
     },
     {
-      "attack": 8,
-      "health": "20xC",
       "level": 5,
+      "health": "20xC",
       "movement": 5,
+      "attack": 8,
       "range": 5
     },
     {
-      "attack": 9,
-      "health": "23xC",
       "level": 6,
+      "health": "23xC",
       "movement": 5,
+      "attack": 9,
       "range": 5
     },
     {
-      "attack": 9,
-      "health": "27xC",
       "level": 7,
+      "health": "27xC",
       "movement": 5,
+      "attack": 9,
       "range": 5
     }
   ]

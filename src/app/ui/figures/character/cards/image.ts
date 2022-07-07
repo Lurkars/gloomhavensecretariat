@@ -5,8 +5,6 @@ import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 
-import { DialogComponent } from "src/app/ui/dialog/dialog";
-
 @Component({
   selector: 'ghs-character-image',
   templateUrl: 'image.html',

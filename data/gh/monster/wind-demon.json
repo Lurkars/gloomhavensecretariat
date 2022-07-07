@@ -1,193 +1,182 @@
 {
-  "count": 6,
-  "edition": "gh",
   "name": "wind-demon",
+  "edition": "gh",
+  "flying": true,
+  "count": 6,
   "baseStat": {
+    "type": "normal",
     "actions": [],
     "immunities": [],
-    "special": [],
-    "type": "normal"
+    "special": []
   },
   "stats": [
     {
+      "level": 0,
+      "health": 3,
+      "movement": 3,
+      "attack": 2,
+      "range": 3,
       "actions": [
         {
           "type": "shield",
           "value": 1
         }
-      ],
-      "attack": 2,
-      "health": 3,
-      "level": 0,
-      "movement": 3,
-      "range": 3
+      ]
     },
     {
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        }
-      ],
-      "attack": 2,
-      "health": 3,
       "level": 1,
+      "health": 3,
       "movement": 3,
-      "range": 3
-    },
-    {
+      "attack": 2,
+      "range": 3,
       "actions": [
         {
           "type": "shield",
           "value": 2
         }
-      ],
-      "attack": 2,
+      ]
+    },
+    {
+      "level": 2,
       "health": 4,
-      "level": 2,
       "movement": 4,
-      "range": 3
-    },
-    {
+      "attack": 2,
+      "range": 3,
       "actions": [
         {
           "type": "shield",
           "value": 2
         }
-      ],
-      "attack": 3,
-      "health": 5,
+      ]
+    },
+    {
       "level": 3,
+      "health": 5,
       "movement": 4,
-      "range": 3
-    },
-    {
+      "attack": 3,
+      "range": 3,
       "actions": [
         {
           "type": "shield",
           "value": 2
         }
-      ],
-      "attack": 3,
-      "health": 7,
+      ]
+    },
+    {
       "level": 4,
+      "health": 7,
       "movement": 4,
-      "range": 3
-    },
-    {
+      "attack": 3,
+      "range": 3,
       "actions": [
         {
           "type": "shield",
           "value": 2
         }
-      ],
-      "attack": 3,
-      "health": 9,
+      ]
+    },
+    {
       "level": 5,
+      "health": 9,
       "movement": 4,
-      "range": 4
-    },
-    {
-      "actions": [
-        {
-          "type": "shield",
-          "value": 3
-        }
-      ],
       "attack": 3,
-      "health": 10,
-      "level": 6,
-      "movement": 4,
-      "range": 4
+      "range": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
     },
     {
+      "level": 6,
+      "health": 10,
+      "movement": 4,
+      "attack": 3,
+      "range": 4,
       "actions": [
         {
           "type": "shield",
           "value": 3
         }
-      ],
-      "attack": 4,
-      "health": 11,
-      "level": 7,
-      "movement": 4,
-      "range": 4
+      ]
     },
     {
+      "level": 7,
+      "health": 11,
+      "movement": 4,
+      "attack": 4,
+      "range": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 5,
+      "movement": 4,
+      "attack": 3,
+      "range": 4,
       "actions": [
         {
           "type": "shield",
           "value": 1
         }
-      ],
-      "attack": 3,
-      "health": 5,
-      "level": 0,
-      "movement": 4,
-      "range": 4,
-      "type": "elite"
+      ]
     },
     {
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        }
-      ],
-      "attack": 3,
-      "health": 5,
+      "type": "elite",
       "level": 1,
+      "health": 5,
       "movement": 4,
-      "range": 4,
-      "type": "elite"
-    },
-    {
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        }
-      ],
       "attack": 3,
-      "health": 7,
+      "range": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
       "level": 2,
+      "health": 7,
       "movement": 5,
+      "attack": 3,
       "range": 4,
-      "type": "elite"
-    },
-    {
       "actions": [
         {
           "type": "shield",
           "value": 2
         }
-      ],
-      "attack": 4,
-      "health": 8,
+      ]
+    },
+    {
+      "type": "elite",
       "level": 3,
-      "movement": 5,
-      "range": 4,
-      "type": "elite"
-    },
-    {
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        },
-        {
-          "type": "condition",
-          "value": "disarm"
-        }
-      ],
-      "attack": 4,
       "health": 8,
-      "level": 4,
       "movement": 5,
+      "attack": 4,
       "range": 4,
-      "type": "elite"
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
     },
     {
+      "type": "elite",
+      "level": 4,
+      "health": 8,
+      "movement": 5,
+      "attack": 4,
+      "range": 4,
       "actions": [
         {
           "type": "shield",
@@ -197,33 +186,33 @@
           "type": "condition",
           "value": "disarm"
         }
-      ],
-      "attack": 4,
-      "health": 11,
+      ]
+    },
+    {
+      "type": "elite",
       "level": 5,
+      "health": 11,
       "movement": 5,
-      "range": 4,
-      "type": "elite"
-    },
-    {
-      "actions": [
-        {
-          "type": "shield",
-          "value": 3
-        },
-        {
-          "type": "condition",
-          "value": "disarm"
-        }
-      ],
       "attack": 4,
-      "health": 12,
-      "level": 6,
-      "movement": 5,
       "range": 4,
-      "type": "elite"
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "disarm"
+        }
+      ]
     },
     {
+      "type": "elite",
+      "level": 6,
+      "health": 12,
+      "movement": 5,
+      "attack": 4,
+      "range": 4,
       "actions": [
         {
           "type": "shield",
@@ -233,13 +222,25 @@
           "type": "condition",
           "value": "disarm"
         }
-      ],
-      "attack": 5,
-      "health": 13,
+      ]
+    },
+    {
+      "type": "elite",
       "level": 7,
+      "health": 13,
       "movement": 5,
+      "attack": 5,
       "range": 4,
-      "type": "elite"
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        },
+        {
+          "type": "condition",
+          "value": "disarm"
+        }
+      ]
     }
   ]
 }

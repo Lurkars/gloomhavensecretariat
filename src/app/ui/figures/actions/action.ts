@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, ElementRef, Input, OnChanges, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Action, ActionHex, ActionHexType, ActionType, ActionValueType } from 'src/app/game/model/Action';
+import { Action, ActionHex, ActionType, ActionValueType } from 'src/app/game/model/Action';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { FigureError } from 'src/app/game/model/FigureError';
 import { Monster } from 'src/app/game/model/Monster';

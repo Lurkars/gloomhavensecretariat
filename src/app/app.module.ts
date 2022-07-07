@@ -43,7 +43,7 @@ import { ServerMenuComponent } from './ui/header/menu/server/server';
 import { APP_BASE_HREF } from '@angular/common';
 import { FigureErrors } from './ui/figures/errors/errors';
 import { SectionMenuComponent } from './ui/header/menu/section/section';
-import { ConditionsComponent } from './ui/figures/conditions/conditions';
+import { ConditionsComponent, HighlightConditionsComponent } from './ui/figures/conditions/conditions';
 
 @NgModule({
   declarations: [
@@ -55,7 +55,7 @@ import { ConditionsComponent } from './ui/figures/conditions/conditions';
     AttackModifierComponent,
     LevelComponent,
     DialogComponent, PopupComponent,
-    ConditionsComponent,
+    ConditionsComponent, HighlightConditionsComponent,
     CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent,
     ObjectiveComponent,
     SummonEntityComponent,

@@ -1,14 +1,15 @@
 {
   "name": "your-shadow",
-  "edition": "cs",
   "thumbnail": "gh-colorless",
+  "edition": "cs",
   "deck": "boss",
-  "count": 1,
   "boss": true,
   "hidden": true,
+  "count": 1,
   "baseStat": {
-    "actions": [],
+    "type": "boss",
     "note": "%game.custom.scenarioBook%",
+    "actions": [],
     "immunities": [
       "wound",
       "poison",
@@ -96,8 +97,7 @@
           ]
         }
       ]
-    ],
-    "type": "boss"
+    ]
   },
   "stats": [
     {

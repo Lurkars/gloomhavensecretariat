@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "living-spirit",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 580,
+      "cardId": 580,
       "initiative": 22,
       "shuffle": true,
       "actions": [
@@ -26,7 +26,7 @@
       ]
     },
     {
-      "cardId" : 581,
+      "cardId": 581,
       "initiative": 33,
       "shuffle": true,
       "actions": [
@@ -49,7 +49,7 @@
       ]
     },
     {
-      "cardId" : 582,
+      "cardId": 582,
       "initiative": 48,
       "actions": [
         {
@@ -65,7 +65,7 @@
       ]
     },
     {
-      "cardId" : 583,
+      "cardId": 583,
       "initiative": 48,
       "actions": [
         {
@@ -81,7 +81,7 @@
       ]
     },
     {
-      "cardId" : 584,
+      "cardId": 584,
       "initiative": 61,
       "actions": [
         {
@@ -103,7 +103,7 @@
       ]
     },
     {
-      "cardId" : 585,
+      "cardId": 585,
       "initiative": 75,
       "actions": [
         {
@@ -136,7 +136,7 @@
       ]
     },
     {
-      "cardId" : 586,
+      "cardId": 586,
       "initiative": 55,
       "actions": [
         {
@@ -161,7 +161,7 @@
       ]
     },
     {
-      "cardId" : 587,
+      "cardId": 587,
       "initiative": 67,
       "actions": [
         {

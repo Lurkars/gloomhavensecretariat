@@ -1,20 +1,20 @@
 {
   "name": "lavalite",
+  "thumbnail": "gh-savvas-lavaflow",
   "edition": "cs",
-  "thumbnail" : "gh-savvas-lavaflow",
   "deck": "savvas-lavaflow",
-  "count": 4,
   "boss": true,
   "hidden": true,
+  "count": 4,
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [
       "muddle",
       "disarm",
       "stun"
     ],
-    "special": [],
-    "type": "boss"
+    "special": []
   },
   "stats": [
     {

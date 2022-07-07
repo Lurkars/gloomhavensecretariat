@@ -1,10 +1,9 @@
-import { Component, ElementRef, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { AttackModifier, AttackModifierType } from 'src/app/game/model/AttackModifier';
 import { Condition, ConditionName, ConditionType } from 'src/app/game/model/Condition';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
-import { MonsterStat } from 'src/app/game/model/MonsterStat';
 import { SummonState } from 'src/app/game/model/Summon';
 import { DialogComponent } from 'src/app/ui/dialog/dialog';
 
@@ -76,10 +75,8 @@ export class MonsterEntityComponent extends DialogComponent {
   }
 
 
-  isImmune(conditionName: ConditionName) {
-    const stat = this.monster.stats.find((monsterStat: MonsterStat) => monsterStat.level == this.entity.level && monsterStat.type == this.entity.type);
-
-    return stat && stat.immunities && stat.immunities.indexOf(conditionName as string) != -1;
+  isImmune(conditionName: ConditionName): boolean {
+    return gameManager.entityManager.isImmune(this.monster, this.entity, conditionName);
   }
 
   hasCondition(condition: Condition) {

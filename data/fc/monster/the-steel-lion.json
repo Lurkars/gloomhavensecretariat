@@ -1,20 +1,25 @@
 {
+  "name": "the-steel-lion",
+  "edition": "fc",
+  "deck": "guard",
   "boss": true,
   "count": 1,
-  "deck": "guard",
-  "edition": "fc",
-  "name": "the-steel-lion",
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [
       "immobilize",
       "wound"
     ],
-    "special": [],
-    "type": "boss"
+    "special": []
   },
   "stats": [
     {
+      "level": 0,
+      "health": "3xC",
+      "movement": 3,
+      "attack": 3,
+      "range": 0,
       "actions": [
         {
           "type": "custom",
@@ -34,41 +39,14 @@
             }
           ]
         }
-      ],
-      "attack": 3,
-      "health": "3xC",
-      "level": 0,
-      "movement": 3,
-      "range": 0
+      ]
     },
     {
-      "actions": [
-        {
-          "type": "custom",
-          "value": "%data.custom.fc.the-steel-lion.1%"
-        },
-        {
-          "type": "custom",
-          "value": "%data.custom.fc.the-steel-lion.2%"
-        },
-        {
-          "type": "shield",
-          "value": 2,
-          "subActions": [
-            {
-              "type": "specialTarget",
-              "value": "selfAllies"
-            }
-          ]
-        }
-      ],
-      "attack": 3,
-      "health": "4xC",
       "level": 1,
+      "health": "4xC",
       "movement": 3,
-      "range": 0
-    },
-    {
+      "attack": 3,
+      "range": 0,
       "actions": [
         {
           "type": "custom",
@@ -88,14 +66,41 @@
             }
           ]
         }
-      ],
-      "attack": 3,
-      "health": "5xC",
-      "level": 2,
-      "movement": 3,
-      "range": 0
+      ]
     },
     {
+      "level": 2,
+      "health": "5xC",
+      "movement": 3,
+      "attack": 3,
+      "range": 0,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.the-steel-lion.1%"
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.the-steel-lion.2%"
+        },
+        {
+          "type": "shield",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "selfAllies"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "5xC",
+      "movement": 3,
+      "attack": 4,
+      "range": 0,
       "actions": [
         {
           "type": "custom",
@@ -119,14 +124,14 @@
           "type": "retaliate",
           "value": 1
         }
-      ],
-      "attack": 4,
-      "health": "5xC",
-      "level": 3,
-      "movement": 3,
-      "range": 0
+      ]
     },
     {
+      "level": 4,
+      "health": "6xC",
+      "movement": 4,
+      "attack": 4,
+      "range": 0,
       "actions": [
         {
           "type": "custom",
@@ -150,14 +155,14 @@
           "type": "retaliate",
           "value": 2
         }
-      ],
-      "attack": 4,
-      "health": "6xC",
-      "level": 4,
-      "movement": 4,
-      "range": 0
+      ]
     },
     {
+      "level": 5,
+      "health": "7xC",
+      "movement": 4,
+      "attack": 4,
+      "range": 0,
       "actions": [
         {
           "type": "custom",
@@ -181,51 +186,14 @@
           "type": "retaliate",
           "value": 2
         }
-      ],
-      "attack": 4,
-      "health": "7xC",
-      "level": 5,
-      "movement": 4,
-      "range": 0
+      ]
     },
     {
-      "actions": [
-        {
-          "type": "custom",
-          "value": "%data.custom.fc.the-steel-lion.1%"
-        },
-        {
-          "type": "custom",
-          "value": "%data.custom.fc.the-steel-lion.2%"
-        },
-        {
-          "type": "shield",
-          "value": 3,
-          "subActions": [
-            {
-              "type": "specialTarget",
-              "value": "selfAllies"
-            }
-          ]
-        },
-        {
-          "type": "retaliate",
-          "value": 3
-        }
-      ],
-      "immunities": [
-        "immobilize",
-        "wound",
-        "muddle",
-        "stun"
-      ],
-      "attack": 5,
-      "health": "8xC",
       "level": 6,
+      "health": "8xC",
       "movement": 4,
-      "range": 0
-    },
-    {
+      "attack": 5,
+      "range": 0,
       "actions": [
         {
           "type": "custom",
@@ -255,12 +223,44 @@
         "wound",
         "muddle",
         "stun"
-      ],
-      "attack": 6,
-      "health": "9xC",
+      ]
+    },
+    {
       "level": 7,
+      "health": "9xC",
       "movement": 4,
-      "range": 0
+      "attack": 6,
+      "range": 0,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.the-steel-lion.1%"
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.the-steel-lion.2%"
+        },
+        {
+          "type": "shield",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "selfAllies"
+            }
+          ]
+        },
+        {
+          "type": "retaliate",
+          "value": 3
+        }
+      ],
+      "immunities": [
+        "immobilize",
+        "wound",
+        "muddle",
+        "stun"
+      ]
     }
   ]
 }

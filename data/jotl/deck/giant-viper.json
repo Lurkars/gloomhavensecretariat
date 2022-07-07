@@ -1,11 +1,11 @@
 {
-  "edition": "jotl",
   "name": "giant-viper",
+  "edition": "jotl",
   "abilities": [
     {
-      "cardId" : 396,
-      "initiative": 33,
       "name": "Swift Fangs",
+      "cardId": 396,
+      "initiative": 33,
       "actions": [
         {
           "type": "move",
@@ -31,9 +31,9 @@
       ]
     },
     {
-      "cardId" : 397,
-      "initiative": 18,
       "name": "Find Cover",
+      "cardId": 397,
+      "initiative": 18,
       "actions": [
         {
           "type": "move",
@@ -57,9 +57,9 @@
       ]
     },
     {
-      "cardId" : 398,
-      "initiative": 58,
       "name": "Calculated Strike",
+      "cardId": 398,
+      "initiative": 58,
       "actions": [
         {
           "type": "move",
@@ -74,9 +74,9 @@
       ]
     },
     {
-      "cardId" : 399,
-      "initiative": 43,
       "name": "Toxic Frenzy",
+      "cardId": 399,
+      "initiative": 43,
       "actions": [
         {
           "type": "move",
@@ -102,9 +102,9 @@
       ]
     },
     {
-      "cardId" : 400,
-      "initiative": 32,
       "name": "Surround",
+      "cardId": 400,
+      "initiative": 32,
       "shuffle": true,
       "actions": [
         {
@@ -126,9 +126,9 @@
       ]
     },
     {
-      "cardId" : 401,
-      "initiative": 32,
       "name": "Surround",
+      "cardId": 401,
+      "initiative": 32,
       "shuffle": true,
       "actions": [
         {
@@ -150,9 +150,9 @@
       ]
     },
     {
-      "cardId" : 402,
-      "initiative": 11,
       "name": "Defensive Strike",
+      "cardId": 402,
+      "initiative": 11,
       "actions": [
         {
           "type": "shield",
@@ -166,9 +166,9 @@
       ]
     },
     {
-      "cardId" : 403,
-      "initiative": 23,
       "name": "Constrict",
+      "cardId": 403,
+      "initiative": 23,
       "actions": [
         {
           "type": "move",

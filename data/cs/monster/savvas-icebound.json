@@ -1,12 +1,13 @@
 {
   "name": "savvas-icebound",
-  "edition": "cs",
   "thumbnail": "gh-savvas-icestorm",
+  "edition": "cs",
   "deck": "boss",
-  "count": 4,
   "boss": true,
   "hidden": true,
+  "count": 4,
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [
       "immobilize",
@@ -29,8 +30,7 @@
           "value": "%game.custom.scenarioBook%"
         }
       ]
-    ],
-    "type": "boss"
+    ]
   },
   "stats": [
     {

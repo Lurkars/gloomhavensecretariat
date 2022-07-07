@@ -1,18 +1,18 @@
 {
   "name": "clockwork-soldier",
+  "thumbnail": "gh-city-guard",
   "edition": "cs",
-  "thumbnail" : "gh-city-guard",
   "deck": "guard",
-  "count": 6,
   "hidden": true,
+  "count": 6,
   "baseStat": {
+    "type": "normal",
     "actions": [],
     "immunities": [
       "wound",
       "poison"
     ],
-    "special": [],
-    "type": "normal"
+    "special": []
   },
   "stats": [
     {
@@ -106,6 +106,7 @@
       ]
     },
     {
+      "type": "elite",
       "level": 0,
       "health": 6,
       "movement": 2,
@@ -115,10 +116,10 @@
           "type": "shield",
           "value": 1
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 1,
       "health": 6,
       "movement": 2,
@@ -128,10 +129,10 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 2,
       "health": 9,
       "movement": 2,
@@ -141,10 +142,10 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 3,
       "health": 9,
       "movement": 2,
@@ -158,10 +159,10 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 4,
       "health": 10,
       "movement": 3,
@@ -175,10 +176,10 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 5,
       "health": 12,
       "movement": 3,
@@ -192,10 +193,10 @@
           "type": "shield",
           "value": 3
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 6,
       "health": 13,
       "movement": 3,
@@ -209,10 +210,10 @@
           "type": "shield",
           "value": 3
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 7,
       "health": 14,
       "movement": 3,
@@ -226,8 +227,7 @@
           "type": "shield",
           "value": 3
         }
-      ],
-      "type": "elite"
+      ]
     }
   ]
 }

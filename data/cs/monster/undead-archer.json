@@ -1,15 +1,15 @@
 {
   "name": "undead-archer",
-  "edition": "cs",
   "thumbnail": "gh-living-bones",
-  "count": 10,
+  "edition": "cs",
   "hidden": true,
+  "count": 10,
   "baseStat": {
+    "type": "normal",
+    "range": 3,
     "actions": [],
     "immunities": [],
-    "special": [],
-    "type": "normal",
-    "range": 3
+    "special": []
   },
   "stats": [
     {
@@ -103,13 +103,14 @@
       ]
     },
     {
+      "type": "elite",
       "level": 0,
       "health": 6,
       "movement": 4,
-      "attack": 2,
-      "type": "elite"
+      "attack": 2
     },
     {
+      "type": "elite",
       "level": 1,
       "health": 6,
       "movement": 4,
@@ -123,10 +124,10 @@
           "type": "shield",
           "value": 1
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 2,
       "health": 7,
       "movement": 4,
@@ -140,10 +141,10 @@
           "type": "shield",
           "value": 1
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 3,
       "health": 10,
       "movement": 4,
@@ -157,10 +158,10 @@
           "type": "shield",
           "value": 1
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 4,
       "health": 11,
       "movement": 4,
@@ -174,10 +175,10 @@
           "type": "shield",
           "value": 1
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 5,
       "health": 11,
       "movement": 4,
@@ -191,10 +192,10 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 6,
       "health": 11,
       "movement": 6,
@@ -208,10 +209,10 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 7,
       "health": 14,
       "movement": 6,
@@ -225,8 +226,7 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     }
   ]
 }

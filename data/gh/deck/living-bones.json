@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "living-bones",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 516,
+      "cardId": 516,
       "initiative": 64,
       "actions": [
         {
@@ -19,7 +19,7 @@
       ]
     },
     {
-      "cardId" : 517,
+      "cardId": 517,
       "initiative": 20,
       "shuffle": true,
       "actions": [
@@ -46,7 +46,7 @@
       ]
     },
     {
-      "cardId" : 518,
+      "cardId": 518,
       "initiative": 25,
       "actions": [
         {
@@ -62,7 +62,7 @@
       ]
     },
     {
-      "cardId" : 519,
+      "cardId": 519,
       "initiative": 45,
       "actions": [
         {
@@ -78,7 +78,7 @@
       ]
     },
     {
-      "cardId" : 520,
+      "cardId": 520,
       "initiative": 45,
       "actions": [
         {
@@ -94,7 +94,7 @@
       ]
     },
     {
-      "cardId" : 521,
+      "cardId": 521,
       "initiative": 81,
       "actions": [
         {
@@ -105,7 +105,7 @@
       ]
     },
     {
-      "cardId" : 522,
+      "cardId": 522,
       "initiative": 74,
       "actions": [
         {
@@ -127,7 +127,7 @@
       ]
     },
     {
-      "cardId" : 523,
+      "cardId": 523,
       "initiative": 12,
       "shuffle": true,
       "actions": [

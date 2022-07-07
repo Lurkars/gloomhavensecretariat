@@ -1,34 +1,33 @@
 {
   "name": "the-cultist",
   "edition": "cs",
-  "abilies": [
+  "abilities": [
     {
       "cardId": 604,
-      "shuffle": false,
-      "initiavie": 10,
+      "initiative": 10,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "2",
+          "value": 2,
           "valueType": "plus"
         },
         {
           "type": "custom",
-          "value": "On Death:",
+          "value": "%game.custom.ondeath%",
           "subActions": [
             {
               "type": "attack",
-              "value": "5",
+              "value": 5,
               "valueType": "plus",
               "subActions": [
                 {
                   "type": "area",
-                  "value": "circle-with-middle-black"
+                  "value": "(1,0,target)|(2,0,target)|(0,1,target)|(1,1,active)|(2,1,target)|(1,2,target)|(2,2,target)"
                 }
               ]
             }
@@ -38,31 +37,30 @@
     },
     {
       "cardId": 605,
-      "shuffle": false,
-      "initiavie": 10,
+      "initiative": 10,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "2",
+          "value": 2,
           "valueType": "plus"
         },
         {
           "type": "custom",
-          "value": "On Death:",
+          "value": "%game.custom.ondeath%",
           "subActions": [
             {
               "type": "attack",
-              "value": "5",
+              "value": 5,
               "valueType": "plus",
               "subActions": [
                 {
                   "type": "area",
-                  "value": "circle-with-middle-black"
+                  "value": "(1,0,target)|(2,0,target)|(0,1,target)|(1,1,active)|(2,1,target)|(1,2,target)|(2,2,target)"
                 }
               ]
             }
@@ -72,60 +70,57 @@
     },
     {
       "cardId": 606,
-      "shuffle": false,
-      "initiavie": 27,
+      "initiative": 27,
       "actions": [
         {
           "type": "move",
-          "value": "2",
+          "value": 2,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "3",
+          "value": 3,
           "valueType": "plus"
         }
       ]
     },
     {
       "cardId": 607,
-      "shuffle": false,
-      "initiavie": 27,
+      "initiative": 27,
       "actions": [
         {
           "type": "move",
-          "value": "2",
+          "value": 2,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "3",
+          "value": 3,
           "valueType": "plus"
         }
       ]
     },
     {
       "cardId": 608,
-      "shuffle": false,
-      "initiavie": 39,
+      "initiative": 39,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "3",
+          "value": 3,
           "valueType": "plus"
         },
         {
           "type": "heal",
-          "value": "1",
+          "value": 1,
           "subActions": [
             {
-              "type": "custom",
-              "value": "Self"
+              "type": "specialTarget",
+              "value": "self"
             }
           ]
         }
@@ -133,51 +128,50 @@
     },
     {
       "cardId": 609,
+      "initiative": 63,
       "shuffle": true,
-      "initiavie": 63,
       "actions": [
         {
           "type": "custom",
-          "value": " "
+          "value": "%game.custom.summon% %data.monster.living-spirit%"
         },
         {
           "type": "custom",
-          "value": "Summon normal Living Spirits"
+          "value": "%data.custom.cs.the-cultist.1%"
         }
       ]
     },
     {
       "cardId": 610,
+      "initiative": 63,
       "shuffle": true,
-      "initiavie": 63,
       "actions": [
         {
           "type": "custom",
-          "value": " "
+          "value": "%game.custom.summon% %data.monster.living-spirit%"
         },
         {
           "type": "custom",
-          "value": "Summon normal Living Spirits"
+          "value": "%data.custom.cs.the-cultist.1%"
         }
       ]
     },
     {
       "cardId": 611,
-      "shuffle": false,
-      "initiavie": 31,
+      "initiative": 31,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "plus"
         },
         {
           "type": "heal",
-          "value": "3",
+          "value": 3,
           "subActions": [
             {
               "type": "range",
-              "value": "3"
+              "value": 3
             }
           ]
         }

@@ -1,16 +1,16 @@
 {
   "name": "twin-corpse",
-  "edition": "cs",
   "thumbnail": "gh-living-corpse",
+  "edition": "cs",
   "deck": "living-corpse",
-  "count": 6,
   "boss": true,
   "hidden": true,
+  "count": 6,
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [],
-    "special": [],
-    "type": "boss"
+    "special": []
   },
   "stats": [
     {

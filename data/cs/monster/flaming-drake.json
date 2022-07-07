@@ -1,13 +1,14 @@
 {
   "name": "flaming-drake",
+  "thumbnail": "gh-spitting-drake",
   "edition": "cs",
-  "thumbnail" : "gh-spitting-drake",
+  "flying": true,
   "count": 6,
   "baseStat": {
+    "type": "normal",
     "actions": [],
     "immunities": [],
-    "special": [],
-    "type": "normal"
+    "special": []
   },
   "stats": [
     {
@@ -103,14 +104,15 @@
       ]
     },
     {
+      "type": "elite",
       "level": 0,
       "health": 8,
       "movement": 3,
       "attack": 4,
-      "range": 4,
-      "type": "elite"
+      "range": 4
     },
     {
+      "type": "elite",
       "level": 1,
       "health": 9,
       "movement": 3,
@@ -121,10 +123,10 @@
           "type": "condition",
           "value": "muddle"
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 2,
       "health": 10,
       "movement": 3,
@@ -135,10 +137,10 @@
           "type": "condition",
           "value": "muddle"
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 3,
       "health": 12,
       "movement": 3,
@@ -149,10 +151,10 @@
           "type": "condition",
           "value": "muddle"
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 4,
       "health": 14,
       "movement": 4,
@@ -163,10 +165,10 @@
           "type": "condition",
           "value": "muddle"
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 5,
       "health": 16,
       "movement": 4,
@@ -177,10 +179,10 @@
           "type": "condition",
           "value": "muddle"
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 6,
       "health": 19,
       "movement": 4,
@@ -191,10 +193,10 @@
           "type": "condition",
           "value": "muddle"
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 7,
       "health": 21,
       "movement": 4,
@@ -205,8 +207,7 @@
           "type": "condition",
           "value": "muddle"
         }
-      ],
-      "type": "elite"
+      ]
     }
   ]
 }

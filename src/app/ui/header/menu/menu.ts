@@ -196,11 +196,18 @@ export class MainMenuComponent extends DialogComponent {
         return -1;
       }
 
-      if (a.hidden && !b.hidden) {
+      if (a.boss && !b.boss) {
+        return 1;
+      }
+      if (!a.boss && b.boss) {
         return -1;
       }
-      if (!a.hidden && b.hidden) {
+
+      if (a.hidden && !b.hidden) {
         return 1;
+      }
+      if (!a.hidden && b.hidden) {
+        return -1;
       }
 
       if (a.spoiler && b.spoiler) {
@@ -210,13 +217,6 @@ export class MainMenuComponent extends DialogComponent {
         if (this.isSpoiled(a) && !this.isSpoiled(b)) {
           return -1;
         }
-      }
-
-      if (a.boss && !b.boss) {
-        return 1;
-      }
-      if (!a.boss && b.boss) {
-        return -1;
       }
 
       if (aName > bName) {

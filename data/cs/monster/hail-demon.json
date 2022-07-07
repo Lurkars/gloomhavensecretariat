@@ -1,13 +1,14 @@
 {
   "name": "hail-demon",
+  "thumbnail": "gh-wind-demon",
   "edition": "cs",
-  "thumbnail" : "gh-wind-demon",
+  "flying": true,
   "count": 6,
   "baseStat": {
+    "type": "normal",
     "actions": [],
     "immunities": [],
-    "special": [],
-    "type": "normal"
+    "special": []
   },
   "stats": [
     {
@@ -115,6 +116,7 @@
       ]
     },
     {
+      "type": "elite",
       "level": 0,
       "health": 5,
       "movement": 4,
@@ -125,10 +127,10 @@
           "type": "shield",
           "value": 1
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 1,
       "health": 5,
       "movement": 4,
@@ -139,10 +141,10 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 2,
       "health": 7,
       "movement": 5,
@@ -153,10 +155,10 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 3,
       "health": 8,
       "movement": 5,
@@ -167,10 +169,10 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 4,
       "health": 8,
       "movement": 5,
@@ -185,10 +187,10 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 5,
       "health": 11,
       "movement": 5,
@@ -203,10 +205,10 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 6,
       "health": 12,
       "movement": 5,
@@ -221,10 +223,10 @@
           "type": "shield",
           "value": 3
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 7,
       "health": 13,
       "movement": 5,
@@ -239,8 +241,7 @@
           "type": "shield",
           "value": 3
         }
-      ],
-      "type": "elite"
+      ]
     }
   ]
 }

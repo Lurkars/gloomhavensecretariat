@@ -1,15 +1,15 @@
 {
   "name": "frozen-cadaver",
   "edition": "cs",
-  "abilies": [
+  "abilities": [
     {
       "cardId": 1214,
+      "initiative": 34,
       "shuffle": true,
-      "initiavie": 34,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "plus"
         },
         {
@@ -18,11 +18,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "Target all adjacent enemies that do"
-            },
-            {
-              "type": "condition",
-              "value": "chill"
+              "value": "%data.custom.cs.frozen-cadaver.1%"
             }
           ]
         }
@@ -30,52 +26,47 @@
     },
     {
       "cardId": 1215,
+      "initiative": 34,
       "shuffle": true,
-      "initiavie": 34,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "plus"
         },
         {
           "type": "custom",
-          "value": "%All adjacent enemies with",
-          "subActions": [
-            {
-              "type": "condition",
-              "value": "chill"
-            }
-          ]
+          "value": "%data.custom.cs.frozen-cadaver.2%"
         }
       ]
     },
     {
       "cardId": 1216,
-      "shuffle": false,
-      "initiavie": 60,
+      "initiative": 60,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
-        {}
+        {
+          "type": "element",
+          "value": "air"
+        }
       ]
     },
     {
       "cardId": 1217,
-      "shuffle": false,
-      "initiavie": 45,
+      "initiative": 45,
       "actions": [
         {
           "type": "attack",
-          "value": "2",
+          "value": 2,
           "valueType": "plus",
           "subActions": [
             {
@@ -92,26 +83,21 @@
     },
     {
       "cardId": 1218,
-      "shuffle": false,
-      "initiavie": 86,
+      "initiative": 86,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
-              "type": "attack",
-              "value": "Add+2ifthetarget"
-            },
-            {
-              "type": "condition",
-              "value": "chill"
+              "type": "custom",
+              "value": "%data.custom.cs.frozen-cadaver.3%"
             }
           ]
         }
@@ -119,26 +105,21 @@
     },
     {
       "cardId": 1219,
-      "shuffle": false,
-      "initiavie": 86,
+      "initiative": 86,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
-              "type": "attack",
-              "value": "Add+2ifthetarget"
-            },
-            {
-              "type": "condition",
-              "value": "chill"
+              "type": "custom",
+              "value": "%data.custom.cs.frozen-cadaver.3%"
             }
           ]
         }
@@ -146,33 +127,35 @@
     },
     {
       "cardId": 1220,
-      "shuffle": false,
-      "initiavie": 94,
+      "initiative": 94,
       "actions": [
         {
           "type": "move",
-          "value": "2",
+          "value": 2,
           "valueType": "plus"
         },
         {
           "type": "element",
           "value": "ice",
-          "valueType": "minus"
-        },
-        {
-          "type": "heal",
-          "value": "!^2"
-        },
-        {
-          "type": "custom",
-          "value": "!^Self"
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "cardId": 1221,
-      "shuffle": false,
-      "initiavie": 77,
+      "initiative": 77,
       "actions": [
         {
           "type": "condition",
@@ -180,11 +163,11 @@
         },
         {
           "type": "push",
-          "value": "1",
+          "value": 1,
           "subActions": [
             {
-              "type": "custom",
-              "value": "Target one adjacent enemy"
+              "type": "specialTarget",
+              "value": "enemy"
             }
           ]
         }

@@ -1,10 +1,11 @@
 {
+  "name": "jekserah",
+  "edition": "gh",
+  "deck": "boss",
   "boss": true,
   "count": 1,
-  "deck": "boss",
-  "edition": "gh",
-  "name": "jekserah",
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [
       "disarm",
@@ -46,57 +47,56 @@
           "valueType": "plus"
         }
       ]
-    ],
-    "type": "boss"
+    ]
   },
   "stats": [
     {
-      "attack": 2,
-      "health": "6xC",
       "level": 0,
-      "movement": 2
+      "health": "6xC",
+      "movement": 2,
+      "attack": 2
     },
     {
-      "attack": 3,
-      "health": "7xC",
       "level": 1,
-      "movement": 2
+      "health": "7xC",
+      "movement": 2,
+      "attack": 3
     },
     {
-      "attack": 3,
-      "health": "9xC",
       "level": 2,
-      "movement": 3
+      "health": "9xC",
+      "movement": 3,
+      "attack": 3
     },
     {
-      "attack": 4,
-      "health": "12xC",
       "level": 3,
-      "movement": 4
+      "health": "12xC",
+      "movement": 4,
+      "attack": 4
     },
     {
-      "attack": 5,
-      "health": "13xC",
       "level": 4,
-      "movement": 4
+      "health": "13xC",
+      "movement": 4,
+      "attack": 5
     },
     {
-      "attack": 5,
-      "health": "15xC",
       "level": 5,
-      "movement": 5
+      "health": "15xC",
+      "movement": 5,
+      "attack": 5
     },
     {
-      "attack": 5,
-      "health": "18xC",
       "level": 6,
-      "movement": 5
+      "health": "18xC",
+      "movement": 5,
+      "attack": 5
     },
     {
-      "attack": 5,
-      "health": "22xC",
       "level": 7,
-      "movement": 5
+      "health": "22xC",
+      "movement": 5,
+      "attack": 5
     }
   ]
 }

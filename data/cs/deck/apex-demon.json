@@ -1,67 +1,68 @@
 {
   "name": "apex-demon",
   "edition": "cs",
-  "abilies": [
+  "abilities": [
     {
       "cardId": 636,
+      "initiative": 40,
       "shuffle": true,
-      "initiavie": 40,
       "actions": [
         {
           "type": "heal",
-          "value": "3",
+          "value": 3,
           "subActions": [
             {
-              "type": "custom",
-              "value": "Self"
+              "type": "specialTarget",
+              "value": "self"
             }
           ]
         },
         {
           "type": "element",
           "value": "earth",
-          "valueType": "minus"
-        },
-        {
-          "type": "condition",
-          "value": "immobilize"
-        },
-        {
-          "type": "range",
-          "value": "!*Targetallenemieswithin3"
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.earth-demon.1%"
+            }
+          ]
         }
       ]
     },
     {
       "cardId": 637,
+      "initiative": 42,
       "shuffle": true,
-      "initiavie": 42,
       "actions": [
         {
           "type": "move",
-          "value": "3",
+          "value": 3,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus"
         }
       ]
     },
     {
       "cardId": 638,
-      "shuffle": false,
-      "initiavie": 62,
+      "initiative": 62,
       "actions": [
         {
           "type": "move",
-          "value": "3",
+          "value": 2,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
@@ -72,44 +73,44 @@
     },
     {
       "cardId": 639,
-      "shuffle": false,
-      "initiavie": 71,
+      "initiative": 71,
       "actions": [
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "range",
-              "value": "4"
+              "value": 4
             }
           ]
         },
         {
           "type": "element",
           "value": "earth",
-          "valueType": "minus"
-        },
-        {
-          "type": "target",
-          "value": "!^2"
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2
+            }
+          ]
         }
       ]
     },
     {
       "cardId": 640,
-      "shuffle": false,
-      "initiavie": 83,
+      "initiative": 83,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "plus"
         },
         {
@@ -120,85 +121,95 @@
     },
     {
       "cardId": 641,
-      "shuffle": false,
-      "initiavie": 93,
+      "initiative": 93,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
-              "type": "custom",
-              "value": "Target all adjacent enemies"
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
             }
           ]
         },
         {
           "type": "element",
           "value": "earth",
-          "valueType": "minus"
-        },
-        {
-          "type": "push",
-          "value": "!^1"
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "push",
+              "value": 1
+            }
+          ]
         }
       ]
     },
     {
       "cardId": 642,
-      "shuffle": false,
-      "initiavie": 79,
+      "initiative": 79,
       "actions": [
         {
           "type": "move",
-          "value": "3",
+          "value": 3,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
-        {},
         {
-          "type": "attack",
-          "value": "!^-2"
+          "type": "element",
+          "value": "air",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "valueType": "minus"
+            }
+          ]
         }
       ]
     },
     {
       "cardId": 643,
-      "shuffle": false,
-      "initiavie": 87,
+      "initiative": 87,
       "actions": [
         {
           "type": "move",
-          "value": "2",
+          "value": 2,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "1",
-          "valueType": "minus"
-        },
-        {
-          "type": "area",
-          "value": "4-with-black"
-        },
-        {
-          "type": "element",
-          "value": "any",
-          "valueType": "minus"
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,1,target)|(1,0,target)|(2,0,target)"
+            }
+          ]
         },
         {
           "type": "element",
-          "value": "earth"
+          "value": "all",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ]
         }
       ]
     }

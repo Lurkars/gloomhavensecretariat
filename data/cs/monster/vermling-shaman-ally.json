@@ -1,15 +1,15 @@
 {
   "name": "vermling-shaman-ally",
-  "edition": "cs",
   "thumbnail": "gh-vermling-shaman",
+  "edition": "cs",
   "deck": "shaman-ally",
-  "count": 6,
   "hidden": true,
+  "count": 6,
   "baseStat": {
+    "type": "normal",
     "actions": [],
     "immunities": [],
-    "special": [],
-    "type": "normal"
+    "special": []
   },
   "stats": [
     {
@@ -133,6 +133,7 @@
       ]
     },
     {
+      "type": "elite",
       "level": 0,
       "health": 3,
       "movement": 3,
@@ -143,10 +144,10 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 1,
       "health": 3,
       "movement": 3,
@@ -157,10 +158,10 @@
           "type": "shield",
           "value": 3
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 2,
       "health": 4,
       "movement": 3,
@@ -171,10 +172,10 @@
           "type": "shield",
           "value": 3
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 3,
       "health": 5,
       "movement": 3,
@@ -185,10 +186,10 @@
           "type": "shield",
           "value": 3
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 4,
       "health": 5,
       "movement": 3,
@@ -203,10 +204,10 @@
           "type": "shield",
           "value": 4
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 5,
       "health": 6,
       "movement": 3,
@@ -221,10 +222,10 @@
           "type": "shield",
           "value": 4
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 6,
       "health": 6,
       "movement": 3,
@@ -239,10 +240,10 @@
           "type": "shield",
           "value": 5
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 7,
       "health": 8,
       "movement": 3,
@@ -257,8 +258,7 @@
           "type": "shield",
           "value": 5
         }
-      ],
-      "type": "elite"
+      ]
     }
   ]
 }

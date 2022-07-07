@@ -125,6 +125,12 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setMaxUndo(maxUndo: number) {
+    this.settings.maxUndo = maxUndo;
+    this.storeSettings();
+  }
+
+
   addSpoiler(spoiler: string) {
     if (this.settings.spoilers.indexOf(spoiler) == -1) {
       this.settings.spoilers.push(spoiler);

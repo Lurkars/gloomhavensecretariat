@@ -11,12 +11,7 @@
 
   <ghs-character-initiative (click)="close()" [character]="objective"></ghs-character-initiative>
 
-  <div class="highlight-conditions">
-    <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.highlightedConditions(objective)">
-      <img src="./assets/images/condition/{{entityCondition.name}}.svg" />
-      <span class="value" *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
-    </span>
-  </div>
+  <ghs-highlight-conditions [entity]="objective"></ghs-highlight-conditions>
 
   <div class="stats">
     <div class="column col-1" (click)="toggle()">

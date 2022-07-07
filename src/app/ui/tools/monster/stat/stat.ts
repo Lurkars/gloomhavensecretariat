@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { Action, ActionType } from "src/app/game/model/Action";
 import { MonsterData } from "src/app/game/model/data/MonsterData";
 import { MonsterStat } from "src/app/game/model/MonsterStat";

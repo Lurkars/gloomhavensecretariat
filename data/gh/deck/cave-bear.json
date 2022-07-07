@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "cave-bear",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 596,
+      "cardId": 596,
       "initiative": 13,
       "actions": [
         {
@@ -19,7 +19,7 @@
       ]
     },
     {
-      "cardId" : 597,
+      "cardId": 597,
       "initiative": 14,
       "actions": [
         {
@@ -41,7 +41,7 @@
       ]
     },
     {
-      "cardId" : 598,
+      "cardId": 598,
       "initiative": 34,
       "shuffle": true,
       "actions": [
@@ -59,7 +59,7 @@
       ]
     },
     {
-      "cardId" : 599,
+      "cardId": 599,
       "initiative": 41,
       "actions": [
         {
@@ -75,7 +75,7 @@
       ]
     },
     {
-      "cardId" : 600,
+      "cardId": 600,
       "initiative": 60,
       "actions": [
         {
@@ -91,7 +91,7 @@
       ]
     },
     {
-      "cardId" : 601,
+      "cardId": 601,
       "initiative": 80,
       "shuffle": true,
       "actions": [
@@ -119,7 +119,7 @@
       ]
     },
     {
-      "cardId" : 602,
+      "cardId": 602,
       "initiative": 61,
       "actions": [
         {
@@ -141,7 +141,7 @@
       ]
     },
     {
-      "cardId" : 603,
+      "cardId": 603,
       "initiative": 3,
       "actions": [
         {

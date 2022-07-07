@@ -1,11 +1,11 @@
 {
-  "edition": "jotl",
   "name": "black-sludge",
+  "edition": "jotl",
   "abilities": [
     {
-      "cardId" : 428,
-      "initiative": 36,
       "name": "Hasty Assault",
+      "cardId": 428,
+      "initiative": 36,
       "actions": [
         {
           "type": "move",
@@ -26,9 +26,9 @@
       ]
     },
     {
-      "cardId" : 429,
-      "initiative": 57,
       "name": "Nothing Special",
+      "cardId": 429,
+      "initiative": 57,
       "actions": [
         {
           "type": "move",
@@ -49,9 +49,9 @@
       ]
     },
     {
-      "cardId" : 430,
-      "initiative": 57,
       "name": "Toxic Explosion",
+      "cardId": 430,
+      "initiative": 57,
       "actions": [
         {
           "type": "attack",
@@ -87,9 +87,9 @@
       ]
     },
     {
-      "cardId" : 431,
-      "initiative": 66,
       "name": "Calculated Strike",
+      "cardId": 431,
+      "initiative": 66,
       "actions": [
         {
           "type": "move",
@@ -110,9 +110,9 @@
       ]
     },
     {
-      "cardId" : 432,
-      "initiative": 66,
       "name": "Feed",
+      "cardId": 432,
+      "initiative": 66,
       "actions": [
         {
           "type": "move",
@@ -148,9 +148,9 @@
       ]
     },
     {
-      "cardId" : 433,
-      "initiative": 85,
       "name": "Plasma Ward",
+      "cardId": 433,
+      "initiative": 85,
       "actions": [
         {
           "type": "push",
@@ -180,10 +180,10 @@
       ]
     },
     {
-      "cardId" : 434,
-      "initiative": 85,
       "name": "Black Hex",
-      "shuffle" : true,
+      "cardId": 434,
+      "initiative": 85,
+      "shuffle": true,
       "actions": [
         {
           "type": "custom",
@@ -207,10 +207,10 @@
       ]
     },
     {
-      "cardId" : 435,
-      "initiative": 85,
       "name": "Septic Hex",
-      "shuffle" : true,
+      "cardId": 435,
+      "initiative": 85,
+      "shuffle": true,
       "actions": [
         {
           "type": "custom",

@@ -1,16 +1,16 @@
 {
   "name": "living-wall",
-  "edition": "cs",  
   "thumbnail": "cs-harrower-aegis",
+  "edition": "cs",
   "deck": "harrower-aegis",
-  "count": 1,
   "boss": true,
   "hidden": true,
+  "count": 1,
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [],
-    "special": [],
-    "type": "boss"
+    "special": []
   },
   "stats": [
     {

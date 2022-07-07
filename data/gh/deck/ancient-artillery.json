@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "ancient-artillery",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 700,
+      "cardId": 700,
       "initiative": 46,
       "actions": [
         {
@@ -21,7 +21,7 @@
       ]
     },
     {
-      "cardId" : 701,
+      "cardId": 701,
       "initiative": 71,
       "shuffle": true,
       "actions": [
@@ -39,7 +39,7 @@
       ]
     },
     {
-      "cardId" : 702,
+      "cardId": 702,
       "initiative": 71,
       "shuffle": true,
       "actions": [
@@ -57,7 +57,7 @@
       ]
     },
     {
-      "cardId" : 703,
+      "cardId": 703,
       "initiative": 37,
       "actions": [
         {
@@ -89,7 +89,7 @@
       ]
     },
     {
-      "cardId" : 704,
+      "cardId": 704,
       "initiative": 37,
       "actions": [
         {
@@ -121,7 +121,7 @@
       ]
     },
     {
-      "cardId" : 705,
+      "cardId": 705,
       "initiative": 95,
       "actions": [
         {
@@ -132,7 +132,7 @@
       ]
     },
     {
-      "cardId" : 706,
+      "cardId": 706,
       "initiative": 17,
       "actions": [
         {
@@ -157,7 +157,7 @@
       ]
     },
     {
-      "cardId" : 707,
+      "cardId": 707,
       "initiative": 46,
       "actions": [
         {

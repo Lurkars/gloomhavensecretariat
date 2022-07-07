@@ -1,11 +1,11 @@
 {
-  "edition": "jotl",
   "name": "imp",
+  "edition": "jotl",
   "abilities": [
     {
-      "cardId" : 436,
-      "initiative": 5,
       "name": "Phase Out",
+      "cardId": 436,
+      "initiative": 5,
       "actions": [
         {
           "type": "shield",
@@ -28,9 +28,9 @@
       ]
     },
     {
-      "cardId" : 437,
-      "initiative": 37,
       "name": "Nothing Special",
+      "cardId": 437,
+      "initiative": 37,
       "actions": [
         {
           "type": "move",
@@ -51,9 +51,9 @@
       ]
     },
     {
-      "cardId" : 438,
-      "initiative": 37,
       "name": "Nothing Special",
+      "cardId": 438,
+      "initiative": 37,
       "actions": [
         {
           "type": "move",
@@ -74,9 +74,9 @@
       ]
     },
     {
-      "cardId" : 439,
-      "initiative": 42,
       "name": "Restoration",
+      "cardId": 439,
+      "initiative": 42,
       "shuffle": true,
       "actions": [
         {
@@ -97,9 +97,9 @@
       ]
     },
     {
-      "cardId" : 440,
-      "initiative": 42,
       "name": "Cripple",
+      "cardId": 440,
+      "initiative": 42,
       "shuffle": true,
       "actions": [
         {
@@ -129,9 +129,9 @@
       ]
     },
     {
-      "cardId" : 441,
-      "initiative": 76,
       "name": "Calculated Strike",
+      "cardId": 441,
+      "initiative": 76,
       "actions": [
         {
           "type": "move",
@@ -152,9 +152,9 @@
       ]
     },
     {
-      "cardId" : 442,
-      "initiative": 42,
       "name": "Dark Charm",
+      "cardId": 442,
+      "initiative": 42,
       "actions": [
         {
           "type": "move",
@@ -183,9 +183,9 @@
       ]
     },
     {
-      "cardId" : 443,
-      "initiative": 24,
       "name": "Tip the Scales",
+      "cardId": 443,
+      "initiative": 24,
       "actions": [
         {
           "type": "condition",

@@ -1,6 +1,6 @@
 {
-  "edition": "gh",
   "name": "harrower-infester",
+  "edition": "gh",
   "abilities": [
     {
       "cardId": 724,

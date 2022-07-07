@@ -2,9 +2,10 @@
   "name": "inox-bloodguard",
   "edition": "cs",
   "deck": "boss",
-  "count": 2,
   "boss": true,
+  "count": 2,
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [
       "muddle",
@@ -13,8 +14,7 @@
       "curse",
       "disarm"
     ],
-    "special": [],
-    "type": "boss"
+    "special": []
   },
   "stats": [
     {

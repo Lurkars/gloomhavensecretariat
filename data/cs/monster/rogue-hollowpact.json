@@ -1,12 +1,13 @@
 {
   "name": "rogue-hollowpact",
-  "edition": "cs",
   "thumbnail": "gh-colorless",
+  "edition": "cs",
   "deck": "boss",
-  "count": 1,
   "boss": true,
   "hidden": true,
+  "count": 1,
   "baseStat": {
+    "type": "boss",
     "actions": [
       {
         "type": "condition",
@@ -63,8 +64,7 @@
           "value": "%data.custom.cs.rogue-hollowpact.3%"
         }
       ]
-    ],
-    "type": "boss"
+    ]
   },
   "stats": [
     {

@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "giant-viper",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 684,
+      "cardId": 684,
       "initiative": 32,
       "shuffle": true,
       "actions": [
@@ -26,7 +26,7 @@
       ]
     },
     {
-      "cardId" : 685,
+      "cardId": 685,
       "initiative": 32,
       "shuffle": true,
       "actions": [
@@ -49,7 +49,7 @@
       ]
     },
     {
-      "cardId" : 686,
+      "cardId": 686,
       "initiative": 11,
       "actions": [
         {
@@ -64,7 +64,7 @@
       ]
     },
     {
-      "cardId" : 687,
+      "cardId": 687,
       "initiative": 43,
       "actions": [
         {
@@ -91,7 +91,7 @@
       ]
     },
     {
-      "cardId" : 688,
+      "cardId": 688,
       "initiative": 58,
       "actions": [
         {
@@ -107,7 +107,7 @@
       ]
     },
     {
-      "cardId" : 689,
+      "cardId": 689,
       "initiative": 58,
       "actions": [
         {
@@ -129,7 +129,7 @@
       ]
     },
     {
-      "cardId" : 690,
+      "cardId": 690,
       "initiative": 43,
       "actions": [
         {
@@ -156,7 +156,7 @@
       ]
     },
     {
-      "cardId" : 691,
+      "cardId": 691,
       "initiative": 23,
       "actions": [
         {

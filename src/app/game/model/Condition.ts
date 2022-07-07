@@ -33,7 +33,10 @@ export enum ConditionType {
   expire = "expire",
   value = "value",
   clearHeal = "clearHeal",
-  preventHeal = "preventHeal"
+  preventHeal = "preventHeal",
+  apply = "apply",
+  positive = "positive",
+  negative = "negative"
 }
 
 export enum EntityConditionState {
@@ -88,6 +91,10 @@ export class Condition {
       this.types.push(ConditionType.clearHeal);
     }
 
+    if ([ ConditionName.poison, ConditionName.poison_x, ConditionName.ward, ConditionName.brittle ].indexOf(this.name) != -1) {
+      this.types.push(ConditionType.apply);
+    }
+
     if ([ ConditionName.poison, ConditionName.poison_x, ConditionName.infect ].indexOf(this.name) != -1) {
       this.types.push(ConditionType.preventHeal);
     }
@@ -95,6 +102,15 @@ export class Condition {
     if ([ ConditionName.stun, ConditionName.immobilize, ConditionName.disarm, ConditionName.muddle, ConditionName.invisible, ConditionName.strengthen, ConditionName.impair ].indexOf(this.name) != -1) {
       this.types.push(ConditionType.expire);
     }
+
+    if ([ ConditionName.regenerate, ConditionName.ward, ConditionName.invisible, ConditionName.strengthen, ConditionName.bless ].indexOf(this.name) != -1) {
+      this.types.push(ConditionType.positive);
+    }
+
+    if (this.types.indexOf(ConditionType.positive) == -1) {
+      this.types.push(ConditionType.negative);
+    }
+
   }
 
 }
@@ -104,15 +120,13 @@ export class EntityCondition extends Condition {
   state: EntityConditionState;
   expired: boolean = false;
   highlight: boolean = false;
-  count: number = 0;
-
   constructor(name: ConditionName, value: number = 1) {
     super(name, value);
     this.state = EntityConditionState.normal;
   }
 
   toModel(): GameEntityConditionModel {
-    return new GameEntityConditionModel(this.name, this.value, this.state, this.expired, this.count);
+    return new GameEntityConditionModel(this.name, this.value, this.state, this.expired, this.highlight);
   }
 
   fromModel(model: GameEntityConditionModel) {
@@ -120,6 +134,7 @@ export class EntityCondition extends Condition {
     this.value = model.value;
     this.state = model.state;
     this.expired = model.expired;
+    this.highlight = model.highlight;
   }
 
 }
@@ -128,16 +143,16 @@ export class GameEntityConditionModel {
 
   name: ConditionName;
   value: number;
-  count: number;
   state: EntityConditionState;
   expired: boolean;
+  highlight: boolean = false;
 
-  constructor(name: ConditionName, value: number, state: EntityConditionState, expired: boolean, count: number) {
+  constructor(name: ConditionName, value: number, state: EntityConditionState, expired: boolean, highlight: boolean) {
     this.name = name;
     this.value = value;
     this.state = state;
     this.expired = expired;
-    this.count = count;
+    this.highlight = highlight;
   }
 
 }

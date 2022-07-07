@@ -1,25 +1,25 @@
 {
   "name": "water-spirit",
   "edition": "cs",
-  "abilies": [
+  "abilities": [
     {
       "cardId": 1246,
+      "initiative": 37,
       "shuffle": true,
-      "initiavie": 37,
       "actions": [
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "custom",
-              "value": "Add +2 Attack if the target is occupying a water tile"
+              "value": "%data.custom.cs.water-spirit.2%"
             }
           ]
         }
@@ -27,17 +27,17 @@
     },
     {
       "cardId": 1247,
+      "initiative": 30,
       "shuffle": true,
-      "initiavie": 30,
       "actions": [
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
@@ -46,11 +46,7 @@
             },
             {
               "type": "custom",
-              "value": "where X is equal to the number of"
-            },
-            {
-              "type": "range",
-              "value": "watertileswithin1."
+              "value": "%data.custom.cs.water-spirit.3%"
             }
           ]
         }
@@ -58,53 +54,45 @@
     },
     {
       "cardId": 1248,
-      "shuffle": false,
-      "initiavie": 16,
+      "initiative": 16,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "minus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus"
         },
         {
           "type": "custom",
-          "value": "All enemies occupying a water tile suffer 1 damage."
+          "value": "%data.custom.cs.water-spirit.4%"
         }
       ]
     },
     {
       "cardId": 1249,
-      "shuffle": false,
-      "initiavie": 69,
+      "initiative": 69,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
               "type": "area",
-              "value": "arc-3"
-            }
-          ]
-        },
-        {
-          "type": "custom",
-          "value": " ",
-          "subActions": [
+              "value": "(1,0,target)|(0,1,active)|(1,1,target)|(1,2,target)"
+            },
             {
               "type": "custom",
-              "value": "Create a water tile in all hexes occupied by a target containing no overlay tiles."
+              "value": "%data.custom.cs.water-spirit.5%"
             }
           ]
         }
@@ -112,21 +100,20 @@
     },
     {
       "cardId": 1250,
-      "shuffle": false,
-      "initiavie": 44,
+      "initiative": 44,
       "actions": [
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "range",
-              "value": "3"
+              "value": 3
             },
             {
               "type": "pull",
-              "value": "2"
+              "value": 2
             },
             {
               "type": "condition",
@@ -138,26 +125,21 @@
     },
     {
       "cardId": 1251,
-      "shuffle": false,
-      "initiavie": 53,
+      "initiative": 53,
       "actions": [
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "1",
-          "valueType": "minus",
+          "value": "(X - 1)",
+          "valueType": "plus",
           "subActions": [
             {
               "type": "custom",
-              "value": "+X where X is equal to the number of"
-            },
-            {
-              "type": "range",
-              "value": "watertileswithin1,upto3."
+              "value": "%data.custom.cs.water-spirit.6%"
             }
           ]
         }
@@ -165,61 +147,45 @@
     },
     {
       "cardId": 1252,
-      "shuffle": false,
-      "initiavie": 86,
+      "initiative": 86,
       "actions": [
         {
           "type": "move",
-          "value": "2",
+          "value": 2,
           "valueType": "plus"
         },
         {
           "type": "heal",
-          "value": "3",
+          "value": 3,
           "subActions": [
             {
-              "type": "custom",
-              "value": "Self"
+              "type": "specialTarget",
+              "value": "self"
             }
           ]
         },
         {
           "type": "custom",
-          "value": "^Create a water tile in an unoccupied",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "adjacent hex closest to an enemy"
-            },
-            {
-              "type": "custom",
-              "value": "containing no overlay tile."
-            }
-          ]
+          "value": "%data.custom.cs.water-spirit.7%"
         }
       ]
     },
     {
       "cardId": 1253,
-      "shuffle": false,
-      "initiavie": 22,
+      "initiative": 22,
       "actions": [
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "plus",
           "subActions": [
             {
               "type": "target",
-              "value": "2"
+              "value": 2
             },
             {
               "type": "custom",
-              "value": "Create a water tile in all hexes occupied by"
-            },
-            {
-              "type": "custom",
-              "value": "a target containing no overlay tiles."
+              "value": "%data.custom.cs.water-spirit.5%"
             }
           ]
         }

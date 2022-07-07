@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "stone-golem",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 740,
+      "cardId": 740,
       "initiative": 11,
       "actions": [
         {
@@ -19,7 +19,7 @@
       ]
     },
     {
-      "cardId" : 741,
+      "cardId": 741,
       "initiative": 28,
       "actions": [
         {
@@ -39,7 +39,7 @@
       ]
     },
     {
-      "cardId" : 742,
+      "cardId": 742,
       "initiative": 51,
       "shuffle": true,
       "actions": [
@@ -56,7 +56,7 @@
       ]
     },
     {
-      "cardId" : 743,
+      "cardId": 743,
       "initiative": 65,
       "actions": [
         {
@@ -72,7 +72,7 @@
       ]
     },
     {
-      "cardId" : 744,
+      "cardId": 744,
       "initiative": 72,
       "actions": [
         {
@@ -93,7 +93,7 @@
       ]
     },
     {
-      "cardId" : 745,
+      "cardId": 745,
       "initiative": 90,
       "shuffle": true,
       "actions": [
@@ -110,7 +110,7 @@
       ]
     },
     {
-      "cardId" : 746,
+      "cardId": 746,
       "initiative": 83,
       "actions": [
         {
@@ -132,7 +132,7 @@
       ]
     },
     {
-      "cardId" : 747,
+      "cardId": 747,
       "initiative": 28,
       "actions": [
         {

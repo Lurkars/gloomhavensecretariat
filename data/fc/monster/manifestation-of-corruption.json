@@ -1,9 +1,11 @@
 {
-  "boss": true,
-  "count": 1,
-  "edition": "fc",
   "name": "manifestation-of-corruption",
+  "edition": "fc",
+  "boss": true,
+  "flying": true,
+  "count": 1,
   "baseStat": {
+    "type": "boss",
     "actions": [
       {
         "type": "custom",
@@ -19,64 +21,63 @@
       "muddle",
       "curse"
     ],
-    "special": [],
-    "type": "boss"
+    "special": []
   },
   "stats": [
     {
-      "attack": 5,
-      "health": "22xC",
       "level": 0,
+      "health": "22xC",
       "movement": 0,
+      "attack": 5,
       "range": 3
     },
     {
-      "attack": 5,
-      "health": "27xC",
       "level": 1,
+      "health": "27xC",
       "movement": 0,
+      "attack": 5,
       "range": 4
     },
     {
-      "attack": 6,
-      "health": "32xC",
       "level": 2,
+      "health": "32xC",
       "movement": 0,
+      "attack": 6,
       "range": 4
     },
     {
-      "attack": 6,
-      "health": "38xC",
       "level": 3,
+      "health": "38xC",
       "movement": 0,
+      "attack": 6,
       "range": 5
     },
     {
-      "attack": 7,
-      "health": "44xC",
       "level": 4,
+      "health": "44xC",
       "movement": 0,
+      "attack": 7,
       "range": 5
     },
     {
-      "attack": 7,
-      "health": "49xC",
       "level": 5,
+      "health": "49xC",
       "movement": 0,
+      "attack": 7,
       "range": 6
     },
     {
-      "attack": 8,
-      "health": "56xC",
       "level": 6,
+      "health": "56xC",
       "movement": 0,
+      "attack": 8,
       "range": 6
     },
     {
-      "attack": 8,
-      "health": "56xC",
       "level": 7,
+      "health": "56xC",
       "movement": 0,
+      "attack": 8,
       "range": 7
     }
   ]

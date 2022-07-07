@@ -1,10 +1,11 @@
 {
+  "name": "human-commander",
+  "edition": "fc",
+  "deck": "boss",
   "boss": true,
   "count": 1,
-  "deck": "boss",
-  "edition": "fc",
-  "name": "human-commander",
   "baseStat": {
+    "type": "boss",
     "actions": [
       {
         "type": "shield",
@@ -57,36 +58,35 @@
           ]
         }
       ]
-    ],
-    "type": "boss"
+    ]
   },
   "stats": [
     {
-      "attack": 4,
-      "health": "6xC",
       "level": 0,
+      "health": "6xC",
       "movement": 2,
-      "range": 0
-    },
-    {
       "attack": 4,
-      "health": "8xC",
+      "range": 0
+    },
+    {
       "level": 1,
+      "health": "8xC",
       "movement": 3,
+      "attack": 4,
       "range": 0
     },
     {
-      "attack": 5,
-      "health": "10xC",
       "level": 2,
+      "health": "10xC",
       "movement": 3,
+      "attack": 5,
       "range": 0
     },
     {
-      "attack": 5,
-      "health": "11xC",
       "level": 3,
+      "health": "11xC",
       "movement": 4,
+      "attack": 5,
       "range": 0,
       "actions": [
         {
@@ -135,10 +135,10 @@
       ]
     },
     {
-      "attack": 6,
-      "health": "13xC",
       "level": 4,
-      "movement":4,
+      "health": "13xC",
+      "movement": 4,
+      "attack": 6,
       "range": 0,
       "actions": [
         {
@@ -187,10 +187,10 @@
       ]
     },
     {
-      "attack": 6,
-      "health": "14xC",
       "level": 5,
+      "health": "14xC",
       "movement": 4,
+      "attack": 6,
       "range": 0,
       "actions": [
         {
@@ -239,10 +239,10 @@
       ]
     },
     {
-      "attack": 7,
-      "health": "17xC",
       "level": 6,
+      "health": "17xC",
       "movement": 4,
+      "attack": 7,
       "range": 0,
       "actions": [
         {
@@ -291,10 +291,10 @@
       ]
     },
     {
-      "attack": 8,
-      "health": "20xC",
       "level": 7,
+      "health": "20xC",
       "movement": 5,
+      "attack": 8,
       "range": 0,
       "actions": [
         {

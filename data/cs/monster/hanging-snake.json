@@ -1,11 +1,12 @@
 {
   "name": "hanging-snake",
-  "edition": "cs",
   "thumbnail": "gh-giant-viper",
+  "edition": "cs",
   "deck": "giant-viper",
-  "count": 10,
   "hidden": true,
+  "count": 10,
   "baseStat": {
+    "type": "normal",
     "actions": [
       {
         "type": "condition",
@@ -13,8 +14,7 @@
       }
     ],
     "immunities": [],
-    "special": [],
-    "type": "normal"
+    "special": []
   },
   "stats": [
     {
@@ -66,60 +66,60 @@
       "attack": 3
     },
     {
+      "type": "elite",
       "level": 0,
       "health": 6,
       "movement": 2,
-      "attack": 2,
-      "type": "elite"
+      "attack": 2
     },
     {
+      "type": "elite",
       "level": 1,
       "health": 10,
       "movement": 2,
-      "attack": 2,
-      "type": "elite"
+      "attack": 2
     },
     {
+      "type": "elite",
       "level": 2,
       "health": 14,
       "movement": 3,
-      "attack": 2,
-      "type": "elite"
+      "attack": 2
     },
     {
+      "type": "elite",
       "level": 3,
       "health": 16,
       "movement": 3,
-      "attack": 3,
-      "type": "elite"
+      "attack": 3
     },
     {
+      "type": "elite",
       "level": 4,
       "health": 22,
       "movement": 3,
-      "attack": 3,
-      "type": "elite"
+      "attack": 3
     },
     {
+      "type": "elite",
       "level": 5,
       "health": 26,
       "movement": 4,
-      "attack": 3,
-      "type": "elite"
+      "attack": 3
     },
     {
+      "type": "elite",
       "level": 6,
       "health": 28,
       "movement": 4,
-      "attack": 4,
-      "type": "elite"
+      "attack": 4
     },
     {
+      "type": "elite",
       "level": 7,
       "health": 34,
       "movement": 4,
-      "attack": 4,
-      "type": "elite"
+      "attack": 4
     }
   ]
 }

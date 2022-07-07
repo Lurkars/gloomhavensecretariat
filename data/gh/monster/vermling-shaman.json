@@ -1,85 +1,73 @@
 {
-  "count": 6,
-  "deck": "shaman",
-  "edition": "gh",
   "name": "vermling-shaman",
+  "edition": "gh",
+  "deck": "shaman",
+  "count": 6,
   "baseStat": {
+    "type": "normal",
     "actions": [],
     "immunities": [],
-    "special": [],
-    "type": "normal"
+    "special": []
   },
   "stats": [
     {
+      "level": 0,
+      "health": 2,
+      "movement": 2,
+      "attack": 1,
+      "range": 3,
       "actions": [
         {
           "type": "shield",
           "value": 2
         }
-      ],
-      "attack": 1,
-      "health": 2,
-      "level": 0,
-      "movement": 2,
-      "range": 3
+      ]
     },
     {
-      "actions": [
-        {
-          "type": "shield",
-          "value": 3
-        }
-      ],
-      "attack": 1,
-      "health": 2,
       "level": 1,
+      "health": 2,
       "movement": 2,
-      "range": 3
-    },
-    {
-      "actions": [
-        {
-          "type": "shield",
-          "value": 3
-        }
-      ],
       "attack": 1,
-      "health": 3,
+      "range": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
       "level": 2,
+      "health": 3,
       "movement": 2,
-      "range": 4
-    },
-    {
+      "attack": 1,
+      "range": 4,
       "actions": [
         {
           "type": "shield",
           "value": 3
         }
-      ],
-      "attack": 2,
-      "health": 3,
+      ]
+    },
+    {
       "level": 3,
-      "movement": 2,
-      "range": 4
-    },
-    {
-      "actions": [
-        {
-          "type": "shield",
-          "value": 3
-        },
-        {
-          "type": "condition",
-          "value": "muddle"
-        }
-      ],
-      "attack": 2,
       "health": 3,
+      "movement": 2,
+      "attack": 2,
+      "range": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
       "level": 4,
+      "health": 3,
       "movement": 3,
-      "range": 4
-    },
-    {
+      "attack": 2,
+      "range": 4,
       "actions": [
         {
           "type": "shield",
@@ -89,14 +77,14 @@
           "type": "condition",
           "value": "muddle"
         }
-      ],
-      "attack": 3,
-      "health": 4,
+      ]
+    },
+    {
       "level": 5,
+      "health": 4,
       "movement": 3,
-      "range": 4
-    },
-    {
+      "attack": 3,
+      "range": 4,
       "actions": [
         {
           "type": "shield",
@@ -106,14 +94,14 @@
           "type": "condition",
           "value": "muddle"
         }
-      ],
-      "attack": 4,
-      "health": 5,
+      ]
+    },
+    {
       "level": 6,
+      "health": 5,
       "movement": 3,
-      "range": 4
-    },
-    {
+      "attack": 4,
+      "range": 4,
       "actions": [
         {
           "type": "shield",
@@ -123,88 +111,88 @@
           "type": "condition",
           "value": "muddle"
         }
-      ],
-      "attack": 4,
+      ]
+    },
+    {
+      "level": 7,
       "health": 7,
-      "level": 7,
       "movement": 3,
-      "range": 4
+      "attack": 4,
+      "range": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     },
     {
+      "type": "elite",
+      "level": 0,
+      "health": 3,
+      "movement": 3,
+      "attack": 2,
+      "range": 3,
       "actions": [
         {
           "type": "shield",
           "value": 2
         }
-      ],
-      "attack": 2,
-      "health": 3,
-      "level": 0,
-      "movement": 3,
-      "range": 3,
-      "type": "elite"
+      ]
     },
     {
-      "actions": [
-        {
-          "type": "shield",
-          "value": 3
-        }
-      ],
-      "attack": 2,
-      "health": 3,
+      "type": "elite",
       "level": 1,
+      "health": 3,
       "movement": 3,
-      "range": 3,
-      "type": "elite"
-    },
-    {
-      "actions": [
-        {
-          "type": "shield",
-          "value": 3
-        }
-      ],
       "attack": 2,
-      "health": 4,
-      "level": 2,
-      "movement": 3,
-      "range": 4,
-      "type": "elite"
-    },
-    {
+      "range": 3,
       "actions": [
         {
           "type": "shield",
           "value": 3
         }
-      ],
-      "attack": 3,
-      "health": 5,
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 4,
+      "movement": 3,
+      "attack": 2,
+      "range": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "type": "elite",
       "level": 3,
-      "movement": 3,
-      "range": 4,
-      "type": "elite"
-    },
-    {
-      "actions": [
-        {
-          "type": "shield",
-          "value": 4
-        },
-        {
-          "type": "condition",
-          "value": "muddle"
-        }
-      ],
-      "attack": 3,
       "health": 5,
-      "level": 4,
       "movement": 3,
+      "attack": 3,
       "range": 4,
-      "type": "elite"
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
     },
     {
+      "type": "elite",
+      "level": 4,
+      "health": 5,
+      "movement": 3,
+      "attack": 3,
+      "range": 4,
       "actions": [
         {
           "type": "shield",
@@ -214,33 +202,33 @@
           "type": "condition",
           "value": "muddle"
         }
-      ],
-      "attack": 4,
-      "health": 6,
+      ]
+    },
+    {
+      "type": "elite",
       "level": 5,
-      "movement": 3,
-      "range": 4,
-      "type": "elite"
-    },
-    {
-      "actions": [
-        {
-          "type": "shield",
-          "value": 5
-        },
-        {
-          "type": "condition",
-          "value": "muddle"
-        }
-      ],
-      "attack": 4,
       "health": 6,
-      "level": 6,
       "movement": 3,
+      "attack": 4,
       "range": 4,
-      "type": "elite"
+      "actions": [
+        {
+          "type": "shield",
+          "value": 4
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     },
     {
+      "type": "elite",
+      "level": 6,
+      "health": 6,
+      "movement": 3,
+      "attack": 4,
+      "range": 4,
       "actions": [
         {
           "type": "shield",
@@ -250,13 +238,25 @@
           "type": "condition",
           "value": "muddle"
         }
-      ],
-      "attack": 4,
-      "health": 8,
+      ]
+    },
+    {
+      "type": "elite",
       "level": 7,
+      "health": 8,
       "movement": 3,
+      "attack": 4,
       "range": 4,
-      "type": "elite"
+      "actions": [
+        {
+          "type": "shield",
+          "value": 5
+        },
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     }
   ]
 }

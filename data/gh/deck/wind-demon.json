@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "wind-demon",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 644,
+      "cardId": 644,
       "initiative": 9,
       "actions": [
         {
@@ -41,7 +41,7 @@
       ]
     },
     {
-      "cardId" : 645,
+      "cardId": 645,
       "initiative": 21,
       "shuffle": true,
       "actions": [
@@ -68,7 +68,7 @@
       ]
     },
     {
-      "cardId" : 646,
+      "cardId": 646,
       "initiative": 21,
       "shuffle": true,
       "actions": [
@@ -95,7 +95,7 @@
       ]
     },
     {
-      "cardId" : 647,
+      "cardId": 647,
       "initiative": 29,
       "actions": [
         {
@@ -128,7 +128,7 @@
       ]
     },
     {
-      "cardId" : 648,
+      "cardId": 648,
       "initiative": 37,
       "actions": [
         {
@@ -168,7 +168,7 @@
       ]
     },
     {
-      "cardId" : 649,
+      "cardId": 649,
       "initiative": 43,
       "actions": [
         {
@@ -197,7 +197,7 @@
       ]
     },
     {
-      "cardId" : 650,
+      "cardId": 650,
       "initiative": 43,
       "actions": [
         {
@@ -232,7 +232,7 @@
       ]
     },
     {
-      "cardId" : 651,
+      "cardId": 651,
       "initiative": 2,
       "actions": [
         {

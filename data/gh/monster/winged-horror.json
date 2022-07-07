@@ -1,10 +1,11 @@
 {
+  "name": "winged-horror",
+  "edition": "gh",
+  "deck": "boss",
   "boss": true,
   "count": 1,
-  "deck": "boss",
-  "edition": "gh",
-  "name": "winged-horror",
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [
       "disarm",
@@ -58,57 +59,56 @@
           "valueType": "plus"
         }
       ]
-    ],
-    "type": "boss"
+    ]
   },
   "stats": [
     {
-      "attack": 3,
-      "health": "6xC",
       "level": 0,
-      "movement": 3
+      "health": "6xC",
+      "movement": 3,
+      "attack": 3
     },
     {
-      "attack": 3,
-      "health": "7xC",
       "level": 1,
-      "movement": 4
+      "health": "7xC",
+      "movement": 4,
+      "attack": 3
     },
     {
-      "attack": 4,
-      "health": "8xC",
       "level": 2,
-      "movement": 4
+      "health": "8xC",
+      "movement": 4,
+      "attack": 4
     },
     {
-      "attack": 4,
-      "health": "10xC",
       "level": 3,
-      "movement": 4
+      "health": "10xC",
+      "movement": 4,
+      "attack": 4
     },
     {
-      "attack": 4,
-      "health": "12xC",
       "level": 4,
-      "movement": 5
+      "health": "12xC",
+      "movement": 5,
+      "attack": 4
     },
     {
-      "attack": 5,
-      "health": "14xC",
       "level": 5,
-      "movement": 5
+      "health": "14xC",
+      "movement": 5,
+      "attack": 5
     },
     {
-      "attack": 5,
-      "health": "17xC",
       "level": 6,
-      "movement": 5
+      "health": "17xC",
+      "movement": 5,
+      "attack": 5
     },
     {
-      "attack": 5,
-      "health": "20xC",
       "level": 7,
-      "movement": 5
+      "health": "20xC",
+      "movement": 5,
+      "attack": 5
     }
   ]
 }

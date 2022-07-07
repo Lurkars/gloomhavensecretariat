@@ -1,11 +1,11 @@
 {
-  "edition": "jotl",
   "name": "common-vermling-raider",
+  "edition": "jotl",
   "abilities": [
     {
-      "cardId" : 375,
-      "initiative": 50,
       "name": "Nothing Special",
+      "cardId": 375,
+      "initiative": 50,
       "actions": [
         {
           "type": "move",

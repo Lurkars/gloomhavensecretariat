@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "frost-demon",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 620,
+      "cardId": 620,
       "initiative": 18,
       "actions": [
         {
@@ -40,7 +40,7 @@
       ]
     },
     {
-      "cardId" : 621,
+      "cardId": 621,
       "initiative": 38,
       "actions": [
         {
@@ -56,7 +56,7 @@
       ]
     },
     {
-      "cardId" : 622,
+      "cardId": 622,
       "initiative": 58,
       "actions": [
         {
@@ -72,7 +72,7 @@
       ]
     },
     {
-      "cardId" : 623,
+      "cardId": 623,
       "initiative": 58,
       "actions": [
         {
@@ -111,7 +111,7 @@
       ]
     },
     {
-      "cardId" : 624,
+      "cardId": 624,
       "initiative": 78,
       "shuffle": true,
       "actions": [
@@ -138,7 +138,7 @@
       ]
     },
     {
-      "cardId" : 625,
+      "cardId": 625,
       "initiative": 78,
       "shuffle": true,
       "actions": [
@@ -165,7 +165,7 @@
       ]
     },
     {
-      "cardId" : 626,
+      "cardId": 626,
       "initiative": 58,
       "actions": [
         {
@@ -198,7 +198,7 @@
       ]
     },
     {
-      "cardId" : 627,
+      "cardId": 627,
       "initiative": 18,
       "actions": [
         {

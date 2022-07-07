@@ -1,44 +1,44 @@
 {
-  "edition": "gh",
   "name": "triangles",
+  "edition": "gh",
   "color": "#dcdcdc",
   "spoiler": true,
   "stats": [
     {
-      "health": 6,
-      "level": 1
+      "level": 1,
+      "health": 6
     },
     {
-      "health": 7,
-      "level": 2
+      "level": 2,
+      "health": 7
     },
     {
-      "health": 8,
-      "level": 3
+      "level": 3,
+      "health": 8
     },
     {
-      "health": 9,
-      "level": 4
+      "level": 4,
+      "health": 9
     },
     {
-      "health": 10,
-      "level": 5
+      "level": 5,
+      "health": 10
     },
     {
-      "health": 11,
-      "level": 6
+      "level": 6,
+      "health": 11
     },
     {
-      "health": 12,
-      "level": 7
+      "level": 7,
+      "health": 12
     },
     {
-      "health": 13,
-      "level": 8
+      "level": 8,
+      "health": 13
     },
     {
-      "health": 14,
-      "level": 9
+      "level": 9,
+      "health": 14
     }
   ]
 }

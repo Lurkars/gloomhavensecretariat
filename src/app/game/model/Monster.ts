@@ -26,7 +26,7 @@ export class Monster extends MonsterData implements Figure {
   entities: MonsterEntity[] = [];
 
   constructor(monsterData: MonsterData) {
-    super(monsterData.name, monsterData.count, monsterData.baseStat, monsterData.stats, monsterData.edition, monsterData.deck, monsterData.boss, monsterData.thumbnail, monsterData.thumbnailUrl, monsterData.spoiler);
+    super(monsterData.name, monsterData.count, monsterData.baseStat, monsterData.stats, monsterData.edition, monsterData.deck, monsterData.boss, monsterData.flying, monsterData.thumbnail, monsterData.thumbnailUrl, monsterData.spoiler);
     if (monsterData.baseStat) {
       for (let stat of monsterData.stats) {
         if (!stat.health && stat.health != 0) {
@@ -84,7 +84,7 @@ export class Monster extends MonsterData implements Figure {
     this.off = model.off;
     this.active = model.active;
     this.drawExtra = model.drawExtra;
-    this.abilities = model.abilities && model.abilities.length > 0 && model.abilities || gameManager.abilities(this).map((ability: Ability, index: number) => index);
+    this.abilities = model.abilities && model.abilities.length > 0 && model.abilities || gameManager.abilities(this) && gameManager.abilities(this).map((ability: Ability, index: number) => index) || [];
     this.ability = model.ability;
     this.entities = this.entities.filter((monsterEntity: MonsterEntity) => model.entities.map((gmem: GameMonsterEntityModel) => gmem.number).indexOf(monsterEntity.number) != -1);
     model.entities.forEach((value: GameMonsterEntityModel) => {

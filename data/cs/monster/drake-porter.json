@@ -1,12 +1,15 @@
 {
   "name": "drake-porter",
-  "edition": "cs",
   "thumbnail": "gh-vermling-shaman",
+  "edition": "cs",
   "deck": "boss",
-  "count": 6,
   "boss": true,
   "hidden": true,
+  "count": 6,
   "baseStat": {
+    "type": "boss",
+    "note": "%data.custom.cs.drake-porter.1%",
+    "movement": 3,
     "actions": [],
     "immunities": [
       "immobilize",
@@ -41,10 +44,7 @@
           "value": "%game.custom.summon% %data.monster.spitting-drake%"
         }
       ]
-    ],
-    "note": "%data.custom.cs.drake-porter.1%",
-    "type": "boss",
-    "movement": 3
+    ]
   },
   "stats": [
     {

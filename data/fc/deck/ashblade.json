@@ -1,6 +1,6 @@
 {
-  "edition": "fc",
   "name": "ashblade",
+  "edition": "fc",
   "abilities": [
     {
       "cardId": 1007,

@@ -1,12 +1,13 @@
 {
   "name": "eternal-demon",
-  "edition": "cs",
   "thumbnail": "gh-earth-demon",
+  "edition": "cs",
   "deck": "boss",
-  "count": 6,
   "boss": true,
   "hidden": true,
+  "count": 6,
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [
       "immobilize",
@@ -58,8 +59,7 @@
           ]
         }
       ]
-    ],
-    "type": "boss"
+    ]
   },
   "stats": [
     {

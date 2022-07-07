@@ -1,19 +1,19 @@
 {
   "name": "the-gilded-one",
+  "thumbnail": "gh-savvas-icestorm",
   "edition": "cs",
-  "thumbnail" : "gh-savvas-icestorm",
   "deck": "savvas-icestorm",
-  "count": 4,
   "boss": true,
   "hidden": true,
+  "count": 4,
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [
       "disarm",
       "immobilize"
     ],
-    "special": [],
-    "type": "boss"
+    "special": []
   },
   "stats": [
     {

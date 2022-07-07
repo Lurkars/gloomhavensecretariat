@@ -1,5 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
-import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
+import { Component, Input, ViewEncapsulation } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { Element } from "src/app/game/model/Element";
 import { GameState } from "src/app/game/model/Game";
@@ -20,7 +19,6 @@ export class ElementIconComponent extends GhsSvgComponent {
     this.src = './assets/images/element/' + this.element + '.svg';
     super.ngOnInit();
   }
-
 
   toggleElement(): void {
     gameManager.stateManager.before();

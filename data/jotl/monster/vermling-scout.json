@@ -1,118 +1,118 @@
 {
-  "count": 10,
-  "deck": "scout",
-  "edition": "jotl",
   "name": "vermling-scout",
+  "edition": "jotl",
+  "deck": "scout",
+  "count": 10,
   "baseStat": {
+    "type": "normal",
     "actions": [],
     "immunities": [],
-    "special": [],
-    "type": "normal"
+    "special": []
   },
   "stats": [
     {
-      "attack": 1,
+      "level": 0,
       "health": 2,
-      "level": 0,
-      "movement": 3
+      "movement": 3,
+      "attack": 1
     },
     {
-      "attack": 1,
-      "health": 3,
       "level": 1,
-      "movement": 3
-    },
-    {
-      "attack": 2,
       "health": 3,
+      "movement": 3,
+      "attack": 1
+    },
+    {
       "level": 2,
-      "movement": 3
+      "health": 3,
+      "movement": 3,
+      "attack": 2
     },
     {
-      "attack": 2,
-      "health": 5,
       "level": 3,
-      "movement": 3
+      "health": 5,
+      "movement": 3,
+      "attack": 2
     },
     {
-      "attack": 3,
+      "level": 4,
       "health": 6,
-      "level": 4,
-      "movement": 3
+      "movement": 3,
+      "attack": 3
     },
     {
-      "attack": 3,
-      "health": 8,
       "level": 5,
-      "movement": 3
+      "health": 8,
+      "movement": 3,
+      "attack": 3
     },
     {
-      "attack": 3,
+      "level": 6,
       "health": 10,
-      "level": 6,
-      "movement": 4
+      "movement": 4,
+      "attack": 3
     },
     {
-      "attack": 3,
-      "health": 13,
       "level": 7,
-      "movement": 4
+      "health": 13,
+      "movement": 4,
+      "attack": 3
     },
     {
-      "attack": 2,
-      "health": 4,
+      "type": "elite",
       "level": 0,
+      "health": 4,
       "movement": 3,
-      "type": "elite"
+      "attack": 2
     },
     {
-      "attack": 2,
-      "health": 5,
+      "type": "elite",
       "level": 1,
-      "movement": 3,
-      "type": "elite"
-    },
-    {
-      "attack": 3,
       "health": 5,
+      "movement": 3,
+      "attack": 2
+    },
+    {
+      "type": "elite",
       "level": 2,
+      "health": 5,
       "movement": 4,
-      "type": "elite"
+      "attack": 3
     },
     {
-      "attack": 3,
-      "health": 7,
+      "type": "elite",
       "level": 3,
+      "health": 7,
       "movement": 4,
-      "type": "elite"
+      "attack": 3
     },
     {
-      "attack": 4,
-      "health": 8,
+      "type": "elite",
       "level": 4,
+      "health": 8,
       "movement": 4,
-      "type": "elite"
+      "attack": 4
     },
     {
-      "attack": 4,
-      "health": 11,
+      "type": "elite",
       "level": 5,
+      "health": 11,
       "movement": 4,
-      "type": "elite"
+      "attack": 4
     },
     {
-      "attack": 4,
-      "health": 13,
+      "type": "elite",
       "level": 6,
+      "health": 13,
       "movement": 5,
-      "type": "elite"
+      "attack": 4
     },
     {
-      "attack": 4,
-      "health": 17,
+      "type": "elite",
       "level": 7,
+      "health": 17,
       "movement": 5,
-      "type": "elite"
+      "attack": 4
     }
   ]
 }

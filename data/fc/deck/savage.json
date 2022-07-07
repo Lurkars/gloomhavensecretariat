@@ -1,6 +1,6 @@
 {
-  "edition": "fc",
   "name": "savage",
+  "edition": "fc",
   "abilities": [
     {
       "cardId": 999,

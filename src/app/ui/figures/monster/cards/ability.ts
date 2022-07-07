@@ -4,7 +4,6 @@ import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { Ability } from 'src/app/game/model/Ability';
 import { PopupComponent } from 'src/app/ui/popup/popup';
-import { ghsUnit, ghsUnitUnit } from 'src/app/ui/helper/Static';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 

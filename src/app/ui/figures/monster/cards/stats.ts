@@ -1,14 +1,12 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
-import { Figure } from 'src/app/game/model/Figure';
 import { FigureError } from 'src/app/game/model/FigureError';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { MonsterStat } from 'src/app/game/model/MonsterStat';
 import { MonsterType } from 'src/app/game/model/MonsterType';
 import { DialogComponent } from 'src/app/ui/dialog/dialog';
-import { ghsUnit, ghsUnitUnit } from 'src/app/ui/helper/Static';
 import { PopupComponent } from 'src/app/ui/popup/popup';
 
 @Component({
@@ -19,6 +17,7 @@ import { PopupComponent } from 'src/app/ui/popup/popup';
 export class MonsterStatsComponent extends DialogComponent {
 
   @Input() monster!: Monster;
+  @Input() showName:boolean = false; 
   MonsterType = MonsterType;
 
   stats: MonsterStat | undefined = undefined;
@@ -140,6 +139,10 @@ export class MonsterStatsComponent extends DialogComponent {
       });
       gameManager.stateManager.after();
     }
+  }
+
+  getEdition(): string {
+    return gameManager.getEdition(this.monster);
   }
 
   override close(): void {

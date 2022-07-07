@@ -1,10 +1,12 @@
 {
+  "name": "merciless-overseer",
+  "edition": "gh",
+  "deck": "boss",
   "boss": true,
   "count": 1,
-  "deck": "boss",
-  "edition": "gh",
-  "name": "merciless-overseer",
   "baseStat": {
+    "type": "boss",
+    "note": "%data.custom.gh.merciless-overseer.2%",
     "actions": [],
     "immunities": [
       "disarm",
@@ -25,58 +27,56 @@
           "value": "%game.custom.summon% %data.monster.vermling-scout%"
         }
       ]
-    ],
-    "type": "boss",
-    "note": "%data.custom.gh.merciless-overseer.2%"
+    ]
   },
   "stats": [
     {
-      "attack": "V",
-      "health": "6xC",
       "level": 0,
-      "movement": 2
+      "health": "6xC",
+      "movement": 2,
+      "attack": "V"
     },
     {
-      "attack": "V",
-      "health": "8xC",
       "level": 1,
-      "movement": 2
+      "health": "8xC",
+      "movement": 2,
+      "attack": "V"
     },
     {
-      "attack": "V",
-      "health": "9xC",
       "level": 2,
-      "movement": 3
+      "health": "9xC",
+      "movement": 3,
+      "attack": "V"
     },
     {
-      "attack": "V",
-      "health": "11xC",
       "level": 3,
-      "movement": 3
+      "health": "11xC",
+      "movement": 3,
+      "attack": "V"
     },
     {
-      "attack": "V",
-      "health": "12xC",
       "level": 4,
-      "movement": 4
+      "health": "12xC",
+      "movement": 4,
+      "attack": "V"
     },
     {
-      "attack": "V",
-      "health": "14xC",
       "level": 5,
-      "movement": 4
+      "health": "14xC",
+      "movement": 4,
+      "attack": "V"
     },
     {
-      "attack": "V",
-      "health": "16xC",
       "level": 6,
-      "movement": 4
+      "health": "16xC",
+      "movement": 4,
+      "attack": "V"
     },
     {
-      "attack": "V",
-      "health": "19xC",
       "level": 7,
-      "movement": 4
+      "health": "19xC",
+      "movement": 4,
+      "attack": "V"
     }
   ]
 }

@@ -1,12 +1,13 @@
 {
   "name": "gelatinous-giant",
-  "edition": "cs",
   "thumbnail": "gh-ooze",
+  "edition": "cs",
   "deck": "boss",
-  "count": 10,
   "boss": true,
   "hidden": true,
+  "count": 10,
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [
       "immobilize",
@@ -61,8 +62,7 @@
           "value": "%game.custom.scenarioBook%"
         }
       ]
-    ],
-    "type": "boss"
+    ]
   },
   "stats": [
     {

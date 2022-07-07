@@ -1,90 +1,71 @@
 {
   "name": "blood-ooze",
   "edition": "cs",
-  "abilies": [
+  "abilities": [
     {
       "cardId": 1198,
+      "initiative": 96,
       "shuffle": true,
-      "initiavie": 96,
       "actions": [
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
               "type": "range",
-              "value": "5"
+              "value": 5
             }
           ]
         },
         {
           "type": "custom",
-          "value": "*Summon one normal Blood Ooze in a hex adjacent to the target with a hit point value equal to the summoning Blood Ooze's current hit point value minus 2 (limited by a normal Blood Ooze's specifiec maximum hit point value)"
+          "value": "%data.custom.cs.blood-ooze.1%"
         }
       ]
     },
     {
       "cardId": 1199,
+      "initiative": 96,
       "shuffle": true,
-      "initiavie": 96,
       "actions": [
         {
           "type": "custom",
-          "value": "^Summon one normal",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "Blood Ooze with a current"
-            },
-            {
-              "type": "custom",
-              "value": "hit point value equal to four."
-            }
-          ]
+          "value": "%data.custom.cs.blood-ooze.2%"
         },
         {
           "type": "element",
           "value": "fire",
-          "valueType": "minus"
-        },
-        {
-          "type": "custom",
-          "value": "!^Hit point value equal"
-        },
-        {
-          "type": "custom",
-          "value": "!^to three instead"
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.blood-ooze.3%"
+            }
+          ]
         }
       ]
     },
     {
       "cardId": 1200,
-      "shuffle": false,
-      "initiavie": 71,
+      "initiative": 71,
       "actions": [
         {
           "type": "custom",
-          "value": "^All adjacent enemies",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "suffer one damage."
-            }
-          ]
+          "value": "%data.custom.cs.blood-ooze.4%"
         },
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "plus"
         },
         {
           "type": "heal",
-          "value": "1",
+          "value": 1,
           "subActions": [
             {
               "type": "custom",
-              "value": "Target all adjacent Blood Oozes"
+              "value": "%data.custom.cs.blood-ooze.5%"
             }
           ]
         }
@@ -92,30 +73,25 @@
     },
     {
       "cardId": 1201,
-      "shuffle": false,
-      "initiavie": 29,
+      "initiative": 29,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
-              "type": "custom",
-              "value": "Target one adjacent enemy"
-            },
-            {
-              "type": "attack",
-              "value": "Add+2ifthetargetis"
+              "type": "specialTarget",
+              "value": "enemy"
             },
             {
               "type": "custom",
-              "value": "adjacent to at least two Blood Oozes."
+              "value": "%data.custom.cs.blood-ooze.6%"
             }
           ]
         }
@@ -123,12 +99,11 @@
     },
     {
       "cardId": 1202,
-      "shuffle": false,
-      "initiavie": 62,
+      "initiative": 62,
       "actions": [
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
@@ -136,19 +111,19 @@
               "value": "poison"
             },
             {
-              "type": "custom",
-              "value": "Target one adjacent enemy"
+              "type": "specialTarget",
+              "value": "enemy"
             }
           ]
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
-              "type": "range",
-              "value": "Targetoneenemyatexactly2"
+              "type": "custom",
+              "value": "%data.custom.cs.blood-ooze.7%"
             }
           ]
         }
@@ -156,47 +131,47 @@
     },
     {
       "cardId": 1203,
-      "shuffle": false,
-      "initiavie": 53,
+      "initiative": 53,
       "actions": [
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "loot",
-          "value": "1"
+          "value": 1
         },
         {
           "type": "custom",
-          "value": "^If at least one money token was looted:"
-        },
-        {
-          "type": "attack",
-          "value": "1",
-          "valueType": "plus"
+          "value": "%data.custom.cs.blood-ooze.8%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "plus"
+            }
+          ]
         }
       ]
     },
     {
       "cardId": 1204,
-      "shuffle": false,
-      "initiavie": 17,
+      "initiative": 17,
       "actions": [
         {
           "type": "retaliate",
-          "value": "1",
+          "value": 1,
           "subActions": [
             {
               "type": "range",
-              "value": "3"
+              "value": 3
             }
           ]
         },
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
@@ -204,8 +179,8 @@
           "value": "wound",
           "subActions": [
             {
-              "type": "custom",
-              "value": "Target all adjacent enemies"
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
             }
           ]
         }
@@ -213,20 +188,19 @@
     },
     {
       "cardId": 1205,
-      "shuffle": false,
-      "initiavie": 80,
+      "initiative": 80,
       "actions": [
         {
           "type": "custom",
-          "value": "^Blood Ooze suffers two damage."
+          "value": "%data.custom.cs.blood-ooze.9%"
         },
         {
           "type": "condition",
           "value": "invisible",
           "subActions": [
             {
-              "type": "custom",
-              "value": "Self"
+              "type": "specialTarget",
+              "value": "self"
             }
           ]
         }

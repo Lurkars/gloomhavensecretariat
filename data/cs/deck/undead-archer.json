@@ -1,26 +1,24 @@
 {
   "name": "undead-archer",
   "edition": "cs",
-  "abilies": [
+  "abilities": [
     {
       "cardId": 516,
-      "shuffle": false,
-      "initiavie": 64,
+      "initiative": 64,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "minus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "plus",
           "subActions": [
             {
               "type": "range",
-              "value": "0",
-              "valueType": "plus"
+              "value": 3
             }
           ]
         }
@@ -28,33 +26,32 @@
     },
     {
       "cardId": 517,
+      "initiative": 20,
       "shuffle": true,
-      "initiavie": 20,
       "actions": [
         {
           "type": "move",
-          "value": "2",
+          "value": 2,
           "valueType": "minus"
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "range",
-              "value": "0",
-              "valueType": "plus"
+              "value": 3
             }
           ]
         },
         {
           "type": "heal",
-          "value": "2",
+          "value": 2,
           "subActions": [
             {
-              "type": "custom",
-              "value": "Self"
+              "type": "specialTarget",
+              "value": "self"
             }
           ]
         }
@@ -62,23 +59,21 @@
     },
     {
       "cardId": 518,
-      "shuffle": false,
-      "initiavie": 25,
+      "initiative": 25,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
               "type": "range",
-              "value": "0",
-              "valueType": "plus"
+              "value": 3
             }
           ]
         }
@@ -86,23 +81,21 @@
     },
     {
       "cardId": 519,
-      "shuffle": false,
-      "initiavie": 45,
+      "initiative": 45,
       "actions": [
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "range",
-              "value": "0",
-              "valueType": "plus"
+              "value": 3
             }
           ]
         }
@@ -110,23 +103,21 @@
     },
     {
       "cardId": 520,
-      "shuffle": false,
-      "initiavie": 45,
+      "initiative": 45,
       "actions": [
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "range",
-              "value": "0",
-              "valueType": "plus"
+              "value": 3
             }
           ]
         }
@@ -134,43 +125,42 @@
     },
     {
       "cardId": 521,
-      "shuffle": false,
-      "initiavie": 81,
+      "initiative": 81,
       "actions": [
         {
           "type": "attack",
-          "value": "2",
-          "valueType": "plus"
-        },
-        {
-          "type": "range",
-          "value": "^+0"
+          "value": 2,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
         }
       ]
     },
     {
       "cardId": 522,
-      "shuffle": false,
-      "initiavie": 74,
+      "initiative": 74,
       "actions": [
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "range",
-              "value": "0",
-              "valueType": "plus"
+              "value": 3
             },
             {
-              "type": "custom",
-              "value": "Target one enemy with all attacks"
+              "type": "specialTarget",
+              "value": "enemyOneAll"
             }
           ]
         }
@@ -178,21 +168,20 @@
     },
     {
       "cardId": 523,
+      "initiative": 12,
       "shuffle": true,
-      "initiavie": 12,
       "actions": [
         {
           "type": "shield",
-          "value": "1",
-          "valueType": "plus"
+          "value": 1
         },
         {
           "type": "heal",
-          "value": "2",
+          "value": 2,
           "subActions": [
             {
-              "type": "custom",
-              "value": "Self"
+              "type": "specialTarget",
+              "value": "self"
             }
           ]
         }

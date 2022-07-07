@@ -1,6 +1,14 @@
 <div class="stats-container" [ngClass]="{'boss' : monster.boss}">
   <div #button class="level">{{monster.level}}</div>
 
+  <div class="name-container" *ngIf="showName">
+    <span class="name">{{'data.monster.' + monster.name | ghsLabel}} <span class="edition"
+        *ngIf="getEdition()">[{{'data.edition.' + getEdition()| ghsLabel}}]</span></span>
+    <span *ngIf="monster.flying" class="flying"><img class="ghs-svg" src="./assets/images/action/fly.svg" /></span>
+  </div>
+  
+
+  
   <div class="stats" *ngIf="monster.boss">
     <div class="stat end">{{statsForType(MonsterType.boss).health | ghsValueCalc:monster.level:'empty'}}</div>
 

@@ -1,41 +1,47 @@
 {
   "name": "ravenous-gharial",
   "edition": "cs",
-  "abilies": [
+  "abilities": [
     {
       "name": "Death Roll",
       "cardId": 2028,
-      "shuffle": false,
-      "initiavie": 30,
+      "initiative": 30,
       "actions": [
         {
           "type": "attack",
-          "value": "^-2",
+          "value": 2,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "condition",
               "value": "immobilize"
-            },
-            {
-              "type": "custom",
-              "value": "- At 60, perform the following abilities -"
-            },
-            {
-              "type": "attack",
-              "value": "1",
-              "valueType": "minus"
-            },
-            {
-              "type": "condition",
-              "value": "wound"
-            },
-            {
-              "type": "custom",
-              "value": "- At 90, perform the following abilities -"
-            },
+            }
+          ]
+        },
+        {
+          "type": "trigger",
+          "value": "%data.custom.cs.ravenous-gharial.3%",
+          "subActions": [
             {
               "type": "attack",
-              "value": "0",
+              "value": 1,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "immobilize"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "trigger",
+          "value": "%data.custom.cs.ravenous-gharial.4%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
               "valueType": "plus"
             }
           ]
@@ -45,17 +51,17 @@
     {
       "name": "Swallow Whole",
       "cardId": 2029,
+      "initiative": 65,
       "shuffle": true,
-      "initiavie": 65,
       "actions": [
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
@@ -63,35 +69,30 @@
           "value": "X",
           "subActions": [
             {
+              "type": "specialTarget",
+              "value": "self"
+            },
+            {
               "type": "custom",
-              "value": "Self"
+              "value": "%data.custom.cs.ravenous-gharial.5%"
             }
           ]
-        },
-        {
-          "type": "custom",
-          "value": "*where X is the damage dealt"
-        },
-        {
-          "type": "custom",
-          "value": "*by the attack ability."
         }
       ]
     },
     {
       "name": "Terrifying Lunge",
       "cardId": 2030,
-      "shuffle": false,
-      "initiavie": 59,
+      "initiative": 59,
       "actions": [
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
@@ -102,11 +103,11 @@
         },
         {
           "type": "push",
-          "value": "1",
+          "value": 1,
           "subActions": [
             {
-              "type": "range",
-              "value": "Targetallenemiesexactlyat2or3"
+              "type": "custom",
+              "value": "%data.custom.cs.ravenous-gharial.6%"
             }
           ]
         }
@@ -115,26 +116,26 @@
     {
       "name": "Drag Away",
       "cardId": 2031,
+      "initiative": 34,
       "shuffle": true,
-      "initiavie": 34,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
               "type": "range",
-              "value": "2"
+              "value": 2
             },
             {
               "type": "pull",
-              "value": "1"
+              "value": 1
             },
             {
               "type": "condition",
@@ -147,30 +148,31 @@
     {
       "name": "Tail Swipe",
       "cardId": 2032,
-      "shuffle": false,
-      "initiavie": 88,
+      "initiative": 88,
       "actions": [
         {
           "type": "move",
-          "value": "1",
-          "valueType": "plus"
-        },
-        {
-          "type": "custom",
-          "value": "*This movement may move through all figures."
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.ravenous-gharial.7%"
+            }
+          ]
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
               "type": "area",
-              "value": "arc-3"
+              "value": "(1,0,target)|(0,1,active)|(1,1,target)|(1,2,target)"
             },
             {
               "type": "push",
-              "value": "2"
+              "value": 2
             }
           ]
         }
@@ -179,12 +181,11 @@
     {
       "name": "Survival Instincts",
       "cardId": 2033,
-      "shuffle": false,
-      "initiavie": "09",
+      "initiative": 9,
       "actions": [
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
@@ -192,60 +193,51 @@
           "value": "X",
           "subActions": [
             {
-              "type": "attack",
-              "value": "whereXisthefigure'svalue."
+              "type": "custom",
+              "value": "%data.custom.cs.ravenous-gharial.8%"
             }
           ]
         },
         {
           "type": "custom",
-          "value": "^All ranged attacks targeting",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "this figure gain Disadvantage."
-            }
-          ]
+          "value": "%data.custom.cs.ravenous-gharial.9%"
         }
       ]
     },
     {
       "name": "Patient Predator",
       "cardId": 2034,
-      "shuffle": false,
-      "initiavie": 18,
+      "initiative": 18,
       "actions": [
         {
           "type": "condition",
           "value": "invisible",
           "subActions": [
             {
-              "type": "custom",
-              "value": "Self"
+              "type": "specialTarget",
+              "value": "self"
             }
           ]
         },
         {
-          "type": "custom",
-          "value": "*- At 50, perform the following abilities -"
-        },
-        {
-          "type": "move",
-          "value": "0",
-          "valueType": "plus"
+          "type": "trigger",
+          "value": "%data.custom.cs.ravenous-gharial.10%",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "plus",
           "subActions": [
             {
               "type": "custom",
-              "value": "If this attack was performed,"
-            },
-            {
-              "type": "condition",
-              "value": "invisible"
+              "value": "%data.custom.cs.ravenous-gharial.11%"
             }
           ]
         }
@@ -254,22 +246,21 @@
     {
       "name": "Sundering Bite",
       "cardId": 2035,
-      "shuffle": false,
-      "initiavie": 26,
+      "initiative": 26,
       "actions": [
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "pierce",
-              "value": "3"
+              "value": 3
             }
           ]
         }

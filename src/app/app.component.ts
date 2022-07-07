@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { delay, of } from 'rxjs';
 
 @Component({
   selector: 'app-root',

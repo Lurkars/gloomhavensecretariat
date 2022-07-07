@@ -1,15 +1,15 @@
 {
   "name": "brood-mother",
   "edition": "cs",
-  "abilies": [
+  "abilities": [
     {
       "cardId": 549,
+      "initiative": 13,
       "shuffle": true,
-      "initiavie": 13,
       "actions": [
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
@@ -20,12 +20,12 @@
         },
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "minus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
@@ -38,17 +38,16 @@
     },
     {
       "cardId": 551,
-      "shuffle": false,
-      "initiavie": 39,
+      "initiative": 39,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "minus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "plus",
           "subActions": [
             {
@@ -61,21 +60,19 @@
     },
     {
       "cardId": 555,
-      "shuffle": false,
-      "initiavie": 6,
+      "initiative": 6,
       "actions": [
         {
           "type": "shield",
-          "value": "2",
-          "valueType": "plus"
+          "value": 2
         },
         {
           "type": "heal",
-          "value": "2",
+          "value": 2,
           "subActions": [
             {
-              "type": "custom",
-              "value": "Self"
+              "type": "specialTarget",
+              "value": "self"
             }
           ]
         },
@@ -84,8 +81,8 @@
           "value": "strengthen",
           "subActions": [
             {
-              "type": "custom",
-              "value": "Self"
+              "type": "specialTarget",
+              "value": "self"
             }
           ]
         }
@@ -93,12 +90,12 @@
     },
     {
       "cardId": 554,
+      "initiative": 72,
       "shuffle": true,
-      "initiavie": 72,
       "actions": [
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
@@ -109,7 +106,7 @@
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
@@ -120,7 +117,7 @@
         },
         {
           "type": "attack",
-          "value": "2",
+          "value": 2,
           "valueType": "minus",
           "subActions": [
             {
@@ -133,22 +130,21 @@
     },
     {
       "cardId": 557,
-      "shuffle": false,
-      "initiavie": 52,
+      "initiative": 52,
       "actions": [
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "range",
-              "value": "3"
+              "value": 3
             }
           ]
         }
@@ -156,26 +152,26 @@
     },
     {
       "cardId": 558,
+      "initiative": 57,
       "shuffle": true,
-      "initiavie": 57,
       "actions": [
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
               "type": "area",
-              "value": "triangle-2-side"
+              "value": "(1,0,target)|(0,1,target)|(1,1,target)"
             },
             {
               "type": "range",
-              "value": "3"
+              "value": 3
             }
           ]
         }
@@ -183,21 +179,20 @@
     },
     {
       "cardId": 559,
-      "shuffle": false,
-      "initiavie": 27,
+      "initiative": 27,
       "actions": [
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "range",
-              "value": "3"
+              "value": 3
             },
             {
               "type": "target",
-              "value": "2"
+              "value": 2
             },
             {
               "type": "condition",
@@ -209,22 +204,21 @@
     },
     {
       "cardId": 560,
-      "shuffle": false,
-      "initiavie": 87,
+      "initiative": 87,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "minus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "plus",
           "subActions": [
             {
               "type": "range",
-              "value": "3"
+              "value": 3
             }
           ]
         }

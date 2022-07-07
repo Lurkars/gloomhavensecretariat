@@ -1,25 +1,25 @@
 {
   "name": "flaming-drake",
   "edition": "cs",
-  "abilies": [
+  "abilities": [
     {
       "cardId": 1206,
+      "initiative": 62,
       "shuffle": true,
-      "initiavie": 62,
       "actions": [
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
               "type": "area",
-              "value": "line-2"
+              "value": "(0,0,target)|(1,0,target)"
             }
           ]
         },
@@ -31,22 +31,22 @@
     },
     {
       "cardId": 1207,
+      "initiative": 62,
       "shuffle": true,
-      "initiavie": 62,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "minus"
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "area",
-              "value": "line-2"
+              "value": "(0,0,target)|(1,0,target)"
             }
           ]
         },
@@ -58,12 +58,11 @@
     },
     {
       "cardId": 1208,
-      "shuffle": false,
-      "initiavie": 88,
+      "initiative": 88,
       "actions": [
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
@@ -71,8 +70,8 @@
           "value": "disarm",
           "subActions": [
             {
-              "type": "custom",
-              "value": "Target all adjacent enemies"
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
             }
           ]
         }
@@ -80,125 +79,129 @@
     },
     {
       "cardId": 1209,
-      "shuffle": false,
-      "initiavie": "03",
+      "initiative": 3,
       "actions": [
         {
           "type": "shield",
-          "value": "2",
-          "valueType": "plus",
+          "value": 2,
           "subActions": [
             {
-              "type": "custom",
-              "value": "Self"
+              "type": "specialTarget",
+              "value": "self"
             }
           ]
         },
         {
           "type": "heal",
-          "value": "2",
+          "value": 2,
           "subActions": [
             {
-              "type": "custom",
-              "value": "Self"
+              "type": "specialTarget",
+              "value": "self"
             }
           ]
         },
         {
           "type": "element",
           "value": "fire",
-          "valueType": "minus"
-        },
-        {
-          "type": "heal",
-          "value": "!+2"
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "heal",
+              "value": "2",
+              "valueType": "plus"
+            }
+          ]
         }
       ]
     },
     {
       "cardId": 1210,
-      "shuffle": false,
-      "initiavie": 56,
+      "initiative": 56,
       "actions": [
         {
           "type": "move",
-          "value": "0",
-          "valueType": "plus",
-          "subActions": [
-            {
-              "type": "area",
-              "value": "line-4-with-black"
-            }
-          ]
+          "value": 0,
+          "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
               "type": "area",
-              "value": "line-5-with-black"
+              "value": "(0,3,active)|(1,2,target)|(1,1,target)|(2,0,target)"
             }
           ]
         },
         {
           "type": "element",
           "value": "fire",
-          "valueType": "minus"
-        },
-        {
-          "type": "attack",
-          "value": "!^+1"
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "area",
+                  "value": "(0,0,active)|(1,0,target)|(2,0,target)|(3,0,target)|(4,0,target)"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "cardId": 1211,
-      "shuffle": false,
-      "initiavie": 40,
+      "initiative": 40,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "minus"
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "element",
               "value": "fire",
-              "valueType": "minus"
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 2,
+                  "valueType": "plus"
+                }
+              ]
             }
           ]
-        },
-        {
-          "type": "range",
-          "value": "!^+2"
         }
       ]
     },
     {
       "cardId": 1212,
-      "shuffle": false,
-      "initiavie": 49,
+      "initiative": 49,
       "actions": [
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "plus",
           "subActions": [
             {
               "type": "range",
-              "value": "1",
+              "value": 1,
               "valueType": "minus"
             },
             {
               "type": "target",
-              "value": "2"
+              "value": 2
             }
           ]
         }
@@ -206,17 +209,16 @@
     },
     {
       "cardId": 1213,
-      "shuffle": false,
-      "initiavie": 77,
+      "initiative": 77,
       "actions": [
         {
           "type": "attack",
-          "value": "2",
+          "value": 2,
           "valueType": "minus",
           "subActions": [
             {
               "type": "area",
-              "value": "circle"
+              "value": "(1,0,target)|(2,0,target)|(0,1,target)|(1,1,target)|(2,1,target)|(1,2,target)|(2,2,target)"
             },
             {
               "type": "condition",

@@ -38,7 +38,7 @@ export class CharacterInitiativeComponent extends DialogComponent {
 
   setInitiative(event: any) {
     const initative: number = +  event.target.value;
-    if (initative > 0 && initative < 100) {
+    if ((gameManager.game.state == GameState.draw && initative >= 0 || initative > 0) && initative < 100) {
       gameManager.stateManager.before();
       this.character.initiative = initative;
       gameManager.sortFigures();

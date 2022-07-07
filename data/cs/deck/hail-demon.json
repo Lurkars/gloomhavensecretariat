@@ -1,88 +1,97 @@
 {
   "name": "hail-demon",
   "edition": "cs",
-  "abilies": [
+  "abilities": [
     {
       "cardId": 1222,
+      "initiative": 13,
       "shuffle": true,
-      "initiavie": 13,
       "actions": [
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.hail-demon.1%"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "air"
+        }
+      ]
+    },
+    {
+      "cardId": 1223,
+      "initiative": 38,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
           "valueType": "plus",
           "subActions": [
             {
               "type": "range",
-              "value": "Targetallenemieswithin3"
-            },
+              "value": 1,
+              "valueType": "plus"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "air",
+          "valueType": "minus",
+          "subActions": [
             {
               "type": "condition",
               "value": "chill"
             }
           ]
-        },
-        {}
-      ]
-    },
-    {
-      "cardId": 1223,
-      "shuffle": true,
-      "initiavie": 38,
-      "actions": [
-        {
-          "type": "attack",
-          "value": "1",
-          "valueType": "plus",
-          "subActions": [
-            {
-              "type": "range",
-              "value": "1",
-              "valueType": "plus"
-            }
-          ]
-        },
-        {},
-        {
-          "type": "condition",
-          "value": "chill"
         }
       ]
     },
     {
       "cardId": 1224,
-      "shuffle": false,
-      "initiavie": "05",
+      "initiative": 5,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "minus"
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
-        {},
         {
-          "type": "pull",
-          "value": "!^2"
+          "type": "element",
+          "value": "air",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "pull",
+              "value": 2
+            }
+          ]
         }
       ]
     },
     {
       "cardId": 1225,
-      "shuffle": false,
-      "initiavie": 30,
+      "initiative": 30,
       "actions": [
         {
           "type": "heal",
-          "value": "2",
+          "value": 2,
           "subActions": [
             {
-              "type": "custom",
-              "value": "Self"
+              "type": "specialTarget",
+              "value": "self"
             }
           ]
         },
@@ -91,12 +100,8 @@
           "value": "chill",
           "subActions": [
             {
-              "type": "condition",
-              "value": "chill"
-            },
-            {
-              "type": "range",
-              "value": "tokenswithin3"
+              "type": "custom",
+              "value": "%data.custom.cs.hail-demon.2%"
             }
           ]
         }
@@ -104,108 +109,116 @@
     },
     {
       "cardId": 1226,
-      "shuffle": false,
-      "initiavie": 26,
+      "initiative": 26,
       "actions": [
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus"
         },
         {
-          "type": "condition",
-          "value": "chill",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "empty hex closest to an enemy."
-            }
-          ]
+          "type": "custom",
+          "value": "%data.custom.cs.hail-demon.3%"
         }
       ]
     },
     {
       "cardId": 1227,
-      "shuffle": false,
-      "initiavie": 10,
+      "initiative": 10,
       "actions": [
         {
           "type": "retaliate",
-          "value": "3",
+          "value": 3,
           "subActions": [
             {
               "type": "range",
-              "value": "3"
+              "value": 3
             }
           ]
         },
-        {},
         {
-          "type": "attack",
-          "value": "!^-1"
-        },
-        {
-          "type": "range",
-          "value": "!^-1"
+          "type": "element",
+          "value": "air",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 1,
+                  "valueType": "minus"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
     {
       "cardId": 1228,
-      "shuffle": false,
-      "initiavie": 22,
+      "initiative": 22,
       "actions": [
         {
           "type": "pull",
-          "value": "2",
+          "value": 2,
           "subActions": [
             {
-              "type": "range",
-              "value": "Targetoneenemywithin3"
+              "type": "custom",
+              "value": "%data.custom.cs.hail-demon.4%"
             }
           ]
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
               "type": "area",
-              "value": "arc-3"
+              "value": "(1,0,target)|(0,1,active)|(1,1,target)|(1,2,target)"
             }
           ]
         },
-        {}
+        {
+          "type": "element",
+          "value": "air"
+        }
       ]
     },
     {
       "cardId": 1229,
-      "shuffle": false,
-      "initiavie": 19,
+      "initiative": 19,
       "actions": [
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
-              "type": "range",
-              "value": "Targetallenemieswithin2"
+              "type": "custom",
+              "value": "%data.custom.cs.hail-demon.5%"
             }
           ]
         },
         {
           "type": "element",
           "value": "ice",
-          "valueType": "minus"
-        },
-        {}
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "air"
+            }
+          ]
+        }
       ]
     }
   ]

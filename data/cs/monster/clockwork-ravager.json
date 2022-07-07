@@ -1,12 +1,13 @@
 {
   "name": "clockwork-ravager",
-  "edition": "cs",
   "thumbnail": "gh-living-bones",
+  "edition": "cs",
   "deck": "living-bones",
-  "count": 10,
   "boss": true,
   "hidden": true,
+  "count": 10,
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [
       "wound",
@@ -14,8 +15,7 @@
       "disarm",
       "stun"
     ],
-    "special": [],
-    "type": "boss"
+    "special": []
   },
   "stats": [
     {

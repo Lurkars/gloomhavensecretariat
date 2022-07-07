@@ -1,11 +1,11 @@
 {
-  "edition": "jotl",
   "name": "zealot",
+  "edition": "jotl",
   "abilities": [
     {
-      "cardId" : 384,
-      "initiative": 50,
       "name": "Nothing Special",
+      "cardId": 384,
+      "initiative": 50,
       "actions": [
         {
           "type": "move",
@@ -20,9 +20,9 @@
       ]
     },
     {
-      "cardId" : 385,
-      "initiative": 35,
       "name": "Hasty Assoult",
+      "cardId": 385,
+      "initiative": 35,
       "actions": [
         {
           "type": "move",
@@ -37,9 +37,9 @@
       ]
     },
     {
-      "cardId" : 386,
-      "initiative": 65,
       "name": "Calculated Strike",
+      "cardId": 386,
+      "initiative": 65,
       "actions": [
         {
           "type": "move",
@@ -54,9 +54,9 @@
       ]
     },
     {
-      "cardId" : 387,
-      "initiative": 27,
       "name": "Drain Life",
+      "cardId": 387,
+      "initiative": 27,
       "shuffle": true,
       "actions": [
         {
@@ -97,9 +97,9 @@
       ]
     },
     {
-      "cardId" : 388,
-      "initiative": 46,
       "name": "Boil Blood",
+      "cardId": 388,
+      "initiative": 46,
       "actions": [
         {
           "type": "attack",
@@ -134,9 +134,9 @@
       ]
     },
     {
-      "cardId" : 389,
-      "initiative": 77,
       "name": "Vile Scourge",
+      "cardId": 389,
+      "initiative": 77,
       "actions": [
         {
           "type": "move",
@@ -173,9 +173,9 @@
       ]
     },
     {
-      "cardId" : 390,
-      "initiative": 19,
       "name": "Hex Whip",
+      "cardId": 390,
+      "initiative": 19,
       "actions": [
         {
           "type": "move",
@@ -206,9 +206,9 @@
       ]
     },
     {
-      "cardId" : 391,
-      "initiative": 82,
       "name": "Unholy Flame",
+      "cardId": 391,
+      "initiative": 82,
       "shuffle": true,
       "actions": [
         {

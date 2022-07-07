@@ -1,12 +1,14 @@
 {
   "name": "drakefiend",
-  "edition": "cs",
   "thumbnail": "gh-elder-drake",
+  "edition": "cs",
   "deck": "boss",
-  "count": 1,
   "boss": true,
   "hidden": true,
+  "count": 1,
   "baseStat": {
+    "type": "boss",
+    "movement": 0,
     "actions": [],
     "immunities": [
       "wound",
@@ -45,9 +47,7 @@
           "value": "%game.custom.scenarioBook%"
         }
       ]
-    ],
-    "type": "boss",
-    "movement": 0
+    ]
   },
   "stats": [
     {

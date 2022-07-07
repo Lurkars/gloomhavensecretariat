@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "scout",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 668,
+      "cardId": 668,
       "initiative": 29,
       "actions": [
         {
@@ -25,7 +25,7 @@
       ]
     },
     {
-      "cardId" : 669,
+      "cardId": 669,
       "initiative": 40,
       "actions": [
         {
@@ -41,7 +41,7 @@
       ]
     },
     {
-      "cardId" : 670,
+      "cardId": 670,
       "initiative": 53,
       "actions": [
         {
@@ -57,7 +57,7 @@
       ]
     },
     {
-      "cardId" : 671,
+      "cardId": 671,
       "initiative": 54,
       "actions": [
         {
@@ -83,7 +83,7 @@
       ]
     },
     {
-      "cardId" : 672,
+      "cardId": 672,
       "initiative": 69,
       "actions": [
         {
@@ -99,7 +99,7 @@
       ]
     },
     {
-      "cardId" : 673,
+      "cardId": 673,
       "initiative": 92,
       "shuffle": true,
       "actions": [
@@ -117,7 +117,7 @@
       ]
     },
     {
-      "cardId" : 674,
+      "cardId": 674,
       "initiative": 79,
       "actions": [
         {
@@ -138,7 +138,7 @@
       ]
     },
     {
-      "cardId" : 675,
+      "cardId": 675,
       "initiative": 35,
       "shuffle": true,
       "actions": [

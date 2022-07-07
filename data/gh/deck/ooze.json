@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "ooze",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 692,
+      "cardId": 692,
       "initiative": 36,
       "actions": [
         {
@@ -19,7 +19,7 @@
       ]
     },
     {
-      "cardId" : 693,
+      "cardId": 693,
       "initiative": 57,
       "actions": [
         {
@@ -35,7 +35,7 @@
       ]
     },
     {
-      "cardId" : 694,
+      "cardId": 694,
       "initiative": 59,
       "actions": [
         {
@@ -56,7 +56,7 @@
       ]
     },
     {
-      "cardId" : 695,
+      "cardId": 695,
       "initiative": 66,
       "actions": [
         {
@@ -78,7 +78,7 @@
       ]
     },
     {
-      "cardId" : 696,
+      "cardId": 696,
       "initiative": 94,
       "shuffle": true,
       "actions": [
@@ -93,7 +93,7 @@
       ]
     },
     {
-      "cardId" : 697,
+      "cardId": 697,
       "initiative": 94,
       "shuffle": true,
       "actions": [
@@ -108,7 +108,7 @@
       ]
     },
     {
-      "cardId" : 698,
+      "cardId": 698,
       "initiative": 66,
       "actions": [
         {
@@ -133,7 +133,7 @@
       ]
     },
     {
-      "cardId" : 699,
+      "cardId": 699,
       "initiative": 85,
       "actions": [
         {

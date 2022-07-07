@@ -1,11 +1,11 @@
 {
-  "edition": "jotl",
   "name": "boss",
+  "edition": "jotl",
   "abilities": [
     {
-      "cardId" : 468,
+      "name": "Accelerated Power",
+      "cardId": 468,
       "initiative": 11,
-      "name": "Accelerated Power",
       "actions": [
         {
           "type": "special",
@@ -14,9 +14,9 @@
       ]
     },
     {
-      "cardId" : 469,
+      "name": "Accelerated Power",
+      "cardId": 469,
       "initiative": 14,
-      "name": "Accelerated Power",
       "actions": [
         {
           "type": "special",
@@ -25,9 +25,9 @@
       ]
     },
     {
-      "cardId" : 470,
+      "name": "Accelerated Power",
+      "cardId": 470,
       "initiative": 17,
-      "name": "Accelerated Power",
       "shuffle": true,
       "actions": [
         {
@@ -37,9 +37,9 @@
       ]
     },
     {
-      "cardId" : 471,
-      "initiative": 85,
       "name": "Lingering Strenth",
+      "cardId": 471,
+      "initiative": 85,
       "shuffle": true,
       "actions": [
         {
@@ -49,9 +49,9 @@
       ]
     },
     {
-      "cardId" : 472,
+      "name": "Lingering Strenth",
+      "cardId": 472,
       "initiative": 79,
-      "name": "Lingering Strenth",
       "actions": [
         {
           "type": "special",
@@ -60,9 +60,9 @@
       ]
     },
     {
-      "cardId" : 473,
+      "name": "Lingering Strenth",
+      "cardId": 473,
       "initiative": 73,
-      "name": "Lingering Strenth",
       "actions": [
         {
           "type": "special",
@@ -71,9 +71,9 @@
       ]
     },
     {
-      "cardId" : 474,
-      "initiative": 36,
       "name": "Nothing Speical",
+      "cardId": 474,
+      "initiative": 36,
       "actions": [
         {
           "type": "move",
@@ -88,9 +88,9 @@
       ]
     },
     {
-      "cardId" : 475,
-      "initiative": 54,
       "name": "Twin Missiles",
+      "cardId": 475,
+      "initiative": 54,
       "actions": [
         {
           "type": "move",
@@ -98,6 +98,9 @@
           "valueType": "minus"
         },
         {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "range",
@@ -107,10 +110,7 @@
               "type": "target",
               "value": 2
             }
-          ],
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
+          ]
         }
       ]
     }

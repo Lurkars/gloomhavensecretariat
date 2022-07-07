@@ -1,12 +1,14 @@
 {
   "name": "land-leviathan",
-  "edition": "cs",
   "thumbnail": "gh-deep-terror",
+  "edition": "cs",
   "deck": "boss",
-  "count": 10,
   "boss": true,
   "hidden": true,
+  "count": 10,
   "baseStat": {
+    "type": "boss",
+    "movement": 0,
     "actions": [],
     "immunities": [
       "stun",
@@ -53,9 +55,7 @@
           "value": "%game.custom.scenarioBook%"
         }
       ]
-    ],
-    "type": "boss",
-    "movement": 0
+    ]
   },
   "stats": [
     {

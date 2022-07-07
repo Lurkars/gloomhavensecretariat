@@ -22,9 +22,8 @@ import { settingsManager } from "./SettingsManager";
 import { StateManager } from "./StateManager";
 import { SectionData } from "../model/data/SectionData";
 import { ObjectiveData } from "../model/data/ObjectiveData";
-import { Entity, EntityValueFunction } from "../model/Entity";
 import { Summon, SummonState } from "../model/Summon";
-import { Condition, ConditionName, Conditions, ConditionType, EntityCondition, EntityConditionState } from "../model/Condition";
+import { Condition, ConditionName, Conditions, ConditionType } from "../model/Condition";
 import { EntityManager } from "./EntityManager";
 
 
@@ -221,7 +220,7 @@ export class GameManager {
   }
 
   abilities(figure: MonsterData | CharacterData): Ability[] {
-    return this.deckData(figure).abilities;
+    return this.deckData(figure).abilities || [];
   }
 
   nextAvailable(): boolean {

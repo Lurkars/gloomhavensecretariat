@@ -1,15 +1,15 @@
 {
   "name": "carrion-scavenger",
-  "edition": "cs",
   "thumbnail": "gh-hound",
+  "edition": "cs",
   "deck": "hound",
-  "count": 6,
   "hidden": true,
+  "count": 6,
   "baseStat": {
+    "type": "normal",
     "actions": [],
     "immunities": [],
-    "special": [],
-    "type": "normal"
+    "special": []
   },
   "stats": [
     {
@@ -241,6 +241,7 @@
       ]
     },
     {
+      "type": "elite",
       "level": 0,
       "health": 6,
       "movement": 5,
@@ -263,10 +264,10 @@
             }
           ]
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 1,
       "health": 6,
       "movement": 5,
@@ -293,10 +294,10 @@
             }
           ]
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 2,
       "health": 7,
       "movement": 5,
@@ -323,10 +324,10 @@
             }
           ]
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 3,
       "health": 8,
       "movement": 5,
@@ -353,10 +354,10 @@
             }
           ]
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 4,
       "health": 11,
       "movement": 5,
@@ -383,10 +384,10 @@
             }
           ]
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 5,
       "health": 12,
       "movement": 5,
@@ -413,10 +414,10 @@
             }
           ]
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 6,
       "health": 15,
       "movement": 6,
@@ -443,10 +444,10 @@
             }
           ]
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 7,
       "health": 15,
       "movement": 6,
@@ -473,8 +474,7 @@
             }
           ]
         }
-      ],
-      "type": "elite"
+      ]
     }
   ]
 }

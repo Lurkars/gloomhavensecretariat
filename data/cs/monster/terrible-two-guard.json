@@ -1,12 +1,13 @@
 {
   "name": "terrible-two-guard",
-  "edition": "cs",
   "thumbnail": "gh-bandit-guard",
+  "edition": "cs",
   "deck": "guard",
-  "count": 6,
   "boss": true,
   "hidden": true,
+  "count": 6,
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [
       "immobilize",
@@ -14,8 +15,7 @@
       "stun",
       "poison"
     ],
-    "special": [],
-    "type": "boss"
+    "special": []
   },
   "stats": [
     {

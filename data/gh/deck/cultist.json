@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "cultist",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 604,
+      "cardId": 604,
       "initiative": 10,
       "actions": [
         {
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "cardId" : 605,
+      "cardId": 605,
       "initiative": 10,
       "actions": [
         {
@@ -69,7 +69,7 @@
       ]
     },
     {
-      "cardId" : 606,
+      "cardId": 606,
       "initiative": 27,
       "actions": [
         {
@@ -85,7 +85,7 @@
       ]
     },
     {
-      "cardId" : 607,
+      "cardId": 607,
       "initiative": 27,
       "actions": [
         {
@@ -101,7 +101,7 @@
       ]
     },
     {
-      "cardId" : 608,
+      "cardId": 608,
       "initiative": 39,
       "actions": [
         {
@@ -127,7 +127,7 @@
       ]
     },
     {
-      "cardId" : 609,
+      "cardId": 609,
       "initiative": 63,
       "shuffle": true,
       "actions": [
@@ -142,7 +142,7 @@
       ]
     },
     {
-      "cardId" : 610,
+      "cardId": 610,
       "initiative": 63,
       "shuffle": true,
       "actions": [
@@ -157,7 +157,7 @@
       ]
     },
     {
-      "cardId" : 611,
+      "cardId": 611,
       "initiative": 31,
       "actions": [
         {

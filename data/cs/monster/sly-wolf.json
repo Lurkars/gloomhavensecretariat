@@ -1,16 +1,16 @@
 {
   "name": "sly-wolf",
-  "edition": "cs",
   "thumbnail": "gh-hound",
+  "edition": "cs",
   "deck": "hound",
-  "count": 6,
   "boss": true,
   "hidden": true,
+  "count": 6,
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [],
-    "special": [],
-    "type": "boss"
+    "special": []
   },
   "stats": [
     {

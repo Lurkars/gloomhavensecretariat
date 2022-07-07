@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "archer",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 532,
+      "cardId": 532,
       "initiative": 16,
       "actions": [
         {
@@ -19,7 +19,7 @@
       ]
     },
     {
-      "cardId" : 533,
+      "cardId": 533,
       "initiative": 31,
       "actions": [
         {
@@ -35,7 +35,7 @@
       ]
     },
     {
-      "cardId" : 534,
+      "cardId": 534,
       "initiative": 32,
       "actions": [
         {
@@ -58,7 +58,7 @@
       ]
     },
     {
-      "cardId" : 535,
+      "cardId": 535,
       "initiative": 44,
       "actions": [
         {
@@ -74,7 +74,7 @@
       ]
     },
     {
-      "cardId" : 536,
+      "cardId": 536,
       "initiative": 56,
       "actions": [
         {
@@ -91,7 +91,7 @@
       ]
     },
     {
-      "cardId" : 537,
+      "cardId": 537,
       "initiative": 68,
       "shuffle": true,
       "actions": [
@@ -109,7 +109,7 @@
       ]
     },
     {
-      "cardId" : 538,
+      "cardId": 538,
       "initiative": 14,
       "actions": [
         {
@@ -131,7 +131,7 @@
       ]
     },
     {
-      "cardId" : 539,
+      "cardId": 539,
       "initiative": 29,
       "shuffle": true,
       "actions": [

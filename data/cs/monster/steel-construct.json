@@ -1,20 +1,20 @@
 {
   "name": "steel-construct",
+  "thumbnail": "gh-stone-golem",
   "edition": "cs",
-  "thumbnail" : "gh-stone-golem",
   "deck": "stone-golem",
-  "count": 6,
   "boss": true,
   "hidden": true,
+  "count": 6,
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [
       "wound",
       "poison",
       "stun"
     ],
-    "special": [],
-    "type": "boss"
+    "special": []
   },
   "stats": [
     {

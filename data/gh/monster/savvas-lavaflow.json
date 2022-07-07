@@ -1,204 +1,201 @@
 {
-  "count": 4,
-  "edition": "gh",
   "name": "savvas-lavaflow",
+  "edition": "gh",
+  "count": 4,
   "baseStat": {
+    "type": "normal",
     "actions": [],
-    "attack": 2,
-    "health": 8,
     "immunities": [],
-    "level": 0,
-    "movement": 3,
-    "type": "normal"
+    "special": []
   },
   "stats": [
     {
-      "attack": 2,
+      "level": 0,
       "health": 8,
-      "level": 0,
-      "movement": 3
+      "movement": 3,
+      "attack": 2
     },
     {
-      "actions": [
-        {
-          "type": "condition",
-          "value": "poison"
-        }
-      ],
-      "attack": 2,
+      "level": 1,
       "health": 9,
-      "level": 1,
-      "movement": 3
-    },
-    {
+      "movement": 3,
+      "attack": 2,
       "actions": [
         {
           "type": "condition",
           "value": "poison"
         }
-      ],
-      "attack": 3,
+      ]
+    },
+    {
+      "level": 2,
       "health": 11,
-      "level": 2,
-      "movement": 3
-    },
-    {
+      "movement": 3,
+      "attack": 3,
       "actions": [
         {
           "type": "condition",
           "value": "poison"
         }
-      ],
-      "attack": 3,
+      ]
+    },
+    {
+      "level": 3,
       "health": 14,
-      "level": 3,
-      "movement": 3
-    },
-    {
+      "movement": 3,
+      "attack": 3,
       "actions": [
         {
           "type": "condition",
           "value": "poison"
         }
-      ],
-      "attack": 4,
+      ]
+    },
+    {
+      "level": 4,
       "health": 16,
-      "level": 4,
-      "movement": 3
-    },
-    {
-      "actions": [
-        {
-          "type": "condition",
-          "value": "poison|wound"
-        }
-      ],
-      "attack": 4,
-      "health": 18,
-      "level": 5,
-      "movement": 3
-    },
-    {
-      "actions": [
-        {
-          "type": "condition",
-          "value": "poison|wound"
-        }
-      ],
-      "attack": 4,
-      "health": 20,
-      "level": 6,
-      "movement": 4
-    },
-    {
-      "actions": [
-        {
-          "type": "condition",
-          "value": "poison|wound"
-        }
-      ],
-      "attack": 4,
-      "health": 24,
-      "level": 7,
-      "movement": 4
-    },
-    {
-      "attack": 3,
-      "health": 13,
-      "level": 0,
       "movement": 3,
-      "type": "elite"
-    },
-    {
+      "attack": 4,
       "actions": [
         {
           "type": "condition",
           "value": "poison"
         }
-      ],
-      "attack": 3,
-      "health": 15,
-      "level": 1,
-      "movement": 3,
-      "type": "elite"
+      ]
     },
     {
-      "actions": [
-        {
-          "type": "condition",
-          "value": "poison|wound"
-        }
-      ],
-      "attack": 3,
-      "health": 18,
-      "level": 2,
-      "movement": 3,
-      "type": "elite"
-    },
-    {
-      "actions": [
-        {
-          "type": "condition",
-          "value": "poison|wound"
-        }
-      ],
-      "attack": 4,
-      "health": 21,
-      "level": 3,
-      "movement": 3,
-      "type": "elite"
-    },
-    {
-      "actions": [
-        {
-          "type": "condition",
-          "value": "poison|wound"
-        }
-      ],
-      "attack": 4,
-      "health": 24,
-      "level": 4,
-      "movement": 4,
-      "type": "elite"
-    },
-    {
-      "actions": [
-        {
-          "type": "condition",
-          "value": "poison|wound"
-        }
-      ],
-      "attack": 5,
-      "health": 27,
       "level": 5,
-      "movement": 4,
-      "type": "elite"
-    },
-    {
+      "health": 18,
+      "movement": 3,
+      "attack": 4,
       "actions": [
         {
           "type": "condition",
           "value": "poison|wound"
         }
-      ],
-      "attack": 6,
-      "health": 30,
+      ]
+    },
+    {
       "level": 6,
+      "health": 20,
       "movement": 4,
-      "type": "elite"
-    },
-    {
+      "attack": 4,
       "actions": [
         {
           "type": "condition",
           "value": "poison|wound"
         }
-      ],
-      "attack": 6,
-      "health": 35,
+      ]
+    },
+    {
       "level": 7,
+      "health": 24,
       "movement": 4,
-      "type": "elite"
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison|wound"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 13,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 15,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 18,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison|wound"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 21,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison|wound"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 24,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison|wound"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 27,
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison|wound"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 30,
+      "movement": 4,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison|wound"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 35,
+      "movement": 4,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison|wound"
+        }
+      ]
     }
   ]
 }

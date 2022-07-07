@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "rending-drake",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 548,
+      "cardId": 548,
       "initiative": 12,
       "actions": [
         {
@@ -19,7 +19,7 @@
       ]
     },
     {
-      "cardId" : 549,
+      "cardId": 549,
       "initiative": 13,
       "shuffle": true,
       "actions": [
@@ -41,7 +41,7 @@
       ]
     },
     {
-      "cardId" : 550,
+      "cardId": 550,
       "initiative": 25,
       "actions": [
         {
@@ -57,7 +57,7 @@
       ]
     },
     {
-      "cardId" : 551,
+      "cardId": 551,
       "initiative": 39,
       "actions": [
         {
@@ -73,7 +73,7 @@
       ]
     },
     {
-      "cardId" : 552,
+      "cardId": 552,
       "initiative": 54,
       "actions": [
         {
@@ -103,7 +103,7 @@
       ]
     },
     {
-      "cardId" : 553,
+      "cardId": 553,
       "initiative": 59,
       "actions": [
         {
@@ -125,7 +125,7 @@
       ]
     },
     {
-      "cardId" : 554,
+      "cardId": 554,
       "initiative": 72,
       "shuffle": true,
       "actions": [
@@ -147,7 +147,7 @@
       ]
     },
     {
-      "cardId" : 555,
+      "cardId": 555,
       "initiative": 6,
       "actions": [
         {

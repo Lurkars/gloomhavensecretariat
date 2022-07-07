@@ -1,24 +1,22 @@
 {
   "name": "gnashing-drake",
   "edition": "cs",
-  "abilies": [
+  "abilities": [
     {
       "cardId": 2000,
-      "shuffle": false,
-      "initiavie": "06",
+      "initiative": 6,
       "actions": [
         {
           "type": "shield",
-          "value": "2",
-          "valueType": "plus"
+          "value": 2
         },
         {
           "type": "heal",
-          "value": "2",
+          "value": 2,
           "subActions": [
             {
-              "type": "custom",
-              "value": "Self"
+              "type": "specialTarget",
+              "value": "self"
             }
           ]
         },
@@ -27,8 +25,8 @@
           "value": "strengthen",
           "subActions": [
             {
-              "type": "custom",
-              "value": "Self"
+              "type": "specialTarget",
+              "value": "self"
             }
           ]
         }
@@ -36,81 +34,81 @@
     },
     {
       "cardId": 2001,
-      "shuffle": false,
-      "initiavie": 18,
+      "initiative": 18,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus"
         }
       ]
     },
     {
       "cardId": 2002,
+      "initiative": 24,
       "shuffle": true,
-      "initiavie": 24,
       "actions": [
         {
           "type": "attack",
-          "value": "^-1"
-        },
-        {
-          "type": "condition",
-          "value": "wound"
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
+            }
+          ]
         },
         {
           "type": "custom",
-          "value": "*Focus on the enemy farthest away.",
+          "value": "%data.custom.cs.gnashing-drake.1%",
           "subActions": [
             {
               "type": "move",
-              "value": "0",
+              "value": 0,
               "valueType": "plus"
             }
           ]
         },
         {
           "type": "attack",
-          "value": "^-1"
-        },
-        {
-          "type": "condition",
-          "value": "wound"
-        },
-        {
-          "type": "custom",
-          "value": "*Target one adjacent enemy"
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
+            },
+            {
+              "type": "specialTarget",
+              "value": "enemy"
+            }
+          ]
         }
       ]
     },
     {
       "cardId": 2003,
-      "shuffle": false,
-      "initiavie": 30,
+      "initiative": 30,
       "actions": [
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
-              "type": "attack",
-              "value": "Add+1ifthetarget'scurrent"
-            },
-            {
               "type": "custom",
-              "value": "hit point value is less than maximum."
+              "value": "%data.custom.cs.gnashing-drake.2%"
             }
           ]
         }
@@ -118,22 +116,21 @@
     },
     {
       "cardId": 2004,
-      "shuffle": false,
-      "initiavie": 35,
+      "initiative": 35,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "minus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
               "type": "area",
-              "value": "4-with-black"
+              "value": "(1,0,target)|(2,0,target)|(0,1,active)|(1,1,target)"
             },
             {
               "type": "condition",
@@ -145,29 +142,24 @@
     },
     {
       "cardId": 2005,
-      "shuffle": false,
-      "initiavie": 44,
+      "initiative": 44,
       "actions": [
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
               "type": "range",
-              "value": "3"
+              "value": 3
             },
             {
               "type": "target",
-              "value": "2"
-            },
-            {
-              "type": "attack",
-              "value": "Add+1ifthetarget'scurrent"
+              "value": 2
             },
             {
               "type": "custom",
-              "value": "hit point value is less than maximum."
+              "value": "%data.custom.cs.gnashing-drake.2%"
             }
           ]
         }
@@ -175,26 +167,26 @@
     },
     {
       "cardId": 2006,
+      "initiative": 62,
       "shuffle": true,
-      "initiavie": 62,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "minus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
               "type": "area",
-              "value": "triangle-2-side"
+              "value": "(1,0,target)|(0,1,target)|(1,1,target)"
             },
             {
               "type": "range",
-              "value": "2"
+              "value": 2
             },
             {
               "type": "condition",
@@ -206,17 +198,16 @@
     },
     {
       "cardId": 2007,
-      "shuffle": false,
-      "initiavie": 73,
+      "initiative": 73,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "minus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "plus"
         }
       ]

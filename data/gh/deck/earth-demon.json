@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "earth-demon",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 636,
+      "cardId": 636,
       "initiative": 40,
       "shuffle": true,
       "actions": [
@@ -35,7 +35,7 @@
       ]
     },
     {
-      "cardId" : 637,
+      "cardId": 637,
       "initiative": 42,
       "shuffle": true,
       "actions": [
@@ -52,7 +52,7 @@
       ]
     },
     {
-      "cardId" : 638,
+      "cardId": 638,
       "initiative": 62,
       "actions": [
         {
@@ -72,7 +72,7 @@
       ]
     },
     {
-      "cardId" : 639,
+      "cardId": 639,
       "initiative": 71,
       "actions": [
         {
@@ -100,7 +100,7 @@
       ]
     },
     {
-      "cardId" : 640,
+      "cardId": 640,
       "initiative": 83,
       "actions": [
         {
@@ -120,7 +120,7 @@
       ]
     },
     {
-      "cardId" : 641,
+      "cardId": 641,
       "initiative": 93,
       "actions": [
         {
@@ -153,7 +153,7 @@
       ]
     },
     {
-      "cardId" : 642,
+      "cardId": 642,
       "initiative": 79,
       "actions": [
         {
@@ -181,7 +181,7 @@
       ]
     },
     {
-      "cardId" : 643,
+      "cardId": 643,
       "initiative": 87,
       "actions": [
         {

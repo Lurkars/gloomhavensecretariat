@@ -175,6 +175,12 @@
   </div>
 
   <div *ngSwitchCase="SubMenu.monster_add" class="menu-container monster-add">
+    <div class="line" *ngIf="hasHiddenMonster()">
+      <label>
+        <input type="checkbox" [checked]="showHiddenMonster" (change)="showHiddenMonster=!showHiddenMonster">
+        {{'monster.showHidden' | ghsLabel}}
+      </label>
+    </div>
     <div class="columns">
       <ng-container
         *ngFor="let edition of gameManager.currentEditions()">
@@ -194,12 +200,6 @@
           </div>
         </div>
       </ng-container>
-    </div>
-    <div class="line" *ngIf="hasHiddenMonster()">
-      <label>
-        <input type="checkbox" [checked]="showHiddenMonster" (change)="showHiddenMonster=!showHiddenMonster">
-        {{'monster.showHidden' | ghsLabel}}
-      </label>
     </div>
     <div class="line" *ngIf="hasSpoilers(monsterData())">
       <a (click)="settingsManager.addSpoilers(notSpoiled(monsterData()))">{{'spoiler.all' | ghsLabel}}</a>

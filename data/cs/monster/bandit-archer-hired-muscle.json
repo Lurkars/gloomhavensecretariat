@@ -1,15 +1,15 @@
 {
   "name": "bandit-archer-hired-muscle",
+  "thumbnail": "gh-bandit-archer",
   "edition": "cs",
-  "thumbnail" : "gh-bandit-archer",
   "deck": "archer",
-  "count": 6,
   "hidden": true,
+  "count": 6,
   "baseStat": {
+    "type": "normal",
     "actions": [],
     "immunities": [],
-    "special": [],
-    "type": "normal"
+    "special": []
   },
   "stats": [
     {
@@ -117,6 +117,7 @@
       ]
     },
     {
+      "type": "elite",
       "level": 0,
       "health": 6,
       "movement": 2,
@@ -127,10 +128,10 @@
           "type": "pull",
           "value": 1
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 1,
       "health": 7,
       "movement": 2,
@@ -141,10 +142,10 @@
           "type": "pull",
           "value": 1
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 2,
       "health": 9,
       "movement": 3,
@@ -155,10 +156,10 @@
           "type": "pull",
           "value": 1
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 3,
       "health": 10,
       "movement": 3,
@@ -169,10 +170,10 @@
           "type": "pull",
           "value": 1
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 4,
       "health": 10,
       "movement": 3,
@@ -187,10 +188,10 @@
           "type": "condition",
           "value": "poison"
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 5,
       "health": 12,
       "movement": 4,
@@ -205,10 +206,10 @@
           "type": "condition",
           "value": "poison"
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 6,
       "health": 13,
       "movement": 4,
@@ -223,10 +224,10 @@
           "type": "condition",
           "value": "poison"
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 7,
       "health": 17,
       "movement": 4,
@@ -241,8 +242,7 @@
           "type": "condition",
           "value": "poison"
         }
-      ],
-      "type": "elite"
+      ]
     }
   ]
 }

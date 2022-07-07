@@ -1,20 +1,20 @@
 {
   "name": "harrower-icecrawlers",
   "edition": "cs",
-  "abilies": [
+  "abilities": [
     {
       "cardId": 1230,
+      "initiative": 44,
       "shuffle": true,
-      "initiavie": 44,
       "actions": [
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "plus"
         },
         {
@@ -25,17 +25,17 @@
     },
     {
       "cardId": 1231,
+      "initiative": 44,
       "shuffle": true,
-      "initiavie": 44,
       "actions": [
         {
           "type": "move",
-          "value": "1",
+          "value": 1,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
@@ -46,149 +46,135 @@
     },
     {
       "cardId": 1232,
-      "shuffle": false,
-      "initiavie": 12,
+      "initiative": 12,
       "actions": [
         {
           "type": "shield",
-          "value": "2",
-          "valueType": "plus",
+          "value": 2,
           "subActions": [
             {
-              "type": "custom",
-              "value": "Self"
+              "type": "specialTarget",
+              "value": "self"
             }
           ]
         },
         {
-          "type": "retaliate",
-          "value": "^Ifanenemysuffersdamage",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "from attacking an Icecrawler this round,"
-            },
-            {
-              "type": "condition",
-              "value": "chill"
-            }
-          ]
+          "type": "custom",
+          "value": "%data.custom.cs.harrower-icecrawlers.1%"
         }
       ]
     },
     {
       "cardId": 1233,
-      "shuffle": false,
-      "initiavie": 63,
+      "initiative": 63,
       "actions": [
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "area",
-              "value": "triangle-2-side-with-black"
+              "value": "(1,0,target)|(0,1,active)|(1,1,target)"
             }
           ]
         },
         {
           "type": "element",
           "value": "ice",
-          "valueType": "minus"
-        },
-        {
-          "type": "pierce",
-          "value": "!^2"
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "pierce",
+              "value": 2
+            }
+          ]
         }
       ]
     },
     {
       "cardId": 1234,
-      "shuffle": false,
-      "initiavie": 55,
+      "initiative": 55,
       "actions": [
         {
           "type": "move",
-          "value": "2",
+          "value": 2,
           "valueType": "minus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "plus",
           "subActions": [
             {
               "type": "range",
-              "value": "3"
+              "value": 3
             }
           ]
         },
         {
           "type": "element",
           "value": "ice",
-          "valueType": "minus"
-        },
-        {
-          "type": "pierce",
-          "value": "!^2"
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "pierce",
+              "value": 2
+            }
+          ]
         }
       ]
     },
     {
       "cardId": 1235,
-      "shuffle": false,
-      "initiavie": 16,
+      "initiative": 16,
       "actions": [
         {
           "type": "attack",
-          "value": "0",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "range",
-              "value": "5"
+              "value": 5
             }
           ]
         },
         {
           "type": "element",
           "value": "ice",
-          "valueType": "minus"
-        },
-        {
-          "type": "custom",
-          "value": "!^All enemies adjacent to the"
-        },
-        {
-          "type": "custom",
-          "value": "!^target suffer one damage"
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.harrower-icecrawlers.2%"
+            }
+          ]
         }
       ]
     },
     {
       "cardId": 1236,
-      "shuffle": false,
-      "initiavie": 68,
+      "initiative": 68,
       "actions": [
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "attack",
-          "value": "1",
+          "value": 1,
           "valueType": "minus",
           "subActions": [
             {
               "type": "area",
-              "value": "star-with-side-black"
+              "value": "(0,0,target)|(0,1,target)|(1,1,target)|(0,2,active)"
             }
           ]
         }
@@ -196,31 +182,24 @@
     },
     {
       "cardId": 1237,
-      "shuffle": false,
-      "initiavie": 9,
+      "initiative": 9,
       "actions": [
         {
-          "type": "range",
-          "value": "^Gain3onall",
-          "subActions": [
-            {
-              "type": "retaliate",
-              "value": "abilities."
-            }
-          ]
+          "type": "custom",
+          "value": "%data.custom.cs.harrower-icecrawlers.3%"
         },
         {
           "type": "move",
-          "value": "0",
+          "value": 0,
           "valueType": "plus"
         },
         {
           "type": "heal",
-          "value": "2",
+          "value": 2,
           "subActions": [
             {
               "type": "range",
-              "value": "3"
+              "value": 3
             }
           ]
         }

@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "night-demon",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 660,
+      "cardId": 660,
       "initiative": 4,
       "actions": [
         {
@@ -23,7 +23,7 @@
       ]
     },
     {
-      "cardId" : 661,
+      "cardId": 661,
       "initiative": 7,
       "actions": [
         {
@@ -56,7 +56,7 @@
       ]
     },
     {
-      "cardId" : 662,
+      "cardId": 662,
       "initiative": 22,
       "actions": [
         {
@@ -76,7 +76,7 @@
       ]
     },
     {
-      "cardId" : 663,
+      "cardId": 663,
       "initiative": 26,
       "actions": [
         {
@@ -108,7 +108,7 @@
       ]
     },
     {
-      "cardId" : 664,
+      "cardId": 664,
       "initiative": 46,
       "shuffle": true,
       "actions": [
@@ -137,7 +137,7 @@
       ]
     },
     {
-      "cardId" : 665,
+      "cardId": 665,
       "initiative": 41,
       "shuffle": true,
       "actions": [
@@ -158,7 +158,7 @@
       ]
     },
     {
-      "cardId" : 666,
+      "cardId": 666,
       "initiative": 35,
       "actions": [
         {
@@ -197,7 +197,7 @@
       ]
     },
     {
-      "cardId" : 667,
+      "cardId": 667,
       "initiative": 15,
       "actions": [
         {

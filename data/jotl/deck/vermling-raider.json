@@ -1,11 +1,11 @@
 {
-  "edition": "jotl",
   "name": "vermling-raider",
+  "edition": "jotl",
   "abilities": [
     {
-      "cardId" : 372,
-      "initiative": 85,
       "name": "Screaming Shot",
+      "cardId": 372,
+      "initiative": 85,
       "shuffle": true,
       "actions": [
         {
@@ -32,9 +32,9 @@
       ]
     },
     {
-      "cardId" : 373,
-      "initiative": 36,
       "name": "Carefule Throw",
+      "cardId": 373,
+      "initiative": 36,
       "actions": [
         {
           "type": "move",
@@ -55,9 +55,9 @@
       ]
     },
     {
-      "cardId" : 374,
-      "initiative": 59,
       "name": "Dual Daggers",
+      "cardId": 374,
+      "initiative": 59,
       "actions": [
         {
           "type": "attack",
@@ -77,9 +77,9 @@
       ]
     },
     {
-      "cardId" : 375,
-      "initiative": 50,
       "name": "Nothing Special",
+      "cardId": 375,
+      "initiative": 50,
       "actions": [
         {
           "type": "move",
@@ -94,9 +94,9 @@
       ]
     },
     {
-      "cardId" : 376,
-      "initiative": 30,
       "name": "Patch Wounds",
+      "cardId": 376,
+      "initiative": 30,
       "shuffle": true,
       "actions": [
         {
@@ -117,9 +117,9 @@
       ]
     },
     {
-      "cardId" : 377,
-      "initiative": 70,
       "name": "Parry",
+      "cardId": 377,
+      "initiative": 70,
       "actions": [
         {
           "type": "move",
@@ -140,9 +140,9 @@
       ]
     },
     {
-      "cardId" : 378,
-      "initiative": 77,
       "name": "Vicious Spear",
+      "cardId": 378,
+      "initiative": 77,
       "actions": [
         {
           "type": "move",
@@ -167,9 +167,9 @@
       ]
     },
     {
-      "cardId" : 379,
-      "initiative": 20,
       "name": "Spiked Pit",
+      "cardId": 379,
+      "initiative": 20,
       "actions": [
         {
           "type": "attack",

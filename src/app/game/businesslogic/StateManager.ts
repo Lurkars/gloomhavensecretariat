@@ -27,7 +27,7 @@ export class StateManager {
 
     window.addEventListener('popstate', ((event: any) => {
       if (settingsManager.settings.browserNavigation) {
-       // TODO: undo/redo on state
+        // TODO: undo/redo on state
       }
     }))
   }
@@ -152,6 +152,10 @@ export class StateManager {
     }
 
     undo.push(this.game.toModel());
+
+    if (undo.length > settingsManager.settings.maxUndo) {
+      undo.splice(0, undo.length - settingsManager.settings.maxUndo);
+    }
 
     localStorage.setItem("ghs-undo", JSON.stringify(undo));
     localStorage.setItem("ghs-redo", "[]");

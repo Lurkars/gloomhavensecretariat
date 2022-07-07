@@ -1,44 +1,44 @@
 {
-  "edition": "cs",
   "name": "tools",
+  "edition": "cs",
   "color": "#79bcda",
   "spoiler": true,
   "stats": [
     {
-      "health": 7,
-      "level": 1
+      "level": 1,
+      "health": 7
     },
     {
-      "health": 8,
-      "level": 2
+      "level": 2,
+      "health": 8
     },
     {
-      "health": 9,
-      "level": 3
+      "level": 3,
+      "health": 9
     },
     {
-      "health": 10,
-      "level": 4
+      "level": 4,
+      "health": 10
     },
     {
-      "health": 12,
-      "level": 5
+      "level": 5,
+      "health": 12
     },
     {
-      "health": 13,
-      "level": 6
+      "level": 6,
+      "health": 13
     },
     {
-      "health": 14,
-      "level": 7
+      "level": 7,
+      "health": 14
     },
     {
-      "health": 15,
-      "level": 8
+      "level": 8,
+      "health": 15
     },
     {
-      "health": 17,
-      "level": 9
+      "level": 9,
+      "health": 17
     }
   ]
 }

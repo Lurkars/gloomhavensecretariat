@@ -1,12 +1,14 @@
 {
   "name": "guttermaw",
-  "edition": "cs",
   "thumbnail": "cs-ravenous-gharial",
+  "edition": "cs",
   "deck": "ravenous-gharial",
-  "count": 6,
   "boss": true,
   "hidden": true,
+  "count": 6,
   "baseStat": {
+    "type": "boss",
+    "note": "%data.custom.cs.ravenous-gharial.1%",
     "actions": [
       {
         "type": "pierce",
@@ -30,9 +32,7 @@
       "immobilize",
       "stun"
     ],
-    "special": [],
-    "type": "boss",
-    "note": "%data.custom.cs.ravenous-gharial.1%"
+    "special": []
   },
   "stats": [
     {

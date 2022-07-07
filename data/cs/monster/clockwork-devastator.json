@@ -1,11 +1,12 @@
 {
   "name": "clockwork-devastator",
+  "thumbnail": "gh-lurker",
   "edition": "cs",
-  "thumbnail" : "gh-lurker",
-  "count": 6,
   "boss": true,
   "hidden": true,
+  "count": 6,
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [
       "wound",
@@ -13,8 +14,7 @@
       "disarm",
       "stun"
     ],
-    "special": [],
-    "type": "boss"
+    "special": []
   },
   "stats": [
     {

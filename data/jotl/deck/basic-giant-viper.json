@@ -1,11 +1,11 @@
 {
-  "edition": "jotl",
   "name": "basic-giant-viper",
+  "edition": "jotl",
   "abilities": [
     {
-      "cardId" : 392,
-      "initiative": 33,
       "name": "Swift Fangs",
+      "cardId": 392,
+      "initiative": 33,
       "actions": [
         {
           "type": "move",
@@ -31,9 +31,9 @@
       ]
     },
     {
-      "cardId" : 393,
-      "initiative": 18,
       "name": "Find Cover",
+      "cardId": 393,
+      "initiative": 18,
       "actions": [
         {
           "type": "move",
@@ -57,9 +57,9 @@
       ]
     },
     {
-      "cardId" : 394,
-      "initiative": 58,
       "name": "Constrict",
+      "cardId": 394,
+      "initiative": 58,
       "actions": [
         {
           "type": "move",
@@ -80,9 +80,9 @@
       ]
     },
     {
-      "cardId" : 395,
-      "initiative": 43,
       "name": "Toxic Frenzy",
+      "cardId": 395,
+      "initiative": 43,
       "shuffle": true,
       "actions": [
         {

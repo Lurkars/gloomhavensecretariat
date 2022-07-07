@@ -1,11 +1,11 @@
 {
-  "edition": "jotl",
   "name": "basic-zealot",
+  "edition": "jotl",
   "abilities": [
     {
-      "cardId" : 380,
-      "initiative": 46,
       "name": "Boil Blood",
+      "cardId": 380,
+      "initiative": 46,
       "actions": [
         {
           "type": "attack",
@@ -25,9 +25,9 @@
       ]
     },
     {
-      "cardId" : 381,
-      "initiative": 19,
       "name": "Hex Whip",
+      "cardId": 381,
+      "initiative": 19,
       "actions": [
         {
           "type": "move",
@@ -48,9 +48,9 @@
       ]
     },
     {
-      "cardId" : 382,
-      "initiative": 77,
       "name": "Vile Scourge",
+      "cardId": 382,
+      "initiative": 77,
       "actions": [
         {
           "type": "move",
@@ -71,9 +71,9 @@
       ]
     },
     {
-      "cardId" : 383,
-      "initiative": 27,
       "name": "Drain Life",
+      "cardId": 383,
+      "initiative": 27,
       "shuffle": true,
       "actions": [
         {

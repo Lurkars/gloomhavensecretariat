@@ -1,11 +1,11 @@
 {
-  "edition": "jotl",
   "name": "chaos-demon",
+  "edition": "jotl",
   "abilities": [
     {
-      "cardId" : 412,
-      "initiative": 13,
       "name": "Chilling Breath",
+      "cardId": 412,
+      "initiative": 13,
       "actions": [
         {
           "type": "move",
@@ -37,9 +37,9 @@
       ]
     },
     {
-      "cardId" : 413,
-      "initiative": 1,
       "name": "Heat Blast",
+      "cardId": 413,
+      "initiative": 1,
       "actions": [
         {
           "type": "move",
@@ -71,9 +71,9 @@
       ]
     },
     {
-      "cardId" : 414,
-      "initiative": 67,
       "name": "Seismic Punch",
+      "cardId": 414,
+      "initiative": 67,
       "actions": [
         {
           "type": "move",
@@ -105,9 +105,9 @@
       ]
     },
     {
-      "cardId" : 415,
-      "initiative": 20,
       "name": "Whirlwind",
+      "cardId": 415,
+      "initiative": 20,
       "actions": [
         {
           "type": "move",
@@ -143,9 +143,9 @@
       ]
     },
     {
-      "cardId" : 416,
-      "initiative": 41,
       "name": "Flashing Claws",
+      "cardId": 416,
+      "initiative": 41,
       "actions": [
         {
           "type": "move",
@@ -183,9 +183,9 @@
       ]
     },
     {
-      "cardId" : 417,
-      "initiative": 52,
       "name": "Black Tendrils",
+      "cardId": 417,
+      "initiative": 52,
       "actions": [
         {
           "type": "move",
@@ -213,9 +213,9 @@
       ]
     },
     {
-      "cardId" : 418,
-      "initiative": 76,
       "name": "Mana Explosion",
+      "cardId": 418,
+      "initiative": 76,
       "shuffle": true,
       "actions": [
         {
@@ -236,9 +236,9 @@
       ]
     },
     {
-      "cardId" : 419,
-      "initiative": 98,
       "name": "Hungry Maw",
+      "cardId": 419,
+      "initiative": 98,
       "shuffle": true,
       "actions": [
         {

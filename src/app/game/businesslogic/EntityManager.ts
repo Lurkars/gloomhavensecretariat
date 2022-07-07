@@ -1,8 +1,11 @@
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "../model/Condition";
 import { Entity, EntityValueFunction } from "../model/Entity";
 import { Game } from "../model/Game";
+import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
+import { MonsterStat } from "../model/MonsterStat";
 import { Summon } from "../model/Summon";
+import { settingsManager } from "./SettingsManager";
 
 export class EntityManager {
 
@@ -15,14 +18,27 @@ export class EntityManager {
   changeHealth(entity: Entity, value: number) {
     entity.health += value;
 
-    if (value < 0) {
+    if (value < 0 && settingsManager.settings.applyConditions) {
       entity.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.name == ConditionName.poison || entityCondition.name == ConditionName.poison_x).forEach((entityCondition: EntityCondition) => {
-        entityCondition.highlight = true;
-        setTimeout(() => {
-          entityCondition.highlight = false;
-        }, 1000);
-      })
-    } else if (entity.health == entity.maxHealth) {
+        if (!entityCondition.expired) {
+          entityCondition.highlight = true;
+        }
+      });
+
+      const ward = entity.entityConditions.find((entityCondition: EntityCondition) => !entityCondition.expired && entityCondition.name == ConditionName.ward);
+      const brittle = entity.entityConditions.find((entityCondition: EntityCondition) => !entityCondition.expired && entityCondition.name == ConditionName.brittle);
+
+      if (ward && !brittle) {
+        ward.value -= value;
+        ward.highlight = true;
+      }
+
+      if (brittle && !ward) {
+        brittle.value -= value;
+        brittle.highlight = true;
+      }
+
+    } else if (entity.health >= entity.maxHealth) {
       entity.entityConditions.filter((entityCondition: EntityCondition) => (entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x) && entityCondition.state == EntityConditionState.turn).forEach((entityCondition: EntityCondition) => {
         entityCondition.highlight = true;
         setTimeout(() => {
@@ -40,6 +56,28 @@ export class EntityManager {
 
   hasCondition(entity: Entity, condition: Condition) {
     return entity.entityConditions.some((entityCondition: EntityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
+  }
+
+  isImmune(monster: Monster, entity: MonsterEntity, conditionName: ConditionName): boolean {
+    const stat = monster.stats.find((monsterStat: MonsterStat) => monsterStat.level == entity.level && monsterStat.type == entity.type);
+
+    let immune = stat != undefined && stat.immunities != undefined && stat.immunities.indexOf(conditionName as string) != -1;
+
+    if (!immune) {
+      if (conditionName == ConditionName.wound_x) {
+        return this.isImmune(monster, entity, ConditionName.wound);
+      } else if (conditionName == ConditionName.poison_x) {
+        return this.isImmune(monster, entity, ConditionName.poison);
+      } else if (conditionName == ConditionName.rupture) {
+        return this.isImmune(monster, entity, ConditionName.wound);
+      } else if (conditionName == ConditionName.infect) {
+        return this.isImmune(monster, entity, ConditionName.poison);
+      } else if (conditionName == ConditionName.chill) {
+        return this.isImmune(monster, entity, ConditionName.immobilize) || this.isImmune(monster, entity, ConditionName.muddle);
+      }
+    }
+
+    return immune;
   }
 
   toggleCondition(entity: Entity, condition: Condition, active: boolean, off: boolean) {
@@ -64,6 +102,73 @@ export class EntityManager {
       entity.entityConditions = entity.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.name != condition.name);
     }
   }
+
+  applyCondition(entity: Entity, name: ConditionName) {
+    const condition = entity.entityConditions.find((entityCondition: EntityCondition) => entityCondition.name == name && !entityCondition.expired && entityCondition.types.indexOf(ConditionType.apply) != -1);
+
+    if (condition) {
+      if (condition.name == ConditionName.poison || condition.name == ConditionName.poison_x) {
+        entity.health -= condition.value;
+        if (entity.health < 0) {
+          entity.health = 0;
+        }
+
+        if (entity.health == 0 && (entity instanceof MonsterEntity || entity instanceof Summon) && !entity.dead) {
+          entity.dead = true;
+        }
+
+        condition.highlight = false;
+      }
+
+      if (condition.name == ConditionName.ward) {
+        entity.health += Math.floor((condition.value - 1) / 2);
+        if (entity.health > EntityValueFunction("" + entity.maxHealth)) {
+          entity.health = EntityValueFunction("" + entity.maxHealth);
+        }
+
+        if (entity.health > 0 && (entity instanceof MonsterEntity || entity instanceof Summon) && entity.dead) {
+          entity.dead = false;
+        }
+
+        condition.value = 1;
+        condition.expired = true;
+        condition.highlight = false;
+      }
+
+      if (condition.name == ConditionName.brittle) {
+        entity.health -= Math.floor((condition.value - 1) / 2);
+        if (entity.health < 0) {
+          entity.health = 0;
+        }
+
+        if (entity.health == 0 && (entity instanceof MonsterEntity || entity instanceof Summon) && !entity.dead) {
+          entity.dead = true;
+        }
+
+        condition.value = 1;
+        condition.expired = true;
+        condition.highlight = false;
+      }
+    }
+  }
+
+  declineApplyCondition(entity: Entity, name: ConditionName) {
+    const condition = entity.entityConditions.find((entityCondition: EntityCondition) => entityCondition.name == name && !entityCondition.expired && entityCondition.types.indexOf(ConditionType.apply) != -1);
+    if (condition) {
+      condition.highlight = false;
+
+      if (condition.name == ConditionName.ward) {
+        condition.value = 1;
+        condition.expired = true;
+      }
+
+      if (condition.name == ConditionName.brittle) {
+        condition.value = 1;
+        condition.expired = true;
+      }
+    }
+  }
+
 
   restoreConditions(entity: Entity) {
     entity.entityConditions.forEach((entityCondition: EntityCondition) => {

@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "living-corpse",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 564,
+      "cardId": 564,
       "initiative": 21,
       "actions": [
         {
@@ -24,7 +24,7 @@
       ]
     },
     {
-      "cardId" : 565,
+      "cardId": 565,
       "initiative": 47,
       "actions": [
         {
@@ -40,7 +40,7 @@
       ]
     },
     {
-      "cardId" : 566,
+      "cardId": 566,
       "initiative": 66,
       "shuffle": true,
       "actions": [
@@ -57,7 +57,7 @@
       ]
     },
     {
-      "cardId" : 567,
+      "cardId": 567,
       "initiative": 66,
       "shuffle": true,
       "actions": [
@@ -74,7 +74,7 @@
       ]
     },
     {
-      "cardId" : 568,
+      "cardId": 568,
       "initiative": 82,
       "actions": [
         {
@@ -90,7 +90,7 @@
       ]
     },
     {
-      "cardId" : 569,
+      "cardId": 569,
       "initiative": 91,
       "actions": [
         {
@@ -105,7 +105,7 @@
       ]
     },
     {
-      "cardId" : 570,
+      "cardId": 570,
       "initiative": 71,
       "actions": [
         {
@@ -131,7 +131,7 @@
       ]
     },
     {
-      "cardId" : 571,
+      "cardId": 571,
       "initiative": 32,
       "actions": [
         {

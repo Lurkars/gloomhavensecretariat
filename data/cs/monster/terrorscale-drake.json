@@ -2,9 +2,10 @@
   "name": "terrorscale-drake",
   "edition": "cs",
   "deck": "boss",
-  "count": 1,
   "boss": true,
+  "count": 1,
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [
       "immobilize",
@@ -58,8 +59,7 @@
           "value": "%data.custom.cs.terrorscale-drake.2%"
         }
       ]
-    ],
-    "type": "boss"
+    ]
   },
   "stats": [
     {

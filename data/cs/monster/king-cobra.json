@@ -1,12 +1,13 @@
 {
   "name": "king-cobra",
-  "edition": "cs",
   "thumbnail": "gh-giant-viper",
+  "edition": "cs",
   "deck": "giant-viper",
-  "count": 10,
   "boss": true,
   "hidden": true,
+  "count": 10,
   "baseStat": {
+    "type": "boss",
     "actions": [
       {
         "type": "condition",
@@ -14,8 +15,7 @@
       }
     ],
     "immunities": [],
-    "special": [],
-    "type": "boss"
+    "special": []
   },
   "stats": [
     {

@@ -1,12 +1,13 @@
 {
+  "name": "sightless-eye",
+  "edition": "gh",
+  "deck": "boss",
   "boss": true,
   "count": 1,
-  "deck": "boss",
-  "edition": "gh",
-  "name": "sightless-eye",
   "baseStat": {
-    "actions": [],
+    "type": "boss",
     "health": "7xC",
+    "actions": [],
     "immunities": [
       "stun",
       "disarm",
@@ -50,64 +51,63 @@
           ]
         }
       ]
-    ],
-    "type": "boss"
+    ]
   },
   "stats": [
     {
-      "attack": 5,
-      "health": "7xC",
       "level": 0,
+      "health": "7xC",
       "movement": 0,
+      "attack": 5,
       "range": 3
     },
     {
-      "attack": 6,
-      "health": "8xC",
       "level": 1,
+      "health": "8xC",
       "movement": 0,
-      "range": 3
-    },
-    {
       "attack": 6,
-      "health": "10xC",
+      "range": 3
+    },
+    {
       "level": 2,
+      "health": "10xC",
       "movement": 0,
+      "attack": 6,
       "range": 3
     },
     {
-      "attack": 7,
-      "health": "11xC",
       "level": 3,
+      "health": "11xC",
       "movement": 0,
-      "range": 3
-    },
-    {
       "attack": 7,
-      "health": "14xC",
+      "range": 3
+    },
+    {
       "level": 4,
+      "health": "14xC",
       "movement": 0,
+      "attack": 7,
       "range": 3
     },
     {
-      "attack": 8,
-      "health": "15xC",
       "level": 5,
+      "health": "15xC",
       "movement": 0,
-      "range": 3
-    },
-    {
       "attack": 8,
-      "health": "18xC",
-      "level": 6,
-      "movement": 0,
       "range": 3
     },
     {
-      "attack": 9,
-      "health": "20xC",
-      "level": 7,
+      "level": 6,
+      "health": "18xC",
       "movement": 0,
+      "attack": 8,
+      "range": 3
+    },
+    {
+      "level": 7,
+      "health": "20xC",
+      "movement": 0,
+      "attack": 9,
       "range": 3
     }
   ]

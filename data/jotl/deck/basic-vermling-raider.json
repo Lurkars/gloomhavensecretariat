@@ -1,11 +1,11 @@
 {
-  "edition": "jotl",
   "name": "basic-vermling-raider",
+  "edition": "jotl",
   "abilities": [
     {
-      "cardId" : 368,
-      "initiative": 85,
       "name": "Screaming Shot",
+      "cardId": 368,
+      "initiative": 85,
       "shuffle": true,
       "hint": "Shuffle this deck at the end of the round.",
       "actions": [
@@ -33,9 +33,9 @@
       ]
     },
     {
-      "cardId" : 369,
-      "initiative": 36,
       "name": "Carefule Throw",
+      "cardId": 369,
+      "initiative": 36,
       "hint": "They will move to avoid being adjacent to their focus.",
       "actions": [
         {
@@ -57,9 +57,9 @@
       ]
     },
     {
-      "cardId" : 370,
-      "initiative": 59,
       "name": "Dual Daggers",
+      "cardId": 370,
+      "initiative": 59,
       "hint": "They are not moving this round.",
       "actions": [
         {
@@ -80,9 +80,9 @@
       ]
     },
     {
-      "cardId" : 371,
-      "initiative": 50,
       "name": "Nothing Special",
+      "cardId": 371,
+      "initiative": 50,
       "hint": "This is exactly how they acted last scenario.",
       "actions": [
         {

@@ -1,8 +1,6 @@
 {
-  "edition": "gh",
   "name": "guard",
-  "initiative": 15,
-  "shuffle": true,
+  "edition": "gh",
   "abilities": [
     {
       "cardId": 524,
@@ -153,5 +151,7 @@
         }
       ]
     }
-  ]
+  ],
+  "initiative": 15,
+  "shuffle": true
 }

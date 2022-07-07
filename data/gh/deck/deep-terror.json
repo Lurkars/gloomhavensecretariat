@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "deep-terror",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 732,
+      "cardId": 732,
       "initiative": 65,
       "actions": [
         {
@@ -28,7 +28,7 @@
       ]
     },
     {
-      "cardId" : 733,
+      "cardId": 733,
       "initiative": 60,
       "shuffle": true,
       "actions": [
@@ -50,7 +50,7 @@
       ]
     },
     {
-      "cardId" : 734,
+      "cardId": 734,
       "initiative": 60,
       "shuffle": true,
       "actions": [
@@ -72,7 +72,7 @@
       ]
     },
     {
-      "cardId" : 735,
+      "cardId": 735,
       "initiative": 84,
       "actions": [
         {
@@ -104,7 +104,7 @@
       ]
     },
     {
-      "cardId" : 736,
+      "cardId": 736,
       "initiative": 75,
       "actions": [
         {
@@ -136,7 +136,7 @@
       ]
     },
     {
-      "cardId" : 737,
+      "cardId": 737,
       "initiative": 75,
       "actions": [
         {
@@ -172,7 +172,7 @@
       ]
     },
     {
-      "cardId" : 738,
+      "cardId": 738,
       "initiative": 96,
       "actions": [
         {
@@ -193,7 +193,7 @@
       ]
     },
     {
-      "cardId" : 739,
+      "cardId": 739,
       "initiative": 54,
       "actions": [
         {

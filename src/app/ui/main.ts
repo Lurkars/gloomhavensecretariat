@@ -1,7 +1,7 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
-import { Game, GameModel, GameState } from 'src/app/game/model/Game';
+import { GameState } from 'src/app/game/model/Game';
 import { SettingsManager, settingsManager } from '../game/businesslogic/SettingsManager';
 import { Figure } from '../game/model/Figure';
 

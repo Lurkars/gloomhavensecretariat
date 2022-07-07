@@ -1,13 +1,10 @@
-import {
-  Component, Input,
-} from "@angular/core";
+import { Component, Input, } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { Condition, ConditionName, EntityCondition } from "src/app/game/model/Condition";
+import { Condition, ConditionName, ConditionType, EntityCondition } from "src/app/game/model/Condition";
 import { Entity } from "src/app/game/model/Entity";
 import { Figure } from "src/app/game/model/Figure";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
-import { MonsterStat } from "src/app/game/model/MonsterStat";
 
 @Component({
   selector: 'ghs-conditions',
@@ -36,9 +33,7 @@ export class ConditionsComponent {
       return false;
     }
 
-    const stat = this.figure.stats.find((monsterStat: MonsterStat) => monsterStat.level == this.entity.level && monsterStat.type == (this.entity as MonsterEntity).type);
-
-    return stat && stat.immunities && stat.immunities.indexOf(conditionName as string) != -1;
+    return gameManager.entityManager.isImmune(this.figure, this.entity, conditionName);
   }
 
   inc(condition: Condition) {
@@ -67,7 +62,7 @@ export class ConditionsComponent {
   checkUpdate(condition: Condition) {
     const entityCondition = this.entity.entityConditions.find((entityCondition: EntityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
     if (entityCondition) {
-      gameManager.stateManager.after();
+      gameManager.stateManager.before();
       entityCondition.value = condition.value;
       gameManager.stateManager.after();
     }
@@ -78,4 +73,32 @@ export class ConditionsComponent {
     gameManager.entityManager.toggleCondition(this.entity, condition, this.figure.active, this.figure.off);
     gameManager.stateManager.after();
   }
+}
+
+
+@Component({
+  selector: 'ghs-highlight-conditions',
+  templateUrl: './highlight.html',
+  styleUrls: [ './highlight.scss' ]
+})
+export class HighlightConditionsComponent {
+
+  @Input() entity!: Entity;
+
+  gameManager: GameManager = gameManager;
+  ConditionType = ConditionType;
+
+  applyCondition(name: ConditionName) {
+    gameManager.stateManager.before();
+    gameManager.entityManager.applyCondition(this.entity, name)
+    gameManager.stateManager.after();
+  }
+
+
+  declineApplyCondition(name: ConditionName) {
+    gameManager.stateManager.before();
+    gameManager.entityManager.declineApplyCondition(this.entity, name)
+    gameManager.stateManager.after();
+  }
+
 }

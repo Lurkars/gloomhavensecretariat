@@ -37,6 +37,8 @@ export enum ActionType {
   teleport = "teleport",
   special = "special",
   monsterType = "monsterType",
+  elementHalf = "elementHalf",
+  trigger = "trigger",
 }
 
 export enum ActionValueType {

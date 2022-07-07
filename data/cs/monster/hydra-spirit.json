@@ -1,12 +1,14 @@
 {
   "name": "hydra-spirit",
-  "edition": "cs",
   "thumbnail": "cs-water-spirit",
+  "edition": "cs",
   "deck": "water-spirit",
-  "count": 6,
   "boss": true,
   "hidden": true,
+  "count": 6,
   "baseStat": {
+    "type": "boss",
+    "movement": 3,
     "actions": [],
     "immunities": [
       "stun",
@@ -14,9 +16,7 @@
       "poison",
       "immobilize"
     ],
-    "special": [],
-    "type": "boss",
-    "movement": 3
+    "special": []
   },
   "stats": [
     {

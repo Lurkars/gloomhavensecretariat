@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "spitting-drake",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 556,
+      "cardId": 556,
       "initiative": 32,
       "actions": [
         {
@@ -19,7 +19,7 @@
       ]
     },
     {
-      "cardId" : 557,
+      "cardId": 557,
       "initiative": 52,
       "actions": [
         {
@@ -35,7 +35,7 @@
       ]
     },
     {
-      "cardId" : 558,
+      "cardId": 558,
       "initiative": 57,
       "shuffle": true,
       "actions": [
@@ -63,7 +63,7 @@
       ]
     },
     {
-      "cardId" : 559,
+      "cardId": 559,
       "initiative": 27,
       "actions": [
         {
@@ -84,7 +84,7 @@
       ]
     },
     {
-      "cardId" : 560,
+      "cardId": 560,
       "initiative": 87,
       "actions": [
         {
@@ -100,7 +100,7 @@
       ]
     },
     {
-      "cardId" : 561,
+      "cardId": 561,
       "initiative": 89,
       "actions": [
         {
@@ -117,7 +117,7 @@
       ]
     },
     {
-      "cardId" : 562,
+      "cardId": 562,
       "initiative": 6,
       "actions": [
         {
@@ -147,7 +147,7 @@
       ]
     },
     {
-      "cardId" : 563,
+      "cardId": 563,
       "initiative": 89,
       "shuffle": true,
       "actions": [

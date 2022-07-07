@@ -1,174 +1,151 @@
 {
-  "count": 10,
-  "deck": "imp",
-  "edition": "gh",
   "name": "black-imp",
+  "edition": "gh",
+  "deck": "imp",
+  "count": 10,
   "baseStat": {
+    "type": "normal",
+    "movement": 1,
     "actions": [],
     "immunities": [],
-    "special": [],
-    "type": "normal"
+    "special": []
   },
   "stats": [
     {
-      "attack": 1,
+      "level": 0,
       "health": 3,
-      "level": 0,
-      "movement": 1,
+      "attack": 1,
       "range": 3
     },
     {
-      "actions": [
-        {
-          "type": "condition",
-          "value": "poison"
-        }
-      ],
-      "attack": 1,
-      "health": 4,
       "level": 1,
-      "movement": 1,
-      "range": 3
-    },
-    {
-      "actions": [
-        {
-          "type": "condition",
-          "value": "poison"
-        }
-      ],
+      "health": 4,
       "attack": 1,
-      "health": 5,
+      "range": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
       "level": 2,
-      "movement": 1,
-      "range": 4
-    },
-    {
-      "actions": [
-        {
-          "type": "condition",
-          "value": "poison"
-        }
-      ],
-      "attack": 2,
       "health": 5,
-      "level": 3,
-      "movement": 1,
-      "range": 4
-    },
-    {
+      "attack": 1,
+      "range": 4,
       "actions": [
         {
           "type": "condition",
           "value": "poison"
         }
-      ],
+      ]
+    },
+    {
+      "level": 3,
+      "health": 5,
       "attack": 2,
+      "range": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 4,
       "health": 7,
-      "level": 4,
-      "movement": 1,
-      "range": 4
-    },
-    {
+      "attack": 2,
+      "range": 4,
       "actions": [
         {
           "type": "condition",
           "value": "poison"
         }
-      ],
-      "attack": 2,
+      ]
+    },
+    {
+      "level": 5,
       "health": 9,
-      "level": 5,
-      "movement": 1,
-      "range": 4
-    },
-    {
+      "attack": 2,
+      "range": 4,
       "actions": [
         {
           "type": "condition",
           "value": "poison"
         }
-      ],
-      "attack": 3,
+      ]
+    },
+    {
+      "level": 6,
       "health": 10,
-      "level": 6,
-      "movement": 1,
-      "range": 4
-    },
-    {
-      "actions": [
-        {
-          "type": "condition",
-          "value": "poison"
-        }
-      ],
       "attack": 3,
-      "health": 12,
-      "level": 7,
-      "movement": 1,
-      "range": 4
-    },
-    {
+      "range": 4,
       "actions": [
         {
           "type": "condition",
           "value": "poison"
         }
-      ],
-      "attack": 2,
-      "health": 4,
+      ]
+    },
+    {
+      "level": 7,
+      "health": 12,
+      "attack": 3,
+      "range": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "type": "elite",
       "level": 0,
-      "movement": 1,
+      "health": 4,
+      "attack": 2,
       "range": 3,
-      "type": "elite"
-    },
-    {
       "actions": [
         {
           "type": "condition",
           "value": "poison"
         }
-      ],
-      "attack": 2,
-      "health": 6,
+      ]
+    },
+    {
+      "type": "elite",
       "level": 1,
-      "movement": 1,
+      "health": 6,
+      "attack": 2,
       "range": 3,
-      "type": "elite"
-    },
-    {
       "actions": [
         {
           "type": "condition",
           "value": "poison"
         }
-      ],
-      "attack": 2,
-      "health": 8,
+      ]
+    },
+    {
+      "type": "elite",
       "level": 2,
-      "movement": 1,
-      "range": 4,
-      "type": "elite"
-    },
-    {
-      "actions": [
-        {
-          "type": "custom",
-          "value": "%game.custom.disadvantage%"
-        },
-        {
-          "type": "condition",
-          "value": "poison"
-        }
-      ],
+      "health": 8,
       "attack": 2,
-      "health": 5,
+      "range": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "type": "elite",
       "level": 3,
-      "movement": 1,
+      "health": 5,
+      "attack": 2,
       "range": 4,
-      "type": "elite"
-    },
-    {
       "actions": [
         {
           "type": "custom",
@@ -178,33 +155,31 @@
           "type": "condition",
           "value": "poison"
         }
-      ],
-      "attack": 3,
-      "health": 11,
+      ]
+    },
+    {
+      "type": "elite",
       "level": 4,
-      "movement": 1,
-      "range": 4,
-      "type": "elite"
-    },
-    {
-      "actions": [
-        {
-          "type": "custom",
-          "value": "%game.custom.disadvantage%"
-        },
-        {
-          "type": "condition",
-          "value": "poison"
-        }
-      ],
+      "health": 11,
       "attack": 3,
-      "health": 12,
+      "range": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "type": "elite",
       "level": 5,
-      "movement": 1,
+      "health": 12,
+      "attack": 3,
       "range": 5,
-      "type": "elite"
-    },
-    {
       "actions": [
         {
           "type": "custom",
@@ -214,15 +189,14 @@
           "type": "condition",
           "value": "poison"
         }
-      ],
-      "attack": 4,
-      "health": 14,
+      ]
+    },
+    {
+      "type": "elite",
       "level": 6,
-      "movement": 1,
+      "health": 14,
+      "attack": 4,
       "range": 5,
-      "type": "elite"
-    },
-    {
       "actions": [
         {
           "type": "custom",
@@ -232,13 +206,24 @@
           "type": "condition",
           "value": "poison"
         }
-      ],
-      "attack": 4,
-      "health": 17,
+      ]
+    },
+    {
+      "type": "elite",
       "level": 7,
-      "movement": 1,
+      "health": 17,
+      "attack": 4,
       "range": 5,
-      "type": "elite"
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
     }
   ]
 }

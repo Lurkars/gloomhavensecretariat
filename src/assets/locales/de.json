@@ -56,7 +56,7 @@
     "calc": "Zeige berechnete Werte an",
     "eliteFirst": "Elite Aufsteller zuerst",
     "expireConditions": "Automatisch Zustände löschen",
-    "applyConditions" : "Zustände automatisch anweden",
+    "applyConditions": "Zustände automatisch anweden",
     "moveElements": "Automatisch Elementen Status ändern",
     "randomStandees": "Zufällige Aufsteller",
     "zoomIn": "Reinzoomen",
@@ -66,6 +66,7 @@
     "resetGame": "Spiel Zurücksetzen",
     "resetSettings": "Einstellungen Zurücksetzen",
     "browserNavigation": "Rückgängig/Wiederherstellen über Navigation",
+    "maxUndo" : "Max. Anzahl Rückgängigvorgänge",
     "locale": {
       ".": "Sprache",
       "en": "Englisch (English)",
@@ -104,6 +105,7 @@
   },
   "update": "Update (Neu Laden)",
   "and": "und",
+  "or": "oder",
   "game": {
     "action": {
       "attack": "Angriff",
@@ -111,22 +113,7 @@
       "move": "Bewegung",
       "jump": "Springen",
       "heal": "Heilen",
-      "specialTarget": {
-        "self": "Selbst",
-        "selfAllies": "Self and all allies",
-        "selfAlliesAffect": "Affect self and all allies",
-        "ally": "Target one adjacent ally",
-        "allAllies": "Target all allies",
-        "allAlliesRange": "Target all allies within range",
-        "adjacentAllies": "Target all adjacent allies",
-        "adjacentAlliesAffect": "Affect all adjacent allies",
-        "enemy": "Target one adjacent enemy",
-        "enemyOneAll": "Target one enemy with all attacks",
-        "allEnemies": "Target all enemies",
-        "allEnemiesRange": "Target all enemies within range",
-        "adjacentEnemies": "Target all adjacent enemies",
-        "selfAlliesRange": "Target self and all allies within range"
-      },
+      "specialTarget": {},
       "target": "Ziel",
       "shield": "Schild",
       "pierce": "Durchstechen",
@@ -192,7 +179,7 @@
         "ceil": "(aufgerundet)",
         "floor": "(abgerundet)"
       },
-      "scenarioBook" : "Im Szenariobuch nachschlagen"
+      "scenarioBook": "Im Szenariobuch nachschlagen"
     }
   },
   "datamanagement": {

@@ -83,20 +83,46 @@
     "scenario": {},
     "custom": {
       "cs": {
+        "apex-demon": {
+          "1": "Target all enenemies withing %game.action.range% 3."
+        },
+        "blood-ooze": {
+          "1": "Summon one normal %data.monster.blood-ooze% in a hex adjacent to the target with a hit point value equal to the summoning %data.monster.blood-ooze%'s current hit point value minus 2 (limited by a normal %data.monster.blood-ooze%'s specifiec maximum hit point value)",
+          "2": "Summon one normal %data.monster.blood-ooze% with a current hit point value equal to four.",
+          "3": "Hit point value equal to three instead",
+          "4": "All adjacent enemies suffer one damage.",
+          "5": "Target all adjacent %data.monster.blood-ooze%s",
+          "6": "Add +2 %game.action.attack% if the target is adjacent to at least two %data.monster.blood-ooze%s",
+          "7": "Target one enemy at exactly %game.action.range% 2",
+          "8": "If at least one money token was looted:",
+          "9": "%data.monster.blood-ooze% suffers two damage."
+        },
+        "brood-mother": {
+          "1": "She cannot be reduced below 1 hit point. When attackes, she consideders any %game.attackmodifier.double% attack modifier card the enemy draws to be %game.attackmodifier.plus0% instead."
+        },
         "drake-porter": {
           "1": "Every time you kill a drake, the %data.monster.drake-porter% suffers 2 damage."
         },
         "drakefiend": {
-          "1": "All adjacent figures with %condition.wound% suffer 1 damage."
+          "1": "All adjacent figures with %game.condition.wound% suffer 1 damage."
         },
         "eternal-demon": {
           "1": "to a map tile occupied by the least ammount of characters.",
           "2": "where X is equal to the number of characters on different map tiles not occupied by the %data.monster.eternal-demon%.",
           "3": "Target all enemies sharing the same map tile."
         },
+        "frozen-cadaver": {
+          "1": "Target all adjacent enemies that do not have any %game.condition.chill% tokens",
+          "2": "All adjacent enemies with %game.condition.chill% suffer 1 damage.",
+          "3": "Add +2 %game.action.attack% if the target has %game.condition.chill%"
+        },
         "gelatinous-giant": {
           "1": "All %data.monster.blood-ooze% perform:",
           "2": "Target all enenemies withing %game.action.range% 3."
+        },
+        "gnashing-drake": {
+          "1": "Focus on the enemy farthest away.",
+          "2": "Add +1 %game.action.attack% if the target's current hit point value is less than maximum."
         },
         "goremyon-shatter-mind": {
           "1": "Normal ally with the fewest hit points performs:",
@@ -109,6 +135,28 @@
         "guttermaw": {
           "1": "attacks without target area gain"
         },
+        "hail-demon": {
+          "1": "Target all enenemies within %game.action.range% 3 with %game.condition.chill%",
+          "2": "Target one enemy with no %game.condition.chill% tokens within %game.action.range% 3",
+          "3": "Create a %game.condition.chill% trap in an adjacent empty hex closest to an enemy.",
+          "4": "Target one enemy within %game.action.range% 3",
+          "5": "Target one enemy within %game.action.range% 2"
+        },
+        "harrower-aegis": {
+          "1": "Affect all enemies within %game.action.range% 3",
+          "2": "Target all enemies within %game.action.range% 3",
+          "3": "Affect one ally within %game.action.range% 3",
+          "4": "The affected ally gains \"%game.action.retaliate% 1\".",
+          "5": "All targets suffer 1 damage.",
+          "6": "Remove %game.condition.poison% from self.",
+          "7": "Focus on the enemy farthest away.",
+          "8": "Target all enemies within one hex along the path moved"
+        },
+        "harrower-icecrawlers": {
+          "1": "If any enemy suffers %game.action.retaliate% damage from attacking an Icecrawler this round, this enemy gains %game.condition.chill%.",
+          "2": "All enenmies adjacent to the target suffer one damage",
+          "3": "Gain %game.action.range% 3 on all %game.action.retaliate% abilities."
+        },
         "land-leviathan": {
           "1": "Increase the %data.monster.land-leviathan%'s maximum hit point value by 2."
         },
@@ -117,24 +165,51 @@
         },
         "ravenous-gharial": {
           "1": "Unaffected by water hexes",
-          "2": "Shield only applies on ranged attacks"
+          "2": "Shield only applies on ranged attacks",
+          "3": "At %game.initiative.60% perform the following abilities",
+          "4": "At %game.initiative.90% perform the following abilities",
+          "5": "where X is the damage dealt by the attack ability.",
+          "6": "Target all enemies at exactly %game.action.range% 2 or 3",
+          "7": "This movement may move through all figures.",
+          "8": "where X is this figure's %game.action.attack% value.",
+          "9": "All ranged attacks targeting this figure gain Disadvantage.",
+          "10": "At %game.initiative.50% perform the following abilities",
+          "11": "If this attack was performed, remove %game.condition.invisible%."
         },
         "rogue-hollowpact": {
           "1": "where X is equal to the number of Void Pit obstacles",
           "2": "Jump to an empty hex adjacent to a Void Pit abstacle furthest away from a character withing %game.action.range% 4.",
           "3": "All enemies adjacent to a Void Pit obstacle suffer 2 damage."
         },
+        "terror-drone" : {
+          "1": "Summon a normal %data.monster.dead-archer% in a hex adjacent to the target"
+        },
         "terrorscale-drake": {
           "1": "all enemies adjacent to the target suffer 1 damage",
           "2": "destroy the occupied obstacle"
         },
-        "water-spirit": {
-          "1": "Shield only applies before its turn."
+        "the-cultist": {
+          "1": "%data.monster.the-cultist% suffers 2 damage.",
+          "2": "For three or more characters, every other %data.monster.living-spirit% summoned is elite."
         },
-        "your-shadow" : {
-          "1" : "your maximum hit point value",
-          "2" : "%game.action.teleport% to an unoccupied hex adjacent to the enemy and perform",
-          "3" : "If no legal hex exists for the %game.action.teleport% perfom instead"
+        "toxic-imp": {
+          "1" : "Add +1 %game.action.attack% if the target has %game.condition.infect%",
+          "2" : "If an enemy targets %data.monster.toxic-imp% with an attack, that enemy gains %game.condition.infect%.",
+          "3" : "If a negative condition was removed with this heal, the target gains %game.condition.strengthen%."
+        },
+        "water-spirit": {
+          "1": "Shield only applies before its turn.",
+          "2": "Add +2 %game.action.attack% if the target is occupying a water tile",
+          "3": "where X is equal to the number of water tiles within %game.action.range% 1.",
+          "4": "All enenmies occupying a water tile suffer 1 damage.",
+          "5": "Create a water tile in all hexes occupied by a target containing no overlay tiles.",
+          "6": "Where X is equal to the number of water tiles within %game.action.range% 1, up to 3.",
+          "7": "Create a water tile in an unoccupied adjacent hex closest to an enemy containing no overlay tile."
+        },
+        "your-shadow": {
+          "1": "your maximum hit point value",
+          "2": "%game.action.teleport% to an unoccupied hex adjacent to the enemy and perform",
+          "3": "If no legal hex exists for the %game.action.teleport% perfom instead"
         }
       }
     }

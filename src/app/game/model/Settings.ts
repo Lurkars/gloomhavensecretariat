@@ -18,4 +18,5 @@ export class Settings {
   serverAutoconnect: boolean = true;
   serverSettings: boolean = false;
   serverWss: boolean = false;
+  maxUndo: number = 50;
 }

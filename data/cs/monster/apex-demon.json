@@ -1,11 +1,12 @@
 {
   "name": "apex-demon",
+  "thumbnail": "gh-earth-demon",
   "edition": "cs",
-  "thumbnail" : "gh-earth-demon",
-  "count": 6,
   "boss": true,
   "hidden": true,
+  "count": 6,
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [
       "immobilize",
@@ -14,8 +15,7 @@
       "wound",
       "stun"
     ],
-    "special": [],
-    "type": "boss"
+    "special": []
   },
   "stats": [
     {

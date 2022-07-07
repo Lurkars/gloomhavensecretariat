@@ -8,6 +8,34 @@
   background-image: url('~src/assets/images/monster/stats/standard.png');
   border-radius: calc(var(--ghs-unit) * 1);
 
+  .name-container {
+    position: absolute;
+    top: calc(var(--ghs-unit) * 0.6);
+    right: 0;
+    width: calc(var(--ghs-unit) * 28);
+    display: flex;
+    align-items: center;
+    font-family: 'ghs-title';
+    color: var(--ghs-color-white);
+    font-size: calc(var(--ghs-unit) * 2.5);
+    filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
+    text-align: left;
+    white-space: nowrap;
+    overflow: auto;
+    
+    .flying {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: auto;
+  
+      img {
+        height: 1em;
+        width: auto;
+      }
+    }
+  }
+
   .level {
     position: absolute;
     top: calc(var(--ghs-unit) * 0.5);
@@ -143,6 +171,23 @@
 
         &:nth-child(9) {
           grid-column: 4;
+          grid-row: 6;
+        }
+
+        &:nth-child(10) {
+          grid-column-start: 4;
+          grid-column-end: 6;
+          grid-row: 5;
+        }
+
+        &:nth-child(11) {
+          grid-column-start: 4;
+          grid-column-end: 6;
+          grid-row: 7;
+        }
+
+        &:nth-child(12) {
+          grid-column: 5;
           grid-row: 6;
         }
       }

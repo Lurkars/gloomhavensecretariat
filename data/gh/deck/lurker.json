@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "lurker",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 612,
+      "cardId": 612,
       "initiative": 11,
       "shuffle": true,
       "actions": [
@@ -35,7 +35,7 @@
       ]
     },
     {
-      "cardId" : 613,
+      "cardId": 613,
       "initiative": 28,
       "actions": [
         {
@@ -51,7 +51,7 @@
       ]
     },
     {
-      "cardId" : 614,
+      "cardId": 614,
       "initiative": 38,
       "actions": [
         {
@@ -67,7 +67,7 @@
       ]
     },
     {
-      "cardId" : 615,
+      "cardId": 615,
       "initiative": 38,
       "actions": [
         {
@@ -89,7 +89,7 @@
       ]
     },
     {
-      "cardId" : 616,
+      "cardId": 616,
       "initiative": 61,
       "actions": [
         {
@@ -105,7 +105,7 @@
       ]
     },
     {
-      "cardId" : 617,
+      "cardId": 617,
       "initiative": 64,
       "actions": [
         {
@@ -122,7 +122,7 @@
       ]
     },
     {
-      "cardId" : 618,
+      "cardId": 618,
       "initiative": 41,
       "actions": [
         {
@@ -161,7 +161,7 @@
       ]
     },
     {
-      "cardId" : 619,
+      "cardId": 619,
       "initiative": 23,
       "shuffle": true,
       "actions": [

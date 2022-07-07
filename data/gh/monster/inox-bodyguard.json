@@ -1,10 +1,11 @@
 {
+  "name": "inox-bodyguard",
+  "edition": "gh",
+  "deck": "boss",
   "boss": true,
   "count": 2,
-  "deck": "boss",
-  "edition": "gh",
-  "name": "inox-bodyguard",
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [
       "disarm",
@@ -47,57 +48,56 @@
           "value": 3
         }
       ]
-    ],
-    "type": "boss"
+    ]
   },
   "stats": [
     {
-      "attack": "C",
-      "health": "6xC",
       "level": 0,
-      "movement": 2
+      "health": "6xC",
+      "movement": 2,
+      "attack": "C"
     },
     {
-      "attack": "1+C",
-      "health": "7xC",
       "level": 1,
-      "movement": 2
+      "health": "7xC",
+      "movement": 2,
+      "attack": "1+C"
     },
     {
-      "attack": "1+C",
-      "health": "9xC",
       "level": 2,
-      "movement": 2
+      "health": "9xC",
+      "movement": 2,
+      "attack": "1+C"
     },
     {
-      "attack": "2+C",
-      "health": "10xC",
       "level": 3,
-      "movement": 3
+      "health": "10xC",
+      "movement": 3,
+      "attack": "2+C"
     },
     {
-      "attack": "2+C",
-      "health": "11xC",
       "level": 4,
-      "movement": 3
+      "health": "11xC",
+      "movement": 3,
+      "attack": "2+C"
     },
     {
-      "attack": "3+C",
-      "health": "13xC",
       "level": 5,
-      "movement": 3
+      "health": "13xC",
+      "movement": 3,
+      "attack": "3+C"
     },
     {
-      "attack": "3+C",
-      "health": "15xC",
       "level": 6,
-      "movement": 4
+      "health": "15xC",
+      "movement": 4,
+      "attack": "3+C"
     },
     {
-      "attack": "4+C",
-      "health": "17xC",
       "level": 7,
-      "movement": 4
+      "health": "17xC",
+      "movement": 4,
+      "attack": "4+C"
     }
   ]
 }

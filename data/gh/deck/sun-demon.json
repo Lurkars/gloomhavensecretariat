@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "sun-demon",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 652,
+      "cardId": 652,
       "initiative": 17,
       "shuffle": true,
       "actions": [
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "cardId" : 653,
+      "cardId": 653,
       "initiative": 36,
       "actions": [
         {
@@ -57,7 +57,7 @@
       ]
     },
     {
-      "cardId" : 654,
+      "cardId": 654,
       "initiative": 36,
       "actions": [
         {
@@ -83,7 +83,7 @@
       ]
     },
     {
-      "cardId" : 655,
+      "cardId": 655,
       "initiative": 68,
       "actions": [
         {
@@ -103,7 +103,7 @@
       ]
     },
     {
-      "cardId" : 656,
+      "cardId": 656,
       "initiative": 73,
       "shuffle": true,
       "actions": [
@@ -137,7 +137,7 @@
       ]
     },
     {
-      "cardId" : 657,
+      "cardId": 657,
       "initiative": 95,
       "actions": [
         {
@@ -170,7 +170,7 @@
       ]
     },
     {
-      "cardId" : 658,
+      "cardId": 658,
       "initiative": 88,
       "actions": [
         {
@@ -209,7 +209,7 @@
       ]
     },
     {
-      "cardId" : 659,
+      "cardId": 659,
       "initiative": 50,
       "actions": [
         {

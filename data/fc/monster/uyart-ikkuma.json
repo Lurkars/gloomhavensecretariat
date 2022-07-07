@@ -1,10 +1,11 @@
 {
   "name": "uyart-ikkuma",
   "edition": "fc",
-  "boss": true,
   "deck": "savvas-lavaflow",
+  "boss": true,
   "count": 1,
   "baseStat": {
+    "type": "boss",
     "actions": [
       {
         "type": "custom",
@@ -27,57 +28,56 @@
       "stun",
       "poison"
     ],
-    "special": [],
-    "type": "boss"
+    "special": []
   },
   "stats": [
     {
-      "attack": 3,
-      "health": "7xC",
       "level": 0,
+      "health": "7xC",
       "movement": 3,
+      "attack": 3,
       "range": 0
     },
     {
-      "attack": 3,
-      "health": "8xC",
       "level": 1,
+      "health": "8xC",
       "movement": 3,
-      "range": 0
-    },
-    {
       "attack": 3,
-      "health": "9xC",
+      "range": 0
+    },
+    {
       "level": 2,
+      "health": "9xC",
       "movement": 3,
+      "attack": 3,
       "range": 0
     },
     {
-      "attack": 4,
-      "health": "11xC",
       "level": 3,
+      "health": "11xC",
       "movement": 3,
-      "range": 0
-    },
-    {
       "attack": 4,
-      "health": "12xC",
+      "range": 0
+    },
+    {
       "level": 4,
+      "health": "12xC",
       "movement": 4,
+      "attack": 4,
       "range": 0
     },
     {
-      "attack": 5,
-      "health": "14xC",
       "level": 5,
+      "health": "14xC",
       "movement": 4,
+      "attack": 5,
       "range": 0
     },
     {
-      "attack": 6,
-      "health": "15xC",
       "level": 6,
+      "health": "15xC",
       "movement": 4,
+      "attack": 6,
       "range": 0,
       "immunities": [
         "stun",
@@ -87,10 +87,10 @@
       ]
     },
     {
-      "attack": 6,
-      "health": "18xC",
       "level": 7,
+      "health": "18xC",
       "movement": 4,
+      "attack": 6,
       "range": 0,
       "immunities": [
         "stun",

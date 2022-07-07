@@ -1,134 +1,134 @@
 {
-  "count": 4,
-  "deck": "shaman",
-  "edition": "gh",
   "name": "inox-shaman",
+  "edition": "gh",
+  "deck": "shaman",
+  "count": 4,
   "baseStat": {
+    "type": "normal",
     "actions": [],
     "immunities": [],
-    "special": [],
-    "type": "normal"
+    "special": []
   },
   "stats": [
     {
-      "attack": 2,
+      "level": 0,
       "health": 4,
-      "level": 0,
       "movement": 1,
+      "attack": 2,
       "range": 3
     },
     {
-      "attack": 2,
-      "health": 6,
       "level": 1,
+      "health": 6,
       "movement": 1,
+      "attack": 2,
       "range": 3
     },
     {
-      "attack": 2,
+      "level": 2,
       "health": 7,
-      "level": 2,
       "movement": 2,
+      "attack": 2,
       "range": 3
     },
     {
+      "level": 3,
+      "health": 9,
+      "movement": 2,
       "attack": 2,
-      "health": 9,
-      "level": 3,
-      "movement": 2,
       "range": 4
     },
     {
-      "attack": 3,
+      "level": 4,
       "health": 10,
-      "level": 4,
       "movement": 2,
+      "attack": 3,
       "range": 4
     },
     {
-      "attack": 3,
+      "level": 5,
       "health": 13,
-      "level": 5,
       "movement": 2,
+      "attack": 3,
       "range": 4
     },
     {
-      "attack": 3,
+      "level": 6,
       "health": 15,
-      "level": 6,
       "movement": 3,
-      "range": 4
-    },
-    {
-      "attack": 4,
-      "health": 16,
-      "level": 7,
-      "movement": 3,
-      "range": 4
-    },
-    {
       "attack": 3,
-      "health": 6,
+      "range": 4
+    },
+    {
+      "level": 7,
+      "health": 16,
+      "movement": 3,
+      "attack": 4,
+      "range": 4
+    },
+    {
+      "type": "elite",
       "level": 0,
+      "health": 6,
       "movement": 2,
-      "range": 3,
-      "type": "elite"
+      "attack": 3,
+      "range": 3
     },
     {
-      "attack": 3,
-      "health": 9,
+      "type": "elite",
       "level": 1,
+      "health": 9,
       "movement": 2,
-      "range": 3,
-      "type": "elite"
+      "attack": 3,
+      "range": 3
     },
     {
-      "attack": 3,
-      "health": 11,
+      "type": "elite",
       "level": 2,
+      "health": 11,
       "movement": 3,
-      "range": 3,
-      "type": "elite"
-    },
-    {
       "attack": 3,
-      "health": 14,
+      "range": 3
+    },
+    {
+      "type": "elite",
       "level": 3,
+      "health": 14,
       "movement": 3,
-      "range": 4,
-      "type": "elite"
+      "attack": 3,
+      "range": 4
     },
     {
-      "attack": 4,
-      "health": 16,
+      "type": "elite",
       "level": 4,
+      "health": 16,
       "movement": 3,
-      "range": 4,
-      "type": "elite"
+      "attack": 4,
+      "range": 4
     },
     {
-      "attack": 4,
-      "health": 20,
+      "type": "elite",
       "level": 5,
+      "health": 20,
       "movement": 3,
-      "range": 4,
-      "type": "elite"
-    },
-    {
       "attack": 4,
-      "health": 24,
-      "level": 6,
-      "movement": 4,
-      "range": 4,
-      "type": "elite"
+      "range": 4
     },
     {
-      "attack": 5,
-      "health": 27,
-      "level": 7,
+      "type": "elite",
+      "level": 6,
+      "health": 24,
       "movement": 4,
-      "range": 4,
-      "type": "elite"
+      "attack": 4,
+      "range": 4
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 27,
+      "movement": 4,
+      "attack": 5,
+      "range": 4
     }
   ]
 }

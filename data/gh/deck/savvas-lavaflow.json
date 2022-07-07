@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "savvas-lavaflow",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 716,
+      "cardId": 716,
       "initiative": 97,
       "actions": [
         {
@@ -17,7 +17,7 @@
       ]
     },
     {
-      "cardId" : 717,
+      "cardId": 717,
       "initiative": 97,
       "actions": [
         {
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "cardId" : 718,
+      "cardId": 718,
       "initiative": 22,
       "actions": [
         {
@@ -64,7 +64,7 @@
       ]
     },
     {
-      "cardId" : 719,
+      "cardId": 719,
       "initiative": 68,
       "shuffle": true,
       "actions": [
@@ -95,7 +95,7 @@
       ]
     },
     {
-      "cardId" : 720,
+      "cardId": 720,
       "initiative": 41,
       "actions": [
         {
@@ -133,7 +133,7 @@
       ]
     },
     {
-      "cardId" : 721,
+      "cardId": 721,
       "initiative": 51,
       "actions": [
         {
@@ -177,7 +177,7 @@
       ]
     },
     {
-      "cardId" : 722,
+      "cardId": 722,
       "initiative": 31,
       "actions": [
         {
@@ -204,7 +204,7 @@
       ]
     },
     {
-      "cardId" : 723,
+      "cardId": 723,
       "initiative": 68,
       "shuffle": true,
       "actions": [

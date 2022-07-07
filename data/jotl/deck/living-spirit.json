@@ -1,11 +1,11 @@
 {
-  "edition": "jotl",
   "name": "living-spirit",
+  "edition": "jotl",
   "abilities": [
     {
-      "cardId" : 452,
-      "initiative": 22,
       "name": "Sap Strength",
+      "cardId": 452,
+      "initiative": 22,
       "shuffle": true,
       "actions": [
         {
@@ -31,9 +31,9 @@
       ]
     },
     {
-      "cardId" : 453,
-      "initiative": 33,
       "name": "Booming Scream",
+      "cardId": 453,
+      "initiative": 33,
       "shuffle": true,
       "actions": [
         {
@@ -59,9 +59,9 @@
       ]
     },
     {
-      "cardId" : 454,
-      "initiative": 48,
       "name": "Nothing Special",
+      "cardId": 454,
+      "initiative": 48,
       "actions": [
         {
           "type": "move",
@@ -82,9 +82,9 @@
       ]
     },
     {
-      "cardId" : 455,
-      "initiative": 48,
       "name": "Nothing Special",
+      "cardId": 455,
+      "initiative": 48,
       "actions": [
         {
           "type": "move",
@@ -105,9 +105,9 @@
       ]
     },
     {
-      "cardId" : 456,
-      "initiative": 61,
       "name": "Coubled Chain",
+      "cardId": 456,
+      "initiative": 61,
       "actions": [
         {
           "type": "attack",
@@ -127,9 +127,9 @@
       ]
     },
     {
-      "cardId" : 457,
-      "initiative": 75,
       "name": "Leech Warmth",
+      "cardId": 457,
+      "initiative": 75,
       "actions": [
         {
           "type": "move",
@@ -165,9 +165,9 @@
       ]
     },
     {
-      "cardId" : 458,
-      "initiative": 55,
       "name": "Angry Howl",
+      "cardId": 458,
+      "initiative": 55,
       "actions": [
         {
           "type": "move",
@@ -195,9 +195,9 @@
       ]
     },
     {
-      "cardId" : 459,
-      "initiative": 67,
       "name": "Icy Glare",
+      "cardId": 459,
+      "initiative": 67,
       "actions": [
         {
           "type": "move",

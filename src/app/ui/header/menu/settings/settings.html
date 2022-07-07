@@ -47,29 +47,40 @@
       </div>
     </div>
   </div>
-
-  <div class="line separator">
-    <a (click)="zoomOut()">
-      {{'settings.zoomOut' | ghsLabel}}
-    </a>
-  </div>
-  <div class="line">
-    <a (click)="zoomIn()">
-      {{'settings.zoomIn' | ghsLabel}}
-    </a>
-  </div>
-  <div class="line">
-    <a (click)="zoomReset()">
-      {{'settings.zoomReset' | ghsLabel}}
-    </a>
-  </div>
   <div class="columns separator">
     <div class="column">
+      <div class="line ">
+        <a (click)="zoomOut()">
+          {{'settings.zoomOut' | ghsLabel}}
+        </a>
+      </div>
+      <div class="line">
+        <a (click)="zoomIn()">
+          {{'settings.zoomIn' | ghsLabel}}
+        </a>
+      </div>
+      <div class="line">
+        <a (click)="zoomReset()">
+          {{'settings.zoomReset' | ghsLabel}}
+        </a>
+      </div>
+    </div>
+    <div class="column">
+
       <div class="line">
         <label>
           <input type="checkbox" [checked]="settingsManager.settings.fullscreen" (change)="fullscreen()">
           {{'settings.fullscreen' | ghsLabel}}
         </label>
+      </div>
+    </div>
+  </div>
+  <div class="columns separator">
+    <div class="column">
+      <div class="line">
+        <label class="label">{{'settings.maxUndo' | ghsLabel}}</label>
+        <input type="number" #maxUndo [value]="settingsManager.settings.maxUndo" min="0" max="99999" (keyup)="0"
+          (change)="settingsManager.setMaxUndo(+maxUndo.value)" placeholder="{{'settings.maxUndo' | ghsLabel}}">
       </div>
     </div>
     <div class="column">

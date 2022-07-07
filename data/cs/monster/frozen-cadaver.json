@@ -1,13 +1,13 @@
 {
   "name": "frozen-cadaver",
-  "edition": "cs",
   "thumbnail": "gh-living-corpse",
+  "edition": "cs",
   "count": 6,
   "baseStat": {
+    "type": "normal",
     "actions": [],
     "immunities": [],
-    "special": [],
-    "type": "normal"
+    "special": []
   },
   "stats": [
     {
@@ -71,34 +71,35 @@
       ]
     },
     {
+      "type": "elite",
       "level": 0,
       "health": 10,
       "movement": 1,
-      "attack": 3,
-      "type": "elite"
+      "attack": 3
     },
     {
+      "type": "elite",
       "level": 1,
       "health": 10,
       "movement": 1,
-      "attack": 4,
-      "type": "elite"
+      "attack": 4
     },
     {
+      "type": "elite",
       "level": 2,
       "health": 13,
       "movement": 1,
-      "attack": 4,
-      "type": "elite"
+      "attack": 4
     },
     {
+      "type": "elite",
       "level": 3,
       "health": 13,
       "movement": 2,
-      "attack": 5,
-      "type": "elite"
+      "attack": 5
     },
     {
+      "type": "elite",
       "level": 4,
       "health": 15,
       "movement": 2,
@@ -108,10 +109,10 @@
           "type": "condition",
           "value": "poison"
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 5,
       "health": 17,
       "movement": 2,
@@ -121,10 +122,10 @@
           "type": "condition",
           "value": "poison"
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 6,
       "health": 21,
       "movement": 2,
@@ -134,10 +135,10 @@
           "type": "condition",
           "value": "poison"
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 7,
       "health": 25,
       "movement": 2,
@@ -147,8 +148,7 @@
           "type": "condition",
           "value": "poison"
         }
-      ],
-      "type": "elite"
+      ]
     }
   ]
 }

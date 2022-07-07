@@ -1,6 +1,6 @@
 {
-  "edition": "fc",
   "name": "tracker",
+  "edition": "fc",
   "abilities": [
     {
       "cardId": 991,

@@ -1,11 +1,11 @@
 {
-  "edition": "jotl",
   "name": "vermling-scout",
+  "edition": "jotl",
   "abilities": [
     {
-      "cardId" : 460,
-      "initiative": 29,
       "name": "Short Bow",
+      "cardId": 460,
+      "initiative": 29,
       "actions": [
         {
           "type": "move",
@@ -26,9 +26,9 @@
       ]
     },
     {
-      "cardId" : 461,
-      "initiative": 40,
       "name": "Hasty Assault",
+      "cardId": 461,
+      "initiative": 40,
       "actions": [
         {
           "type": "move",
@@ -43,9 +43,9 @@
       ]
     },
     {
-      "cardId" : 462,
-      "initiative": 53,
       "name": "Nothing Special",
+      "cardId": 462,
+      "initiative": 53,
       "actions": [
         {
           "type": "move",
@@ -60,9 +60,9 @@
       ]
     },
     {
-      "cardId" : 463,
-      "initiative": 53,
       "name": "Rancid Arrow",
+      "cardId": 463,
+      "initiative": 53,
       "actions": [
         {
           "type": "move",
@@ -91,9 +91,9 @@
       ]
     },
     {
-      "cardId" : 464,
-      "initiative": 69,
       "name": "Calculated Strike",
+      "cardId": 464,
+      "initiative": 69,
       "actions": [
         {
           "type": "move",
@@ -108,9 +108,9 @@
       ]
     },
     {
-      "cardId" : 465,
-      "initiative": 92,
       "name": "Noxious Blade",
+      "cardId": 465,
+      "initiative": 92,
       "shuffle": true,
       "actions": [
         {
@@ -127,9 +127,9 @@
       ]
     },
     {
-      "cardId" : 466,
-      "initiative": 78,
       "name": "Rapid Bolts",
+      "cardId": 466,
+      "initiative": 78,
       "actions": [
         {
           "type": "attack",
@@ -149,9 +149,9 @@
       ]
     },
     {
-      "cardId" : 467,
-      "initiative": 40,
       "name": "Greed",
+      "cardId": 467,
+      "initiative": 40,
       "shuffle": 1,
       "actions": [
         {

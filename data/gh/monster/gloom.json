@@ -1,10 +1,11 @@
 {
+  "name": "gloom",
+  "edition": "gh",
+  "deck": "boss",
   "boss": true,
   "count": 1,
-  "deck": "boss",
-  "edition": "gh",
-  "name": "gloom",
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [
       "wound",
@@ -48,57 +49,56 @@
           ]
         }
       ]
-    ],
-    "type": "boss"
+    ]
   },
   "stats": [
     {
-      "attack": 5,
-      "health": "20xC",
       "level": 0,
-      "movement": 2
+      "health": "20xC",
+      "movement": 2,
+      "attack": 5
     },
     {
-      "attack": 5,
-      "health": "25xC",
       "level": 1,
-      "movement": 2
+      "health": "25xC",
+      "movement": 2,
+      "attack": 5
     },
     {
-      "attack": 6,
-      "health": "29xC",
       "level": 2,
-      "movement": 2
+      "health": "29xC",
+      "movement": 2,
+      "attack": 6
     },
     {
-      "attack": 6,
-      "health": "35xC",
       "level": 3,
-      "movement": 2
+      "health": "35xC",
+      "movement": 2,
+      "attack": 6
     },
     {
-      "attack": 7,
-      "health": "39xC",
       "level": 4,
-      "movement": 3
+      "health": "39xC",
+      "movement": 3,
+      "attack": 7
     },
     {
-      "attack": 7,
-      "health": "46xC",
       "level": 5,
-      "movement": 3
+      "health": "46xC",
+      "movement": 3,
+      "attack": 7
     },
     {
-      "attack": 8,
-      "health": "50xC",
       "level": 6,
-      "movement": 3
+      "health": "50xC",
+      "movement": 3,
+      "attack": 8
     },
     {
-      "attack": 9,
-      "health": "56xC",
       "level": 7,
-      "movement": 3
+      "health": "56xC",
+      "movement": 3,
+      "attack": 9
     }
   ]
 }

@@ -3,10 +3,10 @@
   "edition": "cs",
   "count": 1,
   "baseStat": {
+    "type": "normal",
     "actions": [],
     "immunities": [],
-    "special": [],
-    "type": "normal"
+    "special": []
   },
   "stats": [
     {
@@ -146,6 +146,7 @@
       ]
     },
     {
+      "type": "elite",
       "level": 0,
       "health": 12,
       "movement": 1,
@@ -159,10 +160,10 @@
           "type": "range",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 1,
       "health": 16,
       "movement": 2,
@@ -176,10 +177,10 @@
           "type": "range",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 2,
       "health": 20,
       "movement": 2,
@@ -193,10 +194,10 @@
           "type": "range",
           "value": 3
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 3,
       "health": 24,
       "movement": 2,
@@ -210,10 +211,10 @@
           "type": "range",
           "value": 3
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 4,
       "health": 28,
       "movement": 3,
@@ -231,10 +232,10 @@
           "type": "condition",
           "value": "stun"
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 5,
       "health": 32,
       "movement": 3,
@@ -252,10 +253,10 @@
           "type": "condition",
           "value": "stun"
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 6,
       "health": 38,
       "movement": 3,
@@ -273,10 +274,10 @@
           "type": "condition",
           "value": "stun"
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 7,
       "health": 42,
       "movement": 3,
@@ -294,8 +295,7 @@
           "type": "condition",
           "value": "stun"
         }
-      ],
-      "type": "elite"
+      ]
     }
   ]
 }

@@ -1,10 +1,11 @@
 {
+  "name": "prime-demon",
+  "edition": "gh",
+  "deck": "boss",
   "boss": true,
   "count": 1,
-  "deck": "boss",
-  "edition": "gh",
-  "name": "prime-demon",
   "baseStat": {
+    "type": "boss",
     "actions": [],
     "immunities": [
       "wound",
@@ -55,57 +56,56 @@
           "valueType": "minus"
         }
       ]
-    ],
-    "type": "boss"
+    ]
   },
   "stats": [
     {
-      "attack": 4,
-      "health": "8xC",
       "level": 0,
-      "movement": 3
+      "health": "8xC",
+      "movement": 3,
+      "attack": 4
     },
     {
-      "attack": 4,
-      "health": "9xC",
       "level": 1,
-      "movement": 4
+      "health": "9xC",
+      "movement": 4,
+      "attack": 4
     },
     {
-      "attack": 5,
-      "health": "10xC",
       "level": 2,
-      "movement": 4
+      "health": "10xC",
+      "movement": 4,
+      "attack": 5
     },
     {
-      "attack": 6,
-      "health": "12xC",
       "level": 3,
-      "movement": 4
+      "health": "12xC",
+      "movement": 4,
+      "attack": 6
     },
     {
-      "attack": 6,
-      "health": "14xC",
       "level": 4,
-      "movement": 5
+      "health": "14xC",
+      "movement": 5,
+      "attack": 6
     },
     {
-      "attack": 7,
-      "health": "16xC",
       "level": 5,
-      "movement": 5
+      "health": "16xC",
+      "movement": 5,
+      "attack": 7
     },
     {
-      "attack": 7,
-      "health": "20xC",
       "level": 6,
-      "movement": 5
+      "health": "20xC",
+      "movement": 5,
+      "attack": 7
     },
     {
-      "attack": 8,
-      "health": "22xC",
       "level": 7,
-      "movement": 5
+      "health": "22xC",
+      "movement": 5,
+      "attack": 8
     }
   ]
 }

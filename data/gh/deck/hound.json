@@ -1,9 +1,9 @@
 {
-  "edition": "gh",
   "name": "hound",
+  "edition": "gh",
   "abilities": [
     {
-      "cardId" : 540,
+      "cardId": 540,
       "initiative": 6,
       "actions": [
         {
@@ -25,7 +25,7 @@
       ]
     },
     {
-      "cardId" : 541,
+      "cardId": 541,
       "initiative": 7,
       "actions": [
         {
@@ -46,7 +46,7 @@
       ]
     },
     {
-      "cardId" : 542,
+      "cardId": 542,
       "initiative": 19,
       "shuffle": true,
       "actions": [
@@ -69,7 +69,7 @@
       ]
     },
     {
-      "cardId" : 543,
+      "cardId": 543,
       "initiative": 19,
       "shuffle": true,
       "actions": [
@@ -92,7 +92,7 @@
       ]
     },
     {
-      "cardId" : 544,
+      "cardId": 544,
       "initiative": 26,
       "actions": [
         {
@@ -108,7 +108,7 @@
       ]
     },
     {
-      "cardId" : 545,
+      "cardId": 545,
       "initiative": 26,
       "actions": [
         {
@@ -124,7 +124,7 @@
       ]
     },
     {
-      "cardId" : 546,
+      "cardId": 546,
       "initiative": 83,
       "actions": [
         {
@@ -140,7 +140,7 @@
       ]
     },
     {
-      "cardId" : 547,
+      "cardId": 547,
       "initiative": 72,
       "actions": [
         {

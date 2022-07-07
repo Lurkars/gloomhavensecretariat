@@ -1,15 +1,15 @@
 {
   "name": "dark-lurker",
-  "edition": "cs",
   "thumbnail": "gh-lurker",
+  "edition": "cs",
   "deck": "harrower-infester",
-  "count": 6,
   "hidden": true,
+  "count": 6,
   "baseStat": {
+    "type": "normal",
     "actions": [],
     "immunities": [],
-    "special": [],
-    "type": "normal"
+    "special": []
   },
   "stats": [
     {
@@ -153,6 +153,7 @@
       ]
     },
     {
+      "type": "elite",
       "level": 0,
       "health": 7,
       "movement": 2,
@@ -166,10 +167,10 @@
           "type": "shield",
           "value": 1
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 1,
       "health": 9,
       "movement": 2,
@@ -187,10 +188,10 @@
           "type": "shield",
           "value": 1
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 2,
       "health": 12,
       "movement": 3,
@@ -208,10 +209,10 @@
           "type": "shield",
           "value": 1
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 3,
       "health": 14,
       "movement": 3,
@@ -229,10 +230,10 @@
           "type": "shield",
           "value": 1
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 4,
       "health": 14,
       "movement": 3,
@@ -250,10 +251,10 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 5,
       "health": 15,
       "movement": 3,
@@ -271,10 +272,10 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 6,
       "health": 16,
       "movement": 4,
@@ -292,10 +293,10 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     },
     {
+      "type": "elite",
       "level": 7,
       "health": 18,
       "movement": 4,
@@ -313,8 +314,7 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "type": "elite"
+      ]
     }
   ]
 }

@@ -40,7 +40,12 @@ export class MonsterManager {
       monster.off = true;
       if (!this.applySameDeck(monster)) {
         if (!monster.abilities || monster.abilities.length == 0) {
-          monster.abilities = gameManager.abilities(monster).map((ability: Ability, index: number) => index);
+          const abilities = gameManager.abilities(monster);
+          if (abilities) {
+            monster.abilities = abilities.map((ability: Ability, index: number) => index);
+          } else {
+            monster.abilities = [];
+          }
         }
         this.shuffleAbilities(monster);
       }
@@ -246,7 +251,13 @@ export class MonsterManager {
       return undefined;
     }
 
-    return gameManager.abilities(monster)[ monster.abilities[ monster.ability ] ]
+    const abilities = gameManager.abilities(monster);
+
+    if (!abilities) {
+      return undefined;
+    }
+
+    return abilities[ monster.abilities[ monster.ability ] ]
   }
 
 }
