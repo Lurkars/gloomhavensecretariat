@@ -66,6 +66,7 @@
     "browserNavigation": "Undo/Redo with navigation",
     "resetGame": "Reset Game",
     "resetSettings": "Reset Settings",
+    "maxUndo" : "Max. number of undos",
     "locale": {
       ".": "Language",
       "en": "English",
@@ -104,6 +105,7 @@
   },
   "update": "Update (Reload)",
   "and": "and",
+  "or": "or",
   "game": {
     "action": {
       "attack": "Attack",
@@ -115,6 +117,7 @@
         "self": "Self",
         "selfAllies": "Self and all allies",
         "selfAlliesAffect": "Affect self and all allies",
+        "selfAdjacentAlliesAffect": "Affect self and all adjacent allies",
         "ally": "Target one adjacent ally",
         "allAllies": "Target all allies",
         "allAlliesRange": "Target all allies within range",

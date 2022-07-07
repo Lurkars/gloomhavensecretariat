@@ -1,8 +1,8 @@
 {
   "configVersion": 1,
-  "timestamp": 1657139489425,
+  "timestamp": 1657223736440,
   "appData": {
-    "version": "0.8.6"
+    "version": "0.9.0"
   },
   "index": "gloomhavensecretary/index.html",
   "assetGroups": [
@@ -16,11 +16,11 @@
       "urls": [
         "gloomhavensecretary/favicon.ico",
         "gloomhavensecretary/index.html",
-        "gloomhavensecretary/main.30d5c359f1d5f225.js",
+        "gloomhavensecretary/main.3d945bcc9342bd62.js",
         "gloomhavensecretary/manifest.webmanifest",
         "gloomhavensecretary/polyfills.784fa05217d04250.js",
         "gloomhavensecretary/runtime.0269065d32db7f2e.js",
-        "gloomhavensecretary/styles.4d02835928554988.css"
+        "gloomhavensecretary/styles.f8394efd43ab0207.css"
       ],
       "patterns": []
     },
@@ -172,6 +172,8 @@
         "gloomhavensecretary/assets/images/character/thumbnail/jotl-hatchet.png",
         "gloomhavensecretary/assets/images/character/thumbnail/jotl-red-guard.png",
         "gloomhavensecretary/assets/images/character/thumbnail/jotl-voidwarden.png",
+        "gloomhavensecretary/assets/images/check.svg",
+        "gloomhavensecretary/assets/images/close.svg",
         "gloomhavensecretary/assets/images/condition/bane.svg",
         "gloomhavensecretary/assets/images/condition/bless.svg",
         "gloomhavensecretary/assets/images/condition/brittle.svg",
@@ -410,11 +412,11 @@
   "hashTable": {
     "gloomhavensecretary/PirataOne-Gloomhaven.7a0430e6b6669ae2.ttf": "21c25adcd4f559bff7d01f1855b20c6ae30f7b9b",
     "gloomhavensecretary/assets/data/.empty": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
-    "gloomhavensecretary/assets/data/cs.json": "61161b73c118ab23fb54d0352a15fd6b51f034bd",
-    "gloomhavensecretary/assets/data/fc.json": "09acee08b93322128d9dc82ca71552ed8dfc6c8c",
+    "gloomhavensecretary/assets/data/cs.json": "fd79b6172c8e40fc093e480eef98f3f6df1804f6",
+    "gloomhavensecretary/assets/data/fc.json": "6c0674e37ac96c67ed3e0348b80fdc56150e0cc5",
     "gloomhavensecretary/assets/data/fh.json": "4bd55175fbd9bcc1dec1c9661251a2a1c2840c1b",
-    "gloomhavensecretary/assets/data/gh.json": "538b82ec311f682dda8bb240956f1a91600bb1ba",
-    "gloomhavensecretary/assets/data/jotl.json": "e32a37f149c3144fae6d669ebbc7385efd58b6fb",
+    "gloomhavensecretary/assets/data/gh.json": "fb69ce13b86b67f4e66a0cea3d6e00914c7b96a9",
+    "gloomhavensecretary/assets/data/jotl.json": "87980ec0627e1285d6371f0dd96561f62a29ad4b",
     "gloomhavensecretary/assets/font/HighTower.ttf": "0a26624d0fde9147ce63bb804ad1c2e2ddc7a804",
     "gloomhavensecretary/assets/font/PirataOne-Gloomhaven.ttf": "21c25adcd4f559bff7d01f1855b20c6ae30f7b9b",
     "gloomhavensecretary/assets/font/majallab.ttf": "cd2e9e61aca39d2b987b66e4c2a0a3ea13c3be48",
@@ -548,6 +550,8 @@
     "gloomhavensecretary/assets/images/character/thumbnail/jotl-hatchet.png": "65a5d3ed9f1e4cefc6c5ef6022509788b9464e4e",
     "gloomhavensecretary/assets/images/character/thumbnail/jotl-red-guard.png": "122247a9a250c252986ec9088d2788acedbe1a6c",
     "gloomhavensecretary/assets/images/character/thumbnail/jotl-voidwarden.png": "83776ff8f4087b08c3575c04a8fdc1e37cfbf8a1",
+    "gloomhavensecretary/assets/images/check.svg": "0d291d242a42a31ad2f84e288483a1cdecc4a956",
+    "gloomhavensecretary/assets/images/close.svg": "8238a1bcdf6706703fcb6d4efaf36c3f19c47d0f",
     "gloomhavensecretary/assets/images/condition/bane.svg": "b382c4fca70a8043042385328bd941d819862999",
     "gloomhavensecretary/assets/images/condition/bless.svg": "55dd5565a407caf2630cfd9ee575dea834d0d44a",
     "gloomhavensecretary/assets/images/condition/brittle.svg": "acda5fc194bdedae389c292998cd747cdcdd5c4c",
@@ -759,8 +763,8 @@
     "gloomhavensecretary/assets/images/summons/yellow.png": "6d83dfe42ff5b23f49f324ead11784ef4e3e95c3",
     "gloomhavensecretary/assets/images/trap.svg": "8196ce436d2adf0eedb5c5baf3245f165909ac47",
     "gloomhavensecretary/assets/images/warning.svg": "e091847da80ee70b51c266f09e2e6ec91da5cb65",
-    "gloomhavensecretary/assets/locales/de.json": "7dc3ec64ffb6267625ff5154672a0226d57ec8f1",
-    "gloomhavensecretary/assets/locales/en.json": "8d31c27152ee586c2db4184e34dc1705c20cee15",
+    "gloomhavensecretary/assets/locales/de.json": "1b926e458112e0eea32e1892c1054b0e454f14d9",
+    "gloomhavensecretary/assets/locales/en.json": "75fd187e415ec2523a9081f2c990e64ad4d70ea4",
     "gloomhavensecretary/bg.8dca3c92b9f01fe4.png": "2add9d91e8baa79476b16a9ceab862aeb4e31328",
     "gloomhavensecretary/boss.7cd3a0cd2a819afa.png": "b1e39d37ea500e6cbebc911155be4cced7bd920b",
     "gloomhavensecretary/card.05eaba98487aab01.png": "2cda62899c14feea2a5dfa9c39a632e3acc77f67",
@@ -773,8 +777,8 @@
     "gloomhavensecretary/front.fd30122e0a945f58.png": "a0c88ff33c0625b444f79a5c8db61bcfb7ba1093",
     "gloomhavensecretary/header.24c0469502696b46.png": "25f3ece27efd7584a50c341ea90ba9a0513c7841",
     "gloomhavensecretary/immunity.5d026de2db8a1d8f.svg": "ad20fc18e93269c79312170674c6008615438f9b",
-    "gloomhavensecretary/index.html": "01bbabda07ac0d83403f116e470b7bfeb2dfa2c9",
-    "gloomhavensecretary/main.30d5c359f1d5f225.js": "aba24fb14af6613430849b9bf9baa53b0eb22142",
+    "gloomhavensecretary/index.html": "9f3cfcf5e86269e5a9532e1c686777f38753e1e1",
+    "gloomhavensecretary/main.3d945bcc9342bd62.js": "a92930d03117ac9df0a4afd506ca1c9d6e2b7520",
     "gloomhavensecretary/majallab.00c7b4c865792c45.ttf": "cd2e9e61aca39d2b987b66e4c2a0a3ea13c3be48",
     "gloomhavensecretary/manifest.webmanifest": "20b7c49ef090b8f20d2397f9f631bdca2c64ffcd",
     "gloomhavensecretary/minus.97c98a810771fceb.svg": "de4a30390082572ba48e52e102dd4fb2dabffa81",
@@ -784,7 +788,7 @@
     "gloomhavensecretary/polyfills.784fa05217d04250.js": "133ddc84a5d771343106e99cc30e6cccc62467e4",
     "gloomhavensecretary/runtime.0269065d32db7f2e.js": "b302558fd0ee2307d99ca4df1eb66f6f672d5046",
     "gloomhavensecretary/standard.a54477c1eda06c8b.png": "b7464c7a959660e975135cd86cac578f69c63a30",
-    "gloomhavensecretary/styles.4d02835928554988.css": "2abce41e2e05324aea79ea80700a06f71172ebfb"
+    "gloomhavensecretary/styles.f8394efd43ab0207.css": "fabd5779203c9368b1b8cc9baadbaa5bc4db611d"
   },
   "navigationUrls": [
     {
