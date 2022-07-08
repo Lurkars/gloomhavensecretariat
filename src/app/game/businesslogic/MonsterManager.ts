@@ -141,6 +141,10 @@ export class MonsterManager {
       }
 
       monster.ability = sameDeckMonster.ability + 1 + this.game.figures.filter((figure: Figure) => figure instanceof Monster && (figure.name != monster.name || figure.edition != monster.edition) && gameManager.deckData(figure).name == gameManager.deckData(monster).name && gameManager.deckData(figure).edition == gameManager.deckData(monster).edition && figure.drawExtra && figure.ability > sameDeckMonster.ability).length;
+
+      if (monster.ability >= monster.abilities.length) {
+        this.shuffleAbilities(monster);
+      }
     } else {
       this.applySameDeck(monster);
     }
