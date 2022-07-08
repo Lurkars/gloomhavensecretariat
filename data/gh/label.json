@@ -296,7 +296,7 @@
           "2": "All attacks targeting %data.monster.giant-viper% this round gain Disadvantage."
         },
         "harrower-infester": {
-          "1": "Perform \"%game.action.heal% 2, %game.action.specialTarget.self%\" for each target damaged"
+          "1": "Perform \"%game.action.heal% 2, %game.specialTarget.self%\" for each target damaged"
         },
         "hound": {
           "1": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.hound%'s allies."

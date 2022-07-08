@@ -8,8 +8,11 @@ export class StateManager {
   game: Game;
   ws: WebSocket | undefined;
 
+  lastSaveTimestamp : number;
+
   constructor(game: Game) {
     this.game = game;
+    this.lastSaveTimestamp = new Date().getTime();
   }
 
   init() {
@@ -202,6 +205,8 @@ export class StateManager {
       }
       this.ws.send(JSON.stringify(message));
     }
+
+    this.lastSaveTimestamp = new Date().getTime();
   }
 
   hasUndo(): boolean {

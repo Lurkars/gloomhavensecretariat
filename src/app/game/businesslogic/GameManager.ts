@@ -38,15 +38,12 @@ export class GameManager {
   attackModifierManager: AttackModifierManager;
   working: boolean = false;
 
-  sessionTimestamp: number = 0;
-
   constructor() {
     this.stateManager = new StateManager(this.game);
     this.entityManager = new EntityManager(this.game);
     this.characterManager = new CharacterManager(this.game);
     this.monsterManager = new MonsterManager(this.game);
     this.attackModifierManager = new AttackModifierManager(this.game);
-    this.sessionTimestamp = new Date().getTime();
   }
 
   editions(): string[] {
@@ -120,7 +117,6 @@ export class GameManager {
 
   nextGameState(): void {
     this.working = true;
-    this.game.playSeconds += (new Date().getTime() - this.sessionTimestamp) / 1000;
     this.game.totalSeconds += this.game.playSeconds;
     this.game.playSeconds = 0;
     if (this.game.state == GameState.next) {
@@ -200,7 +196,7 @@ export class GameManager {
   }
 
 
-  deckData(figure: MonsterData | CharacterData): DeckData {
+  deckData(figure: Monster | Character): DeckData {
     let deckData = this.decksData(true).find((deck: DeckData) => (deck.name == figure.deck || deck.name == figure.name) && deck.edition == figure.edition);
 
     // find extensions decks
@@ -219,12 +215,12 @@ export class GameManager {
     return deckData;
   }
 
-  abilities(figure: MonsterData | CharacterData): Ability[] {
+  abilities(figure: Monster | Character): Ability[] {
     return this.deckData(figure).abilities || [];
   }
 
   nextAvailable(): boolean {
-    return this.game.figures.length > 0 && (this.game.state == GameState.next || this.game.figures.every((figure: Figure) => figure instanceof Monster || figure instanceof Objective || figure instanceof Character && (figure.getInitiative() > 0 || figure.exhausted)
+    return this.game.figures.length > 0 && (this.game.state == GameState.next || this.game.figures.every((figure: Figure) => figure instanceof Monster || (figure instanceof Objective || figure instanceof Character) && (figure.getInitiative() > 0 || figure.exhausted)
     ));
   }
 
@@ -301,12 +297,14 @@ export class GameManager {
       this.turn(figure);
     } else if (figure.active && !figure.off) {
       this.afterTurn(figure)
+    } else if (!figures.some((other: Figure, otherIndex: number) => otherIndex < index && other.active)) {
+      figure.active = true;
     } else {
-      if (!figures.some((other: Figure, otherIndex: number) => otherIndex < index && other.active)) {
-        figure.active = true;
-      } else {
-        this.beforeTurn(figure);
-      }
+      this.beforeTurn(figure);
+    }
+
+    if (this.permanentDead(figure)) {
+      this.afterTurn(figure);
     }
 
     for (let i = 0; i < figures.length; i++) {
@@ -321,8 +319,8 @@ export class GameManager {
           this.beforeTurn(otherFigure);
         }
       }
-      if (figure.off) {
-        if (i < index && !otherFigure.off) {
+      if (figure.off && !this.permanentDead(otherFigure)) {
+        if (i < index && !otherFigure.off && !figures.some((figure: Figure, activeIndex: number) => figure.active)) {
           this.turn(otherFigure);
         } else if (i > index && (!(otherFigure instanceof Monster) || (otherFigure instanceof Monster && otherFigure.entities.length > 0))) {
           if (!otherFigure.off && i > index && !figures.some((figure: Figure, activeIndex: number) => figure.active && activeIndex < i)) {
@@ -476,7 +474,7 @@ export class GameManager {
   }
 
   permanentDead(figure: Figure): boolean {
-    return ((figure instanceof Character || figure instanceof Objective) && (figure.exhausted || figure.health == 0)) || figure instanceof Monster && figure.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead || monsterEntity.health == 0);
+    return ((figure instanceof Character || figure instanceof Objective) && (figure.exhausted || figure.health <= 0)) || (figure instanceof Monster && figure.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead || monsterEntity.health <= 0));
   }
 
   toggleElement(element: Element) {
@@ -547,7 +545,6 @@ export class GameManager {
   }
 
   resetRound() {
-    this.sessionTimestamp = new Date().getTime();
     this.game.playSeconds = 0;
     this.game.sections = [];
     this.game.round = 0;

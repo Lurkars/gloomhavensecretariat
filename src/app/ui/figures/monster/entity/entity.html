@@ -23,9 +23,7 @@
         <img src="./assets/images/summons/{{monster.summonColor}}.png">
       </span>
     </div>
-    <div class="health-bar" [ngClass]="{'critical' : entity.health / entity.maxHealth < 0.35}">
-      <div class="health-bar-value" [style.width]="(entity.health / entity.maxHealth * 100) + '%'"></div>
-    </div>
+    <ghs-healthbar [entity]="entity"></ghs-healthbar>
   </div>
 </div>
 

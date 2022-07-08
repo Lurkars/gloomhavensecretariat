@@ -45,7 +45,7 @@ main {
   z-index: 2;
 
   &:hover {
-    &:before {
+    &::before {
       display: block;
       content: ' ';
       position: absolute;
@@ -65,7 +65,7 @@ main {
     left: auto;
 
     &:hover {
-      &:before {
+      &::before {
         right: calc(var(--ghs-unit) * 1);
         left: auto;
       }
@@ -80,7 +80,7 @@ main {
     pointer-events: auto;
     cursor: grabbing;
 
-    &:before {
+    &::before {
       display: block;
       content: ' ';
       position: absolute;
@@ -93,7 +93,7 @@ main {
     }
 
     &.right {
-        &:before {
+        &::before {
           right: calc(var(--ghs-unit) * 1);
           left: auto;
         }

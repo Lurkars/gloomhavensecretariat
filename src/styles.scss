@@ -170,8 +170,8 @@ ghs-main {
   }
 
 
-  .card-front,
-  .card-back {
+  .card-back,
+  .card-front {
     position: absolute;
     top: 0;
     left: 0;
@@ -183,7 +183,7 @@ ghs-main {
     overflow: hidden;
   }
 
-  .card-back {
+  .card-front {
     transform: rotateX(180deg);
   }
 }
@@ -292,11 +292,9 @@ ghs-main {
   position: relative;
 
   .icon {
-    position: relative;
-    height: 1em;
+    height: 0.9em;
     width: auto;
-    top: 0.3em;
-    margin: 0 0.2em;
+    margin: 0 0.1em;
   }
 
 
@@ -304,6 +302,7 @@ ghs-main {
   .placeholder-condition,
   .placeholder-initiative {
     white-space: nowrap;
+    display: inline-flex;
   }
 
   .placeholder-condition {
@@ -348,7 +347,7 @@ ghs-main {
   &.consume {
     z-index: 1;
 
-    &:before {
+    &::before {
       content: " ";
       display: block;
       position: absolute;
@@ -368,7 +367,7 @@ ghs-main {
     width: 100%;
   }
 
-  &:before {
+  &::before {
     content: " ";
     display: block;
     position: absolute;
@@ -378,5 +377,13 @@ ghs-main {
     height: 100%;
     background-image: url('~src/assets/images/condition/immunity.svg');
     background-size: cover;
+  }
+}
+
+.cdk-drag-preview {
+  cursor: handle;
+
+  &.drag-hidden {
+    opacity: 0;
   }
 }

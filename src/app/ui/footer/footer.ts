@@ -71,7 +71,8 @@ export class FooterComponent extends DialogComponent {
     super.ngOnInit();
 
     setInterval(() => {
-      let seconds = (new Date().getTime() - gameManager.sessionTimestamp) / 1000;
+      gameManager.game.playSeconds++;
+      let seconds = gameManager.game.playSeconds;
       this.currentTime = "";
       if (seconds / 3600 >= 1) {
         this.currentTime += Math.floor(seconds / 3600) + "h ";
@@ -79,10 +80,16 @@ export class FooterComponent extends DialogComponent {
       }
 
       if (seconds / 60 >= 1) {
-        this.currentTime += (this.currentTime && Math.floor(seconds / 60) < 10 ? '0' : '') + Math.floor(seconds / 60) + "m ";
+        this.currentTime += (this.currentTime && this.currentTime && Math.floor(seconds / 60) < 10 ? '0' : '') + Math.floor(seconds / 60) + "m ";
         seconds = seconds % 60;
       }
-      this.currentTime += (seconds < 10 ? '0' : '') + Math.floor(seconds) + "s";
+      this.currentTime += (this.currentTime && seconds < 10 ? '0' : '') + Math.floor(seconds) + "s";
+
+      // store every 15 seconds
+      if ((new Date().getTime() / 1000 - gameManager.stateManager.lastSaveTimestamp / 1000) > 15) {
+        gameManager.stateManager.after();
+      }
+
     }, 1000)
   }
 

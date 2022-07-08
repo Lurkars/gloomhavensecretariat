@@ -13,7 +13,7 @@
       padding-right: calc(var(--ghs-unit) * 1);
     }
 
-    ghs-action:not(:last-child):before {
+    ghs-action:not(:last-child)::before {
       content: ',';
       position: absolute;
       right: calc(var(--ghs-unit) * 0.5);

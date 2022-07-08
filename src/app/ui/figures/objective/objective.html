@@ -4,9 +4,7 @@
     <span class="image" [ngClass]="{'active-border' : objective.active}">
       {{objectiveIdMap[objective.id]}}
     </span>
-    <div class="health-bar" [ngClass]="{'critical' : objective.health / maxHealth() < 0.35}">
-      <div class="health-bar-value" [style.width]="(objective.health / maxHealth() * 100) + '%'"></div>
-    </div>
+    <ghs-healthbar [entity]="objective"></ghs-healthbar>
   </a>
 
   <ghs-character-initiative (click)="close()" [character]="objective"></ghs-character-initiative>
@@ -19,14 +17,19 @@
           [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
         {{objective.title ? objective.title : ((objective.name ? ('data.objective.' + objective.name) :
         (objective.escort ? 'escort' : 'objective')) |
-        ghsLabel)}}</div>
-      <div class="health">
-        <img src="./assets/images/status/health.svg" />
-        {{objective.health}}/{{maxHealth()}}
+        ghsLabel)}}
+        <img class="ghs-svg exhausted" *ngIf="objective.exhausted" src="./assets/images/status/exhausted.svg" />
+      </div>
+      <div class="status-bar">
+        <div class="health">
+          <img src="./assets/images/status/health.svg" />
+          {{objective.health}}/{{maxHealth()}}
+        </div>
         <div class="conditions">
           <span class="condition" *ngFor="let entityCondition of objective.entityConditions | ghsActiveConditions">
             <img src="./assets/images/condition/{{entityCondition.name}}.svg" />
-            <span class="value" *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
+            <span class="value"
+              *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
           </span>
         </div>
       </div>
@@ -76,7 +79,7 @@
 
       <span class="item">
         <a class="condition" [ngClass]="{'active' : objective.exhausted}" (click)="exhausted()">
-          <img src="./assets/images/status/dead.svg" />
+          <img src="./assets/images/status/exhausted.svg" />
         </a>
       </span>
       <span class="item">
@@ -85,7 +88,8 @@
       <span></span>
     </div>
 
-    <ghs-conditions [entity]="objective" [figure]="objective" type="character"></ghs-conditions>
+    <ghs-conditions *ngIf="objective.escort" [entity]="objective" [figure]="objective" type="character">
+    </ghs-conditions>
   </div>
 
   <div class="char-container">

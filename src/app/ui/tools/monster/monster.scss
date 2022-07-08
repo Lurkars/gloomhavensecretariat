@@ -71,7 +71,7 @@
       color: var(--ghs-color-white);
 
 
-      .ability-back {
+      .ability-front {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -79,7 +79,7 @@
         background-position: center;
         background-size: 100% auto;
         background-repeat: no-repeat;
-        background-image: url('~src/assets/images/monster/abilities/card.png');
+        background-image: url('~src/assets/images/monster/abilities/monster-ability-front.png');
         background-position: bottom;
         --hover-animation: all 0.3s ease-in-out;
         transition: var(--hover-animation);

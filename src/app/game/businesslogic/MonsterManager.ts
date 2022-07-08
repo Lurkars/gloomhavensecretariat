@@ -42,7 +42,7 @@ export class MonsterManager {
         if (!monster.abilities || monster.abilities.length == 0) {
           const abilities = gameManager.abilities(monster);
           if (abilities) {
-            monster.abilities = abilities.map((ability: Ability, index: number) => index);
+            monster.abilities = abilities.filter((ability: Ability) => !ability.level || isNaN(+ability.level) || ability.level <= monster.level).map((ability: Ability, index: number) => index);
           } else {
             monster.abilities = [];
           }

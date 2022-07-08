@@ -88,14 +88,16 @@ export class HighlightConditionsComponent {
   gameManager: GameManager = gameManager;
   ConditionType = ConditionType;
 
-  applyCondition(name: ConditionName) {
+  applyCondition(name: ConditionName, event : any) {
+    event.stopPropagation();
     gameManager.stateManager.before();
     gameManager.entityManager.applyCondition(this.entity, name)
     gameManager.stateManager.after();
   }
 
 
-  declineApplyCondition(name: ConditionName) {
+  declineApplyCondition(name: ConditionName, event : any) {
+    event.stopPropagation();
     gameManager.stateManager.before();
     gameManager.entityManager.declineApplyCondition(this.entity, name)
     gameManager.stateManager.after();

@@ -1,7 +1,7 @@
 .entity-border {
   position: relative;
 
-  &:before {
+  &::before {
     content: ' ';
     display: block;
     position: absolute;
@@ -33,7 +33,7 @@
   position: relative;
   display: flex;
   cursor: pointer;
-  height: calc(var(--ghs-unit) * 5);
+  height: calc(var(--ghs-unit) * 5.2);
   text-align: center;
   background-image: url('~src/assets/images/monster/entity.png');
   background-size: calc(var(--ghs-unit) * 8) AUTO;
@@ -52,12 +52,27 @@
     justify-content: center;
     align-items: center;
     font-family: "ghs-title";
-    font-size: calc(var(--ghs-unit) * 2.6);
+    font-size: calc(var(--ghs-unit) * 2.5);
     flex-shrink: 0;
   }
 
   .health {
+    position: relative;
+    top: calc(var(--ghs-unit) * 0.8);
     height: calc(var(--ghs-unit) * 5);
+
+    &::before {
+      content: " ";
+      position: absolute;
+      left: 50%;
+      top: calc(var(--ghs-unit) * -0.2);
+      width: calc(var(--ghs-unit) * 1);
+      height: calc(var(--ghs-unit) * 2);
+      background-image: url('~src/assets/images/status/health.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      transform: translateX(-50%);
+    }
   }
 
 
@@ -131,7 +146,7 @@
     }
 
     .summon {
-      &.new:before {
+      &.new::before {
         content: " ";
         display: block;
         position: absolute;
@@ -143,27 +158,11 @@
     }
   }
 
-  .health-bar {
+  ghs-healthbar {
     position: absolute;
     bottom: 0;
-    width: calc(var(--ghs-unit) * 7);
     left: calc(var(--ghs-unit) * 0.5);
-    height: calc(var(--ghs-unit) * 0.5);
-    border: none;
-    background-color: transparent;
-
-    .health-bar-value {
-      height: 100%;
-      max-width: 1000%;
-      transition: width 0.5s;
-      background-color: var(--ghs-color-green);
-    }
-
-    &.critical {
-      .health-bar-value {
-        background-color: var(--ghs-color-red);
-      }
-    }
+    width: calc(var(--ghs-unit) * 7);
   }
 
   &.normal {
@@ -235,7 +234,7 @@
   }
 
   .summon {
-    &.new:after {
+    &.new::after {
       content: " ";
       display: block;
       position: absolute;

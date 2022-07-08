@@ -13,7 +13,7 @@
     </span>
     <span class="custom" *ngIf="hasCustom()" (click)="addCustom()">
       <span class="summon-button"><img src="./assets/images/summons/custom.png"></span>
-      <label>{{'summon.addCustom' | ghsLabel:('data.summon.' + character.name | ghsLabel)}}</label>
+      <label>{{'summon.addCustom' | ghsLabel:[('data.summon.' + character.name | ghsLabel)]}}</label>
     </span>
   </div>
 </div>

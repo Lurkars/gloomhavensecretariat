@@ -128,7 +128,7 @@
       margin-right: calc(var(--ghs-unit) * 1);
       color: var(--ghs-color-gray);
 
-      &:before {
+      &::before {
         left: calc(var(--ghs-unit) * 0.5);
         top: calc(var(--ghs-unit) * -0.5);
         position: relative;
@@ -255,6 +255,10 @@
         }
       }
     }
+  }
+  
+  .cdk-drag-preview {
+    opacity: 0;
   }
 
   .cdk-drag-placeholder {

@@ -63,7 +63,7 @@
   }
   */
 
-  &.active-outline:after {
+  &.active-outline::after {
     display: block;
     content: ' ';
     background-color: var(--ghs-color-gray);

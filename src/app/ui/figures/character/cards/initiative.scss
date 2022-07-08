@@ -28,7 +28,7 @@
     filter: var(--ghs-filter-white);
 
     &:hover {
-    filter: var(--ghs-filter-gray);
+      filter: var(--ghs-filter-gray);
     }
   }
 
@@ -78,7 +78,8 @@
     text-shadow: var(--ghs-outline);
   }
 
-  .number-button {
+  .number-button,
+  .long-rest-button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,6 +93,18 @@
 
     &:hover {
       color: var(--ghs-color-white);
+    }
+
+    &.long-rest-button {
+
+      &.disabled {
+        pointer-events: none;
+
+        img {
+          filter: var(--ghs-filter-darkgray);
+        }
+      }
+
     }
 
   }

@@ -6,6 +6,7 @@ import { Ability } from 'src/app/game/model/Ability';
 import { PopupComponent } from 'src/app/ui/popup/popup';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'ghs-monster-ability',
@@ -21,6 +22,7 @@ export class AbilityComponent extends PopupComponent {
   ability: Ability | undefined = undefined;
   gameManager: GameManager = gameManager;
   GameState = GameState;
+  edit: boolean = false;
 
   flipped(): boolean {
     if (this.index == -1) {
@@ -30,6 +32,11 @@ export class AbilityComponent extends PopupComponent {
     }
     return gameManager.working && gameManager.game.state == GameState.draw || !gameManager.working && gameManager.game.state == GameState.next && this.ability != undefined && this.monster.entities.filter((monsterEntity: MonsterEntity) => !monsterEntity.dead).length > 0;
   }
+
+  toggleEdit() {
+    this.edit = !this.edit;
+  }
+
 
   upcomingCards(): Ability[] {
     return this.monster.abilities.filter((value: number, index: number) => index > this.monster.ability).map((value: number) => gameManager.abilities(this.monster)[ value ]);
@@ -46,6 +53,16 @@ export class AbilityComponent extends PopupComponent {
   shuffle() {
     gameManager.stateManager.before();
     gameManager.monsterManager.shuffleAbilities(this.monster);
+    gameManager.stateManager.after();
+  }
+
+  draw() {
+    gameManager.stateManager.before();
+    this.monster.ability++;
+    if (this.monster.ability >= this.monster.abilities.length) {
+      gameManager.monsterManager.shuffleAbilities(this.monster);
+      this.monster.ability++;
+    }
     gameManager.stateManager.after();
   }
 
@@ -68,6 +85,31 @@ export class AbilityComponent extends PopupComponent {
       }
       gameManager.stateManager.after();
     }
+  }
+
+  dropUpcoming(event: CdkDragDrop<Ability[]>) {
+    gameManager.stateManager.before();
+    if (event.container == event.previousContainer) {
+      const offset = this.monster.ability + 1;
+      moveItemInArray(this.monster.abilities, event.previousIndex + offset, event.currentIndex + offset);
+    } else {
+      const offset = this.monster.ability;
+      moveItemInArray(this.monster.abilities, offset - event.previousIndex, event.currentIndex + offset);
+      this.monster.ability = this.monster.ability - 1;
+    }
+    gameManager.stateManager.after();
+  }
+
+  dropDisgarded(event: CdkDragDrop<Ability[]>) {
+    gameManager.stateManager.before();
+    if (event.container == event.previousContainer) {
+      moveItemInArray(this.monster.abilities, this.monster.ability - event.previousIndex, this.monster.ability - event.currentIndex);
+    } else {
+      this.monster.ability = this.monster.ability + 1;
+      const offset = this.monster.ability;
+      moveItemInArray(this.monster.abilities, event.previousIndex + offset, offset - event.currentIndex);
+    }
+    gameManager.stateManager.after();
   }
 
   abilityLabel(ability: Ability): string {

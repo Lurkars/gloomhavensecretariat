@@ -4,10 +4,10 @@
     <span class="value"
       *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
     <a class="close" *ngIf="entityCondition.types.indexOf(ConditionType.apply) != -1"
-      (click)="declineApplyCondition(entityCondition.name)"><img class="ghs-svg"
+      (click)="declineApplyCondition(entityCondition.name, $event)"><img class="ghs-svg"
         src="./assets/images/close.svg" /></a>
     <a class="check" *ngIf="entityCondition.types.indexOf(ConditionType.apply) != -1"
-      (click)="applyCondition(entityCondition.name)"><img class="ghs-svg"
+      (click)="applyCondition(entityCondition.name, $event)"><img class="ghs-svg"
         src="./assets/images/check.svg" /></a>
   </span>
 </div>

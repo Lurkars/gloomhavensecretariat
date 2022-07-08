@@ -28,6 +28,7 @@ export enum ActionType {
   area = "area",
   push = "push",
   pull = "pull",
+  swing = "swing",
   element = "element",
   condition = "condition",
   custom = "custom",
@@ -39,6 +40,7 @@ export enum ActionType {
   monsterType = "monsterType",
   elementHalf = "elementHalf",
   trigger = "trigger",
+  card = "card",
 }
 
 export enum ActionValueType {

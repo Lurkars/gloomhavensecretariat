@@ -6,7 +6,7 @@ import { EntityCondition } from 'src/app/game/model/Condition';
 import { Editional } from 'src/app/game/model/Editional';
 import { EntityValueFunction, EntityValueRegex } from 'src/app/game/model/Entity';
 
-export const ghsLabelRegex = /\%((\w+|\.|\-)+)\%/;
+export const ghsLabelRegex = /[\"]?\%((\w+|\.|\-|\:|\%)+)\%[\"]?/;
 
 @Pipe({
   name: 'ghsValueCalc', pure: false
@@ -109,8 +109,8 @@ export class GhsActiveConditionsPipe implements PipeTransform {
 })
 export class GhsLabelPipe implements PipeTransform {
 
-  transform(value: string, ...args: string[]): string {
-    return settingsManager.getLabel(value, args);
+  transform(value: string, args: string[] | undefined = undefined): string {
+    return settingsManager.getLabel(value, args?.map((arg: string) => settingsManager.getLabel(arg)));
   }
 
 }
@@ -125,7 +125,7 @@ export class GhsHtmlLabelPipe implements PipeTransform {
 
   constructor(private sanitizer: DomSanitizer) { }
 
-  transform(value: string, ...args: string[]): SafeHtml {
+  transform(value: string, args: string[] | undefined = undefined): SafeHtml {
     if (!value) {
       return "";
     }
@@ -133,7 +133,6 @@ export class GhsHtmlLabelPipe implements PipeTransform {
   }
 
   applyPlaceholder(value: string): string {
-
 
     while (value.match(ghsLabelRegex)) {
       value = value.replace(ghsLabelRegex, (match, ...args) => {
@@ -146,7 +145,7 @@ export class GhsHtmlLabelPipe implements PipeTransform {
           split.splice(0, 1);
           image = '<img  src="./assets/images/' + split.join('/') + '.svg" class="icon">';
           return '<span class="placeholder-condition">' + settingsManager.getLabel(label) + image + '</span>';
-        } else if (type == "action" && split.length == 3) {
+        } else if (type == "action" && split.length == 3 && !split[ 2 ].startsWith('specialTarget')) {
           split.splice(0, 1);
           image = '<img  src="./assets/images/' + split.join('/') + '.svg" class="icon">';
           return '<span class="placeholder-action">' + settingsManager.getLabel(label) + image + '</span>';
@@ -165,7 +164,9 @@ export class GhsHtmlLabelPipe implements PipeTransform {
           return '<span class="placeholder-initiative">' + split[ 2 ] + image + '</span>';
         }
 
-        return settingsManager.getLabel(label) + image;
+        return settingsManager.getLabel(label.split(':')[ 0 ], label.split(':').splice(1).map((arg: string) =>
+          this.applyPlaceholder(settingsManager.getLabel(arg))
+        )) + image;
       });
     }
 

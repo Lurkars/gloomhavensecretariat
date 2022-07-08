@@ -5,7 +5,7 @@ header {
   flex-direction: row;
   position: relative;
 
-  &:before {
+  &::before {
     content: ' ';
     width: 100%;
     background-size: auto 100%;

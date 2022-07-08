@@ -51,9 +51,9 @@
     <div class="abilities-container" *ngIf="monster && deckData">
       <div class="card-container ability" *ngFor="let ability of deckData.abilities; let i = index;">
         <div class="card flipped" l>
-          <a class="card-front">
+          <a class="card-back">
           </a>
-          <div class="card-back ability-back">
+          <div class="card-front ability-front">
             <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
             <span class="name">{{ability.name}}</span>
             <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="1"></ghs-actions>

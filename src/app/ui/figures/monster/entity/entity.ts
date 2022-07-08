@@ -120,6 +120,13 @@ export class MonsterEntityComponent extends DialogComponent {
       this.close();
     }
     this.entity.dead = true;
+
+    if (this.monster.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead)) {
+      if (this.monster.active) {
+        gameManager.toggleFigure(this.monster);
+      }
+    }
+
     gameManager.stateManager.after();
   }
 

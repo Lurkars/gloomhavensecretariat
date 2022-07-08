@@ -1,0 +1,1178 @@
+{
+  "name": "manifestation-of-corruption",
+  "edition": "fc",
+  "abilities": [
+    {
+      "name": "Blistering Heat",
+      "level": 0,
+      "cardId": 606,
+      "initiative": 72,
+      "actions": [
+        {
+          "type": "heal",
+          "value": "3xC",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "wound|push:2",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Corruptiing Presence",
+      "level": 2,
+      "cardId": 612,
+      "initiative": 31,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.manifestation-of-corruption.2%",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fc.manifestation-of-corruption.3%"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.manifestation-of-corruption.4%"
+        },
+        {
+          "type": "element",
+          "value": "dark"
+        },
+        {
+          "type": "card",
+          "value": "round"
+        }
+      ]
+    },
+    {
+      "name": "Endless Legions",
+      "level": 3,
+      "cardId": 613,
+      "initiative": 90,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.manifestation-of-corruption.5%"
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.manifestation-of-corruption.6%"
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fc.manifestation-of-corruption.7%"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fc.manifestation-of-corruption.8%"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.manifestation-of-corruption.9%"
+        },
+        {
+          "type": "element",
+          "value": "fire"
+        }
+      ]
+    },
+    {
+      "name": "Flame Lance",
+      "level": 0,
+      "cardId": 610,
+      "initiative": 85,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "pierce",
+              "value": 3
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "pierce",
+                  "value": 2,
+                  "valueType": "plus"
+                }
+              ]
+            },
+            {
+              "type": "area",
+              "value": "(0,0,active)|(1,0,target)|(2,0,target)|(3,0,target)|(4,0,target)|(5,0,target)|(6,0,target)"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.manifestation-of-corruption.10%"
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fc.manifestation-of-corruption.11%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Harsh Entrapment",
+      "level": 0,
+      "cardId": 603,
+      "initiative": 17,
+      "actions": [
+        {
+          "type": "pull",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fc.manifestation-of-corruption.12%"
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "immobilize",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fc.manifestation-of-corruption.13%"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.manifestation-of-corruption.14%"
+        },
+        {
+          "type": "element",
+          "value": "fire"
+        },
+        {
+          "type": "card",
+          "value": "infinity",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Heed My Call",
+      "level": 4,
+      "cardId": 614,
+      "initiative": 49,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "bless|strengthen",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(1,0,target)"
+            },
+            {
+              "type": "specialTarget",
+              "value": "selfAlliesAffect"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "all",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark|fire"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "push",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.manifestation-of-corruption.15%"
+        }
+      ]
+    },
+    {
+      "name": "Legendary - Domination",
+      "level": 0,
+      "cardId": 621,
+      "initiative": 50,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.summon% %data.monster.naaret%"
+        },
+        {
+          "type": "card",
+          "value": "lost"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.summon% %data.monster.naaret%"
+        },
+        {
+          "type": "card",
+          "value": "lost"
+        }
+      ]
+    },
+    {
+      "name": "Legengary - Gloom",
+      "level": "C",
+      "cardId": 620,
+      "initiative": 50,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.manifestation-of-corruption.16%"
+        },
+        {
+          "type": "condition",
+          "value": "disarm",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "allEnemies"
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "invisible",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "lost"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.manifestation-of-corruption.16%"
+        },
+        {
+          "type": "condition",
+          "value": "disarm",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "allEnemies"
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "invisible",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "lost"
+        }
+      ]
+    },
+    {
+      "name": "Legandary - Shadows",
+      "level": "B",
+      "cardId": 619,
+      "initiative": 50,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "valueType": "minus"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.manifestation-of-corruption.17%"
+        },
+        {
+          "type": "card",
+          "value": "lost"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "valueType": "minus"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.manifestation-of-corruption.17%"
+        },
+        {
+          "type": "card",
+          "value": "lost"
+        }
+      ]
+    },
+    {
+      "name": "Legendary - Void",
+      "level": "A",
+      "cardId": 618,
+      "initiative": 50,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.manifestation-of-corruption.18%"
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.manifestation-of-corruption.19%"
+        },
+        {
+          "type": "element",
+          "value": "dark|fire"
+        },
+        {
+          "type": "card",
+          "value": "infinity"
+        },
+        {
+          "type": "card",
+          "value": "lost"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.manifestation-of-corruption.18%"
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.manifestation-of-corruption.19%"
+        },
+        {
+          "type": "element",
+          "value": "dark|fire"
+        },
+        {
+          "type": "card",
+          "value": "infinity"
+        },
+        {
+          "type": "card",
+          "value": "lost"
+        }
+      ]
+    },
+    {
+      "name": "Lure Them In",
+      "level": 0,
+      "cardId": 608,
+      "initiative": 20,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "valueType": "minus"
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "retaliate",
+                  "value": 1,
+                  "valueType": "plus"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "round"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "curse",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "adjacentEnemies"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "disarm",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "adjacentEnemies"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Marked for Death",
+      "level": 6,
+      "cardId": 616,
+      "initiative": 82,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valuType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "valueType": "minus"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.fc.manifestation-of-corruption.20%"
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "wound",
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "allTargets"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.manifestation-of-corruption.21%"
+        },
+        {
+          "type": "element",
+          "value": "dark"
+        }
+      ]
+    },
+    {
+      "name": "Nightmare Speres",
+      "level": 0,
+      "cardId": 607,
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "C-1"
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2,
+                  "valueType": "plus"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4
+        },
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "element",
+          "value": "dark"
+        },
+        {
+          "type": "card",
+          "value": "round"
+        }
+      ]
+    },
+    {
+      "name": "Plaque Their Dreams",
+      "level": 0,
+      "cardId": 609,
+      "initiative": 15,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "stun",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "target",
+              "value": "C-1"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire|dark"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "curse",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "allEnemiesRange:-1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "round"
+        }
+      ]
+    },
+    {
+      "name": "Pulse of Malice",
+      "level": 0,
+      "cardId": 602,
+      "initiative": 62,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "allEnemiesRange:2"
+            },
+            {
+              "type": "condition",
+              "value": "curse"
+            },
+            {
+              "type": "condition",
+              "value": "muddle"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "dark"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "condition",
+          "value": "curse",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "allEnemiesRange:3"
+            }
+          ]
+        },
+        {
+          "type": "push",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "allEnemiesRange:3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Searing Vapors",
+      "level": 0,
+      "cardId": 604,
+      "initiative": 43,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "TODO"
+            },
+            {
+              "type": "condition",
+              "value": "wound"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 2,
+                  "valueType": "plus"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "disarm",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "adjacentEnemies"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Toxic Blast",
+      "level": 0,
+      "cardId": 605,
+      "initiative": 36,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "TODO"
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "valueType": "minus"
+            },
+            {
+              "type": "condition",
+              "value": "poison"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "valueType": "plus"
+            },
+            {
+              "type": "condition",
+              "value": "poison"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unfathomable Fortitude",
+      "level": 5,
+      "cardId": 615,
+      "initiative": 24,
+      "actions": [
+        {
+          "type": "heal",
+          "value": "(L+1)xC",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "regenerate|strengthen",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "selfAdjacentAlliesAffect"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.manifestation-of-corruption.22%"
+        },
+        {
+          "type": "element",
+          "value": "all",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark|fire"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "infinity",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "What's Yours is Mine",
+      "level": 1,
+      "cardId": 611,
+      "initiative": 26,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "element",
+          "value": "air",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 2,
+                  "valueType": "plus"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "stun"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 2,
+                  "valueType": "minus"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "adjacentEnemies"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 1,
+              "valueType": "plus"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 1,
+              "valueType": "plus"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "air",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "retaliate",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 1,
+                  "valueType": "minus"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "light",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "retaliate",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 1,
+                  "valueType": "minus"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "round"
+        }
+      ]
+    },
+    {
+      "name": "You Date to Defy Me",
+      "level": 7,
+      "cardId": 617,
+      "initiative": 7,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "valueType": "plus"
+            },
+            {
+              "type": "condition",
+              "value": "poison"
+            },
+            {
+              "type": "condition",
+              "value": "stun"
+            },
+            {
+              "type": "condition",
+              "value": "wound"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "fire"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "%data.custom.fc.manifestation-of-corruption.2%",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.fc.manifestation-of-corruption.3%"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

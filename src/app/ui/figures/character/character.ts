@@ -82,7 +82,10 @@ export class CharacterComponent extends DialogComponent {
     gameManager.stateManager.before();
     this.character.exhausted = !this.character.exhausted;
     if (this.character.exhausted) {
-      gameManager.afterTurn(this.character);
+      this.character.off = true;
+      this.character.active = false;
+    } else {
+      this.character.off = false;
     }
     gameManager.sortFigures();
     gameManager.stateManager.after();
@@ -117,10 +120,6 @@ export class CharacterComponent extends DialogComponent {
 
   override close(): void {
     super.close();
-    if (this.health > 0 && this.character.exhausted) {
-      this.character.exhausted = false;
-    }
-
     this.health = 0;
     this.experience = 0;
     this.loot = 0;
@@ -138,9 +137,6 @@ export class CharacterComponent extends DialogComponent {
       }
     }
 
-    if (this.character.health == 0 && !this.character.exhausted) {
-      this.exhausted();
-    }
     this.levelDialog = false;
   }
 

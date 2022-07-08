@@ -41,6 +41,7 @@
         </span>
       </div>
       <div class="extra-container">
+        <div class="notes placeholder" [innerHTML]="statsForType(MonsterType.normal).note | ghsHtmlLabel"></div>
         <div class="additional">
           <ghs-actions [actions]="statsForType(MonsterType.normal).actions" [monster]="monster" [inline]="true"
             [right]="true" [hexSize]="0.5">
@@ -51,7 +52,6 @@
           <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [right]="true" [hexSize]="0.5">
           </ghs-actions>
         </div>
-        <div class="notes placeholder" [innerHTML]="statsForType(MonsterType.normal).note | ghsHtmlLabel"></div>
       </div>
     </div>
     <div class="extra elite">
@@ -61,6 +61,7 @@
         </span>
       </div>
       <div class="extra-container">
+        <div class="notes placeholder" [innerHTML]="statsForType(MonsterType.elite).note | ghsHtmlLabel"></div>
         <div class="additional">
           <ghs-actions [actions]="statsForType(MonsterType.elite).actions" [monster]="monster" [inline]="true"
             [hexSize]="0.5">
@@ -71,11 +72,11 @@
           <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [hexSize]="0.5">
           </ghs-actions>
         </div>
-        <div class="notes placeholder" [innerHTML]="statsForType(MonsterType.elite).note | ghsHtmlLabel"></div>
       </div>
     </div>
   </ng-container>
   <div class="extra boss" *ngIf="monster.boss">
+    <div class="notes placeholder" [innerHTML]="statsForType(MonsterType.boss).note | ghsHtmlLabel"></div>
     <div class="immunities">
       <span class="immunity" *ngFor="let immunity of statsForType(MonsterType.boss).immunities">
         <img class="icon" src="./assets/images/condition/{{immunity}}.svg" />
@@ -91,7 +92,6 @@
         <span class="special">{{index+1}}:</span>
         <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [hexSize]="0.5"></ghs-actions>
       </div>
-      <div class="notes placeholder" [innerHTML]="statsForType(MonsterType.boss).note | ghsHtmlLabel"></div>
     </div>
   </div>
 </div>

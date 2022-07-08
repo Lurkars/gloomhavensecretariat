@@ -44,6 +44,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { FigureErrors } from './ui/figures/errors/errors';
 import { SectionMenuComponent } from './ui/header/menu/section/section';
 import { ConditionsComponent, HighlightConditionsComponent } from './ui/figures/conditions/conditions';
+import { HealthbarComponent } from './ui/figures/healthbar/healthbar';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,7 @@ import { ConditionsComponent, HighlightConditionsComponent } from './ui/figures/
     AttackModifierComponent,
     LevelComponent,
     DialogComponent, PopupComponent,
-    ConditionsComponent, HighlightConditionsComponent,
+    ConditionsComponent, HighlightConditionsComponent, HealthbarComponent,
     CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent,
     ObjectiveComponent,
     SummonEntityComponent,

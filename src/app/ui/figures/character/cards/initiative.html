@@ -3,7 +3,8 @@
 
 <div class="initiative">
   <img (click)="toggle()" class="ghs-svg" src="./assets/images/initiative.svg" />
-  <input [value]="character.initiative || ''" (change)="setInitiative($event)" type="number" min="1" max="99" maxlength="2">
+  <input [value]="character.initiative || ''" (change)="updateInitiative($event)" type="number" min="1" max="99"
+    maxlength="2">
 </div>
 
 <span #button></span>
@@ -16,7 +17,8 @@
     <span *ngFor="let number of [1,2,3,4,5,6,7,8,9]" class="number-button" (click)="pickNumber(number)">
       <span class="number">{{number}}</span>
     </span>
-    <span></span>
+    <span [ngClass]="{'disabled' : gameManager.game.state == GameState.next } " class="long-rest-button"
+      (click)="setInitiative(99)"><img class="ghs-svg" src="./assets/images/long-rest.svg"></span>
     <span class="number-button" (click)="pickNumber(0)"><span class="number">0</span></span>
     <span></span>
   </div>

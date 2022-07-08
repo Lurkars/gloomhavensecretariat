@@ -1,0 +1,146 @@
+{
+  "name": "naaret",
+  "thumbnail": "fc-aesther-ashblade",
+  "edition": "fc",
+  "boss": true,
+  "deck": "ashblade",
+  "hidden": true,
+  "count": 6,
+  "baseStat": {
+    "type": "boss",
+    "actions": [],
+    "immunities": [
+      "stun",
+      "disarm",
+      "poison",
+      "immobilize"
+    ],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "6xC",
+      "movement": 3,
+      "attack": 3,
+      "range": 0,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": "7xC",
+      "movement": 4,
+      "attack": 3,
+      "range": 0,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "8xC",
+      "movement": 4,
+      "attack": 4,
+      "range": 0,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "9xC",
+      "movement": 4,
+      "attack": 4,
+      "range": 0,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "10xC",
+      "movement": 4,
+      "attack": 5,
+      "range": 0,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "12xC",
+      "movement": 4,
+      "attack": 5,
+      "range": 0,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "14xC",
+      "movement": 4,
+      "attack": 6,
+      "range": 0,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "16xC",
+      "movement": 5,
+      "attack": 6,
+      "range": 0,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    }
+  ]
+}

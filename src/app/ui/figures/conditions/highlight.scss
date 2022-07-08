@@ -29,8 +29,8 @@
       animation: hide-animation 0.95s ease-in-out;
       cursor: pointer;
       position: absolute;
-      top: calc(var(--ghs-unit) * 3);
-      width: calc(var(--ghs-unit) * 2.7);
+      top: calc(var(--ghs-unit) * 3.5);
+      width: calc(var(--ghs-unit) * 1.8);
       height: auto;
 
       img {
@@ -40,14 +40,14 @@
 
       &:hover {
         transition: all 100ms;
-        width: calc(var(--ghs-unit) * 3.5);
+        width: calc(var(--ghs-unit) * 2.7);
         transform: translate(calc(var(--ghs-unit) * -0.35), calc(var(--ghs-unit) * -0.35));
       }
     }
 
     .close {
       filter: var(--ghs-filter-red);
-      left: calc(var(--ghs-unit) * -1);
+      left: calc(var(--ghs-unit) * -0.5);
     }
 
     .check {

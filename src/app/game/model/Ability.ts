@@ -7,18 +7,29 @@ export class Ability {
   actions: Action[];
   shuffle: boolean;
   bottomActions: Action[];
+  level: number | string = 0;
   hint: string | undefined;
+  cardType: AbilityCardType | undefined;
+  slots: number = 0;
 
   constructor(cardId: number | undefined, name: string | undefined, initiative: number,
     actions: Action[],
-    shuffle: boolean = false, bottomActions: Action[] = [], hint: string | undefined = undefined) {
+    shuffle: boolean = false, bottomActions: Action[] = [], level: number = 0, hint: string | undefined = undefined) {
     this.cardId = cardId;
     this.name = name;
     this.initiative = initiative;
     this.actions = actions;
     this.shuffle = shuffle;
     this.bottomActions = bottomActions;
+    this.level = level;
     this.hint = hint;
   }
 }
 
+export enum AbilityCardType {
+
+  lost = "lost",
+  infinity = "infinity",
+  round = "round"
+  
+}

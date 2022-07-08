@@ -6,6 +6,7 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
+    "note": "%game.custom.scenarioBook%",
     "actions": [
       {
         "type": "custom",

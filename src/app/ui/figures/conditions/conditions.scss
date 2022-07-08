@@ -31,7 +31,7 @@
     width: calc(var(--ghs-unit) * 4);
     height: calc(var(--ghs-unit) * 4);
 
-    &:after {
+    &::after {
       pointer-events: none;
       content: ' ';
       height: calc(var(--ghs-unit) * 6);

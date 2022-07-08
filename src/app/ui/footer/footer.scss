@@ -12,7 +12,7 @@ footer {
     flex-shrink: 1;
   }
 
-  &:before {
+  &::before {
     content: ' ';
     width: 100%;
     background-size: auto 100%;

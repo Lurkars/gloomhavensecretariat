@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
-import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
@@ -19,6 +19,8 @@ export class CharacterInitiativeComponent extends DialogComponent {
   value: string = "__";
 
   characterManager: CharacterManager = gameManager.characterManager;
+  gameManager: GameManager = gameManager;
+  GameState = GameState;
 
   pickNumber(number: number) {
     this.value = (this.value + "" + number).substring(1, 3);
@@ -36,15 +38,21 @@ export class CharacterInitiativeComponent extends DialogComponent {
     }
   }
 
-  setInitiative(event: any) {
+  updateInitiative(event: any) {
     const initative: number = +  event.target.value;
+    if ((gameManager.game.state == GameState.draw && initative >= 0 || initative > 0) && initative < 100) {
+      this.setInitiative(initative);
+    } else {
+      event.target.value = "" + this.character.initiative
+    }
+  }
+
+  setInitiative(initative: number) {
     if ((gameManager.game.state == GameState.draw && initative >= 0 || initative > 0) && initative < 100) {
       gameManager.stateManager.before();
       this.character.initiative = initative;
       gameManager.sortFigures();
       gameManager.stateManager.after();
-    } else {
-      event.target.value = "" + this.character.initiative
     }
   }
 

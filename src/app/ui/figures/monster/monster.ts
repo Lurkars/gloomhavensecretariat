@@ -15,8 +15,6 @@ export class MonsterComponent {
 
   @Input() monster!: Monster;
   MonsterType = MonsterType;
-  addMonsterEntityFunction!: Function;
-  removeMonsterEntityFunction!: Function;
 
   emptyEntities(): boolean {
     return this.monster.entities.length == 0 || this.monster.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead);
@@ -24,13 +22,6 @@ export class MonsterComponent {
 
   monsterOff(): boolean {
     return this.monster.off || this.monster.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead);
-  }
-
-  removeMonsterEntity(monsterEntity: MonsterEntity) {
-    monsterEntity.dead = true;
-    gameManager.stateManager.before();
-    gameManager.monsterManager.removeMonsterEntity(this.monster, monsterEntity);
-    gameManager.stateManager.after();
   }
 
   sortedEntites(): MonsterEntity[] {

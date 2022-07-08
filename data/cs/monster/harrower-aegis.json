@@ -101,7 +101,7 @@
         },
         {
           "type": "range",
-          "value": "^3"
+          "value": 3
         }
       ]
     },

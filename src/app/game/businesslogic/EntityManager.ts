@@ -334,6 +334,7 @@ export class EntityManager {
         entity.dead = false;
       }
 
+      baneCondition.highlight = false;
       baneCondition.expired = false;
     }
   }

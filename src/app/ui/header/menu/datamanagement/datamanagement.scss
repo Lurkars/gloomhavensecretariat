@@ -1,7 +1,7 @@
 .remove {
   display: flex;
 
-  &:hover:after {
+  &:hover::after {
     content: ' ';
     position: relative;
     display: block;
@@ -18,7 +18,7 @@
   cursor: pointer;
 
   .add-button {
-    &:after {
+    &::after {
       content: ' ';
       position: relative;
       display: block;
@@ -30,7 +30,7 @@
       background-color: var(--ghs-color-gray);
     }
 
-    &:hover:after {
+    &:hover::after {
       background-color: var(--ghs-color-white);
     }
   }
@@ -41,7 +41,7 @@
     .add-button {
       pointer-events: none;
 
-      &:after {
+      &::after {
         background-color: var(--ghs-color-darkgray);
       }
     }

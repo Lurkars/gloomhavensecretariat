@@ -1,7 +1,7 @@
 .summon-border {
   position: relative;
 
-  &:before {
+  &::before {
     content: ' ';
     display: block;
     position: absolute;
@@ -108,7 +108,7 @@
     }
 
     .summon-state {
-      &.new:after {
+      &.new::after {
         content: " ";
         display: block;
         position: absolute;
@@ -284,7 +284,7 @@
     position: relative;
     display: flex;
 
-    &.new:after {
+    &.new::after {
       content: " ";
       display: block;
       position: absolute;

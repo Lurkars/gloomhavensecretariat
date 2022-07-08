@@ -4,8 +4,8 @@
   color: var(--ghs-color-white);
 }
 
-.ability-front,
-.ability-back {
+.ability-back,
+.ability-front {
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -17,11 +17,13 @@
   border-radius: calc(var(--ghs-unit) * 1);
 }
 
-.ability-back {
-  background-image: url('~src/assets/images/monster/abilities/card.png');
+.ability-front {
+  background-image: url('~src/assets/images/monster/abilities/monster-ability-front.png');
   background-position: bottom;
   --hover-animation: all 0.3s ease-in-out;
   transition: var(--hover-animation);
+
+
 
   ghs-actions {
     position: absolute;
@@ -85,36 +87,89 @@
   }
 
 
-  &:hover {
-    background-position: top;
+  &.hoverable:hover {
+    background-position-y: calc(var(--ghs-unit) * -1);
 
     .name {
-      top: calc(var(--ghs-unit) * 1.7);
+      top: calc(var(--ghs-unit) * 0);
     }
 
     .initiative {
-      top: calc(var(--ghs-unit) * 4.5);
+      top: calc(var(--ghs-unit) * 3);
     }
 
     .shuffle {
-      bottom: calc(var(--ghs-unit) * -2.5);
+      bottom: calc(var(--ghs-unit) * -1);
     }
 
     .index {
-      bottom: calc(var(--ghs-unit) * -2);
+      bottom: calc(var(--ghs-unit) * -0.5);
     }
 
     ghs-actions {
       position: absolute;
-      top: calc(var(--ghs-unit) * 6);
-      height: calc(var(--ghs-unit) * 13);
+      top: calc(var(--ghs-unit) * 4.5);
+      height: calc(var(--ghs-unit) * 14.5);
+    }
+  }
+
+  &.bottom-actions {
+    background-image: url('~src/assets/images/monster/abilities/monster-ability-front-bottom.png');
+    background-position: top;
+    background-attachment: local;
+
+    .name {
+      top: calc(var(--ghs-unit) * 2);
+    }
+
+    .initiative {
+      top: calc(var(--ghs-unit) * 23);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .level {
+      position: absolute;
+      top: calc(var(--ghs-unit) * 5.3);
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--ghs-color-black);
+      font-size: calc(var(--ghs-unit) * 1.8);
+      font-family: ghs-title;
+    }
+
+    .shuffle {
+      bottom: calc(var(--ghs-unit) * -1);
+    }
+
+    .index {
+      bottom: auto;
+      top: calc(var(--ghs-unit) * 42);
+      left: calc(50% + var(--ghs-unit) * 3);
+    }
+
+    overflow-x: unset;
+    overflow-y: auto;
+
+    ghs-actions {
+      position: relative;
+      top: calc(var(--ghs-unit) * 14.5);
+      left: calc(var(--ghs-unit) * 4);
+      width: calc(var(--ghs-unit) * 27);
+      min-height: calc(var(--ghs-unit) * 14);
+      max-height: calc(var(--ghs-unit) * 14);
+    }
+
+    ghs-actions:nth-of-type(2) {
+      top: calc(var(--ghs-unit) * 20.5);
+      margin-bottom: calc(var(--ghs-unit) * 4);
     }
   }
 
 }
 
-.ability-front {
-  background-image: url('~src/assets/images/monster/abilities/none.png');
+.ability-back {
+  background-image: url('~src/assets/images/monster/abilities/monster-ability-back.png');
 
   .name {
     position: absolute;
@@ -146,6 +201,7 @@ ghs-action {
   .menu {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 
     a,
     label {
@@ -198,6 +254,14 @@ ghs-action {
         background-color: var(--ghs-color-white);
       }
     }
+
+    .insert-menu {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-basis: 100%;
+      flex-shrink: 0;
+    }
   }
 
   .abilities-container {
@@ -205,12 +269,13 @@ ghs-action {
     flex-direction: row;
     margin: calc(var(--ghs-unit) * 1);
     max-height: 80vh;
-    overflow: auto;
 
     .upcoming,
     .disgarded {
       display: flex;
       flex-direction: column;
+      overflow-y: auto;
+      overflow-x: hidden;
 
       .ability,
       .empty {
@@ -222,7 +287,20 @@ ghs-action {
         background-position: top;
 
 
-        .ability-back {
+        &.bottom-ability {
+          height: calc(var(--ghs-unit) * 47);
+
+          .ability-back {
+            background-image: url('~src/assets/images/monster/abilities/monster-ability-back-botton.png');
+
+            .name {
+              bottom: calc(var(--ghs-unit) * 11.5);
+              font-size: calc(var(--ghs-unit) * 1.9);
+            }
+          }
+        }
+
+        .ability-front {
           .name {
             top: calc(var(--ghs-unit) * 1.7);
           }
@@ -248,9 +326,62 @@ ghs-action {
           &:hover {
             pointer-events: none;
           }
+
+          &.bottom-actions {
+            background-image: url('~src/assets/images/monster/abilities/monster-ability-front-bottom.png');
+            background-position: top;
+            background-attachment: local;
+            height: 100%;
+
+            .name {
+              top: calc(var(--ghs-unit) * 2);
+            }
+
+            .initiative {
+              top: calc(var(--ghs-unit) * 23);
+              left: 50%;
+              transform: translateX(-50%);
+            }
+
+            .level {
+              position: absolute;
+              top: calc(var(--ghs-unit) * 5.3);
+              left: 50%;
+              transform: translateX(-50%);
+              color: var(--ghs-color-black);
+              font-size: calc(var(--ghs-unit) * 1.8);
+              font-family: ghs-title;
+            }
+
+            .shuffle {
+              bottom: calc(var(--ghs-unit) * -1);
+            }
+
+            .index {
+              bottom: auto;
+              top: calc(var(--ghs-unit) * 42);
+              left: calc(50% + var(--ghs-unit) * 3);
+            }
+
+            overflow-x: unset;
+            overflow-y: auto;
+
+            ghs-actions {
+              position: relative;
+              top: calc(var(--ghs-unit) * 0.6);
+              left: calc(var(--ghs-unit) * 4);
+              width: calc(var(--ghs-unit) * 27);
+              min-height: calc(var(--ghs-unit) * 14);
+              max-height: calc(var(--ghs-unit) * 14);
+            }
+
+            ghs-actions:nth-of-type(2) {
+              top: calc(var(--ghs-unit) * 6.5);
+            }
+          }
         }
 
-        .ability-front {
+        .ability-back {
           .name {
             bottom: calc(var(--ghs-unit) * 3.5);
           }
@@ -280,5 +411,17 @@ ghs-action {
         border-color: var(--ghs-color-white);
       }
     }
+  }
+
+  .cdk-drag-placeholder {
+    opacity: 0.5;
+  }
+
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .drop-list.cdk-drop-list-dragging .abiility:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
   }
 }

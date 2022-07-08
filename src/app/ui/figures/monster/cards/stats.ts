@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { Ability } from 'src/app/game/model/Ability';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { FigureError } from 'src/app/game/model/FigureError';
 import { Monster } from 'src/app/game/model/Monster';
@@ -17,7 +18,7 @@ import { PopupComponent } from 'src/app/ui/popup/popup';
 export class MonsterStatsComponent extends DialogComponent {
 
   @Input() monster!: Monster;
-  @Input() showName:boolean = false; 
+  @Input() showName: boolean = false;
   MonsterType = MonsterType;
 
   stats: MonsterStat | undefined = undefined;
@@ -102,6 +103,12 @@ export class MonsterStatsComponent extends DialogComponent {
   setLevel(value: number) {
     if (value != this.monster.level) {
       gameManager.stateManager.before();
+      const abilities = gameManager.abilities(this.monster);
+      if (abilities && this.monster.abilities.length != abilities.filter((ability: Ability) => !ability.level || isNaN(+ability.level) || ability.level <= value).length) {
+        this.monster.abilities = abilities.filter((ability: Ability) => !ability.level || isNaN(+ability.level) || ability.level <= value).map((ability: Ability, index: number) => index);
+        gameManager.monsterManager.shuffleAbilities(this.monster);
+      }
+
       this.monster.level = value;
 
       this.setStats();

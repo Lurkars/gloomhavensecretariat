@@ -22,10 +22,13 @@
   <div class="stats">
     <div class="column col-1" (click)="toggle()">
       <div #button class="title"><img class="icon" [src]="characterManager.characterIcon(character)" />
-        {{character.title || ('data.character.' + character.name | ghsLabel)}}</div>
-      <div class="health">
-        <img src="./assets/images/status/health.svg" />
-        {{character.health}}/{{character.maxHealth}}
+        {{character.title || ('data.character.' + character.name | ghsLabel)}} 
+        <img class="ghs-svg exhausted" *ngIf="character.exhausted" src="./assets/images/status/exhausted.svg" /></div>
+      <div class="status-bar">
+        <div class="health">
+          <img src="./assets/images/status/health.svg" />
+          {{character.health}}/{{character.maxHealth}}
+        </div>
         <div class="conditions">
           <span class="condition" *ngFor="let entityCondition of character.entityConditions | ghsActiveConditions">
             <img src="./assets/images/condition/{{entityCondition.name}}.svg" />
@@ -112,7 +115,7 @@
 
       <span class="item">
         <a class="condition" [ngClass]="{'active' : character.exhausted}" (click)="exhausted()">
-          <img src="./assets/images/status/dead.svg" />
+          <img src="./assets/images/status/exhausted.svg" />
         </a>
       </span>
       <span class="item">
