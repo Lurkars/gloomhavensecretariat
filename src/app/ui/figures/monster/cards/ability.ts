@@ -58,11 +58,7 @@ export class AbilityComponent extends PopupComponent {
 
   draw() {
     gameManager.stateManager.before();
-    this.monster.ability++;
-    if (this.monster.ability >= this.monster.abilities.length) {
-      gameManager.monsterManager.shuffleAbilities(this.monster);
-      this.monster.ability++;
-    }
+    gameManager.monsterManager.drawAbility(this.monster);
     gameManager.stateManager.after();
   }
 
@@ -109,6 +105,20 @@ export class AbilityComponent extends PopupComponent {
       const offset = this.monster.ability;
       moveItemInArray(this.monster.abilities, event.previousIndex + offset, offset - event.currentIndex);
     }
+    gameManager.stateManager.after();
+  }
+
+  restoreDefault(): void {
+    gameManager.stateManager.before();
+    const abilities = gameManager.abilities(this.monster);
+    this.monster.abilities = abilities.filter((ability: Ability) => !ability.level || isNaN(+ability.level) || ability.level <= this.monster.level).map((ability: Ability, index: number) => index);
+    gameManager.monsterManager.shuffleAbilities(this.monster);
+    gameManager.stateManager.after();
+  }
+
+  remove(index: number) {
+    gameManager.stateManager.before();
+    this.monster.abilities.splice(index + this.monster.ability + 1, 1);
     gameManager.stateManager.after();
   }
 

@@ -33,6 +33,7 @@
     <a (click)="shuffle()">{{'game.cards.shuffle' | ghsLabel}}</a>
     <label><input type="checkbox" (click)="toggleEdit()" [checked]="edit">{{'game.cards.edit' | ghsLabel}}</label>
     <div class="insert-menu">
+      <a *ngIf="edit" (click)="restoreDefault()">{{'game.cards.restore' | ghsLabel}}</a>
       <a (click)="draw()">{{'game.cards.draw' | ghsLabel}}</a>
       <label *ngIf="opened && gameManager.monsterManager.getSameDeckMonster(monster)"><input type="checkbox"
           (click)="toggleDrawExtra()" [checked]="monster.drawExtra">{{'game.cards.drawExtra' |
@@ -44,7 +45,7 @@
       [cdkDropListConnectedTo]="disgardedList" (cdkDropListDropped)="dropUpcoming($event)"
       [cdkDropListAutoScrollStep]="20">
       <div class="empty" *ngIf="upcomingCards().length == 0"></div>
-      <ng-container *ngFor="let ability of upcomingCards();">
+      <ng-container *ngFor="let ability of upcomingCards();let index = index;">
         <div class="card-container ability drag-hidden" cdkDrag
           [ngClass]="{'bottom-ability' : ability && ability.bottomActions && ability.bottomActions.length > 0}">
           <div class="card" card-reveal [ngClass]="{'flipped' : reveal == 2}">
@@ -67,6 +68,8 @@
               <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
               <span class="index" *ngIf="!ability.cardId">[{{abilityIndex(ability) + 1}}]</span>
               <span class="index" *ngIf="ability.cardId">{{ability.cardId}}</span>
+              <a class="button-remove" *ngIf="edit" (click)="remove(index)"><img class="ghs-svg"
+                src="./assets/images/minus.svg"></a>
             </div>
           </div>
         </div>

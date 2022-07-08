@@ -104,7 +104,7 @@ export class MonsterStatsComponent extends DialogComponent {
     if (value != this.monster.level) {
       gameManager.stateManager.before();
       const abilities = gameManager.abilities(this.monster);
-      if (abilities && this.monster.abilities.length != abilities.filter((ability: Ability) => !ability.level || isNaN(+ability.level) || ability.level <= value).length) {
+      if (this.monster.abilities.length != abilities.filter((ability: Ability) => !ability.level || isNaN(+ability.level) || ability.level <= value).length) {
         this.monster.abilities = abilities.filter((ability: Ability) => !ability.level || isNaN(+ability.level) || ability.level <= value).map((ability: Ability, index: number) => index);
         gameManager.monsterManager.shuffleAbilities(this.monster);
       }

@@ -40,12 +40,7 @@ export class MonsterManager {
       monster.off = true;
       if (!this.applySameDeck(monster)) {
         if (!monster.abilities || monster.abilities.length == 0) {
-          const abilities = gameManager.abilities(monster);
-          if (abilities) {
-            monster.abilities = abilities.filter((ability: Ability) => !ability.level || isNaN(+ability.level) || ability.level <= monster.level).map((ability: Ability, index: number) => index);
-          } else {
-            monster.abilities = [];
-          }
+          monster.abilities = gameManager.abilities(monster).filter((ability: Ability) => !ability.level || isNaN(+ability.level) || ability.level <= monster.level).map((ability: Ability, index: number) => index);
         }
         this.shuffleAbilities(monster);
       }
@@ -243,7 +238,32 @@ export class MonsterManager {
         }
       }
     })
+  }
 
+  drawAbility(monster: Monster) {
+    if (monster.drawExtra) {
+      const sameDeckMonster = this.getSameDeckMonster(monster);
+      if (!sameDeckMonster) {
+        console.error("Draw for '" + monster.name + "' (" + monster.deck + " not possible, not same deck monster found!");
+        monster.drawExtra = false;
+        this.drawAbility(monster);
+        return;
+      }
+      this.drawAbility(sameDeckMonster);
+      return;
+    }
+
+    monster.ability += 1;
+
+    this.game.figures.forEach((figure: Figure) => {
+      if (figure instanceof Monster && this.getSameDeckMonster(figure)) {
+        figure.ability = monster.ability;
+
+        if (figure.drawExtra) {
+          this.drawExtra(figure);
+        }
+      }
+    })
   }
 
   getAbility(monster: Monster): Ability | undefined {
