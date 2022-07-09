@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1657397646629,
+  "timestamp": 1657402156131,
   "appData": {
     "version": "0.9.2"
   },
@@ -16,11 +16,11 @@
       "urls": [
         "gloomhavensecretary/favicon.ico",
         "gloomhavensecretary/index.html",
-        "gloomhavensecretary/main.c34c1ad2ef8dfde9.js",
+        "gloomhavensecretary/main.c7d3bc2ed0f4cd1f.js",
         "gloomhavensecretary/manifest.webmanifest",
         "gloomhavensecretary/polyfills.212eb7dc67bd10bc.js",
         "gloomhavensecretary/runtime.0269065d32db7f2e.js",
-        "gloomhavensecretary/styles.0eb64d83ed451572.css"
+        "gloomhavensecretary/styles.c0fec394a2cfe493.css"
       ],
       "patterns": []
     },
@@ -796,8 +796,8 @@
     "gloomhavensecretary/header.24c0469502696b46.png": "25f3ece27efd7584a50c341ea90ba9a0513c7841",
     "gloomhavensecretary/health.8d6a842a197d29d3.svg": "05afb6de2ed74490df7d750cc939124afb1c5457",
     "gloomhavensecretary/immunity.5d026de2db8a1d8f.svg": "ad20fc18e93269c79312170674c6008615438f9b",
-    "gloomhavensecretary/index.html": "d0628c62341e8d36331552854201ae3ada92cdb0",
-    "gloomhavensecretary/main.c34c1ad2ef8dfde9.js": "5b7ea8ef2837de4d464ec889d8877f8d6eddc410",
+    "gloomhavensecretary/index.html": "53f06e9b5497b9898a4b61cfcb05792686445fd4",
+    "gloomhavensecretary/main.c7d3bc2ed0f4cd1f.js": "022060a0b981a6f1ad2d417a1aa08ddb2a68bb65",
     "gloomhavensecretary/majallab.00c7b4c865792c45.ttf": "cd2e9e61aca39d2b987b66e4c2a0a3ea13c3be48",
     "gloomhavensecretary/manifest.webmanifest": "20b7c49ef090b8f20d2397f9f631bdca2c64ffcd",
     "gloomhavensecretary/minus.97c98a810771fceb.svg": "de4a30390082572ba48e52e102dd4fb2dabffa81",
@@ -810,7 +810,7 @@
     "gloomhavensecretary/polyfills.212eb7dc67bd10bc.js": "bc2d872a2722123373bcfe9e678776e4a71b3d46",
     "gloomhavensecretary/runtime.0269065d32db7f2e.js": "b302558fd0ee2307d99ca4df1eb66f6f672d5046",
     "gloomhavensecretary/standard.a54477c1eda06c8b.png": "b7464c7a959660e975135cd86cac578f69c63a30",
-    "gloomhavensecretary/styles.0eb64d83ed451572.css": "7b465b8ea8c6b929acff2d4a11f3b8b6a6780b0d"
+    "gloomhavensecretary/styles.c0fec394a2cfe493.css": "5f6043230ffc315d6bf45c391c7e04bc3920c2a3"
   },
   "navigationUrls": [
     {
