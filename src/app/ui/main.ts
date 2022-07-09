@@ -35,32 +35,36 @@ export class MainComponent implements OnInit {
   }
 
   calcColumns(): void {
-    this.columns = 1;
-    this.columnSize = gameManager.game.figures.length;
-
-    gameManager.working = true;
-    window.document.body.classList.add('working');
     setTimeout(() => {
-      const firstCol = this.element.nativeElement.getElementsByClassName('figures')[ 0 ];
-
-      if (firstCol.firstChild && firstCol.firstChild.clientWidth * 1.05 < (this.element.nativeElement.clientWidth / 2)) {
-        let columnSize = gameManager.game.figures.length;
-        let bottom = 0;
-        let figure = 0;
-        while (bottom < firstCol.getBoundingClientRect().bottom && figure < firstCol.children.length) {
-          bottom = firstCol.children[ figure ].getBoundingClientRect().bottom;
-          figure++;
+      const container = this.element.nativeElement.getElementsByClassName('columns')[ 0 ];
+      const figures = container.getElementsByClassName('figure');
+      let lastFigure = figures[ 0 ];
+      if (lastFigure && lastFigure.clientWidth * 1.05 < (container.clientWidth / 2)) {
+        let height = 0;
+        let columnSize = 0;
+        const minColumn = Math.ceil(gameManager.game.figures.length / 2);
+        while ((height < container.clientHeight || columnSize < minColumn) && columnSize < figures.length) {
+          height += figures[ columnSize ].clientHeight;
+          columnSize++;
         }
 
-        if (figure < columnSize) {
+        if (columnSize < gameManager.game.figures.length) {
           this.columns = 2;
-          this.columnSize = (figure < columnSize / 2 ? columnSize / 2 : figure) - 1;
+          if (columnSize < minColumn) {
+            columnSize = minColumn;
+          } else if (columnSize > minColumn) {
+            columnSize--;
+          }
+          this.columnSize = columnSize;
+        } else {
+          this.columns = 1;
+          this.columnSize = gameManager.game.figures.length;
         }
+      } else {
+        this.columns = 1;
+        this.columnSize = gameManager.game.figures.length;
       }
-
-      gameManager.working = false;
-      window.document.body.classList.remove('working');
-    }, 1);
+    }, 0);
   }
 
   drop(event: CdkDragDrop<number>) {

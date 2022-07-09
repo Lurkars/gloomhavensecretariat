@@ -8,7 +8,7 @@ export class StateManager {
   game: Game;
   ws: WebSocket | undefined;
 
-  lastSaveTimestamp : number;
+  lastSaveTimestamp: number;
 
   constructor(game: Game) {
     this.game = game;
@@ -238,6 +238,7 @@ export class StateManager {
     localStorage.setItem("ghs-redo", JSON.stringify(redo));
     localStorage.setItem("ghs-undo", JSON.stringify(undo));
     this.after();
+    gameManager.uiChange.emit(true);
   }
 
   hasRedo(): boolean {
@@ -269,6 +270,7 @@ export class StateManager {
     localStorage.setItem("ghs-redo", JSON.stringify(redo));
     localStorage.setItem("ghs-undo", JSON.stringify(undo));
     this.after();
+    gameManager.uiChange.emit(true);
   }
 
 }

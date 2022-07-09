@@ -252,6 +252,7 @@ export class MainMenuComponent extends DialogComponent {
     gameManager.game.figures = gameManager.game.figures.filter((figure: Figure) => !(figure instanceof Character))
     this.close();
     gameManager.stateManager.after();
+    gameManager.uiChange.emit(true);
   }
 
   addObjective() {
@@ -282,6 +283,7 @@ export class MainMenuComponent extends DialogComponent {
     gameManager.game.figures = gameManager.game.figures.filter((figure: Figure) => !(figure instanceof Objective))
     this.close();
     gameManager.stateManager.after();
+    gameManager.uiChange.emit(true);
   }
 
   addMonster(monsterData: MonsterData) {
@@ -310,6 +312,7 @@ export class MainMenuComponent extends DialogComponent {
     this.close();
     this.setScenario(undefined);
     gameManager.stateManager.after();
+    gameManager.uiChange.emit(true);
   }
 
   hasCharacter(characterData: CharacterData) {

@@ -56,11 +56,6 @@ body {
       pointer-events: none;
     }
 
-    main * {
-      visibility: hidden;
-      animation: none;
-      transition: none;
-    }
   }
 
   &.no-select {
