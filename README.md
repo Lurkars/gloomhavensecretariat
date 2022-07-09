@@ -52,6 +52,7 @@ For usage with multiple clients sharing the same game, the server component [Glo
 
 - validation of all existing data
 - improve code base (many repeated component for now for figures/entities)
+- improve mobile experience
 - start with FH data
 - tools like monster editor to create/update monster stats and abilities via UI (WIP)
 
