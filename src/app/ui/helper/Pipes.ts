@@ -227,4 +227,14 @@ export class GhsRangePipe implements PipeTransform {
     }
     return items;
   }
+}
+
+@Pipe({
+  name: 'ghsLimit',
+  pure: false
+})
+export class GhsLimitPipe implements PipeTransform {
+  transform(items: any[], limit: number, offset: number): any {
+    return items.slice(offset, offset + limit);
+  }
 }  

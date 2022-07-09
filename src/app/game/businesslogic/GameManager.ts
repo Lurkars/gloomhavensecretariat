@@ -25,6 +25,7 @@ import { ObjectiveData } from "../model/data/ObjectiveData";
 import { Summon, SummonState } from "../model/Summon";
 import { Condition, ConditionName, Conditions, ConditionType } from "../model/Condition";
 import { EntityManager } from "./EntityManager";
+import { EventEmitter } from "@angular/core";
 
 
 export class GameManager {
@@ -37,6 +38,8 @@ export class GameManager {
   monsterManager: MonsterManager;
   attackModifierManager: AttackModifierManager;
   working: boolean = false;
+
+  uiChange: EventEmitter<boolean> = new EventEmitter();
 
   constructor() {
     this.stateManager = new StateManager(this.game);
@@ -157,6 +160,7 @@ export class GameManager {
         this.game.figures[ 0 ].active = true;
       }
     }
+    this.uiChange.emit(true);
     setTimeout(() => this.working = false, 1);
   }
 

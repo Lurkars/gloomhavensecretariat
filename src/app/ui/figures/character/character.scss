@@ -2,7 +2,7 @@
   position: relative;
   z-index: 1;
   height: 100%;
-  width: calc(var(--ghs-unit) * 89);
+  width: calc(var(--ghs-unit) * 90);
   height: calc(var(--ghs-unit) * 15.3);
   background-image: url('~src/assets/images/character/char-mat.png');
   background-color: var(--ghs-character-color);
@@ -70,6 +70,7 @@
       &.col-2 {
         width: calc(var(--ghs-unit) * 8);
         justify-content: space-evenly;
+        align-items: center;
       }
     }
 
@@ -89,7 +90,7 @@
         margin-left: calc(var(--ghs-unit) * -1);
         margin-right: calc(var(--ghs-unit) * 0.5);
       }
-      
+
       img.exhausted {
         margin-left: calc(var(--ghs-unit) * 1);
         height: calc(var(--ghs-unit) * 4);
@@ -181,7 +182,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-right: calc(var(--ghs-unit) * 2.8);
+      margin-right: calc(var(--ghs-unit) * 2);
 
       img {
         height: calc(var(--ghs-unit) * 8);

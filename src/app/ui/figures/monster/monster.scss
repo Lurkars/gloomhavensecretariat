@@ -4,7 +4,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: calc(var(--ghs-unit) * 89);
+  width: calc(var(--ghs-unit) * 90);
 
   &.off {
 
@@ -32,12 +32,12 @@
     &.normal,
     &.boss {
       bottom: calc(var(--ghs-unit) * 1);
-      left: calc(var(--ghs-unit) * 54);
+      left: calc(var(--ghs-unit) * 55.5);
     }
 
     &.elite {
       bottom: calc(var(--ghs-unit) * 1);
-      left: calc(var(--ghs-unit) * 84);
+      left: calc(var(--ghs-unit) * 84.5);
     }
   }
 }

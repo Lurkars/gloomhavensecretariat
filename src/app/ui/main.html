@@ -1,15 +1,19 @@
 <ghs-header></ghs-header>
 <main>
-  <div class="figures" cdkDropList (cdkDropListDropped)="drop($event)" [cdkDropListAutoScrollStep]="20">
-    <div class="figure" *ngFor="let figure of gameManager.game.figures" cdkDrag>
-      <div cdkDragHandle class="handle"></div>
-      <ghs-character [character]="gameManager.toCharacter(figure)" *ngIf="gameManager.isCharacter(figure)">
-      </ghs-character>
-      <ghs-objective [objective]="gameManager.toObjective(figure)" *ngIf="gameManager.isObjective(figure)">
-      </ghs-objective>
-      <ghs-monster [monster]="gameManager.toMonster(figure)" *ngIf="gameManager.isMonster(figure)">
-      </ghs-monster>
-      <div cdkDragHandle class="handle right"></div>
+  <div class="columns" cdkDropListGroup>
+    <div *ngFor="let column of [] | ghsRange:columns" class="figures" cdkDropList (cdkDropListDropped)="drop($event)"
+      [cdkDropListAutoScrollStep]="20" [cdkDropListData]="columnSize * column">
+      <div class="figure" *ngFor="let figure of gameManager.game.figures | ghsLimit:columnSize:columnSize* column; let i = index;"
+        cdkDrag [cdkDragData]="i">
+        <div cdkDragHandle class="handle"></div>
+        <ghs-character [character]="gameManager.toCharacter(figure)" *ngIf="gameManager.isCharacter(figure)">
+        </ghs-character>
+        <ghs-objective [objective]="gameManager.toObjective(figure)" *ngIf="gameManager.isObjective(figure)">
+        </ghs-objective>
+        <ghs-monster [monster]="gameManager.toMonster(figure)" *ngIf="gameManager.isMonster(figure)">
+        </ghs-monster>
+        <div cdkDragHandle class="handle right"></div>
+      </div>
     </div>
   </div>
 </main>

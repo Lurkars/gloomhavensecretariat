@@ -50,9 +50,16 @@ body {
 
   &.working {
     cursor: progress;
+    filter: grayscale(100%);
 
     * {
       pointer-events: none;
+    }
+
+    main * {
+      visibility: hidden;
+      animation: none;
+      transition: none;
     }
   }
 

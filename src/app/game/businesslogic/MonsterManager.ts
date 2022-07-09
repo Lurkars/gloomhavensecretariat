@@ -46,6 +46,7 @@ export class MonsterManager {
       }
       this.game.figures.push(monster);
     }
+    gameManager.uiChange.emit(true);
   }
 
   removeMonster(monster: Monster) {
@@ -61,6 +62,7 @@ export class MonsterManager {
         }
       })
     }
+    gameManager.uiChange.emit(true);
   }
 
 
@@ -95,6 +97,7 @@ export class MonsterManager {
       monster.active = false;
     }
 
+    gameManager.uiChange.emit(true);
   }
 
   removeMonsterEntity(monster: Monster, monsterEntity: MonsterEntity) {
@@ -108,6 +111,7 @@ export class MonsterManager {
       }
       gameManager.sortFigures();
     }
+    gameManager.uiChange.emit(true);
   }
 
   getSameDeckMonster(monster: Monster): Monster | undefined {

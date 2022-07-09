@@ -32,6 +32,7 @@ export class SettingsMenuComponent {
   setZoom(zoom: number) {
     settingsManager.setZoom(zoom);
     document.body.style.setProperty('--ghs-factor', zoom + '');
+    gameManager.uiChange.emit(true);
     if (this.setDialogPosition) {
       this.setDialogPosition();
     }

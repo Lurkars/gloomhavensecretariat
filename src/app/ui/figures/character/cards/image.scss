@@ -6,6 +6,7 @@
   margin: calc(var(--ghs-unit) * 3);
   cursor: pointer;
   border-radius: calc(var(--ghs-unit) * 1);
+  left: calc(var(--ghs-unit) * 2);
   overflow: hidden;
 
   &.disabled {

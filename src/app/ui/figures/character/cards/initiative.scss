@@ -1,6 +1,6 @@
 .overlay {
   position: absolute;
-  left: 0;
+  left: calc(var(--ghs-unit) * 2);
   top: 0;
   display: block;
   width: calc(var(--ghs-unit) * 9);

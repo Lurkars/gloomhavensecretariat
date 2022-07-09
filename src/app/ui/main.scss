@@ -9,6 +9,14 @@ main {
   justify-content: center;
 }
 
+.columns {
+  display: flex;
+  width: 100%;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 .figures {
   display: flex;
   flex-direction: column;
@@ -93,10 +101,10 @@ main {
     }
 
     &.right {
-        &::before {
-          right: calc(var(--ghs-unit) * 1);
-          left: auto;
-        }
+      &::before {
+        right: calc(var(--ghs-unit) * 1);
+        left: auto;
+      }
     }
   }
 }
