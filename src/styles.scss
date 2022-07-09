@@ -50,7 +50,6 @@ body {
 
   &.working {
     cursor: progress;
-    filter: grayscale(100%);
 
     * {
       pointer-events: none;
