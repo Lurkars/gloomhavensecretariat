@@ -46,7 +46,6 @@ export class MonsterManager {
       }
       this.game.figures.push(monster);
     }
-    gameManager.uiChange.emit(true);
   }
 
   removeMonster(monster: Monster) {
@@ -62,7 +61,6 @@ export class MonsterManager {
         }
       })
     }
-    gameManager.uiChange.emit(true);
   }
 
 
@@ -96,8 +94,6 @@ export class MonsterManager {
       monster.off = false;
       monster.active = false;
     }
-
-    gameManager.uiChange.emit(true);
   }
 
   removeMonsterEntity(monster: Monster, monsterEntity: MonsterEntity) {
@@ -111,7 +107,6 @@ export class MonsterManager {
       }
       gameManager.sortFigures();
     }
-    gameManager.uiChange.emit(true);
   }
 
   getSameDeckMonster(monster: Monster): Monster | undefined {
@@ -122,7 +117,7 @@ export class MonsterManager {
     const sameDeckMonster = this.getSameDeckMonster(monster);
 
     if (sameDeckMonster) {
-      monster.abilities = sameDeckMonster.abilities;
+      monster.abilities = JSON.parse(JSON.stringify(sameDeckMonster.abilities));
       monster.ability = sameDeckMonster.ability;
 
       if (monster.drawExtra) {
@@ -232,17 +227,15 @@ export class MonsterManager {
       .sort((a, b) => a.sort - b.sort)
       .map(({ value }) => value);
 
-    this.game.figures.forEach((figure: Figure) => {
-      if (figure instanceof Monster && this.getSameDeckMonster(figure)) {
-        figure.abilities = monster.abilities;
-        if (gameManager.game.state == GameState.draw) {
-          figure.ability = -1;
-        } else {
-          figure.ability = monster.ability;
+    this.game.figures.filter((figure: Figure) => figure instanceof Monster && this.getSameDeckMonster(figure) && this.getSameDeckMonster(figure) == monster).map((figure: Figure) => figure as Monster).forEach((figure: Monster) => {
+      figure.abilities = JSON.parse(JSON.stringify(monster.abilities));
+      if (gameManager.game.state == GameState.draw) {
+        figure.ability = -1;
+      } else {
+        figure.ability = monster.ability;
 
-          if (figure.drawExtra) {
-            this.drawExtra(figure);
-          }
+        if (figure.drawExtra) {
+          this.drawExtra(figure);
         }
       }
     })

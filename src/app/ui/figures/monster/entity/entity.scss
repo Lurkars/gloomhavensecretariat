@@ -197,6 +197,10 @@
     position: relative;
     width: calc(var(--ghs-unit) * 4);
     height: calc(var(--ghs-unit) * 4);
+
+    &.disabled {
+      filter: grayscale(70%);
+    }
   }
 
   .marker-container {
@@ -290,10 +294,10 @@
 
     &.disabled {
       pointer-events: none;
-      color: var(--ghs-color-gray);
+      color: var(--ghs-color-darkgray);
 
       .ghs-svg {
-        filter: var(--ghs-filter-gray) !important;
+        filter: var(--ghs-filter-darkgray) !important;
       }
     }
   }

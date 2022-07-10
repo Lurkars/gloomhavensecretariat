@@ -32,6 +32,10 @@ export class MainComponent implements OnInit {
     gameManager.stateManager.init();
     document.body.style.setProperty('--ghs-factor', settingsManager.settings.zoom + '');
     this.calcColumns();
+
+    window.addEventListener('resize', (event) => {
+      this.calcColumns();
+    });
   }
 
   calcColumns(): void {

@@ -43,7 +43,6 @@ export class CharacterManager {
       this.game.figures.push(entity);
       gameManager.sortFigures();
     }
-    gameManager.uiChange.emit(true);
   }
 
   removeCharacter(character: Character) {
@@ -69,18 +68,14 @@ export class CharacterManager {
         }
       })
     }
-
-    gameManager.uiChange.emit(true);
   }
 
   addSummon(character: Character, summon: Summon) {
     character.summons.push(summon);
-    gameManager.uiChange.emit(true);
   }
 
   removeSummon(character: Character, summon: Summon) {
     character.summons.splice(character.summons.indexOf(summon), 1);
-    gameManager.uiChange.emit(true);
   }
 
 
@@ -104,7 +99,6 @@ export class CharacterManager {
 
     this.game.figures.push(objective);
     gameManager.sortFigures();
-    gameManager.uiChange.emit(true);
   }
 
 
@@ -114,7 +108,6 @@ export class CharacterManager {
       this.game.sections = [];
     }
     this.game.figures.splice(this.game.figures.indexOf(objective), 1);
-    gameManager.uiChange.emit(true);
   }
 
   next() {

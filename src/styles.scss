@@ -89,11 +89,23 @@ body {
   body {
     --ghs-width: 100vw;
   }
+  
+  @media (orientation: landscape) {
+    body {
+    --ghs-width: 75vw;
+    }
+  }
 }
 
 @media (min-width: 500px) {
   body {
     --ghs-width: 500px;
+  }
+
+  @media (orientation: landscape) {
+    body {
+    --ghs-width: 375px;
+    }
   }
 }
 
@@ -101,11 +113,35 @@ body {
   body {
     --ghs-width: 800px;
   }
+
+  @media (orientation: landscape) {
+    body {
+    --ghs-width: 600px;
+    }
+  }
 }
 
 @media (min-width: 1000px) {
   body {
     --ghs-width: 1000px;
+  }
+
+  @media (orientation: landscape) {
+    body {
+    --ghs-width: 750px;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    --ghs-width: 1200px;
+  }
+
+  @media (orientation: landscape) {
+    body {
+    --ghs-width: 900px;
+    }
   }
 }
 

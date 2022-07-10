@@ -18,7 +18,7 @@ import { EditionMenuComponent } from './ui/header/menu/edition/edition';
 import { MainMenuComponent } from './ui/header/menu/menu';
 import { SettingsMenuComponent } from './ui/header/menu/settings/settings';
 import { CardRevealDirective } from './ui/helper/CardReveal';
-import { GhsActiveConditionsPipe, GhsEditionFilterPipe, GhsHtmlLabelPipe, GhsLabelPipe, GhsRangePipe, GhsSortPipe, GhsValueCalcPipe, GhsValueSignPipe } from './ui/helper/Pipes';
+import { GhsActiveConditionsPipe, GhsEditionFilterPipe, GhsHtmlLabelPipe, GhsLabelPipe, GhsLimitPipe, GhsRangePipe, GhsSortPipe, GhsValueCalcPipe, GhsValueSignPipe } from './ui/helper/Pipes';
 import { MainComponent } from './ui/main';
 import { PopupComponent } from './ui/popup/popup';
 import { CharacterSummonDialog } from './ui/figures/character/dialogs/summondialog';
@@ -38,9 +38,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { ConditionsComponent } from './ui/figures/conditions/conditions';
+import { ConditionsComponent, HighlightConditionsComponent } from './ui/figures/conditions/conditions';
 import { FigureErrors } from './ui/figures/errors/errors';
 import { SectionMenuComponent } from './ui/header/menu/section/section';
+import { HealthbarComponent } from './ui/figures/healthbar/healthbar';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -54,7 +55,7 @@ describe('AppComponent', () => {
         AttackModifierComponent,
         LevelComponent,
         DialogComponent, PopupComponent,
-        ConditionsComponent,
+        ConditionsComponent, HighlightConditionsComponent, HealthbarComponent,
         CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent,
         ObjectiveComponent,
         SummonEntityComponent,
@@ -67,7 +68,7 @@ describe('AppComponent', () => {
         ActionsComponent, ActionComponent, ActionHexComponent,
         FigureErrors,
         CardRevealDirective,
-        GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsActiveConditionsPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent, GhsHtmlLabelPipe, GhsRangePipe,
+        GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsActiveConditionsPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent, GhsHtmlLabelPipe, GhsRangePipe, GhsLimitPipe,
         MonsterToolComponent, MonsterActionToolComponent, MonsterStatToolComponent ],
       imports: [
         BrowserModule,

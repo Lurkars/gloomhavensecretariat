@@ -54,7 +54,7 @@
         </a>
       </span>
       <span class="item">u
-        <span class="condition" [ngClass]="{'immunity' : isImmune(ConditionName.bless)}">
+        <span class="condition" [ngClass]="{'immunity disabled' : isImmune(ConditionName.bless)}">
           <img src="./assets/images/status/bless.svg" />
         </span>
         <span class="badge bless-count">{{countAttackModifier(AttackModifierType.bless)}}</span>
@@ -75,7 +75,7 @@
         </a>
       </span>
       <span class="item">
-        <span class="condition" [ngClass]="{'immunity' : isImmune(ConditionName.curse)}">
+        <span class="condition" [ngClass]="{'immunity disabled' : isImmune(ConditionName.curse)}">
           <img src="./assets/images/status/curse.svg" />
         </span>
         <span class="badge curse-count">{{countAttackModifier(AttackModifierType.curse)}}</span>

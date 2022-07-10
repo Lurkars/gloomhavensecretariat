@@ -71,6 +71,7 @@ export class StateManager {
           gameManager.stateManager.addToUndo();
           gameManager.game.fromModel(gameModel);
           gameManager.stateManager.saveLocal(0);
+          gameManager.uiChange.emit(true);
           break;
         case "settings":
           if (settingsManager.settings.serverSettings) {
@@ -207,6 +208,7 @@ export class StateManager {
     }
 
     this.lastSaveTimestamp = new Date().getTime();
+    gameManager.uiChange.emit(true);
   }
 
   hasUndo(): boolean {
@@ -238,7 +240,6 @@ export class StateManager {
     localStorage.setItem("ghs-redo", JSON.stringify(redo));
     localStorage.setItem("ghs-undo", JSON.stringify(undo));
     this.after();
-    gameManager.uiChange.emit(true);
   }
 
   hasRedo(): boolean {
@@ -270,7 +271,6 @@ export class StateManager {
     localStorage.setItem("ghs-redo", JSON.stringify(redo));
     localStorage.setItem("ghs-undo", JSON.stringify(undo));
     this.after();
-    gameManager.uiChange.emit(true);
   }
 
 }

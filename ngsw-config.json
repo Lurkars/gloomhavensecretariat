@@ -2,7 +2,7 @@
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "index": "/index.html",
   "appData": {
-    "version": "0.9.2"
+    "version": "0.9.3"
   },
   "assetGroups": [
     {
@@ -25,7 +25,24 @@
         "files": [
           "/assets/**",
           "/**/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
+        ],
+        "urls": [
+          "/assets/**"
         ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "data",
+      "urls": [
+        "/assets/data/**",
+        "/assets/locales/**"
+      ],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 100,
+        "maxAge": "3d"
       }
     }
   ]
