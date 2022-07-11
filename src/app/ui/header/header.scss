@@ -17,6 +17,10 @@ header {
     bottom: 0;
   }
 
+  a.server-connection {
+    cursor: pointer;
+  }
+
   .server-connection {
 
     display: flex;

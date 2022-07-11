@@ -44,7 +44,7 @@
   ghs-highlight-conditions {
     z-index: 3;
     position: absolute;
-    left: calc(var(--ghs-unit) * 3);
+    left: calc(var(--ghs-unit) * 5.5);
     top: 50%;
     transform: translateY(-50%);
     width: calc(var(--ghs-unit) * 8);
@@ -240,14 +240,12 @@
     &:not(.empty) {
       opacity: 1;
       transform: translate(0%, 0%);
-      animation: entity-alive-animation 1.5s linear;
     }
 
     &.empty {
       opacity: 0;
       max-width: 0;
       transform: translate(0%, 100%);
-      animation: entity-dead-animation 1.5s linear;
     }
   }
 

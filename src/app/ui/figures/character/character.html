@@ -1,7 +1,7 @@
 <div class="summons-container"
   [ngClass]="{'empty' : emptySummons(), 'off' : character.off || character.exhausted || character.health <= 0  }">
   <span class="spacer"></span>
-  <span class="icon" [ngClass]="{'empty' : emptySummons()}">
+  <span class="icon" [ngClass]="{'empty' : emptySummons()}" [entityAnimation]="emptySummons()">
     <img [src]="characterManager.characterIcon(character)" />
   </span>
   <div class="summons">

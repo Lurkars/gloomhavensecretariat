@@ -7,10 +7,14 @@
       *ngSwitchCase="WebSocket.CONNECTING" [title]="'server.connecting' | ghsLabel">
     <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection closing"
       *ngSwitchCase="WebSocket.CLOSING" [title]="'server.closing' | ghsLabel">
-    <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection closed"
-      *ngSwitchCase="WebSocket.CLOSED" [title]="'server.closed' | ghsLabel">
-    <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection disconnected"
-      *ngSwitchCase="-1" [title]="'server.disconnected' | ghsLabel">
+    <a (click)="gameManager.stateManager.connect()"  [title]="'server.reconnected' | ghsLabel"  *ngSwitchCase="WebSocket.CLOSED" class="server-connection">
+      <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection closed"
+        [title]="'server.closed' | ghsLabel">
+    </a>
+    <a (click)="gameManager.stateManager.connect()" [title]="'server.reconnected' | ghsLabel" *ngSwitchCase="-1"  class="server-connection">
+      <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection disconnected"
+        [title]="'server.disconnected' | ghsLabel">
+    </a>
   </ng-container>
   <span class="spacer"></span>
   <div class="elements">

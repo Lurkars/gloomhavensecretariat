@@ -565,8 +565,13 @@ export class GameManager {
         figure.active = false;
         figure.off = false;
         figure.exhausted = false;
+
+        if (figure.summon && figure.summon.automatic && (!figure.summon.level || figure.summon.level <= figure.level)) {
+          figure.createSummon();
+        }
       }
     })
+    this.attackModifierManager.shuffleModifiers();
   }
 
   addSection(section: SectionData) {

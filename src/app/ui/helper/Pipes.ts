@@ -4,7 +4,7 @@ import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { EntityCondition } from 'src/app/game/model/Condition';
 import { Editional } from 'src/app/game/model/Editional';
-import { EntityValueFunction, EntityValueRegex } from 'src/app/game/model/Entity';
+import { EntityExpressionRegex, EntityValueFunction, EntityValueRegex } from 'src/app/game/model/Entity';
 
 export const ghsLabelRegex = /[\"]?\%((\w+|\.|\-|\:|\%)+)\%[\"]?/;
 
@@ -33,7 +33,7 @@ export class GhsValueCalcPipe implements PipeTransform {
     }
 
 
-    if (settingsManager.settings.calculate) {
+    if (settingsManager.settings.calculate && value.match(EntityExpressionRegex)) {
       try {
         return EntityValueFunction(value, L)
       } catch {

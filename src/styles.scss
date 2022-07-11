@@ -89,10 +89,10 @@ body {
   body {
     --ghs-width: 100vw;
   }
-  
+
   @media (orientation: landscape) {
     body {
-    --ghs-width: 75vw;
+      --ghs-width: 75vw;
     }
   }
 }
@@ -104,7 +104,7 @@ body {
 
   @media (orientation: landscape) {
     body {
-    --ghs-width: 375px;
+      --ghs-width: 375px;
     }
   }
 }
@@ -116,7 +116,7 @@ body {
 
   @media (orientation: landscape) {
     body {
-    --ghs-width: 600px;
+      --ghs-width: 600px;
     }
   }
 }
@@ -128,7 +128,7 @@ body {
 
   @media (orientation: landscape) {
     body {
-    --ghs-width: 750px;
+      --ghs-width: 750px;
     }
   }
 }
@@ -140,7 +140,7 @@ body {
 
   @media (orientation: landscape) {
     body {
-    --ghs-width: 900px;
+      --ghs-width: 900px;
     }
   }
 }
@@ -320,6 +320,14 @@ ghs-main {
   }
 }
 
+.entity-alive {
+  animation: entity-alive-animation 1.5s linear;
+}
+
+.entity-dead {
+  animation: entity-dead-animation 1.5s linear;
+}
+
 .ghs-svg {
   width: 100%;
   height: auto;
@@ -423,4 +431,8 @@ ghs-main {
   &.drag-hidden {
     opacity: 0;
   }
+}
+
+.disable-animation * {
+  animation: none !important;
 }

@@ -6,7 +6,10 @@
 
   .condition {
     position: relative;
-    animation: condition-hightlight 1.1s ease-in-out;
+
+    &.animation {
+      animation: condition-hightlight 1.1s ease-in-out;
+    }
 
     img {
       height: calc(var(--ghs-unit) * 5);
@@ -26,12 +29,15 @@
 
     .close,
     .check {
-      animation: hide-animation 0.95s ease-in-out;
       cursor: pointer;
       position: absolute;
       top: calc(var(--ghs-unit) * 3.5);
       width: calc(var(--ghs-unit) * 1.8);
       height: auto;
+
+      &.animation {
+        animation: hide-animation 0.95s ease-in-out;
+      }
 
       img {
         width: 100%;

@@ -1,4 +1,4 @@
-import { Component, Input, } from "@angular/core";
+import { Component, Directive, ElementRef, Input, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { Condition, ConditionName, ConditionType, EntityCondition } from "src/app/game/model/Condition";
 import { Entity } from "src/app/game/model/Entity";
@@ -88,19 +88,34 @@ export class HighlightConditionsComponent {
   gameManager: GameManager = gameManager;
   ConditionType = ConditionType;
 
-  applyCondition(name: ConditionName, event : any) {
+  applyCondition(name: ConditionName, event: any) {
     event.stopPropagation();
     gameManager.stateManager.before();
     gameManager.entityManager.applyCondition(this.entity, name)
     gameManager.stateManager.after();
   }
-
-
-  declineApplyCondition(name: ConditionName, event : any) {
+ 
+  declineApplyCondition(name: ConditionName, event: any) {
     event.stopPropagation();
     gameManager.stateManager.before();
     gameManager.entityManager.declineApplyCondition(this.entity, name)
     gameManager.stateManager.after();
+  }
+
+}
+
+@Directive({
+  selector: '[conditionHighlight]'
+})
+export class ConditionHighlightAnimationDirective implements OnInit {
+
+  constructor(private el: ElementRef) { }
+
+  ngOnInit(): void {
+    this.el.nativeElement.classList.add("animation");
+    setTimeout(() => {
+      this.el.nativeElement.classList.remove("animation");
+    }, 1500);
   }
 
 }

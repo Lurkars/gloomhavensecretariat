@@ -1,5 +1,25 @@
 import { Action } from "./Action";
 
+export enum AttackModifierType {
+
+  plus0 = "plus0",
+  plus1 = "plus1",
+  plus2 = "plus2",
+  minus1 = "minus1",
+  minus2 = "minus2",
+  null = "null",
+  double = "double",
+  bless = "bless",
+  curse = "curse"
+
+}
+
+export enum AttackModifierValueType {
+  plus = "plus",
+  minus = "minus",
+  multiply = "multiply"
+}
+
 export class AttackModifier {
 
   type: AttackModifierType;
@@ -53,26 +73,6 @@ export class AttackModifier {
         break;
     }
   }
-}
-
-export enum AttackModifierType {
-
-  plus0 = "plus0",
-  plus1 = "plus1",
-  plus2 = "plus2",
-  minus1 = "minus1",
-  minus2 = "minus2",
-  null = "null",
-  double = "double",
-  bless = "bless",
-  curse = "curse"
-
-}
-
-export enum AttackModifierValueType {
-  plus = "plus",
-  minus = "minus",
-  multiply = "multiply"
 }
 
 export const defaultAttackModifier: AttackModifier[] = [

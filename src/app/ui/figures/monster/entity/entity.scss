@@ -18,14 +18,12 @@
   &:not(.dead) {
     opacity: 1;
     transform: translate(0%, 0%);
-    animation: entity-alive-animation 1.5s linear;
   }
 
   &.dead {
     opacity: 0;
     max-width: 0;
     transform: translate(0%, 100%);
-    animation: entity-dead-animation 1.5s linear;
   }
 }
 

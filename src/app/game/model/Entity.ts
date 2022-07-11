@@ -11,7 +11,8 @@ export interface Entity {
   markers: string[];
 }
 
-export const EntityValueRegex = /\[(([a-zA-Z0-9\+\/\-\*])+)(\{(.*)\})?\]/;
+export const EntityExpressionRegex = /^([xCL0-9\+\/\-\*]+)$/;
+export const EntityValueRegex = /\[([xCL0-9\+\/\-\*]+)(\{(.*)\})?\]/;
 
 export function EntityValueFunction(value: string, L: number | undefined = undefined): number {
 

@@ -38,10 +38,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { ConditionsComponent, HighlightConditionsComponent } from './ui/figures/conditions/conditions';
+import { ConditionHighlightAnimationDirective, ConditionsComponent, HighlightConditionsComponent } from './ui/figures/conditions/conditions';
 import { FigureErrors } from './ui/figures/errors/errors';
 import { SectionMenuComponent } from './ui/header/menu/section/section';
 import { HealthbarComponent } from './ui/figures/healthbar/healthbar';
+import { EntityAnimationDirective } from './ui/helper/EntityAnimation';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -55,7 +56,7 @@ describe('AppComponent', () => {
         AttackModifierComponent,
         LevelComponent,
         DialogComponent, PopupComponent,
-        ConditionsComponent, HighlightConditionsComponent, HealthbarComponent,
+        ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
         CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent,
         ObjectiveComponent,
         SummonEntityComponent,
@@ -67,7 +68,7 @@ describe('AppComponent', () => {
         MonsterNumberPicker,
         ActionsComponent, ActionComponent, ActionHexComponent,
         FigureErrors,
-        CardRevealDirective,
+        CardRevealDirective, EntityAnimationDirective,
         GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsActiveConditionsPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent, GhsHtmlLabelPipe, GhsRangePipe, GhsLimitPipe,
         MonsterToolComponent, MonsterActionToolComponent, MonsterStatToolComponent ],
       imports: [

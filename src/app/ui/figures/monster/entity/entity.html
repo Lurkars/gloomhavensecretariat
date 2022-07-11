@@ -1,4 +1,4 @@
-<div class="entity-border" [ngClass]="{'dead' : entity.dead}">
+<div class="entity-border" [ngClass]="{'dead' : entity.dead}" [entityAnimation]="entity.dead">
   <div #button class="entity" [ngClass]="entity.type">
     <span class="number">{{entity.number}}</span> <span class="health">{{entity.health}}</span>
 

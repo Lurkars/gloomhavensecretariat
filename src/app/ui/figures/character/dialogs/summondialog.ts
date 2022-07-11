@@ -21,12 +21,14 @@ export class CharacterSummonDialog extends DialogComponent {
 
 
   addSummon(summon: Summon) {
+    gameManager.stateManager.before();
     const dead = this.character.summons.find((s: Summon) => s.dead && s.number == summon.number && s.color == summon.color);
     if (dead) {
       gameManager.characterManager.removeSummon(this.character, dead);
     }
 
     gameManager.characterManager.addSummon(this.character, summon);
+    gameManager.stateManager.after();
   }
 
   disabled(number: number) {
@@ -46,12 +48,13 @@ export class CharacterSummonDialog extends DialogComponent {
   }
 
   hasCustom() {
-    return this.character.summon && (!this.character.summon.level || this.character.summon?.level <= this.character.level) && !this.character.summons.some((summon: Summon) => summon.number == 0);
+    return this.character.summon && (!this.character.summon.level || this.character.summon?.level <= this.character.level) && !this.character.summons.some((summon: Summon) => !summon.dead && summon.number == 0);
   }
 
   addCustom() {
-    if (this.character.summon && !this.character.summons.some((summon: Summon) => summon.number == 0)) {
+    if (this.character.summon && !this.character.summons.some((summon: Summon) => !summon.dead && summon.number == 0)) {
       this.close();
+      this.character.summons = this.character.summons.filter((summon: Summon) => summon.number != 0);
       let summon: Summon = new Summon(this.character.level, 0, SummonColor.custom);
       summon.maxHealth = typeof this.character.summon.health == "number" ? this.character.summon.health : EntityValueFunction(this.character.summon.health, this.character.level);
       summon.attack = typeof this.character.summon.attack == "number" ? this.character.summon.attack : EntityValueFunction(this.character.summon.attack, this.character.level);

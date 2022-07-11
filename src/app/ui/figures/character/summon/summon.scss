@@ -18,14 +18,12 @@
   &:not(.dead) {
     opacity: 1;
     transform: translate(0%, 0%);
-    animation: entity-alive-animation 1.5s linear;
   }
 
   &.dead {
     max-width: 0;
     opacity: 0;
     transform: translate(0%, 100%);
-    animation: entity-dead-animation 1.5s linear;
   }
 }
 
@@ -53,12 +51,27 @@
     justify-content: center;
     align-items: center;
     font-family: "ghs-title";
-    font-size: calc(var(--ghs-unit) * 2.6);
+    font-size: calc(var(--ghs-unit) * 2.5);
     flex-shrink: 0;
   }
 
   .health {
+    position: relative;
+    top: calc(var(--ghs-unit) * 0.8);
     height: calc(var(--ghs-unit) * 5);
+
+    &::before {
+      content: " ";
+      position: absolute;
+      left: 50%;
+      top: calc(var(--ghs-unit) * -0.2);
+      width: calc(var(--ghs-unit) * 1);
+      height: calc(var(--ghs-unit) * 2);
+      background-image: url('~src/assets/images/status/health.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      transform: translateX(-50%);
+    }
   }
 
   ghs-highlight-conditions {

@@ -1,4 +1,4 @@
-<div class="summon-border" [ngClass]="{'dead' : summon.dead}">
+<div class="summon-border" [ngClass]="{'dead' : summon.dead}" [entityAnimation]="summon.dead">
   <div #button class="summon">
     <span class="number"><span *ngIf="summon.number == 0">-</span><span
         *ngIf="summon.number > 0">{{summon.number}}</span></span> <span class="health">{{summon.health}}</span>

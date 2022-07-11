@@ -43,8 +43,9 @@ import { ServerMenuComponent } from './ui/header/menu/server/server';
 import { APP_BASE_HREF } from '@angular/common';
 import { FigureErrors } from './ui/figures/errors/errors';
 import { SectionMenuComponent } from './ui/header/menu/section/section';
-import { ConditionsComponent, HighlightConditionsComponent } from './ui/figures/conditions/conditions';
+import { ConditionHighlightAnimationDirective, ConditionsComponent, HighlightConditionsComponent } from './ui/figures/conditions/conditions';
 import { HealthbarComponent } from './ui/figures/healthbar/healthbar';
+import { EntityAnimationDirective } from './ui/helper/EntityAnimation';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { HealthbarComponent } from './ui/figures/healthbar/healthbar';
     AttackModifierComponent,
     LevelComponent,
     DialogComponent, PopupComponent,
-    ConditionsComponent, HighlightConditionsComponent, HealthbarComponent,
+    ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
     CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent,
     ObjectiveComponent,
     SummonEntityComponent,
@@ -68,7 +69,7 @@ import { HealthbarComponent } from './ui/figures/healthbar/healthbar';
     MonsterNumberPicker,
     ActionsComponent, ActionComponent, ActionHexComponent,
     FigureErrors,
-    CardRevealDirective,
+    CardRevealDirective, EntityAnimationDirective,
     GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsActiveConditionsPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent, GhsHtmlLabelPipe, GhsRangePipe, GhsLimitPipe,
     MonsterToolComponent, MonsterActionToolComponent, MonsterStatToolComponent ],
   imports: [
@@ -76,12 +77,7 @@ import { HealthbarComponent } from './ui/figures/healthbar/healthbar';
     AppRoutingModule,
     FormsModule,
     DragDropModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production,
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: true })
   ],
   providers: [ { provide: APP_BASE_HREF, useValue: '.' } ],
   bootstrap: [ AppComponent ]

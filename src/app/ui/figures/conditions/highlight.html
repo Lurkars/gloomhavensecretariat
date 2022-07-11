@@ -1,12 +1,12 @@
 <div class="highlight-conditions" *ngIf="gameManager.entityManager.highlightedConditions(entity).length > 0">
-  <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.highlightedConditions(entity)">
+  <span class="condition" conditionHighlight *ngFor="let entityCondition of gameManager.entityManager.highlightedConditions(entity)">
     <img src="./assets/images/condition/{{entityCondition.name}}.svg" />
     <span class="value"
       *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
-    <a class="close" *ngIf="entityCondition.types.indexOf(ConditionType.apply) != -1"
+    <a class="close" conditionHighlight *ngIf="entityCondition.types.indexOf(ConditionType.apply) != -1"
       (click)="declineApplyCondition(entityCondition.name, $event)"><img class="ghs-svg"
         src="./assets/images/close.svg" /></a>
-    <a class="check" *ngIf="entityCondition.types.indexOf(ConditionType.apply) != -1"
+    <a class="check" conditionHighlight *ngIf="entityCondition.types.indexOf(ConditionType.apply) != -1"
       (click)="applyCondition(entityCondition.name, $event)"><img class="ghs-svg"
         src="./assets/images/check.svg" /></a>
   </span>
