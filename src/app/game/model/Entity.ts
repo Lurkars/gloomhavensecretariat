@@ -27,7 +27,7 @@ export function EntityValueFunction(value: string, L: number | undefined = undef
 
   if (match && match[ 0 ].length == value.length) {
     expression = match[ 1 ];
-    func = match[ 4 ];
+    func = match[ 3 ];
   }
 
 

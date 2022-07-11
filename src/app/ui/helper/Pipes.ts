@@ -176,7 +176,7 @@ export class GhsHtmlLabelPipe implements PipeTransform {
           const result = EntityValueFunction(match)
           return "" + result;
         } else {
-          let func = args[ 3 ];
+          let func = args[ 2 ];
           const funcLabel = func && func.startsWith('%');
           if (funcLabel) {
             func = func.replace('%', '');
