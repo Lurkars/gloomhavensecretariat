@@ -33,7 +33,7 @@ export class GhsValueCalcPipe implements PipeTransform {
     }
 
 
-    if (settingsManager.settings.calculate && value.match(EntityExpressionRegex)) {
+    if (settingsManager.settings.calculate && (value.match(EntityExpressionRegex) || value.match(EntityValueRegex))) {
       try {
         return EntityValueFunction(value, L)
       } catch {
@@ -44,7 +44,7 @@ export class GhsValueCalcPipe implements PipeTransform {
 
     const match = value.match(EntityValueRegex);
     if (match) {
-      let func = match[ 4 ];
+      let func = match[ 3 ];
       const funcLabel = func && func.startsWith('%');
       if (funcLabel) {
         func = func.replace('%', '');

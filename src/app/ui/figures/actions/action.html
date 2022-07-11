@@ -106,9 +106,9 @@
       class="icon" [ngClass]="{'invert' : isInvertIcon(action.type)}" />
     <img *ngIf="action.type == ActionType.move && monster.flying" src="./assets/images/action/fly.svg" class="icon"
       [ngClass]="{'invert' : isInvertIcon(action.type)}" />
-    <span *ngIf="!relative" class="value"><span *ngIf="getNormalValue()">{{getNormalValue()|
+    <span *ngIf="!relative" class="value"><span *ngIf="getNormalValue()">{{getNormalValue() |
         ghsValueCalc:monster.level}}</span><span *ngIf="getNormalValue() != getEliteValue()">/<span
-          class="elite">{{getEliteValue()| ghsValueCalc:monster.level}}</span>
+          class="elite">{{getEliteValue() | ghsValueCalc:monster.level}}</span>
       </span>
     </span>
     <span *ngIf="relative" class="value">{{getNormalValue()}}<span *ngIf="getNormalValue() != getEliteValue()">/<span

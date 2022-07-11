@@ -1,13 +1,13 @@
 export class ObjectiveData {
 
   name: string;
-  maxHealth: number | string;
+  health: number | string;
   escort: boolean;
   initiative: number | undefined;
 
-  constructor(name: string, maxHealth: number | string, escort: boolean = false, initiative: number | undefined = undefined) {
+  constructor(name: string, health: number | string, escort: boolean = false, initiative: number | undefined = undefined) {
     this.name = name;
-    this.maxHealth = maxHealth;
+    this.health = health;
     this.escort = escort;
     this.initiative = initiative;
   }

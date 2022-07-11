@@ -89,8 +89,8 @@ export class CharacterManager {
 
     if (objectiveData) {
       objective.name = objectiveData.name;
-      objective.maxHealth = objectiveData.maxHealth;
-      objective.health = EntityValueFunction("" + objective.maxHealth);
+      objective.maxHealth = objectiveData.health;
+      objective.health = EntityValueFunction("" + objectiveData.health);
       objective.escort = objectiveData.escort;
       if (objectiveData.initiative) {
         objective.initiative = objectiveData.initiative;
