@@ -58,6 +58,7 @@
     "expireConditions": "Automatisch Zustände löschen",
     "applyConditions": "Zustände automatisch anweden",
     "moveElements": "Automatisch Elementen Status ändern",
+    "hideStats": "Werte ausblenden",
     "randomStandees": "Zufällige Aufsteller",
     "zoomIn": "Reinzoomen",
     "zoomOut": "Rauszoomen",
@@ -165,7 +166,7 @@
     "figure": {
       "error": {
         "deck": "Fehlendes Deck",
-        "stat": "Fehlende Stats",
+        "stat": "Fehlende Werte",
         "monsterType": "Fehlender Monstertyp",
         "unknown": "Unbekannte Figur"
       }
@@ -190,7 +191,11 @@
     "addEditionDataUrl": "Editionasdaten Url hinzufügen",
     "restoreEditionDataUrls": "Standard Wiederherstellen",
     "addSpoiler": "Spoiler Hinzufügen",
-    "removeAllSpoilers": "Alle Löschen"
+    "removeAllSpoilers": "Alle Löschen",
+    "importGame" : "Spiel aus Datei importieren",
+    "exportGame" : "Spiel in Datei exportieren",
+    "importSettings" : "Einstellungen aus Datei importieren",
+    "exportSettings" : "Einstellungen in Datei exportieren"
   },
   "spoiler": {
     "placeholder": "???",

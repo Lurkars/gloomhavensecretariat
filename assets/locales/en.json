@@ -58,6 +58,7 @@
     "expireConditions": "Automatic expire conditions",
     "applyConditions" : "Automatic apply conditions",
     "moveElements": "Automatic update element state",
+    "hideStats": "Hide stats",
     "randomStandees": "Random standees",
     "zoomIn": "Zoom In",
     "zoomOut": "Zoom Out",
@@ -210,7 +211,11 @@
     "addEditionDataUrl": "Add Edition Data Url",
     "restoreEditionDataUrls": "Restore Defaults",
     "addSpoiler": "Add Spoiler",
-    "removeAllSpoilers": "Delete all"
+    "removeAllSpoilers": "Delete all",
+    "importGame" : "Import Game from File",
+    "exportGame" : "Export Game to File",
+    "importSettings" : "Import Settings from File",
+    "exportSettings" : "Export Settings to File"
   },
   "spoiler": {
     "placeholder": "???",
