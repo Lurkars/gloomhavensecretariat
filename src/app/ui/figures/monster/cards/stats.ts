@@ -1,5 +1,6 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Ability } from 'src/app/game/model/Ability';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { FigureError } from 'src/app/game/model/FigureError';
@@ -33,6 +34,10 @@ export class MonsterStatsComponent extends DialogComponent {
   override ngOnInit(): void {
     super.ngOnInit();
     this.setStats();
+  }
+
+  hideStats(type: MonsterType) {
+    return settingsManager.settings.hideStats && this.monster.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead || monsterEntity.type != type);
   }
 
   setStats() {

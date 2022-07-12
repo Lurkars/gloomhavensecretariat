@@ -210,7 +210,7 @@
         &lt;{{'monster.removeAll' | ghsLabel}}&gt;
       </a>
     </div>
-    <div class="line" *ngFor="let monster of monsters() | ghsSort">
+    <div class="line" *ngFor="let monster of monsters()">
       <a (click)="removeMonster(monster);">
         {{'data.monster.' + monster.name | ghsLabel}}<span class="edition"
           *ngIf="gameManager.getEdition(monster)">&nbsp;[{{'data.edition.' + gameManager.getEdition(monster) |
@@ -227,8 +227,8 @@
 
   <div *ngSwitchCase="SubMenu.about" class="menu-container about">
     <div class="line">
-      <p class="placeholder"
-        [innerHTML]="'about.ip' | ghsHtmlLabel:['<a href=\'https:\/\/cephalofair.com\' target=\'_blank\'>Cephalofair Games</a>']">
+      <p class="placeholder" [i18n]="'about.ip'"
+        [i18n-args]="['<a href=\'https:\/\/cephalofair.com\' target=\'_blank\'>Cephalofair Games</a>']">
       </p>
     </div>
     <div class="line">
@@ -241,8 +241,8 @@
               ghsLabel}}</a></p>
         </div>
         <div class="column">
-          <p class="placeholder"
-            [innerHTML]="'about.license' | ghsHtmlLabel:['<a href=\'https:\/\/\github.com\/Lurkars\/gloomhavensecretary\/blob\/main\/LICENSE\'  target=\'_blank\'> AGPL3</a>']">
+          <p class="placeholder" [i18n]="'about.license'"
+            [i18n-args]="['<a href=\'https:\/\/\github.com\/Lurkars\/gloomhavensecretary\/blob\/main\/LICENSE\'  target=\'_blank\'> AGPL3</a>']">
           </p>
         </div>
       </div>

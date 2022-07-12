@@ -11,8 +11,15 @@
       <div class="line">
         <label>
           <input type="checkbox" [checked]="settingsManager.settings.eliteFirst"
-            (change)="settingsManager.setEliteFirst(!settingsManager.settings.eliteFirst)">
-          {{'settings.eliteFirst' | ghsLabel}}
+            (change)="settingsManager.setEliteFirst(!settingsManager.settings.eliteFirst)">{{'settings.eliteFirst' |
+          ghsLabel}}
+        </label>
+      </div>
+      <div class="line">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.hideStats"
+            (change)="settingsManager.setHideStats(!settingsManager.settings.hideStats)">{{'settings.hideStats' |
+          ghsLabel}}
         </label>
       </div>
       <div class="line">
@@ -104,21 +111,5 @@
         (change)="settingsManager.setLocale(locale)">
       {{'settings.locale.' + locale | ghsLabel}}
     </label>
-  </div>
-  <div class="columns separator">
-    <div class="column">
-      <div class="line">
-        <a (click)="resetGame()">
-          &lt;{{'settings.resetGame' | ghsLabel}}&gt; (!)
-        </a>
-      </div>
-    </div>
-    <div class="column">
-      <div class="line">
-        <a (click)="resetSettings()">
-          &lt;{{'settings.resetSettings' | ghsLabel}}&gt; (!)
-        </a>
-      </div>
-    </div>
   </div>
 </div>

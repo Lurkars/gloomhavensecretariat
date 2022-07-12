@@ -1,6 +1,6 @@
 <footer>
-  <div class="round-container" [ngClass]="{'disabled' : disabled()}">
-    <a (click)="next()">{{ (gameManager.game.state == GameState.next ?
+  <div (click)="next()" class="round-container" [ngClass]="{'disabled' : disabled()}">
+    <a>{{ (gameManager.game.state == GameState.next ?
       'round.next' : 'round.draw') | ghsLabel}} </a>
     <span class="round" *ngIf="gameManager.game.round > 0">{{gameManager.game.round}}</span>
     <span class="time">{{ currentTime }}</span>

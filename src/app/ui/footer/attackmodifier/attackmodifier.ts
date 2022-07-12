@@ -1,5 +1,5 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { AttackModifier, AttackModifierType, defaultAttackModifier } from 'src/app/game/model/AttackModifier';
 import { GameState } from 'src/app/game/model/Game';
@@ -20,17 +20,23 @@ export class AttackModifierComponent extends PopupComponent {
   AttackModifierType = AttackModifierType;
   type: AttackModifierType = Object.values(AttackModifierType)[ 0 ];
 
+  constructor(private element: ElementRef) {
+    super();
+  };
+
   draw() {
+    this.element.nativeElement.getElementsByClassName('attack-modifiers')[0].classList.add('working');
     gameManager.stateManager.before();
     gameManager.attackModifierManager.drawModifier();
-    gameManager.stateManager.after(1000);
+    gameManager.stateManager.after();
+    setTimeout(() => {
+      this.element.nativeElement.getElementsByClassName('attack-modifiers')[0].classList.remove('working');
+    }, 1700);
   }
 
   click(attackModifier: AttackModifier) {
     if (!this.disgarded(attackModifier) && !this.current(attackModifier)) {
-      gameManager.stateManager.before();
-      gameManager.attackModifierManager.drawModifier();
-      gameManager.stateManager.after(1000);
+      this.draw();
     } else {
       this.open();
     }

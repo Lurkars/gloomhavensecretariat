@@ -13,6 +13,23 @@
   }
 }
 
+.line {
+  .input-file {
+    input[type="file"] {
+      width: 0;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      visibility: hidden;
+    }
+
+    &.error {
+      animation: shake .5s linear;
+      color: var(--ghs-color-red) !important;
+    }
+  }
+}
+
 .input-button {
   display: flex;
   cursor: pointer;

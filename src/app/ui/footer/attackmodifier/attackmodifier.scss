@@ -53,9 +53,28 @@
     }
 
     .card {
-      border: 1px solid var(--ghs-color-black);
+      box-shadow: calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.3) var(--ghs-color-darkgray);
+
+      &.flipped {
+        box-shadow: calc(var(--ghs-unit) * -0.1) calc(var(--ghs-unit) * -0.4) calc(var(--ghs-unit) * 0.3) var(--ghs-color-darkgray);
+      }
     }
 
+
+    @keyframes attackmodifier-draw {
+      0% {
+        transform: scale(1) translate(calc(var(--ghs-unit) * -15), calc(var(--ghs-unit) * -2));
+      }
+
+      40%,
+      65% {
+        transform: scale(2) translate(calc(var(--ghs-unit) * -15), calc(var(--ghs-unit) * -25));
+      }
+
+      100% {
+        transform: scale(1) translate(0, 0);
+      }
+    }
 
     &.current {
       position: absolute;
@@ -69,6 +88,9 @@
       top: calc(var(--ghs-unit) * 4);
       left: calc(var(--ghs-unit) * 26);
       z-index: 0;
+      animation: none;
+      transition: all 500ms ease-in-out;
+      transition-delay: 1100ms;
       transform: rotate(25deg);
     }
 
@@ -76,8 +98,8 @@
       height: calc(var(--ghs-unit) * 3.5);
       width: auto;
       position: absolute;
-      left: calc(var(--ghs-unit) * 0.2);
-      top: calc(var(--ghs-unit) * 0.2);
+      right: calc(var(--ghs-unit) * 0.5);
+      bottom: calc(var(--ghs-unit) * 0.5);
       filter: var(--ghs-filter-white);
     }
   }
@@ -88,11 +110,20 @@
     filter: grayscale(100%);
   }
 
+  &.working {
+
+    .attack-modifier.current {
+      transition: none;
+      animation: attackmodifier-draw 1600ms ease-in-out;
+      animation-iteration-count: 1;
+    }
+  }
+
 }
 
 .attack-modifiers-popup {
 
-  width: calc(var(--ghs-unit) * 46);
+  width: calc(var(--ghs-unit) * 50);
 
   .menu {
     display: flex;
@@ -200,10 +231,11 @@
       flex-direction: column;
       overflow-y: auto;
       overflow-x: hidden;
-      width: calc(var(--ghs-unit) * 23);
+      width: calc(var(--ghs-unit) * 27);
+      padding: calc(var(--ghs-unit) * 1);
 
       &.upcoming {
-        width: calc(var(--ghs-unit) * 24);
+        width: calc(var(--ghs-unit) * 26);
       }
 
       .attack-modifier,
@@ -256,7 +288,7 @@
       }
     }
   }
-  
+
   .cdk-drag-preview {
     opacity: 0;
   }

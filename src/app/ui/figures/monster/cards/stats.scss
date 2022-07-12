@@ -8,6 +8,14 @@
   background-image: url('~src/assets/images/monster/stats/standard.png');
   border-radius: calc(var(--ghs-unit) * 1);
 
+  * {
+    transition: opacity 1s ease-in-out;
+  }
+
+  .hidden {
+    opacity: 0;
+  }
+
   .name-container {
     position: absolute;
     top: calc(var(--ghs-unit) * 0.6);
@@ -22,13 +30,13 @@
     text-align: left;
     white-space: nowrap;
     overflow: auto;
-    
+
     .flying {
       display: flex;
       justify-content: center;
       align-items: center;
       width: auto;
-  
+
       img {
         height: 1em;
         width: auto;

@@ -112,7 +112,7 @@ export class AbilityComponent extends PopupComponent {
     gameManager.stateManager.before();
     const abilities = gameManager.abilities(this.monster);
     this.monster.abilities = abilities.filter((ability: Ability) => !ability.level || isNaN(+ability.level) || ability.level <= this.monster.level).map((ability: Ability, index: number) => index);
-    gameManager.monsterManager.shuffleAbilities(this.monster);
+    this.monster.ability = -1;
     gameManager.stateManager.after();
   }
 

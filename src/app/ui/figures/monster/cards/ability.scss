@@ -293,6 +293,7 @@ ghs-action {
       flex-direction: column;
       overflow-y: auto;
       overflow-x: hidden;
+      padding: calc(var(--ghs-unit) * 1);
 
       .ability,
       .empty {

@@ -43,6 +43,10 @@
       max-height: 100%;
       padding-right: calc(var(--ghs-unit) * 2);
       flex-grow: 1;
+
+      &.no-grow {
+        flex-grow: 0;
+      }
     }
   }
 

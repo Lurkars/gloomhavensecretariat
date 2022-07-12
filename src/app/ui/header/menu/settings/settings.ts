@@ -30,9 +30,8 @@ export class SettingsMenuComponent {
   }
 
   setZoom(zoom: number) {
-    settingsManager.setZoom(zoom);
     document.body.style.setProperty('--ghs-factor', zoom + '');
-    gameManager.uiChange.emit(true);
+    settingsManager.setZoom(zoom);
     if (this.setDialogPosition) {
       this.setDialogPosition();
     }
@@ -49,15 +48,5 @@ export class SettingsMenuComponent {
     } else {
       document.exitFullscreen();
     }
-  }
-
-  resetGame(): void {
-    gameManager.stateManager.reset();
-    window.location.reload();
-  }
-
-  resetSettings(): void {
-    settingsManager.reset();
-    window.location.reload();
   }
 }

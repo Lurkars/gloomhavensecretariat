@@ -6,42 +6,54 @@
         *ngIf="getEdition()">[{{'data.edition.' + getEdition()| ghsLabel}}]</span></span>
     <span *ngIf="monster.flying" class="flying"><img class="ghs-svg" src="./assets/images/action/fly.svg" /></span>
   </div>
-  
 
-  
-  <div class="stats" *ngIf="monster.boss">
-    <div class="stat end">{{statsForType(MonsterType.boss).health | ghsValueCalc:monster.level:'empty'}}</div>
 
-    <div class="stat end">{{statsForType(MonsterType.boss).movement | ghsValueCalc:monster.level:'empty'}}</div>
 
-    <div class="stat end">{{(statsForType(MonsterType.boss).attack) | ghsValueCalc:monster.level:'empty'}}</div>
+  <div class="stats" *ngIf="monster.boss" [ngClass]="{'hidden' : hideStats(MonsterType.boss)}">
+    <div class="stat end" [value-calc]="statsForType(MonsterType.boss).health" [level]="monster.level" [empty]="true">
+    </div>
 
-    <div class="stat end">{{statsForType(MonsterType.boss).range | ghsValueCalc:monster.level:'empty'}}</div>
+    <div class="stat end" [value-calc]="statsForType(MonsterType.boss).movement" [level]="monster.level" [empty]="true">
+    </div>
+
+    <div class="stat end" [value-calc]="statsForType(MonsterType.boss).attack" [level]="monster.level" [empty]="true">
+    </div>
+
+    <div class="stat end" [value-calc]="statsForType(MonsterType.boss).range" [level]="monster.level" [empty]="true">
+    </div>
   </div>
 
   <div class="stats" *ngIf="!monster.boss">
-    <div class="stat end">{{statsForType(MonsterType.normal).health | ghsValueCalc:monster.level:'empty'}}</div>
-    <div class="stat start">{{statsForType(MonsterType.elite).health | ghsValueCalc:monster.level:'empty'}}</div>
+    <div class="stat end" [ngClass]="{'hidden' : hideStats(MonsterType.normal)}"
+      [value-calc]="statsForType(MonsterType.normal).health" [level]="monster.level" [empty]="true"></div>
+    <div class="stat start" [ngClass]="{'hidden' : hideStats(MonsterType.elite)}"
+      [value-calc]="statsForType(MonsterType.elite).health" [level]="monster.level" [empty]="true"></div>
 
-    <div class="stat end">{{statsForType(MonsterType.normal).movement | ghsValueCalc:monster.level:'empty'}}</div>
-    <div class="stat start">{{statsForType(MonsterType.elite).movement | ghsValueCalc:monster.level:'empty'}}</div>
+    <div class="stat end" [ngClass]="{'hidden' : hideStats(MonsterType.normal)}"
+      [value-calc]="statsForType(MonsterType.normal).movement" [level]="monster.level" [empty]="true"></div>
+    <div class="stat start" [ngClass]="{'hidden' : hideStats(MonsterType.elite)}"
+      [value-calc]="statsForType(MonsterType.elite).movement" [level]="monster.level" [empty]="true"></div>
 
-    <div class="stat end">{{statsForType(MonsterType.normal).attack | ghsValueCalc:monster.level:'empty'}}</div>
-    <div class="stat start">{{statsForType(MonsterType.elite).attack | ghsValueCalc:monster.level:'empty'}}</div>
+    <div class="stat end" [ngClass]="{'hidden' : hideStats(MonsterType.normal)}"
+      [value-calc]="statsForType(MonsterType.normal).attack" [level]="monster.level" [empty]="true"></div>
+    <div class="stat start" [ngClass]="{'hidden' : hideStats(MonsterType.elite)}"
+      [value-calc]="statsForType(MonsterType.elite).attack" [level]="monster.level" [empty]="true"></div>
 
-    <div class="stat end">{{statsForType(MonsterType.normal).range | ghsValueCalc:monster.level:'empty'}}</div>
-    <div class="stat start">{{statsForType(MonsterType.elite).range | ghsValueCalc:monster.level:'empty'}}</div>
+    <div class="stat end" [ngClass]="{'hidden' : hideStats(MonsterType.normal)}"
+      [value-calc]="statsForType(MonsterType.normal).range" [level]="monster.level" [empty]="true"></div>
+    <div class="stat start" [ngClass]="{'hidden' : hideStats(MonsterType.elite)}"
+      [value-calc]="statsForType(MonsterType.elite).range" [level]="monster.level" [empty]="true"></div>
   </div>
 
   <ng-container *ngIf="!monster.boss">
-    <div class="extra normal">
+    <div class="extra normal" [ngClass]="{'hidden' : hideStats(MonsterType.normal)}">
       <div class="immunities">
         <span class="immunity" *ngFor="let immunity of statsForType(MonsterType.normal).immunities">
           <img class="icon" src="./assets/images/condition/{{immunity}}.svg" />
         </span>
       </div>
       <div class="extra-container">
-        <div class="notes placeholder" [innerHTML]="statsForType(MonsterType.normal).note | ghsHtmlLabel"></div>
+        <div class="notes placeholder" [i18n]="statsForType(MonsterType.normal).note"></div>
         <div class="additional">
           <ghs-actions [actions]="statsForType(MonsterType.normal).actions" [monster]="monster" [inline]="true"
             [right]="true" [hexSize]="0.5">
@@ -54,14 +66,14 @@
         </div>
       </div>
     </div>
-    <div class="extra elite">
+    <div class="extra elite" [ngClass]="{'hidden' : hideStats(MonsterType.elite)}">
       <div class="immunities">
         <span class="immunity" *ngFor="let immunity of statsForType(MonsterType.elite).immunities">
           <img class="icon" src="./assets/images/condition/{{immunity}}.svg" />
         </span>
       </div>
       <div class="extra-container">
-        <div class="notes placeholder" [innerHTML]="statsForType(MonsterType.elite).note | ghsHtmlLabel"></div>
+        <div class="notes placeholder" [i18n]="statsForType(MonsterType.elite).note"></div>
         <div class="additional">
           <ghs-actions [actions]="statsForType(MonsterType.elite).actions" [monster]="monster" [inline]="true"
             [hexSize]="0.5">
@@ -75,8 +87,8 @@
       </div>
     </div>
   </ng-container>
-  <div class="extra boss" *ngIf="monster.boss">
-    <div class="notes placeholder" [innerHTML]="statsForType(MonsterType.boss).note | ghsHtmlLabel"></div>
+  <div class="extra boss" *ngIf="monster.boss" [ngClass]="{'hidden' : hideStats(MonsterType.boss)}">
+    <div class="notes placeholder" [i18n]="statsForType(MonsterType.boss).note"></div>
     <div class="immunities">
       <span class="immunity" *ngFor="let immunity of statsForType(MonsterType.boss).immunities">
         <img class="icon" src="./assets/images/condition/{{immunity}}.svg" />

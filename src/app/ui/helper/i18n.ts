@@ -1,0 +1,108 @@
+import { Directive, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
+import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { Character } from "src/app/game/model/Character";
+import { EntityValueFunction, EntityValueRegex } from "src/app/game/model/Entity";
+import { Figure } from "src/app/game/model/Figure";
+
+export const ghsLabelRegex = /[\"]?\%((\w+|\.|\-|\:|\%)+)\%[\"]?/;
+
+@Directive({
+  selector: ' [i18n]'
+})
+export class I18nDirective implements OnInit, OnChanges {
+
+  @Input('i18n') value!: string;
+  @Input('i18n-args') args: string[] = [];
+
+  private C: number;
+  private L: number;
+
+  constructor(private el: ElementRef) {
+    this.C = gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).length;
+    this.L = gameManager.game.level;
+    gameManager.uiChange.subscribe({
+      next: (value: boolean) => {
+        if (this.C != gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).length || this.L != gameManager.game.level) {
+          this.C = gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).length;
+          this.L = gameManager.game.level;
+          this.apply();
+        }
+      }
+    })
+  }
+
+  ngOnInit(): void {
+    this.apply();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.apply();
+  }
+
+  apply(): void {
+    this.el.nativeElement.innerHTML = this.value && this.applyPlaceholder(settingsManager.getLabel(this.value, this.args)) || "";
+  }
+
+
+
+  applyPlaceholder(value: string): string {
+    while (value.match(ghsLabelRegex)) {
+      value = value.replace(ghsLabelRegex, (match, ...args) => {
+        const label = args[ 0 ];
+        const split: string[] = label.split('.');
+        const type = split[ 1 ];
+
+        let image = '';
+        if (type == "condition") {
+          split.splice(0, 1);
+          image = '<img  src="./assets/images/' + split.join('/') + '.svg" class="icon">';
+          return '<span class="placeholder-condition">' + settingsManager.getLabel(label) + image + '</span>';
+        } else if (type == "action" && split.length == 3 && !split[ 2 ].startsWith('specialTarget')) {
+          split.splice(0, 1);
+          image = '<img  src="./assets/images/' + split.join('/') + '.svg" class="icon">';
+          return '<span class="placeholder-action">' + settingsManager.getLabel(label) + image + '</span>';
+        } else if (type == "element") {
+          let element = split[ 2 ];
+          if (element == "consume") {
+            image = '<span class="element inline consume">';
+            element = split[ 3 ];
+          } else {
+            image = '<span class="element inline">';
+          }
+          image += '<img src="./assets/images/element/' + element + '.svg"></span>';
+          return image;
+        } else if (type == "initiative" && split.length == 3) {
+          image = '<img class="ghs-svg" src="./assets/images/initiative.svg"></span>'
+          return '<span class="placeholder-initiative">' + split[ 2 ] + image + '</span>';
+        } else if (type == "attackmodifier" && split.length == 3) {
+          image = '<img  src="./assets/images/attackmodifier/icons/' + split[ 2 ] + '.png" class="icon">';
+          return '<span class="placeholder-attackmodifier">' + image + '</span>';
+        }
+
+        return settingsManager.getLabel(label.split(':')[ 0 ], label.split(':').splice(1).map((arg: string) =>
+          this.applyPlaceholder(settingsManager.getLabel(arg))
+        )) + image;
+      });
+    }
+
+    while (value.match(EntityValueRegex)) {
+      value = value.replace(EntityValueRegex, (match, ...args) => {
+        if (settingsManager.settings.calculate) {
+          const result = EntityValueFunction(match)
+          return "" + result;
+        } else {
+          let func = args[ 2 ];
+          const funcLabel = func && func.startsWith('%');
+          if (funcLabel) {
+            func = func.replace('%', '');
+          }
+          return funcLabel ? args[ 0 ] + ' ' + settingsManager.getLabel('game.custom.' + func) : args[ 0 ];
+        }
+      });
+    }
+
+    return value;
+  }
+
+}

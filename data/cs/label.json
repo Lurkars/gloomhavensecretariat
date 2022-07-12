@@ -98,7 +98,8 @@
           "9": "%data.monster.blood-ooze% suffers two damage."
         },
         "brood-mother": {
-          "1": "She cannot be reduced below 1 hit point. When attackes, she consideders any %game.attackmodifier.double% attack modifier card the enemy draws to be %game.attackmodifier.plus0% instead."
+          "1": "She cannot be reduced below 1 hit point. When attackes, she consideders any %game.attackmodifier.double% attack modifier card the enemy draws to be %game.attackmodifier.plus0% instead.",
+          "2": "If no focus: "
         },
         "drake-porter": {
           "1": "Every time you kill a drake, the %data.monster.drake-porter% suffers 2 damage."

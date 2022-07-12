@@ -4,6 +4,7 @@ export class Settings {
   expireConditions: boolean = true;
   applyConditions: boolean = true;
   moveElements: boolean = true;
+  hideStats: boolean = true;
   randomStandees: boolean = false;
   fullscreen: boolean = false;
   zoom: number = 100;

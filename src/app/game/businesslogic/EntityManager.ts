@@ -58,6 +58,10 @@ export class EntityManager {
     return entity.entityConditions.some((entityCondition: EntityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
   }
 
+  activeConditions(entity: Entity) {
+    return entity.entityConditions.filter((value: EntityCondition) => !value.expired);
+  }
+
   isImmune(monster: Monster, entity: MonsterEntity, conditionName: ConditionName): boolean {
     const stat = monster.stats.find((monsterStat: MonsterStat) => monsterStat.level == entity.level && monsterStat.type == entity.type);
 

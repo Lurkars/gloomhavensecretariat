@@ -3,6 +3,7 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GameState } from 'src/app/game/model/Game';
 import { SettingsManager, settingsManager } from '../game/businesslogic/SettingsManager';
+import { Figure } from '../game/model/Figure';
 
 @Component({
   selector: 'ghs-main',
@@ -31,6 +32,7 @@ export class MainComponent implements OnInit {
       this.calcColumns();
     })
   }
+
   async ngOnInit() {
     document.body.classList.add('no-select');
     await settingsManager.init();
@@ -45,6 +47,12 @@ export class MainComponent implements OnInit {
     window.addEventListener('fullscreenchange', (event) => {
       this.calcColumns();
     });
+
+    this.gameManager.uiChange.emit(true);
+  }
+
+  figures(column: number): Figure[] {
+    return gameManager.game.figures.slice(this.columnSize * column, this.columnSize + this.columnSize * column);
   }
 
   calcColumns(): void {

@@ -6,7 +6,7 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
-    "note": "%data.custom.cs.brood-mother.1",
+    "note": "%data.custom.cs.brood-mother.1%",
     "actions": [],
     "immunities": [
       "immobilize",
@@ -26,23 +26,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "No focus:"
-        },
-        {
-          "type": "shield",
-          "value": 3
-        },
-        {
-          "type": "retaliate",
-          "value": 3
-        },
-        {
-          "type": "heal",
-          "value": 3,
+          "value": "%data.custom.cs.brood-mother.2%",
           "subActions": [
             {
-              "type": "specialTarget",
-              "value": "self"
+              "type": "shield",
+              "value": 3
+            },
+            {
+              "type": "retaliate",
+              "value": 3
+            },
+            {
+              "type": "heal",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self"
+                }
+              ]
             }
           ]
         }
@@ -56,23 +58,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "No focus:"
-        },
-        {
-          "type": "shield",
-          "value": 4
-        },
-        {
-          "type": "retaliate",
-          "value": 4
-        },
-        {
-          "type": "heal",
-          "value": 4,
+          "value": "%data.custom.cs.brood-mother.2%",
           "subActions": [
             {
-              "type": "specialTarget",
-              "value": "self"
+              "type": "shield",
+              "value": 4
+            },
+            {
+              "type": "retaliate",
+              "value": 4
+            },
+            {
+              "type": "heal",
+              "value": 4,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self"
+                }
+              ]
             }
           ]
         }
@@ -86,23 +90,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "No focus:"
-        },
-        {
-          "type": "shield",
-          "value": 4
-        },
-        {
-          "type": "retaliate",
-          "value": 4
-        },
-        {
-          "type": "heal",
-          "value": 4,
+          "value": "%data.custom.cs.brood-mother.2%",
           "subActions": [
             {
-              "type": "specialTarget",
-              "value": "self"
+              "type": "shield",
+              "value": 4
+            },
+            {
+              "type": "retaliate",
+              "value": 4
+            },
+            {
+              "type": "heal",
+              "value": 4,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self"
+                }
+              ]
             }
           ]
         }
@@ -116,23 +122,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "No focus:"
-        },
-        {
-          "type": "shield",
-          "value": 4
-        },
-        {
-          "type": "retaliate",
-          "value": 4
-        },
-        {
-          "type": "heal",
-          "value": 4,
+          "value": "%data.custom.cs.brood-mother.2%",
           "subActions": [
             {
-              "type": "specialTarget",
-              "value": "self"
+              "type": "shield",
+              "value": 4
+            },
+            {
+              "type": "retaliate",
+              "value": 4
+            },
+            {
+              "type": "heal",
+              "value": 4,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self"
+                }
+              ]
             }
           ]
         }
@@ -146,23 +154,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "No focus:"
-        },
-        {
-          "type": "shield",
-          "value": 5
-        },
-        {
-          "type": "retaliate",
-          "value": 5
-        },
-        {
-          "type": "heal",
-          "value": 5,
+          "value": "%data.custom.cs.brood-mother.2%",
           "subActions": [
             {
-              "type": "specialTarget",
-              "value": "self"
+              "type": "shield",
+              "value": 5
+            },
+            {
+              "type": "retaliate",
+              "value": 5
+            },
+            {
+              "type": "heal",
+              "value": 5,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self"
+                }
+              ]
             }
           ]
         }
@@ -176,23 +186,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "No focus:"
-        },
-        {
-          "type": "shield",
-          "value": 5
-        },
-        {
-          "type": "retaliate",
-          "value": 5
-        },
-        {
-          "type": "heal",
-          "value": 5,
+          "value": "%data.custom.cs.brood-mother.2%",
           "subActions": [
             {
-              "type": "specialTarget",
-              "value": "self"
+              "type": "shield",
+              "value": 5
+            },
+            {
+              "type": "retaliate",
+              "value": 5
+            },
+            {
+              "type": "heal",
+              "value": 5,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self"
+                }
+              ]
             }
           ]
         }
@@ -206,23 +218,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "No focus:"
-        },
-        {
-          "type": "shield",
-          "value": 5
-        },
-        {
-          "type": "retaliate",
-          "value": 5
-        },
-        {
-          "type": "heal",
-          "value": 5,
+          "value": "%data.custom.cs.brood-mother.2%",
           "subActions": [
             {
-              "type": "specialTarget",
-              "value": "self"
+              "type": "shield",
+              "value": 5
+            },
+            {
+              "type": "retaliate",
+              "value": 5
+            },
+            {
+              "type": "heal",
+              "value": 5,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self"
+                }
+              ]
             }
           ]
         }
@@ -236,23 +250,25 @@
       "actions": [
         {
           "type": "custom",
-          "value": "No focus:"
-        },
-        {
-          "type": "shield",
-          "value": 6
-        },
-        {
-          "type": "retaliate",
-          "value": 6
-        },
-        {
-          "type": "heal",
-          "value": 6,
+          "value": "%data.custom.cs.brood-mother.2%",
           "subActions": [
             {
-              "type": "specialTarget",
-              "value": "self"
+              "type": "shield",
+              "value": 6
+            },
+            {
+              "type": "retaliate",
+              "value": 6
+            },
+            {
+              "type": "heal",
+              "value": 6,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self"
+                }
+              ]
             }
           ]
         }

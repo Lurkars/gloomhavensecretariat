@@ -18,12 +18,11 @@ import { EditionMenuComponent } from './ui/header/menu/edition/edition';
 import { MainMenuComponent } from './ui/header/menu/menu';
 import { SettingsMenuComponent } from './ui/header/menu/settings/settings';
 import { CardRevealDirective } from './ui/helper/CardReveal';
-import { GhsActiveConditionsPipe, GhsEditionFilterPipe, GhsHtmlLabelPipe, GhsLabelPipe, GhsLimitPipe, GhsRangePipe, GhsSortPipe, GhsValueCalcPipe, GhsValueSignPipe } from './ui/helper/Pipes';
+import { GhsLabelPipe, GhsRangePipe, GhsValueSignPipe } from './ui/helper/Pipes';
 import { MainComponent } from './ui/main';
 import { PopupComponent } from './ui/popup/popup';
 import { CharacterSummonDialog } from './ui/figures/character/dialogs/summondialog';
 import { SummonEntityComponent } from './ui/figures/character/summon/summon';
-import { GhsSvgComponent } from './ui/helper/svg/svg';
 import { CharacterImageComponent } from './ui/figures/character/cards/image';
 import { DatamanagementMenuComponent } from './ui/header/menu/datamanagement/datamanagement';
 import { ScenarioMenuComponent } from './ui/header/menu/scenario/scenario';
@@ -43,6 +42,8 @@ import { FigureErrors } from './ui/figures/errors/errors';
 import { SectionMenuComponent } from './ui/header/menu/section/section';
 import { HealthbarComponent } from './ui/figures/healthbar/healthbar';
 import { EntityAnimationDirective } from './ui/helper/EntityAnimation';
+import { I18nDirective } from './ui/helper/i18n';
+import { ValueCalcDirective } from './ui/helper/valueCalc';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -68,8 +69,8 @@ describe('AppComponent', () => {
         MonsterNumberPicker,
         ActionsComponent, ActionComponent, ActionHexComponent,
         FigureErrors,
-        CardRevealDirective, EntityAnimationDirective,
-        GhsValueCalcPipe, GhsValueSignPipe, GhsEditionFilterPipe, GhsActiveConditionsPipe, GhsLabelPipe, GhsSortPipe, GhsSvgComponent, GhsHtmlLabelPipe, GhsRangePipe, GhsLimitPipe,
+        CardRevealDirective, EntityAnimationDirective, I18nDirective, ValueCalcDirective,
+        GhsValueSignPipe, GhsLabelPipe, GhsRangePipe,
         MonsterToolComponent, MonsterActionToolComponent, MonsterStatToolComponent ],
       imports: [
         BrowserModule,

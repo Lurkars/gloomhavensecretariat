@@ -2,7 +2,8 @@
   <div class="card-container attack-modifier draw">
     <div class="card" (click)="draw()">
       <a class="card-back front">
-        <span class="number">{{ gameManager.game.attackModifiers.length - gameManager.game.attackModifier - 1 }}</span>
+        <span class="number" *ngIf="gameManager.game.attackModifier < gameManager.game.attackModifiers.length -1">{{
+          gameManager.game.attackModifiers.length - gameManager.game.attackModifier - 1 }}</span>
         <img *ngIf="gameManager.game.attackModifier == gameManager.game.attackModifiers.length -1" class="shuffle"
           src="./assets/images/shuffle.svg">
       </a>
@@ -48,8 +49,8 @@
       [cdkDropListConnectedTo]="disgardedList" (cdkDropListDropped)="dropUpcoming($event)"
       [cdkDropListAutoScrollStep]="20">
       <div class="empty" *ngIf="upcomingCards().length == 0"></div>
-      <div class="card-container attack-modifier drag-hidden" *ngFor="let attackModifier of upcomingCards();let index = index;"
-        cdkDrag>
+      <div class="card-container attack-modifier drag-hidden"
+        *ngFor="let attackModifier of upcomingCards();let index = index;" cdkDrag>
         <div class="card" card-reveal (change)="onChange(attackModifier, $event)"
           [ngClass]="{'flipped' : reveal == 2 || attackModifier.revealed}">
           <a class="card-back front">

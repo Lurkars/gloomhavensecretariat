@@ -62,12 +62,12 @@
   </span>
 
   <span class="action-specialTarget" *ngSwitchCase="ActionType.specialTarget">
-    <span class="special-target-value placeholder" [innerHTML]="('game.specialTarget.' + ('' +action.value).split(':')[0]) |
-    ghsHtmlLabel:('' +action.value).split(':').splice(1)"></span>
+    <span class="special-target-value placeholder" [i18n]="('game.specialTarget.' + ('' +action.value).split(':')[0])"
+      [i18n-args]="('' +action.value).split(':').splice(1)"></span>
   </span>
 
   <span class="action-custom" *ngSwitchCase="ActionType.custom">
-    <span class="custom-value placeholder" [innerHTML]="action.value + '' | ghsHtmlLabel"></span>
+    <span class="custom-value placeholder" [i18n]="action.value + ''"></span>
     <ng-container *ngIf="action.subActions && action.subActions.length > 0">
       <ghs-action class="full" [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
         [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize">
@@ -76,7 +76,7 @@
   </span>
 
   <span class="action-trigger" *ngSwitchCase="ActionType.trigger">
-    <span class="custom-value placeholder" [innerHTML]="action.value + '' | ghsHtmlLabel"></span>
+    <span class="custom-value placeholder" [i18n]="action.value + ''"></span>
     <ng-container *ngIf="action.subActions && action.subActions.length > 0">
       <ghs-action class="full" [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
         [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize">
@@ -106,9 +106,10 @@
       class="icon" [ngClass]="{'invert' : isInvertIcon(action.type)}" />
     <img *ngIf="action.type == ActionType.move && monster.flying" src="./assets/images/action/fly.svg" class="icon"
       [ngClass]="{'invert' : isInvertIcon(action.type)}" />
-    <span *ngIf="!relative" class="value"><span *ngIf="getNormalValue()">{{getNormalValue() |
-        ghsValueCalc:monster.level}}</span><span *ngIf="getNormalValue() != getEliteValue()">/<span
-          class="elite">{{getEliteValue() | ghsValueCalc:monster.level}}</span>
+    <span *ngIf="!relative" class="value"><span *ngIf="getNormalValue()" [value-calc]="getNormalValue()"
+        [level]="monster.level">"</span><span *ngIf="getNormalValue() != getEliteValue()">/<span
+          class="elite" [value-calc]="getEliteValue()"
+          [level]="monster.level">></span>
       </span>
     </span>
     <span *ngIf="relative" class="value">{{getNormalValue()}}<span *ngIf="getNormalValue() != getEliteValue()">/<span

@@ -26,7 +26,7 @@
           {{objective.health}}/{{maxHealth()}}
         </div>
         <div class="conditions">
-          <span class="condition" *ngFor="let entityCondition of objective.entityConditions | ghsActiveConditions">
+          <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.activeConditions(objective)">
             <img src="./assets/images/condition/{{entityCondition.name}}.svg" />
             <span class="value"
               *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>

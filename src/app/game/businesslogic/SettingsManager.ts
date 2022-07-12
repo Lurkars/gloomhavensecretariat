@@ -52,6 +52,7 @@ export class SettingsManager {
     if (this.settings.serverSettings) {
       gameManager.stateManager.saveSettings();
     }
+    gameManager.uiChange.emit(true);
   }
 
   setCalculate(calculate: boolean) {
@@ -76,6 +77,11 @@ export class SettingsManager {
 
   setMoveElements(moveElements: boolean) {
     this.settings.moveElements = moveElements;
+    this.storeSettings();
+  }
+
+  setHideStats(hideStats: boolean) {
+    this.settings.hideStats = hideStats;
     this.storeSettings();
   }
 

@@ -1,6 +1,37 @@
 <div class="menu-container data">
   <div class="columns">
     <div class="column">
+      <div class="line">
+        <a (click)="exportGame()" [i18n]="'datamanagement.exportGame'"></a>
+      </div>
+      <div class="line">
+        <label class="input-file" [i18n]="'datamanagement.importGame'">
+          <input type="file" accept="application/json" (change)="importGame($event)" />
+        </label>
+      </div>
+      <div class="line">
+        <a (click)="resetGame()" [i18n]="'settings.resetGame'"> &lt;&gt; (!)
+        </a>
+      </div>
+    </div>
+    <div class="column">
+      <div class="line">
+        <a (click)="exportSettings()" [i18n]="'datamanagement.exportSettings'"></a>
+      </div>
+      <div class="line">
+        <label class="input-file" [i18n]="'datamanagement.importSettings'">
+          <input type="file" accept="application/json" (change)="importSettings($event)" />
+        </label>
+      </div>
+      <div class="line">
+        <a (click)="resetSettings()" [i18n]="'settings.resetSettings'"> &lt;&gt; (!)
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="columns separator">
+    <div class="column">
       <div class="line title sticky">
         <label>{{'datamanagement.spoilers' | ghsLabel}}</label>
       </div>

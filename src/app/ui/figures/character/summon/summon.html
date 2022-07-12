@@ -6,7 +6,7 @@
     <ghs-highlight-conditions [entity]="summon"></ghs-highlight-conditions>
 
     <div class="conditions">
-      <span class="condition" *ngFor="let entityCondition of summon.entityConditions | ghsActiveConditions">
+      <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.activeConditions(summon)">
         <img src="./assets/images/condition/{{entityCondition.name}}.svg" />
         <span class="value"
           *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
@@ -45,17 +45,17 @@
       <div class="stats-container">
         <span class="stat" (click)="openLevelDialog()">
           <img src="./assets/images/action/move.svg" />
-          <span>{{summon.movement | ghsValueCalc:'empty'}}</span>
+          <span [value-calc]="summon.movement" [empty]="true">></span>
         </span>
 
         <span class="stat" (click)="openLevelDialog()">
           <img src="./assets/images/action/attack.svg" />
-          <span>{{summon.attack | ghsValueCalc:'empty'}}</span>
+          <span [value-calc]="summon.attack" [empty]="true">></span>
         </span>
 
         <span class="stat" (click)="openLevelDialog()">
           <img src="./assets/images/action/range.svg" />
-          <span>{{summon.range | ghsValueCalc:'empty'}}</span>
+          <span [value-calc]="summon.range" [empty]="true">></span>
         </span>
       </div>
 
@@ -99,7 +99,7 @@
       </a>
       <span class="item">
         <img src="./assets/images/action/move.svg" />
-        <span class="badge">{{summon.movement | ghsValueCalc:'empty'}}</span>
+        <span class="badge" [value-calc]="summon.movement" [empty]="true">></span>
       </span>
       <a class="button" (click)="changeMovement(1)">
         <img class="ghs-svg" src="./assets/images/plus.svg">
@@ -110,7 +110,7 @@
       </a>
       <span class="item">
         <img src="./assets/images/action/attack.svg" />
-        <span class="badge">{{summon.attack | ghsValueCalc:'empty'}}</span>
+        <span class="badge" [value-calc]="summon.attack" [empty]="true">></span>
       </span>
       <a class="button" (click)="changeAttack(1)">
         <img class="ghs-svg" src="./assets/images/plus.svg">
@@ -121,7 +121,7 @@
       </a>
       <span class="item">
         <img src="./assets/images/action/range.svg" />
-        <span class="badge">{{summon.range | ghsValueCalc:'empty'}}</span>
+        <span class="badge" [value-calc]="summon.range" [empty]="true">></span>
       </span>
       <a class="button" (click)="changeRange(1)">
         <img class="ghs-svg" src="./assets/images/plus.svg">

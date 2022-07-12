@@ -30,7 +30,7 @@
           {{character.health}}/{{character.maxHealth}}
         </div>
         <div class="conditions">
-          <span class="condition" *ngFor="let entityCondition of character.entityConditions | ghsActiveConditions">
+          <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.activeConditions(character)">
             <img src="./assets/images/condition/{{entityCondition.name}}.svg" />
             <ng-container *ngIf="entityCondition.types.indexOf(ConditionType.stack) != -1">
               <img class="stack" *ngFor="let i of [] | ghsRange:(entityCondition.value - 1)"

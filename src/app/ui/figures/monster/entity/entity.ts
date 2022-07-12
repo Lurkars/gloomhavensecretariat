@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { AttackModifier, AttackModifierType } from 'src/app/game/model/AttackModifier';
-import { Condition, ConditionName, ConditionType } from 'src/app/game/model/Condition';
+import { Condition, ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/Condition';
+import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { SummonState } from 'src/app/game/model/Summon';
@@ -125,6 +126,12 @@ export class MonsterEntityComponent extends DialogComponent {
       if (this.monster.active) {
         gameManager.toggleFigure(this.monster);
       }
+    }
+
+    if (gameManager.game.state == GameState.draw || this.entity.entityConditions.length == 0 || this.entity.entityConditions.every((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1)) {
+      setTimeout(() => {
+        gameManager.monsterManager.removeMonsterEntity(this.monster, this.entity);
+      }, 1500);
     }
 
     gameManager.stateManager.after();
