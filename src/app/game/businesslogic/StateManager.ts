@@ -155,7 +155,9 @@ export class StateManager {
       undo = JSON.parse(undoString);
     }
 
-    undo.push(this.game.toModel());
+    if (JSON.stringify(this.game.toModel()) != localStorage.getItem("ghs-game")) {
+      undo.push(this.game.toModel());
+    }
 
     if (undo.length > settingsManager.settings.maxUndo) {
       undo.splice(0, undo.length - settingsManager.settings.maxUndo);

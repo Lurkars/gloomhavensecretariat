@@ -155,7 +155,7 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesRangeAffect:2"
+              "value": "alliesRangeAffect:2"
             }
           ]
         },

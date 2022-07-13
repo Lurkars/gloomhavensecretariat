@@ -26,6 +26,7 @@ import { Summon, SummonState } from "../model/Summon";
 import { Condition, ConditionName, Conditions, ConditionType } from "../model/Condition";
 import { EntityManager } from "./EntityManager";
 import { EventEmitter } from "@angular/core";
+import { defaultAttackModifier } from "../model/AttackModifier";
 
 
 export class GameManager {
@@ -141,6 +142,9 @@ export class GameManager {
       this.game.figures.forEach((figure: Figure) => figure.active = false);
 
     } else if (this.nextAvailable()) {
+      if (this.game.round == 0) {
+        this.attackModifierManager.shuffleModifiers();
+      }
       this.game.state = GameState.next;
       this.game.round++;
       this.characterManager.draw();
@@ -188,6 +192,14 @@ export class GameManager {
         if (a instanceof Character && b instanceof Monster) {
           return -1;
         } else if (a instanceof Monster && b instanceof Character) {
+          return 1;
+        } else if (a instanceof Character && b instanceof Objective) {
+          return -1;
+        } else if (a instanceof Objective && b instanceof Character) {
+          return 1;
+        } else if (a instanceof Monster && b instanceof Objective) {
+          return -1;
+        } else if (a instanceof Objective && b instanceof Monster) {
           return 1;
         } else if (a instanceof Monster && b instanceof Monster && a.entities.length != b.entities.length) {
           return b.entities.length - a.entities.length;
@@ -553,7 +565,9 @@ export class GameManager {
     this.game.sections = [];
     this.game.round = 0;
     this.game.state = GameState.draw;
+    this.game.attackModifiers = defaultAttackModifier;
     this.game.figures = this.game.figures.filter((figure: Figure) => figure instanceof Character);
+
     this.game.figures.forEach((figure: Figure) => {
       if (figure instanceof Character) {
         figure.health = figure.maxHealth;
@@ -571,7 +585,6 @@ export class GameManager {
         }
       }
     })
-    this.attackModifierManager.shuffleModifiers();
   }
 
   addSection(section: SectionData) {

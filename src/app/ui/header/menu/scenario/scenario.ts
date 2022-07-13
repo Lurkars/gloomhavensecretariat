@@ -15,7 +15,7 @@ export class ScenarioMenuComponent {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
-  edition: string | undefined = (!gameManager.game.scenario || !gameManager.game.scenario.custom) && (gameManager.game.edition || gameManager.editions()[ 0 ]) || undefined;
+  edition: string = gameManager.game.scenario && !gameManager.game.scenario.custom && gameManager.game.scenario.edition || (gameManager.game.edition || gameManager.editions()[ 0 ]);
 
   setEdition(edition: string) {
     this.edition = edition;
@@ -59,11 +59,23 @@ export class ScenarioMenuComponent {
     gameManager.stateManager.after();
   }
 
+  resetScenario() {
+    if (gameManager.game.scenario) {
+      gameManager.stateManager.before();
+      gameManager.setScenario(gameManager.game.scenario)
+      gameManager.stateManager.after();
+    }
+  }
+
   customScenario() {
     if (!gameManager.game.scenario || !gameManager.game.scenario.custom) {
-      this.edition = undefined;
       gameManager.stateManager.before();
-      gameManager.setScenario(new Scenario("", "0", [], [], "", true));
+      gameManager.setScenario(new Scenario("", "", [], [], "", true));
+      gameManager.stateManager.after();
+    } else {
+      gameManager.stateManager.before();
+      gameManager.game.scenario = undefined;
+      this.edition = gameManager.game.edition || gameManager.editions()[ 0 ];
       gameManager.stateManager.after();
     }
   }

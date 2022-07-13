@@ -71,7 +71,7 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "adjacentEnemies"
+              "value": "enemiesAdjacent"
             }
           ]
         }

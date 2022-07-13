@@ -6,7 +6,6 @@ export class AttackModifierManager {
 
   constructor(game: Game) {
     this.game = game;
-    this.shuffleModifiers();
   }
 
   addModifier(attackModifier: AttackModifier, index: number = -1) {

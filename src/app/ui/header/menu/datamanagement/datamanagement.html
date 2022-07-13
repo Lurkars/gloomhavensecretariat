@@ -2,30 +2,30 @@
   <div class="columns">
     <div class="column">
       <div class="line">
-        <a (click)="exportGame()" [i18n]="'datamanagement.exportGame'"></a>
+        <a (click)="exportGame()">{{'datamanagement.exportGame' | ghsLabel}}</a>
       </div>
       <div class="line">
-        <label class="input-file" [i18n]="'datamanagement.importGame'">
+        <label class="input-file">
           <input type="file" accept="application/json" (change)="importGame($event)" />
+          {{'datamanagement.importGame' | ghsLabel}}
         </label>
       </div>
       <div class="line">
-        <a (click)="resetGame()" [i18n]="'settings.resetGame'"> &lt;&gt; (!)
-        </a>
+        <a (click)="resetGame()">&lt;{{'datamanagement.resetGame' | ghsLabel}}(!)&gt;</a>
       </div>
     </div>
     <div class="column">
       <div class="line">
-        <a (click)="exportSettings()" [i18n]="'datamanagement.exportSettings'"></a>
+        <a (click)="exportSettings()">{{'datamanagement.exportSettings' | ghsLabel}}</a>
       </div>
       <div class="line">
-        <label class="input-file" [i18n]="'datamanagement.importSettings'">
+        <label class="input-file">
+          {{'datamanagement.importSettings' | ghsLabel}}
           <input type="file" accept="application/json" (change)="importSettings($event)" />
         </label>
       </div>
       <div class="line">
-        <a (click)="resetSettings()" [i18n]="'settings.resetSettings'"> &lt;&gt; (!)
-        </a>
+        <a (click)="resetSettings()">&lt;{{'datamanagement.resetSettings' | ghsLabel}}(!)&gt;</a>
       </div>
     </div>
   </div>
@@ -72,8 +72,8 @@
       </div>
       <div class="spacer"></div>
       <div class="line separator" *ngIf="!isDefaultEditionData()">
-        <a
-          (click)="settingsManager.restoreDefaultEditionDataUrls()">{{'datamanagement.restoreEditionDataUrls' | ghsLabel}}</a>
+        <a (click)="settingsManager.restoreDefaultEditionDataUrls()">{{'datamanagement.restoreEditionDataUrls' |
+          ghsLabel}}</a>
       </div>
     </div>
   </div>

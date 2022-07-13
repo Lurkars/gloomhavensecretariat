@@ -207,7 +207,7 @@
     "objectives": [
       {
         "name": "Hail",
-        "maxHealth": 6,
+        "health": 6,
         "escort": true
       }
     ]

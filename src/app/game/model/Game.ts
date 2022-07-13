@@ -128,7 +128,7 @@ export class GameModel {
     playSeconds: number = 0,
     totalSeconds: number = 0,
     attackModifier: number = -1,
-    attackModifieres: AttackModifierType[] = [],
+    attackModifiers: AttackModifierType[] = [],
     newElements: Element[] = [],
     strongElements: Element[] = [],
     elements: Element[] = []) {
@@ -145,7 +145,7 @@ export class GameModel {
     this.playSeconds = playSeconds;
     this.totalSeconds = totalSeconds;
     this.attackModifier = attackModifier;
-    this.attackModifiers = attackModifieres;
+    this.attackModifiers = attackModifiers;
     this.newElements = newElements;
     this.strongElements = strongElements;
     this.elements = elements;

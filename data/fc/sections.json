@@ -9,7 +9,7 @@
     "objectives": [
       {
         "name": "Altar of Wildfire",
-        "maxHealth": "C+L+1"
+        "health": "C+L+1"
       }
     ]
   },
@@ -107,7 +107,7 @@
     "objectives": [
       {
         "name": "Altar of Rot",
-        "maxHealth": "Cx2+L+4"
+        "health": "Cx2+L+4"
       }
     ]
   },
@@ -166,7 +166,7 @@
     "objectives": [
       {
         "name": "Altar of Blizzards",
-        "maxHealth": "Cx2+L"
+        "health": "Cx2+L"
       }
     ]
   },
@@ -214,7 +214,7 @@
     "objectives": [
       {
         "name": "Altar",
-        "maxHealth": "20+L+2xC"
+        "health": "20+L+2xC"
       }
     ]
   },
@@ -357,7 +357,7 @@
     "objectives": [
       {
         "name": "Altar",
-        "maxHealth": "5+L+2xC"
+        "health": "5+L+2xC"
       }
     ]
   },

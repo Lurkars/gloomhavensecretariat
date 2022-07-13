@@ -22,7 +22,8 @@
   "scenario": {
     ".": "Szenario auswählen",
     "custom": "Benutzerdefiniert",
-    "title": "Titel"
+    "title": "Titel",
+    "reset": "Scenario neustarten"
   },
   "section": "Sektion hinzufügen",
   "monster": {
@@ -49,7 +50,7 @@
     "add": "Begleiter hinzufügen"
   },
   "summon": {
-    "addCustom": "Beschwörung '{0}'"
+    "addCustom": "Beschwöre '{0}'"
   },
   "settings": {
     ".": "Einstellungen",
@@ -64,10 +65,8 @@
     "zoomOut": "Rauszoomen",
     "zoomReset": "Zoom zurücksetzen",
     "fullscreen": "Vollbild",
-    "resetGame": "Spiel Zurücksetzen",
-    "resetSettings": "Einstellungen Zurücksetzen",
     "browserNavigation": "Rückgängig/Wiederherstellen über Navigation",
-    "maxUndo" : "Max. Anzahl Rückgängigvorgänge",
+    "maxUndo": "Max. Anzahl Rückgängigvorgänge",
     "locale": {
       ".": "Sprache",
       "en": "Englisch (English)",
@@ -94,9 +93,24 @@
     "autoconnect": "Automatisch Verbinden",
     "wss": {
       ".": "Verschlüsselte Verbindung",
-      "accept": "Accept?"
+      "accept": "Akzeptieren?"
     },
     "settings": "Einstellungen synchronisieren"
+  },
+  "datamanagement": {
+    ".": "Daten verwalten",
+    "spoilers": "Spoiler bearbeiten",
+    "editionDataUrls": "Editionsdaten bearbeiten",
+    "addEditionDataUrl": "Editionasdaten Url hinzufügen",
+    "restoreEditionDataUrls": "Standard wiederherstellen",
+    "addSpoiler": "Spoiler hinzufügen",
+    "removeAllSpoilers": "Alle löschen",
+    "importGame": "Spiel aus Datei importieren",
+    "exportGame": "Spiel in Datei exportieren",
+    "importSettings": "Einstellungen aus Datei importieren",
+    "exportSettings": "Einstellungen in Datei exportieren",
+    "resetGame": "Spiel zurücksetzen",
+    "resetSettings": "Einstellungen zurücksetzen"
   },
   "about": {
     ".": "Über",
@@ -109,25 +123,56 @@
   "or": "oder",
   "game": {
     "action": {
-      "attack": "Angriff",
-      "range": "Reichweite",
-      "move": "Bewegung",
-      "jump": "Springen",
-      "heal": "Heilen",
-      "specialTarget": {},
-      "target": "Ziel",
-      "shield": "Schild",
-      "pierce": "Durchstechen",
       "area": "Fläche",
-      "push": "Schieben",
-      "retaliate": "Vergeltung",
-      "teleport": "Teleport",
-      "pull": "Ziehen",
-      "loot": "Beute",
-      "element": "Element",
+      "attack": "Angriff",
+      "card": "Karte",
       "condition": "Zustand",
       "custom": "Benutzerdefiniert",
-      "special": "Spezial"
+      "element": "Element",
+      "elementHalf": "Element Hälfte",
+      "fly": "Fliegen",
+      "heal": "Heilen",
+      "jump": "Springen",
+      "loot": "Beute",
+      "monsterType": "Monstertyp",
+      "move": "Bewegung",
+      "pierce": "Durchstechen",
+      "pull": "Ziehen",
+      "push": "Schieben",
+      "range": "Reichweite",
+      "retaliate": "Vergeltung",
+      "shield": "Schild",
+      "special": "Spezial",
+      "swing": "Schwingen",
+      "target": "Ziel",
+      "teleport": "Teleport",
+      "trigger": "Auslöser"
+    },
+    "specialTarget": {
+      "self": "Selbst",
+      "selfAllies": "Selbst und alle Verbündeten",
+      "selfAlliesAffect": "Visiere dich selbst und alle Verbündeten an",
+      "selfAlliesRange": "Visiere dich selbst und alle Verbündeten in %game.action.range% {0} an",
+      "selfAlliesAdjacentAffect": "Visiere dich selbst und alle angrenzenden Verbündeten an",
+      "ally": "Visiere einen Verübünden an",
+      "allyAdjacent": "Visiere einen angrenzenden Verübünden an",
+      "allies": "Visiere alle Verbündeten an",
+      "alliesAdjacent": "Visiere alle angrenzenden Verbündeten an",
+      "alliesAdjacentAffect": "Visiere alle angrenzenden Verbündeten an",
+      "alliesRange": "Visiere alle Verbündeten in %game.action.range% {0} an",
+      "alliesRangeAffect": "Visiere alle Verbündeten in %game.action.range% {0} an",
+      "enemy": "Visiere einen Gegner an",
+      "enemyAdjacent": "Visiere einen angrenzenden Gegner an",
+      "enemyRange": "Visiere einen Gegner in %game.action.range% {0} an",
+      "enemyOneAll": "visiere einen Gegner für alle Angriffe an",
+      "enemies": "Visiere alle Gegner an",
+      "enemiesAdjacent": "Visiere alle angrenzenden Gegner an",
+      "enemiesRange": "Visiere alle Gegner in %game.action.range% {0} an",
+      "enemiesRangeAffect": "Visiere alle Gegner in %game.action.range% {0}",
+      "figures": "Visiere alle Figuren an",
+      "figuresAdjacent": "Visiere alle angrenzenden Figuren an",
+      "figuresRange": "Visiere alle Figuren in %game.action.range% {0} an",
+      "targets": "Alle Ziele"
     },
     "condition": {
       "stun": "Betäubung",
@@ -183,19 +228,6 @@
       },
       "scenarioBook": "Im Szenariobuch nachschlagen"
     }
-  },
-  "datamanagement": {
-    ".": "Daten Verwalten",
-    "spoilers": "Spoiler bearbeiten",
-    "editionDataUrls": "Editionsdaten bearbeiten",
-    "addEditionDataUrl": "Editionasdaten Url hinzufügen",
-    "restoreEditionDataUrls": "Standard Wiederherstellen",
-    "addSpoiler": "Spoiler Hinzufügen",
-    "removeAllSpoilers": "Alle Löschen",
-    "importGame" : "Spiel aus Datei importieren",
-    "exportGame" : "Spiel in Datei exportieren",
-    "importSettings" : "Einstellungen aus Datei importieren",
-    "exportSettings" : "Einstellungen in Datei exportieren"
   },
   "spoiler": {
     "placeholder": "???",

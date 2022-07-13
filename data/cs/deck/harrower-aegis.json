@@ -179,7 +179,7 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "selfAdjacentAlliesAffect"
+              "value": "selfAlliesAdjacentAffect"
             }
           ]
         },

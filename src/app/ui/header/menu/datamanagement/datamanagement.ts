@@ -87,6 +87,7 @@ export class DatamanagementMenuComponent {
 
   resetGame(): void {
     gameManager.stateManager.reset();
+    gameManager.stateManager.after();
     window.location.reload();
   }
 

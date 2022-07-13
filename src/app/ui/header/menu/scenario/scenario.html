@@ -1,14 +1,22 @@
 <div class="menu-container scenario">
-  <div class="custom-container">
-    <div class="line custom-check">
-      <label>
-        <input type="checkbox" [checked]="gameManager.game.scenario && gameManager.game.scenario.custom"
-          [disabled]="gameManager.game.scenario && gameManager.game.scenario.custom" (change)="customScenario()">
-        &lt;{{'scenario.custom' | ghsLabel}}&gt;
-      </label>
+  <div class="columns">
+    <div class="column custom-container">
+      <div class="line custom-check">
+        <label>
+          <input type="checkbox" [checked]="gameManager.game.scenario && gameManager.game.scenario.custom"
+            [disabled]="gameManager.game.scenario && gameManager.game.scenario.custom" (change)="customScenario()">
+          &lt;{{'scenario.custom' | ghsLabel}}&gt;
+        </label>
+      </div>
+      <div class="line" *ngIf="gameManager.game.scenario && gameManager.game.scenario.custom">
+        <input type="text" [value]="gameManager.game.scenario.name" (change)="customScenarioName($event)"
+          [placeholder]="'scenario.title' | ghsLabel">
+      </div>
     </div>
-    <div class="line" *ngIf="gameManager.game.scenario && gameManager.game.scenario.custom">
-      <input type="text" (change)="customScenarioName($event)" [placeholder]="'scenario.title' | ghsLabel">
+    <div class="column" *ngIf="gameManager.game.scenario && !gameManager.game.scenario.custom">
+      <div class="line">
+        <a (click)="resetScenario()">&lt;{{'scenario.reset' | ghsLabel}}!&gt;</a>
+      </div>
     </div>
   </div>
   <div class="line editions">
@@ -20,8 +28,7 @@
   <ng-container *ngFor="let group of groups()">
     <div *ngIf="group" class="line title"><label>{{group}}</label></div>
     <div class="line scenarios">
-      <span (click)="setScenario(scenario.index)" class="scenario"
-        [ngClass]="{'disabled' : hasScenario(scenario)}"
+      <span (click)="setScenario(scenario.index)" class="scenario" [ngClass]="{'disabled' : hasScenario(scenario)}"
         *ngFor="let scenario of scenarios(group)"><span
           *ngIf="maxScenario() > 2 && scenario.index.length < 3">0</span><span
           *ngIf="maxScenario() > 1 && scenario.index.length < 2">0</span>{{scenario.index}}</span>

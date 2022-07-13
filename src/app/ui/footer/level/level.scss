@@ -16,6 +16,12 @@
     .index {
       margin-right: calc(var(--ghs-unit) * 1);
     }
+
+    .sections {
+      display: flex;
+      justify-content: center;
+      font-size: calc(var(--ghs-unit) * 2);
+    }
   }
 
   .values {

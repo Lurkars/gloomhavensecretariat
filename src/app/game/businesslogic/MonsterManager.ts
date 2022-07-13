@@ -85,6 +85,8 @@ export class MonsterManager {
     if (this.game.state == GameState.next && monster.ability == -1) {
       if (!this.applySameDeck(monster)) {
         monster.ability = 0;
+      } else if (monster.ability == -1) {
+        monster.ability = 0;
       }
     }
 

@@ -137,7 +137,7 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "adjacentAlliesAffect"
+              "value": "alliesAdjacentAffect"
             }
           ]
         },

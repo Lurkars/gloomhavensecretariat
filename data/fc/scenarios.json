@@ -72,7 +72,7 @@
     "objectives": [
       {
         "name": "Orchid caravan",
-        "maxHealth": "2x(C+L)+3",
+        "health": "2x(C+L)+3",
         "escort": true
       }
     ]
@@ -89,7 +89,7 @@
     "objectives": [
       {
         "name": "Hail",
-        "maxHealth": "6+2xL",
+        "health": "6+2xL",
         "escort": true
       }
     ]
@@ -185,7 +185,7 @@
     "objectives": [
       {
         "name": "Naaret",
-        "maxHealth": "4+2xL",
+        "health": "4+2xL",
         "escort": true
       }
     ]
@@ -202,7 +202,7 @@
     "objectives": [
       {
         "name": "Hail",
-        "maxHealth": "4+2xL",
+        "health": "4+2xL",
         "escort": true
       }
     ]
