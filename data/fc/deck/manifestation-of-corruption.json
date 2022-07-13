@@ -356,7 +356,7 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "allEnemies"
+              "value": "enemies"
             }
           ]
         },
@@ -386,7 +386,7 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "allEnemies"
+              "value": "enemies"
             }
           ]
         },
@@ -727,7 +727,7 @@
               "subActions": [
                 {
                   "type": "specialTarget",
-                  "value": "allEnemiesRange:-1"
+                  "value": "enemiesRange:-1"
                 }
               ]
             }
@@ -752,7 +752,7 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "allEnemiesRange:2"
+              "value": "enemiesRange:2"
             },
             {
               "type": "condition",
@@ -776,7 +776,7 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "allEnemiesRange:3"
+              "value": "enemiesRange:3"
             }
           ]
         },
@@ -786,7 +786,7 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "allEnemiesRange:3"
+              "value": "enemiesRange:3"
             }
           ]
         }

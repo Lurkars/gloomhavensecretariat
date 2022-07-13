@@ -47,12 +47,8 @@
           "valueType": "minus",
           "subActions": [
             {
-              "type": "range",
-              "value": 2
-            },
-            {
               "type": "specialTarget",
-              "value": "allEnemiesRange"
+              "value": "enemiesRange:2"
             }
           ]
         }
@@ -179,12 +175,8 @@
           "value": "curse",
           "subActions": [
             {
-              "type": "range",
-              "value": 3
-            },
-            {
               "type": "specialTarget",
-              "value": "allEnemiesRange"
+              "value": "enemiesRange:3"
             }
           ]
         },

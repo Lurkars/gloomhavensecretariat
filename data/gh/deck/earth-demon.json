@@ -27,8 +27,8 @@
               "value": "immobilize"
             },
             {
-              "type": "custom",
-              "value": "%data.custom.gh.earth-demon.1%"
+              "type": "specialTarget",
+              "value": "enemiesRange:3"
             }
           ]
         }

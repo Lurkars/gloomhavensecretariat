@@ -56,8 +56,8 @@
               "value": "2 %or% 3"
             },
             {
-              "type": "custom",
-              "value": "%data.custom.cs.harrower-aegis.1%"
+              "type": "specialTarget",
+              "value": "enemiesRangeAffect:3"
             }
           ]
         },
@@ -66,8 +66,8 @@
           "value": "muddle",
           "subActions": [
             {
-              "type": "custom",
-              "value": "%data.custom.cs.harrower-aegis.2%"
+              "type": "specialTarget",
+              "value": "enemiesRange:3"
             }
           ]
         },

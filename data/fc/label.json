@@ -34,9 +34,9 @@
           "2": "%game.action.teleport% to the closest unoccupied hex adjacent to the focus."
         },
         "manifestation-of-corruption": {
-          "1": "Play top two cards, using the first card as initiative. Perfom the bottom action of the first card, then the top action of the second card",
-          "2": "Perform this action immediatley when revelead, not in normal initiative order.",
-          "3": "The character with the highest initative is forced to act as if their enenmies were allies and their allies were enemies this round. On their turn, they will perform \"%game.action.move%2\" and then the top action of their leading initiative card. Afterwards, they discard both played cards, regardless of wherever the cards would normally be lost.",
+          "1": "Play top two cards, using the first card as initiative. Perform the bottom action of the first card, then the top action of the second card",
+          "2": "Perform this action immediately when revealed, not in normal initiative order.",
+          "3": "The character with the highest initiative is forced to act as if their enemies were allies and their allies were enemies this round. On their turn, they will perform \"%game.action.move%2\" and then the top action of their leading initiative card. Afterwards, they discard both played cards, regardless of wherever the cards would normally be lost.",
           "4": "All attackers targeting you gain %game.condition.curse% this round.",
           "5": "Summon one %data.monster.flame-demon%: normal for two or three characters, elite for four characters.",
           "6": "Summon one %data.monster.night-demon%: normal for two characters, elite for three or four characters.",
@@ -52,7 +52,7 @@
           "16": "%game.action.teleport% to the hex occupied by the farthest enemy within %game.action.range%+1 and simultaneously %game.action.teleport% that enemy to the hex you occupy.",
           "17": "Summon one normal %data.monster.valrath-savage% adjacent to each enemy character within %game.action.range%5.",
           "18": "All attackers targeting you gain %game.condition.curse%.",
-          "19": "All attackers targeting you gain Disadvantage fo the attack.",
+          "19": "All attackers targeting you gain Disadvantage for the attack.",
           "20": "%game.action.attack%-1 on a new enemy within %game.action.range%4 of the first target, then %game.action.attack%-2 on a third enemy within %game.action.range%3 of the second target.",
           "21": "Summon one %game.monster.aesther-scout%: normal for two or three characters, elite for four characters.",
           "22": "On the next three sources of damage to you, suffer no damage instead."
@@ -69,7 +69,7 @@
           "2": "The first [C] times you suffer 6 or more damage, suffer no damage instead"
         },
         "tracker": {
-          "1": "Create one %game.condition.disarm% trap in any adjacent empty hex closest to an enemty.",
+          "1": "Create one %game.condition.disarm% trap in any adjacent empty hex closest to an enemy.",
           "2": "Focus on the enemy with the lowest current hit point value."
         },
         "uyart-ikkuma": {

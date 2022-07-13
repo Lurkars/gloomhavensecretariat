@@ -42,7 +42,7 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "allEnemiesRange"
+              "value": "enemiesRange:"
             }
           ]
         }
@@ -150,7 +150,7 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "allEnemiesRange"
+              "value": "enemiesRange:"
             }
           ]
         },

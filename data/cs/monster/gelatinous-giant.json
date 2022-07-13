@@ -52,8 +52,8 @@
           "valueType": "minus",
           "subActions": [
             {
-              "type": "custom",
-              "value": "%data.custom.cs.gelatinous-giant.2%"
+              "type": "specialTarget",
+              "value": "enemiesRange:3"
             }
           ]
         },

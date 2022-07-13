@@ -151,7 +151,7 @@
               "subActions": [
                 {
                   "type": "specialTarget",
-                  "value": "allEnemies"
+                  "value": "enemies"
                 }
               ]
             }
@@ -168,7 +168,7 @@
               "subActions": [
                 {
                   "type": "specialTarget",
-                  "value": "allEnemies"
+                  "value": "enemies"
                 }
               ]
             }

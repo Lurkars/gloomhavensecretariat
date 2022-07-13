@@ -171,8 +171,8 @@
           "value": 2,
           "subActions": [
             {
-              "type": "custom",
-              "value": "%data.custom.cs.hail-demon.4%"
+              "type": "specialTarget",
+              "value": "enemyRange:3"
             }
           ]
         },
@@ -203,8 +203,8 @@
           "valueType": "minus",
           "subActions": [
             {
-              "type": "custom",
-              "value": "%data.custom.cs.hail-demon.5%"
+              "type": "specialTarget",
+              "value": "enemyRange:2"
             }
           ]
         },

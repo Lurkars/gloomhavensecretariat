@@ -93,10 +93,6 @@
               "type": "range",
               "value": 1,
               "valueType": "minus"
-            },
-            {
-              "type": "specialTarget",
-              "value": "selfAlliesRange"
             }
           ]
         },
@@ -105,8 +101,8 @@
           "value": 1,
           "subActions": [
             {
-              "type": "range",
-              "value": 2
+              "type": "specialTarget",
+              "value": "selfAlliesRange:2"
             }
           ]
         },

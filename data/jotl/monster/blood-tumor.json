@@ -32,7 +32,7 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "allAllies"
+              "value": "allies"
             }
           ]
         }

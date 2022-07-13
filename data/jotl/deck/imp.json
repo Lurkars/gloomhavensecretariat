@@ -192,8 +192,8 @@
           "value": "strengthen",
           "subActions": [
             {
-              "type": "custom",
-              "value": "%data.custom.jotl.imp.1%"
+              "type": "specialTarget",
+              "value": "selfAlliesRange:2"
             }
           ]
         },
@@ -202,8 +202,8 @@
           "value": "muddle",
           "subActions": [
             {
-              "type": "custom",
-              "value": "%data.custom.jotl.imp.2%"
+              "type": "specialTarget",
+              "value": "enemiesRange:2"
             }
           ]
         }

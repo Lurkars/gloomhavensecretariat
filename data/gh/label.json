@@ -123,7 +123,7 @@
       "Ancient Defense Network": "Altes Verteidigungsnetzwerk",
       "Timeworn Tomb": "Verfallenes Grab",
       "Realm of the Voice": "Reich der Stimme",
-      "- Drake Nest": "Drakennest",
+      "Drake Nest": "Drachennest",
       "Tribal Assault": "Stammesangriff",
       "Rebel Swamp": "Rebellensumpf",
       "Nightmare Peak": "Albtraumspitze",
@@ -280,9 +280,6 @@
         "deep-terror": {
           "1": "%game.custom.summon% %data.monster.deep-terror% (%monster.normal%) in a hex adjacent to the target"
         },
-        "earth-demon": {
-          "1": "Target all enenmies withing %game.action.range% 3"
-        },
         "flame-demon": {
           "1": "%data.monster.flame-demon% suffers 1 damage.",
           "2": "All adjacent enemies suffer 2 damage.",
@@ -300,10 +297,6 @@
         },
         "hound": {
           "1": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.hound%'s allies."
-        },
-        "imp": {
-          "1": "Affect all allies withing %game.action.range% 2",
-          "2": "Target all enenmies withing %game.action.range% 2"
         },
         "living-corpse": {
           "1": "%data.monster.living-corpse% suffers 1 damage."

@@ -11,12 +11,8 @@
           "value": "immobilize",
           "subActions": [
             {
-              "type": "range",
-              "value": 2
-            },
-            {
               "type": "specialTarget",
-              "value": "allEnemiesRange"
+              "value": "enemiesRange:2"
             }
           ]
         },
