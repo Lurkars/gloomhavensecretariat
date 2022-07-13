@@ -165,9 +165,9 @@ export class MonsterManager {
           });
         }
 
-        if (settingsManager.settings.calculate) {
+        if (settingsManager.settings.applyConditions) {
           figure.entities.forEach((monsterEntity: MonsterEntity) => {
-            monsterEntity.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn)).forEach((entityCondition: EntityCondition) => entityCondition.state = EntityConditionState.normal);
+            monsterEntity.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition: EntityCondition) => entityCondition.state = EntityConditionState.normal);
           });
         }
 

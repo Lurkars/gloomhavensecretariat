@@ -120,17 +120,19 @@ export class CharacterManager {
 
         if (settingsManager.settings.expireConditions) {
           figure.entityConditions = figure.entityConditions.filter((entityCondition: EntityCondition) => !entityCondition.expired);
-          if (settingsManager.settings.calculate) {
-            figure.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn)).forEach((entityCondition: EntityCondition) => entityCondition.state = EntityConditionState.normal);
-          }
+
           figure.summons.forEach((summon: Summon) => {
             summon.entityConditions = summon.entityConditions.filter((entityCondition: EntityCondition) => !entityCondition.expired);
-            if (settingsManager.settings.calculate) {
-              summon.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn)).forEach((entityCondition: EntityCondition) => entityCondition.state = EntityConditionState.normal);
-            }
           });
         }
 
+        if (settingsManager.settings.applyConditions) {
+          figure.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition: EntityCondition) => entityCondition.state = EntityConditionState.normal);
+
+          figure.summons.forEach((summon: Summon) => {
+            summon.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition: EntityCondition) => entityCondition.state = EntityConditionState.normal);
+          });
+        }
       } else if (figure instanceof Objective) {
         figure.off = false;
 
@@ -139,8 +141,8 @@ export class CharacterManager {
         }
 
 
-        if (settingsManager.settings.calculate) {
-          figure.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn)).forEach((entityCondition: EntityCondition) => entityCondition.state = EntityConditionState.normal);
+        if (settingsManager.settings.applyConditions) {
+          figure.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition: EntityCondition) => entityCondition.state = EntityConditionState.normal);
         }
       }
     })

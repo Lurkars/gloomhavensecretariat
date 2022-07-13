@@ -32,6 +32,20 @@
     padding: 0 calc(var(--ghs-unit) * 2);
   }
 
+
+  .action-custom {
+
+    ghs-action {
+      &.subaction-custom {
+        .action-custom {
+          .custom-value {
+            font-size: 82%;
+          }
+        }
+      }
+    }
+  }
+
   .action-trigger {
 
     .custom-value {
@@ -237,9 +251,12 @@
 
     ghs-action {
 
-      &.subaction-custom {
-        .action-custom {
-          font-size: 67%;
+      &.subaction-custom,
+      &.subaction-specialTarget {
+
+        .action-custom,
+        .action-specialTarget {
+          font-size: 82%;
         }
       }
     }
@@ -306,6 +323,14 @@
       content: ',';
     }
 
+    ghs-action:nth-of-type(1) {
+      padding-left: calc(var(--ghs-unit) * 0.4);
+    }
+
+    ghs-action:not(:nth-last-of-type(1)) {
+      padding-right: calc(var(--ghs-unit) * 1);
+    }
+
     .custom-value {
       text-align: left;
       font-size: 100%;
@@ -344,6 +369,12 @@
           margin: calc(var(--ghs-unit) * 0.1);
         }
       }
+    }
+
+    .action-custom {
+      align-items: flex-start;
+      flex-direction: row;
+      flex-wrap: wrap;
     }
 
     .icon {

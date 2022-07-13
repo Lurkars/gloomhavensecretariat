@@ -18,7 +18,7 @@ export class CharacterImageComponent {
   characterManager: CharacterManager = gameManager.characterManager;
 
   toggleFigure(): void {
-    if ((gameManager.game.state == GameState.draw && this.character.initiative <= 0) || this.character.exhausted || this.character.health <= 0) {
+    if ((gameManager.game.state == GameState.draw && this.character.initiative <= 0) || this.character.exhausted) {
       //
     } else {
       gameManager.stateManager.before();
