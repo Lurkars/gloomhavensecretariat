@@ -106,11 +106,11 @@
       class="icon" [ngClass]="{'invert' : isInvertIcon(action.type)}" />
     <img *ngIf="action.type == ActionType.move && monster.flying" src="./assets/images/action/fly.svg" class="icon"
       [ngClass]="{'invert' : isInvertIcon(action.type)}" />
-    <span *ngIf="!relative" class="value"><span *ngIf="getNormalValue()" [value-calc]="getNormalValue()"
-        [level]="monster.level">"</span><span *ngIf="getNormalValue() != getEliteValue()">/<span
-          class="elite" [value-calc]="getEliteValue()"
-          [level]="monster.level">></span>
-      </span>
+    <span *ngIf="!relative" class="value">
+      <span [value-calc]="getNormalValue()" [level]="monster.level" [empty]="true"></span>
+      <span *ngIf="getEliteValue() && getNormalValue() != getEliteValue()">/</span>
+      <span *ngIf="getEliteValue() && getNormalValue() != getEliteValue()" class="elite" [value-calc]="getEliteValue()"
+        [level]="monster.level"></span>
     </span>
     <span *ngIf="relative" class="value">{{getNormalValue()}}<span *ngIf="getNormalValue() != getEliteValue()">/<span
           class="elite">{{getEliteValue()}}</span>

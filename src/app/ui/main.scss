@@ -110,13 +110,13 @@ main {
 }
 
 .cdk-drag-placeholder {
-  opacity: 0;
+  opacity: 0.5;
 }
 
 .cdk-drag-animating {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-.figures.cdk-drop-list-dragging .figure:not(.cdk-drag-placeholder) {
+.drop-list.cdk-drop-list-dragging .attack-modifier:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
