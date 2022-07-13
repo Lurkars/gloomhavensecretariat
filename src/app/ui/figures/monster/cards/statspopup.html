@@ -1,13 +1,15 @@
 <div class="name-container">
-  <span class="name" (click)="toggle()">{{'data.monster.' + monster.name | ghsLabel}} <span class="edition"
-      *ngIf="getEdition()">[{{'data.edition.' + getEdition()| ghsLabel}}]</span></span>
+  <span class="name" (click)="toggle()">{{'data.monster.' + monster.name | ghsLabel}}</span>
   <span *ngIf="monster.flying" class="flying"><img class="ghs-svg" src="./assets/images/action/fly.svg" /></span>
+  <span class="edition" *ngIf="getEdition()"> [{{'data.edition.' + getEdition()| ghsLabel}}]</span>
 </div>
 
 <div #popup class="stats-popup">
   <span class="name" (click)="toggle()">{{'data.monster.' + monster.name | ghsLabel}} <span class="edition"
-      *ngIf="getEdition()">[{{'data.edition.' + getEdition()| ghsLabel}}]</span></span>
+      *ngIf="getEdition()">[{{'data.edition.' + getEdition()| ghsLabel}}]</span>
+  </span>
   <div class="stats-container">
-    <ghs-monster-stats [monster]="getMonsterForLevel(level)" [showName]="true" *ngFor="let level of levels"></ghs-monster-stats>
+    <ghs-monster-stats [monster]="getMonsterForLevel(level)" [showName]="true" [forceStats]="true"
+      *ngFor="let level of levels"></ghs-monster-stats>
   </div>
 </div>

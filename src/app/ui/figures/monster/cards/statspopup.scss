@@ -20,12 +20,17 @@
       color: var(--ghs-color-gray);
     }
   }
+  
+  .edition {
+    margin-left: calc(var(--ghs-unit) * 0.5);
+  }
 
   .flying {
     display: flex;
     justify-content: center;
     align-items: center;
     width: auto;
+    margin-left: calc(var(--ghs-unit) * 0.5);
 
     img {
       height: 1em;
@@ -36,11 +41,15 @@
 
 .stats-popup {
 
+  width: calc(var(--ghs-unit) * 42);
+
   display: flex;
   flex-direction: column;
 
   .name {
-    display: block;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     font-family: 'ghs-title';
     color: var(--ghs-color-white);
     font-size: calc(var(--ghs-unit) * 3.5);

@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Ability } from 'src/app/game/model/Ability';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { FigureError } from 'src/app/game/model/FigureError';
@@ -20,6 +20,7 @@ export class MonsterStatsComponent extends DialogComponent {
 
   @Input() monster!: Monster;
   @Input() showName: boolean = false;
+  @Input() forceStats: boolean = false;
   MonsterType = MonsterType;
 
   stats: MonsterStat | undefined = undefined;
@@ -37,7 +38,7 @@ export class MonsterStatsComponent extends DialogComponent {
   }
 
   hideStats(type: MonsterType) {
-    return settingsManager.settings.hideStats && this.monster.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead || monsterEntity.type != type);
+    return !this.forceStats && settingsManager.settings.hideStats && this.monster.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead || monsterEntity.type != type);
   }
 
   setStats() {

@@ -31,11 +31,16 @@
     white-space: nowrap;
     overflow: auto;
 
+    .edition {
+      margin-left: calc(var(--ghs-unit) * 0.5);
+    }
+
     .flying {
       display: flex;
       justify-content: center;
       align-items: center;
       width: auto;
+      margin-left: calc(var(--ghs-unit) * 0.5);
 
       img {
         height: 1em;
