@@ -1,5 +1,5 @@
 {
-  "name": "betrayer",
+  "name": "the-betrayer",
   "edition": "gh",
   "deck": "boss",
   "boss": true,
@@ -46,7 +46,7 @@
     },
     {
       "level": 2,
-      "health": "12xC",
+      "health": "14xC",
       "movement": 3,
       "attack": 6,
       "range": 4

@@ -115,7 +115,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison"
+          "value": "wound"
         }
       ]
     },

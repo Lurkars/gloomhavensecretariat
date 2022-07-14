@@ -47,6 +47,12 @@
       "attack": 3
     },
     {
+      "level": 3,
+      "health": "13xC",
+      "movement": 4,
+      "attack": 4
+    },
+    {
       "level": 4,
       "health": "15xC",
       "movement": 4,
@@ -69,13 +75,6 @@
       "health": "23xC",
       "movement": 5,
       "attack": 5
-    },
-    {
-      "type": "boss",
-      "level": 3,
-      "health": "13xC",
-      "movement": 4,
-      "attack": 4
     }
   ]
 }

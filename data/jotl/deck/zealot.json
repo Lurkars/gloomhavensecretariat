@@ -20,7 +20,7 @@
       ]
     },
     {
-      "name": "Hasty Assoult",
+      "name": "Hasty Assault",
       "cardId": 385,
       "initiative": 35,
       "actions": [
@@ -200,8 +200,7 @@
         },
         {
           "type": "element",
-          "value": "air",
-          "valueType": "plus"
+          "value": "air"
         }
       ]
     },
@@ -224,8 +223,7 @@
         },
         {
           "type": "element",
-          "value": "fire",
-          "valueType": "plus"
+          "value": "fire"
         }
       ]
     }

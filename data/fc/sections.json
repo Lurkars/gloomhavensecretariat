@@ -49,7 +49,7 @@
       "ancient-artillery",
       "earth-demon",
       "flame-demon",
-      "savvas-lavaflow"
+      "avatar-of-ashtar"
     ]
   },
   {
@@ -177,7 +177,7 @@
     "monsters": [
       "ancient-artillery",
       "frost-demon",
-      "savvas-icestorm",
+      "avatar-of-thelija",
       "wind-demon"
     ]
   },
@@ -321,12 +321,12 @@
     "name": "Gateway to the Firmament",
     "index": "84",
     "monsters": [
-      "aesther-ashblade",
+      "elham",
       "earth-demon",
       "flame-demon",
       "frost-demon",
-      "savvas-icestorm",
-      "savvas-lavaflow"
+      "icestorm-guardian-of-the-firmamant",
+      "lavaflow-guardian-of-the-firmament"
     ]
   },
   {
@@ -394,6 +394,38 @@
       "black-imp",
       "cultist",
       "deep-terror"
+    ],
+    "objectives": [
+      {
+        "name": "Civilian 4",
+        "escort": true,
+        "health": "2x(L+C)",
+        "initiative": 50
+      },
+      {
+        "name": "Civilian 5",
+        "escort": true,
+        "health": "2x(L+C)",
+        "initiative": 50
+      },
+      {
+        "name": "Civilian 6",
+        "escort": true,
+        "health": "2x(L+C)",
+        "initiative": 50
+      },
+      {
+        "name": "Civilian 7",
+        "escort": true,
+        "health": "2x(L+C)",
+        "initiative": 50
+      },
+      {
+        "name": "Civilian 8",
+        "escort": true,
+        "health": "2x(L+C)",
+        "initiative": 50
+      }
     ]
   },
   {

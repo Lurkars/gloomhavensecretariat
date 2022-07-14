@@ -20,10 +20,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(var(--ghs-unit) * 7);
-    width: calc(var(--ghs-unit) * 7);
+    height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+    width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
     font-family: 'ghs-title';
-    font-size: calc(var(--ghs-unit) * 3.5);
+    font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
     color: var(--ghs-color-gray);
     border-radius: 100%;
 

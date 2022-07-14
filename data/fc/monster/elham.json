@@ -1,0 +1,167 @@
+{
+  "name": "elham",
+  "thumbnail": "fc-aesther-ashblade",
+  "edition": "fc",
+  "deck": "ashblade",
+  "boss": true,
+  "hidden": true,
+  "count": 4,
+  "baseStat": {
+    "type": "boss",
+    "actions": [],
+    "immunities": [
+      "stun"
+    ],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 12,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": 14,
+      "movement": 4,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 16,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 18,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 21,
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 25,
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 28,
+      "movement": 4,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 32,
+      "movement": 5,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    }
+  ]
+}

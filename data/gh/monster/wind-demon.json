@@ -179,12 +179,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 2
-        },
-        {
           "type": "condition",
           "value": "disarm"
+        },
+        {
+          "type": "shield",
+          "value": 2
         }
       ]
     },
@@ -197,12 +197,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 2
-        },
-        {
           "type": "condition",
           "value": "disarm"
+        },
+        {
+          "type": "shield",
+          "value": 2
         }
       ]
     },
@@ -215,12 +215,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 3
-        },
-        {
           "type": "condition",
           "value": "disarm"
+        },
+        {
+          "type": "shield",
+          "value": 3
         }
       ]
     },
@@ -233,12 +233,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 3
-        },
-        {
           "type": "condition",
           "value": "disarm"
+        },
+        {
+          "type": "shield",
+          "value": 3
         }
       ]
     }

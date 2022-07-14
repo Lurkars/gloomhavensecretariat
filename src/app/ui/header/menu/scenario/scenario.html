@@ -20,7 +20,7 @@
     </div>
   </div>
   <div class="line editions">
-    <label *ngFor="let e of (gameManager.game.edition ? [gameManager.game.edition] : gameManager.editions());">
+    <label *ngFor="let e of (gameManager.game.edition ? [gameManager.game.edition] : editions());">
       <input type="radio" name="radio" [value]="e" (change)="edition = e" [checked]="edition == e">
       {{'data.edition.' + e | ghsLabel}}
     </label>
@@ -28,7 +28,7 @@
   <ng-container *ngFor="let group of groups()">
     <div *ngIf="group" class="line title"><label>{{group}}</label></div>
     <div class="line scenarios">
-      <span (click)="setScenario(scenario.index)" class="scenario" [ngClass]="{'disabled' : hasScenario(scenario)}"
+      <span (click)="setScenario(scenario)" class="scenario" [ngClass]="{'disabled' : hasScenario(scenario)}"
         *ngFor="let scenario of scenarios(group)"><span
           *ngIf="maxScenario() > 2 && scenario.index.length < 3">0</span><span
           *ngIf="maxScenario() > 1 && scenario.index.length < 2">0</span>{{scenario.index}}</span>

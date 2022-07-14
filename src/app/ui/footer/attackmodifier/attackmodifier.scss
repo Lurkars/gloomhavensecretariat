@@ -25,29 +25,29 @@
 
   position: relative;
   height: 100%;
-  width: calc(var(--ghs-unit) * 38);
+  width: calc(var(--ghs-unit) * 38 * var(--ghs-text-factor));
 
   .attack-modifier {
     position: absolute;
     cursor: pointer;
     display: block;
-    top: calc(var(--ghs-unit) * 2);
+    top: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
     left: 0;
 
-    width: calc(var(--ghs-unit) * 14);
-    height: calc(var(--ghs-unit) * 9.6);
+    width: calc(var(--ghs-unit) * 14 * var(--ghs-text-factor));
+    height: calc(var(--ghs-unit) * 9.6 * var(--ghs-text-factor));
 
     .number {
       color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
       position: absolute;
-      font-size: calc(var(--ghs-unit) * 2.5);
-      right: calc(var(--ghs-unit) * 1);
+      font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+      right: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
       bottom: 0;
       z-index: 1000;
 
       img {
-        width: calc(var(--ghs-unit) * 2.5);
+        width: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
         height: auto;
       }
     }
@@ -63,12 +63,12 @@
 
     @keyframes attackmodifier-draw {
       0% {
-        transform: scale(1) translate(calc(var(--ghs-unit) * -15), calc(var(--ghs-unit) * -2));
+        transform: scale(1) translate(calc(var(--ghs-unit) * -15 * var(--ghs-text-factor)), calc(var(--ghs-unit) * -2));
       }
 
       40%,
       65% {
-        transform: scale(2) translate(calc(var(--ghs-unit) * -15), calc(var(--ghs-unit) * -25));
+        transform: scale(2) translate(calc(var(--ghs-unit) * -15 * var(--ghs-text-factor)), calc(var(--ghs-unit) * -25));
       }
 
       100% {
@@ -78,15 +78,15 @@
 
     &.current {
       position: absolute;
-      top: calc(var(--ghs-unit) * 2);
-      left: calc(var(--ghs-unit) * 15);
+      top: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+      left: calc(var(--ghs-unit) * 15 * var(--ghs-text-factor));
       z-index: 1;
     }
 
     &.last {
       position: absolute;
-      top: calc(var(--ghs-unit) * 4);
-      left: calc(var(--ghs-unit) * 26);
+      top: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+      left: calc(var(--ghs-unit) * 26 * var(--ghs-text-factor));
       z-index: 0;
       animation: none;
       transition: all 500ms ease-in-out;
@@ -95,11 +95,11 @@
     }
 
     .shuffle {
-      height: calc(var(--ghs-unit) * 3.5);
+      height: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
       width: auto;
       position: absolute;
-      right: calc(var(--ghs-unit) * 0.5);
-      bottom: calc(var(--ghs-unit) * 0.5);
+      right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+      bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
       filter: var(--ghs-filter-white);
     }
   }

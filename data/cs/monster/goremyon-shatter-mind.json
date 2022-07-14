@@ -7,7 +7,6 @@
   "baseStat": {
     "type": "boss",
     "note": "%data.custom.cs.goremyon-shatter-mind.6%",
-    "movement": 0,
     "actions": [],
     "immunities": [
       "wound",
@@ -42,7 +41,7 @@
             },
             {
               "type": "custom",
-              "value": " %data.custom.cs.goremyon-shatter-mind.2%"
+              "value": "%data.custom.cs.goremyon-shatter-mind.2%"
             }
           ]
         }

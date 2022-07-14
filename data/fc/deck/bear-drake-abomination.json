@@ -1,0 +1,178 @@
+{
+  "name": "bear-drake-abomination",
+  "edition": "fc",
+  "abilities": [
+    {
+      "cardId": 548,
+      "initiative": 12,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
+    },
+    {
+      "cardId": 549,
+      "initiative": 13,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
+    },
+    {
+      "cardId": 550,
+      "initiative": 25,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId": 553,
+      "initiative": 59,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 597,
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 601,
+      "initiative": 80,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 602,
+      "initiative": 61,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 603,
+      "initiative": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "retaliate",
+          "value": 2
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

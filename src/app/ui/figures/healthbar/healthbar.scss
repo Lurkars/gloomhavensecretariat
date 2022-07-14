@@ -1,6 +1,6 @@
 .health-bar {
   width: 100%;
-  height: calc(var(--ghs-unit) * 0.5);
+  height: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
   border: none;
   background-color: transparent;
 

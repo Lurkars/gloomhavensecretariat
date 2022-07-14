@@ -6,6 +6,12 @@
   align-items: center;
   width: calc(var(--ghs-unit) * 90);
 
+  ghs-monster-ability,
+  ghs-monster-stats,
+  ghs-monster-image {
+    transition: filter 150ms ease-in-out;
+  }
+
   &.off {
 
     ghs-monster-ability,
@@ -37,7 +43,8 @@
 
     &.elite {
       bottom: calc(var(--ghs-unit) * 1);
-      left: calc(var(--ghs-unit) * 84.5);
+      left: auto;
+      right: calc(var(--ghs-unit) * 0.5);
     }
   }
 }

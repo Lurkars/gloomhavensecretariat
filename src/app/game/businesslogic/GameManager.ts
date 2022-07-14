@@ -594,7 +594,7 @@ export class GameManager {
       return;
     }
 
-    if (!this.game.sections.some((value: SectionData) => value.edition == section.edition && value.index == section.index)) {
+    if (!this.game.sections.some((value: SectionData) => value.edition == section.edition && value.index == section.index && value.group == section.group)) {
       this.game.sections.push(section);
       this.applyScenarioData(editionData, section);
     }

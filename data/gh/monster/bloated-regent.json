@@ -1,0 +1,89 @@
+{
+  "name": "bloated-regent",
+  "thumbnail": "gh-living-corpse",
+  "edition": "gh",
+  "deck": "living-corpse",
+  "boss": true,
+  "hidden": true,
+  "count": 6,
+  "baseStat": {
+    "type": "boss",
+    "actions": [],
+    "immunities": [],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "10xC/2",
+      "movement": 1,
+      "attack": 3
+    },
+    {
+      "level": 1,
+      "health": "10xC/2",
+      "movement": 1,
+      "attack": 4
+    },
+    {
+      "level": 2,
+      "health": "13xC/2",
+      "movement": 1,
+      "attack": 4
+    },
+    {
+      "level": 3,
+      "health": "13xC/2",
+      "movement": 2,
+      "attack": 5
+    },
+    {
+      "level": 4,
+      "health": "15xC/2",
+      "movement": 2,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "17xC/2",
+      "movement": 2,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "21xC/2",
+      "movement": 2,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "25xC/2",
+      "movement": 2,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    }
+  ]
+}

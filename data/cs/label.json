@@ -57,6 +57,7 @@
       "living-wall": "Living Wall",
       "morphling": "Morphling",
       "ravenous-gharial": "Ravenous Gharial",
+      "rending-drake-cs": "Rending Drake",
       "rogue-hollowpact": "Rogue Hollowpact",
       "ruinmaw": "Ruinmaw",
       "savvas-icebound": "Savvas Icebound",
@@ -174,7 +175,10 @@
           "2": "Jump to an empty hex adjacent to a Void Pit obstacle furthest away from a character within %game.action.range% 4.",
           "3": "All enemies adjacent to a Void Pit obstacle suffer 2 damage."
         },
-        "terror-drone" : {
+        "terrible-two-archer": {
+          "1": "Create a 3 damage trap in an adjacent empty hex closest to an enemy"
+        },
+        "terror-drone": {
           "1": "Summon a normal %data.monster.dead-archer% in a hex adjacent to the target"
         },
         "terrorscale-drake": {
@@ -186,9 +190,9 @@
           "2": "For three or more characters, every other %data.monster.living-spirit% summoned is elite."
         },
         "toxic-imp": {
-          "1" : "Add +1 %game.action.attack% if the target has %game.condition.infect%",
-          "2" : "If an enemy targets %data.monster.toxic-imp% with an attack, that enemy gains %game.condition.infect%.",
-          "3" : "If a negative condition was removed with this heal, the target gains %game.condition.strengthen%."
+          "1": "Add +1 %game.action.attack% if the target has %game.condition.infect%",
+          "2": "If an enemy targets %data.monster.toxic-imp% with an attack, that enemy gains %game.condition.infect%.",
+          "3": "If a negative condition was removed with this heal, the target gains %game.condition.strengthen%."
         },
         "water-spirit": {
           "1": "Shield only applies before its turn.",

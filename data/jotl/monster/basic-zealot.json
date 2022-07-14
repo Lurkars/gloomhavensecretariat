@@ -15,29 +15,25 @@
       "level": 0,
       "health": 4,
       "movement": 2,
-      "attack": 2,
-      "range": 0
+      "attack": 2
     },
     {
       "level": 1,
       "health": 6,
       "movement": 2,
-      "attack": 2,
-      "range": 0
+      "attack": 2
     },
     {
       "level": 2,
       "health": 7,
       "movement": 3,
-      "attack": 3,
-      "range": 0
+      "attack": 3
     },
     {
       "level": 3,
       "health": 8,
       "movement": 3,
       "attack": 3,
-      "range": 0,
       "actions": [
         {
           "type": "condition",
@@ -50,7 +46,6 @@
       "health": 10,
       "movement": 3,
       "attack": 3,
-      "range": 0,
       "actions": [
         {
           "type": "condition",
@@ -63,7 +58,6 @@
       "health": 12,
       "movement": 4,
       "attack": 3,
-      "range": 0,
       "actions": [
         {
           "type": "condition",
@@ -76,7 +70,6 @@
       "health": 14,
       "movement": 4,
       "attack": 4,
-      "range": 0,
       "actions": [
         {
           "type": "condition",
@@ -89,7 +82,6 @@
       "health": 16,
       "movement": 4,
       "attack": 5,
-      "range": 0,
       "actions": [
         {
           "type": "condition",
@@ -102,8 +94,7 @@
       "level": 0,
       "health": 7,
       "movement": 2,
-      "attack": 3,
-      "range": 0
+      "attack": 3
     },
     {
       "type": "elite",
@@ -111,7 +102,6 @@
       "health": 8,
       "movement": 2,
       "attack": 3,
-      "range": 0,
       "actions": [
         {
           "type": "condition",
@@ -125,7 +115,6 @@
       "health": 11,
       "movement": 3,
       "attack": 3,
-      "range": 0,
       "actions": [
         {
           "type": "condition",
@@ -139,7 +128,6 @@
       "health": 13,
       "movement": 3,
       "attack": 4,
-      "range": 0,
       "actions": [
         {
           "type": "condition",
@@ -153,7 +141,6 @@
       "health": 17,
       "movement": 3,
       "attack": 4,
-      "range": 0,
       "actions": [
         {
           "type": "condition",
@@ -167,7 +154,6 @@
       "health": 18,
       "movement": 4,
       "attack": 5,
-      "range": 0,
       "actions": [
         {
           "type": "condition",
@@ -181,7 +167,6 @@
       "health": 22,
       "movement": 4,
       "attack": 6,
-      "range": 0,
       "actions": [
         {
           "type": "condition",
@@ -195,7 +180,6 @@
       "health": 26,
       "movement": 4,
       "attack": 7,
-      "range": 0,
       "actions": [
         {
           "type": "condition",

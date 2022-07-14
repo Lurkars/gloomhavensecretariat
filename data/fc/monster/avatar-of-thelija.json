@@ -1,0 +1,149 @@
+{
+  "name": "avatar-of-thelija",
+  "thumbnail": "gh-savvas-icestorm",
+  "edition": "fc",
+  "deck": "savvas-icestorm",
+  "boss": true,
+  "hidden": true,
+  "count": 4,
+  "baseStat": {
+    "type": "boss",
+    "actions": [],
+    "immunities": [],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 12,
+      "movement": 2,
+      "attack": 3,
+      "range": 4,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": 12,
+      "movement": 2,
+      "attack": 3,
+      "range": 5,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 3
+        },
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 15,
+      "movement": 3,
+      "attack": 3,
+      "range": 5,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 3
+        },
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 18,
+      "movement": 3,
+      "attack": 4,
+      "range": 6,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 3
+        },
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 19,
+      "movement": 4,
+      "attack": 4,
+      "range": 6,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 3
+        },
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 21,
+      "movement": 4,
+      "attack": 5,
+      "range": 6,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 3
+        },
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 23,
+      "movement": 4,
+      "attack": 6,
+      "range": 6,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 3
+        },
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 24,
+      "movement": 4,
+      "attack": 6,
+      "range": 6,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 4
+        },
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    }
+  ]
+}

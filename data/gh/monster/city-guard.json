@@ -18,7 +18,7 @@
     },
     {
       "level": 1,
-      "health": 6,
+      "health": 5,
       "movement": 2,
       "attack": 2,
       "actions": [
@@ -32,7 +32,7 @@
       "level": 2,
       "health": 7,
       "movement": 2,
-      "attack": 3,
+      "attack": 2,
       "actions": [
         {
           "type": "shield",

@@ -134,7 +134,7 @@
         {
           "type": "attack",
           "value": 1,
-          "valueType": "munus",
+          "valueType": "minus",
           "subActions": [
             {
               "type": "range",
@@ -152,7 +152,7 @@
       "name": "Greed",
       "cardId": 467,
       "initiative": 40,
-      "shuffle": 1,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",

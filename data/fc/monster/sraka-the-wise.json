@@ -1,9 +1,10 @@
 {
   "name": "sraka-the-wise",
+  "thumbnail": "gh-vermling-shaman",
   "edition": "fc",
   "deck": "shaman",
   "boss": true,
-  "count": 1,
+  "count": 6,
   "baseStat": {
     "type": "boss",
     "actions": [],
@@ -16,8 +17,7 @@
   "stats": [
     {
       "level": 0,
-      "health": "2xC",
-      "movement": 3,
+      "health": "3xC/2",
       "attack": 2,
       "range": 3,
       "actions": [
@@ -37,8 +37,7 @@
     },
     {
       "level": 1,
-      "health": "2xC",
-      "movement": 2,
+      "health": "3xC/2",
       "attack": 2,
       "range": 3,
       "actions": [
@@ -58,8 +57,7 @@
     },
     {
       "level": 2,
-      "health": "2xC",
-      "movement": 3,
+      "health": "4xC/2",
       "attack": 2,
       "range": 4,
       "actions": [
@@ -79,8 +77,7 @@
     },
     {
       "level": 3,
-      "health": "3xC",
-      "movement": 3,
+      "health": "5xC/2",
       "attack": 3,
       "range": 4,
       "actions": [
@@ -100,8 +97,7 @@
     },
     {
       "level": 4,
-      "health": "3xC",
-      "movement": 3,
+      "health": "5xC/2",
       "attack": 3,
       "range": 4,
       "actions": [
@@ -125,8 +121,7 @@
     },
     {
       "level": 5,
-      "health": "3xC",
-      "movement": 3,
+      "health": "6xC/2",
       "attack": 4,
       "range": 4,
       "actions": [
@@ -150,8 +145,7 @@
     },
     {
       "level": 6,
-      "health": "3xC",
-      "movement": 3,
+      "health": "6xC/2",
       "attack": 4,
       "range": 4,
       "actions": [
@@ -181,8 +175,7 @@
     },
     {
       "level": 7,
-      "health": "4xC",
-      "movement": 3,
+      "health": "8xC/2",
       "attack": 4,
       "range": 4,
       "actions": [

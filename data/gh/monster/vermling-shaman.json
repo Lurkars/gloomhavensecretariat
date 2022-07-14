@@ -70,12 +70,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 3
-        },
-        {
           "type": "condition",
           "value": "muddle"
+        },
+        {
+          "type": "shield",
+          "value": 3
         }
       ]
     },
@@ -87,12 +87,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 3
-        },
-        {
           "type": "condition",
           "value": "muddle"
+        },
+        {
+          "type": "shield",
+          "value": 3
         }
       ]
     },
@@ -104,12 +104,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 3
-        },
-        {
           "type": "condition",
           "value": "muddle"
+        },
+        {
+          "type": "shield",
+          "value": 3
         }
       ]
     },
@@ -121,12 +121,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 3
-        },
-        {
           "type": "condition",
           "value": "muddle"
+        },
+        {
+          "type": "shield",
+          "value": 3
         }
       ]
     },
@@ -195,12 +195,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 4
-        },
-        {
           "type": "condition",
           "value": "muddle"
+        },
+        {
+          "type": "shield",
+          "value": 4
         }
       ]
     },
@@ -213,12 +213,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 4
-        },
-        {
           "type": "condition",
           "value": "muddle"
+        },
+        {
+          "type": "shield",
+          "value": 4
         }
       ]
     },
@@ -231,12 +231,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 5
-        },
-        {
           "type": "condition",
           "value": "muddle"
+        },
+        {
+          "type": "shield",
+          "value": 5
         }
       ]
     },
@@ -249,12 +249,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 5
-        },
-        {
           "type": "condition",
           "value": "muddle"
+        },
+        {
+          "type": "shield",
+          "value": 5
         }
       ]
     }

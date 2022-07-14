@@ -83,7 +83,10 @@
       "attack": 2,
       "range": 4,
       "actions": [
-        {},
+        {
+          "type": "condition",
+          "value": "curse"
+        },
         {
           "type": "shield",
           "value": 2
@@ -97,7 +100,10 @@
       "attack": 3,
       "range": 4,
       "actions": [
-        {},
+        {
+          "type": "condition",
+          "value": "curse"
+        },
         {
           "type": "shield",
           "value": 2
@@ -111,7 +117,10 @@
       "attack": 3,
       "range": 4,
       "actions": [
-        {},
+        {
+          "type": "condition",
+          "value": "curse"
+        },
         {
           "type": "shield",
           "value": 2
@@ -154,7 +163,10 @@
       "attack": 2,
       "range": 3,
       "actions": [
-        {},
+        {
+          "type": "condition",
+          "value": "curse"
+        },
         {
           "type": "shield",
           "value": 1
@@ -169,7 +181,10 @@
       "attack": 2,
       "range": 4,
       "actions": [
-        {},
+        {
+          "type": "condition",
+          "value": "curse"
+        },
         {
           "type": "shield",
           "value": 1
@@ -184,7 +199,10 @@
       "attack": 2,
       "range": 4,
       "actions": [
-        {},
+        {
+          "type": "condition",
+          "value": "curse"
+        },
         {
           "type": "shield",
           "value": 2
@@ -199,7 +217,10 @@
       "attack": 3,
       "range": 4,
       "actions": [
-        {},
+        {
+          "type": "condition",
+          "value": "curse"
+        },
         {
           "type": "shield",
           "value": 2
@@ -214,7 +235,10 @@
       "attack": 4,
       "range": 4,
       "actions": [
-        {},
+        {
+          "type": "condition",
+          "value": "curse"
+        },
         {
           "type": "shield",
           "value": 2
@@ -229,7 +253,10 @@
       "attack": 4,
       "range": 4,
       "actions": [
-        {},
+        {
+          "type": "condition",
+          "value": "curse"
+        },
         {
           "type": "shield",
           "value": 2

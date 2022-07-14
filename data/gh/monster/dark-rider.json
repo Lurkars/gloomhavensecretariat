@@ -62,7 +62,7 @@
       "level": 2,
       "health": "12xC",
       "movement": 3,
-      "attack": "4+X"
+      "attack": "3+X"
     },
     {
       "level": 3,
@@ -72,7 +72,7 @@
     },
     {
       "level": 4,
-      "health": "14xC",
+      "health": "15xC",
       "movement": 3,
       "attack": "4+X"
     },

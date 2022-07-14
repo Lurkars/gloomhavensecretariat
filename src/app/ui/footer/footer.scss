@@ -1,7 +1,7 @@
 footer {
 
-  height: calc(var(--ghs-unit) * 14);
-  padding-top: calc(var(--ghs-unit) * 1.5);
+  height: calc(var(--ghs-unit) * 14 * var(--ghs-text-factor));
+  padding-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
   display: flex;
   flex-direction: row;
   overflow: unset;
@@ -20,7 +20,7 @@ footer {
     background-image: url('~src/assets/images/footer.png');
     background-position: top;
     position: absolute;
-    height: calc(var(--ghs-unit) * 2.5);
+    height: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
     top: 0;
   }
 
@@ -30,7 +30,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: calc(var(--ghs-unit) * 15);
+    width: calc(var(--ghs-unit) * 15 * var(--ghs-text-factor));
     word-wrap: break-word;
     text-align: center;
 
@@ -38,14 +38,14 @@ footer {
       font-family: 'ghs-title';
       color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
-      font-size: calc(var(--ghs-unit) * 3.7);
-      line-height: calc(var(--ghs-unit) * 3.7);
+      font-size: calc(var(--ghs-unit) * 3.7 * var(--ghs-text-factor));
+      line-height: calc(var(--ghs-unit) * 3.7 * var(--ghs-text-factor));
       display: flex;
       align-items: center;
       justify-content: center;
-      height: calc(var(--ghs-unit) * 12);
-      width: calc(var(--ghs-unit) * 12);
-      margin-left: calc(var(--ghs-unit) * 1.5);
+      height: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor));
+      width: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor));
+      margin-left: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
     }
 
     .time {
@@ -53,19 +53,19 @@ footer {
       color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
       position: absolute;
-      font-size: calc(var(--ghs-unit) * 1.5);
+      font-size: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
       left: 50%;
       transform: translateX(-50%);
-      bottom: calc(var(--ghs-unit) * 0.5);
+      bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
     }
 
     .round {
       color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
       position: absolute;
-      font-size: calc(var(--ghs-unit) * 3);
-      left: calc(var(--ghs-unit) * 13.5);
-      bottom: calc(var(--ghs-unit) * 0.5);
+      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+      left: calc(var(--ghs-unit) * 13.5 * var(--ghs-text-factor));
+      bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
     }
 
     &:hover {
@@ -108,20 +108,20 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: calc(var(--ghs-unit) * 6);
+    min-height: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor));
 
     p {
       margin: 0;
       padding: 0;
       color: var(--ghs-color-gray);
-      font-size: calc(var(--ghs-unit) * 2.5);
+      font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
     }
 
     a {
       cursor: pointer;
-      margin-top: calc(var(--ghs-unit) * 2);
+      margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
       color: var(--ghs-color-gray);
-      font-size: calc(var(--ghs-unit) * 3);
+      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
 
       &:hover {
         color: var(--ghs-color-white);

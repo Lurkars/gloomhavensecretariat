@@ -68,7 +68,7 @@
         },
         {
           "type": "shield",
-          "value": 2
+          "value": 3
         }
       ]
     },
@@ -294,7 +294,7 @@
         },
         {
           "type": "shield",
-          "value": 4
+          "value": 5
         }
       ]
     },

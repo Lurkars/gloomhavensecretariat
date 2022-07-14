@@ -1,6 +1,6 @@
 header {
-  height: calc(var(--ghs-unit) * 10);
-  padding-bottom: calc(var(--ghs-unit) * 2);
+  height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor));
+  padding-bottom: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
   display: flex;
   flex-direction: row;
   position: relative;
@@ -13,7 +13,7 @@ header {
     background-image: url('~src/assets/images/header.png');
     background-position: bottom;
     position: absolute;
-    height: calc(var(--ghs-unit) * 2.5);
+    height: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
     bottom: 0;
   }
 
@@ -24,8 +24,8 @@ header {
   .server-connection {
 
     display: flex;
-    width: calc(var(--ghs-unit) * 2.5);
-    height: calc(var(--ghs-unit) * 2.5);
+    width: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+    height: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
     align-self: center;
 
     &.connected {
@@ -56,9 +56,9 @@ header {
     align-items: center;
 
     .element {
-      margin: calc(var(--ghs-unit) * 0.5);
-      width: calc(var(--ghs-unit) * 6);
-      height: calc(var(--ghs-unit) * 6);
+      margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+      width: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor));
+      height: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor));
       cursor: pointer;
 
       span {

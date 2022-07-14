@@ -57,7 +57,7 @@
       "actions": [
         {
           "type": "move",
-          "value": 2,
+          "value": 3,
           "valueType": "plus"
         },
         {

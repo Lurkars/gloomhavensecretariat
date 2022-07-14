@@ -29,42 +29,78 @@
       "health": 8,
       "movement": 3,
       "attack": 3,
-      "range": 3
+      "range": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     },
     {
       "level": 3,
       "health": 8,
       "movement": 3,
       "attack": 4,
-      "range": 4
+      "range": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     },
     {
       "level": 4,
       "health": 9,
       "movement": 4,
       "attack": 4,
-      "range": 4
+      "range": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     },
     {
       "level": 5,
       "health": 12,
       "movement": 4,
       "attack": 4,
-      "range": 4
+      "range": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     },
     {
       "level": 6,
       "health": 13,
       "movement": 4,
       "attack": 5,
-      "range": 4
+      "range": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     },
     {
       "level": 7,
       "health": 16,
       "movement": 4,
       "attack": 5,
-      "range": 4
+      "range": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     },
     {
       "type": "elite",
@@ -80,7 +116,13 @@
       "health": 9,
       "movement": 3,
       "attack": 4,
-      "range": 4
+      "range": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     },
     {
       "type": "elite",
@@ -88,7 +130,13 @@
       "health": 10,
       "movement": 3,
       "attack": 5,
-      "range": 4
+      "range": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     },
     {
       "type": "elite",
@@ -96,7 +144,13 @@
       "health": 12,
       "movement": 3,
       "attack": 5,
-      "range": 5
+      "range": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     },
     {
       "type": "elite",
@@ -104,7 +158,13 @@
       "health": 14,
       "movement": 4,
       "attack": 5,
-      "range": 5
+      "range": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     },
     {
       "type": "elite",
@@ -112,7 +172,13 @@
       "health": 16,
       "movement": 4,
       "attack": 6,
-      "range": 5
+      "range": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     },
     {
       "type": "elite",
@@ -120,7 +186,13 @@
       "health": 19,
       "movement": 4,
       "attack": 6,
-      "range": 5
+      "range": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     },
     {
       "type": "elite",
@@ -128,7 +200,13 @@
       "health": 21,
       "movement": 4,
       "attack": 7,
-      "range": 5
+      "range": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     }
   ]
 }

@@ -6,6 +6,7 @@
       "name": "Nothing Special",
       "cardId": 375,
       "initiative": 50,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",

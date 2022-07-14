@@ -316,7 +316,7 @@
       {
         "name": "Brightspark",
         "escort": true,
-        "health": "C+(L*3)",
+        "health": "C+(Lx3)",
         "initiative": 50
       }
     ]
@@ -429,18 +429,22 @@
     "objectives": [
       {
         "name": "Sacred Monk 1",
+        "escort": true,
         "health": "C+L+2"
       },
       {
         "name": "Sacred Monk 2",
+        "escort": true,
         "health": "C+L+2"
       },
       {
         "name": "Sacred Monk 3",
+        "escort": true,
         "health": "C+L+2"
       },
       {
         "name": "Sacred Monk 4",
+        "escort": true,
         "health": "C+L+2"
       }
     ]
@@ -739,11 +743,10 @@
     "index": "60",
     "monsters": [
       "flame-demon",
-      "rending-drake",
+      "rending-drake-cs",
       "savvas-lavaflow",
       "spitting-drake"
-    ],
-    "objectives": []
+    ]
   },
   {
     "edition": "cs",
@@ -797,16 +800,6 @@
     "index": "65",
     "monsters": [
       "vermling-shaman"
-    ],
-    "objectives": [
-      {
-        "name": "Angry Spirit 1",
-        "health": "6"
-      },
-      {
-        "name": "Angry Spirit 2",
-        "health": "6"
-      }
     ]
   },
   {
@@ -860,20 +853,6 @@
       "earth-demon",
       "night-demon",
       "sun-demon"
-    ],
-    "objectives": [
-      {
-        "name": "Soul Leech Egg 1",
-        "escort": true,
-        "health": "3+L",
-        "initiative": 25
-      },
-      {
-        "name": "Soul Leech Egg 2",
-        "escort": true,
-        "health": "3+L",
-        "initiative": 25
-      }
     ],
     "group": "AA"
   },
@@ -973,7 +952,7 @@
   },
   {
     "edition": "cs",
-    "name": "Solo: The Fall of Shadow’s Respite",
+    "name": "Solo: The Fall of Shadow's Respite",
     "index": "6",
     "monsters": [
       "gnashing-drake",
@@ -981,14 +960,6 @@
       "rending-drake",
       "vermling-scout-ally",
       "vermling-shaman-ally"
-    ],
-    "objectives": [
-      {
-        "name": "The Chosen",
-        "escort": true,
-        "health": "6+L",
-        "initiative": 99
-      }
     ],
     "group": "RM"
   },

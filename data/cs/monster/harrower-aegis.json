@@ -17,11 +17,13 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": 1
-        },
-        {
-          "type": "range",
-          "value": 2
+          "value": 1,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
         }
       ]
     },
@@ -33,11 +35,13 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": 1
-        },
-        {
-          "type": "range",
-          "value": 2
+          "value": 1,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
         }
       ]
     },
@@ -49,11 +53,13 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": 1
-        },
-        {
-          "type": "range",
-          "value": 3
+          "value": 1,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
         }
       ]
     },
@@ -65,11 +71,13 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": 1
-        },
-        {
-          "type": "range",
-          "value": 3
+          "value": 1,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
         }
       ]
     },
@@ -81,11 +89,13 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": 2
-        },
-        {
-          "type": "range",
-          "value": 3
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
         }
       ]
     },
@@ -97,11 +107,13 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": 2
-        },
-        {
-          "type": "range",
-          "value": 3
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
         }
       ]
     },
@@ -113,16 +125,17 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": 3
-        },
-        {
-          "type": "range",
-          "value": 3
-        },
-        {
-          "type": "condition",
-          "value": "stun"
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
         }
+      ],
+      "immunities": [
+        "stun"
       ]
     },
     {
@@ -133,16 +146,17 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": 4
-        },
-        {
-          "type": "range",
-          "value": 3
-        },
-        {
-          "type": "condition",
-          "value": "stun"
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
         }
+      ],
+      "immunities": [
+        "stun"
       ]
     },
     {
@@ -154,11 +168,13 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": 1
-        },
-        {
-          "type": "range",
-          "value": 2
+          "value": 1,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
         }
       ]
     },
@@ -171,11 +187,13 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": 1
-        },
-        {
-          "type": "range",
-          "value": 2
+          "value": 1,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
         }
       ]
     },
@@ -188,11 +206,13 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": 1
-        },
-        {
-          "type": "range",
-          "value": 3
+          "value": 1,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
         }
       ]
     },
@@ -205,11 +225,13 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": 2
-        },
-        {
-          "type": "range",
-          "value": 3
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
         }
       ]
     },
@@ -222,16 +244,17 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": 2
-        },
-        {
-          "type": "range",
-          "value": 3
-        },
-        {
-          "type": "condition",
-          "value": "stun"
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
         }
+      ],
+      "immunities": [
+        "stun"
       ]
     },
     {
@@ -243,16 +266,17 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": 3
-        },
-        {
-          "type": "range",
-          "value": 3
-        },
-        {
-          "type": "condition",
-          "value": "stun"
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
         }
+      ],
+      "immunities": [
+        "stun"
       ]
     },
     {
@@ -264,16 +288,17 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": 4
-        },
-        {
-          "type": "range",
-          "value": 3
-        },
-        {
-          "type": "condition",
-          "value": "stun"
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
         }
+      ],
+      "immunities": [
+        "stun"
       ]
     },
     {
@@ -285,16 +310,17 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": 4
-        },
-        {
-          "type": "range",
-          "value": 3
-        },
-        {
-          "type": "condition",
-          "value": "stun"
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
         }
+      ],
+      "immunities": [
+        "stun"
       ]
     }
   ]

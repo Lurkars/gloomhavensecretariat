@@ -1,16 +1,16 @@
 .button {
   cursor: pointer;
-  font-size: calc(var(--ghs-unit) * 3);
+  font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
 
   display: flex;
-  width: calc(var(--ghs-unit) * 3);
-  height: calc(var(--ghs-unit) * 3);
+  width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+  height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
   filter: var(--ghs-filter-yellow);
 
   a {
     display: flex;
-    width: calc(var(--ghs-unit) * 3);
-    height: calc(var(--ghs-unit) * 3);
+    width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
   }
 
 }
@@ -22,7 +22,7 @@
   flex-direction: column;
 
   .figure-error {
-    font-size: calc(var(--ghs-unit) * 3);
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
     color: var(--ghs-color-red);
   }
 }

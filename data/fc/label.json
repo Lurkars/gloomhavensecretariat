@@ -9,16 +9,24 @@
     "monster": {
       "aesther-ashblade": "Aesther Ashblade",
       "aesther-scout": "Aesther Scout",
+      "avatar-of-ashtar": "Avatar of Ashtar",
+      "avatar-of-thelija": "Avatar of Thelija",
+      "bear-drake-abomination": "Bear-Drake Abomination",
+      "elham": "Elham",
       "human-commander": "Human Commander",
+      "icestorm-guardian-of-the-firmament": "Icestorm Guardian of the Firmament",
+      "lavaflow-guardian-of-the-firmament": "Lavaflow Guardian of the Firmament",
       "manifestation-of-corruption": "Manifestation Of Corruption",
       "naaret": "Naaret",
       "selah-naberis": "Selah Naberis",
       "sraka-the-wise": "Sraka The Wise",
+      "the-husk": "The Husk",
       "the-steel-lion": "The Steel Lion",
       "uyart-ikkuma": "Uyart Ikkuma",
       "valrath-commander": "Valrath Commander",
       "valrath-savage": "Valrath Savage",
-      "valrath-tracker": "Valrath Tracker"
+      "valrath-tracker": "Valrath Tracker",
+      "wolf-viper-abomination": "Wolf-Viper Abomination"
     },
     "deck": {
       "ashblade": "Ashblade",

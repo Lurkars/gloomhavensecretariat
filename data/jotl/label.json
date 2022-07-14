@@ -158,6 +158,12 @@
           "2": "On death, all adjacent figures suffer 2 damage",
           "3": "On death, all adjacent figures suffer 3 damage",
           "4": "On death, all adjacent figures suffer 4 damage"
+        },
+        "basic-vermling-raider": {
+          "1": "Shuffle this deck at the end of the round.",
+          "2": "They will move to avoid being adjacent to their focus.",
+          "3": "They are not moving this round.",
+          "4": "This is exactly how they acted last scenario."
         }
       }
     }

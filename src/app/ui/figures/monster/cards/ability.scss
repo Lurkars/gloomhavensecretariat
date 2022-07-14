@@ -194,7 +194,7 @@
     left: 0;
     width: 100%;
     font-family: 'ghs-title';
-    font-size: calc(var(--ghs-unit) * 2.2);
+    font-size: calc(var(--ghs-unit) * 2.2 * var(--ghs-text-factor));
     filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
     text-align: center;
   }

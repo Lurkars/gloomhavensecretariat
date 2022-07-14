@@ -121,7 +121,7 @@
     {
       "type": "elite",
       "level": 2,
-      "health": 14,
+      "health": 12,
       "movement": 2,
       "attack": 4,
       "range": 5,

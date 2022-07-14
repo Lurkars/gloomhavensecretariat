@@ -8,7 +8,6 @@
   "count": 10,
   "baseStat": {
     "type": "boss",
-    "movement": 0,
     "actions": [],
     "immunities": [
       "stun",

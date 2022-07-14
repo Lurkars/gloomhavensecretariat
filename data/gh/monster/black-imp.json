@@ -143,8 +143,8 @@
     {
       "type": "elite",
       "level": 3,
-      "health": 5,
-      "attack": 2,
+      "health": 8,
+      "attack": 3,
       "range": 4,
       "actions": [
         {

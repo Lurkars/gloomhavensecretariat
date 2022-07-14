@@ -2,6 +2,11 @@
   <img class="ghs-svg" src="./assets/images/menu.svg">
 </a>
 <div #dialog [ngSwitch]="active">
+
+  <div class="back" [ngClass]="{'disabled' : active == SubMenu.main}" (click)="setActive(SubMenu.main)">
+    <img class="ghs-svg" src="./assets/images/left.svg">
+  </div>
+
   <div *ngSwitchCase="SubMenu.main" class="menu-container main">
     <div class="line">
       <div class="state">
@@ -13,23 +18,23 @@
     </div>
 
     <div class="line separator">
-      <a (click)="active = SubMenu.edition">{{'edition' | ghsLabel}}</a>
+      <a (click)="setActive(SubMenu.edition)">{{'edition' | ghsLabel}}</a>
     </div>
     <div class="columns">
       <div class="column separator">
         <div class="line" [ngClass]="{'disabled' : hasAllMonster()}">
-          <a (click)="active = SubMenu.monster_add">{{'monster.add' | ghsLabel}}</a>
+          <a (click)="setActive(SubMenu.monster_add)">{{'monster.add' | ghsLabel}}</a>
         </div>
         <div class="line" [ngClass]="{'disabled' : monsters().length == 0}">
-          <a (click)="active = SubMenu.monster_remove">{{'monster.remove' | ghsLabel}}</a>
+          <a (click)="setActive(SubMenu.monster_remove)">{{'monster.remove' | ghsLabel}}</a>
         </div>
       </div>
       <div class="column separator">
         <div class="line" [ngClass]="{'disabled' : !hasScenarios()}">
-          <a (click)="active = SubMenu.scenario">{{'scenario' | ghsLabel}}</a>
+          <a (click)="setActive(SubMenu.scenario)">{{'scenario' | ghsLabel}}</a>
         </div>
         <div class="line" [ngClass]="{'disabled' : !hasSections()}">
-          <a (click)="active = SubMenu.section">{{'section' | ghsLabel}}</a>
+          <a (click)="setActive(SubMenu.section)">{{'section' | ghsLabel}}</a>
         </div>
       </div>
     </div>
@@ -37,18 +42,18 @@
     <div class="columns separator">
       <div class="column">
         <div class="line">
-          <a (click)="active = SubMenu.character_add">{{'character.add' | ghsLabel}}</a>
+          <a (click)="setActive(SubMenu.character_add)">{{'character.add' | ghsLabel}}</a>
         </div>
         <div class="line" [ngClass]="{'disabled' : characters().length == 0}">
-          <a (click)="active = SubMenu.character_remove">{{'character.remove' | ghsLabel}}</a>
+          <a (click)="setActive(SubMenu.character_remove)">{{'character.remove' | ghsLabel}}</a>
         </div>
       </div>
       <div class="column">
         <div class="line">
-          <a (click)="active = SubMenu.objective_add">{{'objective.add' | ghsLabel}}</a>
+          <a (click)="setActive(SubMenu.objective_add)">{{'objective.add' | ghsLabel}}</a>
         </div>
         <div class="line" [ngClass]="{'disabled' : objectives().length == 0}">
-          <a (click)="active = SubMenu.objective_remove">{{'objective.remove' | ghsLabel}}</a>
+          <a (click)="setActive(SubMenu.objective_remove)">{{'objective.remove' | ghsLabel}}</a>
         </div>
       </div>
     </div>
@@ -56,12 +61,12 @@
     <div class="columns separator">
       <div class="column">
         <div class="line">
-          <a (click)="active = SubMenu.settings">{{'settings' | ghsLabel}}</a>
+          <a (click)="setActive(SubMenu.settings)">{{'settings' | ghsLabel}}</a>
         </div>
       </div>
       <div class="column">
         <div class="line">
-          <a (click)="active = SubMenu.server" [ngSwitch]="gameManager.stateManager.wsState()">
+          <a (click)="setActive(SubMenu.server)" [ngSwitch]="gameManager.stateManager.wsState()">
             <span *ngSwitchCase="WebSocket.OPEN">{{'server.menu.connected' | ghsLabel}}</span>
             <span *ngSwitchCase="WebSocket.CONNECTING">{{'server.connecting' | ghsLabel}}</span>
             <span *ngSwitchDefault>{{'server.menu.connect' | ghsLabel}}</span>
@@ -71,11 +76,11 @@
     </div>
 
     <div class="line separator">
-      <a (click)="active = SubMenu.datamanagement">{{'datamanagement' | ghsLabel}}</a>
+      <a (click)="setActive(SubMenu.datamanagement)">{{'datamanagement' | ghsLabel}}</a>
     </div>
 
     <div class="line separator">
-      <a (click)="active = SubMenu.about">{{'about' | ghsLabel}}</a>
+      <a (click)="setActive(SubMenu.about)">{{'about' | ghsLabel}}</a>
     </div>
 
     <div class="line separator" *ngIf="hasUpdate">

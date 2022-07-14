@@ -29,6 +29,8 @@ body {
   font-family: 'ghs-normal';
   --ghs-width: 100px;
   --ghs-factor: 100;
+  --ghs-dialog-factor: 1;
+  --ghs-text-factor: 1;
   --ghs-unit: calc(var(--ghs-width) / var(--ghs-factor));
   --ghs-color-black: #000;
   --ghs-color-white: #fff;
@@ -80,23 +82,27 @@ body {
 @media (max-width: 500px) {
   body {
     --ghs-width: 100vw;
+    --ghs-dialog-factor: 1.8;
+    --ghs-text-factor: 1.3;
   }
 
   @media (orientation: landscape) {
     body {
-      --ghs-width: 75vw;
+      --ghs-width: 70vw;
     }
   }
 }
 
 @media (min-width: 500px) {
   body {
-    --ghs-width: 500px;
+    --ghs-width: 100vw;
+    --ghs-dialog-factor: 1.6;
+    --ghs-text-factor: 1.2;
   }
 
   @media (orientation: landscape) {
     body {
-      --ghs-width: 375px;
+      --ghs-width: 60vw;
     }
   }
 }
@@ -104,6 +110,8 @@ body {
 @media (min-width: 800px) {
   body {
     --ghs-width: 800px;
+    --ghs-dialog-factor: 1.3;
+    --ghs-text-factor: 1.1;
   }
 
   @media (orientation: landscape) {
@@ -116,6 +124,8 @@ body {
 @media (min-width: 1000px) {
   body {
     --ghs-width: 1000px;
+    --ghs-dialog-factor: 1.1;
+    --ghs-text-factor: 1;
   }
 
   @media (orientation: landscape) {
@@ -128,6 +138,8 @@ body {
 @media (min-width: 1200px) {
   body {
     --ghs-width: 1200px;
+    --ghs-dialog-factor: 1;
+    --ghs-text-factor: 1;
   }
 
   @media (orientation: landscape) {

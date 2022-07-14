@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { EditionData } from "src/app/game/model/data/EditionData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { GameState } from "src/app/game/model/Game";
 import { Scenario } from "src/app/game/model/Scenario";
@@ -16,6 +17,10 @@ export class ScenarioMenuComponent {
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
   edition: string = gameManager.game.scenario && !gameManager.game.scenario.custom && gameManager.game.scenario.edition || (gameManager.game.edition || gameManager.editions()[ 0 ]);
+
+  editions(): string[] {
+    return gameManager.editionData.filter((editionData: EditionData) => editionData.scenarios && editionData.scenarios.length > 0).map((editionData: EditionData) => editionData.edition);
+  }
 
   setEdition(edition: string) {
     this.edition = edition;
@@ -49,11 +54,9 @@ export class ScenarioMenuComponent {
 
   hasScenario(scnearioData: ScenarioData): boolean {
     return gameManager.game.scenario != undefined && gameManager.game.scenario.edition == scnearioData.edition && gameManager.game.scenario.index == scnearioData.index && gameManager.game.scenario.group == scnearioData.group;
-
   }
 
-  setScenario(index: string) {
-    const scenarioData: ScenarioData | undefined = gameManager.scenarioData().find((scenario: ScenarioData) => scenario.edition == this.edition && scenario.index == index);
+  setScenario(scenarioData: ScenarioData) {
     gameManager.stateManager.before();
     gameManager.setScenario(scenarioData as Scenario)
     gameManager.stateManager.after();

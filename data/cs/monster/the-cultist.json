@@ -41,7 +41,10 @@
       "movement": 3,
       "attack": 2,
       "actions": [
-        {}
+        {
+          "type": "condition",
+          "value": "curse"
+        }
       ]
     },
     {
@@ -50,7 +53,10 @@
       "movement": 3,
       "attack": 3,
       "actions": [
-        {}
+        {
+          "type": "condition",
+          "value": "curse"
+        }
       ]
     },
     {
@@ -59,7 +65,10 @@
       "movement": 3,
       "attack": 3,
       "actions": [
-        {}
+        {
+          "type": "condition",
+          "value": "curse"
+        }
       ]
     },
     {
@@ -68,7 +77,10 @@
       "movement": 3,
       "attack": 3,
       "actions": [
-        {}
+        {
+          "type": "condition",
+          "value": "curse"
+        }
       ]
     },
     {
@@ -77,7 +89,10 @@
       "movement": 3,
       "attack": 4,
       "actions": [
-        {}
+        {
+          "type": "condition",
+          "value": "curse"
+        }
       ]
     }
   ]

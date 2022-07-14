@@ -3,7 +3,7 @@ main {
   margin: 0 auto;
   width: 100%;
   position: relative;
-  max-height: calc(100% - var(--ghs-unit) * 23.5);
+  max-height: calc(100% - var(--ghs-unit) * 23.5 * var(--ghs-text-factor));
   display: flex;
   flex-direction: row;
   justify-content: center;

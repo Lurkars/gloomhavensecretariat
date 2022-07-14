@@ -45,7 +45,6 @@
     "health": "8+Lx2",
     "movement": 3,
     "attack": 2,
-    "range": 0,
     "automatic": true
   }
 }

@@ -14,15 +14,13 @@
       "level": 0,
       "health": 6,
       "movement": 2,
-      "attack": 2,
-      "range": 0
+      "attack": 2
     },
     {
       "level": 1,
       "health": 6,
       "movement": 2,
       "attack": 2,
-      "range": 0,
       "actions": [
         {
           "type": "shield",
@@ -35,7 +33,6 @@
       "health": 8,
       "movement": 3,
       "attack": 2,
-      "range": 0,
       "actions": [
         {
           "type": "shield",
@@ -48,7 +45,6 @@
       "health": 10,
       "movement": 3,
       "attack": 2,
-      "range": 0,
       "actions": [
         {
           "type": "shield",
@@ -60,8 +56,7 @@
       "level": 4,
       "health": 10,
       "movement": 3,
-      "attack": 3,
-      "range": 0,
+      "attack": 2,
       "actions": [
         {
           "type": "shield",
@@ -74,7 +69,6 @@
       "health": 11,
       "movement": 3,
       "attack": 3,
-      "range": 0,
       "actions": [
         {
           "type": "shield",
@@ -87,7 +81,6 @@
       "health": 12,
       "movement": 4,
       "attack": 3,
-      "range": 0,
       "actions": [
         {
           "type": "shield",
@@ -100,7 +93,6 @@
       "health": 14,
       "movement": 4,
       "attack": 3,
-      "range": 0,
       "actions": [
         {
           "type": "shield",
@@ -113,24 +105,21 @@
       "level": 0,
       "health": 10,
       "movement": 2,
-      "attack": 3,
-      "range": 0
+      "attack": 3
     },
     {
       "type": "elite",
       "level": 1,
       "health": 12,
       "movement": 2,
-      "attack": 3,
-      "range": 0
+      "attack": 3
     },
     {
       "type": "elite",
       "level": 2,
       "health": 14,
       "movement": 2,
-      "attack": 4,
-      "range": 0
+      "attack": 4
     },
     {
       "type": "elite",
@@ -138,7 +127,6 @@
       "health": 16,
       "movement": 2,
       "attack": 4,
-      "range": 0,
       "actions": [
         {
           "type": "custom",
@@ -152,7 +140,6 @@
       "health": 18,
       "movement": 3,
       "attack": 4,
-      "range": 0,
       "actions": [
         {
           "type": "custom",
@@ -166,7 +153,6 @@
       "health": 21,
       "movement": 3,
       "attack": 5,
-      "range": 0,
       "actions": [
         {
           "type": "custom",
@@ -180,7 +166,6 @@
       "health": 24,
       "movement": 3,
       "attack": 5,
-      "range": 0,
       "actions": [
         {
           "type": "custom",
@@ -194,7 +179,6 @@
       "health": 28,
       "movement": 3,
       "attack": 6,
-      "range": 0,
       "actions": [
         {
           "type": "custom",

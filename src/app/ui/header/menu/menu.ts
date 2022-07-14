@@ -25,8 +25,7 @@ export enum SubMenu {
 @Component({
   selector: 'ghs-main-menu',
   templateUrl: 'menu.html',
-  styleUrls: [ './menu.scss', '../../dialog/dialog.scss' ],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: [ './menu.scss', '../../dialog/dialog.scss' ]
 })
 export class MainMenuComponent extends DialogComponent {
 
@@ -68,6 +67,14 @@ export class MainMenuComponent extends DialogComponent {
         }
       });
     }
+  }
+
+  setActive(active: SubMenu) {
+    this.dialog.nativeElement.classList.remove('opened');
+    this.active = active;
+    setTimeout(() => {
+      this.dialog.nativeElement.classList.add('opened');
+    }, 1);
   }
 
   override close(): void {

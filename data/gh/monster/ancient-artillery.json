@@ -4,7 +4,6 @@
   "count": 6,
   "baseStat": {
     "type": "normal",
-    "movement": 0,
     "actions": [],
     "immunities": [],
     "special": []

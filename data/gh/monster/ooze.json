@@ -76,12 +76,12 @@
       "range": 3,
       "actions": [
         {
-          "type": "shield",
-          "value": 1
-        },
-        {
           "type": "condition",
           "value": "poison"
+        },
+        {
+          "type": "shield",
+          "value": 1
         }
       ]
     },
@@ -93,12 +93,12 @@
       "range": 3,
       "actions": [
         {
-          "type": "shield",
-          "value": 1
-        },
-        {
           "type": "condition",
           "value": "poison"
+        },
+        {
+          "type": "shield",
+          "value": 1
         }
       ]
     },
@@ -110,12 +110,12 @@
       "range": 3,
       "actions": [
         {
-          "type": "shield",
-          "value": 1
-        },
-        {
           "type": "condition",
           "value": "poison"
+        },
+        {
+          "type": "shield",
+          "value": 1
         }
       ]
     },
@@ -164,12 +164,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 1
-        },
-        {
           "type": "condition",
           "value": "poison"
+        },
+        {
+          "type": "shield",
+          "value": 1
         }
       ]
     },
@@ -182,12 +182,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 1
-        },
-        {
           "type": "condition",
           "value": "poison"
+        },
+        {
+          "type": "shield",
+          "value": 1
         }
       ]
     },
@@ -200,12 +200,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 1
-        },
-        {
           "type": "condition",
           "value": "poison"
+        },
+        {
+          "type": "shield",
+          "value": 1
         }
       ]
     },
@@ -218,12 +218,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 2
-        },
-        {
           "type": "condition",
           "value": "poison"
+        },
+        {
+          "type": "shield",
+          "value": 2
         }
       ]
     },
@@ -236,12 +236,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 2
-        },
-        {
           "type": "condition",
           "value": "poison"
+        },
+        {
+          "type": "shield",
+          "value": 2
         }
       ]
     }

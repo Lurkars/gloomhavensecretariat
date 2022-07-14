@@ -39,6 +39,26 @@
       "black-imp",
       "cultist",
       "deep-terror"
+    ],
+    "objectives": [
+      {
+        "name": "Civilian 1",
+        "escort": true,
+        "health": "2x(L+C)",
+        "initiative": 50
+      },
+      {
+        "name": "Civilian 2",
+        "escort": true,
+        "health": "2x(L+C)",
+        "initiative": 50
+      },
+      {
+        "name": "Civilian 3",
+        "escort": true,
+        "health": "2x(L+C)",
+        "initiative": 50
+      }
     ]
   },
   {
@@ -72,8 +92,8 @@
     "objectives": [
       {
         "name": "Orchid caravan",
-        "health": "2x(C+L)+3",
-        "escort": true
+        "escort": true,
+        "health": "2x(C+L)+3"
       }
     ]
   },
@@ -89,8 +109,8 @@
     "objectives": [
       {
         "name": "Hail",
-        "health": "6+2xL",
-        "escort": true
+        "escort": true,
+        "health": "6+2xL"
       }
     ]
   },
@@ -159,7 +179,7 @@
     "name": "The Shackles Loosen",
     "index": "111",
     "monsters": [
-      "aesther-ashblade",
+      "the-husk",
       "aesther-scout",
       "black-imp",
       "night-demon"
@@ -185,8 +205,9 @@
     "objectives": [
       {
         "name": "Naaret",
+        "escort": true,
         "health": "4+2xL",
-        "escort": true
+        "initiative": 50
       }
     ]
   },
@@ -202,8 +223,9 @@
     "objectives": [
       {
         "name": "Hail",
+        "escort": true,
         "health": "4+2xL",
-        "escort": true
+        "initiative": 99
       }
     ]
   },

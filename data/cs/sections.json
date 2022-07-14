@@ -312,11 +312,11 @@
     "objectives": [
       {
         "name": "Vile Spirit 1",
-        "health": "4"
+        "health": 4
       },
       {
         "name": "Vile Spirit 2",
-        "health": "4"
+        "health": 4
       }
     ]
   },
@@ -327,7 +327,7 @@
     "objectives": [
       {
         "name": "Haunted Ghoul Spirit 1",
-        "health": "10"
+        "health": 10
       }
     ]
   },

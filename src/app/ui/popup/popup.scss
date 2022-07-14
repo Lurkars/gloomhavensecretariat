@@ -18,7 +18,24 @@
   border-image-width: calc(var(--ghs-unit) * 6);
   background-color: var(--ghs-color-black);
 
+  @keyframes popup-open {
+    0% {
+      visibility: hidden;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    1% {
+      visibility: visible;
+      transform: translate(-50%, -50%) scale(0);
+    }
+
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
   &.opened {
     display: block;
+    animation: popup-open 150ms ease-in-out;
   }
 }

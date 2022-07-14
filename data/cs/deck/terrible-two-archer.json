@@ -1,0 +1,236 @@
+{
+  "name": "terrible-two-archer",
+  "edition": "cs",
+  "abilities": [
+    {
+      "cardId": 532,
+      "initiative": 16,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 533,
+      "initiative": 31,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 534,
+      "initiative": 32,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 535,
+      "initiative": 44,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 536,
+      "initiative": 56,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "target",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 537,
+      "initiative": 68,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 538,
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.cs.terrible-two-archer.1%"
+        }
+      ]
+    },
+    {
+      "cardId": 539,
+      "initiative": 29,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2
+                }
+              ]
+            },
+            {
+              "type": "condition",
+              "value": "immobilize"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

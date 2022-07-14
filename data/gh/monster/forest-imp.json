@@ -84,12 +84,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 2
-        },
-        {
           "type": "condition",
           "value": "curse"
+        },
+        {
+          "type": "shield",
+          "value": 2
         }
       ]
     },
@@ -101,12 +101,29 @@
       "range": 4,
       "actions": [
         {
+          "type": "condition",
+          "value": "curse"
+        },
+        {
           "type": "shield",
           "value": 2
-        },
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 6,
+      "movement": 4,
+      "attack": 3,
+      "range": 4,
+      "actions": [
         {
           "type": "condition",
           "value": "curse"
+        },
+        {
+          "type": "shield",
+          "value": 2
         }
       ]
     },
@@ -147,6 +164,10 @@
       "range": 3,
       "actions": [
         {
+          "type": "condition",
+          "value": "curse"
+        },
+        {
           "type": "shield",
           "value": 1
         }
@@ -161,12 +182,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 1
-        },
-        {
           "type": "condition",
           "value": "curse"
+        },
+        {
+          "type": "shield",
+          "value": 1
         }
       ]
     },
@@ -179,12 +200,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 2
-        },
-        {
           "type": "condition",
           "value": "curse"
+        },
+        {
+          "type": "shield",
+          "value": 2
         }
       ]
     },
@@ -197,12 +218,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 2
-        },
-        {
           "type": "condition",
           "value": "curse"
+        },
+        {
+          "type": "shield",
+          "value": 2
         }
       ]
     },
@@ -215,30 +236,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 2
-        },
-        {
           "type": "condition",
           "value": "curse"
-        }
-      ]
-    },
-    {
-      "type": "normal",
-      "level": 7,
-      "health": 6,
-      "movement": 4,
-      "attack": 3,
-      "range": 4,
-      "actions": [
+        },
         {
           "type": "shield",
           "value": 2
-        },
-        {
-          "type": "condition",
-          "value": "curse"
         }
       ]
     },
@@ -251,12 +254,12 @@
       "range": 4,
       "actions": [
         {
-          "type": "shield",
-          "value": 2
-        },
-        {
           "type": "condition",
           "value": "curse"
+        },
+        {
+          "type": "shield",
+          "value": 2
         }
       ]
     }

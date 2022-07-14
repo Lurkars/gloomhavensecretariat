@@ -148,8 +148,7 @@
         },
         {
           "type": "element",
-          "value": "earth",
-          "valueType": "plus"
+          "value": "earth"
         }
       ]
     },

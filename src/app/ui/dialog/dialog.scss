@@ -15,17 +15,36 @@
   border-image-outset: calc(var(--ghs-unit) * -1);
   border-image-width: calc(var(--ghs-unit) * 6);
   background-color: var(--ghs-color-black);
-  transition: top 0.4s ease-in-out, left 0.4s ease-in-out;
+
+  @keyframes dialog-open {
+    0% {
+      visibility: hidden;
+      transform: scale(1);
+      transform-origin: 0 0;
+    }
+
+    1% {
+      visibility: visible;
+      transform: scale(0);
+      transform-origin: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    }
+
+    100% {
+      transform: scale(1);
+      transform-origin: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    }
+  }
 
   &.opened {
     display: block;
+    animation: dialog-open 150ms ease-in-out;
   }
-  
+
   .ghs-svg {
     color: var(--ghs-color-white);
     filter: var(--ghs-filter-white);
-    width: calc(var(--ghs-unit) * 3);
-    height: calc(var(--ghs-unit) * 3);
+    width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
     display: inline-block;
   }
 }

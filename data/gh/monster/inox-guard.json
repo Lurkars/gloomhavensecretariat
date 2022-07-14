@@ -24,7 +24,7 @@
     },
     {
       "level": 2,
-      "health": 6,
+      "health": 9,
       "movement": 2,
       "attack": 3
     },
@@ -98,9 +98,9 @@
     {
       "type": "elite",
       "level": 1,
-      "health": 8,
+      "health": 10,
       "movement": 2,
-      "attack": 2,
+      "attack": 3,
       "actions": [
         {
           "type": "retaliate",
@@ -111,9 +111,9 @@
     {
       "type": "elite",
       "level": 2,
-      "health": 6,
+      "health": 12,
       "movement": 2,
-      "attack": 3,
+      "attack": 4,
       "actions": [
         {
           "type": "retaliate",
@@ -124,9 +124,9 @@
     {
       "type": "elite",
       "level": 3,
-      "health": 11,
-      "movement": 3,
-      "attack": 3,
+      "health": 15,
+      "movement": 2,
+      "attack": 4,
       "actions": [
         {
           "type": "retaliate",

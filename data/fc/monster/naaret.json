@@ -23,7 +23,6 @@
       "health": "6xC",
       "movement": 3,
       "attack": 3,
-      "range": 0,
       "actions": [
         {
           "type": "condition",
@@ -36,7 +35,6 @@
       "health": "7xC",
       "movement": 4,
       "attack": 3,
-      "range": 0,
       "actions": [
         {
           "type": "condition",
@@ -49,7 +47,6 @@
       "health": "8xC",
       "movement": 4,
       "attack": 4,
-      "range": 0,
       "actions": [
         {
           "type": "condition",
@@ -62,7 +59,6 @@
       "health": "9xC",
       "movement": 4,
       "attack": 4,
-      "range": 0,
       "actions": [
         {
           "type": "custom",
@@ -79,7 +75,6 @@
       "health": "10xC",
       "movement": 4,
       "attack": 5,
-      "range": 0,
       "actions": [
         {
           "type": "custom",
@@ -96,7 +91,6 @@
       "health": "12xC",
       "movement": 4,
       "attack": 5,
-      "range": 0,
       "actions": [
         {
           "type": "custom",
@@ -113,7 +107,6 @@
       "health": "14xC",
       "movement": 4,
       "attack": 6,
-      "range": 0,
       "actions": [
         {
           "type": "custom",
@@ -130,7 +123,6 @@
       "health": "16xC",
       "movement": 5,
       "attack": 6,
-      "range": 0,
       "actions": [
         {
           "type": "custom",

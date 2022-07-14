@@ -1,8 +1,8 @@
 <div (click)="toggle()" class="level-status">
+  <span #button class="dialog-button"></span>
   <div class="title">
     <span *ngIf="gameManager.game.scenario && gameManager.game.scenario.index"
       class="index">#{{gameManager.game.scenario.index}}</span>
-    <span #button></span>
     <span *ngIf="gameManager.game.scenario" class="name">{{'data.scenario.' + gameManager.game.scenario.name |
       ghsLabel}}</span>
     <div class="sections" *ngIf="gameManager.game.sections && gameManager.game.sections.length > 0">

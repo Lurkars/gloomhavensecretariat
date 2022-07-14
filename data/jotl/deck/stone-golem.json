@@ -55,7 +55,7 @@
     {
       "name": "Nothing Special",
       "cardId": 407,
-      "initiative": 65,
+      "initiative": 64,
       "actions": [
         {
           "type": "move",

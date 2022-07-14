@@ -16,14 +16,14 @@
   justify-content: center;
   align-items: center;
   font-family: 'ghs-title';
-  font-size: calc(var(--ghs-unit) * 4.5);
+  font-size: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
   margin-right: calc(var(--ghs-unit) * 1);
   color: var(--ghs-color-white);
   text-shadow: var(--ghs-outline);
 
   img {
     cursor: pointer;
-    width: calc(var(--ghs-unit) * 4);
+    width: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
     height: auto;
     filter: var(--ghs-filter-white);
 
@@ -37,11 +37,11 @@
     text-align: center;
     border: none;
     background: none;
-    width: calc(var(--ghs-unit) * 4.5);
+    width: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
     font-family: 'ghs-title';
     color: var(--ghs-color-white);
     text-shadow: var(--ghs-outline);
-    font-size: calc(var(--ghs-unit) * 4.5);
+    font-size: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
 
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
@@ -63,17 +63,17 @@
 .number-container {
 
   display: grid;
-  grid-template-columns: repeat(3, calc(var(--ghs-unit) * 8));
+  grid-template-columns: repeat(3, calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor)));
 
 
   .value {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(var(--ghs-unit) * 7);
-    width: calc(var(--ghs-unit) * 7);
+    height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+    width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
     font-family: 'ghs-title';
-    font-size: calc(var(--ghs-unit) * 3);
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
     color: var(--ghs-color-white);
     text-shadow: var(--ghs-outline);
   }
@@ -83,11 +83,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(var(--ghs-unit) * 7);
-    width: calc(var(--ghs-unit) * 7);
+    height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+    width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
     cursor: pointer;
     font-family: 'ghs-title';
-    font-size: calc(var(--ghs-unit) * 3);
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
     color: var(--ghs-color-gray);
     text-shadow: var(--ghs-outline);
 

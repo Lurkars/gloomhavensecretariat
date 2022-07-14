@@ -29,6 +29,13 @@
     }
   }
 
+  .title,
+  .conditions,
+  .image-container,
+  .icon-container {
+    transition: filter 150ms ease-in-out;
+  }
+
   &.off {
 
     background-color: var(--ghs-color-gray);
@@ -196,6 +203,7 @@
       border-color: var(--ghs-color-white);
       border-style: solid;
       border-width: calc(var(--ghs-unit) * 1);
+      transition: box-shadow 100ms ease-in-out;
     }
 
     ghs-healthbar {
@@ -213,24 +221,24 @@
   .status-container {
     display: flex;
     flex-direction: row;
-    margin: calc(var(--ghs-unit) * 0.5);
+    margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 
     .entity-container {
       display: grid;
-      grid-template-columns: repeat(3, calc(var(--ghs-unit) * 7));
+      grid-template-columns: repeat(3, calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor)));
 
       .id {
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        width: calc(var(--ghs-unit) * 6);
-        height: calc(var(--ghs-unit) * 6);
+        width: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
         overflow: hidden;
         background-color: var(--ghs-color-red);
         color: var(--ghs-color-white);
         font-family: 'ghs-title';
-        font-size: calc(var(--ghs-unit) * 6);
-        line-height: calc(var(--ghs-unit) * 4);
+        font-size: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
+        line-height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
         border-radius: 100%;
         border-color: var(--ghs-color-white);
         border-style: solid;
@@ -244,13 +252,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(var(--ghs-unit) * 7);
-    width: calc(var(--ghs-unit) * 7);
+    height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+    width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
   }
 
   a {
     cursor: pointer;
-    font-size: calc(var(--ghs-unit) * 7);
+    font-size: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
     color: var(--ghs-color-white);
     text-shadow: var(--ghs-outline);
 
@@ -261,7 +269,7 @@
   }
 
   img {
-    height: calc(var(--ghs-unit) * 4);
+    height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
     width: auto;
   }
 
@@ -278,10 +286,10 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: calc(var(--ghs-unit) * 12);
+    width: calc(var(--ghs-unit) * 12 * var(--ghs-dialog-factor));
 
     img {
-      height: calc(var(--ghs-unit) * 3);
+      height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
       width: auto;
     }
   }
@@ -291,7 +299,7 @@
     right: 0;
     bottom: 0;
     color: var(--ghs-color-white);
-    font-size: calc(var(--ghs-unit) * 2);
+    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
     text-shadow: var(--ghs-outline);
   }
 
@@ -303,8 +311,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(var(--ghs-unit) * 6);
-    width: calc(var(--ghs-unit) * 6);
+    height: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
+    width: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
 
     &.active {
       border: calc(var(--ghs-unit) / 4) var(--ghs-color-white) solid;
@@ -320,15 +328,15 @@
   .char-container {
     display: flex;
     align-items: center;
-    margin: calc(var(--ghs-unit) * 0.5);
+    margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 
     .max-health {
-      right: calc(var(--ghs-unit) * 2);
+      right: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
     }
 
     input {
-      max-width: calc(var(--ghs-unit) * 20);
-      margin: 0 calc(var(--ghs-unit) * 2.5);
+      max-width: calc(var(--ghs-unit) * 20 * var(--ghs-dialog-factor));
+      margin: 0 calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
       color: var(--ghs-color-white);
       background-color: var(--ghs-color-black);
       border-width: calc(var(--ghs-unit) * 0.1);
@@ -337,7 +345,7 @@
       border-radius: calc(var(--ghs-unit) * 1);
       user-select: auto;
       font-family: 'ghs-text';
-      font-size: calc(var(--ghs-unit) * 2);
+      font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
     }
   }
 }

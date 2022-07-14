@@ -1,15 +1,15 @@
 .button {
   position: relative;
   display: flex;
-  width: calc(var(--ghs-unit) * 5);
-  height: calc(var(--ghs-unit) * 5);
+  width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
+  height: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
   cursor: pointer;
-  font-size: calc(var(--ghs-unit) * 10);
+  font-size: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor));
   color: var(--ghs-color-gray);
   filter: var(--ghs-filter-gray);
   stroke: var(--ghs-color-black);
   stroke-width: calc(var(--ghs-unit) * 1.5);
-  margin: calc(var(--ghs-unit) * 1);
+  margin: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
 
   &:hover {
     color: var(--ghs-color-white);
@@ -21,17 +21,17 @@
 .container {
 
   display: grid;
-  grid-template-columns: repeat(4, calc(var(--ghs-unit) * 8));
+  grid-template-columns: repeat(4, calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor)));
 
 
   .value {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(var(--ghs-unit) * 7);
-    width: calc(var(--ghs-unit) * 7);
+    height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+    width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
     font-family: 'ghs-title';
-    font-size: calc(var(--ghs-unit) * 3);
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
     color: var(--ghs-color-white);
     text-shadow: var(--ghs-outline);
   }
@@ -42,8 +42,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(var(--ghs-unit) * 7);
-    width: calc(var(--ghs-unit) * 7);
+    height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+    width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
 
     &.active {
       border: calc(var(--ghs-unit) / 4) var(--ghs-color-white) solid;
@@ -57,7 +57,7 @@
 
 
     img {
-      height: calc(var(--ghs-unit) * 4);
+      height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
       width: auto;
     }
   }
@@ -67,10 +67,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(var(--ghs-unit) * 7);
-    width: calc(var(--ghs-unit) * 7);
+    height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+    width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
     font-family: 'ghs-title';
-    font-size: calc(var(--ghs-unit) * 3);
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
     color: var(--ghs-color-gray);
     text-shadow: var(--ghs-outline);
 
@@ -94,9 +94,9 @@
 
     label {
       cursor: pointer;
-      margin-left: calc(var(--ghs-unit) * 1);
+      margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
       font-family: 'ghs-title';
-      font-size: calc(var(--ghs-unit) * 3);
+      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
       color: var(--ghs-color-gray);
     }
 

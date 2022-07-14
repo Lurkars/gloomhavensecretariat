@@ -1,7 +1,6 @@
 {
   "name": "vermling-scout",
   "edition": "jotl",
-  "deck": "scout",
   "count": 10,
   "baseStat": {
     "type": "normal",

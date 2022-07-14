@@ -1,0 +1,212 @@
+{
+  "name": "sraka-the-wise",
+  "edition": "fc",
+  "abilities": [
+    {
+      "cardId": 588,
+      "initiative": 8,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "condition",
+              "value": "disarm"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 589,
+      "initiative": 8,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "condition",
+              "value": "immobilize"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 590,
+      "initiative": 23,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "heal",
+          "value": 6,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 591,
+      "initiative": 23,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "heal",
+          "value": 6,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 592,
+      "initiative": 62,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 593,
+      "initiative": 74,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 594,
+      "initiative": 89,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "alliesAdjacentAffect"
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "bless",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 595,
+      "initiative": 9,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
+              "type": "condition",
+              "value": "curse"
+            },
+            {
+              "type": "target",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

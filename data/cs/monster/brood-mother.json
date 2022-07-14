@@ -20,7 +20,7 @@
   "stats": [
     {
       "level": 0,
-      "health": "27",
+      "health": 27,
       "movement": 4,
       "attack": 3,
       "actions": [
@@ -52,7 +52,7 @@
     },
     {
       "level": 1,
-      "health": "30",
+      "health": 30,
       "movement": 4,
       "attack": 4,
       "actions": [
@@ -84,7 +84,7 @@
     },
     {
       "level": 2,
-      "health": "39",
+      "health": 39,
       "movement": 5,
       "attack": 4,
       "actions": [
@@ -116,7 +116,7 @@
     },
     {
       "level": 3,
-      "health": "42",
+      "health": 42,
       "movement": 5,
       "attack": 4,
       "actions": [
@@ -148,7 +148,7 @@
     },
     {
       "level": 4,
-      "health": "56",
+      "health": 56,
       "movement": 5,
       "attack": 5,
       "actions": [
@@ -180,7 +180,7 @@
     },
     {
       "level": 5,
-      "health": "60",
+      "health": 60,
       "movement": 6,
       "attack": 5,
       "actions": [
@@ -212,7 +212,7 @@
     },
     {
       "level": 6,
-      "health": "75",
+      "health": 75,
       "movement": 6,
       "attack": 5,
       "actions": [
@@ -244,7 +244,7 @@
     },
     {
       "level": 7,
-      "health": "81",
+      "health": 81,
       "movement": 6,
       "attack": 6,
       "actions": [

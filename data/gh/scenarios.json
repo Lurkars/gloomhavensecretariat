@@ -114,7 +114,7 @@
       "living-corpse",
       "city-guard",
       "city-archer",
-      "captain"
+      "captain-of-the-guard"
     ]
   },
   {
@@ -207,8 +207,8 @@
     "objectives": [
       {
         "name": "Hail",
-        "health": 6,
-        "escort": true
+        "escort": true,
+        "health": "4+(2xL)"
       }
     ]
   },
@@ -249,6 +249,24 @@
       "flame-demon",
       "frost-demon",
       "wind-demon"
+    ],
+    "objectives": [
+      {
+        "name": "Altar 1",
+        "health": "4+(CxL)"
+      },
+      {
+        "name": "Altar 2",
+        "health": "4+(CxL)"
+      },
+      {
+        "name": "Altar 3",
+        "health": "4+(CxL)"
+      },
+      {
+        "name": "Altar 4",
+        "health": "4+(CxL)"
+      }
     ]
   },
   {
@@ -304,6 +322,13 @@
       "sun-demon",
       "earth-demon",
       "flame-demon"
+    ],
+    "objectives": [
+      {
+        "name": "Hail",
+        "escort": true,
+        "health": "4+(2xL)"
+      }
     ]
   },
   {
@@ -327,6 +352,20 @@
       "living-corpse",
       "living-spirit",
       "black-imp"
+    ],
+    "objectives": [
+      {
+        "name": "Door 1",
+        "health": "4+L"
+      },
+      {
+        "name": "Door 2",
+        "health": "4+L"
+      },
+      {
+        "name": "Door 3",
+        "health": "4+L"
+      }
     ]
   },
   {
@@ -347,6 +386,12 @@
       "deep-terror",
       "night-demon",
       "black-imp"
+    ],
+    "objectives": [
+      {
+        "name": "Rock Column",
+        "health": "(8+L)xC"
+      }
     ]
   },
   {
@@ -394,7 +439,13 @@
       "wind-demon",
       "city-archer",
       "city-guard",
-      "captain"
+      "captain-of-the-guard"
+    ],
+    "objectives": [
+      {
+        "name": "Door",
+        "health": "(7+L)xC"
+      }
     ]
   },
   {
@@ -408,6 +459,12 @@
       "wind-demon",
       "city-archer",
       "prime-demon"
+    ],
+    "objectives": [
+      {
+        "name": "Door",
+        "health": "10+(2xL)"
+      }
     ]
   },
   {
@@ -429,6 +486,13 @@
       "inox-archer",
       "inox-shaman",
       "stone-golem"
+    ],
+    "objectives": [
+      {
+        "name": "Orchid",
+        "escort": true,
+        "health": "6+(3xL)"
+      }
     ]
   },
   {
@@ -441,6 +505,12 @@
       "spitting-drake",
       "cultist",
       "living-bones"
+    ],
+    "objectives": [
+      {
+        "name": "Altar",
+        "health": "6+(CxL)"
+      }
     ]
   },
   {
@@ -474,6 +544,32 @@
       "night-demon",
       "wind-demon",
       "living-spirit"
+    ],
+    "objectives": [
+      {
+        "name": "Vocal Cord 1",
+        "health": "2+(LxC/2)"
+      },
+      {
+        "name": "Vocal Cord 2",
+        "health": "2+(LxC/2)"
+      },
+      {
+        "name": "Vocal Cord 3",
+        "health": "2+(LxC/2)"
+      },
+      {
+        "name": "Vocal Cord 4",
+        "health": "2+(LxC/2)"
+      },
+      {
+        "name": "Vocal Cord 5",
+        "health": "2+(LxC/2)"
+      },
+      {
+        "name": "Vocal Cord 6",
+        "health": "2+(LxC/2)"
+      }
     ]
   },
   {
@@ -495,6 +591,14 @@
       "inox-archer",
       "hound",
       "inox-shaman"
+    ],
+    "objectives": [
+      {
+        "name": "Redthorn",
+        "escort": true,
+        "health": "6+(3xL)",
+        "initiative": 1
+      }
     ]
   },
   {
@@ -505,6 +609,32 @@
       "city-guard",
       "city-archer",
       "hound"
+    ],
+    "objectives": [
+      {
+        "name": "Totem 1",
+        "health": "1+C+L"
+      },
+      {
+        "name": "Totem 2",
+        "health": "1+C+L"
+      },
+      {
+        "name": "Totem 3",
+        "health": "1+C+L"
+      },
+      {
+        "name": "Totem 4",
+        "health": "1+C+L"
+      },
+      {
+        "name": "Totem 5",
+        "health": "1+C+L"
+      },
+      {
+        "name": "Totem 6",
+        "health": "1+C+L"
+      }
     ]
   },
   {
@@ -527,7 +657,7 @@
       "lurker",
       "deep-terror",
       "harrower-infester",
-      "sightless-eye"
+      "the-sightless-eye"
     ]
   },
   {
@@ -549,7 +679,7 @@
       "giant-viper",
       "city-archer",
       "city-guard",
-      "ancient-artillery"
+      "siege-cannon"
     ]
   },
   {
@@ -568,7 +698,7 @@
     "name": "The Void",
     "index": "51",
     "monsters": [
-      "gloom"
+      "the-gloom"
     ]
   },
   {
@@ -621,6 +751,26 @@
       "bandit-archer",
       "rending-drake",
       "bandit-guard"
+    ],
+    "objectives": [
+      {
+        "name": "Captive Orchid 1",
+        "escort": true,
+        "health": "4+(2xL)",
+        "initiative": 50
+      },
+      {
+        "name": "Captive Orchid 2",
+        "escort": true,
+        "health": "4+(2xL)",
+        "initiative": 50
+      },
+      {
+        "name": "Captive Orchid 3",
+        "escort": true,
+        "health": "4+(2xL)",
+        "initiative": 50
+      }
     ]
   },
   {
@@ -630,7 +780,8 @@
     "monsters": [
       "city-guard",
       "city-archer",
-      "hound"
+      "hound",
+      "infiltrator"
     ]
   },
   {
@@ -641,7 +792,25 @@
       "earth-demon",
       "harrower-infester",
       "black-imp",
-      "city-guard"
+      "the-harvester"
+    ],
+    "objectives": [
+      {
+        "name": "Bone Pile 1",
+        "health": "L+(2xC)"
+      },
+      {
+        "name": "Bone Pile 2",
+        "health": "L+(2xC)"
+      },
+      {
+        "name": "Bone Pile 3",
+        "health": "L+(2xC)"
+      },
+      {
+        "name": "Bone Pile 4",
+        "health": "L+(2xC)"
+      }
     ]
   },
   {
@@ -682,7 +851,7 @@
     "name": "Pit of Souls",
     "index": "62",
     "monsters": [
-      "living-bones",
+      "hungry-soul",
       "living-spirit"
     ]
   },
@@ -735,7 +904,7 @@
     "monsters": [
       "forest-imp",
       "cave-bear",
-      "stone-golem"
+      "arcane-golem"
     ]
   },
   {
@@ -747,6 +916,13 @@
       "black-imp",
       "giant-viper",
       "living-corpse"
+    ],
+    "objectives": [
+      {
+        "name": "Tree",
+        "escort": true,
+        "health": "17"
+      }
     ]
   },
   {
@@ -789,6 +965,20 @@
       "ooze",
       "forest-imp",
       "giant-viper"
+    ],
+    "objectives": [
+      {
+        "name": "Tree A",
+        "health": "Cx(3+L)"
+      },
+      {
+        "name": "Tree B",
+        "health": "Cx(3+L)"
+      },
+      {
+        "name": "Tree C",
+        "health": "Cx(3+L)"
+      }
     ]
   },
   {
@@ -820,7 +1010,7 @@
     "index": "75",
     "monsters": [
       "living-bones",
-      "living-corpse",
+      "bloated-regent",
       "living-spirit"
     ]
   },
@@ -865,7 +1055,14 @@
     "monsters": [
       "stone-golem",
       "giant-viper",
-      "betrayer"
+      "the-betrayer"
+    ],
+    "objectives": [
+      {
+        "name": "Fish",
+        "escort": true,
+        "health": "6+2xL"
+      }
     ]
   },
   {
@@ -888,7 +1085,7 @@
       "sun-demon",
       "stone-golem",
       "ancient-artillery",
-      "colorless"
+      "the-colorless"
     ]
   },
   {
@@ -921,6 +1118,13 @@
       "flame-demon",
       "frost-demon",
       "earth-demon"
+    ],
+    "objectives": [
+      {
+        "name": "The Crystal",
+        "escort": true,
+        "health": "4+C+(2xL)"
+      }
     ]
   },
   {
@@ -953,6 +1157,7 @@
       "lurker",
       "deep-terror",
       "ooze",
+      "giant-ooze",
       "black-imp"
     ]
   },
@@ -963,7 +1168,8 @@
     "monsters": [
       "frost-demon",
       "ooze",
-      "lurker"
+      "lurker",
+      "lurker-king"
     ]
   },
   {
@@ -1044,7 +1250,7 @@
       "deep-terror",
       "flame-demon",
       "earth-demon",
-      "savvas-lavaflow"
+      "prime-lieutenant"
     ]
   }
 ]
