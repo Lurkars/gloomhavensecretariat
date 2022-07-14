@@ -116,14 +116,14 @@
           class="elite">{{getEliteValue()}}</span>
       </span>&nbsp;
     </span>
-    <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
-      [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize">
-    </ghs-action>
     <div class="additional-subactions" *ngIf="statsCalculation">
       <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of additionalSubActions()"
         [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize">
       </ghs-action>
     </div>
+    <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
+      [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize">
+    </ghs-action>
   </span>
 
 </span>
