@@ -60,6 +60,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setCalculateStats(calculateStats: boolean) {
+    this.settings.calculateStats = calculateStats;
+    this.storeSettings();
+  }
+
   setEliteFirst(eliteFirst: boolean) {
     this.settings.eliteFirst = eliteFirst;
     this.storeSettings();

@@ -55,6 +55,7 @@
   "settings": {
     ".": "Settings",
     "calc": "Show calculated stats",
+    "calcStats": "Add stats values to abilities",
     "eliteFirst": "Elite standees first",
     "expireConditions": "Automatic expire conditions",
     "applyConditions": "Automatic apply conditions",

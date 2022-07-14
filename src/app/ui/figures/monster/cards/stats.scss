@@ -76,9 +76,9 @@
     filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
 
     .stat {
-      font-size: calc(var(--ghs-unit) * 2.2);
+      font-size: calc(var(--ghs-unit) * 2.7);
       padding-top: calc(var(--ghs-unit) * 0);
-      line-height: 1.3em;
+      line-height: calc(var(--ghs-unit) * 2.9);
 
       &.end {
         justify-self: end;

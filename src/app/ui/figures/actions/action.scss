@@ -15,7 +15,6 @@
   .action-condition,
   .action-element {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -300,6 +299,22 @@
           }
         }
       }
+    }
+  }
+
+
+
+  .additional-subactions {
+    flex-basis: 100%;
+    flex-shrink: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    ghs-action.subaction-monsterType {
+      flex-basis: 0;
+      flex-grow: 1;
     }
   }
 

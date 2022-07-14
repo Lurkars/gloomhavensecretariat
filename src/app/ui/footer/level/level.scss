@@ -11,7 +11,7 @@
 
   .dialog-button {
     position: absolute;
-    top: calc(var(--ghs-unit) * -14 * var(--ghs-text-factor));
+    top: calc(var(--ghs-unit) * -14 * var(--ghs-dialog-factor));
     left: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
   }
 

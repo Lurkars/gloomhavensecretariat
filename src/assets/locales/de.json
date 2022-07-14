@@ -55,6 +55,7 @@
   "settings": {
     ".": "Einstellungen",
     "calc": "Zeige berechnete Werte an",
+    "calcStats": "Füge Werte zu Fähigkeiten zu",
     "eliteFirst": "Elite Aufsteller zuerst",
     "expireConditions": "Automatisch Zustände löschen",
     "applyConditions": "Zustände automatisch anweden",

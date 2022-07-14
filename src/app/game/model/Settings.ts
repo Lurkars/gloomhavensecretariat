@@ -1,5 +1,6 @@
 export class Settings {
   calculate: boolean = true;
+  calculateStats: boolean = true;
   eliteFirst: boolean = true;
   expireConditions: boolean = true;
   applyConditions: boolean = true;

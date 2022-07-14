@@ -31,6 +31,20 @@ export class MonsterManager {
     return './assets/images/monster/thumbnail/' + monsterData.thumbnail + '.png';
   }
 
+  getStat(monster: Monster, type: MonsterType): MonsterStat {
+    const stat = monster.stats.find((monsterStat: MonsterStat) => {
+      return monsterStat.level == monster.level && monsterStat.type == type;
+    });
+    if (!stat) {
+      console.error("Could not find '" + type + "' stats for monster: " + monster.name + " level: " + monster.level);
+      if (monster.errors.indexOf(FigureError.stat) == -1) {
+        monster.errors.push(FigureError.stat);
+      }
+      return new MonsterStat(type, monster.level, 0, 0, 0, 0);
+    }
+    return stat;
+  }
+
   addMonster(monsterData: MonsterData) {
     if (!this.game.figures.some((figure: Figure) => {
       return figure instanceof MonsterData && figure.name == monsterData.name && figure.edition == monsterData.edition;

@@ -131,7 +131,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-right: calc(var(--ghs-unit) * 2.8);
+      margin-right: calc(var(--ghs-unit) * 2);
 
       img {
         height: calc(var(--ghs-unit) * 8);
@@ -183,6 +183,8 @@
     width: calc(var(--ghs-unit) * 9);
     height: calc(var(--ghs-unit) * 9);
     margin: calc(var(--ghs-unit) * 3);
+    margin-left: calc(var(--ghs-unit) * 5);
+    margin-right: calc(var(--ghs-unit) * 1);
     cursor: pointer;
     border-radius: calc(var(--ghs-unit) * 1);
     flex-shrink: 0;
