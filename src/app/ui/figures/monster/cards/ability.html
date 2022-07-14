@@ -2,7 +2,7 @@
   <div class="card" [ngClass]="{'flipped' : flipped() }">
     <div class="card-back ability-back" (click)="open()">
       <span class="name">{{'data.monster.' + monster.name | ghsLabel}}</span>
-      <span class="left-abilities">{{monster.abilities.length - ( monster.ability >= 0 ? monster.ability : 0)}}</span>
+      <span class="left-abilities">{{monster.abilities.length - ( monster.ability >= 0 ? monster.ability + 1 : 0)}}</span>
     </div>
     <div class="card-front ability-front"
       [ngClass]="{'hoverable' : !ability || !ability.bottomActions || ability.bottomActions.length < 1 ,'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0}"
