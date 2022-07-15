@@ -29,7 +29,7 @@
   }
 
   ghs-monster-ability {
-    margin: 0 calc(var(--ghs-unit) * 2);
+    margin: 0 calc(var(--ghs-unit) * 0.5);
   }
 
   ghs-monster-numberpicker {
@@ -38,7 +38,7 @@
     &.normal,
     &.boss {
       bottom: calc(var(--ghs-unit) * 1);
-      left: calc(var(--ghs-unit) * 55.5);
+      left: calc(var(--ghs-unit) * 53);
     }
 
     &.elite {

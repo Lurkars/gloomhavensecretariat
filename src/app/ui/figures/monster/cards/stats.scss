@@ -1,6 +1,6 @@
 .stats-container {
-  width: calc(var(--ghs-unit) * 35);
-  height: calc(var(--ghs-unit) * 19);
+  width: calc(var(--ghs-unit) * 37);
+  height: calc(var(--ghs-unit) * 20);
   position: relative;
   background-position: top;
   background-repeat: no-repeat;
@@ -72,13 +72,13 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: calc(var(--ghs-unit) * 3.5);
+    column-gap: calc(var(--ghs-unit) * 4);
     filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
 
     .stat {
       font-size: calc(var(--ghs-unit) * 2.7);
       padding-top: calc(var(--ghs-unit) * 0);
-      line-height: calc(var(--ghs-unit) * 2.9);
+      line-height: calc(var(--ghs-unit) * 3.1);
 
       &.end {
         justify-self: end;
@@ -100,16 +100,16 @@
     background-image: url('~src/assets/images/monster/stats/boss.png');
 
     .stats {
-      width: calc(var(--ghs-unit) * 12.3);
+      width: calc(var(--ghs-unit) * 12.8);
       grid-template-columns: 1fr;
-      top: calc(var(--ghs-unit) * 5.8);
+      top: calc(var(--ghs-unit) * 6);
     }
   }
 
   .extra {
     position: absolute;
     top: calc(var(--ghs-unit) * 5);
-    width: calc(var(--ghs-unit) * 12);
+    width: calc(var(--ghs-unit) * 13.5);
     display: flex;
     flex-direction: column;
     font-size: calc(var(--ghs-unit) * 1.8);
@@ -123,7 +123,7 @@
 
     .immunities {
       position: absolute;
-      top: calc(var(--ghs-unit) * -0.5);
+      top: calc(var(--ghs-unit) * 1.5);
       display: grid;
       justify-items: center;
       grid-template-columns: repeat(6, calc(var(--ghs-unit) * 2.3));
@@ -207,7 +207,7 @@
     }
 
     &.normal {
-      right: calc(var(--ghs-unit) * 22);
+      right: calc(var(--ghs-unit) * 23.5);
       text-align: right;
 
       .immunities {
@@ -221,7 +221,7 @@
     }
 
     &.elite {
-      right: calc(var(--ghs-unit) * 1);
+      right: calc(var(--ghs-unit) * 0.5);
       color: var(--ghs-color-white);
 
       .immunities {
@@ -230,8 +230,8 @@
     }
 
     &.boss {
-      width: calc(var(--ghs-unit) * 19);
-      right: calc(var(--ghs-unit) * 0.3);
+      width: calc(var(--ghs-unit) * 20);
+      right: calc(var(--ghs-unit) * 0.5);
       color: var(--ghs-color-white);
 
       .extra-container {
@@ -239,8 +239,8 @@
       }
 
       .immunities {
-        top: calc(var(--ghs-unit) * -0.5);
-        left: calc(var(--ghs-unit) * -16.5);
+        top: calc(var(--ghs-unit) * 0.8);
+        left: calc(var(--ghs-unit) * -17.5);
       }
     }
 

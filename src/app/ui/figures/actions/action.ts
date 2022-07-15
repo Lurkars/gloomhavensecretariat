@@ -34,7 +34,7 @@ export class ActionsComponent {
   templateUrl: './action.html',
   styleUrls: [ './action.scss' ]
 })
-export class ActionComponent {
+export class ActionComponent implements OnInit {
 
   @Input() monster!: Monster;
   @Input() action!: Action;
@@ -43,6 +43,8 @@ export class ActionComponent {
   @Input() right: boolean = false;
   @Input() statsCalculation: boolean = false;
   @Input() hexSize!: number;
+
+  additionalSubActions: Action[] = [];
 
   ActionType = ActionType;
   ActionValueType = ActionValueType;
@@ -123,17 +125,24 @@ export class ActionComponent {
     }
   }
 
-  additionalSubActions(): Action[] {
-    let subActions: Action[] = [];
+  ngOnInit(): void {
+    this.updateAdditionalSubActions();
+    gameManager.uiChange.subscribe((value: boolean) => {
+      this.updateAdditionalSubActions();
+    })
+  }
+
+
+  updateAdditionalSubActions(): void {
+    this.additionalSubActions = [];
     if (settingsManager.settings.calculateStats) {
       const stat = gameManager.monsterManager.getStat(this.monster, this.monster.boss ? MonsterType.boss : MonsterType.normal);
       if (this.action.type == ActionType.attack) {
         if (stat.range && (!this.action.subActions || !this.action.subActions.some((subAction: Action) => subAction.type == ActionType.range || subAction.type == ActionType.area || subAction.type == ActionType.specialTarget))) {
-          subActions.unshift(new Action(ActionType.range, 0, ActionValueType.plus));
+          this.additionalSubActions.unshift(new Action(ActionType.range, 0, ActionValueType.plus));
         }
       }
     }
-    return subActions;
   }
 
   isInvertIcon(type: ActionType) {

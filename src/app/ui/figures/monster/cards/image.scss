@@ -1,13 +1,12 @@
 .image {
   position: relative;
   display: flex;
-  width: calc(var(--ghs-unit) * 14);
-  height: calc(var(--ghs-unit) * 14);
+  width: calc(var(--ghs-unit) * 14.5);
+  height: calc(var(--ghs-unit) * 14.5);
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: calc(var(--ghs-unit) * 1);
   cursor: pointer;
 
   img {

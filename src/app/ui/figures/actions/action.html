@@ -116,8 +116,8 @@
           class="elite">{{getEliteValue()}}</span>
       </span>&nbsp;
     </span>
-    <div class="additional-subactions" *ngIf="statsCalculation">
-      <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of additionalSubActions()"
+    <div class="additional-subactions" *ngIf="statsCalculation && additionalSubActions.length > 0">
+      <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of additionalSubActions"
         [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize">
       </ghs-action>
     </div>
