@@ -1,8 +1,8 @@
 {
   "name": "Gloomhaven Secretary",
   "short_name": "ghs",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "theme_color": "#936658",
+  "background_color": "#000000",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

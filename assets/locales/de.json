@@ -67,6 +67,7 @@
     "zoomOut": "Rauszoomen",
     "zoomReset": "Zoom zurücksetzen",
     "fullscreen": "Vollbild",
+    "hints": "Hinweise anzeigen",
     "browserNavigation": "Rückgängig/Wiederherstellen über Navigation",
     "maxUndo": "Max. Anzahl Rückgängigvorgänge",
     "locale": {
@@ -113,6 +114,15 @@
     "exportSettings": "Einstellungen in Datei exportieren",
     "resetGame": "Spiel zurücksetzen",
     "resetSettings": "Einstellungen zurücksetzen"
+  },
+  "hints": {
+    "addMonsterEntities": "Auf die \"+\" Buttons klicken um Monster zu spawnen",
+    "draw": "\"%round.draw%\" klicken",
+    "draw-short": "Initiative festlegen, \"%round.draw%\" klicken.",
+    "draw-full": "Fertigkeitskarten der Charakter auswählen, Initiative festlegen, \"%round.draw%\" klicken.",
+    "active": "Züge durchführen",
+    "active-full": "Auf die Bilder der Figuren klicken um die Züge durchzuführen",
+    "next": "\"%round.next%\" klicken"
   },
   "about": {
     ".": "Über",

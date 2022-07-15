@@ -67,6 +67,7 @@
     "zoomOut": "Zoom Out",
     "zoomReset": "Reset Zoom",
     "fullscreen": "Fullscreen",
+    "hints": "Show hints",
     "browserNavigation": "Undo/Redo with navigation",
     "maxUndo": "Max. number of undos",
     "locale": {
@@ -113,6 +114,18 @@
     "exportSettings": "Export Settings to File",
     "resetGame": "Reset Game",
     "resetSettings": "Reset Settings"
+  },
+  "hints": {
+    "addCharacters": "%character.add%",
+    "setScenario": "%scenario%",
+    "addMonsters": "%monster.add%",
+    "addMonsterEntities" : "Use the \"+\" buttons to spawn monsters.",
+    "draw": "Click \"%round.draw%\"",
+    "draw-short": "Set initiative, click \"%round.draw%\"",
+    "draw-full": "Choose character ability cards, set initiative, click \"%round.draw%\".",
+    "active": "Take turns",
+    "active-full": "Take turns, click each figure image",
+    "next": "Click \"%round.next%\""
   },
   "about": {
     ".": "About",
