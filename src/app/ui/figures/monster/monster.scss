@@ -34,6 +34,7 @@
 
   ghs-monster-numberpicker {
     position: absolute;
+    z-index: 2;
 
     &.normal,
     &.boss {
