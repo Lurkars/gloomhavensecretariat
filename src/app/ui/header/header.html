@@ -7,15 +7,30 @@
       *ngSwitchCase="WebSocket.CONNECTING" [title]="'server.connecting' | ghsLabel">
     <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection closing"
       *ngSwitchCase="WebSocket.CLOSING" [title]="'server.closing' | ghsLabel">
-    <a (click)="gameManager.stateManager.connect()"  [title]="'server.reconnected' | ghsLabel"  *ngSwitchCase="WebSocket.CLOSED" class="server-connection">
+    <a (click)="gameManager.stateManager.connect()" [title]="'server.reconnected' | ghsLabel"
+      *ngSwitchCase="WebSocket.CLOSED" class="server-connection">
       <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection closed"
         [title]="'server.closed' | ghsLabel">
     </a>
-    <a (click)="gameManager.stateManager.connect()" [title]="'server.reconnected' | ghsLabel" *ngSwitchCase="-1"  class="server-connection">
+    <a (click)="gameManager.stateManager.connect()" [title]="'server.reconnected' | ghsLabel" *ngSwitchCase="-1"
+      class="server-connection">
       <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection disconnected"
         [title]="'server.disconnected' | ghsLabel">
     </a>
   </ng-container>
+  <div class="hints" *ngIf="settingsManager.settings.hints" [ngClass]="{'visible' : init}">
+    <ng-container [ngSwitch]="hintState">
+      <div *ngSwitchCase="'characters'">
+        <a class="menu-hint" (click)="openMenu(SubMenu.character_add)">{{'hints.addCharacters' | ghsLabel}}</a>
+      </div>
+      <div *ngSwitchCase="'scenario'">
+        <a class="menu-hint" (click)="openMenu(SubMenu.scenario)">{{'hints.setScenario' | ghsLabel}}</a> {{'or' |
+        ghsLabel}} <a class="menu-hint" (click)="openMenu(SubMenu.monster_add)">{{'hints.addMonsters' |
+          ghsLabel}}</a>
+      </div>
+      <div *ngSwitchDefault>{{'hints.' + hintState | ghsLabel}} </div>
+    </ng-container>
+  </div>
   <span class="spacer"></span>
   <div class="elements">
     <ghs-element-icon *ngFor="let element of elements" [element]="element"></ghs-element-icon>

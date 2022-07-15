@@ -6,12 +6,6 @@
 
   &.inline {
     align-items: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
-
-    ghs-action:not(:nth-last-of-type(1)) {
-      padding-right: calc(var(--ghs-unit) * 1);
-    }
   }
 
   &.right {

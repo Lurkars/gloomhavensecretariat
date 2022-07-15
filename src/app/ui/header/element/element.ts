@@ -6,7 +6,8 @@ import { GameState } from "src/app/game/model/Game";
 
 @Component({
   selector: 'ghs-element-icon',
-  templateUrl: './element.html', encapsulation: ViewEncapsulation.None,
+  templateUrl: './element.html',
+  encapsulation: ViewEncapsulation.None,
   styleUrls: [ './element.scss' ]
 })
 export class ElementIconComponent implements OnInit {

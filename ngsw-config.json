@@ -1,8 +1,8 @@
 {
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
-  "index": "/index.html",
+  "index": "/",
   "appData": {
-    "version": "0.9.10"
+    "version": "0.9.11"
   },
   "assetGroups": [
     {

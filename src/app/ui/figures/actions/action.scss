@@ -331,19 +331,9 @@
     .action-element,
     .condition,
     .action-condition {
+      display: inline-flex;
+      gap: calc(var(--ghs-unit) * 0.25);
       justify-content: flex-start;
-    }
-
-    &:nth-last-child(1):not(:nth-child(1))::after {
-      content: ',';
-    }
-
-    ghs-action:nth-of-type(1) {
-      padding-left: calc(var(--ghs-unit) * 0.4);
-    }
-
-    ghs-action:not(:nth-last-of-type(1)) {
-      padding-right: calc(var(--ghs-unit) * 1);
     }
 
     .custom-value {
@@ -373,12 +363,6 @@
         flex-basis: 100%;
         flex-shrink: 1;
         margin-left: calc(var(--ghs-unit) * 0.2);
-      }
-    }
-
-    .action-default {
-      ghs-action {
-        margin-left: calc(var(--ghs-unit) * 0.3);
       }
     }
 

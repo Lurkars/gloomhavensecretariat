@@ -77,7 +77,7 @@ import { ValueCalcDirective } from './ui/helper/valueCalc';
     AppRoutingModule,
     FormsModule,
     DragDropModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: true })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: true, registrationStrategy: 'registerImmediately' })
   ],
   providers: [ { provide: APP_BASE_HREF, useValue: '.' } ],
   bootstrap: [ AppComponent ]

@@ -9,6 +9,7 @@ export class Settings {
   hideStats: boolean = true;
   randomStandees: boolean = false;
   fullscreen: boolean = false;
+  hints: boolean = true;
   zoom: number = 100;
   locale: string = "en";
   editionDataUrls: string[] = [];

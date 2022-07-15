@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { applyPlaceholder } from './i18n';
 
 @Pipe({
   name: 'ghsValueSign'
@@ -23,7 +24,12 @@ export class GhsValueSignPipe implements PipeTransform {
 export class GhsLabelPipe implements PipeTransform {
 
   transform(value: string, args: string[] | undefined = undefined): string {
-    return settingsManager.getLabel(value, args?.map((arg: string) => settingsManager.getLabel(arg)));
+
+    if (!value) {
+      return "";
+    }
+
+    return applyPlaceholder(settingsManager.getLabel(value, args?.map((arg: string) => settingsManager.getLabel(arg))));
   }
 
 }

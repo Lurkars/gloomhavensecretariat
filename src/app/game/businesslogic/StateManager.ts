@@ -16,9 +16,13 @@ export class StateManager {
   }
 
   init() {
+    let local: boolean = true;
     if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword && settingsManager.settings.serverAutoconnect) {
       this.connect();
-    } else {
+      local = this.ws != undefined && (this.ws.readyState == WebSocket.OPEN || this.ws.readyState == WebSocket.CONNECTING);
+    }
+
+    if (local) {
       const local: string | null = localStorage.getItem("ghs-game");
       if (local != null) {
         const gameModel: GameModel = Object.assign(new GameModel(), JSON.parse(local));

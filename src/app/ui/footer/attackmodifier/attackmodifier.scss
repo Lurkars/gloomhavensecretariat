@@ -123,7 +123,7 @@
 
 .attack-modifiers-popup {
 
-  width: calc(var(--ghs-unit) * 50);
+  width: calc(var(--ghs-unit) * 55 * var(--ghs-dialog-factor));
 
   .menu {
     display: flex;
@@ -136,10 +136,10 @@
       display: flex;
       align-items: center;
       font-family: 'ghs-title';
-      font-size: calc(var(--ghs-unit) * 4);
+      font-size: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
       color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
-      margin: 0 calc(var(--ghs-unit) * 0.5);
+      margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 
       &:hover {
         color: var(--ghs-color-white);
@@ -150,22 +150,22 @@
       cursor: pointer;
       appearance: none;
       background-color: var(--form-background);
-      width: calc(var(--ghs-unit) * 3);
-      height: calc(var(--ghs-unit) * 3);
+      width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+      height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
       border-width: calc(var(--ghs-unit) * 0.3);
       border-style: solid;
       display: grid;
       place-content: center;
-      margin-right: calc(var(--ghs-unit) * 1);
+      margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
       color: var(--ghs-color-gray);
 
       &::before {
-        left: calc(var(--ghs-unit) * 0.5);
-        top: calc(var(--ghs-unit) * -0.5);
+        left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        top: calc(var(--ghs-unit) * -0.5 * var(--ghs-dialog-factor));
         position: relative;
         content: ' ';
-        width: calc(var(--ghs-unit) * 3);
-        height: calc(var(--ghs-unit) * 3);
+        width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
         transform: scale(0);
         transform-origin: bottom left;
         transition: 120ms transform ease-in-out;
@@ -193,12 +193,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 calc(var(--ghs-unit) * 1);
+        margin: 0 calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
         flex-grow: 1;
 
         img {
           height: 100%;
-          max-height: calc(var(--ghs-unit) * 7);
+          max-height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
           width: auto;
         }
       }
@@ -208,8 +208,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: calc(var(--ghs-unit) * 2.5);
-        height: calc(var(--ghs-unit) * 2.5);
+        width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
         filter: var(--ghs-filter-gray);
 
         &:hover {
@@ -222,28 +222,29 @@
   .attack-modifiers-container {
     display: flex;
     flex-direction: row;
-    margin: calc(var(--ghs-unit) * 1);
+    margin: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
     max-height: 80vh;
 
     .upcoming,
     .disgarded {
       display: flex;
       flex-direction: column;
+      align-items: center;
       overflow-y: auto;
       overflow-x: hidden;
-      width: calc(var(--ghs-unit) * 27);
-      padding: calc(var(--ghs-unit) * 1);
+      width: calc(var(--ghs-unit) * 28 * var(--ghs-dialog-factor));
+      padding: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 
       &.upcoming {
-        width: calc(var(--ghs-unit) * 26);
+        width: calc(var(--ghs-unit) * 27 * var(--ghs-dialog-factor));
       }
 
       .attack-modifier,
       .empty {
         transition: none;
-        width: calc(var(--ghs-unit) * 20);
-        height: calc(var(--ghs-unit) * 13.7);
-        margin: calc(var(--ghs-unit) * 0.5);
+        width: calc(var(--ghs-unit) * 20 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 13.7 * var(--ghs-dialog-factor));
+        margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
         flex-shrink: 0;
         flex-grow: 0;
       }
@@ -257,7 +258,7 @@
             justify-content: center;
             align-items: center;
             color: var(--ghs-color-white);
-            font-size: calc(var(--ghs-unit) * 2.5);
+            font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
             filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
           }
         }
@@ -273,13 +274,13 @@
       .button-remove {
         position: absolute;
         cursor: pointer;
-        top: calc(var(--ghs-unit) * 0.5);
-        right: calc(var(--ghs-unit) * 0.5);
+        top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
         display: flex;
         justify-content: center;
         align-items: center;
-        width: calc(var(--ghs-unit) * 2.5);
-        height: calc(var(--ghs-unit) * 2.5);
+        width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
         filter: var(--ghs-filter-white);
 
         &:hover {

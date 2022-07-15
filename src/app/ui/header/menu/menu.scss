@@ -42,6 +42,7 @@
 
   &.disabled {
     pointer-events: none;
+
     .ghs-svg {
       filter: var(--ghs-filter-darkgray) !important;
     }

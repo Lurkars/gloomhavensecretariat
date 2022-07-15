@@ -94,7 +94,7 @@ export class HighlightConditionsComponent {
     gameManager.entityManager.applyCondition(this.entity, name)
     gameManager.stateManager.after();
   }
- 
+
   declineApplyCondition(name: ConditionName, event: any) {
     event.stopPropagation();
     gameManager.stateManager.before();
@@ -109,12 +109,19 @@ export class HighlightConditionsComponent {
 })
 export class ConditionHighlightAnimationDirective implements OnInit {
 
+
+  @Input('conditionHighlight') condition!: EntityCondition;
+
   constructor(private el: ElementRef) { }
 
   ngOnInit(): void {
     this.el.nativeElement.classList.add("animation");
     setTimeout(() => {
       this.el.nativeElement.classList.remove("animation");
+      if (this.condition.types.indexOf(ConditionType.turn) != -1) {
+        this.condition.highlight = false;
+        gameManager.stateManager.after();
+      }
     }, 1500);
   }
 

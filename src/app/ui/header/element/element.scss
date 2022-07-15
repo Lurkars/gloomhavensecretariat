@@ -1,9 +1,12 @@
 ghs-element-icon {
+
+  margin-right: calc(var(--ghs-unit) * 0.5);
+
   span {
     cursor: pointer;
     display: block;
-    width: calc(var(--ghs-unit) * 6);
-    height: calc(var(--ghs-unit) * 6);
+    width: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor));
+    height: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor));
 
     svg {
       width: 100%;

@@ -87,7 +87,12 @@
       </div>
     </div>
     <div class="column">
-
+      <div class="line">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.hints" (change)="settingsManager.setHints(!settingsManager.settings.hints)">
+          {{'settings.hints' | ghsLabel}}
+        </label>
+      </div>
       <div class="line">
         <label>
           <input type="checkbox" [checked]="settingsManager.settings.fullscreen" (change)="fullscreen()">

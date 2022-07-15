@@ -248,6 +248,7 @@
     .notes {
       margin-top: calc(var(--ghs-unit) * 0.5);
       line-height: 0.8em;
+      filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.01) var(--ghs-color-black));
     }
 
     .additional,
@@ -258,11 +259,14 @@
       ghs-actions {
         flex-basis: 0;
         flex-grow: 1;
-        margin-left: calc(var(--ghs-unit) * 0.5);
 
         &:first-child {
           margin-top: calc(var(--ghs-unit) * 0.5);
         }
+      }
+
+      &.specials .special {
+        margin-right: calc(var(--ghs-unit) * 0.2);
       }
 
     }

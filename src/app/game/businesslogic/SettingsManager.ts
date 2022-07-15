@@ -105,6 +105,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setHints(hints: boolean) {
+    this.settings.hints = hints;
+    this.storeSettings();
+  }
+
   setBrowserNavigation(browserNavigation: boolean) {
     this.settings.browserNavigation = browserNavigation;
     this.storeSettings();
@@ -350,7 +355,7 @@ export class SettingsManager {
         .then(response => {
           return response.json();
         }).then(data => {
-          this.label = Object.assign(this.label, data);
+          this.label = this.merge(this.label, data);
         })
         .catch((error: Error) => {
           console.error("Invalid locale: " + locale, error);
@@ -364,7 +369,7 @@ export class SettingsManager {
         this.storeSettings();
         return response.json();
       }).then(data => {
-        this.label = Object.assign(this.label, data);
+        this.label = this.merge(this.label, data);
       })
       .catch((error: Error) => {
         console.error("Invalid locale: " + locale, error);

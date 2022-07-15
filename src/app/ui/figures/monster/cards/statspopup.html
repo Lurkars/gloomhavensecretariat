@@ -9,7 +9,9 @@
       *ngIf="getEdition()">[{{'data.edition.' + getEdition()| ghsLabel}}]</span>
   </span>
   <div class="stats-container">
-    <ghs-monster-stats [monster]="getMonsterForLevel(level)" [showName]="true" [forceStats]="true"
-      *ngFor="let level of levels"></ghs-monster-stats>
+    <div class="stats" *ngFor="let level of levels">
+      <ghs-monster-stats [monster]="getMonsterForLevel(level)" [showName]="true" [forceStats]="true">
+      </ghs-monster-stats>
+    </div>
   </div>
 </div>
