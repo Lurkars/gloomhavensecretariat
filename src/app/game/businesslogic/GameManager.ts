@@ -205,9 +205,11 @@ export class GameManager {
           return b.entities.length - a.entities.length;
         }
         return aName < bName ? -1 : 1;
-      } else {
+      } else if (settingsManager.settings.initiativeRequired) {
         return a.getInitiative() - b.getInitiative();
       }
+
+      return 0;
     });
   }
 
@@ -236,7 +238,7 @@ export class GameManager {
   }
 
   nextAvailable(): boolean {
-    return this.game.figures.length > 0 && (this.game.state == GameState.next || this.game.figures.every((figure: Figure) => figure instanceof Monster || (figure instanceof Objective || figure instanceof Character) && (figure.getInitiative() > 0 || figure.exhausted)
+    return this.game.figures.length > 0 && (this.game.state == GameState.next || this.game.figures.every((figure: Figure) => figure instanceof Monster || (figure instanceof Objective || figure instanceof Character) && (figure.getInitiative() > 0 || figure.exhausted || !settingsManager.settings.initiativeRequired)
     ));
   }
 

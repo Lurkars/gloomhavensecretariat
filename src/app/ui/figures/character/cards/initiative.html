@@ -1,7 +1,7 @@
 <div class="overlay" *ngIf="showOverlay()" (click)="toggle()">
 </div>
 
-<div class="initiative">
+<div class="initiative" [ngClass]="{'empty' : character.initiative <= 0 && !settingsManager.settings.initiativeRequired}">
   <img (click)="toggle()" class="ghs-svg" src="./assets/images/initiative.svg" />
   <input [value]="character.initiative || ''" (change)="updateInitiative($event)" type="number" min="1" max="99"
     maxlength="2">

@@ -2,7 +2,7 @@
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "index": "/",
   "appData": {
-    "version": "0.9.11"
+    "version": "0.9.12"
   },
   "assetGroups": [
     {
@@ -27,7 +27,8 @@
           "/**/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|otf|ttf|woff|woff2)"
         ],
         "urls": [
-          "/assets/**"
+          "/assets/**",
+          "/**"
         ]
       }
     }

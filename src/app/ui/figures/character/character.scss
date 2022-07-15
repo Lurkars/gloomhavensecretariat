@@ -45,6 +45,10 @@
     }
   }
 
+  ghs-character-initiative {
+    margin-right: calc(var(--ghs-unit) * 1);
+  }
+
   ghs-character-initiative,
   ghs-character-image {
     z-index: 2;

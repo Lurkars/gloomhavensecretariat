@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { Figure } from 'src/app/game/model/Figure';
 import { GameState } from 'src/app/game/model/Game';
@@ -41,17 +42,11 @@ export class FooterComponent extends DialogComponent {
   }
 
   missingInitative(): boolean {
-    return gameManager.game.figures.some((figure: Figure) => figure instanceof Character && figure.initiative < 1 && !figure.exhausted);
+    return gameManager.game.figures.some((figure: Figure) => figure instanceof Character && settingsManager.settings.initiativeRequired &&  figure.initiative < 1 && !figure.exhausted);
   }
 
   active(): boolean {
-    const activeFigure = gameManager.game.figures.find((figure: Figure) => figure.active && !figure.off);
-
-    if (!activeFigure) {
-      return false;
-    }
-
-    return gameManager.game.figures.find((figure: Figure, index: number) => !figure.off && index > gameManager.game.figures.indexOf(activeFigure)) != undefined;
+    return gameManager.game.figures.find((figure: Figure) => figure.active && !figure.off) != undefined;
   };
 
   disabled(): boolean {

@@ -1,6 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
@@ -20,6 +21,7 @@ export class CharacterInitiativeComponent extends DialogComponent {
 
   characterManager: CharacterManager = gameManager.characterManager;
   gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
 
   pickNumber(number: number) {
@@ -39,8 +41,8 @@ export class CharacterInitiativeComponent extends DialogComponent {
   }
 
   updateInitiative(event: any) {
-    const initative: number = +  event.target.value;
-    if ((gameManager.game.state == GameState.draw && initative >= 0 || initative > 0) && initative < 100) {
+    const initative: number = isNaN(+event.target.value) ? 0 : +event.target.value;
+    if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initative >= 0 || initative > 0) && initative < 100) {
       this.setInitiative(initative);
     } else {
       event.target.value = "" + this.character.initiative
@@ -48,7 +50,7 @@ export class CharacterInitiativeComponent extends DialogComponent {
   }
 
   setInitiative(initative: number) {
-    if ((gameManager.game.state == GameState.draw && initative >= 0 || initative > 0) && initative < 100) {
+    if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initative >= 0 || initative > 0) && initative < 100) {
       gameManager.stateManager.before();
       this.character.initiative = initative;
       gameManager.sortFigures();
@@ -57,7 +59,7 @@ export class CharacterInitiativeComponent extends DialogComponent {
   }
 
   showOverlay(): boolean {
-    return this.character.initiative <= 0 || gameManager.game.state == GameState.draw;
+    return settingsManager.settings.initiativeRequired && this.character.initiative <= 0 || gameManager.game.state == GameState.draw;
   }
 
   override close(): void {

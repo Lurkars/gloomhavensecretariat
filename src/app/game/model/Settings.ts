@@ -8,6 +8,7 @@ export class Settings {
   moveElements: boolean = true;
   hideStats: boolean = true;
   randomStandees: boolean = false;
+  initiativeRequired: boolean = true;
   fullscreen: boolean = false;
   hints: boolean = true;
   zoom: number = 100;

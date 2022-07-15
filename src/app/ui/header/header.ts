@@ -55,7 +55,7 @@ export class HeaderComponent implements OnInit {
     } else if (gameManager.game.figures.some((figure: Figure) => figure.active)) {
       return gameManager.game.round < 3 ? 'active-full' : 'active';
     } else if (gameManager.game.state == GameState.draw) {
-      if (gameManager.game.figures.some((figure: Figure) => figure instanceof Character && !figure.exhausted && figure.health > 0 && figure.initiative <= 0)) {
+      if (gameManager.game.figures.some((figure: Figure) => figure instanceof Character && !figure.exhausted && figure.health > 0 && settingsManager.settings.initiativeRequired && figure.initiative <= 0)) {
         return gameManager.game.round < 3 ? 'draw-full' : 'draw-short';
       }
       return 'draw';

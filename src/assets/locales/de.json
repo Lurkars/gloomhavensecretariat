@@ -63,6 +63,7 @@
     "moveElements": "Automatisch Elementen Status ändern",
     "hideStats": "Werte ausblenden",
     "randomStandees": "Zufällige Aufsteller",
+    "initiativeRequired": "Initiative muss gesetzt werden",
     "zoomIn": "Reinzoomen",
     "zoomOut": "Rauszoomen",
     "zoomReset": "Zoom zurücksetzen",

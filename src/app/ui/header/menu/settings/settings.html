@@ -61,6 +61,13 @@
       </div>
       <div class="line">
         <label>
+          <input type="checkbox" [checked]="settingsManager.settings.initiativeRequired"
+            (change)="settingsManager.setInitiativeRequired(!settingsManager.settings.initiativeRequired)">
+          {{'settings.initiativeRequired' | ghsLabel}}
+        </label>
+      </div>
+      <div class="line">
+        <label>
           <input type="checkbox" [checked]="settingsManager.settings.randomStandees"
             (change)="settingsManager.setRandomStandees(!settingsManager.settings.randomStandees)">
           {{'settings.randomStandees' | ghsLabel}}

@@ -100,6 +100,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setInitiativeRequired(initiativeRequired: boolean) {
+    this.settings.initiativeRequired = initiativeRequired;
+    this.storeSettings();
+  }
+
   setFullscreen(fullscreen: boolean) {
     this.settings.fullscreen = fullscreen;
     this.storeSettings();
