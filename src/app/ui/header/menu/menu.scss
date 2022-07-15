@@ -292,14 +292,15 @@
     overflow: hidden;
     background-color: var(--ghs-color-red);
     color: var(--ghs-color-white);
-    font-family: 'ghs-title';
+    font-family: "ghs-title";
     font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-    line-height: calc(var(--ghs-unit) * 1.75 * var(--ghs-dialog-factor));
+    line-height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
     border-radius: 100%;
     border-color: var(--ghs-color-white);
     border-style: solid;
     border-width: calc(var(--ghs-unit) * 0.2);
     margin-left: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor));
+    text-shadow: none;
   }
 
   .spoilers {

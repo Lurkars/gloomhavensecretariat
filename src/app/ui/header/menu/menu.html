@@ -173,7 +173,7 @@
         {{(objective.escort ? 'escort' : 'objective') | ghsLabel}}
         <span *ngIf="objective.name">)</span>
         <span class="spacer"></span>
-        <span class="objective-id">{{objectiveIdMap[objective.id]}}</span>
+        <span class="objective-id">{{objective.id + 1}}</span>
       </a>
     </div>
   </div>

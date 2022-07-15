@@ -29,6 +29,13 @@
           ghsLabel}}
         </label>
       </div>
+      <div class="line">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.abilityNumbers"
+            (change)="settingsManager.setAbilityNumbers(!settingsManager.settings.abilityNumbers)">{{'settings.abilityNumbers' |
+          ghsLabel}}
+        </label>
+      </div>
     </div>
     <div class="column">
       <div class="line">

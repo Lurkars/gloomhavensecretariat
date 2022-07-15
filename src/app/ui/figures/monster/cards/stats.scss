@@ -74,6 +74,7 @@
     grid-template-columns: 1fr 1fr;
     column-gap: calc(var(--ghs-unit) * 4);
     filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
+    z-index: 1;
 
     .stat {
       font-size: calc(var(--ghs-unit) * 2.7);
@@ -126,7 +127,7 @@
       top: calc(var(--ghs-unit) * 1.5);
       display: grid;
       justify-items: center;
-      grid-template-columns: repeat(6, calc(var(--ghs-unit) * 2.3));
+      grid-template-columns: repeat(6, calc(var(--ghs-unit) * 2.6));
       grid-template-rows: repeat(6, calc(var(--ghs-unit) * 1.15));
       column-gap: calc(var(--ghs-unit) * 0.35);
       row-gap: calc(var(--ghs-unit) * 0.35);
@@ -240,7 +241,7 @@
 
       .immunities {
         top: calc(var(--ghs-unit) * 0.8);
-        left: calc(var(--ghs-unit) * -17.5);
+        left: calc(var(--ghs-unit) * -18);
       }
     }
 

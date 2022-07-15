@@ -131,7 +131,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-right: calc(var(--ghs-unit) * 2);
+      margin-right: calc(var(--ghs-unit) * 1);
 
       img {
         height: calc(var(--ghs-unit) * 8);
@@ -199,8 +199,8 @@
       background-color: var(--ghs-color-red);
       color: var(--ghs-color-white);
       font-family: 'ghs-title';
-      font-size: calc(var(--ghs-unit) * 8);
-      line-height: calc(var(--ghs-unit) * 5);
+      font-size: calc(var(--ghs-unit) * 7);
+      line-height: calc(var(--ghs-unit) * 6);
       border-radius: 100%;
       border-color: var(--ghs-color-white);
       border-style: solid;
@@ -228,6 +228,7 @@
     .entity-container {
       display: grid;
       grid-template-columns: repeat(3, calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor)));
+      align-content: baseline;
 
       .id {
         display: flex;
@@ -239,8 +240,8 @@
         background-color: var(--ghs-color-red);
         color: var(--ghs-color-white);
         font-family: 'ghs-title';
-        font-size: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
-        line-height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+        font-size: calc(var(--ghs-unit) * 5.5 * var(--ghs-dialog-factor));
+        line-height: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
         border-radius: 100%;
         border-color: var(--ghs-color-white);
         border-style: solid;

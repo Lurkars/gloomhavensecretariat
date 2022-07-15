@@ -14,7 +14,6 @@ import { SwUpdate } from '@angular/service-worker';
 import { Scenario } from "src/app/game/model/Scenario";
 import { ghsHasSpoilers, ghsIsSpoiled, ghsNotSpoiled } from "../../helper/Static";
 import { Objective } from "src/app/game/model/Objective";
-import { ObjectiveIdMap } from "../../figures/objective/objective";
 import { EditionData } from "src/app/game/model/data/EditionData";
 import { ObjectiveData } from "src/app/game/model/data/ObjectiveData";
 
@@ -41,7 +40,6 @@ export class MainMenuComponent extends DialogComponent {
   notSpoiled = ghsNotSpoiled;
   version = packageJson.version;
   WebSocket = WebSocket;
-  objectiveIdMap = ObjectiveIdMap;
 
   showHiddenMonster: boolean = false;
 

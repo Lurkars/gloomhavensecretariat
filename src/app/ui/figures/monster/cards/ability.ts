@@ -5,7 +5,7 @@ import { Monster } from 'src/app/game/model/Monster';
 import { Ability } from 'src/app/game/model/Ability';
 import { PopupComponent } from 'src/app/ui/popup/popup';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
@@ -21,6 +21,7 @@ export class AbilityComponent extends PopupComponent {
 
   ability: Ability | undefined = undefined;
   gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
   edit: boolean = false;
 

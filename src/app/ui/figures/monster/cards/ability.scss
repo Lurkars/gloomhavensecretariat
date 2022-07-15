@@ -79,7 +79,7 @@
 
   .index {
     position: absolute;
-    font-size: calc(var(--ghs-unit) * 1.2);
+    font-size: calc(var(--ghs-unit) * 1.5);
     filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
     bottom: calc(var(--ghs-unit) * 2);
     left: calc(var(--ghs-unit) * 2);
@@ -103,7 +103,8 @@
     }
 
     .index {
-      bottom: calc(var(--ghs-unit) * -0.5);
+      bottom: calc(var(--ghs-unit) * -0.2);
+      font-size: calc(var(--ghs-unit) * 2);
     }
 
     ghs-actions {
@@ -335,8 +336,8 @@ ghs-action {
 
           .index {
             position: absolute;
-            font-size: calc(var(--ghs-unit) * 1.2);
-            bottom: calc(var(--ghs-unit) * 2);
+            font-size: calc(var(--ghs-unit) * 2);
+            bottom: calc(var(--ghs-unit) * 1.5);
             left: calc(var(--ghs-unit) * 2);
           }
 

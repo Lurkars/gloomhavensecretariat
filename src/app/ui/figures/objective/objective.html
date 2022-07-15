@@ -2,7 +2,7 @@
   [ngClass]="{'off' : objective.off || objective.exhausted || (objective.health <= 0), 'escort' : objective.escort}">
   <a class="image-container" (click)="toggleFigure()">
     <span class="image" [ngClass]="{'active-border' : objective.active}">
-      {{objectiveIdMap[objective.id]}}
+      {{objective.id + 1}}
     </span>
     <ghs-healthbar [entity]="objective"></ghs-healthbar>
   </a>
@@ -69,7 +69,7 @@
         </a>
       </span>
       <span class="item">
-        <span class="id">{{objectiveIdMap[objective.id]}}</span>
+        <span class="id">{{objective.id + 1}}</span>
       </span>
       <span class="item">
         <a class="button" (click)="changeId(1)">

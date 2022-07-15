@@ -18,8 +18,8 @@
           </ghs-actions>
         </ng-container>
         <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
-        <span class="index" *ngIf="!ability.cardId">[{{abilityIndex(ability) + 1}}]</span>
-        <span class="index" *ngIf="ability.cardId">{{ability.cardId}}</span>
+        <span class="index" *ngIf="!ability.cardId && settingsManager.settings.abilityNumbers">[{{abilityIndex(ability) + 1}}]</span>
+        <span class="index" *ngIf="ability.cardId && settingsManager.settings.abilityNumbers">{{ability.cardId}}</span>
       </ng-container>
     </div>
   </div>
@@ -67,8 +67,8 @@
                 </ghs-actions>
               </ng-container>
               <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
-              <span class="index" *ngIf="!ability.cardId">[{{abilityIndex(ability) + 1}}]</span>
-              <span class="index" *ngIf="ability.cardId">{{ability.cardId}}</span>
+              <span class="index" *ngIf="!ability.cardId && settingsManager.settings.abilityNumbers">[{{abilityIndex(ability) + 1}}]</span>
+              <span class="index" *ngIf="ability.cardId && settingsManager.settings.abilityNumbers">{{ability.cardId}}</span>
               <a class="button-remove" *ngIf="edit" (click)="remove(index)"><img class="ghs-svg"
                   src="./assets/images/minus.svg"></a>
             </div>
@@ -98,8 +98,8 @@
                 </ghs-actions>
               </ng-container>
               <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
-              <span class="index" *ngIf="!ability.cardId">[{{abilityIndex(ability) + 1}}]</span>
-              <span class="index" *ngIf="ability.cardId">{{ability.cardId}}</span>
+              <span class="index" *ngIf="!ability.cardId && settingsManager.settings.abilityNumbers">[{{abilityIndex(ability) + 1}}]</span>
+              <span class="index" *ngIf="ability.cardId && settingsManager.settings.abilityNumbers">{{ability.cardId}}</span>
             </div>
           </div>
         </div>

@@ -65,6 +65,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setAbilityNumbers(abilityNumbers: boolean) {
+    this.settings.abilityNumbers = abilityNumbers;
+    this.storeSettings();
+  }
+
   setEliteFirst(eliteFirst: boolean) {
     this.settings.eliteFirst = eliteFirst;
     this.storeSettings();

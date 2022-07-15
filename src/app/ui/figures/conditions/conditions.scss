@@ -94,6 +94,7 @@
     position: absolute;
     width: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
     height: auto;
+    filter: var(--ghs-filter-white);
 
     &.dec {
       left: 0;
@@ -101,6 +102,11 @@
 
     &.inc {
       right: 0;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      filter: var(--ghs-filter-darkgray);
     }
 
     top: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
