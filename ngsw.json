@@ -1,10 +1,10 @@
 {
   "configVersion": 1,
-  "timestamp": 1657917282345,
+  "timestamp": 1657919360420,
   "appData": {
     "version": "0.9.12"
   },
-  "index": "gloomhavensecretary/",
+  "index": "gloomhavensecretary/index.html",
   "assetGroups": [
     {
       "name": "app",
@@ -835,7 +835,7 @@
     "gloomhavensecretary/index.html": "ee7a02b9a05f5d5efa46660e9e1e19aecc0c02e9",
     "gloomhavensecretary/main.d92075d8fb8eeae0.js": "7559c57c6428ad676b8716bddea4b7f78c754fd4",
     "gloomhavensecretary/majallab.00c7b4c865792c45.ttf": "cd2e9e61aca39d2b987b66e4c2a0a3ea13c3be48",
-    "gloomhavensecretary/manifest.webmanifest": "ae7af29d03a8a51d1d658942ab7f2e66324c2f9a",
+    "gloomhavensecretary/manifest.webmanifest": "e8f2f0b705e6b84c38e75915c3ab96ab8f965641",
     "gloomhavensecretary/minus.97c98a810771fceb.svg": "de4a30390082572ba48e52e102dd4fb2dabffa81",
     "gloomhavensecretary/monster-ability-back-botton.6b3e71e41a2d178a.png": "d1023ace32d7b6174f4d38cd58d363f110717bb6",
     "gloomhavensecretary/monster-ability-back.13bdb5a1e6cc5369.png": "aa8fbe42eb59d02fa144e8cb3e3bb9d0a44dcc30",
