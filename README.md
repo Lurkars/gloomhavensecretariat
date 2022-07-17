@@ -1,6 +1,6 @@
 # Gloomhaven Secretary
 
-[Latest Online Version](https://lurkars.github.io/gloomhavensecretary/)
+[Latest Online Version](https://ghs.champonthis.de)
 
 *Gloomhaven Secretary* is a **Gloomhaven companion app** and does bookkeeping of all entities values to gain more focus on gameplay. It is an open source web app made with [Angular](https://angular.io/).
 
