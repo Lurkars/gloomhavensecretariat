@@ -62,5 +62,5 @@ export function EntityValueFunction(value: string, L: number | undefined = undef
         break;
     }
   }
-  return result;
+  return Math.round(result);
 }

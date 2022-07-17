@@ -107,6 +107,9 @@ export class ActionComponent implements OnInit {
       }
 
       if (typeof this.action.value === "number" && sign) {
+        if (isNaN(statValue)) {
+          statValue = 0;
+        }
         if (this.action.valueType == ActionValueType.plus) {
           return statValue + this.action.value;
         } else if (this.action.valueType == ActionValueType.minus) {
