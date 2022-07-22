@@ -80,8 +80,8 @@ export class FooterComponent extends DialogComponent {
       }
       this.currentTime += (this.currentTime && seconds < 10 ? '0' : '') + Math.floor(seconds) + "s";
 
-      // store every 15 seconds
-      if ((new Date().getTime() / 1000 - gameManager.stateManager.lastSaveTimestamp / 1000) > 15) {
+      // store every 30 seconds
+      if ((new Date().getTime() / 1000 - gameManager.stateManager.lastSaveTimestamp / 1000) > 30) {
         gameManager.stateManager.after();
       }
 

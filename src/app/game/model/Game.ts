@@ -85,6 +85,7 @@ export class Game {
     if (!this.attackModifiers || this.attackModifiers.length == 0) {
       this.attackModifiers = defaultAttackModifier;
     }
+    this.newElements = model.newElements;
     this.strongElements = model.strongElements;
     this.elements = model.elements;
   }

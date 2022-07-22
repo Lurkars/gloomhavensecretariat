@@ -16,6 +16,8 @@ export class Character extends CharacterData implements Entity, Figure {
   stat: CharacterStat;
   summons: Summon[] = [];
 
+  initiativeVisible: boolean = false;
+
   // from figure
   level: number;
   off: boolean = false;
@@ -117,7 +119,7 @@ export class Character extends CharacterData implements Entity, Figure {
   }
 
   toModel(): GameCharacterModel {
-    return new GameCharacterModel(this.name, this.edition, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition: EntityCondition) => condition.toModel()), this.markers, this.summons.map((summon: Summon) => summon.toModel()));
+    return new GameCharacterModel(this.name, this.edition, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition: EntityCondition) => condition.toModel()), this.markers, this.summons.map((summon: Summon) => summon.toModel()), this.initiativeVisible);
   }
 
   fromModel(model: GameCharacterModel) {
@@ -132,6 +134,11 @@ export class Character extends CharacterData implements Entity, Figure {
       }
     }
     this.title = model.title;
+
+    if (!this.initiativeVisible || model.initiative <= 0 || this.initiative != model.initiative) {
+      this.initiativeVisible = model.initiativeVisible;
+    }
+
     this.initiative = model.initiative;
     this.experience = model.experience;
     this.loot = model.loot;
@@ -206,6 +213,7 @@ export class GameCharacterModel {
   entityConditions: GameEntityConditionModel[];
   markers: string[];
   summons: GameSummonModel[];
+  initiativeVisible: boolean;
 
   // depreacted
   conditions: string[] = [];
@@ -227,7 +235,8 @@ export class GameCharacterModel {
     maxHealth: number,
     entityConditions: GameEntityConditionModel[],
     markers: string[],
-    summons: GameSummonModel[]) {
+    summons: GameSummonModel[],
+    initiativeVisible: boolean) {
     this.name = name;
     this.edition = edition;
     this.title = title;
@@ -243,6 +252,7 @@ export class GameCharacterModel {
     this.entityConditions = entityConditions;
     this.markers = markers;
     this.summons = summons;
+    this.initiativeVisible = initiativeVisible;
   }
 
 }

@@ -30,7 +30,7 @@ export class CharacterInitiativeComponent extends DialogComponent {
       gameManager.stateManager.before();
       const initative: number = + this.value;
       if (initative > 0 && initative < 100) {
-        this.character.initiative = initative;
+        this.setInitiative(initative);
       } else if (gameManager.game.state == GameState.draw) {
         this.character.initiative = 0;
       }
@@ -38,6 +38,10 @@ export class CharacterInitiativeComponent extends DialogComponent {
       gameManager.sortFigures();
       gameManager.stateManager.after();
     }
+  }
+
+  initiativeHidden(): boolean {
+    return gameManager.game.state == GameState.draw && this.character instanceof Character && !this.character.initiativeVisible;
   }
 
   updateInitiative(event: any) {
@@ -53,6 +57,9 @@ export class CharacterInitiativeComponent extends DialogComponent {
     if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initative >= 0 || initative > 0) && initative < 100) {
       gameManager.stateManager.before();
       this.character.initiative = initative;
+      if (this.character instanceof Character) {
+        this.character.initiativeVisible = true;
+      }
       gameManager.sortFigures();
       gameManager.stateManager.after();
     }

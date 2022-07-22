@@ -114,6 +114,7 @@ export class CharacterManager {
     this.game.figures.forEach((figure: Figure) => {
       if (figure instanceof Character) {
         figure.initiative = 0;
+        figure.initiativeVisible = false;
         figure.off = false;
 
         figure.summons = figure.summons.filter((summon: Summon) => !summon.dead && summon.health > 0);
@@ -150,6 +151,10 @@ export class CharacterManager {
 
   draw() {
     this.game.figures.forEach((figure: Figure) => {
+      if (figure instanceof Character) {
+        figure.initiativeVisible = true;
+      }
+
       if (figure instanceof Character || figure instanceof Objective) {
         if (!figure.exhausted && figure.health > 0) {
           figure.off = false;
