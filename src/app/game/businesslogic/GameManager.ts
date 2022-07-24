@@ -495,24 +495,39 @@ export class GameManager {
     return ((figure instanceof Character || figure instanceof Objective) && (figure.exhausted || figure.health <= 0)) || (figure instanceof Monster && figure.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead || monsterEntity.health <= 0));
   }
 
-  toggleElement(element: Element) {
+  toggleElement(element: Element, double: boolean = false) {
     if (this.game.state == GameState.draw) {
       if (this.game.newElements.indexOf(element) != -1) {
         this.game.newElements.splice(this.game.newElements.indexOf(element), 1);
-        this.game.elements.push(element);
+        if (!double) {
+          this.game.elements.push(element);
+        }
       } else if (this.game.elements.indexOf(element) != -1) {
         this.game.elements.splice(this.game.elements.indexOf(element), 1);
       } else {
-        this.game.newElements.push(element);
+        if (!double) {
+          this.game.newElements.push(element);
+        } else {
+          this.game.elements.push(element);
+        }
       }
     } else {
       if (this.game.strongElements.indexOf(element) != -1) {
         this.game.strongElements.splice(this.game.strongElements.indexOf(element), 1);
-        this.game.elements.push(element);
+        if (double) {
+          this.game.elements.push(element);
+        }
       } else if (this.game.elements.indexOf(element) != -1) {
         this.game.elements.splice(this.game.elements.indexOf(element), 1);
+        if (double) {
+          this.game.strongElements.push(element);
+        }
       } else {
-        this.game.strongElements.push(element);
+        if (double) {
+          this.game.elements.push(element);
+        } else {
+          this.game.strongElements.push(element);
+        }
       }
     }
   }

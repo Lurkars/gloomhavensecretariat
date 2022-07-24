@@ -130,7 +130,8 @@
     "ip": "Gloomhaven und alle bezogenen Schutzrechte, Bilder und Texte gehören {0}.",
     "license": "Lizensiert unter {0}.",
     "sourceCode": "Quelltext",
-    "support": "Entwickler unterstützen"
+    "support": "Entwickler unterstützen",
+    "update" : "Update erzwingen"
   },
   "update": "Update - Neu Laden",
   "and": "und",

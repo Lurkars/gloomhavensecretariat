@@ -53,6 +53,14 @@ export class MainMenuComponent extends DialogComponent {
         console.error(`Failed to install version '${evt.version.hash}': ${evt.error}`);
       }
     })
+
+    if (this.isSW) {
+      // check for PWA update every 30s
+      setInterval(() => {
+        this.swUpdate.checkForUpdate();
+      }, 30000);
+    }
+
   }
 
   override ngOnInit(): void {
@@ -336,9 +344,13 @@ export class MainMenuComponent extends DialogComponent {
     return gameManager.monstersData().every((monsterData: MonsterData) => gameManager.game.figures.some((figure: Figure) => figure instanceof MonsterData && figure.name == monsterData.name && figure.edition == monsterData.edition));
   }
 
-  update(): void {
-    if (this.hasUpdate) {
-      this.swUpdate.activateUpdate().then(() => document.location.reload());
+  update(force: boolean = false): void {
+    if (this.hasUpdate || force) {
+      if (this.isSW) {
+        this.swUpdate.activateUpdate().then(() => window.location.reload());
+      } else {
+        window.location.reload();
+      }
     }
   }
 

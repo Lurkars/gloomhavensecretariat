@@ -16,6 +16,7 @@ export class ElementIconComponent implements OnInit {
   gameManager: GameManager = gameManager;
   GameState = GameState;
   svg: SafeHtml = "";
+  doubleClick: any = null;
 
   constructor(private sanitizer: DomSanitizer) { }
 
@@ -32,9 +33,21 @@ export class ElementIconComponent implements OnInit {
   }
 
   toggleElement(): void {
-    gameManager.stateManager.before();
-    gameManager.toggleElement(this.element);
-    gameManager.stateManager.after();
+    if (this.doubleClick) {
+      this.doubleClick = null;
+      gameManager.stateManager.before();
+      gameManager.toggleElement(this.element, true);
+      gameManager.stateManager.after();
+    } else {
+      this.doubleClick = setTimeout(() => {
+        if (this.doubleClick) {
+          gameManager.stateManager.before();
+          gameManager.toggleElement(this.element, false);
+          gameManager.stateManager.after();
+          this.doubleClick = null;
+        }
+      }, 200)
+    }
   }
 
 }

@@ -133,7 +133,8 @@
     "ip": "Gloomhaven and all related properties, images and text are owned by {0}.",
     "license": "Licensed under {0}.",
     "sourceCode": "Source Code",
-    "support": "Support the dev"
+    "support": "Support the dev",
+    "update" : "Force Update"
   },
   "update": "Update - Reload",
   "and": "and",
