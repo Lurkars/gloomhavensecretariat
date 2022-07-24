@@ -131,7 +131,7 @@
     "license": "Lizensiert unter {0}.",
     "sourceCode": "Quelltext",
     "support": "Entwickler unterstützen",
-    "update" : "Update erzwingen"
+    "forceUpdate" : "Update erzwingen"
   },
   "update": "Update - Neu Laden",
   "and": "und",

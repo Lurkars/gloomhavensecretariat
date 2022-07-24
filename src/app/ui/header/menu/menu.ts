@@ -33,7 +33,6 @@ export class MainMenuComponent extends DialogComponent {
   GameState = GameState
   SubMenu = SubMenu;
   active: SubMenu = SubMenu.main;
-  isSW: boolean = false;
   hasUpdate: boolean = false;
   hasSpoilers = ghsHasSpoilers;
   isSpoiled = ghsIsSpoiled;
@@ -45,7 +44,6 @@ export class MainMenuComponent extends DialogComponent {
 
   constructor(private swUpdate: SwUpdate) {
     super();
-    this.isSW = this.swUpdate.isEnabled;
     this.swUpdate.versionUpdates.subscribe(evt => {
       if (evt.type == 'VERSION_READY') {
         this.hasUpdate = true;
@@ -54,7 +52,7 @@ export class MainMenuComponent extends DialogComponent {
       }
     })
 
-    if (this.isSW) {
+    if (this.swUpdate.isEnabled) {
       // check for PWA update every 30s
       setInterval(() => {
         this.swUpdate.checkForUpdate();
@@ -65,9 +63,9 @@ export class MainMenuComponent extends DialogComponent {
 
   override ngOnInit(): void {
     super.ngOnInit();
-    if (this.isSW) {
+    if (this.swUpdate.isEnabled) {
       document.body.addEventListener("click", (event) => {
-        if (settingsManager.settings.fullscreen && this.isSW) {
+        if (settingsManager.settings.fullscreen && this.swUpdate.isEnabled) {
           document.body.requestFullscreen();
         }
       });
@@ -346,7 +344,7 @@ export class MainMenuComponent extends DialogComponent {
 
   update(force: boolean = false): void {
     if (this.hasUpdate || force) {
-      if (this.isSW) {
+      if (this.swUpdate.isEnabled) {
         this.swUpdate.activateUpdate().then(() => window.location.reload());
       } else {
         window.location.reload();

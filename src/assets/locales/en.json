@@ -134,7 +134,7 @@
     "license": "Licensed under {0}.",
     "sourceCode": "Source Code",
     "support": "Support the dev",
-    "update" : "Force Update"
+    "forceUpdate" : "Force Update"
   },
   "update": "Update - Reload",
   "and": "and",
