@@ -161,7 +161,7 @@ export class GameManager {
       this.sortFigures();
 
       if (this.game.figures.length > 0) {
-        this.game.figures[ 0 ].active = true;
+        this.toggleFigure(this.game.figures[ 0 ]);
       }
     }
     this.uiChange.emit(true);
