@@ -42,5 +42,4 @@ jobs:
           port: ${{ secrets.PORT }}
           key: ${{ secrets.KEY }}
           source: "./dist/gloomhavensecretary/*"
-          target: "~/ghs/"
-          rm: true
+          target: "${{ secrets.TARGET }}"
