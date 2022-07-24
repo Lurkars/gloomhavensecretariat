@@ -90,7 +90,7 @@
     </div>
 
     <div class="line separator" *ngIf="hasUpdate">
-      <a (click)="update()">{{'update' | ghsLabel}} (!)</a>
+      <a (click)="update()">&lt;{{'update' | ghsLabel}}(!)&gt;</a>
     </div>
   </div>
 
@@ -245,8 +245,14 @@
     <div class="line">
       <label>Gloomhaven Secretary v{{version}}</label>
     </div>
+
     <div class="line">
       <div class="columns">
+        <div class="column">
+          <p>
+            <a href="https://ko-fi.com/lurkars" target="_blank">{{'about.support' | ghsLabel}}</a>
+          </p>
+        </div>
         <div class="column">
           <p><a href="https://github.com/Lurkars/gloomhavensecretary" target="_blank">{{'about.sourceCode' |
               ghsLabel}}</a></p>

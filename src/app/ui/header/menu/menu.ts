@@ -47,7 +47,6 @@ export class MainMenuComponent extends DialogComponent {
     super();
     this.isSW = this.swUpdate.isEnabled;
     this.swUpdate.versionUpdates.subscribe(evt => {
-      this.hasUpdate = false;
       if (evt.type == 'VERSION_READY') {
         this.hasUpdate = true;
       } else if (evt.type == 'VERSION_INSTALLATION_FAILED') {

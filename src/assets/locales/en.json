@@ -132,9 +132,10 @@
     ".": "About",
     "ip": "Gloomhaven and all related properties, images and text are owned by {0}.",
     "license": "Licensed under {0}.",
-    "sourceCode": "Source Code"
+    "sourceCode": "Source Code",
+    "support": "Support the dev"
   },
-  "update": "Update (Reload)",
+  "update": "Update - Reload",
   "and": "and",
   "or": "or",
   "game": {

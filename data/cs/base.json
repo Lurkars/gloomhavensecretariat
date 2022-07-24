@@ -13,8 +13,8 @@
     "infect",
     "ward",
     "rupture",
-    "poison_upgrade",
-    "wound_upgrade"
+    "poison_x",
+    "wound_x"
   ],
   "edition": "cs",
   "extentions": [
