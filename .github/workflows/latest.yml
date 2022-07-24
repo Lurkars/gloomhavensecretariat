@@ -13,27 +13,27 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
- #     - name: Cache node modules
- #       uses: actions/cache@v1
- #       with:
- #         path: ~/.npm
- #         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
- #         restore-keys: |
- #           ${{ runner.os }}-node-
- #     - name: Node ${{ matrix.node-version }}
- #       uses: actions/setup-node@v1
- #       with:
- #         node-version: ${{ matrix.node-version }}
- #     - name: npm install and npm run build
- #       run: |
- #         npm i
- #         npm run build -- --base-href gloomhavensecretary
-      - name: Publish via scp TEST
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: npm install and npm run build
+        run: |
+          npm i
+          npm run build -- --base-href gloomhavensecretary
+      - name: Publish via scp
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           port: ${{ secrets.PORT }}
           key: ${{ secrets.KEY }}
-          source: "./data/*"
+          source: "./dist/gloomhavensecretary/*"
           target: "${{ secrets.TARGET }}"
