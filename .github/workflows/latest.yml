@@ -36,4 +36,6 @@ jobs:
           port: ${{ secrets.PORT }}
           key: ${{ secrets.KEY }}
           source: "./dist/gloomhavensecretary/*"
+          strip_components: 2
+          rm : true
           target: "${{ secrets.TARGET }}"
