@@ -39,6 +39,7 @@
     border: none;
     background: none;
     width: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
+    padding: 0;
     font-family: 'ghs-title';
     color: var(--ghs-color-white);
     text-shadow: var(--ghs-outline);

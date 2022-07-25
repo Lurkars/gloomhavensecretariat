@@ -66,7 +66,7 @@ For usage with multiple clients sharing the same game, the server component [Glo
 
 ### Progressive Web App
 
-You can always install any hosted version as PWA if your OS/Browser supports installation of PWA. For example here is the [Latest Online Version](https://lurkars.github.io/gloomhavensecretary/) on GitHub Pages.
+You can always install any hosted version as PWA if your OS/Browser supports installation of PWA. For example here is the [Latest Online Version](https://ghs.champonthis.de) or latest version on [GitHub Pages](https://lurkars.github.io/gloomhavensecretary/).
 
 ### Standalone
 
