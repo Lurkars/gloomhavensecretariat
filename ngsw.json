@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1659167621579,
+  "timestamp": 1659168379055,
   "appData": {
     "version": "0.9.18"
   },
@@ -832,7 +832,7 @@
     "gloomhavensecretary/header.24c0469502696b46.png": "25f3ece27efd7584a50c341ea90ba9a0513c7841",
     "gloomhavensecretary/health.8d6a842a197d29d3.svg": "05afb6de2ed74490df7d750cc939124afb1c5457",
     "gloomhavensecretary/immunity.5d026de2db8a1d8f.svg": "ad20fc18e93269c79312170674c6008615438f9b",
-    "gloomhavensecretary/index.html": "e0590026a6fabf1de37919eb5936ccb8760bc43a",
+    "gloomhavensecretary/index.html": "3aa3f18dc81b1a7bad496ad1bcd08f36e0bed100",
     "gloomhavensecretary/main.f26328455d981aca.js": "f7798781f688d7e11b038a340f1a287f07257b0f",
     "gloomhavensecretary/majallab.00c7b4c865792c45.ttf": "cd2e9e61aca39d2b987b66e4c2a0a3ea13c3be48",
     "gloomhavensecretary/manifest.webmanifest": "e8f2f0b705e6b84c38e75915c3ab96ab8f965641",
