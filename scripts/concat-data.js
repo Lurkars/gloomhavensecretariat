@@ -3,7 +3,6 @@ const path = require('path');
 const input_dir = './data'
 const output_dir = './src/assets/data'
 
-
 const load_subfolder = function (edition_path, folder, default_value) {
   const dir = path.join(edition_path, folder);
   if (fs.existsSync(dir) && fs.lstatSync(dir).isDirectory()) {

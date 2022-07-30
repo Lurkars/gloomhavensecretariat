@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from "@angular/core";
+import { Component } from "@angular/core";
 import packageJson from '../../../../../package.json';
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -345,11 +345,25 @@ export class MainMenuComponent extends DialogComponent {
   update(force: boolean = false): void {
     if (this.hasUpdate || force) {
       if (this.swUpdate.isEnabled) {
-        this.swUpdate.activateUpdate().then(() => window.location.reload());
+        this.swUpdate.activateUpdate().then(() => {
+          this.clearAndRefresh();
+        });
       } else {
-        window.location.reload();
+        this.clearAndRefresh();
       }
     }
+  }
+
+  clearAndRefresh() {
+    if ('caches' in window) {
+      caches.keys()
+        .then(function (keyList) {
+          return Promise.all(keyList.map(function (key) {
+            return caches.delete(key);
+          }));
+        })
+    }
+    window.location.reload()
   }
 
 }

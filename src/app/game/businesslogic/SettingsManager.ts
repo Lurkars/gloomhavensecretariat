@@ -9,30 +9,41 @@ export class SettingsManager {
   defaultLocale: string = 'en';
   defaultEditionDataUrls: string[] = [ "./assets/data/gh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/fh.json", "./assets/data/cs.json" ];
 
-  settings: Settings;
+  settings: Settings = new Settings();
   label: any = {};
   locales: string[] = [ "en", "de" ];
 
   constructor() {
-    this.settings = this.loadSettings();
+    this.loadSettings();
   }
 
   reset() {
     localStorage.removeItem("ghs-settings")
-    this.settings = new Settings();
+    this.loadSettings();
   }
 
-  loadSettings(): Settings {
+  async loadSettings() {
     const settingsString: string | null = localStorage.getItem("ghs-settings");
     if (settingsString != null) {
       this.settings = Object.assign(new Settings(), JSON.parse(settingsString));
     } else {
-      this.settings = new Settings();
+      try {
+        await fetch('./ghs-settings-default.json')
+          .then(response => {
+            if (!response.ok) {
+              throw Error();
+            }
+            return response.json();
+          }).then((value: Settings) => {
+            this.settings = Object.assign(new Settings(), value);
+          });
+      } catch (error) {
+        this.settings = new Settings();
+      }
     }
 
     this.setLocale(this.settings.locale);
     this.sortSpoilers();
-    return this.settings;
   }
 
   async init() {
