@@ -1,10 +1,12 @@
 <footer>
-  <div (click)="next()" class="round-container" [ngClass]="{'disabled' : disabled()}">
-    <a>{{ (gameManager.game.state == GameState.next ?
-      'round.next' : 'round.draw') | ghsLabel}} </a>
-    <span class="round" *ngIf="gameManager.game.round > 0">{{gameManager.game.round}}</span>
-    <span class="time">{{ currentTime }}</span>
-    <span #button></span>
+  <div [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
+    <div (click)="next()" class="round-container" [ngClass]="{'disabled' : disabled()}">
+      <a>{{ (gameManager.game.state == GameState.next ?
+        'round.next' : 'round.draw') | ghsLabel}} </a>
+      <span class="round" *ngIf="gameManager.game.round > 0">{{gameManager.game.round}}</span>
+      <span class="time">{{ currentTime }}</span>
+      <span #button></span>
+    </div>
   </div>
   <div class="flex-shrink"></div>
   <ghs-level class="flex-shrink"></ghs-level>

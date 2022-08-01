@@ -1,4 +1,7 @@
+import { Character } from "../model/Character";
 import { Game, GameModel } from "../model/Game";
+import { Monster } from "../model/Monster";
+import { FigureIdentifier, Permissions } from "../model/Permissions";
 import { Settings } from "../model/Settings";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
@@ -6,6 +9,7 @@ import { settingsManager } from "./SettingsManager";
 export class StateManager {
 
   game: Game;
+  permissions: Permissions | undefined;
   ws: WebSocket | undefined;
 
   lastSaveTimestamp: number;
@@ -23,7 +27,7 @@ export class StateManager {
     } else {
       localStorage.setItem("ghs-game", JSON.stringify(this.game.toModel()));
     }
-    
+
     if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword && settingsManager.settings.serverAutoconnect) {
       this.connect();
     }
@@ -57,6 +61,7 @@ export class StateManager {
   }
 
   disconnect() {
+    this.permissions = undefined;
     if (this.ws && this.ws.readyState != WebSocket.CLOSED) {
       this.ws.close();
     }
@@ -94,8 +99,14 @@ export class StateManager {
             localStorage.setItem("ghs-settings", JSON.stringify(settingsManager.settings));
           }
           break;
+        case "permissions":
+          gameManager.stateManager.permissions = message.payload as Permissions || undefined;
+          break;
         case "error":
           console.warn("[GHS] Error: " + message.message);
+          if (message.message == "Permission(s) missing") {
+            gameManager.stateManager.undo();
+          }
           break;
       }
     } catch (e) {
@@ -273,6 +284,28 @@ export class StateManager {
     localStorage.setItem("ghs-redo", JSON.stringify(redo));
     localStorage.setItem("ghs-undo", JSON.stringify(undo));
     this.after();
+  }
+
+  savePermissions(password: string, permissions: Permissions | undefined) {
+    if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword) {
+      let message = {
+        "password": settingsManager.settings.serverPassword,
+        "type": "permissions",
+        "payload": {
+          "permissions": permissions,
+          "password": password
+        }
+      }
+      this.ws.send(JSON.stringify(message));
+    }
+  }
+
+  hasCharacterPermission(character: Character): boolean {
+    return this.permissions == undefined || this.permissions.characters || this.permissions.character.some((value: FigureIdentifier) => value.name == character.name && value.edition == character.edition);
+  }
+
+  hasMonsterPermission(monster: Monster): boolean {
+    return this.permissions == undefined || this.permissions.monsters || this.permissions.monster.some((value: FigureIdentifier) => value.name == monster.name && value.edition == monster.edition);
   }
 
 }

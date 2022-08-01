@@ -11,9 +11,9 @@
 </div>
 
 <div class="character" [style.--ghs-character-color]="character.color"
-  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0}">
+  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0, 'denied' : !gameManager.stateManager.hasCharacterPermission(character)}">
 
-  <ghs-character-image (click)="close()" [character]="character"></ghs-character-image>
+  <ghs-character-image (click)="close()" [character]="character" [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}"></ghs-character-image>
 
   <ghs-character-initiative (click)="close()" [character]="character"></ghs-character-initiative>
 

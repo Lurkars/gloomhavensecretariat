@@ -4,5 +4,43 @@
       color: var(--ghs-color-darkgray) !important;
       pointer-events: none;
     }
+
+    &.characters,
+    &.monsters {
+      margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+    }
+
+    .hint-container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+
+      .hint-trigger {
+        cursor: help;
+        height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+        width: auto;
+        margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        filter: var(--ghs-filter-gray);
+
+        &:hover {
+          &~.hint .text {
+            display: inline-block !important;
+          }
+        }
+      }
+
+      .hint {
+        display: flex;
+        flex-basis: 100%;
+        flex-shrink: 0;
+        font-family: 'ghs-text';
+        font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        color: var(--ghs-color-gray);
+
+        .text {
+          display: none;
+        }
+      }
+    }
   }
 }

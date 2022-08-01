@@ -40,9 +40,9 @@
     "removeAll": "Alle entfernen"
   },
   "objective": {
-    ".": "Ziel",
-    "add": "Ziel hinzufügen",
-    "remove": "Ziel entfernen",
+    ".": "Zielobjekte",
+    "add": "Zielobjekt hinzufügen",
+    "remove": "Zielobjekt entfernen",
     "removeAll": "Alle entfernen"
   },
   "escort": {
@@ -101,6 +101,51 @@
     },
     "settings": "Einstellungen synchronisieren"
   },
+  "permissions": {
+    ".": "Berechtigungen",
+    "hasAll": "Alle Berechtigungen erteilt",
+    "create": "Neue Berechtigungen erstellen",
+    "all": {
+      ".": "Volle Berechtigungen",
+      "hint" : "Can also create new Permissions! Cannot be changed afterwards!"
+    },
+    "custom": {
+      ".": "Neue Berechtigungen festlegen",
+      "hint" : "Einzelne Berechtigungen auswählen"
+    },
+    "characters": {
+      ".": "Alle Charaktere",
+      "hint" : "Ändern aller Charaktere und Zielobjekte"
+    },
+    "monsters": {
+      ".": "Alle Monster",
+      "hint" : "Ändern aller Monster"
+    },
+    "scenario": {
+      ".": "Szenario",
+      "hint" : "Edition, Szenario und Sektionen festlegen"
+    },
+    "elements": {
+      ".": "Elemente",
+      "hint" : "Elementenstatus ändern"
+    },
+    "round": {
+      ".": "Runde",
+      "hint" : "Steuern von Runden und Zügen der Figuren"
+    },
+    "level": {
+      ".": "Level",
+      "hint": "Szenario Level festlegen"
+    },
+    "attackModifiers": {
+      ".": "Angriffsmodifikatordeck",
+      "hint" : "Ziehen und Editieren vom Angriffsmodifikatordeck"
+    },
+    "password": {
+      ".": "Passwort"
+    },
+    "save": "Berechtigungen speichern"
+  },
   "datamanagement": {
     ".": "Daten verwalten",
     "spoilers": "Spoiler bearbeiten",
@@ -131,7 +176,7 @@
     "license": "Lizensiert unter {0}.",
     "sourceCode": "Quelltext",
     "support": "Entwickler unterstützen",
-    "forceUpdate" : "Update erzwingen"
+    "forceUpdate": "Update erzwingen"
   },
   "update": "Update - Neu Laden",
   "and": "und",

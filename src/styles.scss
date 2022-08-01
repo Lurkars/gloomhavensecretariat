@@ -158,6 +158,14 @@ body {
 
 }
 
+.denied {
+  cursor: not-allowed !important;
+
+  * {
+    pointer-events: none;
+  }
+}
+
 app-root,
 ghs-main {
   height: 100%;
@@ -175,7 +183,7 @@ ghs-main {
 }
 
 a {
-  color : var(--ghs-color-gray);
+  color: var(--ghs-color-gray);
 
   &:hover {
     color: var(--ghs-color-white);

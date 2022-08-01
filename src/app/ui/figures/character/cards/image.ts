@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
-import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 import { Character } from "src/app/game/model/Character";
@@ -17,6 +17,7 @@ export class CharacterImageComponent {
   value: string = "__";
 
   characterManager: CharacterManager = gameManager.characterManager;
+  gameManager: GameManager = gameManager;
 
   toggleFigure(): void {
     if ((gameManager.game.state == GameState.draw && settingsManager.settings.initiativeRequired && this.character.initiative <= 0) || this.character.exhausted) {
