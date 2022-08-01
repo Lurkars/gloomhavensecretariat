@@ -101,6 +101,49 @@
     },
     "settings": "Synchronize Settings"
   },
+  "permissions": {
+    ".": "Permissions",
+    "hasAll": "Granted all Permissions",
+    "create": "Create new Permissions",
+    "all": {
+      ".": "Full Permissions",
+      "hint" : "Can also create new Permissions! Cannot be changed afterwards!"
+    },
+    "custom": {
+      ".": "Define new Permissions",
+      "hint" : "Specify permissions granted"
+    },
+    "characters": {
+      ".": "All Characters",
+      "hint" : "Update and change all characters and objectives."
+    },
+    "monsters": {
+      ".": "All Monsters",
+      "hint" : "Update and change all monsters and monster entities"
+    },
+    "scenario": {
+      ".": "Scenario",
+      "hint" : "Change Edition, Scenario and Sections"
+    },
+    "elements": {
+      ".": "Elements",
+      "hint" : "Set element states"
+    },
+    "round": {
+      ".": "Round",
+      "hint" : "Control rounds and turns of figures"
+    },
+    "level": {
+      ".": "Level",
+      "hint": "Change scenario level"
+    },
+    "attackModifiers": {
+      ".": "Attack Modifier Deck",
+      "hint" : "Draw and edit Monster Attack Modifier Deck"
+    },
+    "password": "Password",
+    "save": "Save Permissions"
+  },
   "datamanagement": {
     ".": "Data Management",
     "spoilers": "Manage Spoilers",
@@ -120,7 +163,7 @@
     "addCharacters": "%character.add%",
     "setScenario": "%scenario%",
     "addMonsters": "%monster.add%",
-    "addMonsterEntities" : "Use the \"+\" buttons to spawn monsters.",
+    "addMonsterEntities": "Use the \"+\" buttons to spawn monsters.",
     "draw": "Click \"%round.draw%\"",
     "draw-short": "Set initiative, click \"%round.draw%\"",
     "draw-full": "Choose character ability cards, set initiative, click \"%round.draw%\".",
@@ -134,7 +177,7 @@
     "license": "Licensed under {0}.",
     "sourceCode": "Source Code",
     "support": "Support the dev",
-    "forceUpdate" : "Force Update"
+    "forceUpdate": "Force Update"
   },
   "update": "Update - Reload",
   "and": "and",
