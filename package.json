@@ -14,8 +14,11 @@
   "scripts": {
     "electron": "node ./scripts/pre-build.js && ng build --base-href ./ && node ./scripts/post-build.js && electron .",
     "electron:build": "node ./scripts/pre-build.js && ng build --base-href ./ && node ./scripts/post-build.js && electron-builder",
-    "start": "node ./scripts/pre-build.js && ng serve",
-    "build": "node ./scripts/pre-build.js && ng build && node ./scripts/post-build.js",
+    "prestart": "node ./scripts/pre-build.js",
+    "start": "ng serve",
+    "prebuild": "node ./scripts/pre-build.js",
+    "build": "ng build",
+    "postbuild": "node ./scripts/post-build.js",
     "test": "node ./scripts/pre-build.js && ng test"
   },
   "build": {
