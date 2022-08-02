@@ -342,6 +342,10 @@ export class MainMenuComponent extends DialogComponent {
     return gameManager.monstersData().every((monsterData: MonsterData) => gameManager.game.figures.some((figure: Figure) => figure instanceof MonsterData && figure.name == monsterData.name && figure.edition == monsterData.edition));
   }
 
+  isUpdateAvailable(): boolean {
+    return this.hasUpdate;
+  }
+
   update(force: boolean = false): void {
     if (this.hasUpdate || force) {
       if (this.swUpdate.isEnabled) {

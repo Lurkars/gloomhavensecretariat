@@ -59,7 +59,7 @@ export class DatamanagementMenuComponent {
     const gameJson = localStorage.getItem("ghs-game");
     if (gameJson) {
       const downloadButton = document.createElement('a');
-      downloadButton.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(gameJson));
+      downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(gameJson));
       downloadButton.setAttribute('download', "ghs-game.json");
       document.body.appendChild(downloadButton);
       downloadButton.click();
@@ -95,7 +95,7 @@ export class DatamanagementMenuComponent {
     const gameJson = localStorage.getItem("ghs-settings");
     if (gameJson) {
       const downloadButton = document.createElement('a');
-      downloadButton.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(gameJson));
+      downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(gameJson));
       downloadButton.setAttribute('download', "ghs-settings.json");
       document.body.appendChild(downloadButton);
       downloadButton.click();

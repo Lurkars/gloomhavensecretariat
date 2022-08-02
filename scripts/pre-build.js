@@ -75,5 +75,4 @@ for (edition_path of edition_dirs) {
       console.error(err);
     }
   });
-
 }

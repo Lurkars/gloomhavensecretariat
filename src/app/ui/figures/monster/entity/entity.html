@@ -1,7 +1,12 @@
-<div class="entity-border" [ngClass]="{'dead' : entity.dead, 'denied' : !gameManager.stateManager.hasMonsterPermission(monster)}" [entityAnimation]="entity.dead">
+<div class="entity-border"
+  [ngClass]="{'dead' : entity.dead, 'denied' : !gameManager.stateManager.hasMonsterPermission(monster)}"
+  [entityAnimation]="entity.dead">
   <div #button class="entity" [ngClass]="entity.type">
-    <span class="number">{{entity.number}}</span> <span class="health">{{entity.health}}</span>
-
+    <div class="standee" [style.background-image]="'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'">
+      <span class="number">{{entity.number}}</span> 
+      <span class="health">{{entity.health}}</span>
+    </div>
+    
     <div class="markers">
       <span class="marker" *ngFor="let marker of entity.markers;">
         <img src="./assets/images/character/icons/{{marker}}.svg" />

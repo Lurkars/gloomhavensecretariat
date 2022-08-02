@@ -97,7 +97,7 @@
       <a (click)="setActive(SubMenu.about)">{{'about' | ghsLabel}}</a>
     </div>
 
-    <div class="line separator" *ngIf="hasUpdate">
+    <div class="line separator" *ngIf="isUpdateAvailable()">
       <a (click)="update()">&lt;{{'update' | ghsLabel}}(!)&gt;</a>
     </div>
   </div>

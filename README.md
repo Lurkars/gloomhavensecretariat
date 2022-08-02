@@ -11,7 +11,7 @@ As open source software this is meant for the community to actively [contribute]
 For usage with multiple clients sharing the same game, the server component [Gloomhaven Secretary Server](https://github.com/Lurkars/ghs-server) is required. A public instance is available under `ghs.champonthis.de/server` port `443` with `secure` option.
 
 > SPOILER WARNING:
-> The `label.json` files inside the `data`-folders and therefore the final edition data files inside the `src/assets/data`-folder contain spoilers by including the corresponding label.
+> The `label.json` files inside the `data`-folders and therefore the final edition data files in releases inside `./assets/data`-folder contain spoilers by including the corresponding label.
 
 ## Support
 
@@ -45,15 +45,18 @@ For usage with multiple clients sharing the same game, the server component [Glo
 - Other features:
   - i18n support (translations required!) for everything!
   - PWA for installation on all devices!
-  - Synchronize state (+ settings) with [GHS Server](https://github.com/Lurkars/ghs-server)!
+  - Synchronize state (+ settings) with [GHS Server](https://github.com/Lurkars/ghs-server)
+  - Permission management for different clients with [GHS Server](https://github.com/Lurkars/ghs-server)
   - load custom JSON edition data for custom content!
+  
+> Envelope X is missing due to not spoiler myself. Please be patient.
 
 ### Short term plans
 
 - validation of all existing data
 - improve code base (many repeated component for now for figures/entities)
-- improve mobile experience
-- improve PWA (caching etc.)
+- ~~improve mobile experience~~
+- ~~improve PWA (caching etc.)~~
 - start with FH data
 - tools like monster editor to create/update monster stats and abilities via UI (WIP)
 
@@ -83,7 +86,7 @@ To selfhost *Gloomhaven Secretary* on your webserver, simple download the zip fi
 
 ## Build from source
 
-If you want to create you own custom build (for example to [selfhost](#selfhost)), prepare a [development setup](#development). Afterwards run `npm run build` and access build under `./dist/gloomhavensecretary`.
+If you want to create you own custom build (for example to [selfhost](#selfhost)), prepare a [development setup](#development). Afterwards run `npm run build` ([available options](https://angular.io/cli/build#options)) and access build under `./dist/gloomhavensecretary`.
 
 ## Development
 

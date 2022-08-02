@@ -1,7 +1,16 @@
 <div class="summon-border" [ngClass]="{'dead' : summon.dead}" [entityAnimation]="summon.dead">
   <div #button class="summon">
-    <span class="number"><span *ngIf="summon.number == 0">-</span><span
-        *ngIf="summon.number > 0">{{summon.number}}</span></span> <span class="health">{{summon.health}}</span>
+    <div class="standee">
+      <span class="number"><span *ngIf="summon.number == 0">-</span><span
+          *ngIf="summon.number > 0">{{summon.number}}</span></span>
+      <span class="health">{{summon.health}}</span>
+    </div>
+    
+    <div class="markers">
+      <span class="marker" *ngFor="let marker of summon.markers;">
+        <img src="./assets/images/character/icons/{{marker}}.svg" />
+      </span>
+    </div>
 
     <ghs-highlight-conditions [entity]="summon"></ghs-highlight-conditions>
 
@@ -18,8 +27,7 @@
       </span>
 
     </div>
-    <progress class="health-bar" [ngClass]="{'critical' : summon.health / summon.maxHealth < 0.35}"
-      [value]="summon.health" [max]="summon.maxHealth"></progress>
+    <ghs-healthbar [entity]="summon"></ghs-healthbar>
   </div>
 </div>
 
