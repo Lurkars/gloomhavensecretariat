@@ -3,10 +3,10 @@
   [entityAnimation]="entity.dead">
   <div #button class="entity" [ngClass]="entity.type">
     <div class="standee" [style.background-image]="'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'">
-      <span class="number">{{entity.number}}</span> 
-      <span class="health">{{entity.health}}</span>
+      <span class="number">{{entity.number}}</span>
+      <span class="health" title="{{'game.health' | ghsLabel}}">{{entity.health}}</span>
     </div>
-    
+
     <div class="markers">
       <span class="marker" *ngFor="let marker of entity.markers;">
         <img src="./assets/images/character/icons/{{marker}}.svg" />
@@ -40,7 +40,7 @@
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </a>
       </span>
-      <span class="item">
+      <span class="item" title="{{'game.health' | ghsLabel}}">
         <img src="./assets/images/status/health.svg" />
         <span class="badge health-count"
           [ngClass]="{'health-negative' : health < 0, 'health-positive' : health > 0}">{{health | ghsValueSign}}</span>
@@ -58,7 +58,7 @@
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </a>
       </span>
-      <span class="item">u
+      <span class="item" title="{{'game.condition.bless' | ghsLabel}}">
         <span class="condition" [ngClass]="{'immunity disabled' : isImmune(ConditionName.bless)}">
           <img src="./assets/images/status/bless.svg" />
         </span>
@@ -79,7 +79,7 @@
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </a>
       </span>
-      <span class="item">
+      <span class="item" title="{{'game.condition.curse' | ghsLabel}}">
         <span class="condition" [ngClass]="{'immunity disabled' : isImmune(ConditionName.curse)}">
           <img src="./assets/images/status/curse.svg" />
         </span>
@@ -93,7 +93,7 @@
         </a>
       </span>
 
-      <span class="item">
+      <span class="item" title="{{'game.dead' | ghsLabel}}">
         <a class="button" (click)="dead()">
           <img src="./assets/images/status/dead.svg" />
         </a>
@@ -102,13 +102,13 @@
         <a class="button" (click)="changeMaxHealth(-1)">
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </a>
-        <img src="./assets/images/status/health.svg" />
+        <img src="./assets/images/status/health.svg" title="{{'game.maxHealth' | ghsLabel}}" />
         <span class="badge max-health">{{entity.health}}/{{entity.maxHealth}}</span>
         <a class="button" (click)="changeMaxHealth(1)">
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </a>
       </span>
-      <span class="summon-button">
+      <span class="summon-button" title="{{'summon' | ghsLabel}}">
         <a class="summon"
           [ngClass]="{'active' : entity.summon == SummonState.true, 'new' : entity.summon == SummonState.new }"
           (click)="toggleSummon()">

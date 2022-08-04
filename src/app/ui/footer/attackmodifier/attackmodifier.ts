@@ -19,23 +19,38 @@ export class AttackModifierComponent extends PopupComponent {
 
   AttackModifierType = AttackModifierType;
   type: AttackModifierType = Object.values(AttackModifierType)[ 0 ];
+  currentAttackModifier: number = gameManager.game.attackModifier;
 
   constructor(private element: ElementRef) {
     super();
   };
 
+  override ngOnInit(): void {
+    super.ngOnInit();
+
+    this.currentAttackModifier = gameManager.game.attackModifier;
+
+    gameManager.uiChange.subscribe({
+      next: (value: boolean) => {
+        if (this.currentAttackModifier != gameManager.game.attackModifier) {
+          this.currentAttackModifier = gameManager.game.attackModifier;
+          this.element.nativeElement.getElementsByClassName('attack-modifiers')[ 0 ].classList.add('working');
+          setTimeout(() => {
+            this.element.nativeElement.getElementsByClassName('attack-modifiers')[ 0 ].classList.remove('working');
+          }, 1700);
+        }
+      }
+    })
+  }
+
   draw() {
-    this.element.nativeElement.getElementsByClassName('attack-modifiers')[0].classList.add('working');
     gameManager.stateManager.before();
     gameManager.attackModifierManager.drawModifier();
     gameManager.stateManager.after();
-    setTimeout(() => {
-      this.element.nativeElement.getElementsByClassName('attack-modifiers')[0].classList.remove('working');
-    }, 1700);
   }
 
   click(attackModifier: AttackModifier) {
-    if (!this.disgarded(attackModifier) && !this.current(attackModifier)) {
+    if (gameManager.game.attackModifiers.indexOf(attackModifier) > this.currentAttackModifier) {
       this.draw();
     } else {
       this.open();
@@ -44,23 +59,6 @@ export class AttackModifierComponent extends PopupComponent {
 
   toggleEdit() {
     this.edit = !this.edit;
-  }
-
-  current(attackModifier: AttackModifier): boolean {
-    return gameManager.game.attackModifiers.indexOf(attackModifier) == gameManager.game.attackModifier;
-  }
-
-  disgarded(attackModifier: AttackModifier): boolean {
-    return gameManager.game.attackModifiers.indexOf(attackModifier) < gameManager.game.attackModifier;
-  }
-
-
-  zIndex(attackModifier: AttackModifier): number {
-    if (gameManager.game.attackModifiers.indexOf(attackModifier) > gameManager.game.attackModifier) {
-      return gameManager.game.attackModifiers.length - gameManager.game.attackModifiers.indexOf(attackModifier) - 1;
-    } else {
-      return gameManager.game.attackModifiers.length + gameManager.game.attackModifiers.indexOf(attackModifier);
-    }
   }
 
   upcomingCards(): AttackModifier[] {

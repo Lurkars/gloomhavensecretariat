@@ -121,6 +121,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setDisableColumns(disableColumns: boolean) {
+    this.settings.disableColumns = disableColumns;
+    this.storeSettings();
+  }
+
   setHints(hints: boolean) {
     this.settings.hints = hints;
     this.storeSettings();

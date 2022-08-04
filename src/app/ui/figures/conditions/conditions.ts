@@ -11,13 +11,41 @@ import { MonsterEntity } from "src/app/game/model/MonsterEntity";
   templateUrl: './conditions.html',
   styleUrls: [ './conditions.scss' ]
 })
-export class ConditionsComponent {
+export class ConditionsComponent implements OnInit {
 
   @Input() entity!: Entity;
   @Input() figure!: Figure;
   @Input() type!: string;
 
   gameManager: GameManager = gameManager;
+
+  standardNegative: Condition[] = [];
+  upgradeNegative: Condition[] = [];
+  stackNegative: Condition[] = [];
+  standardPositive: Condition[] = [];
+  upgradePositive: Condition[] = [];
+  stackPositive: Condition[] = [];
+
+  constructor() {
+    gameManager.uiChange.subscribe({
+      next: (value: boolean) => {
+        this.initializeConditions;
+      }
+    })
+  }
+
+  ngOnInit(): void {
+    this.initializeConditions();
+  }
+
+  initializeConditions() {
+    this.standardNegative = gameManager.conditionsForTypes('standard', 'negative', this.type);
+    this.upgradeNegative = gameManager.conditionsForTypes('upgrade', 'negative', this.type);
+    this.stackNegative = gameManager.conditionsForTypes('stack', 'negative', this.type);
+    this.standardPositive = gameManager.conditionsForTypes('standard', 'positive', this.type);
+    this.upgradePositive = gameManager.conditionsForTypes('upgrade', 'positive', this.type);
+    this.stackPositive = gameManager.conditionsForTypes('stack', 'positive', this.type);
+  }
 
   hasCondition(condition: Condition) {
     return gameManager.entityManager.hasCondition(this.entity, condition);

@@ -32,7 +32,13 @@
     "removeAll": "Alle entfernen",
     "showHidden": "Ausgeblendete Monster anzeigen",
     "normal": "Normal",
-    "elite": "Elite"
+    "elite": "Elite",
+    "boss" : "Boss",
+    "addEntity" : {
+      "normal": "Normales Monster spawnen",
+      "elite": "Elite Monster spawnen",
+      "boss" : "Boss Monster spawnen"
+    }
   },
   "character": {
     "add": "Charakter hinzufügen",
@@ -50,7 +56,12 @@
     "add": "Begleiter hinzufügen"
   },
   "summon": {
+    ".": "Beschwöre",
     "addCustom": "Beschwöre '{0}'"
+  },
+  "menu": {
+    "main": "Hauptmenu",
+    "backToMain": "Zurück zum %menu.main%"
   },
   "settings": {
     ".": "Einstellungen",
@@ -68,6 +79,7 @@
     "zoomOut": "Rauszoomen",
     "zoomReset": "Zoom zurücksetzen",
     "fullscreen": "Vollbild",
+    "disableColumns": "Zweispaltiges Layout deaktivieren",
     "hints": "Hinweise anzeigen",
     "browserNavigation": "Rückgängig/Wiederherstellen über Navigation",
     "maxUndo": "Max. Anzahl Rückgängigvorgänge",
@@ -107,31 +119,31 @@
     "create": "Neue Berechtigungen erstellen",
     "all": {
       ".": "Volle Berechtigungen",
-      "hint" : "Can also create new Permissions! Cannot be changed afterwards!"
+      "hint": "Kann ebenfalls neue Berechtigungen erstellen! Kann im Nachhinein nicht verändert werden!"
     },
     "custom": {
       ".": "Neue Berechtigungen festlegen",
-      "hint" : "Einzelne Berechtigungen auswählen"
+      "hint": "Einzelne Berechtigungen auswählen"
     },
     "characters": {
       ".": "Alle Charaktere",
-      "hint" : "Ändern aller Charaktere und Zielobjekte"
+      "hint": "Ändern aller Charaktere und Zielobjekte"
     },
     "monsters": {
       ".": "Alle Monster",
-      "hint" : "Ändern aller Monster"
+      "hint": "Ändern aller Monster"
     },
     "scenario": {
       ".": "Szenario",
-      "hint" : "Edition, Szenario und Sektionen festlegen"
+      "hint": "Edition, Szenario und Sektionen festlegen"
     },
     "elements": {
       ".": "Elemente",
-      "hint" : "Elementenstatus ändern"
+      "hint": "Elementenstatus ändern"
     },
     "round": {
       ".": "Runde",
-      "hint" : "Steuern von Runden und Zügen der Figuren"
+      "hint": "Steuern von Runden und Zügen der Figuren"
     },
     "level": {
       ".": "Level",
@@ -139,7 +151,7 @@
     },
     "attackModifiers": {
       ".": "Angriffsmodifikatordeck",
-      "hint" : "Ziehen und Editieren vom Angriffsmodifikatordeck"
+      "hint": "Ziehen und Editieren vom Angriffsmodifikatordeck"
     },
     "password": {
       ".": "Passwort"
@@ -245,7 +257,16 @@
       "strengthen": "Stärkung",
       "regenerate": "Regeneration",
       "curse": "Fluch",
-      "bless": "Segen"
+      "bless": "Segen",
+      "chill": "Mutlosigkeit",
+      "infect": "Infektion",
+      "ward": "Abwehr",
+      "bane": "Unheil",
+      "brittle": "Gebrechlich",
+      "impair": "Beschädigt",
+      "rupture": "Bruch",
+      "poison_x": "Gift X",
+      "wound_x": "Wunde X"
     },
     "element": {
       "all": "Alle",
@@ -256,6 +277,13 @@
       "light": "Licht",
       "dark": "Dunkel"
     },
+    "health": "Trefferpunkte",
+    "maxHealth": "Maximale Trefferpunkte",
+    "loot": "Beute",
+    "experience": "Erfahrung",
+    "level": "Level",
+    "exhausted": "Erschöpfung",
+    "dead": "Tot",
     "cards": {
       "shuffle": "Mischen",
       "confirmReveal": "Zum Aufdecken erneut klicken!",
@@ -263,12 +291,20 @@
       "revealAll": "Alle Aufdecken?",
       "revealAllConfirm": "Alle Aufdecken!",
       "removeDrawnDiscards": "Entferne gezogene Abgeworfene",
-      "draw": "Weitere Aufdecken",
+      "draw": "Aufdecken",
+      "drawAnother": "Weitere Aufdecken",
       "drawExtra": "Zusätzlich Aufdecken",
       "edit": "Editieren",
       "restore": "Standard wiederherstellen"
     },
+    "attackModifiers": {
+      ".": "Angriffsmodifikatordeck",
+      "openDialog": "Angriffsmodifikatordeck anzeigen"
+    },
     "figure": {
+      "startTurn": "Zug beginnen",
+      "endTurn": "Zug beenden",
+      "setInitiative": "Initiative festlegen",
       "error": {
         "deck": "Fehlendes Deck",
         "stat": "Fehlende Werte",

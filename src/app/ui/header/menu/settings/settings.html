@@ -106,6 +106,12 @@
           {{'settings.fullscreen' | ghsLabel}}
         </label>
       </div>
+      <div class="line">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.disableColumns" (change)="settingsManager.setDisableColumns(!settingsManager.settings.disableColumns)">
+          {{'settings.disableColumns' | ghsLabel}}
+        </label>
+      </div>
     </div>
   </div>
   <div class="columns separator">

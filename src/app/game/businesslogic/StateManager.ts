@@ -182,7 +182,7 @@ export class StateManager {
     }
   }
 
-  saveLocal(timeout: number = 0) {
+  saveLocal(timeout: number = 1) {
     window.document.body.classList.add('working');
     localStorage.setItem("ghs-game", JSON.stringify(this.game.toModel()));
     if (timeout) {

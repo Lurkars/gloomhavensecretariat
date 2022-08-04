@@ -131,6 +131,7 @@ export class MonsterEntityComponent extends DialogComponent {
     if (gameManager.game.state == GameState.draw || this.entity.entityConditions.length == 0 || this.entity.entityConditions.every((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1)) {
       setTimeout(() => {
         gameManager.monsterManager.removeMonsterEntity(this.monster, this.entity);
+        gameManager.stateManager.after();
       }, 1500);
     }
 

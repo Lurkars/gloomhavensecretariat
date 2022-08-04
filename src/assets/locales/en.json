@@ -32,7 +32,13 @@
     "removeAll": "Remove All",
     "showHidden": "Show Hidden Monster",
     "normal": "Normal",
-    "elite": "Elite"
+    "elite": "Elite",
+    "boss" : "Boss",
+    "addEntity" : {
+      "normal": "Spawn Normal Monster",
+      "elite": "Spawn Elite Monster",
+      "boss" : "Spawn Boss Monster"
+    }
   },
   "character": {
     "add": "Add Character",
@@ -50,7 +56,12 @@
     "add": "Add Escort"
   },
   "summon": {
+    ".": "Summon",
     "addCustom": "Summon '{0}'"
+  },
+  "menu": {
+    "main": "Mainmenu",
+    "backToMain": "Back to %menu.main%"
   },
   "settings": {
     ".": "Settings",
@@ -68,6 +79,7 @@
     "zoomOut": "Zoom Out",
     "zoomReset": "Reset Zoom",
     "fullscreen": "Fullscreen",
+    "disableColumns": "Disable column layout",
     "hints": "Show hints",
     "browserNavigation": "Undo/Redo with navigation",
     "maxUndo": "Max. number of undos",
@@ -107,31 +119,31 @@
     "create": "Create new Permissions",
     "all": {
       ".": "Full Permissions",
-      "hint" : "Can also create new Permissions! Cannot be changed afterwards!"
+      "hint": "Can also create new Permissions! Cannot be changed afterwards!"
     },
     "custom": {
       ".": "Define new Permissions",
-      "hint" : "Specify permissions granted"
+      "hint": "Specify permissions granted"
     },
     "characters": {
       ".": "All Characters",
-      "hint" : "Update and change all characters and objectives."
+      "hint": "Update and change all characters and objectives."
     },
     "monsters": {
       ".": "All Monsters",
-      "hint" : "Update and change all monsters and monster entities"
+      "hint": "Update and change all monsters and monster entities"
     },
     "scenario": {
       ".": "Scenario",
-      "hint" : "Change Edition, Scenario and Sections"
+      "hint": "Change Edition, Scenario and Sections"
     },
     "elements": {
       ".": "Elements",
-      "hint" : "Set element states"
+      "hint": "Set element states"
     },
     "round": {
       ".": "Round",
-      "hint" : "Control rounds and turns of figures"
+      "hint": "Control rounds and turns of figures"
     },
     "level": {
       ".": "Level",
@@ -139,7 +151,7 @@
     },
     "attackModifiers": {
       ".": "Attack Modifier Deck",
-      "hint" : "Draw and edit Monster Attack Modifier Deck"
+      "hint": "Draw and edit Monster Attack Modifier Deck"
     },
     "password": "Password",
     "save": "Save Permissions"
@@ -237,17 +249,26 @@
       "targets": "all targets"
     },
     "condition": {
-      "stun": "stun",
-      "immobilize": "immobilize",
-      "disarm": "disarm",
-      "wound": "wound",
-      "muddle": "muddle",
-      "poison": "poison",
-      "invisible": "invisible",
-      "strengthen": "strengthen",
-      "regenerate": "regenerate",
-      "curse": "curse",
-      "bless": "bless"
+      "stun": "Stun",
+      "immobilize": "Immobilize",
+      "disarm": "Disarm",
+      "wound": "Wound",
+      "muddle": "Muddle",
+      "poison": "Poison",
+      "invisible": "Invisible",
+      "strengthen": "Strengthen",
+      "regenerate": "Regenerate",
+      "curse": "Curse",
+      "bless": "Bless",
+      "chill": "Chill",
+      "infect": "Infect",
+      "ward": "Ward",
+      "bane": "Bane",
+      "brittle": "Brittle",
+      "impair": "Impair",
+      "rupture": "Rupture",
+      "poison_x": "Poison X",
+      "wound_x": "Wound X"
     },
     "element": {
       "all": "All",
@@ -258,6 +279,13 @@
       "light": "Light",
       "dark": "Dark"
     },
+    "health": "Hit points",
+    "maxHealth": "Maximum hit points",
+    "loot": "Loot",
+    "experience": "Experience",
+    "level": "Level",
+    "exhausted": "Exhausted",
+    "dead": "Dead",
     "cards": {
       "shuffle": "Shuffle",
       "confirmReveal": "Click again to reveal!",
@@ -265,12 +293,20 @@
       "revealAll": "Reveal All?",
       "revealAllConfirm": "Reveal All!",
       "removeDrawnDiscards": "Remove Drawn Discards",
-      "draw": "Draw Another",
+      "draw": "Draw",
+      "drawAnother": "Draw Another",
       "drawExtra": "Draw Extra",
       "edit": "Edit",
       "restore": "Restore defaults"
     },
+    "attackModifiers": {
+      ".": "Attack Modifier Deck",
+      "openDialog": "Show Attack Modifier Deck"
+    },
     "figure": {
+      "startTurn": "Start turn",
+      "endTurn": "End turn",
+      "setInitiative": "Set initiative",
       "error": {
         "deck": "Missing Deck",
         "stat": "Missing Stat",

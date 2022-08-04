@@ -49,7 +49,7 @@ export class CharacterInitiativeComponent extends DialogComponent {
     if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initative >= 0 || initative > 0) && initative < 100) {
       this.setInitiative(initative);
     } else {
-      event.target.value = "" + this.character.initiative
+      event.target.value = (this.character.initiative < 10 ? '0' : '') + this.character.initiative;
     }
   }
 

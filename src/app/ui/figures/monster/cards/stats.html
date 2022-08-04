@@ -1,5 +1,5 @@
 <div class="stats-container" [ngClass]="{'boss' : monster.boss}">
-  <div #button class="level">{{monster.level}}</div>
+  <div #button class="level" title="{{'game.level' | ghsLabel}}">{{monster.level}}</div>
 
   <div class="name-container" *ngIf="showName">
     <span class="name">{{'data.monster.' + monster.name | ghsLabel}}</span>

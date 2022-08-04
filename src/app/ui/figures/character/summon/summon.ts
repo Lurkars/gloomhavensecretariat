@@ -61,6 +61,7 @@ export class SummonEntityComponent extends DialogComponent {
     if (gameManager.game.state == GameState.draw || this.summon.entityConditions.length == 0 || this.summon.entityConditions.every((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1)) {
       setTimeout(() => {
         gameManager.characterManager.removeSummon(this.character, this.summon);
+        gameManager.stateManager.after();
       }, 1500);
     }
 

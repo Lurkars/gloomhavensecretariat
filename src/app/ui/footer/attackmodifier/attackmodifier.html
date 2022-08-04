@@ -1,5 +1,6 @@
-<div class="attack-modifiers" [ngClass]="{'disabled' : gameManager.game.state == GameState.draw, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers}">
-  <div class="card-container attack-modifier draw">
+<div class="attack-modifiers"
+  [ngClass]="{'disabled' : gameManager.game.state == GameState.draw, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers}">
+  <div class="card-container attack-modifier draw" title="{{'game.cards.draw' | ghsLabel}}">
     <div class="card" (click)="draw()">
       <a class="card-back front">
         <span class="number" *ngIf="gameManager.game.attackModifier < gameManager.game.attackModifiers.length -1">{{
@@ -13,12 +14,12 @@
 
   <div class="card-container attack-modifier"
     *ngFor="let attackModifier of gameManager.game.attackModifiers; let index = index;"
-    [style.z-index]="zIndex(attackModifier)"
-    [ngClass]="{'last' : disgarded(attackModifier), 'current' : current(attackModifier)}">
-    <div class="card" [ngClass]="{'flipped' : disgarded(attackModifier) || current(attackModifier)}"
-      (click)="click(attackModifier)">
+    [style.z-index]="index > currentAttackModifier ? gameManager.game.attackModifiers.length - index : gameManager.game.attackModifiers.length + index + 1"
+    [ngClass]="{'disgarded' : index < currentAttackModifier - 1, 'current' : index == currentAttackModifier, 'last' : index == currentAttackModifier - 1}"
+    title="{{(index > currentAttackModifier ? 'game.cards.draw' : 'game.attackModifiers.openDialog') | ghsLabel}}">
+    <div class="card" [ngClass]="{'flipped' : index <= currentAttackModifier}" (click)="click(attackModifier)">
       <a class="card-back front">
-        <span class="number" *ngIf="!disgarded(attackModifier) && !current(attackModifier)">{{
+        <span class="number" *ngIf="index > currentAttackModifier">{{
           gameManager.game.attackModifiers.length - gameManager.game.attackModifier - 1 }}</span>
       </a>
       <div class="card-front back">

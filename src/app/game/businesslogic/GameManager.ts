@@ -107,11 +107,11 @@ export class GameManager {
     return [];
   }
 
-  conditionForTypes(...types: string[]) {
+  conditionsForTypes(...types: string[]): Condition[] {
     return this.conditions(false).filter((condition: Condition) => types.every((type: string) => condition.types.indexOf(type as ConditionType) != -1));
   }
 
-  allConditionForTypes(...types: string[]) {
+  allConditionsForTypes(...types: string[]): Condition[] {
     return this.conditions(true).filter((condition: Condition) => types.every((type: string) => condition.types.indexOf(type as ConditionType) != -1));
   }
 

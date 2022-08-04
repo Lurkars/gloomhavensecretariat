@@ -10,6 +10,7 @@ export class Settings {
   randomStandees: boolean = false;
   initiativeRequired: boolean = true;
   fullscreen: boolean = false;
+  disableColumns: boolean = false;
   hints: boolean = true;
   zoom: number = 100;
   locale: string = "en";

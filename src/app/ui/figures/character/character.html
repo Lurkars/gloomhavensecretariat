@@ -13,7 +13,9 @@
 <div class="character" [style.--ghs-character-color]="character.color"
   [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0, 'denied' : !gameManager.stateManager.hasCharacterPermission(character)}">
 
-  <ghs-character-image (click)="close()" [character]="character" [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}"></ghs-character-image>
+  <ghs-character-image (click)="close()" [character]="character"
+    [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
+  </ghs-character-image>
 
   <ghs-character-initiative (click)="close()" [character]="character"></ghs-character-initiative>
 
@@ -22,10 +24,11 @@
   <div class="stats">
     <div class="column col-1" (click)="toggle()">
       <div #button class="title"><img class="icon" [src]="characterManager.characterIcon(character)" />
-        {{character.title || ('data.character.' + character.name | ghsLabel)}} 
-        <img class="ghs-svg exhausted" *ngIf="character.exhausted" src="./assets/images/status/exhausted.svg" /></div>
+        {{character.title || ('data.character.' + character.name | ghsLabel)}}
+        <img class="ghs-svg exhausted" *ngIf="character.exhausted" src="./assets/images/status/exhausted.svg" />
+      </div>
       <div class="status-bar">
-        <div class="health">
+        <div class="health" title="{{'game.health' | ghsLabel}}">
           <img src="./assets/images/status/health.svg" />
           {{character.health}}/{{character.maxHealth}}
         </div>
@@ -47,10 +50,10 @@
 
     <ghs-character-summondialog [character]="character"></ghs-character-summondialog>
     <div class="column col-2" (click)="toggle()">
-      <span class="experience">{{character.experience}}
+      <span class="experience" title="{{'game.experience' | ghsLabel}}">{{character.experience}}
         <img src="./assets/images/status/experience.svg" />
       </span>
-      <span class="loot">{{character.loot}}
+      <span class="loot" title="{{'game.loot' | ghsLabel}}">{{character.loot}}
         <img src="./assets/images/status/loot.svg" />
       </span>
     </div>
@@ -71,7 +74,7 @@
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </a>
       </span>
-      <span class="item">
+      <span class="item" title="{{'game.health' | ghsLabel}}">
         <img src="./assets/images/status/health.svg" />
         <span class="badge health-count"
           [ngClass]="{'health-negative' : health < 0, 'health-positive' : health > 0}">{{health | ghsValueSign}}</span>
@@ -88,7 +91,7 @@
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </a>
       </span>
-      <span class="item">
+      <span class="item" title="{{'game.experience' | ghsLabel}}">
         <img src="./assets/images/status/experience.svg" />
         <span class="badge">{{experience | ghsValueSign}}</span>
       </span>
@@ -103,7 +106,7 @@
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </a>
       </span>
-      <span class="item">
+      <span class="item" title="{{'game.loot' | ghsLabel}}">
         <img src="./assets/images/status/loot.svg" />
         <span class="badge">{{loot | ghsValueSign}}</span>
       </span>
@@ -113,12 +116,12 @@
         </a>
       </span>
 
-      <span class="item">
+      <span class="item" title="{{'game.exhausted' | ghsLabel}}">
         <a class="condition" [ngClass]="{'active' : character.exhausted}" (click)="exhausted()">
           <img src="./assets/images/status/exhausted.svg" />
         </a>
       </span>
-      <span class="item">
+      <span class="item" title="{{'game.level' | ghsLabel}}">
         <a class="button level-button" (click)="openLevelDialog()">
           {{character.level}} <img src="./assets/images/status/level.svg" />
         </a>
@@ -140,7 +143,7 @@
       <a class="button" (click)="changeMaxHealth(-1)">
         <img class="ghs-svg" src="./assets/images/minus.svg">
       </a>
-      <span class="item">
+      <span class="item" title="{{'game.maxHealth' | ghsLabel}}">
         <img src="./assets/images/status/health.svg" />
         <span class="badge max-health">{{character.health}}/{{character.maxHealth}}</span>
       </span>

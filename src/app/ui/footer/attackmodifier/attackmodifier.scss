@@ -14,6 +14,10 @@
     align-items: center;
   }
 
+  &.draw {
+    z-index: 0;
+  }
+
   img {
     width: 100%;
     height: auto;
@@ -76,6 +80,26 @@
       }
     }
 
+    @keyframes attackmodifier-last {
+      0% {
+        top: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+        left: calc(var(--ghs-unit) * 15 * var(--ghs-text-factor));
+        transform: rotate(0);
+      }
+
+      70% {
+        top: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+        left: calc(var(--ghs-unit) * 15 * var(--ghs-text-factor));
+        transform: rotate(0);
+      }
+
+      100% {
+        top: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+        left: calc(var(--ghs-unit) * 26 * var(--ghs-text-factor));
+        transform: rotate(25deg);
+      }
+    }
+
     &.current {
       position: absolute;
       top: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
@@ -83,15 +107,13 @@
       z-index: 1;
     }
 
+    &.disgarded,
     &.last {
       position: absolute;
       top: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
       left: calc(var(--ghs-unit) * 26 * var(--ghs-text-factor));
-      z-index: 0;
-      animation: none;
-      transition: all 500ms ease-in-out;
-      transition-delay: 1100ms;
       transform: rotate(25deg);
+      z-index: 0;
     }
 
     .shuffle {
@@ -115,6 +137,17 @@
     .attack-modifier.current {
       transition: none;
       animation: attackmodifier-draw 1600ms ease-in-out;
+      animation-iteration-count: 1;
+
+      .card.flipped {
+        animation: card-flip .8s cubic-bezier(0.75, 0, 0.85, 1);
+      }
+
+    }
+
+    .attack-modifier.last {
+      transition: none;
+      animation: attackmodifier-last 1600ms ease-in-out;
       animation-iteration-count: 1;
     }
   }

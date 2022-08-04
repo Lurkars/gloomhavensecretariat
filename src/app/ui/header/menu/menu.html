@@ -1,9 +1,9 @@
-<a #button class="button menu-button active-outline">
+<a #button class="button menu-button active-outline" title="{{'menu.main' | ghsLabel}}">
   <img class="ghs-svg" src="./assets/images/menu.svg">
 </a>
 <div #dialog [ngSwitch]="active">
 
-  <div class="back" [ngClass]="{'disabled' : active == SubMenu.main}" (click)="setActive(SubMenu.main)">
+  <div class="back" [ngClass]="{'disabled' : active == SubMenu.main}" (click)="setActive(SubMenu.main)"  title="{{'menu.backToMain' | ghsLabel}}">
     <img class="ghs-svg" src="./assets/images/left.svg">
   </div>
 

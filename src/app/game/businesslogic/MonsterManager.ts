@@ -104,11 +104,13 @@ export class MonsterManager {
       }
     }
 
-    gameManager.sortFigures();
+    if (monster.entities.filter((monsterEntity: MonsterEntity) => !monsterEntity.dead && monsterEntity.health > 0).length == 1) {
+      gameManager.sortFigures();
+    }
 
     if (monster.off) {
       monster.off = false;
-      monster.active = false;
+      monster.active = !gameManager.game.figures.some((figure: Figure) => figure.active);
     }
   }
 
@@ -121,6 +123,8 @@ export class MonsterManager {
       } else {
         monster.off = true;
       }
+      gameManager.sortFigures();
+    } else if (monster.entities.filter((monsterEntity: MonsterEntity) => !monsterEntity.dead && monsterEntity.health > 0).length == 0) {
       gameManager.sortFigures();
     }
   }
