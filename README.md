@@ -48,15 +48,17 @@ For usage with multiple clients sharing the same game, the server component [Glo
   - Synchronize state (+ settings) with [GHS Server](https://github.com/Lurkars/ghs-server)
   - Permission management for different clients with [GHS Server](https://github.com/Lurkars/ghs-server)
   - load custom JSON edition data for custom content!
-  
-> Envelope X is missing due to not spoiler myself. Please be patient.
+  - edit Monster Attack Modifier and Monster Ability decks (support for Diviner class mechanics): reveal cards, remove cards, re-order cards
+  - <details>
+      <summary>SPOILER WARNING: Envelope X</summary>
+
+      > To add Envelope X, add the following Edition Data Url under Data Management `./assets/data/gh-envx.json`.
+    </details>
 
 ### Short term plans
 
 - validation of all existing data
 - improve code base (many repeated component for now for figures/entities)
-- ~~improve mobile experience~~
-- ~~improve PWA (caching etc.)~~
 - start with FH data
 - tools like monster editor to create/update monster stats and abilities via UI (WIP)
 

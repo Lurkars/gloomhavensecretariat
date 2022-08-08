@@ -21,6 +21,7 @@ export enum SummonColor {
 
 export class Summon implements Entity {
 
+  name: string;
   number: number;
   color: SummonColor;
   attack: number;
@@ -37,9 +38,10 @@ export class Summon implements Entity {
   entityConditions: EntityCondition[] = [];
   markers: string[] = [];
 
-  constructor(level: number, number: number, color: SummonColor, maxHealth: number = 2, attack: number = 0,
+  constructor(name: string, level: number, number: number, color: SummonColor, maxHealth: number = 2, attack: number = 0,
     movement: number = 0,
     range: number = 0) {
+    this.name = name;
     this.level = level;
     this.number = number;
     this.color = color;
@@ -51,10 +53,11 @@ export class Summon implements Entity {
   }
 
   toModel(): GameSummonModel {
-    return new GameSummonModel(this.number, this.color, this.attack, this.movement, this.range, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition: EntityCondition) => condition.toModel()), this.markers);
+    return new GameSummonModel(this.name, this.number, this.color, this.attack, this.movement, this.range, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition: EntityCondition) => condition.toModel()), this.markers);
   }
 
   fromModel(model: GameSummonModel) {
+    this.name = model.name || "";
     this.number = model.number;
     this.color = model.color;
     this.attack = model.attack;
@@ -95,6 +98,7 @@ export class Summon implements Entity {
 }
 
 export class GameSummonModel {
+  name: string;
   number: number;
   color: SummonColor;
   attack: number;
@@ -114,7 +118,8 @@ export class GameSummonModel {
   expiredConditions: string[] = [];
 
 
-  constructor(number: number,
+  constructor(name: string,
+    number: number,
     color: SummonColor,
     attack: number,
     movement: number,
@@ -126,6 +131,7 @@ export class GameSummonModel {
     maxHealth: number,
     entityConditions: GameEntityConditionModel[],
     markers: string[]) {
+    this.name = name;
     this.number = number;
     this.color = color;
     this.attack = attack;

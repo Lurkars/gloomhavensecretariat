@@ -40,5 +40,19 @@
       "level": 9,
       "health": 14
     }
+  ],
+  "availableSummons": [
+    {
+      "name": "flailing-ivies",
+      "level": 1,
+      "health": 1,
+      "attack": 1
+    },
+    {
+      "name": "crypt-nettle",
+      "level": 7,
+      "health": 3,
+      "attack": 1
+    }
   ]
 }

@@ -167,23 +167,6 @@
     }
   }
 
-  .button-remove {
-    position: absolute;
-    cursor: pointer;
-    top: calc(var(--ghs-unit) * 0.5);
-    right: calc(var(--ghs-unit) * 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: calc(var(--ghs-unit) * 2.5);
-    height: calc(var(--ghs-unit) * 2.5);
-    filter: var(--ghs-filter-white);
-
-    &:hover {
-      filter: var(--ghs-filter-red);
-    }
-  }
-
 }
 
 .ability-back {
@@ -200,6 +183,31 @@
     text-align: center;
   }
 
+}
+
+
+.button-remove {
+  display: none;
+  z-index: 1;
+  position: absolute;
+  cursor: pointer;
+  bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+  right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+  justify-content: center;
+  align-items: center;
+  width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+  height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+  filter: var(--ghs-filter-white);
+
+  &:hover {
+    filter: var(--ghs-filter-red);
+  }
+}
+
+.flipped {
+  .button-remove {
+    display: flex;
+  }
 }
 
 .left-abilities {

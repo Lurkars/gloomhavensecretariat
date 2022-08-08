@@ -6,6 +6,7 @@ import { GameSummonModel, Summon, SummonColor, SummonState } from "./Summon";
 import { gameManager } from "../businesslogic/GameManager";
 import { FigureError } from "./FigureError";
 import { ConditionName, EntityCondition, EntityConditionState, GameEntityConditionModel } from "./Condition";
+import { SummonData } from "./data/SummonData";
 
 export class Character extends CharacterData implements Entity, Figure {
   title: string = "";
@@ -34,7 +35,7 @@ export class Character extends CharacterData implements Entity, Figure {
   }
 
   constructor(character: CharacterData, level: number) {
-    super(character.name, character.stats, character.edition, character.summon, character.icon, character.thumbnail, character.color, character.marker);
+    super(character.name, character.stats, character.edition, character.availableSummons, character.icon, character.thumbnail, character.color, character.marker);
     this.errors = character.errors;
     if (level < 1) {
       level = 1;
@@ -58,10 +59,7 @@ export class Character extends CharacterData implements Entity, Figure {
     }
 
     this.health = this.maxHealth;
-
-    if (this.summon && this.summon.automatic && (!this.summon.level || this.summon.level <= this.level)) {
-      this.createSummon();
-    }
+    this.availableSummons.filter((summonData: SummonData) => summonData.special).forEach((summonData: SummonData) => this.createSpecial(summonData));
   }
 
   setLevel(level: number) {
@@ -87,34 +85,21 @@ export class Character extends CharacterData implements Entity, Figure {
       this.health = this.maxHealth;
     }
 
-    if (this.summon) {
-      let summon = this.summons.find((summon: Summon) => summon.number == 0);
-      if (summon) {
-        if (summon.health == summon.maxHealth) {
-          summon.health = typeof this.summon.health == "number" ? this.summon.health : EntityValueFunction(this.summon.health, this.level);
-        }
-        summon.maxHealth = typeof this.summon.health == "number" ? this.summon.health : EntityValueFunction(this.summon.health, this.level);
-        summon.attack = typeof this.summon.attack == "number" ? this.summon.attack : EntityValueFunction(this.summon.attack, this.level);
-        summon.movement = typeof this.summon.movement == "number" ? this.summon.movement : EntityValueFunction(this.summon.movement, this.level);
-        summon.range = typeof this.summon.range == "number" ? this.summon.range : EntityValueFunction(this.summon.range, this.level);
-      } else if (this.summon.automatic && this.summon.level && this.summon.level <= this.level) {
-        this.createSummon();
-      }
-    }
+    this.availableSummons.filter((summonData: SummonData) => summonData.special).forEach((summonData: SummonData) => this.createSpecial(summonData));
   }
 
-  createSummon() {
-    if (this.summon) {
-      let summon: Summon = new Summon(this.level, 0, SummonColor.custom);
-      summon.maxHealth = typeof this.summon.health == "number" ? this.summon.health : EntityValueFunction(this.summon.health, this.level);
-      summon.attack = typeof this.summon.attack == "number" ? this.summon.attack : EntityValueFunction(this.summon.attack, this.level);
-      summon.movement = typeof this.summon.movement == "number" ? this.summon.movement : EntityValueFunction(this.summon.movement, this.level);
-      summon.range = typeof this.summon.range == "number" ? this.summon.range : EntityValueFunction(this.summon.range, this.level);
+  createSpecial(summonData: SummonData) {
+    this.summons = this.summons.filter((summon: Summon) => summon.name != summonData.name || summon.number != 0 || summon.color != SummonColor.custom);
+    if (!summonData.level || summonData.level <= this.level) {
+      let summon: Summon = new Summon(summonData.name, this.level, 0, SummonColor.custom);
+      summon.maxHealth = typeof summonData.health == "number" ? summonData.health : EntityValueFunction(summonData.health, this.level);
+      summon.attack = typeof summonData.attack == "number" ? summonData.attack : EntityValueFunction(summonData.attack, this.level);
+      summon.movement = typeof summonData.movement == "number" ? summonData.movement : EntityValueFunction(summonData.movement, this.level);
+      summon.range = typeof summonData.range == "number" ? summonData.range : EntityValueFunction(summonData.range, this.level);
       summon.health = summon.maxHealth;
       summon.state = SummonState.true;
       summon.init = false;
       gameManager.characterManager.addSummon(this, summon);
-      // TODO: FIX
     }
   }
 
@@ -170,9 +155,9 @@ export class Character extends CharacterData implements Entity, Figure {
     });
 
     model.summons.forEach((value: GameSummonModel) => {
-      let summon = this.summons.find((summonEntity: Summon) => summonEntity.number == value.number && summonEntity.color == value.color) as Summon;
+      let summon = this.summons.find((summonEntity: Summon) => summonEntity.name == summonEntity.name && summonEntity.number == value.number && summonEntity.color == value.color) as Summon;
       if (!summon) {
-        summon = new Summon(value.level, value.number, value.color);
+        summon = new Summon(value.name, value.level, value.number, value.color);
         this.summons.push(summon);
       }
       summon.fromModel(value);

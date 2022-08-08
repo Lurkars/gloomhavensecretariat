@@ -1,7 +1,7 @@
 {
   "name": "beetle",
   "edition": "cs",
-  "color": "#f89521",
+  "color": "fff89521",
   "spoiler": true,
   "stats": [
     {
@@ -39,6 +39,21 @@
     {
       "level": 9,
       "health": 32
+    }
+  ],
+  "availableSummons": [
+    {
+      "name": "venator-tarantula",
+      "level": 7,
+      "health": 2,
+      "attack": 1,
+      "range": 3,
+      "movement": 3
+    },
+    {
+      "name": "beta-aegis",
+      "level": 9,
+      "movement": 3
     }
   ]
 }

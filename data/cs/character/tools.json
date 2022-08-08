@@ -1,7 +1,7 @@
 {
   "name": "tools",
   "edition": "cs",
-  "color": "#79bcda",
+  "color": "ff79bcda",
   "spoiler": true,
   "stats": [
     {
@@ -39,6 +39,56 @@
     {
       "level": 9,
       "health": 17
+    }
+  ],
+  "availableSummons": [
+    {
+      "name": "clockwork-soldier",
+      "level": 1,
+      "health": 4,
+      "attack": 2,
+      "movement": 3
+    },
+    {
+      "name": "clockwork-bombard",
+      "level": 1,
+      "health": 2,
+      "attack": 2,
+      "range": 5
+    },
+    {
+      "name": "hollow-carapace",
+      "level": 1,
+      "health": 9
+    },
+    {
+      "name": "clockwork-guardian",
+      "level": 3,
+      "health": 7,
+      "attack": 1,
+      "movement": 1
+    },
+    {
+      "name": "clockwork-drone",
+      "level": 5,
+      "health": 3,
+      "attack": 3,
+      "range": 3,
+      "movement": 3
+    },
+    {
+      "name": "clockwork-rocket",
+      "level": 7,
+      "health": 1,
+      "attack": 5,
+      "movement": 6
+    },
+    {
+      "name": "clockwork-ravager",
+      "level": 9,
+      "health": 6,
+      "attack": 3,
+      "movement": 3
     }
   ]
 }

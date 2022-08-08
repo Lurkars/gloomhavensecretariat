@@ -14,6 +14,25 @@
     "monster": {},
     "deck": {},
     "ability": {},
-    "scenario": {}
+    "scenario": {},
+    "summon": {
+      "banner-of-courage": "Banner of Courage",
+      "banner-of-doom": "Banner of Doom",
+      "banner-of-hope": "Banner of Hope",
+      "banner-of-strength": "Banner of Strength",
+      "banner-of-valor": "Banner of Valor",
+      "bone-horde": "Bone Horde",
+      "longbowman": "Longbowman",
+      "raging-corpse": "Raging Corpse",
+      "reinforcements": "Reinforcements",
+      "shadow-beast": "Shadow Beast",
+      "shadow-horror": "Shadow Horror",
+      "shambling-skeleton": "Shambling Skeleton",
+      "skeleton-sorcerer": "Skeleton Sorcerer",
+      "stitched-atrocity": "Stitched Atrocity",
+      "torch-bearer": "Torch Bearer",
+      "trained-falcon": "Trained Falcon",
+      "wraith": "Wraith"
+    }
   }
 }

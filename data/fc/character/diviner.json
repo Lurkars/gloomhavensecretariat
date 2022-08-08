@@ -39,5 +39,21 @@
       "level": 9,
       "health": 14
     }
+  ],
+  "availableSummons": [
+    {
+      "name": "ghost-falcon",
+      "level": 3,
+      "health": 4,
+      "attack": 2,
+      "movement": 3
+    },
+    {
+      "name": "twilight-archon",
+      "level": 9,
+      "health": 9,
+      "attack": 2,
+      "movement": 3
+    }
   ]
 }

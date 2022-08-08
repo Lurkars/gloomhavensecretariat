@@ -39,5 +39,27 @@
       "level": 9,
       "health": 14
     }
+  ],
+  "availableSummons": [
+    {
+      "name": "rat-swarm",
+      "level": 1,
+      "health": 6,
+      "attack": 2,
+      "movement": 1
+    },
+    {
+      "name": "monstrous-rat",
+      "level": 2,
+      "health": 4,
+      "attack": 3,
+      "movement": 3
+    },
+    {
+      "name": "rat-king",
+      "level": 9,
+      "health": 9,
+      "movement": 2
+    }
   ]
 }

@@ -40,5 +40,93 @@
       "level": 9,
       "health": 20
     }
+  ],
+  "availableSummons": [
+    {
+      "name": "lava-golem",
+      "level": 1,
+      "health": 7,
+      "attack": 3,
+      "movement": 2
+    },
+    {
+      "name": "shadow-wolf",
+      "level": 1,
+      "health": 3,
+      "attack": 2,
+      "movement": 3
+    },
+    {
+      "name": "iron-beast",
+      "level": 1,
+      "health": 5,
+      "attack": 1,
+      "movement": 2
+    },
+    {
+      "name": "thorn-shooter",
+      "level": 1,
+      "health": 2,
+      "attack": 2,
+      "range": 4,
+      "movement": 1
+    },
+    {
+      "name": "living-bomb",
+      "level": 1,
+      "health": 1,
+      "attack": 2,
+      "movement": 3
+    },
+    {
+      "name": "bat-swarm",
+      "level": 1,
+      "health": 4,
+      "attack": 2,
+      "movement": 2
+    },
+    {
+      "name": "slime-spirit",
+      "level": 3,
+      "health": 4,
+      "attack": 1,
+      "movement": 3
+    },
+    {
+      "name": "rock-colossus",
+      "level": 4,
+      "health": 7,
+      "attack": 3,
+      "movement": 1
+    },
+    {
+      "name": "healing-sprite",
+      "level": 5,
+      "health": 2,
+      "attack": 1,
+      "range": 3,
+      "movement": 2
+    },
+    {
+      "name": "nail-sphere",
+      "level": 6,
+      "health": 4,
+      "movement": 2
+    },
+    {
+      "name": "void-eater",
+      "level": 7,
+      "health": 5,
+      "attack": 2,
+      "range": 2,
+      "movement": 3
+    },
+    {
+      "name": "black-unicorn",
+      "level": 9,
+      "health": 6,
+      "attack": 4,
+      "movement": 4
+    }
   ]
 }

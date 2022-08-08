@@ -1,7 +1,7 @@
 {
   "name": "vortex",
   "edition": "cs",
-  "color": "#a04aa5",
+  "color": "ffa04aa5",
   "spoiler": true,
   "stats": [
     {
@@ -40,5 +40,6 @@
       "level": 9,
       "health": 17
     }
-  ]
+  ],
+  "availableSummons": []
 }

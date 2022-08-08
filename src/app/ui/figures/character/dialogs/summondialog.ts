@@ -2,6 +2,7 @@ import { Component, Input } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 
 import { Character } from "src/app/game/model/Character";
+import { SummonData } from "src/app/game/model/data/SummonData";
 import { EntityValueFunction } from "src/app/game/model/Entity";
 import { Summon, SummonColor, SummonState } from "src/app/game/model/Summon";
 
@@ -18,53 +19,65 @@ export class CharacterSummonDialog extends DialogComponent {
 
   summonColors: SummonColor[] = Object.values(SummonColor).filter((summonColor: SummonColor) => summonColor != SummonColor.custom);
   summonColor: SummonColor = SummonColor.blue;
-
-
-  addSummon(summon: Summon) {
-    gameManager.stateManager.before();
-    const dead = this.character.summons.find((s: Summon) => s.dead && s.number == summon.number && s.color == summon.color);
-    if (dead) {
-      gameManager.characterManager.removeSummon(this.character, dead);
-    }
-
-    gameManager.characterManager.addSummon(this.character, summon);
-    gameManager.stateManager.after();
-  }
-
-  disabled(number: number) {
-    return this.character.summons.some((summon: Summon) => !summon.dead && summon.number == number && summon.color == this.summonColor);
-  }
+  summonNumber: number = 1;
+  summonName: string = "";
 
   pickNumber(number: number) {
-    this.close();
-    gameManager.stateManager.before();
-    let summon: Summon = new Summon(this.character.level, number, this.summonColor);
-    this.addSummon(summon);
-    gameManager.stateManager.after();
+    this.summonNumber = number;
   }
 
   selectColor(color: SummonColor) {
     this.summonColor = color;
   }
 
-  hasCustom() {
-    return this.character.summon && (!this.character.summon.level || this.character.summon?.level <= this.character.level) && !this.character.summons.some((summon: Summon) => !summon.dead && summon.number == 0);
+  available(summonData: SummonData) {
+    return this.summonColor != SummonColor.custom && this.summonNumber != 0 && this.character.summons.every((summon: Summon) => summon.dead || summon.name != summonData.name || (summonData.special ? summon.number != 0 : summon.number != this.summonNumber) || (summonData.special ? summon.color != SummonColor.custom : summon.color != this.summonColor));
   }
 
-  addCustom() {
-    if (this.character.summon && !this.character.summons.some((summon: Summon) => !summon.dead && summon.number == 0)) {
-      this.close();
-      this.character.summons = this.character.summons.filter((summon: Summon) => summon.number != 0);
-      let summon: Summon = new Summon(this.character.level, 0, SummonColor.custom);
-      summon.maxHealth = typeof this.character.summon.health == "number" ? this.character.summon.health : EntityValueFunction(this.character.summon.health, this.character.level);
-      summon.attack = typeof this.character.summon.attack == "number" ? this.character.summon.attack : EntityValueFunction(this.character.summon.attack, this.character.level);
-      summon.movement = typeof this.character.summon.movement == "number" ? this.character.summon.movement : EntityValueFunction(this.character.summon.movement, this.character.level);
-      summon.range = typeof this.character.summon.range == "number" ? this.character.summon.range : EntityValueFunction(this.character.summon.range, this.character.level);
+  customDisabled() {
+    return this.character.summons.some((summon: Summon) => !summon.dead && summon.name == this.summonName && summon.number == this.summonNumber && summon.color == this.summonColor);
+  }
+
+  summonData(): SummonData[] {
+    return this.character.availableSummons.filter((summonData: SummonData) => !summonData.level || summonData.level <= this.character.level);
+  }
+
+  setSummonName(event: any) {
+    this.summonName = event.target.value;
+  }
+
+  addCustomSummon() {
+    gameManager.stateManager.before();
+    let summon: Summon = new Summon(this.summonName, this.character.level, this.summonNumber, this.summonColor);
+    summon.state = SummonState.new;
+    gameManager.characterManager.addSummon(this.character, summon);
+    this.close();
+    gameManager.stateManager.after();
+  }
+
+  addSummon(summonData: SummonData) {
+    if (this.character.availableSummons.indexOf(summonData) != -1) {
+      gameManager.stateManager.before();
+      let summon: Summon = new Summon(summonData.name, this.character.level, summonData.special ? 0 : this.summonNumber, summonData.special ? SummonColor.custom : this.summonColor);
+      summon.maxHealth = typeof summonData.health == "number" ? summonData.health : EntityValueFunction(summonData.health, this.character.level);
+      summon.attack = typeof summonData.attack == "number" ? summonData.attack : EntityValueFunction(summonData.attack, this.character.level);
+      summon.movement = typeof summonData.movement == "number" ? summonData.movement : EntityValueFunction(summonData.movement, this.character.level);
+      summon.range = typeof summonData.range == "number" ? summonData.range : EntityValueFunction(summonData.range, this.character.level);
       summon.health = summon.maxHealth;
-      summon.state = SummonState.true;
+      if (summonData.special) {
+        summon.state = SummonState.true;
+      } else {
+        summon.state = SummonState.new;
+      }
       summon.init = false;
-      this.addSummon(summon);
+      gameManager.characterManager.addSummon(this.character, summon);
+      this.close();
+      gameManager.stateManager.after();
     }
   }
 
+  override close(): void {
+    super.close();
+    this.summonName = "";
+  }
 }

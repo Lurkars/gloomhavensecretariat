@@ -19,7 +19,6 @@ export class LevelComponent extends DialogComponent {
   experience(): number {
     return 4 + gameManager.game.level * 2;
   }
-
   loot(): number {
     let loot = 2 + Math.floor(gameManager.game.level / 2);
     if (gameManager.game.level >= 7) {
@@ -28,6 +27,10 @@ export class LevelComponent extends DialogComponent {
     return loot;
   }
 
+  terrain(): number {
+    return 1 + Math.ceil(gameManager.game.level / 3);
+  }
+  
   setLevel(level: number) {
     gameManager.stateManager.before();
     gameManager.setLevel(level);

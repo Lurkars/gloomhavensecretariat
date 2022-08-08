@@ -40,5 +40,22 @@
       "level": 9,
       "health": 23
     }
+  ],
+  "availableSummons": [
+    {
+      "name": "spotted-hound",
+      "level": 1,
+      "health": 4,
+      "attack": 1,
+      "movement": 2
+    },
+    {
+      "name": "reigniting-drakefiend",
+      "level": 9,
+      "health": 1,
+      "attack": 2,
+      "range": 2,
+      "movement": 3
+    }
   ]
 }

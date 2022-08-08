@@ -40,5 +40,21 @@
       "level": 9,
       "health": 14
     }
+  ],
+  "availableSummons": [
+    {
+      "name": "doppelganger",
+      "level": 6,
+      "health": 10,
+      "movement": 2
+    },
+    {
+      "name": "mana-sphere",
+      "level": 9,
+      "health": 3,
+      "attack": 2,
+      "range": 3,
+      "movement": 3
+    }
   ]
 }

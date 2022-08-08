@@ -40,5 +40,19 @@
       "level": 9,
       "health": 20
     }
+  ],
+  "availableSummons": [
+    {
+      "name": "metal-detector",
+      "level": 3,
+      "health": 6,
+      "movement": 1
+    },
+    {
+      "name": "black-hole",
+      "level": 7,
+      "health": 4,
+      "range": 4
+    }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "name": "crescent-sun",
   "edition": "cs",
-  "color": "#bf9eca",
+  "color": "ffbf9eca",
   "spoiler": true,
   "stats": [
     {
@@ -39,6 +39,15 @@
     {
       "level": 9,
       "health": 26
+    }
+  ],
+  "availableSummons": [
+    {
+      "name": "gleaming-squid",
+      "level": 9,
+      "health": 3,
+      "attack": 2,
+      "movement": 3
     }
   ]
 }

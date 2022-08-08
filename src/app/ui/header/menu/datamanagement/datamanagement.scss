@@ -50,13 +50,10 @@
     &:hover::after {
       background-color: var(--ghs-color-white);
     }
-  }
 
-  &.disabled {
-    cursor: inherit;
-
-    .add-button {
+    &.disabled {
       pointer-events: none;
+      cursor: not-allowed;
 
       &::after {
         background-color: var(--ghs-color-darkgray);

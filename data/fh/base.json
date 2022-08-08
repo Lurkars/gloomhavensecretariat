@@ -14,5 +14,6 @@
     "bane",
     "impair"
   ],
-  "edition": "fh"
+  "edition": "fh",
+  "hazardousTerrain": true
 }

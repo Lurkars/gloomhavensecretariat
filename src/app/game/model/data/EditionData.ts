@@ -18,6 +18,7 @@ export class EditionData implements Editional {
   label: any = {};
   url: string = "";
   extentions: string[] = [];
+  hazardousTerrain: boolean = false;
 
   constructor(edition: string, characters: CharacterData[],
     monsters: MonsterData[],
@@ -25,7 +26,8 @@ export class EditionData implements Editional {
     scenarios: ScenarioData[],
     sections: SectionData[],
     conditions: string[] | undefined = undefined,
-    extentions: string[] = []) {
+    extentions: string[] = [],
+    hazardousTerrain: boolean = false) {
     this.edition = edition;
     this.characters = characters;
     this.monsters = monsters;
@@ -36,6 +38,7 @@ export class EditionData implements Editional {
       this.conditions = conditions;
     }
     this.extentions = extentions;
+    this.hazardousTerrain = hazardousTerrain;
   }
 
 }

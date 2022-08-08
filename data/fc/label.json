@@ -35,6 +35,10 @@
     },
     "ability": {},
     "scenario": {},
+    "summon": {
+      "ghost-falcon": "Ghost Falcon",
+      "twilight-archon": "Twilight Archon"
+    },
     "custom": {
       "fc": {
         "ashblade": {

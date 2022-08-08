@@ -71,6 +71,7 @@ export class CharacterManager {
   }
 
   addSummon(character: Character, summon: Summon) {
+    character.summons = character.summons.filter((value: Summon) => value.name != summon.name || value.number != summon.number ||  value.color != summon.color);
     character.summons.push(summon);
   }
 

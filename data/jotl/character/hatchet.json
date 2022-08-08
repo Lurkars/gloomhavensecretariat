@@ -2,7 +2,6 @@
   "name": "hatchet",
   "edition": "jotl",
   "color": "#7bbbd6",
-  "marker": "true",
   "stats": [
     {
       "level": 1,
@@ -40,5 +39,6 @@
       "level": 9,
       "health": 20
     }
-  ]
+  ],
+  "availableSummons": []
 }

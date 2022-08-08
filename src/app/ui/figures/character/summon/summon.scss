@@ -180,6 +180,13 @@
 }
 
 .dialog {
+
+  .name {
+    font-family: 'ghs-title';
+    color: var(--ghs-color-white);
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+  }
+
   .status-container {
     display: flex;
     flex-direction: row;

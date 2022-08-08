@@ -1,11 +1,11 @@
 <div class="summon-border" [ngClass]="{'dead' : summon.dead}" [entityAnimation]="summon.dead">
-  <div #button class="summon">
+  <div #button class="summon" title="{{'data.summon.' + summon.name | ghsLabel}}">
     <div class="standee">
       <span class="number"><span *ngIf="summon.number == 0">-</span><span
           *ngIf="summon.number > 0">{{summon.number}}</span></span>
       <span class="health">{{summon.health}}</span>
     </div>
-    
+
     <div class="markers">
       <span class="marker" *ngFor="let marker of summon.markers;">
         <img src="./assets/images/character/icons/{{marker}}.svg" />
@@ -32,6 +32,7 @@
 </div>
 
 <div #dialog>
+  <div class="name">{{'data.summon.' + summon.name | ghsLabel}}</div>
   <div *ngIf="!levelDialog" class="status-container">
     <div class="summon-container">
       <span class="item">

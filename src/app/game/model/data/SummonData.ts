@@ -1,24 +1,26 @@
-export class SummonsData {
+export class SummonData {
 
+  name: string;
   health: number | string;
   attack: number | string;
   movement: number | string;
   range: number | string;
   level: number | undefined;
-  automatic: boolean;
+  special: boolean;
 
-  constructor(health: number | string,
+  constructor(name: string, health: number | string,
     attack: number | string,
     movement: number | string,
     range: number | string,
     level: number,
-    automatic: boolean) {
+    special: boolean) {
+    this.name = name;
     this.health = health;
     this.attack = attack;
     this.movement = movement;
     this.range = range;
     this.level = level;
-    this.automatic = automatic;
+    this.special = special;
   }
 
 }

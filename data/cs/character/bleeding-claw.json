@@ -1,7 +1,7 @@
 {
   "name": "bleeding-claw",
   "edition": "cs",
-  "color": "#c12729",
+  "color": "ffc12729",
   "spoiler": true,
   "stats": [
     {
@@ -40,5 +40,6 @@
       "level": 9,
       "health": 20
     }
-  ]
+  ],
+  "availableSummons": []
 }

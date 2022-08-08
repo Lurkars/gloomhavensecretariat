@@ -41,10 +41,57 @@
       "health": 14
     }
   ],
-  "summon": {
-    "health": "8+Lx2",
-    "movement": 3,
-    "attack": 2,
-    "automatic": true
-  }
+  "availableSummons": [
+    {
+      "name": "two-mini",
+      "health": "8+Lx2",
+      "movement": 3,
+      "attack": 2,
+      "special": true
+    },
+    {
+      "name": "green-adder",
+      "level": 1,
+      "health": 4,
+      "attack": 1,
+      "movement": 2
+    },
+    {
+      "name": "tattered-wolf",
+      "level": 1,
+      "health": 4,
+      "attack": 2,
+      "movement": 3
+    },
+    {
+      "name": "red-falcon",
+      "level": 1,
+      "health": 2,
+      "attack": 2,
+      "movement": 4
+    },
+    {
+      "name": "swamp-alligator",
+      "level": 3,
+      "health": 5,
+      "attack": 3,
+      "movement": 2
+    },
+    {
+      "name": "monolith",
+      "level": 5,
+      "health": 15
+    },
+    {
+      "name": "wind-totem",
+      "level": 7,
+      "health": 8,
+      "attack": 1
+    },
+    {
+      "name": "spirit-banner",
+      "level": 9,
+      "health": 8
+    }
+  ]
 }

@@ -40,5 +40,137 @@
       "level": 9,
       "health": 14
     }
+  ],
+  "availableSummons": [
+    {
+      "name": "blazing-fire",
+      "level": 1,
+      "health": 2
+    },
+    {
+      "name": "wall-of-shadows",
+      "level": 1,
+      "health": 2
+    },
+    {
+      "name": "phantom-hound",
+      "level": 1,
+      "health": 1,
+      "attack": 2,
+      "movement": 3
+    },
+    {
+      "name": "wailing-banshee",
+      "level": 1,
+      "health": 2,
+      "attack": 2,
+      "movement": 3
+    },
+    {
+      "name": "skeletal-archer",
+      "level": 1,
+      "health": 2,
+      "attack": 1,
+      "range": 2,
+      "movement": 2
+    },
+    {
+      "name": "ghost-carriage",
+      "level": 1,
+      "health": 2,
+      "movement": 4
+    },
+    {
+      "name": "deatheater",
+      "level": 1,
+      "health": 2,
+      "attack": 1,
+      "range": 3,
+      "movement": 3
+    },
+    {
+      "name": "leeching-phantasm",
+      "level": 1,
+      "health": 2,
+      "attack": 2,
+      "movement": 2
+    },
+    {
+      "name": "bat-cloud",
+      "level": 2,
+      "health": 2,
+      "attack": 1,
+      "movement": 2
+    },
+    {
+      "name": "mantle-of-darkness",
+      "level": 2,
+      "health": 2,
+      "attack": 2,
+      "movement": 1
+    },
+    {
+      "name": "leprous-wraith",
+      "level": 3,
+      "health": 2,
+      "attack": 2,
+      "movement": 1
+    },
+    {
+      "name": "orb-of-light",
+      "level": 4,
+      "health": 2,
+      "attack": 2,
+      "movement": 3
+    },
+    {
+      "name": "shifting-discs",
+      "level": 4,
+      "health": 2,
+      "movement": 2
+    },
+    {
+      "name": "imbued-monolith",
+      "level": 5,
+      "health": 2
+    },
+    {
+      "name": "mimicking-sprite",
+      "level": 6,
+      "health": 1
+    },
+    {
+      "name": "soul-snatcher",
+      "level": 6,
+      "health": 3,
+      "attack": 2,
+      "range": 3,
+      "movement": 2
+    },
+    {
+      "name": "spectral-phoenix",
+      "level": 7,
+      "health": 1,
+      "attack": 3,
+      "movement": 4
+    },
+    {
+      "name": "vengeful-phantasm",
+      "level": 7,
+      "health": 2,
+      "movement": 1
+    },
+    {
+      "name": "wandering-soul",
+      "level": 9,
+      "movement": 3
+    },
+    {
+      "name": "disembodied-goliath",
+      "level": 9,
+      "health": 3,
+      "attack": 2,
+      "movement": 1
+    }
   ]
 }

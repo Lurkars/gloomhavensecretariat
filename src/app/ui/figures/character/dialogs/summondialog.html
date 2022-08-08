@@ -3,17 +3,31 @@
 </a>
 <div #dialog>
   <div class="container">
-    <span *ngFor="let color of summonColors" class="summon-button" (click)="selectColor(color)"
-      [ngClass]="{'active' : color == summonColor}">
-      <img src="./assets/images/summons/{{color}}.png">
-    </span>
-    <span *ngFor="let number of [1,2,3,4]" class="number-button" (click)="pickNumber(number)"
-      [ngClass]="{'disabled' : disabled(number)}">
-      <span class="number">{{number}}</span>
-    </span>
-    <span class="custom" *ngIf="hasCustom()" (click)="addCustom()">
-      <span class="summon-button"><img src="./assets/images/summons/custom.png"></span>
-      <label>{{'summon.addCustom' | ghsLabel:[('data.summon.' + character.name | ghsLabel)]}}</label>
-    </span>
+    <div class="color-container">
+      <span *ngFor="let color of summonColors" class="summon-button" (click)="selectColor(color)"
+        [ngClass]="{'active' : color == summonColor}">
+        <img src="./assets/images/summons/{{color}}.png">
+      </span>
+      <span *ngFor="let number of [1,2,3,4]" class="number-button" (click)="pickNumber(number)"
+        [ngClass]="{'disabled' : summonNumber == number}">
+        <span class="number">{{number}}</span>
+      </span>
+    </div>
+    <div class="summons">
+      <span *ngFor="let summonData of summonData()" class="summon" (click)="addSummon(summonData)"
+        [ngClass]="{'disabled' : !available(summonData)}">
+        <span class="summon-button">
+          <img *ngIf="summonData.special" src="./assets/images/summons/custom.png">
+          <img *ngIf="!summonData.special" src="./assets/images/summons/{{summonColor}}.png">
+        </span>
+        <label>{{'data.summon.' + summonData.name | ghsLabel}}</label>
+      </span>
+      <span class="summon">
+        <span class="summon-button" (click)="addCustomSummon()" [ngClass]="{'disabled' : customDisabled()}">
+          <img src="./assets/images/summons/{{summonColor}}.png">
+        </span>
+        <input type="text" [value]="summonName" (change)="setSummonName($event)" (keyup)="setSummonName($event)" />
+      </span>
+    </div>
   </div>
 </div>

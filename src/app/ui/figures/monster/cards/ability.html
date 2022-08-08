@@ -33,7 +33,7 @@
     <a (click)="shuffle()">{{'game.cards.shuffle' | ghsLabel}}</a>
     <label><input type="checkbox" (click)="toggleEdit()" [checked]="edit">{{'game.cards.edit' | ghsLabel}}</label>
     <div class="insert-menu">
-      <a *ngIf="edit" (click)="draw()">{{'game.cards.drawAnother | ghsLabel}}</a>
+      <a *ngIf="edit" (click)="draw()">{{'game.cards.drawAnother' | ghsLabel}}</a>
       <a *ngIf="edit" (click)="restoreDefault()">{{'game.cards.restore' | ghsLabel}}</a>
 
       <label *ngIf="opened && gameManager.monsterManager.getSameDeckMonster(monster)"><input type="checkbox"
@@ -69,9 +69,9 @@
               <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
               <span class="index" *ngIf="!ability.cardId && settingsManager.settings.abilityNumbers">[{{abilityIndex(ability) + 1}}]</span>
               <span class="index" *ngIf="ability.cardId && settingsManager.settings.abilityNumbers">{{ability.cardId}}</span>
-              <a class="button-remove" *ngIf="edit" (click)="remove(index)"><img class="ghs-svg"
-                  src="./assets/images/minus.svg"></a>
             </div>
+            <a class="button-remove" *ngIf="edit" (click)="remove(index)"><img class="ghs-svg"
+                src="./assets/images/minus.svg"></a>
           </div>
         </div>
       </ng-container>

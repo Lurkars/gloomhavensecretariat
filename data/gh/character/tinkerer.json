@@ -39,5 +39,27 @@
       "level": 9,
       "health": 20
     }
+  ],
+  "availableSummons": [
+    {
+      "name": "decoy",
+      "level": 1,
+      "health": 6,
+      "movement": 2
+    },
+    {
+      "name": "battle-bot",
+      "level": 4,
+      "health": 6,
+      "attack": 2,
+      "movement": 2
+    },
+    {
+      "name": "kill-bot",
+      "level": 7,
+      "health": 6,
+      "attack": 3,
+      "movement": 3
+    }
   ]
 }

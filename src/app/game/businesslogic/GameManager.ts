@@ -27,6 +27,7 @@ import { Condition, ConditionName, Conditions, ConditionType } from "../model/Co
 import { EntityManager } from "./EntityManager";
 import { EventEmitter } from "@angular/core";
 import { defaultAttackModifier } from "../model/AttackModifier";
+import { SummonData } from "../model/data/SummonData";
 
 
 export class GameManager {
@@ -85,6 +86,14 @@ export class GameManager {
 
   sectionData(all: boolean = false): SectionData[] {
     return this.editionData.filter((editionData: EditionData) => all || !this.game.edition || editionData.edition == this.game.edition || editionData.extentions && editionData.extentions.indexOf(this.game.edition) != -1).map((editionData: EditionData) => editionData.sections).flat();
+  }
+
+  hazardousTerrain(): boolean {
+    if (!this.game.edition) {
+      return this.editionData.some((editionData: EditionData) => editionData.hazardousTerrain);
+    } else {
+      return this.editionData.some((editionData: EditionData) => editionData.edition == this.game.edition && editionData.hazardousTerrain);
+    }
   }
 
   conditions(all: boolean = false): Condition[] {
@@ -597,9 +606,7 @@ export class GameManager {
         figure.off = false;
         figure.exhausted = false;
 
-        if (figure.summon && figure.summon.automatic && (!figure.summon.level || figure.summon.level <= figure.level)) {
-          figure.createSummon();
-        }
+        figure.availableSummons.filter((summonData: SummonData) => summonData.special).forEach((summonData: SummonData) => figure.createSpecial(summonData));
       }
     })
   }
