@@ -281,7 +281,13 @@
     "maxHealth": "Maximale Trefferpunkte",
     "loot": "Beute",
     "experience": "Erfahrung",
-    "level": "Level",
+    "level": {
+      "." : "Level",
+      "loot" : "Beute",
+      "trap": "Falle",
+      "experience" : "Erfahrung",
+      "hazardousTerrain": "Gefährliches Gelände"
+    },
     "exhausted": "Erschöpfung",
     "dead": "Tot",
     "cards": {

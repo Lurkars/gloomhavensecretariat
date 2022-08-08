@@ -283,7 +283,13 @@
     "maxHealth": "Maximum hit points",
     "loot": "Loot",
     "experience": "Experience",
-    "level": "Level",
+    "level": {
+      "." : "Level",
+      "loot" : "Loot",
+      "trap": "Trap",
+      "experience" : "Experience",
+      "hazardousTerrain": "Hazardous Terrain"
+    },
     "exhausted": "Exhausted",
     "dead": "Dead",
     "cards": {
