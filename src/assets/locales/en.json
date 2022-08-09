@@ -7,7 +7,13 @@
       "missingInitative": "Players initiative must be set. Select initiative by clicking on character portrait.",
       "active": "Not all figures are done yet. End round anyway?",
       "confirm": "Confirm",
-      "confirmTurns": "Confirm and end all turns"
+      "confirmTurns": "Confirm and end all turns",
+      "finish": "There are no monsters left. Did you successfully finish the scenario?",
+      "confirmFinish": "Finish Scenario",
+      "failed": "All characters seems exhausted. Do you want to restart the scenario?",
+      "confirmFailed": "Restart Scenario",
+      "continueNext": "Continue with next Round",
+      "continueDraw": "Continue with Draw"
     }
   },
   "state": {
@@ -33,17 +39,39 @@
     "showHidden": "Show Hidden Monster",
     "normal": "Normal",
     "elite": "Elite",
-    "boss" : "Boss",
-    "addEntity" : {
+    "boss": "Boss",
+    "addEntity": {
       "normal": "Spawn Normal Monster",
       "elite": "Spawn Elite Monster",
-      "boss" : "Spawn Boss Monster"
+      "boss": "Spawn Boss Monster"
     }
   },
   "character": {
     "add": "Add Character",
     "remove": "Remove Character",
-    "removeAll": "Remove All"
+    "removeAll": "Remove All",
+    "progress": {
+      ".": "Progress",
+      "name": "Name",
+      "level": "Level",
+      "xp": "XP",
+      "notes": "Notes",
+      "gold-notes": "Gold Notes",
+      "items": "Items",
+      "perks": "Perks"
+    },
+    "class": {
+      "aesther": "Aesther",
+      "harrower": "Harrower",
+      "human": "Human",
+      "inox": "Inox",
+      "lurker": "Lurker",
+      "orchid": "Orchid",
+      "quatryl": "Quatryl",
+      "savvas": "Savvas",
+      "valrath": "Valrath",
+      "vermling": "Vermling"
+    }
   },
   "objective": {
     ".": "Objective",
@@ -57,7 +85,8 @@
   },
   "summon": {
     ".": "Summon",
-    "addCustom": "Summon '{0}'"
+    "addCustom": "Summon '{0}'",
+    "name": "Name"
   },
   "menu": {
     "main": "Mainmenu",
@@ -284,14 +313,15 @@
     "loot": "Loot",
     "experience": "Experience",
     "level": {
-      "." : "Level",
-      "loot" : "Loot",
+      ".": "Level",
+      "loot": "Loot",
       "trap": "Trap",
-      "experience" : "Experience",
+      "experience": "Experience",
       "hazardousTerrain": "Hazardous Terrain"
     },
     "exhausted": "Exhausted",
     "dead": "Dead",
+    "solo": "Solo",
     "cards": {
       "shuffle": "Shuffle",
       "confirmReveal": "Click again to reveal!",
@@ -337,5 +367,6 @@
     "placeholder": "???",
     "add": "Add Spoiler",
     "all": "Reveal All Spoilers"
-  }
+  },
+  "wip": "Work In Progress"
 }

@@ -58,9 +58,8 @@
       </span>
     </div>
 
-    <div class="icon-container" (click)="toggle()">
-      <img [src]="characterManager.characterIcon(character)" />
-    </div>
+    <ghs-character-progress [character]="character"></ghs-character-progress>
+
   </div>
 
   <ghs-figure-errors [figure]="character"></ghs-figure-errors>

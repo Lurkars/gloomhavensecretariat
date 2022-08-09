@@ -26,7 +26,7 @@
         <span class="summon-button" (click)="addCustomSummon()" [ngClass]="{'disabled' : customDisabled()}">
           <img src="./assets/images/summons/{{summonColor}}.png">
         </span>
-        <input type="text" [value]="summonName" (change)="setSummonName($event)" (keyup)="setSummonName($event)" />
+        <input type="text" [value]="summonName" (change)="setSummonName($event)" (keyup)="setSummonName($event)" placeholder="{{'summon.name' | ghsLabel}}" />
       </span>
     </div>
   </div>

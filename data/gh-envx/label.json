@@ -1,7 +1,10 @@
 {
   "en": {
     "character": {
-      "envx": "Bladeswarm"
+      "envx": "Bladeswarm",
+      "full": {
+        "envx": "Harrower Bladeswarm"
+      }
     }
   }
 }

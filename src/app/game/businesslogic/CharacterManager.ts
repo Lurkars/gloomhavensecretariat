@@ -16,6 +16,7 @@ import { settingsManager } from "./SettingsManager";
 export class CharacterManager {
 
   game: Game;
+  xpMap: number[] = [ 0, 45, 95, 150, 210, 275, 345, 420, 500 ];
 
   constructor(game: Game) {
     this.game = game;
@@ -71,7 +72,7 @@ export class CharacterManager {
   }
 
   addSummon(character: Character, summon: Summon) {
-    character.summons = character.summons.filter((value: Summon) => value.name != summon.name || value.number != summon.number ||  value.color != summon.color);
+    character.summons = character.summons.filter((value: Summon) => value.name != summon.name || value.number != summon.number || value.color != summon.color);
     character.summons.push(summon);
   }
 
@@ -101,8 +102,6 @@ export class CharacterManager {
     this.game.figures.push(objective);
     gameManager.sortFigures();
   }
-
-
 
   removeObjective(objective: Objective) {
     if (this.game.sections.some((sectionData: SectionData) => sectionData.objectives && sectionData.objectives.length > 0)) {
@@ -146,6 +145,15 @@ export class CharacterManager {
         if (settingsManager.settings.applyConditions) {
           figure.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition: EntityCondition) => entityCondition.state = EntityConditionState.normal);
         }
+      }
+    })
+  }
+
+  addXP(character: Character, value: number) {
+    character.progress.experience += value;
+    this.xpMap.forEach((value: number, index: number) => {
+      if (character.progress.experience >= value && (index < this.xpMap.length - 1 && character.progress.experience < this.xpMap[ index + 1 ] || index == this.xpMap.length - 1)) {
+        character.setLevel(index + 1);
       }
     })
   }

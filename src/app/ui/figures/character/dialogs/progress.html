@@ -1,0 +1,104 @@
+<a class="button" (click)="open()" title="{{'character.progress' | ghsLabel}}">
+  <img [src]="characterManager.characterIcon(character)" />
+</a>
+
+<div #popup class="character-progress-dialog">
+  <div class="container">
+    <div class="columns">
+      <div class="column column-left">
+        <div class="row title">
+          <img [src]="characterManager.characterIcon(character)" />
+          <label class="headline"><span *ngIf="character.characterClass">{{'character.class.' + character.characterClass
+              | ghsLabel}}&nbsp;</span>{{'data.character.' + character.name | ghsLabel}}</label>
+        </div>
+        <div class="row base">
+          <div class="name">
+            <label>{{'character.progress.name' | ghsLabel}}:</label>
+            <input #charactertitle type="text" [value]="character.title">
+          </div>
+          <div class="level">
+            <div class="columns">
+              <div class="column">
+                <label>{{'character.progress.level' | ghsLabel}} <img src="./assets/images/level.svg">:</label>
+                <label>{{'character.progress.xp' | ghsLabel}} <img src="./assets/images/experience.svg">:</label>
+              </div>
+              <div class="column">
+                <div class="level-grid">
+                  <ng-container *ngFor="let level of [] | ghsRange:9">
+                    <div class="level-item" [ngClass]="{'checked' : character.level > level}"
+                      (click)="setLevel(level + 1)">{{level +1 }}</div>
+                  </ng-container>
+                  <ng-container *ngFor="let level of [] | ghsRange:9">
+                    <div class="xp-item"
+                      [ngClass]="{'checked' : character.progress.experience >= characterManager.xpMap[level]}"
+                      (click)="setLevel(level + 1)">
+                      {{characterManager.xpMap[level]}}</div>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row xp-notes">
+          <label>{{'character.progress.xp' | ghsLabel}} <img src="./assets/images/experience.svg">
+            {{'character.progress.notes' | ghsLabel}}:</label>
+          <input [value]="character.progress.experience" type="number" min="0" (change)="setXP($event)"
+            (keyup)="setXP($event)">
+        </div>
+        <div class="row gold-notes">
+          <label>{{'character.progress.gold-notes' | ghsLabel}}:</label>
+          <input [value]="character.progress.loot" type="number" min="0" (change)="setLoot($event)"
+            (keyup)="setLoot($event)">
+        </div>
+        <div class="row items">
+          <label>{{'character.progress.items' | ghsLabel}}:</label>
+          <div class="item-list">
+            <div class="item-entry" *ngFor="let item of character.progress.items">
+              <span class="name">{{item.name}}</span>
+              <span class="edition"> ({{'data.edition.' + item.edition |
+                ghsLabel}})</span>
+              <span class="spacer"></span>
+              <a (click)="removeItem(item)"><img src="./assets/images/close.svg"></a>
+            </div>
+            <form class="item-form" (submit)="addItem()">
+              <input type="number" #itemName min="1" value="1">
+              <span class="spacer"></span>
+              <select #itemEdition>
+                <option *ngFor="let edition of gameManager.editions()" [value]="edition">{{'data.edition.' + edition |
+                  ghsLabel}}</option>
+              </select>
+              <span class="spacer"></span>
+              <button type="submit"><img src="./assets/images/plus.svg"></button>
+            </form>
+          </div>
+          <div class="wip" title="{{'wip' | ghsLabel}}">
+            <img class="ghs-svg" src="./assets/images/warning.svg">
+          </div>
+        </div>
+      </div>
+
+      <div class="column column-right">
+        <div class="row perks">
+          <label class="headline">{{'character.progress.perks' | ghsLabel}}</label>
+          <div class="wip" title="{{'wip' | ghsLabel}}">
+            <img class="ghs-svg" src="./assets/images/warning.svg">
+          </div>
+        </div>
+        <div class="row notes">
+          <label class="headline">{{'character.progress.notes' | ghsLabel}}</label>
+          <div class="battlegoals">
+            <ng-container *ngFor="let item of [] | ghsRange:18">
+              <span *ngIf="item % 3 == 0">
+                <img src="./assets/images/check.svg">:</span>
+              <span class="battlegoal" [ngClass]="{'checked' : character.progress.battleGoals >= item + 1}"
+                (click)="setBattleGoals(item + 1)"></span>
+            </ng-container>
+          </div>
+          <textarea [value]="character.progress.notes" (change)="setNotes($event)"
+            (keyup)="setNotes($event)"></textarea>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

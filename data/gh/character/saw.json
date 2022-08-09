@@ -1,5 +1,6 @@
 {
   "name": "saw",
+  "characterClass": "human",
   "edition": "gh",
   "color": "#d5ca9c",
   "spoiler": true,

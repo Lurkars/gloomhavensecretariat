@@ -23,10 +23,11 @@ export class Game {
   newElements: Element[] = [];
   strongElements: Element[] = [];
   elements: Element[] = [];
+  solo: boolean = false;
 
 
   toModel(): GameModel {
-    return new GameModel(this.edition, this.figures.map((figure: Figure) => figure.name), this.figures.filter((figure: Figure) => figure instanceof Character).map((figure: Figure) => ((figure as Character).toModel())), this.figures.filter((figure: Figure) => figure instanceof Monster).map((figure: Figure) => ((figure as Monster).toModel())), this.figures.filter((figure: Figure) => figure instanceof Objective).map((figure: Figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.round, this.playSeconds, this.totalSeconds, this.attackModifier, this.attackModifiers.map((value: AttackModifier) => value.type), this.newElements, this.strongElements, this.elements);
+    return new GameModel(this.edition, this.figures.map((figure: Figure) => figure.name), this.figures.filter((figure: Figure) => figure instanceof Character).map((figure: Figure) => ((figure as Character).toModel())), this.figures.filter((figure: Figure) => figure instanceof Monster).map((figure: Figure) => ((figure as Monster).toModel())), this.figures.filter((figure: Figure) => figure instanceof Objective).map((figure: Figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.round, this.playSeconds, this.totalSeconds, this.attackModifier, this.attackModifiers.map((value: AttackModifier) => value.type), this.newElements, this.strongElements, this.elements, this.solo);
   }
 
   fromModel(model: GameModel) {
@@ -88,6 +89,7 @@ export class Game {
     this.newElements = model.newElements;
     this.strongElements = model.strongElements;
     this.elements = model.elements;
+    this.solo = model.solo;
   }
 }
 
@@ -115,6 +117,7 @@ export class GameModel {
   newElements: Element[];
   strongElements: Element[];
   elements: Element[];
+  solo: boolean;
 
   constructor(edition: string | undefined = undefined,
     figures: string[] = [],
@@ -132,7 +135,8 @@ export class GameModel {
     attackModifiers: AttackModifierType[] = [],
     newElements: Element[] = [],
     strongElements: Element[] = [],
-    elements: Element[] = []) {
+    elements: Element[] = [],
+    solo: boolean = false) {
     this.edition = edition;
     this.figures = figures;
     this.characters = characters;
@@ -150,6 +154,7 @@ export class GameModel {
     this.newElements = newElements;
     this.strongElements = strongElements;
     this.elements = elements;
+    this.solo = solo;
   }
 
 }

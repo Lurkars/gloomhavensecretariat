@@ -1,5 +1,6 @@
 {
   "name": "tools",
+  "characterClass": "quatryl",
   "edition": "cs",
   "color": "#79bcda",
   "spoiler": true,

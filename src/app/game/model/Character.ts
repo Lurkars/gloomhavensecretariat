@@ -7,6 +7,7 @@ import { gameManager } from "../businesslogic/GameManager";
 import { FigureError } from "./FigureError";
 import { ConditionName, EntityCondition, EntityConditionState, GameEntityConditionModel } from "./Condition";
 import { SummonData } from "./data/SummonData";
+import { CharacterProgress } from "./CharacterProgress";
 
 export class Character extends CharacterData implements Entity, Figure {
   title: string = "";
@@ -16,6 +17,7 @@ export class Character extends CharacterData implements Entity, Figure {
   exhausted: boolean = false;
   stat: CharacterStat;
   summons: Summon[] = [];
+  progress: CharacterProgress;
 
   initiativeVisible: boolean = false;
 
@@ -35,7 +37,7 @@ export class Character extends CharacterData implements Entity, Figure {
   }
 
   constructor(character: CharacterData, level: number) {
-    super(character.name, character.stats, character.edition, character.availableSummons, character.icon, character.thumbnail, character.color, character.marker);
+    super(character.name, character.stats, character.edition, character.characterClass, character.availableSummons, character.icon, character.thumbnail, character.color, character.marker);
     this.errors = character.errors;
     if (level < 1) {
       level = 1;
@@ -60,6 +62,7 @@ export class Character extends CharacterData implements Entity, Figure {
 
     this.health = this.maxHealth;
     this.availableSummons.filter((summonData: SummonData) => summonData.special).forEach((summonData: SummonData) => this.createSpecial(summonData));
+    this.progress = new CharacterProgress();
   }
 
   setLevel(level: number) {
@@ -104,7 +107,7 @@ export class Character extends CharacterData implements Entity, Figure {
   }
 
   toModel(): GameCharacterModel {
-    return new GameCharacterModel(this.name, this.edition, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition: EntityCondition) => condition.toModel()), this.markers, this.summons.map((summon: Summon) => summon.toModel()), this.initiativeVisible);
+    return new GameCharacterModel(this.name, this.edition, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition: EntityCondition) => condition.toModel()), this.markers, this.summons.map((summon: Summon) => summon.toModel()), this.progress, this.initiativeVisible);
   }
 
   fromModel(model: GameCharacterModel) {
@@ -163,6 +166,8 @@ export class Character extends CharacterData implements Entity, Figure {
       summon.fromModel(value);
     })
 
+    this.progress = model.progress || new CharacterProgress();
+
     // migration
     if (model.conditions) {
       model.conditions.forEach((value: string) => {
@@ -198,6 +203,7 @@ export class GameCharacterModel {
   entityConditions: GameEntityConditionModel[];
   markers: string[];
   summons: GameSummonModel[];
+  progress: CharacterProgress | undefined;
   initiativeVisible: boolean;
 
   // depreacted
@@ -221,6 +227,7 @@ export class GameCharacterModel {
     entityConditions: GameEntityConditionModel[],
     markers: string[],
     summons: GameSummonModel[],
+    progress: CharacterProgress | undefined,
     initiativeVisible: boolean) {
     this.name = name;
     this.edition = edition;
@@ -237,6 +244,7 @@ export class GameCharacterModel {
     this.entityConditions = entityConditions;
     this.markers = markers;
     this.summons = summons;
+    this.progress = progress;
     this.initiativeVisible = initiativeVisible;
   }
 

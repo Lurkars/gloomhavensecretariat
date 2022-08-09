@@ -3,8 +3,9 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { Figure } from "src/app/game/model/Figure";
+import { Identifier } from "src/app/game/model/Identifier";
 import { Monster } from "src/app/game/model/Monster";
-import { FigureIdentifier, Permissions } from "src/app/game/model/Permissions";
+import { Permissions } from "src/app/game/model/Permissions";
 
 @Component({
   selector: 'ghs-server-menu',
@@ -82,16 +83,16 @@ export class ServerMenuComponent {
   }
 
   hasCharacter(character: Character): boolean {
-    return this.permissions != undefined && this.permissions.character.some((value: FigureIdentifier) => value.name == character.name && value.edition == character.edition);
+    return this.permissions != undefined && this.permissions.character.some((value: Identifier) => value.name == character.name && value.edition == character.edition);
   }
 
   toggleCharacter(character: Character) {
     if (this.permissions) {
-      const value: FigureIdentifier | undefined = this.permissions.character.find((value: FigureIdentifier) => value.name == character.name && value.edition == character.edition);
+      const value: Identifier | undefined = this.permissions.character.find((value: Identifier) => value.name == character.name && value.edition == character.edition);
       if (value) {
         this.permissions.character.splice(this.permissions.character.indexOf(value, 1));
       } else {
-        this.permissions.character.push(new FigureIdentifier(character.name, character.edition));
+        this.permissions.character.push(new Identifier(character.name, character.edition));
       }
     }
   }
@@ -101,16 +102,16 @@ export class ServerMenuComponent {
   }
 
   hasMonster(monster: Monster): boolean {
-    return this.permissions != undefined && this.permissions.monster.some((value: FigureIdentifier) => value.name == monster.name && value.edition == monster.edition);
+    return this.permissions != undefined && this.permissions.monster.some((value: Identifier) => value.name == monster.name && value.edition == monster.edition);
   }
 
   toggleMonster(monster: Monster) {
     if (this.permissions) {
-      const value: FigureIdentifier | undefined = this.permissions.monster.find((value: FigureIdentifier) => value.name == monster.name && value.edition == monster.edition);
+      const value: Identifier | undefined = this.permissions.monster.find((value: Identifier) => value.name == monster.name && value.edition == monster.edition);
       if (value) {
         this.permissions.monster.splice(this.permissions.monster.indexOf(value, 1));
       } else {
-        this.permissions.monster.push(new FigureIdentifier(monster.name, monster.edition));
+        this.permissions.monster.push(new Identifier(monster.name, monster.edition));
       }
     }
   }

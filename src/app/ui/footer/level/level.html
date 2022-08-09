@@ -1,25 +1,32 @@
-<div  class="level-status" [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.level}">
-  <div (click)="toggle()">
-    <span #button class="dialog-button"></span>
-    <div class="title">
-      <span *ngIf="gameManager.game.scenario && gameManager.game.scenario.index"
-        class="index">#{{gameManager.game.scenario.index}}</span>
-      <span *ngIf="gameManager.game.scenario" class="name">{{'data.scenario.' + gameManager.game.scenario.name |
-        ghsLabel}}</span>
-      <div class="sections" *ngIf="gameManager.game.sections && gameManager.game.sections.length > 0">
-        <ng-container *ngFor="let section of gameManager.game.sections; let index = index;">
-          <span class="section">{{'data.section.' + section.name | ghsLabel}}</span>
-          <span *ngIf="index < gameManager.game.sections.length -1">&nbsp;|&nbsp;</span>
-        </ng-container>
-      </div>
+<div class="level-status"
+  [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.level}"
+  (click)="toggle()">
+
+  <span #button class="dialog-button"></span>
+  <div class="title">
+    <span *ngIf="gameManager.game.scenario && gameManager.game.scenario.index"
+      class="index">#{{gameManager.game.scenario.index}}</span>
+    <span *ngIf="gameManager.game.scenario" class="name">{{'data.scenario.' + gameManager.game.scenario.name |
+      ghsLabel}}</span>
+    <div class="sections" *ngIf="gameManager.game.sections && gameManager.game.sections.length > 0">
+      <ng-container *ngFor="let section of gameManager.game.sections; let index = index;">
+        <span class="section">{{'data.section.' + section.name | ghsLabel}}</span>
+        <span *ngIf="index < gameManager.game.sections.length -1">&nbsp;|&nbsp;</span>
+      </ng-container>
     </div>
-    <div class="values">
-      <span class="level" title="{{'game.level' | ghsLabel}}"><img class="ghs-svg" src="./assets/images/level.svg"> {{gameManager.game.level}}</span>
-      <span class="loot" title="{{'game.level.loot' | ghsLabel}}"><img class="ghs-svg" src="./assets/images/loot.svg"> x{{loot()}}</span>
-      <span class="trap" title="{{'game.level.trap' | ghsLabel}}"><img class="ghs-svg" src="./assets/images/trap.svg"> {{trap()}}</span>
-      <span class="experience" title="{{'game.experience' | ghsLabel}}"><img class="ghs-svg" src="./assets/images/experience.svg"> +{{experience()}}</span>
-      <span  *ngIf="gameManager.hazardousTerrain()"class="terrain" title="{{'game.level.hazardousTerrain' | ghsLabel}}"><img class="ghs-svg" src="./assets/images/terrain.svg"> +{{terrain()}}</span>
-    </div>
+  </div>
+  <div class="values">
+    <span class="level" title="{{'game.level' | ghsLabel}}"><img class="ghs-svg" src="./assets/images/level.svg">
+      {{gameManager.game.level}}</span>
+    <span class="loot" title="{{'game.level.loot' | ghsLabel}}"><img class="ghs-svg" src="./assets/images/loot.svg">
+      x{{loot}}</span>
+    <span class="trap" title="{{'game.level.trap' | ghsLabel}}"><img class="ghs-svg" src="./assets/images/trap.svg">
+      {{trap}}</span>
+    <span class="experience" title="{{'game.experience' | ghsLabel}}"><img class="ghs-svg"
+        src="./assets/images/experience.svg"> +{{experience}}</span>
+    <span *ngIf="gameManager.hazardousTerrain()" class="terrain"
+      title="{{'game.level.hazardousTerrain' | ghsLabel}}"><img class="ghs-svg" src="./assets/images/terrain.svg">
+      +{{terrain}}</span>
   </div>
 </div>
 
@@ -29,6 +36,13 @@
     <span class="item" *ngFor="let level of levels;"><a class="level"
         [ngClass]="{'active' : level == gameManager.game.level, 'scenariolevel' : level == gameManager.szenarioLevel()}"
         (click)="setLevel(level)">{{level}}</a></span>
+    <div class="solo">
+      <label>
+        <input type="checkbox" [checked]="gameManager.game.solo"
+          (change)="gameManager.game.solo = !gameManager.game.solo">{{'game.solo' |
+        ghsLabel}}
+      </label>
+    </div>
   </div>
 
 </div>

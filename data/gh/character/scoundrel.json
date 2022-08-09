@@ -1,5 +1,6 @@
 {
   "name": "scoundrel",
+  "characterClass": "human",
   "edition": "gh",
   "color": "#9ecf5f",
   "stats": [

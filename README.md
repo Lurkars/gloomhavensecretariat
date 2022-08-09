@@ -25,6 +25,7 @@ For usage with multiple clients sharing the same game, the server component [Glo
   - **health** automatic exhausting/dead, max values for every level
   - **conditions** automatic expire + automatic apply (wound, wound_x, regenerate, bane, poison, poison_x, ward, brittle)
   - **level**, **loot**, **experience** of Characters
+  - **Character Progress** level, loot, experience, items, battlegoals
   - **Elements** automatic update state
   - **Monster Stats**
   - **Monster Standees**
@@ -42,6 +43,7 @@ For usage with multiple clients sharing the same game, the server component [Glo
   - element board, element discs, round tracker, initiative tracker
   - character HP/XP dials
   - character boards
+  - character sheets (! perks missing for now)
 - Other features:
   - i18n support (translations required!) for everything!
   - PWA for installation on all devices!
@@ -64,7 +66,7 @@ For usage with multiple clients sharing the same game, the server component [Glo
 
 ### Long term plans
 
-- support for managing character (ability cards, perks, attack modifier deck, items)
+- support for managing character: ability cards, perks, attack modifier deck, items (basic progress on character sheet already supported, perks missing and items will be improved!)
 - FH style
 
 ## Install

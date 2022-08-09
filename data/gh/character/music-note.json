@@ -1,5 +1,6 @@
 {
   "name": "music-note",
+  "characterClass": "quatryl",
   "edition": "gh",
   "color": "#db6e8d",
   "spoiler": true,

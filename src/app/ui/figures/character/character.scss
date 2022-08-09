@@ -189,19 +189,7 @@
       color: var(--ghs-color-yellow);
     }
 
-    .icon-container {
 
-      width: calc(var(--ghs-unit) * 13);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-right: calc(var(--ghs-unit) * 2);
-
-      img {
-        height: calc(var(--ghs-unit) * 8);
-        width: auto;
-      }
-    }
   }
 
   ghs-character-summondialog {

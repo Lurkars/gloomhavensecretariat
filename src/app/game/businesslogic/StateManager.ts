@@ -1,7 +1,8 @@
 import { Character } from "../model/Character";
 import { Game, GameModel } from "../model/Game";
+import { Identifier } from "../model/Identifier";
 import { Monster } from "../model/Monster";
-import { FigureIdentifier, Permissions } from "../model/Permissions";
+import { Permissions } from "../model/Permissions";
 import { Settings } from "../model/Settings";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
@@ -301,11 +302,11 @@ export class StateManager {
   }
 
   hasCharacterPermission(character: Character): boolean {
-    return this.permissions == undefined || this.permissions.characters || this.permissions.character.some((value: FigureIdentifier) => value.name == character.name && value.edition == character.edition);
+    return this.permissions == undefined || this.permissions.characters || this.permissions.character.some((value: Identifier) => value.name == character.name && value.edition == character.edition);
   }
 
   hasMonsterPermission(monster: Monster): boolean {
-    return this.permissions == undefined || this.permissions.monsters || this.permissions.monster.some((value: FigureIdentifier) => value.name == monster.name && value.edition == monster.edition);
+    return this.permissions == undefined || this.permissions.monsters || this.permissions.monster.some((value: Identifier) => value.name == monster.name && value.edition == monster.edition);
   }
 
 }

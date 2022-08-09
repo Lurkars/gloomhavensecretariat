@@ -7,7 +7,13 @@
       "missingInitative": "Die Initaitive muss gesetzt sein. Zum Festlegen der Initiative auf das Charakter-Portrait klicken.",
       "active": "Es waren noch nicht alle Figuren am Zug. Trotzdem die Runde beenden?",
       "confirm": "Bestätigen",
-      "confirmTurns": "Bestätigen und alle Züge beenden"
+      "confirmTurns": "Bestätigen und alle Züge beenden",
+      "finish": "Es sind keine Monster mehr übriges. Das Szenario erfolgreich beenden?",
+      "confirmFinish": "Szenario beenden",
+      "failed": "Alle Charaktere scheinen erschöpft. Das Szenario von vorne beginnen?",
+      "confirmFailed": "Szenraio neu starten",
+      "continueNext": "Weiter mit nächster Runde",
+      "continueDraw": "Weiter mit Ziehen"
     }
   },
   "state": {
@@ -43,7 +49,29 @@
   "character": {
     "add": "Charakter hinzufügen",
     "remove": "Charakter entfernen",
-    "removeAll": "Alle entfernen"
+    "removeAll": "Alle entfernen",
+    "progress": {
+      ".": "Fortschritt",
+      "name": "Name",
+      "level": "Level",
+      "xp": "XP",
+      "notes": "Notizen",
+      "gold-notes": "Gold Notizen",
+      "items": "Gegenstände",
+      "perks": "Verbesserungen"
+    },
+    "class": {
+      "aesther": "Aesther",
+      "harrower": "Harrower",
+      "human": "Human",
+      "inox": "Inox",
+      "lurker": "Lurker",
+      "orchid": "Orchid",
+      "quatryl": "Quatryl",
+      "savvas": "Savvas",
+      "valrath": "Valrath",
+      "vermling": "Vermling"
+    }
   },
   "objective": {
     ".": "Zielobjekte",
@@ -57,7 +85,8 @@
   },
   "summon": {
     ".": "Beschwöre",
-    "addCustom": "Beschwöre '{0}'"
+    "addCustom": "Beschwöre '{0}'",
+    "name": "Name"
   },
   "menu": {
     "main": "Hauptmenu",
@@ -290,6 +319,7 @@
     },
     "exhausted": "Erschöpfung",
     "dead": "Tot",
+    "solo": "Alleine",
     "cards": {
       "shuffle": "Mischen",
       "confirmReveal": "Zum Aufdecken erneut klicken!",

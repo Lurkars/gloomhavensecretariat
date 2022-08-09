@@ -570,7 +570,7 @@ export class GameManager {
       return 0;
     }
 
-    return Math.ceil(charLevel / charCount / 2);
+    return Math.ceil(((charLevel / charCount) + (this.game.solo ? 1 : 0)) / 2);
   }
 
   setScenario(scenario: Scenario | undefined) {
@@ -586,12 +586,25 @@ export class GameManager {
     }
   }
 
+  finishScenario() {
+    this.game.figures.forEach((figure: Figure) => {
+      if (figure instanceof Character) {
+        this.characterManager.addXP(figure, figure.experience);
+        figure.progress.loot += figure.loot;
+      }
+    })
+    this.game.scenario = undefined;
+    this.game.sections = [];
+    this.resetRound();
+  }
+
   resetRound() {
     this.game.playSeconds = 0;
     this.game.sections = [];
     this.game.round = 0;
     this.game.state = GameState.draw;
     this.game.attackModifiers = defaultAttackModifier;
+    this.game.attackModifier = -1;
     this.game.figures = this.game.figures.filter((figure: Figure) => figure instanceof Character);
 
     this.game.figures.forEach((figure: Figure) => {
@@ -609,6 +622,8 @@ export class GameManager {
         figure.availableSummons.filter((summonData: SummonData) => summonData.special).forEach((summonData: SummonData) => figure.createSpecial(summonData));
       }
     })
+
+    this.uiChange.emit(true);
   }
 
   addSection(section: SectionData) {

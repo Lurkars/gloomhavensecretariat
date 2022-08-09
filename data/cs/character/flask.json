@@ -1,5 +1,6 @@
 {
   "name": "flask",
+  "characterClass": "human",
   "edition": "cs",
   "color": "#caad2e",
   "spoiler": true,
