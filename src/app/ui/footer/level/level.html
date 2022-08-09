@@ -39,7 +39,7 @@
     <div class="solo">
       <label>
         <input type="checkbox" [checked]="gameManager.game.solo"
-          (change)="gameManager.game.solo = !gameManager.game.solo">{{'game.solo' |
+          (change)="setSolo(!gameManager.game.solo)">{{'game.solo' |
         ghsLabel}}
       </label>
     </div>

@@ -42,7 +42,11 @@ export class LevelComponent extends DialogComponent {
     gameManager.stateManager.after();
   }
 
-
+  setSolo(solo: boolean) {
+    gameManager.stateManager.before();
+    gameManager.game.solo = solo;
+    gameManager.stateManager.after();
+  }
 
 }
 
