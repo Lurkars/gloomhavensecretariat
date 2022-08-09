@@ -50,9 +50,6 @@ export class CharacterProgressDialog extends PopupComponent {
     }
     this.gameManager.stateManager.before();
     this.character.setLevel(level);
-    if (this.character.progress.experience < this.characterManager.xpMap[ level - 1 ] || this.character.progress.experience >= this.characterManager.xpMap[ level ]) {
-      this.character.progress.experience = this.characterManager.xpMap[ level - 1 ];
-    }
     this.gameManager.stateManager.after();
   }
 

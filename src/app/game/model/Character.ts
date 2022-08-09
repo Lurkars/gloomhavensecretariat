@@ -89,6 +89,10 @@ export class Character extends CharacterData implements Entity, Figure {
     }
 
     this.availableSummons.filter((summonData: SummonData) => summonData.special).forEach((summonData: SummonData) => this.createSpecial(summonData));
+
+    if (this.progress.experience < gameManager.characterManager.xpMap[ level - 1 ] || this.progress.experience >= gameManager.characterManager.xpMap[ level ]) {
+      this.progress.experience = gameManager.characterManager.xpMap[ level - 1 ];
+    }
   }
 
   createSpecial(summonData: SummonData) {
