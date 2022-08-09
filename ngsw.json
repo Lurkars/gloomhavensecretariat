@@ -1,8 +1,8 @@
 {
   "configVersion": 1,
-  "timestamp": 1660026678557,
+  "timestamp": 1660069984020,
   "appData": {
-    "version": "0.11.2"
+    "version": "0.12.0"
   },
   "index": "gloomhavensecretary/index.html",
   "assetGroups": [
@@ -16,7 +16,7 @@
       "urls": [
         "gloomhavensecretary/favicon.ico",
         "gloomhavensecretary/index.html",
-        "gloomhavensecretary/main.f8e5cd3fd1b912c9.js",
+        "gloomhavensecretary/main.88d8d588d2d0c312.js",
         "gloomhavensecretary/manifest.webmanifest",
         "gloomhavensecretary/polyfills.da47a558e52a781c.js",
         "gloomhavensecretary/runtime.0269065d32db7f2e.js",
@@ -144,6 +144,7 @@
         "gloomhavensecretary/assets/images/character/icons/jotl-hatchet.svg",
         "gloomhavensecretary/assets/images/character/icons/jotl-red-guard.svg",
         "gloomhavensecretary/assets/images/character/icons/jotl-voidwarden.svg",
+        "gloomhavensecretary/assets/images/character/progress.svg",
         "gloomhavensecretary/assets/images/character/thumbnail/cs-beetle.png",
         "gloomhavensecretary/assets/images/character/thumbnail/cs-bleeding-claw.png",
         "gloomhavensecretary/assets/images/character/thumbnail/cs-chain-helmet.png",
@@ -415,6 +416,7 @@
         "gloomhavensecretary/header.24c0469502696b46.png",
         "gloomhavensecretary/health.8d6a842a197d29d3.svg",
         "gloomhavensecretary/immunity.5d026de2db8a1d8f.svg",
+        "gloomhavensecretary/initiative.a7663b57012bb669.svg",
         "gloomhavensecretary/majallab.00c7b4c865792c45.ttf",
         "gloomhavensecretary/minus.97c98a810771fceb.svg",
         "gloomhavensecretary/monster-ability-back-botton.6b3e71e41a2d178a.png",
@@ -422,6 +424,7 @@
         "gloomhavensecretary/monster-ability-front-bottom.81aedd9bf9135ba1.png",
         "gloomhavensecretary/monster-ability-front.05eaba98487aab01.png",
         "gloomhavensecretary/nyala.cb936c47987819d9.ttf",
+        "gloomhavensecretary/progress.2e99d2237525cb2e.svg",
         "gloomhavensecretary/standard.a54477c1eda06c8b.png"
       ],
       "patterns": [
@@ -449,12 +452,12 @@
   "hashTable": {
     "gloomhavensecretary/PirataOne-Gloomhaven.7a0430e6b6669ae2.ttf": "21c25adcd4f559bff7d01f1855b20c6ae30f7b9b",
     "gloomhavensecretary/assets/data/.empty": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
-    "gloomhavensecretary/assets/data/cs.json": "cf44161d30e5ebbe7a69345cc940589e9bd9a8b2",
-    "gloomhavensecretary/assets/data/fc.json": "0a19d9af267c49aa89c88615fb91668340606798",
-    "gloomhavensecretary/assets/data/fh.json": "79d54a3b4d134874ae12d0260f6f328c9d9d9afd",
-    "gloomhavensecretary/assets/data/gh-envx.json": "91ad1c1ab1d70b75b5dfb407931beb2ca868bfaf",
-    "gloomhavensecretary/assets/data/gh.json": "2cbf15efb86b02138c0d83d02501964be593f3b2",
-    "gloomhavensecretary/assets/data/jotl.json": "91e360ec82971b76d7954b53b2a15cb9860b4a98",
+    "gloomhavensecretary/assets/data/cs.json": "f469df66e1fa9faa99e11eb5082b252fc54f23c4",
+    "gloomhavensecretary/assets/data/fc.json": "35fe71a4a526885344e8d9e42e62ee03554e14da",
+    "gloomhavensecretary/assets/data/fh.json": "abcc9d574caf66bc93c01cae926349bcd4a8fe03",
+    "gloomhavensecretary/assets/data/gh-envx.json": "c2a7fca5180f41d521fca5a435351e9d2722d1d8",
+    "gloomhavensecretary/assets/data/gh.json": "2bb03fd508e6260e7d747ed3900af7a460810e63",
+    "gloomhavensecretary/assets/data/jotl.json": "0ee6facf1efc3071da16a13fbb6eef956b9b6184",
     "gloomhavensecretary/assets/font/HighTower.ttf": "0a26624d0fde9147ce63bb804ad1c2e2ddc7a804",
     "gloomhavensecretary/assets/font/PirataOne-Gloomhaven.ttf": "21c25adcd4f559bff7d01f1855b20c6ae30f7b9b",
     "gloomhavensecretary/assets/font/majallab.ttf": "cd2e9e61aca39d2b987b66e4c2a0a3ea13c3be48",
@@ -559,6 +562,7 @@
     "gloomhavensecretary/assets/images/character/icons/jotl-hatchet.svg": "0d3ecc4b9d83fd5a5d384d60ad68429c63243f88",
     "gloomhavensecretary/assets/images/character/icons/jotl-red-guard.svg": "256947ab3634eb30a3cc6afe6cfd70d782745dd7",
     "gloomhavensecretary/assets/images/character/icons/jotl-voidwarden.svg": "41889a95bf5e4836a3db89257b06eb33d92990e6",
+    "gloomhavensecretary/assets/images/character/progress.svg": "79d2e01eb91f04a3ed3a7a659cc911f489a52676",
     "gloomhavensecretary/assets/images/character/thumbnail/cs-beetle.png": "57a687c551d8f0304479dd150713b15bf10c688c",
     "gloomhavensecretary/assets/images/character/thumbnail/cs-bleeding-claw.png": "41333e9e6cd8d1fd657863ce84697a2c42b6829d",
     "gloomhavensecretary/assets/images/character/thumbnail/cs-chain-helmet.png": "16797d0570fe3ec98332c8fade8058844a871cbb",
@@ -819,8 +823,8 @@
     "gloomhavensecretary/assets/images/terrain.svg": "3ff3984f5a1f9a782678408b19e5268158f9ce98",
     "gloomhavensecretary/assets/images/trap.svg": "8196ce436d2adf0eedb5c5baf3245f165909ac47",
     "gloomhavensecretary/assets/images/warning.svg": "e091847da80ee70b51c266f09e2e6ec91da5cb65",
-    "gloomhavensecretary/assets/locales/de.json": "e91cdd73e95883b70b439bf853c571683d036945",
-    "gloomhavensecretary/assets/locales/en.json": "9869b8abb38794c411ebd971d488b931cc57face",
+    "gloomhavensecretary/assets/locales/de.json": "45022fad4c9eaa12b1de83f2a040f8027bd97ccc",
+    "gloomhavensecretary/assets/locales/en.json": "306575407d5b1f3f24296dacbe41b09276a5390b",
     "gloomhavensecretary/bg.8dca3c92b9f01fe4.png": "2add9d91e8baa79476b16a9ceab862aeb4e31328",
     "gloomhavensecretary/boss.7cd3a0cd2a819afa.png": "b1e39d37ea500e6cbebc911155be4cced7bd920b",
     "gloomhavensecretary/char-mat.5b8491eff326db21.png": "092cf513f5e043a436c71941e3bbe7271b98025c",
@@ -831,8 +835,9 @@
     "gloomhavensecretary/header.24c0469502696b46.png": "25f3ece27efd7584a50c341ea90ba9a0513c7841",
     "gloomhavensecretary/health.8d6a842a197d29d3.svg": "05afb6de2ed74490df7d750cc939124afb1c5457",
     "gloomhavensecretary/immunity.5d026de2db8a1d8f.svg": "ad20fc18e93269c79312170674c6008615438f9b",
-    "gloomhavensecretary/index.html": "65adfbbb5c56d1c55c69f8fce31f415e3a1eef3f",
-    "gloomhavensecretary/main.f8e5cd3fd1b912c9.js": "1f0dab47ed463e53be8385a444e38eb62628512d",
+    "gloomhavensecretary/index.html": "c8a3fe60f536ab3cf0797098ffdecc83b30a849b",
+    "gloomhavensecretary/initiative.a7663b57012bb669.svg": "85c1e0fe11ba2111c2dc55370ff84796c86eb556",
+    "gloomhavensecretary/main.88d8d588d2d0c312.js": "6f1a4ae4db475a22a823588deda52dfe78021301",
     "gloomhavensecretary/majallab.00c7b4c865792c45.ttf": "cd2e9e61aca39d2b987b66e4c2a0a3ea13c3be48",
     "gloomhavensecretary/manifest.webmanifest": "e8f2f0b705e6b84c38e75915c3ab96ab8f965641",
     "gloomhavensecretary/minus.97c98a810771fceb.svg": "de4a30390082572ba48e52e102dd4fb2dabffa81",
@@ -842,6 +847,7 @@
     "gloomhavensecretary/monster-ability-front.05eaba98487aab01.png": "2cda62899c14feea2a5dfa9c39a632e3acc77f67",
     "gloomhavensecretary/nyala.cb936c47987819d9.ttf": "e29a8f8cd34c000e16badd6ad41b0dc49c342cf2",
     "gloomhavensecretary/polyfills.da47a558e52a781c.js": "eaea86820123aea77d30f119900906027d45e755",
+    "gloomhavensecretary/progress.2e99d2237525cb2e.svg": "79d2e01eb91f04a3ed3a7a659cc911f489a52676",
     "gloomhavensecretary/runtime.0269065d32db7f2e.js": "b302558fd0ee2307d99ca4df1eb66f6f672d5046",
     "gloomhavensecretary/standard.a54477c1eda06c8b.png": "b7464c7a959660e975135cd86cac578f69c63a30",
     "gloomhavensecretary/styles.89390fb325cdbc86.css": "8b7a2cfd292e98ec2fe1df146487207aec9d997e"
