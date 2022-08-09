@@ -128,6 +128,26 @@ export class GameManager {
     return this.game.figures.filter((figure: Figure) => figure instanceof Character && figure.marker).map((figure: Figure) => (figure as Character).edition + '-' + figure.name);
   }
 
+  trap(): number {
+    return 2 + this.game.level;
+  }
+
+  experience(): number {
+    return 4 + this.game.level * 2;
+  }
+
+  loot(): number {
+    let loot = 2 + Math.floor(this.game.level / 2);
+    if (gameManager.game.level >= 7) {
+      loot = 6;
+    }
+    return loot;
+  }
+
+  terrain(): number {
+    return 1 + Math.ceil(this.game.level / 3);
+  }
+
   nextGameState(): void {
     this.working = true;
     this.game.totalSeconds += this.game.playSeconds;
@@ -589,8 +609,8 @@ export class GameManager {
   finishScenario() {
     this.game.figures.forEach((figure: Figure) => {
       if (figure instanceof Character) {
-        this.characterManager.addXP(figure, figure.experience);
-        figure.progress.loot += figure.loot;
+        this.characterManager.addXP(figure, figure.experience + this.experience());
+        figure.progress.loot += figure.loot * this.loot();
       }
     })
     this.game.scenario = undefined;

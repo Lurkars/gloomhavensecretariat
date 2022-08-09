@@ -39,6 +39,18 @@ export class FooterComponent extends DialogComponent {
     this.next(true);
   }
 
+  finishScenario() {
+    gameManager.stateManager.before();
+    gameManager.finishScenario();
+    gameManager.stateManager.after(1000);
+  }
+
+  resetRound() {
+    gameManager.stateManager.before();
+    gameManager.resetRound();
+    gameManager.stateManager.after(1000);
+  }
+
   empty(): boolean {
     return gameManager.game.figures.length == 0;
   }
@@ -64,7 +76,7 @@ export class FooterComponent extends DialogComponent {
   }
 
   drawDisabled(): boolean {
-    return this.empty() || this.missingInitative()|| this.finish() || this.failed();
+    return this.empty() || this.missingInitative() || this.finish() || this.failed();
   }
 
   nextDisabled(): boolean {
