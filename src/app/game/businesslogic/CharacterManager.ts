@@ -1,15 +1,18 @@
 import { Character } from "../model/Character";
+import { CharacterStat } from "../model/CharacterStat";
 import { ConditionType, EntityCondition, EntityConditionState } from "../model/Condition";
 import { CharacterData } from "../model/data/CharacterData";
 import { ObjectiveData } from "../model/data/ObjectiveData";
 import { SectionData } from "../model/data/SectionData";
+import { SummonData } from "../model/data/SummonData";
 import { EntityValueFunction } from "../model/Entity";
 import { Figure } from "../model/Figure";
+import { FigureError } from "../model/FigureError";
 import { Game } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
 import { Objective } from "../model/Objective";
-import { Summon } from "../model/Summon";
+import { Summon, SummonColor, SummonState } from "../model/Summon";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 
@@ -40,9 +43,13 @@ export class CharacterManager {
     if (!this.game.figures.some((figure: Figure) => {
       return figure instanceof CharacterData && figure.name == characterData.name && figure.edition == characterData.edition;
     })) {
-      let entity: Character = new Character(characterData, this.game.level);
-      this.game.figures.push(entity);
+      let character: Character = new Character(characterData, this.game.level);
+      character.availableSummons.filter((summonData: SummonData) => summonData.special).forEach((summonData: SummonData) => this.createSpecialSummon(character, summonData));
+      this.game.figures.push(character);
       gameManager.sortFigures();
+    }
+    if (settingsManager.settings.levelCalculation) {
+      gameManager.calculateScenarioLevel();
     }
   }
 
@@ -68,6 +75,9 @@ export class CharacterManager {
           })
         }
       })
+    }
+    if (settingsManager.settings.levelCalculation) {
+      gameManager.calculateScenarioLevel();
     }
   }
 
@@ -153,9 +163,58 @@ export class CharacterManager {
     character.progress.experience += value;
     this.xpMap.forEach((value: number, index: number) => {
       if (character.progress.experience >= value && (index < this.xpMap.length - 1 && character.progress.experience < this.xpMap[ index + 1 ] || index == this.xpMap.length - 1)) {
-        character.setLevel(index + 1);
+        this.setLevel(character, index + 1);
       }
     })
+  }
+
+  setLevel(character: Character, level: number) {
+    const stat = character.stats.find((characterStat: CharacterStat) => characterStat.level == level)
+    if (!stat) {
+      console.error("No character stat found for level: " + level);
+      if (character.errors.indexOf(FigureError.stat) == -1) {
+        character.errors.push(FigureError.stat);
+      }
+      character.stat = new CharacterStat(level, 0);
+    } else {
+      character.stat = stat;
+    }
+
+    character.level = level;
+
+    if (character.health == character.maxHealth) {
+      character.health = character.stat.health;
+    }
+
+    character.maxHealth = character.stat.health;
+    if (character.health > character.maxHealth) {
+      character.health = character.maxHealth;
+    }
+
+    character.availableSummons.filter((summonData: SummonData) => summonData.special).forEach((summonData: SummonData) => this.createSpecialSummon(character, summonData));
+
+    if (character.progress.experience < gameManager.characterManager.xpMap[ level - 1 ] || character.progress.experience >= gameManager.characterManager.xpMap[ level ]) {
+      character.progress.experience = gameManager.characterManager.xpMap[ level - 1 ];
+    }
+
+    if (settingsManager.settings.levelCalculation) {
+      gameManager.calculateScenarioLevel();
+    }
+  }
+
+  createSpecialSummon(character: Character, summonData: SummonData) {
+    character.summons = character.summons.filter((summon: Summon) => summon.name != summonData.name || summon.number != 0 || summon.color != SummonColor.custom);
+    if (!summonData.level || summonData.level <= character.level) {
+      let summon: Summon = new Summon(summonData.name, character.level, 0, SummonColor.custom);
+      summon.maxHealth = typeof summonData.health == "number" ? summonData.health : EntityValueFunction(summonData.health, character.level);
+      summon.attack = typeof summonData.attack == "number" ? summonData.attack : EntityValueFunction(summonData.attack, character.level);
+      summon.movement = typeof summonData.movement == "number" ? summonData.movement : EntityValueFunction(summonData.movement, character.level);
+      summon.range = typeof summonData.range == "number" ? summonData.range : EntityValueFunction(summonData.range, character.level);
+      summon.health = summon.maxHealth;
+      summon.state = SummonState.true;
+      summon.init = false;
+      this.addSummon(character, summon);
+    }
   }
 
   draw() {

@@ -10,13 +10,13 @@
   filter: var(--ghs-filter-gray);
   text-shadow: var(--ghs-outline);
   font-weight: bold;
-  width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
-  height: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
+  width: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+  height: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
   text-align: center;
 
   .ghs-svg {
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: auto;
   }
 
   stroke: var(--ghs-color-black);

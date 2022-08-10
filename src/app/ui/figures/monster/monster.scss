@@ -38,14 +38,14 @@
 
     &.normal,
     &.boss {
-      bottom: calc(var(--ghs-unit) * 1);
-      left: calc(var(--ghs-unit) * 53);
+      bottom: calc(var(--ghs-unit) * 1.5);
+      left: calc(var(--ghs-unit) * 54);
     }
 
     &.elite {
-      bottom: calc(var(--ghs-unit) * 1);
+      bottom: calc(var(--ghs-unit) * 1.5);
       left: auto;
-      right: calc(var(--ghs-unit) * 0.5);
+      right: calc(var(--ghs-unit) * 1.5);
     }
   }
 }

@@ -42,6 +42,10 @@ export class CharacterComponent extends DialogComponent {
     const old = this.character.health;
     gameManager.entityManager.changeHealth(this.character, value);
     this.health += this.character.health - old;
+    if (this.character.health <= 0 || old <= 0 && this.character.health > 0) {
+      this.exhausted();
+      this.close();
+    }
     gameManager.stateManager.after();
   }
 
@@ -114,7 +118,7 @@ export class CharacterComponent extends DialogComponent {
 
   setLevel(level: number) {
     gameManager.stateManager.before();
-    this.character.setLevel(level);
+    this.characterManager.setLevel(this.character, level);
     gameManager.stateManager.after();
   }
 

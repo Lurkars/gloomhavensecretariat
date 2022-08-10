@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { DialogComponent } from '../../dialog/dialog';
 
 @Component({
@@ -35,6 +36,7 @@ export class LevelComponent extends DialogComponent {
   setLevel(level: number) {
     gameManager.stateManager.before();
     gameManager.setLevel(level);
+    settingsManager.setLevelCalculation(false);
     gameManager.stateManager.after();
   }
 

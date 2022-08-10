@@ -9,9 +9,10 @@
       "confirm": "Confirm",
       "confirmTurns": "Confirm and end all turns",
       "finish": "There are no monsters left. Did you successfully finish the scenario?",
-      "confirmFinish": "Finish Scenario",
+      "confirmFinish": "Finish Scenario with success",
       "failed": "All characters seems exhausted. Do you want to restart the scenario?",
-      "confirmFailed": "Restart Scenario",
+      "confirmFailed": "Finish Scenario with failure",
+      "confirmReset": "Reset Scenario",
       "continueNext": "Continue with next Round",
       "continueDraw": "Continue with Draw"
     }
@@ -29,7 +30,13 @@
     ".": "Set Scenario",
     "custom": "Custom",
     "title": "Title",
-    "reset": "Restart Scenario"
+    "reset": "Restart Scenario",
+    "finish": {
+      ".": "Finish Scenario",
+      "success": "Success",
+      "failure": "Failure",
+      "reset": "Neustarten"
+    }
   },
   "section": "Add Section",
   "monster": {
@@ -51,7 +58,7 @@
     "remove": "Remove Character",
     "removeAll": "Remove All",
     "progress": {
-      ".": "Progress",
+      ".": "Character Sheet",
       "name": "Name",
       "level": "Level",
       "xp": "XP",
@@ -71,6 +78,19 @@
       "savvas": "Savvas",
       "valrath": "Valrath",
       "vermling": "Vermling"
+    }
+  },
+  "party": {
+    ".": "Party",
+    "sheet": "Party Sheet",
+    "name": "Name",
+    "location": "Location",
+    "notes": "Notes",
+    "achievements": "Achievements",
+    "reputation": "Reputation",
+    "shop": {
+      ".": "Shop Price Modifier",
+      "none": "None"
     }
   },
   "objective": {
@@ -103,6 +123,7 @@
     "moveElements": "Automatic update element state",
     "hideStats": "Hide stats",
     "randomStandees": "Random standees",
+    "disableStandees": "Disable standees",
     "initiativeRequired": "Initiative is required",
     "zoomIn": "Zoom In",
     "zoomOut": "Zoom Out",
@@ -112,6 +133,8 @@
     "hints": "Show hints",
     "browserNavigation": "Undo/Redo with navigation",
     "maxUndo": "Max. number of undos",
+    "levelCalculation": "Automatic scenario level",
+    "levelAdjustment": "Scenario level adjustment",
     "locale": {
       ".": "Language",
       "en": "English",
@@ -125,7 +148,10 @@
     },
     "url": "Url",
     "port": "Port",
-    "password": "Password",
+    "password": {
+      ".": "Password",
+      "uuid": "Generate UUID"
+    },
     "connect": "Connect",
     "reconnect": "Reconnect",
     "disconnect": "Disconnect",

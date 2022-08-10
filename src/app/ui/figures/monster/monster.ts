@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { MonsterStat } from 'src/app/game/model/MonsterStat';
@@ -15,7 +15,8 @@ export class MonsterComponent {
 
   @Input() monster!: Monster;
   MonsterType = MonsterType;
-  gameManager : GameManager = gameManager;
+  gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
 
   emptyEntities(): boolean {
     return this.monster.entities.length == 0 || this.monster.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead);

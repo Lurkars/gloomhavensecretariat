@@ -4,11 +4,13 @@
 
 *Gloomhaven Secretary* is a **Gloomhaven companion app** and does bookkeeping of all entities values to gain more focus on gameplay. It is an open source web app made with [Angular](https://angular.io/).
 
-GHS is basically a full clone with the same functionality and look&feel of the original [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (by [Esoteric Software®](http://esotericsoftware.com)). Since GHH is discontinued and not available anymore, GHS should become a well maintained successor.
+GHS is heavily based on the look&feel of the original [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (by [Esoteric Software®](http://esotericsoftware.com)). Since GHH is discontinued and not available anymore, GHS should become a well maintained successor, implementing all features of GHH, improvements and even more features.
 
-As open source software this is meant for the community to actively [contribute](#contributing) with ideas, suggestions and of course feedback. As I am not capable of good design/UX also feel free to contribute better assets.
+As GHS is a web application no installation is required and it runs in every modern browser even on mobile, still it can also be [installed](#install).
 
 For usage with multiple clients sharing the same game, the server component [Gloomhaven Secretary Server](https://github.com/Lurkars/ghs-server) is required. A public instance is available under `ghs.champonthis.de/server` port `443` with `secure` option.
+
+As open source software this is meant for the community to actively [contribute](#contributing) with ideas, suggestions and of course feedback. As I am not capable of good design/UX also feel free to contribute better assets.
 
 > SPOILER WARNING:
 > The `label.json` files inside the `data`-folders and therefore the final edition data files in releases inside `./assets/data`-folder contain spoilers by including the corresponding label.
@@ -32,7 +34,8 @@ For usage with multiple clients sharing the same game, the server component [Glo
   - **Monster Modifier Deck** addition of **Blesses** and **Curses**, auto-shuffling
   - **Monster Ability Cards** auto-shuffling, calculated values (separated for normal and elite)
   - **Character Summons**
-  - **Scenarios** and **Sections**
+  - **Scenarios** and **Sections** with automatic level calculation + scenario finish for applying character progress
+  - **Party Sheet** work in progress
   - **Markers** (currently Hatchet only)
 - Eliminating the following physical components:
   - monster ability cards
@@ -44,6 +47,7 @@ For usage with multiple clients sharing the same game, the server component [Glo
   - character HP/XP dials
   - character boards
   - character sheets (! perks missing for now)
+  - party sheet (! not fully implemented yet)
 - Other features:
   - i18n support (translations required!) for everything!
   - PWA for installation on all devices!

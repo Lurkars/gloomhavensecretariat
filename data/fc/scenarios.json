@@ -3,11 +3,15 @@
     "edition": "fc",
     "name": "Unexpected Visitors",
     "index": "96",
+    "initial": true,
     "monsters": [
       "earth-demon",
       "flame-demon",
       "frost-demon",
       "wind-demon"
+    ],
+    "unlocks": [
+      "97"
     ]
   },
   {
@@ -18,6 +22,12 @@
       "black-imp",
       "living-bones",
       "living-corpse"
+    ],
+    "unlocks": [
+      "98",
+      "99",
+      "100",
+      "101"
     ]
   },
   {
@@ -29,6 +39,18 @@
       "bandit-archer",
       "bandit-guard",
       "spitting-drake"
+    ],
+    "unlocks": [
+      "102",
+      "103"
+    ],
+    "requires": [
+      "104",
+      "105",
+      "106",
+      "107",
+      "108",
+      "109"
     ]
   },
   {
@@ -59,6 +81,18 @@
         "health": "2x(L+C)",
         "initiative": 50
       }
+    ],
+    "unlocks": [
+      "104",
+      "105"
+    ],
+    "requires": [
+      "102",
+      "103",
+      "106",
+      "107",
+      "108",
+      "109"
     ]
   },
   {
@@ -67,6 +101,18 @@
     "index": "100",
     "monsters": [
       "stone-golem"
+    ],
+    "unlocks": [
+      "106",
+      "107"
+    ],
+    "requires": [
+      "102",
+      "103",
+      "104",
+      "105",
+      "108",
+      "109"
     ]
   },
   {
@@ -76,13 +122,28 @@
     "monsters": [
       "rending-drake",
       "spitting-drake"
+    ],
+    "unlocks": [
+      "108",
+      "109"
+    ],
+    "requires": [
+      "102",
+      "103",
+      "104",
+      "105",
+      "106",
+      "107"
     ]
   },
   {
     "edition": "fc",
     "name": "Bazaar of Knowledge",
     "index": "102",
-    "monsters": []
+    "monsters": [],
+    "unlocks": [
+      "110"
+    ]
   },
   {
     "edition": "fc",
@@ -95,6 +156,9 @@
         "escort": true,
         "health": "2x(C+L)+3"
       }
+    ],
+    "unlocks": [
+      "110"
     ]
   },
   {
@@ -112,6 +176,9 @@
         "escort": true,
         "health": "6+2xL"
       }
+    ],
+    "unlocks": [
+      "111"
     ]
   },
   {
@@ -121,6 +188,9 @@
     "monsters": [
       "bandit-guard",
       "valrath-tracker"
+    ],
+    "unlocks": [
+      "111"
     ]
   },
   {
@@ -129,13 +199,25 @@
     "index": "106",
     "monsters": [
       "aesther-scout"
+    ],
+    "unlocks": [
+      "112"
+    ],
+    "requires": [
+      "112"
     ]
   },
   {
     "edition": "fc",
     "name": "Mechanical Genius",
     "index": "107",
-    "monsters": []
+    "monsters": [],
+    "unlocks": [
+      "112"
+    ],
+    "requires": [
+      "112"
+    ]
   },
   {
     "edition": "fc",
@@ -159,6 +241,9 @@
       "city-guard",
       "valrath-savage",
       "valrath-tracker"
+    ],
+    "unlocks": [
+      "113"
     ]
   },
   {
@@ -172,6 +257,12 @@
       "uyart-ikkuma",
       "selah-naberis",
       "sraka-the-wise"
+    ],
+    "requires": [
+      "114"
+    ],
+    "unlocks": [
+      "114"
     ]
   },
   {
@@ -183,6 +274,15 @@
       "aesther-scout",
       "black-imp",
       "night-demon"
+    ],
+    "requires": [
+      "114"
+    ],
+    "blocks": [
+      "105"
+    ],
+    "unlocks": [
+      "114"
     ]
   },
   {
@@ -193,6 +293,12 @@
       "ancient-artillery",
       "living-bones",
       "stone-golem"
+    ],
+    "requires": [
+      "114"
+    ],
+    "unlocks": [
+      "114"
     ]
   },
   {
@@ -209,6 +315,12 @@
         "health": "4+2xL",
         "initiative": 50
       }
+    ],
+    "requires": [
+      "114"
+    ],
+    "unlocks": [
+      "114"
     ]
   },
   {
@@ -227,6 +339,9 @@
         "health": "4+2xL",
         "initiative": 99
       }
+    ],
+    "unlocks": [
+      "115"
     ]
   },
   {

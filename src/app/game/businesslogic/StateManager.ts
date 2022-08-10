@@ -43,8 +43,9 @@ export class StateManager {
   buildWsUrl(protocol: string, serverUrl: string, port: number | string) {
     let urls = serverUrl.split("/");
     const url = urls[ 0 ];
-    let path = "/";
+    let path = "";
     if (urls.length > 1) {
+      let path = "/";
       path = path + urls.splice(1, urls.length).join("/");
     }
 

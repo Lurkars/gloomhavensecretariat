@@ -1,0 +1,57 @@
+<a class="button" (click)="open()" title="{{ 'party.sheet' | ghsLabel}}">
+  {{ party.name || 'party.sheet' | ghsLabel}}
+</a>
+
+<div #popup class="party-sheet-dialog">
+  <div class="container">
+    <div class="columns">
+      <div class="column column-left">
+        <div class="row title">
+          <label class="headline">{{'party.sheet' | ghsLabel}}</label>
+        </div>
+        <div class="row name">
+          <label>{{'party.name' | ghsLabel}}:</label>
+          <input type="text" [value]="party.name" (change)="setName($event)" (keyup)="setName($event)">
+        </div>
+        <div class="row location">
+          <label>{{'party.location' | ghsLabel}}:</label>
+          <input type="text" [value]="party.location" (change)="setLocation($event)" (keyup)="setLocation($event)">
+        </div>
+        <div class="row notes">
+          <label>{{'party.notes' | ghsLabel}}:</label>
+          <textarea type="text" [value]="party.notes" (change)="setNotes($event)" (keyup)="setNotes($event)"></textarea>
+        </div>
+        <div class="row achievements">
+          <label>{{'party.achievements' | ghsLabel}}:</label>
+          <textarea type="text" [value]="party.achievements" (change)="setAchievements($event)"
+            (keyup)="setAchievements($event)"></textarea>
+        </div>
+      </div>
+
+      <div class="column column-right">
+        <div class="columns">
+          <div class="column reputation">
+            <label>{{'party.reputation' | ghsLabel}}</label>
+            <div class="grid">
+              <ng-container *ngFor="let reputation of [] | ghsRange:41">
+                <span class="value" (click)="setReputation(40 - reputation - 20)"
+                  [ngClass]="{'checked' : party.reputation == 40 - reputation - 20}"></span>
+                <span class="key">{{40 - reputation - 20 | ghsValueSign}}</span>
+              </ng-container>
+            </div>
+          </div>
+          <div class="column shop">
+            <label>{{'party.shop' | ghsLabel}}</label>
+            <div class="table">
+              <div class="value" *ngFor="let value of [] | ghsRange:11">
+                <span *ngIf="value != 5">{{-5 + value | ghsValueSign}}</span>
+                <span *ngIf="value == 5">{{'party.shop.none' | ghsLabel}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

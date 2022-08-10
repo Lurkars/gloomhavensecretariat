@@ -5,9 +5,9 @@ export class Scenario extends ScenarioData {
 
   custom: boolean;
 
-  constructor(name: string, index: string, monsters: string[], objectives: ObjectiveData[], edition: string, custom: boolean = false, group: string | undefined = undefined,
-    spoiler: boolean = false) {
-    super(name, index, monsters, objectives, edition, group, spoiler);
+  constructor(scenearioData: ScenarioData, custom: boolean = false) {
+    super(scenearioData.name, scenearioData.index, scenearioData.unlocks, scenearioData.blocks, scenearioData.requires, scenearioData.links, scenearioData.monsters, scenearioData.objectives, scenearioData.edition, scenearioData.group, scenearioData.spoiler);
     this.custom = custom;
   }
+  
 }

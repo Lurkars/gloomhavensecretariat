@@ -39,9 +39,9 @@ export class FooterComponent extends DialogComponent {
     this.next(true);
   }
 
-  finishScenario() {
+  finishScenario(success : boolean) {
     gameManager.stateManager.before();
-    gameManager.finishScenario();
+    gameManager.finishScenario(success);
     gameManager.stateManager.after(1000);
   }
 

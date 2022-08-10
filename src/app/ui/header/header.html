@@ -32,6 +32,8 @@
     </ng-container>
   </div>
   <span class="spacer"></span>
+  <ghs-party-sheet></ghs-party-sheet>
+  <span class="spacer"></span>
   <div class="elements" [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.elements}">
     <ghs-element-icon *ngFor="let element of elements" [element]="element"></ghs-element-icon>
   </div>

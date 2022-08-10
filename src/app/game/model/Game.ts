@@ -6,6 +6,7 @@ import { Element } from "./Element";
 import { Figure } from "./Figure";
 import { GameMonsterModel, Monster } from "./Monster";
 import { GameObjectiveModel, Objective } from "./Objective";
+import { Party } from "./Party";
 import { Scenario } from "./Scenario";
 
 export class Game {
@@ -24,10 +25,11 @@ export class Game {
   strongElements: Element[] = [];
   elements: Element[] = [];
   solo: boolean = false;
+  party: Party | undefined = undefined;
 
 
   toModel(): GameModel {
-    return new GameModel(this.edition, this.figures.map((figure: Figure) => figure.name), this.figures.filter((figure: Figure) => figure instanceof Character).map((figure: Figure) => ((figure as Character).toModel())), this.figures.filter((figure: Figure) => figure instanceof Monster).map((figure: Figure) => ((figure as Monster).toModel())), this.figures.filter((figure: Figure) => figure instanceof Objective).map((figure: Figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.round, this.playSeconds, this.totalSeconds, this.attackModifier, this.attackModifiers.map((value: AttackModifier) => value.type), this.newElements, this.strongElements, this.elements, this.solo);
+    return new GameModel(this.edition, this.figures.map((figure: Figure) => figure.name), this.figures.filter((figure: Figure) => figure instanceof Character).map((figure: Figure) => ((figure as Character).toModel())), this.figures.filter((figure: Figure) => figure instanceof Monster).map((figure: Figure) => ((figure as Monster).toModel())), this.figures.filter((figure: Figure) => figure instanceof Objective).map((figure: Figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.round, this.playSeconds, this.totalSeconds, this.attackModifier, this.attackModifiers.map((value: AttackModifier) => value.type), this.newElements, this.strongElements, this.elements, this.solo, this.party);
   }
 
   fromModel(model: GameModel) {
@@ -90,6 +92,7 @@ export class Game {
     this.strongElements = model.strongElements;
     this.elements = model.elements;
     this.solo = model.solo;
+    this.party = model.party;
   }
 }
 
@@ -118,6 +121,7 @@ export class GameModel {
   strongElements: Element[];
   elements: Element[];
   solo: boolean;
+  party: Party | undefined;
 
   constructor(edition: string | undefined = undefined,
     figures: string[] = [],
@@ -136,7 +140,8 @@ export class GameModel {
     newElements: Element[] = [],
     strongElements: Element[] = [],
     elements: Element[] = [],
-    solo: boolean = false) {
+    solo: boolean = false,
+    party: Party | undefined = undefined) {
     this.edition = edition;
     this.figures = figures;
     this.characters = characters;
@@ -155,6 +160,7 @@ export class GameModel {
     this.strongElements = strongElements;
     this.elements = elements;
     this.solo = solo;
+    this.party = party;
   }
 
 }

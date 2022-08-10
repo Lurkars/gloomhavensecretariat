@@ -37,7 +37,11 @@
           (change)="setServerPort($event)" placeholder="{{'server.port' | ghsLabel}}">
       </div>
       <div class="line">
-        <label class="label">{{'server.password' | ghsLabel}}</label>
+        <div class="password-container">
+          <label class="label">{{'server.password' | ghsLabel}}</label>
+          <span class="spacer"></span>
+          <a *ngIf="!settingsManager.settings.serverPassword" (click)="createUUID()">{{'server.password.uuid' | ghsLabel}}</a>
+        </div>
         <input type="text" #serverPassword [value]="settingsManager.settings.serverPassword || ''" (keyup)="0"
           (change)="setServerPassword($event)" placeholder="{{'server.password' | ghsLabel}}">
       </div>
@@ -247,8 +251,7 @@
         </div>
 
         <div class="line">
-          <a (click)="savePermissions()"
-            [ngClass]="{'disabled' : !password}">{{'permissions.save' | ghsLabel}}</a>
+          <a (click)="savePermissions()" [ngClass]="{'disabled' : !password}">{{'permissions.save' | ghsLabel}}</a>
         </div>
       </ng-container>
     </div>

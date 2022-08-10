@@ -1,5 +1,6 @@
 <a #button class="button active-outline {{type}}" [ngClass]="{'disabled' : nonDead() >= max }"  title="{{'monster.addEntity.' + type | ghsLabel}}">
-  <img class="ghs-svg" src="./assets/images/plus.svg">
+  <img *ngIf="!settingsManager.settings.disableStandees || !hasEntity()" class="ghs-svg" src="./assets/images/plus.svg">
+  <img *ngIf="settingsManager.settings.disableStandees && hasEntity()" class="ghs-svg" src="./assets/images/minus.svg">
 </a>
 <div #dialog>
   <div class="number-container">

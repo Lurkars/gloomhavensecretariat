@@ -32,9 +32,23 @@
       <div class="line">
         <label>
           <input type="checkbox" [checked]="settingsManager.settings.abilityNumbers"
-            (change)="settingsManager.setAbilityNumbers(!settingsManager.settings.abilityNumbers)">{{'settings.abilityNumbers' |
+            (change)="settingsManager.setAbilityNumbers(!settingsManager.settings.abilityNumbers)">{{'settings.abilityNumbers'
+          |
           ghsLabel}}
         </label>
+      </div>
+      <div class="line">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.levelCalculation"
+            (change)="settingsManager.setLevelCalculation(!settingsManager.settings.levelCalculation)">
+          {{'settings.levelCalculation' | ghsLabel}}
+        </label>
+      </div>
+      <div class="line" *ngIf="settingsManager.settings.levelCalculation">
+        <label class="label">{{'settings.levelAdjustment' | ghsLabel}}
+          <input type="number" #levelAdjustment [value]="settingsManager.settings.levelAdjustment" min="-6" max="6" (keyup)="0"
+            (change)="settingsManager.setLevelAdjustment(+levelAdjustment.value)"  [size]="levelAdjustment.value.length"
+            placeholder="{{'settings.levelAdjustment' | ghsLabel}}"></label>
       </div>
     </div>
     <div class="column">
@@ -73,6 +87,13 @@
           {{'settings.randomStandees' | ghsLabel}}
         </label>
       </div>
+      <div class="line">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.disableStandees"
+            (change)="settingsManager.setDisableStandees(!settingsManager.settings.disableStandees)">
+          {{'settings.disableStandees' | ghsLabel}}
+        </label>
+      </div>
     </div>
   </div>
   <div class="columns separator">
@@ -96,7 +117,8 @@
     <div class="column">
       <div class="line">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.hints" (change)="settingsManager.setHints(!settingsManager.settings.hints)">
+          <input type="checkbox" [checked]="settingsManager.settings.hints"
+            (change)="settingsManager.setHints(!settingsManager.settings.hints)">
           {{'settings.hints' | ghsLabel}}
         </label>
       </div>
@@ -108,7 +130,8 @@
       </div>
       <div class="line">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.disableColumns" (change)="settingsManager.setDisableColumns(!settingsManager.settings.disableColumns)">
+          <input type="checkbox" [checked]="settingsManager.settings.disableColumns"
+            (change)="settingsManager.setDisableColumns(!settingsManager.settings.disableColumns)">
           {{'settings.disableColumns' | ghsLabel}}
         </label>
       </div>
@@ -117,9 +140,10 @@
   <div class="columns separator">
     <div class="column">
       <div class="line">
-        <label class="label">{{'settings.maxUndo' | ghsLabel}}</label>
-        <input type="number" #maxUndo [value]="settingsManager.settings.maxUndo" min="0" max="99999" (keyup)="0"
-          (change)="settingsManager.setMaxUndo(+maxUndo.value)" placeholder="{{'settings.maxUndo' | ghsLabel}}">
+        <label class="label">{{'settings.maxUndo' | ghsLabel}}
+          <input type="number" #maxUndo [value]="settingsManager.settings.maxUndo" min="0" max="99999" (keyup)="0"
+            (change)="settingsManager.setMaxUndo(+maxUndo.value)" [size]="maxUndo.value.length"
+            placeholder="{{'settings.maxUndo' | ghsLabel}}"></label>
       </div>
     </div>
     <div class="column">

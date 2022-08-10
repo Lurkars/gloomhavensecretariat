@@ -9,6 +9,9 @@ export class Settings {
   hideStats: boolean = true;
   randomStandees: boolean = false;
   initiativeRequired: boolean = true;
+  levelCalculation: boolean = true;
+  levelAdjustment: number = 0;
+  disableStandees: boolean = false;
   fullscreen: boolean = false;
   disableColumns: boolean = false;
   hints: boolean = true;

@@ -13,7 +13,8 @@ export class DialogComponent implements OnInit {
   @ViewChild('highlight', { static: true }) highlight!: ElementRef;
 
   @Input() left: boolean = false;
-  
+  @Input() clone: boolean = false;
+
   dialogBackdrop!: HTMLElement | null;
 
   opened: boolean = false;
@@ -49,6 +50,7 @@ export class DialogComponent implements OnInit {
       }
     });
 
+
     document.body.appendChild(this.dialogBackdrop);
     document.body.appendChild(this.dialog.nativeElement);
 
@@ -59,6 +61,24 @@ export class DialogComponent implements OnInit {
     }
 
     this.setDialogPosition();
+
+    if (this.clone) {
+      const buttonRect: DOMRect = this.button.nativeElement.getBoundingClientRect();
+      let buttonClone = this.button.nativeElement.cloneNode(true);
+      buttonClone.classList.add('active-outline');
+      buttonClone.style.position = 'absolute';
+      buttonClone.style.left = buttonRect.left + 'px';
+      buttonClone.style.right = buttonRect.right + 'px';
+      buttonClone.style.top = buttonRect.top + 'px';
+      buttonClone.style.bottom = buttonRect.bottom + 'px';
+      buttonClone.style.width = buttonRect.width + 'px';
+      buttonClone.style.height = buttonRect.height + 'px';
+      buttonClone.style.margin = '0';
+      buttonClone.addEventListener('click', () => {
+        this.close();
+      })
+      this.dialogBackdrop.appendChild(buttonClone);
+    }
   }
 
   setDialogPosition() {

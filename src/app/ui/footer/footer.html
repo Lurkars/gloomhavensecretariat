@@ -9,7 +9,10 @@
     </div>
   </div>
   <div class="flex-shrink"></div>
-  <ghs-level></ghs-level>
+  <div class="level-container">
+    <ghs-scenario></ghs-scenario>
+    <ghs-level></ghs-level>
+  </div>
   <div class="flex-shrink"></div>
   <ghs-attackmodifier></ghs-attackmodifier>
 </footer>
@@ -24,11 +27,13 @@
     <a *ngIf="active()" (click)="confirmTurns()">{{'round.hint.confirmTurns' |
       ghsLabel}}</a>
     <p *ngIf="finish()">{{'round.hint.finish' | ghsLabel}}</p>
-    <a *ngIf="finish()" (click)="finishScenario()">{{'round.hint.confirmFinish' |
+    <a *ngIf="finish()" (click)="finishScenario(true)">{{'round.hint.confirmFinish' |
       ghsLabel}}</a>
     <p *ngIf="failed()">{{'round.hint.failed' | ghsLabel}}</p>
-    <a *ngIf="failed()" (click)="resetRound()">{{'round.hint.confirmFailed' |
+    <a *ngIf="failed()" (click)="finishScenario(false)">{{'round.hint.confirmFailed' |
       ghsLabel}}</a>
+      <a *ngIf="failed()" (click)="resetRound()">{{'round.hint.confirmReset' |
+        ghsLabel}}</a>
     <a *ngIf="finish() || failed()" (click)="confirmTurns()">{{(gameManager.game.state == GameState.next ?
       'round.hint.continueNext' : 'round.hint.continueDraw') |
       ghsLabel}}</a>

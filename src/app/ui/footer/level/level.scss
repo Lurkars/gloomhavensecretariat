@@ -1,5 +1,4 @@
 .level-status {
-  cursor: pointer;
   position: relative;
   display: flex;
   height: 100%;
@@ -13,26 +12,11 @@
   .dialog-button {
     position: absolute;
     top: calc(var(--ghs-unit) * -14);
-    left: calc(var(--ghs-unit) * 4);
-  }
-
-  .title {
-    font-family: 'ghs-text';
-    font-size: calc(var(--ghs-unit) * 3);
-    color: var(--ghs-color-darkgray);
-
-    .index {
-      margin-right: calc(var(--ghs-unit) * 1);
-    }
-
-    .sections {
-      display: flex;
-      justify-content: center;
-      font-size: calc(var(--ghs-unit) * 2);
-    }
+    left: calc(var(--ghs-unit) * 13);
   }
 
   .values {
+    cursor: pointer;
     display: flex;
     flex-wrap: wrap;
     align-items: center;

@@ -88,10 +88,10 @@
     background-color: var(--ghs-color-gray);
     opacity: 0.1;
     position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    top: calc(var(--ghs-unit) * -1);
+    left: calc(var(--ghs-unit) * -1);
+    bottom: calc(var(--ghs-unit) * -1);
+    right: calc(var(--ghs-unit) * -1);
     border: 0px;
     border-radius: calc(var(--ghs-unit) * 1);
   }

@@ -3,10 +3,14 @@
     "edition": "gh",
     "name": "Black Barrow",
     "index": "1",
+    "initial": true,
     "monsters": [
       "bandit-guard",
       "bandit-archer",
       "living-bones"
+    ],
+    "links": [
+      "2"
     ]
   },
   {
@@ -18,6 +22,10 @@
       "bandit-commander",
       "living-bones",
       "living-corpse"
+    ],
+    "unlocks": [
+      "3",
+      "4"
     ]
   },
   {
@@ -28,6 +36,10 @@
       "inox-guard",
       "inox-archer",
       "inox-shaman"
+    ],
+    "unlocks": [
+      "8",
+      "9"
     ]
   },
   {
@@ -40,6 +52,10 @@
       "cultist",
       "earth-demon",
       "wind-demon"
+    ],
+    "unlocks": [
+      "6",
+      "5"
     ]
   },
   {
@@ -52,6 +68,13 @@
       "night-demon",
       "flame-demon",
       "frost-demon"
+    ],
+    "unlocks": [
+      "14",
+      "19"
+    ],
+    "links": [
+      "10"
     ]
   },
   {
@@ -62,6 +85,12 @@
       "living-bones",
       "living-corpse",
       "living-spirit"
+    ],
+    "unlocks": [
+      "8"
+    ],
+    "requires": [
+      "28"
     ]
   },
   {
@@ -73,6 +102,9 @@
       "cave-bear",
       "inox-shaman",
       "earth-demon"
+    ],
+    "unlocks": [
+      "20"
     ]
   },
   {
@@ -83,6 +115,18 @@
       "living-bones",
       "living-corpse",
       "inox-bodyguard"
+    ],
+    "unlocks": [
+      "7",
+      "13",
+      "14"
+    ],
+    "blocks": [
+      "3",
+      "9"
+    ],
+    "requires": [
+      "20"
     ]
   },
   {
@@ -93,6 +137,13 @@
       "hound",
       "vermling-scout",
       "merciless-overseer"
+    ],
+    "unlocks": [
+      "11",
+      "12"
+    ],
+    "blocks": [
+      "8"
     ]
   },
   {
@@ -103,6 +154,16 @@
       "flame-demon",
       "earth-demon",
       "sun-demon"
+    ],
+    "links": [
+      "21"
+    ],
+    "unlocks": [
+      "22"
+    ],
+    "requires": [
+      "35",
+      "36"
     ]
   },
   {
@@ -115,6 +176,13 @@
       "city-guard",
       "city-archer",
       "captain-of-the-guard"
+    ],
+    "unlocks": [
+      "16",
+      "18"
+    ],
+    "blocks": [
+      "12"
     ]
   },
   {
@@ -128,6 +196,14 @@
       "city-guard",
       "city-archer",
       "jekserah"
+    ],
+    "unlocks": [
+      "16",
+      "28",
+      "18"
+    ],
+    "blocks": [
+      "11"
     ]
   },
   {
@@ -139,6 +215,11 @@
       "cave-bear",
       "living-spirit",
       "spitting-drake"
+    ],
+    "unlocks": [
+      "15",
+      "17",
+      "20"
     ]
   },
   {
@@ -149,6 +230,12 @@
       "hound",
       "living-spirit",
       "frost-demon"
+    ],
+    "requires": [
+      "7",
+      "43",
+      "31",
+      "19"
     ]
   },
   {
@@ -172,6 +259,12 @@
       "wind-demon",
       "inox-guard",
       "inox-archer"
+    ],
+    "unlocks": [
+      "25"
+    ],
+    "links": [
+      "24"
     ]
   },
   {
@@ -192,6 +285,12 @@
       "giant-viper",
       "ooze",
       "vermling-scout"
+    ],
+    "unlocks": [
+      "23",
+      "14",
+      "43",
+      "26"
     ]
   },
   {
@@ -210,6 +309,9 @@
         "escort": true,
         "health": "4+(2xL)"
       }
+    ],
+    "unlocks": [
+      "27"
     ]
   },
   {
@@ -222,6 +324,11 @@
       "night-demon",
       "living-corpse",
       "jekserah"
+    ],
+    "unlocks": [
+      "28",
+      "16",
+      "18"
     ]
   },
   {
@@ -236,6 +343,14 @@
       "earth-demon",
       "flame-demon",
       "prime-demon"
+    ],
+    "blocks": [
+      "10",
+      "36",
+      "35"
+    ],
+    "requires": [
+      "31"
     ]
   },
   {
@@ -267,6 +382,11 @@
         "name": "Altar 4",
         "health": "4+(CxL)"
       }
+    ],
+    "unlocks": [
+      "35",
+      "31",
+      "36"
     ]
   },
   {
@@ -278,6 +398,9 @@
       "ancient-artillery",
       "living-bones",
       "living-spirit"
+    ],
+    "requires": [
+      "26"
     ]
   },
   {
@@ -288,6 +411,10 @@
       "rending-drake",
       "ooze",
       "living-spirit"
+    ],
+    "unlocks": [
+      "32",
+      "30"
     ]
   },
   {
@@ -298,6 +425,12 @@
       "hound",
       "rending-drake",
       "spitting-drake"
+    ],
+    "unlocks": [
+      "33"
+    ],
+    "links": [
+      "34"
     ]
   },
   {
@@ -309,6 +442,9 @@
       "ooze",
       "night-demon",
       "black-imp"
+    ],
+    "unlocks": [
+      "22"
     ]
   },
   {
@@ -329,6 +465,12 @@
         "escort": true,
         "health": "4+(2xL)"
       }
+    ],
+    "blocks": [
+      "10",
+      "21",
+      "35",
+      "36"
     ]
   },
   {
@@ -341,6 +483,9 @@
       "living-bones",
       "night-demon",
       "sun-demon"
+    ],
+    "links": [
+      "29"
     ]
   },
   {
@@ -376,6 +521,9 @@
       "ooze",
       "lurker",
       "deep-terror"
+    ],
+    "unlocks": [
+      "42"
     ]
   },
   {
@@ -392,6 +540,12 @@
         "name": "Rock Column",
         "health": "(8+L)xC"
       }
+    ],
+    "unlocks": [
+      "39",
+      "37",
+      "38",
+      "43"
     ]
   },
   {
@@ -403,6 +557,10 @@
       "giant-viper",
       "deep-terror",
       "black-imp"
+    ],
+    "unlocks": [
+      "33",
+      "40"
     ]
   },
   {
@@ -416,6 +574,12 @@
       "flame-demon",
       "wind-demon",
       "earth-demon"
+    ],
+    "blocks": [
+      "34"
+    ],
+    "requires": [
+      "40"
     ]
   },
   {
@@ -426,6 +590,9 @@
       "rending-drake",
       "spitting-drake",
       "elder-drake"
+    ],
+    "blocks": [
+      "33"
     ]
   },
   {
@@ -446,6 +613,14 @@
         "name": "Door",
         "health": "(7+L)xC"
       }
+    ],
+    "unlocks": [
+      "45"
+    ],
+    "blocks": [
+      "27",
+      "36",
+      "31"
     ]
   },
   {
@@ -465,6 +640,11 @@
         "name": "Door",
         "health": "10+(2xL)"
       }
+    ],
+    "blocks": [
+      "35",
+      "10",
+      "21"
     ]
   },
   {
@@ -475,6 +655,9 @@
       "lurker",
       "deep-terror",
       "harrower-infester"
+    ],
+    "unlocks": [
+      "47"
     ]
   },
   {
@@ -493,6 +676,12 @@
         "escort": true,
         "health": "6+(3xL)"
       }
+    ],
+    "unlocks": [
+      "48"
+    ],
+    "links": [
+      "44"
     ]
   },
   {
@@ -511,6 +700,12 @@
         "name": "Altar",
         "health": "6+(CxL)"
       }
+    ],
+    "links": [
+      "46"
+    ],
+    "unlocks": [
+      "15"
     ]
   },
   {
@@ -523,6 +718,9 @@
       "cave-bear",
       "stone-golem",
       "forest-imp"
+    ],
+    "links": [
+      "41"
     ]
   },
   {
@@ -534,6 +732,9 @@
       "living-corpse",
       "living-spirit",
       "stone-golem"
+    ],
+    "blocks": [
+      "42"
     ]
   },
   {
@@ -570,6 +771,12 @@
         "name": "Vocal Cord 6",
         "health": "2+(LxC/2)"
       }
+    ],
+    "blocks": [
+      "33",
+      "32",
+      "40",
+      "41"
     ]
   },
   {
@@ -580,6 +787,12 @@
       "flame-demon",
       "rending-drake",
       "spitting-drake"
+    ],
+    "requires": [
+      "26",
+      "37",
+      "64",
+      "88"
     ]
   },
   {
@@ -635,6 +848,10 @@
         "name": "Totem 6",
         "health": "1+C+L"
       }
+    ],
+    "unlocks": [
+      "49",
+      "50"
     ]
   },
   {
@@ -647,6 +864,12 @@
       "wind-demon",
       "savvas-icestorm",
       "winged-horror"
+    ],
+    "unlocks": [
+      "51"
+    ],
+    "requires": [
+      "51"
     ]
   },
   {
@@ -658,6 +881,12 @@
       "deep-terror",
       "harrower-infester",
       "the-sightless-eye"
+    ],
+    "unlocks": [
+      "51"
+    ],
+    "requires": [
+      "51"
     ]
   },
   {
@@ -669,6 +898,12 @@
       "earth-demon",
       "harrower-infester",
       "dark-rider"
+    ],
+    "unlocks": [
+      "51"
+    ],
+    "requires": [
+      "51"
     ]
   },
   {
@@ -680,6 +915,9 @@
       "city-archer",
       "city-guard",
       "siege-cannon"
+    ],
+    "blocks": [
+      "50"
     ]
   },
   {
@@ -699,6 +937,9 @@
     "index": "51",
     "monsters": [
       "the-gloom"
+    ],
+    "unlocks": [
+      "96"
     ]
   },
   {
@@ -711,6 +952,9 @@
       "vermling-scout",
       "living-corpse",
       "vermling-shaman"
+    ],
+    "unlocks": [
+      "53"
     ]
   },
   {
@@ -723,6 +967,9 @@
       "living-spirit",
       "living-bones",
       "giant-viper"
+    ],
+    "unlocks": [
+      "54"
     ]
   },
   {
@@ -740,7 +987,10 @@
     "edition": "gh",
     "name": "Foggy Thicket",
     "index": "55",
-    "monsters": []
+    "monsters": [],
+    "links": [
+      "56"
+    ]
   },
   {
     "edition": "gh",
@@ -782,6 +1032,9 @@
       "city-archer",
       "hound",
       "infiltrator"
+    ],
+    "unlocks": [
+      "58"
     ]
   },
   {
@@ -821,6 +1074,9 @@
       "cave-bear",
       "hound",
       "forest-imp"
+    ],
+    "unlocks": [
+      "60"
     ]
   },
   {
@@ -844,6 +1100,9 @@
       "giant-viper",
       "frost-demon",
       "flame-demon"
+    ],
+    "links": [
+      "62"
     ]
   },
   {
@@ -1147,6 +1406,9 @@
       "vermling-shaman",
       "vermling-scout",
       "lurker"
+    ],
+    "unlocks": [
+      "87"
     ]
   },
   {
@@ -1240,6 +1502,9 @@
       "vermling-scout",
       "vermling-shaman",
       "cave-bear"
+    ],
+    "links": [
+      "95"
     ]
   },
   {

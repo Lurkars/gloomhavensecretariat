@@ -46,20 +46,22 @@ import { HealthbarComponent } from './ui/figures/healthbar/healthbar';
 import { EntityAnimationDirective } from './ui/helper/EntityAnimation';
 import { I18nDirective } from './ui/helper/i18n';
 import { ValueCalcDirective } from './ui/helper/valueCalc';
-import { CharacterProgressDialog } from './ui/figures/character/dialogs/progress';
+import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-sheet';
+import { ScenarioComponent } from './ui/footer/scenario/scenario';
+import { PartySheetDialog } from './ui/header/party/party-sheet';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    HeaderComponent, ElementIconComponent,
+    HeaderComponent, ElementIconComponent, PartySheetDialog,
     MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent,
     FooterComponent,
     AttackModifierComponent,
-    LevelComponent,
+    LevelComponent, ScenarioComponent,
     DialogComponent, PopupComponent,
     ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
-    CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterProgressDialog,
+    CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterSheetDialog,
     ObjectiveComponent,
     SummonEntityComponent,
     MonsterComponent,

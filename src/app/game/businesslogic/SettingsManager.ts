@@ -116,6 +116,21 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setLevelCalculation(levelCalculation: boolean) {
+    this.settings.levelCalculation = levelCalculation;
+    this.storeSettings();
+  }
+
+  setLevelAdjustment(levelAdjustment: number) {
+    this.settings.levelAdjustment = levelAdjustment;
+    this.storeSettings();
+  }
+
+  setDisableStandees(disableStandees: boolean) {
+    this.settings.disableStandees = disableStandees;
+    this.storeSettings();
+  }
+
   setFullscreen(fullscreen: boolean) {
     this.settings.fullscreen = fullscreen;
     this.storeSettings();

@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
-import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { MonsterType } from "src/app/game/model/MonsterType";
@@ -20,6 +20,7 @@ export class MonsterNumberPicker extends DialogComponent {
   @Input() range: number[] = [];
   summon: boolean = false;
   MonsterType = MonsterType;
+  settingsManager: SettingsManager = settingsManager;
 
   override ngOnInit(): void {
     super.ngOnInit();
@@ -27,9 +28,12 @@ export class MonsterNumberPicker extends DialogComponent {
   }
 
   nonDead(): number {
-    return this.monster.entities.filter((monsterEntity: MonsterEntity) => !monsterEntity.dead).length;
+    return this.monster.entities.filter((monsterEntity: MonsterEntity) => !monsterEntity.dead && monsterEntity.health > 0).length;
   }
 
+  hasEntity(): boolean {
+    return this.monster.entities.filter((monsterEntity: MonsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && (!settingsManager.settings.hideStats || monsterEntity.type == this.type)).length > 0;
+  }
 
   hasNumber(number: number) {
     return this.monster.entities.some((monsterEntity: MonsterEntity) => {
@@ -41,6 +45,19 @@ export class MonsterNumberPicker extends DialogComponent {
     if (this.nonDead() >= this.max) {
       return;
     }
+
+    if (settingsManager.settings.disableStandees) {
+      gameManager.stateManager.before();
+      if (this.hasEntity()) {
+        this.monster.entities = this.monster.entities.filter((monsterEntity: MonsterEntity) => settingsManager.settings.hideStats && monsterEntity.type != this.type);
+      } else {
+        this.monster.entities = this.monster.entities.filter((monsterEntity: MonsterEntity) => settingsManager.settings.hideStats && monsterEntity.type != this.type);
+        this.randomStandee();
+      }
+      gameManager.stateManager.after();
+      return;
+    }
+
     if (this.nonDead() == this.max - 1) {
       for (let i = 0; i < this.max; i++) {
         if (!this.monster.entities.some((me: MonsterEntity) => !me.dead && me.number == i + 1)) {
@@ -48,14 +65,18 @@ export class MonsterNumberPicker extends DialogComponent {
         }
       }
     } else if (settingsManager.settings.randomStandees) {
-      let number = Math.floor(Math.random() * this.monster.count) + 1;
-      while (this.monster.entities.some((monsterEntity: MonsterEntity) => monsterEntity.number == number)) {
-        number = number = Math.floor(Math.random() * this.monster.count) + 1;
-      }
-      this.pickNumber(number);
+      this.randomStandee();
     } else {
       super.open();
     }
+  }
+
+  randomStandee() {
+    let number = Math.floor(Math.random() * this.monster.count) + 1;
+    while (this.monster.entities.some((monsterEntity: MonsterEntity) => monsterEntity.number == number)) {
+      number = number = Math.floor(Math.random() * this.monster.count) + 1;
+    }
+    this.pickNumber(number);
   }
 
   pickNumber(number: number) {

@@ -49,6 +49,13 @@ export class GameManager {
     this.characterManager = new CharacterManager(this.game);
     this.monsterManager = new MonsterManager(this.game);
     this.attackModifierManager = new AttackModifierManager(this.game);
+    this.uiChange.subscribe({
+      next: (value: boolean) => {
+        if (settingsManager.settings.levelCalculation) {
+          this.calculateScenarioLevel();
+        }
+      }
+    })
   }
 
   editions(): string[] {
@@ -572,10 +579,9 @@ export class GameManager {
         })
       }
     })
-
   }
 
-  szenarioLevel(): number {
+  scenarioLevel(): number {
     let charLevel = 0;
     let charCount = 0;
 
@@ -593,6 +599,22 @@ export class GameManager {
     return Math.ceil(((charLevel / charCount) + (this.game.solo ? 1 : 0)) / 2);
   }
 
+  calculateScenarioLevel() {
+    if (settingsManager.settings.levelAdjustment > 6) {
+      settingsManager.settings.levelAdjustment = 6;
+    } else if (settingsManager.settings.levelAdjustment < -6) {
+      settingsManager.settings.levelAdjustment = -6;
+    }
+
+    let level = this.scenarioLevel() + settingsManager.settings.levelAdjustment;
+    if (level > 7) {
+      level = 7;
+    } else if (level < 0) {
+      level = 0;
+    }
+    this.setLevel(level);
+  }
+
   setScenario(scenario: Scenario | undefined) {
     this.game.scenario = scenario;
     if (scenario && !scenario.custom) {
@@ -606,10 +628,10 @@ export class GameManager {
     }
   }
 
-  finishScenario() {
+  finishScenario(success: boolean = true) {
     this.game.figures.forEach((figure: Figure) => {
       if (figure instanceof Character) {
-        this.characterManager.addXP(figure, figure.experience + this.experience());
+        this.characterManager.addXP(figure, (success ? figure.experience : 0) + this.experience());
         figure.progress.loot += figure.loot * this.loot();
       }
     })
@@ -639,7 +661,7 @@ export class GameManager {
         figure.off = false;
         figure.exhausted = false;
 
-        figure.availableSummons.filter((summonData: SummonData) => summonData.special).forEach((summonData: SummonData) => figure.createSpecial(summonData));
+        figure.availableSummons.filter((summonData: SummonData) => summonData.special).forEach((summonData: SummonData) => this.characterManager.createSpecialSummon(figure, summonData));
       }
     })
 

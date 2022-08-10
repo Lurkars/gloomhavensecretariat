@@ -6,6 +6,8 @@ import { Figure } from "src/app/game/model/Figure";
 import { Identifier } from "src/app/game/model/Identifier";
 import { Monster } from "src/app/game/model/Monster";
 import { Permissions } from "src/app/game/model/Permissions";
+import { v4 as uuidv4 } from 'uuid';
+
 
 @Component({
   selector: 'ghs-server-menu',
@@ -37,6 +39,10 @@ export class ServerMenuComponent {
       this.permissions = gameManager.stateManager.permissions;
     }
     return this.permissions;
+  }
+
+  createUUID() {
+    settingsManager.settings.serverPassword = uuidv4();
   }
 
   disconnect() {

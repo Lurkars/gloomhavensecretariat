@@ -12,14 +12,14 @@
   }
 }
 
-.character-progress-dialog {
+.character-sheet-dialog {
   background-color: var(--ghs-color-white);
   display: flex;
 
   .container {
     width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
     height: calc(var(--ghs-unit) * 76 * var(--ghs-dialog-factor));
-    background-image: url('~src/assets/images/character/progress.svg');
+    background-image: url('~src/assets/images/character/character-sheet.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;

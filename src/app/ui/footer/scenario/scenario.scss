@@ -1,0 +1,66 @@
+.button {
+  cursor: pointer;
+  font-family: 'ghs-text';
+  font-size: calc(var(--ghs-unit) * 3);
+  color: var(--ghs-color-darkgray);
+
+  .index {
+    margin-right: calc(var(--ghs-unit) * 1);
+  }
+
+  .sections {
+    display: flex;
+    justify-content: center;
+    font-size: calc(var(--ghs-unit) * 2);
+  }
+}
+
+.scenario-popup {
+
+  color: var(--ghs-color-white);
+  min-width: calc(var(--ghs-unit) * 40 * var(--ghs-dialog-factor));
+  padding: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+
+  .title {
+    font-family: 'ghs-text';
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+  }
+
+  .index {
+    margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+  }
+
+  .sections {
+    display: flex;
+    justify-content: center;
+    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+  }
+
+  .menu {
+
+    margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    font-family: 'ghs-title';
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+
+    .buttons {
+      display: flex;
+
+      a {
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+
+      .failure {
+        color: var(--ghs-color-red);
+      }
+
+      .success {
+        color: var(--ghs-color-green);
+      }
+    }
+  }
+
+}

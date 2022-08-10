@@ -9,9 +9,10 @@
       "confirm": "Bestätigen",
       "confirmTurns": "Bestätigen und alle Züge beenden",
       "finish": "Es sind keine Monster mehr übriges. Das Szenario erfolgreich beenden?",
-      "confirmFinish": "Szenario beenden",
+      "confirmFinish": "Szenario mit Erfolg beenden",
       "failed": "Alle Charaktere scheinen erschöpft. Das Szenario von vorne beginnen?",
-      "confirmFailed": "Szenraio neu starten",
+      "confirmFailed": "Szenario mit Niederlage beenden",
+      "confirmReset": "Szenario zurücksetzen",
       "continueNext": "Weiter mit nächster Runde",
       "continueDraw": "Weiter mit Ziehen"
     }
@@ -29,7 +30,13 @@
     ".": "Szenario auswählen",
     "custom": "Benutzerdefiniert",
     "title": "Titel",
-    "reset": "Scenario neustarten"
+    "reset": "Scenario neustarten",
+    "finish": {
+      ".": "Szenario beenden",
+      "success": "Erfolg",
+      "failure": "Niederlage",
+      "reset": "Neustarten"
+    }
   },
   "section": "Sektion hinzufügen",
   "monster": {
@@ -39,11 +46,11 @@
     "showHidden": "Ausgeblendete Monster anzeigen",
     "normal": "Normal",
     "elite": "Elite",
-    "boss" : "Boss",
-    "addEntity" : {
+    "boss": "Boss",
+    "addEntity": {
       "normal": "Normales Monster spawnen",
       "elite": "Elite Monster spawnen",
-      "boss" : "Boss Monster spawnen"
+      "boss": "Boss Monster spawnen"
     }
   },
   "character": {
@@ -51,7 +58,7 @@
     "remove": "Charakter entfernen",
     "removeAll": "Alle entfernen",
     "progress": {
-      ".": "Fortschritt",
+      ".": "Charakterbogen",
       "name": "Name",
       "level": "Level",
       "xp": "XP",
@@ -63,14 +70,27 @@
     "class": {
       "aesther": "Aesther",
       "harrower": "Harrower",
-      "human": "Human",
+      "human": "Mensch",
       "inox": "Inox",
-      "lurker": "Lurker",
+      "lurker": "Pirscher",
       "orchid": "Orchid",
       "quatryl": "Quatryl",
       "savvas": "Savvas",
       "valrath": "Valrath",
-      "vermling": "Vermling"
+      "vermling": "Ratze"
+    }
+  },
+  "party": {
+    ".": "Gruppe",
+    "sheet": "Gruppenbogen",
+    "name": "Name",
+    "location": "Ort",
+    "notes": "Notizen",
+    "achievements": "Erfolge",
+    "reputation": "Ansehen",
+    "shop": {
+      ".": "Ladenpreis-Modifikator",
+      "none": "Keiner"
     }
   },
   "objective": {
@@ -103,6 +123,7 @@
     "moveElements": "Automatisch Elementen Status ändern",
     "hideStats": "Werte ausblenden",
     "randomStandees": "Zufällige Aufsteller",
+    "disableStandees": "Aufsteller deaktivieren",
     "initiativeRequired": "Initiative muss gesetzt werden",
     "zoomIn": "Reinzoomen",
     "zoomOut": "Rauszoomen",
@@ -112,6 +133,8 @@
     "hints": "Hinweise anzeigen",
     "browserNavigation": "Rückgängig/Wiederherstellen über Navigation",
     "maxUndo": "Max. Anzahl Rückgängigvorgänge",
+    "levelCalculation": "Szenario Level automatisch berechnen",
+    "levelAdjustment": "Anpassung Szenario Level",
     "locale": {
       ".": "Sprache",
       "en": "Englisch (English)",
@@ -125,7 +148,10 @@
     },
     "url": "Url",
     "port": "Port",
-    "password": "Passwort",
+    "password": {
+      ".": "Passwort",
+      "uuid": "UUID generieren"
+    },
     "connect": "Verbinden",
     "reconnect": "Neu Verbinden",
     "disconnect": "Trennen",
@@ -311,10 +337,10 @@
     "loot": "Beute",
     "experience": "Erfahrung",
     "level": {
-      "." : "Level",
-      "loot" : "Beute",
+      ".": "Level",
+      "loot": "Beute",
       "trap": "Falle",
-      "experience" : "Erfahrung",
+      "experience": "Erfahrung",
       "hazardousTerrain": "Gefährliches Gelände"
     },
     "exhausted": "Erschöpfung",

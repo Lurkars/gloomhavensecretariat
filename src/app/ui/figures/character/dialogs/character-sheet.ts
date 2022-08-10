@@ -5,18 +5,16 @@ import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 import { Character } from "src/app/game/model/Character";
 import { CharacterProgress } from "src/app/game/model/CharacterProgress";
-import { Edition } from "src/app/game/model/Edition";
 import { Identifier } from "src/app/game/model/Identifier";
 
-import { DialogComponent } from "src/app/ui/dialog/dialog";
 import { PopupComponent } from "src/app/ui/popup/popup";
 
 @Component({
-  selector: 'ghs-character-progress',
-  templateUrl: 'progress.html',
-  styleUrls: [ '../../../popup/popup.scss', './progress.scss' ]
+  selector: 'ghs-character-sheet',
+  templateUrl: 'character-sheet.html',
+  styleUrls: [ '../../../popup/popup.scss', './character-sheet.scss' ]
 })
-export class CharacterProgressDialog extends PopupComponent {
+export class CharacterSheetDialog extends PopupComponent {
 
   @Input() character!: Character;
 
@@ -49,7 +47,7 @@ export class CharacterProgressDialog extends PopupComponent {
       level = 9;
     }
     this.gameManager.stateManager.before();
-    this.character.setLevel(level);
+    this.characterManager.setLevel(this.character, level);
     this.gameManager.stateManager.after();
   }
 

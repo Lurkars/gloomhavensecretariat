@@ -73,7 +73,7 @@ export class ScenarioMenuComponent {
   customScenario() {
     if (!gameManager.game.scenario || !gameManager.game.scenario.custom) {
       gameManager.stateManager.before();
-      gameManager.setScenario(new Scenario("", "", [], [], "", true));
+      gameManager.setScenario(new Scenario(new ScenarioData("", "", [], [], [], [], [], [], ""), true));
       gameManager.stateManager.after();
     } else {
       gameManager.stateManager.before();
