@@ -39,7 +39,7 @@ export class FooterComponent extends DialogComponent {
     this.next(true);
   }
 
-  finishScenario(success : boolean) {
+  finishScenario(success: boolean) {
     gameManager.stateManager.before();
     gameManager.finishScenario(success);
     gameManager.stateManager.after(1000);
@@ -64,11 +64,11 @@ export class FooterComponent extends DialogComponent {
   };
 
   finish(): boolean {
-    return !this.missingInitative() && !this.active() && !this.empty() && gameManager.game.figures.every((figure: Figure) => !(figure instanceof Monster) || figure instanceof Monster && figure.entities.every((entity: MonsterEntity) => entity.dead || entity.health <= 0)) && gameManager.game.figures.some((figure: Figure) => figure instanceof Character && !figure.exhausted && figure.health > 0);
+    return !this.missingInitative() && !this.active() && !this.empty() && gameManager.game.figures.some((figure: Figure) => figure instanceof Character) && gameManager.game.figures.every((figure: Figure) => !(figure instanceof Monster) || figure instanceof Monster && figure.entities.every((entity: MonsterEntity) => entity.dead || entity.health <= 0)) && gameManager.game.figures.some((figure: Figure) => figure instanceof Character && !figure.exhausted && figure.health > 0);
   }
 
   failed(): boolean {
-    return !this.active() && !this.empty() && gameManager.game.figures.every((figure: Figure) => !(figure instanceof Character) || figure instanceof Character && (figure.exhausted || figure.health <= 0));
+    return !this.active() && !this.empty() && gameManager.game.figures.some((figure: Figure) => figure instanceof Character) && gameManager.game.figures.every((figure: Figure) => !(figure instanceof Character) || figure instanceof Character && (figure.exhausted || figure.health <= 0));
   }
 
   disabled(): boolean {
