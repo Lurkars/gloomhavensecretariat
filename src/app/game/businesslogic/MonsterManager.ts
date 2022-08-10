@@ -108,9 +108,11 @@ export class MonsterManager {
       gameManager.sortFigures();
     }
 
-    if (this.game.state == GameState.next && monster.off) {
+    if (monster.off) {
       monster.off = false;
-      monster.active = !gameManager.game.figures.some((figure: Figure) => figure.active);
+      if (this.game.state == GameState.next) {
+        monster.active = !gameManager.game.figures.some((figure: Figure) => figure.active);
+      }
     }
   }
 
