@@ -130,6 +130,8 @@
     "zoomReset": "Reset Zoom",
     "fullscreen": "Fullscreen",
     "disableColumns": "Disable column layout",
+    "dragInitiative": "Drag Initiative",
+    "dragHealth": "Drag HP",
     "hints": "Show hints",
     "browserNavigation": "Undo/Redo with navigation",
     "maxUndo": "Max. number of undos",
@@ -274,6 +276,7 @@
       "specialTarget": "Special Target",
       "swing": "Swing",
       "target": "Target",
+      "targets": "Targets",
       "teleport": "Teleport",
       "trigger": "Trigger"
     },
