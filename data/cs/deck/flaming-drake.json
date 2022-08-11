@@ -109,7 +109,7 @@
             {
               "type": "heal",
               "value": "2",
-              "valueType": "plus"
+              "valueType": "add"
             }
           ]
         }

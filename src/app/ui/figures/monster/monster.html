@@ -5,13 +5,13 @@
   <ghs-monster-stats-popup [monster]="monster"></ghs-monster-stats-popup>
 
   <ghs-monster-numberpicker *ngIf="!monster.boss" class="normal" [monster]="monster" [type]="MonsterType.normal"
-    [max]="monster.count" [ngClass]="{'disabled' : nonDead() >= monster.count}" [clone]="true">
+    [max]="monster.count" [ngClass]="{'disabled' : nonDead() >= monster.count}">
   </ghs-monster-numberpicker>
   <ghs-monster-numberpicker *ngIf="!monster.boss" class="elite" [monster]="monster" [type]="MonsterType.elite"
-    [max]="monster.count" [left]="true" [ngClass]="{'disabled' : nonDead() >= monster.count}" [clone]="true">
+    [max]="monster.count" [left]="true" [ngClass]="{'disabled' : nonDead() >= monster.count}">
   </ghs-monster-numberpicker>
   <ghs-monster-numberpicker *ngIf="monster.boss" class="boss" [monster]="monster" [type]="MonsterType.boss"
-    [max]="monster.count" [ngClass]="{'disabled' : nonDead() >= monster.count}" [clone]="true">
+    [max]="monster.count" [ngClass]="{'disabled' : nonDead() >= monster.count}">
   </ghs-monster-numberpicker>
   
   <ghs-figure-errors [figure]="monster"></ghs-figure-errors>
@@ -20,7 +20,7 @@
 <div class="entities-container" [ngClass]="{'empty' : emptyEntities() }" *ngIf="!settingsManager.settings.disableStandees">
   <div class="spacer"></div>
   <div class="entities">
-    <ghs-monster-entity *ngFor="let entity of sortedEntites()" [monster]="monster" [entity]="entity" [clone]="true">
+    <ghs-monster-entity *ngFor="let entity of sortedEntites()" [monster]="monster" [entity]="entity">
     </ghs-monster-entity>
   </div>
 </div>

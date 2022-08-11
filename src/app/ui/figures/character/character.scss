@@ -131,6 +131,13 @@
         height: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
         width: auto;
       }
+
+      .drag-hp {
+        margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+        font-family: 'ghs-normal';
+        text-shadow: none;
+      }
     }
 
 
@@ -265,6 +272,15 @@
   }
 }
 
+.health-positive {
+  color: var(--ghs-color-green) !important;
+}
+
+.health-negative {
+  color: var(--ghs-color-red) !important;
+}
+
+
 .dialog {
 
   .status-container {
@@ -327,14 +343,6 @@
   img {
     height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
     width: auto;
-  }
-
-  .health-positive {
-    color: var(--ghs-color-green) !important;
-  }
-
-  .health-negative {
-    color: var(--ghs-color-red) !important;
   }
 
   .max-health-container {

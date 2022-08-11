@@ -6,7 +6,9 @@ import { AppComponent } from './app.component';
 import { DialogComponent } from './ui/dialog/dialog';
 import { CharacterComponent } from './ui/figures/character/character';
 import { CharacterSummonDialog } from './ui/figures/character/dialogs/summondialog';
-import { ActionHexComponent, ActionComponent, ActionsComponent } from './ui/figures/actions/action';
+import { ActionComponent} from './ui/figures/actions/action';
+import { ActionsComponent } from './ui/figures/actions/actions';
+import { ActionHexComponent } from './ui/figures/actions/action-hex';
 import { AbilityComponent } from './ui/figures/monster/cards/ability';
 import { MonsterImageComponent } from './ui/figures/monster/cards/image';
 import { MonsterStatsComponent, MonsterStatsPopupComponent } from './ui/figures/monster/cards/stats';
@@ -49,6 +51,7 @@ import { ValueCalcDirective } from './ui/helper/valueCalc';
 import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-sheet';
 import { ScenarioComponent } from './ui/footer/scenario/scenario';
 import { PartySheetDialog } from './ui/header/party/party-sheet';
+import { DragValueDirective } from './ui/helper/dragValue';
 
 @NgModule({
   declarations: [
@@ -72,7 +75,7 @@ import { PartySheetDialog } from './ui/header/party/party-sheet';
     MonsterNumberPicker,
     ActionsComponent, ActionComponent, ActionHexComponent,
     FigureErrors,
-    CardRevealDirective, EntityAnimationDirective, I18nDirective, ValueCalcDirective,
+    CardRevealDirective, EntityAnimationDirective, I18nDirective, ValueCalcDirective, DragValueDirective,
     GhsValueSignPipe, GhsLabelPipe, GhsRangePipe,
     MonsterToolComponent, MonsterActionToolComponent, MonsterStatToolComponent ],
   imports: [

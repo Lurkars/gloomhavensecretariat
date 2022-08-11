@@ -2,7 +2,8 @@
   <div class="card" [ngClass]="{'flipped' : flipped() }">
     <div class="card-back ability-back" (click)="open()">
       <span class="name">{{'data.monster.' + monster.name | ghsLabel}}</span>
-      <span class="left-abilities">{{monster.abilities.length - ( monster.ability >= 0 ? monster.ability + 1 : 0)}}</span>
+      <span class="left-abilities">{{monster.abilities.length - ( monster.ability >= 0 ? monster.ability + 1 :
+        0)}}</span>
     </div>
     <div class="card-front ability-front"
       [ngClass]="{'hoverable' : !ability || !ability.bottomActions || ability.bottomActions.length < 1 ,'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0}"
@@ -10,16 +11,20 @@
       <ng-container *ngIf="ability">
         <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
         <span class="name">{{abilityLabel(ability)}}</span>
-        <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="1" [hint]="ability.hint" [statsCalculation]="true">
+        <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="1" [hint]="ability.hint"
+          [statsCalculation]="true">
         </ghs-actions>
         <ng-container *ngIf="ability.bottomActions && ability.bottomActions.length > 0">
           <span class="level" *ngIf="ability.level || ability.level == 0">{{ability.level}}</span>
-          <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [hexSize]="1" [hint]="ability.hint" [statsCalculation]="true">
+          <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [hexSize]="1" [hint]="ability.hint"
+            [statsCalculation]="true">
           </ghs-actions>
         </ng-container>
         <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
-        <span class="index" *ngIf="!ability.cardId && settingsManager.settings.abilityNumbers">[{{abilityIndex(ability) + 1}}]</span>
+        <span class="index" *ngIf="!ability.cardId && settingsManager.settings.abilityNumbers">[{{abilityIndex(ability)
+          + 1}}]</span>
         <span class="index" *ngIf="ability.cardId && settingsManager.settings.abilityNumbers">{{ability.cardId}}</span>
+        <span class="bottom-scroll">&nbsp;</span>
       </ng-container>
     </div>
   </div>
@@ -50,25 +55,30 @@
         <div class="card-container ability drag-hidden" cdkDrag
           [ngClass]="{'bottom-ability' : ability && ability.bottomActions && ability.bottomActions.length > 0}">
           <div class="card" card-reveal [ngClass]="{'flipped' : reveal == 2}">
-            <a class="card-back ability-back">
+            <div class="card-back ability-back">
               <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
               <span class="name">{{'data.monster.' + monster.name | ghsLabel}}</span>
-            </a>
+            </div>
             <div class="card-front ability-front"
               [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0}"
               *ngIf="ability">
               <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
               <span class="name">{{abilityLabel(ability)}}</span>
-              <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="1" [hint]="ability.hint" [statsCalculation]="true">
+              <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="1" [hint]="ability.hint"
+                [statsCalculation]="true">
               </ghs-actions>
               <ng-container *ngIf="ability.bottomActions && ability.bottomActions.length > 0">
                 <span class="level" *ngIf="ability.level || ability.level == 0">{{ability.level}}</span>
-                <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [hexSize]="1" [hint]="ability.hint" [statsCalculation]="true">
+                <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [hexSize]="1" [hint]="ability.hint"
+                  [statsCalculation]="true">
                 </ghs-actions>
               </ng-container>
               <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
-              <span class="index" *ngIf="!ability.cardId && settingsManager.settings.abilityNumbers">[{{abilityIndex(ability) + 1}}]</span>
-              <span class="index" *ngIf="ability.cardId && settingsManager.settings.abilityNumbers">{{ability.cardId}}</span>
+              <span class="index"
+                *ngIf="!ability.cardId && settingsManager.settings.abilityNumbers">[{{abilityIndex(ability) +
+                1}}]</span>
+              <span class="index"
+                *ngIf="ability.cardId && settingsManager.settings.abilityNumbers">{{ability.cardId}}</span>
             </div>
             <a class="button-remove" *ngIf="edit" (click)="remove(index)"><img class="ghs-svg"
                 src="./assets/images/minus.svg"></a>
@@ -85,21 +95,25 @@
         <div class="card-container ability drag-hidden" cdkDrag
           [ngClass]="{'bottom-ability' : ability && ability.bottomActions && ability.bottomActions.length > 0}">
           <div class="card" [ngClass]="{'flipped' : ability}">
-            <a class="card-back ability-back">
-            </a>
+            <div class="card-back ability-back"></div>
             <div class="card-front ability-front"
               [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0}">
               <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
               <span class="name">{{abilityLabel(ability)}}</span>
-              <ghs-actions [actions]="ability.actions" [monster]="monster" [hint]="ability.hint" [statsCalculation]="true"></ghs-actions>
+              <ghs-actions [actions]="ability.actions" [monster]="monster" [hint]="ability.hint"
+                [statsCalculation]="true"></ghs-actions>
               <ng-container *ngIf="ability.bottomActions && ability.bottomActions.length > 0">
                 <span class="level" *ngIf="ability.level || ability.level == 0">{{ability.level}}</span>
-                <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [hexSize]="1" [hint]="ability.hint" [statsCalculation]="true">
+                <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [hexSize]="1" [hint]="ability.hint"
+                  [statsCalculation]="true">
                 </ghs-actions>
               </ng-container>
               <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
-              <span class="index" *ngIf="!ability.cardId && settingsManager.settings.abilityNumbers">[{{abilityIndex(ability) + 1}}]</span>
-              <span class="index" *ngIf="ability.cardId && settingsManager.settings.abilityNumbers">{{ability.cardId}}</span>
+              <span class="index"
+                *ngIf="!ability.cardId && settingsManager.settings.abilityNumbers">[{{abilityIndex(ability) +
+                1}}]</span>
+              <span class="index"
+                *ngIf="ability.cardId && settingsManager.settings.abilityNumbers">{{ability.cardId}}</span>
             </div>
           </div>
         </div>

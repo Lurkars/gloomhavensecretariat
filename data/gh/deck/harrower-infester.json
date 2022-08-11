@@ -179,7 +179,7 @@
             {
               "type": "attack",
               "value": 2,
-              "valueType": "plus",
+              "valueType": "add",
               "subActions": [
                 {
                   "type": "condition",

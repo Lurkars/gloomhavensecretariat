@@ -89,6 +89,14 @@
       background-repeat: no-repeat;
       transform: translateX(-50%);
     }
+
+    .drag-hp {
+      position: absolute;
+      margin-left: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
+      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+      font-family: 'ghs-normal';
+      text-shadow: none;
+    }
   }
 
 
@@ -208,6 +216,15 @@
       color: var(--ghs-color-red);
     }
   }
+}
+
+
+.health-positive {
+  color: var(--ghs-color-green) !important;
+}
+
+.health-negative {
+  color: var(--ghs-color-red) !important;
 }
 
 .dialog {
@@ -338,16 +355,6 @@
     height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
     width: auto;
   }
-
-  .health-positive {
-    color: var(--ghs-color-green) !important;
-  }
-
-  .health-negative {
-    color: var(--ghs-color-red) !important;
-  }
-
-
 
   .badge {
     position: absolute;

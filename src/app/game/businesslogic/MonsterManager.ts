@@ -54,7 +54,8 @@ export class MonsterManager {
       monster.off = true;
       if (!this.applySameDeck(monster)) {
         if (!monster.abilities || monster.abilities.length == 0) {
-          monster.abilities = gameManager.abilities(monster).filter((ability: Ability) => !ability.level || isNaN(+ability.level) || ability.level <= monster.level).map((ability: Ability, index: number) => index);
+          const abilities = gameManager.abilities(monster);
+          monster.abilities = abilities.filter((ability: Ability) => isNaN(+ability.level) || +ability.level <= monster.level).map((ability: Ability) => abilities.indexOf(ability));
         }
         this.shuffleAbilities(monster);
       }

@@ -1,33 +1,12 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Action, ActionHex, ActionType, ActionValueType } from 'src/app/game/model/Action';
+import { Action, ActionType, ActionValueType } from 'src/app/game/model/Action';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
-import { FigureError } from 'src/app/game/model/FigureError';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { MonsterStat } from 'src/app/game/model/MonsterStat';
 import { MonsterType } from 'src/app/game/model/MonsterType';
-
-@Component({
-  selector: 'ghs-actions',
-  templateUrl: './actions.html',
-  styleUrls: [ './actions.scss' ]
-})
-export class ActionsComponent {
-
-  @Input() monster!: Monster;
-  @Input() actions!: Action[];
-  @Input() relative: boolean = false;
-  @Input() inline: boolean = false;
-  @Input() right: boolean = false;
-  @Input() statsCalculation: boolean = false;
-  @Input() hexSize!: number;
-  @Input() hint!: string | undefined;
-  ActionType = ActionType;
-  ActionValueType = ActionValueType;
-
-}
 
 @Component({
   selector: 'ghs-action',
@@ -150,30 +129,6 @@ export class ActionComponent implements OnInit {
 
   isInvertIcon(type: ActionType) {
     return this.invertIcons.indexOf(type) != -1;
-  }
-
-}
-
-@Component({
-  selector: 'ghs-action-hex',
-  templateUrl: './hex.html',
-  styleUrls: [ './hex.scss' ]
-})
-export class ActionHexComponent implements OnChanges {
-
-  @Input() value!: string;
-  @Input() size!: number;
-  hexes: ActionHex[] = [];
-  ActionHex = ActionHex;
-
-  ngOnChanges(changes: any) {
-    this.hexes = [];
-    this.value.split('|').forEach((hexValue: string) => {
-      const hex: ActionHex | null = ActionHex.fromString(hexValue);
-      if (hex != null) {
-        this.hexes.push(hex);
-      }
-    })
   }
 
 }

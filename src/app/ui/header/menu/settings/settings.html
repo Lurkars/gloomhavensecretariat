@@ -31,10 +31,16 @@
       </div>
       <div class="line">
         <label>
+          <input type="checkbox" [checked]="settingsManager.settings.dragInitiative"
+            (change)="settingsManager.setDragInitiative(!settingsManager.settings.dragInitiative)">{{'settings.dragInitiative'
+          | ghsLabel}}
+        </label>
+      </div>
+      <div class="line">
+        <label>
           <input type="checkbox" [checked]="settingsManager.settings.abilityNumbers"
             (change)="settingsManager.setAbilityNumbers(!settingsManager.settings.abilityNumbers)">{{'settings.abilityNumbers'
-          |
-          ghsLabel}}
+          | ghsLabel}}
         </label>
       </div>
       <div class="line">
@@ -46,9 +52,9 @@
       </div>
       <div class="line" *ngIf="settingsManager.settings.levelCalculation">
         <label class="label">{{'settings.levelAdjustment' | ghsLabel}}
-          <input type="number" #levelAdjustment [value]="settingsManager.settings.levelAdjustment" min="-6" max="6" (keyup)="0"
-            (change)="settingsManager.setLevelAdjustment(+levelAdjustment.value)"  [size]="levelAdjustment.value.length"
-            placeholder="{{'settings.levelAdjustment' | ghsLabel}}"></label>
+          <input type="number" #levelAdjustment [value]="settingsManager.settings.levelAdjustment" min="-6" max="6"
+            (keyup)="0" (change)="settingsManager.setLevelAdjustment(+levelAdjustment.value)"
+            [size]="levelAdjustment.value.length" placeholder="{{'settings.levelAdjustment' | ghsLabel}}"></label>
       </div>
     </div>
     <div class="column">
@@ -78,6 +84,13 @@
           <input type="checkbox" [checked]="settingsManager.settings.initiativeRequired"
             (change)="settingsManager.setInitiativeRequired(!settingsManager.settings.initiativeRequired)">
           {{'settings.initiativeRequired' | ghsLabel}}
+        </label>
+      </div>
+      <div class="line">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.dragHealth"
+            (change)="settingsManager.setDragHealth(!settingsManager.settings.dragHealth)">{{'settings.dragHealth'
+          | ghsLabel}}
         </label>
       </div>
       <div class="line">

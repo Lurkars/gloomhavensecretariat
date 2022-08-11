@@ -4,7 +4,11 @@
   <div #button class="entity" [ngClass]="entity.type">
     <div class="standee" [style.background-image]="'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'">
       <span class="number">{{entity.number}}</span>
-      <span class="health" title="{{'game.health' | ghsLabel}}">{{entity.health}}</span>
+      <span class="health" title="{{'game.health' | ghsLabel}}" drag-value (dragMove)="dragHpMove($event)"
+        (dragEnd)="dragHpEnd()" (onTimeout)="dragTimeout($event)">{{entity.health}} <span class="drag-hp"
+          [ngClass]="{'health-negative' : dragHp < 0, 'health-positive' : dragHp > 0}" *ngIf="dragHp">{{dragHp |
+          ghsValueSign}}</span>
+      </span>
     </div>
 
     <div class="markers">
@@ -94,7 +98,7 @@
       </span>
 
       <span class="item" title="{{'game.dead' | ghsLabel}}">
-        <a class="button" (click)="dead()">
+        <a class="button" (click)="toggleDead()">
           <img src="./assets/images/status/dead.svg" />
         </a>
       </span>

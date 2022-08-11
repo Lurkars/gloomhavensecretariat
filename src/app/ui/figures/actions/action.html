@@ -85,7 +85,9 @@
   </span>
 
   <span class="action-card" *ngSwitchCase="ActionType.card">
-    <img src="./assets/images/action/card/{{action.value}}.svg" />
+    <div class="values" *ngFor="let cardValue of getValues(action)">
+      <img src="./assets/images/action/card/{{cardValue}}.svg" />
+    </div>
     <ng-container *ngIf="action.subActions && action.subActions.length > 0">
       <ghs-action class="full" [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
         [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize">
@@ -95,27 +97,51 @@
 
   <span class="action-default action-special" *ngSwitchCase="ActionType.special">
     <span class="type">{{'game.action.' + action.type | ghsLabel}} {{action.value}}:</span>
-    <ghs-actions [actions]="getSpecial(action)" [monster]="monster" [inline]="inline" [right]="right"
+    <ghs-actions class="subactions" [actions]="getSpecial(action)" [monster]="monster" [inline]="inline" [right]="right"
       [hexSize]="hexSize">
     </ghs-actions>
   </span>
 
   <span class="action-default" [ngClass]="'action-' + action.type" *ngSwitchDefault>
-    <span class="type">{{'game.action.' + action.type | ghsLabel}}</span>
-    <img *ngIf="action.type != ActionType.move || !monster.flying" src="./assets/images/action/{{action.type}}.svg"
-      class="icon" [ngClass]="{'invert' : isInvertIcon(action.type)}" />
-    <img *ngIf="action.type == ActionType.move && monster.flying" src="./assets/images/action/fly.svg" class="icon"
-      [ngClass]="{'invert' : isInvertIcon(action.type)}" />
-    <span *ngIf="!relative" class="value">
-      <span [value-calc]="getNormalValue()" [level]="monster.level" [empty]="true"></span>
-      <span *ngIf="getEliteValue() && getNormalValue() != getEliteValue()">/</span>
-      <span *ngIf="getEliteValue() && getNormalValue() != getEliteValue()" class="elite" [value-calc]="getEliteValue()"
-        [level]="monster.level"></span>
-    </span>
-    <span *ngIf="relative" class="value">{{getNormalValue()}}<span *ngIf="getNormalValue() != getEliteValue()">/<span
-          class="elite">{{getEliteValue()}}</span>
-      </span>&nbsp;
-    </span>
+    <ng-container *ngIf=" action.valueType != ActionValueType.add && action.valueType != ActionValueType.subtract">
+      <span class="type">{{'game.action.' + action.type | ghsLabel}}</span>
+
+      <img *ngIf="action.type != ActionType.move || !monster.flying" src="./assets/images/action/{{action.type}}.svg"
+        class="icon" [ngClass]="{'invert' : isInvertIcon(action.type)}" />
+      <img *ngIf="action.type == ActionType.move && monster.flying" src="./assets/images/action/fly.svg" class="icon"
+        [ngClass]="{'invert' : isInvertIcon(action.type)}" />
+
+      <span class="value">
+        <span *ngIf="!relative">
+          <span [value-calc]="getNormalValue()" [level]="monster.level" [empty]="true"></span>
+          <span *ngIf="getEliteValue() && getNormalValue() != getEliteValue()">/</span>
+          <span *ngIf="getEliteValue() && getNormalValue() != getEliteValue()" class="elite"
+            [value-calc]="getEliteValue()" [level]="monster.level"></span>
+        </span>
+        <span *ngIf="relative">{{getNormalValue()}}<span *ngIf="getNormalValue() != getEliteValue()">/<span
+              class="elite">{{getEliteValue()}}</span>
+          </span>&nbsp;
+        </span>
+      </span>
+    </ng-container>
+
+    <ng-container *ngIf="action.valueType == ActionValueType.add || action.valueType == ActionValueType.subtract">
+      <span class="value">
+        {{action.valueType == ActionValueType.add ? '+' : '-'}}{{action.value}}&nbsp;
+      </span>
+
+      <span class="type" *ngIf="action.type == ActionType.target && action.value > 1">{{'game.action.targets' |
+        ghsLabel}}</span>
+
+      <span *ngIf="action.type != ActionType.target || action.value < 2" class="type">{{'game.action.' + action.type |
+        ghsLabel}}</span>
+
+      <img *ngIf="action.type != ActionType.move || !monster.flying" src="./assets/images/action/{{action.type}}.svg"
+        class="icon" [ngClass]="{'invert' : isInvertIcon(action.type)}" />
+      <img *ngIf="action.type == ActionType.move && monster.flying" src="./assets/images/action/fly.svg" class="icon"
+        [ngClass]="{'invert' : isInvertIcon(action.type)}" />
+    </ng-container>
+
     <div class="additional-subactions" *ngIf="statsCalculation && additionalSubActions.length > 0">
       <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of additionalSubActions"
         [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize">

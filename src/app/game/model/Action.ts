@@ -46,6 +46,8 @@ export enum ActionType {
 export enum ActionValueType {
   plus = "plus",
   minus = "minus",
+  add = "add",
+  subtract = "subtract",
   fixed = "fixed"
 }
 

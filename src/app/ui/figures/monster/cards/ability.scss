@@ -23,8 +23,6 @@
   --hover-animation: all 0.3s ease-in-out;
   transition: var(--hover-animation);
 
-
-
   ghs-actions {
     position: absolute;
     top: 0; // calc(var(--ghs-unit) * 5); 
@@ -124,14 +122,14 @@
     }
 
     .initiative {
-      top: calc(var(--ghs-unit) * 23);
+      top: calc(var(--ghs-unit) * 24.5);
       left: 50%;
       transform: translateX(-50%);
     }
 
     .level {
       position: absolute;
-      top: calc(var(--ghs-unit) * 5.3);
+      top: calc(var(--ghs-unit) * 5.8);
       left: 50%;
       transform: translateX(-50%);
       color: var(--ghs-color-black);
@@ -145,7 +143,7 @@
 
     .index {
       bottom: auto;
-      top: calc(var(--ghs-unit) * 42);
+      top: calc(var(--ghs-unit) * 44.5);
       left: calc(50% + var(--ghs-unit) * 3);
     }
 
@@ -162,8 +160,14 @@
     }
 
     ghs-actions:nth-of-type(2) {
-      top: calc(var(--ghs-unit) * 20.5);
-      margin-bottom: calc(var(--ghs-unit) * 4);
+      top: calc(var(--ghs-unit) * 21.5);
+      margin-bottom: calc(var(--ghs-unit) * 3);
+    }
+
+    .bottom-scroll {
+      display: block;
+      position: absolute;
+      top: calc(var(--ghs-unit) * 47.5);
     }
   }
 
@@ -223,6 +227,9 @@ ghs-action {
 
 
 .abilities-popup {
+
+  width: calc(var(--ghs-unit) * 84 * var(--ghs-text-factor));
+  max-width: initial;
 
   .menu {
     display: flex;
@@ -306,36 +313,29 @@ ghs-action {
 
       .ability,
       .empty {
-        width: calc(var(--ghs-unit) * 35 * var(--ghs-text-factor));
+        width: calc(var(--ghs-unit) * 37 * var(--ghs-text-factor));
         height: calc(var(--ghs-unit) * 23.7 * var(--ghs-text-factor));
         margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
         flex-shrink: 0;
         flex-grow: 0;
         background-position: top;
 
-
-        &.bottom-ability {
-          height: calc(var(--ghs-unit) * 47 * var(--ghs-text-factor));
-
-          .ability-back {
-            background-image: url('~src/assets/images/monster/abilities/monster-ability-back-botton.png');
-
-            .name {
-              bottom: calc(var(--ghs-unit) * 11.5 * var(--ghs-text-factor));
-              font-size: calc(var(--ghs-unit) * 1.9 * var(--ghs-text-factor));
-            }
+        .ability-back {
+          .name {
+            font-size: calc(var(--ghs-unit) * 2.2 * var(--ghs-text-factor));
+            bottom: calc(var(--ghs-unit) * 3.2 * var(--ghs-text-factor));
           }
         }
 
         .ability-front {
           .name {
             font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
-            top: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+            top: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
           }
 
           .initiative {
             font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
-            top: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
+            top: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
             left: calc(var(--ghs-unit) * 1.4 * var(--ghs-text-factor));
             width: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
             height: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
@@ -350,11 +350,10 @@ ghs-action {
 
           .index {
             position: absolute;
-            font-size: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+            font-size: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
             bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
             left: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
           }
-
 
           &:hover {
             pointer-events: none;
@@ -371,14 +370,14 @@ ghs-action {
             }
 
             .initiative {
-              top: calc(var(--ghs-unit) * 23 * var(--ghs-text-factor));
+              top: calc(var(--ghs-unit) * 24.5 * var(--ghs-text-factor));
               left: 50%;
               transform: translateX(-50%);
             }
 
             .level {
               position: absolute;
-              top: calc(var(--ghs-unit) * 5.3 * var(--ghs-text-factor));
+              top: calc(var(--ghs-unit) * 5.7 * var(--ghs-text-factor));
               left: 50%;
               transform: translateX(-50%);
               color: var(--ghs-color-black);
@@ -392,7 +391,7 @@ ghs-action {
 
             .index {
               bottom: auto;
-              top: calc(var(--ghs-unit) * 42 * var(--ghs-text-factor));
+              top: calc(var(--ghs-unit) * 44.5 * var(--ghs-text-factor));
               left: calc(50% + var(--ghs-unit) * 3 * var(--ghs-text-factor));
             }
 
@@ -414,10 +413,16 @@ ghs-action {
           }
         }
 
-        .ability-back {
-          .name {
-            font-size: calc(var(--ghs-unit) * 2.2 * var(--ghs-text-factor));
-            bottom: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
+        &.bottom-ability {
+          height: calc(var(--ghs-unit) * 50 * var(--ghs-text-factor));
+
+          .ability-back {
+            background-image: url('~src/assets/images/monster/abilities/monster-ability-back-botton.png');
+
+            .name {
+              bottom: calc(var(--ghs-unit) * 12.5 * var(--ghs-text-factor));
+              font-size: calc(var(--ghs-unit) * 1.9 * var(--ghs-text-factor));
+            }
           }
         }
 

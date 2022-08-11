@@ -54,7 +54,7 @@ header {
     display: flex;
     align-items: center;
     color: var(--ghs-color-darkgray);
-    font-size: calc(var(--ghs-unit) * 2.5);
+    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-small-text-factor));
     opacity: 0;
     transition: opacity 500ms ease-in-out;
 
@@ -66,7 +66,7 @@ header {
       cursor: pointer;
       font-family: 'ghs-title';
       color: var(--ghs-color-darkgray);
-      font-size: calc(var(--ghs-unit) * 3);
+      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-small-text-factor));
 
       &:hover {
         color: var(--ghs-color-black);

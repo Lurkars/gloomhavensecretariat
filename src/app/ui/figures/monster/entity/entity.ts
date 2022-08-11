@@ -1,7 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifier, AttackModifierType } from 'src/app/game/model/AttackModifier';
 import { Condition, ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/Condition';
+import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
@@ -25,12 +27,15 @@ export class MonsterEntityComponent extends DialogComponent {
   ConditionType = ConditionType;
   health: number = 0;
 
+  allowToggle: boolean = true;
+  dragHp: number = 0;
+  dragApplyTimeout: any | null = null;
+
+
   changeHealth(value: number) {
-    gameManager.stateManager.before();
     const old = this.entity.health;
     gameManager.entityManager.changeHealth(this.entity, value);
     this.health += this.entity.health - old;
-    gameManager.stateManager.after();
   }
 
   countAttackModifier(type: AttackModifierType): number {
@@ -115,8 +120,13 @@ export class MonsterEntityComponent extends DialogComponent {
     this.setDialogPosition();
   }
 
-  dead() {
+  toggleDead() {
     gameManager.stateManager.before();
+    this.dead();
+    gameManager.stateManager.after();
+  }
+
+  dead() {
     if (this.opened) {
       this.close();
     }
@@ -134,10 +144,7 @@ export class MonsterEntityComponent extends DialogComponent {
         gameManager.stateManager.after();
       }, 1500);
     }
-
-    gameManager.stateManager.after();
   }
-
 
   changeMaxHealth(value: number) {
     gameManager.stateManager.before();
@@ -153,11 +160,67 @@ export class MonsterEntityComponent extends DialogComponent {
     gameManager.stateManager.after();
   }
 
+  dragHpMove(value: number) {
+    if (settingsManager.settings.dragHealth) {
+      const old = this.entity.health;
+      this.entity.health += Math.floor(value / 4) - this.dragHp;
+      if (this.entity.health > this.entity.maxHealth) {
+        this.entity.health = EntityValueFunction("" + this.entity.maxHealth);
+      } else if (this.entity.health < 0) {
+        this.entity.health = 0;
+      }
+      this.dragHp += this.entity.health - old;
+    }
+  }
+
+  dragHpEnd() {
+    if (settingsManager.settings.dragHealth) {
+      if (this.dragApplyTimeout) {
+        clearTimeout(this.dragApplyTimeout);
+      }
+      this.dragApplyTimeout = setTimeout(() => {
+        if (this.dragHp != 0) {
+          this.entity.health -= this.dragHp;
+          gameManager.stateManager.before();
+          this.changeHealth(this.dragHp);
+          if (this.entity.health <= 0 || this.entity.dead && this.dragHp >= 0 && this.entity.health > 0) {
+            this.dead();
+          }
+          this.dragHp = 0;
+          this.health = 0;
+          gameManager.stateManager.after();
+        }
+
+        setTimeout(() => {
+          this.allowToggle = true;
+        }, 200);
+      }, 1500);
+    }
+  }
+
+  dragTimeout(timeout: boolean) {
+    this.allowToggle = timeout;
+  }
+
   override close(): void {
     super.close();
-    this.health = 0;
-    if (this.entity.health <= 0 || this.entity.dead) {
-      this.dead();
+    if (this.health != 0) {
+      this.entity.health -= this.health;
+      gameManager.stateManager.before();
+      this.changeHealth(this.health);
+      if (this.entity.health <= 0 || this.entity.dead && this.health >= 0 && this.entity.health > 0) {
+        this.dead();
+      }
+      this.dragHp = 0;
+      this.health = 0;
+      gameManager.stateManager.after();
+    }
+  }
+
+  override toggle(): void {
+    if (!settingsManager.settings.dragHealth || this.allowToggle) {
+      super.toggle();
+      this.allowToggle = true;
     }
   }
 }

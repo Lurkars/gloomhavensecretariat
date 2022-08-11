@@ -569,16 +569,18 @@ export class GameManager {
   }
 
   setLevel(level: number) {
-    this.game.level = level;
+    if (this.game.level != level) {
+      this.game.level = level;
 
-    this.game.figures.forEach((figure: Figure) => {
-      if (figure instanceof Monster) {
-        figure.level = level;
-        figure.entities.forEach((monsterEntity: MonsterEntity) => {
-          monsterEntity.level = level
-        })
-      }
-    })
+      this.game.figures.forEach((figure: Figure) => {
+        if (figure instanceof Monster) {
+          figure.level = level;
+          figure.entities.forEach((monsterEntity: MonsterEntity) => {
+            monsterEntity.level = level
+          })
+        }
+      })
+    }
   }
 
   scenarioLevel(): number {

@@ -155,7 +155,7 @@
             {
               "type": "attack",
               "value": 1,
-              "valueType": "plus",
+              "valueType": "add",
               "subActions": [
                 {
                   "type": "area",
@@ -223,7 +223,7 @@
                 {
                   "type": "range",
                   "value": 2,
-                  "valueType": "minus"
+                  "valueType": "subtract"
                 }
               ]
             }

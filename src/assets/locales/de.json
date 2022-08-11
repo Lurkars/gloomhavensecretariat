@@ -130,6 +130,8 @@
     "zoomReset": "Zoom zurücksetzen",
     "fullscreen": "Vollbild",
     "disableColumns": "Zweispaltiges Layout deaktivieren",
+    "dragInitiative": "Initiative ziehen",
+    "dragHealth": "TP ziehen",
     "hints": "Hinweise anzeigen",
     "browserNavigation": "Rückgängig/Wiederherstellen über Navigation",
     "maxUndo": "Max. Anzahl Rückgängigvorgänge",
@@ -272,6 +274,7 @@
       "special": "Spezial",
       "swing": "Schwingen",
       "target": "Ziel",
+      "targets": "Ziele",
       "teleport": "Teleport",
       "trigger": "Auslöser"
     },

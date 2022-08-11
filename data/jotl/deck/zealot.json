@@ -127,7 +127,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 2
+              "value": 2,
+              "valueType": "add"
             }
           ]
         }
@@ -166,7 +167,7 @@
             {
               "type": "attack",
               "value": 1,
-              "valueType": "plus"
+              "valueType": "add"
             }
           ]
         }

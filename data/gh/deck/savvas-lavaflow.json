@@ -120,7 +120,7 @@
                 {
                   "type": "attack",
                   "value": 2,
-                  "valueType": "plus"
+                  "valueType": "add"
                 },
                 {
                   "type": "condition",

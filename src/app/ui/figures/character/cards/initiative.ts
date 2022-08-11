@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, ElementRef, Input, ViewChild } from "@angular/core";
 import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -17,12 +17,59 @@ import { DialogComponent } from "src/app/ui/dialog/dialog";
 export class CharacterInitiativeComponent extends DialogComponent {
 
   @Input() character!: Character | Objective;
+  @ViewChild('overlay', { static: true }) overlay!: ElementRef;
+
   value: string = "__";
 
   characterManager: CharacterManager = gameManager.characterManager;
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
+
+  dragParent: HTMLElement | null = null;
+  allowToggle: boolean = true;
+
+  override ngOnInit(): void {
+    super.ngOnInit();
+    this.dragParent = this.overlay.nativeElement.parentNode;
+    while (this.dragParent && !this.dragParent.classList.contains('character')) {
+      this.dragParent = this.dragParent.parentElement;
+      if (this.dragParent && this.dragParent.localName == 'body') {
+        this.dragParent = null;
+      }
+    }
+  }
+
+  dragMove(value: number) {
+    if (settingsManager.settings.dragInitiative) {
+      if (value < 1) {
+        value = 1;
+      } else if (value > 99) {
+        value = 99;
+      }
+      this.character.initiative = value;
+      if (this.character instanceof Character) {
+        this.character.initiativeVisible = true;
+      }
+    }
+  }
+
+  dragEnd() {
+    if (settingsManager.settings.dragInitiative) {
+      this.setInitiative(this.character.initiative);
+    }
+  }
+
+  override toggle(): void {
+    if (!settingsManager.settings.dragInitiative || this.allowToggle) {
+      super.toggle();
+      this.allowToggle = true;
+    }
+  }
+
+  dragTimeout(timeout: boolean) {
+    this.allowToggle = timeout;
+  }
 
   pickNumber(number: number) {
     this.value = (this.value + "" + number).substring(1, 3);

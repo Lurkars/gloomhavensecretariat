@@ -129,7 +129,7 @@
             {
               "type": "attack",
               "value": 2,
-              "valueType": "plus",
+              "valueType": "add",
               "subActions": [
                 {
                   "type": "condition",
@@ -175,7 +175,7 @@
             {
               "type": "heal",
               "value": 3,
-              "valueType": "plus"
+              "valueType": "add"
             }
           ]
         },

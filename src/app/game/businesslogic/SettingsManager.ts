@@ -131,6 +131,16 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setDragInitiative(dragInitiative: boolean) {
+    this.settings.dragInitiative = dragInitiative;
+    this.storeSettings();
+  }
+
+  setDragHealth(dragHealth: boolean) {
+    this.settings.dragHealth = dragHealth;
+    this.storeSettings();
+  }
+
   setFullscreen(fullscreen: boolean) {
     this.settings.fullscreen = fullscreen;
     this.storeSettings();

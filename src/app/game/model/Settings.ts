@@ -14,6 +14,8 @@ export class Settings {
   disableStandees: boolean = false;
   fullscreen: boolean = false;
   disableColumns: boolean = false;
+  dragInitiative: boolean = true;
+  dragHealth: boolean = true;
   hints: boolean = true;
   zoom: number = 100;
   locale: string = "en";

@@ -11,7 +11,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 @Component({
   selector: 'ghs-monster-ability',
   templateUrl: './ability.html',
-  styleUrls: [ './ability.scss', '../../../popup/popup.scss' ]
+  styleUrls: [ '../../../popup/popup.scss', './ability.scss' ]
 })
 export class AbilityComponent extends PopupComponent {
 

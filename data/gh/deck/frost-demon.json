@@ -95,12 +95,12 @@
             {
               "type": "attack",
               "value": 2,
-              "valueType": "plus"
+              "valueType": "add"
             },
             {
               "type": "range",
               "value": 1,
-              "valueType": "plus"
+              "valueType": "add"
             }
           ]
         }

@@ -4,6 +4,7 @@ import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { Condition, ConditionType } from 'src/app/game/model/Condition';
+import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Summon } from 'src/app/game/model/Summon';
 import { DialogComponent } from '../../dialog/dialog';
@@ -29,6 +30,10 @@ export class CharacterComponent extends DialogComponent {
   loot: number = 0;
   levelDialog: boolean = false;
   levels: number[] = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
+
+  allowToggle: boolean = true;
+  dragHp: number = 0;
+
   constructor(private changeDetectorRef: ChangeDetectorRef) {
     super();
   }
@@ -38,17 +43,10 @@ export class CharacterComponent extends DialogComponent {
   }
 
   changeHealth(value: number) {
-    gameManager.stateManager.before();
     const old = this.character.health;
     gameManager.entityManager.changeHealth(this.character, value);
     this.health += this.character.health - old;
-    if (this.character.health <= 0 || old <= 0 && this.character.health > 0) {
-      this.exhausted();
-      this.close();
-    }
-    gameManager.stateManager.after();
   }
-
 
   changeExperience(value: number) {
     gameManager.stateManager.before();
@@ -82,8 +80,13 @@ export class CharacterComponent extends DialogComponent {
     gameManager.stateManager.after();
   }
 
-  exhausted() {
+  toggleExhausted() {
     gameManager.stateManager.before();
+    this.exhausted();
+    gameManager.stateManager.after();
+  }
+
+  exhausted() {
     this.character.exhausted = !this.character.exhausted;
     if (this.character.exhausted) {
       this.character.off = true;
@@ -92,7 +95,6 @@ export class CharacterComponent extends DialogComponent {
       this.character.off = false;
     }
     gameManager.sortFigures();
-    gameManager.stateManager.after();
   }
 
   openLevelDialog() {
@@ -122,9 +124,63 @@ export class CharacterComponent extends DialogComponent {
     gameManager.stateManager.after();
   }
 
+  dragHpMove(value: number) {
+    if (settingsManager.settings.dragHealth) {
+      const old = this.character.health;
+      this.character.health += Math.floor(value / 4) - this.dragHp;
+      if (this.character.health > this.character.maxHealth) {
+        this.character.health = EntityValueFunction("" + this.character.maxHealth);
+      } else if (this.character.health < 0) {
+        this.character.health = 0;
+      }
+      this.dragHp += this.character.health - old;
+    }
+  }
+
+  dragHpEnd() {
+    if (settingsManager.settings.dragHealth) {
+      if (this.dragHp != 0) {
+        this.character.health -= this.dragHp;
+        gameManager.stateManager.before();
+        this.changeHealth(this.dragHp);
+        if (this.character.health <= 0 || this.character.exhausted && this.dragHp >= 0 && this.character.health > 0) {
+          this.exhausted();
+        }
+        this.dragHp = 0;
+        this.health = 0;
+      }
+      setTimeout(() => {
+        this.allowToggle = true;
+      }, 200);
+      gameManager.stateManager.after();
+    }
+  }
+
+  dragTimeout(timeout: boolean) {
+    this.allowToggle = timeout;
+  }
+
+  override toggle(): void {
+    if (!settingsManager.settings.dragHealth || this.allowToggle) {
+      super.toggle();
+      this.allowToggle = true;
+    }
+  }
+
   override close(): void {
     super.close();
-    this.health = 0;
+
+    if (this.health != 0) {
+      this.character.health -= this.health;
+      gameManager.stateManager.before();
+      this.changeHealth(this.health);
+      if (this.character.health <= 0 || this.character.exhausted && this.health >= 0 && this.character.health > 0) {
+        this.exhausted();
+      }
+      this.dragHp = 0;
+      this.health = 0;
+      gameManager.stateManager.after();
+    }
     this.experience = 0;
     this.loot = 0;
     if (this.levelDialog && this.titleInput) {

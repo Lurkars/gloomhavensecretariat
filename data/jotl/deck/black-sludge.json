@@ -78,7 +78,7 @@
                 {
                   "type": "target",
                   "value": 1,
-                  "valueType": "plus"
+                  "valueType": "add"
                 }
               ]
             }
@@ -139,7 +139,7 @@
                 {
                   "type": "heal",
                   "value": 1,
-                  "valueType": "plus"
+                  "valueType": "add"
                 }
               ]
             }

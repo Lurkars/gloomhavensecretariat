@@ -88,7 +88,7 @@
             {
               "type": "attack",
               "value": 1,
-              "valueType": "plus",
+              "valueType": "add",
               "subActions": [
                 {
                   "type": "condition",
