@@ -18,43 +18,43 @@ export class DragValueDirective implements OnInit {
 
   ngOnInit(): void {
     this.elementRef.nativeElement.addEventListener('mousedown', (event: any) => {
-      if (!document.body.classList.contains('value-dragging')) {
-        this.dragStart(event.clientX);
-      }
+      this.dragStart(event.clientX);
     });
     this.elementRef.nativeElement.addEventListener('touchstart', (event: any) => {
       this.dragStart(event.touches[ 0 ].clientX);
     });
-
-    document.body.addEventListener('mousemove', (event: any) => {
-      this.dragMove(event.clientX);
-    });
-    document.body.addEventListener('touchmove', (event: any) => {
-      this.dragMove(event.touches[ 0 ].clientX);
-    });
-
-    document.body.addEventListener('mouseup', (event: any) => {
-      this.dragEnd();
-    });
-    document.body.addEventListener('touchend', (event: any) => {
-      this.dragEnd();
-    });
-    document.body.addEventListener('touchcancel', (event: any) => {
-      this.dragEnd();
-    });
   }
 
   dragStart(value: number) {
-    document.body.classList.add('value-dragging');
-    this.dragStarted = true;
-    this.dragValue = value;
-    if (!this.timeout) {
-      this.timeoutCallback.emit(true);
-      this.timeout = setTimeout(() => {
-        this.timeout = null;
-        this.timeoutCallback.emit(false);
-      }, 200);
+    if (!document.body.classList.contains('value-dragging')) {
+      document.body.classList.add('value-dragging');
+      this.dragStarted = true;
+      this.dragValue = value;
+      if (!this.timeout) {
+        this.timeoutCallback.emit(true);
+        this.timeout = setTimeout(() => {
+          this.timeout = null;
+          this.timeoutCallback.emit(false);
+        }, 200);
+      }
+      document.body.addEventListener('mousemove', this.mousemove.bind(this), false);
+      document.body.addEventListener('touchmove', this.touchmove.bind(this), false);
+      document.body.addEventListener('mouseup', this.mouseup.bind(this), false);
+      document.body.addEventListener('touchend', this.mouseup.bind(this), false);
+      document.body.addEventListener('touchcancel', this.mouseup.bind(this), false);
     }
+  }
+
+  mousemove(event: any) {
+    this.dragMove(event.clientX);
+  }
+
+  touchmove(event: any) {
+    this.dragMove(event.touches[ 0 ].clientX);
+  }
+
+  mouseup(event: any) {
+    this.dragEnd();
   }
 
   dragMove(value: number) {
@@ -74,6 +74,11 @@ export class DragValueDirective implements OnInit {
       this.dragStarted = false;
       this.dragEndCallback.emit();
       document.body.classList.remove('value-dragging');
+      document.body.removeEventListener('mousemove', this.mousemove.bind(this), false);
+      document.body.removeEventListener('touchmove', this.touchmove.bind(this), false);
+      document.body.removeEventListener('mouseup', this.mouseup.bind(this), false);
+      document.body.removeEventListener('touchend', this.mouseup.bind(this), false);
+      document.body.removeEventListener('touchcancel', this.mouseup.bind(this), false);
     }
   }
 

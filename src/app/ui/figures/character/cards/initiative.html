@@ -1,4 +1,4 @@
-<div #overlay drag-value [parent]="dragParent" (dragMove)="dragMove($event)"  (dragEnd)="dragEnd()" (onTimeout)="dragTimeout($event)" >
+<div #overlay>
   <div class="overlay" *ngIf="showOverlay()" (click)="toggle()" title="{{'game.figure.setInitiative' | ghsLabel}}">
   </div>
 </div>

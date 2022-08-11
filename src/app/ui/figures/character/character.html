@@ -28,9 +28,11 @@
         <img class="ghs-svg exhausted" *ngIf="character.exhausted" src="./assets/images/status/exhausted.svg" />
       </div>
       <div class="status-bar">
-        <div class="health" title="{{'game.health' | ghsLabel}}" drag-value (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd()" (onTimeout)="dragTimeout($event)">
+        <div class="health" title="{{'game.health' | ghsLabel}}">
           <img src="./assets/images/status/health.svg" />
-          {{character.health}}/{{character.maxHealth}} <span class="drag-hp" [ngClass]="{'health-negative' : dragHp < 0, 'health-positive' : dragHp > 0}"  *ngIf="dragHp">{{dragHp | ghsValueSign}}</span>
+          {{character.health}}/{{character.maxHealth}} <span class="drag-hp"
+            [ngClass]="{'health-negative' : dragHp < 0, 'health-positive' : dragHp > 0}" *ngIf="dragHp">{{dragHp |
+            ghsValueSign}}</span>
         </div>
         <div class="conditions">
           <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.activeConditions(character)">
