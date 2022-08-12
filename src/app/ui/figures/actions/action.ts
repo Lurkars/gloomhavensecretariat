@@ -102,8 +102,11 @@ export class ActionComponent implements OnInit {
       return "+ " + this.action.value;
     } else if (this.action.valueType == ActionValueType.minus) {
       return "- " + this.action.value;
-    } else {
+    } else if (this.action.value !== undefined) {
       return this.action.value;
+    }
+    else {
+      return ' ';
     }
   }
 

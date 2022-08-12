@@ -154,15 +154,17 @@
       "actions": [
         {
           "type": "push",
-          "value": 1
-        },
-        {
-          "type": "condition",
-          "value": "poison",
+          "value": 1,
           "subActions": [
             {
-              "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "type": "condition",
+              "value": "poison",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "enemiesAdjacent"
+                }
+              ]
             }
           ]
         },
