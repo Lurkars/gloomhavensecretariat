@@ -129,6 +129,7 @@
     "zoomOut": "Zoom Out",
     "zoomReset": "Reset Zoom",
     "fullscreen": "Fullscreen",
+    "autoscroll": "Autoscroll",
     "disableColumns": "Disable column layout",
     "dragInitiative": "Drag Initiative",
     "dragHealth": "Drag HP",
@@ -362,7 +363,8 @@
       "drawAnother": "Draw Another",
       "drawExtra": "Draw Extra",
       "edit": "Edit",
-      "restore": "Restore defaults"
+      "restore": "Restore defaults",
+      "defaultSort" : "Sort"
     },
     "attackModifiers": {
       ".": "Attack Modifier Deck",

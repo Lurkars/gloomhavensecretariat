@@ -129,6 +129,7 @@
     "zoomOut": "Rauszoomen",
     "zoomReset": "Zoom zurücksetzen",
     "fullscreen": "Vollbild",
+    "autoscroll": "Automatisch Scrollen",
     "disableColumns": "Zweispaltiges Layout deaktivieren",
     "dragInitiative": "Initiative ziehen",
     "dragHealth": "TP ziehen",
@@ -360,7 +361,8 @@
       "drawAnother": "Weitere Aufdecken",
       "drawExtra": "Zusätzlich Aufdecken",
       "edit": "Editieren",
-      "restore": "Standard wiederherstellen"
+      "restore": "Standard wiederherstellen",
+      "defaultSort" : "Sortieren"
     },
     "attackModifiers": {
       ".": "Angriffsmodifikatordeck",
