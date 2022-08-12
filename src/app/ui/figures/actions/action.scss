@@ -28,7 +28,8 @@
 
   .custom-value {
     font-size: 82%;
-    padding: 0 calc(var(--ghs-unit) * 2);
+    line-height: 82%;
+    padding: 0 calc(var(--ghs-unit) * 1.5);
   }
 
 
@@ -258,6 +259,17 @@
         .action-custom,
         .action-specialTarget {
           font-size: 82%;
+        }
+      }
+    }
+
+    ghs-action {
+
+      &.element-subaction {
+
+        .action-custom,
+        .action-specialTarget {
+          font-size: 100%;
         }
       }
     }

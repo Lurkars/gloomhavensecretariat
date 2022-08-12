@@ -91,17 +91,17 @@
             {
               "type": "target",
               "value": 3
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "dark",
-          "valueType": "minus",
-          "subActions": [
+            },
             {
-              "type": "condition",
-              "value": "muddle"
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "muddle"
+                }
+              ]
             }
           ]
         }
@@ -120,17 +120,19 @@
         {
           "type": "attack",
           "value": 1,
-          "valueType": "plus"
-        },
-        {
-          "type": "element",
-          "value": "dark",
-          "valueType": "minus",
+          "valueType": "plus",
           "subActions": [
             {
-              "type": "attack",
-              "value": 2,
-              "valueType": "add"
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "add"
+                }
+              ]
             }
           ]
         }

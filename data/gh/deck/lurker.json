@@ -9,16 +9,24 @@
       "actions": [
         {
           "type": "shield",
-          "value": 1
-        },
-        {
-          "type": "element",
-          "value": "ice",
-          "valueType": "minus",
+          "value": 1,
           "subActions": [
             {
-              "type": "shield",
-              "value": 2
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "shield",
+                  "value": 2,
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "game.custom.instead"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -126,22 +134,6 @@
       "initiative": 41,
       "actions": [
         {
-          "type": "move",
-          "value": 0,
-          "valueType": "plus"
-        },
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "condition",
-              "value": "wound"
-            }
-          ]
-        },
-        {
           "type": "element",
           "value": "ice",
           "valueType": "minus",
@@ -155,6 +147,22 @@
                   "value": "self"
                 }
               ]
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
             }
           ]
         }

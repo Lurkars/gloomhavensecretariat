@@ -41,7 +41,7 @@ export class GameManager {
   attackModifierManager: AttackModifierManager;
   working: boolean = false;
 
-  uiChange: EventEmitter<boolean> = new EventEmitter();
+  uiChange = new EventEmitter();
 
   constructor() {
     this.stateManager = new StateManager(this.game);
@@ -50,7 +50,7 @@ export class GameManager {
     this.monsterManager = new MonsterManager(this.game);
     this.attackModifierManager = new AttackModifierManager(this.game);
     this.uiChange.subscribe({
-      next: (value: boolean) => {
+      next: () => {
         if (settingsManager.settings.levelCalculation) {
           this.calculateScenarioLevel();
         }
@@ -200,7 +200,7 @@ export class GameManager {
         this.toggleFigure(this.game.figures[ 0 ]);
       }
     }
-    this.uiChange.emit(true);
+    this.uiChange.emit();
     setTimeout(() => this.working = false, 1);
   }
 
@@ -237,8 +237,8 @@ export class GameManager {
           return -1;
         } else if (a instanceof Objective && b instanceof Monster) {
           return 1;
-        } else if (a instanceof Monster && b instanceof Monster && a.entities.length != b.entities.length) {
-          return b.entities.length - a.entities.length;
+        } else if (a instanceof Monster && b instanceof Monster) {
+          return 0;
         }
         return aName < bName ? -1 : 1;
       } else if (settingsManager.settings.initiativeRequired) {
@@ -667,7 +667,7 @@ export class GameManager {
       }
     })
 
-    this.uiChange.emit(true);
+    this.uiChange.emit();
   }
 
   addSection(section: SectionData) {

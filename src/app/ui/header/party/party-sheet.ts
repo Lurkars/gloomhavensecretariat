@@ -18,7 +18,7 @@ export class PartySheetDialog extends PopupComponent {
   constructor() {
     super();
     gameManager.uiChange.subscribe({
-      next: (value: boolean) => {
+      next: () => {
         this.party = gameManager.game.party || new Party();
       }
     })

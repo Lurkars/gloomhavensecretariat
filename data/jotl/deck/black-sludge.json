@@ -154,12 +154,12 @@
       "actions": [
         {
           "type": "push",
-          "value": 1
-        },
-        {
-          "type": "condition",
-          "value": "poison",
+          "value": 1,
           "subActions": [
+            {
+              "type": "condition",
+              "value": "poison"
+            },
             {
               "type": "specialTarget",
               "value": "enemiesAdjacent"
@@ -223,13 +223,13 @@
             {
               "type": "specialTarget",
               "value": "self"
+            },
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "plus"
             }
           ]
-        },
-        {
-          "type": "element",
-          "value": "earth",
-          "valueType": "plus"
         }
       ]
     }

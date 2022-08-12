@@ -60,6 +60,9 @@ export class MonsterManager {
         this.shuffleAbilities(monster);
       }
       this.game.figures.push(monster);
+      if (gameManager.game.state == GameState.next) {
+        gameManager.sortFigures();
+      }
     }
   }
 
@@ -126,9 +129,6 @@ export class MonsterManager {
       } else {
         monster.off = true;
       }
-      gameManager.sortFigures();
-    } else if (monster.entities.filter((monsterEntity: MonsterEntity) => !monsterEntity.dead && monsterEntity.health > 0).length == 0) {
-      gameManager.sortFigures();
     }
   }
 
@@ -227,7 +227,7 @@ export class MonsterManager {
 
 
   shuffleAbilities(monster: Monster) {
-    if (gameManager.game.state == GameState.draw) {
+    if (gameManager.game.state == GameState.draw || monster.entities.length == 0) {
       monster.ability = -1;
     } else {
       monster.ability = 0;

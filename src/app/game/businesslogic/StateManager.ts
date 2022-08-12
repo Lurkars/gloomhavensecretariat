@@ -77,7 +77,7 @@ export class StateManager {
           gameManager.stateManager.addToUndo();
           gameManager.game.fromModel(gameModel);
           gameManager.stateManager.saveLocal(0);
-          gameManager.uiChange.emit(true);
+          gameManager.uiChange.emit();
           break;
         case "settings":
           if (settingsManager.settings.serverSettings) {
@@ -222,7 +222,7 @@ export class StateManager {
     }
 
     this.lastSaveTimestamp = new Date().getTime();
-    gameManager.uiChange.emit(true);
+    gameManager.uiChange.emit();
   }
 
   hasUndo(): boolean {

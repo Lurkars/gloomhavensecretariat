@@ -50,16 +50,18 @@
         {
           "type": "attack",
           "value": 0,
-          "valueType": "plus"
-        },
-        {
-          "type": "element",
-          "value": "fire",
-          "valueType": "minus",
+          "valueType": "plus",
           "subActions": [
             {
-              "type": "area",
-              "value": "(1,0,target)|(2,0,target)|(0,1,target)|(1,1,target)|(2,1,target)|(1,2,target)|(2,2,target)"
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "area",
+                  "value": "(1,0,target)|(2,0,target)|(0,1,target)|(1,1,target)|(2,1,target)|(1,2,target)|(2,2,target)"
+                }
+              ]
             }
           ]
         }
@@ -77,19 +79,17 @@
             {
               "type": "area",
               "value": "(2,0,target)|(1,1,target)|(1,2,active)"
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "fire",
-          "valueType": "minus",
-          "subActions": [
+            },
             {
-              "type": "attack",
-              "value": 1,
-              "valueType": "add",
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
               "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add"
+                },
                 {
                   "type": "condition",
                   "value": "wound",
@@ -162,6 +162,17 @@
       "shuffle": true,
       "actions": [
         {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.flame-demon.2%"
+            }
+          ]
+        },
+        {
           "type": "move",
           "value": 0,
           "valueType": "plus"
@@ -178,17 +189,6 @@
             {
               "type": "target",
               "value": 2
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "fire",
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "custom",
-              "value": "%data.custom.gh.flame-demon.2%"
             }
           ]
         }

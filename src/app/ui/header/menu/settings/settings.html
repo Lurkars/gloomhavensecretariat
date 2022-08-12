@@ -29,9 +29,9 @@
           ghsLabel}}
         </label>
       </div>
-      <div class="line">
+      <div class="line disabled">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.dragInitiative"
+          <input type="checkbox" [checked]="false && settingsManager.settings.dragInitiative"
             (change)="settingsManager.setDragInitiative(!settingsManager.settings.dragInitiative)">{{'settings.dragInitiative'
           | ghsLabel}}
         </label>
@@ -86,11 +86,18 @@
           {{'settings.initiativeRequired' | ghsLabel}}
         </label>
       </div>
-      <div class="line">
+      <div class="line disabled">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.dragHealth"
+          <input type="checkbox" [checked]="false && settingsManager.settings.dragHealth"
             (change)="settingsManager.setDragHealth(!settingsManager.settings.dragHealth)">{{'settings.dragHealth'
           | ghsLabel}}
+        </label>
+      </div>
+      <div class="line">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.autoscroll"
+            (change)="settingsManager.setAutoscroll(!settingsManager.settings.autoscroll)">
+          {{'settings.autoscroll' | ghsLabel}}
         </label>
       </div>
       <div class="line">

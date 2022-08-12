@@ -93,6 +93,10 @@
           ]
         }
       ],
+      "bottomTypes": [
+        "infinity"
+      ],
+      "bottomSlots": 3,
       "bottomActions": [
         {
           "type": "custom",
@@ -101,24 +105,6 @@
         {
           "type": "element",
           "value": "fire"
-        },
-        {
-          "type": "card",
-          "value": "infinity",
-          "subActions": [
-            {
-              "type": "card",
-              "value": "slot"
-            },
-            {
-              "type": "card",
-              "value": "slot"
-            },
-            {
-              "type": "card",
-              "value": "slot"
-            }
-          ]
         }
       ]
     },
@@ -220,17 +206,17 @@
             {
               "type": "condition",
               "value": "poison"
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "light",
-          "valueType": "minus",
-          "subActions": [
+            },
             {
               "type": "element",
-              "value": "dark"
+              "value": "light",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "dark"
+                }
+              ]
             }
           ]
         }
@@ -276,17 +262,17 @@
             {
               "type": "specialTarget",
               "value": "enemiesAdjacent"
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "ice",
-          "valueType": "minus",
-          "subActions": [
+            },
             {
               "type": "element",
-              "value": "fire"
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "fire"
+                }
+              ]
             }
           ]
         }
@@ -322,6 +308,9 @@
           ]
         }
       ],
+      "bottomTypes": [
+        "round"
+      ],
       "bottomActions": [
         {
           "type": "move",
@@ -334,10 +323,6 @@
         {
           "type": "element",
           "value": "dark"
-        },
-        {
-          "type": "card",
-          "value": "round"
         }
       ]
     },
@@ -346,6 +331,9 @@
       "cardId": 608,
       "level": 0,
       "initiative": 20,
+      "types": [
+        "round"
+      ],
       "actions": [
         {
           "type": "retaliate",
@@ -369,10 +357,6 @@
               ]
             }
           ]
-        },
-        {
-          "type": "card",
-          "value": "round"
         }
       ],
       "bottomActions": [
@@ -442,6 +426,9 @@
           "value": "fire|dark"
         }
       ],
+      "bottomTypes": [
+        "round"
+      ],
       "bottomActions": [
         {
           "type": "custom",
@@ -463,10 +450,6 @@
               ]
             }
           ]
-        },
-        {
-          "type": "card",
-          "value": "round"
         }
       ]
     },
@@ -493,7 +476,7 @@
                 {
                   "type": "pierce",
                   "value": 2,
-                  "valueType": "plus"
+                  "valueType": "add"
                 }
               ]
             },
@@ -507,16 +490,18 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.10%"
-        },
-        {
-          "type": "element",
-          "value": "dark",
-          "valueType": "minus",
+          "value": "%data.custom.fc.manifestation-of-corruption.10%",
           "subActions": [
             {
-              "type": "custom",
-              "value": "%data.custom.fc.manifestation-of-corruption.11%"
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fc.manifestation-of-corruption.11%"
+                }
+              ]
             }
           ]
         }
@@ -608,6 +593,9 @@
           ]
         }
       ],
+      "bottomTypes": [
+        "round"
+      ],
       "bottomActions": [
         {
           "type": "shield",
@@ -672,10 +660,6 @@
               ]
             }
           ]
-        },
-        {
-          "type": "card",
-          "value": "round"
         }
       ]
     },
@@ -696,6 +680,9 @@
           ]
         }
       ],
+      "bottomTypes": [
+        "round"
+      ],
       "bottomActions": [
         {
           "type": "move",
@@ -708,10 +695,6 @@
         {
           "type": "element",
           "value": "dark"
-        },
-        {
-          "type": "card",
-          "value": "round"
         }
       ]
     },
@@ -723,31 +706,29 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.5%"
-        },
-        {
-          "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.6%"
-        },
-        {
-          "type": "element",
-          "value": "dark",
-          "valueType": "minus",
+          "value": "%data.custom.fc.manifestation-of-corruption.5%",
           "subActions": [
             {
-              "type": "custom",
-              "value": "%data.custom.fc.manifestation-of-corruption.7%"
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "fire",
-          "valueType": "minus",
-          "subActions": [
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fc.manifestation-of-corruption.7%"
+                }
+              ]
+            },
             {
-              "type": "custom",
-              "value": "%data.custom.fc.manifestation-of-corruption.8%"
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.fc.manifestation-of-corruption.8%"
+                }
+              ]
             }
           ]
         }
@@ -778,23 +759,23 @@
           "value": "bless|strengthen",
           "subActions": [
             {
-              "type": "area",
-              "value": "(1,0,target)"
+              "type": "custom",
+              "value": "%data.custom.fc.manifestation-of-corruption.6%"
             },
             {
               "type": "specialTarget",
               "value": "selfAlliesAffect"
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "all",
-          "valueType": "minus",
-          "subActions": [
+            },
             {
               "type": "element",
-              "value": "dark|fire"
+              "value": "all",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "dark|fire"
+                }
+              ]
             }
           ]
         }
@@ -843,37 +824,25 @@
           ]
         }
       ],
+      "bottomTypes": [
+        "infinity"
+      ],
+      "bottomSlots": 3,
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.22%"
-        },
-        {
-          "type": "element",
-          "value": "all",
-          "valueType": "minus",
+          "value": "%data.custom.fc.manifestation-of-corruption.22%",
           "subActions": [
             {
               "type": "element",
-              "value": "dark|fire"
-            }
-          ]
-        },
-        {
-          "type": "card",
-          "value": "infinity",
-          "subActions": [
-            {
-              "type": "card",
-              "value": "slot"
-            },
-            {
-              "type": "card",
-              "value": "slot"
-            },
-            {
-              "type": "card",
-              "value": "slot"
+              "value": "all",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "dark|fire"
+                }
+              ]
             }
           ]
         }
@@ -987,6 +956,10 @@
       "cardId": 618,
       "level": "A",
       "initiative": 50,
+      "types": [
+        "infinity",
+        "lost"
+      ],
       "actions": [
         {
           "type": "custom",
@@ -999,11 +972,11 @@
         {
           "type": "element",
           "value": "dark|fire"
-        },
-        {
-          "type": "card",
-          "value": "infinity|lost"
         }
+      ],
+      "bottomTypes": [
+        "infinity",
+        "lost"
       ],
       "bottomActions": [
         {
@@ -1017,10 +990,6 @@
         {
           "type": "element",
           "value": "dark|fire"
-        },
-        {
-          "type": "card",
-          "value": "infinity|lost"
         }
       ]
     },
@@ -1029,6 +998,9 @@
       "cardId": 619,
       "level": "B",
       "initiative": 50,
+      "types": [
+        "lost"
+      ],
       "actions": [
         {
           "type": "attack",
@@ -1045,11 +1017,10 @@
         {
           "type": "custom",
           "value": "%data.custom.fc.manifestation-of-corruption.17%"
-        },
-        {
-          "type": "card",
-          "value": "lost"
         }
+      ],
+      "bottomTypes": [
+        "lost"
       ],
       "bottomActions": [
         {
@@ -1067,10 +1038,6 @@
         {
           "type": "custom",
           "value": "%data.custom.fc.manifestation-of-corruption.17%"
-        },
-        {
-          "type": "card",
-          "value": "lost"
         }
       ]
     },
@@ -1079,6 +1046,9 @@
       "cardId": 620,
       "level": "C",
       "initiative": 50,
+      "types": [
+        "lost"
+      ],
       "actions": [
         {
           "type": "custom",
@@ -1103,10 +1073,6 @@
               "value": "self"
             }
           ]
-        },
-        {
-          "type": "card",
-          "value": "lost"
         }
       ],
       "bottomActions": [

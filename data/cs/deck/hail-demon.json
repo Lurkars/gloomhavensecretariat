@@ -38,17 +38,17 @@
               "type": "range",
               "value": 1,
               "valueType": "plus"
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "air",
-          "valueType": "minus",
-          "subActions": [
+            },
             {
-              "type": "condition",
-              "value": "chill"
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "chill"
+                }
+              ]
             }
           ]
         }
@@ -66,16 +66,18 @@
         {
           "type": "attack",
           "value": 0,
-          "valueType": "plus"
-        },
-        {
-          "type": "element",
-          "value": "air",
-          "valueType": "minus",
+          "valueType": "plus",
           "subActions": [
             {
-              "type": "pull",
-              "value": 2
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "pull",
+                  "value": 2
+                }
+              ]
             }
           ]
         }
@@ -205,17 +207,17 @@
             {
               "type": "specialTarget",
               "value": "enemyRange:2"
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "ice",
-          "valueType": "minus",
-          "subActions": [
+            },
             {
               "type": "element",
-              "value": "air"
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "air"
+                }
+              ]
             }
           ]
         }

@@ -63,7 +63,7 @@ export class SettingsManager {
     if (this.settings.serverSettings) {
       gameManager.stateManager.saveSettings();
     }
-    gameManager.uiChange.emit(true);
+    gameManager.uiChange.emit();
   }
 
   setCalculate(calculate: boolean) {
@@ -148,6 +148,11 @@ export class SettingsManager {
 
   setDisableColumns(disableColumns: boolean) {
     this.settings.disableColumns = disableColumns;
+    this.storeSettings();
+  }
+
+  setAutoscroll(autoscroll: boolean) {
+    this.settings.autoscroll = autoscroll;
     this.storeSettings();
   }
 

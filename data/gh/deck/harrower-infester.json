@@ -135,17 +135,17 @@
             {
               "type": "area",
               "value": "(1,0,active)|(1,1,target)|(2,2,target)|(2,3,target)"
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "dark",
-          "valueType": "minus",
-          "subActions": [
+            },
             {
-              "type": "custom",
-              "value": "%data.custom.gh.harrower-infester.1%"
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.gh.harrower-infester.1%"
+                }
+              ]
             }
           ]
         }
@@ -168,19 +168,17 @@
             {
               "type": "target",
               "value": 2
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "dark",
-          "valueType": "minus",
-          "subActions": [
+            },
             {
-              "type": "attack",
-              "value": 2,
-              "valueType": "add",
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
               "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "add"
+                },
                 {
                   "type": "condition",
                   "value": "disarm"

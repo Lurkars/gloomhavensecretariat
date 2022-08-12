@@ -40,6 +40,7 @@
     <div class="insert-menu">
       <a *ngIf="edit" (click)="draw()">{{'game.cards.drawAnother' | ghsLabel}}</a>
       <a *ngIf="edit" (click)="restoreDefault()">{{'game.cards.restore' | ghsLabel}}</a>
+      <a *ngIf="edit" (click)="defaultSort()">{{'game.cards.defaultSort' | ghsLabel}}</a>
 
       <label *ngIf="opened && gameManager.monsterManager.getSameDeckMonster(monster)"><input type="checkbox"
           (click)="toggleDrawExtra()" [checked]="monster.drawExtra">{{'game.cards.drawExtra' |

@@ -117,18 +117,18 @@
             {
               "type": "condition",
               "value": "muddle"
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "fire",
-          "valueType": "minus",
-          "subActions": [
+            },
             {
-              "type": "range",
-              "value": 2,
-              "valueType": "add"
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 2,
+                  "valueType": "add"
+                }
+              ]
             }
           ]
         }
@@ -156,18 +156,18 @@
             {
               "type": "condition",
               "value": "poison"
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "air",
-          "valueType": "minus",
-          "subActions": [
+            },
             {
-              "type": "attack",
-              "value": 1,
-              "valueType": "add"
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add"
+                }
+              ]
             }
           ]
         }

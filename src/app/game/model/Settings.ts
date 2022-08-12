@@ -18,6 +18,7 @@ export class Settings {
   dragHealth: boolean = true;
   hints: boolean = true;
   zoom: number = 100;
+  autoscroll: boolean = true;
   locale: string = "en";
   editionDataUrls: string[] = [];
   excludeEditionDataUrls: string[] = [];

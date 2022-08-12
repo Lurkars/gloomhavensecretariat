@@ -83,17 +83,17 @@
             {
               "type": "range",
               "value": 4
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "earth",
-          "valueType": "minus",
-          "subActions": [
+            },
             {
-              "type": "target",
-              "value": 2
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": 2
+                }
+              ]
             }
           ]
         }
@@ -126,7 +126,7 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus"
+          "valueType": "minus"
         },
         {
           "type": "attack",
@@ -136,17 +136,17 @@
             {
               "type": "specialTarget",
               "value": "enemiesAdjacent"
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "earth",
-          "valueType": "minus",
-          "subActions": [
+            },
             {
-              "type": "push",
-              "value": 1
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "push",
+                  "value": 1
+                }
+              ]
             }
           ]
         }
@@ -158,23 +158,25 @@
       "actions": [
         {
           "type": "move",
-          "value": 3,
+          "value": 1,
           "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 0,
-          "valueType": "plus"
-        },
-        {
-          "type": "element",
-          "value": "air",
-          "valueType": "minus",
+          "valueType": "plus",
           "subActions": [
             {
-              "type": "attack",
-              "value": 2,
-              "valueType": "subtract"
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "subtract"
+                }
+              ]
             }
           ]
         }

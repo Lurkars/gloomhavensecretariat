@@ -28,7 +28,7 @@ export class ConditionsComponent implements OnInit {
 
   constructor() {
     gameManager.uiChange.subscribe({
-      next: (value: boolean) => {
+      next: () => {
         this.initializeConditions;
       }
     })

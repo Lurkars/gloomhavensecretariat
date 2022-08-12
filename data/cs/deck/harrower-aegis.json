@@ -68,17 +68,17 @@
             {
               "type": "specialTarget",
               "value": "enemiesRange:3"
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "all",
-          "valueType": "minus",
-          "subActions": [
+            },
             {
               "type": "element",
-              "value": "fire"
+              "value": "all",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "fire"
+                }
+              ]
             }
           ]
         }
@@ -104,17 +104,17 @@
             {
               "type": "condition",
               "value": "immobilize"
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "earth",
-          "valueType": "minus",
-          "subActions": [
+            },
             {
-              "type": "custom",
-              "value": "%data.custom.cs.harrower-aegis.4%"
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.cs.harrower-aegis.4%"
+                }
+              ]
             }
           ]
         }
@@ -141,17 +141,17 @@
             {
               "type": "target",
               "value": 3
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "fire",
-          "valueType": "minus",
-          "subActions": [
+            },
             {
-              "type": "custom",
-              "value": "%data.custom.cs.harrower-aegis.5%"
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.cs.harrower-aegis.5%"
+                }
+              ]
             }
           ]
         }
@@ -288,17 +288,17 @@
             {
               "type": "custom",
               "value": "%data.custom.cs.harrower-aegis.8%"
-            }
-          ]
-        },
-        {
-          "type": "elementHalf",
-          "value": "earth|fire",
-          "valueType": "minus",
-          "subActions": [
+            },
             {
-              "type": "condition",
-              "value": "immobilize"
+              "type": "elementHalf",
+              "value": "earth|fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "immobilize"
+                }
+              ]
             }
           ]
         }

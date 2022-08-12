@@ -34,13 +34,15 @@ export class HeaderComponent implements OnInit {
       this.init = true;
     }, 1500);
 
-    gameManager.uiChange.subscribe((value: boolean) => {
-      if (this.hintStateValue() != this.hintState) {
-        this.init = false;
-        setTimeout(() => {
-          this.hintState = this.hintStateValue();
-          this.init = true;
-        }, 500);
+    gameManager.uiChange.subscribe({
+      next: () => {
+        if (this.hintStateValue() != this.hintState) {
+          this.init = false;
+          setTimeout(() => {
+            this.hintState = this.hintStateValue();
+            this.init = true;
+          }, 500);
+        }
       }
     })
   }

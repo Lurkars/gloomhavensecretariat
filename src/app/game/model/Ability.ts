@@ -9,8 +9,10 @@ export class Ability {
   bottomActions: Action[];
   level: number | string = 0;
   hint: string | undefined;
-  cardType: AbilityCardType | undefined;
+  types: AbilityCardType[] = [];
   slots: number = 0;
+  bottomTypes: AbilityCardType[] = [];
+  bottomSlots: number = 0;
 
   constructor(cardId: number | undefined, name: string | undefined, initiative: number,
     actions: Action[],

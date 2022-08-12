@@ -23,7 +23,7 @@ export class MainComponent implements OnInit {
 
   constructor(private element: ElementRef) {
     gameManager.uiChange.subscribe({
-      next: (value: boolean) => {
+      next: () => {
         this.calcColumns();
       }
     })
@@ -48,7 +48,7 @@ export class MainComponent implements OnInit {
       this.calcColumns();
     });
 
-    this.gameManager.uiChange.emit(true);
+    this.gameManager.uiChange.emit();
   }
 
   figures(column: number): Figure[] {

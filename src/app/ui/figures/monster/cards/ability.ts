@@ -136,4 +136,8 @@ export class AbilityComponent extends PopupComponent {
 
     return settingsManager.getLabel(label);
   }
+
+  defaultSort() {
+    this.monster.abilities = this.monster.abilities.sort((a, b) => a - b);
+  }
 }

@@ -31,16 +31,18 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.cs.blood-ooze.2%"
-        },
-        {
-          "type": "element",
-          "value": "fire",
-          "valueType": "minus",
+          "value": "%data.custom.cs.blood-ooze.2%",
           "subActions": [
             {
-              "type": "custom",
-              "value": "%data.custom.cs.blood-ooze.3%"
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "%data.custom.cs.blood-ooze.3%"
+                }
+              ]
             }
           ]
         }

@@ -138,37 +138,39 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.savvas-lavaflow.2%"
-        },
-        {
-          "type": "element",
-          "value": "fire",
-          "valueType": "minus",
+          "value": "%data.custom.gh.savvas-lavaflow.2%",
           "subActions": [
             {
-              "type": "condition",
-              "value": "wound",
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
               "subActions": [
                 {
-                  "type": "specialTarget",
-                  "value": "enemies"
+                  "type": "condition",
+                  "value": "wound",
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "enemies"
+                    }
+                  ]
                 }
               ]
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "earth",
-          "valueType": "minus",
-          "subActions": [
+            },
             {
-              "type": "condition",
-              "value": "disarm",
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
               "subActions": [
                 {
-                  "type": "specialTarget",
-                  "value": "enemies"
+                  "type": "condition",
+                  "value": "disarm",
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "enemies"
+                    }
+                  ]
                 }
               ]
             }

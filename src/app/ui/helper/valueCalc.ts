@@ -25,7 +25,7 @@ export class ValueCalcDirective implements OnInit, OnChanges {
     this.L = gameManager.game.level;
     this.calc = settingsManager.settings.calculate;
     gameManager.uiChange.subscribe({
-      next: (value: boolean) => {
+      next: () => {
         if (this.calc != settingsManager.settings.calculate || this.C != gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).length || this.L != gameManager.game.level) {
           this.C = gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).length;
           this.L = gameManager.game.level;
@@ -55,8 +55,10 @@ export class ValueCalcDirective implements OnInit, OnChanges {
       return value;
     }
 
-    if (!value) {
+    if (0 == +value) {
       return "-";
+    } else if (!value) {
+      return "";
     }
 
     let L = gameManager.game.level;

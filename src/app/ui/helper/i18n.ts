@@ -90,7 +90,7 @@ export class I18nDirective implements OnInit, OnChanges {
     this.C = gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).length;
     this.L = gameManager.game.level;
     gameManager.uiChange.subscribe({
-      next: (value: boolean) => {
+      next: () => {
         if (this.C != gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).length || this.L != gameManager.game.level) {
           this.C = gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).length;
           this.L = gameManager.game.level;

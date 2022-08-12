@@ -84,23 +84,23 @@
             {
               "type": "range",
               "value": 2
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "ice",
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "attack",
-              "value": 2,
-              "valueType": "add"
             },
             {
-              "type": "range",
-              "value": 1,
-              "valueType": "add"
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "add"
+                },
+                {
+                  "type": "range",
+                  "value": 1,
+                  "valueType": "add"
+                }
+              ]
             }
           ]
         }

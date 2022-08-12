@@ -31,7 +31,7 @@ export class AttackModifierComponent extends PopupComponent {
     this.currentAttackModifier = gameManager.game.attackModifier;
 
     gameManager.uiChange.subscribe({
-      next: (value: boolean) => {
+      next: () => {
         if (this.currentAttackModifier != gameManager.game.attackModifier) {
           this.currentAttackModifier = gameManager.game.attackModifier;
           this.element.nativeElement.getElementsByClassName('attack-modifiers')[ 0 ].classList.add('working');

@@ -20,7 +20,7 @@ export class LevelComponent extends DialogComponent {
   constructor() {
     super();
     gameManager.uiChange.subscribe({
-      next: (value: boolean) => {
+      next: () => {
         this.calculateValues();
       }
     })

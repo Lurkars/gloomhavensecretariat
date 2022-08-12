@@ -98,18 +98,18 @@
             {
               "type": "specialTarget",
               "value": "self"
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "fire",
-          "valueType": "minus",
-          "subActions": [
+            },
             {
-              "type": "heal",
-              "value": "2",
-              "valueType": "add"
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "heal",
+                  "value": "2",
+                  "valueType": "add"
+                }
+              ]
             }
           ]
         }

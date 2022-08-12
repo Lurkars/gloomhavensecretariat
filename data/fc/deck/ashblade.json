@@ -103,16 +103,18 @@
         {
           "type": "attack",
           "value": 0,
-          "valueType": "plus"
-        },
-        {
-          "type": "element",
-          "value": "fire",
-          "valueType": "minus",
+          "valueType": "plus",
           "subActions": [
             {
-              "type": "condition",
-              "value": "disarm"
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "disarm"
+                }
+              ]
             }
           ]
         }
@@ -130,20 +132,22 @@
         {
           "type": "attack",
           "value": 0,
-          "valueType": "plus"
-        },
-        {
-          "type": "element",
-          "value": "dark",
-          "valueType": "minus",
+          "valueType": "plus",
           "subActions": [
             {
-              "type": "condition",
-              "value": "invisible",
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
               "subActions": [
                 {
-                  "type": "specialTarget",
-                  "value": "self"
+                  "type": "condition",
+                  "value": "invisible",
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self"
+                    }
+                  ]
                 }
               ]
             }
@@ -163,27 +167,29 @@
         {
           "type": "attack",
           "value": 2,
-          "valueType": "plus"
-        },
-        {
-          "type": "element",
-          "value": "fire",
-          "valueType": "minus",
+          "valueType": "plus",
           "subActions": [
             {
-              "type": "condition",
-              "value": "wound"
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "dark",
-          "valueType": "minus",
-          "subActions": [
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "wound"
+                }
+              ]
+            },
             {
-              "type": "condition",
-              "value": "curse"
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "curse"
+                }
+              ]
             }
           ]
         }

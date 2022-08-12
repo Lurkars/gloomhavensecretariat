@@ -79,10 +79,6 @@
               "value": 3
             },
             {
-              "type": "target",
-              "value": 2
-            },
-            {
               "type": "condition",
               "value": "poison"
             }

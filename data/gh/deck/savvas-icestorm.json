@@ -13,21 +13,21 @@
             {
               "type": "specialTarget",
               "value": "enemiesAdjacent"
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "air",
-          "valueType": "minus",
-          "subActions": [
+            },
             {
-              "type": "push",
-              "value": 4,
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
               "subActions": [
                 {
-                  "type": "custom",
-                  "value": "%game.custom.instead%"
+                  "type": "push",
+                  "value": 4,
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "%game.custom.instead%"
+                    }
+                  ]
                 }
               ]
             }
@@ -119,21 +119,23 @@
         {
           "type": "attack",
           "value": 0,
-          "valueType": "plus"
-        },
-        {
-          "type": "element",
-          "value": "ice",
-          "valueType": "minus",
+          "valueType": "plus",
           "subActions": [
             {
-              "type": "attack",
-              "value": 2,
-              "valueType": "add",
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
               "subActions": [
                 {
-                  "type": "condition",
-                  "value": "immobilize"
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "add",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "immobilize"
+                    }
+                  ]
                 }
               ]
             }
@@ -164,18 +166,18 @@
             {
               "type": "range",
               "value": 3
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "ice",
-          "valueType": "minus",
-          "subActions": [
+            },
             {
-              "type": "heal",
-              "value": 3,
-              "valueType": "add"
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "heal",
+                  "value": 3,
+                  "valueType": "add"
+                }
+              ]
             }
           ]
         },

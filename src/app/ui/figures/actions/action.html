@@ -116,7 +116,7 @@
           <span [value-calc]="getNormalValue()" [level]="monster.level" [empty]="true"></span>
           <span *ngIf="getEliteValue() && getNormalValue() != getEliteValue()">/</span>
           <span *ngIf="getEliteValue() && getNormalValue() != getEliteValue()" class="elite"
-            [value-calc]="getEliteValue()" [level]="monster.level"></span>
+            [value-calc]="getEliteValue()" [level]="monster.level" ></span>
         </span>
         <span *ngIf="relative">{{getNormalValue()}}<span *ngIf="getNormalValue() != getEliteValue()">/<span
               class="elite">{{getEliteValue()}}</span>

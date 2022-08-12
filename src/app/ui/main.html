@@ -4,7 +4,7 @@
     <div *ngFor="let column of [] | ghsRange:columns" class="figures" cdkDropList (cdkDropListDropped)="drop($event)"
       [cdkDropListAutoScrollStep]="20" [cdkDropListData]="column * columnSize"
       [cdkDropListDisabled]="gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters && !gameManager.stateManager.permissions.monsters">
-      <div class="figure" *ngFor="let figure of figures(column); let i = index;" cdkDrag [cdkDragData]="i">
+      <div class="figure" *ngFor="let figure of figures(column); let i = index;" cdkDrag [cdkDragData]="i" [figure-autoscroll]="figure">
         <div cdkDragHandle class="handle"
           *ngIf="!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters || gameManager.stateManager.permissions.monsters">
         </div>

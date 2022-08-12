@@ -103,14 +103,16 @@ export class ActionComponent implements OnInit {
     } else if (this.action.valueType == ActionValueType.minus) {
       return "- " + this.action.value;
     } else {
-      return this.action.value;
+      return this.action.value || "";
     }
   }
 
   ngOnInit(): void {
     this.updateAdditionalSubActions();
-    gameManager.uiChange.subscribe((value: boolean) => {
-      this.updateAdditionalSubActions();
+    gameManager.uiChange.subscribe({
+      next: () => {
+        this.updateAdditionalSubActions();
+      }
     })
   }
 

@@ -52,7 +52,11 @@ export class MonsterNumberPicker extends DialogComponent {
         this.monster.entities = this.monster.entities.filter((monsterEntity: MonsterEntity) => settingsManager.settings.hideStats && monsterEntity.type != this.type);
       } else {
         this.monster.entities = this.monster.entities.filter((monsterEntity: MonsterEntity) => settingsManager.settings.hideStats && monsterEntity.type != this.type);
-        this.randomStandee();
+        if (settingsManager.settings.randomStandees) {
+          this.randomStandee();
+        } else {
+          this.nextStandee();
+        }
       }
       gameManager.stateManager.after();
       return;
@@ -74,7 +78,15 @@ export class MonsterNumberPicker extends DialogComponent {
   randomStandee() {
     let number = Math.floor(Math.random() * this.monster.count) + 1;
     while (this.monster.entities.some((monsterEntity: MonsterEntity) => monsterEntity.number == number)) {
-      number = number = Math.floor(Math.random() * this.monster.count) + 1;
+      number = Math.floor(Math.random() * this.monster.count) + 1;
+    }
+    this.pickNumber(number);
+  }
+
+  nextStandee() {
+    let number = 1;
+    while (this.monster.entities.some((monsterEntity: MonsterEntity) => monsterEntity.number == number)) {
+      number += 1;
     }
     this.pickNumber(number);
   }
