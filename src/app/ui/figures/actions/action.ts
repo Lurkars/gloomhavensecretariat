@@ -119,7 +119,7 @@ export class ActionComponent implements OnInit {
 
   updateAdditionalSubActions(): void {
     this.action.subActions = this.action.subActions || [];
-    this.additionalSubActions = this.action.subActions;
+    this.additionalSubActions = JSON.parse(JSON.stringify(this.action.subActions));
     if (settingsManager.settings.calculateStats) {
       const stat = gameManager.monsterManager.getStat(this.monster, this.monster.boss ? MonsterType.boss : MonsterType.normal);
       if (this.action.type == ActionType.attack) {
