@@ -103,7 +103,7 @@ export class ActionComponent implements OnInit {
     } else if (this.action.valueType == ActionValueType.minus) {
       return "- " + this.action.value;
     } else {
-      return this.action.value || "";
+      return this.action.value;
     }
   }
 
@@ -118,12 +118,14 @@ export class ActionComponent implements OnInit {
 
 
   updateAdditionalSubActions(): void {
-    this.additionalSubActions = [];
+    this.action.subActions = this.action.subActions || [];
+    this.additionalSubActions = this.action.subActions;
     if (settingsManager.settings.calculateStats) {
       const stat = gameManager.monsterManager.getStat(this.monster, this.monster.boss ? MonsterType.boss : MonsterType.normal);
       if (this.action.type == ActionType.attack) {
-        if (stat.range && (!this.action.subActions || !this.action.subActions.some((subAction: Action) => subAction.type == ActionType.range || subAction.type == ActionType.area || subAction.type == ActionType.specialTarget))) {
-          this.additionalSubActions.unshift(new Action(ActionType.range, 0, ActionValueType.plus));
+        if (stat.range && (!this.action.subActions.some((subAction: Action) => subAction.type == ActionType.range || subAction.type == ActionType.area && ("" + subAction.value).indexOf('active') != -1 || subAction.type == ActionType.specialTarget))) {
+          const area = this.action.subActions.find((subAction: Action) => subAction.type == ActionType.area);
+          this.additionalSubActions.splice(area ? this.action.subActions.indexOf(area) + 1 : 0, 0, new Action(ActionType.range, 0, ActionValueType.plus));
         }
       }
     }

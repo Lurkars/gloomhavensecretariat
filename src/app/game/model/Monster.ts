@@ -30,16 +30,16 @@ export class Monster extends MonsterData implements Figure {
     if (monsterData.baseStat) {
       for (let stat of monsterData.stats) {
         if (!stat.health && stat.health != 0) {
-          stat.health = monsterData.baseStat.health;
+          stat.health = monsterData.baseStat.health || 0;
         }
         if (!stat.movement && stat.movement != 0) {
-          stat.movement = monsterData.baseStat.movement;
+          stat.movement = monsterData.baseStat.movement || 0;
         }
         if (!stat.attack && stat.attack != 0) {
-          stat.attack = monsterData.baseStat.attack;
+          stat.attack = monsterData.baseStat.attack || 0;
         }
         if (!stat.range && stat.range != 0) {
-          stat.range = monsterData.baseStat.range;
+          stat.range = monsterData.baseStat.range || 0;
         }
         if (!stat.actions) {
           stat.actions = Object.assign([], monsterData.baseStat.actions);

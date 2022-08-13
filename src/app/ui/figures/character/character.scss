@@ -217,6 +217,7 @@
   position: relative;
   z-index: 2;
   display: flex;
+  align-items: center;
   transition: max-height 2s ease-out;
   max-height: 100%;
   min-width: calc(var(--ghs-unit) * 7);
@@ -237,7 +238,6 @@
     display: block;
     width: calc(var(--ghs-unit) * 6);
     height: calc(var(--ghs-unit) * 6);
-    height: 100%;
     margin-right: calc(var(--ghs-unit) * 1);
 
     img {

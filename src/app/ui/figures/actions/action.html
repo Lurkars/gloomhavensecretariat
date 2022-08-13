@@ -116,7 +116,7 @@
           <span [value-calc]="getNormalValue()" [level]="monster.level" [empty]="true"></span>
           <span *ngIf="getEliteValue() && getNormalValue() != getEliteValue()">/</span>
           <span *ngIf="getEliteValue() && getNormalValue() != getEliteValue()" class="elite"
-            [value-calc]="getEliteValue()" [level]="monster.level" ></span>
+            [value-calc]="getEliteValue()" [level]="monster.level"></span>
         </span>
         <span *ngIf="relative">{{getNormalValue()}}<span *ngIf="getNormalValue() != getEliteValue()">/<span
               class="elite">{{getEliteValue()}}</span>
@@ -142,12 +142,9 @@
         [ngClass]="{'invert' : isInvertIcon(action.type)}" />
     </ng-container>
 
-    <div class="additional-subactions" *ngIf="statsCalculation && additionalSubActions.length > 0">
-      <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of additionalSubActions"
-        [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize">
-      </ghs-action>
-    </div>
-    <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of action.subActions"
+
+    <ghs-action [ngClass]="'subaction-' + subAction.type"
+      *ngFor="let subAction of (statsCalculation && additionalSubActions.length > 0 ? additionalSubActions : action.subActions)"
       [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize">
     </ghs-action>
   </span>

@@ -36,7 +36,7 @@ main {
 .figure {
   position: relative;
   max-width: 100%;
-  padding: calc(var(--ghs-unit) * 1);
+  padding: calc(var(--ghs-unit) * 0.5) calc(var(--ghs-unit) * 1);
 
   :nth-child(2) {
     display: block;
