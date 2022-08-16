@@ -14,13 +14,13 @@ export class Settings {
   ge5Player: boolean = true;
   disableStandees: boolean = false;
   fullscreen: boolean = false;
+  autoscroll: boolean = true;
   disableColumns: boolean = false;
   dragInitiative: boolean = true;
   dragHealth: boolean = true;
   hints: boolean = true;
   zoom: number = 100;
   barSize: number = 1;
-  autoscroll: boolean = true;
   locale: string = "en";
   editionDataUrls: string[] = [];
   excludeEditionDataUrls: string[] = [];
