@@ -56,6 +56,13 @@
             (keyup)="0" (change)="settingsManager.setLevelAdjustment(+levelAdjustment.value)"
             [size]="levelAdjustment.value.length" placeholder="{{'settings.levelAdjustment' | ghsLabel}}"></label>
       </div>
+      <div class="line" *ngIf="ge5Player()">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.ge5Player"
+            (change)="settingsManager.setGe5Player(!settingsManager.settings.ge5Player)">
+          {{'settings.ge5Player' | ghsLabel}}
+        </label>
+      </div>
     </div>
     <div class="column">
       <div class="line">

@@ -1,11 +1,10 @@
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
-import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Ability } from 'src/app/game/model/Ability';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { FigureError } from 'src/app/game/model/FigureError';
 import { Monster } from 'src/app/game/model/Monster';
-import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { MonsterStat } from 'src/app/game/model/MonsterStat';
 import { MonsterType } from 'src/app/game/model/MonsterType';
 import { DialogComponent } from 'src/app/ui/dialog/dialog';
@@ -38,12 +37,12 @@ export class MonsterStatsComponent extends DialogComponent {
   }
 
   hideStats(type: MonsterType) {
-    return !this.forceStats && settingsManager.settings.hideStats && this.monster.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead || monsterEntity.type != type);
+    return !this.forceStats && settingsManager.settings.hideStats && this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.type != type);
   }
 
   setStats() {
     if (this.monster.boss) {
-      const stats = this.monster.stats.find((monsterStat: MonsterStat) => {
+      const stats = this.monster.stats.find((monsterStat) => {
         return monsterStat.level == this.monster.level && monsterStat.type == MonsterType.boss;
       });
       if (!stats) {
@@ -55,7 +54,7 @@ export class MonsterStatsComponent extends DialogComponent {
 
       this.stats = stats;
     } else {
-      const stats = this.monster.stats.find((monsterStat: MonsterStat) => {
+      const stats = this.monster.stats.find((monsterStat) => {
         return monsterStat.level == this.monster.level && monsterStat.type == MonsterType.normal;
       });
       if (!stats) {
@@ -65,7 +64,7 @@ export class MonsterStatsComponent extends DialogComponent {
         }
       }
 
-      const eliteStats = this.monster.stats.find((monsterStat: MonsterStat) => {
+      const eliteStats = this.monster.stats.find((monsterStat) => {
         return monsterStat.level == this.monster.level && monsterStat.type == MonsterType.elite;
       });
       if (!eliteStats) {
@@ -81,7 +80,7 @@ export class MonsterStatsComponent extends DialogComponent {
   }
 
   statsForType(type: MonsterType): MonsterStat {
-    const stat = this.monster.stats.find((monsterStat: MonsterStat) => {
+    const stat = this.monster.stats.find((monsterStat) => {
       return monsterStat.level == this.monster.level && monsterStat.type == type;
     });
     if (!stat) {
@@ -118,7 +117,7 @@ export class MonsterStatsComponent extends DialogComponent {
       this.monster.level = value;
 
       this.setStats();
-      this.monster.entities.forEach((monsterEntity: MonsterEntity) => {
+      this.monster.entities.forEach((monsterEntity) => {
         let stat = this.stats;
         if (monsterEntity.type == MonsterType.elite) {
           stat = this.eliteStats;

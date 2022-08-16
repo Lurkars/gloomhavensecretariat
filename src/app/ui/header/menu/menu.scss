@@ -3,13 +3,13 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+  font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor) * var(--ghs-barsize));
   text-shadow: var(--ghs-outline);
   color: var(--ghs-color-darkgray);
   filter: var(--ghs-filter-darkgray);
-  width: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
-  height: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
-  margin: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+  width: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor) * var(--ghs-barsize));
+  height: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor) * var(--ghs-barsize));
+  margin: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor) * var(--ghs-barsize));
   cursor: pointer;
 
 
@@ -105,7 +105,6 @@
     label {
       cursor: pointer;
       display: flex;
-      flex-direction: row;
       align-items: center;
       font-family: 'ghs-title';
       font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
@@ -189,102 +188,6 @@
     a,
     label {
       color: var(--ghs-color-darkgray);
-    }
-  }
-
-  input[type="text"],
-  input[type="number"] {
-    width: 100%;
-    min-width: calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor));
-    margin: 0;
-    color: var(--ghs-color-white);
-    background-color: var(--ghs-color-black);
-    border-width: calc(var(--ghs-unit) * 0.1);
-    border-style: solid;
-    border-color: var(--ghs-color-gray);
-    border-radius: calc(var(--ghs-unit) * 1);
-    user-select: auto;
-    font-family: 'ghs-text';
-    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-  }
-
-  label {
-    input[type="number"] {
-      margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
-    }
-  }
-
-
-  input[type="checkbox"] {
-    cursor: pointer;
-    appearance: none;
-    background-color: var(--form-background);
-    width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-    height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-    border-width: calc(var(--ghs-unit) * 0.3);
-    border-style: solid;
-    display: grid;
-    place-content: center;
-    margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
-    color: var(--ghs-color-gray);
-
-    &::before {
-      left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-      top: calc(var(--ghs-unit) * -0.5 * var(--ghs-dialog-factor));
-      position: relative;
-      content: ' ';
-      width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-      height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-      transform: scale(0);
-      transform-origin: bottom left;
-      transition: 120ms transform ease-in-out;
-      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-      color: var(--ghs-color-gray);
-      background-color: var(--ghs-color-gray);
-    }
-
-    &:checked::before {
-      transform: scale(1);
-    }
-
-    &:hover::before {
-      background-color: var(--ghs-color-white);
-    }
-  }
-
-  input[type="radio"] {
-    appearance: none;
-    background-color: var(--form-background);
-    width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-    height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-    border-width: calc(var(--ghs-unit) * 0.3);
-    border-style: solid;
-    display: grid;
-    place-content: center;
-    margin-right: calc(var(--ghs-unit) * 1);
-    color: var(--ghs-color-gray);
-
-    &::before {
-      left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-      top: calc(var(--ghs-unit) * -0.5 * var(--ghs-dialog-factor));
-      position: relative;
-      content: ' ';
-      width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-      height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-      transform: scale(0);
-      transform-origin: bottom left;
-      transition: 120ms transform ease-in-out;
-      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-      color: var(--ghs-color-gray);
-      background-color: var(--ghs-color-gray);
-    }
-
-    &:checked::before {
-      transform: scale(1);
-    }
-
-    &:hover::before {
-      background-color: var(--ghs-color-white);
     }
   }
 

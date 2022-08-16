@@ -4,6 +4,7 @@ import { ScenarioData } from "./ScenarioData";
 import { MonsterData } from "./MonsterData";
 import { DeckData } from "./DeckData";
 import { SectionData } from "./SectionData";
+import { ItemData } from "./ItemData";
 
 export class EditionData implements Editional {
   // from Editional
@@ -14,6 +15,7 @@ export class EditionData implements Editional {
   decks: DeckData[];
   scenarios: ScenarioData[];
   sections: SectionData[];
+  items: ItemData[];
   conditions: string[] = [];
   label: any = {};
   url: string = "";
@@ -25,6 +27,7 @@ export class EditionData implements Editional {
     decks: DeckData[],
     scenarios: ScenarioData[],
     sections: SectionData[],
+    items: ItemData[],
     conditions: string[] | undefined = undefined,
     extentions: string[] = [],
     hazardousTerrain: boolean = false) {
@@ -34,6 +37,7 @@ export class EditionData implements Editional {
     this.decks = decks;
     this.scenarios = scenarios;
     this.sections = sections;
+    this.items = items;
     if (conditions) {
       this.conditions = conditions;
     }

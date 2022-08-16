@@ -64,4 +64,36 @@ export class PartySheetDialog extends PopupComponent {
     gameManager.stateManager.after();
   }
 
+  exportParty() {
+    const downloadButton = document.createElement('a');
+    downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.party)));
+    downloadButton.setAttribute('download', (this.party.name ? this.party.name + "_" : "") + "party-sheet.json");
+    document.body.appendChild(downloadButton);
+    downloadButton.click();
+    document.body.removeChild(downloadButton);
+  }
+
+  importParty(event: any) {
+    const parent = event.target.parentElement;
+    parent.classList.remove("error");
+    try {
+      const reader = new FileReader();
+      reader.addEventListener('load', (event: any) => {
+        gameManager.stateManager.before();
+        gameManager.game.party = Object.assign(new Party(), JSON.parse(event.target.result));
+        if (!this.gameManager.game.party) {
+          parent.classList.add("error");
+        } else {
+          this.party = gameManager.game.party || new Party();
+        }
+        gameManager.stateManager.after();
+      });
+
+      reader.readAsText(event.target.files[ 0 ]);
+    } catch (e: any) {
+      console.warn(e);
+      parent.classList.add("error");
+    }
+  }
+
 }

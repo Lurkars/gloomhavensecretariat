@@ -51,12 +51,12 @@ export class SectionMenuComponent {
   }
 
   hasSection(sectionData: SectionData): boolean {
-    return gameManager.game.sections && gameManager.game.sections.some((value: SectionData) => value.edition == sectionData.edition && value.index == sectionData.index && value.group == sectionData.group);
+    return gameManager.game.sections && gameManager.game.sections.some((value) => value.edition == sectionData.edition && value.index == sectionData.index && value.group == sectionData.group);
   }
 
   addSection(sectionData: SectionData) {
     gameManager.stateManager.before();
-    gameManager.addSection(sectionData);
+    gameManager.scenarioManager.addSection(sectionData);
     gameManager.stateManager.after();
   }
 

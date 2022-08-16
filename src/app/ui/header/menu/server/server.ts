@@ -89,12 +89,12 @@ export class ServerMenuComponent {
   }
 
   hasCharacter(character: Character): boolean {
-    return this.permissions != undefined && this.permissions.character.some((value: Identifier) => value.name == character.name && value.edition == character.edition);
+    return this.permissions != undefined && this.permissions.character.some((value) => value.name == character.name && value.edition == character.edition);
   }
 
   toggleCharacter(character: Character) {
     if (this.permissions) {
-      const value: Identifier | undefined = this.permissions.character.find((value: Identifier) => value.name == character.name && value.edition == character.edition);
+      const value: Identifier | undefined = this.permissions.character.find((value) => value.name == character.name && value.edition == character.edition);
       if (value) {
         this.permissions.character.splice(this.permissions.character.indexOf(value, 1));
       } else {
@@ -108,12 +108,12 @@ export class ServerMenuComponent {
   }
 
   hasMonster(monster: Monster): boolean {
-    return this.permissions != undefined && this.permissions.monster.some((value: Identifier) => value.name == monster.name && value.edition == monster.edition);
+    return this.permissions != undefined && this.permissions.monster.some((value) => value.name == monster.name && value.edition == monster.edition);
   }
 
   toggleMonster(monster: Monster) {
     if (this.permissions) {
-      const value: Identifier | undefined = this.permissions.monster.find((value: Identifier) => value.name == monster.name && value.edition == monster.edition);
+      const value: Identifier | undefined = this.permissions.monster.find((value) => value.name == monster.name && value.edition == monster.edition);
       if (value) {
         this.permissions.monster.splice(this.permissions.monster.indexOf(value, 1));
       } else {

@@ -6,7 +6,6 @@ import { Character } from 'src/app/game/model/Character';
 import { Condition, ConditionType } from 'src/app/game/model/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
-import { Summon } from 'src/app/game/model/Summon';
 import { DialogComponent } from '../../dialog/dialog';
 
 @Component({
@@ -39,7 +38,7 @@ export class CharacterComponent extends DialogComponent {
   }
 
   emptySummons(): boolean {
-    return this.character.summons.length == 0 || this.character.summons.every((summon: Summon) => summon.dead);
+    return this.character.summons.length == 0 || this.character.summons.every((summon) => summon.dead);
   }
 
   changeHealth(value: number) {

@@ -40,8 +40,8 @@ export class Game {
       model.objectives.map((gom: GameObjectiveModel) => gom.name).indexOf(figure.name) != -1
     );
 
-    model.characters.forEach((value: GameCharacterModel) => {
-      let character = this.figures.find((figure: Figure) => figure instanceof Character && figure.name == value.name && figure.edition == value.edition) as Character;
+    model.characters.forEach((value) => {
+      let character = this.figures.find((figure) => figure instanceof Character && figure.name == value.name && figure.edition == value.edition) as Character;
       if (!character) {
         character = new Character(gameManager.getCharacterData(value.name, value.edition), value.level);
         this.figures.push(character);
@@ -49,8 +49,8 @@ export class Game {
       character.fromModel(value);
     });
 
-    model.monsters.forEach((value: GameMonsterModel) => {
-      let monster = this.figures.find((figure: Figure) => figure instanceof Monster && figure.name == value.name && figure.edition == value.edition) as Monster;
+    model.monsters.forEach((value) => {
+      let monster = this.figures.find((figure) => figure instanceof Monster && figure.name == value.name && figure.edition == value.edition) as Monster;
       if (!monster) {
         monster = new Monster(gameManager.getMonsterData(value.name, value.edition));
         this.figures.push(monster);
@@ -58,12 +58,12 @@ export class Game {
       monster.fromModel(value);
     });
 
-    model.objectives.forEach((value: GameObjectiveModel) => {
-      let objective = this.figures.find((figure: Figure) => figure instanceof Objective && figure.id == value.id) as Objective;
+    model.objectives.forEach((value) => {
+      let objective = this.figures.find((figure) => figure instanceof Objective && figure.id == value.id) as Objective;
       if (!objective) {
         if (!value.id) {
           value.id = 0;
-          while (this.figures.some((figure: Figure) => figure instanceof Objective && figure.id == value.id)) {
+          while (this.figures.some((figure) => figure instanceof Objective && figure.id == value.id)) {
             value.id++;
           }
         }

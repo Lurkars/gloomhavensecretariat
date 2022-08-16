@@ -65,7 +65,30 @@
       "notes": "Notizen",
       "gold-notes": "Gold Notizen",
       "items": "Gegenstände",
-      "perks": "Verbesserungen"
+      "perks": {
+        ".": "Verbesserungen",
+        "card": "Karte",
+        "cards": {
+          ".": "Karten",
+          "1": "eine",
+          "2": "zwei",
+          "3": "drei",
+          "4": "vier",
+          "5": "fünf"
+        },
+        "type": {
+          "add": "füge {0}{1} {2} hinzu",
+          "remove": "entferne {0}{1} {2}",
+          "replace": "ersetze {0}{1} {2} durch {3}{4} {5}"
+        },
+        "additional": " und {0}{1} {2}",
+        "warning": "Mehr Verbesserungen ausgewählt als verfügbar!",
+        "wip": "%wip%! Verbesserungen sind noch nicht vollständig."
+      },
+      "personalQuest": "Persönliche Aufgabe",
+      "retired": "Ruhestand",
+      "import": "Importieren",
+      "export": "Exportieren"
     },
     "class": {
       "aesther": "Aesther",
@@ -91,7 +114,9 @@
     "shop": {
       ".": "Ladenpreis-Modifikator",
       "none": "Keiner"
-    }
+    },
+    "import": "Importieren",
+    "export": "Exportieren"
   },
   "objective": {
     ".": "Zielobjekte",
@@ -138,6 +163,7 @@
     "maxUndo": "Max. Anzahl Rückgängigvorgänge",
     "levelCalculation": "Szenario Level automatisch berechnen",
     "levelAdjustment": "Anpassung Szenario Level",
+    "ge5Player": ">= 5 Spieler Regeln",
     "locale": {
       ".": "Sprache",
       "en": "Englisch (English)",
@@ -362,7 +388,7 @@
       "drawExtra": "Zusätzlich Aufdecken",
       "edit": "Editieren",
       "restore": "Standard wiederherstellen",
-      "defaultSort" : "Sortieren"
+      "defaultSort": "Sortieren"
     },
     "attackModifiers": {
       ".": "Angriffsmodifikatordeck",
@@ -389,12 +415,19 @@
         "ceil": "(aufgerundet)",
         "floor": "(abgerundet)"
       },
-      "scenarioBook": "Im Szenariobuch nachschlagen"
+      "scenarioBook": "Im Szenariobuch nachschlagen",
+      "perks" : {
+        "ignoreNegativeItem" : "negative Zustände von Gegenständen ignorieren",
+        "ignoreNegativeScenario" : "negative Szenario Zustände ignorieren",
+        "addTarget": "Ziel hinzufügen",
+        "addTargets": "{0} Ziele hinzufügen"
+      }
     }
   },
   "spoiler": {
     "placeholder": "???",
     "add": "Spoiler hinzufügen",
     "all": "Alle Spoiler Aufdecken"
-  }
+  },
+  "wip": "In Enticklung"
 }

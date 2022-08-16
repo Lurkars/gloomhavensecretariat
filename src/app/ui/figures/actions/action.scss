@@ -1,6 +1,5 @@
 .action {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   position: relative;
   color: var(--ghs-color-white);
@@ -132,7 +131,6 @@
 
     .elements {
       display: flex;
-      flex-direction: row;
       flex-wrap: unset;
       justify-content: center;
       align-items: center;
@@ -394,7 +392,6 @@
 
     .action-custom {
       align-items: flex-start;
-      flex-direction: row;
       flex-wrap: wrap;
     }
 

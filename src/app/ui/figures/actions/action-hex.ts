@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, Component, ElementRef, Input, OnChanges } from "@angular/core";
+import { AfterViewChecked, Component, ElementRef, Input, OnChanges } from "@angular/core";
 import { ActionHex } from "src/app/game/model/Action";
 
 @Component({
@@ -40,7 +40,7 @@ export class ActionHexComponent implements OnChanges, AfterViewChecked {
 
   ngOnChanges(changes: any) {
     this.hexes = [];
-    this.value.split('|').forEach((hexValue: string) => {
+    this.value.split('|').forEach((hexValue) => {
       const hex: ActionHex | null = ActionHex.fromString(hexValue);
       if (hex != null) {
         this.hexes.push(hex);

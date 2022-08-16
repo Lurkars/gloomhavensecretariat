@@ -4,7 +4,6 @@ import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Action, ActionType, ActionValueType } from 'src/app/game/model/Action';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Monster } from 'src/app/game/model/Monster';
-import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { MonsterStat } from 'src/app/game/model/MonsterStat';
 import { MonsterType } from 'src/app/game/model/MonsterType';
 
@@ -38,7 +37,7 @@ export class ActionComponent implements OnInit {
   }
 
   getEliteValue() {
-    if (!this.monster.entities.some((monsterEntity: MonsterEntity) => monsterEntity.type == MonsterType.elite && !monsterEntity.dead)) {
+    if (!this.monster.entities.some((monsterEntity) => monsterEntity.type == MonsterType.elite && !monsterEntity.dead)) {
       return this.getNormalValue();
     }
 
@@ -123,8 +122,8 @@ export class ActionComponent implements OnInit {
     if (settingsManager.settings.calculateStats) {
       const stat = gameManager.monsterManager.getStat(this.monster, this.monster.boss ? MonsterType.boss : MonsterType.normal);
       if (this.action.type == ActionType.attack) {
-        if (stat.range && (!this.action.subActions.some((subAction: Action) => subAction.type == ActionType.range || subAction.type == ActionType.area && ("" + subAction.value).indexOf('active') != -1 || subAction.type == ActionType.specialTarget))) {
-          const area = this.action.subActions.find((subAction: Action) => subAction.type == ActionType.area);
+        if (stat.range && (!this.action.subActions.some((subAction) => subAction.type == ActionType.range || subAction.type == ActionType.area && ("" + subAction.value).indexOf('active') != -1 || subAction.type == ActionType.specialTarget))) {
+          const area = this.action.subActions.find((subAction) => subAction.type == ActionType.area);
           this.additionalSubActions.splice(area ? this.action.subActions.indexOf(area) + 1 : 0, 0, new Action(ActionType.range, 0, ActionValueType.plus));
         }
       }

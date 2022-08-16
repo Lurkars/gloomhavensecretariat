@@ -4,7 +4,6 @@ import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Condition, ConditionType } from 'src/app/game/model/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
-import { Figure } from 'src/app/game/model/Figure';
 import { GameState } from 'src/app/game/model/Game';
 import { Objective } from 'src/app/game/model/Objective';
 import { DialogComponent } from '../../dialog/dialog';
@@ -46,7 +45,7 @@ export class ObjectiveComponent extends DialogComponent {
       //
     } else {
       gameManager.stateManager.before();
-      gameManager.toggleFigure(this.objective);
+      gameManager.roundManager.toggleFigure(this.objective);
       gameManager.stateManager.after(250);
     }
   }
@@ -68,7 +67,7 @@ export class ObjectiveComponent extends DialogComponent {
       id = 0;
     }
 
-    while (gameManager.game.figures.some((figure: Figure) => figure instanceof Objective && figure.id == id)) {
+    while (gameManager.game.figures.some((figure) => figure instanceof Objective && figure.id == id)) {
       id = id + value;
       if (id < 0) {
         id = 98;

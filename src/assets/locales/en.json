@@ -65,7 +65,30 @@
       "notes": "Notes",
       "gold-notes": "Gold Notes",
       "items": "Items",
-      "perks": "Perks"
+      "perks": {
+        ".": "Perks",
+        "card": "card",
+        "cards": {
+          ".": "cards",
+          "1": "one",
+          "2": "two",
+          "3": "three",
+          "4": "four",
+          "5": "five"
+        },
+        "type": {
+          "add": "add {0}{1} {2}",
+          "remove": "remove {0}{1} {2}",
+          "replace": "replace {0}{1} {2} with {3}{4} {5}"
+        },
+        "additional": " and {0}{1} {2}",
+        "warning": "More perks than available selected!",
+        "wip": "%wip%! Perks not complete yet."
+      },
+      "personalQuest": "Personal Quest",
+      "retired": "Retired",
+      "import": "Import",
+      "export": "Export"
     },
     "class": {
       "aesther": "Aesther",
@@ -91,7 +114,9 @@
     "shop": {
       ".": "Shop Price Modifier",
       "none": "None"
-    }
+    },
+    "import": "Import",
+    "export": "Export"
   },
   "objective": {
     ".": "Objective",
@@ -138,6 +163,7 @@
     "maxUndo": "Max. number of undos",
     "levelCalculation": "Automatic scenario level",
     "levelAdjustment": "Scenario level adjustment",
+    "ge5Player": ">= 5 player rules",
     "locale": {
       ".": "Language",
       "en": "English",
@@ -364,7 +390,7 @@
       "drawExtra": "Draw Extra",
       "edit": "Edit",
       "restore": "Restore defaults",
-      "defaultSort" : "Sort"
+      "defaultSort": "Sort"
     },
     "attackModifiers": {
       ".": "Attack Modifier Deck",
@@ -391,7 +417,13 @@
         "ceil": "(rounded up)",
         "floor": "(rounded down)"
       },
-      "scenarioBook": "Reference the scenario book"
+      "scenarioBook": "Reference the scenario book",
+      "perks": {
+        "ignoreNegativeItem": "ignore negative item effects",
+        "ignoreNegativeScenario": "ignore negative scenario effects",
+        "addTarget": "add target",
+        "addTargets": "add {0} targets"
+      }
     }
   },
   "spoiler": {

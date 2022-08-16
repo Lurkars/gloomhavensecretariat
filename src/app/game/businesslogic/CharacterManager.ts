@@ -3,14 +3,11 @@ import { CharacterStat } from "../model/CharacterStat";
 import { ConditionType, EntityCondition, EntityConditionState } from "../model/Condition";
 import { CharacterData } from "../model/data/CharacterData";
 import { ObjectiveData } from "../model/data/ObjectiveData";
-import { SectionData } from "../model/data/SectionData";
 import { SummonData } from "../model/data/SummonData";
 import { EntityValueFunction } from "../model/Entity";
-import { Figure } from "../model/Figure";
 import { FigureError } from "../model/FigureError";
 import { Game } from "../model/Game";
 import { Monster } from "../model/Monster";
-import { MonsterEntity } from "../model/MonsterEntity";
 import { Objective } from "../model/Objective";
 import { Summon, SummonColor, SummonState } from "../model/Summon";
 import { gameManager } from "./GameManager";
@@ -40,16 +37,16 @@ export class CharacterManager {
   }
 
   addCharacter(characterData: CharacterData) {
-    if (!this.game.figures.some((figure: Figure) => {
+    if (!this.game.figures.some((figure) => {
       return figure instanceof CharacterData && figure.name == characterData.name && figure.edition == characterData.edition;
     })) {
       let character: Character = new Character(characterData, this.game.level);
-      character.availableSummons.filter((summonData: SummonData) => summonData.special).forEach((summonData: SummonData) => this.createSpecialSummon(character, summonData));
+      character.availableSummons.filter((summonData: SummonData) => summonData.special).forEach((summonData) => this.createSpecialSummon(character, summonData));
       this.game.figures.push(character);
       gameManager.sortFigures();
     }
     if (settingsManager.settings.levelCalculation) {
-      gameManager.calculateScenarioLevel();
+      gameManager.levelManager.calculateScenarioLevel();
     }
   }
 
@@ -59,25 +56,25 @@ export class CharacterManager {
     if (character.marker) {
       // remove marker
       const marker = character.edition + '-' + character.name;
-      this.game.figures.forEach((figure: Figure) => {
+      this.game.figures.forEach((figure) => {
         if (figure instanceof Character) {
           figure.markers.splice(figure.markers.indexOf(marker), 1);
           if (figure.summons) {
-            figure.summons.forEach((summon: Summon) => {
+            figure.summons.forEach((summon) => {
               summon.markers.splice(summon.markers.indexOf(marker), 1);
             })
           }
         } else if (figure instanceof Objective) {
           figure.markers.splice(figure.markers.indexOf(marker), 1);
         } else if (figure instanceof Monster) {
-          figure.entities.forEach((entity: MonsterEntity) => {
+          figure.entities.forEach((entity) => {
             entity.markers.splice(entity.markers.indexOf(marker), 1);
           })
         }
       })
     }
     if (settingsManager.settings.levelCalculation) {
-      gameManager.calculateScenarioLevel();
+      gameManager.levelManager.calculateScenarioLevel();
     }
   }
 
@@ -93,7 +90,7 @@ export class CharacterManager {
 
   addObjective(objectiveData: ObjectiveData | undefined = undefined) {
     let id = 0;
-    while (this.game.figures.some((figure: Figure) => figure instanceof Objective && figure.id == id)) {
+    while (this.game.figures.some((figure) => figure instanceof Objective && figure.id == id)) {
       id++;
     }
 
@@ -114,14 +111,14 @@ export class CharacterManager {
   }
 
   removeObjective(objective: Objective) {
-    if (this.game.sections.some((sectionData: SectionData) => sectionData.objectives && sectionData.objectives.length > 0)) {
+    if (this.game.sections.some((sectionData) => sectionData.objectives && sectionData.objectives.length > 0)) {
       this.game.sections = [];
     }
     this.game.figures.splice(this.game.figures.indexOf(objective), 1);
   }
 
   next() {
-    this.game.figures.forEach((figure: Figure) => {
+    this.game.figures.forEach((figure) => {
       if (figure instanceof Character) {
         figure.initiative = 0;
         figure.initiativeVisible = false;
@@ -132,16 +129,16 @@ export class CharacterManager {
         if (settingsManager.settings.expireConditions) {
           figure.entityConditions = figure.entityConditions.filter((entityCondition: EntityCondition) => !entityCondition.expired);
 
-          figure.summons.forEach((summon: Summon) => {
+          figure.summons.forEach((summon) => {
             summon.entityConditions = summon.entityConditions.filter((entityCondition: EntityCondition) => !entityCondition.expired);
           });
         }
 
         if (settingsManager.settings.applyConditions) {
-          figure.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition: EntityCondition) => entityCondition.state = EntityConditionState.normal);
+          figure.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => entityCondition.state = EntityConditionState.normal);
 
-          figure.summons.forEach((summon: Summon) => {
-            summon.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition: EntityCondition) => entityCondition.state = EntityConditionState.normal);
+          figure.summons.forEach((summon) => {
+            summon.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => entityCondition.state = EntityConditionState.normal);
           });
         }
       } else if (figure instanceof Objective) {
@@ -153,7 +150,7 @@ export class CharacterManager {
 
 
         if (settingsManager.settings.applyConditions) {
-          figure.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition: EntityCondition) => entityCondition.state = EntityConditionState.normal);
+          figure.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => entityCondition.state = EntityConditionState.normal);
         }
       }
     })
@@ -169,7 +166,7 @@ export class CharacterManager {
   }
 
   setLevel(character: Character, level: number) {
-    const stat = character.stats.find((characterStat: CharacterStat) => characterStat.level == level)
+    const stat = character.stats.find((characterStat) => characterStat.level == level)
     if (!stat) {
       console.error("No character stat found for level: " + level);
       if (character.errors.indexOf(FigureError.stat) == -1) {
@@ -191,14 +188,14 @@ export class CharacterManager {
       character.health = character.maxHealth;
     }
 
-    character.availableSummons.filter((summonData: SummonData) => summonData.special).forEach((summonData: SummonData) => this.createSpecialSummon(character, summonData));
+    character.availableSummons.filter((summonData: SummonData) => summonData.special).forEach((summonData) => this.createSpecialSummon(character, summonData));
 
     if (character.progress.experience < gameManager.characterManager.xpMap[ level - 1 ] || character.progress.experience >= gameManager.characterManager.xpMap[ level ]) {
       character.progress.experience = gameManager.characterManager.xpMap[ level - 1 ];
     }
 
     if (settingsManager.settings.levelCalculation) {
-      gameManager.calculateScenarioLevel();
+      gameManager.levelManager.calculateScenarioLevel();
     }
   }
 
@@ -218,7 +215,7 @@ export class CharacterManager {
   }
 
   draw() {
-    this.game.figures.forEach((figure: Figure) => {
+    this.game.figures.forEach((figure) => {
       if (figure instanceof Character) {
         figure.initiativeVisible = true;
       }

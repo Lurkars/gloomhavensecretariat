@@ -1,6 +1,6 @@
 import { Figure } from "./Figure";
 import { Entity } from "./Entity";
-import { ConditionName, EntityCondition, EntityConditionState, GameEntityConditionModel } from "./Condition";
+import { EntityCondition, GameEntityConditionModel } from "./Condition";
 
 export class Objective implements Entity, Figure {
 
@@ -14,6 +14,7 @@ export class Objective implements Entity, Figure {
   level: number = 0;
   off: boolean = false;
   active: boolean = false;
+  edition: string = "";
 
   // from entity
   health: number = 7;
@@ -56,20 +57,6 @@ export class Objective implements Entity, Figure {
     }
     this.markers = model.markers;
     this.initiative = model.initiative
-
-    // migration
-    if (model.conditions) {
-      model.conditions.forEach((value: string) => {
-        let entityCondition = new EntityCondition(value as ConditionName);
-        if (model.turnConditions && model.turnConditions.indexOf(value) != -1) {
-          entityCondition.state = EntityConditionState.expire;
-        }
-        if (model.expiredConditions && model.expiredConditions.indexOf(value) != -1) {
-          entityCondition.expired = true;
-        }
-        this.entityConditions.push(entityCondition);
-      })
-    }
   }
 
 }
@@ -89,11 +76,6 @@ export class GameObjectiveModel {
   entityConditions: GameEntityConditionModel[] = [];
   markers: string[] = [];
   initiative: number;
-
-  // depreacted
-  conditions: string[] = [];
-  turnConditions: string[] = [];
-  expiredConditions: string[] = [];
 
   constructor(
     id: number,

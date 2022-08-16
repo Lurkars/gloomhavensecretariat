@@ -6,7 +6,7 @@
   align-items: center;
   font-family: 'ghs-title';
   color: var(--ghs-color-gray);
-  font-size: calc(var(--ghs-unit) * 3 * var(--ghs-small-text-factor));
+  font-size: calc(var(--ghs-unit) * 3 * var(--ghs-small-text-factor) * var(--ghs-barsize));
 
   &:hover {
     color: var(--ghs-color-darkgray);
@@ -199,6 +199,33 @@
         background: linear-gradient(transparent 0%, var(--ghs-color-darkgray) 100%);
         opacity: 0.2;
         z-index: 0;
+      }
+    }
+
+    .import-export {
+
+      display: flex;
+      justify-content: center;
+
+      label {
+        cursor: pointer;
+
+        span {
+          display: none;
+        }
+
+        input[type="file"] {
+          width: 0;
+          height: 0;
+          margin: 0;
+          padding: 0;
+          visibility: hidden;
+        }
+
+        &.error {
+          animation: shake .5s linear;
+          color: var(--ghs-color-red) !important;
+        }
       }
     }
 

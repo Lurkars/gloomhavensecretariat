@@ -60,7 +60,6 @@
   .stats {
     height: 100%;
     display: flex;
-    flex-direction: row;
     flex-basis: 100%;
     cursor: pointer;
 
@@ -87,7 +86,6 @@
       color: var(--ghs-color-white);
       text-shadow: var(--ghs-outline);
       display: flex;
-      flex-direction: row;
       align-items: center;
 
       img.icon {
@@ -106,13 +104,11 @@
 
     .status-bar {
       display: flex;
-      flex-direction: row;
       align-items: center;
     }
 
     .health {
       display: flex;
-      flex-direction: row;
       align-items: center;
       font-size: calc(var(--ghs-unit) * 3.5);
       color: var(--ghs-color-white);
@@ -143,13 +139,11 @@
   .conditions {
     position: relative;
     display: flex;
-    flex-direction: row;
     margin-left: calc(var(--ghs-unit) * 1);
 
     .condition {
       position: relative;
       display: flex;
-      flex-direction: row;
 
       img {
         width: calc(var(--ghs-unit) * 3);
@@ -222,7 +216,6 @@
 
   .status-container {
     display: flex;
-    flex-direction: row;
     margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 
     .entity-container {

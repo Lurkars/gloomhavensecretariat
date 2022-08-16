@@ -1,3 +1,5 @@
+import { Identifier } from "./Identifier";
+
 export class Party {
 
   name: string = "";
@@ -5,5 +7,6 @@ export class Party {
   notes: string = "";
   achievements: string = "";
   reputation: number = 0;
+  scenarios: Identifier[] = [];
 
 }

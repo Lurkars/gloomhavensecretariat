@@ -1,0 +1,872 @@
+[
+  {
+    "id": 165,
+    "name": "Orb of Confusion",
+    "cost": 15,
+    "count": 2,
+    "edition": "cs",
+    "slot": "small"
+  },
+  {
+    "id": 166,
+    "name": "Orb of Momentum",
+    "cost": 15,
+    "count": 2,
+    "edition": "cs",
+    "slot": "small"
+  },
+  {
+    "id": 167,
+    "name": "Orb of Agility",
+    "cost": 15,
+    "count": 2,
+    "edition": "cs",
+    "slot": "small"
+  },
+  {
+    "id": 168,
+    "name": "Orb of Vigor",
+    "cost": 15,
+    "count": 2,
+    "edition": "cs",
+    "slot": "small"
+  },
+  {
+    "id": 169,
+    "name": "Orb of Retribution",
+    "cost": 15,
+    "count": 2,
+    "edition": "cs",
+    "slot": "small"
+  },
+  {
+    "id": 170,
+    "name": "Orb of Infection",
+    "cost": 15,
+    "count": 2,
+    "edition": "cs",
+    "slot": "small"
+  },
+  {
+    "id": 171,
+    "name": "Orb of Vitality",
+    "cost": 15,
+    "count": 2,
+    "edition": "cs",
+    "slot": "small"
+  },
+  {
+    "id": 172,
+    "name": "Orb of Protection",
+    "cost": 15,
+    "count": 2,
+    "edition": "cs",
+    "slot": "small"
+  },
+  {
+    "id": 173,
+    "name": "Orb of Fortune",
+    "cost": 15,
+    "count": 2,
+    "edition": "cs",
+    "slot": "small"
+  },
+  {
+    "id": 174,
+    "name": "Orb of Despair",
+    "cost": 15,
+    "count": 2,
+    "edition": "cs",
+    "slot": "small"
+  },
+  {
+    "id": 175,
+    "name": "Pox Antidote",
+    "cost": 10,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 176,
+    "name": "Trophy Helm",
+    "cost": 60,
+    "count": 1,
+    "edition": "cs",
+    "slot": "head"
+  },
+  {
+    "id": 177,
+    "name": "War Pick",
+    "cost": 20,
+    "count": 2,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 178,
+    "name": "Chain Mace",
+    "cost": 30,
+    "count": 2,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 179,
+    "name": "Draining Greaves",
+    "cost": 50,
+    "count": 2,
+    "edition": "cs",
+    "slot": "legs"
+  },
+  {
+    "id": 180,
+    "name": "Shoes of Phasing",
+    "cost": 20,
+    "count": 1,
+    "edition": "cs",
+    "slot": "legs"
+  },
+  {
+    "id": 181,
+    "name": "Lightweight Boots",
+    "cost": 40,
+    "count": 2,
+    "edition": "cs",
+    "slot": "legs",
+    "spent": true
+  },
+  {
+    "id": 182,
+    "name": "Bottled Moonlight",
+    "cost": 50,
+    "count": 2,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 183,
+    "name": "Boots of Perpetuity",
+    "cost": 60,
+    "count": 1,
+    "edition": "cs",
+    "slot": "legs"
+  },
+  {
+    "id": 184,
+    "name": "Curious Pendant",
+    "cost": 60,
+    "count": 2,
+    "edition": "cs",
+    "slot": "head",
+    "spent": true
+  },
+  {
+    "id": 185,
+    "name": "Infrared Goggles",
+    "cost": 20,
+    "count": 1,
+    "edition": "cs",
+    "slot": "head"
+  },
+  {
+    "id": 186,
+    "name": "Steel Helmet",
+    "cost": 30,
+    "count": 2,
+    "edition": "cs",
+    "slot": "head",
+    "minusOne": 1
+  },
+  {
+    "id": 187,
+    "name": "Woven Plate Armor",
+    "cost": 50,
+    "count": 2,
+    "edition": "cs",
+    "slot": "body",
+    "spent": true
+  },
+  {
+    "id": 188,
+    "name": "Mantle of Purity",
+    "cost": 20,
+    "count": 2,
+    "edition": "cs",
+    "slot": "body",
+    "spent": true
+  },
+  {
+    "id": 189,
+    "name": "Boneclad Shawl",
+    "cost": 30,
+    "count": 2,
+    "edition": "cs",
+    "slot": "body",
+    "spent": true
+  },
+  {
+    "id": 190,
+    "name": "Silhouette Cuirass",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "slot": "body",
+    "spent": true
+  },
+  {
+    "id": 191,
+    "name": "Translocation Device",
+    "cost": 40,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 192,
+    "name": "Alchemy Potion",
+    "cost": 20,
+    "count": 2,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 193,
+    "name": "Intoxicating Potion",
+    "cost": 15,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 194,
+    "name": "Iron Snare",
+    "cost": 15,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 195,
+    "name": "Concussion Mine",
+    "cost": 20,
+    "count": 2,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 196,
+    "name": "Shifting Compass",
+    "cost": 60,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 197,
+    "name": "Battering Ram",
+    "cost": 30,
+    "count": 1,
+    "edition": "cs",
+    "slot": "twohand",
+    "spent": true
+  },
+  {
+    "id": 198,
+    "name": "Claw Trap",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 199,
+    "name": "Staff of Retribution",
+    "cost": 20,
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 200,
+    "name": "Curseblood Blade",
+    "cost": 35,
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 201,
+    "name": "Drakescale Shield",
+    "cost": 60,
+    "count": 2,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 202,
+    "name": "Drakescale Dagger",
+    "cost": 20,
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 203,
+    "name": "Hook Shot",
+    "cost": 45,
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 204,
+    "name": "Moonleather Boots",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "slot": "legs",
+    "spent": true
+  },
+  {
+    "id": 205,
+    "name": "Spirit Libation",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 206,
+    "name": "Robe of Soothing",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "slot": "body"
+  },
+  {
+    "id": 207,
+    "name": "Resplendent Mitre",
+    "cost": 40,
+    "count": 1,
+    "edition": "cs",
+    "slot": "head",
+    "spent": true
+  },
+  {
+    "id": 208,
+    "name": "Canister Projectile",
+    "cost": 30,
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 209,
+    "name": "Chain Cannon",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 210,
+    "name": "Summoner's Whistle",
+    "cost": 30,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 211,
+    "name": "Nature Armlets",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand"
+  },
+  {
+    "id": 212,
+    "name": "Test Tube",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 213,
+    "name": "Booster Shot",
+    "cost": 30,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 214,
+    "name": "Luminous Carapace",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "slot": "body",
+    "spent": true
+  },
+  {
+    "id": 215,
+    "name": "Flaming Armor",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "slot": "body"
+  },
+  {
+    "id": 216,
+    "name": "Flaming Axe",
+    "cost": 40,
+    "count": 1,
+    "edition": "cs",
+    "slot": "twohand",
+    "spent": true
+  },
+  {
+    "id": 217,
+    "name": "Field Mortar",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small"
+  },
+  {
+    "id": 218,
+    "name": "Vipertooth Dagger",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand"
+  },
+  {
+    "id": 219,
+    "name": "Ghost Viper Venom",
+    "cost": 25,
+    "count": 2,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 220,
+    "name": "Clamp Trap",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 221,
+    "name": "Cleansed Voidheart",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "slot": "body"
+  },
+  {
+    "id": 222,
+    "name": "Dizzying Tincture",
+    "cost": 15,
+    "count": 2,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 223,
+    "name": "Drakes Blood",
+    "cost": 15,
+    "count": 2,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 224,
+    "name": "Mana Medicine",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 225,
+    "name": "Ashsteel Gauntlets",
+    "cost": 60,
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true,
+    "minusOne": 2
+  },
+  {
+    "id": 226,
+    "name": "Smog Emitter",
+    "cost": 40,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 227,
+    "name": "Lucky Horseshoe",
+    "cost": 15,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 228,
+    "name": "Mild Kindled Tonic",
+    "cost": 20,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 229,
+    "name": "Rescue Axe",
+    "cost": 20,
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 230,
+    "name": "Iron Malleus",
+    "cost": 25,
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 231,
+    "name": "Pike Hook",
+    "cost": 35,
+    "count": 1,
+    "edition": "cs",
+    "slot": "twohand",
+    "spent": true
+  },
+  {
+    "id": 232,
+    "name": "Explosive Tonic",
+    "cost": 35,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small"
+  },
+  {
+    "id": 233,
+    "name": "Spicy Kindled Tonic",
+    "cost": 40,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small"
+  },
+  {
+    "id": 234,
+    "name": "Utility Rope",
+    "cost": 40,
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 235,
+    "name": "Fireproof Helm",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "slot": "head"
+  },
+  {
+    "id": 236,
+    "name": "Wooden Ladder",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "slot": "twohand"
+  },
+  {
+    "id": 237,
+    "name": "Medical Kit",
+    "cost": 30,
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand"
+  },
+  {
+    "id": 238,
+    "name": "Mild Bolstering Tonic",
+    "cost": 30,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 239,
+    "name": "Medallion of the Oak",
+    "cost": 35,
+    "count": 1,
+    "edition": "cs",
+    "slot": "head",
+    "spent": true
+  },
+  {
+    "id": 240,
+    "name": "Cauterizing Knife",
+    "cost": 40,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 241,
+    "name": "Trauma Kit",
+    "cost": 40,
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 242,
+    "name": "Scroll of Charisma",
+    "cost": 40,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 243,
+    "name": "Rescue Shield",
+    "cost": 45,
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 244,
+    "name": "Scroll of Protection",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 245,
+    "name": "Spicy Bolstering Tonic",
+    "cost": 60,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 246,
+    "name": "Scroll of Command",
+    "cost": 60,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 247,
+    "name": "Sphere of Currents",
+    "cost": 40,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 248,
+    "name": "Slug Crossbow",
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 249,
+    "name": "Refined Slug Crossbow",
+    "cost": 40,
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 250,
+    "name": "Bulwark Banner",
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 251,
+    "name": "Refined Bulwark Banner",
+    "cost": 40,
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 252,
+    "name": "Remote Beetle",
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 253,
+    "name": "Refined Remote Beetle",
+    "cost": 40,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 254,
+    "name": "Blazing Boots",
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 255,
+    "name": "Refined Blazing Boots",
+    "cost": 40,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 256,
+    "name": "Viper Blowgun",
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 257,
+    "name": "Refined Viper Blowgun",
+    "cost": 40,
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 258,
+    "name": "Frost Stone",
+    "cost": 25,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 259,
+    "name": "Storm Stone",
+    "cost": 25,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 260,
+    "name": "Inferno Stone",
+    "cost": 25,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 261,
+    "name": "Tremor Stone",
+    "cost": 25,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 262,
+    "name": "Brilliant Stone",
+    "cost": 25,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 263,
+    "name": "Dark Stone",
+    "cost": 25,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 264,
+    "name": "Wonder Stone",
+    "cost": 25,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  }
+]

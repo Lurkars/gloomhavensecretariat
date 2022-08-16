@@ -1,4 +1,4 @@
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, CdkDragEnter, CdkDragExit, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GameState } from 'src/app/game/model/Game';
@@ -19,11 +19,14 @@ export class MainComponent implements OnInit {
   columnSize: number = 3;
   columns: number = 2;
 
+  figureWidth: number = 0;
+
   resizeObserver: ResizeObserver;
 
   constructor(private element: ElementRef) {
     gameManager.uiChange.subscribe({
       next: () => {
+        this.figureWidth = (+window.getComputedStyle(document.body).getPropertyValue('--ghs-width').replace('px', '') / +window.getComputedStyle(document.body).getPropertyValue('--ghs-factor')) * 98;
         this.calcColumns();
       }
     })
@@ -38,38 +41,43 @@ export class MainComponent implements OnInit {
     await settingsManager.init();
     gameManager.stateManager.init();
     document.body.style.setProperty('--ghs-factor', settingsManager.settings.zoom + '');
+    document.body.style.setProperty('--ghs-barsize', settingsManager.settings.barSize + '');
+
+    this.figureWidth = (+window.getComputedStyle(document.body).getPropertyValue('--ghs-width').replace('px', '') / +window.getComputedStyle(document.body).getPropertyValue('--ghs-factor')) * 98;
     this.calcColumns();
 
     window.addEventListener('resize', (event) => {
+      this.figureWidth = (+window.getComputedStyle(document.body).getPropertyValue('--ghs-width').replace('px', '') / +window.getComputedStyle(document.body).getPropertyValue('--ghs-factor')) * 98;
       this.calcColumns();
     });
 
     window.addEventListener('fullscreenchange', (event) => {
+      this.figureWidth = (+window.getComputedStyle(document.body).getPropertyValue('--ghs-width').replace('px', '') / +window.getComputedStyle(document.body).getPropertyValue('--ghs-factor')) * 98;
       this.calcColumns();
     });
-
-    this.gameManager.uiChange.emit();
   }
 
   figures(column: number): Figure[] {
     return gameManager.game.figures.slice(this.columnSize * column, this.columnSize + (gameManager.game.figures.length * column - this.columnSize * column));
   }
 
-  calcColumns(): void {
+  calcColumns(scrollTo: HTMLElement | undefined = undefined): void {
     if (settingsManager.settings.disableColumns) {
       this.columns = 1;
       this.columnSize = 99;
+      setTimeout(() => {
+        this.translate(scrollTo);
+      }, 0)
     } else {
       setTimeout(() => {
-        const container = this.element.nativeElement.getElementsByClassName('columns')[ 0 ];
+        const container = this.element.nativeElement.getElementsByClassName('figures')[ 0 ];
         const figures = container.getElementsByClassName('figure');
 
         for (let i = 0; i < figures.length; i++) {
           this.resizeObserver.observe(figures[ i ]);
         }
 
-        let lastFigure = figures[ 0 ];
-        if (lastFigure && lastFigure.clientWidth * 1.05 < (container.clientWidth / 2)) {
+        if (this.figureWidth < (container.clientWidth / 2)) {
           let height = 0;
           let columnSize = 0;
           const minColumn = Math.ceil(gameManager.game.figures.length / 2);
@@ -103,10 +111,16 @@ export class MainComponent implements OnInit {
               otherHeight += figures[ i ].clientHeight;
             }
 
-            if (otherHeight > container.clientHeight && otherHeight > height) {
-              columnSize++;
-            } else if (height > container.clientHeight && otherHeight + figures[ columnSize - 1 ].clientHeight < container.clientHeight) {
+            while (height > container.clientHeight && otherHeight < (height - figures[ columnSize ].clientHeight)) {
+              otherHeight += figures[ columnSize ].clientHeight;
+              height -= figures[ columnSize ].clientHeight;
               columnSize--;
+            }
+
+            while (height > container.clientHeight && height < otherHeight) {
+              otherHeight -= figures[ columnSize ].clientHeight;
+              height += figures[ columnSize ].clientHeight;
+              columnSize++;
             }
 
             this.columnSize = columnSize;
@@ -118,15 +132,70 @@ export class MainComponent implements OnInit {
           this.columns = 1;
           this.columnSize = 99;
         }
+
+        this.translate(scrollTo);
       }, 0);
     }
   }
 
-  drop(event: CdkDragDrop<number>) {
-    gameManager.stateManager.before();
-    moveItemInArray(gameManager.game.figures, event.previousIndex + event.previousContainer.data, event.currentIndex + event.container.data + (event.previousContainer.data == 0 && event.container.data > 0 ? -1 : 0));
-    gameManager.stateManager.after();
-    this.calcColumns();
+  translate(scrollTo: HTMLElement | undefined = undefined) {
+    setTimeout(() => {
+      const container = this.element.nativeElement.getElementsByClassName('figures')[ 0 ];
+      const figures = container.getElementsByClassName('figure');
+      for (let index = 0; index < gameManager.game.figures.length; index++) {
+        let start = 0;
+        let left = "-50%";
+        if (this.columns > 1) {
+          const lastFigure = figures[ 0 ];
+          const leftOffset = Math.floor(((container.clientWidth / 2) - lastFigure.clientWidth) / 4);
+          if (index < this.columnSize) {
+            left = "calc(-100% - " + leftOffset + "px)";
+          } else {
+            left = "calc(" + leftOffset + "px)";
+            start = this.columnSize;
+          }
+        }
+
+        let height = 0;
+        for (let i = start; i < index; i++) {
+          height += figures[ i ].clientHeight;
+        }
+
+        figures[ index ].style.transform = "scale(1) translate(" + left + "," + height + "px)";
+
+        if (scrollTo) {
+          setTimeout(() => {
+            scrollTo.scrollIntoView({
+              behavior: 'smooth',
+              block: 'center',
+              inline: 'center'
+            });
+          }, 250);
+        }
+      }
+    }, 1);
   }
 
+  drop(event: CdkDragDrop<number>) {
+    if (event.previousContainer != event.container && (event.currentIndex == 0 && event.container.data != event.previousContainer.data + 1 || event.currentIndex != 0 && event.container.data != event.previousContainer.data - event.currentIndex)) {
+      moveItemInArray(gameManager.game.figures, event.previousContainer.data, event.container.data);
+      if (event.currentIndex > 0 && event.previousContainer.data > event.container.data) {
+        moveItemInArray(gameManager.game.figures, event.container.data + event.currentIndex, event.container.data);
+      } else if (event.currentIndex == 0 && event.previousContainer.data < event.container.data) {
+        moveItemInArray(gameManager.game.figures, event.container.data - 1, event.container.data);
+      }
+      gameManager.stateManager.after();
+      this.calcColumns(event.item.element.nativeElement);
+    } else {
+      this.translate();
+    }
+  }
+
+  entered(event: CdkDragEnter<number>) {
+    this.translate();
+  }
+
+  exited(event: CdkDragExit<number>) {
+    this.translate();
+  }
 }

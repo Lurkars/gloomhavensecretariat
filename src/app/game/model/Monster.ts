@@ -73,7 +73,7 @@ export class Monster extends MonsterData implements Figure {
   fromModel(model: GameMonsterModel) {
     this.edition = model.edition;
     if (!this.edition) {
-      const monsterData = gameManager.monstersData(true).find((monsterData: MonsterData) => monsterData.name == model.name);
+      const monsterData = gameManager.monstersData(true).find((monsterData) => monsterData.name == model.name);
       if (monsterData) {
         this.edition = monsterData.edition;
       } else {
@@ -87,8 +87,8 @@ export class Monster extends MonsterData implements Figure {
     this.abilities = model.abilities && model.abilities.length > 0 && model.abilities || gameManager.abilities(this) && gameManager.abilities(this).map((ability: Ability, index: number) => index) || [];
     this.ability = model.ability;
     this.entities = this.entities.filter((monsterEntity: MonsterEntity) => model.entities.map((gmem: GameMonsterEntityModel) => gmem.number).indexOf(monsterEntity.number) != -1);
-    model.entities.forEach((value: GameMonsterEntityModel) => {
-      let entity = this.entities.find((monsterEntity: MonsterEntity) => monsterEntity.number == value.number) as MonsterEntity;
+    model.entities.forEach((value) => {
+      let entity = this.entities.find((monsterEntity) => monsterEntity.number == value.number) as MonsterEntity;
       if (!entity) {
         entity = new MonsterEntity(value.number, value.type, this);
         this.entities.push(entity);

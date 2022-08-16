@@ -41,5 +41,19 @@
       "health": 20
     }
   ],
-  "availableSummons": []
+  "availableSummons": [],
+  "perks": [
+    {
+      "type": "remove",
+      "count": 2,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        }
+      ]
+    }
+  ]
 }

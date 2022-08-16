@@ -11,6 +11,7 @@ export class Settings {
   initiativeRequired: boolean = true;
   levelCalculation: boolean = true;
   levelAdjustment: number = 0;
+  ge5Player: boolean = true;
   disableStandees: boolean = false;
   fullscreen: boolean = false;
   disableColumns: boolean = false;
@@ -18,6 +19,7 @@ export class Settings {
   dragHealth: boolean = true;
   hints: boolean = true;
   zoom: number = 100;
+  barSize: number = 1;
   autoscroll: boolean = true;
   locale: string = "en";
   editionDataUrls: string[] = [];

@@ -1,17 +1,17 @@
 .button {
   cursor: pointer;
   font-family: 'ghs-text';
-  font-size: calc(var(--ghs-unit) * 3);
+  font-size: calc(var(--ghs-unit) * 3 * var(--ghs-barsize));
   color: var(--ghs-color-darkgray);
 
   .index {
-    margin-right: calc(var(--ghs-unit) * 1);
+    margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-barsize));
   }
 
   .sections {
     display: flex;
     justify-content: center;
-    font-size: calc(var(--ghs-unit) * 2);
+    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-barsize));
   }
 }
 

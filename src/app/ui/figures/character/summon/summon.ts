@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { Character } from 'src/app/game/model/Character';
-import { Condition, ConditionType, EntityCondition } from 'src/app/game/model/Condition';
+import { Condition, ConditionType } from 'src/app/game/model/Condition';
 import { GameState } from 'src/app/game/model/Game';
 import { Summon, SummonState } from 'src/app/game/model/Summon';
 import { DialogComponent } from 'src/app/ui/dialog/dialog';
@@ -58,7 +58,7 @@ export class SummonEntityComponent extends DialogComponent {
     }
     this.summon.dead = true;
 
-    if (gameManager.game.state == GameState.draw || this.summon.entityConditions.length == 0 || this.summon.entityConditions.every((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1)) {
+    if (gameManager.game.state == GameState.draw || this.summon.entityConditions.length == 0 || this.summon.entityConditions.every((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) == -1 && entityCondition.types.indexOf(ConditionType.apply) == -1)) {
       setTimeout(() => {
         gameManager.characterManager.removeSummon(this.character, this.summon);
         gameManager.stateManager.after();

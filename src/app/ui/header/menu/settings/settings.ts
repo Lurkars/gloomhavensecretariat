@@ -1,6 +1,7 @@
 import { Component, Input } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 
 @Component({
@@ -37,6 +38,14 @@ export class SettingsMenuComponent {
     }
   }
 
+  setBarSize(barSize: number) {
+    document.body.style.setProperty('--ghs-barsize', barSize + '');
+    settingsManager.setBarSize(barSize);
+    if (this.setDialogPosition) {
+      this.setDialogPosition();
+    }
+  }
+
   zoomReset(): void {
     this.setZoom(100);
   }
@@ -48,5 +57,9 @@ export class SettingsMenuComponent {
     } else {
       document.exitFullscreen();
     }
+  }
+
+  ge5Player(): boolean {
+    return gameManager.game.figures.filter((figure) => figure instanceof Character).length > 4;
   }
 }

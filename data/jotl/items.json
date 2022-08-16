@@ -1,0 +1,445 @@
+[
+  {
+    "id": 1,
+    "name": "Eagle-Eye Goggles",
+    "cost": 30,
+    "count": 2,
+    "edition": "jotl",
+    "slot": "head",
+    "spent": true,
+    "folder": "1-13",
+    "unlockScenario": {
+      "name": 2,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Iron Helmet",
+    "cost": 10,
+    "count": 2,
+    "edition": "jotl",
+    "slot": "head",
+    "folder": "1-13",
+    "unlockScenario": {
+      "name": 2,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Chain Armor",
+    "cost": 30,
+    "count": 2,
+    "edition": "jotl",
+    "slot": "body",
+    "spent": true,
+    "folder": "1-13",
+    "unlockScenario": {
+      "name": 2,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Studded Leather",
+    "cost": 30,
+    "count": 2,
+    "edition": "jotl",
+    "slot": "body",
+    "spent": true,
+    "folder": "1-13",
+    "unlockScenario": {
+      "name": 2,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Weathered Boots",
+    "cost": 15,
+    "count": 2,
+    "edition": "jotl",
+    "slot": "legs",
+    "spent": true,
+    "folder": "1-13",
+    "unlockScenario": {
+      "name": 2,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Winged Shoes",
+    "cost": 15,
+    "count": 2,
+    "edition": "jotl",
+    "slot": "legs",
+    "spent": true,
+    "folder": "1-13",
+    "unlockScenario": {
+      "name": 2,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Heater Shield",
+    "cost": 20,
+    "count": 2,
+    "edition": "jotl",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "1-13",
+    "unlockScenario": {
+      "name": 2,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Throwing Hammer",
+    "cost": 35,
+    "count": 2,
+    "edition": "jotl",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "1-13",
+    "unlockScenario": {
+      "name": 2,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Poison Dagger",
+    "cost": 20,
+    "count": 2,
+    "edition": "jotl",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "1-13",
+    "unlockScenario": {
+      "name": 2,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Iron Spear",
+    "cost": 20,
+    "count": 2,
+    "edition": "jotl",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "1-13",
+    "unlockScenario": {
+      "name": 2,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 11,
+    "name": "Healing Potion",
+    "cost": 10,
+    "count": 2,
+    "edition": "jotl",
+    "slot": "small",
+    "spent": true,
+    "folder": "1-13",
+    "unlockScenario": {
+      "name": 2,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 12,
+    "name": "Stamina Potion",
+    "cost": 10,
+    "count": 2,
+    "edition": "jotl",
+    "slot": "small",
+    "spent": true,
+    "folder": "1-13",
+    "unlockScenario": {
+      "name": 2,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 13,
+    "name": "Power Potion",
+    "cost": 10,
+    "count": 2,
+    "edition": "jotl",
+    "slot": "small",
+    "spent": true,
+    "folder": "1-13",
+    "unlockScenario": {
+      "name": 2,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 14,
+    "name": "Mana Potion",
+    "cost": 10,
+    "count": 2,
+    "edition": "jotl",
+    "slot": "small",
+    "spent": true,
+    "folder": "14"
+  },
+  {
+    "id": 15,
+    "name": "Amulet of Life",
+    "cost": 20,
+    "count": 1,
+    "edition": "jotl",
+    "slot": "head",
+    "spent": true,
+    "folder": "15-20",
+    "unlockScenario": {
+      "name": 9,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 16,
+    "name": "Robes of Evocation",
+    "cost": 40,
+    "count": 1,
+    "edition": "jotl",
+    "slot": "body",
+    "spent": true,
+    "folder": "15-20",
+    "unlockScenario": {
+      "name": 9,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 17,
+    "name": "Comfortable Shoes",
+    "cost": 30,
+    "count": 1,
+    "edition": "jotl",
+    "slot": "legs",
+    "folder": "15-20",
+    "unlockScenario": {
+      "name": 9,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 18,
+    "name": "Battle-Axe",
+    "cost": 25,
+    "count": 1,
+    "edition": "jotl",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "15-20",
+    "unlockScenario": {
+      "name": 9,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 19,
+    "name": "Black Candle",
+    "cost": 40,
+    "count": 1,
+    "edition": "jotl",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "15-20",
+    "unlockScenario": {
+      "name": 9,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 20,
+    "name": "Stun Powder",
+    "cost": 20,
+    "count": 2,
+    "edition": "jotl",
+    "slot": "small",
+    "spent": true,
+    "folder": "15-20",
+    "unlockScenario": {
+      "name": 9,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 21,
+    "name": "Hawk Helm",
+    "cost": 20,
+    "count": 1,
+    "edition": "jotl",
+    "slot": "head",
+    "spent": true,
+    "folder": "21-26",
+    "unlockScenario": {
+      "name": 15,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 22,
+    "name": "Bladed Armor",
+    "cost": 45,
+    "count": 1,
+    "edition": "jotl",
+    "slot": "body",
+    "spent": true,
+    "folder": "21-26",
+    "unlockScenario": {
+      "name": 15,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 23,
+    "name": "Boots of Striding",
+    "cost": 30,
+    "count": 1,
+    "edition": "jotl",
+    "slot": "legs",
+    "spent": true,
+    "folder": "21-26",
+    "unlockScenario": {
+      "name": 15,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 24,
+    "name": "Volatile Bomb",
+    "cost": 40,
+    "count": 1,
+    "edition": "jotl",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "21-26",
+    "unlockScenario": {
+      "name": 15,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 25,
+    "name": "Barbed Chain",
+    "cost": 30,
+    "count": 1,
+    "edition": "jotl",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "21-26"
+  },
+  {
+    "id": 26,
+    "name": "Oak Charm",
+    "cost": 30,
+    "count": 2,
+    "edition": "jotl",
+    "slot": "small",
+    "spent": true,
+    "folder": "21-26",
+    "unlockScenario": {
+      "name": 15,
+      "edition": "jotl"
+    }
+  },
+  {
+    "id": 27,
+    "name": "Fateful Compass",
+    "cost": 25,
+    "count": 1,
+    "edition": "jotl",
+    "slot": "small",
+    "spent": true,
+    "folder": "27-36"
+  },
+  {
+    "id": 28,
+    "name": "Flea-Bitten Shawl",
+    "cost": 10,
+    "count": 1,
+    "edition": "jotl",
+    "slot": "body",
+    "folder": "27-36"
+  },
+  {
+    "id": 29,
+    "name": "Tower Shield",
+    "cost": 40,
+    "count": 1,
+    "edition": "jotl",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "27-36"
+  },
+  {
+    "id": 30,
+    "name": "Ring of Haste",
+    "cost": 40,
+    "count": 1,
+    "edition": "jotl",
+    "slot": "small",
+    "spent": true,
+    "folder": "27-36"
+  },
+  {
+    "id": 31,
+    "name": "Ring of Strength",
+    "cost": 40,
+    "count": 1,
+    "edition": "jotl",
+    "slot": "small",
+    "spent": true,
+    "folder": "27-36"
+  },
+  {
+    "id": 32,
+    "name": "Ring of Restoration",
+    "cost": 40,
+    "count": 1,
+    "edition": "jotl",
+    "slot": "small",
+    "spent": true,
+    "folder": "27-36"
+  },
+  {
+    "id": 33,
+    "name": "Steel Ring",
+    "cost": 30,
+    "count": 1,
+    "edition": "jotl",
+    "slot": "small",
+    "spent": true,
+    "folder": "27-36"
+  },
+  {
+    "id": 34,
+    "name": "Barbed Axe",
+    "cost": 40,
+    "count": 1,
+    "edition": "jotl",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "27-36"
+  },
+  {
+    "id": 35,
+    "name": "Robes of Command",
+    "cost": 40,
+    "count": 1,
+    "edition": "jotl",
+    "slot": "body",
+    "spent": true,
+    "folder": "27-36"
+  }
+]

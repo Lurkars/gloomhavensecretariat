@@ -39,7 +39,7 @@ export class DatamanagementMenuComponent {
 
   isDefaultEditionData(): boolean {
     const defaultEditionDataUrls: string[] = new Settings().editionDataUrls;
-    return this.settingsManager.settings.editionDataUrls.length == defaultEditionDataUrls.length && this.settingsManager.settings.editionDataUrls.every((editionDataUrl: string) => defaultEditionDataUrls.indexOf(editionDataUrl) != -1);
+    return this.settingsManager.settings.editionDataUrls.length == defaultEditionDataUrls.length && this.settingsManager.settings.editionDataUrls.every((editionDataUrl) => defaultEditionDataUrls.indexOf(editionDataUrl) != -1);
   }
 
   addSpoiler(): void {

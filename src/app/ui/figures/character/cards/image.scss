@@ -1,12 +1,12 @@
 .image-container {
   position: relative;
   display: block;
-  width: calc(var(--ghs-unit) * 9);
-  height: calc(var(--ghs-unit) * 9);
-  margin: calc(var(--ghs-unit) * 3);
+  width: calc(var(--ghs-unit) * 9.5);
+  height: calc(var(--ghs-unit) * 9.5);
+  margin: calc(var(--ghs-unit) * 3.4);
   cursor: pointer;
   border-radius: calc(var(--ghs-unit) * 1);
-  left: calc(var(--ghs-unit) * 2);
+  left: calc(var(--ghs-unit) * 2.5);
   overflow: hidden;
   transition: box-shadow 100ms ease-in-out;
 
@@ -22,7 +22,7 @@
   ghs-healthbar {
     position: absolute;
     bottom: 0;
-    width: calc(var(--ghs-unit) * 9);
+    width: calc(var(--ghs-unit) * 9.5);
     left: 0;
   }
 }

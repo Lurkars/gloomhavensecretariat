@@ -1,6 +1,6 @@
 .stats-container {
-  width: calc(var(--ghs-unit) * 37);
-  height: calc(var(--ghs-unit) * 20);
+  width: calc(var(--ghs-unit) * 40);
+  height: calc(var(--ghs-unit) * 21.5);
   position: relative;
   background-position: top;
   background-repeat: no-repeat;
@@ -20,7 +20,7 @@
     position: absolute;
     top: calc(var(--ghs-unit) * 0.6);
     right: 0;
-    width: calc(var(--ghs-unit) * 28);
+    width: calc(var(--ghs-unit) * 30.5);
     display: flex;
     align-items: center;
     font-family: 'ghs-title';
@@ -52,7 +52,7 @@
   .level {
     position: absolute;
     top: calc(var(--ghs-unit) * 0.5);
-    left: calc(var(--ghs-unit) * 2);
+    left: calc(var(--ghs-unit) * 2.5);
     font-family: "ghs-title";
     font-size: calc(var(--ghs-unit) * 3);
     text-shadow: var(--ghs-outline);
@@ -67,19 +67,19 @@
 
   .stats {
     position: absolute;
-    top: calc(var(--ghs-unit) * 5.6);
+    top: calc(var(--ghs-unit) * 6);
     left: 0;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: calc(var(--ghs-unit) * 4);
+    column-gap: calc(var(--ghs-unit) * 4.4);
     filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
     z-index: 1;
 
     .stat {
       font-size: calc(var(--ghs-unit) * 2.7);
       padding-top: calc(var(--ghs-unit) * 0);
-      line-height: calc(var(--ghs-unit) * 3.1);
+      line-height: calc(var(--ghs-unit) * 3.45);
 
       &.end {
         justify-self: end;
@@ -101,20 +101,20 @@
     background-image: url('~src/assets/images/monster/stats/boss.png');
 
     .stats {
-      width: calc(var(--ghs-unit) * 12.8);
+      width: calc(var(--ghs-unit) * 14);
       grid-template-columns: 1fr;
-      top: calc(var(--ghs-unit) * 6);
+      top: calc(var(--ghs-unit) * 6.5);
     }
   }
 
   .extra {
     position: absolute;
-    top: calc(var(--ghs-unit) * 5);
-    width: calc(var(--ghs-unit) * 13.5);
+    top: calc(var(--ghs-unit) * 5.5);
+    width: calc(var(--ghs-unit) * 14);
     display: flex;
     flex-direction: column;
     font-size: calc(var(--ghs-unit) * 1.8);
-    height: calc(100% - calc(var(--ghs-unit) * 5));
+    height: calc(100% - calc(var(--ghs-unit) * 5.5));
 
     .extra-container {
       overflow-x: unset;
@@ -124,20 +124,20 @@
 
     .immunities {
       position: absolute;
-      top: calc(var(--ghs-unit) * 1.5);
+      top: calc(var(--ghs-unit) * 1.6);
       display: grid;
       justify-items: center;
-      grid-template-columns: repeat(6, calc(var(--ghs-unit) * 2.6));
-      grid-template-rows: repeat(6, calc(var(--ghs-unit) * 1.15));
-      column-gap: calc(var(--ghs-unit) * 0.35);
-      row-gap: calc(var(--ghs-unit) * 0.35);
+      grid-template-columns: repeat(6, calc(var(--ghs-unit) * 2.8));
+      grid-template-rows: repeat(6, calc(var(--ghs-unit) * 1.25));
+      column-gap: calc(var(--ghs-unit) * 0.4);
+      row-gap: calc(var(--ghs-unit) * 0.4);
 
       .immunity {
 
         position: relative;
         display: block;
-        width: calc(var(--ghs-unit) * 2.3);
-        height: calc(var(--ghs-unit) * 2.3);
+        width: calc(var(--ghs-unit) * 2.5);
+        height: calc(var(--ghs-unit) * 2.5);
 
         &:nth-child(1) {
           grid-column-start: 2;
@@ -208,12 +208,12 @@
     }
 
     &.normal {
-      right: calc(var(--ghs-unit) * 23.5);
+      right: calc(var(--ghs-unit) * 25.5);
       text-align: right;
 
       .immunities {
-        left: calc(var(--ghs-unit) * -1.5);
-        width: calc(var(--ghs-unit) * 12);
+        left: calc(var(--ghs-unit) * -2);
+        width: calc(var(--ghs-unit) * 13);
       }
 
       .condition {
@@ -226,22 +226,22 @@
       color: var(--ghs-color-white);
 
       .immunities {
-        width: calc(var(--ghs-unit) * 12);
+        width: calc(var(--ghs-unit) * 13);
       }
     }
 
     &.boss {
-      width: calc(var(--ghs-unit) * 20);
+      width: calc(var(--ghs-unit) * 22);
       right: calc(var(--ghs-unit) * 0.5);
       color: var(--ghs-color-white);
 
       .extra-container {
-        height: calc(var(--ghs-unit) * 13.5);
+        height: calc(var(--ghs-unit) * 15);
       }
 
       .immunities {
-        top: calc(var(--ghs-unit) * 0.8);
-        left: calc(var(--ghs-unit) * -18);
+        top: calc(var(--ghs-unit) * 1);
+        left: calc(var(--ghs-unit) * -19);
       }
     }
 

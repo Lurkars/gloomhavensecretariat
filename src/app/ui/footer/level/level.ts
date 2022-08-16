@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { DialogComponent } from '../../dialog/dialog';
 
 @Component({
@@ -11,6 +11,7 @@ import { DialogComponent } from '../../dialog/dialog';
 export class LevelComponent extends DialogComponent {
 
   gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
   levels: number[] = [ 0, 1, 2, 3, 4, 5, 6, 7 ];
   trap: number = 0;
   experience: number = 0;
@@ -27,15 +28,15 @@ export class LevelComponent extends DialogComponent {
   }
 
   calculateValues() {
-    this.trap = gameManager.trap();
-    this.experience = gameManager.experience();
-    this.loot = gameManager.loot();
-    this.terrain = gameManager.terrain();
+    this.trap = gameManager.levelManager.trap();
+    this.experience = gameManager.levelManager.experience();
+    this.loot = gameManager.levelManager.loot();
+    this.terrain = gameManager.levelManager.terrain();
   }
 
   setLevel(level: number) {
     gameManager.stateManager.before();
-    gameManager.setLevel(level);
+    gameManager.levelManager.setLevel(level);
     settingsManager.setLevelCalculation(false);
     gameManager.stateManager.after();
   }

@@ -5,8 +5,8 @@ ghs-element-icon {
   span {
     cursor: pointer;
     display: block;
-    width: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor));
-    height: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor));
+    width: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor) * var(--ghs-barsize));
+    height: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor) * var(--ghs-barsize));
 
     svg {
       width: 100%;

@@ -1,11 +1,11 @@
 import { Figure } from "./Figure";
-import { Entity, EntityValueFunction } from "./Entity";
+import { Entity } from "./Entity";
 import { CharacterStat } from "./CharacterStat";
 import { CharacterData } from "./data/CharacterData";
-import { GameSummonModel, Summon, SummonColor, SummonState } from "./Summon";
+import { GameSummonModel, Summon } from "./Summon";
 import { gameManager } from "../businesslogic/GameManager";
 import { FigureError } from "./FigureError";
-import { ConditionName, EntityCondition, EntityConditionState, GameEntityConditionModel } from "./Condition";
+import { EntityCondition, GameEntityConditionModel } from "./Condition";
 import { CharacterProgress } from "./CharacterProgress";
 
 export class Character extends CharacterData implements Entity, Figure {
@@ -36,7 +36,7 @@ export class Character extends CharacterData implements Entity, Figure {
   }
 
   constructor(character: CharacterData, level: number) {
-    super(character.name, character.stats, character.edition, character.characterClass, character.availableSummons, character.icon, character.thumbnail, character.color, character.marker);
+    super(character);
     this.errors = character.errors;
     if (level < 1) {
       level = 1;
@@ -44,7 +44,7 @@ export class Character extends CharacterData implements Entity, Figure {
       level = 9;
     }
 
-    const stat = this.stats.find((characterStat: CharacterStat) => characterStat.level == level)
+    const stat = this.stats.find((characterStat) => characterStat.level == level)
     if (!stat) {
       console.error("No character stat found for level: " + level);
       if (this.errors.indexOf(FigureError.stat) == -1) {
@@ -71,7 +71,7 @@ export class Character extends CharacterData implements Entity, Figure {
     this.edition = model.edition;
 
     if (!this.edition) {
-      const characterData = gameManager.charactersData(true).find((characterData: CharacterData) => characterData.name == model.name);
+      const characterData = gameManager.charactersData(true).find((characterData) => characterData.name == model.name);
       if (characterData) {
         this.edition = characterData.edition;
       } else {
@@ -105,7 +105,7 @@ export class Character extends CharacterData implements Entity, Figure {
 
     this.summons = this.summons.filter((summon: Summon) => {
       let found: boolean = false;
-      model.summons.forEach((gsm: GameSummonModel) => {
+      model.summons.forEach((gsm) => {
         if (gsm.number == summon.number && gsm.color == summon.color) {
           found = true;
           return;
@@ -114,8 +114,8 @@ export class Character extends CharacterData implements Entity, Figure {
       return found;
     });
 
-    model.summons.forEach((value: GameSummonModel) => {
-      let summon = this.summons.find((summonEntity: Summon) => summonEntity.name == summonEntity.name && summonEntity.number == value.number && summonEntity.color == value.color) as Summon;
+    model.summons.forEach((value) => {
+      let summon = this.summons.find((summonEntity) => summonEntity.name == summonEntity.name && summonEntity.number == value.number && summonEntity.color == value.color) as Summon;
       if (!summon) {
         summon = new Summon(value.name, value.level, value.number, value.color);
         this.summons.push(summon);
@@ -125,21 +125,7 @@ export class Character extends CharacterData implements Entity, Figure {
 
     this.progress = model.progress || new CharacterProgress();
 
-    // migration
-    if (model.conditions) {
-      model.conditions.forEach((value: string) => {
-        let entityCondition = new EntityCondition(value as ConditionName);
-        if (model.turnConditions && model.turnConditions.indexOf(value) != -1) {
-          entityCondition.state = EntityConditionState.expire;
-        }
-        if (model.expiredConditions && model.expiredConditions.indexOf(value) != -1) {
-          entityCondition.expired = true;
-        }
-        this.entityConditions.push(entityCondition);
-      })
-    }
   }
-
 }
 
 
@@ -162,12 +148,6 @@ export class GameCharacterModel {
   summons: GameSummonModel[];
   progress: CharacterProgress | undefined;
   initiativeVisible: boolean;
-
-  // depreacted
-  conditions: string[] = [];
-  turnConditions: string[] = [];
-  expiredConditions: string[] = [];
-
 
   constructor(name: string,
     edition: string,

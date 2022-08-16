@@ -1,9 +1,8 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager, SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { Element } from 'src/app/game/model/Element';
-import { Figure } from 'src/app/game/model/Figure';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MainMenuComponent, SubMenu } from './menu/menu';
@@ -48,16 +47,16 @@ export class HeaderComponent implements OnInit {
   }
 
   hintStateValue(): string {
-    if (gameManager.game.figures.every((figure: Figure) => !(figure instanceof Character) && !(figure instanceof Monster))) {
+    if (gameManager.game.figures.every((figure) => !(figure instanceof Character) && !(figure instanceof Monster))) {
       return 'characters';
-    } else if (!gameManager.game.scenario && gameManager.game.figures.every((figure: Figure) => !(figure instanceof Monster))) {
+    } else if (!gameManager.game.scenario && gameManager.game.figures.every((figure) => !(figure instanceof Monster))) {
       return 'scenario';
-    } else if (gameManager.game.figures.every((figure: Figure) => !(figure instanceof Monster) || figure.entities.length == 0)) {
+    } else if (gameManager.game.figures.every((figure) => !(figure instanceof Monster) || figure.entities.length == 0)) {
       return 'addMonsterEntities';
-    } else if (gameManager.game.figures.some((figure: Figure) => figure.active)) {
+    } else if (gameManager.game.figures.some((figure) => figure.active)) {
       return gameManager.game.round < 3 ? 'active-full' : 'active';
     } else if (gameManager.game.state == GameState.draw) {
-      if (gameManager.game.figures.some((figure: Figure) => figure instanceof Character && !figure.exhausted && figure.health > 0 && settingsManager.settings.initiativeRequired && figure.initiative <= 0)) {
+      if (gameManager.game.figures.some((figure) => figure instanceof Character && !figure.exhausted && figure.health > 0 && settingsManager.settings.initiativeRequired && figure.initiative <= 0)) {
         return gameManager.game.round < 3 ? 'draw-full' : 'draw-short';
       }
       return 'draw';

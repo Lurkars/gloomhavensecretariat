@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { Figure } from 'src/app/game/model/Figure';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
-import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { DialogComponent } from '../dialog/dialog';
 
 @Component({
@@ -25,29 +23,29 @@ export class FooterComponent extends DialogComponent {
     } else {
       this.close();
       gameManager.stateManager.before();
-      const activeFigure = gameManager.game.figures.find((figure: Figure) => figure.active && !figure.off);
+      const activeFigure = gameManager.game.figures.find((figure) => figure.active && !figure.off);
       if (!this.active() && activeFigure) {
-        gameManager.afterTurn(activeFigure);
+        gameManager.roundManager.afterTurn(activeFigure);
       }
-      gameManager.nextGameState();
+      gameManager.roundManager.nextGameState();
       gameManager.stateManager.after(1000);
     }
   }
 
   confirmTurns() {
-    gameManager.game.figures.forEach((figure: Figure) => gameManager.afterTurn(figure));
+    gameManager.game.figures.forEach((figure) => gameManager.roundManager.afterTurn(figure));
     this.next(true);
   }
 
   finishScenario(success: boolean) {
     gameManager.stateManager.before();
-    gameManager.finishScenario(success);
+    gameManager.scenarioManager.finishScenario(success);
     gameManager.stateManager.after(1000);
   }
 
   resetRound() {
     gameManager.stateManager.before();
-    gameManager.resetRound();
+    gameManager.roundManager.resetRound();
     gameManager.stateManager.after(1000);
   }
 
@@ -56,19 +54,19 @@ export class FooterComponent extends DialogComponent {
   }
 
   missingInitative(): boolean {
-    return gameManager.game.figures.some((figure: Figure) => figure instanceof Character && settingsManager.settings.initiativeRequired && figure.initiative < 1 && !figure.exhausted);
+    return gameManager.game.figures.some((figure) => figure instanceof Character && settingsManager.settings.initiativeRequired && figure.initiative < 1 && !figure.exhausted);
   }
 
   active(): boolean {
-    return gameManager.game.figures.find((figure: Figure) => figure.active && !figure.off) != undefined;
+    return gameManager.game.figures.find((figure) => figure.active && !figure.off) != undefined;
   };
 
   finish(): boolean {
-    return !this.missingInitative() && !this.active() && !this.empty() && gameManager.game.figures.some((figure: Figure) => figure instanceof Character) && gameManager.game.figures.every((figure: Figure) => !(figure instanceof Monster) || figure instanceof Monster && figure.entities.every((entity: MonsterEntity) => entity.dead || entity.health <= 0)) && gameManager.game.figures.some((figure: Figure) => figure instanceof Character && !figure.exhausted && figure.health > 0);
+    return gameManager.game.round > 1 && !this.missingInitative() && !this.active() && !this.empty() && gameManager.game.figures.some((figure) => figure instanceof Character) && gameManager.game.figures.every((figure) => !(figure instanceof Monster) || figure instanceof Monster && figure.entities.every((entity) => entity.dead || entity.health <= 0)) && gameManager.game.figures.some((figure) => figure instanceof Character && !figure.exhausted && figure.health > 0);
   }
 
   failed(): boolean {
-    return !this.active() && !this.empty() && gameManager.game.figures.some((figure: Figure) => figure instanceof Character) && gameManager.game.figures.every((figure: Figure) => !(figure instanceof Character) || figure instanceof Character && (figure.exhausted || figure.health <= 0));
+    return !this.active() && !this.empty() && gameManager.game.figures.some((figure) => figure instanceof Character) && gameManager.game.figures.every((figure) => !(figure instanceof Character) || figure instanceof Character && (figure.exhausted || figure.health <= 0));
   }
 
   disabled(): boolean {

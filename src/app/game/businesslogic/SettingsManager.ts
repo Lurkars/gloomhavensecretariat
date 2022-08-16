@@ -126,6 +126,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setGe5Player(ge5Player: boolean) {
+    this.settings.ge5Player = ge5Player;
+    this.storeSettings();
+  }
+
   setDisableStandees(disableStandees: boolean) {
     this.settings.disableStandees = disableStandees;
     this.storeSettings();
@@ -168,6 +173,11 @@ export class SettingsManager {
 
   setZoom(zoom: number) {
     this.settings.zoom = zoom;
+    this.storeSettings();
+  }
+
+  setBarSize(barSize: number) {
+    this.settings.barSize = barSize;
     this.storeSettings();
   }
 
@@ -357,12 +367,12 @@ export class SettingsManager {
   };
 
   getEditionByUrl(url: string) {
-    if (!gameManager.editionData.some((editionData: EditionData) => editionData.url == url)) {
+    if (!gameManager.editionData.some((editionData) => editionData.url == url)) {
       console.error("No edition data found for url '" + url + "'");
       return;
     }
 
-    return gameManager.editionData.find((editionData: EditionData) => editionData.url == url)?.edition;
+    return gameManager.editionData.find((editionData) => editionData.url == url)?.edition;
   }
 
   async addEditionDataUrl(editionDataUrl: string) {
@@ -417,10 +427,10 @@ export class SettingsManager {
     await fetch('./assets/locales/' + locale + '.json')
       .then(response => {
         this.settings.locale = locale;
-        this.storeSettings();
         return response.json();
       }).then(data => {
         this.label = this.merge(this.label, data);
+        this.storeSettings();
       })
       .catch((error: Error) => {
         console.error("Invalid locale: " + locale, error);
@@ -462,7 +472,9 @@ export class SettingsManager {
   insertLabelArguments(label: string, args: string[]) {
     if (args) {
       for (let index in args) {
-        label = label.replace(`{${index}}`, this.getLabel(args[ index ]));
+        while (label.indexOf(`{${index}}`) != -1) {
+          label = label.replace(`{${index}}`, this.getLabel(args[ index ]));
+        }
       }
     }
     return label;

@@ -11,20 +11,23 @@
         </div>
         <div class="row name">
           <label>{{'party.name' | ghsLabel}}:</label>
-          <input type="text" [value]="party.name" (change)="setName($event)" (keyup)="setName($event)">
+          <input type="text" [value]="party.name" (change)="setName($event)" (keyup)="setName($event)"
+            placeholder="{{'party.name' | ghsLabel}}">
         </div>
         <div class="row location">
           <label>{{'party.location' | ghsLabel}}:</label>
-          <input type="text" [value]="party.location" (change)="setLocation($event)" (keyup)="setLocation($event)">
+          <input type="text" [value]="party.location" (change)="setLocation($event)" (keyup)="setLocation($event)"
+            placeholder="{{'party.location' | ghsLabel}}">
         </div>
         <div class="row notes">
           <label>{{'party.notes' | ghsLabel}}:</label>
-          <textarea type="text" [value]="party.notes" (change)="setNotes($event)" (keyup)="setNotes($event)"></textarea>
+          <textarea type="text" [value]="party.notes" (change)="setNotes($event)" (keyup)="setNotes($event)"
+            placeholder="{{'party.notes' | ghsLabel}}"></textarea>
         </div>
         <div class="row achievements">
           <label>{{'party.achievements' | ghsLabel}}:</label>
           <textarea type="text" [value]="party.achievements" (change)="setAchievements($event)"
-            (keyup)="setAchievements($event)"></textarea>
+            (keyup)="setAchievements($event)" placeholder="{{'party.achievements' | ghsLabel}}"></textarea>
         </div>
       </div>
 
@@ -49,6 +52,15 @@
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="import-export">
+          <label (click)="exportParty()" title="{{'party.export' |
+          ghsLabel}}"><img src="./assets/images/export.svg"><span>{{'party.export' |
+              ghsLabel}}</span></label>
+          <label title="{{'party.import' | ghsLabel}}">
+            <input type="file" accept="application/json" (change)="importParty($event)" /><img
+              src="./assets/images/import.svg"><span>{{'party.import' | ghsLabel}}</span></label>
         </div>
       </div>
     </div>

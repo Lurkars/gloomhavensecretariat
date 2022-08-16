@@ -63,20 +63,20 @@ export class MonsterToolComponent implements OnInit {
         this.monsterData.stats = this.monsterData.stats.filter((stat: MonsterStat) => !stat.type || stat.type == MonsterType.boss);
 
         for (let level of this.levels) {
-          if (!this.monsterData.stats.some((stat: MonsterStat) => stat.level == level)) {
+          if (!this.monsterData.stats.some((stat) => stat.level == level)) {
             this.monsterData.stats.push(new MonsterStat(MonsterType.boss, level, 0, 0, 0, 0));
           }
         }
       } else {
         this.monsterData.stats = this.monsterData.stats.filter((stat: MonsterStat) => stat.type != MonsterType.boss);
         for (let level of this.levels) {
-          if (!this.monsterData.stats.some((stat: MonsterStat) => stat.level == level && (!stat.type || stat.type == MonsterType.normal))) {
+          if (!this.monsterData.stats.some((stat) => stat.level == level && (!stat.type || stat.type == MonsterType.normal))) {
             this.monsterData.stats.push(new MonsterStat(MonsterType.normal, level, 0, 0, 0, 0));
           }
         }
 
         for (let level of this.levels) {
-          if (!this.monsterData.stats.some((stat: MonsterStat) => stat.level == level && stat.type == MonsterType.elite)) {
+          if (!this.monsterData.stats.some((stat) => stat.level == level && stat.type == MonsterType.elite)) {
             this.monsterData.stats.push(new MonsterStat(MonsterType.elite, level, 0, 0, 0, 0));
           }
         }
@@ -88,7 +88,7 @@ export class MonsterToolComponent implements OnInit {
 
   getStatIndex(type: MonsterType, level: number): number {
     if (this.monsterData) {
-      const stat = this.monsterData.stats.find((stat: MonsterStat) => stat.level == level && (stat.type == type || !stat.type && this.monsterData?.baseStat.type == type));
+      const stat = this.monsterData.stats.find((stat) => stat.level == level && (stat.type == type || !stat.type && this.monsterData?.baseStat.type == type));
       if (stat) {
         return this.monsterData.stats.indexOf(stat);
       }

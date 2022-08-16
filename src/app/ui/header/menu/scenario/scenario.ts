@@ -58,14 +58,14 @@ export class ScenarioMenuComponent {
 
   setScenario(scenarioData: ScenarioData) {
     gameManager.stateManager.before();
-    gameManager.setScenario(scenarioData as Scenario)
+    gameManager.scenarioManager.setScenario(scenarioData as Scenario)
     gameManager.stateManager.after();
   }
 
   resetScenario() {
     if (gameManager.game.scenario) {
       gameManager.stateManager.before();
-      gameManager.setScenario(gameManager.game.scenario)
+      gameManager.scenarioManager.setScenario(gameManager.game.scenario)
       gameManager.stateManager.after();
     }
   }
@@ -73,7 +73,7 @@ export class ScenarioMenuComponent {
   customScenario() {
     if (!gameManager.game.scenario || !gameManager.game.scenario.custom) {
       gameManager.stateManager.before();
-      gameManager.setScenario(new Scenario(new ScenarioData("", "", [], [], [], [], [], [], ""), true));
+      gameManager.scenarioManager.setScenario(new Scenario(new ScenarioData("", "", [], [], [], [], [], [], ""), true));
       gameManager.stateManager.after();
     } else {
       gameManager.stateManager.before();

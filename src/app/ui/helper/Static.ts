@@ -6,7 +6,7 @@ export function ghsUnit(): number {
 }
 
 export function ghsHasSpoilers(items: Spoilable[]): boolean {
-  return items.some((spoilable: Spoilable) => spoilable.spoiler && settingsManager.settings.spoilers.indexOf(spoilable.name) == -1);
+  return items.some((spoilable) => spoilable.spoiler && settingsManager.settings.spoilers.indexOf(spoilable.name) == -1);
 }
 
 export function ghsIsSpoiled(spoilable: Spoilable): boolean {

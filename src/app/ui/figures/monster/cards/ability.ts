@@ -31,7 +31,7 @@ export class AbilityComponent extends PopupComponent {
     } else {
       this.ability = gameManager.abilities(this.monster)[ this.index ];
     }
-    return gameManager.working && gameManager.game.state == GameState.draw || !gameManager.working && gameManager.game.state == GameState.next && this.ability != undefined && this.monster.entities.filter((monsterEntity: MonsterEntity) => !monsterEntity.dead).length > 0;
+    return gameManager.roundManager.working && gameManager.game.state == GameState.draw || !gameManager.roundManager.working && gameManager.game.state == GameState.next && this.ability != undefined && this.monster.entities.filter((monsterEntity: MonsterEntity) => !monsterEntity.dead).length > 0;
   }
 
   toggleEdit() {

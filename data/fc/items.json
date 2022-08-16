@@ -1,0 +1,137 @@
+[
+  {
+    "id": 152,
+    "name": "Ring of Duality",
+    "cost": 50,
+    "count": 1,
+    "edition": "fc",
+    "slot": "small",
+    "spent": true,
+    "folder": "152-165"
+  },
+  {
+    "id": 153,
+    "name": "Minor Antidote",
+    "cost": 25,
+    "count": 2,
+    "edition": "fc",
+    "slot": "small",
+    "folder": "152-165"
+  },
+  {
+    "id": 154,
+    "name": "Major Antidote",
+    "cost": 50,
+    "count": 2,
+    "edition": "fc",
+    "slot": "small",
+    "folder": "152-165"
+  },
+  {
+    "id": 155,
+    "name": "Curseward Armor",
+    "cost": 75,
+    "count": 1,
+    "edition": "fc",
+    "slot": "body",
+    "spent": true,
+    "minusOne": 3,
+    "folder": "152-165"
+  },
+  {
+    "id": 156,
+    "name": "Elemental Claymore",
+    "cost": 50,
+    "count": 2,
+    "edition": "fc",
+    "slot": "twohand",
+    "folder": "152-165"
+  },
+  {
+    "id": 157,
+    "name": "Ancient Bow",
+    "cost": 40,
+    "count": 2,
+    "edition": "fc",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "152-165"
+  },
+  {
+    "id": 158,
+    "name": "Rejuvenation Greaves",
+    "cost": 35,
+    "count": 2,
+    "edition": "fc",
+    "slot": "legs",
+    "spent": true,
+    "folder": "152-165"
+  },
+  {
+    "id": 159,
+    "name": "Scroll of Haste",
+    "cost": 30,
+    "count": 2,
+    "edition": "fc",
+    "slot": "small",
+    "spent": true,
+    "folder": "152-165"
+  },
+  {
+    "id": 160,
+    "name": "Cutpurse Dagger",
+    "cost": 45,
+    "count": 1,
+    "edition": "fc",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "152-165"
+  },
+  {
+    "id": 161,
+    "name": "Throwing Axe",
+    "cost": 35,
+    "count": 2,
+    "edition": "fc",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "152-165"
+  },
+  {
+    "id": 162,
+    "name": "Rift Device",
+    "cost": 50,
+    "count": 1,
+    "edition": "fc",
+    "slot": "small",
+    "spent": true,
+    "folder": "152-165"
+  },
+  {
+    "id": 163,
+    "name": "Crystal Tiara",
+    "cost": 75,
+    "count": 1,
+    "edition": "fc",
+    "slot": "head",
+    "folder": "152-165"
+  },
+  {
+    "id": 164,
+    "name": "Basin of Prophecy",
+    "cost": 50,
+    "count": 1,
+    "edition": "fc",
+    "slot": "twohand",
+    "folder": "152-165"
+  },
+  {
+    "id": 280,
+    "name": "Living Armor",
+    "cost": 125,
+    "count": 1,
+    "edition": "fc",
+    "slot": "body",
+    "folder": "152-165"
+  }
+]

@@ -11,8 +11,8 @@
 
   .dialog-button {
     position: absolute;
-    top: calc(var(--ghs-unit) * -14);
-    left: calc(var(--ghs-unit) * 13);
+    top: calc(var(--ghs-unit) * -14 * var(--ghs-barsize));
+    left: calc(var(--ghs-unit) * 13 * var(--ghs-barsize));
   }
 
   .values {
@@ -25,22 +25,22 @@
 
     .ghs-svg {
       filter: var(--ghs-filter-darkgray);
-      width: calc(var(--ghs-unit) * 3);
-      height: calc(var(--ghs-unit) * 3);
-      margin: 0 calc(var(--ghs-unit) * 0.5);
+      width: calc(var(--ghs-unit) * 3 * var(--ghs-barsize));
+      height: calc(var(--ghs-unit) * 3 * var(--ghs-barsize));
+      margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-barsize));
       display: inline-block;
     }
 
     span {
       display: flex;
       align-items: center;
-      font-size: calc(var(--ghs-unit) * 3);
+      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-barsize));
       color: var(--ghs-color-darkgray);
-      margin-right: calc(var(--ghs-unit) * 2);
+      margin-right: calc(var(--ghs-unit) * 2 * var(--ghs-barsize));
 
       img {
-        margin-left: calc(var(--ghs-unit) * 0.5);
-        height: calc(var(--ghs-unit) * 3);
+        margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-barsize));
+        height: calc(var(--ghs-unit) * 3 * var(--ghs-barsize));
         width: auto;
       }
     }
@@ -49,6 +49,15 @@
 
 
 .level-dialog {
+
+  label {
+    cursor: pointer;
+    display: flex;
+    font-family: 'ghs-title';
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    color: var(--ghs-color-gray);
+    text-shadow: var(--ghs-outline);
+  }
 
   display: flex;
   flex-direction: column;
@@ -71,6 +80,11 @@
     display: grid;
     grid-template-columns: repeat(5, calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor)));
     margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+
+    .item img {
+      filter: var(--ghs-filter-white);
+    }
 
     .level {
       display: flex;
@@ -98,6 +112,21 @@
       &:hover {
         border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
         border-radius: 100%;
+      }
+    }
+
+    &.disabled {
+
+      .item img {
+        filter: var(--ghs-filter-darkgray);
+      }
+
+      .level {
+        pointer-events: none;
+
+        &:not(.active) {
+          color: var(--ghs-color-darkgray);
+        }
       }
     }
   }

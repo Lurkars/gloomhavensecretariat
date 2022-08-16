@@ -1,10 +1,9 @@
 .monster {
   position: relative;
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: calc(var(--ghs-unit) * 90);
+  width: calc(var(--ghs-unit) * 98);
 
   ghs-monster-ability,
   ghs-monster-stats,
@@ -23,9 +22,13 @@
 
   ghs-figure-errors {
     position: absolute;
-    left: calc(var(--ghs-unit) * 13.5);
+    left: calc(var(--ghs-unit) * 14.5);
     top: 50%;
     transform: translateY(-50%);
+  }
+
+  ghs-monster-image {
+    margin: 0 calc(var(--ghs-unit) * 0.5);
   }
 
   ghs-monster-ability {
@@ -38,14 +41,14 @@
 
     &.normal,
     &.boss {
-      bottom: calc(var(--ghs-unit) * 1.5);
-      left: calc(var(--ghs-unit) * 54);
+      bottom: calc(var(--ghs-unit) * 1.6);
+      left: calc(var(--ghs-unit) * 59);
     }
 
     &.elite {
-      bottom: calc(var(--ghs-unit) * 1.5);
+      bottom: calc(var(--ghs-unit) * 1.6);
       left: auto;
-      right: calc(var(--ghs-unit) * 1.5);
+      right: calc(var(--ghs-unit) * 1);
     }
   }
 }
@@ -54,9 +57,9 @@
   position: relative;
   z-index: 2;
   display: flex;
-  transition: max-height 2s ease-out;
+  transition: max-height 1000ms ease-out;
   max-height: 100%;
-  max-width: calc(var(--ghs-unit) * 89);
+  max-width: calc(var(--ghs-unit) * 96);
 
   &.empty {
     max-height: 0;
@@ -64,16 +67,15 @@
 
   .spacer {
     flex: none;
-    width: calc(var(--ghs-unit) * 17);
+    width: calc(var(--ghs-unit) * 17.5);
     height: 100%;
   }
 
   .entities {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    max-width: calc(var(--ghs-unit) * 72);
+    max-width: calc(var(--ghs-unit) * 77.5);
 
     &.normal {
       left: calc(var(--ghs-unit) * 0);
@@ -81,6 +83,10 @@
 
     &.elite {
       right: calc(var(--ghs-unit) * 0);
+    }
+
+    ghs-monster-entity {
+      transition: all 1000ms ease-out;
     }
   }
 }

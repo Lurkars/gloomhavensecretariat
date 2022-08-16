@@ -78,7 +78,7 @@ export class ConditionsComponent implements OnInit {
   }
 
   getValue(condition: Condition): number {
-    const entityCondition = this.entity.entityConditions.find((entityCondition: EntityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
+    const entityCondition = this.entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
 
     if (entityCondition) {
       return entityCondition.value;
@@ -88,7 +88,7 @@ export class ConditionsComponent implements OnInit {
   }
 
   checkUpdate(condition: Condition) {
-    const entityCondition = this.entity.entityConditions.find((entityCondition: EntityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
+    const entityCondition = this.entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
     if (entityCondition) {
       gameManager.stateManager.before();
       entityCondition.value = condition.value;

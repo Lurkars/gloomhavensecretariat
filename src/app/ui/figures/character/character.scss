@@ -2,8 +2,8 @@
   position: relative;
   z-index: 1;
   height: 100%;
-  width: calc(var(--ghs-unit) * 90);
-  height: calc(var(--ghs-unit) * 15.3);
+  width: calc(var(--ghs-unit) * 98);
+  height: calc(var(--ghs-unit) * 16.5);
   background-image: url('~src/assets/images/character/char-mat.png');
   background-color: var(--ghs-character-color);
   background-size: cover;
@@ -57,16 +57,15 @@
   ghs-highlight-conditions {
     z-index: 3;
     position: absolute;
-    left: calc(var(--ghs-unit) * 5.5);
+    left: calc(var(--ghs-unit) * 6);
     top: 50%;
     transform: translateY(-50%);
-    width: calc(var(--ghs-unit) * 8);
+    width: calc(var(--ghs-unit) * 9.5);
   }
 
   .stats {
     height: 100%;
     display: flex;
-    flex-direction: row;
     flex-basis: 100%;
     cursor: pointer;
 
@@ -77,13 +76,12 @@
       align-items: flex-start;
 
       &.col-1 {
-        max-width: calc(var(--ghs-unit) * 39);
+        max-width: calc(var(--ghs-unit) * 42);
       }
 
       &.col-2 {
-        width: calc(var(--ghs-unit) * 8);
+        width: calc(var(--ghs-unit) * 8.5);
         justify-content: space-evenly;
-        align-items: center;
       }
     }
 
@@ -94,13 +92,12 @@
       color: var(--ghs-color-white);
       text-shadow: var(--ghs-outline);
       display: flex;
-      flex-direction: row;
       align-items: center;
 
       img.icon {
-        height: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 5.5 * var(--ghs-text-factor));
         width: auto;
-        margin-left: calc(var(--ghs-unit) * -1 * var(--ghs-text-factor));
+        margin-left: calc(var(--ghs-unit) * -1.1 * var(--ghs-text-factor));
         margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
       }
 
@@ -113,13 +110,11 @@
 
     .status-bar {
       display: flex;
-      flex-direction: row;
       align-items: center;
     }
 
     .health {
       display: flex;
-      flex-direction: row;
       align-items: center;
       font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
       color: var(--ghs-color-white);
@@ -144,13 +139,11 @@
     .conditions {
       position: relative;
       display: flex;
-      flex-direction: row;
       margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
 
       .condition {
         position: relative;
         display: flex;
-        flex-direction: row;
 
         img {
           width: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
@@ -221,7 +214,7 @@
   transition: max-height 2s ease-out;
   max-height: 100%;
   min-width: calc(var(--ghs-unit) * 7);
-  max-width: calc(var(--ghs-unit) * 89);
+  max-width: calc(var(--ghs-unit) * 96);
 
   &.empty {
     max-height: 0;
@@ -259,10 +252,9 @@
 
   .summons {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    max-width: calc(var(--ghs-unit) * 72);
+    max-width: calc(var(--ghs-unit) * 77.5);
   }
 
   &.off {
@@ -285,7 +277,6 @@
 
   .status-container {
     display: flex;
-    flex-direction: row;
     margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 
     .entity-container {

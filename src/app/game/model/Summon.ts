@@ -1,4 +1,4 @@
-import { ConditionName, EntityCondition, EntityConditionState, GameEntityConditionModel } from "./Condition";
+import { EntityCondition, GameEntityConditionModel } from "./Condition";
 import { Entity } from "./Entity";
 
 export enum SummonState {
@@ -79,20 +79,6 @@ export class Summon implements Entity {
 
     this.markers = model.markers;
     this.init = false;
-
-    // migration
-    if (model.conditions) {
-      model.conditions.forEach((value: string) => {
-        let entityCondition = new EntityCondition(value as ConditionName);
-        if (model.turnConditions && model.turnConditions.indexOf(value) != -1) {
-          entityCondition.state = EntityConditionState.expire;
-        }
-        if (model.expiredConditions && model.expiredConditions.indexOf(value) != -1) {
-          entityCondition.expired = true;
-        }
-        this.entityConditions.push(entityCondition);
-      })
-    }
   }
 
 }
@@ -111,12 +97,6 @@ export class GameSummonModel {
   maxHealth: number;
   entityConditions: GameEntityConditionModel[];
   markers: string[];
-
-  // depreacted
-  conditions: string[] = [];
-  turnConditions: string[] = [];
-  expiredConditions: string[] = [];
-
 
   constructor(name: string,
     number: number,

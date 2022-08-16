@@ -8,4 +8,7 @@ export class CharacterProgress {
   personalQuest: number = 0;
   battleGoals: number = 0;
   notes: string = "";
+  retired: boolean = false;
+  perks: number[] = [];
+
 }

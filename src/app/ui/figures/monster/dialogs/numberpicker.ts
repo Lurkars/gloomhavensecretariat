@@ -36,7 +36,7 @@ export class MonsterNumberPicker extends DialogComponent {
   }
 
   hasNumber(number: number) {
-    return this.monster.entities.some((monsterEntity: MonsterEntity) => {
+    return this.monster.entities.some((monsterEntity) => {
       return monsterEntity.number == number && !monsterEntity.dead;
     })
   }
@@ -64,7 +64,7 @@ export class MonsterNumberPicker extends DialogComponent {
 
     if (this.nonDead() == this.max - 1) {
       for (let i = 0; i < this.max; i++) {
-        if (!this.monster.entities.some((me: MonsterEntity) => !me.dead && me.number == i + 1)) {
+        if (!this.monster.entities.some((me) => !me.dead && me.number == i + 1)) {
           this.pickNumber(i + 1);
         }
       }
@@ -77,7 +77,7 @@ export class MonsterNumberPicker extends DialogComponent {
 
   randomStandee() {
     let number = Math.floor(Math.random() * this.monster.count) + 1;
-    while (this.monster.entities.some((monsterEntity: MonsterEntity) => monsterEntity.number == number)) {
+    while (this.monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
       number = Math.floor(Math.random() * this.monster.count) + 1;
     }
     this.pickNumber(number);
@@ -85,7 +85,7 @@ export class MonsterNumberPicker extends DialogComponent {
 
   nextStandee() {
     let number = 1;
-    while (this.monster.entities.some((monsterEntity: MonsterEntity) => monsterEntity.number == number)) {
+    while (this.monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
       number += 1;
     }
     this.pickNumber(number);
@@ -94,7 +94,7 @@ export class MonsterNumberPicker extends DialogComponent {
   pickNumber(number: number) {
     if (!this.hasNumber(number) && this.type) {
       gameManager.stateManager.before();
-      const dead = this.monster.entities.find((monsterEntity: MonsterEntity) => monsterEntity.number == number);
+      const dead = this.monster.entities.find((monsterEntity) => monsterEntity.number == number);
       if (dead) {
         gameManager.monsterManager.removeMonsterEntity(this.monster, dead);
       }

@@ -1,6 +1,7 @@
 import { CharacterStat } from "../CharacterStat";
 import { Editional } from "../Editional";
 import { FigureError } from "../FigureError";
+import { Perk } from "../Perks";
 import { Spoilable } from "../Spoilable";
 import { SummonData } from "./SummonData";
 
@@ -21,42 +22,47 @@ export enum CharacterClass {
 
 
 export class CharacterData implements Editional, Spoilable {
-  name: string;
-  stats: CharacterStat[];
+  name: string = "";
+  stats: CharacterStat[] = [];
   characterClass: CharacterClass | undefined;
   availableSummons: SummonData[] = [];
 
   icon: string | undefined;
   thumbnail: string | undefined;
-  color: string;
+  color: string = "#000000";
 
   marker: boolean = false;
 
-  deck: string;
+  deck: string = "";
+
+  perks: Perk[] = [];
 
   // from Editional
-  edition: string;
+  edition: string = "";
   // from Spoilable
-  spoiler: boolean;
+  spoiler: boolean = false;
 
   // error
   errors: FigureError[];
 
-  constructor(name: string, stats: CharacterStat[], edition: string, characterClass: CharacterClass | undefined = undefined, availableSummons: SummonData[] = [], icon: string | undefined = undefined, thumbnail: string | undefined = undefined, color: string = "#000000", marker: boolean = false, spoiler: boolean = false, deck: string | undefined = undefined) {
+  constructor(character: CharacterData | undefined = undefined) {
     this.errors = [];
-    this.name = name;
-    this.stats = stats;
-    this.characterClass = characterClass;
-    this.availableSummons = availableSummons;
-    this.edition = edition;
-    this.icon = icon;
-    this.thumbnail = thumbnail;
-    this.color = color;
-    this.marker = marker;
-    this.spoiler = spoiler;
-    this.deck = name;
-    if (deck) {
-      this.deck = deck;
+    if (character) {
+      this.name = character.name;
+      this.stats = character.stats;
+      this.characterClass = character.characterClass;
+      this.availableSummons = character.availableSummons;
+      this.edition = character.edition;
+      this.icon = character.icon;
+      this.thumbnail = character.thumbnail;
+      this.color = character.color;
+      this.marker = character.marker;
+      this.spoiler = character.spoiler;
+      this.deck = character.name;
+      if (character.deck) {
+        this.deck = character.deck;
+      }
+      this.perks = character.perks;
     }
   }
 

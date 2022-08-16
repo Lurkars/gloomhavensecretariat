@@ -1,8 +1,7 @@
 header {
-  height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor));
-  padding-bottom: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+  height: calc(var(--ghs-unit) * 8 * var(--ghs-text-factor) * var(--ghs-barsize));
+  margin-bottom: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor) * var(--ghs-barsize));
   display: flex;
-  flex-direction: row;
   position: relative;
 
   &::before {
@@ -13,8 +12,8 @@ header {
     background-image: url('~src/assets/images/header.png');
     background-position: bottom;
     position: absolute;
-    height: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
-    bottom: calc(var(--ghs-unit) * -0.5 * var(--ghs-text-factor));
+    height: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    bottom: calc(var(--ghs-unit) * -2 * var(--ghs-text-factor) * var(--ghs-barsize));
   }
 
   a.server-connection {
@@ -24,8 +23,8 @@ header {
   .server-connection {
 
     display: flex;
-    width: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
-    height: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+    width: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    height: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     margin-right: calc(var(--ghs-unit) * 1);
     align-self: center;
 
@@ -54,7 +53,7 @@ header {
     display: flex;
     align-items: center;
     color: var(--ghs-color-darkgray);
-    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-small-text-factor));
+    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-small-text-factor) * var(--ghs-barsize));
     opacity: 0;
     transition: opacity 500ms ease-in-out;
 
@@ -66,7 +65,7 @@ header {
       cursor: pointer;
       font-family: 'ghs-title';
       color: var(--ghs-color-darkgray);
-      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-small-text-factor));
+      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-small-text-factor) * var(--ghs-barsize));
 
       &:hover {
         color: var(--ghs-color-black);
@@ -81,9 +80,9 @@ header {
     align-items: center;
 
     .element {
-      margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
-      width: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor));
-      height: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor));
+      margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      width: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor) * var(--ghs-barsize));
+      height: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor) * var(--ghs-barsize));
       cursor: pointer;
 
       span {

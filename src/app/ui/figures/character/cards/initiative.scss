@@ -1,11 +1,11 @@
 .overlay {
   position: absolute;
-  left: calc(var(--ghs-unit) * 2);
+  left: calc(var(--ghs-unit) *2.5);
   top: 0;
   display: block;
-  width: calc(var(--ghs-unit) * 9);
-  height: calc(var(--ghs-unit) * 9);
-  margin: calc(var(--ghs-unit) * 3);
+  width: calc(var(--ghs-unit) * 9.5);
+  height: calc(var(--ghs-unit) * 9.5);
+  margin: calc(var(--ghs-unit) * 3.4);
   cursor: pointer;
 }
 
@@ -51,6 +51,7 @@
       margin: 0;
     }
 
+    &:focus,
     &:focus-visible,
     &:active,
     &:hover {

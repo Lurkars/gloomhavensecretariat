@@ -14,7 +14,6 @@ import { SwUpdate } from '@angular/service-worker';
 import { Scenario } from "src/app/game/model/Scenario";
 import { ghsHasSpoilers, ghsIsSpoiled, ghsNotSpoiled } from "../../helper/Static";
 import { Objective } from "src/app/game/model/Objective";
-import { EditionData } from "src/app/game/model/data/EditionData";
 import { ObjectiveData } from "src/app/game/model/data/ObjectiveData";
 
 export enum SubMenu {
@@ -90,18 +89,18 @@ export class MainMenuComponent extends DialogComponent {
   }
 
   hasScenarios(): boolean {
-    return gameManager.editionData.some((editionData: EditionData) => (!gameManager.game.edition || editionData.edition == gameManager.game.edition) && editionData.scenarios && editionData.scenarios.length > 0);
+    return gameManager.editionData.some((editionData) => (!gameManager.game.edition || editionData.edition == gameManager.game.edition) && editionData.scenarios && editionData.scenarios.length > 0);
   }
 
 
   hasSections(): boolean {
-    return gameManager.editionData.some((editionData: EditionData) => (!gameManager.game.edition || editionData.edition == gameManager.game.edition) && editionData.sections && editionData.sections.length > 0);
+    return gameManager.editionData.some((editionData) => (!gameManager.game.edition || editionData.edition == gameManager.game.edition) && editionData.sections && editionData.sections.length > 0);
   }
 
 
   setScenario(scenarioData: ScenarioData | undefined) {
     gameManager.stateManager.before();
-    gameManager.setScenario(scenarioData as Scenario)
+    gameManager.scenarioManager.setScenario(scenarioData as Scenario)
     gameManager.stateManager.after();
   }
 
@@ -191,7 +190,7 @@ export class MainMenuComponent extends DialogComponent {
   }
 
   hasHiddenMonster(): boolean {
-    return gameManager.monstersData(false).some((monsterData: MonsterData) => monsterData.hidden);
+    return gameManager.monstersData(false).some((monsterData) => monsterData.hidden);
   }
 
   monsterData(edition: string | undefined = undefined): MonsterData[] {
@@ -323,23 +322,23 @@ export class MainMenuComponent extends DialogComponent {
   }
 
   hasCharacter(characterData: CharacterData) {
-    return gameManager.game.figures.some((figure: Figure) => {
+    return gameManager.game.figures.some((figure) => {
       return figure instanceof Character && characterData.name == figure.name && characterData.edition == figure.edition;
     })
   }
 
   hasAllCharacter() {
-    return gameManager.charactersData().every((characterData: CharacterData) => gameManager.game.figures.some((figure: Figure) => figure instanceof CharacterData && figure.name == characterData.name && figure.edition == characterData.edition));
+    return gameManager.charactersData().every((characterData) => gameManager.game.figures.some((figure) => figure instanceof CharacterData && figure.name == characterData.name && figure.edition == characterData.edition));
   }
 
   hasMonster(monsterData: MonsterData) {
-    return gameManager.game.figures.some((figure: Figure) => {
+    return gameManager.game.figures.some((figure) => {
       return figure instanceof Monster && monsterData.name == figure.name && monsterData.edition == figure.edition;
     })
   }
 
   hasAllMonster() {
-    return gameManager.monstersData().every((monsterData: MonsterData) => gameManager.game.figures.some((figure: Figure) => figure instanceof MonsterData && figure.name == monsterData.name && figure.edition == monsterData.edition));
+    return gameManager.monstersData().every((monsterData) => gameManager.game.figures.some((figure) => figure instanceof MonsterData && figure.name == monsterData.name && figure.edition == monsterData.edition));
   }
 
   isUpdateAvailable(): boolean {

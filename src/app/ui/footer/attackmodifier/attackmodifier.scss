@@ -27,36 +27,39 @@
 
 .attack-modifiers {
 
-  position: relative;
-  height: 100%;
-  width: calc(var(--ghs-unit) * 38 * var(--ghs-text-factor));
+  position: absolute;
+  right: 0;
+  top: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+  width: calc(var(--ghs-unit) * 37 * var(--ghs-text-factor) * var(--ghs-barsize));
+  height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor) * var(--ghs-barsize));
 
   .attack-modifier {
     position: absolute;
     cursor: pointer;
     display: block;
-    top: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+    top: 0;
     left: 0;
 
-    width: calc(var(--ghs-unit) * 14 * var(--ghs-text-factor));
-    height: calc(var(--ghs-unit) * 9.6 * var(--ghs-text-factor));
+    width: calc(var(--ghs-unit) * 14 * var(--ghs-text-factor) * var(--ghs-barsize));
+    height: calc(var(--ghs-unit) * 9.6 * var(--ghs-text-factor) * var(--ghs-barsize));
 
     .number {
       color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
       position: absolute;
-      font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
-      right: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+      font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      right: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor) * var(--ghs-barsize));
       bottom: 0;
       z-index: 1000;
 
       img {
-        width: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+        width: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor) * var(--ghs-barsize));
         height: auto;
       }
     }
 
     .card {
+      transition: transform 0.5s cubic-bezier(0.75, 0, 0.85, 1);
       box-shadow: calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.3) var(--ghs-color-darkgray);
 
       &.flipped {
@@ -67,12 +70,12 @@
 
     @keyframes attackmodifier-draw {
       0% {
-        transform: scale(1) translate(calc(var(--ghs-unit) * -15 * var(--ghs-text-factor)), calc(var(--ghs-unit) * -2));
+        transform: scale(1) translate(calc(var(--ghs-unit) * -15 * var(--ghs-text-factor) * var(--ghs-barsize)), calc(var(--ghs-unit) * -2 * var(--ghs-barsize)));
       }
 
-      40%,
-      65% {
-        transform: scale(2) translate(calc(var(--ghs-unit) * -15 * var(--ghs-text-factor)), calc(var(--ghs-unit) * -25));
+      35%,
+      70% {
+        transform: scale(2) translate(calc(var(--ghs-unit) * -15 * var(--ghs-text-factor) * var(--ghs-barsize)), calc(var(--ghs-unit) * -20 * var(--ghs-barsize)));
       }
 
       100% {
@@ -82,46 +85,46 @@
 
     @keyframes attackmodifier-last {
       0% {
-        top: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
-        left: calc(var(--ghs-unit) * 15 * var(--ghs-text-factor));
+        top: 0;
+        left: calc(var(--ghs-unit) * 15 * var(--ghs-text-factor) * var(--ghs-barsize));
         transform: rotate(0);
       }
 
       70% {
-        top: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
-        left: calc(var(--ghs-unit) * 15 * var(--ghs-text-factor));
+        top: 0;
+        left: calc(var(--ghs-unit) * 15 * var(--ghs-text-factor) * var(--ghs-barsize));
         transform: rotate(0);
       }
 
       100% {
-        top: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
-        left: calc(var(--ghs-unit) * 26 * var(--ghs-text-factor));
+        top: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor) * var(--ghs-barsize));
+        left: calc(var(--ghs-unit) * 26 * var(--ghs-text-factor) * var(--ghs-barsize));
         transform: rotate(25deg);
       }
     }
 
     &.current {
       position: absolute;
-      top: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
-      left: calc(var(--ghs-unit) * 15 * var(--ghs-text-factor));
+      top: 0;
+      left: calc(var(--ghs-unit) * 15 * var(--ghs-text-factor) * var(--ghs-barsize));
       z-index: 1;
     }
 
     &.disgarded,
     &.last {
       position: absolute;
-      top: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
-      left: calc(var(--ghs-unit) * 26 * var(--ghs-text-factor));
+      top: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor) * var(--ghs-barsize));
+      left: calc(var(--ghs-unit) * 26 * var(--ghs-text-factor) * var(--ghs-barsize));
       transform: rotate(25deg);
       z-index: 0;
     }
 
     .shuffle {
-      height: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
+      height: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor) * var(--ghs-barsize));
       width: auto;
       position: absolute;
-      right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
-      bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+      right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor) * var(--ghs-barsize));
       filter: var(--ghs-filter-white);
     }
   }
@@ -136,18 +139,14 @@
 
     .attack-modifier.current {
       transition: none;
-      animation: attackmodifier-draw 1600ms ease-in-out;
+      animation: attackmodifier-draw 1000ms ease-in-out;
       animation-iteration-count: 1;
-
-      .card.flipped {
-        animation: card-flip .8s cubic-bezier(0.75, 0, 0.85, 1);
-      }
 
     }
 
     .attack-modifier.last {
       transition: none;
-      animation: attackmodifier-last 1600ms ease-in-out;
+      animation: attackmodifier-last 1000ms ease-in-out;
       animation-iteration-count: 1;
     }
   }
@@ -254,7 +253,6 @@
 
   .attack-modifiers-container {
     display: flex;
-    flex-direction: row;
     margin: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
     max-height: 80vh;
 
@@ -342,7 +340,7 @@
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
   }
 
-  .drop-list.cdk-drop-list-dragging .attack-modifier:not(.cdk-drag-placeholder) {
+  .cdk-drop-list-dragging :not(.cdk-drag-placeholder) {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
   }
 }

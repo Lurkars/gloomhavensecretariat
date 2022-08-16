@@ -1,9 +1,8 @@
-import { Component, ElementRef, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
-import { MonsterStat } from 'src/app/game/model/MonsterStat';
 import { MonsterType } from 'src/app/game/model/MonsterType';
 
 @Component({
@@ -19,11 +18,11 @@ export class MonsterComponent {
   settingsManager: SettingsManager = settingsManager;
 
   emptyEntities(): boolean {
-    return this.monster.entities.length == 0 || this.monster.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead);
+    return this.monster.entities.length == 0 || this.monster.entities.every((monsterEntity) => monsterEntity.dead);
   }
 
   monsterOff(): boolean {
-    return this.monster.off || this.monster.entities.every((monsterEntity: MonsterEntity) => monsterEntity.dead);
+    return this.monster.off || this.monster.entities.every((monsterEntity) => monsterEntity.dead);
   }
 
   sortedEntites(): MonsterEntity[] {
@@ -40,7 +39,7 @@ export class MonsterComponent {
   }
 
   isNormal() {
-    return this.monster.stats.some((monsterStat: MonsterStat) => {
+    return this.monster.stats.some((monsterStat) => {
       return monsterStat.type == MonsterType.normal || monsterStat.type == MonsterType.elite;
     });
   }

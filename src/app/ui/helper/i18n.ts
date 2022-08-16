@@ -85,15 +85,18 @@ export class I18nDirective implements OnInit, OnChanges {
 
   private C: number;
   private L: number;
+  private locale: string;
 
   constructor(private el: ElementRef) {
     this.C = gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).length;
     this.L = gameManager.game.level;
+    this.locale = settingsManager.settings.locale;
     gameManager.uiChange.subscribe({
       next: () => {
-        if (this.C != gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).length || this.L != gameManager.game.level) {
+        if (this.locale != settingsManager.settings.locale || this.C != gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).length || this.L != gameManager.game.level) {
           this.C = gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).length;
           this.L = gameManager.game.level;
+          this.locale = settingsManager.settings.locale;
           this.apply();
         }
       }

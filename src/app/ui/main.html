@@ -1,11 +1,13 @@
 <ghs-header></ghs-header>
 <main>
-  <div class="columns" cdkDropListGroup>
-    <div *ngFor="let column of [] | ghsRange:columns" class="figures" cdkDropList (cdkDropListDropped)="drop($event)"
-      [cdkDropListAutoScrollStep]="20" [cdkDropListData]="column * columnSize"
-      [cdkDropListDisabled]="gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters && !gameManager.stateManager.permissions.monsters">
-      <div class="figure" *ngFor="let figure of figures(column); let i = index;" cdkDrag [cdkDragData]="i" [figure-autoscroll]="figure">
+  <div class="figures" cdkDropListGroup cdkScrollable>
+    <div class="figure" *ngFor="let figure of gameManager.game.figures; let i = index;" [figure-autoscroll]="figure"
+      [cdkDropListData]="i" cdkDropList (cdkDropListDropped)="drop($event)" cdkDropListAutoScrollStep="20" (cdkDropListEntered)="entered($event)" (cdkDropListExited)="exited($event)"
+      [cdkDropListDisabled]="gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters && !gameManager.stateManager.permissions.monsters"
+      [ngClass]="{'column' : columns > 1}">
+      <div cdkDrag>
         <div cdkDragHandle class="handle"
+          [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure)}"
           *ngIf="!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters || gameManager.stateManager.permissions.monsters">
         </div>
         <ghs-character [character]="gameManager.toCharacter(figure)" *ngIf="gameManager.isCharacter(figure)">
@@ -14,8 +16,9 @@
         </ghs-objective>
         <ghs-monster [monster]="gameManager.toMonster(figure)" *ngIf="gameManager.isMonster(figure)">
         </ghs-monster>
-        <div cdkDragHandle class="handle right"
-        *ngIf="!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters || gameManager.stateManager.permissions.monsters">
+        <div cdkDragHandle class="handle right" [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure)}"
+          *ngIf=" !gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters ||
+          gameManager.stateManager.permissions.monsters">
         </div>
       </div>
     </div>

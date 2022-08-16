@@ -37,7 +37,7 @@ export class AttackModifierComponent extends PopupComponent {
           this.element.nativeElement.getElementsByClassName('attack-modifiers')[ 0 ].classList.add('working');
           setTimeout(() => {
             this.element.nativeElement.getElementsByClassName('attack-modifiers')[ 0 ].classList.remove('working');
-          }, 1700);
+          }, 1100);
         }
       }
     })
@@ -159,7 +159,7 @@ export class AttackModifierComponent extends PopupComponent {
   override close(): void {
     super.close();
     this.reveal = 0;
-    gameManager.game.attackModifiers.forEach((am: AttackModifier) => am.revealed = false);
+    gameManager.game.attackModifiers.forEach((am) => am.revealed = false);
     this.edit = false;
   }
 

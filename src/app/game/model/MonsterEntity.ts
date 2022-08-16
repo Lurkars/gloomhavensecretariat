@@ -1,5 +1,5 @@
 import { NumberSymbol } from "@angular/common";
-import { ConditionName, EntityCondition, EntityConditionState, GameEntityConditionModel } from "./Condition";
+import { EntityCondition, GameEntityConditionModel } from "./Condition";
 import { Entity, EntityValueFunction } from "./Entity";
 import { FigureError } from "./FigureError";
 import { Monster } from "./Monster";
@@ -25,7 +25,7 @@ export class MonsterEntity implements Entity {
     this.number = number;
     this.type = type;
 
-    const stat = monster.stats.find((element: MonsterStat) => {
+    const stat = monster.stats.find((element) => {
       return element.level == monster.level && element.type == type;
     });
 
@@ -66,20 +66,6 @@ export class MonsterEntity implements Entity {
       });
     }
     this.markers = model.markers;
-
-    // migration
-    if (model.conditions) {
-      model.conditions.forEach((value: string) => {
-        let entityCondition = new EntityCondition(value as ConditionName);
-        if (model.turnConditions && model.turnConditions.indexOf(value) != -1) {
-          entityCondition.state = EntityConditionState.expire;
-        }
-        if (model.expiredConditions && model.expiredConditions.indexOf(value) != -1) {
-          entityCondition.expired = true;
-        }
-        this.entityConditions.push(entityCondition);
-      })
-    }
   }
 
 
@@ -94,12 +80,6 @@ export class GameMonsterEntityModel {
   maxHealth: number;
   entityConditions: GameEntityConditionModel[];
   markers: string[];
-
-  // depreacted
-  conditions: string[] = [];
-  turnConditions: string[] = [];
-  expiredConditions: string[] = [];
-
 
   constructor(number: number,
     type: MonsterType,

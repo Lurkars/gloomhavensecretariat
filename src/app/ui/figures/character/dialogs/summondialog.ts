@@ -31,11 +31,11 @@ export class CharacterSummonDialog extends DialogComponent {
   }
 
   available(summonData: SummonData) {
-    return this.summonColor != SummonColor.custom && this.summonNumber != 0 && this.character.summons.every((summon: Summon) => summon.dead || summon.name != summonData.name || (summonData.special ? summon.number != 0 : summon.number != this.summonNumber) || (summonData.special ? summon.color != SummonColor.custom : summon.color != this.summonColor));
+    return this.summonColor != SummonColor.custom && this.summonNumber != 0 && this.character.summons.every((summon) => summon.dead || summon.name != summonData.name || (summonData.special ? summon.number != 0 : summon.number != this.summonNumber) || (summonData.special ? summon.color != SummonColor.custom : summon.color != this.summonColor));
   }
 
   customDisabled() {
-    return this.character.summons.some((summon: Summon) => !summon.dead && summon.name == this.summonName && summon.number == this.summonNumber && summon.color == this.summonColor);
+    return this.character.summons.some((summon) => !summon.dead && summon.name == this.summonName && summon.number == this.summonNumber && summon.color == this.summonColor);
   }
 
   summonData(): SummonData[] {

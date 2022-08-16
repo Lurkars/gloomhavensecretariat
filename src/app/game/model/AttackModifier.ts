@@ -5,6 +5,7 @@ export enum AttackModifierType {
   plus0 = "plus0",
   plus1 = "plus1",
   plus2 = "plus2",
+  plus3 = "plus3",
   minus1 = "minus1",
   minus2 = "minus2",
   null = "null",
@@ -27,13 +28,15 @@ export class AttackModifier {
   valueType: AttackModifierValueType;
   shuffle: boolean;
   actions: Action[];
+  rolling: boolean;
   revealed: boolean;
 
-  constructor(type: AttackModifierType, actions: Action[] = [], revealed: boolean = false) {
+  constructor(type: AttackModifierType, actions: Action[] = [], rolling: boolean = false, revealed: boolean = false) {
     this.type = type;
     this.valueType = AttackModifierValueType.plus;
     this.shuffle = false;
     this.actions = actions;
+    this.rolling = rolling;
     this.revealed = revealed;
     switch (type) {
       case AttackModifierType.plus0:
@@ -43,6 +46,9 @@ export class AttackModifier {
         this.value = 1;
         break;
       case AttackModifierType.plus2:
+        this.value = 2;
+        break;
+      case AttackModifierType.plus3:
         this.value = 3;
         break;
       case AttackModifierType.minus1:
