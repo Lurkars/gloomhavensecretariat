@@ -15,16 +15,16 @@ export class AutoscrollDirective {
 
     gameManager.uiChange.subscribe({
       next: () => {
-        if (settingsManager.settings.autoscroll && !this.active && this.figure.active) {
-          setTimeout(() => {
+        setTimeout(() => {
+          if (settingsManager.settings.autoscroll && !this.active && this.figure.active) {
             this.el.nativeElement.scrollIntoView({
               behavior: 'smooth',
               block: 'center',
               inline: 'center'
             });
-          }, 5);
-        }
-        this.active = this.figure.active;
+            this.active = this.figure.active;
+          }
+        }, 5);
       }
     })
 

@@ -5,7 +5,6 @@ import { gameManager } from "./GameManager";
 
 export class SettingsManager {
 
-
   defaultLocale: string = 'en';
   defaultEditionDataUrls: string[] = [ "./assets/data/gh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/fh.json", "./assets/data/cs.json" ];
 
@@ -126,6 +125,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setBonusAdjustment(bonusAdjustment: number) {
+    this.settings.bonusAdjustment = bonusAdjustment;
+    this.storeSettings();
+  }
+
   setGe5Player(ge5Player: boolean) {
     this.settings.ge5Player = ge5Player;
     this.storeSettings();
@@ -211,7 +215,6 @@ export class SettingsManager {
     this.settings.maxUndo = maxUndo;
     this.storeSettings();
   }
-
 
   addSpoiler(spoiler: string) {
     if (this.settings.spoilers.indexOf(spoiler) == -1) {
@@ -409,7 +412,6 @@ export class SettingsManager {
   }
 
   async setLocale(locale: string) {
-
     // default label
     if (locale != this.defaultLocale) {
       await fetch('./assets/locales/' + this.defaultLocale + '.json')
@@ -479,7 +481,6 @@ export class SettingsManager {
     }
     return label;
   }
-
 }
 
 export const settingsManager: SettingsManager = new SettingsManager();

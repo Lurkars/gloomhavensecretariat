@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifier, AttackModifierType } from 'src/app/game/model/AttackModifier';
@@ -31,6 +31,10 @@ export class MonsterEntityComponent extends DialogComponent {
   dragHp: number = 0;
   dragApplyTimeout: any | null = null;
 
+
+  constructor(private element: ElementRef) {
+    super();
+  }
 
   changeHealth(value: number) {
     const old = this.entity.health;
@@ -144,6 +148,8 @@ export class MonsterEntityComponent extends DialogComponent {
         gameManager.stateManager.after();
       }, 1500);
     }
+
+    this.element.nativeElement.classList.add('dead');
   }
 
   changeMaxHealth(value: number) {

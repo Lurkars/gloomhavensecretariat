@@ -29,15 +29,15 @@ export class Game {
 
 
   toModel(): GameModel {
-    return new GameModel(this.edition, this.figures.map((figure: Figure) => figure.name), this.figures.filter((figure: Figure) => figure instanceof Character).map((figure: Figure) => ((figure as Character).toModel())), this.figures.filter((figure: Figure) => figure instanceof Monster).map((figure: Figure) => ((figure as Monster).toModel())), this.figures.filter((figure: Figure) => figure instanceof Objective).map((figure: Figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.round, this.playSeconds, this.totalSeconds, this.attackModifier, this.attackModifiers.map((value: AttackModifier) => value.type), this.newElements, this.strongElements, this.elements, this.solo, this.party);
+    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure: Figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure: Figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure: Figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.round, this.playSeconds, this.totalSeconds, this.attackModifier, this.attackModifiers.map((value) => value.type), this.newElements, this.strongElements, this.elements, this.solo, this.party);
   }
 
   fromModel(model: GameModel) {
     this.edition = model.edition;
     this.figures = this.figures.filter((figure: Figure) =>
-      model.characters.map((gcm: GameCharacterModel) => gcm.name).indexOf(figure.name) != -1 ||
-      model.monsters.map((gmm: GameMonsterModel) => gmm.name).indexOf(figure.name) != -1 ||
-      model.objectives.map((gom: GameObjectiveModel) => gom.name).indexOf(figure.name) != -1
+      model.characters.map((gcm) => gcm.name).indexOf(figure.name) != -1 ||
+      model.monsters.map((gmm) => gmm.name).indexOf(figure.name) != -1 ||
+      model.objectives.map((gom) => gom.name).indexOf(figure.name) != -1
     );
 
     model.characters.forEach((value) => {
@@ -84,7 +84,7 @@ export class Game {
     this.playSeconds = model.playSeconds;
     this.totalSeconds = model.totalSeconds;
     this.attackModifier = model.attackModifier;
-    this.attackModifiers = model.attackModifiers.map((value: AttackModifierType) => new AttackModifier(value));
+    this.attackModifiers = model.attackModifiers.map((value) => new AttackModifier(value));
     if (!this.attackModifiers || this.attackModifiers.length == 0) {
       this.attackModifiers = defaultAttackModifier;
     }

@@ -10,7 +10,7 @@ export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\%)+)\%/;
 export const applyPlaceholder = function (value: string): string {
   while (value.match(ghsLabelRegex)) {
     value = value.replace(ghsLabelRegex, (match, ...args) => {
-      const label = args[ 0 ];
+      const label : string = args[ 0 ];
       const split: string[] = label.split('.');
       const type = split[ 1 ];
 
@@ -48,7 +48,7 @@ export const applyPlaceholder = function (value: string): string {
         replace = '<span class="placeholder-attackmodifier">' + image + '</span>';
       }
 
-      replace = settingsManager.getLabel(label.split(':')[ 0 ], label.split(':').splice(1).map((arg: string) =>
+      replace = settingsManager.getLabel(label.split(':')[ 0 ], label.split(':').splice(1).map((arg) =>
         applyPlaceholder(settingsManager.getLabel(arg))
       )) + image;
 

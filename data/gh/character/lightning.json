@@ -100,7 +100,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus2",
-            "rolling": true,
+            "rolling": true
           }
         }
       ]

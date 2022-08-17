@@ -11,6 +11,7 @@ export class Settings {
   initiativeRequired: boolean = true;
   levelCalculation: boolean = true;
   levelAdjustment: number = 0;
+  bonusAdjustment: number = 0;
   ge5Player: boolean = true;
   disableStandees: boolean = false;
   fullscreen: boolean = false;

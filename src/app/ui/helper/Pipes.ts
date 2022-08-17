@@ -29,7 +29,7 @@ export class GhsLabelPipe implements PipeTransform {
       return "";
     }
 
-    return applyPlaceholder(settingsManager.getLabel(value, args?.map((arg: string) => settingsManager.getLabel(arg))));
+    return applyPlaceholder(settingsManager.getLabel(value, args?.map((arg) => settingsManager.getLabel(arg))));
   }
 
 }

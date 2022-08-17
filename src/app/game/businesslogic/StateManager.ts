@@ -24,6 +24,7 @@ export class StateManager {
     if (local != null) {
       const gameModel: GameModel = Object.assign(new GameModel(), JSON.parse(local));
       this.game.fromModel(gameModel);
+      gameManager.uiChange.emit();
     } else {
       localStorage.setItem("ghs-game", JSON.stringify(this.game.toModel()));
     }
@@ -307,5 +308,4 @@ export class StateManager {
   hasMonsterPermission(monster: Monster): boolean {
     return this.permissions == undefined || this.permissions.monsters || this.permissions.monster.some((value) => value.name == monster.name && value.edition == monster.edition);
   }
-
 }

@@ -55,7 +55,7 @@ export class MonsterManager {
       if (!this.applySameDeck(monster)) {
         if (!monster.abilities || monster.abilities.length == 0) {
           const abilities = gameManager.abilities(monster);
-          monster.abilities = abilities.filter((ability: Ability) => isNaN(+ability.level) || +ability.level <= monster.level).map((ability: Ability) => abilities.indexOf(ability));
+          monster.abilities = abilities.filter((ability: Ability) => isNaN(+ability.level) || +ability.level <= monster.level).map((ability) => abilities.indexOf(ability));
         }
         this.shuffleAbilities(monster);
       }
@@ -80,7 +80,6 @@ export class MonsterManager {
       })
     }
   }
-
 
   addMonsterEntity(monster: Monster, number: number, type: MonsterType, summon: boolean = false) {
     if (!monster.stats.some((monsterStat) => {
@@ -225,7 +224,6 @@ export class MonsterManager {
     });
   }
 
-
   shuffleAbilities(monster: Monster) {
     if (gameManager.game.state == GameState.draw || monster.entities.length == 0) {
       monster.ability = -1;
@@ -250,7 +248,7 @@ export class MonsterManager {
       .sort((a, b) => a.sort - b.sort)
       .map(({ value }) => value);
 
-    this.game.figures.filter((figure: Figure) => figure instanceof Monster && this.getSameDeckMonster(figure) && this.getSameDeckMonster(figure) == monster).map((figure: Figure) => figure as Monster).forEach((figure) => {
+    this.game.figures.filter((figure: Figure) => figure instanceof Monster && this.getSameDeckMonster(figure) && this.getSameDeckMonster(figure) == monster).map((figure) => figure as Monster).forEach((figure) => {
       figure.abilities = JSON.parse(JSON.stringify(monster.abilities));
       if (gameManager.game.state == GameState.draw) {
         figure.ability = -1;
@@ -303,5 +301,4 @@ export class MonsterManager {
 
     return abilities[ monster.abilities[ monster.ability ] ]
   }
-
 }

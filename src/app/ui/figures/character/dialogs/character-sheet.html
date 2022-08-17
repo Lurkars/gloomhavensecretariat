@@ -58,9 +58,10 @@
               <span class="id">{{item.id}}.</span>
               <span class="name">{{item.name}}
                 <ng-container *ngIf="item.edition != character.edition">&nbsp;({{'data.edition.' + item.edition |
-                  ghsLabel}})</ng-container></span>
+                  ghsLabel}})</ng-container>
+              </span>
               <span class="spacer"></span>
-              <a class="button" (click)="removeItem(index)"><img src="./assets/images/close.svg"></a>
+              <a class="button" (click)="removeItem(item)"><img src="./assets/images/close.svg"></a>
             </div>
             <form class="item-form" (submit)="addItem()">
               <input type="number" #itemName min="1" value="1">
@@ -74,7 +75,7 @@
             </form>
           </div>
           <div class="wip" title="{{'wip' | ghsLabel}}">
-            <img class="ghs-svg" src="./assets/images/warning.svg">
+            <img class="ghs-svg" src="./assets/images/warning.svg"> {{'character.progress.items.wip' | ghsLabel}}
           </div>
         </div>
       </div>
@@ -84,10 +85,11 @@
           <label class="headline">{{'character.progress.perks' | ghsLabel}}</label>
           <div class="perk" *ngFor="let perk of character.perks; let i = index;">
             <span class="checkbox" *ngFor="let count of []|ghsRange:perk.count"
-              [ngClass]="{'checked' : character.progress.perks[i] && character.progress.perks[i] > count, 'disabled' : (!character.progress.perks[i] || character.progress.perks[i] <= count) && availablePerks <= 0}"
+              [ngClass]="{'checked' : character.progress.perks[i] && character.progress.perks[i] > count, 'disabled' : character.progress.perks[i] <= count && availablePerks < count - character.progress.perks[i] + 1}"
               (click)="addPerk(i, count+1)"></span>
             <span class="text capitalize">
-              <ng-container *ngIf="perk.custom">{{perk.custom | ghsLabel}} {{'and' | ghsLabel}}&nbsp;</ng-container>
+              <ng-container *ngIf="perk.custom">{{perk.custom | ghsLabel}} <ng-container
+                  *ngIf="perk.type != PerkType.custom">{{'and' | ghsLabel}}</ng-container>&nbsp;</ng-container>
               <ng-container *ngIf="perk.type != PerkType.custom">
                 <span class="label" [i18n]="'character.progress.perks.type.' + perk.type"
                   [i18n-args]="perkLabel(perk)"></span>
@@ -101,9 +103,9 @@
             <img class="ghs-svg" src="./assets/images/warning.svg"> {{'character.progress.perks.warning' | ghsLabel}}
           </div>
         </div>
-        <div class="row notes">
-          <label class="headline">{{'character.progress.notes' | ghsLabel}}</label>
-          <div class="battlegoals">
+        <div class="row battlegoals">
+          <label class="headline">{{'character.progress.battlegoals' | ghsLabel}}</label>
+          <div class="battlegoals-grid">
             <ng-container *ngFor="let item of [] | ghsRange:18">
               <span class="checkmark" *ngIf="item % 3 == 0">
                 <img src="./assets/images/check.svg">:</span>
@@ -111,8 +113,19 @@
                 (click)="setBattleGoals(item + 1)"></span>
             </ng-container>
           </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="notes">
+      <label class="headline">{{'character.progress.notes' | ghsLabel}}</label>
+      <div class="columns">
+        <div class="column column-left">
           <textarea [value]="character.progress.notes" (change)="setNotes($event)" (keyup)="setNotes($event)"
             placeholder="{{'character.progress.notes' | ghsLabel}}"></textarea>
+        </div>
+        <div class="column column-right">
           <div class="personal-quest">
             <label>{{'character.progress.personalQuest' | ghsLabel}}:</label>
             <input [value]="character.progress.personalQuest" type="number" min="0" (change)="setPersonalQuest($event)"
@@ -122,7 +135,7 @@
           </div>
           <div class="import-export">
             <label (click)="exportCharacter()" title="{{'character.progress.export' |
-            ghsLabel}}"><img src="./assets/images/export.svg">{{'character.progress.export' |
+        ghsLabel}}"><img src="./assets/images/export.svg">{{'character.progress.export' |
               ghsLabel}}</label>
             <label title="{{'character.progress.import' | ghsLabel}}">
               <input type="file" accept="application/json" (change)="importCharacter($event)" /><img
@@ -130,7 +143,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>

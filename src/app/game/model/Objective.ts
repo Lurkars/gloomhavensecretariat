@@ -33,7 +33,7 @@ export class Objective implements Entity, Figure {
   }
 
   toModel(): GameObjectiveModel {
-    return new GameObjectiveModel(this.id, this.title, this.name, this.escort, this.level, this.exhausted, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition: EntityCondition) => condition.toModel()), this.markers, this.initiative);
+    return new GameObjectiveModel(this.id, this.title, this.name, this.escort, this.level, this.exhausted, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.initiative);
   }
 
   fromModel(model: GameObjectiveModel) {
@@ -49,7 +49,7 @@ export class Objective implements Entity, Figure {
     this.maxHealth = model.maxHealth;
     this.entityConditions = [];
     if (model.entityConditions) {
-      this.entityConditions = model.entityConditions.map((gecm: GameEntityConditionModel) => {
+      this.entityConditions = model.entityConditions.map((gecm) => {
         let condition = new EntityCondition(gecm.name, gecm.value);
         condition.fromModel(gecm);
         return condition;

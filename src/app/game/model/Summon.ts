@@ -53,7 +53,7 @@ export class Summon implements Entity {
   }
 
   toModel(): GameSummonModel {
-    return new GameSummonModel(this.name, this.number, this.color, this.attack, this.movement, this.range, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition: EntityCondition) => condition.toModel()), this.markers);
+    return new GameSummonModel(this.name, this.number, this.color, this.attack, this.movement, this.range, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers);
   }
 
   fromModel(model: GameSummonModel) {
@@ -70,7 +70,7 @@ export class Summon implements Entity {
     this.maxHealth = model.maxHealth;
     this.entityConditions = [];
     if (model.entityConditions) {
-      this.entityConditions = model.entityConditions.map((gecm: GameEntityConditionModel) => {
+      this.entityConditions = model.entityConditions.map((gecm) => {
         let condition = new EntityCondition(gecm.name, gecm.value);
         condition.fromModel(gecm);
         return condition;

@@ -16,15 +16,21 @@ export class LevelManager {
       return 0;
     }
     const chars = this.game.figures.filter((figure) => figure instanceof Character).length;
-    if (chars < 4) {
+    if (chars <= 4) {
       return 0;
     }
 
     return chars - 3;
   }
 
-  level(): number {
-    return this.game.level - this.ge5PlayerOffset();
+  adjustedLevel(): number {
+    const level = this.game.level - this.ge5PlayerOffset() + settingsManager.settings.bonusAdjustment;
+    if (level < 0) {
+      return 0;
+    } else if (level > 7) {
+      return 7;
+    }
+    return level;
   }
 
   trap(): number {
@@ -32,12 +38,12 @@ export class LevelManager {
   }
 
   experience(): number {
-    return 4 + this.level() * 2;
+    return 4 + this.adjustedLevel() * 2;
   }
 
   loot(): number {
-    let loot = 2 + Math.floor(this.level() / 2);
-    if (this.level() >= 7) {
+    let loot = 2 + Math.floor(this.adjustedLevel() / 2);
+    if (this.adjustedLevel() >= 7) {
       loot = 6;
     }
     return loot;
@@ -46,8 +52,6 @@ export class LevelManager {
   terrain(): number {
     return 1 + Math.ceil(this.game.level / 3);
   }
-
-
 
   scenarioLevel(): number {
     const charCount = this.game.figures.filter((figure) => figure instanceof Character).length;
@@ -61,7 +65,6 @@ export class LevelManager {
 
     return Math.ceil(((charLevel / charCount) + (this.game.solo ? 1 : 0)) / 2) + this.ge5PlayerOffset();
   }
-
 
   calculateScenarioLevel() {
     if (settingsManager.settings.levelAdjustment > 6) {
@@ -78,8 +81,6 @@ export class LevelManager {
     }
     this.setLevel(level);
   }
-
-
 
   setLevel(level: number) {
     if (this.game.level != level) {

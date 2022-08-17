@@ -198,4 +198,11 @@ export class MainComponent implements OnInit {
   exited(event: CdkDragExit<number>) {
     this.translate();
   }
+
+  handleClick(event: any) {
+    let elements = document.elementsFromPoint(event.clientX, event.clientY);
+    if (elements[0].classList.contains('cdk-drag-handle') && elements.length > 1) {
+      (elements[1] as HTMLElement).click();
+    }
+  }
 }

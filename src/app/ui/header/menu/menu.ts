@@ -107,7 +107,7 @@ export class MainMenuComponent extends DialogComponent {
   characters(): Character[] {
     return gameManager.game.figures.filter((figure: Figure) => {
       return figure instanceof Character;
-    }).map((figure: Figure) => {
+    }).map((figure) => {
       return figure as Character;
     }).sort((a: Character, b: Character) => {
       const aName = a.title.toLowerCase() || settingsManager.getLabel('data.character.' + a.name).toLowerCase();
@@ -125,7 +125,7 @@ export class MainMenuComponent extends DialogComponent {
   objectives(): Objective[] {
     return gameManager.game.figures.filter((figure: Figure) => {
       return figure instanceof Objective;
-    }).map((figure: Figure) => {
+    }).map((figure) => {
       return figure as Objective;
     }).sort((a: Objective, b: Objective) => {
       const aName = (a.title ? a.title : settingsManager.getLabel(a.name ? 'data.objective.' + a.name : (a.escort ? 'escort' : 'objective'))).toLowerCase();
@@ -174,7 +174,7 @@ export class MainMenuComponent extends DialogComponent {
   monsters(): Monster[] {
     return gameManager.game.figures.filter((figure: Figure) => {
       return figure instanceof Monster;
-    }).map((figure: Figure) => {
+    }).map((figure) => {
       return figure as Monster;
     }).sort((a: Monster, b: Monster) => {
       const aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();

@@ -2,11 +2,12 @@
 <main>
   <div class="figures" cdkDropListGroup cdkScrollable>
     <div class="figure" *ngFor="let figure of gameManager.game.figures; let i = index;" [figure-autoscroll]="figure"
-      [cdkDropListData]="i" cdkDropList (cdkDropListDropped)="drop($event)" cdkDropListAutoScrollStep="20" (cdkDropListEntered)="entered($event)" (cdkDropListExited)="exited($event)"
+      [cdkDropListData]="i" cdkDropList (cdkDropListDropped)="drop($event)" cdkDropListAutoScrollStep="20"
+      (cdkDropListEntered)="entered($event)" (cdkDropListExited)="exited($event)"
       [cdkDropListDisabled]="gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters && !gameManager.stateManager.permissions.monsters"
       [ngClass]="{'column' : columns > 1}">
       <div cdkDrag>
-        <div cdkDragHandle class="handle"
+        <div cdkDragHandle class="handle" (click)="handleClick($event)"
           [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure)}"
           *ngIf="!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters || gameManager.stateManager.permissions.monsters">
         </div>
@@ -16,7 +17,8 @@
         </ghs-objective>
         <ghs-monster [monster]="gameManager.toMonster(figure)" *ngIf="gameManager.isMonster(figure)">
         </ghs-monster>
-        <div cdkDragHandle class="handle right" [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure)}"
+        <div cdkDragHandle class="handle right" (click)="handleClick($event)"
+          [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure)}"
           *ngIf=" !gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters ||
           gameManager.stateManager.permissions.monsters">
         </div>

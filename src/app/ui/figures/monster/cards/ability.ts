@@ -40,11 +40,11 @@ export class AbilityComponent extends PopupComponent {
 
 
   upcomingCards(): Ability[] {
-    return this.monster.abilities.filter((value: number, index: number) => index > this.monster.ability).map((value: number) => gameManager.abilities(this.monster)[ value ]);
+    return this.monster.abilities.filter((value: number, index: number) => index > this.monster.ability).map((value) => gameManager.abilities(this.monster)[ value ]);
   }
 
   disgardedCards(): Ability[] {
-    return this.monster.abilities.filter((value: number, index: number) => index <= this.monster.ability).map((value: number) => gameManager.abilities(this.monster)[ value ]).reverse();
+    return this.monster.abilities.filter((value: number, index: number) => index <= this.monster.ability).map((value) => gameManager.abilities(this.monster)[ value ]).reverse();
   }
 
   abilityIndex(ability: Ability) {

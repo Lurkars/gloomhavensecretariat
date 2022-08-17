@@ -64,7 +64,7 @@ export class Character extends CharacterData implements Entity, Figure {
   }
 
   toModel(): GameCharacterModel {
-    return new GameCharacterModel(this.name, this.edition, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition: EntityCondition) => condition.toModel()), this.markers, this.summons.map((summon: Summon) => summon.toModel()), this.progress, this.initiativeVisible);
+    return new GameCharacterModel(this.name, this.edition, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible);
   }
 
   fromModel(model: GameCharacterModel) {
@@ -95,7 +95,7 @@ export class Character extends CharacterData implements Entity, Figure {
     this.maxHealth = model.maxHealth;
     this.entityConditions = [];
     if (model.entityConditions) {
-      this.entityConditions = model.entityConditions.map((gecm: GameEntityConditionModel) => {
+      this.entityConditions = model.entityConditions.map((gecm) => {
         let condition = new EntityCondition(gecm.name, gecm.value);
         condition.fromModel(gecm);
         return condition;

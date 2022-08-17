@@ -44,6 +44,8 @@ export class CharacterData implements Editional, Spoilable {
 
   // error
   errors: FigureError[];
+  
+  replace: boolean = false;
 
   constructor(character: CharacterData | undefined = undefined) {
     this.errors = [];

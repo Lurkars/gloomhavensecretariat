@@ -19,7 +19,7 @@ export class SectionMenuComponent {
 
 
   editions(): string[] {
-    return gameManager.editionData.filter((editionData: EditionData) => editionData.sections && editionData.sections.length > 0).map((editionData: EditionData) => editionData.edition);
+    return gameManager.editionData.filter((editionData: EditionData) => editionData.sections && editionData.sections.length > 0).map((editionData) => editionData.edition);
   }
 
 
@@ -28,7 +28,7 @@ export class SectionMenuComponent {
       return [];
     }
 
-    return gameManager.sectionData(true).filter((sectionData: SectionData) => sectionData.edition == this.edition).map((sectionData: SectionData) => sectionData.group).filter((value: string | undefined, index: number, self: (string | undefined)[]) => self.indexOf(value) === index);
+    return gameManager.sectionData(true).filter((sectionData: SectionData) => sectionData.edition == this.edition).map((sectionData) => sectionData.group).filter((value: string | undefined, index: number, self: (string | undefined)[]) => self.indexOf(value) === index);
   }
 
   sections(group: string | undefined = undefined): SectionData[] {
@@ -47,7 +47,7 @@ export class SectionMenuComponent {
   }
 
   maxSection() {
-    return Math.max(...this.sections().map((sectionData: SectionData) => sectionData.index.length));
+    return Math.max(...this.sections().map((sectionData) => sectionData.index.length));
   }
 
   hasSection(sectionData: SectionData): boolean {

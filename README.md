@@ -126,6 +126,7 @@ Assets/Data used:
 - [Creator Pack by Isaac Childres](https://boardgamegeek.com/thread/1733586/files-creation) CC BY-NC-SA 4.0
 - [Worldhaven](https://github.com/any2cards/worldhaven)
 - [FrosthavenAssistant](https://github.com/Tarmslitaren/FrosthavenAssistant)
+- [Gloomhaven Item DB](https://github.com/heisch/gloomhaven-item-db)
 - [Haven Keeper](https://github.com/PrimalZed/haven-keeper)
 - some other assets used are public domain licensed
 

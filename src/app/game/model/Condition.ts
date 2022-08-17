@@ -157,4 +157,4 @@ export class GameEntityConditionModel {
 
 }
 
-export const Conditions: Condition[] = Object.values(ConditionName).map((name: ConditionName) => new Condition(name)); 
+export const Conditions: Condition[] = Object.values(ConditionName).map((name) => new Condition(name)); 

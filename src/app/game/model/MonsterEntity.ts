@@ -49,7 +49,7 @@ export class MonsterEntity implements Entity {
   }
 
   toModel(): GameMonsterEntityModel {
-    return new GameMonsterEntityModel(this.number, this.type, this.dead, this.summon, this.health, this.maxHealth, this.entityConditions.map((condition: EntityCondition) => condition.toModel()), this.markers);
+    return new GameMonsterEntityModel(this.number, this.type, this.dead, this.summon, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers);
   }
 
   fromModel(model: GameMonsterEntityModel) {
@@ -59,7 +59,7 @@ export class MonsterEntity implements Entity {
     this.maxHealth = model.maxHealth;
     this.entityConditions = [];
     if (model.entityConditions) {
-      this.entityConditions = model.entityConditions.map((gecm: GameEntityConditionModel) => {
+      this.entityConditions = model.entityConditions.map((gecm) => {
         let condition = new EntityCondition(gecm.name, gecm.value);
         condition.fromModel(gecm);
         return condition;

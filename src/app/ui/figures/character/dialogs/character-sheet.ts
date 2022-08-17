@@ -43,15 +43,45 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
 
     this.character.progress.perks = this.character.progress.perks || [];
 
+    for (let i = 0; i < 15; i++) {
+      if (!this.character.progress.perks[ i ]) {
+        this.character.progress.perks[ i ] = 0;
+      }
+    }
+
     if (this.character.progress.experience < this.characterManager.xpMap[ this.character.level - 1 ]) {
       this.character.progress.experience = this.characterManager.xpMap[ this.character.level - 1 ];
     }
 
     this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1;
 
-    this.perksWip = this.character.perks.length == 0 || this.character.perks.map((perk: Perk) => perk.count).reduce((a, b) => a + b) != 15;
+    this.perksWip = this.character.perks.length == 0 || this.character.perks.map((perk) => perk.count).reduce((a, b) => a + b) != 15;
 
 
+    this.updateItems();
+
+    gameManager.uiChange.subscribe({
+      next: () => {
+        this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1;
+
+        for (let i = 0; i < 15; i++) {
+          if (!this.character.progress.perks[ i ]) {
+            this.character.progress.perks[ i ] = 0;
+          }
+        }
+
+        this.updateItems();
+      }
+    })
+  }
+
+
+  ngAfterViewInit(): void {
+    this.itemEdition.nativeElement.value = this.character.edition;
+  }
+
+  updateItems() {
+    this.items = [];
     if (this.character.progress.items) {
       this.character.progress.items.forEach((item) => {
         const itemData = gameManager.item(+item.name, item.edition);
@@ -62,18 +92,8 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
         }
       });
 
-      this.items.sort((a,b) => a.id - b.id);
+      this.items.sort((a, b) => a.id - b.id);
     }
-
-    gameManager.uiChange.subscribe({
-      next: () => {
-        this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1;
-      }
-    })
-  }
-
-  ngAfterViewInit(): void {
-    this.itemEdition.nativeElement.value = this.character.edition;
   }
 
   setLevel(level: number) {
@@ -180,7 +200,7 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
         gameManager.stateManager.before();
         this.character.progress.items.push(new Identifier(this.itemName.nativeElement.value, this.itemEdition.nativeElement.value));
         this.items.push(itemData);
-        this.items.sort((a,b) => a.id - b.id);
+        this.items.sort((a, b) => a.id - b.id);
         this.itemName.nativeElement.value = 1;
         gameManager.stateManager.after();
       } else {
@@ -193,11 +213,15 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
     }
   }
 
-  removeItem(index: number) {
-    gameManager.stateManager.before();
-    this.character.progress.items.splice(index, 1);
-    this.items.splice(index, 1);
-    gameManager.stateManager.after();
+  removeItem(itemData: ItemData) {
+    const item = this.character.progress.items.find((item) => item.name == "" + itemData.id && item.edition == itemData.edition);
+    if (item) {
+      const index = this.character.progress.items.indexOf(item)
+      gameManager.stateManager.before();
+      this.character.progress.items.splice(index, 1);
+      this.items.splice(index, 1);
+      gameManager.stateManager.after();
+    }
   }
 
   addPerk(index: number, value: number) {
