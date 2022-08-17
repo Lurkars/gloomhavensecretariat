@@ -62,9 +62,13 @@
       "name": "Name",
       "level": "Level",
       "xp": "XP",
+      "battlegoals": "Battelgoals",
       "notes": "Notes",
       "gold-notes": "Gold Notes",
-      "items": "Items",
+      "items": {
+        ".": "Items",
+        "wip": "%wip%! Items not complete yet."
+      },
       "perks": {
         ".": "Perks",
         "card": "card",
@@ -163,6 +167,7 @@
     "maxUndo": "Max. number of undos",
     "levelCalculation": "Automatic scenario level",
     "levelAdjustment": "Scenario level adjustment",
+    "bonusAdjustment": "Level bonuses adjustment",
     "ge5Player": ">= 5 player rules",
     "locale": {
       ".": "Language",

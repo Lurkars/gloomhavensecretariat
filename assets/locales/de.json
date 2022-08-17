@@ -62,9 +62,13 @@
       "name": "Name",
       "level": "Level",
       "xp": "XP",
+      "battlegoals": "Kampfziele",
       "notes": "Notizen",
       "gold-notes": "Gold Notizen",
-      "items": "Gegenstände",
+      "items": {
+        ".": "Gegenstände",
+        "wip": "%wip%! Gegenstände sind noch nicht vollständig."
+      },
       "perks": {
         ".": "Verbesserungen",
         "card": "Karte",
@@ -163,6 +167,7 @@
     "maxUndo": "Max. Anzahl Rückgängigvorgänge",
     "levelCalculation": "Szenario Level automatisch berechnen",
     "levelAdjustment": "Anpassung Szenario Level",
+    "bonusAdjustment": "Anpassung Level Boni",
     "ge5Player": ">= 5 Spieler Regeln",
     "locale": {
       ".": "Sprache",
