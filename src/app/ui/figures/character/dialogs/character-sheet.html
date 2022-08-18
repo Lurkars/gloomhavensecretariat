@@ -64,9 +64,9 @@
               <a class="button" (click)="removeItem(item)"><img src="./assets/images/close.svg"></a>
             </div>
             <form class="item-form" (submit)="addItem()">
-              <input type="number" #itemName min="1" value="1">
+              <input type="number" (change)="itemChange()" #itemName min="1" value="1">
               <span class="spacer"></span>
-              <select #itemEdition>
+              <select #itemEdition (change)="itemChange()">
                 <option *ngFor="let edition of gameManager.editions()" [value]="edition">{{'data.edition.' + edition |
                   ghsLabel}}</option>
               </select>

@@ -27,8 +27,8 @@ export class CharacterData implements Editional, Spoilable {
   characterClass: CharacterClass | undefined;
   availableSummons: SummonData[] = [];
 
-  icon: string | undefined;
-  thumbnail: string | undefined;
+  iconUrl: string | undefined;
+  thumbnailUrl: string | undefined;
   color: string = "#000000";
 
   marker: boolean = false;
@@ -51,20 +51,20 @@ export class CharacterData implements Editional, Spoilable {
     this.errors = [];
     if (character) {
       this.name = character.name;
-      this.stats = character.stats;
-      this.characterClass = character.characterClass;
-      this.availableSummons = character.availableSummons;
-      this.edition = character.edition;
-      this.icon = character.icon;
-      this.thumbnail = character.thumbnail;
-      this.color = character.color;
-      this.marker = character.marker;
-      this.spoiler = character.spoiler;
+      this.stats = character.stats || [];
+      this.characterClass = character.characterClass || undefined;
+      this.availableSummons = character.availableSummons || [];
+      this.edition = character.edition || "";
+      this.iconUrl = character.iconUrl || undefined;
+      this.thumbnailUrl = character.thumbnailUrl || undefined;
+      this.color = character.color || "#00000";
+      this.marker = character.marker || false;
+      this.spoiler = character.spoiler || false;
       this.deck = character.name;
       if (character.deck) {
         this.deck = character.deck;
       }
-      this.perks = character.perks;
+      this.perks = character.perks || [];
     }
   }
 

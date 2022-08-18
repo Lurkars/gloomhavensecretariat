@@ -23,15 +23,15 @@ export class CharacterManager {
   }
 
   characterIcon(characterData: CharacterData) {
-    if (characterData.icon) {
-      return characterData.icon;
+    if (characterData.iconUrl) {
+      return characterData.iconUrl;
     }
     return './assets/images/character/icons/' + characterData.edition + '-' + characterData.name + '.svg';
   }
 
   characterThumbnail(characterData: CharacterData) {
-    if (characterData.thumbnail) {
-      return characterData.thumbnail;
+    if (characterData.thumbnailUrl) {
+      return characterData.thumbnailUrl;
     }
     return './assets/images/character/thumbnail/' + characterData.edition + '-' + characterData.name + '.png';
   }

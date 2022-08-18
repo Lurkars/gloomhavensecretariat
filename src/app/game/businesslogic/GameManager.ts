@@ -103,7 +103,7 @@ export class GameManager {
   }
 
   item(id: number, edition: string): ItemData | undefined {
-    return this.itemData(true).find((itemData) => itemData.id == id && itemData.edition == edition);
+    return this.itemData(true).find((itemData) => itemData && itemData.id == id && itemData.edition == edition);
   }
 
   hazardousTerrain(): boolean {

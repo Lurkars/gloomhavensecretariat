@@ -184,14 +184,16 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
     this.itemEdition.nativeElement.value = this.character.edition;
   }
 
-  addItem() {
-    const itemData = gameManager.item(+this.itemName.nativeElement.value, this.itemEdition.nativeElement.value);
-
+  itemChange() {
     this.itemName.nativeElement.classList.remove("error");
     this.itemEdition.nativeElement.classList.remove("error");
     this.itemName.nativeElement.classList.remove("warn");
     this.itemEdition.nativeElement.classList.remove("warn");
+  }
 
+  addItem() {
+    const itemData = gameManager.item(+this.itemName.nativeElement.value, this.itemEdition.nativeElement.value);
+    this.itemChange();
     if (itemData) {
       const soldItems = gameManager.game.figures.filter((figure) => figure instanceof Character && figure.progress && figure.progress.items).map((figure) => figure as Character).map((figure) => figure.progress && figure.progress.items).reduce((pre, cur): Identifier[] => {
         return pre && cur && pre.concat(cur);
@@ -236,8 +238,6 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
 
   perkLabel(perk: Perk): string[] {
     let label: string[] = [];
-
-
     if (perk.cards) {
       perk.cards.forEach((card: PerkCard, index: number) => {
         if (index == 0 || perk.type == PerkType.replace && index < 2) {
@@ -252,7 +252,6 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
 
     return label;
   }
-
 
   attackModifierHtml(attackModifier: AttackModifier): string {
     let html = "";
@@ -315,10 +314,8 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
       })
     }
 
-
     return html;
   }
-
 
   exportCharacter() {
     const downloadButton = document.createElement('a');
@@ -351,5 +348,4 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
       parent.classList.add("error");
     }
   }
-
 }
