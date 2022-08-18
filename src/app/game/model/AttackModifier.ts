@@ -6,6 +6,7 @@ export enum AttackModifierType {
   plus1 = "plus1",
   plus2 = "plus2",
   plus3 = "plus3",
+  plus4 = "plus4",
   minus1 = "minus1",
   minus2 = "minus2",
   null = "null",
@@ -50,6 +51,9 @@ export class AttackModifier {
         break;
       case AttackModifierType.plus3:
         this.value = 3;
+        break;
+      case AttackModifierType.plus4:
+        this.value = 4;
         break;
       case AttackModifierType.minus1:
         this.valueType = AttackModifierValueType.minus;

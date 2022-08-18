@@ -550,7 +550,6 @@ input {
 
 input[type="text"],
 input[type="number"] {
-  width: 100%;
   min-width: calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor));
   margin: 0;
   color: var(--ghs-color-white);

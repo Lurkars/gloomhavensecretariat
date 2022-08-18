@@ -135,6 +135,7 @@
           "count": 2,
           "attackModifier": {
             "type": "plus0",
+            "rolling": true,
             "actions": [
               {
                 "type": "push",

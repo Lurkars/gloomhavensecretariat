@@ -2,7 +2,7 @@
   [ngClass]="{'disabled' : gameManager.game.state == GameState.draw, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers}">
   <div class="card-container attack-modifier draw" title="{{'game.cards.draw' | ghsLabel}}">
     <div class="card" (click)="draw()">
-      <a class="card-back front">
+      <a class="card-back back">
         <span class="number" *ngIf="gameManager.game.attackModifier < gameManager.game.attackModifiers.length -1">{{
           gameManager.game.attackModifiers.length - gameManager.game.attackModifier - 1 }}</span>
         <img *ngIf="gameManager.game.attackModifier == gameManager.game.attackModifiers.length -1" class="shuffle"
@@ -12,17 +12,17 @@
     </div>
   </div>
 
-  <div class="card-container attack-modifier"
+  <div class="card-container attack-modifier monster {{attackModifier.type}}"
     *ngFor="let attackModifier of gameManager.game.attackModifiers; let index = index;"
     [style.z-index]="index > currentAttackModifier ? gameManager.game.attackModifiers.length - index : gameManager.game.attackModifiers.length + index + 1"
     [ngClass]="{'disgarded' : index < currentAttackModifier - 1, 'current' : index == currentAttackModifier, 'last' : index == currentAttackModifier - 1}"
     title="{{(index > currentAttackModifier ? 'game.cards.draw' : 'game.attackModifiers.openDialog') | ghsLabel}}">
     <div class="card" [ngClass]="{'flipped' : index <= currentAttackModifier}" (click)="click(attackModifier)">
-      <a class="card-back front">
+      <a class="card-back back">
         <span class="number" *ngIf="index > currentAttackModifier">{{
           gameManager.game.attackModifiers.length - gameManager.game.attackModifier - 1 }}</span>
       </a>
-      <div class="card-front back">
+      <div class="card-front front">
         <img src="./assets/images/attackmodifier/{{attackModifier.type}}.png" />
       </div>
     </div>
@@ -50,18 +50,18 @@
       [cdkDropListConnectedTo]="disgardedList" (cdkDropListDropped)="dropUpcoming($event)"
       [cdkDropListAutoScrollStep]="20">
       <div class="empty" *ngIf="upcomingCards().length == 0"></div>
-      <div class="card-container attack-modifier drag-hidden"
+      <div class="card-container attack-modifier drag-hidden monster {{attackModifier.type}}"
         *ngFor="let attackModifier of upcomingCards();let index = index;" cdkDrag>
         <div class="card" card-reveal (change)="onChange(attackModifier, $event)"
           [ngClass]="{'flipped' : reveal == 2 || attackModifier.revealed}">
-          <a class="card-back front">
+          <a class="card-back back">
             <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
           </a>
-          <div class="card-front back">
+          <div class="card-front front">
             <img src="./assets/images/attackmodifier/{{attackModifier.type}}.png" />
           </div>
           <a class="button-remove" *ngIf="edit" (click)="remove(index)"><img class="ghs-svg"
-            src="./assets/images/minus.svg"></a>
+              src="./assets/images/minus.svg"></a>
         </div>
       </div>
     </div>
@@ -70,11 +70,12 @@
       [cdkDropListConnectedTo]="upcomingList" (cdkDropListDropped)="dropDisgarded($event)"
       [cdkDropListAutoScrollStep]="20">
       <div class="empty" *ngIf="disgardedCards().length == 0"></div>
-      <div class="card-container attack-modifier drag-hidden" *ngFor="let attackModifier of disgardedCards();" cdkDrag>
+      <div class="card-container attack-modifier drag-hidden monster {{attackModifier.type}}"
+        *ngFor="let attackModifier of disgardedCards();" cdkDrag>
         <div class="card flipped">
-          <a class="card-back front">
+          <a class="card-back back">
           </a>
-          <div class="card-front back">
+          <div class="card-front front">
             <img src="./assets/images/attackmodifier/{{attackModifier.type}}.png" />
           </div>
         </div>

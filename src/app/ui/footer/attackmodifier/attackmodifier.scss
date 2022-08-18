@@ -1,26 +1,41 @@
 .attack-modifier {
   transition: filter 2s linear, transform 0.8s cubic-bezier(0.75, 0, 0.85, 1), top 0.5s linear, left 0.5s linear;
 
-  .front {
+  .back {
     background-position: center;
     background-size: 100% auto;
     background-repeat: no-repeat;
-    background-image: url('~src/assets/images/attackmodifier/front.png');
+    background-image: url('~src/assets/images/attackmodifier/back.png');
   }
 
-  .back {
+  .front {
     display: flex;
-    justify-content: center;
-    align-items: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .front::before {
+    position: absolute;
+    left: 10.5%;
+    top: 70%;
+    font-family: "ghs-title";
+    font-size: 30%;
+    color: var(--ghs-color-white);
+  }
+
+  &.monster .front::before {
+    content: "m";
+  }
+
+  &.bless .front::before {
+    display: none;
   }
 
   &.draw {
     z-index: 0;
-  }
-
-  img {
-    width: 100%;
-    height: auto;
   }
 }
 
@@ -40,8 +55,9 @@
     top: 0;
     left: 0;
 
-    width: calc(var(--ghs-unit) * 14 * var(--ghs-text-factor) * var(--ghs-barsize));
-    height: calc(var(--ghs-unit) * 9.6 * var(--ghs-text-factor) * var(--ghs-barsize));
+    width: calc(var(--ghs-unit) * 13.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    height: calc(var(--ghs-unit) * 9 * var(--ghs-text-factor) * var(--ghs-barsize));
+    font-size: calc(var(--ghs-unit) * 4);
 
     .number {
       color: var(--ghs-color-gray);
@@ -60,10 +76,10 @@
 
     .card {
       transition: transform 0.5s cubic-bezier(0.75, 0, 0.85, 1);
-      box-shadow: calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.3) var(--ghs-color-darkgray);
+      box-shadow: calc(var(--ghs-unit) * 0.2) calc(var(--ghs-unit) * 0.2) var(--ghs-color-darkgray);
 
       &.flipped {
-        box-shadow: calc(var(--ghs-unit) * -0.1) calc(var(--ghs-unit) * -0.4) calc(var(--ghs-unit) * 0.3) var(--ghs-color-darkgray);
+        box-shadow: calc(var(--ghs-unit) * 0.2) calc(var(--ghs-unit) * -0.2) var(--ghs-color-darkgray);
       }
     }
 
@@ -281,6 +297,9 @@
       }
 
       .attack-modifier {
+
+        font-size: calc(var(--ghs-unit) * 5.8 * var(--ghs-dialog-factor));
+
         .confirm {
           .revealed {
             width: 100%;

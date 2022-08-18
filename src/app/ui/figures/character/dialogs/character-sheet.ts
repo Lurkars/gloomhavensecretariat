@@ -240,7 +240,7 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
 
     if (perk.cards) {
       perk.cards.forEach((card: PerkCard, index: number) => {
-        if (index == 0 || perk.type == PerkType.replace) {
+        if (index == 0 || perk.type == PerkType.replace && index < 2) {
           label.push('character.progress.perks.cards.' + card.count);
           label.push(this.attackModifierHtml(card.attackModifier));
           label.push(card.count > 1 ? 'character.progress.perks.cards' : 'character.progress.perks.card');
@@ -299,7 +299,10 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
         html += '<span class="attack-modifier-action target">' + settingsManager.getLabel(action.value <= 1 ? 'game.custom.perks.addTarget' : 'game.custom.perks.addTargets', [ action.value + "" ]) + '<img src="./assets/images/attackmodifier/icons/actions/target.svg"></span>';
         break;
       case ActionType.specialTarget:
-        html += '<span class="attack-modifier-action special-target">' + settingsManager.getLabel('game.action.specialTarget.' + action.value) + '</span>';
+        html += '<span class="attack-modifier-action special-target">' + settingsManager.getLabel('game.specialTarget.' + action.value) + '</span>';
+        break;
+      case ActionType.custom:
+        html += '<span class="attack-modifier-action custom">' + settingsManager.getLabel('' + action.value) + '</span>';
         break;
       default:
         html += '<span class="attack-modifier-action ' + action.type + '">' + settingsManager.getLabel('game.action.' + action.type) + '<img src="./assets/images/attackmodifier/icons/actions/' + action.type + '.svg"><span class="value">' + action.value + '</span></span>';

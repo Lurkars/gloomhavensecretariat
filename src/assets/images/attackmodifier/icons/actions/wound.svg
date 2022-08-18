@@ -217,10 +217,10 @@
   <g
      id="g6069"
      transform="matrix(0.35277777,0,0,-0.35277777,102.98815,203.29981)"
-     style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:15.1739;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:15.1739;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
     <path
        d="m 0,0 c -3.922,0 -7.608,1.527 -10.382,4.3 l -269.666,269.666 c -2.772,2.773 -4.3,6.46 -4.3,10.382 0,3.921 1.528,7.608 4.3,10.381 l 269.666,269.667 c 2.774,2.772 6.46,4.3 10.382,4.3 3.922,0 7.608,-1.528 10.382,-4.3 L 280.048,294.729 c 2.772,-2.773 4.3,-6.46 4.3,-10.381 0,-3.922 -1.528,-7.609 -4.3,-10.382 L 10.382,4.3 C 7.608,1.527 3.922,0 0,0"
-       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:15.1739;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:15.1739;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path6071" />
   </g>
   <g

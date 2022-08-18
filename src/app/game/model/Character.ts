@@ -19,6 +19,7 @@ export class Character extends CharacterData implements Entity, Figure {
   progress: CharacterProgress;
 
   initiativeVisible: boolean = false;
+  number: number = 0;
 
   // from figure
   level: number;
@@ -64,7 +65,7 @@ export class Character extends CharacterData implements Entity, Figure {
   }
 
   toModel(): GameCharacterModel {
-    return new GameCharacterModel(this.name, this.edition, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible);
+    return new GameCharacterModel(this.name, this.edition, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible, this.number);
   }
 
   fromModel(model: GameCharacterModel) {
@@ -82,6 +83,15 @@ export class Character extends CharacterData implements Entity, Figure {
 
     if (!this.initiativeVisible || model.initiative <= 0 || this.initiative != model.initiative) {
       this.initiativeVisible = model.initiativeVisible;
+    }
+
+    if (model.number) {
+      this.number = model.number;
+    } else {
+      this.number = 1;
+      while (gameManager.game.figures.some((figure) => figure instanceof Character && (figure.name != this.name || figure.edition != this.edition) && figure.number == this.number)) {
+        this.number++;
+      }
     }
 
     this.initiative = model.initiative;
@@ -148,6 +158,7 @@ export class GameCharacterModel {
   summons: GameSummonModel[];
   progress: CharacterProgress | undefined;
   initiativeVisible: boolean;
+  number: number;
 
   constructor(name: string,
     edition: string,
@@ -165,7 +176,8 @@ export class GameCharacterModel {
     markers: string[],
     summons: GameSummonModel[],
     progress: CharacterProgress | undefined,
-    initiativeVisible: boolean) {
+    initiativeVisible: boolean,
+    number: number) {
     this.name = name;
     this.edition = edition;
     this.title = title;
@@ -183,6 +195,7 @@ export class GameCharacterModel {
     this.summons = summons;
     this.progress = progress;
     this.initiativeVisible = initiativeVisible;
+    this.number = number;
   }
 
 }

@@ -10,10 +10,7 @@ export class AttackModifierManager {
 
   addModifier(attackModifier: AttackModifier, index: number = -1) {
     if (index < 0 || index > this.game.attackModifiers.length) {
-      index =
-        Math.random() *
-        (this.game.attackModifiers.length - this.game.attackModifier + 1) +
-        this.game.attackModifier;
+      index = Math.floor(Math.random() * (this.game.attackModifiers.length - this.game.attackModifier)) + this.game.attackModifier + 1;
     }
     this.game.attackModifiers.splice(index, 0, attackModifier);
   }

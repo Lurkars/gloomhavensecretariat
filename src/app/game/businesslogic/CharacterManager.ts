@@ -38,10 +38,16 @@ export class CharacterManager {
 
   addCharacter(characterData: CharacterData) {
     if (!this.game.figures.some((figure) => {
-      return figure instanceof CharacterData && figure.name == characterData.name && figure.edition == characterData.edition;
+      return figure instanceof Character && figure.name == characterData.name && figure.edition == characterData.edition;
     })) {
       let character: Character = new Character(characterData, this.game.level);
       character.availableSummons.filter((summonData: SummonData) => summonData.special).forEach((summonData) => this.createSpecialSummon(character, summonData));
+
+      character.number = 1;
+      while (gameManager.game.figures.some((figure) => figure instanceof Character && figure.number == character.number)) {
+        character.number++;
+      }
+
       this.game.figures.push(character);
       gameManager.sortFigures();
     }

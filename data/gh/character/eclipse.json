@@ -207,19 +207,6 @@
               }
             ]
           }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "actions": [
-              {
-                "type": "element",
-                "value": "air"
-              }
-            ]
-          }
         }
       ]
     },

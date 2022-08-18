@@ -168,10 +168,10 @@
   <g
      id="g4915"
      transform="matrix(0.35277777,0,0,-0.35277777,103.31979,203.64945)"
-     style="fill:#ffffff;stroke:#000000;stroke-width:15.1738586;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+     style="fill:none;stroke:#000000;stroke-width:15.1738586;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
     <path
        d="m 0,0 c -3.921,0 -7.608,1.527 -10.381,4.3 l -269.667,269.666 c -5.724,5.724 -5.724,15.038 0,20.763 l 269.667,269.667 c 2.773,2.772 6.46,4.299 10.381,4.299 3.922,0 7.608,-1.527 10.382,-4.299 L 280.048,294.729 c 2.772,-2.773 4.3,-6.46 4.3,-10.381 0,-3.922 -1.528,-7.609 -4.3,-10.382 L 10.382,4.3 C 7.608,1.527 3.922,0 0,0"
-       style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:15.1738586;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:15.1738586;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4917" />
   </g>
   <g
@@ -213,7 +213,7 @@
   <g
      id="g4939"
      transform="matrix(0.35277777,0,0,-0.35277777,152.46544,102.74312)"
-     style="stroke:#000000;stroke-opacity:1">
+     style="stroke:#000000;stroke-opacity:1;fill:none">
     <path
        d="m 0,0 c 0,-77.483 -62.812,-140.295 -140.295,-140.295 -77.483,0 -140.295,62.812 -140.295,140.295 0,77.483 62.812,140.295 140.295,140.295 C -62.812,140.295 0,77.483 0,0 Z"
        style="fill:none;stroke:#000000;stroke-width:16;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
@@ -222,7 +222,7 @@
   <g
      id="g4943"
      transform="matrix(0.35277777,0,0,-0.35277777,129.9893,102.74312)"
-     style="stroke:#000000;stroke-opacity:1;stroke-width:1.00062994;stroke-miterlimit:4;stroke-dasharray:none">
+     style="stroke:#000000;stroke-opacity:1;stroke-width:1.00062994;stroke-miterlimit:4;stroke-dasharray:none;fill:none">
     <path
        d="m 0,0 c 0,-42.295 -34.287,-76.583 -76.583,-76.583 -42.296,0 -76.583,34.288 -76.583,76.583 0,42.296 34.287,76.583 76.583,76.583 C -34.287,76.583 0,42.296 0,0 Z"
        style="fill:none;stroke:#000000;stroke-width:1.00062994;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"

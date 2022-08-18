@@ -249,14 +249,15 @@
       margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 
       .perk {
-        font-family: 'ghs-text';
-        font-size: calc(var(--ghs-unit) * 1.7 * var(--ghs-dialog-factor));
+        font-family: 'ghs-normal';
+        font-size: calc(var(--ghs-unit) * 1.9 * var(--ghs-dialog-factor));
+        line-height: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
         margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
         margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
         display: flex;
 
         .checkbox {
-          margin-top: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+          margin-top: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor));
           margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
           min-width: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
         }
@@ -270,13 +271,15 @@
         }
 
         .attack-modifier-action {
-          display: inline-flex;
-          align-items: center;
+          position: relative;
           margin-left: calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
 
           img {
+            position: relative;
+            top: calc(var(--ghs-unit) * 0.8 * var(--ghs-dialog-factor));
             height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
             margin-left: calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
+            margin-top: calc(var(--ghs-unit) * -1 * var(--ghs-dialog-factor));
             width: auto;
           }
 
@@ -289,19 +292,11 @@
           &.pierce {
             text-transform: uppercase;
           }
-
-          &.special-target {
-            display: inline-block;
-
-            &::first-letter {
-              text-transform: uppercase;
-            }
-          }
         }
 
         .attack-modifier-icon {
           position: relative;
-          top: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor));
+          top: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor));
           display: inline-block;
           font-family: 'ghs-title';
           font-size: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor));
@@ -309,16 +304,17 @@
           width: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));
           height: 0;
           margin-top: calc(var(--ghs-unit) * -1.8 * var(--ghs-dialog-factor));
-          margin-left: calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
+          margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+          margin-right: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
 
           &::before {
             content: ' ';
             position: absolute;
             left: 0;
-            top: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor));
-            width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-            height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-            border: calc(var(--ghs-unit) * 0.05 * var(--ghs-dialog-factor)) solid var(--ghs-color-black);
+            top: calc(var(--ghs-unit) * -0.15 * var(--ghs-dialog-factor));
+            width: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
+            height: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
+            border: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid var(--ghs-color-black);
             border-radius: 100%;
           }
         }

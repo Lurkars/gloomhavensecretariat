@@ -319,6 +319,7 @@
       "selfAlliesRange": "Target self and all allies within %game.action.range% {0}",
       "selfAlliesAdjacentAffect": "Affect self and all adjacent allies",
       "ally": "Target one ally",
+      "allyAffect": "Affect any ally",
       "allyAdjacent": "Target one adjacent ally",
       "allies": "Target all allies",
       "alliesAdjacent": "Target all adjacent allies",
@@ -336,7 +337,7 @@
       "figures": "Target all figures",
       "figuresAdjacent": "Target all adjacent figures",
       "figuresRange": "Target all figures %game.action.range% {0}",
-      "targets": "all targets"
+      "targets": "All targets"
     },
     "condition": {
       "stun": "Stun",
@@ -424,10 +425,12 @@
       },
       "scenarioBook": "Reference the scenario book",
       "perks": {
-        "ignoreNegativeItem": "ignore negative item effects",
-        "ignoreNegativeScenario": "ignore negative scenario effects",
-        "addTarget": "add target",
-        "addTargets": "add {0} targets"
+        "ignoreNegativeItem": "Ignore negative item effects",
+        "ignoreNegativeScenario": "Ignore negative scenario effects",
+        "addTarget": "Add target",
+        "addTargets": "Add {0} targets",
+        "refreshItem": "Refresh an item",
+        "adjacentEnemiesDamage1": "All adjacent enemies suffer 1 damage"
       }
     }
   },

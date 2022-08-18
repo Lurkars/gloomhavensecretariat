@@ -186,7 +186,7 @@
         {
           "count": 1,
           "attackModifier": {
-            "type": "minus2"
+            "type": "plus2"
           }
         }
       ]

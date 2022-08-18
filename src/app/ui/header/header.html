@@ -8,12 +8,14 @@
     <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection closing"
       *ngSwitchCase="WebSocket.CLOSING" [title]="'server.closing' | ghsLabel">
     <a (click)="gameManager.stateManager.connect()" [title]="'server.reconnected' | ghsLabel"
-      *ngSwitchCase="WebSocket.CLOSED" class="server-connection">
+      *ngSwitchCase="WebSocket.CLOSED" class="server-connection-status">
+      <img src="./assets/images/warning.svg" class="ghs-svg server-connection closed"
+      [title]="'server.closed' | ghsLabel">
       <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection closed"
         [title]="'server.closed' | ghsLabel">
     </a>
     <a (click)="gameManager.stateManager.connect()" [title]="'server.reconnected' | ghsLabel" *ngSwitchCase="-1"
-      class="server-connection">
+      class="server-connection-status">
       <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection disconnected"
         [title]="'server.disconnected' | ghsLabel">
     </a>

@@ -16,13 +16,13 @@ header {
     bottom: calc(var(--ghs-unit) * -2 * var(--ghs-text-factor) * var(--ghs-barsize));
   }
 
-  a.server-connection {
+  a.server-connection-status {
+    display: flex;
     cursor: pointer;
   }
 
   .server-connection {
 
-    display: flex;
     width: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     height: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     margin-right: calc(var(--ghs-unit) * 1);
