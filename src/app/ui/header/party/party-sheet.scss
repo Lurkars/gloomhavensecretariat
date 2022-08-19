@@ -22,6 +22,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
 
   .sheet {
     width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
@@ -280,6 +281,7 @@
   .prosperity {
     display: flex;
     margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+    margin-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
     width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
     height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
 
@@ -291,8 +293,10 @@
     .legend {
       display: flex;
       flex-direction: column;
+      justify-content: flex-end;
       align-items: flex-end;
       width: calc(var(--ghs-unit) * 12 * var(--ghs-dialog-factor));
+      height: 100%;
       margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 
       .check {
@@ -301,15 +305,16 @@
         font-family: 'ghs-title';
         font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
         line-height: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        margin-bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
       }
     }
 
     .checklist {
       display: flex;
       align-items: flex-end;
-      height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+      height: 100%;
       overflow: auto;
-      padding-bottom: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+      overflow-x: hidden;
     }
 
     .tick {
@@ -317,6 +322,7 @@
       flex-direction: column;
       width: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
       margin-left: calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
+      margin-bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
     }
 
     .checkbox {
