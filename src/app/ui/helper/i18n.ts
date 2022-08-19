@@ -10,7 +10,7 @@ export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\%)+)\%/;
 export const applyPlaceholder = function (value: string): string {
   while (value.match(ghsLabelRegex)) {
     value = value.replace(ghsLabelRegex, (match, ...args) => {
-      const label : string = args[ 0 ];
+      const label: string = args[ 0 ];
       const split: string[] = label.split('.');
       const type = split[ 1 ];
 
@@ -46,11 +46,11 @@ export const applyPlaceholder = function (value: string): string {
       } else if (type == "attackmodifier" && split.length == 3) {
         image = '<img  src="./assets/images/attackmodifier/icons/' + split[ 2 ] + '.png" class="icon">';
         replace = '<span class="placeholder-attackmodifier">' + image + '</span>';
+      } else {
+        replace = settingsManager.getLabel(label.split(':')[ 0 ], label.split(':').splice(1).map((arg) =>
+          applyPlaceholder(settingsManager.getLabel(arg))
+        )) + image;
       }
-
-      replace = settingsManager.getLabel(label.split(':')[ 0 ], label.split(':').splice(1).map((arg) =>
-        applyPlaceholder(settingsManager.getLabel(arg))
-      )) + image;
 
       return replace;
     });
@@ -88,13 +88,13 @@ export class I18nDirective implements OnInit, OnChanges {
   private locale: string;
 
   constructor(private el: ElementRef) {
-    this.C = gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).length;
+    this.C = gameManager.game.figures.filter((figure) => figure instanceof Character).length;
     this.L = gameManager.game.level;
     this.locale = settingsManager.settings.locale;
     gameManager.uiChange.subscribe({
       next: () => {
-        if (this.locale != settingsManager.settings.locale || this.C != gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).length || this.L != gameManager.game.level) {
-          this.C = gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).length;
+        if (this.locale != settingsManager.settings.locale || this.C != gameManager.game.figures.filter((figure) => figure instanceof Character).length || this.L != gameManager.game.level) {
+          this.C = gameManager.game.figures.filter((figure) => figure instanceof Character).length;
           this.L = gameManager.game.level;
           this.locale = settingsManager.settings.locale;
           this.apply();

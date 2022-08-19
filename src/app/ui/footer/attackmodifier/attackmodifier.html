@@ -22,7 +22,7 @@
         <span class="number" *ngIf="index > currentAttackModifier">{{
           gameManager.game.attackModifiers.length - gameManager.game.attackModifier - 1 }}</span>
       </a>
-      <div class="card-front front">
+      <div class="card-front front" #front [style.fontSize]="front.offsetWidth * 0.09 + 'px'">
         <img src="./assets/images/attackmodifier/{{attackModifier.type}}.png" />
       </div>
     </div>
@@ -57,7 +57,7 @@
           <a class="card-back back">
             <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
           </a>
-          <div class="card-front front">
+          <div class="card-front front" #front [style.fontSize]="front.offsetWidth * 0.09 + 'px'">
             <img src="./assets/images/attackmodifier/{{attackModifier.type}}.png" />
           </div>
           <a class="button-remove" *ngIf="edit" (click)="remove(index)"><img class="ghs-svg"
@@ -75,7 +75,7 @@
         <div class="card flipped">
           <a class="card-back back">
           </a>
-          <div class="card-front front">
+          <div class="card-front front" #front [style.fontSize]="front.offsetWidth * 0.09 + 'px'">
             <img src="./assets/images/attackmodifier/{{attackModifier.type}}.png" />
           </div>
         </div>

@@ -29,12 +29,12 @@ export class Game {
 
 
   toModel(): GameModel {
-    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure: Figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure: Figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure: Figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.round, this.playSeconds, this.totalSeconds, this.attackModifier, this.attackModifiers.map((value) => value.type), this.newElements, this.strongElements, this.elements, this.solo, this.party);
+    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.round, this.playSeconds, this.totalSeconds, this.attackModifier, this.attackModifiers.map((value) => value.type), this.newElements, this.strongElements, this.elements, this.solo, this.party);
   }
 
   fromModel(model: GameModel) {
     this.edition = model.edition;
-    this.figures = this.figures.filter((figure: Figure) =>
+    this.figures = this.figures.filter((figure) =>
       model.characters.map((gcm) => gcm.name).indexOf(figure.name) != -1 ||
       model.monsters.map((gmm) => gmm.name).indexOf(figure.name) != -1 ||
       model.objectives.map((gom) => gom.name).indexOf(figure.name) != -1
@@ -74,7 +74,7 @@ export class Game {
       objective.fromModel(value);
     });
 
-    this.figures.sort((a: Figure, b: Figure) => model.figures.indexOf(a.name) - model.figures.indexOf(b.name));
+    this.figures.sort((a, b) => model.figures.indexOf(a.name) - model.figures.indexOf(b.name));
 
     this.state = model.state;
     this.scenario = model.scenario;

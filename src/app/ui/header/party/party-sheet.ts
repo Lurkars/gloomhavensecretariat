@@ -14,6 +14,7 @@ export class PartySheetDialog extends PopupComponent {
 
   gameManager: GameManager = gameManager;
   party: Party = new Party();
+  prosperitySteps = [ 3, 8, 14, 21, 29, 38, 49, 63 ];
 
   constructor() {
     super();
@@ -60,6 +61,22 @@ export class PartySheetDialog extends PopupComponent {
       value = -20;
     }
     this.party.reputation = value;
+    gameManager.game.party = this.party;
+    gameManager.stateManager.after();
+  }
+
+  setProsperity(value: number) {
+    gameManager.stateManager.before();
+    if (value > 64) {
+      value = 64
+    } else if (value < 0) {
+      value = 0;
+    }
+    if (this.party.prosperity == value) {
+      this.party.prosperity--;
+    } else {
+      this.party.prosperity = value;
+    }
     gameManager.game.party = this.party;
     gameManager.stateManager.after();
   }

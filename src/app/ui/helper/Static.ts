@@ -14,5 +14,5 @@ export function ghsIsSpoiled(spoilable: Spoilable): boolean {
 }
 
 export function ghsNotSpoiled(items: Spoilable[]): Spoilable[] {
-  return items.filter((spoilable: Spoilable) => !ghsIsSpoiled(spoilable));
+  return items.filter((spoilable) => !ghsIsSpoiled(spoilable));
 }

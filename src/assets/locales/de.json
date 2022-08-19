@@ -48,9 +48,9 @@
     "elite": "Elite",
     "boss": "Boss",
     "addEntity": {
-      "normal": "Normales Monster spawnen",
-      "elite": "Elite Monster spawnen",
-      "boss": "Boss Monster spawnen"
+      "normal": "Normales Monster platzieren",
+      "elite": "Elite Monster platzieren",
+      "boss": "Boss Monster platzieren"
     }
   },
   "character": {
@@ -89,7 +89,7 @@
         "warning": "Mehr Verbesserungen ausgewählt als verfügbar!",
         "wip": "%wip%! Verbesserungen sind noch nicht vollständig."
       },
-      "personalQuest": "Persönliche Aufgabe",
+      "personalQuest": "Persönliche Quest",
       "retired": "Ruhestand",
       "import": "Importieren",
       "export": "Exportieren"
@@ -115,6 +115,7 @@
     "notes": "Notizen",
     "achievements": "Erfolge",
     "reputation": "Ansehen",
+    "prosperity": "Wohlstand",
     "shop": {
       ".": "Ladenpreis-Modifikator",
       "none": "Keiner"
@@ -133,7 +134,7 @@
     "add": "Begleiter hinzufügen"
   },
   "summon": {
-    ".": "Beschwöre",
+    ".": "Beschwörung",
     "addCustom": "Beschwöre '{0}'",
     "name": "Name"
   },
@@ -144,7 +145,7 @@
   "settings": {
     ".": "Einstellungen",
     "calc": "Zeige berechnete Werte an",
-    "calcStats": "Füge Werte zu Fähigkeiten zu",
+    "calcStats": "Füge Monsterwerte zu Fähigkeiten zu",
     "abilityNumbers": "Zeige Fertigkeitsnummern an",
     "eliteFirst": "Elite Aufsteller zuerst",
     "expireConditions": "Automatisch Zustände löschen",
@@ -165,9 +166,9 @@
     "hints": "Hinweise anzeigen",
     "browserNavigation": "Rückgängig/Wiederherstellen über Navigation",
     "maxUndo": "Max. Anzahl Rückgängigvorgänge",
-    "levelCalculation": "Szenario Level automatisch berechnen",
-    "levelAdjustment": "Anpassung Szenario Level",
-    "bonusAdjustment": "Anpassung Level Boni",
+    "levelCalculation": "Szenariostufe automatisch berechnen",
+    "levelAdjustment": "Anpassung Szenariostufe",
+    "bonusAdjustment": "Anpassung Boni Szenariostufe",
     "ge5Player": ">= 5 Spieler Regeln",
     "locale": {
       ".": "Sprache",
@@ -263,7 +264,7 @@
     "resetSettings": "Einstellungen zurücksetzen"
   },
   "hints": {
-    "addMonsterEntities": "Auf die \"+\" Buttons klicken um Monster zu spawnen",
+    "addMonsterEntities": "Auf die \"+\" Buttons klicken um Monster zu platzieren",
     "draw": "\"%round.draw%\" klicken",
     "draw-short": "Initiative festlegen, \"%round.draw%\" klicken.",
     "draw-full": "Fertigkeitskarten der Charakter auswählen, Initiative festlegen, \"%round.draw%\" klicken.",
@@ -284,7 +285,7 @@
   "or": "oder",
   "game": {
     "action": {
-      "area": "Fläche",
+      "area": "Bereichseffekt",
       "attack": "Angriff",
       "card": "Karte",
       "condition": "Zustand",
@@ -295,7 +296,7 @@
       "heal": "Heilen",
       "jump": "Springen",
       "loot": "Beute",
-      "monsterType": "Monstertyp",
+      "monsterType": "Monster Variante",
       "move": "Bewegung",
       "pierce": "Durchstechen",
       "pull": "Ziehen",
@@ -344,7 +345,7 @@
       "wound": "Wunde",
       "muddle": "Verwirrrung",
       "poison": "Gift",
-      "invisible": "Unsichtbarkeit",
+      "invisible": "Unsichtbar",
       "strengthen": "Stärkung",
       "regenerate": "Regeneration",
       "curse": "Fluch",
@@ -368,15 +369,16 @@
       "light": "Licht",
       "dark": "Dunkel"
     },
+    "initiative": "Initiative",
     "health": "Trefferpunkte",
     "maxHealth": "Maximale Trefferpunkte",
     "loot": "Beute",
     "experience": "Erfahrung",
     "level": {
       ".": "Level",
-      "loot": "Beute",
-      "trap": "Falle",
-      "experience": "Erfahrung",
+      "loot": "Geldwechselkurs",
+      "trap": "Fallenschaden",
+      "experience": "Bonuserfahrung",
       "hazardousTerrain": "Gefährliches Gelände"
     },
     "exhausted": "Erschöpfung",

@@ -22,7 +22,6 @@
     left: 10.5%;
     top: 70%;
     font-family: "ghs-title";
-    font-size: 30%;
     color: var(--ghs-color-white);
   }
 
@@ -57,7 +56,6 @@
 
     width: calc(var(--ghs-unit) * 13.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     height: calc(var(--ghs-unit) * 9 * var(--ghs-text-factor) * var(--ghs-barsize));
-    font-size: calc(var(--ghs-unit) * 4);
 
     .number {
       color: var(--ghs-color-gray);
@@ -297,8 +295,6 @@
       }
 
       .attack-modifier {
-
-        font-size: calc(var(--ghs-unit) * 5.8 * var(--ghs-dialog-factor));
 
         .confirm {
           .revealed {

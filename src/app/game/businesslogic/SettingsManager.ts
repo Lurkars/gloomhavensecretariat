@@ -391,7 +391,7 @@ export class SettingsManager {
 
   async removeEditionDataUrl(editionDataUrl: string) {
     if (this.settings.editionDataUrls.indexOf(editionDataUrl) != -1) {
-      gameManager.editionData = gameManager.editionData.filter((editionData: EditionData) => editionData.url != editionDataUrl);
+      gameManager.editionData = gameManager.editionData.filter((editionData) => editionData.url != editionDataUrl);
       this.settings.editionDataUrls.splice(this.settings.editionDataUrls.indexOf(editionDataUrl), 1);
       if (this.defaultEditionDataUrls.indexOf(editionDataUrl) != -1) {
         this.settings.excludeEditionDataUrls.push(editionDataUrl);

@@ -21,13 +21,13 @@ export class ValueCalcDirective implements OnInit, OnChanges {
   private calc: boolean;
 
   constructor(private el: ElementRef) {
-    this.C = gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).length;
+    this.C = gameManager.game.figures.filter((figure) => figure instanceof Character).length;
     this.L = gameManager.game.level;
     this.calc = settingsManager.settings.calculate;
     gameManager.uiChange.subscribe({
       next: () => {
-        if (this.calc != settingsManager.settings.calculate || this.C != gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).length || this.L != gameManager.game.level) {
-          this.C = gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).length;
+        if (this.calc != settingsManager.settings.calculate || this.C != gameManager.game.figures.filter((figure) => figure instanceof Character).length || this.L != gameManager.game.level) {
+          this.C = gameManager.game.figures.filter((figure) => figure instanceof Character).length;
           this.L = gameManager.game.level;
           this.calc = settingsManager.settings.calculate;
           this.el.nativeElement.innerHTML = this.transform(this.value, this.level, this.empty);

@@ -43,7 +43,7 @@ export class MonsterEntityComponent extends DialogComponent {
   }
 
   countAttackModifier(type: AttackModifierType): number {
-    return gameManager.game.attackModifiers.filter((attackModifier: AttackModifier) => {
+    return gameManager.game.attackModifiers.filter((attackModifier) => {
       return attackModifier.type == type;
     }).length;
   }
@@ -56,7 +56,7 @@ export class MonsterEntityComponent extends DialogComponent {
       }
       gameManager.attackModifierManager.addModifier(new AttackModifier(AttackModifierType.bless));
     } else if (value < 0) {
-      const bless = gameManager.game.attackModifiers.find((attackModifier: AttackModifier, index: number) => {
+      const bless = gameManager.game.attackModifiers.find((attackModifier, index) => {
         return attackModifier.type == AttackModifierType.bless && index > gameManager.game.attackModifier;
       });
       if (bless) {
@@ -74,7 +74,7 @@ export class MonsterEntityComponent extends DialogComponent {
       }
       gameManager.attackModifierManager.addModifier(new AttackModifier(AttackModifierType.curse));
     } else if (value < 0) {
-      const curse = gameManager.game.attackModifiers.find((attackModifier: AttackModifier, index: number) => {
+      const curse = gameManager.game.attackModifiers.find((attackModifier, index) => {
         return attackModifier.type == AttackModifierType.curse && index > gameManager.game.attackModifier;
       });
       if (curse) {

@@ -84,9 +84,9 @@ export class Monster extends MonsterData implements Figure {
     this.off = model.off;
     this.active = model.active;
     this.drawExtra = model.drawExtra;
-    this.abilities = model.abilities && model.abilities.length > 0 && model.abilities || gameManager.abilities(this) && gameManager.abilities(this).map((ability: Ability, index: number) => index) || [];
+    this.abilities = model.abilities && model.abilities.length > 0 && model.abilities || gameManager.abilities(this) && gameManager.abilities(this).map((ability, index) => index) || [];
     this.ability = model.ability;
-    this.entities = this.entities.filter((monsterEntity: MonsterEntity) => model.entities.map((gmem) => gmem.number).indexOf(monsterEntity.number) != -1);
+    this.entities = this.entities.filter((monsterEntity) => model.entities.map((gmem) => gmem.number).indexOf(monsterEntity.number) != -1);
     model.entities.forEach((value) => {
       let entity = this.entities.find((monsterEntity) => monsterEntity.number == value.number) as MonsterEntity;
       if (!entity) {

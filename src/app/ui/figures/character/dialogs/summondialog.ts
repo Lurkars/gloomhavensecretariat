@@ -17,7 +17,7 @@ export class CharacterSummonDialog extends DialogComponent {
 
   @Input() character!: Character;
 
-  summonColors: SummonColor[] = Object.values(SummonColor).filter((summonColor: SummonColor) => summonColor != SummonColor.custom);
+  summonColors: SummonColor[] = Object.values(SummonColor).filter((summonColor) => summonColor != SummonColor.custom);
   summonColor: SummonColor = SummonColor.blue;
   summonNumber: number = 1;
   summonName: string = "";
@@ -39,7 +39,7 @@ export class CharacterSummonDialog extends DialogComponent {
   }
 
   summonData(): SummonData[] {
-    return this.character.availableSummons.filter((summonData: SummonData) => !summonData.level || summonData.level <= this.character.level);
+    return this.character.availableSummons.filter((summonData) => !summonData.level || summonData.level <= this.character.level);
   }
 
   setSummonName(event: any) {

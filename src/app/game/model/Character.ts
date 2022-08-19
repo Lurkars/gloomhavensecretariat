@@ -113,7 +113,7 @@ export class Character extends CharacterData implements Entity, Figure {
     }
     this.markers = model.markers;
 
-    this.summons = this.summons.filter((summon: Summon) => {
+    this.summons = this.summons.filter((summon) => {
       let found: boolean = false;
       model.summons.forEach((gsm) => {
         if (gsm.number == summon.number && gsm.color == summon.color) {

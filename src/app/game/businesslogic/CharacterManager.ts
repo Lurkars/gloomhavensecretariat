@@ -41,7 +41,7 @@ export class CharacterManager {
       return figure instanceof Character && figure.name == characterData.name && figure.edition == characterData.edition;
     })) {
       let character: Character = new Character(characterData, this.game.level);
-      character.availableSummons.filter((summonData: SummonData) => summonData.special).forEach((summonData) => this.createSpecialSummon(character, summonData));
+      character.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => this.createSpecialSummon(character, summonData));
 
       character.number = 1;
       while (gameManager.game.figures.some((figure) => figure instanceof Character && figure.number == character.number)) {
@@ -85,7 +85,7 @@ export class CharacterManager {
   }
 
   addSummon(character: Character, summon: Summon) {
-    character.summons = character.summons.filter((value: Summon) => value.name != summon.name || value.number != summon.number || value.color != summon.color);
+    character.summons = character.summons.filter((value) => value.name != summon.name || value.number != summon.number || value.color != summon.color);
     character.summons.push(summon);
   }
 
@@ -130,33 +130,33 @@ export class CharacterManager {
         figure.initiativeVisible = false;
         figure.off = false;
 
-        figure.summons = figure.summons.filter((summon: Summon) => !summon.dead && summon.health > 0);
+        figure.summons = figure.summons.filter((summon) => !summon.dead && summon.health > 0);
 
         if (settingsManager.settings.expireConditions) {
-          figure.entityConditions = figure.entityConditions.filter((entityCondition: EntityCondition) => !entityCondition.expired);
+          figure.entityConditions = figure.entityConditions.filter((entityCondition) => !entityCondition.expired);
 
           figure.summons.forEach((summon) => {
-            summon.entityConditions = summon.entityConditions.filter((entityCondition: EntityCondition) => !entityCondition.expired);
+            summon.entityConditions = summon.entityConditions.filter((entityCondition) => !entityCondition.expired);
           });
         }
 
         if (settingsManager.settings.applyConditions) {
-          figure.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => entityCondition.state = EntityConditionState.normal);
+          figure.entityConditions.filter((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => entityCondition.state = EntityConditionState.normal);
 
           figure.summons.forEach((summon) => {
-            summon.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => entityCondition.state = EntityConditionState.normal);
+            summon.entityConditions.filter((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => entityCondition.state = EntityConditionState.normal);
           });
         }
       } else if (figure instanceof Objective) {
         figure.off = false;
 
         if (settingsManager.settings.expireConditions) {
-          figure.entityConditions = figure.entityConditions.filter((entityCondition: EntityCondition) => !entityCondition.expired);
+          figure.entityConditions = figure.entityConditions.filter((entityCondition) => !entityCondition.expired);
         }
 
 
         if (settingsManager.settings.applyConditions) {
-          figure.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => entityCondition.state = EntityConditionState.normal);
+          figure.entityConditions.filter((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => entityCondition.state = EntityConditionState.normal);
         }
       }
     })
@@ -164,7 +164,7 @@ export class CharacterManager {
 
   addXP(character: Character, value: number) {
     character.progress.experience += value;
-    this.xpMap.forEach((value: number, index: number) => {
+    this.xpMap.forEach((value, index) => {
       if (character.progress.experience >= value && (index < this.xpMap.length - 1 && character.progress.experience < this.xpMap[ index + 1 ] || index == this.xpMap.length - 1)) {
         this.setLevel(character, index + 1);
       }
@@ -194,7 +194,7 @@ export class CharacterManager {
       character.health = character.maxHealth;
     }
 
-    character.availableSummons.filter((summonData: SummonData) => summonData.special).forEach((summonData) => this.createSpecialSummon(character, summonData));
+    character.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => this.createSpecialSummon(character, summonData));
 
     if (character.progress.experience < gameManager.characterManager.xpMap[ level - 1 ] || character.progress.experience >= gameManager.characterManager.xpMap[ level ]) {
       character.progress.experience = gameManager.characterManager.xpMap[ level - 1 ];
@@ -206,7 +206,7 @@ export class CharacterManager {
   }
 
   createSpecialSummon(character: Character, summonData: SummonData) {
-    character.summons = character.summons.filter((summon: Summon) => summon.name != summonData.name || summon.number != 0 || summon.color != SummonColor.custom);
+    character.summons = character.summons.filter((summon) => summon.name != summonData.name || summon.number != 0 || summon.color != SummonColor.custom);
     if (!summonData.level || summonData.level <= character.level) {
       let summon: Summon = new Summon(summonData.name, character.level, 0, SummonColor.custom);
       summon.maxHealth = typeof summonData.health == "number" ? summonData.health : EntityValueFunction(summonData.health, character.level);

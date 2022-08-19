@@ -85,7 +85,7 @@ export class ServerMenuComponent {
   }
 
   characters(): Character[] {
-    return gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).map((figure) => figure as Character);
+    return gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure as Character);
   }
 
   hasCharacter(character: Character): boolean {
@@ -104,7 +104,7 @@ export class ServerMenuComponent {
   }
 
   monsters(): Monster[] {
-    return gameManager.game.figures.filter((figure: Figure) => figure instanceof Monster).map((figure) => figure as Monster);
+    return gameManager.game.figures.filter((figure) => figure instanceof Monster).map((figure) => figure as Monster);
   }
 
   hasMonster(monster: Monster): boolean {

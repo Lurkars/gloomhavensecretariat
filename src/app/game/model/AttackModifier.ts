@@ -94,3 +94,14 @@ export const defaultAttackModifier: AttackModifier[] = [
   new AttackModifier(AttackModifierType.double),
   new AttackModifier(AttackModifierType.null)
 ];
+
+export class AttackModifierDeck {
+
+  attackModifier: number = -1;
+  attackModifiers: number[];
+  cards: AttackModifier[] = defaultAttackModifier;
+
+  constructor() {
+    this.attackModifiers = this.cards.map((attackModifier, index) => index);
+  }
+}

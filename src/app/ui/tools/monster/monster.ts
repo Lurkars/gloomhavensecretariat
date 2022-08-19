@@ -60,7 +60,7 @@ export class MonsterToolComponent implements OnInit {
   updateType() {
     if (this.monsterData) {
       if (this.monsterData.boss) {
-        this.monsterData.stats = this.monsterData.stats.filter((stat: MonsterStat) => !stat.type || stat.type == MonsterType.boss);
+        this.monsterData.stats = this.monsterData.stats.filter((stat) => !stat.type || stat.type == MonsterType.boss);
 
         for (let level of this.levels) {
           if (!this.monsterData.stats.some((stat) => stat.level == level)) {
@@ -68,7 +68,7 @@ export class MonsterToolComponent implements OnInit {
           }
         }
       } else {
-        this.monsterData.stats = this.monsterData.stats.filter((stat: MonsterStat) => stat.type != MonsterType.boss);
+        this.monsterData.stats = this.monsterData.stats.filter((stat) => stat.type != MonsterType.boss);
         for (let level of this.levels) {
           if (!this.monsterData.stats.some((stat) => stat.level == level && (!stat.type || stat.type == MonsterType.normal))) {
             this.monsterData.stats.push(new MonsterStat(MonsterType.normal, level, 0, 0, 0, 0));

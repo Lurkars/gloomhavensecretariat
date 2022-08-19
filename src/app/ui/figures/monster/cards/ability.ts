@@ -31,7 +31,7 @@ export class AbilityComponent extends PopupComponent {
     } else {
       this.ability = gameManager.abilities(this.monster)[ this.index ];
     }
-    return gameManager.roundManager.working && gameManager.game.state == GameState.draw || !gameManager.roundManager.working && gameManager.game.state == GameState.next && this.ability != undefined && this.monster.entities.filter((monsterEntity: MonsterEntity) => !monsterEntity.dead).length > 0;
+    return gameManager.roundManager.working && gameManager.game.state == GameState.draw || !gameManager.roundManager.working && gameManager.game.state == GameState.next && this.ability != undefined && this.monster.entities.filter((monsterEntity) => !monsterEntity.dead).length > 0;
   }
 
   toggleEdit() {
@@ -40,11 +40,11 @@ export class AbilityComponent extends PopupComponent {
 
 
   upcomingCards(): Ability[] {
-    return this.monster.abilities.filter((value: number, index: number) => index > this.monster.ability).map((value) => gameManager.abilities(this.monster)[ value ]);
+    return this.monster.abilities.filter((value, index) => index > this.monster.ability).map((value) => gameManager.abilities(this.monster)[ value ]);
   }
 
   disgardedCards(): Ability[] {
-    return this.monster.abilities.filter((value: number, index: number) => index <= this.monster.ability).map((value) => gameManager.abilities(this.monster)[ value ]).reverse();
+    return this.monster.abilities.filter((value, index) => index <= this.monster.ability).map((value) => gameManager.abilities(this.monster)[ value ]).reverse();
   }
 
   abilityIndex(ability: Ability) {
@@ -112,7 +112,7 @@ export class AbilityComponent extends PopupComponent {
   restoreDefault(): void {
     gameManager.stateManager.before();
     const abilities = gameManager.abilities(this.monster);
-    this.monster.abilities = abilities.filter((ability: Ability) => !ability.level || isNaN(+ability.level) || ability.level <= this.monster.level).map((ability: Ability, index: number) => index);
+    this.monster.abilities = abilities.filter((ability) => !ability.level || isNaN(+ability.level) || ability.level <= this.monster.level).map((ability, index) => index);
     this.monster.ability = -1;
     gameManager.stateManager.after();
   }

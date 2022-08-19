@@ -28,11 +28,11 @@ export class MonsterNumberPicker extends DialogComponent {
   }
 
   nonDead(): number {
-    return this.monster.entities.filter((monsterEntity: MonsterEntity) => !monsterEntity.dead && monsterEntity.health > 0).length;
+    return this.monster.entities.filter((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0).length;
   }
 
   hasEntity(): boolean {
-    return this.monster.entities.filter((monsterEntity: MonsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && (!settingsManager.settings.hideStats || monsterEntity.type == this.type)).length > 0;
+    return this.monster.entities.filter((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && (!settingsManager.settings.hideStats || monsterEntity.type == this.type)).length > 0;
   }
 
   hasNumber(number: number) {
@@ -49,9 +49,9 @@ export class MonsterNumberPicker extends DialogComponent {
     if (settingsManager.settings.disableStandees) {
       gameManager.stateManager.before();
       if (this.hasEntity()) {
-        this.monster.entities = this.monster.entities.filter((monsterEntity: MonsterEntity) => settingsManager.settings.hideStats && monsterEntity.type != this.type);
+        this.monster.entities = this.monster.entities.filter((monsterEntity) => settingsManager.settings.hideStats && monsterEntity.type != this.type);
       } else {
-        this.monster.entities = this.monster.entities.filter((monsterEntity: MonsterEntity) => settingsManager.settings.hideStats && monsterEntity.type != this.type);
+        this.monster.entities = this.monster.entities.filter((monsterEntity) => settingsManager.settings.hideStats && monsterEntity.type != this.type);
         if (settingsManager.settings.randomStandees) {
           this.randomStandee();
         } else {

@@ -31,7 +31,7 @@ export function EntityValueFunction(value: string, L: number | undefined = undef
   }
 
 
-  let C = gameManager.game.figures.filter((figure: Figure) => figure instanceof Character).length;
+  let C = gameManager.game.figures.filter((figure) => figure instanceof Character).length;
   if (C < 1) {
     C = 1;
   }

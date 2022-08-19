@@ -6,11 +6,11 @@ import { GameState } from 'src/app/game/model/Game';
 import { PopupComponent } from '../../popup/popup';
 
 @Component({
-  selector: 'ghs-attackmodifier',
+  selector: 'ghs-monster-attackmodifier-deck',
   templateUrl: './attackmodifier.html',
   styleUrls: [ './attackmodifier.scss', '../../popup/popup.scss' ]
 })
-export class AttackModifierComponent extends PopupComponent {
+export class MonsterAttackModifierDeckComponent extends PopupComponent {
 
   gameManager: GameManager = gameManager;
   GameState = GameState;

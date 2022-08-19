@@ -13,15 +13,21 @@
   }
 }
 
-.party-sheet-dialog {
-  background-color: var(--ghs-color-white);
-  display: flex;
+.popup {
 
-  .container {
+  background-color: var(--ghs-color-white);
+}
+
+.party-dialog {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .sheet {
     width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
     height: calc(var(--ghs-unit) * 76 * var(--ghs-dialog-factor));
     background-image: url('~src/assets/images/party/party-sheet.svg');
-    background-position: center;
+    background-position: top center;
     background-repeat: no-repeat;
     background-size: contain;
     padding-left: calc(var(--ghs-unit) * 1.2 * var(--ghs-dialog-factor));
@@ -267,6 +273,110 @@
       line-height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
       width: 100%;
       height: 100%;
+    }
+
+  }
+
+  .prosperity {
+    display: flex;
+    margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+    width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
+    height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+
+    .level {
+      font-family: 'ghs-title';
+      font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    }
+
+    .legend {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      width: calc(var(--ghs-unit) * 12 * var(--ghs-dialog-factor));
+      margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+      .check {
+        display: flex;
+        height: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
+        font-family: 'ghs-title';
+        font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        line-height: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+      }
+    }
+
+    .checklist {
+      display: flex;
+      align-items: flex-end;
+      height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+      overflow: auto;
+      padding-bottom: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+    }
+
+    .tick {
+      display: flex;
+      flex-direction: column;
+      width: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
+      margin-left: calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
+    }
+
+    .checkbox {
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
+      height: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
+      border: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor)) solid var(--ghs-color-black);
+      border-radius: calc(var(--ghs-unit) * 0.15 * var(--ghs-dialog-factor));
+      box-shadow: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 0.15 * var(--ghs-dialog-factor)) var(--ghs-color-gray);
+
+
+      &::before {
+        content: ' ';
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: calc(var(--ghs-unit) * 1.9 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 1.9 * var(--ghs-dialog-factor));
+        clip-path: polygon(10% 0, 0 10%, 40% 50%, 0 90%, 10% 100%, 50% 60%, 90% 100%, 100% 90%, 60% 50%, 100% 10%, 90% 0, 50% 40%);
+        background-color: var(--ghs-color-black);
+        transform: scale(0);
+        transform-origin: top left;
+        transition: 120ms transform ease-in-out;
+        z-index: 1;
+      }
+
+      &.checked::before {
+        transform: scale(1) translate(-50%, -50%);
+      }
+
+      &.check {
+        width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        box-shadow: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor)) var(--ghs-color-gray);
+      }
+
+      &.check::before {
+        left: 0;
+        top: calc(var(--ghs-unit) * -0.6 * var(--ghs-dialog-factor));
+        width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        transform-origin: bottom left;
+      }
+
+      &.checked.check::before {
+        transform: scale(1);
+      }
+
+      &.highlight {
+        background-color: var(--ghs-color-gray);
+      }
+
+      &.disabled {
+        pointer-events: none;
+      }
     }
 
   }

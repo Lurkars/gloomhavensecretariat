@@ -105,11 +105,11 @@ export class MainMenuComponent extends DialogComponent {
   }
 
   characters(): Character[] {
-    return gameManager.game.figures.filter((figure: Figure) => {
+    return gameManager.game.figures.filter((figure) => {
       return figure instanceof Character;
     }).map((figure) => {
       return figure as Character;
-    }).sort((a: Character, b: Character) => {
+    }).sort((a, b) => {
       const aName = a.title.toLowerCase() || settingsManager.getLabel('data.character.' + a.name).toLowerCase();
       const bName = b.title.toLowerCase() || settingsManager.getLabel('data.character.' + b.name).toLowerCase();
       if (aName > bName) {
@@ -123,11 +123,11 @@ export class MainMenuComponent extends DialogComponent {
   }
 
   objectives(): Objective[] {
-    return gameManager.game.figures.filter((figure: Figure) => {
+    return gameManager.game.figures.filter((figure) => {
       return figure instanceof Objective;
     }).map((figure) => {
       return figure as Objective;
-    }).sort((a: Objective, b: Objective) => {
+    }).sort((a, b) => {
       const aName = (a.title ? a.title : settingsManager.getLabel(a.name ? 'data.objective.' + a.name : (a.escort ? 'escort' : 'objective'))).toLowerCase();
       const bName = (b.title ? b.title : settingsManager.getLabel(b.name ? 'data.objective.' + b.name : (b.escort ? 'escort' : 'objective'))).toLowerCase();
       if (aName > bName) {
@@ -141,7 +141,7 @@ export class MainMenuComponent extends DialogComponent {
   }
 
   characterData(edition: string | undefined = undefined): CharacterData[] {
-    return gameManager.charactersData(true).filter((characterData: CharacterData) => !edition || characterData.edition == edition).sort((a: CharacterData, b: CharacterData) => {
+    return gameManager.charactersData(true).filter((characterData) => !edition || characterData.edition == edition).sort((a, b) => {
       const aName = settingsManager.getLabel('data.character.' + a.name).toLowerCase();
       const bName = settingsManager.getLabel('data.character.' + b.name).toLowerCase();
 
@@ -172,11 +172,11 @@ export class MainMenuComponent extends DialogComponent {
   }
 
   monsters(): Monster[] {
-    return gameManager.game.figures.filter((figure: Figure) => {
+    return gameManager.game.figures.filter((figure) => {
       return figure instanceof Monster;
     }).map((figure) => {
       return figure as Monster;
-    }).sort((a: Monster, b: Monster) => {
+    }).sort((a, b) => {
       const aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
       const bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
       if (aName > bName) {
@@ -194,7 +194,7 @@ export class MainMenuComponent extends DialogComponent {
   }
 
   monsterData(edition: string | undefined = undefined): MonsterData[] {
-    return gameManager.monstersData(true).filter((monsterData: MonsterData) => (!monsterData.hidden || monsterData.hidden == this.showHiddenMonster) && (!edition || monsterData.edition == edition)).sort((a: MonsterData, b: MonsterData) => {
+    return gameManager.monstersData(true).filter((monsterData) => (!monsterData.hidden || monsterData.hidden == this.showHiddenMonster) && (!edition || monsterData.edition == edition)).sort((a, b) => {
       const aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
       const bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
 
@@ -258,7 +258,7 @@ export class MainMenuComponent extends DialogComponent {
 
   removeAllCharacters() {
     gameManager.stateManager.before();
-    gameManager.game.figures = gameManager.game.figures.filter((figure: Figure) => !(figure instanceof Character))
+    gameManager.game.figures = gameManager.game.figures.filter((figure) => !(figure instanceof Character))
     this.close();
     gameManager.stateManager.after();
   }
@@ -288,7 +288,7 @@ export class MainMenuComponent extends DialogComponent {
 
   removeAllObjectives() {
     gameManager.stateManager.before();
-    gameManager.game.figures = gameManager.game.figures.filter((figure: Figure) => !(figure instanceof Objective))
+    gameManager.game.figures = gameManager.game.figures.filter((figure) => !(figure instanceof Objective))
     this.close();
     gameManager.stateManager.after();
   }
@@ -313,7 +313,7 @@ export class MainMenuComponent extends DialogComponent {
 
   removeAllMonsters() {
     gameManager.stateManager.before();
-    gameManager.game.figures = gameManager.game.figures.filter((figure: Figure) => {
+    gameManager.game.figures = gameManager.game.figures.filter((figure) => {
       return !(figure instanceof Monster);
     })
     this.close();

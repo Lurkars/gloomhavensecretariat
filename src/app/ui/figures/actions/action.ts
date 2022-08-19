@@ -1,3 +1,4 @@
+import { JsonPipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -23,6 +24,7 @@ export class ActionComponent implements OnInit {
   @Input() hexSize!: number;
 
   additionalSubActions: Action[] = [];
+  additionAttackSubActionTypes: ActionType[] = [ ActionType.condition, ActionType.target, ActionType.pierce, ActionType.pull, ActionType.push, ActionType.swing, ActionType.area ];
 
   ActionType = ActionType;
   ActionValueType = ActionValueType;
@@ -115,16 +117,48 @@ export class ActionComponent implements OnInit {
     })
   }
 
-
   updateAdditionalSubActions(): void {
     this.action.subActions = this.action.subActions || [];
     this.additionalSubActions = JSON.parse(JSON.stringify(this.action.subActions));
     if (settingsManager.settings.calculateStats) {
       const stat = gameManager.monsterManager.getStat(this.monster, this.monster.boss ? MonsterType.boss : MonsterType.normal);
+      let eliteStat = this.monster.boss ? undefined : gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
       if (this.action.type == ActionType.attack) {
         if (stat.range && (!this.action.subActions.some((subAction) => subAction.type == ActionType.range || subAction.type == ActionType.area && ("" + subAction.value).indexOf('active') != -1 || subAction.type == ActionType.specialTarget))) {
           const area = this.action.subActions.find((subAction) => subAction.type == ActionType.area);
           this.additionalSubActions.splice(area ? this.action.subActions.indexOf(area) + 1 : 0, 0, new Action(ActionType.range, 0, ActionValueType.plus));
+        }
+
+        if (stat.actions) {
+          let normalActions: Action | undefined = undefined;
+          stat.actions.filter((statAction) => this.additionAttackSubActionTypes.indexOf(statAction.type) != -1).forEach((statAction) => {
+            if (statAction.type != ActionType.area || this.action.subActions.every((subAction) => subAction.type != ActionType.area)) {
+              if (!eliteStat || eliteStat.actions && eliteStat.actions.some((eliteAction) => JSON.stringify(statAction) == JSON.stringify(eliteAction))) {
+                this.additionalSubActions.push(JSON.parse(JSON.stringify(statAction)));
+              } else if (eliteStat && (!eliteStat.actions || !eliteStat.actions.some((eliteAction) => JSON.stringify(statAction) == JSON.stringify(eliteAction)))) {
+                if (!normalActions) {
+                  normalActions = new Action(ActionType.monsterType, MonsterType.normal, ActionValueType.fixed, [ JSON.parse(JSON.stringify(statAction)) ])
+                  this.additionalSubActions.push(normalActions);
+                } else {
+                  normalActions.subActions.push(JSON.parse(JSON.stringify(statAction)));
+                }
+              }
+            }
+          })
+        }
+
+        if (eliteStat) {
+          let eliteActions: Action | undefined = undefined;
+          eliteStat.actions.filter((eliteAction) => this.additionAttackSubActionTypes.indexOf(eliteAction.type) != -1).forEach((eliteAction) => {
+            if (!stat.actions || !stat.actions.some((statAction) => JSON.stringify(eliteAction) == JSON.stringify(statAction))) {
+              if (!eliteActions) {
+                eliteActions = new Action(ActionType.monsterType, MonsterType.elite, ActionValueType.fixed, [ JSON.parse(JSON.stringify(eliteAction)) ])
+                this.additionalSubActions.push(eliteActions);
+              } else {
+                eliteActions.subActions.push(JSON.parse(JSON.stringify(eliteAction)));
+              }
+            }
+          })
         }
       }
     }

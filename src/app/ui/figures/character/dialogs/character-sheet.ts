@@ -239,7 +239,7 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
   perkLabel(perk: Perk): string[] {
     let label: string[] = [];
     if (perk.cards) {
-      perk.cards.forEach((card: PerkCard, index: number) => {
+      perk.cards.forEach((card, index) => {
         if (index == 0 || perk.type == PerkType.replace && index < 2) {
           label.push('character.progress.perks.cards.' + card.count);
           label.push(this.attackModifierHtml(card.attackModifier));

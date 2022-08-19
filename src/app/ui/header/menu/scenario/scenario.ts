@@ -19,7 +19,7 @@ export class ScenarioMenuComponent {
   edition: string = gameManager.game.scenario && !gameManager.game.scenario.custom && gameManager.game.scenario.edition || (gameManager.game.edition || gameManager.editions()[ 0 ]);
 
   editions(): string[] {
-    return gameManager.editionData.filter((editionData: EditionData) => editionData.scenarios && editionData.scenarios.length > 0).map((editionData) => editionData.edition);
+    return gameManager.editionData.filter((editionData) => editionData.scenarios && editionData.scenarios.length > 0).map((editionData) => editionData.edition);
   }
 
   setEdition(edition: string) {
@@ -31,7 +31,7 @@ export class ScenarioMenuComponent {
       return [];
     }
 
-    return gameManager.scenarioData(true).filter((scenarioData: ScenarioData) => scenarioData.edition == this.edition).map((scenarioData) => scenarioData.group).filter((value: string | undefined, index: number, self: (string | undefined)[]) => self.indexOf(value) === index);
+    return gameManager.scenarioData(true).filter((scenarioData) => scenarioData.edition == this.edition).map((scenarioData) => scenarioData.group).filter((value, index, self) => self.indexOf(value) === index);
   }
 
   scenarios(group: string | undefined = undefined): ScenarioData[] {
@@ -39,7 +39,7 @@ export class ScenarioMenuComponent {
       return [];
     }
 
-    return gameManager.scenarioData(true).filter((scenarioData: ScenarioData) => scenarioData.edition == this.edition && scenarioData.group == group).sort((a, b) => {
+    return gameManager.scenarioData(true).filter((scenarioData) => scenarioData.edition == this.edition && scenarioData.group == group).sort((a, b) => {
       if (!isNaN(+a.index) && !isNaN(+b.index)) {
         return +a.index - +b.index;
       }

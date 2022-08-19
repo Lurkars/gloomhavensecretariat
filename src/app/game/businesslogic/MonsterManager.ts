@@ -55,7 +55,7 @@ export class MonsterManager {
       if (!this.applySameDeck(monster)) {
         if (!monster.abilities || monster.abilities.length == 0) {
           const abilities = gameManager.abilities(monster);
-          monster.abilities = abilities.filter((ability: Ability) => isNaN(+ability.level) || +ability.level <= monster.level).map((ability) => abilities.indexOf(ability));
+          monster.abilities = abilities.filter((ability) => isNaN(+ability.level) || +ability.level <= monster.level).map((ability) => abilities.indexOf(ability));
         }
         this.shuffleAbilities(monster);
       }
@@ -107,7 +107,7 @@ export class MonsterManager {
       }
     }
 
-    if (this.game.state == GameState.next && monster.entities.filter((monsterEntity: MonsterEntity) => !monsterEntity.dead && monsterEntity.health > 0).length == 1) {
+    if (this.game.state == GameState.next && monster.entities.filter((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0).length == 1) {
       gameManager.sortFigures();
     }
 
@@ -161,7 +161,7 @@ export class MonsterManager {
         return;
       }
 
-      monster.ability = sameDeckMonster.ability + 1 + this.game.figures.filter((figure: Figure) => figure instanceof Monster && (figure.name != monster.name || figure.edition != monster.edition) && gameManager.deckData(figure).name == gameManager.deckData(monster).name && gameManager.deckData(figure).edition == gameManager.deckData(monster).edition && figure.drawExtra && figure.ability > sameDeckMonster.ability).length;
+      monster.ability = sameDeckMonster.ability + 1 + this.game.figures.filter((figure) => figure instanceof Monster && (figure.name != monster.name || figure.edition != monster.edition) && gameManager.deckData(figure).name == gameManager.deckData(monster).name && gameManager.deckData(figure).edition == gameManager.deckData(monster).edition && figure.drawExtra && figure.ability > sameDeckMonster.ability).length;
 
       if (monster.ability >= monster.abilities.length) {
         this.shuffleAbilities(monster);
@@ -172,7 +172,7 @@ export class MonsterManager {
   }
 
   next() {
-    this.game.figures.forEach((figure: Figure, index: number) => {
+    this.game.figures.forEach((figure) => {
       if (figure instanceof Monster) {
         const ability = this.getAbility(figure);
         if (ability) {
@@ -183,17 +183,17 @@ export class MonsterManager {
 
         if (settingsManager.settings.expireConditions) {
           figure.entities.forEach((monsterEntity) => {
-            monsterEntity.entityConditions = monsterEntity.entityConditions.filter((entityCondition: EntityCondition) => !entityCondition.expired);
+            monsterEntity.entityConditions = monsterEntity.entityConditions.filter((entityCondition) => !entityCondition.expired);
           });
         }
 
         if (settingsManager.settings.applyConditions) {
           figure.entities.forEach((monsterEntity) => {
-            monsterEntity.entityConditions.filter((entityCondition: EntityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => entityCondition.state = EntityConditionState.normal);
+            monsterEntity.entityConditions.filter((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => entityCondition.state = EntityConditionState.normal);
           });
         }
 
-        figure.entities = figure.entities.filter((monsterEntity: MonsterEntity) => !monsterEntity.dead && monsterEntity.health > 0);
+        figure.entities = figure.entities.filter((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0);
 
         figure.off = figure.entities.length == 0;
       }
@@ -201,10 +201,10 @@ export class MonsterManager {
   }
 
   draw() {
-    this.game.figures.filter((figure: Figure) => figure instanceof Monster && !figure.drawExtra).forEach((figure) => {
+    this.game.figures.filter((figure) => figure instanceof Monster && !figure.drawExtra).forEach((figure) => {
       if (figure instanceof Monster) {
         if (figure.entities.length > 0) {
-          figure.ability = figure.ability + 1 + this.game.figures.filter((f: Figure) => f instanceof Monster && (f.name != figure.name || f.edition != figure.edition) && gameManager.deckData(f).name == gameManager.deckData(figure).name && gameManager.deckData(f).edition == gameManager.deckData(figure).edition && f.drawExtra && f.ability > -1).length;
+          figure.ability = figure.ability + 1 + this.game.figures.filter((f) => f instanceof Monster && (f.name != figure.name || f.edition != figure.edition) && gameManager.deckData(f).name == gameManager.deckData(figure).name && gameManager.deckData(f).edition == gameManager.deckData(figure).edition && f.drawExtra && f.ability > -1).length;
 
           if (figure.ability >= figure.abilities.length) {
             this.shuffleAbilities(figure);
@@ -213,7 +213,7 @@ export class MonsterManager {
       }
     });
 
-    this.game.figures.filter((figure: Figure) => figure instanceof Monster && figure.drawExtra).forEach((figure) => {
+    this.game.figures.filter((figure) => figure instanceof Monster && figure.drawExtra).forEach((figure) => {
       if (figure instanceof Monster) {
         this.drawExtra(figure);
 
@@ -248,7 +248,7 @@ export class MonsterManager {
       .sort((a, b) => a.sort - b.sort)
       .map(({ value }) => value);
 
-    this.game.figures.filter((figure: Figure) => figure instanceof Monster && this.getSameDeckMonster(figure) && this.getSameDeckMonster(figure) == monster).map((figure) => figure as Monster).forEach((figure) => {
+    this.game.figures.filter((figure) => figure instanceof Monster && this.getSameDeckMonster(figure) && this.getSameDeckMonster(figure) == monster).map((figure) => figure as Monster).forEach((figure) => {
       figure.abilities = JSON.parse(JSON.stringify(monster.abilities));
       if (gameManager.game.state == GameState.draw) {
         figure.ability = -1;

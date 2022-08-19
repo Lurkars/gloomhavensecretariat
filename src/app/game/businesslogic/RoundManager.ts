@@ -86,7 +86,7 @@ export class RoundManager {
       this.turn(figure);
     } else if (figure.active && !figure.off) {
       this.afterTurn(figure)
-    } else if (!figures.some((other: Figure, otherIndex: number) => otherIndex < index && other.active)) {
+    } else if (!figures.some((other, otherIndex) => otherIndex < index && other.active)) {
       figure.active = true;
     } else {
       this.beforeTurn(figure);
@@ -109,10 +109,10 @@ export class RoundManager {
         }
       }
       if (figure.off && !this.permanentDead(otherFigure)) {
-        if (i < index && !otherFigure.off && !figures.some((figure: Figure, activeIndex: number) => figure.active)) {
+        if (i < index && !otherFigure.off && !figures.some((figure) => figure.active)) {
           this.turn(otherFigure);
         } else if (i > index && (!(otherFigure instanceof Monster) || (otherFigure instanceof Monster && otherFigure.entities.length > 0))) {
-          if (!otherFigure.off && i > index && !figures.some((figure: Figure, activeIndex: number) => figure.active && activeIndex < i)) {
+          if (!otherFigure.off && i > index && !figures.some((figure, activeIndex) => figure.active && activeIndex < i)) {
             this.turn(otherFigure);
           } else {
             otherFigure.active = false;

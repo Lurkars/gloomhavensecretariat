@@ -26,7 +26,7 @@ export class MonsterComponent {
   }
 
   sortedEntites(): MonsterEntity[] {
-    return this.monster.entities.sort((a: MonsterEntity, b: MonsterEntity) => {
+    return this.monster.entities.sort((a, b) => {
       if (settingsManager.settings.eliteFirst) {
         if (a.type == MonsterType.elite && b.type == MonsterType.normal) {
           return -1;
@@ -45,11 +45,11 @@ export class MonsterComponent {
   }
 
   getEntities(type: MonsterType): MonsterEntity[] {
-    return this.monster.entities.filter((value: MonsterEntity) => value.type == type).sort((a: MonsterEntity, b: MonsterEntity) => a.number - b.number);
+    return this.monster.entities.filter((value) => value.type == type).sort((a, b) => a.number - b.number);
   }
 
   nonDead(): number {
-    return this.monster.entities.filter((monsterEntity: MonsterEntity) => !monsterEntity.dead).length;
+    return this.monster.entities.filter((monsterEntity) => !monsterEntity.dead).length;
   }
 
 }
