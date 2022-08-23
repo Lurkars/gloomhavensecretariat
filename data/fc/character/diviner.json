@@ -133,7 +133,7 @@
                 "subActions": [
                   {
                     "type": "specialTarget",
-                    "value": "allyAffect"
+                    "value": "allyShort"
                   }
                 ]
               }
@@ -289,7 +289,7 @@
                 "subActions": [
                   {
                     "type": "specialTarget",
-                    "value": "allyAffect"
+                    "value": "allyShort"
                   }
                 ]
               }

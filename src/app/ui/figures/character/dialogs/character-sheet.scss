@@ -185,6 +185,35 @@
 
         .button {
           cursor: pointer;
+          display: flex;
+
+          &.add img {
+            filter: var(--ghs-filter-green);
+          }
+
+
+          &.remove img {
+            filter: var(--ghs-filter-red);
+          }
+
+          &.loot {
+            margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+            color: var(--ghs-color-yellow);
+
+            img {
+              filter: var(--ghs-filter-yellow);
+              width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+            }
+          }
+
+          &.disabled {
+            pointer-events: none;
+            color: var(--ghs-color-darkgray);
+
+            img {
+              filter: var(--ghs-filter-darkgray);
+            }
+          }
         }
 
         .item-entry {
@@ -260,6 +289,11 @@
           margin-top: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor));
           margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
           min-width: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
+
+          &.disabled {
+            pointer-events: initial;
+            cursor: not-allowed;
+          }
         }
 
         .text {

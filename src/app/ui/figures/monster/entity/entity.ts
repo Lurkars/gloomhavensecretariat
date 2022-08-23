@@ -43,44 +43,42 @@ export class MonsterEntityComponent extends DialogComponent {
   }
 
   countAttackModifier(type: AttackModifierType): number {
-    return gameManager.game.attackModifiers.filter((attackModifier) => {
+    return gameManager.game.monsterAttackModifierDeck.cards.filter((attackModifier) => {
       return attackModifier.type == type;
     }).length;
   }
 
-  changeBless(value: number) {
-    gameManager.stateManager.before();
+  countDrawnAttackModifier(type: AttackModifierType): number {
+    return gameManager.game.monsterAttackModifierDeck.cards.filter((attackModifier, index) => {
+      return attackModifier.type == type && index <= gameManager.game.monsterAttackModifierDeck.current;
+    }).length;
+  }
+
+  changeAttackModifier(type: AttackModifierType, value: number) {
     if (value > 0) {
-      if (this.countAttackModifier(AttackModifierType.bless) == 10) {
+      if (this.countAttackModifier(type) == 10) {
         return;
       }
-      gameManager.attackModifierManager.addModifier(new AttackModifier(AttackModifierType.bless));
+      gameManager.attackModifierManager.addModifier(gameManager.game.monsterAttackModifierDeck, new AttackModifier(type));
     } else if (value < 0) {
-      const bless = gameManager.game.attackModifiers.find((attackModifier, index) => {
-        return attackModifier.type == AttackModifierType.bless && index > gameManager.game.attackModifier;
+      const card = gameManager.game.monsterAttackModifierDeck.cards.find((attackModifier, index) => {
+        return attackModifier.type == type && index > gameManager.game.monsterAttackModifierDeck.current;
       });
-      if (bless) {
-        gameManager.game.attackModifiers.splice(gameManager.game.attackModifiers.indexOf(bless), 1);
+      if (card) {
+        gameManager.game.monsterAttackModifierDeck.cards.splice(gameManager.game.monsterAttackModifierDeck.cards.indexOf(card), 1);
       }
     }
+  }
+
+  changeBless(value: number) {
+    gameManager.stateManager.before();
+    this.changeAttackModifier(AttackModifierType.bless, value)
     gameManager.stateManager.after();
   }
 
   changeCurse(value: number) {
     gameManager.stateManager.before();
-    if (value > 0) {
-      if (this.countAttackModifier(AttackModifierType.curse) == 10) {
-        return;
-      }
-      gameManager.attackModifierManager.addModifier(new AttackModifier(AttackModifierType.curse));
-    } else if (value < 0) {
-      const curse = gameManager.game.attackModifiers.find((attackModifier, index) => {
-        return attackModifier.type == AttackModifierType.curse && index > gameManager.game.attackModifier;
-      });
-      if (curse) {
-        gameManager.game.attackModifiers.splice(gameManager.game.attackModifiers.indexOf(curse), 1);
-      }
-    }
+    this.changeAttackModifier(AttackModifierType.curse, value)
     gameManager.stateManager.after();
   }
 

@@ -12,8 +12,16 @@ footer {
 
   .attack-modifier-spacer {
     height: 100%;
-    width: calc(var(--ghs-unit) * 37 * var(--ghs-text-factor) * var(--ghs-barsize));
+    width: calc(var(--ghs-unit) * 38 * var(--ghs-text-factor) * var(--ghs-barsize));
     flex-shrink: 0;
+  }
+
+  ghs-attackmodifier-deck {
+    position: absolute;
+    right: 0;
+    width: calc(var(--ghs-unit) * 38 * var(--ghs-text-factor));
+    height: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor));
+    top: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor) * var(--ghs-barsize));
   }
 
   &::before {

@@ -11,7 +11,7 @@
 </div>
 
 <div class="character" [style.--ghs-character-color]="character.color"
-  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0, 'denied' : !gameManager.stateManager.hasCharacterPermission(character)}">
+  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0, 'denied' : !gameManager.stateManager.hasCharacterPermission(character), 'dimmed' : character.attackModifierDeckVisible}">
 
   <ghs-character-image (click)="close()" [character]="character"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
@@ -48,7 +48,17 @@
       </div>
     </div>
 
+    <div *ngIf="character.attackModifierDeckVisible" class="attack-modifierdeck-container">
+      <ghs-attackmodifier-deck [character]="character"></ghs-attackmodifier-deck>
+      <div class="attack-modifierdeck-close" (click)="toggleAttackModifierDeckVisible()"></div>
+    </div>
+
     <span class="spacer" (click)="toggle()"></span>
+
+    <span *ngIf="!character.attackModifierDeckVisible" class="attack-modifier-icon"
+      (click)="toggleAttackModifierDeckVisible()" title="{{'game.attackModifiers' | ghsLabel}}">
+      <img src="./assets/images/attackmodifier/icon.png" />
+    </span>
 
     <ghs-character-summondialog [character]="character"></ghs-character-summondialog>
     <div class="column col-2" (click)="toggle()">
@@ -116,6 +126,50 @@
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </a>
       </span>
+
+
+      <span class="item">
+        <a class="button"
+          [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.bless) == countDrawnAttackModifier(AttackModifierType.bless)}"
+          (click)="changeBless(-1)">
+          <img class="ghs-svg" src="./assets/images/minus.svg">
+        </a>
+      </span>
+      <span class="item" title="{{'game.condition.bless' | ghsLabel}}">
+        <span class="condition">
+          <img src="./assets/images/status/bless.svg" />
+        </span>
+        <span class="badge bless-count">{{countAttackModifier(AttackModifierType.bless)}}</span>
+      </span>
+      <span class="item">
+        <a class="button"
+          [ngClass]="{'disabled' : countAllAttackModifier(AttackModifierType.bless) >= 10}"
+          (click)="changeBless(1)">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </a>
+      </span>
+
+      <span class="item">
+        <a class="button"
+          [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.curse) == countDrawnAttackModifier(AttackModifierType.curse)}"
+          (click)="changeCurse(-1)">
+          <img class="ghs-svg" src="./assets/images/minus.svg">
+        </a>
+      </span>
+      <span class="item" title="{{'game.condition.curse' | ghsLabel}}">
+        <span class="condition">
+          <img src="./assets/images/status/curse.svg" />
+        </span>
+        <span class="badge curse-count">{{countAttackModifier(AttackModifierType.curse)}}</span>
+      </span>
+      <span class="item">
+        <a class="button"
+          [ngClass]="{'disabled' : countAllAttackModifier(AttackModifierType.curse) >= 10}"
+          (click)="changeCurse(1)">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </a>
+      </span>
+
 
       <span class="item" title="{{'game.exhausted' | ghsLabel}}">
         <a class="condition" [ngClass]="{'active' : character.exhausted}" (click)="toggleExhausted()">

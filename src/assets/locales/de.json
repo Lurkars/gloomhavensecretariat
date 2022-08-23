@@ -302,9 +302,11 @@
       "pull": "Ziehen",
       "push": "Schieben",
       "range": "Reichweite",
+      "refreshItem": "Einen Gegenstand erneuern",
       "retaliate": "Vergeltung",
       "shield": "Schild",
       "special": "Spezial",
+      "specialTarget": "Sonderziel",
       "swing": "Schwingen",
       "target": "Ziel",
       "targets": "Ziele",
@@ -318,6 +320,7 @@
       "selfAlliesRange": "Visiere dich selbst und alle Verbündeten in %game.action.range% {0} an",
       "selfAlliesAdjacentAffect": "Visiere dich selbst und alle angrenzenden Verbündeten an",
       "ally": "Visiere einen Verbündeten an",
+      "allyShort": "Verbündeter",
       "allyAffect": "Visiere irgendeinen Verbündeten an",
       "allyAdjacent": "Visiere einen angrenzenden Verbündeten an",
       "allies": "Visiere alle Verbündeten an",
@@ -396,7 +399,8 @@
       "drawExtra": "Zusätzlich Aufdecken",
       "edit": "Editieren",
       "restore": "Standard wiederherstellen",
-      "defaultSort": "Sortieren"
+      "defaultSort": "Sortieren",
+      "openDialog": "Alle Karten anzeigen"
     },
     "attackModifiers": {
       ".": "Angriffsmodifikatordeck",
@@ -424,11 +428,12 @@
         "floor": "(abgerundet)"
       },
       "scenarioBook": "Im Szenariobuch nachschlagen",
-      "perks" : {
-        "ignoreNegativeItem" : "negative Zustände von Gegenständen ignorieren",
-        "ignoreNegativeScenario" : "negative Szenario Zustände ignorieren",
+      "perks": {
+        "ignoreNegativeItem": "negative Zustände von Gegenständen ignorieren",
+        "ignoreNegativeScenario": "negative Szenario Zustände ignorieren",
         "addTarget": "Ziel hinzufügen",
-        "addTargets": "{0} Ziele hinzufügen"
+        "addTargets": "{0} Ziele hinzufügen",
+        "adjacentEnemiesDamage1": "Alle angrenzenden Gegner erleiden 1 Schaden"
       }
     }
   },

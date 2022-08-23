@@ -4,7 +4,7 @@
 
 *Gloomhaven Secretary* is a **Gloomhaven companion app** and does bookkeeping of all entities values to gain more focus on gameplay. It is an open source web app made with [Angular](https://angular.io/).
 
-GHS is heavily based on the look&feel of the original [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (by [Esoteric Software®](http://esotericsoftware.com)). Since GHH is discontinued and not available anymore, GHS should become a well maintained successor, implementing all features of GHH, improvements and even more features.
+GHS is heavily based on the look&feel of the original [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (by [Esoteric Software®](http://esotericsoftware.com)). Since GHH is discontinued and not available anymore, GHS should become a well maintained successor, implementing all functionality of GHH, many improvements and many more features.
 
 As GHS is a web application no installation is required and it runs in every modern browser even on mobile, still it can also be [installed](#install).
 
@@ -27,7 +27,8 @@ As open source software this is meant for the community to actively [contribute]
   - **health** automatic exhausting/dead, max values for every level
   - **conditions** automatic expire + automatic apply (wound, wound_x, regenerate, bane, poison, poison_x, ward, brittle)
   - **level**, **loot**, **experience** of Characters
-  - **Character Progress** level, loot, experience, items, battlegoals
+  - **Character Progress** level, loot, experience, items, battlegoals, perks
+  - **Character Attack Modifier Deck** including perks (for GH, FC & JOTL)
   - **Elements** automatic update state
   - **Monster Stats**
   - **Monster Standees**
@@ -46,7 +47,8 @@ As open source software this is meant for the community to actively [contribute]
   - element board, element discs, round tracker, initiative tracker
   - character HP/XP dials
   - character boards
-  - character sheets (! perks missing for now)
+  - character sheets
+  - character attack modifier deck
   - party sheet (! not fully implemented yet)
 - Other features:
   - i18n support (translations required!) for everything!
@@ -70,7 +72,8 @@ As open source software this is meant for the community to actively [contribute]
 
 ### Long term plans
 
-- support for managing character: ability cards, perks, attack modifier deck, items (basic progress on character sheet already supported, perks missing and items will be improved!)
+- support for managing character ability cards
+- support for campaign tracking
 - FH style
 
 ## Install

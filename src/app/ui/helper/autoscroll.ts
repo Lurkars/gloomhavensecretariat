@@ -46,9 +46,9 @@ export class FigureAutoscrollDirective {
               block: 'center',
               inline: 'center'
             });
-            this.active = this.figure.active;
           }
-        }, 5);
+          this.active = this.figure.active;
+        }, 300);
       }
     })
 

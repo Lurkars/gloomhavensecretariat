@@ -7,6 +7,8 @@ import { gameManager } from "../businesslogic/GameManager";
 import { FigureError } from "./FigureError";
 import { EntityCondition, GameEntityConditionModel } from "./Condition";
 import { CharacterProgress } from "./CharacterProgress";
+import { AttackModifier, AttackModifierDeck, GameAttackModifierDeckModel } from "./AttackModifier";
+import { PerkType, PerkCard } from "./Perks";
 
 export class Character extends CharacterData implements Entity, Figure {
   title: string = "";
@@ -19,7 +21,9 @@ export class Character extends CharacterData implements Entity, Figure {
   progress: CharacterProgress;
 
   initiativeVisible: boolean = false;
+  attackModifierDeckVisible: boolean = false;
   number: number = 0;
+  attackModifierDeck: AttackModifierDeck;
 
   // from figure
   level: number;
@@ -62,10 +66,17 @@ export class Character extends CharacterData implements Entity, Figure {
 
     this.health = this.maxHealth;
     this.progress = new CharacterProgress();
+
+    // Todo: later on level select for create
+    if (this.edition != "jotl" && this.progress.gold == 0) {
+      this.progress.gold = 15 * (this.level + 1);
+    }
+
+    this.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this);
   }
 
   toModel(): GameCharacterModel {
-    return new GameCharacterModel(this.name, this.edition, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible, this.number);
+    return new GameCharacterModel(this.name, this.edition, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible, this.attackModifierDeckVisible, this.number, this.attackModifierDeck.toModel());
   }
 
   fromModel(model: GameCharacterModel) {
@@ -135,9 +146,47 @@ export class Character extends CharacterData implements Entity, Figure {
 
     this.progress = model.progress || new CharacterProgress();
 
-  }
-}
+    // migration
+    if (this.progress.loot && !this.progress.gold) {
+      this.progress.gold = this.progress.loot;
+      this.progress.loot = 0;
+    }
 
+    let attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this);
+    if (model.attackModifierDeck) {
+      attackModifierDeck.fromModel(model.attackModifierDeck);
+    }
+    this.mergeAttackModifierDeck(attackModifierDeck);
+    if (model.attackModifierDeckVisible) {
+      this.attackModifierDeckVisible = true;
+    }
+  }
+
+
+  mergeAttackModifierDeck(attackModifierDeck: AttackModifierDeck): boolean {
+    let changed = false;
+    if (!this.attackModifierDeck) {
+      this.attackModifierDeck = new AttackModifierDeck();
+      changed = true;
+    }
+
+    if (this.attackModifierDeck.current != attackModifierDeck.current) {
+      this.attackModifierDeck.current = attackModifierDeck.current;
+      changed = true;
+    }
+    if (this.attackModifierDeck.attackModifiers.length != attackModifierDeck.attackModifiers.length || !this.attackModifierDeck.attackModifiers.map((card) => card.id).every((cardId, index) => attackModifierDeck.attackModifiers[ index ].id == cardId)) {
+      this.attackModifierDeck.attackModifiers = attackModifierDeck.attackModifiers;
+      changed = true;
+    }
+    if (this.attackModifierDeck.cards.length != attackModifierDeck.cards.length || !this.attackModifierDeck.cards.map((card) => card.id).every((cardId, index) => attackModifierDeck.cards[ index ].id == cardId)) {
+      this.attackModifierDeck.cards = attackModifierDeck.cards;
+      changed = true;
+    }
+
+    return changed;
+  }
+
+}
 
 export class GameCharacterModel {
 
@@ -158,7 +207,9 @@ export class GameCharacterModel {
   summons: GameSummonModel[];
   progress: CharacterProgress | undefined;
   initiativeVisible: boolean;
+  attackModifierDeckVisible: boolean;
   number: number;
+  attackModifierDeck: GameAttackModifierDeckModel;
 
   constructor(name: string,
     edition: string,
@@ -177,7 +228,9 @@ export class GameCharacterModel {
     summons: GameSummonModel[],
     progress: CharacterProgress | undefined,
     initiativeVisible: boolean,
-    number: number) {
+    attackModifierDeckVisible: boolean,
+    number: number,
+    attackModifierDeck: GameAttackModifierDeckModel) {
     this.name = name;
     this.edition = edition;
     this.title = title;
@@ -195,7 +248,9 @@ export class GameCharacterModel {
     this.summons = summons;
     this.progress = progress;
     this.initiativeVisible = initiativeVisible;
+    this.attackModifierDeckVisible = attackModifierDeckVisible;
     this.number = number;
+    this.attackModifierDeck = attackModifierDeck;
   }
 
 }

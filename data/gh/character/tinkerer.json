@@ -203,7 +203,13 @@
             "actions": [
               {
                 "type": "heal",
-                "value": 2
+                "value": 2,
+                "subActions": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
               }
             ]
           }

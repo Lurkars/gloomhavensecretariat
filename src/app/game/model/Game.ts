@@ -1,5 +1,5 @@
 import { gameManager } from "../businesslogic/GameManager";
-import { AttackModifier, AttackModifierType, defaultAttackModifier } from "./AttackModifier";
+import { AttackModifier, AttackModifierDeck, AttackModifierType, defaultAttackModifierCards, GameAttackModifierDeckModel } from "./AttackModifier";
 import { Character, GameCharacterModel } from "./Character";
 import { SectionData } from "./data/SectionData";
 import { Element } from "./Element";
@@ -19,8 +19,7 @@ export class Game {
   round: number = 0;
   playSeconds: number = 0;
   totalSeconds: number = 0;
-  attackModifier: number = -1;
-  attackModifiers: AttackModifier[] = defaultAttackModifier;
+  monsterAttackModifierDeck: AttackModifierDeck = new AttackModifierDeck();
   newElements: Element[] = [];
   strongElements: Element[] = [];
   elements: Element[] = [];
@@ -29,7 +28,7 @@ export class Game {
 
 
   toModel(): GameModel {
-    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.round, this.playSeconds, this.totalSeconds, this.attackModifier, this.attackModifiers.map((value) => value.type), this.newElements, this.strongElements, this.elements, this.solo, this.party);
+    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.round, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.newElements, this.strongElements, this.elements, this.solo, this.party);
   }
 
   fromModel(model: GameModel) {
@@ -83,11 +82,16 @@ export class Game {
     this.round = model.round;
     this.playSeconds = model.playSeconds;
     this.totalSeconds = model.totalSeconds;
-    this.attackModifier = model.attackModifier;
-    this.attackModifiers = model.attackModifiers.map((value) => new AttackModifier(value));
-    if (!this.attackModifiers || this.attackModifiers.length == 0) {
-      this.attackModifiers = defaultAttackModifier;
+    this.monsterAttackModifierDeck = this.monsterAttackModifierDeck || new AttackModifierDeck();
+    if (model.monsterAttackModifierDeck) {
+      this.monsterAttackModifierDeck.fromModel(model.monsterAttackModifierDeck);
     }
+
+    // Migration
+    if (model.attackModifier && model.attackModifiers) {
+      this.monsterAttackModifierDeck.fromModel(new GameAttackModifierDeckModel(model.attackModifier, model.attackModifiers))
+    }
+
     this.newElements = model.newElements;
     this.strongElements = model.strongElements;
     this.elements = model.elements;
@@ -115,8 +119,9 @@ export class GameModel {
   round: number;
   playSeconds: number;
   totalSeconds: number;
-  attackModifier: number;
-  attackModifiers: AttackModifierType[];
+  monsterAttackModifierDeck: GameAttackModifierDeckModel;
+  attackModifier: number | undefined;
+  attackModifiers: AttackModifierType[] | undefined;
   newElements: Element[];
   strongElements: Element[];
   elements: Element[];
@@ -135,8 +140,7 @@ export class GameModel {
     round: number = 0,
     playSeconds: number = 0,
     totalSeconds: number = 0,
-    attackModifier: number = -1,
-    attackModifiers: AttackModifierType[] = [],
+    monsterAttackModifierDeck: GameAttackModifierDeckModel = new GameAttackModifierDeckModel(-1, defaultAttackModifierCards),
     newElements: Element[] = [],
     strongElements: Element[] = [],
     elements: Element[] = [],
@@ -154,8 +158,7 @@ export class GameModel {
     this.round = round;
     this.playSeconds = playSeconds;
     this.totalSeconds = totalSeconds;
-    this.attackModifier = attackModifier;
-    this.attackModifiers = attackModifiers;
+    this.monsterAttackModifierDeck = monsterAttackModifierDeck;
     this.newElements = newElements;
     this.strongElements = strongElements;
     this.elements = elements;

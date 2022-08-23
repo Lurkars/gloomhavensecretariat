@@ -1,12 +1,17 @@
+ghs-header,
+ghs-footer {
+  z-index: 2;
+}
+
 main {
   flex-grow: 1;
   margin: 0 auto;
   width: 100%;
   position: relative;
-  max-height: calc(100% - var(--ghs-unit) * 25.5 * var(--ghs-text-factor) * var(--ghs-barsize));
   display: flex;
   justify-content: center;
   margin: calc(var(--ghs-unit) * 1 * var(--ghs-barsize)) 0;
+  z-index: 1;
 }
 
 .columns {
@@ -28,6 +33,7 @@ main {
   transform-style: preserve-3d;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  overflow-x: hidden;
 
   &::-webkit-scrollbar {
     display: none;
@@ -42,6 +48,7 @@ main {
   left: 50%;
   transition: transform 250ms ease-in-out, width 100ms ease-in-out, height 250ms ease-in-out;
   transform: scale(0);
+  overflow: unset;
 
   &.column {
     width: 50%;
@@ -51,7 +58,7 @@ main {
     position: relative;
     width: calc(var(--ghs-unit) * 98);
     margin: calc(var(--ghs-unit) * 0.5) auto;
-    
+
     :nth-child(2) {
       position: relative;
       display: block;
@@ -82,7 +89,8 @@ main {
     }
   }
 
-  &.character, &.objective {
+  &.character,
+  &.objective {
     top: initial;
     bottom: 0;
     height: calc(var(--ghs-unit) * 16.5);

@@ -11,7 +11,6 @@ import { MonsterStatsComponent, MonsterStatsPopupComponent } from './ui/figures/
 import { MonsterNumberPicker } from './ui/figures/monster/dialogs/numberpicker';
 import { MonsterEntityComponent } from './ui/figures/monster/entity/entity';
 import { MonsterComponent } from './ui/figures/monster/monster';
-import { MonsterAttackModifierDeckComponent } from './ui/footer/attackmodifier/attackmodifier';
 import { FooterComponent } from './ui/footer/footer';
 import { LevelComponent } from './ui/footer/level/level';
 import { ElementIconComponent } from './ui/header/element/element';
@@ -49,6 +48,8 @@ import { ValueCalcDirective } from './ui/helper/valueCalc';
 import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-sheet';
 import { PartySheetDialog } from './ui/header/party/party-sheet';
 import { DragValueDirective } from './ui/helper/dragValue';
+import { AttackModifierDeckComponent } from './ui/figures/attackmodifier/attackmodifierdeck';
+import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodifier';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -59,7 +60,7 @@ describe('AppComponent', () => {
         HeaderComponent, ElementIconComponent, PartySheetDialog,
         MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent,
         FooterComponent,
-        MonsterAttackModifierDeckComponent,
+        AttackModifierComponent, AttackModifierDeckComponent,
         LevelComponent,
         DialogComponent, PopupComponent,
         ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,

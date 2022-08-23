@@ -47,8 +47,8 @@
         </div>
         <div class="row gold-notes">
           <label>{{'character.progress.gold-notes' | ghsLabel}}:</label>
-          <input [value]="character.progress.loot" type="number" min="0" (change)="setLoot($event)"
-            (keyup)="setLoot($event)">
+          <input [value]="character.progress.gold" type="number" min="0" (change)="setGold($event)"
+            (keyup)="setGold($event)">
         </div>
         <div class="row items">
           <label>{{'character.progress.items' | ghsLabel}}:</label>
@@ -61,18 +61,24 @@
                   ghsLabel}})</ng-container>
               </span>
               <span class="spacer"></span>
-              <a class="button" (click)="removeItem(item)"><img src="./assets/images/close.svg"></a>
+              <a class="button loot" (click)="sellItem(item)"><img src="./assets/images/loot.svg">{{item.cost / 2}}</a>
+              <a class="button remove" (click)="removeItem(item)"><img src="./assets/images/close.svg"></a>
             </div>
-            <form class="item-form" (submit)="addItem()">
-              <input type="number" (change)="itemChange()" #itemName min="1" value="1">
+            <div class="item-form">
+              <input type="number" (change)="itemChange()" #itemName min="1" value="1"
+                [ngClass]="{'warn' : !itemCanAdd, 'error': !item}">
               <span class="spacer"></span>
-              <select #itemEdition (change)="itemChange()">
+              <select #itemEdition (change)="itemChange()" [ngClass]="{'warn' : !itemCanAdd, 'error': !item}">
                 <option *ngFor="let edition of gameManager.editions()" [value]="edition">{{'data.edition.' + edition |
                   ghsLabel}}</option>
               </select>
               <span class="spacer"></span>
-              <button class="button" type="submit"><img src="./assets/images/plus.svg"></button>
-            </form>
+              <a class="button loot" (click)="buyItem()"
+                [ngClass]="{'disabled' : !item || item.cost > character.progress.gold || !itemCanAdd}"><img
+                  src="./assets/images/loot.svg">{{item && item.cost}}</a>
+              <a class="button add" (click)="addItem()" [ngClass]="{'disabled': !item || !itemCanAdd}"><img
+                  src="./assets/images/plus.svg" [ngClass]="{'warn' : !itemCanAdd}"></a>
+            </div>
           </div>
           <div class="wip" title="{{'wip' | ghsLabel}}">
             <img class="ghs-svg" src="./assets/images/warning.svg"> {{'character.progress.items.wip' | ghsLabel}}
@@ -85,7 +91,7 @@
           <label class="headline">{{'character.progress.perks' | ghsLabel}}</label>
           <div class="perk" *ngFor="let perk of character.perks; let i = index;">
             <span class="checkbox" *ngFor="let count of []|ghsRange:perk.count"
-              [ngClass]="{'checked' : character.progress.perks[i] && character.progress.perks[i] > count, 'disabled' : character.progress.perks[i] <= count && availablePerks < count - character.progress.perks[i] + 1}"
+              [ngClass]="{'checked' : character.progress.perks[i] && character.progress.perks[i] > count, 'disabled' : gameManager.game.state == GameState.next || character.progress.perks[i] <= count && availablePerks < count - character.progress.perks[i] + 1}"
               (click)="addPerk(i, count+1)"></span>
             <span class="text capitalize">
               <ng-container *ngIf="perk.custom">{{perk.custom | ghsLabel}} <ng-container

@@ -1,4 +1,4 @@
-import { defaultAttackModifier } from "../model/AttackModifier";
+import { AttackModifierDeck, defaultAttackModifier } from "../model/AttackModifier";
 import { Character } from "../model/Character";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
@@ -22,7 +22,7 @@ export class RoundManager {
     ));
   }
 
-  nextGameState(): void {
+  nextGameState() {
     this.working = true;
     this.game.totalSeconds += this.game.playSeconds;
     this.game.playSeconds = 0;
@@ -46,13 +46,12 @@ export class RoundManager {
 
     } else if (this.nextAvailable()) {
       if (this.game.round == 0) {
-        gameManager.attackModifierManager.shuffleModifiers();
+        gameManager.attackModifierManager.draw();
       }
       this.game.state = GameState.next;
       this.game.round++;
       gameManager.characterManager.draw();
       gameManager.monsterManager.draw();
-      gameManager.attackModifierManager.draw();
 
       if (settingsManager.settings.moveElements) {
         this.game.newElements.forEach((element) => {
@@ -280,8 +279,7 @@ export class RoundManager {
     this.game.sections = [];
     this.game.round = 0;
     this.game.state = GameState.draw;
-    this.game.attackModifiers = defaultAttackModifier;
-    this.game.attackModifier = -1;
+    this.game.monsterAttackModifierDeck = new AttackModifierDeck();
     this.game.figures = this.game.figures.filter((figure) => figure instanceof Character);
 
     this.game.figures.forEach((figure) => {
@@ -297,6 +295,8 @@ export class RoundManager {
         figure.exhausted = false;
 
         figure.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => gameManager.characterManager.createSpecialSummon(figure, summonData));
+
+        figure.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(figure);
       }
     })
 

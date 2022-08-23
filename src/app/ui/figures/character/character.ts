@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component, ElementRef, Input, ViewChild } from '@ang
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { AttackModifier, AttackModifierType } from 'src/app/game/model/AttackModifier';
 import { Character } from 'src/app/game/model/Character';
 import { Condition, ConditionType } from 'src/app/game/model/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
@@ -24,6 +25,7 @@ export class CharacterComponent extends DialogComponent {
 
   GameState = GameState;
   ConditionType = ConditionType;
+  AttackModifierType = AttackModifierType;
   health: number = 0;
   experience: number = 0;
   loot: number = 0;
@@ -66,6 +68,52 @@ export class CharacterComponent extends DialogComponent {
     if (this.character.loot <= 0) {
       this.character.loot = 0;
     }
+    gameManager.stateManager.after();
+  }
+
+  countAttackModifier(type: AttackModifierType): number {
+    return this.character.attackModifierDeck.cards.filter((attackModifier) => {
+      return attackModifier.type == type;
+    }).length;
+  }
+
+  countDrawnAttackModifier(type: AttackModifierType): number {
+    return this.character.attackModifierDeck.cards.filter((attackModifier, index) => {
+      return attackModifier.type == type && index <= this.character.attackModifierDeck.current;
+    }).length;
+  }
+
+  countAllAttackModifier(type: AttackModifierType) {
+    return gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => (figure as Character).attackModifierDeck.cards).flat().filter((attackModifier) => {
+      return attackModifier.type == type;
+    }).length;
+  }
+
+  changeAttackModifier(type: AttackModifierType, value: number) {
+    if (value > 0) {
+      if (this.countAllAttackModifier(type) == 10) {
+        return;
+      }
+      gameManager.attackModifierManager.addModifier(this.character.attackModifierDeck, new AttackModifier(type));
+    } else if (value < 0) {
+      const card = this.character.attackModifierDeck.cards.find((attackModifier, index) => {
+        return attackModifier.type == type && index > this.character.attackModifierDeck.current;
+      });
+      if (card) {
+        this.character.attackModifierDeck.cards.splice(this.character.attackModifierDeck.cards.indexOf(card), 1);
+      }
+    }
+  }
+
+  changeBless(value: number) {
+    gameManager.stateManager.before();
+    this.changeAttackModifier(AttackModifierType.bless, value)
+    gameManager.stateManager.after();
+  }
+
+  changeCurse(value: number) {
+    gameManager.stateManager.before();
+    this.changeAttackModifier(AttackModifierType.curse, value)
     gameManager.stateManager.after();
   }
 
@@ -160,10 +208,21 @@ export class CharacterComponent extends DialogComponent {
   }
 
   override toggle(): void {
-    if (!settingsManager.settings.dragHealth || this.allowToggle) {
+    if (this.character.attackModifierDeckVisible) {
+      this.character.attackModifierDeckVisible = false;
+    } else if (!settingsManager.settings.dragHealth || this.allowToggle) {
       super.toggle();
       this.allowToggle = true;
     }
+  }
+
+  toggleAttackModifierDeckVisible() {
+    if (this.character.attackModifierDeckVisible) {
+      this.character.attackModifierDeckVisible = false;
+    } else {
+      this.character.attackModifierDeckVisible = true;
+    }
+    gameManager.stateManager.saveLocal();
   }
 
   override close(): void {

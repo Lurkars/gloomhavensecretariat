@@ -314,7 +314,12 @@
       align-items: flex-end;
       height: 100%;
       overflow: auto;
-      overflow-x: hidden;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
 
     .tick {

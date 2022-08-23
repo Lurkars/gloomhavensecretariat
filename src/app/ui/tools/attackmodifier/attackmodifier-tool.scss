@@ -1,0 +1,16 @@
+
+
+.characters {
+  display: flex;
+
+  .character {
+    display: flex;
+    flex-direction: column;
+
+    ghs-attackmodifier {
+      width: 300px;
+      height: 200px;
+      margin: 10px;
+    }
+  }
+}

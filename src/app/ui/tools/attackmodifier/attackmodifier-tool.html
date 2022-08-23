@@ -1,0 +1,10 @@
+<div class="characters">
+  <ng-container *ngFor="let character of characters">
+    <div class="character" *ngIf="character.attackModifierDeck.cards.length > 0">
+      <h1>{{'data.character.' + character.name | ghsLabel}} [{{character.attackModifierDeck.cards.length}}]</h1>
+      <ghs-attackmodifier [attackModifier]="attackModifier" [flipped]="true"
+        [characterIcon]="'./assets/images/character/icons/' + character.edition + '-' + character.name + '.svg'"
+        *ngFor="let attackModifier of character.attackModifierDeck.cards"></ghs-attackmodifier>
+    </div>
+  </ng-container>
+</div>

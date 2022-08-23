@@ -45,6 +45,22 @@
     }
   }
 
+  &.dimmed {
+    background-color: var(--ghs-color-gray);
+
+    ghs-character-image,
+    ghs-character-initiative,
+    .title,
+    .conditions,
+    .experience,
+    .loot,
+    .icon-container,
+    .stats .column {
+      filter: grayscale(15%);
+      opacity: 0.5;
+    }
+  }
+
   ghs-character-initiative {
     margin-right: calc(var(--ghs-unit) * 1);
   }
@@ -166,6 +182,49 @@
           text-shadow: none;
           transform: translateX(-50%);
         }
+      }
+    }
+
+    .attack-modifierdeck-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+
+      ghs-attackmodifier-deck {
+        position: absolute;
+        display: flex;
+        top: calc(var(--ghs-unit) * 3 / var(--ghs-text-factor) / var(--ghs-text-factor));
+        left: calc(var(--ghs-unit) * 21.5);
+        width: calc(var(--ghs-unit) * 76.5);
+        z-index: 3;
+      }
+
+
+      .attack-modifierdeck-close {
+        position: absolute;
+        cursor:  initial;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .attack-modifier-icon {
+      display: flex;
+      align-items: center;
+      align-self: center;
+
+      img {
+        width: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+        height: auto;
+        margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
       }
     }
 

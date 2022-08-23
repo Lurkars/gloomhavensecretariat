@@ -15,7 +15,6 @@ import { MonsterStatsComponent, MonsterStatsPopupComponent } from './ui/figures/
 import { MonsterNumberPicker } from './ui/figures/monster/dialogs/numberpicker';
 import { MonsterEntityComponent } from './ui/figures/monster/entity/entity';
 import { MonsterComponent } from './ui/figures/monster/monster';
-import { MonsterAttackModifierDeckComponent } from './ui/footer/attackmodifier/attackmodifier';
 import { FooterComponent } from './ui/footer/footer';
 import { LevelComponent } from './ui/footer/level/level';
 import { ElementIconComponent } from './ui/header/element/element';
@@ -53,6 +52,10 @@ import { ScenarioComponent } from './ui/footer/scenario/scenario';
 import { PartySheetDialog } from './ui/header/party/party-sheet';
 import { DragValueDirective } from './ui/helper/dragValue';
 import { AutoscrollDirective, FigureAutoscrollDirective } from './ui/helper/autoscroll';
+import { AttackModifierDeckComponent } from './ui/figures/attackmodifier/attackmodifierdeck';
+import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodifier';
+import { AttackModifierToolComponent } from './ui/tools/attackmodifier/attackmodifier-tool';
+import { TextShrinkDirective } from './ui/helper/textshrink';
 
 @NgModule({
   declarations: [
@@ -61,7 +64,7 @@ import { AutoscrollDirective, FigureAutoscrollDirective } from './ui/helper/auto
     HeaderComponent, ElementIconComponent, PartySheetDialog,
     MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent,
     FooterComponent,
-    MonsterAttackModifierDeckComponent,
+    AttackModifierComponent, AttackModifierDeckComponent,
     LevelComponent, ScenarioComponent,
     DialogComponent, PopupComponent,
     ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
@@ -76,9 +79,9 @@ import { AutoscrollDirective, FigureAutoscrollDirective } from './ui/helper/auto
     MonsterNumberPicker,
     ActionsComponent, ActionComponent, ActionHexComponent,
     FigureErrors,
-    CardRevealDirective, EntityAnimationDirective, I18nDirective, ValueCalcDirective, DragValueDirective, AutoscrollDirective, FigureAutoscrollDirective,
+    CardRevealDirective, EntityAnimationDirective, I18nDirective, ValueCalcDirective, DragValueDirective, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
     GhsValueSignPipe, GhsLabelPipe, GhsRangePipe,
-    MonsterToolComponent, MonsterActionToolComponent, MonsterStatToolComponent ],
+    AttackModifierToolComponent, MonsterToolComponent, MonsterActionToolComponent, MonsterStatToolComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,

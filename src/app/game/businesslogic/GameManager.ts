@@ -148,7 +148,6 @@ export class GameManager {
 
   sortFigures() {
     this.game.figures.sort((a, b) => {
-
       if (this.game.state == GameState.draw) {
         let aName = a.name.toLowerCase();
         if (a instanceof Character) {

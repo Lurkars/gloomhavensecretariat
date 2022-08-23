@@ -29,7 +29,7 @@ export class ConditionsComponent implements OnInit {
   constructor() {
     gameManager.uiChange.subscribe({
       next: () => {
-        this.initializeConditions;
+        this.initializeConditions();
       }
     })
   }

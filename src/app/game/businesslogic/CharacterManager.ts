@@ -1,3 +1,4 @@
+import { AttackModifierDeck } from "../model/AttackModifier";
 import { Character } from "../model/Character";
 import { CharacterStat } from "../model/CharacterStat";
 import { ConditionType, EntityCondition, EntityConditionState } from "../model/Condition";
@@ -6,7 +7,7 @@ import { ObjectiveData } from "../model/data/ObjectiveData";
 import { SummonData } from "../model/data/SummonData";
 import { EntityValueFunction } from "../model/Entity";
 import { FigureError } from "../model/FigureError";
-import { Game } from "../model/Game";
+import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { Objective } from "../model/Objective";
 import { Summon, SummonColor, SummonState } from "../model/Summon";
@@ -49,6 +50,9 @@ export class CharacterManager {
       }
 
       this.game.figures.push(character);
+      if (this.game.state == GameState.next) {
+        gameManager.attackModifierManager.shuffleModifiers(character.attackModifierDeck);
+      }
       gameManager.sortFigures();
     }
     if (settingsManager.settings.levelCalculation) {

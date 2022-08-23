@@ -33,6 +33,7 @@ export enum ActionType {
   pull = "pull",
   push = "push",
   range = "range",
+  refreshItem = "refreshItem",
   retaliate = "retaliate",
   shield = "shield",
   special = "special",

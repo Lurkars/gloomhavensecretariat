@@ -185,8 +185,7 @@
             "type": "plus0",
             "actions": [
               {
-                "type": "custom",
-                "value": "game.custom.perks.refreshItem"
+                "type": "refreshItem"
               }
             ]
           }

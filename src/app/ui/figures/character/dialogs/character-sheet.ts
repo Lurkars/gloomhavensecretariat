@@ -8,6 +8,7 @@ import { AttackModifier, AttackModifierValueType } from "src/app/game/model/Atta
 import { Character, GameCharacterModel } from "src/app/game/model/Character";
 import { CharacterProgress } from "src/app/game/model/CharacterProgress";
 import { ItemData } from "src/app/game/model/data/ItemData";
+import { GameState } from "src/app/game/model/Game";
 import { Identifier } from "src/app/game/model/Identifier";
 import { Perk, PerkCard, PerkType } from "src/app/game/model/Perks";
 
@@ -28,11 +29,15 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
   @ViewChild('itemEdition', { static: false }) itemEdition!: ElementRef;
 
   gameManager: GameManager = gameManager;
+  GameState = GameState;
   characterManager: CharacterManager = gameManager.characterManager;
   PerkType = PerkType;
   availablePerks: number = 0;
   perksWip: boolean = true;
   items: ItemData[] = [];
+  item: ItemData | undefined;
+  itemCanAdd: boolean = false;
+  doubleClick: any = null;
 
   override ngOnInit(): void {
     super.ngOnInit();
@@ -59,6 +64,7 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
 
 
     this.updateItems();
+    this.itemChange();
 
     gameManager.uiChange.subscribe({
       next: () => {
@@ -78,6 +84,7 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
 
   ngAfterViewInit(): void {
     this.itemEdition.nativeElement.value = this.character.edition;
+    this.itemName.nativeElement.value = "1";
   }
 
   updateItems() {
@@ -118,10 +125,10 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
     }
   }
 
-  setLoot(event: any) {
+  setGold(event: any) {
     if (!isNaN(+event.target.value)) {
       this.gameManager.stateManager.before();
-      this.character.progress.loot = +event.target.value;
+      this.character.progress.gold = +event.target.value;
       this.gameManager.stateManager.after();
     }
   }
@@ -185,33 +192,46 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
   }
 
   itemChange() {
-    this.itemName.nativeElement.classList.remove("error");
-    this.itemEdition.nativeElement.classList.remove("error");
-    this.itemName.nativeElement.classList.remove("warn");
-    this.itemEdition.nativeElement.classList.remove("warn");
+    this.itemCanAdd = false;
+    this.item = gameManager.item(this.itemName && +this.itemName.nativeElement.value || 1, this.itemEdition && this.itemEdition.nativeElement.value || this.character.edition);
+
+    if (this.item) {
+      const soldItems = gameManager.game.figures.filter((figure) => figure instanceof Character && figure.progress && figure.progress.items).map((figure) => figure as Character).map((figure) => figure.progress && figure.progress.items).reduce((pre, cur): Identifier[] => {
+        return pre && cur && pre.concat(cur);
+      }).filter((item) => this.item && item.name == this.item.id + "" && item.edition == this.item.edition).length;
+      if (this.item.count && soldItems < this.item.count) {
+        this.itemCanAdd = true;
+      }
+    } else {
+      this.itemCanAdd = true;
+    }
   }
 
   addItem() {
+    this.itemChange();
+    if (this.item && this.itemCanAdd) {
+      gameManager.stateManager.before();
+      this.character.progress.items.push(new Identifier(this.itemName.nativeElement.value, this.itemEdition.nativeElement.value));
+      this.items.push(this.item);
+      this.items.sort((a, b) => a.id - b.id);
+      this.itemName.nativeElement.value = 1;
+      gameManager.stateManager.after();
+      this.itemChange();
+    }
+  }
+
+  buyItem() {
     const itemData = gameManager.item(+this.itemName.nativeElement.value, this.itemEdition.nativeElement.value);
     this.itemChange();
-    if (itemData) {
-      const soldItems = gameManager.game.figures.filter((figure) => figure instanceof Character && figure.progress && figure.progress.items).map((figure) => figure as Character).map((figure) => figure.progress && figure.progress.items).reduce((pre, cur): Identifier[] => {
-        return pre && cur && pre.concat(cur);
-      }).filter((item) => item.name == itemData.id + "" && item.edition == itemData.edition).length;
-      if (!itemData.count || itemData.count > soldItems) {
-        gameManager.stateManager.before();
-        this.character.progress.items.push(new Identifier(this.itemName.nativeElement.value, this.itemEdition.nativeElement.value));
-        this.items.push(itemData);
-        this.items.sort((a, b) => a.id - b.id);
-        this.itemName.nativeElement.value = 1;
-        gameManager.stateManager.after();
-      } else {
-        this.itemName.nativeElement.classList.add("warn");
-        this.itemEdition.nativeElement.classList.add("warn");
-      }
-    } else {
-      this.itemName.nativeElement.classList.add("error");
-      this.itemEdition.nativeElement.classList.add("error");
+    if (this.item && this.item.cost <= this.character.progress.gold) {
+      gameManager.stateManager.before();
+      this.character.progress.gold -= this.item.cost;
+      this.character.progress.items.push(new Identifier(this.itemName.nativeElement.value, this.itemEdition.nativeElement.value));
+      this.items.push(this.item);
+      this.items.sort((a, b) => a.id - b.id);
+      this.itemName.nativeElement.value = 1;
+      gameManager.stateManager.after();
+      this.itemChange();
     }
   }
 
@@ -223,17 +243,46 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
       this.character.progress.items.splice(index, 1);
       this.items.splice(index, 1);
       gameManager.stateManager.after();
+      this.itemChange();
+    }
+  }
+
+  sellItem(itemData: ItemData) {
+    const item = this.character.progress.items.find((item) => item.name == "" + itemData.id && item.edition == itemData.edition);
+    if (item) {
+      this.character.progress.gold += Math.ceil(itemData.cost / 2);
+      const index = this.character.progress.items.indexOf(item)
+      gameManager.stateManager.before();
+      this.character.progress.items.splice(index, 1);
+      this.items.splice(index, 1);
+      gameManager.stateManager.after();
+      this.itemChange();
     }
   }
 
   addPerk(index: number, value: number) {
-    gameManager.stateManager.before();
-    if (this.character.progress.perks[ index ] && this.character.progress.perks[ index ] == value) {
-      this.character.progress.perks[ index ]--;
+
+    const disabled: boolean = gameManager.game.state == GameState.next || this.character.progress.perks[ index ] < value && this.availablePerks < value - this.character.progress.perks[ index ];
+
+    if (!disabled || this.doubleClick) {
+      clearTimeout(this.doubleClick);
+      this.doubleClick = null;
+      gameManager.stateManager.before();
+      if (this.character.progress.perks[ index ] && this.character.progress.perks[ index ] == value) {
+        this.character.progress.perks[ index ]--;
+      } else {
+        this.character.progress.perks[ index ] = value;
+      }
+      this.character.mergeAttackModifierDeck(gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character));
+      gameManager.attackModifierManager.shuffleModifiers(this.character.attackModifierDeck);
+      gameManager.stateManager.after();
     } else {
-      this.character.progress.perks[ index ] = value;
+      this.doubleClick = setTimeout(() => {
+        if (this.doubleClick) {
+          this.doubleClick = null;
+        }
+      }, 200)
     }
-    gameManager.stateManager.after();
   }
 
   perkLabel(perk: Perk): string[] {
@@ -255,8 +304,7 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
 
   attackModifierHtml(attackModifier: AttackModifier): string {
     let html = "";
-    attackModifier = new AttackModifier(attackModifier.type, attackModifier.actions, attackModifier.rolling);
-
+    attackModifier = new AttackModifier(attackModifier.type, attackModifier.id, attackModifier.actions, attackModifier.rolling);
 
     if (attackModifier.rolling) {
       html += '<span class="attack-modifier-action">&zwj;<img src="./assets/images/attackmodifier/icons/actions/rolling.svg"></span>';
@@ -299,6 +347,9 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
         break;
       case ActionType.specialTarget:
         html += '<span class="attack-modifier-action special-target">' + settingsManager.getLabel('game.specialTarget.' + action.value) + '</span>';
+        break;
+      case ActionType.refreshItem:
+        html += '<span class="attack-modifier-action special-target">' + settingsManager.getLabel('game.action.' + action.type) + '</span>';
         break;
       case ActionType.custom:
         html += '<span class="attack-modifier-action custom">' + settingsManager.getLabel('' + action.value) + '</span>';
