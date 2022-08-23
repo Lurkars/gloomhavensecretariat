@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="204.15126mm"
+   height="204.15073mm"
+   viewBox="0 0 204.15126 204.15073"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="target.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="0.69664703"
+     inkscape:cx="388.28846"
+     inkscape:cy="445.70635"
+     inkscape:window-width="1850"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath854">
+      <path
+         d="M 0,600 H 600 V 0 H 0 Z"
+         id="path852" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-2.1129248,-30.350093)">
+    <g
+       id="g850"
+       clip-path="url(#clipPath854)"
+       transform="matrix(0.35277777,0,0,-0.35277777,-1.6447758,238.25879)">
+      <g
+         id="g856"
+         transform="translate(300,15.6523)">
+        <path
+           d="m 0,0 c -3.922,0 -7.608,1.527 -10.382,4.3 l -269.666,269.666 c -5.723,5.724 -5.723,15.039 0,20.763 l 269.666,269.667 c 2.774,2.772 6.46,4.299 10.382,4.299 3.922,0 7.608,-1.527 10.382,-4.299 L 280.048,294.729 c 5.724,-5.724 5.724,-15.039 0,-20.763 L 10.382,4.3 C 7.608,1.527 3.922,0 0,0"
+           style="fill:#a91c22;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="path858" />
+      </g>
+      <g
+         id="g860"
+         transform="translate(300,589.3475)">
+        <path
+           d="m 0,0 c -5.037,0 -10.073,-1.921 -13.917,-5.765 l -269.666,-269.666 c -7.687,-7.686 -7.687,-20.147 0,-27.834 l 269.666,-269.666 c 3.844,-3.842 8.88,-5.764 13.917,-5.764 5.037,0 10.073,1.922 13.917,5.764 l 269.666,269.666 c 7.687,7.687 7.687,20.148 0,27.834 L 13.917,-5.765 C 10.073,-1.921 5.037,0 0,0 m 0,-10 c 2.586,0 5.017,-1.007 6.846,-2.835 l 269.667,-269.667 c 3.774,-3.774 3.774,-9.917 0,-13.691 L 6.846,-565.859 c -1.829,-1.829 -4.26,-2.836 -6.846,-2.836 -2.586,0 -5.017,1.007 -6.846,2.836 l -269.667,269.666 c -1.828,1.829 -2.835,4.259 -2.835,6.845 0,2.586 1.007,5.018 2.835,6.846 L -6.846,-12.835 C -5.017,-11.007 -2.586,-10 0,-10"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="path862" />
+      </g>
+      <g
+         id="g864"
+         transform="translate(300,181.7001)">
+        <path
+           d="m 0,0 c -65.335,0 -118.3,52.965 -118.3,118.3 0,65.336 52.965,118.3 118.3,118.3 65.335,0 118.3,-52.964 118.3,-118.3 C 118.3,52.965 65.335,0 0,0 m 0,275.489 c -86.813,0 -157.189,-70.376 -157.189,-157.189 0,-86.814 70.376,-157.19 157.189,-157.19 86.813,0 157.189,70.376 157.189,157.19 0,86.813 -70.376,157.189 -157.189,157.189"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="path866" />
+      </g>
+      <g
+         id="g868"
+         transform="translate(300,252.7538)">
+        <path
+           d="m 0,0 c -26.094,0 -47.246,21.152 -47.246,47.246 0,26.094 21.152,47.246 47.246,47.246 26.093,0 47.246,-21.152 47.246,-47.246 C 47.246,21.152 26.093,0 0,0 m 0,131.913 c -46.76,0 -84.667,-37.907 -84.667,-84.667 0,-46.76 37.907,-84.666 84.667,-84.666 46.76,0 84.667,37.906 84.667,84.666 0,46.76 -37.907,84.667 -84.667,84.667"
+           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="path870" />
+      </g>
+    </g>
+  </g>
+</svg>

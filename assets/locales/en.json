@@ -243,7 +243,9 @@
       ".": "Attack Modifier Deck",
       "hint": "Draw and edit Monster Attack Modifier Deck"
     },
-    "password": "Password",
+    "password": {
+      ".": "Password"
+    },
     "save": "Save Permissions"
   },
   "datamanagement": {
@@ -303,6 +305,7 @@
       "pull": "Pull",
       "push": "Push",
       "range": "Range",
+      "refreshItem": "Refresh an item",
       "retaliate": "Retaliate",
       "shield": "Shield",
       "special": "Special",
@@ -320,6 +323,7 @@
       "selfAlliesRange": "Target self and all allies within %game.action.range% {0}",
       "selfAlliesAdjacentAffect": "Affect self and all adjacent allies",
       "ally": "Target one ally",
+      "allyShort": "Ally",
       "allyAffect": "Affect any ally",
       "allyAdjacent": "Target one adjacent ally",
       "allies": "Target all allies",
@@ -398,7 +402,8 @@
       "drawExtra": "Draw Extra",
       "edit": "Edit",
       "restore": "Restore defaults",
-      "defaultSort": "Sort"
+      "defaultSort": "Sort",
+      "openDialog": "Show all cards"
     },
     "attackModifiers": {
       ".": "Attack Modifier Deck",
@@ -431,7 +436,6 @@
         "ignoreNegativeScenario": "Ignore negative scenario effects",
         "addTarget": "Add target",
         "addTargets": "Add {0} targets",
-        "refreshItem": "Refresh an item",
         "adjacentEnemiesDamage1": "All adjacent enemies suffer 1 damage"
       }
     }
