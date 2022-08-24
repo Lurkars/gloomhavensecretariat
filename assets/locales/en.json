@@ -153,6 +153,7 @@
     "moveElements": "Automatic update element state",
     "hideStats": "Hide stats",
     "randomStandees": "Random standees",
+    "activeStandees": "Active standees",
     "disableStandees": "Disable standees",
     "initiativeRequired": "Initiative is required",
     "zoomIn": "Zoom In",
@@ -435,8 +436,7 @@
         "ignoreNegativeItem": "Ignore negative item effects",
         "ignoreNegativeScenario": "Ignore negative scenario effects",
         "addTarget": "Add target",
-        "addTargets": "Add {0} targets",
-        "adjacentEnemiesDamage1": "All adjacent enemies suffer 1 damage"
+        "addTargets": "Add {0} targets"
       }
     }
   },
