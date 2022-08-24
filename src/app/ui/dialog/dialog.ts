@@ -18,6 +18,8 @@ export class DialogComponent implements OnInit {
 
   opened: boolean = false;
 
+  doubleClick: any = null;
+
 
   ngOnInit(): void {
     this.dialog.nativeElement.classList.add('dialog');
@@ -35,9 +37,22 @@ export class DialogComponent implements OnInit {
     if (this.opened) {
       this.close();
     } else {
-      this.open();
+      if (this.doubleClick) {
+        clearTimeout(this.doubleClick);
+        this.doubleClick = null;
+        this.doubleClickCallback();
+      } else {
+        this.doubleClick = setTimeout(() => {
+          if (this.doubleClick) {
+            this.open();
+            this.doubleClick = null;
+          }
+        }, 200)
+      }
     }
   }
+
+  doubleClickCallback(): void { }
 
   open(): void {
     this.opened = true;

@@ -1,8 +1,9 @@
 <div class="entity-border"
-  [ngClass]="{'dead' : entity.dead, 'denied' : !gameManager.stateManager.hasMonsterPermission(monster)}"
+  [ngClass]="{'dead' : entity.dead, 'active' : entity.active && settingsManager.settings.activeStandees, 'active-focus': entity.active && settingsManager.settings.activeStandees && !monster.active, 'denied' : !gameManager.stateManager.hasMonsterPermission(monster)}"
   [entityAnimation]="entity.dead">
   <div #button class="entity" [ngClass]="entity.type">
     <div class="standee">
+      <div class="background-image" [style.background-image]="'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'"></div>
       <span class="number">{{entity.number}}</span>
       <span class="health" title="{{'game.health' | ghsLabel}}">{{entity.health}} <span class="drag-hp"
           [ngClass]="{'health-negative' : dragHp < 0, 'health-positive' : dragHp > 0}" *ngIf="dragHp">{{dragHp |

@@ -36,7 +36,7 @@ export class ObjectiveComponent extends DialogComponent {
   }
 
   showMaxHealth(): boolean {
-    return typeof this.objective.maxHealth === 'number';
+    return !isNaN(+this.objective.maxHealth);
   }
 
 
@@ -92,8 +92,9 @@ export class ObjectiveComponent extends DialogComponent {
   }
 
   changeMaxHealth(value: number) {
-    if (typeof this.objective.maxHealth === 'number') {
+    if (this.showMaxHealth()) {
       gameManager.stateManager.before();
+      this.objective.maxHealth = +this.objective.maxHealth;
       this.objective.maxHealth += value;
 
       if (this.objective.maxHealth <= 1) {

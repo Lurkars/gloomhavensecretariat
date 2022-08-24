@@ -19,14 +19,11 @@ export class MainComponent implements OnInit {
   columnSize: number = 3;
   columns: number = 2;
 
-  figureWidth: number = 0;
-
   resizeObserver: ResizeObserver;
 
   constructor(private element: ElementRef) {
     gameManager.uiChange.subscribe({
       next: () => {
-        this.figureWidth = (+window.getComputedStyle(document.body).getPropertyValue('--ghs-width').replace('px', '') / +window.getComputedStyle(document.body).getPropertyValue('--ghs-factor')) * 98;
         this.calcColumns();
       }
     })
@@ -43,16 +40,13 @@ export class MainComponent implements OnInit {
     document.body.style.setProperty('--ghs-factor', settingsManager.settings.zoom + '');
     document.body.style.setProperty('--ghs-barsize', settingsManager.settings.barSize + '');
 
-    this.figureWidth = (+window.getComputedStyle(document.body).getPropertyValue('--ghs-width').replace('px', '') / +window.getComputedStyle(document.body).getPropertyValue('--ghs-factor')) * 98;
     this.calcColumns();
 
     window.addEventListener('resize', (event) => {
-      this.figureWidth = (+window.getComputedStyle(document.body).getPropertyValue('--ghs-width').replace('px', '') / +window.getComputedStyle(document.body).getPropertyValue('--ghs-factor')) * 98;
       this.calcColumns();
     });
 
     window.addEventListener('fullscreenchange', (event) => {
-      this.figureWidth = (+window.getComputedStyle(document.body).getPropertyValue('--ghs-width').replace('px', '') / +window.getComputedStyle(document.body).getPropertyValue('--ghs-factor')) * 98;
       this.calcColumns();
     });
   }
@@ -76,8 +70,12 @@ export class MainComponent implements OnInit {
         for (let i = 0; i < figures.length; i++) {
           this.resizeObserver.observe(figures[ i ]);
         }
+        let figureWidth = container.clientWidth;
+        if (figures.length > 0) {
+          figureWidth = figures[ 0 ].firstChild.clientWidth;
+        }
 
-        if (this.figureWidth < (container.clientWidth / 2)) {
+        if (figureWidth < (container.clientWidth / 2)) {
           let height = 0;
           let columnSize = 0;
           const minColumn = Math.ceil(gameManager.game.figures.length / 2);
@@ -85,8 +83,6 @@ export class MainComponent implements OnInit {
             height += figures[ columnSize ].clientHeight;
             columnSize++;
           }
-
-
 
           if (columnSize == gameManager.game.figures.length && height > container.clientHeight) {
             columnSize--;
@@ -111,13 +107,13 @@ export class MainComponent implements OnInit {
               otherHeight += figures[ i ].clientHeight;
             }
 
-            while (height > container.clientHeight && otherHeight < (height - figures[ columnSize ].clientHeight)) {
-              otherHeight += figures[ columnSize ].clientHeight;
-              height -= figures[ columnSize ].clientHeight;
+            while (height > otherHeight && otherHeight + figures[ columnSize - 1 ].clientHeight < height) {
+              otherHeight += figures[ columnSize - 1 ].clientHeight;
+              height -= figures[ columnSize - 1 ].clientHeight;
               columnSize--;
             }
 
-            while (height > container.clientHeight && height < otherHeight) {
+            while (height < otherHeight) {
               otherHeight -= figures[ columnSize ].clientHeight;
               height += figures[ columnSize ].clientHeight;
               columnSize++;
@@ -201,8 +197,8 @@ export class MainComponent implements OnInit {
 
   handleClick(event: any) {
     let elements = document.elementsFromPoint(event.clientX, event.clientY);
-    if (elements[0].classList.contains('cdk-drag-handle') && elements.length > 1) {
-      (elements[1] as HTMLElement).click();
+    if (elements[ 0 ].classList.contains('cdk-drag-handle') && elements.length > 1) {
+      (elements[ 1 ] as HTMLElement).click();
     }
   }
 }

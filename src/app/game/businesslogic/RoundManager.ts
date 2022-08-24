@@ -135,10 +135,15 @@ export class RoundManager {
           gameManager.entityManager.restoreConditions(figure);
         } else if (figure instanceof Monster) {
           figure.entities.forEach((monsterEntity) => {
+            monsterEntity.active = figure.active;
             gameManager.entityManager.restoreConditions(monsterEntity);
           });
         }
       }
+    } else if (figure instanceof Monster) {
+      figure.entities.forEach((monsterEntity) => {
+        monsterEntity.active = figure.active;
+      });
     }
 
     if (settingsManager.settings.applyConditions) {
@@ -196,6 +201,7 @@ export class RoundManager {
         }
       } else if (figure instanceof Monster) {
         figure.entities.forEach((monsterEntity) => {
+          monsterEntity.active = true;
           gameManager.entityManager.applyConditionsTurn(monsterEntity);
         });
         if (figure.entities.every((monsterEntity) => monsterEntity.dead)) {
@@ -219,6 +225,7 @@ export class RoundManager {
           gameManager.entityManager.expireConditions(figure);
         } else if (figure instanceof Monster) {
           figure.entities.forEach((monsterEntity) => {
+            monsterEntity.active = false;
             gameManager.entityManager.expireConditions(monsterEntity);
           });
         }
@@ -271,8 +278,6 @@ export class RoundManager {
   permanentDead(figure: Figure): boolean {
     return ((figure instanceof Character || figure instanceof Objective) && (figure.exhausted || figure.health <= 0)) || (figure instanceof Monster && figure.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.health <= 0));
   }
-
-
 
   resetRound() {
     this.game.playSeconds = 0;

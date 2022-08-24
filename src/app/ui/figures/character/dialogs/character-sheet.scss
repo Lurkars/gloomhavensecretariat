@@ -308,13 +308,22 @@
           position: relative;
           margin-left: calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
 
-          img {
-            position: relative;
-            top: calc(var(--ghs-unit) * 0.8 * var(--ghs-dialog-factor));
-            height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-            margin-left: calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
-            margin-top: calc(var(--ghs-unit) * -1 * var(--ghs-dialog-factor));
-            width: auto;
+
+          &:not(.placeholder-action) {
+            img {
+              position: relative;
+              top: calc(var(--ghs-unit) * 0.8 * var(--ghs-dialog-factor));
+              height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+              margin-left: calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
+              margin-top: calc(var(--ghs-unit) * -1 * var(--ghs-dialog-factor));
+              width: auto;
+            }
+          }
+
+          &.placeholder-action {
+            img {
+              filter: brightness(0);
+            }
           }
 
           .value {

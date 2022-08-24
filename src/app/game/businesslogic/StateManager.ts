@@ -68,7 +68,7 @@ export class StateManager {
     }
   }
 
-  onMessage(ev: MessageEvent<any>): any {
+  onMessage(ev: any): any {
     try {
       const message: any = JSON.parse(ev.data);
       switch (message.type) {
@@ -107,6 +107,10 @@ export class StateManager {
           console.warn("[GHS] Error: " + message.message);
           if (message.message == "Permission(s) missing") {
             gameManager.stateManager.undo();
+          }
+          if (message.message.startsWith("Invalid password")) {
+            console.warn("Disconnect...");
+            ev.target?.close();
           }
           break;
       }

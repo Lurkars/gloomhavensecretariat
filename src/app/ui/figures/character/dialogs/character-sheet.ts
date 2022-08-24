@@ -343,19 +343,19 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
         html += '<span class="attack-modifier-action element">&zwj;<img src="./assets/images/attackmodifier/icons/actions/' + action.value + '.svg"></span>';
         break;
       case ActionType.target:
-        html += '<span class="attack-modifier-action target">' + settingsManager.getLabel(action.value <= 1 ? 'game.custom.perks.addTarget' : 'game.custom.perks.addTargets', [ action.value + "" ]) + '<img src="./assets/images/attackmodifier/icons/actions/target.svg"></span>';
+        html += '<span class="placeholder attack-modifier-action target">' + settingsManager.getLabel(action.value <= 1 ? 'game.custom.perks.addTarget' : 'game.custom.perks.addTargets', [ action.value + "" ]) + '<img src="./assets/images/attackmodifier/icons/actions/target.svg"></span>';
         break;
       case ActionType.specialTarget:
-        html += '<span class="attack-modifier-action special-target">' + settingsManager.getLabel('game.specialTarget.' + action.value) + '</span>';
+        html += '<span class="placeholder attack-modifier-action special-target">' + settingsManager.getLabel('game.specialTarget.' + action.value) + '</span>';
         break;
       case ActionType.refreshItem:
-        html += '<span class="attack-modifier-action special-target">' + settingsManager.getLabel('game.action.' + action.type) + '</span>';
+        html += '<span class="placeholder attack-modifier-action special-target">' + settingsManager.getLabel('game.action.' + action.type) + '</span>';
         break;
       case ActionType.custom:
-        html += '<span class="attack-modifier-action custom">' + settingsManager.getLabel('' + action.value) + '</span>';
+        html += '<span class="placeholder attack-modifier-action custom">' + settingsManager.getLabel('' + action.value) + '</span>';
         break;
       default:
-        html += '<span class="attack-modifier-action ' + action.type + '">' + settingsManager.getLabel('game.action.' + action.type) + '<img src="./assets/images/attackmodifier/icons/actions/' + action.type + '.svg"><span class="value">' + action.value + '</span></span>';
+        html += '<span class="placeholder attack-modifier-action ' + action.type + '">' + settingsManager.getLabel('game.action.' + action.type) + '<img src="./assets/images/attackmodifier/icons/actions/' + action.type + '.svg"><span class="value">' + action.value + '</span></span>';
         break;
     }
 

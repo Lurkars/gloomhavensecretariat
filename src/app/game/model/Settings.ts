@@ -8,6 +8,7 @@ export class Settings {
   moveElements: boolean = true;
   hideStats: boolean = true;
   randomStandees: boolean = false;
+  activeStandees: boolean = true;
   initiativeRequired: boolean = true;
   levelCalculation: boolean = true;
   levelAdjustment: number = 0;

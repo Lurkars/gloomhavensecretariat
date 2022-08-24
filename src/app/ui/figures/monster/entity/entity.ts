@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifier, AttackModifierType } from 'src/app/game/model/AttackModifier';
 import { Condition, ConditionName, ConditionType } from 'src/app/game/model/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
@@ -18,6 +18,7 @@ import { DialogComponent } from 'src/app/ui/dialog/dialog';
 export class MonsterEntityComponent extends DialogComponent {
 
   gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
   @Input() monster!: Monster;
   @Input() entity!: MonsterEntity;
   Conditions = Condition;
@@ -34,6 +35,27 @@ export class MonsterEntityComponent extends DialogComponent {
 
   constructor(private element: ElementRef) {
     super();
+  }
+
+  override doubleClickCallback(): void {
+    if (settingsManager.settings.activeStandees) {
+      gameManager.stateManager.before();
+      if (this.monster.active) {
+        this.entity.active = !this.entity.active;
+        if (this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.health <= 0 || !monsterEntity.active)) {
+          gameManager.roundManager.toggleFigure(this.monster);
+        }
+      } else if (this.entity.active) {
+        this.entity.active = false;
+        if (this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.health <= 0 || !monsterEntity.active)) {
+          this.monster.off = true;
+        }
+      } else {
+        this.monster.off = false;
+        this.entity.active = true;
+      }
+      gameManager.stateManager.after();
+    }
   }
 
   changeHealth(value: number) {

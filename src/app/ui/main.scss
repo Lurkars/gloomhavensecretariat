@@ -71,7 +71,7 @@ main {
   cursor: grab;
   top: 0;
   left: calc(var(--ghs-unit) * -2.5);
-  width: calc(var(--ghs-unit) * 18.5);
+  width: calc(var(--ghs-unit) * 8);
   height: 100%;
   z-index: 2;
 
@@ -93,7 +93,7 @@ main {
   &.objective {
     top: initial;
     bottom: 0;
-    height: calc(var(--ghs-unit) * 16.5);
+    height: calc(var(--ghs-unit) * 14);
   }
 
   &.monster {

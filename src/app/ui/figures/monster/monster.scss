@@ -60,6 +60,7 @@
   transition: max-height 1000ms ease-out;
   max-height: 100%;
   max-width: calc(var(--ghs-unit) * 96);
+  margin-top: calc(var(--ghs-unit) * 0.25 * var(--ghs-text-factor));
 
   &.empty {
     max-height: 0;

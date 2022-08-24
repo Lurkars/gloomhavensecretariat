@@ -114,7 +114,7 @@ export class AttackModifierManager {
           perk.cards = perk.cards || [];
 
           perk.cards.forEach((card, index) => {
-            if (!this.findByAttackModifier(defaultAttackModifier, card.attackModifier) || perk.type == PerkType.add || index > 0) {
+            if (!this.findByAttackModifier(defaultAttackModifier, card.attackModifier) || perk.type == PerkType.add || perk.type == PerkType.replace && index > 0) {
               card.attackModifier.character = true;
             }
           })

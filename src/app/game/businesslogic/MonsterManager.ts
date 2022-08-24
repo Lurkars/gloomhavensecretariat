@@ -114,7 +114,12 @@ export class MonsterManager {
     if (monster.off) {
       monster.off = false;
       if (this.game.state == GameState.next) {
+        monsterEntity.active = true;
         monster.active = !gameManager.game.figures.some((figure) => figure.active);
+      }
+    } else {
+      if (this.game.state == GameState.next) {
+        monsterEntity.active = monster.active;
       }
     }
   }

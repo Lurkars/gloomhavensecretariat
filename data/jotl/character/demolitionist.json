@@ -204,7 +204,7 @@
             "actions": [
               {
                 "type": "custom",
-                "value": "game.custom.perks.adjacentEnemiesDamage1"
+                "value": "%data.custom.perks.demolitionist.1%"
               }
             ]
           }

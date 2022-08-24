@@ -3,10 +3,10 @@
   z-index: 1;
   height: 100%;
   width: calc(var(--ghs-unit) * 98);
-  height: calc(var(--ghs-unit) * 16.5);
+  height: calc(var(--ghs-unit) * 14);
   background-image: url('~src/assets/images/character/char-mat.png');
   background-color: var(--ghs-character-color);
-  background-size: cover;
+  background-size: 100% 100%;
   display: flex;
   --ghs-character-color: #000;
   border-radius: calc(var(--ghs-unit) * 0.5);
@@ -31,20 +31,6 @@
     transition: filter 150ms ease-in-out;
   }
 
-  &.off {
-
-    background-color: var(--ghs-color-gray);
-
-    ghs-character-image,
-    .title,
-    .conditions,
-    .experience,
-    .loot,
-    .icon-container {
-      filter: grayscale(100%);
-    }
-  }
-
   &.dimmed {
     background-color: var(--ghs-color-gray);
 
@@ -58,6 +44,20 @@
     .stats .column {
       filter: grayscale(15%);
       opacity: 0.5;
+    }
+  }
+
+  &.off {
+
+    background-color: var(--ghs-color-gray);
+
+    ghs-character-image,
+    .title,
+    .conditions,
+    .experience,
+    .loot,
+    .icon-container {
+      filter: grayscale(100%);
     }
   }
 
@@ -160,6 +160,7 @@
       .condition {
         position: relative;
         display: flex;
+        margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
 
         img {
           width: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
@@ -198,7 +199,7 @@
       ghs-attackmodifier-deck {
         position: absolute;
         display: flex;
-        top: calc(var(--ghs-unit) * 3 / var(--ghs-text-factor) / var(--ghs-text-factor));
+        top: calc(var(--ghs-unit) * 1.5 / var(--ghs-text-factor) / var(--ghs-text-factor));
         left: calc(var(--ghs-unit) * 21.5);
         width: calc(var(--ghs-unit) * 76.5);
         z-index: 3;

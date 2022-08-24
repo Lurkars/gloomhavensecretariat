@@ -258,6 +258,12 @@
           "2": "%game.action.teleport% to an unoccupied hex adjacent to the enemy and perform",
           "3": "If no legal hex exists for the %game.action.teleport% perform instead"
         }
+      },
+      "perks": {
+        "beetle": {
+          "1": "Place one Colony token of your choice on any empty hex within %game.action.range% 2",
+          "2": "where X is the number of active Cultivate actions"
+        }
       }
     }
   }

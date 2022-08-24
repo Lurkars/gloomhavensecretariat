@@ -12,14 +12,7 @@ function createWindow() {
     width: 800,
     height: 600
   });
-
-  win.loadURL(
-    url.format({
-      pathname: path.join(__dirname, "/dist/gloomhavensecretary/index.html"),
-      protocol: "file:",
-      slashes: true
-    })
-  );
+  win.loadFile('dist/gloomhavensecretary/index.html');
   win.on("closed", () => {
     win = null;
   });

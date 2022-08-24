@@ -153,6 +153,7 @@
     "moveElements": "Automatisch Elementen Status ändern",
     "hideStats": "Werte ausblenden",
     "randomStandees": "Zufällige Aufsteller",
+    "activeStandees": "Aktive Aufsteller",
     "disableStandees": "Aufsteller deaktivieren",
     "initiativeRequired": "Initiative muss gesetzt werden",
     "zoomIn": "Reinzoomen",
@@ -432,8 +433,7 @@
         "ignoreNegativeItem": "negative Zustände von Gegenständen ignorieren",
         "ignoreNegativeScenario": "negative Szenario Zustände ignorieren",
         "addTarget": "Ziel hinzufügen",
-        "addTargets": "{0} Ziele hinzufügen",
-        "adjacentEnemiesDamage1": "Alle angrenzenden Gegner erleiden 1 Schaden"
+        "addTargets": "{0} Ziele hinzufügen"
       }
     }
   },

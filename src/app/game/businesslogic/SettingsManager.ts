@@ -110,6 +110,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setActiveStandees(activeStandees: boolean) {
+    this.settings.activeStandees = activeStandees;
+    this.storeSettings();
+  }
+
   setInitiativeRequired(initiativeRequired: boolean) {
     this.settings.initiativeRequired = initiativeRequired;
     this.storeSettings();
