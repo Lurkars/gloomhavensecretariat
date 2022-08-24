@@ -83,7 +83,7 @@ export class Game {
     this.playSeconds = model.playSeconds;
     this.totalSeconds = model.totalSeconds;
     this.monsterAttackModifierDeck = this.monsterAttackModifierDeck || new AttackModifierDeck();
-    if (model.monsterAttackModifierDeck) {
+    if (model.monsterAttackModifierDeck && model.monsterAttackModifierDeck.cards && model.monsterAttackModifierDeck.cards.length > 0) {
       this.monsterAttackModifierDeck.fromModel(model.monsterAttackModifierDeck);
     }
 
