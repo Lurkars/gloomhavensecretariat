@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, ElementRef, Input, ViewChild } from '@ang
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { AttackModifier, AttackModifierType } from 'src/app/game/model/AttackModifier';
+import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/AttackModifier';
 import { Character } from 'src/app/game/model/Character';
 import { Condition, ConditionType } from 'src/app/game/model/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
@@ -68,6 +68,12 @@ export class CharacterComponent extends DialogComponent {
     if (this.character.loot <= 0) {
       this.character.loot = 0;
     }
+    gameManager.stateManager.after();
+  }
+
+  changeAttackModifierDeck(deck: AttackModifierDeck) {
+    gameManager.stateManager.before();
+    this.character.attackModifierDeck = deck;
     gameManager.stateManager.after();
   }
 

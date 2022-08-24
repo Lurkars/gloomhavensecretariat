@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { AttackModifierDeck } from 'src/app/game/model/AttackModifier';
 import { Character } from 'src/app/game/model/Character';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
@@ -30,6 +31,12 @@ export class FooterComponent extends DialogComponent {
       gameManager.roundManager.nextGameState();
       gameManager.stateManager.after(1000);
     }
+  }
+
+  changeAttackModifierDeck(deck: AttackModifierDeck) {
+    gameManager.stateManager.before();
+    gameManager.game.monsterAttackModifierDeck = deck;
+    gameManager.stateManager.after();
   }
 
   confirmTurns() {

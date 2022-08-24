@@ -1,5 +1,5 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/AttackModifier';
 import { Character } from 'src/app/game/model/Character';
@@ -11,12 +11,13 @@ import { PopupComponent } from '../../popup/popup';
   templateUrl: './attackmodifierdeck.html',
   styleUrls: [ './attackmodifierdeck.scss', '../../popup/popup.scss' ]
 })
-export class AttackModifierDeckComponent extends PopupComponent implements OnChanges {
+export class AttackModifierDeckComponent extends PopupComponent {
 
   @Input('deck') deck!: AttackModifierDeck;
   @Input('character') character!: Character;
   @Input('numeration') numeration: string = "";
   @Input('bottom') bottom: boolean = false;
+  @Output('change') change: EventEmitter<AttackModifierDeck> = new EventEmitter<AttackModifierDeck>();
   @ViewChild('menu') menuElement!: ElementRef;
   gameManager: GameManager = gameManager;
   GameState = GameState;
@@ -38,7 +39,7 @@ export class AttackModifierDeckComponent extends PopupComponent implements OnCha
   override ngOnInit(): void {
     super.ngOnInit();
     if (this.character) {
-      this.deck = this.character.attackModifierDeck;
+      this.deck = Object.assign(this.deck, this.character.attackModifierDeck);
       this.numeration = "" + this.character.number;
       this.characterIcon = gameManager.characterManager.characterIcon(this.character);
       this.update();
@@ -46,9 +47,6 @@ export class AttackModifierDeckComponent extends PopupComponent implements OnCha
     gameManager.uiChange.subscribe({
       next: () => {
         this.update();
-        if (this.character) {
-          this.deck = this.character.attackModifierDeck;
-        }
       }
     })
   }
@@ -65,21 +63,11 @@ export class AttackModifierDeckComponent extends PopupComponent implements OnCha
     }
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes[ 'deck' ] && !changes[ 'deck' ].firstChange) {
-      this.update();
-    } else {
-      this.currentAttackModifier = this.deck.current;
-    }
-  }
-
-
   click(index: number) {
     if (!this.drawing) {
       if (index > this.deck.current && gameManager.game.state == GameState.next) {
-        gameManager.stateManager.before();
         gameManager.attackModifierManager.drawModifier(this.deck);
-        gameManager.stateManager.after();
+        this.change.emit(this.deck);
       } else {
         this.open();
       }
@@ -116,26 +104,23 @@ export class AttackModifierDeckComponent extends PopupComponent implements OnCha
   }
 
   shuffle(): void {
-    gameManager.stateManager.before();
     gameManager.attackModifierManager.shuffleModifiers(this.deck);
-    gameManager.stateManager.after();
+    this.change.emit(this.deck);
   }
 
   removeDrawnDiscards() {
-    gameManager.stateManager.before();
     gameManager.attackModifierManager.removeDrawnDiscards(this.deck);
-    gameManager.stateManager.after();
+    this.change.emit(this.deck);
   }
 
   restoreDefault(): void {
-    gameManager.stateManager.before();
     if (this.character) {
       this.character.mergeAttackModifierDeck(gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character));
-      this.deck = this.character.attackModifierDeck;
+      this.deck = Object.assign(this.deck, this.character.attackModifierDeck);
     } else {
       this.deck = new AttackModifierDeck();
     }
-    gameManager.stateManager.after();
+    this.change.emit(this.deck);
   }
 
   hasDrawnDiscards(): boolean {
@@ -148,7 +133,6 @@ export class AttackModifierDeckComponent extends PopupComponent implements OnCha
   }
 
   dropUpcoming(event: CdkDragDrop<AttackModifier[]>) {
-    gameManager.stateManager.before();
     if (event.container == event.previousContainer) {
       const offset = this.deck.current + 1;
       moveItemInArray(this.deck.cards, event.previousIndex + offset, event.currentIndex + offset);
@@ -157,11 +141,10 @@ export class AttackModifierDeckComponent extends PopupComponent implements OnCha
       moveItemInArray(this.deck.cards, offset - event.previousIndex, event.currentIndex + offset);
       this.deck.current = this.deck.current - 1;
     }
-    gameManager.stateManager.after();
+    this.change.emit(this.deck);
   }
 
   dropDisgarded(event: CdkDragDrop<AttackModifier[]>) {
-    gameManager.stateManager.before();
     if (event.container == event.previousContainer) {
       moveItemInArray(this.deck.cards, this.deck.current - event.previousIndex, this.deck.current - event.currentIndex);
     } else {
@@ -170,31 +153,28 @@ export class AttackModifierDeckComponent extends PopupComponent implements OnCha
       moveItemInArray(this.deck.cards, event.previousIndex + offset, offset - event.currentIndex);
       this.deck.cards[ offset - event.currentIndex ].revealed = true;
     }
-    gameManager.stateManager.after();
+    this.change.emit(this.deck);
   }
 
   remove(index: number) {
-    gameManager.stateManager.before();
     if (index <= this.deck.current) {
       this.deck.current--;
       this.currentAttackModifier = this.deck.current;
     }
     this.deck.cards.splice(index, 1);
-    gameManager.stateManager.after();
+    this.change.emit(this.deck);
   }
 
   newFirst(type: AttackModifierType) {
-    gameManager.stateManager.before();
     let attackModifier = new AttackModifier(type);
     attackModifier.revealed = true;
     this.deck.cards.splice(this.deck.current + 1, 0, attackModifier);
-    gameManager.stateManager.after();
+    this.change.emit(this.deck);
   }
 
   newShuffle(type: AttackModifierType) {
-    gameManager.stateManager.before();
     this.deck.cards.splice(this.deck.current + 1 + Math.random() * (this.deck.cards.length - this.deck.current), 0, new AttackModifier(type));
-    gameManager.stateManager.after();
+    this.change.emit(this.deck);
   }
 
   onChange(attackModifier: AttackModifier, revealed: boolean) {

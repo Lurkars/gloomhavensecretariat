@@ -49,7 +49,7 @@
     </div>
 
     <div *ngIf="character.attackModifierDeckVisible" class="attack-modifierdeck-container">
-      <ghs-attackmodifier-deck [character]="character"></ghs-attackmodifier-deck>
+      <ghs-attackmodifier-deck [character]="character" (change)="changeAttackModifierDeck($event)"></ghs-attackmodifier-deck>
       <div class="attack-modifierdeck-close" (click)="toggleAttackModifierDeckVisible()"></div>
     </div>
 

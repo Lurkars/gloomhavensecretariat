@@ -15,7 +15,7 @@
   </div>
   <div class="flex-shrink"></div>
   <div class="attack-modifier-spacer"></div>
-  <ghs-attackmodifier-deck [deck]="gameManager.game.monsterAttackModifierDeck" numeration="m" [bottom]="true"></ghs-attackmodifier-deck>
+  <ghs-attackmodifier-deck [deck]="gameManager.game.monsterAttackModifierDeck" (change)="changeAttackModifierDeck($event)" numeration="m" [bottom]="true"></ghs-attackmodifier-deck>
 </footer>
 
 <div class="hint-container" #dialog>
