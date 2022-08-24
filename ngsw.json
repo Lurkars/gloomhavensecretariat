@@ -1,8 +1,8 @@
 {
   "configVersion": 1,
-  "timestamp": 1661319241356,
+  "timestamp": 1661325853995,
   "appData": {
-    "version": "0.14.1"
+    "version": "0.14.2"
   },
   "index": "gloomhavensecretary/index.html",
   "assetGroups": [
@@ -16,11 +16,11 @@
       "urls": [
         "gloomhavensecretary/favicon.ico",
         "gloomhavensecretary/index.html",
-        "gloomhavensecretary/main.540d3cb059ab7f7d.js",
+        "gloomhavensecretary/main.2064de9a100b72c8.js",
         "gloomhavensecretary/manifest.webmanifest",
         "gloomhavensecretary/polyfills.da47a558e52a781c.js",
         "gloomhavensecretary/runtime.0269065d32db7f2e.js",
-        "gloomhavensecretary/styles.3cdbaff48b151b55.css"
+        "gloomhavensecretary/styles.3210c96b8dfa6565.css"
       ],
       "patterns": []
     },
@@ -961,9 +961,9 @@
     "gloomhavensecretary/header.24c0469502696b46.png": "25f3ece27efd7584a50c341ea90ba9a0513c7841",
     "gloomhavensecretary/health.8d6a842a197d29d3.svg": "05afb6de2ed74490df7d750cc939124afb1c5457",
     "gloomhavensecretary/immunity.5d026de2db8a1d8f.svg": "ad20fc18e93269c79312170674c6008615438f9b",
-    "gloomhavensecretary/index.html": "2edda84bbaf1496fbdf8426b0027c08032cee191",
+    "gloomhavensecretary/index.html": "83dbcae27dbb00964258701bc5e0df5459055ac8",
     "gloomhavensecretary/initiative.a7663b57012bb669.svg": "85c1e0fe11ba2111c2dc55370ff84796c86eb556",
-    "gloomhavensecretary/main.540d3cb059ab7f7d.js": "6b2c5b96ca8879e9e0ace125748cc38e2e8ff415",
+    "gloomhavensecretary/main.2064de9a100b72c8.js": "a76b50ad043e8ad1bfe736ee58c7721f4729bf0e",
     "gloomhavensecretary/majallab.00c7b4c865792c45.ttf": "cd2e9e61aca39d2b987b66e4c2a0a3ea13c3be48",
     "gloomhavensecretary/majallab.3bc19f63b5b1d474.svg": "68458a0f79e0e45258f0948d48f2a65c125b4322",
     "gloomhavensecretary/majallab.4ef31693f35ab4df.woff": "5f4a605494c5e4adbe49e3b23bfdcf1f7f8a92b6",
@@ -980,7 +980,7 @@
     "gloomhavensecretary/polyfills.da47a558e52a781c.js": "eaea86820123aea77d30f119900906027d45e755",
     "gloomhavensecretary/runtime.0269065d32db7f2e.js": "b302558fd0ee2307d99ca4df1eb66f6f672d5046",
     "gloomhavensecretary/standard.a54477c1eda06c8b.png": "b7464c7a959660e975135cd86cac578f69c63a30",
-    "gloomhavensecretary/styles.3cdbaff48b151b55.css": "4e7ac1403ccb8f61241ab1654514b14bd24b1d06"
+    "gloomhavensecretary/styles.3210c96b8dfa6565.css": "17a76828d31ba7dbd444d23188080180d2b63d9f"
   },
   "navigationUrls": [
     {
