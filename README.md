@@ -74,6 +74,7 @@ As open source software this is meant for the community to actively [contribute]
 
 - support for managing character ability cards
 - support for campaign tracking
+- support for player tracking (retirements etc.)
 - FH style
 
 ## Install
