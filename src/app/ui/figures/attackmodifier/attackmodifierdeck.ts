@@ -39,7 +39,7 @@ export class AttackModifierDeckComponent extends PopupComponent {
   override ngOnInit(): void {
     super.ngOnInit();
     if (this.character) {
-      this.deck = Object.assign(this.deck, this.character.attackModifierDeck);
+      this.deck = this.character.attackModifierDeck;
       this.numeration = "" + this.character.number;
       this.characterIcon = gameManager.characterManager.characterIcon(this.character);
       this.update();
@@ -116,7 +116,7 @@ export class AttackModifierDeckComponent extends PopupComponent {
   restoreDefault(): void {
     if (this.character) {
       this.character.mergeAttackModifierDeck(gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character));
-      this.deck = Object.assign(this.deck, this.character.attackModifierDeck);
+      this.deck = this.character.attackModifierDeck;
     } else {
       this.deck = new AttackModifierDeck();
     }
