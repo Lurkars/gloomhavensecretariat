@@ -55,7 +55,7 @@ export class CharacterManager {
       }
       gameManager.sortFigures();
     }
-    if (settingsManager.settings.levelCalculation) {
+    if (this.game.levelCalculation) {
       gameManager.levelManager.calculateScenarioLevel();
     }
   }
@@ -83,7 +83,7 @@ export class CharacterManager {
         }
       })
     }
-    if (settingsManager.settings.levelCalculation) {
+    if (this.game.levelCalculation) {
       gameManager.levelManager.calculateScenarioLevel();
     }
   }
@@ -204,7 +204,7 @@ export class CharacterManager {
       character.progress.experience = gameManager.characterManager.xpMap[ level - 1 ];
     }
 
-    if (settingsManager.settings.levelCalculation) {
+    if (this.game.levelCalculation) {
       gameManager.levelManager.calculateScenarioLevel();
     }
   }

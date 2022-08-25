@@ -6,12 +6,16 @@
   margin: calc(var(--ghs-unit) * 2.1) calc(var(--ghs-unit) * 3.4);
   cursor: pointer;
   border-radius: calc(var(--ghs-unit) * 1);
-  left: calc(var(--ghs-unit) * 2.5);
+  left: calc(var(--ghs-unit) * 2.4);
   overflow: hidden;
   transition: box-shadow 100ms ease-in-out;
 
   &.disabled {
     pointer-events: none;
+  }
+
+  &:not(.active-border) {
+    border: calc(var(--ghs-unit) * 0.01) solid transparent;
   }
 
   .image {

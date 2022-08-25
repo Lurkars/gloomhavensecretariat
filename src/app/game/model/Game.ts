@@ -1,4 +1,5 @@
 import { gameManager } from "../businesslogic/GameManager";
+import { settingsManager } from "../businesslogic/SettingsManager";
 import { AttackModifier, AttackModifierDeck, AttackModifierType, defaultAttackModifierCards, GameAttackModifierDeckModel } from "./AttackModifier";
 import { Character, GameCharacterModel } from "./Character";
 import { SectionData } from "./data/SectionData";
@@ -16,6 +17,10 @@ export class Game {
   scenario: Scenario | undefined = undefined;
   sections: SectionData[] = [];
   level: number = 1;
+  levelCalculation: boolean = true;
+  levelAdjustment: number = 0;
+  bonusAdjustment: number = 0;
+  ge5Player: boolean = true;
   round: number = 0;
   playSeconds: number = 0;
   totalSeconds: number = 0;
@@ -28,10 +33,10 @@ export class Game {
 
 
   toModel(): GameModel {
-    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.round, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.newElements, this.strongElements, this.elements, this.solo, this.party);
+    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.round, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.newElements, this.strongElements, this.elements, this.solo, this.party);
   }
 
-  fromModel(model: GameModel) {
+  fromModel(model: GameModel, server: boolean = false) {
     this.edition = model.edition;
     this.figures = this.figures.filter((figure) =>
       model.characters.map((gcm) => gcm.name).indexOf(figure.name) != -1 ||
@@ -79,6 +84,34 @@ export class Game {
     this.scenario = model.scenario;
     this.sections = model.sections || [];
     this.level = model.level;
+
+    // migration
+    if (settingsManager.settings.levelCalculation != undefined) {
+      model.levelCalculation = settingsManager.settings.levelCalculation;
+      settingsManager.settings.levelCalculation = undefined;
+      settingsManager.storeSettings();
+    }
+    if (settingsManager.settings.levelAdjustment != undefined) {
+      model.levelAdjustment = settingsManager.settings.levelAdjustment;
+      settingsManager.settings.levelAdjustment = undefined;
+      settingsManager.storeSettings();
+    }
+    if (settingsManager.settings.bonusAdjustment != undefined) {
+      model.bonusAdjustment = settingsManager.settings.bonusAdjustment;
+      settingsManager.settings.bonusAdjustment = undefined;
+      settingsManager.storeSettings();
+    }
+    if (settingsManager.settings.ge5Player != undefined) {
+      model.ge5Player = settingsManager.settings.ge5Player;
+      settingsManager.settings.ge5Player = undefined;
+      settingsManager.storeSettings();
+    }
+
+    this.levelCalculation = model.levelCalculation;
+    this.levelAdjustment = model.levelAdjustment;
+    this.bonusAdjustment = model.bonusAdjustment;
+    this.ge5Player = model.ge5Player;
+
     this.round = model.round;
     this.playSeconds = model.playSeconds;
     this.totalSeconds = model.totalSeconds;
@@ -116,6 +149,10 @@ export class GameModel {
   scenario: Scenario | undefined;
   sections: SectionData[] = [];
   level: number;
+  levelCalculation: boolean;
+  levelAdjustment: number;
+  bonusAdjustment: number;
+  ge5Player: boolean;
   round: number;
   playSeconds: number;
   totalSeconds: number;
@@ -137,6 +174,10 @@ export class GameModel {
     scenario: Scenario | undefined = undefined,
     sections: SectionData[] = [],
     level: number = 0,
+    levelCalculation: boolean = true,
+    levelAdjustment: number = 0,
+    bonusAdjustment: number = 0,
+    ge5Player: boolean = true,
     round: number = 0,
     playSeconds: number = 0,
     totalSeconds: number = 0,
@@ -155,6 +196,10 @@ export class GameModel {
     this.scenario = scenario;
     this.sections = sections;
     this.level = level;
+    this.levelCalculation = levelCalculation;
+    this.levelAdjustment = levelAdjustment;
+    this.bonusAdjustment = bonusAdjustment;
+    this.ge5Player = ge5Player;
     this.round = round;
     this.playSeconds = playSeconds;
     this.totalSeconds = totalSeconds;

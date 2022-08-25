@@ -1,4 +1,69 @@
-import { Directive, ElementRef, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, Directive, ElementRef, EventEmitter, Input, OnInit, Output } from "@angular/core";
+
+@Component({
+  selector: 'ghs-drag-value',
+  templateUrl: './drag.html',
+  styleUrls: [ './drag.scss' ]
+})
+export class DragValueComponent {
+
+  @Output('dragMove') dragMoveCallback = new EventEmitter<number>();
+  @Output('dragEnd') dragEndCallback = new EventEmitter<number>();
+
+  inputCount: number = 0;
+  draggingTimeout: any;
+
+  constructor(private elementRef: ElementRef) { }
+
+  click(event: any) {
+    if (this.inputCount < 2) {
+      let elements = document.elementsFromPoint(event.clientX, event.clientY);
+      if (elements.length > 2 && elements[ 0 ].classList.contains('drag-value-input')) {
+        (elements[ 2 ] as HTMLElement).click();
+      }
+    }
+    if (this.inputCount > 1) {
+      if (this.draggingTimeout) {
+        clearTimeout(this.draggingTimeout);
+      }
+      this.draggingTimeout = setTimeout(() => {
+        document.body.classList.remove('dragging');
+      }, 200);
+      this.elementRef.nativeElement.classList.remove('dragging');
+      this.elementRef.nativeElement.firstChild.classList.remove('dragging');
+    }
+    this.inputCount = 0;
+  }
+
+  change(event: any) {
+    if (this.inputCount > 1) {
+      this.dragEndCallback.emit(event.target.value);
+      this.inputCount = 0;
+      if (this.draggingTimeout) {
+        clearTimeout(this.draggingTimeout);
+      }
+      this.draggingTimeout = setTimeout(() => {
+        document.body.classList.remove('dragging');
+      }, 200);
+      this.elementRef.nativeElement.classList.remove('dragging');
+      this.elementRef.nativeElement.firstChild.classList.remove('dragging');
+    }
+  }
+
+  input(event: any) {
+    this.inputCount++;
+    if (this.inputCount == 2) {
+      document.body.classList.add('dragging');
+      this.elementRef.nativeElement.classList.add('dragging');
+      this.elementRef.nativeElement.firstChild.classList.add('dragging');
+    }
+
+    if (this.inputCount > 2) {
+      this.dragMoveCallback.emit(event.target.value);
+    }
+  }
+
+}
 
 @Directive({
   selector: ' [drag-value]'

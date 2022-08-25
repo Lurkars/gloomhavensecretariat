@@ -12,7 +12,7 @@ export class LevelManager {
   }
 
   ge5PlayerOffset(): number {
-    if (!settingsManager.settings.ge5Player) {
+    if (!this.game.ge5Player) {
       return 0;
     }
     const chars = this.game.figures.filter((figure) => figure instanceof Character).length;
@@ -24,7 +24,7 @@ export class LevelManager {
   }
 
   adjustedLevel(): number {
-    const level = this.game.level - this.ge5PlayerOffset() + settingsManager.settings.bonusAdjustment;
+    const level = this.game.level - this.ge5PlayerOffset() + this.game.bonusAdjustment;
     if (level < 0) {
       return 0;
     } else if (level > 7) {
@@ -67,13 +67,13 @@ export class LevelManager {
   }
 
   calculateScenarioLevel() {
-    if (settingsManager.settings.levelAdjustment > 6) {
-      settingsManager.settings.levelAdjustment = 6;
-    } else if (settingsManager.settings.levelAdjustment < -6) {
-      settingsManager.settings.levelAdjustment = -6;
+    if (this.game.levelAdjustment > 6) {
+      this.game.levelAdjustment = 6;
+    } else if (this.game.levelAdjustment < -6) {
+      this.game.levelAdjustment = -6;
     }
 
-    let level = this.scenarioLevel() + settingsManager.settings.levelAdjustment;
+    let level = this.scenarioLevel() + this.game.levelAdjustment;
     if (level > 7) {
       level = 7;
     } else if (level < 0) {

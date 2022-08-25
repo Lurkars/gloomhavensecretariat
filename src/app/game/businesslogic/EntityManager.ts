@@ -39,6 +39,11 @@ export class EntityManager {
         brittle.highlight = true;
       }
 
+      if (brittle && ward) {
+        brittle.highlight = false;
+        ward.highlight = false;
+      }
+
     } else if (entity.health >= entity.maxHealth) {
       entity.entityConditions.filter((entityCondition) => (entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x) && entityCondition.state == EntityConditionState.turn).forEach((entityCondition) => {
         entityCondition.highlight = true;

@@ -16,6 +16,32 @@ export class SettingsMenuComponent {
   GameState = GameState;
   @Input() setDialogPosition: Function | undefined = undefined;
 
+  setLevelCalculation(levelCalculation: boolean) {
+    gameManager.stateManager.before();
+    gameManager.game.levelCalculation = levelCalculation;
+    gameManager.levelManager.calculateScenarioLevel();
+    gameManager.stateManager.after();
+  }
+  setLevelAdjustment(levelAdjustment: number) {
+    gameManager.stateManager.before();
+    gameManager.game.levelAdjustment = levelAdjustment;
+    gameManager.levelManager.calculateScenarioLevel();
+    gameManager.stateManager.after();
+  }
+
+  setBonusAdjustment(bonusAdjustment: number) {
+    gameManager.stateManager.before();
+    gameManager.game.bonusAdjustment = bonusAdjustment;
+    gameManager.levelManager.calculateScenarioLevel();
+    gameManager.stateManager.after();
+  }
+
+  setGe5Player(ge5Player: boolean) {
+    gameManager.stateManager.before();
+    gameManager.game.ge5Player = ge5Player;
+    gameManager.levelManager.calculateScenarioLevel();
+    gameManager.stateManager.after();
+  }
   zoomOut(): void {
     this.zoom(5);
   }

@@ -91,6 +91,7 @@
       },
       "personalQuest": "Persönliche Quest",
       "retired": "Ruhestand",
+      "retirements": "Ruhestände",
       "import": "Importieren",
       "export": "Exportieren"
     },
@@ -150,6 +151,7 @@
     "eliteFirst": "Elite Aufsteller zuerst",
     "expireConditions": "Automatisch Zustände löschen",
     "applyConditions": "Zustände automatisch anweden",
+    "activeApplyConditions": "Bestätige anwendbare Zustände",
     "moveElements": "Automatisch Elementen Status ändern",
     "hideStats": "Werte ausblenden",
     "randomStandees": "Zufällige Aufsteller",

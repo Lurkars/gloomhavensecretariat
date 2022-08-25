@@ -139,6 +139,11 @@
             <span class="retired checkbox check" [ngClass]="{'checked' : character.progress.retired}"
               (click)="toggleRetired()" title="{{'character.progress.retired' | ghsLabel}}"></span>
           </div>
+          <div class="retirements">
+            <label>{{'character.progress.retirements' | ghsLabel}}:</label>
+            <input [value]="character.progress.retirements" type="number" min="0" (change)="setRetirements($event)"
+              (keyup)="setRetirements($event)">
+          </div>
           <div class="import-export">
             <label (click)="exportCharacter()" title="{{'character.progress.export' |
         ghsLabel}}"><img src="./assets/images/export.svg">{{'character.progress.export' |

@@ -58,7 +58,7 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
       this.character.progress.experience = this.characterManager.xpMap[ this.character.level - 1 ];
     }
 
-    this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1;
+    this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.retirements;
 
     this.perksWip = this.character.perks.length == 0 || this.character.perks.map((perk) => perk.count).reduce((a, b) => a + b) != 15;
 
@@ -68,7 +68,7 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
 
     gameManager.uiChange.subscribe({
       next: () => {
-        this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1;
+        this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.retirements;
 
         for (let i = 0; i < 15; i++) {
           if (!this.character.progress.perks[ i ]) {
@@ -137,6 +137,14 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
     if (!isNaN(+event.target.value)) {
       gameManager.stateManager.before();
       this.character.progress.personalQuest = +event.target.value;
+      this.gameManager.stateManager.after();
+    }
+  }
+
+  setRetirements(event: any) {
+    if (!isNaN(+event.target.value)) {
+      gameManager.stateManager.before();
+      this.character.progress.retirements = +event.target.value;
       this.gameManager.stateManager.after();
     }
   }

@@ -114,25 +114,51 @@ export class MonsterManager {
     if (monster.off) {
       monster.off = false;
       if (this.game.state == GameState.next) {
-        monsterEntity.active = true;
         monster.active = !gameManager.game.figures.some((figure) => figure.active);
       }
-    } else {
-      if (this.game.state == GameState.next) {
-        monsterEntity.active = monster.active;
-      }
+    }
+
+    if (this.game.state == GameState.next) {
+      monsterEntity.active = true;
+      monsterEntity.off = false;
     }
   }
 
   removeMonsterEntity(monster: Monster, monsterEntity: MonsterEntity) {
     monster.entities.splice(monster.entities.indexOf(monsterEntity), 1);
-    if (monster.entities.length == 0) {
+    if (monster.entities.length == 0 || monster.entities.every((entity) => entity.dead || entity.health <= 0)) {
       if (!monster.off && gameManager.game.state == GameState.next) {
         gameManager.roundManager.toggleFigure(monster);
         monster.active = false;
       } else {
         monster.off = true;
       }
+    }
+  }
+
+  toggleActive(monster: Monster, entity: MonsterEntity) {
+    if (monster.active) {
+      entity.active = !entity.active;
+      if (monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.health <= 0 || !monsterEntity.active)) {
+        gameManager.roundManager.toggleFigure(monster);
+      }
+    } else if (entity.active) {
+      entity.active = false;
+      if (monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.health <= 0 || !monsterEntity.active)) {
+        monster.off = true;
+      }
+    } else {
+      monster.off = false;
+      entity.active = true;
+    }
+
+    if (entity.active) {
+      entity.off = false;
+      if (!monster.active && this.game.figures.every((figure) => !figure.active)) {
+        monster.active = true;
+      }
+    } else {
+      entity.off = true;
     }
   }
 
@@ -208,7 +234,7 @@ export class MonsterManager {
   draw() {
     this.game.figures.filter((figure) => figure instanceof Monster && !figure.drawExtra).forEach((figure) => {
       if (figure instanceof Monster) {
-        if (figure.entities.length > 0) {
+        if (figure.entities.length > 0 && figure.entities.some((entity) => !entity.dead && entity.health > 0)) {
           figure.ability = figure.ability + 1 + this.game.figures.filter((f) => f instanceof Monster && (f.name != figure.name || f.edition != figure.edition) && gameManager.deckData(f).name == gameManager.deckData(figure).name && gameManager.deckData(f).edition == gameManager.deckData(figure).edition && f.drawExtra && f.ability > -1).length;
 
           if (figure.ability >= figure.abilities.length) {

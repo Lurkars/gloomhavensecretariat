@@ -75,7 +75,7 @@ export class StateManager {
         case "game":
           let gameModel: GameModel = message.payload as GameModel;
           gameManager.stateManager.addToUndo();
-          gameManager.game.fromModel(gameModel);
+          gameManager.game.fromModel(gameModel, true);
           gameManager.stateManager.saveLocal(0);
           gameManager.uiChange.emit();
           break;

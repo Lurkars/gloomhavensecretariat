@@ -10,7 +10,6 @@ main {
   position: relative;
   display: flex;
   justify-content: center;
-  margin: calc(var(--ghs-unit) * 1 * var(--ghs-barsize)) 0;
   z-index: 1;
 }
 

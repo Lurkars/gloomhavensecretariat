@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/AttackModifier';
 import { Character } from 'src/app/game/model/Character';
 import { Condition, ConditionType } from 'src/app/game/model/Condition';
@@ -21,6 +21,7 @@ export class CharacterComponent extends DialogComponent {
   @ViewChild('charactertitle', { static: false }) titleInput!: ElementRef;
 
   gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
   characterManager: CharacterManager = gameManager.characterManager;
 
   GameState = GameState;
@@ -32,10 +33,10 @@ export class CharacterComponent extends DialogComponent {
   levelDialog: boolean = false;
   levels: number[] = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
 
-  allowToggle: boolean = true;
   dragHp: number = 0;
+  dragHpOffset: number = -1;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {
+  constructor(private element: ElementRef, private changeDetectorRef: ChangeDetectorRef) {
     super();
   }
 
@@ -177,10 +178,59 @@ export class CharacterComponent extends DialogComponent {
     gameManager.stateManager.after();
   }
 
+  dragInitativeMove(value: number) {
+    if (settingsManager.settings.dragInitiative) {
+
+      if (value > 99) {
+        value = 99;
+      } else if (value < 0) {
+        value = 0;
+      }
+
+      if (value == 0 && settingsManager.settings.initiativeRequired) {
+        value = 1;
+      }
+
+      this.character.initiative = value;
+      if (this.character instanceof Character) {
+        this.character.initiativeVisible = true;
+      }
+    }
+  }
+
+  dragInitativeEnd(value: number) {
+    if (settingsManager.settings.dragInitiative) {
+      if (value > 99) {
+        value = 99;
+      } else if (value < 0) {
+        value = 0;
+      }
+
+      if (value == 0 && settingsManager.settings.initiativeRequired) {
+        value = 1;
+      }
+
+      console.log(value);
+
+      gameManager.stateManager.before();
+      this.character.initiative = value;
+      if (this.character instanceof Character) {
+        this.character.initiativeVisible = true;
+      }
+      gameManager.sortFigures();
+      gameManager.stateManager.after();
+    }
+  }
+
   dragHpMove(value: number) {
     if (settingsManager.settings.dragHealth) {
       const old = this.character.health;
-      this.character.health += Math.floor(value / 4) - this.dragHp;
+      if (this.dragHpOffset == -1) {
+        this.dragHpOffset = value;
+      }
+      value = value - this.dragHpOffset;
+      const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
+      this.character.health += Math.floor(value / dragFactor) - this.dragHp;
       if (this.character.health > this.character.maxHealth) {
         this.character.health = EntityValueFunction("" + this.character.maxHealth);
       } else if (this.character.health < 0) {
@@ -190,8 +240,9 @@ export class CharacterComponent extends DialogComponent {
     }
   }
 
-  dragHpEnd() {
+  dragHpEnd(value: number) {
     if (settingsManager.settings.dragHealth) {
+      this.dragHpOffset = -1;
       if (this.dragHp != 0) {
         this.character.health -= this.dragHp;
         gameManager.stateManager.before();
@@ -202,23 +253,15 @@ export class CharacterComponent extends DialogComponent {
         this.dragHp = 0;
         this.health = 0;
       }
-      setTimeout(() => {
-        this.allowToggle = true;
-      }, 200);
       gameManager.stateManager.after();
     }
-  }
-
-  dragTimeout(timeout: boolean) {
-    this.allowToggle = timeout;
   }
 
   override toggle(): void {
     if (this.character.attackModifierDeckVisible) {
       this.character.attackModifierDeckVisible = false;
-    } else if (!settingsManager.settings.dragHealth || this.allowToggle) {
+    } else {
       super.toggle();
-      this.allowToggle = true;
     }
   }
 

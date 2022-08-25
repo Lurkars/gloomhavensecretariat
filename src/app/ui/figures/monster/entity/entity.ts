@@ -28,9 +28,8 @@ export class MonsterEntityComponent extends DialogComponent {
   ConditionType = ConditionType;
   health: number = 0;
 
-  allowToggle: boolean = true;
   dragHp: number = 0;
-  dragApplyTimeout: any | null = null;
+  dragHpOffset: number = -1;
 
 
   constructor(private element: ElementRef) {
@@ -40,20 +39,7 @@ export class MonsterEntityComponent extends DialogComponent {
   override doubleClickCallback(): void {
     if (settingsManager.settings.activeStandees) {
       gameManager.stateManager.before();
-      if (this.monster.active) {
-        this.entity.active = !this.entity.active;
-        if (this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.health <= 0 || !monsterEntity.active)) {
-          gameManager.roundManager.toggleFigure(this.monster);
-        }
-      } else if (this.entity.active) {
-        this.entity.active = false;
-        if (this.monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.health <= 0 || !monsterEntity.active)) {
-          this.monster.off = true;
-        }
-      } else {
-        this.monster.off = false;
-        this.entity.active = true;
-      }
+      gameManager.monsterManager.toggleActive(this.monster, this.entity);
       gameManager.stateManager.after();
     }
   }
@@ -189,7 +175,12 @@ export class MonsterEntityComponent extends DialogComponent {
   dragHpMove(value: number) {
     if (settingsManager.settings.dragHealth) {
       const old = this.entity.health;
-      this.entity.health += Math.floor(value / 4) - this.dragHp;
+      if (this.dragHpOffset == -1) {
+        this.dragHpOffset = value;
+      }
+      value = value - this.dragHpOffset;
+      const dragFactor = 40 * this.element.nativeElement.offsetWidth / window.innerWidth;
+      this.entity.health += Math.floor(value / dragFactor) - this.dragHp;
       if (this.entity.health > this.entity.maxHealth) {
         this.entity.health = EntityValueFunction("" + this.entity.maxHealth);
       } else if (this.entity.health < 0) {
@@ -199,33 +190,21 @@ export class MonsterEntityComponent extends DialogComponent {
     }
   }
 
-  dragHpEnd() {
+  dragHpEnd(value: number) {
     if (settingsManager.settings.dragHealth) {
-      if (this.dragApplyTimeout) {
-        clearTimeout(this.dragApplyTimeout);
-      }
-      this.dragApplyTimeout = setTimeout(() => {
-        if (this.dragHp != 0) {
-          this.entity.health -= this.dragHp;
-          gameManager.stateManager.before();
-          this.changeHealth(this.dragHp);
-          if (this.entity.health <= 0 || this.entity.dead && this.dragHp >= 0 && this.entity.health > 0) {
-            this.dead();
-          }
-          this.dragHp = 0;
-          this.health = 0;
-          gameManager.stateManager.after();
+      this.dragHpOffset = -1;
+      if (this.dragHp != 0) {
+        this.entity.health -= this.dragHp;
+        gameManager.stateManager.before();
+        this.changeHealth(this.dragHp);
+        if (this.entity.health <= 0 || this.entity.dead && this.dragHp >= 0 && this.entity.health > 0) {
+          this.dead();
         }
-
-        setTimeout(() => {
-          this.allowToggle = true;
-        }, 200);
-      }, 1500);
+        this.dragHp = 0;
+        this.health = 0;
+      }
+      gameManager.stateManager.after();
     }
-  }
-
-  dragTimeout(timeout: boolean) {
-    this.allowToggle = timeout;
   }
 
   override close(): void {
@@ -243,10 +222,5 @@ export class MonsterEntityComponent extends DialogComponent {
     }
   }
 
-  override toggle(): void {
-    if (!settingsManager.settings.dragHealth || this.allowToggle) {
-      super.toggle();
-      this.allowToggle = true;
-    }
-  }
+
 }

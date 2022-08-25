@@ -125,6 +125,13 @@ export class RoundManager {
   beforeTurn(figure: Figure) {
     if (figure.off) {
       figure.off = false;
+
+      if (figure instanceof Monster) {
+        figure.entities.forEach((monsterEntity) => {
+          monsterEntity.active = figure.active && !monsterEntity.off;
+        });
+      }
+
       if (settingsManager.settings.expireConditions) {
         if (figure instanceof Character) {
           gameManager.entityManager.restoreConditions(figure);
@@ -135,7 +142,6 @@ export class RoundManager {
           gameManager.entityManager.restoreConditions(figure);
         } else if (figure instanceof Monster) {
           figure.entities.forEach((monsterEntity) => {
-            monsterEntity.active = figure.active;
             gameManager.entityManager.restoreConditions(monsterEntity);
           });
         }
@@ -143,6 +149,7 @@ export class RoundManager {
     } else if (figure instanceof Monster) {
       figure.entities.forEach((monsterEntity) => {
         monsterEntity.active = figure.active;
+        monsterEntity.off = false;
       });
     }
 
@@ -185,6 +192,15 @@ export class RoundManager {
 
   turn(figure: Figure) {
     figure.active = true;
+
+    if (figure instanceof Monster) {
+      if (figure.entities.every((monsterEntity) => !monsterEntity.off)) {
+        figure.entities.forEach((monsterEntity) => {
+          monsterEntity.active = true;
+        });
+      }
+    }
+
     if (settingsManager.settings.applyConditions) {
       if (figure instanceof Character) {
         gameManager.entityManager.applyConditionsTurn(figure);
@@ -201,7 +217,6 @@ export class RoundManager {
         }
       } else if (figure instanceof Monster) {
         figure.entities.forEach((monsterEntity) => {
-          monsterEntity.active = true;
           gameManager.entityManager.applyConditionsTurn(monsterEntity);
         });
         if (figure.entities.every((monsterEntity) => monsterEntity.dead)) {
@@ -215,6 +230,14 @@ export class RoundManager {
     if (!figure.off) {
       figure.off = true;
       figure.active = false;
+
+      if (figure instanceof Monster) {
+        figure.entities.forEach((monsterEntity) => {
+          monsterEntity.active = false;
+          monsterEntity.off = true;
+        });
+      }
+
       if (settingsManager.settings.expireConditions) {
         if (figure instanceof Character) {
           gameManager.entityManager.expireConditions(figure);
@@ -225,7 +248,6 @@ export class RoundManager {
           gameManager.entityManager.expireConditions(figure);
         } else if (figure instanceof Monster) {
           figure.entities.forEach((monsterEntity) => {
-            monsterEntity.active = false;
             gameManager.entityManager.expireConditions(monsterEntity);
           });
         }

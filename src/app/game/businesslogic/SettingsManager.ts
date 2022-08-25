@@ -95,6 +95,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setActiveApplyConditions(activeApplyConditions: boolean) {
+    this.settings.activeApplyConditions = activeApplyConditions;
+    this.storeSettings();
+  }
+
   setMoveElements(moveElements: boolean) {
     this.settings.moveElements = moveElements;
     this.storeSettings();
@@ -117,26 +122,6 @@ export class SettingsManager {
 
   setInitiativeRequired(initiativeRequired: boolean) {
     this.settings.initiativeRequired = initiativeRequired;
-    this.storeSettings();
-  }
-
-  setLevelCalculation(levelCalculation: boolean) {
-    this.settings.levelCalculation = levelCalculation;
-    this.storeSettings();
-  }
-
-  setLevelAdjustment(levelAdjustment: number) {
-    this.settings.levelAdjustment = levelAdjustment;
-    this.storeSettings();
-  }
-
-  setBonusAdjustment(bonusAdjustment: number) {
-    this.settings.bonusAdjustment = bonusAdjustment;
-    this.storeSettings();
-  }
-
-  setGe5Player(ge5Player: boolean) {
-    this.settings.ge5Player = ge5Player;
     this.storeSettings();
   }
 

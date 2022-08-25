@@ -11,7 +11,6 @@ import { DialogComponent } from '../../dialog/dialog';
 export class LevelComponent extends DialogComponent {
 
   gameManager: GameManager = gameManager;
-  settingsManager: SettingsManager = settingsManager;
   levels: number[] = [ 0, 1, 2, 3, 4, 5, 6, 7 ];
   trap: number = 0;
   experience: number = 0;
@@ -27,6 +26,13 @@ export class LevelComponent extends DialogComponent {
     })
   }
 
+  setLevelCalculation(levelCalculation: boolean) {
+    gameManager.stateManager.before();
+    gameManager.game.levelCalculation = levelCalculation;
+    gameManager.levelManager.calculateScenarioLevel();
+    gameManager.stateManager.after();
+  }
+
   calculateValues() {
     this.trap = gameManager.levelManager.trap();
     this.experience = gameManager.levelManager.experience();
@@ -37,7 +43,7 @@ export class LevelComponent extends DialogComponent {
   setLevel(level: number) {
     gameManager.stateManager.before();
     gameManager.levelManager.setLevel(level);
-    settingsManager.setLevelCalculation(false);
+    gameManager.game.levelCalculation = false;
     gameManager.stateManager.after();
   }
 

@@ -1,13 +1,24 @@
 <div class="highlight-conditions" *ngIf="gameManager.entityManager.highlightedConditions(entity).length > 0">
-  <span class="condition" [conditionHighlight]="entityCondition" *ngFor="let entityCondition of gameManager.entityManager.highlightedConditions(entity)">
-    <img src="./assets/images/condition/{{entityCondition.name}}.svg" />
-    <span class="value"
-      *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
-    <a class="close" [conditionHighlight]="entityCondition" *ngIf="entityCondition.types.indexOf(ConditionType.apply) != -1"
-      (click)="declineApplyCondition(entityCondition.name, $event)"><img class="ghs-svg"
-        src="./assets/images/close.svg" /></a>
-    <a class="check" [conditionHighlight]="entityCondition" *ngIf="entityCondition.types.indexOf(ConditionType.apply) != -1"
-      (click)="applyCondition(entityCondition.name, $event)"><img class="ghs-svg"
-        src="./assets/images/check.svg" /></a>
+  <span class="condition" [conditionHighlight]="entityCondition"
+    *ngFor="let entityCondition of gameManager.entityManager.highlightedConditions(entity)"
+    [ngClass]="{'apply' : entityCondition.types.indexOf(ConditionType.apply) != -1 && settingsManager.settings.activeApplyConditions}">
+
+    <a class="close" [conditionHighlight]="entityCondition"
+      *ngIf="entityCondition.types.indexOf(ConditionType.apply) != -1 && settingsManager.settings.activeApplyConditions"
+      (click)="declineApplyCondition(entityCondition.name, $event)">
+      <img class="ghs-svg" src="./assets/images/close.svg" />
+    </a>
+
+    <span class="condition-image">
+      <img src="./assets/images/condition/{{entityCondition.name}}.svg" />
+      <span class="value"
+        *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
+    </span>
+
+    <a class="check" [conditionHighlight]="entityCondition"
+      *ngIf="entityCondition.types.indexOf(ConditionType.apply) != -1 && settingsManager.settings.activeApplyConditions"
+      (click)="applyCondition(entityCondition.name, $event)">
+      <img class="ghs-svg" src="./assets/images/check.svg" />
+    </a>
   </span>
 </div>

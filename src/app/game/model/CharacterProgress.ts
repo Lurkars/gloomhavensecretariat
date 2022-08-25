@@ -10,6 +10,7 @@ export class CharacterProgress {
   battleGoals: number = 0;
   notes: string = "";
   retired: boolean = false;
+  retirements: number = 0;
   perks: number[] = [];
 
 }

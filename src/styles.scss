@@ -200,7 +200,13 @@ body {
   * {
     pointer-events: none;
   }
+}
 
+.dragging {
+
+  *:not(.drag-value-input) {
+    pointer-events: none;
+  }
 }
 
 .denied {
@@ -385,22 +391,6 @@ a {
   0%,
   100% {
     transform: translateX(0);
-  }
-}
-
-@keyframes condition-hightlight {
-
-  0% {
-    transform: scale(0);
-  }
-
-  25%,
-  50% {
-    transform: scale(1) translateY(-70%);
-  }
-
-  100% {
-    transform: scale(0);
   }
 }
 

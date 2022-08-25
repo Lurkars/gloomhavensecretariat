@@ -23,6 +23,17 @@
     .value {
       white-space: nowrap;
     }
+
+    .main-action {
+      flex-basis: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &.aoe {
+        flex-basis: 0;
+      }
+    }
   }
 
   .custom-value {
@@ -315,6 +326,11 @@
 
 
 
+  ghs-action.subaction-monsterType {
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+
   .additional-subactions {
     flex-basis: 100%;
     flex-shrink: 0;
@@ -322,11 +338,6 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-
-    ghs-action.subaction-monsterType {
-      flex-basis: 0;
-      flex-grow: 1;
-    }
   }
 
   &.inline {
@@ -345,6 +356,12 @@
       display: inline-flex;
       gap: calc(var(--ghs-unit) * 0.25);
       justify-content: flex-start;
+    }
+
+    .action-default {
+      .main-action {
+        justify-content: flex-start;
+      }
     }
 
     .custom-value {
@@ -418,6 +435,14 @@
       justify-content: flex-end;
       text-align: right;
     }
+
+    .action-default {
+      .main-action {
+        justify-content: flex-end;
+        text-align: right;
+      }
+    }
+
 
     &.inline {
       .custom-value {

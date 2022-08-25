@@ -54,7 +54,7 @@ export class GameManager {
     this.roundManager = new RoundManager(this.game);
     this.uiChange.subscribe({
       next: () => {
-        if (settingsManager.settings.levelCalculation) {
+        if (this.game.levelCalculation) {
           this.levelManager.calculateScenarioLevel();
         }
       }

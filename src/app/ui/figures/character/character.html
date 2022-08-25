@@ -17,6 +17,13 @@
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
   </ghs-character-image>
 
+  <ghs-drag-value *ngIf="settingsManager.settings.dragInitiative" class="drag-initiative"
+    (dragMove)="dragInitativeMove($event)" (dragEnd)="dragInitativeEnd($event)">
+  </ghs-drag-value>
+
+  <ghs-drag-value *ngIf="settingsManager.settings.dragHealth" class="drag-hp" (dragMove)="dragHpMove($event)"
+    (dragEnd)="dragHpEnd($event)"></ghs-drag-value>
+
   <ghs-character-initiative (click)="close()" [character]="character"></ghs-character-initiative>
 
   <ghs-highlight-conditions [entity]="character"></ghs-highlight-conditions>
@@ -30,9 +37,11 @@
       <div class="status-bar">
         <div class="health" title="{{'game.health' | ghsLabel}}">
           <img src="./assets/images/status/health.svg" />
-          {{character.health}}/{{character.maxHealth}} <span class="drag-hp"
-            [ngClass]="{'health-negative' : dragHp < 0, 'health-positive' : dragHp > 0}" *ngIf="dragHp">{{dragHp |
-            ghsValueSign}}</span>
+          {{character.health}}/{{character.maxHealth}} <span class="drag-hp-value"
+            [ngClass]="{'health-negative' : dragHp < 0, 'health-positive' : dragHp > 0}" *ngIf="dragHp">
+            <span class="value">{{dragHp |
+              ghsValueSign}}</span>
+          </span>
         </div>
         <div class="conditions">
           <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.activeConditions(character)">
@@ -49,7 +58,8 @@
     </div>
 
     <div *ngIf="character.attackModifierDeckVisible" class="attack-modifierdeck-container">
-      <ghs-attackmodifier-deck [character]="character" (change)="changeAttackModifierDeck($event)"></ghs-attackmodifier-deck>
+      <ghs-attackmodifier-deck [character]="character" (change)="changeAttackModifierDeck($event)">
+      </ghs-attackmodifier-deck>
       <div class="attack-modifierdeck-close" (click)="toggleAttackModifierDeckVisible()"></div>
     </div>
 
@@ -142,8 +152,7 @@
         <span class="badge bless-count">{{countAttackModifier(AttackModifierType.bless)}}</span>
       </span>
       <span class="item">
-        <a class="button"
-          [ngClass]="{'disabled' : countAllAttackModifier(AttackModifierType.bless) >= 10}"
+        <a class="button" [ngClass]="{'disabled' : countAllAttackModifier(AttackModifierType.bless) >= 10}"
           (click)="changeBless(1)">
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </a>
@@ -163,8 +172,7 @@
         <span class="badge curse-count">{{countAttackModifier(AttackModifierType.curse)}}</span>
       </span>
       <span class="item">
-        <a class="button"
-          [ngClass]="{'disabled' : countAllAttackModifier(AttackModifierType.curse) >= 10}"
+        <a class="button" [ngClass]="{'disabled' : countAllAttackModifier(AttackModifierType.curse) >= 10}"
           (click)="changeCurse(1)">
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </a>

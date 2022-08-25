@@ -1,13 +1,16 @@
 <div class="entity-border"
-  [ngClass]="{'dead' : entity.dead, 'active' : entity.active && settingsManager.settings.activeStandees, 'active-focus': entity.active && settingsManager.settings.activeStandees && !monster.active, 'denied' : !gameManager.stateManager.hasMonsterPermission(monster)}"
+  [ngClass]="{'dead' : entity.dead, 'off' : entity.off, 'active' : entity.active && settingsManager.settings.activeStandees, 'active-focus': entity.active && settingsManager.settings.activeStandees && !monster.active, 'denied' : !gameManager.stateManager.hasMonsterPermission(monster)}"
   [entityAnimation]="entity.dead">
   <div #button class="entity" [ngClass]="entity.type">
     <div class="standee">
-      <div class="background-image" [style.background-image]="'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'"></div>
+      <div class="background-image"
+        [style.background-image]="'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'"></div>
       <span class="number">{{entity.number}}</span>
       <span class="health" title="{{'game.health' | ghsLabel}}">{{entity.health}} <span class="drag-hp"
-          [ngClass]="{'health-negative' : dragHp < 0, 'health-positive' : dragHp > 0}" *ngIf="dragHp">{{dragHp |
-          ghsValueSign}}</span>
+          [ngClass]="{'health-negative' : dragHp < 0, 'health-positive' : dragHp > 0}" *ngIf="dragHp"><span
+            class="value">{{dragHp |
+            ghsValueSign}}</span>
+          </span>
       </span>
     </div>
 
@@ -34,7 +37,12 @@
     </div>
     <ghs-healthbar [entity]="entity"></ghs-healthbar>
   </div>
+
+  <ghs-drag-value *ngIf="settingsManager.settings.dragHealth" class="drag-hp" (dragMove)="dragHpMove($event)"
+    (dragEnd)="dragHpEnd($event)"></ghs-drag-value>
 </div>
+
+
 
 <div #dialog>
   <div class="status-container">
@@ -119,20 +127,20 @@
           <img src="./assets/images/summons/{{monster.summonColor}}.png">
         </a>
       </span>
+      <div class="marker-container">
+        <span *ngFor="let marker of gameManager.markers()">
+          <a class="item" [ngClass]="{'active' : hasMarker(marker)}" (click)="toggleMarker(marker)">
+            <span class="condition marker">
+              <img src="./assets/images/character/icons/{{marker}}.svg" />
+            </span>
+          </a>
+        </span>
+      </div>
     </div>
 
     <ghs-conditions [entity]="entity" [figure]="monster" type="monster"></ghs-conditions>
 
     <div class="summon-container">
     </div>
-  </div>
-  <div class="marker-container">
-    <span *ngFor="let marker of gameManager.markers()">
-      <a class="item" [ngClass]="{'active' : hasMarker(marker)}" (click)="toggleMarker(marker)">
-        <span class="condition marker">
-          <img src="./assets/images/character/icons/{{marker}}.svg" />
-        </span>
-      </a>
-    </span>
   </div>
 </div>

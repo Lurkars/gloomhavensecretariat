@@ -70,6 +70,38 @@
     z-index: 2;
   }
 
+
+  ghs-drag-value.drag-initiative {
+    position: absolute;
+    top: 0;
+    left: calc(var(--ghs-unit) * 6);
+    width: calc(var(--ghs-unit) * 9.5);
+    height: 100%;
+    z-index: 4;
+
+    &.dragging {
+      left: 0;
+      width: 100%;
+    }
+  }
+
+  ghs-drag-value.drag-hp {
+    position: absolute;
+    bottom: calc(var(--ghs-unit) * 2);
+    left: calc(var(--ghs-unit) * 22);
+    width: calc(var(--ghs-unit) * 12);
+    height: calc(var(--ghs-unit) * 5);
+    z-index: 4;
+
+    &.dragging {
+      left: 50%;
+      bottom: 0;
+      height: 100%;
+      width: 100vw;
+      transform: translateX(-50%);
+    }
+  }
+
   ghs-highlight-conditions {
     z-index: 3;
     position: absolute;
@@ -143,11 +175,33 @@
         width: auto;
       }
 
-      .drag-hp {
-        margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+      .drag-hp-value {
+        position: relative;
+        margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
         font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
         font-family: 'ghs-normal';
         text-shadow: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+
+        .value {
+          position: relative;
+        }
+
+        &::before {
+          content: ' ';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: calc(var(--ghs-unit) * -0.5 * var(--ghs-text-factor));
+          right: calc(var(--ghs-unit) * -0.5 * var(--ghs-text-factor));
+          background-color: var(--ghs-color-darkgray);
+          opacity: 0.7;
+          border-radius: 25%;
+        }
       }
     }
 
@@ -208,7 +262,7 @@
 
       .attack-modifierdeck-close {
         position: absolute;
-        cursor:  initial;
+        cursor: initial;
         top: 0;
         left: 0;
         z-index: 2;

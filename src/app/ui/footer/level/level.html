@@ -21,12 +21,12 @@
 <div #dialog class="level-dialog">
 
   <label>
-    <input type="checkbox" [checked]="settingsManager.settings.levelCalculation"
-      (change)="settingsManager.setLevelCalculation(!settingsManager.settings.levelCalculation)">
+    <input type="checkbox" [checked]="gameManager.game.levelCalculation"
+      (change)="setLevelCalculation(!gameManager.game.levelCalculation)">
     {{'settings.levelCalculation' | ghsLabel}}
   </label>
 
-  <div class="level-container" [ngClass]="{'disabled' : settingsManager.settings.levelCalculation}">
+  <div class="level-container" [ngClass]="{'disabled' : gameManager.game.levelCalculation}">
     <span class="item"><img src="./assets/images/level.svg" /></span>
     <span class="item" *ngFor="let level of levels;"><a class="level"
         [ngClass]="{'active' : level == gameManager.game.level, 'scenariolevel' : level == gameManager.levelManager.scenarioLevel()}"

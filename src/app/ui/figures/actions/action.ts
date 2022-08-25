@@ -31,6 +31,8 @@ export class ActionComponent implements OnInit {
 
   invertIcons: ActionType[] = [ ActionType.attack, ActionType.fly, ActionType.heal, ActionType.jump, ActionType.loot, ActionType.move, ActionType.range, ActionType.retaliate, ActionType.shield, ActionType.target, ActionType.teleport ];
 
+  hasAOE: boolean = false;
+
   getNormalValue() {
     if (this.monster.boss) {
       return this.getValue(MonsterType.boss);
@@ -132,36 +134,46 @@ export class ActionComponent implements OnInit {
         if (stat.actions) {
           let normalActions: Action | undefined = undefined;
           stat.actions.filter((statAction) => this.additionAttackSubActionTypes.indexOf(statAction.type) != -1).forEach((statAction) => {
-            if (statAction.type != ActionType.area || this.action.subActions.every((subAction) => subAction.type != ActionType.area)) {
-              if (!eliteStat || eliteStat.actions && eliteStat.actions.some((eliteAction) => JSON.stringify(statAction) == JSON.stringify(eliteAction))) {
-                this.additionalSubActions.push(JSON.parse(JSON.stringify(statAction)));
-              } else if (eliteStat && (!eliteStat.actions || !eliteStat.actions.some((eliteAction) => JSON.stringify(statAction) == JSON.stringify(eliteAction)))) {
-                if (!normalActions) {
-                  normalActions = new Action(ActionType.monsterType, MonsterType.normal, ActionValueType.fixed, [ JSON.parse(JSON.stringify(statAction)) ])
-                  this.additionalSubActions.push(normalActions);
-                } else {
-                  normalActions.subActions.push(JSON.parse(JSON.stringify(statAction)));
+            const newStatAction = new Action(statAction.type, statAction.value, statAction.valueType, statAction.subActions);
+            if (!this.subActionExists(this.action.subActions, newStatAction) && !this.subActionExists(this.additionalSubActions, newStatAction)) {
+              if (statAction.type != ActionType.area || this.action.subActions.every((subAction) => subAction.type != ActionType.area)) {
+                if (!eliteStat || eliteStat.actions && this.subActionExists(eliteStat.actions, newStatAction) || (settingsManager.settings.hideStats && !this.monster.entities.some((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && monsterEntity.type == MonsterType.elite))) {
+                  this.additionalSubActions.push(newStatAction);
+                } else if (eliteStat && (!eliteStat.actions || !this.subActionExists(eliteStat.actions, newStatAction))) {
+                  if (!normalActions && !this.subActionExists(this.action.subActions, newStatAction) && !this.subActionExists(this.additionalSubActions, newStatAction)) {
+                    normalActions = new Action(ActionType.monsterType, MonsterType.normal, ActionValueType.fixed, [ newStatAction ])
+                    this.additionalSubActions.push(normalActions);
+                  } else if (normalActions && !this.subActionExists(this.action.subActions, newStatAction) && !this.subActionExists(this.additionalSubActions, newStatAction) && !this.subActionExists(normalActions.subActions, newStatAction)) {
+                    normalActions.subActions.push(newStatAction);
+                  }
                 }
               }
             }
           })
         }
 
-        if (eliteStat) {
+        if (eliteStat && (!settingsManager.settings.hideStats || this.monster.entities.some((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && monsterEntity.type == MonsterType.elite))) {
           let eliteActions: Action | undefined = undefined;
           eliteStat.actions.filter((eliteAction) => this.additionAttackSubActionTypes.indexOf(eliteAction.type) != -1).forEach((eliteAction) => {
-            if (!stat.actions || !stat.actions.some((statAction) => JSON.stringify(eliteAction) == JSON.stringify(statAction))) {
-              if (!eliteActions) {
-                eliteActions = new Action(ActionType.monsterType, MonsterType.elite, ActionValueType.fixed, [ JSON.parse(JSON.stringify(eliteAction)) ])
+            const newEliteAction = new Action(eliteAction.type, eliteAction.value, eliteAction.valueType, eliteAction.subActions);
+            if (!stat.actions || !this.subActionExists(stat.actions, newEliteAction)) {
+              if (!eliteActions && !this.subActionExists(this.action.subActions, newEliteAction) && !this.subActionExists(this.additionalSubActions, newEliteAction)) {
+                eliteActions = new Action(ActionType.monsterType, MonsterType.elite, ActionValueType.fixed, [ newEliteAction ]);
                 this.additionalSubActions.push(eliteActions);
-              } else {
-                eliteActions.subActions.push(JSON.parse(JSON.stringify(eliteAction)));
+              } else if (eliteActions && !this.subActionExists(this.action.subActions, newEliteAction) && !this.subActionExists(this.additionalSubActions, newEliteAction) && !this.subActionExists(eliteActions.subActions, newEliteAction)) {
+                eliteActions.subActions.push(newEliteAction);
               }
             }
           })
         }
       }
     }
+
+    this.hasAOE = this.additionalSubActions.some((subAction, index) => index == 0 && subAction.type == ActionType.area)
+  }
+
+  subActionExists(additionalSubActions: Action[], subAction: Action): boolean {
+    return additionalSubActions.some((action) => action.type == subAction.type && action.value == subAction.value && (action.valueType || ActionValueType.fixed) == (subAction.valueType || ActionValueType.fixed));
   }
 
   isInvertIcon(type: ActionType) {

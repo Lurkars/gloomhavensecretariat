@@ -3,6 +3,7 @@
   "characterClass": "inox",
   "edition": "jotl",
   "color": "#7bbbd6",
+  "marker": true,
   "stats": [
     {
       "level": 1,
