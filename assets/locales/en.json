@@ -91,6 +91,7 @@
       },
       "personalQuest": "Personal Quest",
       "retired": "Retired",
+      "retirements": "Retirements",
       "import": "Import",
       "export": "Export"
     },
@@ -150,6 +151,7 @@
     "eliteFirst": "Elite standees first",
     "expireConditions": "Automatic expire conditions",
     "applyConditions": "Automatic apply conditions",
+    "activeApplyConditions": "Confirm applicable conditions",
     "moveElements": "Automatic update element state",
     "hideStats": "Hide stats",
     "randomStandees": "Random standees",
