@@ -37,7 +37,7 @@ export class Character extends CharacterData implements Entity, Figure {
   markers: string[] = [];
 
   getInitiative(): number {
-    return this.exhausted ? 99 : this.initiative;
+    return (this.exhausted || this.health <= 0) ? 100 : this.initiative;
   }
 
   constructor(character: CharacterData, level: number) {

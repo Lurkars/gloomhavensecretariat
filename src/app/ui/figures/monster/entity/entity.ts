@@ -173,7 +173,7 @@ export class MonsterEntityComponent extends DialogComponent {
   }
 
   dragHpMove(value: number) {
-    if (settingsManager.settings.dragHealth) {
+    if (settingsManager.settings.dragValues) {
       const old = this.entity.health;
       if (this.dragHpOffset == -1) {
         this.dragHpOffset = value;
@@ -191,7 +191,7 @@ export class MonsterEntityComponent extends DialogComponent {
   }
 
   dragHpEnd(value: number) {
-    if (settingsManager.settings.dragHealth) {
+    if (settingsManager.settings.dragValues) {
       this.dragHpOffset = -1;
       if (this.dragHp != 0) {
         this.entity.health -= this.dragHp;

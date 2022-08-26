@@ -88,6 +88,7 @@ export class ObjectiveComponent extends DialogComponent {
     } else {
       this.objective.off = false;
     }
+    gameManager.sortFigures();
     gameManager.stateManager.after();
   }
 

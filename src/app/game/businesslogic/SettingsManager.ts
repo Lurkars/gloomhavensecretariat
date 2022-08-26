@@ -130,13 +130,8 @@ export class SettingsManager {
     this.storeSettings();
   }
 
-  setDragInitiative(dragInitiative: boolean) {
-    this.settings.dragInitiative = dragInitiative;
-    this.storeSettings();
-  }
-
-  setDragHealth(dragHealth: boolean) {
-    this.settings.dragHealth = dragHealth;
+  setDragValues(dragValues: boolean) {
+    this.settings.dragValues = dragValues;
     this.storeSettings();
   }
 

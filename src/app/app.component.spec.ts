@@ -47,7 +47,7 @@ import { I18nDirective } from './ui/helper/i18n';
 import { ValueCalcDirective } from './ui/helper/valueCalc';
 import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-sheet';
 import { PartySheetDialog } from './ui/header/party/party-sheet';
-import { DragValueDirective } from './ui/helper/dragValue/drag';
+import { DragValueComponent } from './ui/helper/dragValue/drag';
 import { AttackModifierDeckComponent } from './ui/figures/attackmodifier/attackmodifierdeck';
 import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodifier';
 
@@ -75,7 +75,7 @@ describe('AppComponent', () => {
         MonsterNumberPicker,
         ActionsComponent, ActionComponent, ActionHexComponent,
         FigureErrors,
-        CardRevealDirective, EntityAnimationDirective, I18nDirective, ValueCalcDirective, DragValueDirective,
+        CardRevealDirective, EntityAnimationDirective, I18nDirective, ValueCalcDirective, DragValueComponent,
         GhsValueSignPipe, GhsLabelPipe, GhsRangePipe,
         MonsterToolComponent, MonsterActionToolComponent, MonsterStatToolComponent ],
       imports: [

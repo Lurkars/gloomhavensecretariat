@@ -19,8 +19,7 @@ export class Settings {
   fullscreen: boolean = false;
   autoscroll: boolean = true;
   disableColumns: boolean = false;
-  dragInitiative: boolean = true;
-  dragHealth: boolean = true;
+  dragValues: boolean = true;
   hints: boolean = true;
   zoom: number = 100;
   barSize: number = 1;

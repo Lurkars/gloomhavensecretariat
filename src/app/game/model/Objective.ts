@@ -29,7 +29,7 @@ export class Objective implements Entity, Figure {
   }
 
   getInitiative(): number {
-    return this.initiative;
+    return (this.exhausted || this.health <= 0) ? 100 : this.initiative;
   }
 
   toModel(): GameObjectiveModel {

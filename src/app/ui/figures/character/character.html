@@ -17,12 +17,18 @@
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
   </ghs-character-image>
 
-  <ghs-drag-value *ngIf="settingsManager.settings.dragInitiative" class="drag-initiative"
+  <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-initiative"
     (dragMove)="dragInitativeMove($event)" (dragEnd)="dragInitativeEnd($event)">
   </ghs-drag-value>
 
-  <ghs-drag-value *ngIf="settingsManager.settings.dragHealth" class="drag-hp" (dragMove)="dragHpMove($event)"
+  <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-hp" (dragMove)="dragHpMove($event)"
     (dragEnd)="dragHpEnd($event)"></ghs-drag-value>
+
+  <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-xp" (dragMove)="dragXpMove($event)"
+    (dragEnd)="dragXpEnd($event)"></ghs-drag-value>
+
+  <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-loot" (dragMove)="dragLootMove($event)"
+    (dragEnd)="dragLootEnd($event)"></ghs-drag-value>
 
   <ghs-character-initiative (click)="close()" [character]="character"></ghs-character-initiative>
 

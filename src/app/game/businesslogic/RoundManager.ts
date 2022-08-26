@@ -40,9 +40,9 @@ export class RoundManager {
         this.game.strongElements = [];
       }
 
-      gameManager.sortFigures();
-
       this.game.figures.forEach((figure) => figure.active = false);
+
+      gameManager.sortFigures();
 
     } else if (this.nextAvailable()) {
       if (this.game.round == 0) {
@@ -60,11 +60,11 @@ export class RoundManager {
         this.game.newElements = [];
       }
 
-      gameManager.sortFigures();
-
       if (this.game.figures.length > 0) {
         this.toggleFigure(this.game.figures[ 0 ]);
       }
+
+      gameManager.sortFigures();
     }
     gameManager.uiChange.emit();
     setTimeout(() => this.working = false, 1);

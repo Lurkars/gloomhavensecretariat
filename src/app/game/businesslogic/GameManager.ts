@@ -149,45 +149,52 @@ export class GameManager {
   sortFigures() {
     this.game.figures.sort((a, b) => {
       if (this.game.state == GameState.draw) {
-        let aName = a.name.toLowerCase();
-        if (a instanceof Character) {
-          aName = a.title.toLowerCase() || settingsManager.getLabel('data.character.' + a.name).toLowerCase();
-        } else if (a instanceof Monster) {
-          aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
-        } else if (a instanceof Objective) {
-          aName = (a.title ? a.title : settingsManager.getLabel(a.name ? 'data.objective.' + a.name : (a.escort ? 'escort' : 'objective')).toLowerCase());
-        }
-
-        let bName = b.name.toLowerCase();
-        if (b instanceof Character) {
-          bName = b.title.toLowerCase() || settingsManager.getLabel('data.character.' + b.name).toLowerCase();
-        } else if (b instanceof Monster) {
-          bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
-        } else if (b instanceof Objective) {
-          bName = (b.title ? b.title : settingsManager.getLabel(b.name ? 'data.objective.' + b.name : (b.escort ? 'escort' : 'objective')).toLowerCase());
-        }
-        if (a instanceof Character && b instanceof Monster) {
-          return -1;
-        } else if (a instanceof Monster && b instanceof Character) {
-          return 1;
-        } else if (a instanceof Character && b instanceof Objective) {
-          return -1;
-        } else if (a instanceof Objective && b instanceof Character) {
-          return 1;
-        } else if (a instanceof Monster && b instanceof Objective) {
-          return -1;
-        } else if (a instanceof Objective && b instanceof Monster) {
-          return 1;
-        } else if (a instanceof Monster && b instanceof Monster) {
-          return 0;
-        }
-        return aName < bName ? -1 : 1;
+        return this.sortFiguresByTypeAndName(a, b);
       } else if (settingsManager.settings.initiativeRequired) {
+        if (a.getInitiative() == b.getInitiative()) {
+          return this.sortFiguresByTypeAndName(a, b);
+        }
         return a.getInitiative() - b.getInitiative();
       }
 
       return 0;
     });
+  }
+
+  sortFiguresByTypeAndName(a: Figure, b: Figure): number {
+    let aName = a.name.toLowerCase();
+    if (a instanceof Character) {
+      aName = a.title.toLowerCase() || settingsManager.getLabel('data.character.' + a.name).toLowerCase();
+    } else if (a instanceof Monster) {
+      aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
+    } else if (a instanceof Objective) {
+      aName = (a.title ? a.title : settingsManager.getLabel(a.name ? 'data.objective.' + a.name : (a.escort ? 'escort' : 'objective')).toLowerCase());
+    }
+
+    let bName = b.name.toLowerCase();
+    if (b instanceof Character) {
+      bName = b.title.toLowerCase() || settingsManager.getLabel('data.character.' + b.name).toLowerCase();
+    } else if (b instanceof Monster) {
+      bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
+    } else if (b instanceof Objective) {
+      bName = (b.title ? b.title : settingsManager.getLabel(b.name ? 'data.objective.' + b.name : (b.escort ? 'escort' : 'objective')).toLowerCase());
+    }
+    if (a instanceof Character && b instanceof Monster) {
+      return -1;
+    } else if (a instanceof Monster && b instanceof Character) {
+      return 1;
+    } else if (a instanceof Character && b instanceof Objective) {
+      return -1;
+    } else if (a instanceof Objective && b instanceof Character) {
+      return 1;
+    } else if (a instanceof Monster && b instanceof Objective) {
+      return -1;
+    } else if (a instanceof Objective && b instanceof Monster) {
+      return 1;
+    } else if (a instanceof Monster && b instanceof Monster) {
+      return 0;
+    }
+    return aName < bName ? -1 : 1;
   }
 
   deckData(figure: Monster | Character): DeckData {

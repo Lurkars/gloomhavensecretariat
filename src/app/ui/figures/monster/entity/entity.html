@@ -38,7 +38,7 @@
     <ghs-healthbar [entity]="entity"></ghs-healthbar>
   </div>
 
-  <ghs-drag-value *ngIf="settingsManager.settings.dragHealth" class="drag-hp" (dragMove)="dragHpMove($event)"
+  <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-hp" (dragMove)="dragHpMove($event)"
     (dragEnd)="dragHpEnd($event)"></ghs-drag-value>
 </div>
 

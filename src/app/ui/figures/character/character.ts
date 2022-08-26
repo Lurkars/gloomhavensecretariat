@@ -35,6 +35,10 @@ export class CharacterComponent extends DialogComponent {
 
   dragHp: number = 0;
   dragHpOffset: number = -1;
+  dragXp: number = 0;
+  dragXpOffset: number = -1;
+  dragLoot: number = 0;
+  dragLootOffset: number = -1;
 
   constructor(private element: ElementRef, private changeDetectorRef: ChangeDetectorRef) {
     super();
@@ -179,7 +183,7 @@ export class CharacterComponent extends DialogComponent {
   }
 
   dragInitativeMove(value: number) {
-    if (settingsManager.settings.dragInitiative) {
+    if (settingsManager.settings.dragValues) {
 
       if (value > 99) {
         value = 99;
@@ -199,7 +203,7 @@ export class CharacterComponent extends DialogComponent {
   }
 
   dragInitativeEnd(value: number) {
-    if (settingsManager.settings.dragInitiative) {
+    if (settingsManager.settings.dragValues) {
       if (value > 99) {
         value = 99;
       } else if (value < 0) {
@@ -209,8 +213,6 @@ export class CharacterComponent extends DialogComponent {
       if (value == 0 && settingsManager.settings.initiativeRequired) {
         value = 1;
       }
-
-      console.log(value);
 
       gameManager.stateManager.before();
       this.character.initiative = value;
@@ -223,7 +225,7 @@ export class CharacterComponent extends DialogComponent {
   }
 
   dragHpMove(value: number) {
-    if (settingsManager.settings.dragHealth) {
+    if (settingsManager.settings.dragValues) {
       const old = this.character.health;
       if (this.dragHpOffset == -1) {
         this.dragHpOffset = value;
@@ -241,7 +243,7 @@ export class CharacterComponent extends DialogComponent {
   }
 
   dragHpEnd(value: number) {
-    if (settingsManager.settings.dragHealth) {
+    if (settingsManager.settings.dragValues) {
       this.dragHpOffset = -1;
       if (this.dragHp != 0) {
         this.character.health -= this.dragHp;
@@ -252,6 +254,64 @@ export class CharacterComponent extends DialogComponent {
         }
         this.dragHp = 0;
         this.health = 0;
+      }
+      gameManager.stateManager.after();
+    }
+  }
+
+  dragXpMove(value: number) {
+    if (settingsManager.settings.dragValues) {
+      const old = this.character.experience;
+      if (this.dragXpOffset == -1) {
+        this.dragXpOffset = value;
+      }
+      value = value - this.dragXpOffset;
+      const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
+      this.character.experience += Math.floor(value / dragFactor);
+      if (this.character.experience < 0) {
+        this.character.experience = 0;
+      }
+      this.dragXp += this.character.experience - old;
+    }
+  }
+
+  dragXpEnd(value: number) {
+    if (settingsManager.settings.dragValues) {
+      this.dragXpOffset = -1;
+      if (this.dragXp != 0) {
+        this.character.experience -= this.dragXp;
+        gameManager.stateManager.before();
+        this.character.experience += this.dragXp;
+        this.dragXp = 0;
+      }
+      gameManager.stateManager.after();
+    }
+  }
+
+  dragLootMove(value: number) {
+    if (settingsManager.settings.dragValues) {
+      const old = this.character.loot;
+      if (this.dragLootOffset == -1) {
+        this.dragLootOffset = value;
+      }
+      value = value - this.dragLootOffset;
+      const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
+      this.character.loot += Math.floor(value / dragFactor);
+      if (this.character.loot < 0) {
+        this.character.loot = 0;
+      }
+      this.dragLoot += this.character.loot - old;
+    }
+  }
+
+  dragLootEnd(value: number) {
+    if (settingsManager.settings.dragValues) {
+      this.dragLootOffset = -1;
+      if (this.dragLoot != 0) {
+        this.character.loot -= this.dragLoot;
+        gameManager.stateManager.before();
+        this.character.loot += this.dragLoot;
+        this.dragLoot = 0;
       }
       gameManager.stateManager.after();
     }
@@ -285,6 +345,8 @@ export class CharacterComponent extends DialogComponent {
         this.exhausted();
       }
       this.dragHp = 0;
+      this.dragXp = 0;
+      this.dragLoot = 0;
       this.health = 0;
       gameManager.stateManager.after();
     }

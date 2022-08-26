@@ -50,7 +50,7 @@ import { ValueCalcDirective } from './ui/helper/valueCalc';
 import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-sheet';
 import { ScenarioComponent } from './ui/footer/scenario/scenario';
 import { PartySheetDialog } from './ui/header/party/party-sheet';
-import { DragValueComponent, DragValueDirective } from './ui/helper/dragValue/drag';
+import { DragValueComponent } from './ui/helper/dragValue/drag';
 import { AutoscrollDirective, FigureAutoscrollDirective } from './ui/helper/autoscroll';
 import { AttackModifierDeckComponent } from './ui/figures/attackmodifier/attackmodifierdeck';
 import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodifier';
@@ -79,7 +79,7 @@ import { TextShrinkDirective } from './ui/helper/textshrink';
     MonsterNumberPicker,
     ActionsComponent, ActionComponent, ActionHexComponent,
     FigureErrors,
-    CardRevealDirective, EntityAnimationDirective, I18nDirective, ValueCalcDirective, DragValueComponent, DragValueDirective, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
+    CardRevealDirective, EntityAnimationDirective, I18nDirective, ValueCalcDirective, DragValueComponent, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
     GhsValueSignPipe, GhsLabelPipe, GhsRangePipe,
     AttackModifierToolComponent, MonsterToolComponent, MonsterActionToolComponent, MonsterStatToolComponent ],
   imports: [

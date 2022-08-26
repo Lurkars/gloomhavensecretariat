@@ -31,15 +31,8 @@
       </div>
       <div class="line">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.dragInitiative"
-            (change)="settingsManager.setDragInitiative(!settingsManager.settings.dragInitiative)">{{'settings.dragInitiative'
-          | ghsLabel}}
-        </label>
-      </div>
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.dragHealth"
-            (change)="settingsManager.setDragHealth(!settingsManager.settings.dragHealth)">{{'settings.dragHealth'
+          <input type="checkbox" [checked]="settingsManager.settings.dragValues"
+            (change)="settingsManager.setDragValues(!settingsManager.settings.dragValues)">{{'settings.dragValues'
           | ghsLabel}}
         </label>
       </div>
