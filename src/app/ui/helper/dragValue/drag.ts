@@ -5,7 +5,7 @@ import { Component, Directive, ElementRef, EventEmitter, Input, OnInit, Output }
   templateUrl: './drag.html',
   styleUrls: [ './drag.scss' ]
 })
-export class DragValueComponent implements OnInit {
+export class DragValueComponent {
 
   @Output('dragMove') dragMoveCallback = new EventEmitter<number>();
   @Output('dragEnd') dragEndCallback = new EventEmitter<number>();
@@ -17,14 +17,16 @@ export class DragValueComponent implements OnInit {
 
   constructor(private elementRef: ElementRef) { }
 
-  ngOnInit(): void {
-    this.elementRef.nativeElement.addEventListener('click', this.click);
-  }
-
   click(event: any) {
     if (this.inputCount < 2) {
       this.clickBehind(event.clientX, event.clientY);
     }
+
+    this.draggingTimeout = setTimeout(() => {
+      document.body.classList.remove('dragging');
+    }, 200);
+    this.elementRef.nativeElement.classList.remove('dragging');
+    this.elementRef.nativeElement.firstChild.classList.remove('dragging');
   }
 
   clickBehind(x: number, y: number) {
@@ -56,12 +58,12 @@ export class DragValueComponent implements OnInit {
       if (this.draggingTimeout) {
         clearTimeout(this.draggingTimeout);
       }
-      this.draggingTimeout = setTimeout(() => {
-        document.body.classList.remove('dragging');
-      }, 200);
-      this.elementRef.nativeElement.classList.remove('dragging');
-      this.elementRef.nativeElement.firstChild.classList.remove('dragging');
     }
+    this.draggingTimeout = setTimeout(() => {
+      document.body.classList.remove('dragging');
+    }, 200);
+    this.elementRef.nativeElement.classList.remove('dragging');
+    this.elementRef.nativeElement.firstChild.classList.remove('dragging');
     this.inputCount = 0;
   }
 
