@@ -119,7 +119,7 @@ export class MonsterManager {
     }
 
     if (this.game.state == GameState.next) {
-      monsterEntity.active = true;
+      monsterEntity.active = monsterEntity.active || gameManager.game.figures.some((figure) => figure.active && figure.getInitiative() > monster.getInitiative());
       monsterEntity.off = false;
     }
   }
