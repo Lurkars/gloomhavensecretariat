@@ -46,10 +46,15 @@ export class DragValueComponent {
   touchend(event: any) {
     if (this.inputCount < 2 && this.touchX > 0 && this.touchY > 0) {
       this.clickBehind(this.touchX, this.touchY);
-      this.touchX = 0;
-      this.touchY = 0;
-      this.inputCount = 0;
     }
+    this.touchX = 0;
+    this.touchY = 0;
+    this.inputCount = 0;
+    this.draggingTimeout = setTimeout(() => {
+      document.body.classList.remove('dragging');
+    }, 200);
+    this.elementRef.nativeElement.classList.remove('dragging');
+    this.elementRef.nativeElement.firstChild.classList.remove('dragging');
   }
 
   change(event: any) {
