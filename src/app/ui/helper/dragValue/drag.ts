@@ -21,7 +21,7 @@ export class DragValueComponent {
     if (this.inputCount < 2) {
       this.clickBehind(event.clientX, event.clientY);
     }
-
+    this.inputCount = 0;
     this.draggingTimeout = setTimeout(() => {
       document.body.classList.remove('dragging');
     }, 200);
@@ -59,12 +59,12 @@ export class DragValueComponent {
         clearTimeout(this.draggingTimeout);
       }
     }
+    this.inputCount = 0;
     this.draggingTimeout = setTimeout(() => {
       document.body.classList.remove('dragging');
     }, 200);
     this.elementRef.nativeElement.classList.remove('dragging');
     this.elementRef.nativeElement.firstChild.classList.remove('dragging');
-    this.inputCount = 0;
   }
 
   input(event: any) {
