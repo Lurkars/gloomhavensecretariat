@@ -165,8 +165,13 @@ export class SettingsManager {
     this.storeSettings();
   }
 
-  setBarSize(barSize: number) {
-    this.settings.barSize = barSize;
+  setBarsize(barsize: number) {
+    this.settings.barsize = barsize;
+    this.storeSettings();
+  }
+
+  setFontsize(fontsize: number) {
+    this.settings.fontsize = fontsize;
     this.storeSettings();
   }
 

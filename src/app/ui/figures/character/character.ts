@@ -34,11 +34,8 @@ export class CharacterComponent extends DialogComponent {
   levels: number[] = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
 
   dragHp: number = 0;
-  dragHpOffset: number = -1;
   dragXp: number = 0;
-  dragXpOffset: number = -1;
   dragLoot: number = 0;
-  dragLootOffset: number = -1;
 
   constructor(private element: ElementRef, private changeDetectorRef: ChangeDetectorRef) {
     super();
@@ -196,9 +193,7 @@ export class CharacterComponent extends DialogComponent {
       }
 
       this.character.initiative = value;
-      if (this.character instanceof Character) {
-        this.character.initiativeVisible = true;
-      }
+      this.character.initiativeVisible = true;
     }
   }
 
@@ -227,10 +222,6 @@ export class CharacterComponent extends DialogComponent {
   dragHpMove(value: number) {
     if (settingsManager.settings.dragValues) {
       const old = this.character.health;
-      if (this.dragHpOffset == -1) {
-        this.dragHpOffset = value;
-      }
-      value = value - this.dragHpOffset;
       const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
       this.character.health += Math.floor(value / dragFactor) - this.dragHp;
       if (this.character.health > this.character.maxHealth) {
@@ -244,7 +235,6 @@ export class CharacterComponent extends DialogComponent {
 
   dragHpEnd(value: number) {
     if (settingsManager.settings.dragValues) {
-      this.dragHpOffset = -1;
       if (this.dragHp != 0) {
         this.character.health -= this.dragHp;
         gameManager.stateManager.before();
@@ -262,12 +252,8 @@ export class CharacterComponent extends DialogComponent {
   dragXpMove(value: number) {
     if (settingsManager.settings.dragValues) {
       const old = this.character.experience;
-      if (this.dragXpOffset == -1) {
-        this.dragXpOffset = value;
-      }
-      value = value - this.dragXpOffset;
       const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
-      this.character.experience += Math.floor(value / dragFactor);
+      this.character.experience += Math.floor(value / dragFactor) - this.dragXp;
       if (this.character.experience < 0) {
         this.character.experience = 0;
       }
@@ -277,7 +263,6 @@ export class CharacterComponent extends DialogComponent {
 
   dragXpEnd(value: number) {
     if (settingsManager.settings.dragValues) {
-      this.dragXpOffset = -1;
       if (this.dragXp != 0) {
         this.character.experience -= this.dragXp;
         gameManager.stateManager.before();
@@ -291,12 +276,8 @@ export class CharacterComponent extends DialogComponent {
   dragLootMove(value: number) {
     if (settingsManager.settings.dragValues) {
       const old = this.character.loot;
-      if (this.dragLootOffset == -1) {
-        this.dragLootOffset = value;
-      }
-      value = value - this.dragLootOffset;
       const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
-      this.character.loot += Math.floor(value / dragFactor);
+      this.character.loot += Math.floor(value / dragFactor) - this.dragLoot;
       if (this.character.loot < 0) {
         this.character.loot = 0;
       }
@@ -306,7 +287,6 @@ export class CharacterComponent extends DialogComponent {
 
   dragLootEnd(value: number) {
     if (settingsManager.settings.dragValues) {
-      this.dragLootOffset = -1;
       if (this.dragLoot != 0) {
         this.character.loot -= this.dragLoot;
         gameManager.stateManager.before();

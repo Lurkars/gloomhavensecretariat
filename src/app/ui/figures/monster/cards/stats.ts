@@ -157,6 +157,12 @@ export class MonsterStatsComponent extends DialogComponent {
     return gameManager.getEdition(this.monster);
   }
 
+  toggleAlly() {
+    gameManager.stateManager.before();
+    this.monster.isAlly = !this.monster.isAlly;
+    gameManager.stateManager.after();
+  }
+
   override close(): void {
     super.close();
     this.statOverview = false;

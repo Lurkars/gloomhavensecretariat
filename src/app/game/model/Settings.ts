@@ -22,7 +22,8 @@ export class Settings {
   dragValues: boolean = true;
   hints: boolean = true;
   zoom: number = 100;
-  barSize: number = 1;
+  barsize: number = 1;
+  fontsize: number = 1;
   locale: string = "en";
   editionDataUrls: string[] = [];
   excludeEditionDataUrls: string[] = [];

@@ -50,6 +50,14 @@
 
 .level-dialog {
 
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+  }
+
   label {
     cursor: pointer;
     display: flex;

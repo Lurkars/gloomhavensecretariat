@@ -42,6 +42,7 @@ body {
   --ghs-text-factor: 1;
   --ghs-small-text-factor: 1;
   --ghs-barsize: 1;
+  --ghs-fontsize: 1;
   --ghs-unit: calc(var(--ghs-width) / var(--ghs-factor));
   --ghs-color-black: #000;
   --ghs-color-white: #fff;
@@ -238,6 +239,43 @@ a {
 
   &:hover {
     color: var(--ghs-color-white);
+  }
+}
+
+.positive-value {
+  color: var(--ghs-color-green) !important;
+}
+
+.negative-value {
+  color: var(--ghs-color-red) !important;
+}
+
+.value-overlay {
+  position: relative;
+  margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+  font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+  font-family: 'ghs-normal';
+  text-shadow: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+  height: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+
+  .value {
+    position: relative;
+  }
+
+  &::before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(var(--ghs-unit) * -0.5 * var(--ghs-text-factor));
+    right: calc(var(--ghs-unit) * -0.5 * var(--ghs-text-factor));
+    background-color: var(--ghs-color-darkgray);
+    opacity: 0.7;
+    border-radius: 25%;
   }
 }
 

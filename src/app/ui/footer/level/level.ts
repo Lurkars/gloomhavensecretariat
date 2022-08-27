@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { Character } from 'src/app/game/model/Character';
 import { DialogComponent } from '../../dialog/dialog';
 
 @Component({
@@ -31,6 +32,31 @@ export class LevelComponent extends DialogComponent {
     gameManager.game.levelCalculation = levelCalculation;
     gameManager.levelManager.calculateScenarioLevel();
     gameManager.stateManager.after();
+  }
+
+  setLevelAdjustment(levelAdjustment: number) {
+    gameManager.stateManager.before();
+    gameManager.game.levelAdjustment = levelAdjustment;
+    gameManager.levelManager.calculateScenarioLevel();
+    gameManager.stateManager.after();
+  }
+
+  setBonusAdjustment(bonusAdjustment: number) {
+    gameManager.stateManager.before();
+    gameManager.game.bonusAdjustment = bonusAdjustment;
+    gameManager.levelManager.calculateScenarioLevel();
+    gameManager.stateManager.after();
+  }
+
+  setGe5Player(ge5Player: boolean) {
+    gameManager.stateManager.before();
+    gameManager.game.ge5Player = ge5Player;
+    gameManager.levelManager.calculateScenarioLevel();
+    gameManager.stateManager.after();
+  }
+
+  ge5Player(): boolean {
+    return gameManager.game.figures.filter((figure) => figure instanceof Character).length > 4;
   }
 
   calculateValues() {

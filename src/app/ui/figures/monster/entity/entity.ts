@@ -29,8 +29,6 @@ export class MonsterEntityComponent extends DialogComponent {
   health: number = 0;
 
   dragHp: number = 0;
-  dragHpOffset: number = -1;
-
 
   constructor(private element: ElementRef) {
     super();
@@ -175,10 +173,6 @@ export class MonsterEntityComponent extends DialogComponent {
   dragHpMove(value: number) {
     if (settingsManager.settings.dragValues) {
       const old = this.entity.health;
-      if (this.dragHpOffset == -1) {
-        this.dragHpOffset = value;
-      }
-      value = value - this.dragHpOffset;
       const dragFactor = 40 * this.element.nativeElement.offsetWidth / window.innerWidth;
       this.entity.health += Math.floor(value / dragFactor) - this.dragHp;
       if (this.entity.health > this.entity.maxHealth) {
@@ -192,7 +186,6 @@ export class MonsterEntityComponent extends DialogComponent {
 
   dragHpEnd(value: number) {
     if (settingsManager.settings.dragValues) {
-      this.dragHpOffset = -1;
       if (this.dragHp != 0) {
         this.entity.health -= this.dragHp;
         gameManager.stateManager.before();

@@ -25,6 +25,7 @@ export class Game {
   playSeconds: number = 0;
   totalSeconds: number = 0;
   monsterAttackModifierDeck: AttackModifierDeck = new AttackModifierDeck();
+  allyAttackModifierDeck: AttackModifierDeck = new AttackModifierDeck();
   newElements: Element[] = [];
   strongElements: Element[] = [];
   elements: Element[] = [];
@@ -33,7 +34,7 @@ export class Game {
 
 
   toModel(): GameModel {
-    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.round, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.newElements, this.strongElements, this.elements, this.solo, this.party);
+    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.round, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.newElements, this.strongElements, this.elements, this.solo, this.party);
   }
 
   fromModel(model: GameModel, server: boolean = false) {
@@ -125,6 +126,11 @@ export class Game {
       this.monsterAttackModifierDeck.fromModel(new GameAttackModifierDeckModel(model.attackModifier, model.attackModifiers))
     }
 
+    this.allyAttackModifierDeck = this.allyAttackModifierDeck || new AttackModifierDeck();
+    if (model.allyAttackModifierDeck && model.allyAttackModifierDeck.cards && model.allyAttackModifierDeck.cards.length > 0) {
+      this.allyAttackModifierDeck.fromModel(model.allyAttackModifierDeck);
+    }
+
     this.newElements = model.newElements;
     this.strongElements = model.strongElements;
     this.elements = model.elements;
@@ -157,6 +163,7 @@ export class GameModel {
   playSeconds: number;
   totalSeconds: number;
   monsterAttackModifierDeck: GameAttackModifierDeckModel;
+  allyAttackModifierDeck: GameAttackModifierDeckModel;
   attackModifier: number | undefined;
   attackModifiers: AttackModifierType[] | undefined;
   newElements: Element[];
@@ -182,6 +189,7 @@ export class GameModel {
     playSeconds: number = 0,
     totalSeconds: number = 0,
     monsterAttackModifierDeck: GameAttackModifierDeckModel = new GameAttackModifierDeckModel(-1, defaultAttackModifierCards),
+    allyAttackModifierDeck: GameAttackModifierDeckModel = new GameAttackModifierDeckModel(-1, defaultAttackModifierCards),
     newElements: Element[] = [],
     strongElements: Element[] = [],
     elements: Element[] = [],
@@ -204,6 +212,7 @@ export class GameModel {
     this.playSeconds = playSeconds;
     this.totalSeconds = totalSeconds;
     this.monsterAttackModifierDeck = monsterAttackModifierDeck;
+    this.allyAttackModifierDeck = allyAttackModifierDeck;
     this.newElements = newElements;
     this.strongElements = strongElements;
     this.elements = elements;

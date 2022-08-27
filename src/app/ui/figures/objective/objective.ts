@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Condition, ConditionType } from 'src/app/game/model/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
@@ -22,12 +22,15 @@ export class ObjectiveComponent extends DialogComponent {
   characterManager: CharacterManager = gameManager.characterManager;
 
   gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
   ConditionType = ConditionType;
   health: number = 0;
+  dragHp: number = 0;
+  dragHpOffset: number = -1;
 
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {
+  constructor(private element: ElementRef, private changeDetectorRef: ChangeDetectorRef) {
     super();
   }
 
@@ -104,6 +107,77 @@ export class ObjectiveComponent extends DialogComponent {
 
       if (value < 0) {
         this.objective.health = this.objective.maxHealth;
+      }
+      gameManager.stateManager.after();
+    }
+  }
+
+  dragInitativeMove(value: number) {
+    if (settingsManager.settings.dragValues) {
+
+      if (value > 99) {
+        value = 99;
+      } else if (value < 0) {
+        value = 0;
+      }
+
+      if (value == 0 && settingsManager.settings.initiativeRequired) {
+        value = 1;
+      }
+
+      this.objective.initiative = value;
+    }
+  }
+
+  dragInitativeEnd(value: number) {
+    if (settingsManager.settings.dragValues) {
+      if (value > 99) {
+        value = 99;
+      } else if (value < 0) {
+        value = 0;
+      }
+
+      if (value == 0 && settingsManager.settings.initiativeRequired) {
+        value = 1;
+      }
+
+      gameManager.stateManager.before();
+      this.objective.initiative = value;
+      gameManager.sortFigures();
+      gameManager.stateManager.after();
+    }
+  }
+
+  dragHpMove(value: number) {
+    if (settingsManager.settings.dragValues) {
+      const old = this.objective.health;
+      if (this.dragHpOffset == -1) {
+        this.dragHpOffset = value;
+      }
+      value = value - this.dragHpOffset;
+      const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
+      this.objective.health += Math.floor(value / dragFactor) - this.dragHp;
+      if (this.objective.health > this.objective.maxHealth) {
+        this.objective.health = EntityValueFunction("" + this.objective.maxHealth);
+      } else if (this.objective.health < 0) {
+        this.objective.health = 0;
+      }
+      this.dragHp += this.objective.health - old;
+    }
+  }
+
+  dragHpEnd(value: number) {
+    if (settingsManager.settings.dragValues) {
+      this.dragHpOffset = -1;
+      if (this.dragHp != 0) {
+        this.objective.health -= this.dragHp;
+        gameManager.stateManager.before();
+        this.changeHealth(this.dragHp);
+        if (this.objective.health <= 0 || this.objective.exhausted && this.dragHp >= 0 && this.objective.health > 0) {
+          this.exhausted();
+        }
+        this.dragHp = 0;
+        this.health = 0;
       }
       gameManager.stateManager.after();
     }

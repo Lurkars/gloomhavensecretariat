@@ -158,9 +158,24 @@
     "activeStandees": "Aktive Aufsteller",
     "disableStandees": "Aufsteller deaktivieren",
     "initiativeRequired": "Initiative muss gesetzt werden",
-    "zoomIn": "Reinzoomen",
-    "zoomOut": "Rauszoomen",
-    "zoomReset": "Zoom zurücksetzen",
+    "zoom": {
+      ".": "Zoom",
+      "in": "Reinzoomen",
+      "out": "Rauszoomen",
+      "reset": "Zoom zurücksetzen"
+    },
+    "barsize": {
+      ".": "Leistengröße",
+      "inc": "Leistengröße erhöhen",
+      "dec": "Leistengröße verringern",
+      "reset": "Leistengröße zurücksetzen"
+    },
+    "fontsize": {
+      ".": "Fertigkeit Schriftgröße",
+      "inc": "Fertigkeit Schriftgröße erhöhen",
+      "dec": "Fertigkeit Schriftgröße verringern",
+      "reset": "Fertigkeit Schriftgröße zurücksetzen"
+    },
     "fullscreen": "Vollbild",
     "autoscroll": "Automatisch Scrollen",
     "disableColumns": "Zweispaltiges Layout deaktivieren",
@@ -171,7 +186,7 @@
     "levelCalculation": "Szenariostufe automatisch berechnen",
     "levelAdjustment": "Anpassung Szenariostufe",
     "bonusAdjustment": "Anpassung Boni Szenariostufe",
-    "ge5Player": ">= 5 Spieler Regeln",
+    "ge5Player": "≥ 5 Spieler Regeln",
     "locale": {
       ".": "Sprache",
       "en": "Englisch (English)",

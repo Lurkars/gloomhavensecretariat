@@ -45,28 +45,16 @@
       </div>
       <div class="line">
         <label>
-          <input type="checkbox" [checked]="gameManager.game.levelCalculation"
-            (change)="setLevelCalculation(!gameManager.game.levelCalculation)">
-          {{'settings.levelCalculation' | ghsLabel}}
+          <input type="checkbox" [checked]="settingsManager.settings.initiativeRequired"
+            (change)="settingsManager.setInitiativeRequired(!settingsManager.settings.initiativeRequired)">
+          {{'settings.initiativeRequired' | ghsLabel}}
         </label>
       </div>
-      <div class="line" *ngIf="gameManager.game.levelCalculation">
-        <label class="label">{{'settings.levelAdjustment' | ghsLabel}}
-          <input type="number" #levelAdjustment [value]="gameManager.game.levelAdjustment" min="-6" max="6"
-            (keyup)="0" (change)="setLevelAdjustment(+levelAdjustment.value)"
-            [size]="levelAdjustment.value.length" placeholder="{{'settings.levelAdjustment' | ghsLabel}}"></label>
-      </div>
       <div class="line">
-        <label class="label">{{'settings.bonusAdjustment' | ghsLabel}}
-          <input type="number" #bonusAdjustment [value]="gameManager.game.bonusAdjustment" min="-6" max="6"
-            (keyup)="0" (change)="setBonusAdjustment(+bonusAdjustment.value)"
-            [size]="bonusAdjustment.value.length" placeholder="{{'settings.bonusAdjustment' | ghsLabel}}"></label>
-      </div>
-      <div class="line" *ngIf="ge5Player()">
         <label>
-          <input type="checkbox" [checked]="gameManager.game.ge5Player"
-            (change)="setGe5Player(!gameManager.game.ge5Player)">
-          {{'settings.ge5Player' | ghsLabel}}
+          <input type="checkbox" [checked]="settingsManager.settings.autoscroll"
+            (change)="settingsManager.setAutoscroll(!settingsManager.settings.autoscroll)">
+          {{'settings.autoscroll' | ghsLabel}}
         </label>
       </div>
     </div>
@@ -85,9 +73,10 @@
           {{'settings.applyConditions' | ghsLabel}}
         </label>
       </div>
-      <div class="line" [ngClass]="{'disabled' : !settingsManager.settings.applyConditions}" >
+      <div class="line" [ngClass]="{'disabled' : !settingsManager.settings.applyConditions}">
         <label>
-          <input type="checkbox"[checked]="settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions"
+          <input type="checkbox"
+            [checked]="settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions"
             (change)="settingsManager.setActiveApplyConditions(!settingsManager.settings.activeApplyConditions)">
           {{'settings.activeApplyConditions' | ghsLabel}}
         </label>
@@ -97,20 +86,6 @@
           <input type="checkbox" [checked]="settingsManager.settings.moveElements"
             (change)="settingsManager.setMoveElements(!settingsManager.settings.moveElements)">
           {{'settings.moveElements' | ghsLabel}}
-        </label>
-      </div>
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.initiativeRequired"
-            (change)="settingsManager.setInitiativeRequired(!settingsManager.settings.initiativeRequired)">
-          {{'settings.initiativeRequired' | ghsLabel}}
-        </label>
-      </div>
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.autoscroll"
-            (change)="settingsManager.setAutoscroll(!settingsManager.settings.autoscroll)">
-          {{'settings.autoscroll' | ghsLabel}}
         </label>
       </div>
       <div class="line">
@@ -140,18 +115,24 @@
     <div class="column">
       <div class="line ">
         <a (click)="zoomOut()">
-          {{'settings.zoomOut' | ghsLabel}}
+          {{'settings.zoom.out' | ghsLabel}}
         </a>
       </div>
       <div class="line">
         <a (click)="zoomIn()">
-          {{'settings.zoomIn' | ghsLabel}}
+          {{'settings.zoom.in' | ghsLabel}}
         </a>
       </div>
       <div class="line">
-        <a (click)="zoomReset()">
-          {{'settings.zoomReset' | ghsLabel}}
+        <a (click)="resetZoom()">
+          {{'settings.zoom.reset' | ghsLabel}}
         </a>
+      </div>
+      <div class="line ">
+        <label (click)="resetBarsize($event)">{{'settings.barsize' | ghsLabel}}
+          <input type="range" min="0.1" step="0.1" max="2" [value]="settingsManager.settings.barsize"
+            (change)="setBarsize($event)" (input)="updateBarsize($event)" />
+        </label>
       </div>
     </div>
     <div class="column">
@@ -173,6 +154,12 @@
           <input type="checkbox" [checked]="settingsManager.settings.disableColumns"
             (change)="settingsManager.setDisableColumns(!settingsManager.settings.disableColumns)">
           {{'settings.disableColumns' | ghsLabel}}
+        </label>
+      </div>
+      <div class="line ">
+        <label (click)="resetFontsize($event)">{{'settings.fontsize' | ghsLabel}}
+          <input type="range" min="0.1" step="0.1" max="2" [value]="settingsManager.settings.fontsize"
+            (change)="setFontsize($event)" (input)="updateFontsize($event)" />
         </label>
       </div>
     </div>

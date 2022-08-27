@@ -137,28 +137,30 @@ export class MonsterManager {
   }
 
   toggleActive(monster: Monster, entity: MonsterEntity) {
-    if (monster.active) {
-      entity.active = !entity.active;
-      if (monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.health <= 0 || !monsterEntity.active)) {
-        gameManager.roundManager.toggleFigure(monster);
+    if (this.game.state == GameState.next) {
+      if (monster.active) {
+        entity.active = !entity.active;
+        if (monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.health <= 0 || !monsterEntity.active)) {
+          gameManager.roundManager.toggleFigure(monster);
+        }
+      } else if (entity.active) {
+        entity.active = false;
+        if (monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.health <= 0 || !monsterEntity.active)) {
+          monster.off = true;
+        }
+      } else {
+        monster.off = false;
+        entity.active = true;
       }
-    } else if (entity.active) {
-      entity.active = false;
-      if (monster.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.health <= 0 || !monsterEntity.active)) {
-        monster.off = true;
-      }
-    } else {
-      monster.off = false;
-      entity.active = true;
-    }
 
-    if (entity.active) {
-      entity.off = false;
-      if (!monster.active && this.game.figures.every((figure) => !figure.active)) {
-        monster.active = true;
+      if (entity.active) {
+        entity.off = false;
+        if (!monster.active && this.game.figures.every((figure) => !figure.active)) {
+          monster.active = true;
+        }
+      } else {
+        entity.off = true;
       }
-    } else {
-      entity.off = true;
     }
   }
 

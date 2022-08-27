@@ -7,7 +7,7 @@
     <span class="edition" *ngIf="getEdition()">[{{'data.edition.' + getEdition()| ghsLabel}}]</span>
   </div>
 
-
+  <span class="toggle-ally" [ngClass]="{'ally' : monster.isAlly}" (click)="toggleAlly()"><img class="ghs-svg" src="./assets/images/monster/ally.svg" /></span>
 
   <div class="stats" *ngIf="monster.boss" [ngClass]="{'hidden' : hideStats(MonsterType.boss)}">
     <div class="stat end" [value-calc]="statsForType(MonsterType.boss).health" [level]="monster.level" [empty]="true">

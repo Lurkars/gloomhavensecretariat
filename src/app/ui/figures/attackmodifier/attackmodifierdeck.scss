@@ -1,45 +1,45 @@
-.draw {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  width: calc(var(--ghs-unit) * 15 * var(--ghs-text-factor));
-  height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor));
-  background-position: center;
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-  background-image: url('~src/assets/images/attackmodifier/back.png');
-
-  .number {
-    color: var(--ghs-color-gray);
-    text-shadow: var(--ghs-outline);
-    position: absolute;
-    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
-    right: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
-    bottom: 0;
-    z-index: 1000;
-
-    img {
-      width: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
-      height: auto;
-    }
-  }
-
-  .shuffle {
-    height: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
-    width: auto;
-    position: absolute;
-    right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
-    bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
-    filter: var(--ghs-filter-white);
-  }
-
-}
-
 
 .attack-modifiers {
-
   position: relative;
+  width: 100%;
+  height: 100%;
+
+  .draw {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 83%;
+    background-position: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-image: url('~src/assets/images/attackmodifier/back.png');
+  
+    .number {
+      color: var(--ghs-color-gray);
+      text-shadow: var(--ghs-outline);
+      position: absolute;
+      font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+      right: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+      bottom: 0;
+      z-index: 1000;
+  
+      img {
+        width: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+        height: auto;
+      }
+    }
+  
+    .shuffle {
+      height: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
+      width: auto;
+      position: absolute;
+      right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+      bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+      filter: var(--ghs-filter-white);
+    }
+  }
 
   ghs-attackmodifier {
     position: absolute;
@@ -48,17 +48,17 @@
     top: 0;
     left: 0;
 
-    width: calc(var(--ghs-unit) * 15 * var(--ghs-text-factor));
-    height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor));
+    width: 40%;
+    height: 83%;
 
     @keyframes attackmodifier-draw {
       0% {
-        transform: scale(1) translate(calc(var(--ghs-unit) * -16), calc(var(--ghs-unit) * 2));
+        transform: scale(1) translate(-102%, 16.5%);
       }
 
       35%,
       70% {
-        transform: scale(1.1) translate(calc(var(--ghs-unit) * -7.5), calc(var(--ghs-unit) * 3));
+        transform: scale(1.1) translate(-51%, 25%);
       }
 
       100% {
@@ -68,12 +68,12 @@
 
     @keyframes attackmodifier-draw-bottom {
       0% {
-        transform: scale(1) translate(calc(var(--ghs-unit) * -16 * var(--ghs-text-factor)), calc(var(--ghs-unit) * -2));
+        transform: scale(1) translate(-102%, -16.5%);
       }
 
       35%,
       70% {
-        transform: scale(2) translate(calc(var(--ghs-unit) * -16 * var(--ghs-text-factor)), calc(var(--ghs-unit) * -20));
+        transform: scale(2) translate(-80%, -166.5%);
       }
 
       100% {
@@ -84,19 +84,19 @@
     @keyframes attackmodifier-last {
       0% {
         top: 0;
-        left: calc(var(--ghs-unit) * 16 * var(--ghs-text-factor));
+        left: calc(42%);
         transform: rotate(0);
       }
 
       70% {
         top: 0;
-        left: calc(var(--ghs-unit) * 16 * var(--ghs-text-factor));
+        left: calc(42%);
         transform: rotate(0);
       }
 
       100% {
-        top: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
-        left: calc(var(--ghs-unit) * 26 * var(--ghs-text-factor));
+        top: calc(16.5%);
+        left: calc(68.5%);
         transform: rotate(25deg);
       }
     }
@@ -104,15 +104,15 @@
     &.current {
       position: absolute;
       top: 0;
-      left: calc(var(--ghs-unit) * 16 * var(--ghs-text-factor));
+      left: 42%;
       z-index: 1;
     }
 
     &.disgarded,
     &.last {
       position: absolute;
-      top: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
-      left: calc(var(--ghs-unit) * 26 * var(--ghs-text-factor));
+      top: 16.5%;
+      left: 68.5%;
       transform: rotate(25deg);
       z-index: 0;
     }

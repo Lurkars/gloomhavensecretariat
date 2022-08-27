@@ -16,32 +16,8 @@ export class SettingsMenuComponent {
   GameState = GameState;
   @Input() setDialogPosition: Function | undefined = undefined;
 
-  setLevelCalculation(levelCalculation: boolean) {
-    gameManager.stateManager.before();
-    gameManager.game.levelCalculation = levelCalculation;
-    gameManager.levelManager.calculateScenarioLevel();
-    gameManager.stateManager.after();
-  }
-  setLevelAdjustment(levelAdjustment: number) {
-    gameManager.stateManager.before();
-    gameManager.game.levelAdjustment = levelAdjustment;
-    gameManager.levelManager.calculateScenarioLevel();
-    gameManager.stateManager.after();
-  }
+  doubleClick: any = null;
 
-  setBonusAdjustment(bonusAdjustment: number) {
-    gameManager.stateManager.before();
-    gameManager.game.bonusAdjustment = bonusAdjustment;
-    gameManager.levelManager.calculateScenarioLevel();
-    gameManager.stateManager.after();
-  }
-
-  setGe5Player(ge5Player: boolean) {
-    gameManager.stateManager.before();
-    gameManager.game.ge5Player = ge5Player;
-    gameManager.levelManager.calculateScenarioLevel();
-    gameManager.stateManager.after();
-  }
   zoomOut(): void {
     this.zoom(5);
   }
@@ -64,16 +40,68 @@ export class SettingsMenuComponent {
     }
   }
 
-  setBarSize(barSize: number) {
-    document.body.style.setProperty('--ghs-barsize', barSize + '');
-    settingsManager.setBarSize(barSize);
+  resetZoom(): void {
+    this.setZoom(100);
+  }
+
+  updateBarsize(event: any) {
+    document.body.style.setProperty('--ghs-barsize', event.target.value + '');
+  }
+
+  setBarsize(event: any): void {
+    settingsManager.setBarsize(event.target.value);
+    document.body.style.setProperty('--ghs-barsize', settingsManager.settings.barsize + '');
     if (this.setDialogPosition) {
       this.setDialogPosition();
     }
   }
 
-  zoomReset(): void {
-    this.setZoom(100);
+  resetBarsize(event: any) {
+    if (this.doubleClick) {
+      clearTimeout(this.doubleClick);
+      this.doubleClick = null;
+      settingsManager.setBarsize(1);
+      document.body.style.setProperty('--ghs-barsize', settingsManager.settings.barsize + '');
+      if (this.setDialogPosition) {
+        this.setDialogPosition();
+      }
+    } else {
+      this.doubleClick = setTimeout(() => {
+        if (this.doubleClick) {
+          this.doubleClick = null;
+        }
+      }, 200)
+    }
+  }
+
+  updateFontsize(event: any) {
+    document.body.style.setProperty('--ghs-fontsize', event.target.value + '');
+  }
+
+  setFontsize(event: any): void {
+    settingsManager.setFontsize(event.target.value);
+    document.body.style.setProperty('--ghs-fontsize', settingsManager.settings.fontsize + '');
+    if (this.setDialogPosition) {
+      this.setDialogPosition();
+    }
+  }
+
+  resetFontsize(event: any) {
+    if (this.doubleClick) {
+      clearTimeout(this.doubleClick);
+      this.doubleClick = null;
+      settingsManager.setFontsize(1);
+      document.body.style.setProperty('--ghs-fontsize', settingsManager.settings.fontsize + '');
+      if (this.setDialogPosition) {
+        this.setDialogPosition();
+      }
+    } else {
+      this.doubleClick = setTimeout(() => {
+        if (this.doubleClick) {
+          this.doubleClick = null;
+        }
+      }, 200)
+    }
   }
 
   fullscreen(): void {
@@ -83,9 +111,5 @@ export class SettingsMenuComponent {
     } else {
       document.exitFullscreen();
     }
-  }
-
-  ge5Player(): boolean {
-    return gameManager.game.figures.filter((figure) => figure instanceof Character).length > 4;
   }
 }

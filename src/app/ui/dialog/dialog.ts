@@ -17,9 +17,7 @@ export class DialogComponent implements OnInit {
   dialogBackdrop!: HTMLElement | null;
 
   opened: boolean = false;
-
   doubleClick: any = null;
-
 
   ngOnInit(): void {
     this.dialog.nativeElement.classList.add('dialog');
@@ -37,6 +35,12 @@ export class DialogComponent implements OnInit {
     if (this.opened) {
       this.close();
     } else {
+      this.open();
+    }
+  }
+
+  open(): void {
+    if (!this.opened) {
       if (this.doubleClick) {
         clearTimeout(this.doubleClick);
         this.doubleClick = null;
@@ -44,7 +48,7 @@ export class DialogComponent implements OnInit {
       } else {
         this.doubleClick = setTimeout(() => {
           if (this.doubleClick) {
-            this.open();
+            this.openDialog();
             this.doubleClick = null;
           }
         }, 200)
@@ -54,15 +58,10 @@ export class DialogComponent implements OnInit {
 
   doubleClickCallback(): void { }
 
-  open(): void {
+  openDialog(): void {
     this.opened = true;
     this.dialogBackdrop = window.document.createElement("div");
     this.dialogBackdrop.classList.add('dialog-backdrop');
-    this.dialogBackdrop.addEventListener('click', (event: Event) => {
-      if (event.target == this.dialogBackdrop) {
-        this.close();
-      }
-    });
 
 
     document.body.appendChild(this.dialogBackdrop);
@@ -75,6 +74,18 @@ export class DialogComponent implements OnInit {
     }
 
     this.setDialogPosition();
+
+
+
+    setTimeout(() => {
+      if (this.dialogBackdrop) {
+        this.dialogBackdrop.addEventListener('click', (event: Event) => {
+          if (event.target == this.dialogBackdrop) {
+            this.close();
+          }
+        });
+      }
+    }, 200);
   }
 
   setDialogPosition() {

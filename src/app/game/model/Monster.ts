@@ -24,6 +24,7 @@ export class Monster extends MonsterData implements Figure {
   ability: number = -1;
   abilities: number[] = [];
   entities: MonsterEntity[] = [];
+  isAlly: boolean = false;
 
   constructor(monsterData: MonsterData) {
     super(monsterData.name, monsterData.count, monsterData.baseStat, monsterData.stats, monsterData.edition, monsterData.deck, monsterData.boss, monsterData.flying, monsterData.thumbnail, monsterData.thumbnailUrl, monsterData.spoiler);
@@ -66,7 +67,7 @@ export class Monster extends MonsterData implements Figure {
   }
 
   toModel(): GameMonsterModel {
-    return new GameMonsterModel(this.name, this.edition, this.level, this.off, this.active, this.drawExtra, this.ability, this.abilities, this.entities.map((value) => value.toModel()))
+    return new GameMonsterModel(this.name, this.edition, this.level, this.off, this.active, this.drawExtra, this.ability, this.abilities, this.entities.map((value) => value.toModel()), this.isAlly)
   }
 
 
@@ -108,6 +109,7 @@ export class GameMonsterModel {
   ability: number;
   abilities: number[];
   entities: GameMonsterEntityModel[];
+  isAlly: boolean;
 
   constructor(name: string,
     edition: string,
@@ -117,7 +119,8 @@ export class GameMonsterModel {
     drawExtra: boolean,
     ability: number,
     abilities: number[],
-    entities: GameMonsterEntityModel[]) {
+    entities: GameMonsterEntityModel[],
+    isAlly: boolean) {
     this.name = name;
     this.edition = edition;
     this.level = level;
@@ -127,5 +130,6 @@ export class GameMonsterModel {
     this.ability = ability;
     this.abilities = abilities;
     this.entities = entities;
+    this.isAlly = isAlly;
   }
 }

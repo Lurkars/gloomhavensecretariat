@@ -6,11 +6,12 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
 })
 export class PopupComponent implements OnInit {
 
+  @Input() left: boolean = false;
   @ViewChild('popup', { static: true }) popup!: ElementRef;
   popupBackdrop!: HTMLElement | null;
 
   opened: boolean = false;
-  @Input() left: boolean = false;
+  doubleClick: any = null;
 
 
   ngOnInit(): void {
@@ -30,22 +31,44 @@ export class PopupComponent implements OnInit {
   }
 
   open(): void {
+    if (!this.opened) {
+      if (this.doubleClick) {
+        clearTimeout(this.doubleClick);
+        this.doubleClick = null;
+        this.doubleClickCallback();
+      } else {
+        this.doubleClick = setTimeout(() => {
+          if (this.doubleClick) {
+            this.openPopup();
+            this.doubleClick = null;
+          }
+        }, 200)
+      }
+    }
+  }
+
+  doubleClickCallback(): void { }
+
+  openPopup() {
     this.opened = true;
     this.popupBackdrop = window.document.createElement("div");
     this.popupBackdrop.classList.add('popup-backdrop');
-    this.popupBackdrop.addEventListener('click', (event: Event) => {
-      if (event.target == this.popupBackdrop) {
-        this.close();
-      }
-    });
 
     document.body.appendChild(this.popupBackdrop);
     document.body.appendChild(this.popup.nativeElement);
 
     this.popup.nativeElement.classList.add('opened');
+
+    setTimeout(() => {
+      if (this.popupBackdrop) {
+        this.popupBackdrop.addEventListener('click', (event: Event) => {
+          if (event.target == this.popupBackdrop) {
+            this.close();
+          }
+        });
+      }
+    }, 200);
   }
-
-
 
   close(): void {
     this.opened = false;

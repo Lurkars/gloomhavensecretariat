@@ -136,34 +136,13 @@
         transform: translateX(-50%);
       }
 
-      .drag-hp {
+      .value-overlay {
         position: absolute;
         left: calc(var(--ghs-unit) * -1 * var(--ghs-text-factor));
         top: calc(var(--ghs-unit) * -3 * var(--ghs-text-factor));
         font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
         width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
         height: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
-        font-family: "ghs-normal";
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-shadow: none;
-
-        .value {
-          position: relative;
-        }
-
-        &::before {
-          content: ' ';
-          position: absolute;
-          top: 0;
-          bottom:0;
-          left: calc(var(--ghs-unit) * -0.5 * var(--ghs-text-factor));
-          right: calc(var(--ghs-unit) * -0.5 * var(--ghs-text-factor));
-          background-color: var(--ghs-color-darkgray);
-          opacity: 0.7;
-          border-radius: 25%;
-        }
       }
     }
 
@@ -309,15 +288,6 @@
       transform: translateX(-50%);
     }
   }
-}
-
-
-.health-positive {
-  color: var(--ghs-color-green) !important;
-}
-
-.health-negative {
-  color: var(--ghs-color-red) !important;
 }
 
 .dialog {

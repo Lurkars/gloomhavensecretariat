@@ -38,7 +38,8 @@ export class MainComponent implements OnInit {
     await settingsManager.init();
     gameManager.stateManager.init();
     document.body.style.setProperty('--ghs-factor', settingsManager.settings.zoom + '');
-    document.body.style.setProperty('--ghs-barsize', settingsManager.settings.barSize + '');
+    document.body.style.setProperty('--ghs-barsize', settingsManager.settings.barsize + '');
+    document.body.style.setProperty('--ghs-fontsize', settingsManager.settings.fontsize + '');
 
     this.calcColumns();
 

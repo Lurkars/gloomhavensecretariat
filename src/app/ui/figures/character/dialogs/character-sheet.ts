@@ -37,7 +37,7 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
   items: ItemData[] = [];
   item: ItemData | undefined;
   itemCanAdd: boolean = false;
-  doubleClick: any = null;
+  doubleClickPerk: any = null;
 
   override ngOnInit(): void {
     super.ngOnInit();
@@ -272,9 +272,9 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
 
     const disabled: boolean = gameManager.game.state == GameState.next || this.character.progress.perks[ index ] < value && this.availablePerks < value - this.character.progress.perks[ index ];
 
-    if (!disabled || this.doubleClick) {
-      clearTimeout(this.doubleClick);
-      this.doubleClick = null;
+    if (!disabled || this.doubleClickPerk) {
+      clearTimeout(this.doubleClickPerk);
+      this.doubleClickPerk = null;
       gameManager.stateManager.before();
       if (this.character.progress.perks[ index ] && this.character.progress.perks[ index ] == value) {
         this.character.progress.perks[ index ]--;
@@ -285,9 +285,9 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
       gameManager.attackModifierManager.shuffleModifiers(this.character.attackModifierDeck);
       gameManager.stateManager.after();
     } else {
-      this.doubleClick = setTimeout(() => {
-        if (this.doubleClick) {
-          this.doubleClick = null;
+      this.doubleClickPerk = setTimeout(() => {
+        if (this.doubleClickPerk) {
+          this.doubleClickPerk = null;
         }
       }, 200)
     }

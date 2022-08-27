@@ -13,7 +13,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
   templateUrl: './ability.html',
   styleUrls: [ '../../../popup/popup.scss', './ability.scss' ]
 })
-export class AbilityComponent extends PopupComponent {
+export class MonsterAbilityComponent extends PopupComponent {
 
   @Input() monster!: Monster;
   @Input() index: number = -1;
@@ -24,6 +24,7 @@ export class AbilityComponent extends PopupComponent {
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
   edit: boolean = false;
+  cardPopup: boolean = false;
 
   flipped(): boolean {
     if (this.index == -1) {
@@ -38,6 +39,12 @@ export class AbilityComponent extends PopupComponent {
     this.edit = !this.edit;
   }
 
+  override doubleClickCallback(): void {
+    if (this.flipped()) {
+      this.cardPopup = true;
+      this.openPopup();
+    }
+  }
 
   upcomingCards(): Ability[] {
     return this.monster.abilities.filter((value, index) => index > this.monster.ability).map((value) => gameManager.abilities(this.monster)[ value ]);
@@ -66,6 +73,7 @@ export class AbilityComponent extends PopupComponent {
   override close(): void {
     super.close();
     this.reveal = 0;
+    this.cardPopup = false;
   }
 
   toggleDrawExtra() {

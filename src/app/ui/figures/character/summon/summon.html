@@ -43,7 +43,7 @@
       <span class="item">
         <img src="./assets/images/status/health.svg" />
         <span class="badge health-count"
-          [ngClass]="{'health-negative' : health < 0, 'health-positive' : health > 0}">{{health | ghsValueSign}}</span>
+          [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">{{health | ghsValueSign}}</span>
       </span>
       <span class="item">
         <a class="button" [ngClass]="{'disabled' : summon.health == summon.maxHealth}" (click)="changeHealth(1)">

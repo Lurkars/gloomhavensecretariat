@@ -1,11 +1,19 @@
 <div class="objective"
   [ngClass]="{'off' : objective.off || objective.exhausted || (objective.health <= 0), 'escort' : objective.escort, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
-  <a class="image-container" (click)="toggleFigure()" [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round }">
+  <a class="image-container" (click)="toggleFigure()"
+    [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round }">
     <span class="image" [ngClass]="{'active-border' : objective.active}">
       {{objective.id + 1}}
     </span>
     <ghs-healthbar [entity]="objective"></ghs-healthbar>
   </a>
+
+  <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-initiative"
+    (dragMove)="dragInitativeMove($event)" (dragEnd)="dragInitativeEnd($event)">
+  </ghs-drag-value>
+
+  <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-hp" (dragMove)="dragHpMove($event)"
+    (dragEnd)="dragHpEnd($event)"></ghs-drag-value>
 
   <ghs-character-initiative (click)="close()" [character]="objective"></ghs-character-initiative>
 
@@ -23,7 +31,11 @@
       <div class="status-bar">
         <div class="health">
           <img src="./assets/images/status/health.svg" />
-          {{objective.health}}/{{maxHealth()}}
+          {{objective.health}}/{{maxHealth()}} <span class="value-overlay "
+          [ngClass]="{'negative-value' : dragHp < 0, 'positive-value' : dragHp > 0}" *ngIf="dragHp">
+          <span class="value">{{dragHp |
+            ghsValueSign}}</span>
+        </span>
         </div>
         <div class="conditions">
           <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.activeConditions(objective)">
@@ -55,7 +67,7 @@
       <span class="item">
         <img src="./assets/images/status/health.svg" />
         <span class="badge health-count"
-          [ngClass]="{'health-negative' : health < 0, 'health-positive' : health > 0}">{{health | ghsValueSign}}</span>
+          [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">{{health | ghsValueSign}}</span>
       </span>
       <span class="item">
         <a class="button" [ngClass]="{'disabled' : objective.health == objective.maxHealth}" (click)="changeHealth(1)">

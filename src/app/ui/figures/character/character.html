@@ -22,13 +22,13 @@
   </ghs-drag-value>
 
   <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-hp" (dragMove)="dragHpMove($event)"
-    (dragEnd)="dragHpEnd($event)"></ghs-drag-value>
+    (dragEnd)="dragHpEnd($event)" [relative]="true"></ghs-drag-value>
 
   <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-xp" (dragMove)="dragXpMove($event)"
-    (dragEnd)="dragXpEnd($event)"></ghs-drag-value>
+    (dragEnd)="dragXpEnd($event)" [relative]="true"></ghs-drag-value>
 
   <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-loot" (dragMove)="dragLootMove($event)"
-    (dragEnd)="dragLootEnd($event)"></ghs-drag-value>
+    (dragEnd)="dragLootEnd($event)" [relative]="true"></ghs-drag-value>
 
   <ghs-character-initiative (click)="close()" [character]="character"></ghs-character-initiative>
 
@@ -43,10 +43,10 @@
       <div class="status-bar">
         <div class="health" title="{{'game.health' | ghsLabel}}">
           <img src="./assets/images/status/health.svg" />
-          {{character.health}}/{{character.maxHealth}} <span class="drag-hp-value"
-            [ngClass]="{'health-negative' : dragHp < 0, 'health-positive' : dragHp > 0}" *ngIf="dragHp">
-            <span class="value">{{dragHp |
-              ghsValueSign}}</span>
+          {{character.health}}/{{character.maxHealth}}
+          <span *ngIf="dragHp" class="value-overlay"
+            [ngClass]="{'negative-value' : dragHp < 0, 'positive-value' : dragHp > 0}">
+            <span class="value">{{dragHp | ghsValueSign}}</span>
           </span>
         </div>
         <div class="conditions">
@@ -80,9 +80,17 @@
     <div class="column col-2" (click)="toggle()">
       <span class="experience" title="{{'game.experience' | ghsLabel}}">{{character.experience}}
         <img src="./assets/images/status/experience.svg" />
+        <span *ngIf="dragXp" class="value-overlay"
+          [ngClass]="{'negative-value' : dragXp < 0, 'positive-value' : dragXp > 0}">
+          <span class="value">{{dragXp | ghsValueSign}}</span>
+        </span>
       </span>
       <span class="loot" title="{{'game.loot' | ghsLabel}}">{{character.loot}}
         <img src="./assets/images/status/loot.svg" />
+        <span *ngIf="dragLoot" class="value-overlay"
+          [ngClass]="{'negative-value' : dragLoot < 0, 'positive-value' : dragLoot > 0}">
+          <span class="value">{{dragLoot | ghsValueSign}}</span>
+        </span>
       </span>
     </div>
 
@@ -104,7 +112,7 @@
       <span class="item" title="{{'game.health' | ghsLabel}}">
         <img src="./assets/images/status/health.svg" />
         <span class="badge health-count"
-          [ngClass]="{'health-negative' : health < 0, 'health-positive' : health > 0}">{{health | ghsValueSign}}</span>
+          [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">{{health | ghsValueSign}}</span>
       </span>
       <span class="item">
         <a class="button" [ngClass]="{'disabled' : character.health == character.maxHealth}" (click)="changeHealth(1)">

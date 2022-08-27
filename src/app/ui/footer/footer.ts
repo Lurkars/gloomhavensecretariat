@@ -33,10 +33,20 @@ export class FooterComponent extends DialogComponent {
     }
   }
 
-  changeAttackModifierDeck(deck: AttackModifierDeck) {
+  changeMonsterAttackModifierDeck(deck: AttackModifierDeck) {
     gameManager.stateManager.before();
     gameManager.game.monsterAttackModifierDeck = deck;
     gameManager.stateManager.after();
+  }
+
+  changeAllyAttackModifierDeck(deck: AttackModifierDeck) {
+    gameManager.stateManager.before();
+    gameManager.game.allyAttackModifierDeck = deck;
+    gameManager.stateManager.after();
+  }
+
+  hasAlly(): boolean {
+    return gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly);
   }
 
   confirmTurns() {
