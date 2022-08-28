@@ -172,22 +172,19 @@ export class MonsterEntityComponent extends DialogComponent {
 
   dragHpMove(value: number) {
     if (settingsManager.settings.dragValues) {
-      const old = this.entity.health;
       const dragFactor = 40 * this.element.nativeElement.offsetWidth / window.innerWidth;
-      this.entity.health += Math.floor(value / dragFactor) - this.dragHp;
-      if (this.entity.health > this.entity.maxHealth) {
-        this.entity.health = EntityValueFunction("" + this.entity.maxHealth);
-      } else if (this.entity.health < 0) {
-        this.entity.health = 0;
+      this.dragHp = Math.floor(value / dragFactor);
+      if (this.entity.health + this.dragHp > this.entity.maxHealth) {
+        this.dragHp = EntityValueFunction("" + this.entity.maxHealth) - this.entity.health;
+      } else if (this.entity.health + this.dragHp < 0) {
+        this.dragHp = - this.entity.health;
       }
-      this.dragHp += this.entity.health - old;
     }
   }
 
   dragHpEnd(value: number) {
     if (settingsManager.settings.dragValues) {
       if (this.dragHp != 0) {
-        this.entity.health -= this.dragHp;
         gameManager.stateManager.before();
         this.changeHealth(this.dragHp);
         if (this.entity.health <= 0 || this.entity.dead && this.dragHp >= 0 && this.entity.health > 0) {

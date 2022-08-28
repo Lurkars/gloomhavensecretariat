@@ -1,6 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { applyPlaceholder } from './i18n';
+import { ghsValueSign } from './Static';
 
 @Pipe({
   name: 'ghsValueSign'
@@ -8,13 +9,7 @@ import { applyPlaceholder } from './i18n';
 export class GhsValueSignPipe implements PipeTransform {
 
   transform(value: number, ...args: any[]): string {
-    if (value > 0) {
-      return "+" + value;
-    } else if (args.indexOf("empty") != -1 && value == 0) {
-      return "-";
-    } else {
-      return "" + value;
-    }
+    return ghsValueSign(value, args.indexOf("empty") != -1)
   }
 }
 

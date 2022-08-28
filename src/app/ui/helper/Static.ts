@@ -16,3 +16,13 @@ export function ghsIsSpoiled(spoilable: Spoilable): boolean {
 export function ghsNotSpoiled(items: Spoilable[]): Spoilable[] {
   return items.filter((spoilable) => !ghsIsSpoiled(spoilable));
 }
+
+export function ghsValueSign(value : number, empty : boolean = false) : string {
+  if (value > 0) {
+    return "+" + value;
+  } else if (empty && value == 0) {
+    return "-";
+  } else {
+    return "" + value;
+  }
+}

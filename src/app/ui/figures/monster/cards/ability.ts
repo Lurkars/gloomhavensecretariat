@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
@@ -17,6 +17,7 @@ export class MonsterAbilityComponent extends PopupComponent {
 
   @Input() monster!: Monster;
   @Input() index: number = -1;
+  @ViewChild('menu') menuElement!: ElementRef;
   reveal: number = 0;
 
   ability: Ability | undefined = undefined;
@@ -25,6 +26,7 @@ export class MonsterAbilityComponent extends PopupComponent {
   GameState = GameState;
   edit: boolean = false;
   cardPopup: boolean = false;
+  maxHeight: string = "";
 
   flipped(): boolean {
     if (this.index == -1) {
@@ -37,6 +39,9 @@ export class MonsterAbilityComponent extends PopupComponent {
 
   toggleEdit() {
     this.edit = !this.edit;
+    setTimeout(() => {
+      this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
+    }, 0);
   }
 
   override doubleClickCallback(): void {

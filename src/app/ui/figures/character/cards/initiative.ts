@@ -29,12 +29,12 @@ export class CharacterInitiativeComponent extends DialogComponent {
   override ngOnInit(): void {
     super.ngOnInit();
   }
-  
+
   pickNumber(number: number) {
     this.value = (this.value + "" + number).substring(1, 3);
     if (this.value.indexOf("_") == -1) {
-      gameManager.stateManager.before();
       const initative: number = + this.value;
+      gameManager.stateManager.before("setInitiative", "%game.data.character." + this.character.name + "%", "" + (initative > 0 && initative < 100 ? initative : 0));
       if (initative > 0 && initative < 100) {
         this.setInitiative(initative);
       } else if (gameManager.game.state == GameState.draw) {
@@ -61,7 +61,7 @@ export class CharacterInitiativeComponent extends DialogComponent {
 
   setInitiative(initative: number) {
     if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initative >= 0 || initative > 0) && initative < 100) {
-      gameManager.stateManager.before();
+      gameManager.stateManager.before("setInitiative", "%game.data.character." + this.character.name + "%", "" + initative);
       this.character.initiative = initative;
       if (this.character instanceof Character) {
         this.character.initiativeVisible = true;

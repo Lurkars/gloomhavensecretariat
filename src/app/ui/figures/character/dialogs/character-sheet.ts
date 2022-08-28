@@ -11,6 +11,7 @@ import { ItemData } from "src/app/game/model/data/ItemData";
 import { GameState } from "src/app/game/model/Game";
 import { Identifier } from "src/app/game/model/Identifier";
 import { Perk, PerkCard, PerkType } from "src/app/game/model/Perks";
+import { ghsValueSign } from "src/app/ui/helper/Static";
 
 import { PopupComponent } from "src/app/ui/popup/popup";
 
@@ -112,14 +113,14 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
     } else if (level > 9) {
       level = 9;
     }
-    this.gameManager.stateManager.before();
+    gameManager.stateManager.before("setLevel", "%game.data.character." + this.character.name + "%", "" + level);
     this.characterManager.setLevel(this.character, level);
     this.gameManager.stateManager.after();
   }
 
   setXP(event: any) {
     if (!isNaN(+event.target.value)) {
-      gameManager.stateManager.before();
+      gameManager.stateManager.before("setXP", "%game.data.character." + this.character.name + "%", "" + (+event.target.value - this.character.progress.experience));
       this.characterManager.addXP(this.character, event.target.value - this.character.progress.experience);
       this.gameManager.stateManager.after();
     }
@@ -127,7 +128,7 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
 
   setGold(event: any) {
     if (!isNaN(+event.target.value)) {
-      this.gameManager.stateManager.before();
+      gameManager.stateManager.before("setGold", "%game.data.character." + this.character.name + "%", event.target.value);
       this.character.progress.gold = +event.target.value;
       this.gameManager.stateManager.after();
     }
@@ -135,7 +136,7 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
 
   setPersonalQuest(event: any) {
     if (!isNaN(+event.target.value)) {
-      gameManager.stateManager.before();
+      gameManager.stateManager.before("setPQ", "%game.data.character." + this.character.name + "%", event.target.value);
       this.character.progress.personalQuest = +event.target.value;
       this.gameManager.stateManager.after();
     }
@@ -143,7 +144,7 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
 
   setRetirements(event: any) {
     if (!isNaN(+event.target.value)) {
-      gameManager.stateManager.before();
+      gameManager.stateManager.before("setRetirements", "%game.data.character." + this.character.name + "%", event.target.value);
       this.character.progress.retirements = +event.target.value;
       this.gameManager.stateManager.after();
     }
@@ -158,25 +159,27 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
     } else if (battleGoals > 18) {
       battleGoals = 18;
     }
-    this.gameManager.stateManager.before();
+    gameManager.stateManager.before("setBG", "%game.data.character." + this.character.name + "%", "" + battleGoals);
     this.character.progress.battleGoals = battleGoals;
     this.gameManager.stateManager.after();
   }
 
   setNotes(event: any) {
-    this.gameManager.stateManager.before();
+    gameManager.stateManager.before("setNotes", "%game.data.character." + this.character.name + "%", event.target.value);
     this.character.progress.notes = event.target.value;
     this.gameManager.stateManager.after();
   }
 
   toggleRetired() {
-    this.gameManager.stateManager.before();
+    gameManager.stateManager.before("setRetired", "%game.data.character." + this.character.name + "%", "" + !this.character.progress.retired);
     this.character.progress.retired = !this.character.progress.retired;
     this.gameManager.stateManager.after();
   }
 
   override open(): void {
     this.titleInput.nativeElement.value = this.character.title || settingsManager.getLabel('data.character.' + this.character.name.toLowerCase());
+    this.updateItems();
+    this.itemChange();
     super.open();
   }
 
@@ -185,12 +188,12 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
     if (this.titleInput) {
       if (this.titleInput.nativeElement.value && this.titleInput.nativeElement.value != settingsManager.getLabel('data.character.' + this.character.name.toLowerCase())) {
         if (this.character.title != this.titleInput.nativeElement.value) {
-          gameManager.stateManager.before();
+          gameManager.stateManager.before("setTitle", "%game.data.character." + this.character.name + "%", this.titleInput.nativeElement.value);
           this.character.title = this.titleInput.nativeElement.value;
           gameManager.stateManager.after();
         }
       } else if (this.character.title != "") {
-        gameManager.stateManager.before();
+        gameManager.stateManager.before("unsetTitle", "%game.data.character." + this.character.name + "%", this.character.title);
         this.character.title = "";
         gameManager.stateManager.after();
       }
@@ -218,7 +221,7 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
   addItem() {
     this.itemChange();
     if (this.item && this.itemCanAdd) {
-      gameManager.stateManager.before();
+      gameManager.stateManager.before("addItem", "%game.data.character." + this.character.name + "%", this.itemName.nativeElement.value, this.itemEdition.nativeElement.value);
       this.character.progress.items.push(new Identifier(this.itemName.nativeElement.value, this.itemEdition.nativeElement.value));
       this.items.push(this.item);
       this.items.sort((a, b) => a.id - b.id);
@@ -229,10 +232,9 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
   }
 
   buyItem() {
-    const itemData = gameManager.item(+this.itemName.nativeElement.value, this.itemEdition.nativeElement.value);
     this.itemChange();
     if (this.item && this.item.cost <= this.character.progress.gold) {
-      gameManager.stateManager.before();
+      gameManager.stateManager.before("buyItem", "%game.data.character." + this.character.name + "%", this.itemName.nativeElement.value, this.itemEdition.nativeElement.value);
       this.character.progress.gold -= this.item.cost;
       this.character.progress.items.push(new Identifier(this.itemName.nativeElement.value, this.itemEdition.nativeElement.value));
       this.items.push(this.item);
@@ -247,7 +249,7 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
     const item = this.character.progress.items.find((item) => item.name == "" + itemData.id && item.edition == itemData.edition);
     if (item) {
       const index = this.character.progress.items.indexOf(item)
-      gameManager.stateManager.before();
+      gameManager.stateManager.before("removeItem", "%game.data.character." + this.character.name + "%", this.character.progress.items[ index ].name, this.character.progress.items[ index ].edition);
       this.character.progress.items.splice(index, 1);
       this.items.splice(index, 1);
       gameManager.stateManager.after();
@@ -258,9 +260,9 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
   sellItem(itemData: ItemData) {
     const item = this.character.progress.items.find((item) => item.name == "" + itemData.id && item.edition == itemData.edition);
     if (item) {
-      this.character.progress.gold += Math.ceil(itemData.cost / 2);
       const index = this.character.progress.items.indexOf(item)
-      gameManager.stateManager.before();
+      gameManager.stateManager.before("sellItem", "%game.data.character." + this.character.name + "%", this.character.progress.items[ index ].name, this.character.progress.items[ index ].edition);
+      this.character.progress.gold += Math.ceil(itemData.cost / 2);
       this.character.progress.items.splice(index, 1);
       this.items.splice(index, 1);
       gameManager.stateManager.after();
@@ -275,7 +277,7 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
     if (!disabled || this.doubleClickPerk) {
       clearTimeout(this.doubleClickPerk);
       this.doubleClickPerk = null;
-      gameManager.stateManager.before();
+      gameManager.stateManager.before("setPerk", "%game.data.character." + this.character.name + "%", "" + index, "" + value);
       if (this.character.progress.perks[ index ] && this.character.progress.perks[ index ] == value) {
         this.character.progress.perks[ index ]--;
       } else {
@@ -395,7 +397,7 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
         if (characterModel.name != this.character.name || characterModel.edition != this.character.edition) {
           parent.classList.add("error");
         } else {
-          gameManager.stateManager.before();
+          gameManager.stateManager.before("importCharacter", "%game.data.character." + this.character.name + "%");
           this.character.fromModel(characterModel);
           gameManager.stateManager.after();
         }

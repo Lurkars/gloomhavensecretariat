@@ -43,7 +43,7 @@
       <div class="status-bar">
         <div class="health" title="{{'game.health' | ghsLabel}}">
           <img src="./assets/images/status/health.svg" />
-          {{character.health}}/{{character.maxHealth}}
+          {{character.health + dragHp}}/{{character.maxHealth}}
           <span *ngIf="dragHp" class="value-overlay"
             [ngClass]="{'negative-value' : dragHp < 0, 'positive-value' : dragHp > 0}">
             <span class="value">{{dragHp | ghsValueSign}}</span>
@@ -78,14 +78,14 @@
 
     <ghs-character-summondialog [character]="character"></ghs-character-summondialog>
     <div class="column col-2" (click)="toggle()">
-      <span class="experience" title="{{'game.experience' | ghsLabel}}">{{character.experience}}
+      <span class="experience" title="{{'game.experience' | ghsLabel}}">{{character.experience + dragXp}}
         <img src="./assets/images/status/experience.svg" />
         <span *ngIf="dragXp" class="value-overlay"
           [ngClass]="{'negative-value' : dragXp < 0, 'positive-value' : dragXp > 0}">
           <span class="value">{{dragXp | ghsValueSign}}</span>
         </span>
       </span>
-      <span class="loot" title="{{'game.loot' | ghsLabel}}">{{character.loot}}
+      <span class="loot" title="{{'game.loot' | ghsLabel}}">{{character.loot + dragLoot}}
         <img src="./assets/images/status/loot.svg" />
         <span *ngIf="dragLoot" class="value-overlay"
           [ngClass]="{'negative-value' : dragLoot < 0, 'positive-value' : dragLoot > 0}">

@@ -128,6 +128,29 @@
       }
     }
 
+
+    .state {
+
+      a {
+        display: flex;
+        flex-direction: column;
+
+        &.undo {
+          align-items: flex-start;
+        }
+
+        &.redo {
+          align-items: flex-end;
+        }
+
+        .info {
+          font-family: 'ghs-normal';
+          font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        }
+      }
+
+    }
+
     &.title {
       pointer-events: none;
       border-bottom: calc(var(--ghs-unit) * 0.1) solid var(--ghs-color-gray);

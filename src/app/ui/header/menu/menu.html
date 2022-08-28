@@ -3,17 +3,25 @@
 </a>
 <div #dialog [ngSwitch]="active">
 
-  <div class="back" [ngClass]="{'disabled' : active == SubMenu.main}" (click)="setActive(SubMenu.main)"  title="{{'menu.backToMain' | ghsLabel}}">
+  <div class="back" [ngClass]="{'disabled' : active == SubMenu.main}" (click)="setActive(SubMenu.main)"
+    title="{{'menu.backToMain' | ghsLabel}}">
     <img class="ghs-svg" src="./assets/images/left.svg">
   </div>
 
   <div *ngSwitchCase="SubMenu.main" class="menu-container main">
     <div class="line">
       <div class="state">
-        <a [ngClass]="{'disabled' : !gameManager.stateManager.hasUndo()}"
-          (click)="gameManager.stateManager.undo()">{{'state.undo' | ghsLabel}} </a>
-        <a [ngClass]="{'disabled' :!gameManager.stateManager.hasRedo()}"
-          (click)="gameManager.stateManager.redo()">{{'state.redo' | ghsLabel}}</a>
+        <a class="undo" [ngClass]="{'disabled' : !gameManager.stateManager.hasUndo()}"
+          (click)="gameManager.stateManager.undo()">
+          {{'state.undo' | ghsLabel}}
+          <span class="info" *ngIf="undoInfo().length > 0" [i18n]="'state.info.' + undoInfo()[0]"
+            [i18n-args]="(undoInfo() | slice:1:undoInfo().length)"></span> </a>
+        <a class="redo" [ngClass]="{'disabled' :!gameManager.stateManager.hasRedo()}"
+          (click)="gameManager.stateManager.redo()">
+          {{'state.redo' | ghsLabel}}
+          <span class="info" *ngIf="redoInfo().length > 0" [i18n]="'state.info.' + redoInfo()[0]"
+            [i18n-args]="(redoInfo() | slice:1:redoInfo().length)"></span>
+        </a>
       </div>
     </div>
 
@@ -82,7 +90,8 @@
 
     <div class="columns separator">
       <div class="column">
-        <div class="line" [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
+        <div class="line"
+          [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
           <a (click)="setActive(SubMenu.edition)">{{'edition' | ghsLabel}}</a>
         </div>
       </div>

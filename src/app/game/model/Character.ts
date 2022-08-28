@@ -144,7 +144,11 @@ export class Character extends CharacterData implements Entity, Figure {
       summon.fromModel(value);
     })
 
-    this.progress = model.progress || new CharacterProgress();
+    this.progress = new CharacterProgress();
+
+    if (model.progress) {
+      this.progress = Object.assign(new CharacterProgress(), model.progress);
+    }
 
     // migration
     if (this.progress.loot && !this.progress.gold) {
@@ -246,7 +250,7 @@ export class GameCharacterModel {
     this.entityConditions = entityConditions;
     this.markers = markers;
     this.summons = summons;
-    this.progress = progress;
+    this.progress = Object.assign(new CharacterProgress(), progress);
     this.initiativeVisible = initiativeVisible;
     this.attackModifierDeckVisible = attackModifierDeckVisible;
     this.number = number;

@@ -8,6 +8,7 @@ import { Condition, ConditionType } from 'src/app/game/model/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { DialogComponent } from '../../dialog/dialog';
+import { ghsValueSign } from '../../helper/Static';
 
 @Component({
   selector: 'ghs-character',
@@ -33,6 +34,7 @@ export class CharacterComponent extends DialogComponent {
   levelDialog: boolean = false;
   levels: number[] = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
 
+  dragInitiative: number = -1;
   dragHp: number = 0;
   dragXp: number = 0;
   dragLoot: number = 0;
@@ -52,29 +54,25 @@ export class CharacterComponent extends DialogComponent {
   }
 
   changeExperience(value: number) {
-    gameManager.stateManager.before();
     this.character.experience += value;
     this.experience += value;
 
     if (this.character.experience <= 0) {
       this.character.experience = 0;
     }
-    gameManager.stateManager.after();
   }
 
   changeLoot(value: number) {
-    gameManager.stateManager.before();
     this.character.loot += value;
     this.loot += value;
 
     if (this.character.loot <= 0) {
       this.character.loot = 0;
     }
-    gameManager.stateManager.after();
   }
 
   changeAttackModifierDeck(deck: AttackModifierDeck) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("updateAttackModifierDeck", "%game.data.character." + this.character.name + "%");
     this.character.attackModifierDeck = deck;
     gameManager.stateManager.after();
   }
@@ -114,13 +112,13 @@ export class CharacterComponent extends DialogComponent {
   }
 
   changeBless(value: number) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before(value < 0 ? "removeBless" : "addBless", "%game.data.character." + this.character.name + "%");
     this.changeAttackModifier(AttackModifierType.bless, value)
     gameManager.stateManager.after();
   }
 
   changeCurse(value: number) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before(value < 0 ? "removeCurse" : "addCurse", "%game.data.character." + this.character.name + "%");
     this.changeAttackModifier(AttackModifierType.curse, value)
     gameManager.stateManager.after();
   }
@@ -130,13 +128,13 @@ export class CharacterComponent extends DialogComponent {
   }
 
   toggleCondition(condition: Condition) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before(gameManager.entityManager.hasCondition(this.character, condition) ? "removeCondition" : "addCondition", "%game.data.character." + this.character.name + "%", "%game.condition." + condition.name + "%");
     gameManager.entityManager.toggleCondition(this.character, condition, this.character.active, this.character.off);
     gameManager.stateManager.after();
   }
 
   toggleExhausted() {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before(this.character.exhausted ? "unsetExhausted" : "setExhausted", "%game.data.character." + this.character.name + "%");
     this.exhausted();
     gameManager.stateManager.after();
   }
@@ -160,7 +158,7 @@ export class CharacterComponent extends DialogComponent {
 
 
   changeMaxHealth(value: number) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("changeMaxHP", "%game.data.character." + this.character.name + "%", ghsValueSign(value));
     this.character.maxHealth += value;
 
     if (this.character.maxHealth <= 1) {
@@ -174,7 +172,7 @@ export class CharacterComponent extends DialogComponent {
   }
 
   setLevel(level: number) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("setLevel", "%game.data.character." + this.character.name + "%", "" + level);
     this.characterManager.setLevel(this.character, level);
     gameManager.stateManager.after();
   }
@@ -190,6 +188,10 @@ export class CharacterComponent extends DialogComponent {
 
       if (value == 0 && settingsManager.settings.initiativeRequired) {
         value = 1;
+      }
+
+      if (this.dragInitiative == -1) {
+        this.dragInitiative = this.character.initiative;
       }
 
       this.character.initiative = value;
@@ -209,8 +211,10 @@ export class CharacterComponent extends DialogComponent {
         value = 1;
       }
 
-      gameManager.stateManager.before();
+      this.character.initiative = this.dragInitiative;
+      gameManager.stateManager.before("setInitiative", "%game.data.character." + this.character.name + "%", "" + value);
       this.character.initiative = value;
+      this.dragInitiative = -1;
       if (this.character instanceof Character) {
         this.character.initiativeVisible = true;
       }
@@ -221,23 +225,20 @@ export class CharacterComponent extends DialogComponent {
 
   dragHpMove(value: number) {
     if (settingsManager.settings.dragValues) {
-      const old = this.character.health;
       const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
-      this.character.health += Math.floor(value / dragFactor) - this.dragHp;
-      if (this.character.health > this.character.maxHealth) {
-        this.character.health = EntityValueFunction("" + this.character.maxHealth);
-      } else if (this.character.health < 0) {
-        this.character.health = 0;
+      this.dragHp = Math.floor(value / dragFactor);
+      if (this.character.health + this.dragHp > this.character.maxHealth) {
+        this.dragHp = this.character.maxHealth - this.character.health;
+      } else if (this.character.health + this.dragHp < 0) {
+        this.dragHp = - this.character.health;
       }
-      this.dragHp += this.character.health - old;
     }
   }
 
   dragHpEnd(value: number) {
     if (settingsManager.settings.dragValues) {
       if (this.dragHp != 0) {
-        this.character.health -= this.dragHp;
-        gameManager.stateManager.before();
+        gameManager.stateManager.before("changeHP", "%game.data.character." + this.character.name + "%", ghsValueSign(this.dragHp));
         this.changeHealth(this.dragHp);
         if (this.character.health <= 0 || this.character.exhausted && this.dragHp >= 0 && this.character.health > 0) {
           this.exhausted();
@@ -251,21 +252,18 @@ export class CharacterComponent extends DialogComponent {
 
   dragXpMove(value: number) {
     if (settingsManager.settings.dragValues) {
-      const old = this.character.experience;
       const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
-      this.character.experience += Math.floor(value / dragFactor) - this.dragXp;
-      if (this.character.experience < 0) {
-        this.character.experience = 0;
+      this.dragXp = Math.floor(value / dragFactor);
+      if (this.character.experience + this.dragXp < 0) {
+        this.dragXp = - this.character.experience;
       }
-      this.dragXp += this.character.experience - old;
     }
   }
 
   dragXpEnd(value: number) {
     if (settingsManager.settings.dragValues) {
       if (this.dragXp != 0) {
-        this.character.experience -= this.dragXp;
-        gameManager.stateManager.before();
+        gameManager.stateManager.before("changeXP", "%game.data.character." + this.character.name + "%", ghsValueSign(this.dragXp));
         this.character.experience += this.dragXp;
         this.dragXp = 0;
       }
@@ -275,21 +273,18 @@ export class CharacterComponent extends DialogComponent {
 
   dragLootMove(value: number) {
     if (settingsManager.settings.dragValues) {
-      const old = this.character.loot;
       const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
-      this.character.loot += Math.floor(value / dragFactor) - this.dragLoot;
-      if (this.character.loot < 0) {
-        this.character.loot = 0;
+      this.dragLoot = Math.floor(value / dragFactor);
+      if (this.character.loot + this.dragLoot < 0) {
+        this.dragLoot = - this.character.loot;
       }
-      this.dragLoot += this.character.loot - old;
     }
   }
 
   dragLootEnd(value: number) {
     if (settingsManager.settings.dragValues) {
       if (this.dragLoot != 0) {
-        this.character.loot -= this.dragLoot;
-        gameManager.stateManager.before();
+        gameManager.stateManager.before("changeLoot", "%game.data.character." + this.character.name + "%", ghsValueSign(this.dragLoot));
         this.character.loot += this.dragLoot;
         this.dragLoot = 0;
       }
@@ -319,7 +314,7 @@ export class CharacterComponent extends DialogComponent {
 
     if (this.health != 0) {
       this.character.health -= this.health;
-      gameManager.stateManager.before();
+      gameManager.stateManager.before("changeHP", "%game.data.character." + this.character.name + "%", ghsValueSign(this.health));
       this.changeHealth(this.health);
       if (this.character.health <= 0 || this.character.exhausted && this.health >= 0 && this.character.health > 0) {
         this.exhausted();
@@ -330,17 +325,39 @@ export class CharacterComponent extends DialogComponent {
       this.health = 0;
       gameManager.stateManager.after();
     }
-    this.experience = 0;
-    this.loot = 0;
+
+    if (this.experience != 0) {
+      this.character.experience -= this.experience;
+      gameManager.stateManager.before("changeXP", "%game.data.character." + this.character.name + "%", ghsValueSign(this.experience));
+      this.character.experience += this.experience;
+      if (this.character.experience < 0) {
+        this.character.experience = 0;
+      }
+      this.experience = 0;
+      gameManager.stateManager.after();
+    }
+
+    if (this.loot != 0) {
+      this.character.loot -= this.loot;
+      gameManager.stateManager.before("changeLoot", "%game.data.character." + this.character.name + "%", ghsValueSign(this.loot));
+      this.character.loot += this.loot;
+      if (this.character.loot < 0) {
+        this.character.loot = 0;
+      }
+      this.loot = 0;
+      gameManager.stateManager.after();
+    }
+
+
     if (this.levelDialog && this.titleInput) {
       if (this.titleInput.nativeElement.value && this.titleInput.nativeElement.value != settingsManager.getLabel('data.character.' + this.character.name.toLowerCase())) {
         if (this.character.title != this.titleInput.nativeElement.value) {
-          gameManager.stateManager.before();
+          gameManager.stateManager.before("setTitle", "%game.data.character." + this.character.name + "%", this.titleInput.nativeElement.value);
           this.character.title = this.titleInput.nativeElement.value;
           gameManager.stateManager.after();
         }
       } else if (this.character.title != "") {
-        gameManager.stateManager.before();
+        gameManager.stateManager.before("unsetTitle", "%game.data.character." + this.character.name + "%", this.character.title);
         this.character.title = "";
         gameManager.stateManager.after();
       }

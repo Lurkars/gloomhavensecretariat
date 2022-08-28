@@ -88,6 +88,45 @@ export class MainMenuComponent extends DialogComponent {
     return this.setDialogPosition.bind(this);
   }
 
+  undoInfo(): string[] {
+    let undos = [];
+    const undoString: string | null = localStorage.getItem("ghs-undo");
+    if (undoString != null) {
+      undos = JSON.parse(undoString);
+    }
+    let undoInfos = [];
+    const undoInfosString: string | null = localStorage.getItem("ghs-undo-infos");
+    if (undoInfosString != null) {
+      undoInfos = JSON.parse(undoInfosString);
+    }
+    if (undos.length > 0 && undoInfos.length >= undos.length) {
+      return undoInfos[ undos.length - 1 ]
+    }
+    return [];
+  }
+
+  redoInfo(): string[] {
+    let undos = [];
+    const undoString: string | null = localStorage.getItem("ghs-undo");
+    if (undoString != null) {
+      undos = JSON.parse(undoString);
+    }
+    let redos = [];
+    const redoString: string | null = localStorage.getItem("ghs-redo");
+    if (redoString != null) {
+      redos = JSON.parse(redoString);
+    }
+    let undoInfos = [];
+    const undoInfosString: string | null = localStorage.getItem("ghs-undo-infos");
+    if (undoInfosString != null) {
+      undoInfos = JSON.parse(undoInfosString);
+    }
+    if (redos.length > 0 && undoInfos.length >= undos.length + redos.length) {
+      return undoInfos[ undos.length ]
+    }
+    return [];
+  }
+
   hasScenarios(): boolean {
     return gameManager.editionData.some((editionData) => (!gameManager.game.edition || editionData.edition == gameManager.game.edition) && editionData.scenarios && editionData.scenarios.length > 0);
   }

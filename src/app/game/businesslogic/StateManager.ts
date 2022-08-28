@@ -43,7 +43,7 @@ export class StateManager {
   buildWsUrl(protocol: string, serverUrl: string, port: number | string) {
     let urls = serverUrl.split("/");
     const url = urls[ 0 ];
-    let path : string = "";
+    let path: string = "";
     if (urls.length > 1) {
       path = "/" + (urls.splice(1, urls.length + 1).join("/"));
     }
@@ -74,9 +74,9 @@ export class StateManager {
       switch (message.type) {
         case "game":
           let gameModel: GameModel = message.payload as GameModel;
-          gameManager.stateManager.addToUndo();
+          gameManager.stateManager.before();
           gameManager.game.fromModel(gameModel, true);
-          gameManager.stateManager.saveLocal(0);
+          gameManager.stateManager.saveLocal();
           gameManager.uiChange.emit();
           break;
         case "settings":
@@ -160,43 +160,50 @@ export class StateManager {
     this.game = new Game();
     localStorage.removeItem("ghs-game");
     localStorage.removeItem("ghs-undo");
+    localStorage.removeItem("ghs-undo-infos");
     localStorage.removeItem("ghs-redo");
   }
 
-  addToUndo() {
+  addToUndo(info: string[]) {
     window.document.body.classList.add('working');
-    let undo: GameModel[] = [];
-    const undoString: string | null = localStorage.getItem("ghs-undo");
-    if (undoString != null) {
-      undo = JSON.parse(undoString);
-    }
-
     if (JSON.stringify(this.game.toModel()) != localStorage.getItem("ghs-game")) {
-      undo.push(this.game.toModel());
-    }
+      let undos = [];
+      const undoString: string | null = localStorage.getItem("ghs-undo");
+      if (undoString != null) {
+        undos = JSON.parse(undoString);
+      }
+      let redos = [];
+      const redoString: string | null = localStorage.getItem("ghs-redo");
+      if (redoString != null) {
+        redos = JSON.parse(redoString);
+      }
+      let undoInfos = [];
+      const undoInfosString: string | null = localStorage.getItem("ghs-undo-infos");
+      if (undoInfosString != null) {
+        undoInfos = JSON.parse(undoInfosString);
+      }
 
-    if (undo.length > settingsManager.settings.maxUndo) {
-      undo.splice(0, undo.length - settingsManager.settings.maxUndo);
-    }
+      undos.push(this.game.toModel());
 
-    localStorage.setItem("ghs-undo", JSON.stringify(undo));
-    localStorage.setItem("ghs-redo", "[]");
+      if (undos.length > settingsManager.settings.maxUndo) {
+        undos.splice(0, undos.length - settingsManager.settings.maxUndo);
+      }
+      undoInfos.splice(undoInfos.length - redos.length, redos.length);
+      undoInfos.push(info);
 
-    if (settingsManager.settings.browserNavigation) {
-      // TODO: push state
+      localStorage.setItem("ghs-undo", JSON.stringify(undos));
+      localStorage.setItem("ghs-undo-infos", JSON.stringify(undoInfos));
+      localStorage.setItem("ghs-redo", JSON.stringify([]));
+
+      if (settingsManager.settings.browserNavigation) {
+        // TODO: push state
+      }
     }
   }
 
-  saveLocal(timeout: number = 1) {
+  saveLocal() {
     window.document.body.classList.add('working');
     localStorage.setItem("ghs-game", JSON.stringify(this.game.toModel()));
-    if (timeout) {
-      setTimeout(() => {
-        window.document.body.classList.remove('working');
-      }, timeout);
-    } else {
-      window.document.body.classList.remove('working');
-    }
   }
 
   saveSettings() {
@@ -210,12 +217,12 @@ export class StateManager {
     }
   }
 
-  before() {
-    this.addToUndo();
+  before(...info: string[]) {
+    this.addToUndo(info || []);
   }
 
-  after(timeout: number = 0) {
-    this.saveLocal(timeout);
+  after(timeout: number = 1) {
+    this.saveLocal();
     if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword) {
       let message = {
         "password": settingsManager.settings.serverPassword,
@@ -227,67 +234,76 @@ export class StateManager {
 
     this.lastSaveTimestamp = new Date().getTime();
     gameManager.uiChange.emit();
+
+    if (timeout) {
+      setTimeout(() => {
+        window.document.body.classList.remove('working');
+      }, timeout);
+    } else {
+      window.document.body.classList.remove('working');
+    }
   }
 
-  hasUndo(): boolean {
+  hasUndo(): boolean {      
+    let undos = [];
     const undoString: string | null = localStorage.getItem("ghs-undo");
-    return undoString != null && undoString != "[]";
+    if (undoString != null) {
+      undos = JSON.parse(undoString);
+    }
+    return undos.length > 0;
   }
 
   undo() {
     window.document.body.classList.add('working');
-    let redo: GameModel[] = [];
-    const redoString: string | null = localStorage.getItem("ghs-redo");
-
-    if (redoString != null) {
-      redo = JSON.parse(redoString);
-    }
-
-    let undo: GameModel[] = [];
+    let undos = [];
     const undoString: string | null = localStorage.getItem("ghs-undo");
     if (undoString != null) {
-      undo = JSON.parse(undoString);
-
-      if (undo.length > 0) {
-        redo.push(this.game.toModel());
-        const gameModel: GameModel = undo.splice(undo.length - 1, 1)[ 0 ];
-        this.game.fromModel(gameModel);
-      }
+      undos = JSON.parse(undoString);
     }
-
-    localStorage.setItem("ghs-redo", JSON.stringify(redo));
-    localStorage.setItem("ghs-undo", JSON.stringify(undo));
+    let redos = [];
+    const redoString: string | null = localStorage.getItem("ghs-redo");
+    if (redoString != null) {
+      redos = JSON.parse(redoString);
+    }
+    if (undos.length > 0) {
+      redos.push(this.game.toModel());
+      const gameModel: GameModel = undos.splice(undos.length - 1, 1)[ 0 ];
+      this.game.fromModel(gameModel);
+    }
+    localStorage.setItem("ghs-redo", JSON.stringify(redos));
+    localStorage.setItem("ghs-undo", JSON.stringify(undos));
     this.after();
   }
 
-  hasRedo(): boolean {
-    const redoString: string | null = localStorage.getItem("ghs-redo");
-    return redoString != null && redoString != "[]";
-  }
-
-  redo() {
-    window.document.body.classList.add('working');
-    let undo: GameModel[] = [];
-    const undoString: string | null = localStorage.getItem("ghs-undo");
-
-    if (undoString != null) {
-      undo = JSON.parse(undoString);
-    }
-
-    let redo: GameModel[] = [];
+  hasRedo(): boolean {      
+    let redos = [];
     const redoString: string | null = localStorage.getItem("ghs-redo");
     if (redoString != null) {
-      redo = JSON.parse(redoString);
+      redos = JSON.parse(redoString);
+    }
+    return redos.length > 0;
+  }
 
-      if (redo.length > 0) {
-        undo.push(this.game.toModel());
-        const gameModel: GameModel = redo.splice(redo.length - 1, 1)[ 0 ];
-        this.game.fromModel(gameModel);
-      }
+  redo() {      
+    let undos = [];
+    const undoString: string | null = localStorage.getItem("ghs-undo");
+    if (undoString != null) {
+      undos = JSON.parse(undoString);
+    }
+    let redos = [];
+    const redoString: string | null = localStorage.getItem("ghs-redo");
+    if (redoString != null) {
+      redos = JSON.parse(redoString);
+    }
+    window.document.body.classList.add('working');
+    if (redos.length > 0) {
+      undos.push(this.game.toModel());
+      const gameModel: GameModel = redos.splice(redos.length - 1, 1)[ 0 ];
+      this.game.fromModel(gameModel);
     }
 
-    localStorage.setItem("ghs-redo", JSON.stringify(redo));
-    localStorage.setItem("ghs-undo", JSON.stringify(undo));
+    localStorage.setItem("ghs-redo", JSON.stringify(redos));
+    localStorage.setItem("ghs-undo", JSON.stringify(undos));
     this.after();
   }
 
