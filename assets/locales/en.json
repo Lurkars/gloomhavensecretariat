@@ -20,31 +20,7 @@
   "state": {
     "undo": "Undo",
     "redo": "Redo",
-    "reset": "Reset",
-    "info": {
-      "setInitiative": "Set Initiative of {0} to {1}",
-      "updateAttackModifierDeck": "Update AM deck of {0}",
-      "toggleFigure": "Set {0} active to {1}",
-      "changeHP": "Change HP of {0}: {1}",
-      "changeXP": "Change XP of {0}: {1}",
-      "changeLoot": "Change Loot of {0}: {1}",
-      "changeMaxHP": "Change max. HP of {0}: {1}",
-      "setLevel": "Set Level of {0} to {1}",
-      "setTitle": "Set Title of {0} to {1}",
-      "unsetTitle": "Remove title {1} from {0}",
-      "setXP": "Set XP of {0} to {1}",
-      "setGold": "Set Gold of {0} to {1}",
-      "setPQ": "Set Personal Quest of {0} to {1}",
-      "setBG": "Set Battle Goals of {0} to {1}",
-      "setNotes": "Set Notes of {0} to {1}",
-      "setRetired": "Set {0} retired {1}",
-      "setRetirements": "Set Retirements of {0} to {1}",
-      "addItem": "Add Item {1} (%data.edition.{2}%) to {0}",
-      "buyItem": "Buy Item {1} (%data.edition.{2}%) for {0}",
-      "removeItem": "Remove Item {1} (%data.edition.{2}%) from {0}",
-      "sellItem": "Sell Item {1} (%data.edition.{2}%) for {0}",
-      "setPerk": "Set Perk {1} of {0} to {2}"
-    }
+    "reset": "Reset"
   },
   "edition": {
     ".": "Set Edition",
