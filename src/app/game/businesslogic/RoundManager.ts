@@ -311,7 +311,7 @@ export class RoundManager {
     this.game.sections = [];
     this.game.round = 0;
     this.game.state = GameState.draw;
-    this.game.elementBoard = defeaultElementBoard;
+    this.game.elementBoard.forEach((element) => element.state = ElementState.inert);
     this.game.monsterAttackModifierDeck = new AttackModifierDeck();
     this.game.figures = this.game.figures.filter((figure) => figure instanceof Character);
 
