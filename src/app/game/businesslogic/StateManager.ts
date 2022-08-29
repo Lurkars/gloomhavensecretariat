@@ -58,6 +58,12 @@ export class StateManager {
     if (undoInfosString != null) {
       this.undoInfos = JSON.parse(undoInfosString);
     }
+
+    // migration
+    const missingUndoInfos = this.undos.length + this.redos.length - this.undoInfos.length;
+    for (let i = 0; i < missingUndoInfos; i++) {
+      this.undoInfos.unshift([]);
+    }
   }
 
   buildWsUrl(protocol: string, serverUrl: string, port: number | string) {
