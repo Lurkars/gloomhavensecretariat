@@ -5,6 +5,7 @@ import { Condition, ConditionType } from 'src/app/game/model/Condition';
 import { GameState } from 'src/app/game/model/Game';
 import { Summon, SummonState } from 'src/app/game/model/Summon';
 import { DialogComponent } from 'src/app/ui/dialog/dialog';
+import { ghsValueSign } from 'src/app/ui/helper/Static';
 
 @Component({
   selector: 'ghs-summon-entity',
@@ -32,27 +33,16 @@ export class SummonEntityComponent extends DialogComponent {
   }
 
   changeHealth(value: number) {
-    gameManager.stateManager.before();
-    const old = this.summon.health;
-    gameManager.entityManager.changeHealth(this.summon, value);
-    this.health += this.summon.health - old;
-    gameManager.stateManager.after();
-  }
-
-
-  hasCondition(condition: Condition) {
-    return gameManager.entityManager.hasCondition(this.summon, condition);
-  }
-
-  toggleCondition(condition: Condition) {
-    gameManager.stateManager.before();
-    gameManager.entityManager.toggleCondition(this.summon, condition, this.character.active, this.character.off);
-    gameManager.stateManager.after();
-    this.setDialogPosition();
+    this.health += value;
+    if (this.summon.health + this.health > this.summon.maxHealth) {
+      this.health = this.summon.maxHealth - this.summon.health;
+    } else if (this.summon.health + this.health < 0) {
+      this.health = - this.summon.health;
+    }
   }
 
   dead() {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("summonDead", "data.character." + this.character.name, "data.summon." + this.summon.name);
     if (this.opened) {
       this.close();
     }
@@ -77,7 +67,7 @@ export class SummonEntityComponent extends DialogComponent {
   }
 
   changeMaxHealth(value: number) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("changeSummonMaxHp", "data.character." + this.character.name, "data.summon." + this.summon.name, ghsValueSign(value));
 
     if (value > 0 && this.summon.health == this.summon.maxHealth) {
       this.summon.health += value;
@@ -96,7 +86,7 @@ export class SummonEntityComponent extends DialogComponent {
   }
 
   changeAttack(value: number) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("changeSummonAttack", "data.character." + this.character.name, "data.summon." + this.summon.name, ghsValueSign(value));
     this.summon.attack += value;
     if (this.summon.attack <= 0) {
       this.summon.attack = 0;
@@ -105,7 +95,7 @@ export class SummonEntityComponent extends DialogComponent {
   }
 
   changeMovement(value: number) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("changeSummonMove", "data.character." + this.character.name, "data.summon." + this.summon.name, ghsValueSign(value));
     this.summon.movement += value;
     if (this.summon.movement <= 0) {
       this.summon.movement = 0;
@@ -114,7 +104,7 @@ export class SummonEntityComponent extends DialogComponent {
   }
 
   changeRange(value: number) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("changeSummonRange", "data.character." + this.character.name, "data.summon." + this.summon.name, ghsValueSign(value));
     this.summon.range += value;
     if (this.summon.range <= 0) {
       this.summon.range = 0;
@@ -124,7 +114,12 @@ export class SummonEntityComponent extends DialogComponent {
 
   override close(): void {
     super.close();
-    this.health = 0;
+    if (this.health != 0) {
+      gameManager.stateManager.before("changeSummonHp", "data.character." + this.character.name, "data.summon." + this.summon.name, ghsValueSign(this.health));
+      this.summon.health += this.health;
+      gameManager.stateManager.after();
+      this.health = 0;
+    }
     this.levelDialog = false;
     if (this.summon.health <= 0 || this.summon.dead) {
       this.dead();

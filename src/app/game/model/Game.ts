@@ -1,9 +1,9 @@
 import { gameManager } from "../businesslogic/GameManager";
 import { settingsManager } from "../businesslogic/SettingsManager";
-import { AttackModifier, AttackModifierDeck, AttackModifierType, defaultAttackModifierCards, GameAttackModifierDeckModel } from "./AttackModifier";
+import { AttackModifierDeck, AttackModifierType, defaultAttackModifierCards, GameAttackModifierDeckModel } from "./AttackModifier";
 import { Character, GameCharacterModel } from "./Character";
 import { SectionData } from "./data/SectionData";
-import { Element } from "./Element";
+import { defeaultElementBoard, Element, ElementModel, ElementState } from "./Element";
 import { Figure } from "./Figure";
 import { GameMonsterModel, Monster } from "./Monster";
 import { GameObjectiveModel, Objective } from "./Objective";
@@ -26,15 +26,13 @@ export class Game {
   totalSeconds: number = 0;
   monsterAttackModifierDeck: AttackModifierDeck = new AttackModifierDeck();
   allyAttackModifierDeck: AttackModifierDeck = new AttackModifierDeck();
-  newElements: Element[] = [];
-  strongElements: Element[] = [];
-  elements: Element[] = [];
+  elementBoard: ElementModel[] = defeaultElementBoard;
   solo: boolean = false;
   party: Party | undefined = undefined;
 
 
   toModel(): GameModel {
-    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.round, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.newElements, this.strongElements, this.elements, this.solo, this.party);
+    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.round, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party);
   }
 
   fromModel(model: GameModel, server: boolean = false) {
@@ -114,8 +112,12 @@ export class Game {
     this.ge5Player = model.ge5Player;
 
     this.round = model.round;
-    this.playSeconds = model.playSeconds;
-    this.totalSeconds = model.totalSeconds;
+    if (model.playSeconds > this.playSeconds) {
+      this.playSeconds = model.playSeconds;
+    }
+    if (model.totalSeconds > this.totalSeconds) {
+      this.totalSeconds = model.totalSeconds;
+    }
     this.monsterAttackModifierDeck = this.monsterAttackModifierDeck || new AttackModifierDeck();
     if (model.monsterAttackModifierDeck && model.monsterAttackModifierDeck.cards && model.monsterAttackModifierDeck.cards.length > 0) {
       this.monsterAttackModifierDeck.fromModel(model.monsterAttackModifierDeck);
@@ -131,9 +133,29 @@ export class Game {
       this.allyAttackModifierDeck.fromModel(model.allyAttackModifierDeck);
     }
 
-    this.newElements = model.newElements;
-    this.strongElements = model.strongElements;
-    this.elements = model.elements;
+    this.elementBoard = model.elementBoard && model.elementBoard.length > 0 && model.elementBoard || this.elementBoard;
+
+    model.newElements.forEach((element) => {
+      const elementModel = this.elementBoard.find((elementModel) => elementModel.type == element);
+      if (elementModel) {
+        elementModel.state = ElementState.new;
+      }
+    })
+
+    model.strongElements.forEach((element) => {
+      const elementModel = this.elementBoard.find((elementModel) => elementModel.type == element);
+      if (elementModel) {
+        elementModel.state = ElementState.strong;
+      }
+    })
+
+    model.elements.forEach((element) => {
+      const elementModel = this.elementBoard.find((elementModel) => elementModel.type == element);
+      if (elementModel) {
+        elementModel.state = ElementState.waning;
+      }
+    })
+
     this.solo = model.solo;
     this.party = model.party;
   }
@@ -166,9 +188,10 @@ export class GameModel {
   allyAttackModifierDeck: GameAttackModifierDeckModel;
   attackModifier: number | undefined;
   attackModifiers: AttackModifierType[] | undefined;
-  newElements: Element[];
-  strongElements: Element[];
-  elements: Element[];
+  elementBoard: ElementModel[];
+  newElements: Element[] = [];
+  strongElements: Element[] = [];
+  elements: Element[] = [];
   solo: boolean;
   party: Party | undefined;
 
@@ -190,9 +213,7 @@ export class GameModel {
     totalSeconds: number = 0,
     monsterAttackModifierDeck: GameAttackModifierDeckModel = new GameAttackModifierDeckModel(-1, defaultAttackModifierCards),
     allyAttackModifierDeck: GameAttackModifierDeckModel = new GameAttackModifierDeckModel(-1, defaultAttackModifierCards),
-    newElements: Element[] = [],
-    strongElements: Element[] = [],
-    elements: Element[] = [],
+    elementBoard: ElementModel[] = [],
     solo: boolean = false,
     party: Party | undefined = undefined) {
     this.edition = edition;
@@ -201,8 +222,8 @@ export class GameModel {
     this.monsters = monsters;
     this.objectives = objectives;
     this.state = state;
-    this.scenario = scenario;
-    this.sections = sections;
+    this.scenario = scenario && JSON.parse(JSON.stringify(scenario)) || undefined;
+    this.sections = JSON.parse(JSON.stringify(sections));
     this.level = level;
     this.levelCalculation = levelCalculation;
     this.levelAdjustment = levelAdjustment;
@@ -213,9 +234,7 @@ export class GameModel {
     this.totalSeconds = totalSeconds;
     this.monsterAttackModifierDeck = monsterAttackModifierDeck;
     this.allyAttackModifierDeck = allyAttackModifierDeck;
-    this.newElements = newElements;
-    this.strongElements = strongElements;
-    this.elements = elements;
+    this.elementBoard = elementBoard.map((elementModel) => JSON.parse(JSON.stringify(elementModel)));
     this.solo = solo;
     this.party = party;
   }

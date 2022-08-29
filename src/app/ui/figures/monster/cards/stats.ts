@@ -93,21 +93,9 @@ export class MonsterStatsComponent extends DialogComponent {
     return stat;
   }
 
-  addMonsterEntity(number: number, type: MonsterType) {
-    gameManager.stateManager.before();
-    let parent: ElementRef | undefined = undefined;
-
-    if (type == MonsterType.normal) {
-      parent = this.normalButton;
-    } else if (type == MonsterType.elite) {
-      parent = this.eliteButton;
-    }
-    gameManager.stateManager.after();
-  }
-
   setLevel(value: number) {
     if (value != this.monster.level) {
-      gameManager.stateManager.before();
+      gameManager.stateManager.before("setLevel", "data.monster." + this.monster.name);
       const abilities = gameManager.abilities(this.monster);
       if (this.monster.abilities.length != abilities.filter((ability) => !ability.level || isNaN(+ability.level) || ability.level <= value).length) {
         this.monster.abilities = abilities.filter((ability) => !ability.level || isNaN(+ability.level) || ability.level <= value).map((ability, index) => index);
@@ -158,7 +146,7 @@ export class MonsterStatsComponent extends DialogComponent {
   }
 
   toggleAlly() {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before(this.monster.isAlly ? "unsetAlly" : "setAlly", "data.monster." + this.monster.name);
     this.monster.isAlly = !this.monster.isAlly;
     gameManager.stateManager.after();
   }

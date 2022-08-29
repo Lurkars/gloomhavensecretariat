@@ -55,7 +55,7 @@ export class SectionMenuComponent {
   }
 
   addSection(sectionData: SectionData) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("addSection", sectionData.index, "data.scenario." + sectionData.name, "data.edition." + sectionData.edition);
     gameManager.scenarioManager.addSection(sectionData);
     gameManager.stateManager.after();
   }

@@ -1,5 +1,6 @@
 import { AttackModifierDeck, defaultAttackModifier } from "../model/AttackModifier";
 import { Character } from "../model/Character";
+import { defeaultElementBoard, ElementState } from "../model/Element";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
@@ -33,16 +34,18 @@ export class RoundManager {
       gameManager.attackModifierManager.next();
 
       if (settingsManager.settings.moveElements) {
-        this.game.elements = [];
-        this.game.strongElements.forEach((element) => {
-          this.game.elements.push(element);
-        });
-        this.game.strongElements = [];
+        this.game.elementBoard.forEach((element) => {
+          if (element.state == ElementState.strong) {
+            element.state = ElementState.waning;
+          } else if (element.state == ElementState.waning) {
+            element.state = ElementState.inert;
+          }
+        })
       }
 
-      this.game.figures.forEach((figure) => figure.active = false);
-
       gameManager.sortFigures();
+
+      this.game.figures.forEach((figure) => figure.active = false);
 
     } else if (this.nextAvailable()) {
       if (this.game.round == 0) {
@@ -54,17 +57,19 @@ export class RoundManager {
       gameManager.monsterManager.draw();
 
       if (settingsManager.settings.moveElements) {
-        this.game.newElements.forEach((element) => {
-          this.game.strongElements.push(element);
-        });
-        this.game.newElements = [];
+        this.game.elementBoard.forEach((element) => {
+          if (element.state == ElementState.new) {
+            element.state = ElementState.strong;
+          }
+        })
       }
+
+      gameManager.sortFigures();
 
       if (this.game.figures.length > 0) {
         this.toggleFigure(this.game.figures[ 0 ]);
       }
 
-      gameManager.sortFigures();
     }
     gameManager.uiChange.emit();
     setTimeout(() => this.working = false, 1);
@@ -301,11 +306,12 @@ export class RoundManager {
     return ((figure instanceof Character || figure instanceof Objective) && (figure.exhausted || figure.health <= 0)) || (figure instanceof Monster && figure.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.health <= 0));
   }
 
-  resetRound() {
+  resetScenario() {
     this.game.playSeconds = 0;
     this.game.sections = [];
     this.game.round = 0;
     this.game.state = GameState.draw;
+    this.game.elementBoard = defeaultElementBoard;
     this.game.monsterAttackModifierDeck = new AttackModifierDeck();
     this.game.figures = this.game.figures.filter((figure) => figure instanceof Character);
 

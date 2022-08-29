@@ -101,8 +101,8 @@ export class GameObjectiveModel {
     this.active = active;
     this.health = health;
     this.maxHealth = maxHealth;
-    this.entityConditions = entityConditions;
-    this.markers = markers;
+    this.entityConditions = JSON.parse(JSON.stringify(entityConditions));
+    this.markers = JSON.parse(JSON.stringify(markers));
     this.initiative = initiative;
   }
 }

@@ -7,3 +7,23 @@ export enum Element {
   light = "light",
   dark = "dark"
 }
+
+export enum ElementState {
+  strong = "strong",
+  waning = "waning",
+  inert = "inert",
+  new = "new",
+}
+
+export class ElementModel {
+
+  type: Element;
+  state: ElementState = ElementState.inert;
+
+  constructor(type: Element) {
+    this.type = type;
+  }
+
+}
+
+export const defeaultElementBoard: ElementModel[] = [ new ElementModel(Element.fire), new ElementModel(Element.ice), new ElementModel(Element.air), new ElementModel(Element.earth), new ElementModel(Element.light), new ElementModel(Element.dark) ]; 

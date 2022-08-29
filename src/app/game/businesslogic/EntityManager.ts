@@ -1,6 +1,7 @@
 import { Character } from "../model/Character";
 import { Condition, ConditionName, ConditionType, EntityCondition, EntityConditionState } from "../model/Condition";
 import { Entity, EntityValueFunction } from "../model/Entity";
+import { Figure } from "../model/Figure";
 import { Game } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
@@ -367,6 +368,21 @@ export class EntityManager {
     } else {
       entity.markers.push(marker);
     }
+  }
+
+  undoInfos(entity: Entity, figure: Figure, prefix: string): string[] {
+    let infos: string[] = [];
+    if (entity instanceof Character && figure instanceof Character) {
+      infos.push(prefix + ".char", "data.character." + entity.name)
+    } else if (entity instanceof Summon && figure instanceof Character) {
+      infos.push(prefix + ".summon", "data.character." + figure.name, "data.summon." + entity.name)
+    } else if (entity instanceof Objective) {
+      infos.push(prefix + ".objective", entity.title || entity.name)
+    } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
+      infos.push(prefix + ".monster", "data.monster." + figure.name, "monster." + entity.type, "" + entity.number)
+    }
+
+    return infos;
   }
 
 }

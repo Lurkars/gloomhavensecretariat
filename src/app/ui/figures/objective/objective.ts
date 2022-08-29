@@ -7,6 +7,7 @@ import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Objective } from 'src/app/game/model/Objective';
 import { DialogComponent } from '../../dialog/dialog';
+import { ghsValueSign } from '../../helper/Static';
 
 @Component({
   selector: 'ghs-objective',
@@ -25,7 +26,6 @@ export class ObjectiveComponent extends DialogComponent {
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
   ConditionType = ConditionType;
-  health: number = 0;
   dragHp: number = 0;
   dragHpOffset: number = -1;
 
@@ -47,22 +47,17 @@ export class ObjectiveComponent extends DialogComponent {
     if ((gameManager.game.state == GameState.draw || settingsManager.settings.initiativeRequired && this.objective.initiative <= 0) && !this.objective.exhausted && this.objective.health > 0) {
       //
     } else {
-      gameManager.stateManager.before();
+      gameManager.stateManager.before(this.objective.active ? "unsetActive" : "setActive", this.objective.title || this.objective.name);
       gameManager.roundManager.toggleFigure(this.objective);
       gameManager.stateManager.after(250);
     }
   }
 
   changeHealth(value: number) {
-    gameManager.stateManager.before();
-    const old = this.objective.health;
-    gameManager.entityManager.changeHealth(this.objective, value);
-    this.health += this.objective.health - old;
-    gameManager.stateManager.after();
+    this.dragHp += value;
   }
 
   changeId(value: number) {
-    gameManager.stateManager.before();
     let id = this.objective.id + value;
     if (id < 0) {
       id = 98;
@@ -78,12 +73,13 @@ export class ObjectiveComponent extends DialogComponent {
         id = 0;
       }
     }
+    gameManager.stateManager.before("changeObjectiveId", this.objective.title || this.objective.name, "" + id);
     this.objective.id = id;
     gameManager.stateManager.after();
   }
 
   exhausted() {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before(this.objective.exhausted ? "unsetObjectiveExhausted" : "setObjectiveExhausted", this.objective.title || this.objective.name);
     this.objective.exhausted = !this.objective.exhausted;
     if (this.objective.exhausted) {
       this.objective.off = true;
@@ -97,7 +93,7 @@ export class ObjectiveComponent extends DialogComponent {
 
   changeMaxHealth(value: number) {
     if (this.showMaxHealth()) {
-      gameManager.stateManager.before();
+      gameManager.stateManager.before("changeObjectiveMaxHP", this.objective.title || this.objective.name, ghsValueSign(value));
       this.objective.maxHealth = +this.objective.maxHealth;
       this.objective.maxHealth += value;
 
@@ -141,7 +137,7 @@ export class ObjectiveComponent extends DialogComponent {
         value = 1;
       }
 
-      gameManager.stateManager.before();
+      gameManager.stateManager.before("setObjectiveInitiative", this.objective.title || this.objective.name, "" + value);
       this.objective.initiative = value;
       gameManager.sortFigures();
       gameManager.stateManager.after();
@@ -171,41 +167,38 @@ export class ObjectiveComponent extends DialogComponent {
       this.dragHpOffset = -1;
       if (this.dragHp != 0) {
         this.objective.health -= this.dragHp;
-        gameManager.stateManager.before();
+        gameManager.stateManager.before("changeHP", this.objective.title || this.objective.name, ghsValueSign(this.dragHp));
         this.changeHealth(this.dragHp);
         if (this.objective.health <= 0 || this.objective.exhausted && this.dragHp >= 0 && this.objective.health > 0) {
           this.exhausted();
         }
         this.dragHp = 0;
-        this.health = 0;
       }
       gameManager.stateManager.after();
     }
   }
 
-  hasCondition(condition: Condition) {
-    return gameManager.entityManager.hasCondition(this.objective, condition);
-  }
-
-  toggleCondition(condition: Condition) {
-    gameManager.stateManager.before();
-    gameManager.entityManager.toggleCondition(this.objective, condition, this.objective.active, this.objective.off);
-    gameManager.stateManager.after();
-  }
-
-
   override close(): void {
     super.close();
-    this.health = 0;
+    if (this.dragHp != 0) {
+      gameManager.stateManager.before("changeHP", this.objective.title || this.objective.name, ghsValueSign(this.dragHp));
+      const old = this.objective.health;
+      gameManager.entityManager.changeHealth(this.objective, this.dragHp);
+      if (this.objective.health <= 0 || this.objective.exhausted && this.dragHp >= 0 && this.objective.health > 0) {
+        this.exhausted();
+      }
+      gameManager.stateManager.after();
+      this.dragHp = 0;
+    }
     if (this.titleInput) {
       if (this.titleInput.nativeElement.value && this.titleInput.nativeElement.value != new Objective(0).name) {
         if (this.objective.title != this.titleInput.nativeElement.value) {
-          gameManager.stateManager.before();
+          gameManager.stateManager.before("setTitle", this.objective.name, this.titleInput.nativeElement.value);
           this.objective.title = this.titleInput.nativeElement.value;
           gameManager.stateManager.after();
         }
       } else if (this.objective.title != "") {
-        gameManager.stateManager.before();
+        gameManager.stateManager.before("unsetTitle", this.objective.name, this.objective.title);
         this.objective.title = "";
         gameManager.stateManager.after();
       }

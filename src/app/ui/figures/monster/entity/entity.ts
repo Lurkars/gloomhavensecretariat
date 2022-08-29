@@ -7,7 +7,7 @@ import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
-import { SummonState } from 'src/app/game/model/Summon';
+import { Summon, SummonState } from 'src/app/game/model/Summon';
 import { DialogComponent } from 'src/app/ui/dialog/dialog';
 
 @Component({
@@ -36,7 +36,7 @@ export class MonsterEntityComponent extends DialogComponent {
 
   override doubleClickCallback(): void {
     if (settingsManager.settings.activeStandees) {
-      gameManager.stateManager.before();
+      gameManager.stateManager.before(this.entity.active ? "unsetEntityActive" : "setEntityActive", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number);
       gameManager.monsterManager.toggleActive(this.monster, this.entity);
       gameManager.stateManager.after();
     }
@@ -77,13 +77,13 @@ export class MonsterEntityComponent extends DialogComponent {
   }
 
   changeBless(value: number) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before(value < 0 ? "removeEntityBless" : "addEntityBless", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number);
     this.changeAttackModifier(AttackModifierType.bless, value)
     gameManager.stateManager.after();
   }
 
   changeCurse(value: number) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before(value < 0 ? "removeEntityCurse" : "addEntityCurse", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number);
     this.changeAttackModifier(AttackModifierType.curse, value)
     gameManager.stateManager.after();
   }
@@ -93,43 +93,33 @@ export class MonsterEntityComponent extends DialogComponent {
     return gameManager.entityManager.isImmune(this.monster, this.entity, conditionName);
   }
 
-  hasCondition(condition: Condition) {
-    return gameManager.entityManager.hasCondition(this.entity, condition);
-  }
-
-  toggleCondition(condition: Condition) {
-    gameManager.stateManager.before();
-    gameManager.entityManager.toggleCondition(this.entity, condition, this.monster.active, this.monster.off);
-    gameManager.stateManager.after();
-    this.setDialogPosition();
-  }
-
   hasMarker(marker: string) {
     return gameManager.entityManager.hasMarker(this.entity, marker);
   }
 
   toggleMarker(marker: string) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before(this.hasMarker(marker) ? "removeEntityMarker" : "addEntityMarker", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, "data.character." + marker);
     gameManager.entityManager.toggleMarker(this.entity, marker);
     gameManager.stateManager.after();
     this.setDialogPosition();
   }
 
   toggleSummon() {
-    gameManager.stateManager.before();
+    let summonState = SummonState.false;
     if (this.entity.summon == SummonState.false) {
-      this.entity.summon = SummonState.new;
+      summonState = SummonState.new;
     } else if (this.entity.summon == SummonState.new) {
-      this.entity.summon = SummonState.true;
-    } else {
-      this.entity.summon = SummonState.false;
+      summonState = SummonState.true;
     }
+
+    gameManager.stateManager.before("setEntitySummonState", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, "" + summonState);
+    this.entity.summon = summonState;
     gameManager.stateManager.after();
     this.setDialogPosition();
   }
 
   toggleDead() {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("entityDead", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number);
     this.dead();
     gameManager.stateManager.after();
   }
@@ -157,7 +147,7 @@ export class MonsterEntityComponent extends DialogComponent {
   }
 
   changeMaxHealth(value: number) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("changeEntityMaxHp", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, "" + value);
     this.entity.maxHealth += value;
 
     if (this.entity.maxHealth <= 1) {
@@ -185,7 +175,7 @@ export class MonsterEntityComponent extends DialogComponent {
   dragHpEnd(value: number) {
     if (settingsManager.settings.dragValues) {
       if (this.dragHp != 0) {
-        gameManager.stateManager.before();
+        gameManager.stateManager.before("changeEntityHp", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, "" + this.dragHp);
         this.changeHealth(this.dragHp);
         if (this.entity.health <= 0 || this.entity.dead && this.dragHp >= 0 && this.entity.health > 0) {
           this.dead();
@@ -201,7 +191,7 @@ export class MonsterEntityComponent extends DialogComponent {
     super.close();
     if (this.health != 0) {
       this.entity.health -= this.health;
-      gameManager.stateManager.before();
+      gameManager.stateManager.before("changeEntityHp", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, "" + this.health);
       this.changeHealth(this.health);
       if (this.entity.health <= 0 || this.entity.dead && this.health >= 0 && this.entity.health > 0) {
         this.dead();

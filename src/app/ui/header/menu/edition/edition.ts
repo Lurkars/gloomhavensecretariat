@@ -6,7 +6,7 @@ import { GameState } from "src/app/game/model/Game";
 @Component({
   selector: 'ghs-edition-menu',
   templateUrl: 'edition.html',
-  styleUrls: ['edition.scss', '../menu.scss' ]
+  styleUrls: [ 'edition.scss', '../menu.scss' ]
 })
 export class EditionMenuComponent {
 
@@ -15,7 +15,7 @@ export class EditionMenuComponent {
   GameState = GameState;
 
   setEdition(edition: string | undefined = undefined) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("setEdition", "data.edition." + edition);
     gameManager.game.edition = edition;
     gameManager.stateManager.after();
   }

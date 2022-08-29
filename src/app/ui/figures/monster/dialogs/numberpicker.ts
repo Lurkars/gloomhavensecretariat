@@ -47,7 +47,6 @@ export class MonsterNumberPicker extends DialogComponent {
     }
 
     if (settingsManager.settings.disableStandees) {
-      gameManager.stateManager.before();
       if (this.hasEntity()) {
         this.monster.entities = this.monster.entities.filter((monsterEntity) => settingsManager.settings.hideStats && monsterEntity.type != this.type);
       } else {
@@ -58,7 +57,6 @@ export class MonsterNumberPicker extends DialogComponent {
           this.nextStandee();
         }
       }
-      gameManager.stateManager.after();
       return;
     }
 
@@ -80,7 +78,7 @@ export class MonsterNumberPicker extends DialogComponent {
     while (this.monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
       number = Math.floor(Math.random() * this.monster.count) + 1;
     }
-    this.pickNumber(number);
+    this.pickNumber(number, true, false);
   }
 
   nextStandee() {
@@ -88,12 +86,18 @@ export class MonsterNumberPicker extends DialogComponent {
     while (this.monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
       number += 1;
     }
-    this.pickNumber(number);
+    this.pickNumber(number, true, true);
   }
 
-  pickNumber(number: number) {
+  pickNumber(number: number, automatic: boolean = false, next: boolean = false) {
     if (!this.hasNumber(number) && this.type) {
-      gameManager.stateManager.before();
+      let undoType = "addStandee";
+      if (automatic && !next) {
+        undoType = "addRandomStandee";
+      } else if (automatic) {
+        undoType = "addNextStandee";
+      }
+      gameManager.stateManager.before(undoType, "data.monster." + this.monster.name, "monster." + this.type, "" + number);
       const dead = this.monster.entities.find((monsterEntity) => monsterEntity.number == number);
       if (dead) {
         gameManager.monsterManager.removeMonsterEntity(this.monster, dead);

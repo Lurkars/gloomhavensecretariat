@@ -1,11 +1,13 @@
 import { Component, Directive, ElementRef, Input, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { Character } from "src/app/game/model/Character";
 import { Condition, ConditionName, ConditionType, EntityCondition } from "src/app/game/model/Condition";
 import { Entity } from "src/app/game/model/Entity";
 import { Figure } from "src/app/game/model/Figure";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
+import { Objective } from "src/app/game/model/Objective";
 
 @Component({
   selector: 'ghs-conditions',
@@ -91,14 +93,14 @@ export class ConditionsComponent implements OnInit {
   checkUpdate(condition: Condition) {
     const entityCondition = this.entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
     if (entityCondition) {
-      gameManager.stateManager.before();
+      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "setConditionValue"), "game.condition." + condition.name);
       entityCondition.value = condition.value;
       gameManager.stateManager.after();
     }
   }
 
   toggleCondition(condition: Condition) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, this.hasCondition(condition) ? "removeCondition" : "addCondition"), "game.condition." + condition.name);
     gameManager.entityManager.toggleCondition(this.entity, condition, this.figure.active, this.figure.off);
     gameManager.stateManager.after();
   }
@@ -113,6 +115,7 @@ export class ConditionsComponent implements OnInit {
 export class HighlightConditionsComponent {
 
   @Input() entity!: Entity;
+  @Input() figure!: Figure;
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -120,18 +123,17 @@ export class HighlightConditionsComponent {
 
   applyCondition(name: ConditionName, event: any) {
     event.stopPropagation();
-    gameManager.stateManager.before();
+    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "applyCondition"), "game.condition." + name);
     gameManager.entityManager.applyCondition(this.entity, name)
     gameManager.stateManager.after();
   }
 
   declineApplyCondition(name: ConditionName, event: any) {
     event.stopPropagation();
-    gameManager.stateManager.before();
+    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "declineApplyCondition"), "game.condition." + name);
     gameManager.entityManager.declineApplyCondition(this.entity, name)
     gameManager.stateManager.after();
   }
-
 }
 
 @Directive({

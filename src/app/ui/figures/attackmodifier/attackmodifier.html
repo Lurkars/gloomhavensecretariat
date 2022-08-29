@@ -1,6 +1,6 @@
 <div class="attack-modifier {{attackModifier.type}}">
   <div class="card" [ngClass]="{'flipped' : flipped || attackModifier.revealed}" card-reveal (change)="onChange($event)"
-    [disabled]="!reveal" #card [style.fontsize]="card.offsetWidth * 0.08 + 'px'">
+    [disabled]="!reveal" #card [style.fontSize]="card.offsetWidth * 0.08 + 'px'">
     <div class="card-back back">
       <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
     </div>

@@ -1,4 +1,6 @@
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { Entity } from "src/app/game/model/Entity";
+import { Figure } from "src/app/game/model/Figure";
 import { Spoilable } from "src/app/game/model/Spoilable";
 
 export function ghsUnit(): number {

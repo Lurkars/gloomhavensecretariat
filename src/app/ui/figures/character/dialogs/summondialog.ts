@@ -47,7 +47,7 @@ export class CharacterSummonDialog extends DialogComponent {
   }
 
   addCustomSummon() {
-    gameManager.stateManager.before("addCustomSummon", "%game.data.character." + this.character.name + "%", this.summonName);
+    gameManager.stateManager.before("addSummon", "data.character." + this.character.name, this.summonName);
     let summon: Summon = new Summon(this.summonName, this.character.level, this.summonNumber, this.summonColor);
     summon.state = SummonState.new;
     gameManager.characterManager.addSummon(this.character, summon);
@@ -57,7 +57,7 @@ export class CharacterSummonDialog extends DialogComponent {
 
   addSummon(summonData: SummonData) {
     if (this.character.availableSummons.indexOf(summonData) != -1) {
-      gameManager.stateManager.before("addSummon", "%game.data.character." + this.character.name + "%", summonData.name);
+      gameManager.stateManager.before("addSummon", "data.character." + this.character.name, "data.summon." + summonData.name);
       let summon: Summon = new Summon(summonData.name, this.character.level, summonData.special ? 0 : this.summonNumber, summonData.special ? SummonColor.custom : this.summonColor);
       summon.maxHealth = typeof summonData.health == "number" ? summonData.health : EntityValueFunction(summonData.health, this.character.level);
       summon.attack = typeof summonData.attack == "number" ? summonData.attack : EntityValueFunction(summonData.attack, this.character.level);

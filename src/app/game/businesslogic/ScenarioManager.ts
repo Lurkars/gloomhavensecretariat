@@ -24,7 +24,7 @@ export class ScnearioManager {
         console.error("Could not find edition data!");
         return;
       }
-      gameManager.roundManager.resetRound();
+      gameManager.roundManager.resetScenario();
       this.applyScenarioData(editionData, scenario);
     }
   }
@@ -43,7 +43,7 @@ export class ScnearioManager {
 
     this.game.scenario = undefined;
     this.game.sections = [];
-    gameManager.roundManager.resetRound();
+    gameManager.roundManager.resetScenario();
   }
 
 

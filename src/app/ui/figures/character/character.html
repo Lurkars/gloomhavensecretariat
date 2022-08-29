@@ -44,7 +44,7 @@
         <div class="health" title="{{'game.health' | ghsLabel}}">
           <img src="./assets/images/status/health.svg" />
           {{character.health + dragHp}}/{{character.maxHealth}}
-          <span *ngIf="dragHp" class="value-overlay"
+          <span *ngIf="dragHp && !opened" class="value-overlay"
             [ngClass]="{'negative-value' : dragHp < 0, 'positive-value' : dragHp > 0}">
             <span class="value">{{dragHp | ghsValueSign}}</span>
           </span>
@@ -64,7 +64,7 @@
     </div>
 
     <div *ngIf="character.attackModifierDeckVisible" class="attack-modifierdeck-container">
-      <ghs-attackmodifier-deck [character]="character" (change)="changeAttackModifierDeck($event)">
+      <ghs-attackmodifier-deck [character]="character" (before)="beforeAttackModifierDeck($event)" (after)="afterAttackModifierDeck($event)">
       </ghs-attackmodifier-deck>
       <div class="attack-modifierdeck-close" (click)="toggleAttackModifierDeckVisible()"></div>
     </div>
@@ -112,7 +112,7 @@
       <span class="item" title="{{'game.health' | ghsLabel}}">
         <img src="./assets/images/status/health.svg" />
         <span class="badge health-count"
-          [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">{{health | ghsValueSign}}</span>
+          [ngClass]="{'negative-value' : dragHp < 0, 'positive-value' : dragHp > 0}">{{dragHp| ghsValueSign}}</span>
       </span>
       <span class="item">
         <a class="button" [ngClass]="{'disabled' : character.health == character.maxHealth}" (click)="changeHealth(1)">

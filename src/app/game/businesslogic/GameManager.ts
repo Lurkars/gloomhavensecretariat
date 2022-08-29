@@ -280,42 +280,6 @@ export class GameManager {
     return monsterData;
   }
 
-  toggleElement(element: Element, double: boolean = false) {
-    if (this.game.state == GameState.draw) {
-      if (this.game.newElements.indexOf(element) != -1) {
-        this.game.newElements.splice(this.game.newElements.indexOf(element), 1);
-        if (!double) {
-          this.game.elements.push(element);
-        }
-      } else if (this.game.elements.indexOf(element) != -1) {
-        this.game.elements.splice(this.game.elements.indexOf(element), 1);
-      } else {
-        if (!double) {
-          this.game.newElements.push(element);
-        } else {
-          this.game.elements.push(element);
-        }
-      }
-    } else {
-      if (this.game.strongElements.indexOf(element) != -1) {
-        this.game.strongElements.splice(this.game.strongElements.indexOf(element), 1);
-        if (double) {
-          this.game.elements.push(element);
-        }
-      } else if (this.game.elements.indexOf(element) != -1) {
-        this.game.elements.splice(this.game.elements.indexOf(element), 1);
-        if (double) {
-          this.game.strongElements.push(element);
-        }
-      } else {
-        if (double) {
-          this.game.elements.push(element);
-        } else {
-          this.game.strongElements.push(element);
-        }
-      }
-    }
-  }
 }
 
 export const gameManager: GameManager = new GameManager();

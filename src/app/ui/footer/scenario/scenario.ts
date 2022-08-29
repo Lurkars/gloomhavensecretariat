@@ -10,18 +10,18 @@ import { PopupComponent } from '../../popup/popup';
 export class ScenarioComponent extends PopupComponent {
 
   gameManager: GameManager = gameManager;
-  
-  finishScenario(success : boolean) {
+
+  finishScenario(success: boolean) {
     this.close();
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("finishScenario" + (success ? "Sucess" : "Failure"));
     gameManager.scenarioManager.finishScenario(success);
     gameManager.stateManager.after(1000);
   }
 
-  resetRound() {
+  resetScenario() {
     this.close();
-    gameManager.stateManager.before();
-    gameManager.roundManager.resetRound();
+    gameManager.stateManager.before("resetScenario");
+    gameManager.roundManager.resetScenario();
     gameManager.stateManager.after(1000);
   }
 }

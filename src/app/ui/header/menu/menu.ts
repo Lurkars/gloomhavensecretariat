@@ -41,6 +41,9 @@ export class MainMenuComponent extends DialogComponent {
 
   showHiddenMonster: boolean = false;
 
+  undoInfo: string[] = [];
+  redoInfo: string[] = [];
+
   constructor(private swUpdate: SwUpdate) {
     super();
     this.swUpdate.versionUpdates.subscribe(evt => {
@@ -69,6 +72,25 @@ export class MainMenuComponent extends DialogComponent {
         }
       });
     }
+
+    gameManager.uiChange.subscribe({
+      next: () => {
+        this.updateUndoRedo();
+      }
+    })
+  }
+
+  updateUndoRedo() {
+    if (gameManager.stateManager.undos.length > 0 && gameManager.stateManager.undoInfos.length >= gameManager.stateManager.undos.length) {
+      this.undoInfo = gameManager.stateManager.undoInfos[ gameManager.stateManager.undos.length - 1 ];
+    } else {
+      this.undoInfo = [];
+    }
+    if (gameManager.stateManager.redos.length > 0 && gameManager.stateManager.undoInfos.length > gameManager.stateManager.undos.length) {
+      this.redoInfo = gameManager.stateManager.undoInfos[ gameManager.stateManager.undos.length ];
+    } else {
+      this.redoInfo = [];
+    }
   }
 
   setActive(active: SubMenu) {
@@ -77,6 +99,11 @@ export class MainMenuComponent extends DialogComponent {
     setTimeout(() => {
       this.dialog.nativeElement.classList.add('opened');
     }, 1);
+  }
+
+  override open(): void {
+    this.updateUndoRedo();
+    super.open();
   }
 
   override close(): void {
@@ -88,45 +115,6 @@ export class MainMenuComponent extends DialogComponent {
     return this.setDialogPosition.bind(this);
   }
 
-  undoInfo(): string[] {
-    let undos = [];
-    const undoString: string | null = localStorage.getItem("ghs-undo");
-    if (undoString != null) {
-      undos = JSON.parse(undoString);
-    }
-    let undoInfos = [];
-    const undoInfosString: string | null = localStorage.getItem("ghs-undo-infos");
-    if (undoInfosString != null) {
-      undoInfos = JSON.parse(undoInfosString);
-    }
-    if (undos.length > 0 && undoInfos.length >= undos.length) {
-      return undoInfos[ undos.length - 1 ]
-    }
-    return [];
-  }
-
-  redoInfo(): string[] {
-    let undos = [];
-    const undoString: string | null = localStorage.getItem("ghs-undo");
-    if (undoString != null) {
-      undos = JSON.parse(undoString);
-    }
-    let redos = [];
-    const redoString: string | null = localStorage.getItem("ghs-redo");
-    if (redoString != null) {
-      redos = JSON.parse(redoString);
-    }
-    let undoInfos = [];
-    const undoInfosString: string | null = localStorage.getItem("ghs-undo-infos");
-    if (undoInfosString != null) {
-      undoInfos = JSON.parse(undoInfosString);
-    }
-    if (redos.length > 0 && undoInfos.length >= undos.length + redos.length) {
-      return undoInfos[ undos.length ]
-    }
-    return [];
-  }
-
   hasScenarios(): boolean {
     return gameManager.editionData.some((editionData) => (!gameManager.game.edition || editionData.edition == gameManager.game.edition) && editionData.scenarios && editionData.scenarios.length > 0);
   }
@@ -134,13 +122,6 @@ export class MainMenuComponent extends DialogComponent {
 
   hasSections(): boolean {
     return gameManager.editionData.some((editionData) => (!gameManager.game.edition || editionData.edition == gameManager.game.edition) && editionData.sections && editionData.sections.length > 0);
-  }
-
-
-  setScenario(scenarioData: ScenarioData | undefined) {
-    gameManager.stateManager.before();
-    gameManager.scenarioManager.setScenario(scenarioData as Scenario)
-    gameManager.stateManager.after();
   }
 
   characters(): Character[] {
@@ -278,7 +259,7 @@ export class MainMenuComponent extends DialogComponent {
   }
 
   addCharacter(characterData: CharacterData) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("addChar", "data.character." + characterData.name);
     gameManager.characterManager.addCharacter(characterData);
     if (this.hasAllCharacter()) {
       this.close();
@@ -287,7 +268,7 @@ export class MainMenuComponent extends DialogComponent {
   }
 
   removeCharacter(character: Character) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("removeChar", "data.character." + character.name);
     gameManager.characterManager.removeCharacter(character);
     if (this.characters().length == 0) {
       this.close();
@@ -296,28 +277,28 @@ export class MainMenuComponent extends DialogComponent {
   }
 
   removeAllCharacters() {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("removeAllChars");
     gameManager.game.figures = gameManager.game.figures.filter((figure) => !(figure instanceof Character))
     this.close();
     gameManager.stateManager.after();
   }
 
   addObjective() {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("addObjective");
     gameManager.characterManager.addObjective();
     this.close();
     gameManager.stateManager.after();
   }
 
   addEscort() {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("addEscort");
     gameManager.characterManager.addObjective(new ObjectiveData("escort", 3, true));
     this.close();
     gameManager.stateManager.after();
   }
 
   removeObjective(objective: Objective) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("removeObjective", objective.title || objective.name);
     gameManager.characterManager.removeObjective(objective);
     if (this.objectives().length == 0) {
       this.close();
@@ -326,14 +307,14 @@ export class MainMenuComponent extends DialogComponent {
   }
 
   removeAllObjectives() {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("removeAllObjectives");
     gameManager.game.figures = gameManager.game.figures.filter((figure) => !(figure instanceof Objective))
     this.close();
     gameManager.stateManager.after();
   }
 
   addMonster(monsterData: MonsterData) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("addMonster", "data.monster." + monsterData.name);
     gameManager.monsterManager.addMonster(monsterData);
     if (this.hasAllMonster()) {
       this.close();
@@ -342,7 +323,7 @@ export class MainMenuComponent extends DialogComponent {
   }
 
   removeMonster(monster: Monster) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("removeMonster", "data.monster." + monster.name);
     gameManager.monsterManager.removeMonster(monster);
     if (this.monsters().length == 0) {
       this.close();
@@ -351,12 +332,12 @@ export class MainMenuComponent extends DialogComponent {
   }
 
   removeAllMonsters() {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("removeAllMonster");
     gameManager.game.figures = gameManager.game.figures.filter((figure) => {
       return !(figure instanceof Monster);
     })
     this.close();
-    this.setScenario(undefined);
+    gameManager.scenarioManager.setScenario(undefined);
     gameManager.stateManager.after();
   }
 

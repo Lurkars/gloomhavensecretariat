@@ -6,6 +6,7 @@ import { Character } from 'src/app/game/model/Character';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { DialogComponent } from '../dialog/dialog';
+import { AttackModiferDeckChange } from '../figures/attackmodifier/attackmodifierdeck';
 
 @Component({
   selector: 'ghs-footer',
@@ -23,7 +24,7 @@ export class FooterComponent extends DialogComponent {
       this.open();
     } else {
       this.close();
-      gameManager.stateManager.before();
+      gameManager.stateManager.before(gameManager.game.state == GameState.next ? "nextRound" : "draw");
       const activeFigure = gameManager.game.figures.find((figure) => figure.active && !figure.off);
       if (!this.active() && activeFigure) {
         gameManager.roundManager.afterTurn(activeFigure);
@@ -33,15 +34,21 @@ export class FooterComponent extends DialogComponent {
     }
   }
 
-  changeMonsterAttackModifierDeck(deck: AttackModifierDeck) {
-    gameManager.stateManager.before();
-    gameManager.game.monsterAttackModifierDeck = deck;
+  beforeMonsterAttackModifierDeck(change: AttackModiferDeckChange) {
+    gameManager.stateManager.before("updateAttackModifierDeck." + change.type, "monster", ...change.values);
+  }
+
+  afterMonsterAttackModifierDeck(change: AttackModiferDeckChange) {
+    gameManager.game.monsterAttackModifierDeck = change.deck;
     gameManager.stateManager.after();
   }
 
-  changeAllyAttackModifierDeck(deck: AttackModifierDeck) {
-    gameManager.stateManager.before();
-    gameManager.game.allyAttackModifierDeck = deck;
+  beforeAllyAttackModifierDeck(change: AttackModiferDeckChange) {
+    gameManager.stateManager.before("updateAttackModifierDeck." + change.type, "ally", ...change.values);
+  }
+
+  afterAllyAttackModifierDeck(change: AttackModiferDeckChange) {
+    gameManager.game.allyAttackModifierDeck = change.deck;
     gameManager.stateManager.after();
   }
 
@@ -55,14 +62,14 @@ export class FooterComponent extends DialogComponent {
   }
 
   finishScenario(success: boolean) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("finishScenario." + (success ? "sucess" : "failure"));
     gameManager.scenarioManager.finishScenario(success);
     gameManager.stateManager.after(1000);
   }
 
-  resetRound() {
-    gameManager.stateManager.before();
-    gameManager.roundManager.resetRound();
+  resetScenario() {
+    gameManager.stateManager.before("resetScenario");
+    gameManager.roundManager.resetScenario();
     gameManager.stateManager.after(1000);
   }
 
@@ -118,7 +125,7 @@ export class FooterComponent extends DialogComponent {
 
       // store every 30 seconds
       if ((new Date().getTime() / 1000 - gameManager.stateManager.lastSaveTimestamp / 1000) > 30) {
-        gameManager.stateManager.after();
+        gameManager.stateManager.saveLocal();
       }
 
     }, 1000)

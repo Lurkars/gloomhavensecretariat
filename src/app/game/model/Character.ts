@@ -247,10 +247,10 @@ export class GameCharacterModel {
     this.active = active;
     this.health = health;
     this.maxHealth = maxHealth;
-    this.entityConditions = entityConditions;
+    this.entityConditions = JSON.parse(JSON.stringify(entityConditions));
     this.markers = markers;
     this.summons = summons;
-    this.progress = Object.assign(new CharacterProgress(), progress);
+    this.progress = JSON.parse(JSON.stringify(progress));
     this.initiativeVisible = initiativeVisible;
     this.attackModifierDeckVisible = attackModifierDeckVisible;
     this.number = number;

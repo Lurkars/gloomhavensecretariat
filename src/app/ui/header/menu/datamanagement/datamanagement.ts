@@ -72,7 +72,7 @@ export class DatamanagementMenuComponent {
     try {
       const reader = new FileReader();
       reader.addEventListener('load', (event: any) => {
-        gameManager.stateManager.before();
+        gameManager.stateManager.before("loadGameFromFile");
         const gameModel: GameModel = Object.assign(new GameModel(), JSON.parse(event.target.result));
         gameManager.game.fromModel(gameModel);
         gameManager.stateManager.after();

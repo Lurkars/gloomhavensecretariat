@@ -16,9 +16,9 @@
   <div class="flex-shrink"></div>
   <div class="attack-modifier-spacer"></div>
 
-  <ghs-attackmodifier-deck *ngIf="hasAlly()" class="ally-deck" [deck]="gameManager.game.allyAttackModifierDeck" (change)="changeAllyAttackModifierDeck($event)" numeration="*" [bottom]="true"></ghs-attackmodifier-deck>
+  <ghs-attackmodifier-deck *ngIf="hasAlly()" class="ally-deck" [deck]="gameManager.game.allyAttackModifierDeck" (before)="beforeAllyAttackModifierDeck($event)" (after)="afterAllyAttackModifierDeck($event)" numeration="A" [bottom]="true"></ghs-attackmodifier-deck>
 
-  <ghs-attackmodifier-deck class="monster-deck" [deck]="gameManager.game.monsterAttackModifierDeck" (change)="changeMonsterAttackModifierDeck($event)" numeration="m" [bottom]="true"></ghs-attackmodifier-deck>
+  <ghs-attackmodifier-deck class="monster-deck" [deck]="gameManager.game.monsterAttackModifierDeck" (before)="beforeMonsterAttackModifierDeck($event)" (after)="afterMonsterAttackModifierDeck($event)" numeration="m" [bottom]="true"></ghs-attackmodifier-deck>
 </footer>
 
 <div class="hint-container" #dialog>
@@ -36,7 +36,7 @@
     <p *ngIf="failed()">{{'round.hint.failed' | ghsLabel}}</p>
     <a *ngIf="failed()" (click)="finishScenario(false)">{{'round.hint.confirmFailed' |
       ghsLabel}}</a>
-      <a *ngIf="failed()" (click)="resetRound()">{{'round.hint.confirmReset' |
+      <a *ngIf="failed()" (click)="resetScenario()">{{'round.hint.confirmReset' |
         ghsLabel}}</a>
     <a *ngIf="finish() || failed()" (click)="confirmTurns()">{{(gameManager.game.state == GameState.next ?
       'round.hint.continueNext' : 'round.hint.continueDraw') |

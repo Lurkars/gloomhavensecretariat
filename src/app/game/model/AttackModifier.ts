@@ -132,11 +132,10 @@ export class AttackModifierDeck {
 
   fromModel(model: GameAttackModifierDeckModel) {
     if (model.current != this.current) {
-      this.current = model.current;
+      this.current = +model.current;
     }
-    if (this.cards.length != model.cards.length || !this.cards.map((card) => card.id).every((cardId, index) => model.cards[ index ] == cardId)) {
-      this.cards = model.cards.map((id) => this.cardById(id) || new AttackModifier(AttackModifierType.invalid));
-    }
+
+    this.cards = model.cards.map((id) => this.cardById(id) || new AttackModifier(AttackModifierType.invalid));
   }
 }
 

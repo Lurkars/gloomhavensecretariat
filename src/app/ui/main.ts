@@ -175,6 +175,7 @@ export class MainComponent implements OnInit {
 
   drop(event: CdkDragDrop<number>) {
     if (event.previousContainer != event.container && (event.currentIndex == 0 && event.container.data != event.previousContainer.data + 1 || event.currentIndex != 0 && event.container.data != event.previousContainer.data - event.currentIndex)) {
+      gameManager.stateManager.before("reorder");
       moveItemInArray(gameManager.game.figures, event.previousContainer.data, event.container.data);
       if (event.currentIndex > 0 && event.previousContainer.data > event.container.data) {
         moveItemInArray(gameManager.game.figures, event.container.data + event.currentIndex, event.container.data);

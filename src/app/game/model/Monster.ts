@@ -96,6 +96,7 @@ export class Monster extends MonsterData implements Figure {
       }
       entity.fromModel(value);
     })
+    this.isAlly = model.isAlly;
   }
 }
 

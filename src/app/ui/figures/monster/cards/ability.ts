@@ -64,13 +64,13 @@ export class MonsterAbilityComponent extends PopupComponent {
   }
 
   shuffle() {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("shuffleAbilityDeck", "data.monster." + this.monster.name);
     gameManager.monsterManager.shuffleAbilities(this.monster);
     gameManager.stateManager.after();
   }
 
   draw() {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("drawAbility", "data.monster." + this.monster.name);
     gameManager.monsterManager.drawAbility(this.monster);
     gameManager.stateManager.after();
   }
@@ -83,12 +83,12 @@ export class MonsterAbilityComponent extends PopupComponent {
 
   toggleDrawExtra() {
     if (this.monster.drawExtra) {
-      gameManager.stateManager.before();
+      gameManager.stateManager.before("unsetDrawExtraAbility", "data.monster." + this.monster.name);
       this.monster.drawExtra = false;
       gameManager.monsterManager.applySameDeck(this.monster);
       gameManager.stateManager.after();
     } else if (gameManager.monsterManager.applySameDeck(this.monster)) {
-      gameManager.stateManager.before();
+      gameManager.stateManager.before("setDrawExtraAbility", "data.monster." + this.monster.name);
       this.monster.drawExtra = true;
       if (gameManager.game.state == GameState.next) {
         gameManager.monsterManager.drawExtra(this.monster);
@@ -98,7 +98,7 @@ export class MonsterAbilityComponent extends PopupComponent {
   }
 
   dropUpcoming(event: CdkDragDrop<Ability[]>) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("reorderAbilities", "data.monster." + this.monster.name);
     if (event.container == event.previousContainer) {
       const offset = this.monster.ability + 1;
       moveItemInArray(this.monster.abilities, event.previousIndex + offset, event.currentIndex + offset);
@@ -111,7 +111,7 @@ export class MonsterAbilityComponent extends PopupComponent {
   }
 
   dropDisgarded(event: CdkDragDrop<Ability[]>) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("reorderAbilities", "data.monster." + this.monster.name);
     if (event.container == event.previousContainer) {
       moveItemInArray(this.monster.abilities, this.monster.ability - event.previousIndex, this.monster.ability - event.currentIndex);
     } else {
@@ -123,7 +123,7 @@ export class MonsterAbilityComponent extends PopupComponent {
   }
 
   restoreDefault(): void {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("restoreDefaultAbilities", "data.monster." + this.monster.name);
     const abilities = gameManager.abilities(this.monster);
     this.monster.abilities = abilities.filter((ability) => !ability.level || isNaN(+ability.level) || ability.level <= this.monster.level).map((ability, index) => index);
     this.monster.ability = -1;
@@ -131,7 +131,8 @@ export class MonsterAbilityComponent extends PopupComponent {
   }
 
   remove(index: number) {
-    gameManager.stateManager.before();
+    const ability: Ability = gameManager.abilities(this.monster)[ this.monster.abilities[ index + this.monster.ability + 1 ] ];
+    gameManager.stateManager.before("removeAbility", "data.monster." + this.monster.name, this.abilityLabel(ability));
     this.monster.abilities.splice(index + this.monster.ability + 1, 1);
     gameManager.stateManager.after();
   }

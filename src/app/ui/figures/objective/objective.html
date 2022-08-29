@@ -32,7 +32,7 @@
         <div class="health">
           <img src="./assets/images/status/health.svg" />
           {{objective.health}}/{{maxHealth()}} <span class="value-overlay "
-          [ngClass]="{'negative-value' : dragHp < 0, 'positive-value' : dragHp > 0}" *ngIf="dragHp">
+          [ngClass]="{'negative-value' : dragHp < 0, 'positive-value' : dragHp > 0}" *ngIf="dragHp && !opened">
           <span class="value">{{dragHp |
             ghsValueSign}}</span>
         </span>
@@ -67,7 +67,7 @@
       <span class="item">
         <img src="./assets/images/status/health.svg" />
         <span class="badge health-count"
-          [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">{{health | ghsValueSign}}</span>
+          [ngClass]="{'negative-value' : dragHp < 0, 'positive-value' : dragHp > 0}">{{dragHp | ghsValueSign}}</span>
       </span>
       <span class="item">
         <a class="button" [ngClass]="{'disabled' : objective.health == objective.maxHealth}" (click)="changeHealth(1)">

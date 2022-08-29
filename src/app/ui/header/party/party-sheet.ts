@@ -26,35 +26,35 @@ export class PartySheetDialog extends PopupComponent {
   }
 
   setName(event: any) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("setPartyName", event.target.value);
     this.party.name = event.target.value;
     gameManager.game.party = this.party;
     gameManager.stateManager.after();
   }
 
   setLocation(event: any) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("setPartyLocation", event.target.value);;
     this.party.location = event.target.value;
     gameManager.game.party = this.party;
     gameManager.stateManager.after();
   }
 
   setNotes(event: any) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("setPartyNotes", event.target.value);
     this.party.notes = event.target.value;
     gameManager.game.party = this.party;
     gameManager.stateManager.after();
   }
 
   setAchievements(event: any) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("setPartyAchievements", event.target.value);
     this.party.achievements = event.target.value;
     gameManager.game.party = this.party;
     gameManager.stateManager.after();
   }
 
   setReputation(value: number) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("setPartyReputation", "" + value);
     if (value > 20) {
       value = 20
     } else if (value < -20) {
@@ -66,7 +66,7 @@ export class PartySheetDialog extends PopupComponent {
   }
 
   setProsperity(value: number) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("setPartyProsperity", "" + value);
     if (value > 64) {
       value = 64
     } else if (value < 0) {
@@ -96,7 +96,7 @@ export class PartySheetDialog extends PopupComponent {
     try {
       const reader = new FileReader();
       reader.addEventListener('load', (event: any) => {
-        gameManager.stateManager.before();
+        gameManager.stateManager.before("importParty");
         gameManager.game.party = Object.assign(new Party(), JSON.parse(event.target.result));
         if (!this.gameManager.game.party) {
           parent.classList.add("error");

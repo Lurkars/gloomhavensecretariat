@@ -1,2 +1,2 @@
-<span [innerHTML]="svg" (click)="toggleElement()" title="{{'game.element.' + element | ghsLabel}}"
-  [ngClass]="{'full' : gameManager.game.strongElements.indexOf(element) != -1  || gameManager.game.newElements.indexOf(element) != -1, 'half' : gameManager.game.elements.indexOf(element) != -1}"></span>
+<span [innerHTML]="svg" (click)="toggleElement()" title="{{'game.element.' + element.type | ghsLabel}}"
+  [ngClass]="{'full' : element.state == ElementState.new || element.state == ElementState.strong, 'half' : element.state == ElementState.waning}"></span>

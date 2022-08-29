@@ -105,7 +105,7 @@ export class GameMonsterEntityModel {
     this.off = off;
     this.health = health;
     this.maxHealth = maxHealth;
-    this.entityConditions = entityConditions;
-    this.markers = markers;
+    this.entityConditions = JSON.parse(JSON.stringify(entityConditions));
+    this.markers = JSON.parse(JSON.stringify(markers));
   }
 }

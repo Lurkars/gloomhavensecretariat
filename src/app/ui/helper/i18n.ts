@@ -108,7 +108,7 @@ export class I18nDirective implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes[ 'args' ] && JSON.stringify(changes[ 'args' ].previousValue) != JSON.stringify(changes[ 'args' ].currentValue)) {
+    if (changes[ 'args' ] || changes[ 'i18n' ]) {
       this.apply();
     }
   }

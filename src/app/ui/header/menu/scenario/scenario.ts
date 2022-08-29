@@ -57,14 +57,14 @@ export class ScenarioMenuComponent {
   }
 
   setScenario(scenarioData: ScenarioData) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("setScenario", scenarioData.index, "data.scenario." + scenarioData.name, "data.edition." + scenarioData.edition);
     gameManager.scenarioManager.setScenario(scenarioData as Scenario)
     gameManager.stateManager.after();
   }
 
   resetScenario() {
     if (gameManager.game.scenario) {
-      gameManager.stateManager.before();
+      gameManager.stateManager.before("resetScenario", gameManager.game.scenario.index, "data.scenario." + gameManager.game.scenario.name, "data.edition." + gameManager.game.scenario.edition);
       gameManager.scenarioManager.setScenario(gameManager.game.scenario)
       gameManager.stateManager.after();
     }
@@ -72,11 +72,11 @@ export class ScenarioMenuComponent {
 
   customScenario() {
     if (!gameManager.game.scenario || !gameManager.game.scenario.custom) {
-      gameManager.stateManager.before();
+      gameManager.stateManager.before("setCustomScenario");
       gameManager.scenarioManager.setScenario(new Scenario(new ScenarioData("", "", [], [], [], [], [], [], ""), true));
       gameManager.stateManager.after();
     } else {
-      gameManager.stateManager.before();
+      gameManager.stateManager.before("unsetCustomScenario");
       gameManager.game.scenario = undefined;
       this.edition = gameManager.game.edition || gameManager.editions()[ 0 ];
       gameManager.stateManager.after();
@@ -85,7 +85,7 @@ export class ScenarioMenuComponent {
 
   customScenarioName(event: any) {
     if (gameManager.game.scenario && gameManager.game.scenario.custom) {
-      gameManager.stateManager.before();
+      gameManager.stateManager.before("changeCustomScenario", event.target.value);
       gameManager.game.scenario.name = event.target.value;
       gameManager.stateManager.after();
     }

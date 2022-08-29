@@ -3,6 +3,7 @@ import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { DialogComponent } from '../../dialog/dialog';
+import { ghsValueSign } from '../../helper/Static';
 
 @Component({
   selector: 'ghs-level',
@@ -28,28 +29,28 @@ export class LevelComponent extends DialogComponent {
   }
 
   setLevelCalculation(levelCalculation: boolean) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before(levelCalculation ? "enableAutomaticLevel" : "disabledAutomaticLevel");
     gameManager.game.levelCalculation = levelCalculation;
     gameManager.levelManager.calculateScenarioLevel();
     gameManager.stateManager.after();
   }
 
   setLevelAdjustment(levelAdjustment: number) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("updateLevelAdjustment", ghsValueSign(levelAdjustment));
     gameManager.game.levelAdjustment = levelAdjustment;
     gameManager.levelManager.calculateScenarioLevel();
     gameManager.stateManager.after();
   }
 
   setBonusAdjustment(bonusAdjustment: number) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("updateBonusAdjustment", ghsValueSign(bonusAdjustment));
     gameManager.game.bonusAdjustment = bonusAdjustment;
     gameManager.levelManager.calculateScenarioLevel();
     gameManager.stateManager.after();
   }
 
   setGe5Player(ge5Player: boolean) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before(ge5Player ? "enabledGe5Player" : "disabledGe5Player");
     gameManager.game.ge5Player = ge5Player;
     gameManager.levelManager.calculateScenarioLevel();
     gameManager.stateManager.after();
@@ -67,14 +68,14 @@ export class LevelComponent extends DialogComponent {
   }
 
   setLevel(level: number) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before("setScenarioLevel", "" + level);
     gameManager.levelManager.setLevel(level);
     gameManager.game.levelCalculation = false;
     gameManager.stateManager.after();
   }
 
   setSolo(solo: boolean) {
-    gameManager.stateManager.before();
+    gameManager.stateManager.before(solo ? "enableSolo" : "disableSolo");
     gameManager.game.solo = solo;
     gameManager.stateManager.after();
   }
