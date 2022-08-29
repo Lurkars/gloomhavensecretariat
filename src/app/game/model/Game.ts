@@ -32,7 +32,7 @@ export class Game {
 
 
   toModel(): GameModel {
-    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.round, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party);
+    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.round, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard.map((element) => element.state), this.solo, this.party);
   }
 
   fromModel(model: GameModel, server: boolean = false) {
@@ -133,7 +133,9 @@ export class Game {
       this.allyAttackModifierDeck.fromModel(model.allyAttackModifierDeck);
     }
 
-    this.elementBoard = model.elementBoard && model.elementBoard.length > 0 && model.elementBoard || this.elementBoard;
+    this.elementBoard = this.elementBoard || defeaultElementBoard;
+
+    model.elementBoard.forEach((state, index) => this.elementBoard[ index ].state = state);
 
     model.newElements.forEach((element) => {
       const elementModel = this.elementBoard.find((elementModel) => elementModel.type == element);
@@ -188,7 +190,7 @@ export class GameModel {
   allyAttackModifierDeck: GameAttackModifierDeckModel;
   attackModifier: number | undefined;
   attackModifiers: AttackModifierType[] | undefined;
-  elementBoard: ElementModel[];
+  elementBoard: ElementState[];
   newElements: Element[] = [];
   strongElements: Element[] = [];
   elements: Element[] = [];
@@ -213,7 +215,7 @@ export class GameModel {
     totalSeconds: number = 0,
     monsterAttackModifierDeck: GameAttackModifierDeckModel = new GameAttackModifierDeckModel(-1, defaultAttackModifierCards),
     allyAttackModifierDeck: GameAttackModifierDeckModel = new GameAttackModifierDeckModel(-1, defaultAttackModifierCards),
-    elementBoard: ElementModel[] = [],
+    elementBoard: ElementState[] = [],
     solo: boolean = false,
     party: Party | undefined = undefined) {
     this.edition = edition;
@@ -234,7 +236,7 @@ export class GameModel {
     this.totalSeconds = totalSeconds;
     this.monsterAttackModifierDeck = monsterAttackModifierDeck;
     this.allyAttackModifierDeck = allyAttackModifierDeck;
-    this.elementBoard = elementBoard.map((elementModel) => JSON.parse(JSON.stringify(elementModel)));
+    this.elementBoard = elementBoard;
     this.solo = solo;
     this.party = party;
   }
