@@ -138,8 +138,11 @@ export class Game {
 
     this.elementBoard = this.elementBoard || defeaultElementBoard;
 
-    model.elementBoard.forEach((element, index) => this.elementBoard[ index ].state = element.state);
+    if (model.elementBoard) {
+      model.elementBoard.forEach((element, index) => this.elementBoard[ index ].state = element.state);
+    }
 
+    // migration
     model.newElements.forEach((element) => {
       const elementModel = this.elementBoard.find((elementModel) => elementModel.type == element);
       if (elementModel) {
