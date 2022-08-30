@@ -12,6 +12,7 @@ export class ScenarioData implements Editional, Spoilable {
   links: string[];
   group: string | undefined;
   monsters: string[];
+  allies: string[];
   objectives: ObjectiveData[];
   initial: boolean = false;
 
@@ -21,7 +22,7 @@ export class ScenarioData implements Editional, Spoilable {
   // from Spoilable
   spoiler: boolean;
 
-  constructor(name: string, index: string, unlocks: string[], blocks: string[], requires: string[], links: string[], monsters: string[], objectives: ObjectiveData[], edition: string, group: string | undefined = undefined,
+  constructor(name: string, index: string, unlocks: string[], blocks: string[], requires: string[], links: string[], monsters: string[], allies: string[], objectives: ObjectiveData[], edition: string, group: string | undefined = undefined,
     spoiler: boolean = false) {
     this.name = name;
     this.index = index;
@@ -30,6 +31,7 @@ export class ScenarioData implements Editional, Spoilable {
     this.requires = requires;
     this.links = links;
     this.monsters = monsters;
+    this.allies = allies;
     this.edition = edition;
     this.objectives = objectives;
     this.group = group;

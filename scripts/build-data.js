@@ -66,6 +66,7 @@ for (edition_path of edition_dirs) {
   edition_data['sections'] = load_file(edition_path, 'sections.json', []);
   edition_data['items'] = load_file(edition_path, 'items.json', []);
   edition_data['label'] = load_file(edition_path, 'label.json', {});
+  edition_data['labelSpoiler'] = load_file(edition_path, 'label-spoiler.json', {});
 
   const output_path = path.join(output_dir, (edition_data['edition']) + '.json');
 

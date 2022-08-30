@@ -1,0 +1,32 @@
+{
+  "de": {
+    "character": {
+      "angry-face": "Schicksalsläufer",
+      "circles": "Ruferin",
+      "eclipse": "Nachtschleier",
+      "lightning": "Berserkerin",
+      "music-note": "Wahrsängerin",
+      "saw": "Knochenflicker",
+      "squidface": "Seuchenbringer",
+      "sun": "Sonnenhüterin",
+      "three-spears": "Quartiermeister",
+      "triangles": "Elementarist",
+      "two-mini": "Bestienmeister"
+    }
+  },
+  "en": {
+    "character": {
+      "angry-face": "Doomstalker",
+      "circles": "Summoner",
+      "eclipse": "Nightshroud",
+      "lightning": "Berserker",
+      "music-note": "Soothsinger",
+      "saw": "Sawbones",
+      "squidface": "Plagueherald",
+      "sun": "Sunkeeper",
+      "three-spears": "Quartermaster",
+      "triangles": "Elementalist",
+      "two-mini": "Beast Tyrant"
+    }
+  }
+}

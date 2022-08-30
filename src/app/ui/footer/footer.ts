@@ -18,6 +18,40 @@ export class FooterComponent extends DialogComponent {
   gameManager: GameManager = gameManager;
   GameState = GameState;
   currentTime: string = "";
+  hasAllyAttackModifierDeck: boolean = false;
+
+  override ngOnInit(): void {
+    super.ngOnInit();
+    this.hasAllyAttackModifierDeck = settingsManager.settings.allyAttackModifierDeck && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly);
+
+    gameManager.uiChange.subscribe({
+      next: () => {
+        this.hasAllyAttackModifierDeck = settingsManager.settings.allyAttackModifierDeck && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly);
+      }
+    })
+
+    setInterval(() => {
+      gameManager.game.playSeconds++;
+      let seconds = gameManager.game.playSeconds;
+      this.currentTime = "";
+      if (seconds / 3600 >= 1) {
+        this.currentTime += Math.floor(seconds / 3600) + "h ";
+        seconds = seconds % 3600;
+      }
+
+      if (seconds / 60 >= 1) {
+        this.currentTime += (this.currentTime && this.currentTime && Math.floor(seconds / 60) < 10 ? '0' : '') + Math.floor(seconds / 60) + "m ";
+        seconds = seconds % 60;
+      }
+      this.currentTime += (this.currentTime && seconds < 10 ? '0' : '') + Math.floor(seconds) + "s";
+
+      // store every 30 seconds
+      if ((new Date().getTime() / 1000 - gameManager.stateManager.lastSaveTimestamp / 1000) > 30) {
+        gameManager.stateManager.saveLocal();
+      }
+
+    }, 1000)
+  }
 
   next(force: boolean = false): void {
     if (!force && this.disabled()) {
@@ -50,10 +84,6 @@ export class FooterComponent extends DialogComponent {
   afterAllyAttackModifierDeck(change: AttackModiferDeckChange) {
     gameManager.game.allyAttackModifierDeck = change.deck;
     gameManager.stateManager.after();
-  }
-
-  hasAlly(): boolean {
-    return gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly);
   }
 
   confirmTurns() {
@@ -103,32 +133,6 @@ export class FooterComponent extends DialogComponent {
 
   nextDisabled(): boolean {
     return this.active() || this.finish() || this.failed();
-  }
-
-  override ngOnInit(): void {
-    super.ngOnInit();
-
-    setInterval(() => {
-      gameManager.game.playSeconds++;
-      let seconds = gameManager.game.playSeconds;
-      this.currentTime = "";
-      if (seconds / 3600 >= 1) {
-        this.currentTime += Math.floor(seconds / 3600) + "h ";
-        seconds = seconds % 3600;
-      }
-
-      if (seconds / 60 >= 1) {
-        this.currentTime += (this.currentTime && this.currentTime && Math.floor(seconds / 60) < 10 ? '0' : '') + Math.floor(seconds / 60) + "m ";
-        seconds = seconds % 60;
-      }
-      this.currentTime += (this.currentTime && seconds < 10 ? '0' : '') + Math.floor(seconds) + "s";
-
-      // store every 30 seconds
-      if ((new Date().getTime() / 1000 - gameManager.stateManager.lastSaveTimestamp / 1000) > 30) {
-        gameManager.stateManager.saveLocal();
-      }
-
-    }, 1000)
   }
 
 }

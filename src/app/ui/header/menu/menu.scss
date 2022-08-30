@@ -131,6 +131,8 @@
 
     .state {
 
+      flex-wrap: wrap;
+
       a {
         display: flex;
         flex-direction: column;

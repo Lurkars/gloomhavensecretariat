@@ -184,6 +184,10 @@
             &:nth-child(11) {
               height: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
             }
+
+            &.active {
+              color: var(--ghs-color-yellow);
+            }
           }
         }
       }

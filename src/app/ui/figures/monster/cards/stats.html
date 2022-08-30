@@ -2,12 +2,16 @@
   <div #button class="level" title="{{'game.level' | ghsLabel}}">{{monster.level}}</div>
 
   <div class="name-container" *ngIf="showName">
-    <span class="name">{{'data.monster.' + monster.name | ghsLabel}}</span>
+    <span class="name">
+      {{'data.monster.' + monster.name | ghsLabel}}
+      <span *ngIf="monster.isAlly">({{'game.ally' | ghsLabel}})</span>
+    </span>
     <span *ngIf="monster.flying" class="flying"><img class="ghs-svg" src="./assets/images/action/fly.svg" /></span>
     <span class="edition" *ngIf="getEdition()">[{{'data.edition.' + getEdition()| ghsLabel}}]</span>
   </div>
 
-  <span class="toggle-ally" [ngClass]="{'ally' : monster.isAlly}" (click)="toggleAlly()"><img class="ghs-svg" src="./assets/images/monster/ally.svg" /></span>
+  <span class="toggle-ally" [ngClass]="{'ally' : monster.isAlly}" (click)="toggleAlly()"><img class="ghs-svg"
+      src="./assets/images/monster/enemy.png" /></span>
 
   <div class="stats" *ngIf="monster.boss" [ngClass]="{'hidden' : hideStats(MonsterType.boss)}">
     <div class="stat end" [value-calc]="statsForType(MonsterType.boss).health" [level]="monster.level" [empty]="true">

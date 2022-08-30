@@ -8,6 +8,9 @@ import { Component, Directive, ElementRef, EventEmitter, Input, OnInit, Output }
 export class DragValueComponent {
 
   @Input() relative: boolean = false;
+  @Input() step: number = 1;
+  @Input() min: number = 0;
+  @Input() max: number = 99;
   @Output('dragMove') dragMoveCallback = new EventEmitter<number>();
   @Output('dragEnd') dragEndCallback = new EventEmitter<number>();
 
@@ -16,8 +19,11 @@ export class DragValueComponent {
   touchX: number = 0;
   touchY: number = 0;
   relativeValue: number = -1;
+  value: number = -1;
 
-  constructor(private elementRef: ElementRef) { }
+  constructor(private elementRef: ElementRef) {
+    this.value = this.min - 1;
+  }
 
   click(event: any) {
     if (this.inputCount < 2) {
@@ -52,22 +58,18 @@ export class DragValueComponent {
     }
     this.touchX = 0;
     this.touchY = 0;
-    this.inputCount = 0;
-    this.relativeValue = -1;
-    this.draggingTimeout = setTimeout(() => {
-      document.body.classList.remove('dragging');
-    }, 200);
-    this.elementRef.nativeElement.classList.remove('dragging');
-    this.elementRef.nativeElement.firstChild.classList.remove('dragging');
+    this.endDrag();
   }
 
   change(event: any) {
-    if (this.inputCount > 1) {
-      this.dragEndCallback.emit(event.target.value);
-      if (this.draggingTimeout) {
-        clearTimeout(this.draggingTimeout);
-      }
+    this.endDrag();
+  }
+
+  endDrag() {
+    if (this.inputCount > 1 && this.value > this.min - 1) {
+      this.dragEndCallback.emit(this.relative ? this.value - this.relativeValue : this.value);
     }
+    this.value = this.min - 1;
     this.inputCount = 0;
     this.relativeValue = -1;
     this.draggingTimeout = setTimeout(() => {
@@ -78,6 +80,7 @@ export class DragValueComponent {
   }
 
   input(event: any) {
+    this.value = event.target.value;
     this.inputCount++;
     if (this.inputCount == 2) {
       document.body.classList.add('dragging');
@@ -87,9 +90,9 @@ export class DragValueComponent {
 
     if (this.inputCount > 3) {
       if (this.relative && this.relativeValue == -1) {
-        this.relativeValue = event.target.value;
+        this.relativeValue = this.value;
       }
-      this.dragMoveCallback.emit(this.relative ? event.target.value - this.relativeValue : event.target.value);
+      this.dragMoveCallback.emit(this.relative ? this.value - this.relativeValue : this.value);
     }
   }
 

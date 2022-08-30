@@ -177,6 +177,10 @@
       "city-archer",
       "captain-of-the-guard"
     ],
+    "allies": [
+      "living-bones",
+      "living-corpse"
+    ],
     "unlocks": [
       "16",
       "18"
@@ -196,6 +200,10 @@
       "city-guard",
       "city-archer",
       "jekserah"
+    ],
+    "allies": [
+      "city-guard",
+      "city-archer"
     ],
     "unlocks": [
       "16",
@@ -608,6 +616,12 @@
       "city-guard",
       "captain-of-the-guard"
     ],
+    "allies": [
+      "flame-demon",
+      "frost-demon",
+      "earth-demon",
+      "wind-demon"
+    ],
     "objectives": [
       {
         "name": "Door",
@@ -634,6 +648,9 @@
       "wind-demon",
       "city-archer",
       "prime-demon"
+    ],
+    "allies": [
+      "city-archer"
     ],
     "objectives": [
       {
@@ -1466,6 +1483,10 @@
       "bandit-guard",
       "bandit-archer",
       "living-spirit"
+    ],
+    "allies": [
+      "cave-bear",
+      "hound"
     ]
   },
   {

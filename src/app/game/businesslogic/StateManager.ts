@@ -244,8 +244,14 @@ export class StateManager {
       if (this.undos.length > settingsManager.settings.maxUndo) {
         this.undos.splice(0, this.undos.length - settingsManager.settings.maxUndo);
       }
+
       this.undoInfos.splice(this.undoInfos.length - this.redos.length, this.redos.length);
+
       this.undoInfos.push(info);
+
+      if (this.undoInfos.length > this.undos.length) {
+        this.undoInfos.splice(0, this.undoInfos.length - this.undos.length);
+      }
 
       this.redos = [];
 

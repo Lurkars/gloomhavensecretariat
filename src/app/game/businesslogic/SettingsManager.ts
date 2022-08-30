@@ -120,6 +120,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setAllyAttackModifierDeck(allyAttackModifierDeck: boolean) {
+    this.settings.allyAttackModifierDeck = allyAttackModifierDeck;
+    this.storeSettings();
+  }
+
   setInitiativeRequired(initiativeRequired: boolean) {
     this.settings.initiativeRequired = initiativeRequired;
     this.storeSettings();
@@ -284,11 +289,19 @@ export class SettingsManager {
     // default label
     if (this.settings.locale != this.defaultLocale && value.label && value.label[ this.defaultLocale ]) {
       this.label.data = this.merge(this.label.data, value.label[ this.defaultLocale ]);
+      if (value.labelSpoiler && value.labelSpoiler[ this.defaultLocale ]) {
+        this.label.data = this.merge(this.label.data, value.labelSpoiler[ this.defaultLocale ]);
+      }
     }
 
     if (value.label && value.label[ this.settings.locale ]) {
       this.label.data = this.merge(this.label.data, value.label[ this.settings.locale ]);
     }
+
+    if (value.labelSpoiler && value.labelSpoiler[ this.settings.locale ]) {
+      this.label.data = this.merge(this.label.data, value.labelSpoiler[ this.settings.locale ]);
+    }
+
     if (!this.label.data.edition) {
       this.label.data.edition = {};
     }

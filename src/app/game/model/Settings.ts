@@ -10,6 +10,7 @@ export class Settings {
   hideStats: boolean = true;
   randomStandees: boolean = false;
   activeStandees: boolean = true;
+  allyAttackModifierDeck: boolean = true;
   initiativeRequired: boolean = true;
   levelCalculation: boolean | undefined = undefined;
   levelAdjustment: number | undefined = undefined;

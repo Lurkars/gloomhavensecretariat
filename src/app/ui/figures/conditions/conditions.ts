@@ -93,7 +93,7 @@ export class ConditionsComponent implements OnInit {
   checkUpdate(condition: Condition) {
     const entityCondition = this.entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
     if (entityCondition) {
-      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "setConditionValue"), "game.condition." + condition.name);
+      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "setConditionValue"), "game.condition." + condition.name, "" + condition.value);
       entityCondition.value = condition.value;
       gameManager.stateManager.after();
     }

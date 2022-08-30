@@ -9,7 +9,7 @@ import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
 export class HealthbarComponent {
 
   @Input() entity!: Entity;
-
+  @Input() diff: number = 0;
 
   maxHealth(): number {
     return EntityValueFunction("" + this.entity.maxHealth);

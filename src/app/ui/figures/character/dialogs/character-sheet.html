@@ -75,7 +75,7 @@
               <span class="spacer"></span>
               <a class="button loot" (click)="buyItem()"
                 [ngClass]="{'disabled' : !item || item.cost > character.progress.gold || !itemCanAdd}"><img
-                  src="./assets/images/loot.svg">{{item && item.cost}}</a>
+                  src="./assets/images/loot.svg">{{item && (item.cost + priceModifier)}}</a>
               <a class="button add" (click)="addItem()" [ngClass]="{'disabled': !item || !itemCanAdd}"><img
                   src="./assets/images/plus.svg" [ngClass]="{'warn' : !itemCanAdd}"></a>
             </div>

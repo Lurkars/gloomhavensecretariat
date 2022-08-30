@@ -97,6 +97,13 @@
       </div>
       <div class="line">
         <label>
+          <input type="checkbox" [checked]="settingsManager.settings.allyAttackModifierDeck"
+            (change)="settingsManager.setAllyAttackModifierDeck(!settingsManager.settings.allyAttackModifierDeck)">
+          {{'settings.allyAttackModifierDeck' | ghsLabel}}
+        </label>
+      </div>
+      <div class="line">
+        <label>
           <input type="checkbox" [checked]="settingsManager.settings.randomStandees"
             (change)="settingsManager.setRandomStandees(!settingsManager.settings.randomStandees)">
           {{'settings.randomStandees' | ghsLabel}}

@@ -6,9 +6,10 @@
       <div class="background-image"
         [style.background-image]="'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'"></div>
       <span class="number">{{entity.number}}</span>
-      <span class="health" title="{{'game.health' | ghsLabel}}">{{entity.health}} <span class="value-overlay"
-          [ngClass]="{'negative-value' : dragHp < 0, 'positive-value' : dragHp > 0}" *ngIf="dragHp"><span
-            class="value">{{dragHp |
+      <span class="health" title="{{'game.health' | ghsLabel}}">{{entity.health + health}} 
+        <span class="value-overlay"
+          [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}" *ngIf="health"><span
+            class="value">{{health |
             ghsValueSign}}</span>
           </span>
       </span>
@@ -35,7 +36,7 @@
         <img src="./assets/images/summons/{{monster.summonColor}}.png">
       </span>
     </div>
-    <ghs-healthbar [entity]="entity"></ghs-healthbar>
+    <ghs-healthbar [entity]="entity" [diff]="health"></ghs-healthbar>
   </div>
 
   <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-hp" (dragMove)="dragHpMove($event)"
@@ -48,7 +49,7 @@
   <div class="status-container">
     <div class="entity-container">
       <span class="item">
-        <a class="button" [ngClass]="{'disabled' : entity.health == 0}" (click)="changeHealth(-1)">
+        <a class="button" [ngClass]="{'disabled' : entity.health + health == 0}" (click)="changeHealth(-1)">
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </a>
       </span>
@@ -58,7 +59,7 @@
           [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">{{health | ghsValueSign}}</span>
       </span>
       <span class="item">
-        <a class="button" [ngClass]="{'disabled' : entity.health == entity.maxHealth}" (click)="changeHealth(1)">
+        <a class="button" [ngClass]="{'disabled' : entity.health + health == entity.maxHealth}" (click)="changeHealth(1)">
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </a>
       </span>
@@ -115,7 +116,8 @@
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </a>
         <img src="./assets/images/status/health.svg" title="{{'game.maxHealth' | ghsLabel}}" />
-        <span class="badge max-health">{{entity.health}}/{{entity.maxHealth}}</span>
+        <span class="badge max-health">{{(entity.maxHealth + maxHp < entity.maxHealth || entity.health == entity.maxHealth ? entity.maxHealth + maxHp :
+          entity.health)}}/{{entity.maxHealth + maxHp}}</span>
         <a class="button" (click)="changeMaxHealth(1)">
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </a>

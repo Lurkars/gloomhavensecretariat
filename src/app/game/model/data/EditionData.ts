@@ -18,6 +18,7 @@ export class EditionData implements Editional {
   items: ItemData[];
   conditions: string[] = [];
   label: any = {};
+  labelSpoiler: any = {};
   url: string = "";
   extentions: string[] = [];
   hazardousTerrain: boolean = false;

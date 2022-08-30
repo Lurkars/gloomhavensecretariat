@@ -39,6 +39,7 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
   item: ItemData | undefined;
   itemCanAdd: boolean = false;
   doubleClickPerk: any = null;
+  priceModifier: number = 0;
 
   override ngOnInit(): void {
     super.ngOnInit();
@@ -101,6 +102,14 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
       });
 
       this.items.sort((a, b) => a.id - b.id);
+
+      if (gameManager.game.party) {
+        if (gameManager.game.party.reputation >= 0) {
+          this.priceModifier = Math.ceil((gameManager.game.party.reputation - 2) / 4) * -1;
+        } else {
+          this.priceModifier = Math.floor((gameManager.game.party.reputation + 2) / 4) * -1;
+        }
+      }
     }
   }
 

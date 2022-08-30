@@ -15,12 +15,18 @@ export class PartySheetDialog extends PopupComponent {
   gameManager: GameManager = gameManager;
   party: Party = new Party();
   prosperitySteps = [ 3, 8, 14, 21, 29, 38, 49, 63 ];
+  priceModifier : number = 0;
 
   constructor() {
     super();
     gameManager.uiChange.subscribe({
       next: () => {
         this.party = gameManager.game.party || new Party();
+        if (this.party.reputation >= 0) {
+          this.priceModifier = Math.ceil((this.party.reputation - 2) / 4) * -1;
+        } else {
+          this.priceModifier = Math.floor((this.party.reputation + 2) / 4) * -1;
+        }
       }
     })
   }

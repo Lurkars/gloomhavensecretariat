@@ -29,15 +29,14 @@ export class CharacterComponent extends DialogComponent {
   GameState = GameState;
   ConditionType = ConditionType;
   AttackModifierType = AttackModifierType;
-  experience: number = 0;
-  loot: number = 0;
   levelDialog: boolean = false;
   levels: number[] = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
 
-  dragInitiative: number = -1;
-  dragHp: number = 0;
-  dragXp: number = 0;
-  dragLoot: number = 0;
+  initiative: number = -1;
+  health: number = 0;
+  experience: number = 0;
+  loot: number = 0;
+  maxHp: number = 0;
 
   constructor(private element: ElementRef, private changeDetectorRef: ChangeDetectorRef) {
     super();
@@ -48,24 +47,26 @@ export class CharacterComponent extends DialogComponent {
   }
 
   changeHealth(value: number) {
-    this.dragHp += value;
+    this.health += value;
+    if (this.character.health + this.health > this.character.maxHealth) {
+      this.health = this.character.maxHealth - this.character.health;
+    } else if (this.character.health + this.health < 0) {
+      this.health = - this.character.health;
+    }
+    gameManager.entityManager.changeHealthHighlightConditions(this.character, this.health);
   }
 
   changeExperience(value: number) {
-    this.character.experience += value;
     this.experience += value;
-
-    if (this.character.experience <= 0) {
-      this.character.experience = 0;
+    if (this.character.experience + this.experience <= 0) {
+      this.experience = -this.character.experience;
     }
   }
 
   changeLoot(value: number) {
-    this.character.loot += value;
     this.loot += value;
-
-    if (this.character.loot <= 0) {
-      this.character.loot = 0;
+    if (this.character.loot + this.loot <= 0) {
+      this.loot = -this.character.loot;
     }
   }
 
@@ -147,19 +148,11 @@ export class CharacterComponent extends DialogComponent {
     this.titleInput.nativeElement.value = this.character.title || settingsManager.getLabel('data.character.' + this.character.name.toLowerCase());
   }
 
-
   changeMaxHealth(value: number) {
-    gameManager.stateManager.before("changeMaxHP", "data.character." + this.character.name, ghsValueSign(value));
-    this.character.maxHealth += value;
-
-    if (this.character.maxHealth <= 1) {
-      this.character.maxHealth = 1;
+    this.maxHp += value;
+    if (this.character.maxHealth + this.maxHp <= 1) {
+      this.maxHp = -this.character.maxHealth + 1;
     }
-
-    if (value < 0) {
-      this.character.health = this.character.maxHealth;
-    }
-    gameManager.stateManager.after();
   }
 
   setLevel(level: number) {
@@ -181,8 +174,8 @@ export class CharacterComponent extends DialogComponent {
         value = 1;
       }
 
-      if (this.dragInitiative == -1) {
-        this.dragInitiative = this.character.initiative;
+      if (this.initiative == -1) {
+        this.initiative = this.character.initiative;
       }
 
       this.character.initiative = value;
@@ -202,10 +195,10 @@ export class CharacterComponent extends DialogComponent {
         value = 1;
       }
 
-      this.character.initiative = this.dragInitiative;
+      this.character.initiative = this.initiative;
       gameManager.stateManager.before("setInitiative", "data.character." + this.character.name, "" + value);
       this.character.initiative = value;
-      this.dragInitiative = -1;
+      this.initiative = -1;
       if (this.character instanceof Character) {
         this.character.initiativeVisible = true;
       }
@@ -217,24 +210,24 @@ export class CharacterComponent extends DialogComponent {
   dragHpMove(value: number) {
     if (settingsManager.settings.dragValues) {
       const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
-      this.dragHp = Math.floor(value / dragFactor);
-      if (this.character.health + this.dragHp > this.character.maxHealth) {
-        this.dragHp = this.character.maxHealth - this.character.health;
-      } else if (this.character.health + this.dragHp < 0) {
-        this.dragHp = - this.character.health;
+      this.health = Math.floor(value / dragFactor);
+      if (this.character.health + this.health > this.character.maxHealth) {
+        this.health = this.character.maxHealth - this.character.health;
+      } else if (this.character.health + this.health < 0) {
+        this.health = - this.character.health;
       }
     }
   }
 
   dragHpEnd(value: number) {
     if (settingsManager.settings.dragValues) {
-      if (this.dragHp != 0) {
-        gameManager.stateManager.before("changeHP", "data.character." + this.character.name, ghsValueSign(this.dragHp));
-        gameManager.entityManager.changeHealth(this.character, this.dragHp);
-        if (this.character.health <= 0 || this.character.exhausted && this.dragHp >= 0 && this.character.health > 0) {
+      if (this.health != 0) {
+        gameManager.stateManager.before("changeHP", "data.character." + this.character.name, ghsValueSign(this.health));
+        gameManager.entityManager.changeHealth(this.character, this.health);
+        if (this.character.health <= 0 || this.character.exhausted && this.health >= 0 && this.character.health > 0) {
           this.exhausted();
         }
-        this.dragHp = 0;
+        this.health = 0;
       }
       gameManager.stateManager.after();
     }
@@ -243,19 +236,19 @@ export class CharacterComponent extends DialogComponent {
   dragXpMove(value: number) {
     if (settingsManager.settings.dragValues) {
       const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
-      this.dragXp = Math.floor(value / dragFactor);
-      if (this.character.experience + this.dragXp < 0) {
-        this.dragXp = - this.character.experience;
+      this.experience = Math.floor(value / dragFactor);
+      if (this.character.experience + this.experience < 0) {
+        this.experience = - this.character.experience;
       }
     }
   }
 
   dragXpEnd(value: number) {
     if (settingsManager.settings.dragValues) {
-      if (this.dragXp != 0) {
-        gameManager.stateManager.before("changeXP", "data.character." + this.character.name, ghsValueSign(this.dragXp));
-        this.character.experience += this.dragXp;
-        this.dragXp = 0;
+      if (this.experience != 0) {
+        gameManager.stateManager.before("changeXP", "data.character." + this.character.name, ghsValueSign(this.experience));
+        this.character.experience += this.experience;
+        this.experience = 0;
       }
       gameManager.stateManager.after();
     }
@@ -264,19 +257,19 @@ export class CharacterComponent extends DialogComponent {
   dragLootMove(value: number) {
     if (settingsManager.settings.dragValues) {
       const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
-      this.dragLoot = Math.floor(value / dragFactor);
-      if (this.character.loot + this.dragLoot < 0) {
-        this.dragLoot = - this.character.loot;
+      this.loot = Math.floor(value / dragFactor);
+      if (this.character.loot + this.loot < 0) {
+        this.loot = - this.character.loot;
       }
     }
   }
 
   dragLootEnd(value: number) {
     if (settingsManager.settings.dragValues) {
-      if (this.dragLoot != 0) {
-        gameManager.stateManager.before("changeLoot", "data.character." + this.character.name, ghsValueSign(this.dragLoot));
-        this.character.loot += this.dragLoot;
-        this.dragLoot = 0;
+      if (this.loot != 0) {
+        gameManager.stateManager.before("changeLoot", "data.character." + this.character.name, ghsValueSign(this.loot));
+        this.character.loot += this.loot;
+        this.loot = 0;
       }
       gameManager.stateManager.after();
     }
@@ -301,18 +294,17 @@ export class CharacterComponent extends DialogComponent {
 
   override close(): void {
     super.close();
-    if (this.dragHp != 0) {
-      gameManager.stateManager.before("changeHP", "data.character." + this.character.name, ghsValueSign(this.dragHp));
-      gameManager.entityManager.changeHealth(this.character, this.dragHp);
-      if (this.character.health <= 0 || this.character.exhausted && this.dragHp >= 0 && this.character.health > 0) {
+    if (this.health != 0) {
+      gameManager.stateManager.before("changeHP", "data.character." + this.character.name, ghsValueSign(this.health));
+      gameManager.entityManager.changeHealth(this.character, this.health);
+      if (this.character.health <= 0 || this.character.exhausted && this.health >= 0 && this.character.health > 0) {
         this.exhausted();
       }
-      this.dragHp = 0;
+      this.health = 0;
       gameManager.stateManager.after();
     }
 
     if (this.experience != 0) {
-      this.character.experience -= this.experience;
       gameManager.stateManager.before("changeXP", "data.character." + this.character.name, ghsValueSign(this.experience));
       this.character.experience += this.experience;
       if (this.character.experience < 0) {
@@ -323,7 +315,6 @@ export class CharacterComponent extends DialogComponent {
     }
 
     if (this.loot != 0) {
-      this.character.loot -= this.loot;
       gameManager.stateManager.before("changeLoot", "data.character." + this.character.name, ghsValueSign(this.loot));
       this.character.loot += this.loot;
       if (this.character.loot < 0) {
@@ -333,6 +324,15 @@ export class CharacterComponent extends DialogComponent {
       gameManager.stateManager.after();
     }
 
+    if (this.maxHp) {
+      gameManager.stateManager.before("changeMaxHP", "data.character." + this.character.name, ghsValueSign(this.maxHp));
+      if (this.character.maxHealth + this.maxHp < this.character.maxHealth || this.character.health == this.character.maxHealth) {
+        this.character.health = this.character.maxHealth + this.maxHp;
+      }
+      this.character.maxHealth += this.maxHp;
+      gameManager.stateManager.after();
+      this.maxHp = 0;
+    }
 
     if (this.levelDialog && this.titleInput) {
       if (this.titleInput.nativeElement.value && this.titleInput.nativeElement.value != settingsManager.getLabel('data.character.' + this.character.name.toLowerCase())) {

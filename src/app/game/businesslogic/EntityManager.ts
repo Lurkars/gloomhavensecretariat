@@ -18,46 +18,46 @@ export class EntityManager {
   }
 
   changeHealth(entity: Entity, value: number) {
+    this.changeHealthHighlightConditions(entity, value);
     entity.health += value;
+    if (entity.health > entity.maxHealth) {
+      entity.health = EntityValueFunction("" + entity.maxHealth);
+    } else if (entity.health < 0) {
+      entity.health = 0;
+    }
+  }
 
-    if (value < 0 && settingsManager.settings.applyConditions) {
+  changeHealthHighlightConditions(entity: Entity, value: number) {
+    if (settingsManager.settings.applyConditions) {
       entity.entityConditions.filter((entityCondition) => entityCondition.name == ConditionName.poison || entityCondition.name == ConditionName.poison_x).forEach((entityCondition) => {
-        if (!entityCondition.expired) {
+        if (value < 0 && !entityCondition.expired) {
           entityCondition.highlight = true;
+        } else {
+          entityCondition.highlight = false;
         }
       });
 
       const ward = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.name == ConditionName.ward);
       const brittle = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.name == ConditionName.brittle);
 
-      if (ward && !brittle) {
+      if (value < 0 && ward && !brittle) {
         ward.value -= value;
         ward.highlight = true;
+      } else if (ward) {
+        ward.highlight = false;
       }
 
-      if (brittle && !ward) {
+      if (value < 0 && brittle && !ward) {
         brittle.value -= value;
         brittle.highlight = true;
+      } else if (brittle) {
+        brittle.highlight = false;
       }
 
       if (brittle && ward) {
         brittle.highlight = false;
         ward.highlight = false;
       }
-
-    } else if (entity.health >= entity.maxHealth) {
-      entity.entityConditions.filter((entityCondition) => (entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x) && entityCondition.state == EntityConditionState.turn).forEach((entityCondition) => {
-        entityCondition.highlight = true;
-        setTimeout(() => {
-          entityCondition.highlight = false;
-        }, 1000);
-      })
-    }
-
-    if (entity.health > entity.maxHealth) {
-      entity.health = EntityValueFunction("" + entity.maxHealth);
-    } else if (entity.health < 0) {
-      entity.health = 0;
     }
   }
 

@@ -45,17 +45,17 @@ export class MonsterManager {
     return stat;
   }
 
-  addMonster(monsterData: MonsterData) {
-    if (!this.game.figures.some((figure) => {
-      return figure instanceof MonsterData && figure.name == monsterData.name && figure.edition == monsterData.edition;
-    })) {
-      const monster: Monster = new Monster(monsterData);
+  addMonster(monsterData: MonsterData): Monster {
+    let monster: Monster | undefined = this.game.figures.find((figure) =>
+      figure instanceof MonsterData && figure.name == monsterData.name && figure.edition == monsterData.edition) as Monster;
+    if (!monster) {
+      monster = new Monster(monsterData);
       monster.level = gameManager.game.level;
       monster.off = true;
       if (!this.applySameDeck(monster)) {
         if (!monster.abilities || monster.abilities.length == 0) {
           const abilities = gameManager.abilities(monster);
-          monster.abilities = abilities.filter((ability) => isNaN(+ability.level) || +ability.level <= monster.level).map((ability) => abilities.indexOf(ability));
+          monster.abilities = abilities.filter((ability) => isNaN(+ability.level) || +ability.level <= (monster && monster.level || 0)).map((ability) => abilities.indexOf(ability));
         }
         this.shuffleAbilities(monster);
       }
@@ -63,7 +63,10 @@ export class MonsterManager {
       if (gameManager.game.state == GameState.next) {
         gameManager.sortFigures();
       }
+
     }
+
+    return monster;
   }
 
   removeMonster(monster: Monster) {

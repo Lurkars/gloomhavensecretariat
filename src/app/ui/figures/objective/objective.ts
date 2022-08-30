@@ -26,8 +26,7 @@ export class ObjectiveComponent extends DialogComponent {
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
   ConditionType = ConditionType;
-  dragHp: number = 0;
-  dragHpOffset: number = -1;
+  health: number = 0;
 
 
   constructor(private element: ElementRef, private changeDetectorRef: ChangeDetectorRef) {
@@ -54,7 +53,13 @@ export class ObjectiveComponent extends DialogComponent {
   }
 
   changeHealth(value: number) {
-    this.dragHp += value;
+    this.health += value;
+    if (this.objective.health + this.health > EntityValueFunction("" + this.objective.maxHealth)) {
+      this.health = EntityValueFunction("" + this.objective.maxHealth) - this.objective.health;
+    } else if (this.objective.health + this.health < 0) {
+      this.health = - this.objective.health;
+    }
+    gameManager.entityManager.changeHealthHighlightConditions(this.objective, this.health);
   }
 
   changeId(value: number) {
@@ -146,33 +151,25 @@ export class ObjectiveComponent extends DialogComponent {
 
   dragHpMove(value: number) {
     if (settingsManager.settings.dragValues) {
-      const old = this.objective.health;
-      if (this.dragHpOffset == -1) {
-        this.dragHpOffset = value;
-      }
-      value = value - this.dragHpOffset;
       const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
-      this.objective.health += Math.floor(value / dragFactor) - this.dragHp;
-      if (this.objective.health > this.objective.maxHealth) {
-        this.objective.health = EntityValueFunction("" + this.objective.maxHealth);
-      } else if (this.objective.health < 0) {
-        this.objective.health = 0;
+      this.health = Math.floor(value / dragFactor);
+      if (this.objective.health + this.health > this.objective.maxHealth) {
+        this.health = EntityValueFunction("" + this.objective.maxHealth) - this.objective.health;
+      } else if (this.objective.health + this.health < 0) {
+        this.health = - this.objective.health;
       }
-      this.dragHp += this.objective.health - old;
     }
   }
 
   dragHpEnd(value: number) {
     if (settingsManager.settings.dragValues) {
-      this.dragHpOffset = -1;
-      if (this.dragHp != 0) {
-        this.objective.health -= this.dragHp;
-        gameManager.stateManager.before("changeHP", this.objective.title || this.objective.name, ghsValueSign(this.dragHp));
-        this.changeHealth(this.dragHp);
-        if (this.objective.health <= 0 || this.objective.exhausted && this.dragHp >= 0 && this.objective.health > 0) {
+      if (this.health != 0) {
+        gameManager.stateManager.before("changeObjectiveHP", this.objective.title || this.objective.name, ghsValueSign(this.health));
+        gameManager.entityManager.changeHealth(this.objective, this.health);
+        if (this.objective.health <= 0 || this.objective.exhausted && this.health >= 0 && this.objective.health > 0) {
           this.exhausted();
         }
-        this.dragHp = 0;
+        this.health = 0;
       }
       gameManager.stateManager.after();
     }
@@ -180,15 +177,15 @@ export class ObjectiveComponent extends DialogComponent {
 
   override close(): void {
     super.close();
-    if (this.dragHp != 0) {
-      gameManager.stateManager.before("changeHP", this.objective.title || this.objective.name, ghsValueSign(this.dragHp));
+    if (this.health != 0) {
+      gameManager.stateManager.before("changeHP", this.objective.title || this.objective.name, ghsValueSign(this.health));
       const old = this.objective.health;
-      gameManager.entityManager.changeHealth(this.objective, this.dragHp);
-      if (this.objective.health <= 0 || this.objective.exhausted && this.dragHp >= 0 && this.objective.health > 0) {
+      gameManager.entityManager.changeHealth(this.objective, this.health);
+      if (this.objective.health <= 0 || this.objective.exhausted && this.health >= 0 && this.objective.health > 0) {
         this.exhausted();
       }
       gameManager.stateManager.after();
-      this.dragHp = 0;
+      this.health = 0;
     }
     if (this.titleInput) {
       if (this.titleInput.nativeElement.value && this.titleInput.nativeElement.value != new Objective(0).name) {

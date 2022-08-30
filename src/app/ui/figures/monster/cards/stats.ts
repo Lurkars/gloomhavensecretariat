@@ -175,6 +175,7 @@ export class MonsterStatsPopupComponent extends PopupComponent {
 
   getMonsterForLevel(level: number): Monster {
     let monster: Monster = new Monster(this.monster);
+    monster.isAlly = this.monster.isAlly;
     monster.level = level;
     return monster;
   }

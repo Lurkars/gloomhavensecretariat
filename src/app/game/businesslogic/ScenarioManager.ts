@@ -65,7 +65,10 @@ export class ScnearioManager {
       scenarioData.monsters.forEach((name) => {
         const monsterData = gameManager.monstersData(true).find((monsterData) => monsterData.name == name && (monsterData.edition == editionData.edition || editionData.extentions && editionData.extentions.indexOf(monsterData.edition) != -1));
         if (monsterData) {
-          gameManager.monsterManager.addMonster(monsterData);
+          let monster = gameManager.monsterManager.addMonster(monsterData);
+          if (scenarioData.allies && scenarioData.allies.indexOf(monster.name) != -1) {
+            monster.isAlly = true;
+          }
         }
       });
     }

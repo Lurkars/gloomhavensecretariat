@@ -39,6 +39,10 @@
       bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
       filter: var(--ghs-filter-white);
     }
+
+    &.open-dialog {
+      cursor: help;
+    }
   }
 
   ghs-attackmodifier {
@@ -115,6 +119,10 @@
       left: 68.5%;
       transform: rotate(25deg);
       z-index: 0;
+    }
+
+    &.open-dialog {
+      cursor: help;
     }
   }
 

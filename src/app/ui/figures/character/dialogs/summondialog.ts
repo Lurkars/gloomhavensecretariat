@@ -47,12 +47,10 @@ export class CharacterSummonDialog extends DialogComponent {
   }
 
   addCustomSummon() {
-    gameManager.stateManager.before("addSummon", "data.character." + this.character.name, this.summonName);
     let summon: Summon = new Summon(this.summonName, this.character.level, this.summonNumber, this.summonColor);
     summon.state = SummonState.new;
     gameManager.characterManager.addSummon(this.character, summon);
     this.close();
-    gameManager.stateManager.after();
   }
 
   addSummon(summonData: SummonData) {

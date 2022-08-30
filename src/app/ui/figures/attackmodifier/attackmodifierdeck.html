@@ -1,7 +1,7 @@
 <div #container class="attack-modifiers"
   [ngClass]="{'disabled' : gameManager.game.state == GameState.draw, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers}">
 
-  <div class="draw" title="{{(gameManager.game.state == GameState.next ? (deck.current == deck.cards.length -1 ? 'game.cards.shuffle' : 'game.cards.draw') : 'game.cards.openDialog') | ghsLabel}}" (click)="click(deck.cards.length + 1)"
+  <div class="draw" title="{{(gameManager.game.state == GameState.next ? (deck.current == deck.cards.length -1 ? 'game.cards.shuffle' : 'game.cards.draw') : 'game.cards.openDialog') | ghsLabel}}" (click)="click(deck.cards.length + 1)" [ngClass]="{'open-dialog' : gameManager.game.state == GameState.draw}"
     [style.z-index]="deck.cards.length + 1">
     <span class="number" *ngIf="deck.current < deck.cards.length -1">{{
       deck.cards.length - deck.current - 1 }}</span>
@@ -13,7 +13,7 @@
       [flipped]="index <= deck.current && (index > deck.current -2 || rollingIndex(index) > 0)"
       *ngIf="index <= deck.current + 1"
       [style.z-index]="index > deck.current ? deck.cards.length - index : deck.cards.length + index + 1"
-      [ngClass]="{'disgarded' : index < deck.current - 1, 'current' : index == deck.current, 'last' : index == deck.current - 1, 'bottom' : bottom, 'rolling' : attackModifier.rolling}"
+      [ngClass]="{'disgarded' : index < deck.current - 1, 'current' : index == deck.current, 'last' : index == deck.current - 1, 'bottom' : bottom, 'rolling' : attackModifier.rolling, 'open-dialog' : index <= deck.current}"
       [style.left]="attackModifier.rolling && rollingIndex(index) ?  'calc(var(--ghs-unit) * ' + (26 + 10 * (rollingIndex(index) - 1)) + ' * var(--ghs-text-factor))' : ''"
       title="{{'game.cards.openDialog' | ghsLabel}}"
       (click)="click(index)">

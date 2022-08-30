@@ -51,39 +51,29 @@
 
   .toggle-ally {
     position: absolute;
+    top: calc(var(--ghs-unit) * 0.1);
+    right: calc(var(--ghs-unit) * 1);
+    height: calc(var(--ghs-unit) * 4);
+    width: calc(var(--ghs-unit) * 2.5);
     cursor: pointer;
     display: flex;
-    bottom: calc(var(--ghs-unit) * 0.3);
-    left: 50%;
-    height: calc(var(--ghs-unit) * 1.6);
-    width: calc(var(--ghs-unit) * 1.6);
-    transform: translateX(-50%);
+    justify-content: center;
+    align-items: center;
 
     img {
-      filter: var(--ghs-filter-red);
       width: 100%;
       height: auto;
     }
 
-    &::after {
+    &.ally::after {
       content: ' ';
       position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      background-color: var(--ghs-color-black);
+      top: calc(var(--ghs-unit) * 0.6);
+      left: calc(var(--ghs-unit) * 0.1);
+      bottom: calc(var(--ghs-unit) * 0.6);
+      right: calc(var(--ghs-unit) * 0.1);
+      background-color: var(--ghs-color-red);
       clip-path: polygon(10% 0, 0 10%, 40% 50%, 0 90%, 10% 100%, 50% 60%, 90% 100%, 100% 90%, 60% 50%, 100% 10%, 90% 0, 50% 40%);
-    }
-
-    &.ally {
-      img {
-        filter: var(--ghs-filter-white);
-      }
-
-      &::after {
-        display: none;
-      }
     }
   }
 

@@ -26,10 +26,13 @@ export class Game {
   totalSeconds: number = 0;
   monsterAttackModifierDeck: AttackModifierDeck = new AttackModifierDeck();
   allyAttackModifierDeck: AttackModifierDeck = new AttackModifierDeck();
-  elementBoard: ElementModel[] = defeaultElementBoard;
+  elementBoard: ElementModel[];
   solo: boolean = false;
   party: Party | undefined = undefined;
 
+  constructor() {
+    this.elementBoard = JSON.parse(JSON.stringify(defeaultElementBoard));
+  }
 
   toModel(): GameModel {
     return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.round, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party);

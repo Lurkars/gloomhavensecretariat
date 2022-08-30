@@ -125,7 +125,7 @@
   </ng-container>
   <ng-container *ngIf="cardPopup">
     <div class="card-container ability" (click)="close()">
-      <div class="card flipped" #card [style.fontSize]="card.offsetWidth * 0.08 + 'px'">
+      <div class="card flipped" #card [style.fontSize]="card.offsetWidth * 0.03 + 'px'">
         <div class="card-back ability-back"></div>
         <div class="card-front ability-front"
           [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0}">

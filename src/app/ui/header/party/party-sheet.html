@@ -47,7 +47,7 @@
             <div class="column shop">
               <label>{{'party.shop' | ghsLabel}}</label>
               <div class="table">
-                <div class="value" *ngFor="let value of [] | ghsRange:11">
+                <div class="value" *ngFor="let value of [] | ghsRange:11" [ngClass]="{'active' : priceModifier == -5 + value}">
                   <span *ngIf="value != 5">{{-5 + value | ghsValueSign}}</span>
                   <span *ngIf="value == 5">{{'party.shop.none' | ghsLabel}}</span>
                 </div>

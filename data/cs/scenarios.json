@@ -624,6 +624,10 @@
       "inox-guard",
       "inox-shaman"
     ],
+    "allies": [
+      "city-archer",
+      "city-guard"
+    ],
     "objectives": []
   },
   {
@@ -635,6 +639,10 @@
       "cave-bear",
       "city-archer",
       "city-guard",
+      "inox-archer",
+      "inox-guard"
+    ],
+    "allies": [
       "inox-archer",
       "inox-guard"
     ],

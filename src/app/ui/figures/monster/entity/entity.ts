@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { AttackModifier, AttackModifierType } from 'src/app/game/model/AttackModifier';
+import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/AttackModifier';
 import { Condition, ConditionName, ConditionType } from 'src/app/game/model/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
@@ -9,6 +9,7 @@ import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { Summon, SummonState } from 'src/app/game/model/Summon';
 import { DialogComponent } from 'src/app/ui/dialog/dialog';
+import { ghsValueSign } from 'src/app/ui/helper/Static';
 
 @Component({
   selector: 'ghs-monster-entity',
@@ -26,9 +27,9 @@ export class MonsterEntityComponent extends DialogComponent {
   SummonState = SummonState;
   ConditionName = ConditionName;
   ConditionType = ConditionType;
-  health: number = 0;
 
-  dragHp: number = 0;
+  health: number = 0;
+  maxHp: number = 0;
 
   constructor(private element: ElementRef) {
     super();
@@ -43,20 +44,28 @@ export class MonsterEntityComponent extends DialogComponent {
   }
 
   changeHealth(value: number) {
-    const old = this.entity.health;
-    gameManager.entityManager.changeHealth(this.entity, value);
-    this.health += this.entity.health - old;
+    this.health += value;
+    if (this.entity.health + this.health > this.entity.maxHealth) {
+      this.health = this.entity.maxHealth - this.entity.health;
+    } else if (this.entity.health + this.health <= 0) {
+      this.health = -this.entity.health;
+    }
+    gameManager.entityManager.changeHealthHighlightConditions(this.entity, this.health);
+  }
+
+  attackModifierDeck(): AttackModifierDeck {
+    return settingsManager.settings.allyAttackModifierDeck && this.monster.isAlly ? gameManager.game.allyAttackModifierDeck : gameManager.game.monsterAttackModifierDeck;
   }
 
   countAttackModifier(type: AttackModifierType): number {
-    return gameManager.game.monsterAttackModifierDeck.cards.filter((attackModifier) => {
+    return this.attackModifierDeck().cards.filter((attackModifier) => {
       return attackModifier.type == type;
     }).length;
   }
 
   countDrawnAttackModifier(type: AttackModifierType): number {
-    return gameManager.game.monsterAttackModifierDeck.cards.filter((attackModifier, index) => {
-      return attackModifier.type == type && index <= gameManager.game.monsterAttackModifierDeck.current;
+    return this.attackModifierDeck().cards.filter((attackModifier, index) => {
+      return attackModifier.type == type && index <= this.attackModifierDeck().current;
     }).length;
   }
 
@@ -65,13 +74,13 @@ export class MonsterEntityComponent extends DialogComponent {
       if (this.countAttackModifier(type) == 10) {
         return;
       }
-      gameManager.attackModifierManager.addModifier(gameManager.game.monsterAttackModifierDeck, new AttackModifier(type));
+      gameManager.attackModifierManager.addModifier(this.attackModifierDeck(), new AttackModifier(type));
     } else if (value < 0) {
-      const card = gameManager.game.monsterAttackModifierDeck.cards.find((attackModifier, index) => {
-        return attackModifier.type == type && index > gameManager.game.monsterAttackModifierDeck.current;
+      const card = this.attackModifierDeck().cards.find((attackModifier, index) => {
+        return attackModifier.type == type && index > this.attackModifierDeck().current;
       });
       if (card) {
-        gameManager.game.monsterAttackModifierDeck.cards.splice(gameManager.game.monsterAttackModifierDeck.cards.indexOf(card), 1);
+        this.attackModifierDeck().cards.splice(this.attackModifierDeck().cards.indexOf(card), 1);
       }
     }
   }
@@ -147,40 +156,32 @@ export class MonsterEntityComponent extends DialogComponent {
   }
 
   changeMaxHealth(value: number) {
-    gameManager.stateManager.before("changeEntityMaxHp", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, "" + value);
-    this.entity.maxHealth += value;
-
-    if (this.entity.maxHealth <= 1) {
-      this.entity.maxHealth = 1;
+    this.maxHp += value;
+    if (this.entity.maxHealth + this.maxHp <= 1) {
+      this.maxHp = -this.entity.maxHealth + 1;
     }
-
-    if (value < 0) {
-      this.entity.health = this.entity.maxHealth;
-    }
-    gameManager.stateManager.after();
   }
 
   dragHpMove(value: number) {
     if (settingsManager.settings.dragValues) {
       const dragFactor = 40 * this.element.nativeElement.offsetWidth / window.innerWidth;
-      this.dragHp = Math.floor(value / dragFactor);
-      if (this.entity.health + this.dragHp > this.entity.maxHealth) {
-        this.dragHp = EntityValueFunction("" + this.entity.maxHealth) - this.entity.health;
-      } else if (this.entity.health + this.dragHp < 0) {
-        this.dragHp = - this.entity.health;
+      this.health = Math.floor(value / dragFactor);
+      if (this.entity.health + this.health > this.entity.maxHealth) {
+        this.health = EntityValueFunction("" + this.entity.maxHealth) - this.entity.health;
+      } else if (this.entity.health + this.health < 0) {
+        this.health = - this.entity.health;
       }
     }
   }
 
   dragHpEnd(value: number) {
     if (settingsManager.settings.dragValues) {
-      if (this.dragHp != 0) {
-        gameManager.stateManager.before("changeEntityHp", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, "" + this.dragHp);
-        this.changeHealth(this.dragHp);
-        if (this.entity.health <= 0 || this.entity.dead && this.dragHp >= 0 && this.entity.health > 0) {
+      if (this.health != 0) {
+        gameManager.stateManager.before("changeEntityHp", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, "" + this.health);
+        gameManager.entityManager.changeHealth(this.entity, this.health);
+        if (this.entity.health <= 0 || this.entity.dead && this.health >= 0 && this.entity.health > 0) {
           this.dead();
         }
-        this.dragHp = 0;
         this.health = 0;
       }
       gameManager.stateManager.after();
@@ -190,15 +191,24 @@ export class MonsterEntityComponent extends DialogComponent {
   override close(): void {
     super.close();
     if (this.health != 0) {
-      this.entity.health -= this.health;
-      gameManager.stateManager.before("changeEntityHp", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, "" + this.health);
-      this.changeHealth(this.health);
-      if (this.entity.health <= 0 || this.entity.dead && this.health >= 0 && this.entity.health > 0) {
-        this.dead();
-      }
-      this.dragHp = 0;
-      this.health = 0;
+      gameManager.stateManager.before("changeEntityHp", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, ghsValueSign(this.health));
+      gameManager.entityManager.changeHealth(this.entity, this.health);
       gameManager.stateManager.after();
+      this.health = 0;
+    }
+    if (this.maxHp) {
+      gameManager.stateManager.before("changeEntityMaxHp", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, ghsValueSign(this.maxHp));
+      if (this.entity.maxHealth + this.maxHp < this.entity.maxHealth || this.entity.health == this.entity.maxHealth) {
+        this.entity.health = this.entity.maxHealth + this.maxHp;
+      }
+      this.entity.maxHealth += this.maxHp;
+      gameManager.stateManager.after();
+      this.maxHp = 0;
+    }
+
+
+    if (this.entity.health <= 0 || this.entity.dead) {
+      this.dead();
     }
   }
 

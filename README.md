@@ -4,18 +4,20 @@
 
 *Gloomhaven Secretary* is a **Gloomhaven companion app** and does bookkeeping of all entities values to gain more focus on gameplay. It is an open source web app made with [Angular](https://angular.io/).
 
-GHS is heavily based on the look&feel of the original [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (by [Esoteric Software®](http://esotericsoftware.com)). Since GHH is discontinued and not available anymore, GHS should become a well maintained successor, implementing all functionality of GHH, many improvements and many more features.
-
 As GHS is a web application no installation is required and it runs in every modern browser even on mobile, still it can also be [installed](#install).
 
 For usage with multiple clients sharing the same game, the server component [Gloomhaven Secretary Server](https://github.com/Lurkars/ghs-server) is required. A public instance is available under `ghs.champonthis.de/server` port `443` with `secure` option.
 
-As open source software this is meant for the community to actively [contribute](#contributing) with ideas, suggestions and of course feedback. As I am not capable of good design/UX also feel free to contribute better assets.
+GHS is based on the look&feel of the original [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (by [Esoteric Software®](http://esotericsoftware.com)). Since GHH is discontinued and not available anymore, GHS should become a well maintained successor, implementing all functionality of GHH, many improvements and many more features.
+
+As open source software this is meant for the community to actively [contribute](#contributing) with ideas, suggestions and of course feedback. As I am not capable of good design/UX also feel free to contribute better assets. 
+
+If you need help using the app take a look at the [wiki](https://github.com/Lurkars/gloomhavensecretary/wiki). It is not complete but should help with all general steps to use GHS properly.
 
 > SPOILER WARNING:
-> The `label.json` files inside the `data`-folders and therefore the final edition data files in releases inside `./assets/data`-folder contain spoilers by including the corresponding label.
+> The `label-spoiler.json` files inside the `data`-folders and therefore the final edition data files in releases inside `./assets/data`-folder contain spoilers by including the corresponding label.
 
-## Support
+## Support me
 
 ☕ [Buy me a coffee?](https://ko-fi.com/lurkars)
 
@@ -120,6 +122,10 @@ All game data is inside the [data](./data/) folder with subfolders for every edi
 Every edition folder get concatenated to a single edition data file on build.
 
 Also pull requests are welcome!
+
+## Privacy
+
+This app does NOT collect ANY personal data. Everything runs and stays in your browser/local storage. For usage of the server component please go to [Gloomhaven Secretary Server#Privacy](https://github.com/Lurkars/ghs-server#privacy).
 
 ## Copyright / License
 

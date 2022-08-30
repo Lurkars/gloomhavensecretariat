@@ -1,23 +1,12 @@
 {
   "de": {
     "character": {
-      "angry-face": "Schicksalsläufer",
       "brute": "Barbar",
-      "circles": "Ruferin",
       "cragheart": "Felsenherz",
-      "eclipse": "Nachtschleier",
-      "lightning": "Berserkerin",
       "mindthief": "Gedankendiebin",
-      "music-note": "Wahrsängerin",
-      "saw": "Knochenflicker",
       "scoundrel": "Schürkin",
       "spellweaver": "Spruchweberin",
-      "squidface": "Seuchenbringer",
-      "sun": "Sonnenhüterin",
-      "three-spears": "Quartiermeister",
-      "tinkerer": "Tüftler",
-      "triangles": "Elementarist",
-      "two-mini": "Bestienmeister"
+      "tinkerer": "Tüftler"
     },
     "edition": {
       "gh": "Gloomhaven"
@@ -183,23 +172,12 @@
   },
   "en": {
     "character": {
-      "angry-face": "Doomstalker",
       "brute": "Brute",
-      "circles": "Summoner",
       "cragheart": "Cragheart",
-      "eclipse": "Nightshroud",
-      "lightning": "Berserker",
       "mindthief": "Mindthief",
-      "music-note": "Soothsinger",
-      "saw": "Sawbones",
       "scoundrel": "Scoundrel",
       "spellweaver": "Spellweaver",
-      "squidface": "Plagueherald",
-      "sun": "Sunkeeper",
-      "three-spears": "Quartermaster",
-      "tinkerer": "Tinkerer",
-      "triangles": "Elementalist",
-      "two-mini": "Beast Tyrant"
+      "tinkerer": "Tinkerer"
     },
     "edition": {
       "gh": "Gloomhaven"
