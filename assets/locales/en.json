@@ -50,8 +50,8 @@
       },
       "buyItem": "Buy Item {1} (%data.edition.{2}%) for {0}",
       "changeCustomScenario": "Change custom scenario name: {0}",
-      "changeEntityHp": "Change HP of {1} standee {2} of {0}",
-      "changeEntityMaxHp": "Change max. HP of {1} standee {2} of {0}",
+      "changeEntityHp": "Change HP of {1} standee {2} of {0}: {3}",
+      "changeEntityMaxHp": "Change max. HP of {1} standee {2} of {0}: {3}",
       "changeHP": "Change HP of {0}: {1}",
       "changeLoot": "Change Loot of {0}: {1}",
       "changeMaxHP": "Change max. HP of {0}: {1}",
@@ -115,10 +115,10 @@
       "setAlly": "Set {0} as ally",
       "setBG": "Set Battle Goals of {0} to {1}",
       "setConditionValue": {
-        "char": "{1}{2} {0}",
-        "objective": "{1}{2} {0}",
-        "monster": "{2}{3} '{1}' of {0}",
-        "summon": "{2}{3} '{1}' of {0}"
+        "char": "{1} to {2} for {0}",
+        "objective": "{1} to {2} for {0}",
+        "monster": "{2} to {3} for '{1}' of {0}",
+        "summon": "{2} to {3} for '{1}' of {0}"
       },
       "setCustomScenario": "Set custom scenario",
       "setDrawExtraAbility": "Set draw extra for {0}",
@@ -304,6 +304,7 @@
     "hideStats": "Hide stats",
     "randomStandees": "Random standees",
     "activeStandees": "Active standees",
+    "allyAttackModifierDeck": "Attack Modifier Deck for allies",
     "disableStandees": "Disable standees",
     "initiativeRequired": "Initiative is required",
     "zoom": {
@@ -546,6 +547,8 @@
         "inert": "inert"
       }
     },
+    "ally": "Ally",
+    "enemy": "Enemy",
     "initiative": "Initiative",
     "health": "Hit points",
     "maxHealth": "Maximum hit points",

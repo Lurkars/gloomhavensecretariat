@@ -50,8 +50,8 @@
       },
       "buyItem": "Gegenstand {1} (%data.edition.{2}%) für {0} kaufen",
       "changeCustomScenario": "Ändere Namen von benutzerdefinierten Szenario: {0}",
-      "changeEntityHp": "TP von {1} Aufsteller {2} um {0}",
-      "changeEntityMaxHp": "Max. TP von {1} Aufsteller {2} um {0}",
+      "changeEntityHp": "TP von {1} Aufsteller {2} von {0}: {3}",
+      "changeEntityMaxHp": "Max. TP von {1} Aufsteller von {0}: {3}",
       "changeHP": "TP von {0} um {1}",
       "changeLoot": "Beute von {0} um {1}",
       "changeMaxHP": "Max. TP von {0} um {1}",
@@ -115,10 +115,10 @@
       "setAlly": "{0} als Verbündeten setzen",
       "setBG": "Kampfziele von {0} auf {1} setzen",
       "setConditionValue": {
-        "char": "{1}{2} {0}",
-        "objective": "{1}{2} {0}",
-        "monster": "{2}{3} '{1}' of {0}",
-        "summon": "{2}{3} '{1}' of {0}"
+        "char": "{1} auf {2} für {0}",
+        "objective": "{1} auf {2} für {0}",
+        "monster": "{2} auf {3} für '{1}' von {0}",
+        "summon": "{2} auf {3} für '{1}' von {0}"
       },
       "setCustomScenario": "Benutzerdefiniertes Szenario",
       "setDrawExtraAbility": "Zusätzlich Aufdecken für {0} aktivieren",
@@ -304,6 +304,7 @@
     "hideStats": "Werte ausblenden",
     "randomStandees": "Zufällige Aufsteller",
     "activeStandees": "Aktive Aufsteller",
+    "allyAttackModifierDeck": "Angriffsmodifikatordeck für Verbündete",
     "disableStandees": "Aufsteller deaktivieren",
     "initiativeRequired": "Initiative muss gesetzt werden",
     "zoom": {
@@ -537,6 +538,8 @@
       "light": "Licht",
       "dark": "Dunkel"
     },
+    "ally": "Verbündeter",
+    "enemy": "Gegner",
     "initiative": "Initiative",
     "health": "Trefferpunkte",
     "maxHealth": "Maximale Trefferpunkte",
