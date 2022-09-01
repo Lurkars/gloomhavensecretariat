@@ -35,6 +35,7 @@
       "addEntityCurse": "Curse {0} standee {2}",
       "addEntityMarker": "{2} marker to {0} standee {1}",
       "addItem": "Add Item {1} (%data.edition.{2}%) to {0}",
+      "addManualScenario": "Unlock scenario #{0} {1} ({2})",
       "addMonster": "Add monster {0}",
       "addNextStandee": "Add {1} {0} standee",
       "addObjective": "Add objective {0}",
@@ -49,21 +50,21 @@
         "summon": "Apply {2} to '{1}' of {0}"
       },
       "buyItem": "Buy Item {1} (%data.edition.{2}%) for {0}",
-      "changeCustomScenario": "Change custom scenario name: {0}",
-      "changeEntityHp": "Change HP of {1} standee {2} of {0}: {3}",
-      "changeEntityMaxHp": "Change max. HP of {1} standee {2} of {0}: {3}",
-      "changeHP": "Change HP of {0}: {1}",
-      "changeLoot": "Change Loot of {0}: {1}",
-      "changeMaxHP": "Change max. HP of {0}: {1}",
-      "changeObjectiveHP": "Change HP of objective {0}: {1}",
-      "changeObjectiveId": "Change id of {0} to {1}",
-      "changeObjectiveMaxHP": "Change max. HP of objective {0}: {1}",
-      "changeSummonAttack": "Change attack of summon '{1}' of {0}: {2}",
-      "changeSummonHp": "Change HP of summon '{1}' of {0}: {2}",
-      "changeSummonMaxHp": "Change max. HP of summon '{1}' of {0}: {2}",
-      "changeSummonMove": "Change movement of summon '{1}' of {0}: {2}",
-      "changeSummonRange": "Change range of summon '{1}' of {0}: {2}",
-      "changeXP": "Change XP of {0}: {1}",
+      "changeCustomScenario": "Name '{0}' for custom scenario",
+      "changeEntityHp": "HP {3} for {1} standee {2} of {0}",
+      "changeEntityMaxHp": "max. HP {3} for {1} standee {2} of {0}",
+      "changeHP": "HP {1} for {0}",
+      "changeLoot": "Loot {1} for {0}",
+      "changeMaxHP": "Max. HP {1} for {0}",
+      "changeObjectiveHP": "HP {1} for objective {0}",
+      "changeObjectiveId": "ID '{1}' for {0}",
+      "changeObjectiveMaxHP": "Max. HP {1} for objective {0}",
+      "changeSummonAttack": "Attack {2} for summon '{1}' of {0}",
+      "changeSummonHp": "HP {2} for summon '{1}' of {0}",
+      "changeSummonMaxHp": "Max. HP {2} for summon '{1}' of {0}",
+      "changeSummonMove": "Movement {2} for summon '{1}' of {0}",
+      "changeSummonRange": "Range {2} for summon '{1}' of {0}",
+      "changeXP": "XP {1} for {0}",
       "declineApplyCondition": {
         "char": "Decline apply {1} to {0}",
         "objective": "Decline apply {1} to {0}",
@@ -71,20 +72,24 @@
         "summon": "Decline apply {2} to '{1}' of {0}"
       },
       "disableAutomaticLevel": "Disable automatic level calculation",
+      "disablePartyCampaignMode": "Disable campagin mode",
       "disableSolo": "Disable solo level calculation",
       "disabledGe5Player": "Disable ≥ 5 player rules",
       "draw": "Draw",
       "drawAbility": "Draw ability for {0}",
       "enableAutomaticLevel": "Enable automatic level calculation",
+      "enablePartyCampaignMode": "Enable campagin mode",
       "enableSolo": "Enable solo level calculation",
       "enabledGe5Player": "Enable ≥ 5 player rules",
       "entityDead": "Kill {1} standee {2} of {0}",
       "finishScenario": {
-        "success": "Successfully finish scenario",
-        "failure": "Finish scenario with failure"
+        "success": "Scenario #{0} {1} ({2}) successful",
+        "failure": "Scenario #{0} {1} ({2}) failed"
       },
       "importParty": "Import party from file",
       "loadGameFromFile": "Load game state from file",
+      "monsterConsumeElement": "{0} consume {1}",
+      "monsterInfuseElement": "{0} infuse {1}",
       "nextRound": "Next Round",
       "removeAbility": "Remove ability {1} from {0}",
       "removeAllChars": "Remove all chars",
@@ -110,9 +115,9 @@
       "resetScenario": "Reset scenario #{0} {1} ({2})",
       "restoreDefaultAbilities": "Restore default abilities of {0}",
       "sellItem": "Sell Item {1} (%data.edition.{2}%) for {0}",
-      "serverSync": "Sync from server",
+      "serverSync": "Server: {0}",
       "setActive": "Start turn for {0}",
-      "setAlly": "Set {0} as ally",
+      "setAlly": "{0} as ally",
       "setBG": "Set Battle Goals of {0} to {1}",
       "setConditionValue": {
         "char": "{1} to {2} for {0}",
@@ -125,49 +130,48 @@
       "setEdition": "Set edition to {0}",
       "setEntitySummonState": "Set {1} standee {2} of {0} to summon: {3}",
       "setExhausted": "{0} exhausted",
-      "setGold": "Set Gold of {0} to {1}",
-      "setInitiative": "Set Initiative of {0} to {1}",
-      "setLevel": "Set Level of {0} to {1}",
-      "setNotes": "Set Notes of {0} to {1}",
+      "setGold": "Gold {1} for {0}",
+      "setInitiative": "Initiative {1} for {0}",
+      "setLevel": "Level {1} for {0}",
+      "setNotes": "Notes {1} for {0}",
       "setObjectiveExhausted": "Objective {0} exhausted",
-      "setObjectiveInitiative": "Set Initiative of objective {0} to {1}",
-      "setPQ": "Set Personal Quest of {0} to {1}",
-      "setPartyAchievements": "Update party achievements",
-      "setPartyLocation": "Update party location: {0}",
-      "setPartyName": "Update party name: {0}",
-      "setPartyNotes": "Update party notes",
-      "setPartyProperity": "Change party prosperity: {0}",
-      "setPartyReputation": "Change party reputation: {0}",
-      "setPerk": "Set Perk {1} of {0} to {2}",
-      "setRetired": "Set {0} retired {1}",
-      "setRetirements": "Set Retirements of {0} to {1}",
-      "setScenario": "Set scenario #{0} {1} ({2})",
-      "setScenarioLevel": "Set scenario level to {0}",
-      "setTitle": "Set Title of {0} to {1}",
-      "setXP": "Set XP of {0} to {1}",
+      "setObjectiveInitiative": "Initiative {1} for objective {0}",
+      "setPQ": "Personal Quest {1} for {0} ",
+      "setPartyAchievements": "Party achievements",
+      "setPartyLocation": "Party location '{0}'",
+      "setPartyName": "Party name '{0}'",
+      "setPartyNotes": "Party notes",
+      "setPartyProperity": "Pprosperity {0}",
+      "setPartyReputation": "Reputation {0}",
+      "setPerk": "Perk {1} to {2} for {0}",
+      "setRetired": "{0} retired {1}",
+      "setRetirements": "Retirements {1} for {0}",
+      "setScenario": "Scenario #{0} {1} ({2})",
+      "setScenarioLevel": "Scenario level {0}",
+      "setTitle": "Title '{1}' for {0}",
+      "setXP": "XP {1} for {0}",
       "shuffleAbilityDeck": "Shuffle abilities of {0}",
       "summonDead": "Kill summon '{1}' of {0}",
-      "toggleFigure": "Set {0} active to {1}",
-      "unsetActive": "End turn for {0}",
-      "unsetAlly": "Set {0} as enemy",
+      "unsetActive": "End turn of {0}",
+      "unsetAlly": "{0} as enemy",
       "unsetCustomScenario": "Unset custom scenario",
       "unsetDrawExtraAbility": "Unset draw extra for {0}",
       "unsetExhausted": "{0} not exhausted",
       "unsetObjectiveExhausted": "Objective {0} not exhausted",
-      "unsetTitle": "Remove title {1} from {0}",
+      "unsetTitle": "Remove title '{1}' from {0}",
       "updateAttackModifierDeck": {
-        "draw": "Draw AM for {0}",
-        "shuffle": "Shuffle AM deck of {0}",
-        "restoreDefault": "Restore default AM deck of {0}",
-        "removeDrawnDiscards": "Remove drawn discards from AM deck of {0}",
-        "reorder": "Reorder AM deck of {0}",
-        "removeCard": "Remove card {1} from AM deck of {0}",
-        "addCard": "Add {1} card to AM deck of {0}",
-        "addCardShuffled": "Shuffle new {1} card into AM deck of {0}"
+        "draw": "Draw {0} AM",
+        "shuffle": "Shuffle {0} AM deck",
+        "restoreDefault": "Restore default {0} AM deck",
+        "removeDrawnDiscards": "Remove drawn discards from {0} AM deck",
+        "reorder": "Reorder {0} AM deck",
+        "removeCard": "Remove card {1} from {0} AM deck ",
+        "addCard": "Add {1} card to {0} AM deck",
+        "addCardShuffled": "Shuffle new {1} card into {0} AM deck"
       },
-      "updateBonusAdjustment": "Set bonuses adjustment to {0}",
+      "updateBonusAdjustment": "Bonuses adjustment {0}",
       "updateElement": "Element {0} {1}",
-      "updateLevelAdjustment": "Set level adjustment to {0}"
+      "updateLevelAdjustment": "Level adjustment {0}"
     }
   },
   "edition": {
@@ -184,10 +188,15 @@
       "success": "Success",
       "failure": "Failure",
       "reset": "Neustarten"
+    },
+    "manual": {
+      "add": "Unlock Scenarios",
+      "index": "Scenario number, commaseparated"
     }
   },
   "section": "Add Section",
   "monster": {
+    ".": "Monster",
     "add": "Add Monster",
     "remove": "Remove Monster",
     "removeAll": "Remove All",
@@ -202,6 +211,7 @@
     }
   },
   "character": {
+    ".": "Character",
     "add": "Add Character",
     "remove": "Remove Character",
     "removeAll": "Remove All",
@@ -265,6 +275,7 @@
     "achievements": "Achievements",
     "reputation": "Reputation",
     "prosperity": "Prosperity",
+    "campaignMode": "Campaign Mode",
     "shop": {
       ".": "Shop Price Modifier",
       "none": "None"
@@ -588,10 +599,22 @@
       "endTurn": "End turn",
       "setInitiative": "Set initiative",
       "error": {
-        "deck": "Missing Deck",
-        "stat": "Missing Stat",
-        "monsterType": "Missing Monster Type",
-        "unknown": "Unknown Figure"
+        "deck": {
+          ".": "Missing Deck",
+          "hint": "No Ability Deck found for %{0}% '%data.{0}.{1}%'! Please check deck data (Edition: %data.edition.{2}%)."
+        },
+        "stat": {
+          ".": "Missing Stat",
+          "hint": "Stats for {3} level {4} missing for %{0}% '%data.{0}.{1}%'! Please check figure data (Edition: %data.edition.{2}%)."
+        },
+        "monsterType": {
+          ".": "Missing Monster Type",
+          "hint": "Currrent Monster Type {3} not found for '%data.{0}.{1}%'! Please check monster data (Edition: %data.edition.{2}%)."
+        },
+        "unknown": {
+          ".": "Unknown Figure",
+          "hint": "No data found for %{0}% '%data.{0}.{1}%'! Please check edition data (Edition: %data.edition.{2}%)."
+        }
       }
     },
     "custom": {
