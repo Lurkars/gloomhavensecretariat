@@ -85,7 +85,11 @@ export class MainMenuComponent extends DialogComponent {
     if (gameManager.stateManager.undos.length > 0 && gameManager.stateManager.undoInfos.length >= gameManager.stateManager.undos.length) {
       this.undoInfo = gameManager.stateManager.undoInfos[ gameManager.stateManager.undos.length - 1 ];
       if (this.undoInfo.length > 1 && this.undoInfo[ 0 ] == "serverSync") {
-        this.undoInfo = [ "serverSync", settingsManager.getLabel('state.info.' + this.undoInfo[ 1 ], this.undoInfo.slice(2)) ];
+        if (this.undoInfo[ 1 ] == "setInitiative" && this.undoInfo.length > 3) {
+          this.undoInfo = [ "serverSync", settingsManager.getLabel('state.info.' + this.undoInfo[ 1 ], [ this.undoInfo[ 2 ], "" ]) ];
+        } else {
+          this.undoInfo = [ "serverSync", settingsManager.getLabel('state.info.' + this.undoInfo[ 1 ], this.undoInfo.slice(2)) ];
+        }
       } else if (this.undoInfo.length == 1 && this.undoInfo[ 0 ] == "serverSync") {
         this.undoInfo = [ "serverSync", "" ]
       }
@@ -95,7 +99,11 @@ export class MainMenuComponent extends DialogComponent {
     if (gameManager.stateManager.redos.length > 0 && gameManager.stateManager.undoInfos.length > gameManager.stateManager.undos.length) {
       this.redoInfo = gameManager.stateManager.undoInfos[ gameManager.stateManager.undos.length ];
       if (this.redoInfo.length > 1 && this.redoInfo[ 0 ] == "serverSync") {
-        this.redoInfo = [ "serverSync", settingsManager.getLabel('state.info.' + this.redoInfo[ 1 ], this.redoInfo.slice(2)) ];
+        if (this.redoInfo[ 1 ] == "setInitiative" && this.redoInfo.length > 3) {
+          this.redoInfo = [ "serverSync", settingsManager.getLabel('state.info.' + this.redoInfo[ 1 ], [ this.redoInfo[ 2 ], "" ]) ];
+        } else {
+          this.redoInfo = [ "serverSync", settingsManager.getLabel('state.info.' + this.redoInfo[ 1 ], this.redoInfo.slice(2)) ];
+        }
       } else if (this.redoInfo.length == 1 && this.redoInfo[ 0 ] == "serverSync") {
         this.redoInfo = [ "serverSync", "" ]
       }

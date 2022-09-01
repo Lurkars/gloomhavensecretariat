@@ -208,7 +208,7 @@
   </div>
 
   <div *ngSwitchCase="SubMenu.monster_add" class="menu-container monster-add">
-    <div class="line" *ngIf="hasHiddenMonster()">
+    <div class="line hidden-monster-menu" *ngIf="hasHiddenMonster()">
       <label>
         <input type="checkbox" [checked]="showHiddenMonster" (change)="showHiddenMonster=!showHiddenMonster">
         {{'monster.showHidden' | ghsLabel}}
