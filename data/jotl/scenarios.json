@@ -1,160 +1,225 @@
 [
   {
-    "edition": "jotl",
-    "name": "Roadside Ambush",
     "index": "1",
+    "name": "Roadside Ambush",
+    "edition": "jotl",
+    "initial": true,
     "monsters": [
       "common-vermling-raider"
+    ],
+    "unlocks": [
+      "2"
     ]
   },
   {
-    "edition": "jotl",
-    "name": "A Hole in the Wall",
     "index": "2",
+    "name": "A Hole in the Wall",
+    "edition": "jotl",
     "monsters": [
       "basic-vermling-raider"
+    ],
+    "unlocks": [
+      "3"
     ]
   },
   {
-    "edition": "jotl",
-    "name": "The Black Ship",
     "index": "3",
+    "name": "The Black Ship",
+    "edition": "jotl",
     "monsters": [
       "basic-giant-viper",
       "basic-zealot"
+    ],
+    "unlocks": [
+      "4"
     ]
   },
   {
-    "edition": "jotl",
-    "name": "A Ritual in Stone",
     "index": "4",
+    "name": "A Ritual in Stone",
+    "edition": "jotl",
     "monsters": [
       "stone-golem",
       "zealot"
+    ],
+    "unlocks": [
+      "5"
     ]
   },
   {
-    "edition": "jotl",
-    "name": "A Deeper Understanding",
     "index": "5",
+    "name": "A Deeper Understanding",
+    "edition": "jotl",
     "monsters": [
-      "zealot",
+      "blood-tumor",
       "chaos-demon",
-      "blood-tumor"
+      "zealot"
+    ],
+    "unlocks": [
+      "6"
     ]
   },
   {
-    "edition": "jotl",
-    "name": "Corrupted Research",
     "index": "6",
-    "monsters": [
-      "rat-monstrosity",
-      "black-sludge"
-    ]
-  },
-  {
+    "name": "Corrupted Research",
     "edition": "jotl",
-    "name": "Sunken Tumor",
-    "index": "7",
-    "monsters": [
-      "vermling-scout",
-      "zealot",
-      "blood-tumor"
-    ]
-  },
-  {
-    "edition": "jotl",
-    "name": "Hidden Tumor",
-    "index": "8",
-    "monsters": [
-      "chaos-demon",
-      "zealot",
-      "blood-tumor"
-    ]
-  },
-  {
-    "edition": "jotl",
-    "name": "Explosive Evolution",
-    "index": "9",
-    "monsters": [
-      "zealot",
-      "living-corpse",
-      "blood-horror"
-    ]
-  },
-  {
-    "edition": "jotl",
-    "name": "The Gauntlet",
-    "index": "10",
     "monsters": [
       "black-sludge",
-      "stone-golem",
-      "chaos-demon"
+      "rat-monstrosity"
+    ],
+    "unlocks": [
+      "7",
+      "8"
     ]
   },
   {
+    "index": "7",
+    "name": "Sunken Tumor",
     "edition": "jotl",
-    "name": "Defiled Sewers",
+    "monsters": [
+      "blood-tumor",
+      "vermling-scout",
+      "zealot"
+    ],
+    "unlocks": [
+      "9"
+    ],
+    "blocks": [
+      "8"
+    ]
+  },
+  {
+    "index": "8",
+    "name": "Hidden Tumor",
+    "edition": "jotl",
+    "monsters": [
+      "blood-tumor",
+      "chaos-demon",
+      "zealot"
+    ],
+    "unlocks": [
+      "9"
+    ],
+    "blocks": [
+      "7"
+    ]
+  },
+  {
+    "index": "9",
+    "name": "Explosive Evolution",
+    "edition": "jotl",
+    "monsters": [
+      "blood-horror",
+      "living-corpse",
+      "zealot"
+    ],
+    "unlocks": [
+      "10"
+    ]
+  },
+  {
+    "index": "10",
+    "name": "The Gauntlet",
+    "edition": "jotl",
+    "monsters": [
+      "black-sludge",
+      "chaos-demon",
+      "stone-golem"
+    ],
+    "unlocks": [
+      "11",
+      "12"
+    ]
+  },
+  {
     "index": "11",
+    "name": "Defiled Sewers",
+    "edition": "jotl",
     "monsters": [
       "black-sludge",
       "giant-viper",
       "vermling-scout"
+    ],
+    "unlocks": [
+      "13",
+      "19"
+    ],
+    "blocks": [
+      "12"
     ]
   },
   {
-    "edition": "jotl",
-    "name": "Beguiling Sewers",
     "index": "12",
+    "name": "Beguiling Sewers",
+    "edition": "jotl",
     "monsters": [
       "living-corpse",
       "living-spirit"
+    ],
+    "unlocks": [
+      "14",
+      "18"
+    ],
+    "blocks": [
+      "11"
     ]
   },
   {
-    "edition": "jotl",
-    "name": "Vile Harvest",
     "index": "13",
+    "name": "Vile Harvest",
+    "edition": "jotl",
     "monsters": [
       "black-sludge",
-      "zealot",
-      "blood-imp"
+      "blood-imp",
+      "zealot"
+    ],
+    "unlocks": [
+      "15"
     ]
   },
   {
-    "edition": "jotl",
-    "name": "Toxic Harvest",
     "index": "14",
+    "name": "Toxic Harvest",
+    "edition": "jotl",
     "monsters": [
       "blood-imp",
-      "zealot",
-      "giant-viper"
+      "giant-viper",
+      "zealot"
+    ],
+    "unlocks": [
+      "15"
     ]
   },
   {
-    "edition": "jotl",
-    "name": "Tainted Blood",
     "index": "15",
+    "name": "Tainted Blood",
+    "edition": "jotl",
     "monsters": [
       "black-imp",
       "blood-imp",
       "zealot"
+    ],
+    "unlocks": [
+      "16"
     ]
   },
   {
-    "edition": "jotl",
-    "name": "Mixed Results",
     "index": "16",
+    "name": "Mixed Results",
+    "edition": "jotl",
     "monsters": [
       "black-imp",
       "blood-imp",
       "rat-monstrosity"
+    ],
+    "unlocks": [
+      "17"
     ]
   },
   {
-    "edition": "jotl",
-    "name": "Red Twilight",
     "index": "17",
+    "name": "Red Twilight",
+    "edition": "jotl",
     "monsters": [
       "blood-imp",
       "blood-monstrosity",
@@ -162,17 +227,17 @@
     ]
   },
   {
-    "edition": "jotl",
-    "name": "The Heist",
     "index": "18",
+    "name": "The Heist",
+    "edition": "jotl",
     "monsters": [
       "stone-golem"
     ]
   },
   {
-    "edition": "jotl",
-    "name": "Den of Thieves",
     "index": "19",
+    "name": "Den of Thieves",
+    "edition": "jotl",
     "monsters": [
       "rat-monstrosity",
       "vermling-raider",
@@ -180,29 +245,29 @@
     ]
   },
   {
-    "edition": "jotl",
-    "name": "Misplaced Goods",
     "index": "20",
+    "name": "Misplaced Goods",
+    "edition": "jotl",
     "monsters": [
       "black-sludge",
-      "giant-viper",
       "chaos-demon",
+      "giant-viper",
       "rat-monstrosity"
     ]
   },
   {
-    "edition": "jotl",
-    "name": "Agents of Chaos",
     "index": "21",
+    "name": "Agents of Chaos",
+    "edition": "jotl",
     "monsters": [
       "chaos-demon",
       "giant-viper"
     ]
   },
   {
-    "edition": "jotl",
-    "name": "Unfriendly Message",
     "index": "22",
+    "name": "Unfriendly Message",
+    "edition": "jotl",
     "monsters": [
       "giant-viper",
       "stone-golem",
@@ -210,9 +275,9 @@
     ]
   },
   {
-    "edition": "jotl",
-    "name": "The Best of the Best",
     "index": "23",
+    "name": "The Best of the Best",
+    "edition": "jotl",
     "monsters": [
       "giant-viper",
       "rat-monstrosity",
@@ -221,18 +286,18 @@
     ]
   },
   {
-    "edition": "jotl",
-    "name": "Warding the Void",
     "index": "24",
+    "name": "Warding the Void",
+    "edition": "jotl",
     "monsters": [
       "black-imp",
       "chaos-demon"
     ]
   },
   {
-    "edition": "jotl",
-    "name": "The Greatest Job in the World",
     "index": "25",
+    "name": "The Greatest Job in the World",
+    "edition": "jotl",
     "monsters": [
       "living-spirit",
       "vermling-raider",

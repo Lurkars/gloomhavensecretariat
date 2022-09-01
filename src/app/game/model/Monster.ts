@@ -28,6 +28,7 @@ export class Monster extends MonsterData implements Figure {
 
   constructor(monsterData: MonsterData) {
     super(monsterData.name, monsterData.count, monsterData.baseStat, monsterData.stats, monsterData.edition, monsterData.deck, monsterData.boss, monsterData.flying, monsterData.thumbnail, monsterData.thumbnailUrl, monsterData.spoiler);
+    this.errors = monsterData.errors;
     if (monsterData.baseStat) {
       for (let stat of monsterData.stats) {
         if (!stat.health && stat.health != 0) {

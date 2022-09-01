@@ -92,13 +92,13 @@ export class FooterComponent extends DialogComponent {
   }
 
   finishScenario(success: boolean) {
-    gameManager.stateManager.before("finishScenario." + (success ? "sucess" : "failure"));
+    gameManager.stateManager.before("finishScenario." + (success ? "success" : "failure"), ...gameManager.scenarioManager.scenarioUndoArgs());
     gameManager.scenarioManager.finishScenario(success);
     gameManager.stateManager.after(1000);
   }
 
   resetScenario() {
-    gameManager.stateManager.before("resetScenario");
+    gameManager.stateManager.before("resetScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
     gameManager.roundManager.resetScenario();
     gameManager.stateManager.after(1000);
   }

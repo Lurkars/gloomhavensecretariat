@@ -1,7 +1,29 @@
-.remove {
+.editions {
   display: flex;
+  flex-direction: column;
+}
 
-  &:hover::after {
+.edition {
+  display: flex;
+  cursor: grab !important;
+  padding: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) 0;
+
+  .url {
+    font-family: 'ghs-normal';
+    align-self: flex-end;
+    font-size: 0.8em;
+    margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+    flex: 1 1 auto;
+  }
+
+  .remove {
+    cursor: pointer !important;
+    display: flex;
+    width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+  }
+
+  &:hover .remove::after {
     content: ' ';
     position: relative;
     display: block;
@@ -22,48 +44,6 @@
       padding: 0;
       visibility: hidden;
     }
-
-    &.error {
-      animation: shake .5s linear;
-      color: var(--ghs-color-red) !important;
-    }
-  }
-}
-
-.input-button {
-  display: flex;
-  cursor: pointer;
-
-  .add-button {
-    &::after {
-      content: ' ';
-      position: relative;
-      display: block;
-      left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-      top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-      width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-      height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-      clip-path: polygon(0 35%, 35% 35%, 35% 0%, 65% 0%, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0 65%);
-      background-color: var(--ghs-color-gray);
-    }
-
-    &:hover::after {
-      background-color: var(--ghs-color-white);
-    }
-
-    &.disabled {
-      pointer-events: none;
-      cursor: not-allowed;
-
-      &::after {
-        background-color: var(--ghs-color-darkgray);
-      }
-    }
-  }
-
-  input[type="text"] {
-    width: auto !important;
-    margin: 0 !important;
 
     &.error {
       animation: shake .5s linear;

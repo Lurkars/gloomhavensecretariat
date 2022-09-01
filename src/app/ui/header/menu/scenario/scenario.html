@@ -4,7 +4,7 @@
       <div class="line custom-check">
         <label>
           <input type="checkbox" [checked]="gameManager.game.scenario && gameManager.game.scenario.custom"
-            [disabled]="gameManager.game.scenario && gameManager.game.scenario.custom" (change)="customScenario()">
+            (change)="customScenario()">
           &lt;{{'scenario.custom' | ghsLabel}}&gt;
         </label>
       </div>
@@ -28,10 +28,33 @@
   <ng-container *ngFor="let group of groups()">
     <div *ngIf="group" class="line title"><label>{{group}}</label></div>
     <div class="line scenarios">
-      <span (click)="setScenario(scenario)" class="scenario" [ngClass]="{'disabled' : hasScenario(scenario)}"
+      <span (click)="setScenario(scenario)" class="scenario"
+        [ngClass]="{'disabled' : hasScenario(scenario), 'blocked' : gameManager.scenarioManager.isBlocked(scenario)}"
         *ngFor="let scenario of scenarios(group)"><span
           *ngIf="maxScenario() > 2 && scenario.index.length < 3">0</span><span
-          *ngIf="maxScenario() > 1 && scenario.index.length < 2">0</span>{{scenario.index}}</span>
+          *ngIf="maxScenario() > 1 && scenario.index.length < 2">0</span>{{scenario.index}}
+        <span *ngIf="scenarioSuccess(scenario)" class="state success"><img class="ghs-svg"
+            src="./assets/images/check.svg" /></span>
+        <span *ngIf="gameManager.scenarioManager.isBlocked(scenario)" class="state blocked"><img class="ghs-svg"
+            src="./assets/images/close.svg" /></span>
+      </span>
     </div>
+    <ng-container *ngIf="gameManager.game.party.campaignMode">
+      <div class="line title">
+        <label>{{'scenario.manual.add' | ghsLabel}}
+        </label>
+      </div>
+      <div class="line">
+        <span class="input-button">
+          <input #manualScenarioIndex type="text" placeholder="{{'scenario.manual.index' | ghsLabel}}"
+            (keyup)="manualScenarioIndex.classList.remove('error')"
+            (keyup.enter)="manualScenario(manualScenarioIndex, group)">
+          <span class="add-button" (click)="manualScenario(manualScenarioIndex, group)"
+            title="{{'scenario.manual.add' | ghsLabel}}"
+            [ngClass]="{'disabled' : !manualScenarioIndex.value || manualScenarioIndex.classList.contains('error')}">
+          </span>
+        </span>
+      </div>
+    </ng-container>
   </ng-container>
 </div>

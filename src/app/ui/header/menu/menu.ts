@@ -40,6 +40,7 @@ export class MainMenuComponent extends DialogComponent {
   WebSocket = WebSocket;
 
   showHiddenMonster: boolean = false;
+  characterLevel: number = 1;
 
   undoInfo: string[] = [];
   redoInfo: string[] = [];
@@ -83,11 +84,21 @@ export class MainMenuComponent extends DialogComponent {
   updateUndoRedo() {
     if (gameManager.stateManager.undos.length > 0 && gameManager.stateManager.undoInfos.length >= gameManager.stateManager.undos.length) {
       this.undoInfo = gameManager.stateManager.undoInfos[ gameManager.stateManager.undos.length - 1 ];
+      if (this.undoInfo.length > 1 && this.undoInfo[ 0 ] == "serverSync") {
+        this.undoInfo = [ "serverSync", settingsManager.getLabel('state.info.' + this.undoInfo[ 1 ], this.undoInfo.slice(2)) ];
+      } else if (this.undoInfo.length == 1 && this.undoInfo[ 0 ] == "serverSync") {
+        this.undoInfo = [ "serverSync", "" ]
+      }
     } else {
       this.undoInfo = [];
     }
     if (gameManager.stateManager.redos.length > 0 && gameManager.stateManager.undoInfos.length > gameManager.stateManager.undos.length) {
       this.redoInfo = gameManager.stateManager.undoInfos[ gameManager.stateManager.undos.length ];
+      if (this.redoInfo.length > 1 && this.redoInfo[ 0 ] == "serverSync") {
+        this.redoInfo = [ "serverSync", settingsManager.getLabel('state.info.' + this.redoInfo[ 1 ], this.redoInfo.slice(2)) ];
+      } else if (this.redoInfo.length == 1 && this.redoInfo[ 0 ] == "serverSync") {
+        this.redoInfo = [ "serverSync", "" ]
+      }
     } else {
       this.redoInfo = [];
     }
@@ -260,7 +271,7 @@ export class MainMenuComponent extends DialogComponent {
 
   addCharacter(characterData: CharacterData) {
     gameManager.stateManager.before("addChar", "data.character." + characterData.name);
-    gameManager.characterManager.addCharacter(characterData);
+    gameManager.characterManager.addCharacter(characterData, this.characterLevel);
     if (this.hasAllCharacter()) {
       this.close();
     }

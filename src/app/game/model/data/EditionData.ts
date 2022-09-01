@@ -3,7 +3,6 @@ import { CharacterData } from "./CharacterData";
 import { ScenarioData } from "./ScenarioData";
 import { MonsterData } from "./MonsterData";
 import { DeckData } from "./DeckData";
-import { SectionData } from "./SectionData";
 import { ItemData } from "./ItemData";
 
 export class EditionData implements Editional {
@@ -14,7 +13,7 @@ export class EditionData implements Editional {
   monsters: MonsterData[];
   decks: DeckData[];
   scenarios: ScenarioData[];
-  sections: SectionData[];
+  sections: ScenarioData[];
   items: ItemData[];
   conditions: string[] = [];
   label: any = {};
@@ -27,7 +26,7 @@ export class EditionData implements Editional {
     monsters: MonsterData[],
     decks: DeckData[],
     scenarios: ScenarioData[],
-    sections: SectionData[],
+    sections: ScenarioData[],
     items: ItemData[],
     conditions: string[] | undefined = undefined,
     extentions: string[] = [],

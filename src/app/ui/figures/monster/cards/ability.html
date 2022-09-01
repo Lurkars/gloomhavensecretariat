@@ -12,12 +12,12 @@
         <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
         <span class="name">{{abilityLabel(ability)}}</span>
         <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="1" [hint]="ability.hint"
-          [statsCalculation]="true">
+          [statsCalculation]="true" [highlightElements]="true">
         </ghs-actions>
         <ng-container *ngIf="ability.bottomActions && ability.bottomActions.length > 0">
           <span class="level" *ngIf="ability.level || ability.level == 0">{{ability.level}}</span>
           <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [hexSize]="1" [hint]="ability.hint"
-            [statsCalculation]="true">
+            [statsCalculation]="true" [highlightElements]="true">
           </ghs-actions>
         </ng-container>
         <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
@@ -31,7 +31,7 @@
 </div>
 
 
-<div #popup class="abilities-popup" [ngClass]="{'card-popup' : cardPopup}">
+<div #popup class="abilities-popup" [ngClass]="{'card-popup' : cardPopup, 'edit' : edit}">
   <ng-container *ngIf="!cardPopup">
     <div #menu class="menu">
       <a (click)="reveal = (reveal + 1) % 3">{{(reveal == 2 ? 'game.cards.coverAll' : (reveal == 0 ?

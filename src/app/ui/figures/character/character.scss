@@ -300,9 +300,10 @@
 
   ghs-figure-errors {
     position: absolute;
-    left: calc(var(--ghs-unit) * 1);
+    left: calc(var(--ghs-unit) * 14.5);
     top: 50%;
     transform: translateY(-50%);
+    z-index: 99;
   }
 
 }

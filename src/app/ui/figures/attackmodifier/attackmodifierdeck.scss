@@ -20,7 +20,7 @@
       color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
       position: absolute;
-      font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+      font-size: 2.5em;
       right: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
       bottom: 0;
       z-index: 1000;

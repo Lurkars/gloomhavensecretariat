@@ -101,7 +101,14 @@ export class StateManager {
         case "game":
           window.document.body.classList.add('working');
           let gameModel: GameModel = message.payload as GameModel;
-          gameManager.stateManager.before("serverSync");
+          const undoinfo = message.undoinfo;
+          if (undoinfo) {
+            if (undoinfo.length > 0 && undoinfo[ 0 ] == "serverSync") {
+              gameManager.stateManager.before("serverSync", ...undoinfo.slice(1));
+            } else {
+              gameManager.stateManager.before("serverSync", ...undoinfo);
+            }
+          }
           gameManager.game.fromModel(gameModel, true);
           gameManager.stateManager.saveLocal();
           gameManager.uiChange.emit();
@@ -220,7 +227,8 @@ export class StateManager {
       let message = {
         "password": settingsManager.settings.serverPassword,
         "type": "game",
-        "payload": this.game.toModel()
+        "payload": this.game.toModel(),
+        "undoinfo": this.undoInfos[ this.undos.length - 1 ]
       }
       this.ws.send(JSON.stringify(message));
     }

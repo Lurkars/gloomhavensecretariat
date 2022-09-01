@@ -206,6 +206,12 @@ export class RoundManager {
       }
     }
 
+    this.game.elementBoard.forEach((element) => {
+      if (element.state == ElementState.new) {
+        element.state = ElementState.strong;
+      }
+    })
+
     if (settingsManager.settings.applyConditions) {
       if (figure instanceof Character) {
         gameManager.entityManager.applyConditionsTurn(figure);

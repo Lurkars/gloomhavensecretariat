@@ -3,7 +3,6 @@ import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { EntityValueFunction, EntityValueRegex } from "src/app/game/model/Entity";
-import { Figure } from "src/app/game/model/Figure";
 
 export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\%)+)\%/;
 
@@ -82,6 +81,7 @@ export class I18nDirective implements OnInit, OnChanges {
 
   @Input('i18n') value!: string;
   @Input('i18n-args') args: string[] = [];
+  @Input('i18n-arg-label') argLabel: boolean = true;
 
   private C: number;
   private L: number;
@@ -114,7 +114,7 @@ export class I18nDirective implements OnInit, OnChanges {
   }
 
   apply(): void {
-    this.el.nativeElement.innerHTML = this.value && applyPlaceholder(settingsManager.getLabel(this.value, this.args)) || "";
+    this.el.nativeElement.innerHTML = this.value && applyPlaceholder(settingsManager.getLabel(this.value, this.args, this.argLabel)) || "";
   }
 
 

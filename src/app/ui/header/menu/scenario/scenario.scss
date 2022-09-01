@@ -13,10 +13,13 @@
 
 .scenarios {
   display: grid !important;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+  row-gap: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 
   .scenario {
     cursor: pointer;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,5 +40,41 @@
       border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
       color: var(--ghs-color-darkgray);
     }
+
+    &.blocked {
+      color: var(--ghs-color-darkgray);
+
+      &:hover {
+        border-color: var(--ghs-color-darkred);
+      }
+    }
+
+    .state {
+      display: flex;
+      position: absolute;
+      top: 50%;
+      width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+      height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+      transform: translateY(-50%);
+
+      &.success {
+        left: 0;
+        filter: var(--ghs-filter-green);
+      }
+
+      &.blocked {
+        right: 0;
+        filter: var(--ghs-filter-red);
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
   }
+}
+
+.input-button {
+  margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 }

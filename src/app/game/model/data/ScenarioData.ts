@@ -8,7 +8,7 @@ export class ScenarioData implements Editional, Spoilable {
   index: string;
   unlocks: string[];
   blocks: string[];
-  requires: string[];
+  requires: string[][];
   links: string[];
   group: string | undefined;
   monsters: string[];
@@ -22,7 +22,7 @@ export class ScenarioData implements Editional, Spoilable {
   // from Spoilable
   spoiler: boolean;
 
-  constructor(name: string, index: string, unlocks: string[], blocks: string[], requires: string[], links: string[], monsters: string[], allies: string[], objectives: ObjectiveData[], edition: string, group: string | undefined = undefined,
+  constructor(name: string, index: string, unlocks: string[], blocks: string[], requires: string[][], links: string[], monsters: string[], allies: string[], objectives: ObjectiveData[], edition: string, group: string | undefined = undefined,
     spoiler: boolean = false) {
     this.name = name;
     this.index = index;
@@ -36,6 +36,29 @@ export class ScenarioData implements Editional, Spoilable {
     this.objectives = objectives;
     this.group = group;
     this.spoiler = spoiler;
+  }
+
+  toModel(): GameScenarioModel {
+    return new GameScenarioModel(this.index, this.edition, this.group);
+  }
+
+}
+
+export class GameScenarioModel {
+
+  index: string;
+  edition: string;
+  group: string | undefined;
+  custom: string;
+
+  constructor(index: string,
+    edition: string,
+    group: string | undefined,
+    custom: string = "") {
+    this.index = index;
+    this.edition = edition;
+    this.group = group;
+    this.custom = custom;
   }
 
 }

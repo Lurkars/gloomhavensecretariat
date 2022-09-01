@@ -6,7 +6,7 @@ import { CharacterData } from "../model/data/CharacterData";
 import { ObjectiveData } from "../model/data/ObjectiveData";
 import { SummonData } from "../model/data/SummonData";
 import { EntityValueFunction } from "../model/Entity";
-import { FigureError } from "../model/FigureError";
+import { FigureError, FigureErrorType } from "../model/FigureError";
 import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { Objective } from "../model/Objective";
@@ -37,11 +37,11 @@ export class CharacterManager {
     return './assets/images/character/thumbnail/' + characterData.edition + '-' + characterData.name + '.png';
   }
 
-  addCharacter(characterData: CharacterData) {
+  addCharacter(characterData: CharacterData, level: number) {
     if (!this.game.figures.some((figure) => {
       return figure instanceof Character && figure.name == characterData.name && figure.edition == characterData.edition;
     })) {
-      let character: Character = new Character(characterData, this.game.level);
+      let character: Character = new Character(characterData, level);
       character.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => this.createSpecialSummon(character, summonData));
 
       character.number = 1;
@@ -178,9 +178,10 @@ export class CharacterManager {
   setLevel(character: Character, level: number) {
     const stat = character.stats.find((characterStat) => characterStat.level == level)
     if (!stat) {
-      console.error("No character stat found for level: " + level);
-      if (character.errors.indexOf(FigureError.stat) == -1) {
-        character.errors.push(FigureError.stat);
+      character.errors = character.errors || [];
+      if (!character.errors.find((figureError) => figureError.type == FigureErrorType.unknown) && !character.errors.find((figureError) => figureError.type == FigureErrorType.stat)) {
+        console.error("No character stat found for level: " + level);
+        character.errors.push(new FigureError(FigureErrorType.stat, "character", character.name, character.edition, "", "" + level));
       }
       character.stat = new CharacterStat(level, 0);
     } else {

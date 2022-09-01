@@ -1,4 +1,4 @@
-import { Identifier } from "./Identifier";
+import { GameScenarioModel } from "./data/ScenarioData";
 
 export class Party {
 
@@ -8,6 +8,8 @@ export class Party {
   achievements: string = "";
   reputation: number = 0;
   prosperity: number = 0;
-  scenarios: Identifier[] = [];
+  scenarios: GameScenarioModel[] = [];
+  manualScenarios: GameScenarioModel[] = [];
+  campaignMode : boolean = false;
 
 }

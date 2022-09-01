@@ -1,22 +1,22 @@
 [
   {
-    "edition": "gh",
-    "name": "Black Barrow",
     "index": "1",
+    "name": "Black Barrow",
+    "edition": "gh",
     "initial": true,
     "monsters": [
-      "bandit-guard",
       "bandit-archer",
+      "bandit-guard",
       "living-bones"
     ],
-    "links": [
+    "unlocks": [
       "2"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Barrow Lair",
     "index": "2",
+    "name": "Barrow Lair",
+    "edition": "gh",
     "monsters": [
       "bandit-archer",
       "bandit-commander",
@@ -26,15 +26,20 @@
     "unlocks": [
       "3",
       "4"
+    ],
+    "requires": [
+      [
+        "1"
+      ]
     ]
   },
   {
-    "edition": "gh",
-    "name": "Inox Encampment",
     "index": "3",
+    "name": "Inox Encampment",
+    "edition": "gh",
     "monsters": [
-      "inox-guard",
       "inox-archer",
+      "inox-guard",
       "inox-shaman"
     ],
     "unlocks": [
@@ -43,44 +48,42 @@
     ]
   },
   {
-    "edition": "gh",
-    "name": "Crypt of the Damned",
     "index": "4",
+    "name": "Crypt of the Damned",
+    "edition": "gh",
     "monsters": [
-      "living-bones",
       "bandit-archer",
       "cultist",
       "earth-demon",
+      "living-bones",
       "wind-demon"
     ],
     "unlocks": [
-      "6",
-      "5"
+      "5",
+      "6"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Ruinous Crypt",
     "index": "5",
+    "name": "Ruinous Crypt",
+    "edition": "gh",
     "monsters": [
       "cultist",
-      "living-bones",
-      "night-demon",
       "flame-demon",
-      "frost-demon"
+      "frost-demon",
+      "living-bones",
+      "night-demon"
     ],
     "unlocks": [
+      "10",
       "14",
       "19"
-    ],
-    "links": [
-      "10"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Decaying Crypt",
     "index": "6",
+    "name": "Decaying Crypt",
+    "edition": "gh",
     "monsters": [
       "living-bones",
       "living-corpse",
@@ -88,55 +91,60 @@
     ],
     "unlocks": [
       "8"
-    ],
-    "requires": [
-      "28"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Vibrant Grotto",
     "index": "7",
+    "name": "Vibrant Grotto",
+    "edition": "gh",
     "monsters": [
-      "forest-imp",
       "cave-bear",
-      "inox-shaman",
-      "earth-demon"
+      "earth-demon",
+      "forest-imp",
+      "inox-shaman"
     ],
     "unlocks": [
       "20"
+    ],
+    "requires": [
+      [
+        "14",
+        "8"
+      ]
     ]
   },
   {
-    "edition": "gh",
-    "name": "Gloomhaven Warehouse",
     "index": "8",
+    "name": "Gloomhaven Warehouse",
+    "edition": "gh",
     "monsters": [
+      "inox-bodyguard",
       "living-bones",
-      "living-corpse",
-      "inox-bodyguard"
+      "living-corpse"
     ],
     "unlocks": [
-      "7",
       "13",
-      "14"
+      "14",
+      "7"
+    ],
+    "requires": [
+      [
+        "3"
+      ]
     ],
     "blocks": [
       "3",
       "9"
-    ],
-    "requires": [
-      "20"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Diamond Mine",
     "index": "9",
+    "name": "Diamond Mine",
+    "edition": "gh",
     "monsters": [
       "hound",
-      "vermling-scout",
-      "merciless-overseer"
+      "merciless-overseer",
+      "vermling-scout"
     ],
     "unlocks": [
       "11",
@@ -147,35 +155,29 @@
     ]
   },
   {
-    "edition": "gh",
-    "name": "Plane of Elemental Power",
     "index": "10",
+    "name": "Plane of Elemental Power",
+    "edition": "gh",
     "monsters": [
-      "flame-demon",
       "earth-demon",
+      "flame-demon",
       "sun-demon"
     ],
-    "links": [
-      "21"
-    ],
     "unlocks": [
+      "21",
       "22"
-    ],
-    "requires": [
-      "35",
-      "36"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Gloomhaven Square A",
     "index": "11",
+    "name": "Gloomhaven Square A",
+    "edition": "gh",
     "monsters": [
-      "living-bones",
-      "living-corpse",
-      "city-guard",
+      "captain-of-the-guard",
       "city-archer",
-      "captain-of-the-guard"
+      "city-guard",
+      "living-bones",
+      "living-corpse"
     ],
     "allies": [
       "living-bones",
@@ -190,39 +192,39 @@
     ]
   },
   {
-    "edition": "gh",
-    "name": "Gloomhaven Square B",
     "index": "12",
+    "name": "Gloomhaven Square B",
+    "edition": "gh",
     "monsters": [
-      "living-bones",
-      "living-corpse",
-      "cultist",
-      "city-guard",
       "city-archer",
-      "jekserah"
+      "city-guard",
+      "cultist",
+      "jekserah",
+      "living-bones",
+      "living-corpse"
     ],
     "allies": [
-      "city-guard",
-      "city-archer"
+      "city-archer",
+      "city-guard"
     ],
     "unlocks": [
       "16",
-      "28",
-      "18"
+      "18",
+      "28"
     ],
     "blocks": [
       "11"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Temple of the Seer",
     "index": "13",
+    "name": "Temple of the Seer",
+    "edition": "gh",
     "monsters": [
-      "stone-golem",
       "cave-bear",
       "living-spirit",
-      "spitting-drake"
+      "spitting-drake",
+      "stone-golem"
     ],
     "unlocks": [
       "15",
@@ -231,85 +233,77 @@
     ]
   },
   {
-    "edition": "gh",
-    "name": "Frozen Hollow",
     "index": "14",
-    "monsters": [
-      "hound",
-      "living-spirit",
-      "frost-demon"
-    ],
-    "requires": [
-      "7",
-      "43",
-      "31",
-      "19"
-    ]
-  },
-  {
+    "name": "Frozen Hollow",
     "edition": "gh",
-    "name": "Shrine of Strength",
-    "index": "15",
     "monsters": [
-      "stone-golem",
-      "savvas-icestorm",
       "frost-demon",
-      "wind-demon",
-      "harrower-infester"
+      "hound",
+      "living-spirit"
     ]
   },
   {
+    "index": "15",
+    "name": "Shrine of Strength",
     "edition": "gh",
-    "name": "Mountain Pass",
+    "monsters": [
+      "frost-demon",
+      "harrower-infester",
+      "savvas-icestorm",
+      "stone-golem",
+      "wind-demon"
+    ]
+  },
+  {
     "index": "16",
+    "name": "Mountain Pass",
+    "edition": "gh",
     "monsters": [
       "earth-demon",
-      "wind-demon",
+      "inox-archer",
       "inox-guard",
-      "inox-archer"
+      "wind-demon"
     ],
     "unlocks": [
+      "24",
       "25"
-    ],
-    "links": [
-      "24"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Lost Island",
     "index": "17",
+    "name": "Lost Island",
+    "edition": "gh",
     "monsters": [
+      "cave-bear",
       "vermling-scout",
-      "vermling-shaman",
-      "cave-bear"
+      "vermling-shaman"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Abandoned Sewers",
     "index": "18",
+    "name": "Abandoned Sewers",
+    "edition": "gh",
     "monsters": [
       "giant-viper",
       "ooze",
       "vermling-scout"
     ],
     "unlocks": [
-      "23",
       "14",
-      "43",
-      "26"
+      "23",
+      "26",
+      "43"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Forgotten Crypt",
     "index": "19",
+    "name": "Forgotten Crypt",
+    "edition": "gh",
     "monsters": [
       "cultist",
       "living-bones",
-      "living-spirit",
-      "living-corpse"
+      "living-corpse",
+      "living-spirit"
     ],
     "objectives": [
       {
@@ -320,57 +314,64 @@
     ],
     "unlocks": [
       "27"
+    ],
+    "requires": [
+      [
+        "14"
+      ]
     ]
   },
   {
-    "edition": "gh",
-    "name": "Necromancer's Sanctum",
     "index": "20",
+    "name": "Necromancer's Sanctum",
+    "edition": "gh",
     "monsters": [
-      "living-bones",
       "cultist",
-      "night-demon",
+      "jekserah",
+      "living-bones",
       "living-corpse",
-      "jekserah"
+      "night-demon"
     ],
     "unlocks": [
-      "28",
       "16",
-      "18"
+      "18",
+      "28"
+    ],
+    "requires": [
+      [
+        "8"
+      ]
     ]
   },
   {
-    "edition": "gh",
-    "name": "Infernal Throne",
     "index": "21",
+    "name": "Infernal Throne",
+    "edition": "gh",
     "monsters": [
-      "sun-demon",
-      "frost-demon",
-      "night-demon",
-      "wind-demon",
       "earth-demon",
       "flame-demon",
-      "prime-demon"
+      "frost-demon",
+      "night-demon",
+      "prime-demon",
+      "sun-demon",
+      "wind-demon"
     ],
     "blocks": [
       "10",
-      "36",
-      "35"
-    ],
-    "requires": [
-      "31"
+      "35",
+      "36"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Temple of the Elements",
     "index": "22",
+    "name": "Temple of the Elements",
+    "edition": "gh",
     "monsters": [
-      "living-bones",
       "cultist",
       "earth-demon",
       "flame-demon",
       "frost-demon",
+      "living-bones",
       "wind-demon"
     ],
     "objectives": [
@@ -392,80 +393,94 @@
       }
     ],
     "unlocks": [
-      "35",
       "31",
+      "35",
       "36"
+    ],
+    "requires": [
+      [
+        "10"
+      ],
+      [
+        "26"
+      ]
     ]
   },
   {
-    "edition": "gh",
-    "name": "Deep Ruins",
     "index": "23",
+    "name": "Deep Ruins",
+    "edition": "gh",
     "monsters": [
-      "stone-golem",
       "ancient-artillery",
       "living-bones",
-      "living-spirit"
+      "living-spirit",
+      "stone-golem"
     ],
-    "requires": [
+    "unlocks": [
       "26"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Echo Chamber",
     "index": "24",
+    "name": "Echo Chamber",
+    "edition": "gh",
     "monsters": [
-      "rending-drake",
+      "living-spirit",
       "ooze",
-      "living-spirit"
+      "rending-drake"
     ],
     "unlocks": [
-      "32",
-      "30"
+      "30",
+      "32"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Icecrag Ascent",
     "index": "25",
+    "name": "Icecrag Ascent",
+    "edition": "gh",
     "monsters": [
       "hound",
       "rending-drake",
       "spitting-drake"
     ],
     "unlocks": [
-      "33"
-    ],
-    "links": [
+      "33",
       "34"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Ancient Cistern",
     "index": "26",
+    "name": "Ancient Cistern",
+    "edition": "gh",
     "monsters": [
+      "black-imp",
       "living-corpse",
-      "ooze",
       "night-demon",
-      "black-imp"
+      "ooze"
     ],
     "unlocks": [
       "22"
+    ],
+    "requires": [
+      [
+        "23"
+      ],
+      [
+        "43"
+      ]
     ]
   },
   {
-    "edition": "gh",
-    "name": "Ruinous Rift",
     "index": "27",
+    "name": "Ruinous Rift",
+    "edition": "gh",
     "monsters": [
-      "night-demon",
-      "wind-demon",
-      "frost-demon",
-      "sun-demon",
       "earth-demon",
-      "flame-demon"
+      "flame-demon",
+      "frost-demon",
+      "night-demon",
+      "sun-demon",
+      "wind-demon"
     ],
     "objectives": [
       {
@@ -473,6 +488,11 @@
         "escort": true,
         "health": "4+(2xL)"
       }
+    ],
+    "requires": [
+      [
+        "19"
+      ]
     ],
     "blocks": [
       "10",
@@ -482,29 +502,34 @@
     ]
   },
   {
-    "edition": "gh",
-    "name": "Outer Ritual Chamber",
     "index": "28",
+    "name": "Outer Ritual Chamber",
+    "edition": "gh",
     "monsters": [
-      "living-corpse",
       "cultist",
       "living-bones",
+      "living-corpse",
       "night-demon",
       "sun-demon"
     ],
-    "links": [
+    "unlocks": [
       "29"
+    ],
+    "requires": [
+      [
+        "6"
+      ]
     ]
   },
   {
-    "edition": "gh",
-    "name": "Sanctuary of Gloom",
     "index": "29",
+    "name": "Sanctuary of Gloom",
+    "edition": "gh",
     "monsters": [
+      "black-imp",
       "living-bones",
       "living-corpse",
-      "living-spirit",
-      "black-imp"
+      "living-spirit"
     ],
     "objectives": [
       {
@@ -519,29 +544,39 @@
         "name": "Door 3",
         "health": "4+L"
       }
+    ],
+    "requires": [
+      [
+        "28"
+      ]
     ]
   },
   {
-    "edition": "gh",
-    "name": "Shrine of the Depths",
     "index": "30",
+    "name": "Shrine of the Depths",
+    "edition": "gh",
     "monsters": [
-      "ooze",
+      "deep-terror",
       "lurker",
-      "deep-terror"
+      "ooze"
     ],
     "unlocks": [
       "42"
+    ],
+    "requires": [
+      [
+        "24"
+      ]
     ]
   },
   {
-    "edition": "gh",
-    "name": "Plane of the Night",
     "index": "31",
+    "name": "Plane of the Night",
+    "edition": "gh",
     "monsters": [
+      "black-imp",
       "deep-terror",
-      "night-demon",
-      "black-imp"
+      "night-demon"
     ],
     "objectives": [
       {
@@ -550,76 +585,98 @@
       }
     ],
     "unlocks": [
-      "39",
       "37",
       "38",
+      "39",
       "43"
+    ],
+    "requires": [
+      [
+        "14",
+        "21"
+      ],
+      [
+        "14",
+        "22"
+      ]
     ]
   },
   {
-    "edition": "gh",
-    "name": "Decrepit Wood",
     "index": "32",
+    "name": "Decrepit Wood",
+    "edition": "gh",
     "monsters": [
-      "harrower-infester",
-      "giant-viper",
+      "black-imp",
       "deep-terror",
-      "black-imp"
+      "giant-viper",
+      "harrower-infester"
     ],
     "unlocks": [
       "33",
       "40"
-    ]
-  },
-  {
-    "edition": "gh",
-    "name": "Savvas Armory",
-    "index": "33",
-    "monsters": [
-      "savvas-icestorm",
-      "savvas-lavaflow",
-      "frost-demon",
-      "flame-demon",
-      "wind-demon",
-      "earth-demon"
-    ],
-    "blocks": [
-      "34"
     ],
     "requires": [
-      "40"
+      [
+        "24"
+      ]
     ]
   },
   {
+    "index": "33",
+    "name": "Savvas Armory",
     "edition": "gh",
-    "name": "Scorched Summit",
-    "index": "34",
     "monsters": [
+      "earth-demon",
+      "flame-demon",
+      "frost-demon",
+      "savvas-icestorm",
+      "savvas-lavaflow",
+      "wind-demon"
+    ],
+    "requires": [
+      [
+        "24"
+      ],
+      [
+        "25"
+      ]
+    ]
+  },
+  {
+    "index": "34",
+    "name": "Scorched Summit",
+    "edition": "gh",
+    "monsters": [
+      "elder-drake",
       "rending-drake",
-      "spitting-drake",
-      "elder-drake"
+      "spitting-drake"
+    ],
+    "requires": [
+      [
+        "25"
+      ]
     ],
     "blocks": [
       "33"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Gloomhaven Battlements A",
     "index": "35",
+    "name": "Gloomhaven Battlements A",
+    "edition": "gh",
     "monsters": [
-      "flame-demon",
-      "frost-demon",
-      "earth-demon",
-      "wind-demon",
+      "captain-of-the-guard",
       "city-archer",
       "city-guard",
-      "captain-of-the-guard"
-    ],
-    "allies": [
+      "earth-demon",
       "flame-demon",
       "frost-demon",
+      "wind-demon"
+    ],
+    "allies": [
       "earth-demon",
+      "flame-demon",
+      "frost-demon",
       "wind-demon"
     ],
     "objectives": [
@@ -631,23 +688,26 @@
     "unlocks": [
       "45"
     ],
+    "requires": [
+      [
+        "10"
+      ]
+    ],
     "blocks": [
-      "27",
-      "36",
-      "31"
+      "36"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Gloomhaven Battlements B",
     "index": "36",
+    "name": "Gloomhaven Battlements B",
+    "edition": "gh",
     "monsters": [
+      "city-archer",
+      "earth-demon",
       "flame-demon",
       "frost-demon",
-      "earth-demon",
-      "wind-demon",
-      "city-archer",
-      "prime-demon"
+      "prime-demon",
+      "wind-demon"
     ],
     "allies": [
       "city-archer"
@@ -658,32 +718,42 @@
         "health": "10+(2xL)"
       }
     ],
+    "requires": [
+      [
+        "10"
+      ]
+    ],
     "blocks": [
-      "35",
       "10",
-      "21"
+      "21",
+      "35"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Doom Trench",
     "index": "37",
+    "name": "Doom Trench",
+    "edition": "gh",
     "monsters": [
-      "lurker",
       "deep-terror",
-      "harrower-infester"
+      "harrower-infester",
+      "lurker"
     ],
     "unlocks": [
       "47"
+    ],
+    "requires": [
+      [
+        "43"
+      ]
     ]
   },
   {
-    "edition": "gh",
-    "name": "Slave Pens",
     "index": "38",
+    "name": "Slave Pens",
+    "edition": "gh",
     "monsters": [
-      "inox-guard",
       "inox-archer",
+      "inox-guard",
       "inox-shaman",
       "stone-golem"
     ],
@@ -695,22 +765,20 @@
       }
     ],
     "unlocks": [
+      "44",
       "48"
-    ],
-    "links": [
-      "44"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Treacherous Divide",
     "index": "39",
+    "name": "Treacherous Divide",
+    "edition": "gh",
     "monsters": [
       "cave-bear",
-      "frost-demon",
-      "spitting-drake",
       "cultist",
-      "living-bones"
+      "frost-demon",
+      "living-bones",
+      "spitting-drake"
     ],
     "objectives": [
       {
@@ -718,50 +786,59 @@
         "health": "6+(CxL)"
       }
     ],
-    "links": [
+    "unlocks": [
+      "15",
       "46"
+    ]
+  },
+  {
+    "index": "40",
+    "name": "Ancient Defense Network",
+    "edition": "gh",
+    "monsters": [
+      "cave-bear",
+      "flame-demon",
+      "forest-imp",
+      "living-corpse",
+      "stone-golem"
     ],
     "unlocks": [
-      "15"
-    ]
-  },
-  {
-    "edition": "gh",
-    "name": "Ancient Defense Network",
-    "index": "40",
-    "monsters": [
-      "living-corpse",
-      "flame-demon",
-      "cave-bear",
-      "stone-golem",
-      "forest-imp"
-    ],
-    "links": [
       "41"
+    ],
+    "requires": [
+      [
+        "24",
+        "33"
+      ]
     ]
   },
   {
-    "edition": "gh",
-    "name": "Timeworn Tomb",
     "index": "41",
+    "name": "Timeworn Tomb",
+    "edition": "gh",
     "monsters": [
       "ancient-artillery",
       "living-corpse",
       "living-spirit",
       "stone-golem"
     ],
+    "requires": [
+      [
+        "24"
+      ]
+    ],
     "blocks": [
       "42"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Realm of the Voice",
     "index": "42",
+    "name": "Realm of the Voice",
+    "edition": "gh",
     "monsters": [
+      "living-spirit",
       "night-demon",
-      "wind-demon",
-      "living-spirit"
+      "wind-demon"
     ],
     "objectives": [
       {
@@ -789,37 +866,42 @@
         "health": "2+(LxC/2)"
       }
     ],
+    "requires": [
+      [
+        "30"
+      ]
+    ],
     "blocks": [
-      "33",
+      "30",
       "32",
+      "33",
       "40",
       "41"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Drake Nest",
     "index": "43",
+    "name": "Drake Nest",
+    "edition": "gh",
     "monsters": [
       "flame-demon",
       "rending-drake",
       "spitting-drake"
     ],
     "requires": [
-      "26",
-      "37",
-      "64",
-      "88"
+      [
+        "14"
+      ]
     ]
   },
   {
-    "edition": "gh",
-    "name": "Tribal Assault",
     "index": "44",
+    "name": "Tribal Assault",
+    "edition": "gh",
     "monsters": [
-      "inox-guard",
-      "inox-archer",
       "hound",
+      "inox-archer",
+      "inox-guard",
       "inox-shaman"
     ],
     "objectives": [
@@ -829,15 +911,20 @@
         "health": "6+(3xL)",
         "initiative": 1
       }
+    ],
+    "requires": [
+      [
+        "38"
+      ]
     ]
   },
   {
-    "edition": "gh",
-    "name": "Rebel Swamp",
     "index": "45",
+    "name": "Rebel Swamp",
+    "edition": "gh",
     "monsters": [
-      "city-guard",
       "city-archer",
+      "city-guard",
       "hound"
     ],
     "objectives": [
@@ -869,105 +956,126 @@
     "unlocks": [
       "49",
       "50"
+    ],
+    "requires": [
+      [
+        "35"
+      ]
     ]
   },
   {
-    "edition": "gh",
-    "name": "Nightmare Peak",
     "index": "46",
+    "name": "Nightmare Peak",
+    "edition": "gh",
     "monsters": [
-      "night-demon",
       "frost-demon",
-      "wind-demon",
+      "night-demon",
       "savvas-icestorm",
+      "wind-demon",
       "winged-horror"
     ],
     "unlocks": [
       "51"
     ],
     "requires": [
-      "51"
+      [
+        "39"
+      ]
     ]
   },
   {
-    "edition": "gh",
-    "name": "Lair of the Unseeing Eye",
     "index": "47",
+    "name": "Lair of the Unseeing Eye",
+    "edition": "gh",
     "monsters": [
-      "lurker",
       "deep-terror",
       "harrower-infester",
+      "lurker",
       "the-sightless-eye"
     ],
     "unlocks": [
       "51"
     ],
     "requires": [
-      "51"
+      [
+        "37"
+      ]
     ]
   },
   {
-    "edition": "gh",
-    "name": "Shadow Weald",
     "index": "48",
+    "name": "Shadow Weald",
+    "edition": "gh",
     "monsters": [
-      "forest-imp",
+      "dark-rider",
       "earth-demon",
-      "harrower-infester",
-      "dark-rider"
+      "forest-imp",
+      "harrower-infester"
     ],
     "unlocks": [
       "51"
     ],
     "requires": [
-      "51"
+      [
+        "38"
+      ]
     ]
   },
   {
-    "edition": "gh",
-    "name": "Rebel's Stand",
     "index": "49",
+    "name": "Rebel's Stand",
+    "edition": "gh",
     "monsters": [
-      "giant-viper",
       "city-archer",
       "city-guard",
+      "giant-viper",
       "siege-cannon"
+    ],
+    "requires": [
+      [
+        "35"
+      ]
     ],
     "blocks": [
       "50"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Ghost Fortress",
     "index": "50",
+    "name": "Ghost Fortress",
+    "edition": "gh",
     "monsters": [
+      "earth-demon",
       "night-demon",
       "sun-demon",
-      "earth-demon",
       "wind-demon"
+    ],
+    "requires": [
+      [
+        "35"
+      ]
     ]
   },
   {
-    "edition": "gh",
-    "name": "The Void",
     "index": "51",
+    "name": "The Void",
+    "edition": "gh",
     "monsters": [
       "the-gloom"
     ],
-    "unlocks": [
-      "96"
+    "requires": [
+      []
     ]
   },
   {
-    "edition": "gh",
-    "name": "Noxious Cellar",
     "index": "52",
+    "name": "Noxious Cellar",
+    "edition": "gh",
     "monsters": [
-      "spitting-drake",
-      "ooze",
-      "vermling-scout",
       "living-corpse",
+      "ooze",
+      "spitting-drake",
+      "vermling-scout",
       "vermling-shaman"
     ],
     "unlocks": [
@@ -975,49 +1083,49 @@
     ]
   },
   {
-    "edition": "gh",
-    "name": "Crypt Basement",
     "index": "53",
+    "name": "Crypt Basement",
+    "edition": "gh",
     "monsters": [
-      "ooze",
+      "giant-viper",
+      "living-bones",
       "living-corpse",
       "living-spirit",
-      "living-bones",
-      "giant-viper"
+      "ooze"
     ],
     "unlocks": [
       "54"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Palace of Ice",
     "index": "54",
+    "name": "Palace of Ice",
+    "edition": "gh",
     "monsters": [
       "cave-bear",
-      "living-spirit",
       "frost-demon",
-      "harrower-infester"
+      "harrower-infester",
+      "living-spirit"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Foggy Thicket",
     "index": "55",
+    "name": "Foggy Thicket",
+    "edition": "gh",
     "monsters": [],
-    "links": [
+    "unlocks": [
       "56"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Bandit's Wood",
     "index": "56",
+    "name": "Bandit's Wood",
+    "edition": "gh",
     "monsters": [
-      "hound",
       "bandit-archer",
-      "rending-drake",
-      "bandit-guard"
+      "bandit-guard",
+      "hound",
+      "rending-drake"
     ],
     "objectives": [
       {
@@ -1041,12 +1149,12 @@
     ]
   },
   {
-    "edition": "gh",
-    "name": "Investigation",
     "index": "57",
+    "name": "Investigation",
+    "edition": "gh",
     "monsters": [
-      "city-guard",
       "city-archer",
+      "city-guard",
       "hound",
       "infiltrator"
     ],
@@ -1055,13 +1163,13 @@
     ]
   },
   {
-    "edition": "gh",
-    "name": "Bloody Shack",
     "index": "58",
+    "name": "Bloody Shack",
+    "edition": "gh",
     "monsters": [
+      "black-imp",
       "earth-demon",
       "harrower-infester",
-      "black-imp",
       "the-harvester"
     ],
     "objectives": [
@@ -1084,114 +1192,119 @@
     ]
   },
   {
-    "edition": "gh",
-    "name": "Forgotten Grove",
     "index": "59",
+    "name": "Forgotten Grove",
+    "edition": "gh",
     "monsters": [
       "cave-bear",
-      "hound",
-      "forest-imp"
+      "forest-imp",
+      "hound"
     ],
     "unlocks": [
       "60"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Alchemy Lab",
     "index": "60",
+    "name": "Alchemy Lab",
+    "edition": "gh",
     "monsters": [
-      "ooze",
       "giant-viper",
       "hound",
+      "ooze",
       "rending-drake",
       "spitting-drake"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Fading Lighthouse",
     "index": "61",
+    "name": "Fading Lighthouse",
+    "edition": "gh",
     "monsters": [
-      "ooze",
-      "giant-viper",
+      "flame-demon",
       "frost-demon",
-      "flame-demon"
+      "giant-viper",
+      "ooze"
     ],
-    "links": [
+    "unlocks": [
       "62"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Pit of Souls",
     "index": "62",
+    "name": "Pit of Souls",
+    "edition": "gh",
     "monsters": [
       "hungry-soul",
       "living-spirit"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Magma Pit",
     "index": "63",
+    "name": "Magma Pit",
+    "edition": "gh",
     "monsters": [
-      "vermling-scout",
-      "inox-guard",
+      "flame-demon",
       "inox-archer",
-      "flame-demon"
+      "inox-guard",
+      "vermling-scout"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Underwater Lagoon",
     "index": "64",
+    "name": "Underwater Lagoon",
+    "edition": "gh",
     "monsters": [
-      "ooze",
       "forest-imp",
-      "rending-drake"
-    ]
-  },
-  {
-    "edition": "gh",
-    "name": "Sulfur Mine",
-    "index": "65",
-    "monsters": [
-      "vermling-scout",
-      "hound",
-      "inox-shaman"
-    ]
-  },
-  {
-    "edition": "gh",
-    "name": "Clockwork Cove",
-    "index": "66",
-    "monsters": [
       "ooze",
+      "rending-drake"
+    ],
+    "requires": [
+      [
+        "43"
+      ]
+    ]
+  },
+  {
+    "index": "65",
+    "name": "Sulfur Mine",
+    "edition": "gh",
+    "monsters": [
+      "hound",
+      "inox-shaman",
+      "vermling-scout"
+    ]
+  },
+  {
+    "index": "66",
+    "name": "Clockwork Cove",
+    "edition": "gh",
+    "monsters": [
       "ancient-artillery",
       "living-spirit",
+      "ooze",
       "stone-golem"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Arcane Library",
     "index": "67",
+    "name": "Arcane Library",
+    "edition": "gh",
     "monsters": [
-      "forest-imp",
+      "arcane-golem",
       "cave-bear",
-      "arcane-golem"
+      "forest-imp"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Toxic Moor",
     "index": "68",
+    "name": "Toxic Moor",
+    "edition": "gh",
     "monsters": [
-      "rending-drake",
       "black-imp",
       "giant-viper",
-      "living-corpse"
+      "living-corpse",
+      "rending-drake"
     ],
     "objectives": [
       {
@@ -1202,45 +1315,45 @@
     ]
   },
   {
-    "edition": "gh",
-    "name": "Well of the Unfortunate",
     "index": "69",
+    "name": "Well of the Unfortunate",
+    "edition": "gh",
     "monsters": [
-      "vermling-scout",
-      "vermling-shaman",
       "forest-imp",
+      "living-spirit",
       "stone-golem",
-      "living-spirit"
+      "vermling-scout",
+      "vermling-shaman"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Chained Isle",
     "index": "70",
+    "name": "Chained Isle",
+    "edition": "gh",
     "monsters": [
+      "living-spirit",
       "night-demon",
-      "wind-demon",
-      "living-spirit"
+      "wind-demon"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Windswept Highlands",
     "index": "71",
+    "name": "Windswept Highlands",
+    "edition": "gh",
     "monsters": [
       "spitting-drake",
-      "wind-demon",
-      "sun-demon"
+      "sun-demon",
+      "wind-demon"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Oozing Grove",
     "index": "72",
+    "name": "Oozing Grove",
+    "edition": "gh",
     "monsters": [
-      "ooze",
       "forest-imp",
-      "giant-viper"
+      "giant-viper",
+      "ooze"
     ],
     "objectives": [
       {
@@ -1258,79 +1371,85 @@
     ]
   },
   {
-    "edition": "gh",
-    "name": "Rockslide Ridge",
     "index": "73",
+    "name": "Rockslide Ridge",
+    "edition": "gh",
     "monsters": [
+      "ancient-artillery",
       "hound",
       "inox-archer",
-      "ancient-artillery",
       "inox-guard",
       "inox-shaman"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Merchant Ship",
     "index": "74",
+    "name": "Merchant Ship",
+    "edition": "gh",
     "monsters": [
-      "bandit-guard",
       "bandit-archer",
-      "lurker",
-      "deep-terror"
+      "bandit-guard",
+      "deep-terror",
+      "lurker"
+    ],
+    "requires": [
+      []
     ]
   },
   {
-    "edition": "gh",
-    "name": "Overgrown Graveyard",
     "index": "75",
+    "name": "Overgrown Graveyard",
+    "edition": "gh",
     "monsters": [
-      "living-bones",
       "bloated-regent",
+      "living-bones",
       "living-spirit"
+    ],
+    "requires": [
+      []
     ]
   },
   {
-    "edition": "gh",
-    "name": "Harrower Hive",
     "index": "76",
+    "name": "Harrower Hive",
+    "edition": "gh",
     "monsters": [
       "giant-viper",
+      "harrower-infester",
       "living-bones",
-      "night-demon",
-      "harrower-infester"
+      "night-demon"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Vault of Secrets",
     "index": "77",
+    "name": "Vault of Secrets",
+    "edition": "gh",
     "monsters": [
-      "city-guard",
       "city-archer",
-      "stone-golem",
-      "hound"
+      "city-guard",
+      "hound",
+      "stone-golem"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Sacrifice Pit",
     "index": "78",
+    "name": "Sacrifice Pit",
+    "edition": "gh",
     "monsters": [
-      "bandit-guard",
       "bandit-archer",
+      "bandit-guard",
+      "black-imp",
       "cultist",
-      "living-bones",
-      "black-imp"
+      "living-bones"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Lost Temple",
     "index": "79",
+    "name": "Lost Temple",
+    "edition": "gh",
     "monsters": [
-      "stone-golem",
       "giant-viper",
+      "stone-golem",
       "the-betrayer"
     ],
     "objectives": [
@@ -1339,35 +1458,38 @@
         "escort": true,
         "health": "6+2xL"
       }
+    ],
+    "requires": [
+      []
     ]
   },
   {
-    "edition": "gh",
-    "name": "Vigil Keep",
     "index": "80",
+    "name": "Vigil Keep",
+    "edition": "gh",
     "monsters": [
-      "city-guard",
-      "city-archer",
       "ancient-artillery",
+      "city-archer",
+      "city-guard",
       "hound"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Temple of the Eclipse",
     "index": "81",
+    "name": "Temple of the Eclipse",
+    "edition": "gh",
     "monsters": [
-      "night-demon",
-      "sun-demon",
-      "stone-golem",
       "ancient-artillery",
+      "night-demon",
+      "stone-golem",
+      "sun-demon",
       "the-colorless"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Burning Mountain",
     "index": "82",
+    "name": "Burning Mountain",
+    "edition": "gh",
     "monsters": [
       "earth-demon",
       "flame-demon",
@@ -1375,25 +1497,28 @@
     ]
   },
   {
-    "edition": "gh",
-    "name": "Shadows Within",
     "index": "83",
+    "name": "Shadows Within",
+    "edition": "gh",
     "monsters": [
-      "hound",
       "cultist",
+      "flame-demon",
+      "hound",
       "living-bones",
-      "living-spirit",
-      "flame-demon"
+      "living-spirit"
+    ],
+    "requires": [
+      []
     ]
   },
   {
-    "edition": "gh",
-    "name": "Crystalline Cave",
     "index": "84",
+    "name": "Crystalline Cave",
+    "edition": "gh",
     "monsters": [
+      "earth-demon",
       "flame-demon",
-      "frost-demon",
-      "earth-demon"
+      "frost-demon"
     ],
     "objectives": [
       {
@@ -1401,87 +1526,103 @@
         "escort": true,
         "health": "4+C+(2xL)"
       }
+    ],
+    "requires": [
+      []
     ]
   },
   {
-    "edition": "gh",
-    "name": "Sun Temple",
     "index": "85",
+    "name": "Sun Temple",
+    "edition": "gh",
     "monsters": [
-      "hound",
       "black-imp",
+      "hound",
       "night-demon",
       "sun-demon"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Harried Village",
     "index": "86",
+    "name": "Harried Village",
+    "edition": "gh",
     "monsters": [
       "cave-bear",
-      "vermling-shaman",
+      "lurker",
       "vermling-scout",
-      "lurker"
+      "vermling-shaman"
     ],
     "unlocks": [
       "87"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Corrupted Cove",
     "index": "87",
+    "name": "Corrupted Cove",
+    "edition": "gh",
     "monsters": [
-      "lurker",
+      "black-imp",
       "deep-terror",
-      "ooze",
       "giant-ooze",
-      "black-imp"
+      "lurker",
+      "ooze"
+    ],
+    "requires": [
+      [
+        "86"
+      ]
     ]
   },
   {
-    "edition": "gh",
-    "name": "Plane of Water",
     "index": "88",
+    "name": "Plane of Water",
+    "edition": "gh",
     "monsters": [
       "frost-demon",
-      "ooze",
       "lurker",
-      "lurker-king"
+      "lurker-king",
+      "ooze"
+    ],
+    "requires": [
+      [
+        "43"
+      ]
     ]
   },
   {
-    "edition": "gh",
-    "name": "Syndicate Hideout",
     "index": "89",
+    "name": "Syndicate Hideout",
+    "edition": "gh",
     "monsters": [
       "bandit-archer",
       "bandit-guard",
       "cultist",
       "giant-viper"
+    ],
+    "requires": [
+      []
     ]
   },
   {
-    "edition": "gh",
-    "name": "Demonic Rift",
     "index": "90",
+    "name": "Demonic Rift",
+    "edition": "gh",
     "monsters": [
       "earth-demon",
-      "wind-demon",
+      "living-spirit",
       "night-demon",
-      "living-spirit"
+      "wind-demon"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Wild Melee",
     "index": "91",
+    "name": "Wild Melee",
+    "edition": "gh",
     "monsters": [
+      "bandit-archer",
+      "bandit-guard",
       "cave-bear",
       "hound",
-      "bandit-guard",
-      "bandit-archer",
       "living-spirit"
     ],
     "allies": [
@@ -1490,53 +1631,64 @@
     ]
   },
   {
-    "edition": "gh",
-    "name": "Back Alley Brawl",
     "index": "92",
+    "name": "Back Alley Brawl",
+    "edition": "gh",
     "monsters": [
-      "bandit-guard",
-      "city-guard",
-      "inox-guard",
       "bandit-archer",
+      "bandit-guard",
       "city-archer",
-      "savvas-lavaflow",
+      "city-guard",
+      "earth-demon",
       "flame-demon",
-      "earth-demon"
+      "inox-guard",
+      "savvas-lavaflow"
+    ],
+    "requires": [
+      []
     ]
   },
   {
-    "edition": "gh",
-    "name": "Sunken Vessel",
     "index": "93",
+    "name": "Sunken Vessel",
+    "edition": "gh",
     "monsters": [
-      "lurker",
       "frost-demon",
-      "living-spirit"
+      "living-spirit",
+      "lurker"
+    ],
+    "requires": [
+      []
     ]
   },
   {
-    "edition": "gh",
-    "name": "Vermling Nest",
     "index": "94",
+    "name": "Vermling Nest",
+    "edition": "gh",
     "monsters": [
+      "cave-bear",
       "hound",
       "vermling-scout",
-      "vermling-shaman",
-      "cave-bear"
+      "vermling-shaman"
     ],
-    "links": [
+    "unlocks": [
       "95"
     ]
   },
   {
-    "edition": "gh",
-    "name": "Payment Due",
     "index": "95",
+    "name": "Payment Due",
+    "edition": "gh",
     "monsters": [
       "deep-terror",
-      "flame-demon",
       "earth-demon",
+      "flame-demon",
       "prime-lieutenant"
+    ],
+    "requires": [
+      [
+        "94"
+      ]
     ]
   }
 ]

@@ -118,6 +118,12 @@
   <ghs-section-menu *ngSwitchCase="SubMenu.section"></ghs-section-menu>
 
   <div *ngSwitchCase="SubMenu.character_add" class="menu-container character-add">
+    <div class="level-container">
+      <span class="item"><img src="./assets/images/status/level.svg" /></span>
+      <span class="item" *ngFor="let level of [] | ghsRange:9"><a class="level"
+          [ngClass]="{'active' : level + 1 == characterLevel}" (click)="characterLevel = level+1">{{level
+          +1}}</a></span>
+    </div>
     <div class="columns">
       <ng-container *ngFor="let edition of gameManager.currentEditions()">
         <div class="column spoilers" *ngIf="characterData(edition).length > 0">

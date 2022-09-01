@@ -257,27 +257,30 @@ export class SettingsManager {
     gameManager.editionData = [];
   }
 
-  async loadEditionData(url: string) {
+  async loadEditionData(url: string): Promise<boolean> {
     try {
-      await fetch(url)
+      const success = await fetch(url)
         .then(response => {
           if (!response.ok) {
-            console.error("Invalid data url: " + url + " [" + response.statusText + "]");
+            console.warn("Invalid data url: " + url + " [" + response.statusText + "]");
             return;
           }
           return response.json();
         }).then((value: EditionData) => {
           if (gameManager.editions().indexOf(value.edition) != -1) {
-            console.error("Edition already exists: " + value.edition);
-            return;
+            console.warn("Edition already exists: " + value.edition);
+            return false;
           }
 
           value.url = url;
           gameManager.editionData.push(value);
           this.loadDataLabel(value);
+          return true;
         });
+      return success;
     } catch (error) {
-      console.error("Invalid data url: " + url + " [" + error + "]");
+      console.warn("Invalid data url: " + url + " [" + error + "]");
+      return false;
     }
   }
 
@@ -381,15 +384,20 @@ export class SettingsManager {
     return gameManager.editionData.find((editionData) => editionData.url == url)?.edition;
   }
 
-  async addEditionDataUrl(editionDataUrl: string) {
+  async addEditionDataUrl(editionDataUrl: string): Promise<boolean> {
     if (this.settings.editionDataUrls.indexOf(editionDataUrl) == -1) {
-      await this.loadEditionData(editionDataUrl);
-      this.settings.editionDataUrls.push(editionDataUrl);
-      if (this.settings.excludeEditionDataUrls.indexOf(editionDataUrl) != -1) {
-        this.settings.excludeEditionDataUrls.splice(this.settings.excludeEditionDataUrls.indexOf(editionDataUrl), 1);
+      const success = await this.loadEditionData(editionDataUrl);
+      if (success) {
+        this.settings.editionDataUrls.push(editionDataUrl);
+        if (this.settings.excludeEditionDataUrls.indexOf(editionDataUrl) != -1) {
+          this.settings.excludeEditionDataUrls.splice(this.settings.excludeEditionDataUrls.indexOf(editionDataUrl), 1);
+        }
+        this.storeSettings();
+        return true;
       }
-      this.storeSettings();
     }
+
+    return false;
   }
 
   async removeEditionDataUrl(editionDataUrl: string) {
@@ -447,23 +455,23 @@ export class SettingsManager {
     }
   }
 
-  getLabel(key: string, args: string[] = [], from: any = this.label, path: string = "", empty: boolean = false): string {
+  getLabel(key: string, args: string[] = [], argLabel: boolean = true, from: any = this.label, path: string = "", empty: boolean = false): string {
     key += '';
     if (!from) {
       return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : key || "");
     } else if (from[ key ]) {
       if (typeof from[ key ] === 'object') {
         if (from[ key ][ "." ]) {
-          return this.insertLabelArguments(from[ key ][ "." ], args);
+          return this.insertLabelArguments(from[ key ][ "." ], args, argLabel);
         }
         return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : key || "");
       }
-      return this.insertLabelArguments(from[ key ], args);
+      return this.insertLabelArguments(from[ key ], args, argLabel);
     } else {
       let keys = key.split(".");
       if (from[ keys[ 0 ] ]) {
         key = keys.slice(1, keys.length).join(".");
-        return this.getLabel(key, args, from[ keys[ 0 ] ], path + keys[ 0 ] + ".", empty)
+        return this.getLabel(key, args, argLabel, from[ keys[ 0 ] ], path + keys[ 0 ] + ".", empty)
       }
     }
 
@@ -474,11 +482,11 @@ export class SettingsManager {
     return (path ? path + (path.endsWith(".") ? "" : ".") : "") + key + (args && args.length > 0 ? (" [" + args + "]") : "");
   }
 
-  insertLabelArguments(label: string, args: string[]) {
+  insertLabelArguments(label: string, args: string[], argLabel: boolean) {
     if (args) {
       for (let index in args) {
         while (label.indexOf(`{${index}}`) != -1) {
-          label = label.replace(`{${index}}`, this.getLabel(args[ index ]));
+          label = label.replace(`{${index}}`, argLabel ? this.getLabel(args[ index ]) : args[ index ]);
         }
       }
     }

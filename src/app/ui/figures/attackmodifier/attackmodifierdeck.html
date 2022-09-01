@@ -1,8 +1,8 @@
 <div #container class="attack-modifiers"
   [ngClass]="{'disabled' : gameManager.game.state == GameState.draw, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers}">
 
-  <div class="draw" title="{{(gameManager.game.state == GameState.next ? (deck.current == deck.cards.length -1 ? 'game.cards.shuffle' : 'game.cards.draw') : 'game.cards.openDialog') | ghsLabel}}" (click)="click(deck.cards.length + 1)" [ngClass]="{'open-dialog' : gameManager.game.state == GameState.draw}"
-    [style.z-index]="deck.cards.length + 1">
+  <div #drawCard class="draw" title="{{(gameManager.game.state == GameState.next ? (deck.current == deck.cards.length -1 ? 'game.cards.shuffle' : 'game.cards.draw') : 'game.cards.openDialog') | ghsLabel}}" (click)="click(deck.cards.length + 1)" [ngClass]="{'open-dialog' : gameManager.game.state == GameState.draw}"
+    [style.z-index]="deck.cards.length + 1" [style.fontSize]="drawCard.offsetWidth * 0.08 + 'px'">
     <span class="number" *ngIf="deck.current < deck.cards.length -1">{{
       deck.cards.length - deck.current - 1 }}</span>
     <img *ngIf="deck.current == deck.cards.length -1" class="shuffle" src="./assets/images/shuffle.svg">

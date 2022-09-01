@@ -15,13 +15,13 @@ export class PartySheetDialog extends PopupComponent {
   gameManager: GameManager = gameManager;
   party: Party = new Party();
   prosperitySteps = [ 3, 8, 14, 21, 29, 38, 49, 63 ];
-  priceModifier : number = 0;
+  priceModifier: number = 0;
 
   constructor() {
     super();
     gameManager.uiChange.subscribe({
       next: () => {
-        this.party = gameManager.game.party || new Party();
+        this.party = gameManager.game.party;
         if (this.party.reputation >= 0) {
           this.priceModifier = Math.ceil((this.party.reputation - 2) / 4) * -1;
         } else {
@@ -29,6 +29,13 @@ export class PartySheetDialog extends PopupComponent {
         }
       }
     })
+  }
+
+  toggleCampaignMode() {
+    gameManager.stateManager.before(this.party.campaignMode ? "disablePartyCampaignMode" : "enablePartyCampaignMode");
+    this.party.campaignMode = !this.party.campaignMode;
+    gameManager.game.party = this.party;
+    gameManager.stateManager.after();
   }
 
   setName(event: any) {
@@ -107,7 +114,7 @@ export class PartySheetDialog extends PopupComponent {
         if (!this.gameManager.game.party) {
           parent.classList.add("error");
         } else {
-          this.party = gameManager.game.party || new Party();
+          this.party = gameManager.game.party;
         }
         gameManager.stateManager.after();
       });

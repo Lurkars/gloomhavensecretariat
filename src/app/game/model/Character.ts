@@ -4,11 +4,10 @@ import { CharacterStat } from "./CharacterStat";
 import { CharacterData } from "./data/CharacterData";
 import { GameSummonModel, Summon } from "./Summon";
 import { gameManager } from "../businesslogic/GameManager";
-import { FigureError } from "./FigureError";
+import { FigureError, FigureErrorType } from "./FigureError";
 import { EntityCondition, GameEntityConditionModel } from "./Condition";
 import { CharacterProgress } from "./CharacterProgress";
-import { AttackModifier, AttackModifierDeck, GameAttackModifierDeckModel } from "./AttackModifier";
-import { PerkType, PerkCard } from "./Perks";
+import { AttackModifierDeck, GameAttackModifierDeckModel } from "./AttackModifier";
 
 export class Character extends CharacterData implements Entity, Figure {
   title: string = "";
@@ -42,7 +41,7 @@ export class Character extends CharacterData implements Entity, Figure {
 
   constructor(character: CharacterData, level: number) {
     super(character);
-    this.errors = character.errors;
+    this.errors = character.errors || [];
     if (level < 1) {
       level = 1;
     } else if (level > 9) {
@@ -51,9 +50,9 @@ export class Character extends CharacterData implements Entity, Figure {
 
     const stat = this.stats.find((characterStat) => characterStat.level == level)
     if (!stat) {
-      console.error("No character stat found for level: " + level);
-      if (this.errors.indexOf(FigureError.stat) == -1) {
-        this.errors.push(FigureError.stat);
+      if (!this.errors.find((figureError) => figureError.type == FigureErrorType.unknown) && !this.errors.find((figureError) => figureError.type == FigureErrorType.stat)) {
+        console.error("No character stat found for level: " + level);
+        this.errors.push(new FigureError(FigureErrorType.stat, "character", character.name, character.edition, "", "" + level));
       }
       this.stat = new CharacterStat(level, 0);
       this.level = 0;
@@ -67,7 +66,6 @@ export class Character extends CharacterData implements Entity, Figure {
     this.health = this.maxHealth;
     this.progress = new CharacterProgress();
 
-    // Todo: later on level select for create
     if (this.edition != "jotl" && this.progress.gold == 0) {
       this.progress.gold = 15 * (this.level + 1);
     }

@@ -66,9 +66,10 @@
             [ngClass]="{'disabled' : !inputEditionDataUrl.value}"></span>
         </span>
       </div>
-      <div class="line" *ngFor="let editionDataUrl of settingsManager.settings.editionDataUrls">
-        <a class="remove" (click)="removeEditionDataUrl(editionDataUrl)">
-          {{editionDataUrl}}
+      <div class="line editions" cdkDropList (cdkDropListDropped)="drop($event)">
+        <a class="edition"  *ngFor="let editionData of gameManager.editionData" cdkDrag>
+          {{'data.edition.' + editionData.edition | ghsLabel}} <span class="url">{{editionData.url}}</span>
+          <span (click)="removeEditionDataUrl(editionData.url)" class="remove"></span>
         </a>
       </div>
       <div class="spacer"></div>

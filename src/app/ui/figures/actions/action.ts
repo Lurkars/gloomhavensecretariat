@@ -1,8 +1,8 @@
-import { JsonPipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Action, ActionType, ActionValueType } from 'src/app/game/model/Action';
+import { ElementState } from 'src/app/game/model/Element';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterStat } from 'src/app/game/model/MonsterStat';
@@ -20,6 +20,7 @@ export class ActionComponent implements OnInit {
   @Input() relative: boolean = false;
   @Input() inline: boolean = false;
   @Input() right: boolean = false;
+  @Input() highlightElements: boolean = false;
   @Input() statsCalculation: boolean = false;
   @Input() hexSize!: number;
 
@@ -169,7 +170,7 @@ export class ActionComponent implements OnInit {
       }
     }
 
-    this.hasAOE = this.additionalSubActions.some((subAction, index) => index == 0 && subAction.type == ActionType.area)
+    this.hasAOE = this.additionalSubActions.some((subAction, index) => index == 0 && subAction.type == ActionType.area);
   }
 
   subActionExists(additionalSubActions: Action[], subAction: Action): boolean {
@@ -180,4 +181,31 @@ export class ActionComponent implements OnInit {
     return this.invertIcons.indexOf(type) != -1;
   }
 
+  highlightElement(elementType: string, consume: boolean): boolean {
+    return this.highlightElements && this.monster.active && (!consume && gameManager.game.elementBoard.some((element) => element.type == elementType && element.state != ElementState.new && element.state != ElementState.strong) || consume && gameManager.game.elementBoard.some((element) => element.type == elementType && (element.state == ElementState.strong || element.state == ElementState.waning)));
+  }
+
+  elementAction(event: any, action: Action, element: string) {
+    if (this.highlightElement(element, action.valueType == ActionValueType.minus)) {
+      if (action.valueType == ActionValueType.minus) {
+        gameManager.game.elementBoard.forEach((elementModel) => {
+          if (elementModel.type == element) {
+            gameManager.stateManager.before("monsterConsumeElement", "data.monster." + this.monster.name, "game.element." + element);
+            elementModel.state = ElementState.inert;
+            gameManager.stateManager.after();
+          }
+        })
+      } else {
+        gameManager.game.elementBoard.forEach((elementModel) => {
+          if (elementModel.type == element) {
+            gameManager.stateManager.before("monsterInfuseElement", "data.monster." + this.monster.name, "game.element." + element);
+            elementModel.state = ElementState.new;
+            gameManager.stateManager.after();
+          }
+        })
+      }
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  }
 }

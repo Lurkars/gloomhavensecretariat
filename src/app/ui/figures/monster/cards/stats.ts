@@ -3,7 +3,7 @@ import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Ability } from 'src/app/game/model/Ability';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
-import { FigureError } from 'src/app/game/model/FigureError';
+import { FigureError, FigureErrorType } from 'src/app/game/model/FigureError';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterStat } from 'src/app/game/model/MonsterStat';
 import { MonsterType } from 'src/app/game/model/MonsterType';
@@ -46,9 +46,10 @@ export class MonsterStatsComponent extends DialogComponent {
         return monsterStat.level == this.monster.level && monsterStat.type == MonsterType.boss;
       });
       if (!stats) {
-        console.error("Could not find '" + MonsterType.boss + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
-        if (this.monster.errors.indexOf(FigureError.stat) == -1) {
-          this.monster.errors.push(FigureError.stat);
+        this.monster.errors = this.monster.errors || [];
+        if (!this.monster.errors.find((figureError) => figureError.type == FigureErrorType.unknown) && !this.monster.errors.find((figureError) => figureError.type == FigureErrorType.stat)) {
+          console.error("Could not find '" + MonsterType.boss + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
+          this.monster.errors.push(new FigureError(FigureErrorType.stat, "monster", this.monster.name, this.monster.edition, MonsterType.boss, "" + this.monster.level));
         }
       }
 
@@ -58,9 +59,10 @@ export class MonsterStatsComponent extends DialogComponent {
         return monsterStat.level == this.monster.level && monsterStat.type == MonsterType.normal;
       });
       if (!stats) {
-        console.error("Could not find '" + MonsterType.normal + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
-        if (this.monster.errors.indexOf(FigureError.stat) == -1) {
-          this.monster.errors.push(FigureError.stat);
+        this.monster.errors = this.monster.errors || [];
+        if (!this.monster.errors.find((figureError) => figureError.type == FigureErrorType.unknown) && !this.monster.errors.find((figureError) => figureError.type == FigureErrorType.stat)) {
+          console.error("Could not find '" + MonsterType.normal + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
+          this.monster.errors.push(new FigureError(FigureErrorType.stat, "monster", this.monster.name, this.monster.edition, MonsterType.normal, "" + this.monster.level));
         }
       }
 
@@ -68,9 +70,10 @@ export class MonsterStatsComponent extends DialogComponent {
         return monsterStat.level == this.monster.level && monsterStat.type == MonsterType.elite;
       });
       if (!eliteStats) {
-        console.error("Could not find '" + MonsterType.elite + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
-        if (this.monster.errors.indexOf(FigureError.stat) == -1) {
-          this.monster.errors.push(FigureError.stat);
+        this.monster.errors = this.monster.errors || [];
+        if (!this.monster.errors.find((figureError) => figureError.type == FigureErrorType.unknown) && !this.monster.errors.find((figureError) => figureError.type == FigureErrorType.stat)) {
+          console.error("Could not find '" + MonsterType.elite + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
+          this.monster.errors.push(new FigureError(FigureErrorType.stat, "monster", this.monster.name, this.monster.edition, MonsterType.elite, "" + this.monster.level));
         }
       }
 
@@ -84,10 +87,12 @@ export class MonsterStatsComponent extends DialogComponent {
       return monsterStat.level == this.monster.level && monsterStat.type == type;
     });
     if (!stat) {
-      console.error("Could not find '" + type + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
-      if (this.monster.errors.indexOf(FigureError.stat) == -1) {
-        this.monster.errors.push(FigureError.stat);
+      this.monster.errors = this.monster.errors || [];
+      if (!this.monster.errors.find((figureError) => figureError.type == FigureErrorType.unknown) && !this.monster.errors.find((figureError) => figureError.type == FigureErrorType.stat)) {
+        console.error("Could not find '" + type + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
+        this.monster.errors.push(new FigureError(FigureErrorType.stat, "monster", this.monster.name, this.monster.edition, type, "" + this.monster.level));
       }
+
       return new MonsterStat(type, this.monster.level, 0, 0, 0, 0);
     }
     return stat;
@@ -112,10 +117,11 @@ export class MonsterStatsComponent extends DialogComponent {
         }
 
         if (stat == undefined) {
-          console.error("Could not find '" + monsterEntity.type + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
           stat = new MonsterStat(monsterEntity.type, this.monster.level, 0, 0, 0, 0);
-          if (this.monster.errors.indexOf(FigureError.stat) == -1) {
-            this.monster.errors.push(FigureError.stat);
+          this.monster.errors = this.monster.errors || [];
+          if (!this.monster.errors.find((figureError) => figureError.type == FigureErrorType.unknown) && !this.monster.errors.find((figureError) => figureError.type == FigureErrorType.stat)) {
+            console.error("Could not find '" + monsterEntity.type + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
+            this.monster.errors.push(new FigureError(FigureErrorType.stat, "monster", this.monster.name, this.monster.edition, monsterEntity.type, "" + this.monster.level));
           }
         }
 
@@ -177,6 +183,7 @@ export class MonsterStatsPopupComponent extends PopupComponent {
     let monster: Monster = new Monster(this.monster);
     monster.isAlly = this.monster.isAlly;
     monster.level = level;
+    monster.errors = this.monster.errors;
     return monster;
   }
 }

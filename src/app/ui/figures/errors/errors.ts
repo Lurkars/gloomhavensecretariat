@@ -1,5 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { Character } from "src/app/game/model/Character";
+import { FigureError, FigureErrorType } from "src/app/game/model/FigureError";
 import { Monster } from "src/app/game/model/Monster";
 import { DialogComponent } from "../../dialog/dialog";
 
@@ -11,7 +12,6 @@ import { DialogComponent } from "../../dialog/dialog";
 export class FigureErrors extends DialogComponent {
 
   @Input() figure!: Monster | Character;
-
 
   override ngOnInit(): void {
     super.ngOnInit();

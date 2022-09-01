@@ -2,7 +2,7 @@ import { gameManager } from "../businesslogic/GameManager";
 import { settingsManager } from "../businesslogic/SettingsManager";
 import { AttackModifierDeck, AttackModifierType, defaultAttackModifierCards, GameAttackModifierDeckModel } from "./AttackModifier";
 import { Character, GameCharacterModel } from "./Character";
-import { SectionData } from "./data/SectionData";
+import { GameScenarioModel, ScenarioData } from "./data/ScenarioData";
 import { defeaultElementBoard, Element, ElementModel, ElementState } from "./Element";
 import { Figure } from "./Figure";
 import { GameMonsterModel, Monster } from "./Monster";
@@ -15,7 +15,7 @@ export class Game {
   figures: Figure[] = [];
   state: GameState = GameState.draw;
   scenario: Scenario | undefined = undefined;
-  sections: SectionData[] = [];
+  sections: ScenarioData[] = [];
   level: number = 1;
   levelCalculation: boolean = true;
   levelAdjustment: number = 0;
@@ -28,14 +28,15 @@ export class Game {
   allyAttackModifierDeck: AttackModifierDeck = new AttackModifierDeck();
   elementBoard: ElementModel[];
   solo: boolean = false;
-  party: Party | undefined = undefined;
+  party: Party;
 
   constructor() {
     this.elementBoard = JSON.parse(JSON.stringify(defeaultElementBoard));
+    this.party = new Party();
   }
 
   toModel(): GameModel {
-    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario, this.sections, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.round, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party);
+    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario && this.scenario.toModel() || undefined, this.sections.map((sectionData) => sectionData.toModel()), this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.round, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party);
   }
 
   fromModel(model: GameModel, server: boolean = false) {
@@ -83,8 +84,25 @@ export class Game {
     this.figures.sort((a, b) => model.figures.indexOf(a.name) - model.figures.indexOf(b.name));
 
     this.state = model.state;
-    this.scenario = model.scenario;
-    this.sections = model.sections || [];
+
+    if (model.scenario) {
+      const scenarioData = gameManager.scenarioManager.scenarioDataForModel(model.scenario);
+      if (scenarioData) {
+        this.scenario = new Scenario(scenarioData, model.scenario.custom != "");
+      } else {
+        this.scenario = undefined;
+      }
+    } else {
+      this.scenario = undefined;
+    }
+
+    this.sections = [];
+    model.sections.forEach((value) => {
+      const sectionModelData = gameManager.scenarioManager.sectionDataForModel(value);
+      if (sectionModelData) {
+        this.sections.push(sectionModelData);
+      }
+    })
     this.level = model.level;
 
     // migration
@@ -165,7 +183,7 @@ export class Game {
     })
 
     this.solo = model.solo;
-    this.party = model.party;
+    this.party = model.party ? Object.assign(new Party(), model.party) : new Party();
   }
 }
 
@@ -182,8 +200,8 @@ export class GameModel {
   monsters: GameMonsterModel[];
   objectives: GameObjectiveModel[];
   state: GameState;
-  scenario: Scenario | undefined;
-  sections: SectionData[] = [];
+  scenario: GameScenarioModel | undefined;
+  sections: GameScenarioModel[] = [];
   level: number;
   levelCalculation: boolean;
   levelAdjustment: number;
@@ -201,7 +219,7 @@ export class GameModel {
   strongElements: Element[] = [];
   elements: Element[] = [];
   solo: boolean;
-  party: Party | undefined;
+  party: Party;
 
   constructor(edition: string | undefined = undefined,
     figures: string[] = [],
@@ -209,8 +227,8 @@ export class GameModel {
     monsters: GameMonsterModel[] = [],
     objectives: GameObjectiveModel[] = [],
     state: GameState = GameState.next,
-    scenario: Scenario | undefined = undefined,
-    sections: SectionData[] = [],
+    scenario: GameScenarioModel | undefined = undefined,
+    sections: GameScenarioModel[] = [],
     level: number = 0,
     levelCalculation: boolean = true,
     levelAdjustment: number = 0,
@@ -223,15 +241,15 @@ export class GameModel {
     allyAttackModifierDeck: GameAttackModifierDeckModel = new GameAttackModifierDeckModel(-1, defaultAttackModifierCards),
     elementBoard: ElementModel[] = [],
     solo: boolean = false,
-    party: Party | undefined = undefined) {
+    party: Party = new Party()) {
     this.edition = edition;
     this.figures = figures;
     this.characters = characters;
     this.monsters = monsters;
     this.objectives = objectives;
     this.state = state;
-    this.scenario = scenario && JSON.parse(JSON.stringify(scenario)) || undefined;
-    this.sections = JSON.parse(JSON.stringify(sections));
+    this.scenario = scenario;
+    this.sections = sections;
     this.level = level;
     this.levelCalculation = levelCalculation;
     this.levelAdjustment = levelAdjustment;
@@ -244,7 +262,7 @@ export class GameModel {
     this.allyAttackModifierDeck = allyAttackModifierDeck;
     this.elementBoard = JSON.parse(JSON.stringify(elementBoard));
     this.solo = solo;
-    this.party = party;
+    this.party = JSON.parse(JSON.stringify(party));
   }
 
 }

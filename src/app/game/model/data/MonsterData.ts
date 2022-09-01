@@ -23,7 +23,7 @@ export class MonsterData implements Editional, Spoilable {
   spoiler: boolean;
 
   // error
-  errors: FigureError[];
+  errors: FigureError[] | undefined = [];
 
   hidden: boolean = false;
   

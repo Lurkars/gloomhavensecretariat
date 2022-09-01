@@ -9,7 +9,7 @@ import { MonsterData } from "../model/data/MonsterData";
 import { Ability } from "../model/Ability";
 import { SummonState } from "../model/Summon";
 import { settingsManager } from "./SettingsManager";
-import { FigureError } from "../model/FigureError";
+import { FigureError, FigureErrorType } from "../model/FigureError";
 import { ConditionType, EntityCondition, EntityConditionState } from "../model/Condition";
 
 export class MonsterManager {
@@ -36,9 +36,10 @@ export class MonsterManager {
       return monsterStat.level == monster.level && monsterStat.type == type;
     });
     if (!stat) {
-      console.error("Could not find '" + type + "' stats for monster: " + monster.name + " level: " + monster.level);
-      if (monster.errors.indexOf(FigureError.stat) == -1) {
-        monster.errors.push(FigureError.stat);
+      monster.errors = monster.errors || [];
+      if (!monster.errors.find((figureError) => figureError.type == FigureErrorType.unknown) && !monster.errors.find((figureError) => figureError.type == FigureErrorType.stat)) {
+        console.error("Could not find '" + type + "' stats for monster: " + monster.name + " level: " + monster.level);
+        monster.errors.push(new FigureError(FigureErrorType.stat, "monster", monster.name, monster.edition, type, "" + monster.level));
       }
       return new MonsterStat(type, monster.level, 0, 0, 0, 0);
     }
@@ -88,9 +89,10 @@ export class MonsterManager {
     if (!monster.stats.some((monsterStat) => {
       return monsterStat.type == type;
     })) {
-      console.error("Missing type '" + type + "' for " + monster.name);
-      if (monster.errors.indexOf(FigureError.monsterType) == -1) {
-        monster.errors.push(FigureError.monsterType);
+      monster.errors = monster.errors || [];
+      if (!monster.errors.find((figureError) => figureError.type == FigureErrorType.unknown) && !monster.errors.find((figureError) => figureError.type == FigureErrorType.monsterType)) {
+        console.error("Missing type '" + type + "' for " + monster.name);
+        monster.errors.push(new FigureError(FigureErrorType.monsterType, "monster", monster.name, monster.edition, type));
       }
       return;
     }

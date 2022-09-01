@@ -146,16 +146,67 @@
       justify-content: center;
       align-items: center;
 
+      @keyframes element-pulse {
+        0% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.3);
+        }
+
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes element-half-pulse {
+        0% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.2) translateX(-10%);
+        }
+
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes element-half-pulse-right {
+        0% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.2) translateX(10%);
+        }
+
+        100% {
+          transform: scale(1);
+        }
+      }
 
       .element {
         position: relative;
         margin: calc(var(--ghs-unit) * 0.25);
         width: calc(var(--ghs-unit) * 3);
         height: calc(var(--ghs-unit) * 3);
+
+        &.highlight {
+
+          cursor: pointer !important;
+          animation: element-pulse 1000ms ease-in-out infinite;
+
+          &:hover {
+            transform: scale(1.3) !important;
+          }
+        }
       }
 
       .element-half {
-        position: absolute;
+        position: relative;
         width: calc(var(--ghs-unit) * 1.5);
         overflow: hidden;
 
@@ -165,13 +216,36 @@
 
         &:nth-child(1) {
           left: 0;
+          margin-right: 0;
+
+          &.highlight {
+            animation: element-half-pulse 1000ms ease-in-out infinite;
+
+            &:hover {
+              transform: scale(1.2) translateX(-10%) !important;
+            }
+          }
+
         }
 
         &:nth-child(2) {
           right: 0;
+          margin-left: 0;
 
           img {
             transform: translateX(-50%);
+          }
+
+          &::before {
+            background-position: right;
+          }
+
+          &.highlight {
+            animation: element-half-pulse-right 1000ms ease-in-out infinite;
+
+            &:hover {
+              transform: scale(1.2) translateX(10%) !important;
+            }
           }
         }
 

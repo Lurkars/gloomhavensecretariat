@@ -1,12 +1,15 @@
-import { ScenarioData } from "./data/ScenarioData";
+import { GameScenarioModel, ScenarioData } from "./data/ScenarioData";
 
 export class Scenario extends ScenarioData {
 
   custom: boolean;
 
-  constructor(scenearioData: ScenarioData, custom: boolean = false) {
-    super(scenearioData.name, scenearioData.index, scenearioData.unlocks, scenearioData.blocks, scenearioData.requires, scenearioData.links, scenearioData.monsters, scenearioData.allies, scenearioData.objectives, scenearioData.edition, scenearioData.group, scenearioData.spoiler);
+  constructor(scenarioData: ScenarioData, custom: boolean = false) {
+    super(scenarioData.name, scenarioData.index, scenarioData.unlocks, scenarioData.blocks, scenarioData.requires, scenarioData.links, scenarioData.monsters, scenarioData.allies, scenarioData.objectives, scenarioData.edition, scenarioData.group, scenarioData.spoiler);
     this.custom = custom;
   }
 
+  override toModel(): GameScenarioModel {
+    return new GameScenarioModel(this.index, this.edition, this.group, this.custom ? this.name : "");
+  }
 }

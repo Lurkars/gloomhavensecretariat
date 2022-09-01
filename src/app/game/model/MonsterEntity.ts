@@ -1,7 +1,7 @@
 import { NumberSymbol } from "@angular/common";
 import { EntityCondition, GameEntityConditionModel } from "./Condition";
 import { Entity, EntityValueFunction } from "./Entity";
-import { FigureError } from "./FigureError";
+import { FigureError, FigureErrorType } from "./FigureError";
 import { Monster } from "./Monster";
 import { MonsterStat } from "./MonsterStat";
 import { MonsterType } from "./MonsterType";
@@ -32,10 +32,11 @@ export class MonsterEntity implements Entity {
     });
 
     if (!stat) {
-      console.error("No monster stat found for level '" + monster.level + "' and type '" + type + "'!");
       this.stat = new MonsterStat(type, monster.level, 0, 0, 0, 0);
-      if (monster.errors.indexOf(FigureError.stat) == -1) {
-        monster.errors.push(FigureError.stat);
+      monster.errors = monster.errors || [];
+      if (!monster.errors.find((figureError) => figureError.type == FigureErrorType.unknown) && !monster.errors.find((figureError) => figureError.type == FigureErrorType.stat)) {
+        console.error("Could not find '" + type + "' stats for monster: " + monster.name + " level: " + monster.level);
+        monster.errors.push(new FigureError(FigureErrorType.stat, "monster", monster.name, monster.edition, type, "" + monster.level));
       }
     } else {
       this.stat = stat;

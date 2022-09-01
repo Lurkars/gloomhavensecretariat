@@ -43,13 +43,13 @@ export class CharacterData implements Editional, Spoilable {
   spoiler: boolean = false;
 
   // error
-  errors: FigureError[];
-  
+  errors: FigureError[] | undefined;
+
   replace: boolean = false;
 
   constructor(character: CharacterData | undefined = undefined) {
-    this.errors = [];
     if (character) {
+      this.errors = character.errors || [];
       this.name = character.name;
       this.stats = character.stats || [];
       this.characterClass = character.characterClass || undefined;

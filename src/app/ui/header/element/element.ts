@@ -53,9 +53,9 @@ export class ElementIconComponent implements OnInit {
     }
   }
 
-  nextElementState(element: ElementModel, double: boolean = false) : ElementState {
+  nextElementState(element: ElementModel, double: boolean = false): ElementState {
     if (gameManager.game.state == GameState.draw) {
-      if (element.state == ElementState.new) {
+      if (element.state == ElementState.new || element.state == ElementState.strong) {
         if (!double) {
           return ElementState.waning;
         }
@@ -69,7 +69,7 @@ export class ElementIconComponent implements OnInit {
         }
       }
     } else {
-      if (element.state == ElementState.strong) {
+      if (element.state == ElementState.strong || element.state == ElementState.new) {
         if (double) {
           return ElementState.waning;
         }

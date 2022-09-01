@@ -3,7 +3,7 @@
     <div class="divider"
       *ngIf="!inline && index > 0 && action.type != ActionType.card && !((action.type == ActionType.element || action.type == ActionType.elementHalf) && action.valueType != ActionValueType.minus)"></div>
     <ghs-action [action]="action" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
-      [relative]="relative" [statsCalculation]="statsCalculation">
+      [relative]="relative" [statsCalculation]="statsCalculation" [highlightElements]="highlightElements">
     </ghs-action>
   </ng-container>
   <div class="hint" *ngIf="hint" [i18n]="hint"></div>

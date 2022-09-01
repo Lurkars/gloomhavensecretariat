@@ -5,8 +5,7 @@ import { DeckData } from "../model/data/DeckData";
 import { EditionData } from "../model/data/EditionData";
 import { MonsterData } from "../model/data/MonsterData";
 import { ScenarioData } from "../model/data/ScenarioData";
-import { Element } from "../model/Element";
-import { FigureError } from "../model/FigureError";
+import { FigureError, FigureErrorType } from "../model/FigureError";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
@@ -18,7 +17,6 @@ import { CharacterManager } from "./CharacterManager";
 import { MonsterManager } from "./MonsterManager";
 import { settingsManager } from "./SettingsManager";
 import { StateManager } from "./StateManager";
-import { SectionData } from "../model/data/SectionData";
 import { Condition, ConditionName, Conditions, ConditionType } from "../model/Condition";
 import { EntityManager } from "./EntityManager";
 import { EventEmitter } from "@angular/core";
@@ -94,7 +92,7 @@ export class GameManager {
     return this.editionData.filter((editionData) => all || !this.game.edition || editionData.edition == this.game.edition || editionData.extentions && editionData.extentions.indexOf(this.game.edition) != -1).map((editionData) => editionData.scenarios).flat();
   }
 
-  sectionData(all: boolean = false): SectionData[] {
+  sectionData(all: boolean = false): ScenarioData[] {
     return this.editionData.filter((editionData) => all || !this.game.edition || editionData.edition == this.game.edition || editionData.extentions && editionData.extentions.indexOf(this.game.edition) != -1).map((editionData) => editionData.sections).flat();
   }
 
@@ -206,9 +204,10 @@ export class GameManager {
     }
 
     if (!deckData) {
-      console.error("Unknwon deck: " + figure.name + (figure.deck ? "[" + figure.deck + "]" : "") + " for " + figure.edition);
-      if (figure.errors.indexOf(FigureError.deck) == -1) {
-        figure.errors.push(FigureError.deck);
+      figure.errors = figure.errors || [];
+      if (!figure.errors.find((figureError) => figureError.type == FigureErrorType.unknown) && !figure.errors.find((figureError) => figureError.type == FigureErrorType.deck)) {
+        console.error("Unknwon deck: " + figure.name + (figure.deck ? "[" + figure.deck + "]" : "") + " for " + figure.edition);
+        figure.errors.push(new FigureError(FigureErrorType.deck, figure instanceof Character ? "character" : "monster", figure.name, figure.edition, figure.deck));
       }
       return new DeckData('', [], '');
     }
@@ -223,11 +222,16 @@ export class GameManager {
   getCharacterData(name: string, edition: string): CharacterData {
     let characterData = this.charactersData(true).find((value) => value.name == name && value.edition == edition);
     if (!characterData) {
-      console.error("unknown character: " + name);
       characterData = this.charactersData(true).find((value) => value.name == name);
       if (!characterData) {
         characterData = new CharacterData();
-        characterData.errors.push(FigureError.unknown);
+        characterData.name = name;
+        characterData.edition = edition;
+        characterData.errors = characterData.errors || [];
+        if (!characterData.errors.find((figureError) => figureError.type == FigureErrorType.unknown)) {
+          console.error("unknown character '" + name + "' for edition '" + edition + "'");
+          characterData.errors.push(new FigureError(FigureErrorType.unknown, "character", name, edition));
+        }
       }
       return characterData;
     }
@@ -268,11 +272,16 @@ export class GameManager {
   getMonsterData(name: string, edition: string): MonsterData {
     let monsterData = this.monstersData(true).find((value) => value.name == name && value.edition == edition);
     if (!monsterData) {
-      console.error("unknown monster '" + name + "' for edition '" + edition + "'");
       monsterData = this.monstersData(true).find((value) => value.name == name);
       if (!monsterData) {
         monsterData = new MonsterData(name, 0, new MonsterStat(MonsterType.normal, 0, 0, 0, 0, 0), [], "");
-        monsterData.errors.push(FigureError.unknown);
+        monsterData.errors = monsterData.errors || [];
+        monsterData.name = name;
+        monsterData.edition = edition;
+        if (!monsterData.errors.find((figureError) => figureError.type == FigureErrorType.unknown)) {
+          console.error("unknown monster '" + name + "' for edition '" + edition + "'");
+          monsterData.errors.push(new FigureError(FigureErrorType.unknown, "monster", name, edition));
+        }
       }
       return monsterData;
     }

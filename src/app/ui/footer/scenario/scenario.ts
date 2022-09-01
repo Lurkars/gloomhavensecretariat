@@ -13,14 +13,14 @@ export class ScenarioComponent extends PopupComponent {
 
   finishScenario(success: boolean) {
     this.close();
-    gameManager.stateManager.before("finishScenario" + (success ? "Sucess" : "Failure"));
+    gameManager.stateManager.before("finishScenario." + (success ? "success" : "failure"), ...gameManager.scenarioManager.scenarioUndoArgs());
     gameManager.scenarioManager.finishScenario(success);
     gameManager.stateManager.after(1000);
   }
 
   resetScenario() {
     this.close();
-    gameManager.stateManager.before("resetScenario");
+    gameManager.stateManager.before("resetScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
     gameManager.roundManager.resetScenario();
     gameManager.stateManager.after(1000);
   }

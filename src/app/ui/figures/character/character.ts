@@ -30,7 +30,6 @@ export class CharacterComponent extends DialogComponent {
   ConditionType = ConditionType;
   AttackModifierType = AttackModifierType;
   levelDialog: boolean = false;
-  levels: number[] = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
 
   initiative: number = -1;
   health: number = 0;

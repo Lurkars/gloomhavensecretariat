@@ -1,8 +1,7 @@
 import { Component } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { EditionData } from "src/app/game/model/data/EditionData";
-import { SectionData } from "src/app/game/model/data/SectionData";
+import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { GameState } from "src/app/game/model/Game";
 
 @Component({
@@ -31,7 +30,7 @@ export class SectionMenuComponent {
     return gameManager.sectionData(true).filter((sectionData) => sectionData.edition == this.edition).map((sectionData) => sectionData.group).filter((value, index, self) => self.indexOf(value) === index);
   }
 
-  sections(group: string | undefined = undefined): SectionData[] {
+  sections(group: string | undefined = undefined): ScenarioData[] {
     if (!this.edition) {
       return [];
     }
@@ -50,11 +49,11 @@ export class SectionMenuComponent {
     return Math.max(...this.sections().map((sectionData) => sectionData.index.length));
   }
 
-  hasSection(sectionData: SectionData): boolean {
+  hasSection(sectionData: ScenarioData): boolean {
     return gameManager.game.sections && gameManager.game.sections.some((value) => value.edition == sectionData.edition && value.index == sectionData.index && value.group == sectionData.group);
   }
 
-  addSection(sectionData: SectionData) {
+  addSection(sectionData: ScenarioData) {
     gameManager.stateManager.before("addSection", sectionData.index, "data.scenario." + sectionData.name, "data.edition." + sectionData.edition);
     gameManager.scenarioManager.addSection(sectionData);
     gameManager.stateManager.after();

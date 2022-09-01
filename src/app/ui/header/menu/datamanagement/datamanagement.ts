@@ -1,5 +1,6 @@
+import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, ElementRef, ViewChild } from "@angular/core";
-import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GameModel } from "src/app/game/model/Game";
 import { Settings } from "src/app/game/model/Settings";
@@ -16,18 +17,21 @@ export class DatamanagementMenuComponent {
   @ViewChild('inputSpoiler', { static: true }) spoilerElement!: ElementRef;
 
   settingsManager: SettingsManager = settingsManager;
+  gameManager: GameManager = gameManager;
 
-  addEditionDataUrl(): void {
+  async addEditionDataUrl() {
     if (this.editionDataUrlElement.nativeElement.value) {
       this.editionDataUrlElement.nativeElement.classList.remove("error");
       this.editionDataUrlElement.nativeElement.disabled = true;
-      settingsManager.addEditionDataUrl(this.editionDataUrlElement.nativeElement.value).then(() => {
+      const success = await settingsManager.addEditionDataUrl(this.editionDataUrlElement.nativeElement.value);
+
+      if (success) {
         this.editionDataUrlElement.nativeElement.value = "";
         this.editionDataUrlElement.nativeElement.disabled = false;
-      }).catch((error: Error) => {
+      } else {
         this.editionDataUrlElement.nativeElement.classList.add("error");
         this.editionDataUrlElement.nativeElement.disabled = false;
-      });
+      };
     }
   }
 
@@ -37,9 +41,14 @@ export class DatamanagementMenuComponent {
     }
   }
 
+  drop(event: CdkDragDrop<number>) {
+    moveItemInArray(settingsManager.settings.editionDataUrls, event.previousIndex, event.currentIndex);
+    moveItemInArray(gameManager.editionData, event.previousIndex, event.currentIndex);
+    settingsManager.storeSettings();
+  }
+
   isDefaultEditionData(): boolean {
-    const defaultEditionDataUrls: string[] = new Settings().editionDataUrls;
-    return this.settingsManager.settings.editionDataUrls.length == defaultEditionDataUrls.length && this.settingsManager.settings.editionDataUrls.every((editionDataUrl) => defaultEditionDataUrls.indexOf(editionDataUrl) != -1);
+    return this.settingsManager.settings.editionDataUrls.length == settingsManager.defaultEditionDataUrls.length && this.settingsManager.settings.editionDataUrls.every((editionDataUrl) => settingsManager.defaultEditionDataUrls.indexOf(editionDataUrl) != -1);
   }
 
   addSpoiler(): void {
