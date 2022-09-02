@@ -84,7 +84,8 @@
       "entityDead": "Töte {1} Aufsteller {2} von {0}",
       "finishScenario": {
         "success": "Szenario #{0} {1} ({2}) erfolgreich",
-        "failure": "Szenario #{0} {1} ({2}) gescheitert"
+        "failure": "Szenario #{0} {1} ({2}) gescheitert",
+        "remove": "Entferne Szenario #{0} {1} ({2}) von Erfolgreichen"
       },
       "importParty": "Gruppe von Datei importieren",
       "loadGameFromFile": "Spiel von Datei importieren",
@@ -108,6 +109,7 @@
       "removeEntityCurse": "Segen von {0} Aufsteller {2} entfernen",
       "removeEntityMarker": "Markierung {2} von {0} Aufsteller {1} entfernen",
       "removeItem": "Gegenstand {1} (%data.edition.{2}%) von {0} entfernen",
+      "removeManualScenario": "Szenario #{0} {1} ({2}) von Freigeschaltenen entfernen",
       "removeMonster": "Monster {0} entfernen",
       "removeObjective": "Ziel {0} entfernen",
       "reorder": "Figuren neu anordnen",
@@ -128,7 +130,7 @@
       "setCustomScenario": "Benutzerdefiniertes Szenario",
       "setDrawExtraAbility": "Zusätzlich Aufdecken für {0} aktivieren",
       "setEdition": "Edition {0} setzen",
-      "setEntitySummonState": "Beschwörung {1} Aufsteller {2} von {0}: {3}",
+      "setEntitySummonState": "Beschwörung {3} für {1} Aufsteller {2} von {0}",
       "setExhausted": "{0} erschöpft",
       "setGold": "Gold {1} für {0}",
       "setInitiative": "Initiative {1} für {0}",
@@ -148,6 +150,7 @@
       "setRetirements": "Ruhestände auf {1} für {0}",
       "setScenario": "Szenario #{0} {1} ({2})",
       "setScenarioLevel": "Szenario Level {0}",
+      "setSummonState": "Beschwörung {1} {2} für {0}",
       "setTitle": "Titel '{1}' für {0}",
       "setXP": "EP {1} für {0}",
       "shuffleAbilityDeck": "Fertigkeiten mischen für {0}",
@@ -281,7 +284,22 @@
       "none": "Keiner"
     },
     "import": "Importieren",
-    "export": "Exportieren"
+    "export": "Exportieren",
+    "campaign": {
+      ".": "Kampagne",
+      "achievements": "Globale Erfolge",
+      "scenarios": {
+        ".": "Szenarien",
+        "index": "#",
+        "group": "Gruppe",
+        "name": "Name",
+        "edition": "Edition",
+        "finished": "Erfolgreich",
+        "addSuccess": "Als erfolgreich markieren",
+        "removeSuccess": "Von Erfolgreichen entfernen",
+        "removeManual": "Von Freigeschaltenen entfernen"
+      }
+    }
   },
   "objective": {
     ".": "Zielobjekte",
@@ -296,7 +314,13 @@
   "summon": {
     ".": "Beschwörung",
     "addCustom": "Beschwöre '{0}'",
-    "name": "Name"
+    "name": "Name",
+    "state" : {
+      "." : "Status",
+      "new": "Neu",
+      "true": "Aktiv",
+      "false": "Inaktiv"
+    }
   },
   "menu": {
     "main": "Hauptmenu",
@@ -547,7 +571,13 @@
       "air": "Luft",
       "earth": "Erde",
       "light": "Licht",
-      "dark": "Dunkel"
+      "dark": "Dunkel",
+      "state": {
+        "new": "Stark",
+        "strong": "Stark",
+        "waning": "Schwindend",
+        "inert": "Inaktiv"
+      }
     },
     "ally": "Verbündeter",
     "enemy": "Gegner",
