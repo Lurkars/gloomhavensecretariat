@@ -1,7 +1,7 @@
 .dialog {
   display: none;
   position: fixed;
-  z-index: 1002;
+  z-index: 502;
   min-width: calc(var(--ghs-unit) * 10);
   min-height: calc(var(--ghs-unit) * 10);
   max-height: calc(100vh - var(--ghs-unit) * 3);
@@ -51,11 +51,11 @@
 
 
 .highlight {
-  z-index: 1001;
+  z-index: 501;
 }
 
 .active-button {
-  z-index: 1001;
+  z-index: 501;
   position: relative;
 
   /*

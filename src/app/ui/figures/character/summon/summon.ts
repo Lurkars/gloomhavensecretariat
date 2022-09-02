@@ -131,7 +131,7 @@ export class SummonEntityComponent extends DialogComponent {
     if (this.summon.state == SummonState.new) {
       state = SummonState.true;
     }
-    gameManager.stateManager.before("setSummonState", "data.character." + this.character.name, "data.summon." + this.summon.name, state);
+    gameManager.stateManager.before("setSummonState", "data.character." + this.character.name, "data.summon." + this.summon.name, 'summon.state.' + state);
     this.summon.state = state;
     gameManager.stateManager.after();
   }

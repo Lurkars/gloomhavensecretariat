@@ -42,13 +42,11 @@
         <div class="row xp-notes">
           <label>{{'character.progress.xp' | ghsLabel}} <img src="./assets/images/experience.svg">
             {{'character.progress.notes' | ghsLabel}}:</label>
-          <input [value]="character.progress.experience" type="number" min="0" (change)="setXP($event)"
-            (keyup)="setXP($event)">
+          <input [value]="character.progress.experience" type="number" min="0" (change)="setXP($event)">
         </div>
         <div class="row gold-notes">
           <label>{{'character.progress.gold-notes' | ghsLabel}}:</label>
-          <input [value]="character.progress.gold" type="number" min="0" (change)="setGold($event)"
-            (keyup)="setGold($event)">
+          <input [value]="character.progress.gold" type="number" min="0" (change)="setGold($event)">
         </div>
         <div class="row items">
           <label>{{'character.progress.items' | ghsLabel}}:</label>
@@ -128,14 +126,13 @@
       <label class="headline">{{'character.progress.notes' | ghsLabel}}</label>
       <div class="columns">
         <div class="column column-left">
-          <textarea [value]="character.progress.notes" (change)="setNotes($event)" (keyup)="setNotes($event)"
+          <textarea [value]="character.progress.notes" (change)="setNotes($event)"
             placeholder="{{'character.progress.notes' | ghsLabel}}"></textarea>
         </div>
         <div class="column column-right">
           <div class="personal-quest">
             <label>{{'character.progress.personalQuest' | ghsLabel}}:</label>
-            <input [value]="character.progress.personalQuest" type="number" min="0" (change)="setPersonalQuest($event)"
-              (keyup)="setPersonalQuest($event)">
+            <input [value]="character.progress.personalQuest" type="number" min="0" (change)="setPersonalQuest($event)">
             <span class="retired checkbox check" [ngClass]="{'checked' : character.progress.retired}"
               (click)="toggleRetired()" title="{{'character.progress.retired' | ghsLabel}}"></span>
           </div>

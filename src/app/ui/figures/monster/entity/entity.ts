@@ -121,7 +121,7 @@ export class MonsterEntityComponent extends DialogComponent {
       summonState = SummonState.true;
     }
 
-    gameManager.stateManager.before("setEntitySummonState", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, "" + summonState);
+    gameManager.stateManager.before("setEntitySummonState", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, 'summon.state.' + summonState);
     this.entity.summon = summonState;
     gameManager.stateManager.after();
     this.setDialogPosition();

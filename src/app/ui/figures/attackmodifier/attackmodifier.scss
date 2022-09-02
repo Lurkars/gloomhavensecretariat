@@ -9,6 +9,7 @@
     background-size: 100% auto;
     background-repeat: no-repeat;
     background-image: url('~src/assets/images/attackmodifier/back.png');
+    border-radius: 5%;
   }
 
   .front {
@@ -18,6 +19,7 @@
     left: 0;
     width: 100%;
     height: 100%;
+    border-radius: 5%;
 
     .type {
       position: absolute;

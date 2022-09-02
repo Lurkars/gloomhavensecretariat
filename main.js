@@ -1,26 +1,37 @@
-const {
-  app,
-  BrowserWindow
-} = require("electron");
-const path = require("path");
-const url = require("url");
+const { app, BrowserWindow } = require("electron");
 
-let win;
+let mainWindow;
 
 function createWindow() {
-  win = new BrowserWindow({
+
+  mainWindow = new BrowserWindow({
     width: 800,
-    height: 600
+    height: 600,
+    show: false
   });
-  win.loadFile('dist/gloomhavensecretary/index.html');
-  win.on("closed", () => {
-    win = null;
+  mainWindow.webContents.openDevTools();
+
+  mainWindow.loadFile('./dist/gloomhavensecretary/index.html');
+
+  mainWindow.on("closed", () => {
+    mainWindow = null;
   });
+
+  mainWindow.once('ready-to-show', () => {
+    mainWindow.show()
+  })
 }
+
 app.on("ready", createWindow);
 
 app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
     app.quit();
+  }
+});
+
+app.on('activate', function () {
+  if (mainWindow === null) {
+    createWindow()
   }
 });

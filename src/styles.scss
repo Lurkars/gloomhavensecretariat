@@ -345,7 +345,7 @@ a {
 
 .dialog-backdrop,
 .popup-backdrop {
-  z-index: 1000;
+  z-index: 500;
   position: fixed !important;
   top: 0;
   left: 0;
@@ -551,11 +551,15 @@ a {
 }
 
 .cdk-drag-preview {
-  cursor: handle;
+  cursor: grabbing;
 
   &.drag-hidden {
     opacity: 0;
   }
+}
+
+.cdk-drag-dragging {
+  cursor: grabbing;
 }
 
 .disable-animation * {

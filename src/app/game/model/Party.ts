@@ -11,5 +11,6 @@ export class Party {
   scenarios: GameScenarioModel[] = [];
   manualScenarios: GameScenarioModel[] = [];
   campaignMode : boolean = false;
+  globalAchievements: string = "";
 
 }

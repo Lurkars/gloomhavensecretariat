@@ -41,6 +41,9 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
   doubleClickPerk: any = null;
   priceModifier: number = 0;
 
+  goldTimeout: any = null;
+  xpTimeout: any = null;
+
   override ngOnInit(): void {
     super.ngOnInit();
 
@@ -126,23 +129,37 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
   }
 
   setXP(event: any) {
-    if (!isNaN(+event.target.value)) {
-      gameManager.stateManager.before("setXP", "data.character." + this.character.name, "" + (+event.target.value - this.character.progress.experience));
-      this.characterManager.addXP(this.character, event.target.value - this.character.progress.experience);
-      this.gameManager.stateManager.after();
+    if (!isNaN(+event.target.value) && this.character.progress.experience != +event.target.value) {
+      if (this.xpTimeout) {
+        clearTimeout(this.xpTimeout);
+        this.xpTimeout = null;
+      }
+      this.xpTimeout = setTimeout(() => {
+        gameManager.stateManager.before("setXP", "data.character." + this.character.name, ghsValueSign(+event.target.value - this.character.progress.experience));
+        this.characterManager.addXP(this.character, event.target.value - this.character.progress.experience);
+        this.gameManager.stateManager.after();
+        this.xpTimeout = null;
+      }, 500);
     }
   }
 
   setGold(event: any) {
-    if (!isNaN(+event.target.value)) {
-      gameManager.stateManager.before("setGold", "data.character." + this.character.name, event.target.value);
-      this.character.progress.gold = +event.target.value;
-      this.gameManager.stateManager.after();
+    if (!isNaN(+event.target.value) && this.character.progress.gold != +event.target.value) {
+      if (this.goldTimeout) {
+        clearTimeout(this.goldTimeout);
+        this.goldTimeout = null;
+      }
+      this.goldTimeout = setTimeout(() => {
+        gameManager.stateManager.before("setGold", "data.character." + this.character.name, event.target.value);
+        this.character.progress.gold = +event.target.value;
+        this.gameManager.stateManager.after();
+        this.goldTimeout = null;
+      }, 500);
     }
   }
 
   setPersonalQuest(event: any) {
-    if (!isNaN(+event.target.value)) {
+    if (!isNaN(+event.target.value) && this.character.progress.personalQuest != +event.target.value) {
       gameManager.stateManager.before("setPQ", "data.character." + this.character.name, event.target.value);
       this.character.progress.personalQuest = +event.target.value;
       this.gameManager.stateManager.after();
@@ -150,7 +167,7 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
   }
 
   setRetirements(event: any) {
-    if (!isNaN(+event.target.value)) {
+    if (!isNaN(+event.target.value) && this.character.progress.retirements != +event.target.value) {
       gameManager.stateManager.before("setRetirements", "data.character." + this.character.name, event.target.value);
       this.character.progress.retirements = +event.target.value;
       this.gameManager.stateManager.after();
@@ -166,15 +183,19 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
     } else if (battleGoals > 18) {
       battleGoals = 18;
     }
-    gameManager.stateManager.before("setBG", "data.character." + this.character.name, "" + battleGoals);
-    this.character.progress.battleGoals = battleGoals;
-    this.gameManager.stateManager.after();
+    if (this.character.progress.battleGoals != battleGoals) {
+      gameManager.stateManager.before("setBG", "data.character." + this.character.name, "" + battleGoals);
+      this.character.progress.battleGoals = battleGoals;
+      this.gameManager.stateManager.after();
+    }
   }
 
   setNotes(event: any) {
-    gameManager.stateManager.before("setNotes", "data.character." + this.character.name, event.target.value);
-    this.character.progress.notes = event.target.value;
-    this.gameManager.stateManager.after();
+    if (this.character.progress.notes != event.target.value) {
+      gameManager.stateManager.before("setNotes", "data.character." + this.character.name, event.target.value);
+      this.character.progress.notes = event.target.value;
+      this.gameManager.stateManager.after();
+    }
   }
 
   toggleRetired() {
