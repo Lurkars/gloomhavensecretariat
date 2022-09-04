@@ -5,7 +5,7 @@
     <div class="standee">
       <div class="background-image"
         [style.background-image]="'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'"></div>
-      <span class="number">{{entity.number}}</span>
+      <span class="number">#{{entity.number}}</span>
       <span class="health" title="{{'game.health' | ghsLabel}}">{{entity.health + health}} 
         <span class="value-overlay"
           [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}" *ngIf="health"><span

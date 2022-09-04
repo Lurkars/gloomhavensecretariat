@@ -116,7 +116,12 @@ export class FooterComponent extends DialogComponent {
   };
 
   finish(): boolean {
+    return false;
+    /*
+
+    // NEEDS FIX
     return gameManager.game.round > 1 && !this.missingInitative() && !this.active() && !this.empty() && gameManager.game.figures.some((figure) => figure instanceof Character) && gameManager.game.figures.every((figure) => !(figure instanceof Monster) || figure instanceof Monster && figure.entities.every((entity) => entity.dead || entity.health <= 0)) && gameManager.game.figures.some((figure) => figure instanceof Character && !figure.exhausted && figure.health > 0);
+    */
   }
 
   failed(): boolean {

@@ -37,11 +37,6 @@ export class ScenarioData implements Editional, Spoilable {
     this.group = group;
     this.spoiler = spoiler;
   }
-
-  toModel(): GameScenarioModel {
-    return new GameScenarioModel(this.index, this.edition, this.group);
-  }
-
 }
 
 export class GameScenarioModel {

@@ -89,21 +89,20 @@
   ghs-drag-value.drag-xp,
   ghs-drag-value.drag-loot {
     position: absolute;
-    bottom: calc(var(--ghs-unit) * 2 / var(--ghs-text-factor));
+    bottom: calc(var(--ghs-unit) * 1.5);
     left: calc(var(--ghs-unit) * 22);
     width: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor));
-    height: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
+    height: calc(var(--ghs-unit) * 5);
     z-index: 4;
 
     &.drag-xp {
-      top: calc(var(--ghs-unit) * 1.5 / var(--ghs-text-factor));
+      top: calc(var(--ghs-unit) * 1.5);
       left: calc(var(--ghs-unit) * 73);
       width: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor));
       bottom: initial;
     }
 
     &.drag-loot {
-      bottom: calc(var(--ghs-unit) * 1.5 / var(--ghs-text-factor));
       left: calc(var(--ghs-unit) * 73);
       width: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor));
     }

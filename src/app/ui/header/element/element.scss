@@ -25,21 +25,16 @@ ghs-element-icon {
     #outline,
     #symbol {
       path {
-        fill: var(--ghs-color-gray) !important;
+        fill: var(--ghs-color-white) !important;
       }
     }
 
     &:hover,
     &.full,
     &.half {
-
       #outline,
       #symbol {
         display: inherit;
-
-        path {
-          fill: var(--ghs-color-white) !important;
-        }
       }
     }
 

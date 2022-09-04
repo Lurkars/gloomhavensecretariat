@@ -1,6 +1,5 @@
 footer {
-  height: calc(var(--ghs-unit) * 14 * var(--ghs-text-factor) * var(--ghs-barsize));
-  padding-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+  height: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor) * var(--ghs-barsize));
   display: flex;
   overflow: unset;
   position: relative;
@@ -21,7 +20,7 @@ footer {
     right: 0;
     width: calc(var(--ghs-unit) * 38 * var(--ghs-text-factor) * var(--ghs-barsize));
     height: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor) * var(--ghs-barsize));
-    top: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    top: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor) * var(--ghs-barsize));
   }
 
   ghs-attackmodifier-deck.ally-deck {
@@ -34,14 +33,14 @@ footer {
 
   &::before {
     content: ' ';
-    width: 100%;
-    background-size: auto 100%;
-    background-repeat: repeat-x;
-    background-image: url('~src/assets/images/footer.png');
-    background-position: top;
     position: absolute;
-    height: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    background-image: url('~/src/assets/images/bar.png');
+    background-size: cover;
+    z-index: -1;
   }
 
   .round-container {
@@ -56,7 +55,7 @@ footer {
 
     a {
       font-family: 'ghs-title';
-      color: var(--ghs-color-gray);
+      color: var(--ghs-color-white);
       text-shadow: var(--ghs-outline);
       font-size: calc(var(--ghs-unit) * 3.7 * var(--ghs-text-factor) * var(--ghs-barsize));
       line-height: calc(var(--ghs-unit) * 3.7 * var(--ghs-text-factor) * var(--ghs-barsize));
@@ -70,7 +69,7 @@ footer {
 
     .time {
       font-family: 'ghs-title';
-      color: var(--ghs-color-gray);
+      color: var(--ghs-color-white);
       text-shadow: var(--ghs-outline);
       position: absolute;
       font-size: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor) * var(--ghs-barsize));
@@ -80,7 +79,7 @@ footer {
     }
 
     .round {
-      color: var(--ghs-color-gray);
+      color: var(--ghs-color-white);
       text-shadow: var(--ghs-outline);
       position: absolute;
       font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor) * var(--ghs-barsize));
@@ -92,7 +91,7 @@ footer {
 
       a,
       .round {
-        color: var(--ghs-color-white);
+        color: var(--ghs-color-gray);
       }
     }
 
@@ -102,17 +101,17 @@ footer {
       a {
         text-shadow: none;
         font-weight: bold;
-        color: var(--ghs-color-darkgray);
+        color: var(--ghs-color-gray);
       }
 
       .time {
         text-shadow: none;
-        color: var(--ghs-color-darkgray);
+        color: var(--ghs-color-gray);
       }
 
       .round {
         text-shadow: none;
-        color: var(--ghs-color-darkgray);
+        color: var(--ghs-color-gray);
       }
     }
 

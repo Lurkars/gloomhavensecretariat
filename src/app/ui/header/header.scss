@@ -6,14 +6,15 @@ header {
 
   &::before {
     content: ' ';
-    width: 100%;
-    background-size: auto 100%;
-    background-repeat: repeat-x;
-    background-image: url('~src/assets/images/header.png');
-    background-position: bottom;
     position: absolute;
-    height: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor) * var(--ghs-barsize));
-    bottom: calc(var(--ghs-unit) * -2 * var(--ghs-text-factor) * var(--ghs-barsize));
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    background-image: url('~/src/assets/images/bar.png');
+    background-size: cover;
+    transform: scale(-1);
+    z-index: -1;
   }
 
   a.server-connection-status {
@@ -45,14 +46,14 @@ header {
     }
 
     &.disconnected {
-      filter: var(--ghs-filter-darkgray);
+      filter: var(--ghs-filter-gray);
     }
   }
 
   .hints {
     display: flex;
     align-items: center;
-    color: var(--ghs-color-darkgray);
+    color: var(--ghs-color-white);
     font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-small-text-factor) * var(--ghs-barsize));
     opacity: 0;
     transition: opacity 500ms ease-in-out;
@@ -64,11 +65,11 @@ header {
     .menu-hint {
       cursor: pointer;
       font-family: 'ghs-title';
-      color: var(--ghs-color-darkgray);
+      color: var(--ghs-color-white);
       font-size: calc(var(--ghs-unit) * 3 * var(--ghs-small-text-factor) * var(--ghs-barsize));
 
       &:hover {
-        color: var(--ghs-color-black);
+        color: var(--ghs-color-gray);
       }
     }
   }

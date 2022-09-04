@@ -130,9 +130,8 @@
   </ng-container>
   <ng-container *ngIf="cardPopup">
     <div class="card-container ability" (click)="close()">
-      <div class="card" #card [style.fontSize]="card.offsetWidth * 0.03 + 'px'">
+      <div class="card" #card [style.fontSize]="card.offsetWidth * 0.035 + 'px'" [ngClass]="{'flipped' : opened && cardPopup}">
         <div class="card-back ability-back">
-          <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
           <span class="name">{{'data.monster.' + monster.name | ghsLabel}}</span>
         </div>
         <div class="card-front ability-front"

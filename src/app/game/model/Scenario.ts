@@ -8,8 +8,4 @@ export class Scenario extends ScenarioData {
     super(scenarioData.name, scenarioData.index, scenarioData.unlocks, scenarioData.blocks, scenarioData.requires, scenarioData.links, scenarioData.monsters, scenarioData.allies, scenarioData.objectives, scenarioData.edition, scenarioData.group, scenarioData.spoiler);
     this.custom = custom;
   }
-
-  override toModel(): GameScenarioModel {
-    return new GameScenarioModel(this.index, this.edition, this.group, this.custom ? this.name : "");
-  }
 }

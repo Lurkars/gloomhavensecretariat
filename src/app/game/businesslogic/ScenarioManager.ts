@@ -171,4 +171,8 @@ export class ScnearioManager {
     return new ScenarioData(sectionData.name, sectionData.index, sectionData.unlocks, sectionData.blocks, sectionData.requires, sectionData.links, sectionData.monsters, sectionData.allies, sectionData.objectives, sectionData.edition, sectionData.group, sectionData.spoiler);
 
   }
+
+  toModel(scenarioData: ScenarioData, custom: string = ""): GameScenarioModel {
+    return new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group, custom);
+  }
 }

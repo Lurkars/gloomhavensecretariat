@@ -52,10 +52,6 @@ export class MainComponent implements OnInit {
     });
   }
 
-  figures(column: number): Figure[] {
-    return gameManager.game.figures.slice(this.columnSize * column, this.columnSize + (gameManager.game.figures.length * column - this.columnSize * column));
-  }
-
   calcColumns(scrollTo: HTMLElement | undefined = undefined): void {
     if (settingsManager.settings.disableColumns) {
       this.columns = 1;
