@@ -170,7 +170,11 @@
         "reorder": "{0} AM Karten anordnen ",
         "removeCard": "Karte {1} von {0} AM Karten entfernen",
         "addCard": "Karte {1} zu {0} AM Karten hinzufügen",
-        "addCardShuffled": "Neue {1} Karte in {0] AM Karten mischen"
+        "addCardShuffled": "Neue {1} Karte in {0} AM Karten mischen",
+        "addCurse": "Fluch zu {0} AM Karten zufügen",
+        "removeCurse": "Fluch von {0} AM Karten entfernen",
+        "addBless": "Segen zu {0} AM Karten zufügen",
+        "removeBless": "Segen von {0} AM Karten entfernen"
       },
       "updateBonusAdjustment": "Anpassung Boni Szenariostufe {0}",
       "updateElement": "Element {0} {1}",
@@ -371,6 +375,7 @@
     "levelAdjustment": "Anpassung Szenariostufe",
     "bonusAdjustment": "Anpassung Boni Szenariostufe",
     "ge5Player": "≥ 5 Spieler Regeln",
+    "helperDefaults": "Orig. Helper Einstellungen anwenden",
     "locale": {
       ".": "Sprache",
       "en": "Englisch (English)",
@@ -613,7 +618,21 @@
     },
     "attackModifiers": {
       ".": "Angriffsmodifikatordeck",
-      "openDialog": "Angriffsmodifikatordeck anzeigen"
+      "openDialog": "Angriffsmodifikatordeck anzeigen",
+      "types": {
+        "plus0": "Plus 0",
+        "plus1": "Plus 1",
+        "plus2": "Plus 2",
+        "plus3": "Plus 3",
+        "plus4": "Plus 4",
+        "minus1": "Minus 1",
+        "minus2": "Minus 2",
+        "null": "Null",
+        "double": "Doppelt",
+        "bless": "Segen",
+        "curse": "Fluch",
+        "invalid": "Ungültig"
+      }
     },
     "figure": {
       "startTurn": "Zug beginnen",
