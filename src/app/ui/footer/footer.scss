@@ -37,9 +37,11 @@ footer {
     top: 0;
     left: 0;
     width: 100%;
-    height:100%;
+    height: 100%;
     background-image: url('~/src/assets/images/bar.png');
-    background-size: cover;
+    background-size: 100% 105%;
+    background-position: top left;
+    background-repeat: no-repeat;
     z-index: -1;
   }
 
@@ -124,6 +126,10 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  ghs-level {
+    margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor) * var(--ghs-barsize));
+  }
 }
 
 .hint-container {

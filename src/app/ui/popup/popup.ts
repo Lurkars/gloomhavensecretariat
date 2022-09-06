@@ -17,6 +17,15 @@ export class PopupComponent implements OnInit {
   ngOnInit(): void {
     this.popup.nativeElement.classList.add('popup');
 
+    let closeBtn = window.document.createElement("span");
+    closeBtn.classList.add('close');
+
+    closeBtn.addEventListener('click', () => {
+      this.close();
+    })
+
+    this.popup.nativeElement.appendChild(closeBtn);
+
     if (this.popup.nativeElement.parentElement) {
       this.popup.nativeElement.parentElement.removeChild(this.popup.nativeElement);
     }

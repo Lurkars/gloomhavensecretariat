@@ -14,12 +14,10 @@
 
 .character-sheet-dialog {
   background-color: var(--ghs-color-white);
-  display: flex;
-  text-align: left;
 
   .container {
     width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
-    height: calc(var(--ghs-unit) * 91.5 * var(--ghs-dialog-factor));
+    height: calc(var(--ghs-unit) * 94 * var(--ghs-dialog-factor));
     background-image: url('~src/assets/images/character/character-sheet.svg');
     background-position: top center;
     background-repeat: no-repeat;
@@ -182,6 +180,7 @@
         font-family: 'ghs-text';
         display: flex;
         flex-direction: column;
+        height: 100%;
 
         .button {
           cursor: pointer;
@@ -254,20 +253,60 @@
         }
 
         .item-form {
-          display: flex;
-          margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+          display: grid;
+          border-top: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor)) dashed var(--ghs-color-black);
+          grid-template-columns: 0.5fr 1fr 2fr 1fr 0.5fr;
+          row-gap: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+          padding-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+          margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) 0;
+          max-width: calc(var(--ghs-unit) * 33 * var(--ghs-dialog-factor));
 
-          button,
+          input {
+            width: auto;
+            min-width: 0;
+          }
+
+          .button,
           select {
             display: flex;
             border: none;
             background: none;
           }
+
+          .button {
+            justify-self: center;
+          }
+
+          .prev {
+            grid-column: 1;
+          }
+
+          .next {
+            grid-column: 5;
+          }
+
+          .next,
+          .prev {
+            cursor: pointer;
+            grid-row-start: 1;
+            grid-row-end: 3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &.disabled {
+              pointer-events: none;
+
+              img {
+                filter: var(--ghs-filter-gray);
+              }
+            }
+          }
         }
 
         img {
-          width: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
-          height: auto;
+          width: auto;
+          height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
         }
       }
     }
@@ -424,7 +463,8 @@
         justify-content: space-between;
       }
 
-      .personal-quest, .retirements {
+      .personal-quest,
+      .retirements {
         margin-top: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
         margin-left: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
         margin-bottom: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));

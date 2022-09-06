@@ -1,4 +1,3 @@
-
 .attack-modifiers {
   position: relative;
   width: 100%;
@@ -16,7 +15,7 @@
     background-repeat: no-repeat;
     background-image: url('~src/assets/images/attackmodifier/back.png');
     border-radius: 5%;
-  
+
     .number {
       color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
@@ -25,13 +24,13 @@
       right: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
       bottom: 0;
       z-index: 500;
-  
+
       img {
         width: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
         height: auto;
       }
     }
-  
+
     .shuffle {
       height: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
       width: auto;
@@ -192,6 +191,60 @@
       }
     }
 
+    .curse-bless {
+
+      display: flex;
+
+      span.item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+        width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+      }
+
+      a {
+        cursor: pointer;
+        font-size: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+        color: var(--ghs-color-white);
+        text-shadow: var(--ghs-outline);
+
+        .ghs-svg {
+          filter: var(--ghs-filter-gray);
+        }
+
+        &:hover {
+          .ghs-svg {
+            filter: var(--ghs-filter-white);
+          }
+        }
+
+        &.disabled {
+          pointer-events: none;
+          color: var(--ghs-color-darkgray);
+
+          .ghs-svg {
+            filter: var(--ghs-filter-darkgray) !important;
+          }
+        }
+      }
+
+      img {
+        height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+        width: auto;
+      }
+
+      .badge {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        color: var(--ghs-color-white);
+        font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        text-shadow: var(--ghs-outline);
+      }
+    }
+
     input[type="checkbox"] {
       cursor: pointer;
       appearance: none;
@@ -266,9 +319,14 @@
     }
   }
 
+  .drop-list {
+    position: relative;
+  }
+
   .attack-modifiers-container {
     display: flex;
-    width: 100%;
+    width: calc(var(--ghs-unit) * 60 * var(--ghs-dialog-factor));
+    overflow: auto;
 
     .upcoming,
     .disgarded {
@@ -277,7 +335,7 @@
       align-items: center;
       overflow-y: auto;
       overflow-x: hidden;
-      width: calc(var(--ghs-unit) * 32 * var(--ghs-dialog-factor));
+      width: calc(var(--ghs-unit) * 30 * var(--ghs-dialog-factor));
       margin: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 
       .attack-modifier-container,
@@ -303,11 +361,15 @@
       }
 
       .empty {
-        position: fixed;
+        position: absolute;
+        left: calc(var(--ghs-unit) * 0.8 * var(--ghs-dialog-factor));
+        margin: calc(var(--ghs-unit) * 0.7 * var(--ghs-dialog-factor));
         display: block;
         border-style: dashed;
-        border-width: calc(var(--ghs-unit) * 0.2);
+        border-width: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor));
         border-color: var(--ghs-color-white);
+        width: calc(var(--ghs-unit) * 25.1 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 16.6 * var(--ghs-dialog-factor));
         border-radius: 5%;
       }
 

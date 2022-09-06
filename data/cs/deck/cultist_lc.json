@@ -1,0 +1,181 @@
+{
+  "name": "cultist_lc",
+  "edition": "cs",
+  "abilities": [
+    {
+      "cardId": 604,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "area",
+                  "value": "(1,0,target)|(2,0,target)|(0,1,target)|(1,1,active)|(2,1,target)|(1,2,target)|(2,2,target)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 605,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.ondeath%",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "area",
+                  "value": "(1,0,target)|(2,0,target)|(0,1,target)|(1,1,active)|(2,1,target)|(1,2,target)|(2,2,target)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 606,
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId": 607,
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "cardId": 608,
+      "initiative": 39,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "heal",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 609,
+      "initiative": 63,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.summon% %data.monster.living-corpse% (%monster.normal%)"
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh.cultist.1%"
+        }
+      ]
+    },
+    {
+      "cardId": 610,
+      "initiative": 63,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.summon% %data.monster.living-corpse% (%monster.normal%)"
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.gh.cultist.1%"
+        }
+      ]
+    },
+    {
+      "cardId": 611,
+      "initiative": 31,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "heal",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

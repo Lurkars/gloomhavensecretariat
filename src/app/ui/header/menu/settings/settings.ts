@@ -1,13 +1,12 @@
 import { Component, Input } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 
 @Component({
   selector: 'ghs-settings-menu',
   templateUrl: 'settings.html',
-  styleUrls: [ '../menu.scss' ]
+  styleUrls: [ '../menu.scss', 'settings.scss' ]
 })
 export class SettingsMenuComponent {
 
@@ -111,5 +110,25 @@ export class SettingsMenuComponent {
     } else {
       document.exitFullscreen();
     }
+  }
+
+  helperDefaults(): void {
+    settingsManager.settings.hints = true;
+    settingsManager.settings.dragValues = true;
+    settingsManager.settings.hideStats = true;
+    settingsManager.settings.calculate = true;
+    settingsManager.settings.calculateStats = false;
+    settingsManager.settings.eliteFirst = true;
+    settingsManager.settings.disableStandees = false;
+    settingsManager.settings.randomStandees = false;
+    settingsManager.settings.expireConditions = false;
+    settingsManager.settings.applyConditions = false;
+    settingsManager.settings.activeApplyConditions = false;
+    settingsManager.settings.autoscroll = false;
+    settingsManager.settings.abilityNumbers = false;
+    settingsManager.settings.allyAttackModifierDeck = false;
+    settingsManager.settings.moveElements = true;
+    settingsManager.settings.initiativeRequired = true;
+    settingsManager.storeSettings();
   }
 }

@@ -1,7 +1,9 @@
 <div #container class="attack-modifiers"
   [ngClass]="{'disabled' : gameManager.game.state == GameState.draw, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers}">
 
-  <div #drawCard class="draw" title="{{(gameManager.game.state == GameState.next ? (deck.current == deck.cards.length -1 ? 'game.cards.shuffle' : 'game.cards.draw') : 'game.cards.openDialog') | ghsLabel}}" (click)="click(deck.cards.length + 1)" [ngClass]="{'open-dialog' : gameManager.game.state == GameState.draw}"
+  <div #drawCard class="draw"
+    title="{{(gameManager.game.state == GameState.next ? (deck.current == deck.cards.length -1 ? 'game.cards.shuffle' : 'game.cards.draw') : 'game.cards.openDialog') | ghsLabel}}"
+    (click)="click(deck.cards.length + 1)" [ngClass]="{'open-dialog' : gameManager.game.state == GameState.draw}"
     [style.z-index]="deck.cards.length + 1" [style.fontSize]="drawCard.offsetWidth * 0.08 + 'px'">
     <span class="number" *ngIf="deck.current < deck.cards.length -1">{{
       deck.cards.length - deck.current - 1 }}</span>
@@ -15,8 +17,7 @@
       [style.z-index]="index > deck.current ? deck.cards.length - index : deck.cards.length + index + 1"
       [ngClass]="{'disgarded' : index < deck.current - 1, 'current' : index == deck.current, 'last' : index == deck.current - 1, 'bottom' : bottom, 'rolling' : attackModifier.rolling, 'open-dialog' : index <= deck.current}"
       [style.left]="attackModifier.rolling && rollingIndex(index) ?  'calc(var(--ghs-unit) * ' + (26 + 10 * (rollingIndex(index) - 1)) + ' * var(--ghs-text-factor))' : ''"
-      title="{{'game.cards.openDialog' | ghsLabel}}"
-      (click)="click(index)">
+      title="{{'game.cards.openDialog' | ghsLabel}}" (click)="click(index)">
     </ghs-attackmodifier>
   </ng-container>
 </div>
@@ -27,7 +28,52 @@
       'game.cards.revealAll' : 'game.cards.revealAllConfirm')) | ghsLabel}}</a>
     <a (click)="shuffle()">{{'game.cards.shuffle' | ghsLabel}}</a>
     <a *ngIf="hasDrawnDiscards()" (click)="removeDrawnDiscards()">{{'game.cards.removeDrawnDiscards' | ghsLabel}}</a>
+
     <label><input type="checkbox" (click)="toggleEdit()" [checked]="edit">{{'game.cards.edit' | ghsLabel}}</label>
+
+    <div class="curse-bless" *ngIf="!edit">
+      <span class="item">
+        <a class="button"
+          [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.bless) == countDrawnAttackModifier(AttackModifierType.bless)}"
+          (click)="changeBless(-1)">
+          <img class="ghs-svg" src="./assets/images/minus.svg">
+        </a>
+      </span>
+      <span class="item" title="{{'game.condition.bless' | ghsLabel}}">
+        <span class="condition">
+          <img src="./assets/images/status/bless.svg" />
+        </span>
+        <span class="badge bless-count">{{countAttackModifier(AttackModifierType.bless)}}</span>
+      </span>
+      <span class="item">
+        <a class="button" [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.bless) >= 10}"
+          (click)="changeBless(1)">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </a>
+      </span>
+
+      <span class="item">
+        <a class="button"
+          [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.curse) == countDrawnAttackModifier(AttackModifierType.curse)}"
+          (click)="changeCurse(-1)">
+          <img class="ghs-svg" src="./assets/images/minus.svg">
+        </a>
+      </span>
+      <span class="item" title="{{'game.condition.curse' | ghsLabel}}">
+        <span class="condition">
+          <img src="./assets/images/status/curse.svg" />
+        </span>
+        <span class="badge curse-count">{{countAttackModifier(AttackModifierType.curse)}}</span>
+      </span>
+      <span class="item">
+        <a class="button" [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.curse) >= 10}"
+          (click)="changeCurse(1)">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </a>
+      </span>
+    </div>
+
+
     <a *ngIf="edit" (click)="restoreDefault()">{{'game.cards.restore' | ghsLabel}}</a>
     <div *ngIf="edit" class="insert-menu">
       <a class="icon-button" (click)="newFirst(type)"><img class="ghs-svg" src="./assets/images/plus.svg"></a>
@@ -37,32 +83,36 @@
       <a class="icon-button" (click)="newShuffle(type)"><img class="ghs-svg" src="./assets/images/shuffle.svg"></a>
     </div>
   </div>
-  <div class="attack-modifiers-container" [style.maxHeight]="maxHeight">
-    <div class="upcoming drop-list" cdkDropList [cdkDropListDisabled]="!edit" #upcomingList="cdkDropList"
-      [cdkDropListConnectedTo]="disgardedList" (cdkDropListDropped)="dropUpcoming($event)"
-      [cdkDropListAutoScrollStep]="20">
-      <div class="empty" *ngIf="upcomingCards().length == 0"></div>
-      <div class="attack-modifier-container" *ngFor="let attackModifier of upcomingCards(); let index = index" cdkDrag>
-        <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
-          [reveal]="true" [flipped]="reveal == 2 || attackModifier.revealed" [characterIcon]="characterIcon">
-        </ghs-attackmodifier>
-        <a class="button-remove" *ngIf="edit" (click)="remove(index + deck.current + 1)"><img class="ghs-svg"
-            src="./assets/images/minus.svg"></a>
-        <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
+  <div class="scroll-container">
+    <div class="attack-modifiers-container" [style.maxHeight]="maxHeight">
+      <div class="upcoming drop-list" cdkDropList [cdkDropListDisabled]="!edit" #upcomingList="cdkDropList"
+        [cdkDropListConnectedTo]="disgardedList" (cdkDropListDropped)="dropUpcoming($event)"
+        [cdkDropListAutoScrollStep]="20">
+        <div class="empty" *ngIf="upcomingCards().length == 0"></div>
+        <div class="attack-modifier-container" *ngFor="let attackModifier of upcomingCards(); let index = index"
+          cdkDrag>
+          <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
+            [reveal]="true" [flipped]="reveal == 2 || attackModifier.revealed" [characterIcon]="characterIcon">
+          </ghs-attackmodifier>
+          <a class="button-remove" *ngIf="edit" (click)="remove(index + deck.current + 1)"><img class="ghs-svg"
+              src="./assets/images/minus.svg"></a>
+          <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
+        </div>
       </div>
-    </div>
 
-    <div class="disgarded drop-list" cdkDropList [cdkDropListDisabled]="!edit" #disgardedList="cdkDropList"
-      [cdkDropListConnectedTo]="upcomingList" (cdkDropListDropped)="dropDisgarded($event)"
-      [cdkDropListAutoScrollStep]="20">
-      <div class="empty"></div>
+      <div class="disgarded drop-list" cdkDropList [cdkDropListDisabled]="!edit" #disgardedList="cdkDropList"
+        [cdkDropListConnectedTo]="upcomingList" (cdkDropListDropped)="dropDisgarded($event)"
+        [cdkDropListAutoScrollStep]="20">
+        <div class="empty"></div>
 
-      <div class="attack-modifier-container" *ngFor="let attackModifier of disgardedCards(); let index = index" cdkDrag>
-        <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
-          [flipped]="true" [characterIcon]="characterIcon"></ghs-attackmodifier>
-        <a class="button-remove" *ngIf="edit" (click)="remove(deck.current - index)"><img class="ghs-svg"
-            src="./assets/images/minus.svg"></a>
-        <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
+        <div class="attack-modifier-container" *ngFor="let attackModifier of disgardedCards(); let index = index"
+          cdkDrag>
+          <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
+            [flipped]="true" [characterIcon]="characterIcon"></ghs-attackmodifier>
+          <a class="button-remove" *ngIf="edit" (click)="remove(deck.current - index)"><img class="ghs-svg"
+              src="./assets/images/minus.svg"></a>
+          <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
+        </div>
       </div>
     </div>
   </div>

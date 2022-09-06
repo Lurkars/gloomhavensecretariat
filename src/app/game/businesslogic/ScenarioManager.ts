@@ -36,7 +36,7 @@ export class ScnearioManager {
     })
 
     if (success && this.game.party && this.game.scenario) {
-      this.game.party.scenarios.push(new GameScenarioModel(this.game.scenario.index, this.game.scenario.edition, this.game.scenario.group));
+      this.game.party.scenarios.push(new GameScenarioModel(this.game.scenario.index, this.game.scenario.edition, this.game.scenario.group, this.game.scenario.custom ? this.game.scenario.name : ""));
       this.game.party.manualScenarios = this.game.party.manualScenarios.filter((identifier) => this.game.scenario && (this.game.scenario.index != identifier.index || this.game.scenario.edition != identifier.edition || this.game.scenario.group != identifier.group));
     }
 
@@ -138,13 +138,13 @@ export class ScnearioManager {
     return blocked;
   }
 
-  scenarioUndoArgs(scenario: ScenarioData | undefined = undefined): string[] {
+  scenarioUndoArgs(scenario: Scenario | undefined = undefined): string[] {
     scenario = scenario || gameManager.game.scenario;
     if (!scenario) {
       return [ "", "", "" ];
     }
 
-    return [ scenario.index, "data.scenario." + scenario.name, 'data.edition.' + scenario.edition ];
+    return [ scenario.index, "data.scenario." + scenario.name, scenario.custom ? 'scenario.custom' : 'data.edition.' + scenario.edition ];
   }
 
   scenarioDataForModel(model: GameScenarioModel): ScenarioData | undefined {

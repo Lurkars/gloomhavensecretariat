@@ -34,6 +34,13 @@
 
   <ghs-highlight-conditions [entity]="character"></ghs-highlight-conditions>
 
+  <div *ngIf="character.attackModifierDeckVisible" class="attack-modifierdeck-container">
+    <ghs-attackmodifier-deck [character]="character" (before)="beforeAttackModifierDeck($event)"
+      (after)="afterAttackModifierDeck($event)">
+    </ghs-attackmodifier-deck>
+    <div class="attack-modifierdeck-close" (click)="toggleAttackModifierDeckVisible()"></div>
+  </div>
+
   <div class="stats">
     <div class="column col-1" (click)="toggle()">
       <div #button class="title"><img class="icon" [src]="characterManager.characterIcon(character)" />
@@ -61,13 +68,6 @@
           </span>
         </div>
       </div>
-    </div>
-
-    <div *ngIf="character.attackModifierDeckVisible" class="attack-modifierdeck-container">
-      <ghs-attackmodifier-deck [character]="character" (before)="beforeAttackModifierDeck($event)"
-        (after)="afterAttackModifierDeck($event)">
-      </ghs-attackmodifier-deck>
-      <div class="attack-modifierdeck-close" (click)="toggleAttackModifierDeckVisible()"></div>
     </div>
 
     <span class="spacer" (click)="toggle()"></span>

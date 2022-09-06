@@ -228,9 +228,6 @@ ghs-action {
 
 .abilities-popup {
 
-  width: calc(var(--ghs-unit) * 84 * var(--ghs-text-factor));
-  max-width: initial;
-
   .menu {
     display: flex;
     justify-content: space-evenly;
@@ -297,9 +294,14 @@ ghs-action {
     }
   }
 
+  .drop-list {
+    position: relative;
+  }
+
   .abilities-container {
     display: flex;
     margin: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+    width: calc(var(--ghs-unit) * 80 * var(--ghs-text-factor));
     max-height: 80vh;
 
     .upcoming,
@@ -309,7 +311,7 @@ ghs-action {
       overflow-y: auto;
       overflow-x: hidden;
       padding: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
-      min-width: calc(var(--ghs-unit) * 37 * var(--ghs-text-factor));
+      width: calc(var(--ghs-unit) * 40 * var(--ghs-text-factor));
 
       .ability,
       .empty {
@@ -459,9 +461,13 @@ ghs-action {
       }
 
       .empty {
-        border-radius: calc(var(--ghs-unit) * 1);
-        position: fixed;
+        position: absolute;
+        left: calc(var(--ghs-unit) * 0.9 * var(--ghs-text-factor));
         display: block;
+        margin: calc(var(--ghs-unit) * 0.7 * var(--ghs-text-factor));
+        width: calc(var(--ghs-unit) * 36.6 * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 23.3 * var(--ghs-text-factor));
+        border-radius: calc(var(--ghs-unit) * 1);
         border-style: dashed;
         border-width: calc(var(--ghs-unit) * 0.2);
         border-color: var(--ghs-color-white);

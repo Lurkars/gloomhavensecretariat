@@ -3,6 +3,7 @@ import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager
 import { GameScenarioModel, ScenarioData } from "src/app/game/model/data/ScenarioData";
 
 import { Party } from "src/app/game/model/Party";
+import { Scenario } from "src/app/game/model/Scenario";
 
 import { PopupComponent } from "src/app/ui/popup/popup";
 
@@ -166,7 +167,7 @@ export class PartySheetDialog extends PopupComponent {
   }
 
   addSuccess(scenarioData: ScenarioData) {
-    gameManager.stateManager.before("finishScenario.success", ...gameManager.scenarioManager.scenarioUndoArgs(scenarioData));
+    gameManager.stateManager.before("finishScenario.success", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
     this.party.scenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group));
     gameManager.game.party = this.party;
     gameManager.stateManager.after();
@@ -177,7 +178,7 @@ export class PartySheetDialog extends PopupComponent {
   removeSuccess(scenarioData: ScenarioData) {
     const value = this.party.scenarios.find((value) => value.index == scenarioData.index && value.edition == scenarioData.edition && value.group == scenarioData.group);
     if (value) {
-      gameManager.stateManager.before("finishScenario.remove", ...gameManager.scenarioManager.scenarioUndoArgs(scenarioData));
+      gameManager.stateManager.before("finishScenario.remove", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
       this.party.scenarios.splice(this.party.scenarios.indexOf(value), 1);
       gameManager.game.party = this.party;
       gameManager.stateManager.after();
@@ -188,7 +189,7 @@ export class PartySheetDialog extends PopupComponent {
   removeManual(scenarioData: ScenarioData) {
     const value = this.party.manualScenarios.find((value) => value.index == scenarioData.index && value.edition == scenarioData.edition && value.group == scenarioData.group);
     if (value) {
-      gameManager.stateManager.before("removeManualScenario", ...gameManager.scenarioManager.scenarioUndoArgs(scenarioData));
+      gameManager.stateManager.before("removeManualScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
       this.party.manualScenarios.splice(this.party.manualScenarios.indexOf(value), 1);
       gameManager.game.party = this.party;
       gameManager.stateManager.after();

@@ -48,89 +48,92 @@
           ghsLabel}}</label>
       </div>
     </div>
-    <div *ngIf="opened" class="abilities-container" [style.maxHeight]="maxHeight">
-      <div class="upcoming drop-list" cdkDropList [cdkDropListDisabled]="!edit" #upcomingList="cdkDropList"
-        [cdkDropListConnectedTo]="disgardedList" (cdkDropListDropped)="dropUpcoming($event)"
-        [cdkDropListAutoScrollStep]="20">
-        <div class="empty" *ngIf="upcomingCards().length == 0"></div>
-        <ng-container *ngFor="let ability of upcomingCards();let index = index;">
-          <div class="card-container ability drag-hidden" cdkDrag
-            [ngClass]="{'bottom-ability' : ability && ability.bottomActions && ability.bottomActions.length > 0}">
-            <div class="card" card-reveal [ngClass]="{'flipped' : reveal == 2}">
-              <div class="card-back ability-back">
-                <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
-                <span class="name">{{'data.monster.' + monster.name | ghsLabel}}</span>
-              </div>
-              <div class="card-front ability-front"
-                [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0}"
-                *ngIf="ability">
-                <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
-                <span class="name">{{abilityLabel(ability)}}</span>
-                <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="1" [hint]="ability.hint"
-                  [statsCalculation]="true">
-                </ghs-actions>
-                <ng-container *ngIf="ability.bottomActions && ability.bottomActions.length > 0">
-                  <span class="level" *ngIf="ability.level || ability.level == 0">{{ability.level}}</span>
-                  <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [hexSize]="1" [hint]="ability.hint"
+    <div *ngIf="opened" class="scroll-container">
+      <div class="abilities-container" [style.maxHeight]="maxHeight">
+        <div class="upcoming drop-list" cdkDropList [cdkDropListDisabled]="!edit" #upcomingList="cdkDropList"
+          [cdkDropListConnectedTo]="disgardedList" (cdkDropListDropped)="dropUpcoming($event)"
+          [cdkDropListAutoScrollStep]="20">
+          <div class="empty" *ngIf="upcomingCards().length == 0"></div>
+          <ng-container *ngFor="let ability of upcomingCards();let index = index;">
+            <div class="card-container ability drag-hidden" cdkDrag
+              [ngClass]="{'bottom-ability' : ability && ability.bottomActions && ability.bottomActions.length > 0}">
+              <div class="card" card-reveal [ngClass]="{'flipped' : reveal == 2}">
+                <div class="card-back ability-back">
+                  <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
+                  <span class="name">{{'data.monster.' + monster.name | ghsLabel}}</span>
+                </div>
+                <div class="card-front ability-front"
+                  [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0}"
+                  *ngIf="ability">
+                  <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
+                  <span class="name">{{abilityLabel(ability)}}</span>
+                  <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="1" [hint]="ability.hint"
                     [statsCalculation]="true">
                   </ghs-actions>
-                </ng-container>
-                <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
-                <span class="index"
-                  *ngIf="!ability.cardId && settingsManager.settings.abilityNumbers">[{{abilityIndex(ability) +
-                  1}}]</span>
-                <span class="index"
-                  *ngIf="ability.cardId && settingsManager.settings.abilityNumbers">{{ability.cardId}}</span>
+                  <ng-container *ngIf="ability.bottomActions && ability.bottomActions.length > 0">
+                    <span class="level" *ngIf="ability.level || ability.level == 0">{{ability.level}}</span>
+                    <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [hexSize]="1"
+                      [hint]="ability.hint" [statsCalculation]="true">
+                    </ghs-actions>
+                  </ng-container>
+                  <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
+                  <span class="index"
+                    *ngIf="!ability.cardId && settingsManager.settings.abilityNumbers">[{{abilityIndex(ability) +
+                    1}}]</span>
+                  <span class="index"
+                    *ngIf="ability.cardId && settingsManager.settings.abilityNumbers">{{ability.cardId}}</span>
+                </div>
+                <a class="button-remove" *ngIf="edit" (click)="remove(index)"><img class="ghs-svg"
+                    src="./assets/images/minus.svg"></a>
               </div>
-              <a class="button-remove" *ngIf="edit" (click)="remove(index)"><img class="ghs-svg"
-                  src="./assets/images/minus.svg"></a>
+              <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
             </div>
-            <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
-          </div>
-        </ng-container>
-      </div>
+          </ng-container>
+        </div>
 
-      <div class="disgarded  drop-list" cdkDropList [cdkDropListDisabled]="!edit" #disgardedList="cdkDropList"
-        [cdkDropListConnectedTo]="upcomingList" (cdkDropListDropped)="dropDisgarded($event)"
-        [cdkDropListAutoScrollStep]="20">
-        <div class="empty"></div>
-        <ng-container *ngFor="let ability of disgardedCards();">
-          <div class="card-container ability drag-hidden" cdkDrag
-            [ngClass]="{'bottom-ability' : ability && ability.bottomActions && ability.bottomActions.length > 0}">
-            <div class="card" [ngClass]="{'flipped' : ability}">
-              <div class="card-back ability-back">
-                <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
-                <span class="name">{{'data.monster.' + monster.name | ghsLabel}}</span>
+        <div class="disgarded  drop-list" cdkDropList [cdkDropListDisabled]="!edit" #disgardedList="cdkDropList"
+          [cdkDropListConnectedTo]="upcomingList" (cdkDropListDropped)="dropDisgarded($event)"
+          [cdkDropListAutoScrollStep]="20">
+          <div class="empty"></div>
+          <ng-container *ngFor="let ability of disgardedCards();">
+            <div class="card-container ability drag-hidden" cdkDrag
+              [ngClass]="{'bottom-ability' : ability && ability.bottomActions && ability.bottomActions.length > 0}">
+              <div class="card" [ngClass]="{'flipped' : ability}">
+                <div class="card-back ability-back">
+                  <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
+                  <span class="name">{{'data.monster.' + monster.name | ghsLabel}}</span>
+                </div>
+                <div class="card-front ability-front"
+                  [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0}">
+                  <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
+                  <span class="name">{{abilityLabel(ability)}}</span>
+                  <ghs-actions [actions]="ability.actions" [monster]="monster" [hint]="ability.hint"
+                    [statsCalculation]="true"></ghs-actions>
+                  <ng-container *ngIf="ability.bottomActions && ability.bottomActions.length > 0">
+                    <span class="level" *ngIf="ability.level || ability.level == 0">{{ability.level}}</span>
+                    <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [hexSize]="1"
+                      [hint]="ability.hint" [statsCalculation]="true">
+                    </ghs-actions>
+                  </ng-container>
+                  <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
+                  <span class="index"
+                    *ngIf="!ability.cardId && settingsManager.settings.abilityNumbers">[{{abilityIndex(ability) +
+                    1}}]</span>
+                  <span class="index"
+                    *ngIf="ability.cardId && settingsManager.settings.abilityNumbers">{{ability.cardId}}</span>
+                </div>
               </div>
-              <div class="card-front ability-front"
-                [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0}">
-                <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
-                <span class="name">{{abilityLabel(ability)}}</span>
-                <ghs-actions [actions]="ability.actions" [monster]="monster" [hint]="ability.hint"
-                  [statsCalculation]="true"></ghs-actions>
-                <ng-container *ngIf="ability.bottomActions && ability.bottomActions.length > 0">
-                  <span class="level" *ngIf="ability.level || ability.level == 0">{{ability.level}}</span>
-                  <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [hexSize]="1" [hint]="ability.hint"
-                    [statsCalculation]="true">
-                  </ghs-actions>
-                </ng-container>
-                <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
-                <span class="index"
-                  *ngIf="!ability.cardId && settingsManager.settings.abilityNumbers">[{{abilityIndex(ability) +
-                  1}}]</span>
-                <span class="index"
-                  *ngIf="ability.cardId && settingsManager.settings.abilityNumbers">{{ability.cardId}}</span>
-              </div>
+              <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
             </div>
-            <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
-          </div>
-        </ng-container>
+          </ng-container>
+        </div>
       </div>
     </div>
   </ng-container>
   <ng-container *ngIf="cardPopup">
     <div class="card-container ability" (click)="close()">
-      <div class="card" #card [style.fontSize]="card.offsetWidth * 0.035 + 'px'" [ngClass]="{'flipped' : opened && cardPopup}">
+      <div class="card" #card [style.fontSize]="card.offsetWidth * 0.035 + 'px'"
+        [ngClass]="{'flipped' : opened && cardPopup}">
         <div class="card-back ability-back">
           <span class="name">{{'data.monster.' + monster.name | ghsLabel}}</span>
         </div>

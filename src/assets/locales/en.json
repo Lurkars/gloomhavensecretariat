@@ -96,7 +96,7 @@
       "removeAllChars": "Remove all chars",
       "removeAllMonster": "Remove all monster",
       "removeAllObjectives": "Remove all objectives",
-      "removeBless": "Remove bless from {0}",
+      "removeBless": "Remove Bless from {0}",
       "removeChar": "Remove character {0}",
       "removeCondition": {
         "char": "Remove {1} from {0}",
@@ -104,9 +104,9 @@
         "monster": "Remove {2} from '{1}' of {0}",
         "summon": "Remove {2} from '{1}' of {0}"
       },
-      "removeCurse": "Remove curse from {0}",
-      "removeEntityBless": "Remove bless from {0} standee {2}",
-      "removeEntityCurse": "Remove curse from {0} standee {2}",
+      "removeCurse": "Remove Curse from {0}",
+      "removeEntityBless": "Remove Bless from {0} standee {2}",
+      "removeEntityCurse": "Remove Curse from {0} standee {2}",
       "removeEntityMarker": "Remove {2} marker from {0} standee {1}",
       "removeItem": "Remove Item {1} (%data.edition.{2}%) from {0}",
       "removeManualScenario": "Remove scenario #{0} {1} ({2}) from unlocked",
@@ -170,7 +170,11 @@
         "reorder": "Reorder {0} AM deck",
         "removeCard": "Remove card {1} from {0} AM deck ",
         "addCard": "Add {1} card to {0} AM deck",
-        "addCardShuffled": "Shuffle new {1} card into {0} AM deck"
+        "addCardShuffled": "Shuffle new {1} card into {0} AM deck",
+        "addCurse": "Add Curse to {0} AM deck",
+        "removeCurse": "Remove Curse from {0} AM deck",
+        "addBless": "Add Bless to {0} AM deck",
+        "removeBless": "Remove Bless from {0} AM deck"
       },
       "updateBonusAdjustment": "Bonuses adjustment {0}",
       "updateElement": "Element {0} {1}",
@@ -315,8 +319,8 @@
     ".": "Summon",
     "addCustom": "Summon '{0}'",
     "name": "Name",
-    "state" : {
-      "." : "State",
+    "state": {
+      ".": "State",
       "new": "New",
       "true": "Active",
       "false": "Inactive"
@@ -371,6 +375,7 @@
     "levelAdjustment": "Scenario level adjustment",
     "bonusAdjustment": "Level bonuses adjustment",
     "ge5Player": "≥ 5 player rules",
+    "helperDefaults": "Apply default Helper settings",
     "locale": {
       ".": "Language",
       "en": "English",
@@ -616,7 +621,21 @@
     },
     "attackModifiers": {
       ".": "Attack Modifier Deck",
-      "openDialog": "Show Attack Modifier Deck"
+      "openDialog": "Show Attack Modifier Deck",
+      "types": {
+        "plus0": "Plus 0",
+        "plus1": "Plus 1",
+        "plus2": "Plus 2",
+        "plus3": "Plus 3",
+        "plus4": "Plus 4",
+        "minus1": "Minus 1",
+        "minus2": "Minus 2",
+        "null": "Null",
+        "double": "Double",
+        "bless": "Bless",
+        "curse": "Curse",
+        "invalid": "Invalid"
+      }
     },
     "figure": {
       "startTurn": "Start turn",

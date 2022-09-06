@@ -216,9 +216,8 @@
     "name": "Cultist Cave",
     "edition": "cs",
     "monsters": [
-      "cultist",
+      "cultist_lc",
       "deep-terror",
-      "living-bones",
       "living-corpse"
     ]
   },

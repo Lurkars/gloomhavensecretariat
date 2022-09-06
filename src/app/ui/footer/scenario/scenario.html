@@ -5,8 +5,7 @@
     ghsLabel}}</span>
   <div class="sections" *ngIf="gameManager.game.sections && gameManager.game.sections.length > 0">
     <ng-container *ngFor="let section of gameManager.game.sections; let index = index;">
-      <span class="section">{{'data.section.' + section.name | ghsLabel}}</span>
-      <span *ngIf="index < gameManager.game.sections.length -1">&nbsp;|&nbsp;</span>
+      <span class="section">#{{section.index}} {{'data.section.' + section.name | ghsLabel}}</span>
     </ng-container>
   </div>
 </div>
@@ -22,8 +21,7 @@
 
   <div class="sections" *ngIf="gameManager.game.sections && gameManager.game.sections.length > 0">
     <ng-container *ngFor="let section of gameManager.game.sections; let index = index;">
-      <span class="section">{{'data.section.' + section.name | ghsLabel}}</span>
-      <span *ngIf="index < gameManager.game.sections.length -1">&nbsp;|&nbsp;</span>
+      <span class="section">#{{section.index}} {{'data.section.' + section.name | ghsLabel}}</span>
     </ng-container>
   </div>
 

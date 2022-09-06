@@ -190,16 +190,20 @@
       </div>
     </div>
   </div>
-
-  <div class="line separator title">
+  <div class="line title separator">
     <label class="disabled">{{'settings.locale' | ghsLabel}}</label>
   </div>
-  <div class="line" *ngFor="let locale of settingsManager.locales"
-    [ngClass]="{'disabled' : settingsManager.settings.locale == locale}">
-    <label>
+  <div class="line locales">
+    <label *ngFor="let locale of settingsManager.locales"
+      [ngClass]="{'disabled' : settingsManager.settings.locale == locale}">
       <input type="checkbox" [checked]="settingsManager.settings.locale == locale"
         (change)="settingsManager.setLocale(locale)">
       {{'settings.locale.' + locale | ghsLabel}}
     </label>
+  </div>
+  <div class="line separator">
+    <a (click)="helperDefaults()">
+      {{'settings.helperDefaults' | ghsLabel}}
+    </a>
   </div>
 </div>

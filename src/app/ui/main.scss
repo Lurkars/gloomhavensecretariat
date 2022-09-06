@@ -68,7 +68,7 @@ main {
   position: absolute;
   cursor: grab;
   top: 0;
-  left: calc(var(--ghs-unit) * -2.5);
+  left: calc(var(--ghs-unit) * (-2.5 + var(--ghs-text-factor)));
   width: calc(var(--ghs-unit) * 8);
   height: 100%;
   z-index: 2;
@@ -99,7 +99,7 @@ main {
   }
 
   &.right {
-    right: calc(var(--ghs-unit) * -2.5);
+    right: calc(var(--ghs-unit) * (-2.5 + var(--ghs-text-factor)));
     left: auto;
 
     &:hover {

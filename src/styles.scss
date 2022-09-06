@@ -36,6 +36,7 @@ body {
 body {
   margin: 0;
   font-family: 'ghs-normal';
+  overscroll-behavior-y: contain;
   --ghs-width: 100px;
   --ghs-factor: 100;
   --ghs-dialog-factor: 1;

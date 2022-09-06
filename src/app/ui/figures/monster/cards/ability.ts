@@ -153,4 +153,11 @@ export class MonsterAbilityComponent extends PopupComponent {
   defaultSort() {
     this.monster.abilities = this.monster.abilities.sort((a, b) => a - b);
   }
+
+  override open(): void {
+    super.open();
+    setTimeout(() => {
+      this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
+    }, 250);
+  }
 }

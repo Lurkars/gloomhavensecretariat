@@ -71,7 +71,7 @@ export class ScenarioMenuComponent implements OnInit {
   }
 
   setScenario(scenarioData: ScenarioData) {
-    gameManager.stateManager.before("setScenario", ...gameManager.scenarioManager.scenarioUndoArgs(scenarioData));
+    gameManager.stateManager.before("setScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
     gameManager.scenarioManager.setScenario(scenarioData as Scenario)
     gameManager.stateManager.after();
   }
@@ -115,7 +115,7 @@ export class ScenarioMenuComponent implements OnInit {
         const scenarioData = editionData.scenarios.find((scenarioData) => scenarioData.index == number.trim() && scenarioData.group == group);
         if (scenarioData) {
           if (this.scenarios(group).indexOf(scenarioData) == -1) {
-            gameManager.stateManager.before("addManualScenario", ...gameManager.scenarioManager.scenarioUndoArgs(scenarioData));
+            gameManager.stateManager.before("addManualScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
             gameManager.game.party.manualScenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group));
             gameManager.stateManager.after();
           }

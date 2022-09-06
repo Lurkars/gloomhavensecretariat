@@ -52,6 +52,12 @@ export class AttackModifierDeckComponent extends PopupComponent {
   constructor(private element: ElementRef) {
     super();
     this.deck = new AttackModifierDeck();
+    this.element.nativeElement.addEventListener('click', (event: any) => {
+      let elements = document.elementsFromPoint(event.clientX, event.clientY);
+      if (elements[ 0 ].classList.contains('attack-modifiers') && elements.length > 2) {
+        (elements[ 2 ] as HTMLElement).click();
+      }
+    })
   };
 
   override ngOnInit(): void {
@@ -191,17 +197,65 @@ export class AttackModifierDeckComponent extends PopupComponent {
   }
 
   newFirst(type: AttackModifierType) {
-    this.before.emit(new AttackModiferDeckChange(this.deck, "addCard", "game.attackModifier." + type));
+    this.before.emit(new AttackModiferDeckChange(this.deck, "addCard", "game.attackModifiers.types." + type));
     let attackModifier = new AttackModifier(type);
     attackModifier.revealed = true;
     this.deck.cards.splice(this.deck.current + 1, 0, attackModifier);
-    this.after.emit(new AttackModiferDeckChange(this.deck, "addCard", "game.attackModifier." + type));
+    this.after.emit(new AttackModiferDeckChange(this.deck, "addCard", "game.attackModifiers.types." + type));
   }
 
   newShuffle(type: AttackModifierType) {
-    this.before.emit(new AttackModiferDeckChange(this.deck, "addCardShuffled", "game.attackModifier." + type));
+    this.before.emit(new AttackModiferDeckChange(this.deck, "addCardShuffled", "game.attackModifiers.types." + type));
     this.deck.cards.splice(this.deck.current + 1 + Math.random() * (this.deck.cards.length - this.deck.current), 0, new AttackModifier(type));
-    this.after.emit(new AttackModiferDeckChange(this.deck, "addCardShuffled", "game.attackModifier." + type));
+    this.after.emit(new AttackModiferDeckChange(this.deck, "addCardShuffled", "game.attackModifiers.types." + type));
+  }
+
+  curse() {
+    this.newShuffle(AttackModifierType.curse);
+  }
+
+  bless() {
+    this.newShuffle(AttackModifierType.bless);
+  }
+
+  countAttackModifier(type: AttackModifierType): number {
+    return this.deck.cards.filter((attackModifier) => {
+      return attackModifier.type == type;
+    }).length;
+  }
+
+  countDrawnAttackModifier(type: AttackModifierType): number {
+    return this.deck.cards.filter((attackModifier, index) => {
+      return attackModifier.type == type && index <= this.deck.current;
+    }).length;
+  }
+
+  changeAttackModifier(type: AttackModifierType, value: number) {
+    if (value > 0) {
+      if (this.countAttackModifier(type) == 10) {
+        return;
+      }
+      gameManager.attackModifierManager.addModifier(this.deck, new AttackModifier(type));
+    } else if (value < 0) {
+      const card = this.deck.cards.find((attackModifier, index) => {
+        return attackModifier.type == type && index > this.deck.current;
+      });
+      if (card) {
+        this.deck.cards.splice(this.deck.cards.indexOf(card), 1);
+      }
+    }
+  }
+
+  changeBless(value: number) {
+    this.before.emit(new AttackModiferDeckChange(this.deck, value < 0 ? "removeBless" : "addBless"));
+    this.changeAttackModifier(AttackModifierType.bless, value);
+    this.after.emit(new AttackModiferDeckChange(this.deck, value < 0 ? "removeBless" : "addBless"));
+  }
+
+  changeCurse(value: number) {
+    this.before.emit(new AttackModiferDeckChange(this.deck, value < 0 ? "removeCurse" : "addCurse"));
+    this.changeAttackModifier(AttackModifierType.curse, value);
+    this.after.emit(new AttackModiferDeckChange(this.deck, value < 0 ? "removeCurse" : "addCurse"));
   }
 
   onChange(attackModifier: AttackModifier, revealed: boolean) {
@@ -225,7 +279,9 @@ export class AttackModifierDeckComponent extends PopupComponent {
 
   override open(): void {
     super.open();
-    this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
+    setTimeout(() => {
+      this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
+    }, 250);
   }
 
   override close(): void {
