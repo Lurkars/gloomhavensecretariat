@@ -1,17 +1,3 @@
-.character-sheet-button {
-  height: 100%;
-  width: calc(var(--ghs-unit) * 12);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: calc(var(--ghs-unit) * 4);
-
-  img {
-    height: calc(var(--ghs-unit) * 8);
-    width: auto;
-  }
-}
-
 .character-sheet-dialog {
   background-color: var(--ghs-color-white);
 

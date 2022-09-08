@@ -1,23 +1,35 @@
-<div class="monster" [ngClass]="{'off' : monsterOff(), 'denied' : !gameManager.stateManager.hasMonsterPermission(monster)}">
-  <ghs-monster-image [monster]="monster" [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}"></ghs-monster-image>
+<div class="monster"
+  [ngClass]="{'off' : monsterOff(), 'denied' : !gameManager.stateManager.hasMonsterPermission(monster)}">
+  <ghs-monster-image [monster]="monster"
+    [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
+  </ghs-monster-image>
   <ghs-monster-ability [monster]="monster"></ghs-monster-ability>
   <ghs-monster-stats [monster]="monster"></ghs-monster-stats>
-  <ghs-monster-stats-popup [monster]="monster"></ghs-monster-stats-popup>
+
+  <div class="stats-popup-button">
+    <span class="name" (click)="openStatsPopup()">
+      {{'data.monster.' + monster.name | ghsLabel}}
+      <span *ngIf="monster.isAlly">({{'game.ally' | ghsLabel}})</span>
+    </span>
+    <span *ngIf="monster.flying" class="flying"><img class="ghs-svg" src="./assets/images/action/fly.svg" /></span>
+    <span class="edition" *ngIf="getEdition()"> [{{'data.edition.' + getEdition()| ghsLabel}}]</span>
+  </div>
 
   <ghs-monster-numberpicker *ngIf="!monster.boss" class="normal" [monster]="monster" [type]="MonsterType.normal"
     [max]="monster.count" [ngClass]="{'disabled' : nonDead() >= monster.count}">
   </ghs-monster-numberpicker>
   <ghs-monster-numberpicker *ngIf="!monster.boss" class="elite" [monster]="monster" [type]="MonsterType.elite"
-    [max]="monster.count" [left]="true" [ngClass]="{'disabled' : nonDead() >= monster.count}">
+    [max]="monster.count" [ngClass]="{'disabled' : nonDead() >= monster.count}">
   </ghs-monster-numberpicker>
   <ghs-monster-numberpicker *ngIf="monster.boss" class="boss" [monster]="monster" [type]="MonsterType.boss"
     [max]="monster.count" [ngClass]="{'disabled' : nonDead() >= monster.count}">
   </ghs-monster-numberpicker>
-  
+
   <ghs-figure-errors [figure]="monster"></ghs-figure-errors>
 </div>
 
-<div class="entities-container" [ngClass]="{'empty' : emptyEntities() }" *ngIf="!settingsManager.settings.disableStandees">
+<div class="entities-container" [ngClass]="{'empty' : emptyEntities() }"
+  *ngIf="!settingsManager.settings.disableStandees">
   <div class="spacer"></div>
   <div class="entities">
     <ghs-monster-entity *ngFor="let entity of sortedEntites()" [monster]="monster" [entity]="entity">

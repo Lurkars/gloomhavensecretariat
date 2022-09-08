@@ -1,10 +1,10 @@
+import { Dialog, DIALOG_DATA } from '@angular/cdk/dialog';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, ElementRef, EventEmitter, Input, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from 'src/app/game/model/AttackModifier';
 import { Character } from 'src/app/game/model/Character';
 import { GameState } from 'src/app/game/model/Game';
-import { PopupComponent } from '../../popup/popup';
 
 export class AttackModiferDeckChange {
 
@@ -21,13 +21,12 @@ export class AttackModiferDeckChange {
 
 }
 
-
 @Component({
   selector: 'ghs-attackmodifier-deck',
   templateUrl: './attackmodifierdeck.html',
-  styleUrls: [ './attackmodifierdeck.scss', '../../popup/popup.scss' ]
+  styleUrls: [ './attackmodifierdeck.scss' ]
 })
-export class AttackModifierDeckComponent extends PopupComponent {
+export class AttackModifierDeckComponent implements OnInit {
 
   @Input('deck') deck!: AttackModifierDeck;
   @Input('character') character!: Character;
@@ -49,8 +48,7 @@ export class AttackModifierDeckComponent extends PopupComponent {
   drawing: boolean = false;
 
 
-  constructor(private element: ElementRef) {
-    super();
+  constructor(private element: ElementRef, private dialog: Dialog) {
     this.deck = new AttackModifierDeck();
     this.element.nativeElement.addEventListener('click', (event: any) => {
       let elements = document.elementsFromPoint(event.clientX, event.clientY);
@@ -60,8 +58,7 @@ export class AttackModifierDeckComponent extends PopupComponent {
     })
   };
 
-  override ngOnInit(): void {
-    super.ngOnInit();
+  ngOnInit(): void {
     if (this.character) {
       this.deck = this.character.attackModifierDeck;
       this.numeration = "" + this.character.number;
@@ -99,6 +96,82 @@ export class AttackModifierDeckComponent extends PopupComponent {
     }
   }
 
+  rollingIndex(index: number): number {
+    if (!this.deck.cards[ index ].rolling) {
+      return 0;
+    }
+
+    if (index == this.currentAttackModifier - 2) {
+      return 2;
+    } else if (index < this.currentAttackModifier - 2 && this.deck.cards.slice(index, this.currentAttackModifier - 1).every((attackModifier) => attackModifier.rolling)) {
+      return this.currentAttackModifier - index;
+    }
+
+    return 0;
+  }
+
+
+  open() {
+    this.dialog.open(AttackModifierDeckDialogComponent, {
+      panelClass: 'dialog', data: {
+        deck: this.deck,
+        character: this.character,
+        numeration: this.numeration,
+        before: this.before,
+        after: this.after
+      }
+    });
+  }
+
+}
+
+
+@Component({
+  selector: 'ghs-attackmodifier-deck-dialog',
+  templateUrl: './attackmodifierdeck-dialog.html',
+  styleUrls: [ './attackmodifierdeck-dialog.scss', ]
+})
+export class AttackModifierDeckDialogComponent implements OnInit {
+
+  deck: AttackModifierDeck;
+  character: Character;
+  numeration: string = "";
+  before: EventEmitter<AttackModiferDeckChange>;
+  after: EventEmitter<AttackModiferDeckChange>;
+
+  @ViewChild('menu') menuElement!: ElementRef;
+  gameManager: GameManager = gameManager;
+  GameState = GameState;
+  reveal: number = 0;
+  edit: boolean = false;
+  maxHeight: string = "";
+  characterIcon: string = "";
+
+  AttackModifierType = AttackModifierType;
+  type: AttackModifierType = AttackModifierType.minus1;
+  currentAttackModifier: number = -1;
+  drawing: boolean = false;
+
+
+  constructor(@Inject(DIALOG_DATA) private data: { deck: AttackModifierDeck, character: Character, numeration: string, before: EventEmitter<AttackModiferDeckChange>, after: EventEmitter<AttackModiferDeckChange> }) {
+    this.deck = data.deck;
+    this.character = data.character;
+    this.numeration = data.numeration;
+    this.before = data.before;
+    this.after = data.after;
+  };
+
+  ngOnInit(): void {
+    if (this.character) {
+      this.deck = this.character.attackModifierDeck;
+      this.numeration = "" + this.character.number;
+      this.characterIcon = gameManager.characterManager.characterIcon(this.character);
+    }
+    setTimeout(() => {
+      this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
+    }, 250);
+  }
+
   toggleEdit() {
     this.edit = !this.edit;
     setTimeout(() => {
@@ -112,20 +185,6 @@ export class AttackModifierDeckComponent extends PopupComponent {
 
   disgardedCards(): AttackModifier[] {
     return this.deck.cards.filter((AttackModifier, index) => index <= this.deck.current).reverse();
-  }
-
-  rollingIndex(index: number): number {
-    if (!this.deck.cards[ index ].rolling) {
-      return 0;
-    }
-
-    if (index == this.currentAttackModifier - 2) {
-      return 2;
-    } else if (index < this.currentAttackModifier - 2 && this.deck.cards.slice(index, this.currentAttackModifier - 1).every((attackModifier) => attackModifier.rolling)) {
-      return this.currentAttackModifier - index;
-    }
-
-    return 0;
   }
 
   shuffle(): void {
@@ -275,21 +334,6 @@ export class AttackModifierDeckComponent extends PopupComponent {
     if ([ AttackModifierType.invalid, AttackModifierType.plus3, AttackModifierType.plus4 ].indexOf(this.type) != -1) {
       this.changeType(prev);
     }
-  }
-
-  override open(): void {
-    super.open();
-    setTimeout(() => {
-      this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
-    }, 250);
-  }
-
-  override close(): void {
-    super.close();
-    this.reveal = 0;
-    this.deck.cards.forEach((am) => am.revealed = false);
-    this.edit = false;
-    this.type = AttackModifierType.minus1;
   }
 
 }

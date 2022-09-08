@@ -1,0 +1,152 @@
+
+<div class="light party-sheet-dialog">
+  <div class="scroll-container">
+    <div class="container" [ngClass]="{'campaign' : campaign}">
+      <div class="sheet" *ngIf="!campaign">
+        <div class="columns">
+          <div class="column column-left">
+            <div class="row title">
+              <span class="campaign-toggle" (click)="campaign = true">
+                <img src="./assets/images/left.svg">{{'party.campaign' | ghsLabel}}
+              </span>
+              <label class="headline">{{'party.sheet' | ghsLabel}}</label>
+              <span class="spacer"></span>
+            </div>
+            <div class="row name">
+              <label>{{'party.name' | ghsLabel}}:</label>
+              <input type="text" [value]="party.name" (change)="setName($event)"
+                placeholder="{{'party.name' | ghsLabel}}">
+            </div>
+            <div class="row location">
+              <label>{{'party.location' | ghsLabel}}:</label>
+              <input type="text" [value]="party.location" (change)="setLocation($event)"
+                placeholder="{{'party.location' | ghsLabel}}">
+            </div>
+            <div class="row notes">
+              <label>{{'party.notes' | ghsLabel}}:</label>
+              <textarea type="text" [value]="party.notes" (change)="setNotes($event)"
+                placeholder="{{'party.notes' | ghsLabel}}"></textarea>
+            </div>
+            <div class="row achievements">
+              <label>{{'party.achievements' | ghsLabel}}:</label>
+              <textarea type="text" [value]="party.achievements" (change)="setAchievements($event)"
+                placeholder="{{'party.achievements' | ghsLabel}}"></textarea>
+            </div>
+          </div>
+
+          <div class="column column-right">
+            <div class="columns">
+              <div class="column reputation">
+                <label>{{'party.reputation' | ghsLabel}}</label>
+                <div class="grid">
+                  <ng-container *ngFor="let reputation of [] | ghsRange:41">
+                    <span class="value" (click)="setReputation(40 - reputation - 20)"
+                      [ngClass]="{'checked' : party.reputation == 40 - reputation - 20}"></span>
+                    <span class="key">{{40 - reputation - 20 | ghsValueSign}}</span>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="column shop">
+                <label>{{'party.shop' | ghsLabel}}</label>
+                <div class="table">
+                  <div class="value" *ngFor="let value of [] | ghsRange:11"
+                    [ngClass]="{'active' : priceModifier == -5 + value}">
+                    <span *ngIf="value != 5">{{-5 + value | ghsValueSign}}</span>
+                    <span *ngIf="value == 5">{{'party.shop.none' | ghsLabel}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="import-export">
+              <label (click)="exportParty()" title="{{'party.export' |
+          ghsLabel}}"><img src="./assets/images/export.svg"><span>{{'party.export' |
+                  ghsLabel}}</span></label>
+              <label title="{{'party.import' | ghsLabel}}">
+                <input type="file" accept="application/json" (change)="importParty($event)" /><img
+                  src="./assets/images/import.svg"><span>{{'party.import' | ghsLabel}}</span></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="campaign" *ngIf="campaign">
+        <div class="row title">
+          <span class="campaign-toggle" (click)="campaign = false">
+            <img src="./assets/images/left.svg">{{'party.sheet' | ghsLabel}}
+          </span>
+          <label class="headline">{{'party.campaign' | ghsLabel}}</label>
+          <span class="campaign-mode" (click)="toggleCampaignMode()">
+            <span class="checkbox" [ngClass]="{'checked' : party.campaignMode}"></span>{{'party.campaignMode' |
+            ghsLabel}}
+          </span>
+        </div>
+
+        <div class="row title">
+          <label class="headline">{{'party.campaign.scenarios' | ghsLabel}}</label>
+        </div>
+        <div class="row scenarios">
+          <div class="scenario header legend seperator">
+            <span>{{'party.campaign.scenarios.index' | ghsLabel}}</span>
+            <span>{{'party.campaign.scenarios.group' | ghsLabel}}</span>
+            <span>{{'party.campaign.scenarios.name' | ghsLabel}}</span>
+            <span>{{'party.campaign.scenarios.finished' | ghsLabel}}</span>
+          </div>
+          <ng-container *ngFor="let edition of scenarioEditions; let index = index;">
+            <div class="scenario seperator" *ngIf="index > 0"></div>
+            <div class="scenario header" *ngIf="scenarioEditions.length > 1">
+              <span class="span">{{'data.edition.' + edition | ghsLabel}}</span>
+            </div>
+            <div class="scenario" *ngFor="let scenarioData of scenarios[edition]">
+              <span>#<span *ngIf="maxScenario(scenarios[edition]) > 2 && scenarioData.index.length < 3">0</span><span
+                  *ngIf="maxScenario(scenarios[edition]) > 1 && scenarioData.index.length < 2">0</span>{{scenarioData.index}}</span>
+              <span>{{scenarioData.group}}</span>
+              <span [ngClass]="{'blocked' : blocked(scenarioData)}">
+                <img *ngIf="blocked(scenarioData)" src="./assets/images/close.svg">
+                {{'data.scenario.' + scenarioData.name | ghsLabel}}
+              </span>
+              <span>
+                <span class="spacer"></span>
+                <span *ngFor="let success of [] | ghsRange:countFinished(scenarioData)">
+                  <a class="toggle-success" [title]="'party.campaign.scenarios.removeSuccess' | ghsLabel"
+                    (click)="removeSuccess(scenarioData)"><img class="success" src="./assets/images/check.svg"><img
+                      class="remove" src="./assets/images/close.svg"></a>
+                </span>
+                <a class="toggle-manual" [title]="'party.campaign.scenarios.removeManual' | ghsLabel"
+                  (click)="removeManual(scenarioData)" *ngIf="isManual(scenarioData)"><img class="manual"
+                    src="./assets/images/hint.svg"><img class="remove" src="./assets/images/close.svg"></a>
+                <span class="spacer"></span>
+                <a class="add-success" [title]="'party.campaign.scenarios.addSuccess' | ghsLabel"
+                  (click)="addSuccess(scenarioData)"><img src="./assets/images/check.svg"></a>
+              </span>
+            </div>
+          </ng-container>
+        </div>
+
+        <div class="row achievements">
+          <label>{{'party.campaign.achievements' | ghsLabel}}:</label>
+          <textarea type="text" [value]="party.globalAchievements" (change)="setGlobalAchievements($event)"
+            placeholder="{{'party.campaign.achievements' | ghsLabel}}"></textarea>
+        </div>
+
+        <div class="prosperity">
+          <div class="legend">
+            <div class="level">{{'party.prosperity' | ghsLabel}}:</div>
+            <div class="check" (click)="setProsperity(0)">
+              <span class="checkbox checked disabled"></span><span>:</span>
+            </div>
+          </div>
+          <div class="checklist">
+            <div class="tick" *ngFor="let check of []|ghsRange:64; let index = index;"
+              [autoscroll]="party.prosperity == index +1 || party.prosperity == 0 && index == 0">
+              <div class="level" *ngIf="prosperitySteps.indexOf(index) != -1">{{prosperitySteps.indexOf(index) + 2}}
+              </div>
+              <div class="checkbox" (click)="setProsperity(index+1)"
+                [ngClass]="{'checked': party.prosperity > index, 'highlight' : prosperitySteps.indexOf(index) != -1}">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

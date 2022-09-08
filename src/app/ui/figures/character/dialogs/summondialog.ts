@@ -1,26 +1,26 @@
-import { Component, Input } from "@angular/core";
-import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { Component, Inject, Input } from "@angular/core";
+import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 
 import { Character } from "src/app/game/model/Character";
 import { SummonData } from "src/app/game/model/data/SummonData";
 import { EntityValueFunction } from "src/app/game/model/Entity";
 import { Summon, SummonColor, SummonState } from "src/app/game/model/Summon";
 
-import { DialogComponent } from "src/app/ui/dialog/dialog";
-
 @Component({
   selector: 'ghs-character-summondialog',
   templateUrl: 'summondialog.html',
-  styleUrls: [ './summondialog.scss', '../../../dialog/dialog.scss' ]
+  styleUrls: [ './summondialog.scss' ]
 })
-export class CharacterSummonDialog extends DialogComponent {
+export class CharacterSummonDialog {
 
-  @Input() character!: Character;
-
+  gameManager: GameManager = gameManager;
   summonColors: SummonColor[] = Object.values(SummonColor).filter((summonColor) => summonColor != SummonColor.custom);
   summonColor: SummonColor = SummonColor.blue;
   summonNumber: number = 1;
   summonName: string = "";
+
+  constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef) { }
 
   pickNumber(number: number) {
     this.summonNumber = number;
@@ -50,7 +50,7 @@ export class CharacterSummonDialog extends DialogComponent {
     let summon: Summon = new Summon(this.summonName, this.character.level, this.summonNumber, this.summonColor);
     summon.state = SummonState.new;
     gameManager.characterManager.addSummon(this.character, summon);
-    this.close();
+    this.dialogRef.close();
   }
 
   addSummon(summonData: SummonData) {
@@ -69,13 +69,9 @@ export class CharacterSummonDialog extends DialogComponent {
       }
       summon.init = false;
       gameManager.characterManager.addSummon(this.character, summon);
-      this.close();
+      this.dialogRef.close();
       gameManager.stateManager.after();
     }
   }
 
-  override close(): void {
-    super.close();
-    this.summonName = "";
-  }
 }

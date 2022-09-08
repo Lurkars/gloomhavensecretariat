@@ -28,7 +28,7 @@ footer {
     right: 0;
     width: calc(var(--ghs-unit) * 38 * var(--ghs-text-factor) * var(--ghs-barsize));
     height: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor) * var(--ghs-barsize));
-    top: calc(var(--ghs-unit) * -7.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    top: calc(var(--ghs-unit) * -9.5 * var(--ghs-text-factor) * var(--ghs-barsize));
   }
 
   &::before {
@@ -129,35 +129,5 @@ footer {
 
   ghs-level {
     margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor) * var(--ghs-barsize));
-  }
-}
-
-.hint-container {
-
-  font-family: 'ghs-text';
-
-  .hint {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor));
-
-    p {
-      margin: 0;
-      padding: 0;
-      color: var(--ghs-color-gray);
-      font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
-    }
-
-    a {
-      cursor: pointer;
-      margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
-      color: var(--ghs-color-gray);
-      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
-
-      &:hover {
-        color: var(--ghs-color-white);
-      }
-    }
   }
 }

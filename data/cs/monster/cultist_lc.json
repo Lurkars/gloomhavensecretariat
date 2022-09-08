@@ -2,6 +2,7 @@
   "name": "cultist_lc",
   "thumbnail": "gh-cultist",
   "edition": "cs",
+  "hidden": true,
   "count": 6,
   "baseStat": {
     "type": "normal",

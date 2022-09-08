@@ -1,5 +1,9 @@
 <header>
-  <ghs-main-menu></ghs-main-menu>
+  <div class="main-menu">
+    <a #mainMenuButton class="menu-button active-outline" title="{{'menu.main' | ghsLabel}}" (click)="openMenu($event)">
+      <img class="ghs-svg" src="./assets/images/menu.svg">
+    </a>
+  </div>
   <ng-container [ngSwitch]="gameManager.stateManager.wsState()">
     <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection connected"
       *ngSwitchCase="WebSocket.OPEN" [title]="'server.connected' | ghsLabel">
@@ -10,7 +14,7 @@
     <a (click)="gameManager.stateManager.connect()" [title]="'server.reconnected' | ghsLabel"
       *ngSwitchCase="WebSocket.CLOSED" class="server-connection-status">
       <img src="./assets/images/warning.svg" class="ghs-svg server-connection closed"
-      [title]="'server.closed' | ghsLabel">
+        [title]="'server.closed' | ghsLabel">
       <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection closed"
         [title]="'server.closed' | ghsLabel">
     </a>
@@ -23,11 +27,11 @@
   <div class="hints" *ngIf="settingsManager.settings.hints" [ngClass]="{'visible' : init}">
     <ng-container [ngSwitch]="hintState">
       <div *ngSwitchCase="'characters'">
-        <a class="menu-hint" (click)="openMenu(SubMenu.character_add)">{{'hints.addCharacters' | ghsLabel}}</a>
+        <a class="menu-hint" (click)="openMenu($event, SubMenu.character_add)">{{'hints.addCharacters' | ghsLabel}}</a>
       </div>
       <div *ngSwitchCase="'scenario'">
-        <a class="menu-hint" (click)="openMenu(SubMenu.scenario)">{{'hints.setScenario' | ghsLabel}}</a> {{'or' |
-        ghsLabel}} <a class="menu-hint" (click)="openMenu(SubMenu.monster_add)">{{'hints.addMonsters' |
+        <a class="menu-hint" (click)="openMenu($event, SubMenu.scenario)">{{'hints.setScenario' | ghsLabel}}</a> {{'or' |
+        ghsLabel}} <a class="menu-hint" (click)="openMenu($event, SubMenu.monster_add)">{{'hints.addMonsters' |
           ghsLabel}}</a>
       </div>
       <div *ngSwitchDefault>{{'hints.' + hintState | ghsLabel}} </div>

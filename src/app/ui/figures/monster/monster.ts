@@ -1,9 +1,11 @@
+import { Dialog } from '@angular/cdk/dialog';
 import { Component, Input } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { MonsterType } from 'src/app/game/model/MonsterType';
+import { MonsterStatsDialogComponent } from './dialogs/stats-dialog';
 
 @Component({
   selector: 'ghs-monster',
@@ -16,6 +18,8 @@ export class MonsterComponent {
   MonsterType = MonsterType;
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
+
+  constructor(private dialog: Dialog) { }
 
   emptyEntities(): boolean {
     return this.monster.entities.length == 0 || this.monster.entities.every((monsterEntity) => monsterEntity.dead);
@@ -52,4 +56,11 @@ export class MonsterComponent {
     return this.monster.entities.filter((monsterEntity) => !monsterEntity.dead).length;
   }
 
+  getEdition(): string {
+    return gameManager.getEdition(this.monster);
+  }
+
+  openStatsPopup() {
+    this.dialog.open(MonsterStatsDialogComponent, { panelClass: 'dialog', data: this.monster });
+  }
 }

@@ -1,0 +1,171 @@
+.ability {
+  width: 100%;
+  height: 100%;
+  color: var(--ghs-color-white);
+
+  .ability-back,
+  .ability-front {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-position: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    border-radius: 3.5%;
+  }
+
+  .ability-front {
+    background-image: url('~src/assets/images/monster/abilities/monster-ability-front.png');
+    background-position: bottom;
+
+    ghs-actions {
+      position: absolute;
+      top: 17.5%;
+      left: 0;
+      height: 82.5%;
+      width: 100%;
+      font-size: calc(1.7em * var(--ghs-fontsize));
+      overflow: auto;
+      z-index: 1;
+    }
+
+    .name {
+      display: block;
+      position: absolute;
+      top: 0.7%;
+      left: 0;
+      width: 100%;
+      font-family: 'ghs-title';
+      font-size: 1.7em;
+      filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
+      text-align: center;
+    }
+
+    .initiative {
+      position: absolute;
+      font-family: 'ghs-title';
+      font-size: 2.4em;
+      filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
+      top: 15%;
+      left: 4%;
+      text-align: center;
+      width: 11%;
+      height: 17%;
+    }
+
+    .shuffle {
+      position: absolute;
+      bottom: calc(var(--ghs-unit) * 0.5);
+      right: calc(var(--ghs-unit) * 1);
+      z-index: 0;
+      filter: var(--ghs-filter-white);
+      width: 8%;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .index {
+      position: absolute;
+      font-size: 1em;
+      filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
+      bottom: 6.5%;
+      left: 5.5%;
+    }
+
+
+
+    &.bottom-actions {
+      background-image: url('~src/assets/images/monster/abilities/monster-ability-front-bottom.png');
+      background-position: top;
+      background-attachment: local;
+      height: 100%;
+
+      .name {
+        top: 8.5%;
+      }
+
+      .initiative {
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .level {
+        position: absolute;
+        top: calc(var(--ghs-unit) * 6.2);
+        left: 50%;
+        transform: translateX(-50%);
+        color: var(--ghs-color-black);
+        font-size: calc(var(--ghs-unit) * 2);
+        font-family: ghs-title;
+      }
+
+      .shuffle {
+        bottom: calc(var(--ghs-unit) * -1.1);
+      }
+
+      .index {
+        bottom: auto;
+        top: calc(var(--ghs-unit) * 48);
+        left: calc(50% + var(--ghs-unit) * 3.2);
+      }
+
+      overflow-x: unset;
+      overflow-y: auto;
+
+      ghs-actions {
+        position: relative;
+        top: calc(var(--ghs-unit) * 15.5);
+        left: calc(var(--ghs-unit) * 4.3);
+        width: calc(var(--ghs-unit) * 29);
+        min-height: calc(var(--ghs-unit) * 15);
+        max-height: calc(var(--ghs-unit) * 15);
+      }
+
+      ghs-actions:nth-of-type(2) {
+        top: calc(var(--ghs-unit) * 23.2);
+        margin-bottom: calc(var(--ghs-unit) * 3.2);
+      }
+
+      .bottom-scroll {
+        display: block;
+        position: absolute;
+        top: calc(var(--ghs-unit) * 51.5);
+      }
+    }
+
+  }
+
+  .ability-back {
+    background-image: url('~src/assets/images/monster/abilities/monster-ability-back.png');
+
+    .name {
+      position: absolute;
+      bottom: 12%;
+      left: 0;
+      width: 100%;
+      font-family: 'ghs-title';
+      font-size: 1.8em;
+      filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
+      text-align: center;
+    }
+  }
+
+  .confirm {
+    .revealed {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--ghs-color-white);
+      font-size: 2.3em;
+      filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
+    }
+  }
+
+}

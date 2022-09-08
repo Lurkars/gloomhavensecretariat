@@ -1,3 +1,4 @@
+import { Dialog } from "@angular/cdk/dialog";
 import { Component } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { GameScenarioModel, ScenarioData } from "src/app/game/model/data/ScenarioData";
@@ -5,14 +6,32 @@ import { GameScenarioModel, ScenarioData } from "src/app/game/model/data/Scenari
 import { Party } from "src/app/game/model/Party";
 import { Scenario } from "src/app/game/model/Scenario";
 
-import { PopupComponent } from "src/app/ui/popup/popup";
-
 @Component({
   selector: 'ghs-party-sheet',
   templateUrl: 'party-sheet.html',
-  styleUrls: [ '../../popup/popup.scss', './party-sheet.scss' ]
+  styleUrls: [ './party-sheet.scss' ]
 })
-export class PartySheetDialog extends PopupComponent {
+export class PartySheetComponent {
+
+  gameManager: GameManager = gameManager;
+
+  constructor(private dialog: Dialog) { }
+
+  open(): void {
+    this.dialog.open(PartySheetDialogComponent, {
+      panelClass: 'dialog-invert'
+    });
+  }
+}
+
+
+
+@Component({
+  selector: 'ghs-party-sheet-dialog',
+  templateUrl: 'party-sheet-dialog.html',
+  styleUrls: [ './party-sheet-dialog.scss' ]
+})
+export class PartySheetDialogComponent {
 
   gameManager: GameManager = gameManager;
   party: Party = new Party();
@@ -24,17 +43,13 @@ export class PartySheetDialog extends PopupComponent {
   scenarios: Record<string, ScenarioData[]> = {};
 
   constructor() {
-    super();
-    gameManager.uiChange.subscribe({
-      next: () => {
-        this.party = gameManager.game.party;
-        if (this.party.reputation >= 0) {
-          this.priceModifier = Math.ceil((this.party.reputation - 2) / 4) * -1;
-        } else {
-          this.priceModifier = Math.floor((this.party.reputation + 2) / 4) * -1;
-        }
-      }
-    })
+    this.updateScenarios();
+    this.party = gameManager.game.party;
+    if (this.party.reputation >= 0) {
+      this.priceModifier = Math.ceil((this.party.reputation - 2) / 4) * -1;
+    } else {
+      this.priceModifier = Math.floor((this.party.reputation + 2) / 4) * -1;
+    }
   }
 
   toggleCampaignMode() {
@@ -225,10 +240,5 @@ export class PartySheetDialog extends PopupComponent {
         this.scenarioEditions.push(edition);
       }
     });
-  }
-
-  override open(): void {
-    this.updateScenarios();
-    super.open();
   }
 }

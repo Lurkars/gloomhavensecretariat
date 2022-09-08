@@ -22,6 +22,8 @@
   src: url('./assets/fonts/PirataOne-Gloomhaven.woff') format('woff'), url('./assets/fonts/PirataOne-Gloomhaven.ttf') format('truetype'), url('./assets/fonts/PirataOne-Gloomhaven.svg') format('svg');
 }
 
+@import '@angular/cdk/overlay-prebuilt.css';
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -52,7 +54,7 @@ body {
   --ghs-color-yellow: #eca610;
   --ghs-color-blue: #56c8ef;
   --ghs-color-green: #7da82a;
-  --ghs-color-lightgreen:#7be502;
+  --ghs-color-lightgreen: #7be502;
   --ghs-color-red: #e2421f;
   --ghs-color-darkred: #4d0e00;
   --ghs-color-brown: #472000;
@@ -564,12 +566,73 @@ a {
   cursor: grabbing;
 }
 
+.cdk-dialog-container {
+
+  &:focus,
+  &:focus-visible {
+    outline: 0px solid transparent;
+  }
+}
+
+@keyframes dialog-open {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+.cdk-overlay-pane {
+  pointer-events: auto;
+  max-height: 90vh;
+  max-width: 100vw;
+  overflow: hidden;
+  transform-origin: center center;
+
+  .scroll-container {
+    position: relative;
+    width: 100%;
+    max-height: calc(90vh - var(--ghs-unit) * 4);
+    overflow: auto;
+  }
+
+}
+
+.dialog,
+.dialog-invert {
+  border: calc(var(--ghs-unit) * 1) solid transparent;
+  border-radius: calc(var(--ghs-unit) * 0.5);
+  padding: calc(var(--ghs-unit) * 1);
+  border-image-source: url('~src/assets/images/dialog_border.png');
+  border-image-slice: 64;
+  border-image-outset: calc(var(--ghs-unit) * -1);
+  border-image-width: calc(var(--ghs-unit) * 6);
+  background-color: var(--ghs-color-black);
+
+  .ghs-svg {
+    color: var(--ghs-color-white);
+    filter: var(--ghs-filter-white);
+    width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    display: inline-block;
+  }
+
+  &.dialog-invert {
+    background-color: var(--ghs-color-white);
+    background-image: none;
+  }
+
+}
+
 .disable-animation * {
   animation: none !important;
 }
 
 textarea,
 input {
+
   &:focus,
   &:focus-visible,
   &:active,

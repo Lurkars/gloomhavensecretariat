@@ -1,32 +1,72 @@
-import { Component } from '@angular/core';
+import { Dialog } from '@angular/cdk/dialog';
+import { ConnectionPositionPair, Overlay } from '@angular/cdk/overlay';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
-import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { DialogComponent } from '../../dialog/dialog';
 import { ghsValueSign } from '../../helper/Static';
 
 @Component({
   selector: 'ghs-level',
   templateUrl: './level.html',
-  styleUrls: [ './level.scss', '../../dialog/dialog.scss' ]
+  styleUrls: [ './level.scss' ]
 })
-export class LevelComponent extends DialogComponent {
+export class LevelComponent {
+
+  @ViewChild('levelButton') levelButton!: ElementRef;
 
   gameManager: GameManager = gameManager;
-  levels: number[] = [ 0, 1, 2, 3, 4, 5, 6, 7 ];
   trap: number = 0;
   experience: number = 0;
   loot: number = 0;
   terrain: number = 0;
 
-  constructor() {
-    super();
+  constructor(private dialog: Dialog, private overlay: Overlay) {
     gameManager.uiChange.subscribe({
       next: () => {
         this.calculateValues();
       }
     })
   }
+
+
+  open(event: any) {
+
+    const positions = [
+      new ConnectionPositionPair(
+        { originX: 'center', originY: 'top' },
+        { overlayX: 'center', overlayY: 'bottom' }),
+      new ConnectionPositionPair(
+        { originX: 'start', originY: 'top' },
+        { overlayX: 'start', overlayY: 'bottom' }),
+      new ConnectionPositionPair(
+        { originX: 'end', originY: 'top' },
+        { overlayX: 'end', overlayY: 'bottom' }) ];
+
+    this.dialog.open(LevelDialogComponent, {
+      panelClass: 'dialog',
+      positionStrategy: this.overlay.position().flexibleConnectedTo(this.levelButton).withPositions(positions).withDefaultOffsetY(-10)
+    });
+  }
+
+  calculateValues() {
+    this.trap = gameManager.levelManager.trap();
+    this.experience = gameManager.levelManager.experience();
+    this.loot = gameManager.levelManager.loot();
+    this.terrain = gameManager.levelManager.terrain();
+  }
+
+}
+
+
+@Component({
+  selector: 'ghs-level-dialog',
+  templateUrl: './level-dialog.html',
+  styleUrls: [ './level-dialog.scss' ]
+})
+export class LevelDialogComponent {
+
+  gameManager: GameManager = gameManager;
+  levels: number[] = [ 0, 1, 2, 3, 4, 5, 6, 7 ];
 
   setLevelCalculation(levelCalculation: boolean) {
     gameManager.stateManager.before(levelCalculation ? "enableAutomaticLevel" : "disabledAutomaticLevel");
@@ -58,13 +98,6 @@ export class LevelComponent extends DialogComponent {
 
   ge5Player(): boolean {
     return gameManager.game.figures.filter((figure) => figure instanceof Character).length > 4;
-  }
-
-  calculateValues() {
-    this.trap = gameManager.levelManager.trap();
-    this.experience = gameManager.levelManager.experience();
-    this.loot = gameManager.levelManager.loot();
-    this.terrain = gameManager.levelManager.terrain();
   }
 
   setLevel(level: number) {

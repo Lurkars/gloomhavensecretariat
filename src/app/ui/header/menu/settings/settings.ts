@@ -13,7 +13,6 @@ export class SettingsMenuComponent {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
-  @Input() setDialogPosition: Function | undefined = undefined;
 
   doubleClick: any = null;
 
@@ -34,9 +33,6 @@ export class SettingsMenuComponent {
   setZoom(zoom: number) {
     document.body.style.setProperty('--ghs-factor', zoom + '');
     settingsManager.setZoom(zoom);
-    if (this.setDialogPosition) {
-      this.setDialogPosition();
-    }
   }
 
   resetZoom(): void {
@@ -50,9 +46,6 @@ export class SettingsMenuComponent {
   setBarsize(event: any): void {
     settingsManager.setBarsize(event.target.value);
     document.body.style.setProperty('--ghs-barsize', settingsManager.settings.barsize + '');
-    if (this.setDialogPosition) {
-      this.setDialogPosition();
-    }
   }
 
   resetBarsize(event: any) {
@@ -61,9 +54,6 @@ export class SettingsMenuComponent {
       this.doubleClick = null;
       settingsManager.setBarsize(1);
       document.body.style.setProperty('--ghs-barsize', settingsManager.settings.barsize + '');
-      if (this.setDialogPosition) {
-        this.setDialogPosition();
-      }
     } else {
       this.doubleClick = setTimeout(() => {
         if (this.doubleClick) {
@@ -80,9 +70,6 @@ export class SettingsMenuComponent {
   setFontsize(event: any): void {
     settingsManager.setFontsize(event.target.value);
     document.body.style.setProperty('--ghs-fontsize', settingsManager.settings.fontsize + '');
-    if (this.setDialogPosition) {
-      this.setDialogPosition();
-    }
   }
 
   resetFontsize(event: any) {
@@ -91,9 +78,6 @@ export class SettingsMenuComponent {
       this.doubleClick = null;
       settingsManager.setFontsize(1);
       document.body.style.setProperty('--ghs-fontsize', settingsManager.settings.fontsize + '');
-      if (this.setDialogPosition) {
-        this.setDialogPosition();
-      }
     } else {
       this.doubleClick = setTimeout(() => {
         if (this.doubleClick) {

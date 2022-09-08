@@ -81,6 +81,8 @@ export class Game {
       objective.fromModel(value);
     });
 
+    this.figures = this.figures.filter((figure) => !(figure instanceof Objective) || model.objectives.some((obj) => obj.id == figure.id));
+
     this.figures.sort((a, b) => model.figures.indexOf(a.name) - model.figures.indexOf(b.name));
 
     this.state = model.state;

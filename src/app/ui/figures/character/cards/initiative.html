@@ -1,32 +1,15 @@
 <div #overlay>
-  <div class="overlay" *ngIf="showOverlay()" (click)="toggle()" title="{{'game.figure.setInitiative' | ghsLabel}}">
+  <div class="overlay" *ngIf="showOverlay()" (click)="open($event)" title="{{'game.figure.setInitiative' | ghsLabel}}">
   </div>
 </div>
 
 <div class="initiative"
   [ngClass]="{'empty' : character.initiative <= 0 && !settingsManager.settings.initiativeRequired}"
   title="{{'game.figure.setInitiative' | ghsLabel}}">
-  <img (click)="toggle()" class="ghs-svg" src="./assets/images/initiative.svg" />
+  <img (click)="open($event)" class="ghs-svg" src="./assets/images/initiative.svg" />
   <input
     [value]="character.initiative > 0 ? (character.initiative < 10 ? '0' + character.initiative : character.initiative) || '' : ''"
     (change)="updateInitiative($event)" type="number" min="1" max="99" maxlength="2"
     *ngIf="character.initiative <= 0 || !initiativeHidden()">
   <span *ngIf="character.initiative > 0 && initiativeHidden()">??</span>
-</div>
-
-<span #button></span>
-
-<div #dialog>
-  <div class="number-container">
-    <span></span>
-    <span class="value">{{value}}</span>
-    <span></span>
-    <span *ngFor="let number of [1,2,3,4,5,6,7,8,9]" class="number-button" (click)="pickNumber(number)">
-      <span class="number">{{number}}</span>
-    </span>
-    <span [ngClass]="{'disabled' : gameManager.game.state == GameState.next } " class="long-rest-button"
-      (click)="setInitiative(99)"><img class="ghs-svg" src="./assets/images/long-rest.svg"></span>
-    <span class="number-button" (click)="pickNumber(0)"><span class="number">0</span></span>
-    <span></span>
-  </div>
 </div>

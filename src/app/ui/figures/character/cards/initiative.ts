@@ -1,4 +1,6 @@
-import { Component, ElementRef, Input, ViewChild } from "@angular/core";
+import { Dialog, DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { ConnectionPositionPair, Overlay } from "@angular/cdk/overlay";
+import { Component, ElementRef, Inject, Input, ViewChild } from "@angular/core";
 import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -6,45 +8,25 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 import { Objective } from "src/app/game/model/Objective";
+import { ghsDefaultDialogPositions } from "src/app/ui/helper/Static";
 
-import { DialogComponent } from "src/app/ui/dialog/dialog";
 
 @Component({
   selector: 'ghs-character-initiative',
   templateUrl: 'initiative.html',
-  styleUrls: [ './initiative.scss', '../../../dialog/dialog.scss' ]
+  styleUrls: [ './initiative.scss' ]
 })
-export class CharacterInitiativeComponent extends DialogComponent {
+export class CharacterInitiativeComponent {
 
   @Input() character!: Character | Objective;
-  @ViewChild('overlay', { static: true }) overlay!: ElementRef;
-
-  value: string = "__";
+  @ViewChild('overlay') overlayElement!: ElementRef;
 
   characterManager: CharacterManager = gameManager.characterManager;
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
 
-  override ngOnInit(): void {
-    super.ngOnInit();
-  }
-
-  pickNumber(number: number) {
-    this.value = (this.value + "" + number).substring(1, 3);
-    if (this.value.indexOf("_") == -1) {
-      const initative: number = + this.value;
-      gameManager.stateManager.before("setInitiative", "data.character." + this.character.name, "" + (initative > 0 && initative < 100 ? initative : 0));
-      if (initative > 0 && initative < 100) {
-        this.setInitiative(initative);
-      } else if (gameManager.game.state == GameState.draw) {
-        this.character.initiative = 0;
-      }
-      this.close();
-      gameManager.sortFigures();
-      gameManager.stateManager.after();
-    }
-  }
+  constructor(private dialog: Dialog, private overlay: Overlay) { };
 
   initiativeHidden(): boolean {
     return gameManager.game.state == GameState.draw && this.character instanceof Character && !this.character.initiativeVisible;
@@ -75,9 +57,57 @@ export class CharacterInitiativeComponent extends DialogComponent {
     return settingsManager.settings.initiativeRequired && this.character.initiative <= 0 || gameManager.game.state == GameState.draw;
   }
 
-  override close(): void {
-    this.value = "__";
-    super.close();
+  open(event: any) {
+    this.dialog.open(CharacterInitiativeDialogComponent, {
+      panelClass: 'dialog',
+      data: this.character,
+      positionStrategy: this.overlay.position().flexibleConnectedTo(this.overlayElement).withPositions(ghsDefaultDialogPositions())
+    });
+  }
+
+}
+
+
+
+@Component({
+  selector: 'ghs-character-initiative-dialog',
+  templateUrl: 'initiative-dialog.html',
+  styleUrls: [ './initiative-dialog.scss' ]
+})
+export class CharacterInitiativeDialogComponent {
+
+  value: string = "__";
+
+  characterManager: CharacterManager = gameManager.characterManager;
+  gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
+  GameState = GameState;
+
+  constructor(@Inject(DIALOG_DATA) public character: Character | Objective, private dialogRef: DialogRef) { };
+
+  pickNumber(number: number) {
+    this.value = (this.value + "" + number).substring(1, 3);
+    if (this.value.indexOf("_") == -1) {
+      const initative: number = + this.value;
+      gameManager.stateManager.before("setInitiative", "data.character." + this.character.name, "" + (initative > 0 && initative < 100 ? initative : 0));
+      if (initative > 0 && initative < 100) {
+        this.setInitiative(initative);
+      } else if (gameManager.game.state == GameState.draw) {
+        this.character.initiative = 0;
+      }
+      this.dialogRef.close();
+      gameManager.sortFigures();
+      gameManager.stateManager.after();
+    }
+  }
+
+  setInitiative(initative: number) {
+    if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initative >= 0 || initative > 0) && initative < 100) {
+      this.character.initiative = initative;
+      if (this.character instanceof Character) {
+        this.character.initiativeVisible = true;
+      }
+    }
   }
 
 }

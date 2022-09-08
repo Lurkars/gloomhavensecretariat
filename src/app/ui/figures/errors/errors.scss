@@ -14,28 +14,3 @@
   }
 
 }
-
-.figure-errors {
-
-  display: flex;
-  flex-direction: column;
-
-  .figure-error {
-
-    display: flex;
-    flex-direction: column;
-    padding: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) 0;
-
-    .error {
-      font-family: 'ghs-text';
-      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-      color: var(--ghs-color-red);
-    }
-
-    .hint {
-      font-family: 'ghs-normal';
-      font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-      color: var(--ghs-color-white);
-    }
-  }
-}

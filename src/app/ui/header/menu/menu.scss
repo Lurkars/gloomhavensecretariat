@@ -1,34 +1,15 @@
-.menu-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+:host {
   position: relative;
-  font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor) * var(--ghs-barsize));
-  text-shadow: var(--ghs-outline);
-  color: var(--ghs-color-white);
-  filter: var(--ghs-filter-white);
-  width: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor) * var(--ghs-barsize));
-  height: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor) * var(--ghs-barsize));
-  margin: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor) * var(--ghs-barsize));
-  cursor: pointer;
-
-
-  &:hover,
-  &.active-button {
-    color: var(--ghs-color-gray);
-    filter: var(--ghs-filter-gray);
-  }
-
 }
 
 .back {
   cursor: pointer;
   position: absolute;
-  top: calc(var(--ghs-unit) * 2.8);
+  top: calc(var(--ghs-unit) * 5);
   left: 0;
   width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
   height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-  z-index: 1;
+  z-index: 1000;
 
   .ghs-svg {
     filter: var(--ghs-filter-gray) !important;
@@ -54,10 +35,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  max-height: calc(100vh - var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
-  overflow: auto;
   margin-left: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
-
+  padding-bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 
   .separator {
     border-top: calc(var(--ghs-unit) * 0.1) solid var(--ghs-color-gray);

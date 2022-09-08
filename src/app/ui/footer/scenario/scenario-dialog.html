@@ -1,0 +1,23 @@
+<div class="scenario-popup">
+  <div class="title">
+    <span *ngIf="gameManager.game.scenario && gameManager.game.scenario.index"
+      class="index">#{{gameManager.game.scenario.index}}</span>
+    <span *ngIf="gameManager.game.scenario" class="name">{{'data.scenario.' + gameManager.game.scenario.name |
+      ghsLabel}}</span>
+  </div>
+
+  <div class="sections" *ngIf="gameManager.game.sections && gameManager.game.sections.length > 0">
+    <ng-container *ngFor="let section of gameManager.game.sections; let index = index;">
+      <span class="section">#{{section.index}} {{'data.section.' + section.name | ghsLabel}}</span>
+    </ng-container>
+  </div>
+
+  <div class="menu">
+    <label>{{'scenario.finish' | ghsLabel}}</label>
+    <div class="buttons">
+      <a class="failure" (click)="finishScenario(false)">{{'scenario.finish.failure' | ghsLabel}}</a>
+      <span class="spacer"></span>
+      <a class="success" (click)="finishScenario(true)">{{'scenario.finish.success' | ghsLabel}}</a>
+    </div>
+  </div>
+</div>

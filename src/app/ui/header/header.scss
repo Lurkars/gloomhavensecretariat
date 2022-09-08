@@ -9,13 +9,36 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    height:100%;
+    height: 100%;
     background-image: url('~/src/assets/images/bar.png');
     background-size: 100% 105%;
     background-position: top right;
     background-repeat: no-repeat;
     transform: scale(-1);
     z-index: -1;
+  }
+
+  .menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor) * var(--ghs-barsize));
+    text-shadow: var(--ghs-outline);
+    color: var(--ghs-color-white);
+    filter: var(--ghs-filter-white);
+    width: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor) * var(--ghs-barsize));
+    height: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor) * var(--ghs-barsize));
+    margin: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    cursor: pointer;
+
+
+    &:hover,
+    &.active-button {
+      color: var(--ghs-color-gray);
+      filter: var(--ghs-filter-gray);
+    }
+
   }
 
   a.server-connection-status {

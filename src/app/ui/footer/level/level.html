@@ -1,9 +1,6 @@
-<div class="level-status"
+<div #levelButton class="level-status"
   [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.level}">
-
-  <span #button class="dialog-button"></span>
-
-  <div #button class="values" (click)="toggle()">
+  <div class="values" (click)="open($event)">
     <span class="level" title="{{'game.level' | ghsLabel}}"><img class="ghs-svg" src="./assets/images/level.svg">
       {{gameManager.game.level}}</span>
     <span class="loot" title="{{'game.level.loot' | ghsLabel}}"><img class="ghs-svg" src="./assets/images/loot.svg">
@@ -16,46 +13,4 @@
       title="{{'game.level.hazardousTerrain' | ghsLabel}}"><img class="ghs-svg" src="./assets/images/terrain.svg">
       +{{terrain}}</span>
   </div>
-</div>
-
-<div #dialog class="level-dialog">
-  <div class="menu">
-    <label>
-      <input type="checkbox" [checked]="gameManager.game.levelCalculation"
-        (change)="setLevelCalculation(!gameManager.game.levelCalculation)">
-      {{'settings.levelCalculation' | ghsLabel}}
-    </label>
-
-    <label *ngIf="gameManager.game.levelCalculation">{{'settings.levelAdjustment' | ghsLabel}}
-      <input type="number" #levelAdjustment [value]="gameManager.game.levelAdjustment" min="-6" max="6" (keyup)="0"
-        (change)="setLevelAdjustment(+levelAdjustment.value)" [size]="levelAdjustment.value.length"
-        placeholder="{{'settings.levelAdjustment' | ghsLabel}}"></label>
-
-    <label>{{'settings.bonusAdjustment' | ghsLabel}}
-      <input type="number" #bonusAdjustment [value]="gameManager.game.bonusAdjustment" min="-6" max="6" (keyup)="0"
-        (change)="setBonusAdjustment(+bonusAdjustment.value)" [size]="bonusAdjustment.value.length"
-        placeholder="{{'settings.bonusAdjustment' | ghsLabel}}"></label>
-
-    <label *ngIf="ge5Player()">
-      <input type="checkbox" [checked]="gameManager.game.ge5Player"
-        (change)="setGe5Player(!gameManager.game.ge5Player)">
-      {{'settings.ge5Player' | ghsLabel}}
-    </label>
-  </div>
-
-  <div class="level-container" [ngClass]="{'disabled' : gameManager.game.levelCalculation}">
-    <span class="item"><img src="./assets/images/level.svg" /></span>
-    <span class="item" *ngFor="let level of levels;"><a class="level"
-        [ngClass]="{'active' : level == gameManager.game.level, 'scenariolevel' : level == gameManager.levelManager.scenarioLevel()}"
-        (click)="setLevel(level)">{{level}}</a></span>
-    <div class="solo">
-      <label>
-        <input type="checkbox" [checked]="gameManager.game.solo"
-          (change)="setSolo(!gameManager.game.solo)">{{'game.solo'
-        |
-        ghsLabel}}
-      </label>
-    </div>
-  </div>
-
 </div>

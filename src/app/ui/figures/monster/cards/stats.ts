@@ -1,21 +1,22 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Dialog, DialogRef } from '@angular/cdk/dialog';
+import { Overlay } from '@angular/cdk/overlay';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Ability } from 'src/app/game/model/Ability';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { FigureError, FigureErrorType } from 'src/app/game/model/FigureError';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterStat } from 'src/app/game/model/MonsterStat';
 import { MonsterType } from 'src/app/game/model/MonsterType';
-import { DialogComponent } from 'src/app/ui/dialog/dialog';
-import { PopupComponent } from 'src/app/ui/popup/popup';
+import { ghsDefaultDialogPositions } from 'src/app/ui/helper/Static';
+import { MonsterLevelDialogComponent } from '../dialogs/level-dialog';
 
 @Component({
   selector: 'ghs-monster-stats',
   templateUrl: './stats.html',
-  styleUrls: [ './stats.scss', '../../../dialog/dialog.scss' ]
+  styleUrls: [ './stats.scss' ]
 })
-export class MonsterStatsComponent extends DialogComponent {
+export class MonsterStatsComponent implements OnInit {
 
   @Input() monster!: Monster;
   @Input() showName: boolean = false;
@@ -26,13 +27,12 @@ export class MonsterStatsComponent extends DialogComponent {
   eliteStats: MonsterStat | undefined = undefined;
   statOverview: boolean = false;
 
-  @ViewChild('normalButton', { read: ElementRef }) normalButton!: ElementRef;
-  @ViewChild('eliteButton', { read: ElementRef }) eliteButton!: ElementRef;
+  @ViewChild('levelButton', { read: ElementRef }) levelButton!: ElementRef;
 
-  levels: number[] = [ 0, 1, 2, 3, 4, 5, 6, 7 ];
+  constructor(private dialog: Dialog, private overlay: Overlay) { }
 
-  override ngOnInit(): void {
-    super.ngOnInit();
+
+  ngOnInit(): void {
     this.setStats();
   }
 
@@ -157,33 +157,19 @@ export class MonsterStatsComponent extends DialogComponent {
     gameManager.stateManager.after();
   }
 
-  override close(): void {
-    super.close();
-    this.statOverview = false;
+  openLevelDialog() {
+    const levelDialog = this.dialog.open(MonsterLevelDialogComponent, {
+      panelClass: 'dialog',
+      data: this.monster,
+      positionStrategy: this.overlay.position().flexibleConnectedTo(this.levelButton).withPositions(ghsDefaultDialogPositions())
+    });
+    levelDialog.closed.subscribe({
+      next: (level) => {
+        if (typeof level == 'number') {
+          this.setLevel(level);
+        }
+      }
+    })
   }
 
-}
-
-@Component({
-  selector: 'ghs-monster-stats-popup',
-  templateUrl: './statspopup.html',
-  styleUrls: [ './statspopup.scss', '../../../popup/popup.scss' ]
-})
-export class MonsterStatsPopupComponent extends PopupComponent {
-
-  @Input() monster!: Monster;
-
-  levels: number[] = [ 0, 1, 2, 3, 4, 5, 6, 7 ];
-
-  getEdition(): string {
-    return gameManager.getEdition(this.monster);
-  }
-
-  getMonsterForLevel(level: number): Monster {
-    let monster: Monster = new Monster(this.monster);
-    monster.isAlly = this.monster.isAlly;
-    monster.level = level;
-    monster.errors = this.monster.errors;
-    return monster;
-  }
 }

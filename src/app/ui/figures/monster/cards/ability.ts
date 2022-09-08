@@ -3,16 +3,18 @@ import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { Ability } from 'src/app/game/model/Ability';
-import { PopupComponent } from 'src/app/ui/popup/popup';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { Dialog } from '@angular/cdk/dialog';
+import { AbiltiesDialogComponent } from '../../ability/abilities-dialog';
+import { AbilityDialogComponent } from '../../ability/ability-dialog';
 
 @Component({
   selector: 'ghs-monster-ability',
   templateUrl: './ability.html',
-  styleUrls: [ '../../../popup/popup.scss', './ability.scss' ]
+  styleUrls: [ './ability.scss' ]
 })
-export class MonsterAbilityComponent extends PopupComponent {
+export class MonsterAbilityComponent {
 
   @Input() monster!: Monster;
   @Input() index: number = -1;
@@ -26,6 +28,10 @@ export class MonsterAbilityComponent extends PopupComponent {
   edit: boolean = false;
   cardPopup: boolean = false;
   maxHeight: string = "";
+
+  doubleClick: any = null;
+
+  constructor(private dialog: Dialog) { }
 
   flipped(): boolean {
     if (this.index == -1) {
@@ -41,13 +47,6 @@ export class MonsterAbilityComponent extends PopupComponent {
     setTimeout(() => {
       this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
     }, 0);
-  }
-
-  override doubleClickCallback(): void {
-    if (this.flipped()) {
-      this.cardPopup = true;
-      this.openPopup();
-    }
   }
 
   upcomingCards(): Ability[] {
@@ -74,11 +73,6 @@ export class MonsterAbilityComponent extends PopupComponent {
     gameManager.stateManager.after();
   }
 
-  override close(): void {
-    super.close();
-    this.reveal = 0;
-    this.cardPopup = false;
-  }
 
   toggleDrawExtra() {
     if (this.monster.drawExtra) {
@@ -154,10 +148,32 @@ export class MonsterAbilityComponent extends PopupComponent {
     this.monster.abilities = this.monster.abilities.sort((a, b) => a - b);
   }
 
-  override open(): void {
-    super.open();
-    setTimeout(() => {
-      this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
-    }, 250);
+  openAbilities(): void {
+    this.dialog.open(AbiltiesDialogComponent, {
+      panelClass: 'dialog', data: this.monster
+    });
+  }
+
+  openAbility(): void {
+    if (this.flipped()) {
+      this.dialog.open(AbilityDialogComponent, {
+        data: { ability: this.ability, monster: this.monster }
+      });
+    }
+  }
+
+  click(): void {
+    if (this.doubleClick) {
+      clearTimeout(this.doubleClick);
+      this.doubleClick = null;
+      this.openAbility();
+    } else {
+      this.doubleClick = setTimeout(() => {
+        if (this.doubleClick) {
+          this.openAbilities();
+          this.doubleClick = null;
+        }
+      }, 200)
+    }
   }
 }

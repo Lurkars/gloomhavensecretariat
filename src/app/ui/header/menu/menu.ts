@@ -1,20 +1,17 @@
-import { Component } from "@angular/core";
+import { Component, Inject, OnInit } from "@angular/core";
 import packageJson from '../../../../../package.json';
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { CharacterData } from "src/app/game/model/data/CharacterData";
 import { MonsterData } from "src/app/game/model/data/MonsterData";
-import { ScenarioData } from "src/app/game/model/data/ScenarioData";
-import { Figure } from "src/app/game/model/Figure";
 import { GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
-import { DialogComponent } from "src/app/ui/dialog/dialog";
 import { SwUpdate } from '@angular/service-worker';
-import { Scenario } from "src/app/game/model/Scenario";
 import { ghsHasSpoilers, ghsIsSpoiled, ghsNotSpoiled } from "../../helper/Static";
 import { Objective } from "src/app/game/model/Objective";
 import { ObjectiveData } from "src/app/game/model/data/ObjectiveData";
+import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 
 export enum SubMenu {
   main, edition, scenario, section, monster_add, monster_remove, character_add, character_remove, objective_add, objective_remove, settings, server, datamanagement, about
@@ -23,9 +20,9 @@ export enum SubMenu {
 @Component({
   selector: 'ghs-main-menu',
   templateUrl: 'menu.html',
-  styleUrls: [ './menu.scss', '../../dialog/dialog.scss' ]
+  styleUrls: [ './menu.scss' ]
 })
-export class MainMenuComponent extends DialogComponent {
+export class MainMenuComponent implements OnInit {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -45,8 +42,10 @@ export class MainMenuComponent extends DialogComponent {
   undoInfo: string[] = [];
   redoInfo: string[] = [];
 
-  constructor(private swUpdate: SwUpdate) {
-    super();
+  constructor(@Inject(DIALOG_DATA) private data: SubMenu, private swUpdate: SwUpdate, private dialogRef: DialogRef) {
+
+    this.active = data;
+
     this.swUpdate.versionUpdates.subscribe(evt => {
       if (evt.type == 'VERSION_READY') {
         this.hasUpdate = true;
@@ -64,8 +63,7 @@ export class MainMenuComponent extends DialogComponent {
 
   }
 
-  override ngOnInit(): void {
-    super.ngOnInit();
+  ngOnInit(): void {
     if (this.swUpdate.isEnabled) {
       document.body.addEventListener("click", (event) => {
         if (settingsManager.settings.fullscreen && this.swUpdate.isEnabled) {
@@ -73,6 +71,8 @@ export class MainMenuComponent extends DialogComponent {
         }
       });
     }
+
+    this.updateUndoRedo();
 
     gameManager.uiChange.subscribe({
       next: () => {
@@ -113,25 +113,7 @@ export class MainMenuComponent extends DialogComponent {
   }
 
   setActive(active: SubMenu) {
-    this.dialog.nativeElement.classList.remove('opened');
     this.active = active;
-    setTimeout(() => {
-      this.dialog.nativeElement.classList.add('opened');
-    }, 1);
-  }
-
-  override open(): void {
-    this.updateUndoRedo();
-    super.open();
-  }
-
-  override close(): void {
-    this.active = SubMenu.main;
-    super.close();
-  }
-
-  get setDialogPositionFunc() {
-    return this.setDialogPosition.bind(this);
   }
 
   hasScenarios(): boolean {
@@ -281,7 +263,7 @@ export class MainMenuComponent extends DialogComponent {
     gameManager.stateManager.before("addChar", "data.character." + characterData.name);
     gameManager.characterManager.addCharacter(characterData, this.characterLevel);
     if (this.hasAllCharacter()) {
-      this.close();
+      this.dialogRef.close();
     }
     gameManager.stateManager.after();
   }
@@ -290,7 +272,7 @@ export class MainMenuComponent extends DialogComponent {
     gameManager.stateManager.before("removeChar", "data.character." + character.name);
     gameManager.characterManager.removeCharacter(character);
     if (this.characters().length == 0) {
-      this.close();
+      this.dialogRef.close();
     }
     gameManager.stateManager.after();
   }
@@ -298,21 +280,21 @@ export class MainMenuComponent extends DialogComponent {
   removeAllCharacters() {
     gameManager.stateManager.before("removeAllChars");
     gameManager.game.figures = gameManager.game.figures.filter((figure) => !(figure instanceof Character))
-    this.close();
+    this.dialogRef.close();
     gameManager.stateManager.after();
   }
 
   addObjective() {
     gameManager.stateManager.before("addObjective");
     gameManager.characterManager.addObjective();
-    this.close();
+    this.dialogRef.close();
     gameManager.stateManager.after();
   }
 
   addEscort() {
     gameManager.stateManager.before("addEscort");
     gameManager.characterManager.addObjective(new ObjectiveData("escort", 3, true));
-    this.close();
+    this.dialogRef.close();
     gameManager.stateManager.after();
   }
 
@@ -320,7 +302,7 @@ export class MainMenuComponent extends DialogComponent {
     gameManager.stateManager.before("removeObjective", objective.title || objective.name);
     gameManager.characterManager.removeObjective(objective);
     if (this.objectives().length == 0) {
-      this.close();
+      this.dialogRef.close();
     }
     gameManager.stateManager.after();
   }
@@ -328,7 +310,7 @@ export class MainMenuComponent extends DialogComponent {
   removeAllObjectives() {
     gameManager.stateManager.before("removeAllObjectives");
     gameManager.game.figures = gameManager.game.figures.filter((figure) => !(figure instanceof Objective))
-    this.close();
+    this.dialogRef.close();
     gameManager.stateManager.after();
   }
 
@@ -336,7 +318,7 @@ export class MainMenuComponent extends DialogComponent {
     gameManager.stateManager.before("addMonster", "data.monster." + monsterData.name);
     gameManager.monsterManager.addMonster(monsterData);
     if (this.hasAllMonster()) {
-      this.close();
+      this.dialogRef.close();
     }
     gameManager.stateManager.after();
   }
@@ -345,7 +327,7 @@ export class MainMenuComponent extends DialogComponent {
     gameManager.stateManager.before("removeMonster", "data.monster." + monster.name);
     gameManager.monsterManager.removeMonster(monster);
     if (this.monsters().length == 0) {
-      this.close();
+      this.dialogRef.close();
     }
     gameManager.stateManager.after();
   }
@@ -355,7 +337,7 @@ export class MainMenuComponent extends DialogComponent {
     gameManager.game.figures = gameManager.game.figures.filter((figure) => {
       return !(figure instanceof Monster);
     })
-    this.close();
+    this.dialogRef.close();
     gameManager.scenarioManager.setScenario(undefined);
     gameManager.stateManager.after();
   }

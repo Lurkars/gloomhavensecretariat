@@ -1,0 +1,157 @@
+.abilities-dialog {
+
+  .menu {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    a,
+    label {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      font-family: 'ghs-title';
+      font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+      color: var(--ghs-color-gray);
+      text-shadow: var(--ghs-outline);
+
+      &:hover {
+        color: var(--ghs-color-white);
+      }
+    }
+
+    input[type="checkbox"] {
+      cursor: pointer;
+      appearance: none;
+      background-color: var(--form-background);
+      width: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+      height: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+      border-width: calc(var(--ghs-unit) * 0.3);
+      border-style: solid;
+      display: grid;
+      place-content: center;
+      margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+      color: var(--ghs-color-gray);
+
+      &:before {
+        left: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+        top: calc(var(--ghs-unit) * -0.5 * var(--ghs-text-factor));
+        position: relative;
+        content: ' ';
+        width: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+        transform: scale(0);
+        transform-origin: bottom left;
+        transition: 120ms transform ease-in-out;
+        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        color: var(--ghs-color-gray);
+        background-color: var(--ghs-color-gray);
+      }
+
+      &:checked::before {
+        transform: scale(1);
+      }
+
+      &:hover::before {
+        background-color: var(--ghs-color-white);
+      }
+    }
+
+    .insert-menu {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-basis: 100%;
+      flex-shrink: 0;
+    }
+  }
+
+  .drop-list {
+    position: relative;
+  }
+
+  .abilities-container {
+    display: flex;
+    margin: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+    width: calc(var(--ghs-unit) * 80 * var(--ghs-text-factor));
+    max-height: 80vh;
+
+    .upcoming,
+    .disgarded {
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+      width: calc(var(--ghs-unit) * 40 * var(--ghs-text-factor));
+
+      .container {
+        position: relative;
+        width: calc(var(--ghs-unit) * 37 * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 23.7 * var(--ghs-text-factor));
+        margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+        flex-shrink: 0;
+        flex-grow: 0;
+
+        ghs-ability {
+          width: 100%;
+          height: 100%;
+        }
+
+        .drag-handle {
+          position: absolute;
+          cursor: grab;
+          left: 50%;
+          top: 50%;
+          width: 50%;
+          height: 70%;
+          transform: translate(-50%, -50%);
+        }
+
+        .button-remove {
+          z-index: 1;
+          position: absolute;
+          display: flex;
+          cursor: pointer;
+          top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+          right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+          justify-content: center;
+          align-items: center;
+          width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+          height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+          color: var(--ghs-filter-white);
+
+          &:hover .ghs-svg {
+            filter: var(--ghs-filter-red);
+          }
+        }
+      }
+
+      .empty {
+        position: absolute;
+        left: calc(var(--ghs-unit) * 0.9 * var(--ghs-text-factor));
+        display: block;
+        margin: calc(var(--ghs-unit) * 0.7 * var(--ghs-text-factor));
+        width: calc(var(--ghs-unit) * 36.6 * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 23.3 * var(--ghs-text-factor));
+        border-radius: calc(var(--ghs-unit) * 1);
+        border-style: dashed;
+        border-width: calc(var(--ghs-unit) * 0.2);
+        border-color: var(--ghs-color-white);
+      }
+    }
+  }
+
+  .cdk-drag-placeholder {
+    opacity: 0.5;
+  }
+
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .cdk-drop-list-dragging :not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+}

@@ -1,4 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Dialog } from '@angular/cdk/dialog';
+import { ConnectionPositionPair, Overlay } from '@angular/cdk/overlay';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager, SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -14,7 +16,7 @@ import { MainMenuComponent, SubMenu } from './menu/menu';
 })
 export class HeaderComponent implements OnInit {
 
-  @ViewChild(MainMenuComponent) mainMenu!: MainMenuComponent;
+  @ViewChild('mainMenuButton') mainMenuButton!: ElementRef;
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
@@ -27,6 +29,8 @@ export class HeaderComponent implements OnInit {
 
   init: boolean = false;
   hintState: string = "";
+
+  constructor(private dialog: Dialog, private overlay: Overlay) { }
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -45,6 +49,8 @@ export class HeaderComponent implements OnInit {
       }
     })
   }
+
+
 
   hintStateValue(): string {
     if (gameManager.game.figures.every((figure) => !(figure instanceof Character) && !(figure instanceof Monster))) {
@@ -67,11 +73,16 @@ export class HeaderComponent implements OnInit {
     return "";
   }
 
-  openMenu(menu: SubMenu) {
-    this.mainMenu.active = menu;
-    if (!this.mainMenu.opened) {
-      this.mainMenu.open();
-    }
+  openMenu(event: any, menu: SubMenu | undefined = undefined) {
+    this.dialog.open(MainMenuComponent, {
+      panelClass: 'dialog', 
+      data: menu != undefined && menu | SubMenu.main,
+      maxWidth: '90vw',
+      positionStrategy: this.overlay.position().flexibleConnectedTo(this.mainMenuButton).withPositions([
+        new ConnectionPositionPair(
+          { originX: 'end', originY: 'top' },
+          { overlayX: 'start', overlayY: 'top' }) ]).withDefaultOffsetX(10)
+    });
   }
 
 }

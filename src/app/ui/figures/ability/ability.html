@@ -1,0 +1,30 @@
+<div class="card-container ability">
+  <div class="card" [ngClass]="{'flipped' : flipped || ability && ability.revealed}" card-reveal (change)="onChange($event)"
+    [disabled]="!reveal || !ability" #card [style.fontSize]=" card.offsetWidth * 0.04 + 'px'">
+    <div class=" card-back ability-back">
+      <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
+      <span class="name">{{'data.monster.' + monster.name | ghsLabel}}</span>
+    </div>
+    <div class="card-front ability-front"
+      [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0}">
+      <ng-container *ngIf="ability">
+        <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
+        <span class="name">{{abilityLabel(ability)}}</span>
+        <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="1" [hint]="ability.hint"
+          [statsCalculation]="true" [highlightElements]="true">
+        </ghs-actions>
+        <ng-container *ngIf="ability.bottomActions && ability.bottomActions.length > 0">
+          <span class="level" *ngIf="ability.level || ability.level == 0">{{ability.level}}</span>
+          <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [hexSize]="1" [hint]="ability.hint"
+            [statsCalculation]="true" [highlightElements]="true">
+          </ghs-actions>
+        </ng-container>
+        <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
+        <span class="index" *ngIf="!ability.cardId && settingsManager.settings.abilityNumbers">[{{abilityIndex(ability)
+          + 1}}]</span>
+        <span class="index" *ngIf="ability.cardId && settingsManager.settings.abilityNumbers">{{ability.cardId}}</span>
+        <span class="bottom-scroll">&nbsp;</span>
+      </ng-container>
+    </div>
+  </div>
+</div>

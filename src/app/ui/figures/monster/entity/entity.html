@@ -1,17 +1,16 @@
 <div class="entity-border"
   [ngClass]="{'dead' : entity.dead, 'off' : entity.off, 'active' : entity.active && settingsManager.settings.activeStandees, 'active-focus': entity.active && settingsManager.settings.activeStandees && !monster.active, 'denied' : !gameManager.stateManager.hasMonsterPermission(monster)}"
   [entityAnimation]="entity.dead">
-  <div #button class="entity" [ngClass]="entity.type">
-    <div class="standee">
+  <div class="entity" [ngClass]="entity.type" (click)="click($event)">
+    <div #standee class="standee">
       <div class="background-image"
         [style.background-image]="'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'"></div>
       <span class="number">#{{entity.number}}</span>
-      <span class="health" title="{{'game.health' | ghsLabel}}">{{entity.health + health}} 
-        <span class="value-overlay"
-          [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}" *ngIf="health"><span
-            class="value">{{health |
+      <span class="health" title="{{'game.health' | ghsLabel}}">{{entity.health + health}}
+        <span class="value-overlay" [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}"
+          *ngIf="health"><span class="value">{{health |
             ghsValueSign}}</span>
-          </span>
+        </span>
       </span>
     </div>
 
@@ -41,108 +40,4 @@
 
   <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-hp" (dragMove)="dragHpMove($event)"
     (dragEnd)="dragHpEnd($event)" [relative]="true"></ghs-drag-value>
-</div>
-
-
-
-<div #dialog>
-  <div class="status-container">
-    <div class="entity-container">
-      <span class="item">
-        <a class="button" [ngClass]="{'disabled' : entity.health + health == 0}" (click)="changeHealth(-1)">
-          <img class="ghs-svg" src="./assets/images/minus.svg">
-        </a>
-      </span>
-      <span class="item" title="{{'game.health' | ghsLabel}}">
-        <img src="./assets/images/status/health.svg" />
-        <span class="badge health-count"
-          [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">{{health | ghsValueSign}}</span>
-      </span>
-      <span class="item">
-        <a class="button" [ngClass]="{'disabled' : entity.health + health == entity.maxHealth}" (click)="changeHealth(1)">
-          <img class="ghs-svg" src="./assets/images/plus.svg">
-        </a>
-      </span>
-
-      <span class="item">
-        <a class="button"
-          [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.bless) == countDrawnAttackModifier(AttackModifierType.bless) || isImmune(ConditionName.bless)}"
-          (click)="changeBless(-1)">
-          <img class="ghs-svg" src="./assets/images/minus.svg">
-        </a>
-      </span>
-      <span class="item" title="{{'game.condition.bless' | ghsLabel}}">
-        <span class="condition" [ngClass]="{'immunity disabled' : isImmune(ConditionName.bless)}">
-          <img src="./assets/images/status/bless.svg" />
-        </span>
-        <span class="badge bless-count">{{countAttackModifier(AttackModifierType.bless)}}</span>
-      </span>
-      <span class="item">
-        <a class="button"
-          [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.bless) >= 10 || isImmune(ConditionName.bless)}"
-          (click)="changeBless(1)">
-          <img class="ghs-svg" src="./assets/images/plus.svg">
-        </a>
-      </span>
-
-      <span class="item">
-        <a class="button"
-          [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.curse) == countDrawnAttackModifier(AttackModifierType.curse) || isImmune(ConditionName.curse)}"
-          (click)="changeCurse(-1)">
-          <img class="ghs-svg" src="./assets/images/minus.svg">
-        </a>
-      </span>
-      <span class="item" title="{{'game.condition.curse' | ghsLabel}}">
-        <span class="condition" [ngClass]="{'immunity disabled' : isImmune(ConditionName.curse)}">
-          <img src="./assets/images/status/curse.svg" />
-        </span>
-        <span class="badge curse-count">{{countAttackModifier(AttackModifierType.curse)}}</span>
-      </span>
-      <span class="item">
-        <a class="button"
-          [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.curse) >= 10  || isImmune(ConditionName.curse)}"
-          (click)="changeCurse(1)">
-          <img class="ghs-svg" src="./assets/images/plus.svg">
-        </a>
-      </span>
-
-      <span class="item" title="{{'game.dead' | ghsLabel}}">
-        <a class="button" (click)="toggleDead()">
-          <img src="./assets/images/status/dead.svg" />
-        </a>
-      </span>
-      <span class="item max-health-container">
-        <a class="button" (click)="changeMaxHealth(-1)">
-          <img class="ghs-svg" src="./assets/images/minus.svg">
-        </a>
-        <img src="./assets/images/status/health.svg" title="{{'game.maxHealth' | ghsLabel}}" />
-        <span class="badge max-health">{{(entity.maxHealth + maxHp < entity.maxHealth || entity.health == entity.maxHealth ? entity.maxHealth + maxHp :
-          entity.health)}}/{{entity.maxHealth + maxHp}}</span>
-        <a class="button" (click)="changeMaxHealth(1)">
-          <img class="ghs-svg" src="./assets/images/plus.svg">
-        </a>
-      </span>
-      <span class="summon-button" title="{{'summon' | ghsLabel}}">
-        <a class="summon"
-          [ngClass]="{'active' : entity.summon == SummonState.true, 'new' : entity.summon == SummonState.new }"
-          (click)="toggleSummon()">
-          <img src="./assets/images/summons/{{monster.summonColor}}.png">
-        </a>
-      </span>
-      <div class="marker-container">
-        <span *ngFor="let marker of gameManager.markers()">
-          <a class="item" [ngClass]="{'active' : hasMarker(marker)}" (click)="toggleMarker(marker)">
-            <span class="condition marker">
-              <img src="./assets/images/character/icons/{{marker}}.svg" />
-            </span>
-          </a>
-        </span>
-      </div>
-    </div>
-
-    <ghs-conditions [entity]="entity" [figure]="monster" type="monster"></ghs-conditions>
-
-    <div class="summon-container">
-    </div>
-  </div>
 </div>

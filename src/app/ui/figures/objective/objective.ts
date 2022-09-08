@@ -1,24 +1,27 @@
-import { ChangeDetectorRef, Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Dialog } from '@angular/cdk/dialog';
+import { Overlay } from '@angular/cdk/overlay';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Condition, ConditionType } from 'src/app/game/model/Condition';
+import { ConditionType } from 'src/app/game/model/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Objective } from 'src/app/game/model/Objective';
-import { DialogComponent } from '../../dialog/dialog';
-import { ghsValueSign } from '../../helper/Static';
+import { ghsDefaultDialogPositions, ghsValueSign } from '../../helper/Static';
+import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
 
 @Component({
   selector: 'ghs-objective',
   templateUrl: './objective.html',
-  styleUrls: [ './objective.scss', '../../dialog/dialog.scss' ]
+  styleUrls: [ './objective.scss' ]
 })
-export class ObjectiveComponent extends DialogComponent {
+export class ObjectiveComponent {
 
   @Input() objective!: Objective;
 
   @ViewChild('objectiveTitle', { static: false }) titleInput!: ElementRef;
+  @ViewChild('objectiveName') objectiveName!: ElementRef;
 
   characterManager: CharacterManager = gameManager.characterManager;
 
@@ -29,59 +32,7 @@ export class ObjectiveComponent extends DialogComponent {
   health: number = 0;
 
 
-  constructor(private element: ElementRef, private changeDetectorRef: ChangeDetectorRef) {
-    super();
-  }
-
-  maxHealth(): number {
-    return EntityValueFunction(this.objective.maxHealth + "");
-  }
-
-  showMaxHealth(): boolean {
-    return !isNaN(+this.objective.maxHealth);
-  }
-
-
-  toggleFigure(): void {
-    if ((gameManager.game.state == GameState.draw || settingsManager.settings.initiativeRequired && this.objective.initiative <= 0) && !this.objective.exhausted && this.objective.health > 0) {
-      //
-    } else {
-      gameManager.stateManager.before(this.objective.active ? "unsetActive" : "setActive", this.objective.title || this.objective.name);
-      gameManager.roundManager.toggleFigure(this.objective);
-      gameManager.stateManager.after(250);
-    }
-  }
-
-  changeHealth(value: number) {
-    this.health += value;
-    if (this.objective.health + this.health > EntityValueFunction("" + this.objective.maxHealth)) {
-      this.health = EntityValueFunction("" + this.objective.maxHealth) - this.objective.health;
-    } else if (this.objective.health + this.health < 0) {
-      this.health = - this.objective.health;
-    }
-    gameManager.entityManager.changeHealthHighlightConditions(this.objective, this.health);
-  }
-
-  changeId(value: number) {
-    let id = this.objective.id + value;
-    if (id < 0) {
-      id = 98;
-    } else if (id > 98) {
-      id = 0;
-    }
-
-    while (gameManager.game.figures.some((figure) => figure instanceof Objective && figure.id == id)) {
-      id = id + value;
-      if (id < 0) {
-        id = 98;
-      } else if (id > 98) {
-        id = 0;
-      }
-    }
-    gameManager.stateManager.before("changeObjectiveId", this.objective.title || this.objective.name, "" + id);
-    this.objective.id = id;
-    gameManager.stateManager.after();
-  }
+  constructor(private element: ElementRef, private dialog: Dialog, private overlay : Overlay) { }
 
   exhausted() {
     gameManager.stateManager.before(this.objective.exhausted ? "unsetObjectiveExhausted" : "setObjectiveExhausted", this.objective.title || this.objective.name);
@@ -96,20 +47,17 @@ export class ObjectiveComponent extends DialogComponent {
     gameManager.stateManager.after();
   }
 
-  changeMaxHealth(value: number) {
-    if (this.showMaxHealth()) {
-      gameManager.stateManager.before("changeObjectiveMaxHP", this.objective.title || this.objective.name, ghsValueSign(value));
-      this.objective.maxHealth = +this.objective.maxHealth;
-      this.objective.maxHealth += value;
+  maxHealth(): number {
+    return EntityValueFunction(this.objective.maxHealth + "");
+  }
 
-      if (this.objective.maxHealth <= 1) {
-        this.objective.maxHealth = 1;
-      }
-
-      if (value < 0) {
-        this.objective.health = this.objective.maxHealth;
-      }
-      gameManager.stateManager.after();
+  toggleFigure(): void {
+    if ((gameManager.game.state == GameState.draw || settingsManager.settings.initiativeRequired && this.objective.initiative <= 0) && !this.objective.exhausted && this.objective.health > 0) {
+      //
+    } else {
+      gameManager.stateManager.before(this.objective.active ? "unsetActive" : "setActive", this.objective.title || this.objective.name);
+      gameManager.roundManager.toggleFigure(this.objective);
+      gameManager.stateManager.after(250);
     }
   }
 
@@ -175,31 +123,13 @@ export class ObjectiveComponent extends DialogComponent {
     }
   }
 
-  override close(): void {
-    super.close();
-    if (this.health != 0) {
-      gameManager.stateManager.before("changeHP", this.objective.title || this.objective.name, ghsValueSign(this.health));
-      const old = this.objective.health;
-      gameManager.entityManager.changeHealth(this.objective, this.health);
-      if (this.objective.health <= 0 || this.objective.exhausted && this.health >= 0 && this.objective.health > 0) {
-        this.exhausted();
-      }
-      gameManager.stateManager.after();
-      this.health = 0;
-    }
-    if (this.titleInput) {
-      if (this.titleInput.nativeElement.value && this.titleInput.nativeElement.value != new Objective(0).name) {
-        if (this.objective.title != this.titleInput.nativeElement.value) {
-          gameManager.stateManager.before("setTitle", this.objective.name, this.titleInput.nativeElement.value);
-          this.objective.title = this.titleInput.nativeElement.value;
-          gameManager.stateManager.after();
-        }
-      } else if (this.objective.title != "") {
-        gameManager.stateManager.before("unsetTitle", this.objective.name, this.objective.title);
-        this.objective.title = "";
-        gameManager.stateManager.after();
-      }
-    }
+  openEntityMenu(event : any): void {
+    this.dialog.open(EntityMenuDialogComponent, {
+      panelClass: 'dialog', data: {
+        entity: this.objective,
+        figure: this.objective
+      },
+      positionStrategy: this.overlay.position().flexibleConnectedTo(this.objectiveName).withPositions(ghsDefaultDialogPositions())
+    });
   }
-
 }

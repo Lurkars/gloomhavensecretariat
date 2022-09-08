@@ -24,6 +24,9 @@ import { ItemData } from "../model/data/ItemData";
 import { LevelManager } from "./LevelManager";
 import { ScnearioManager } from "./ScenarioManager";
 import { RoundManager } from "./RoundManager";
+import { Entity } from "../model/Entity";
+import { MonsterEntity } from "../model/MonsterEntity";
+import { Summon } from "../model/Summon";
 
 
 export class GameManager {
@@ -238,11 +241,11 @@ export class GameManager {
     return characterData;
   }
 
-  isCharacter(figure: Figure): boolean {
+  isCharacter(figure: Figure | Entity): boolean {
     return figure instanceof Character;
   }
 
-  isObjective(figure: Figure): boolean {
+  isObjective(figure: Figure | Entity): boolean {
     return figure instanceof Objective;
   }
 
@@ -250,16 +253,32 @@ export class GameManager {
     return figure instanceof Monster;
   }
 
-  toCharacter(figure: Figure): Character {
+  isMonsterEntity(entity: Entity): boolean {
+    return entity instanceof MonsterEntity;
+  }
+
+  isSummon(entity: Entity): boolean {
+    return entity instanceof Summon;
+  }
+
+  toCharacter(figure: Figure | Entity): Character {
     return figure as Character;
   }
 
-  toObjective(figure: Figure): Objective {
+  toObjective(figure: Figure | Entity): Objective {
     return figure as Objective;
   }
 
   toMonster(figure: Figure): Monster {
     return figure as Monster;
+  }
+
+  toMonsterEntity(entity: Entity): MonsterEntity {
+    return entity as MonsterEntity;
+  }
+
+  toSummon(entity: Entity): Summon {
+    return entity as Summon;
   }
 
   getEdition(figure: any): string {

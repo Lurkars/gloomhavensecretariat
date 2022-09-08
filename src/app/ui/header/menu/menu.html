@@ -1,13 +1,9 @@
-<a #button class="button menu-button active-outline" title="{{'menu.main' | ghsLabel}}">
-  <img class="ghs-svg" src="./assets/images/menu.svg">
-</a>
-<div #dialog [ngSwitch]="active">
+<div class="back" *ngIf="active != SubMenu.main" (click)="setActive(SubMenu.main)"
+  title="{{'menu.backToMain' | ghsLabel}}">
+  <img class="ghs-svg" src="./assets/images/left.svg">
+</div>
 
-  <div class="back" [ngClass]="{'disabled' : active == SubMenu.main}" (click)="setActive(SubMenu.main)"
-    title="{{'menu.backToMain' | ghsLabel}}">
-    <img class="ghs-svg" src="./assets/images/left.svg">
-  </div>
-
+<div class="scroll-container" [ngSwitch]="active">
   <div *ngSwitchCase="SubMenu.main" class="menu-container main">
     <div class="line">
       <div class="state">
@@ -253,7 +249,7 @@
     </div>
   </div>
 
-  <ghs-settings-menu *ngSwitchCase="SubMenu.settings" [setDialogPosition]="setDialogPositionFunc"></ghs-settings-menu>
+  <ghs-settings-menu *ngSwitchCase="SubMenu.settings"></ghs-settings-menu>
 
   <ghs-server-menu *ngSwitchCase="SubMenu.server"></ghs-server-menu>
 

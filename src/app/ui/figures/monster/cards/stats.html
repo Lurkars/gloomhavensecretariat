@@ -1,5 +1,5 @@
 <div class="stats-container" [ngClass]="{'boss' : monster.boss}">
-  <div #button class="level" title="{{'game.level' | ghsLabel}}">{{monster.level}}</div>
+  <div #levelButton (click)="openLevelDialog()" class="level" title="{{'game.level' | ghsLabel}}">{{monster.level}}</div>
 
   <div class="name-container" *ngIf="showName">
     <span class="name">
@@ -10,7 +10,7 @@
     <span class="edition" *ngIf="getEdition()">[{{'data.edition.' + getEdition()| ghsLabel}}]</span>
   </div>
 
-  <span class="toggle-ally" [ngClass]="{'ally' : monster.isAlly}" (click)="toggleAlly()"><img class="ghs-svg"
+  <span class="toggle-ally" [ngClass]="{'ally' : monster.isAlly}" (click)="toggleAlly()"><img
       src="./assets/images/monster/enemy.png" /></span>
 
   <div class="stats" *ngIf="monster.boss" [ngClass]="{'hidden' : hideStats(MonsterType.boss)}">
@@ -113,10 +113,3 @@
 </div>
 
 
-<div #dialog class="dialog">
-  <div class="level-container">
-    <span class="item"><img src="./assets/images/status/level.svg" /></span>
-    <span *ngFor="let level of levels;"><a class="level" [ngClass]="{'active' : level == monster.level}"
-        (click)="setLevel(level)">{{level}}</a></span>
-  </div>
-</div>

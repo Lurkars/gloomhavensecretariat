@@ -1,0 +1,19 @@
+<div class="title">
+  <span class="monster">
+    {{'data.monster.' + monster.name | ghsLabel}}
+  </span>
+  <span [ngClass]="{'elite' : type == MonsterType.elite, 'boss' : type == MonsterType.boss }">
+    {{'monster.addEntity.' + type | ghsLabel}}
+  </span>
+</div>
+
+<div class="number-container" [ngClass]="{'extended' : max == 4}">
+  <div *ngFor="let number of range" class="number-button"
+    [ngClass]="{'disabled' : hasNumber(number), 'elite' : type == MonsterType.elite, 'boss' : type == MonsterType.boss }"
+    (click)="pickNumber(number)">
+    <span class="number">{{number}}</span>
+  </div>
+  <div class="summon-button" (click)="summon = !summon" [ngClass]="{'active' : summon }">
+    <img class="summon" src="./assets/images/summons/{{monster.summonColor}}.png">
+  </div>
+</div>

@@ -13,7 +13,7 @@
 <div class="character" [style.--ghs-character-color]="character.color"
   [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0, 'denied' : !gameManager.stateManager.hasCharacterPermission(character), 'dimmed' : character.attackModifierDeckVisible}">
 
-  <ghs-character-image (click)="close()" [character]="character"
+  <ghs-character-image [character]="character"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
   </ghs-character-image>
 
@@ -30,7 +30,7 @@
   <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-loot" (dragMove)="dragLootMove($event)"
     (dragEnd)="dragLootEnd($event)" [relative]="true"></ghs-drag-value>
 
-  <ghs-character-initiative (click)="close()" [character]="character"></ghs-character-initiative>
+  <ghs-character-initiative [character]="character"></ghs-character-initiative>
 
   <ghs-highlight-conditions [entity]="character"></ghs-highlight-conditions>
 
@@ -42,8 +42,8 @@
   </div>
 
   <div class="stats">
-    <div class="column col-1" (click)="toggle()">
-      <div #button class="title"><img class="icon" [src]="characterManager.characterIcon(character)" />
+    <div class="column col-1" (click)="openEntityMenu($event)">
+      <div class="title" #characterName><img class="icon" [src]="characterManager.characterIcon(character)" />
         {{character.title || ('data.character.' + character.name | ghsLabel)}}
         <img class="ghs-svg exhausted" *ngIf="character.exhausted" src="./assets/images/status/exhausted.svg" />
       </div>
@@ -51,7 +51,7 @@
         <div class="health" title="{{'game.health' | ghsLabel}}">
           <img src="./assets/images/status/health.svg" />
           {{character.health + health}}/{{character.maxHealth}}
-          <span *ngIf="health && !opened" class="value-overlay"
+          <span *ngIf="health" class="value-overlay"
             [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">
             <span class="value">{{health | ghsValueSign}}</span>
           </span>
@@ -70,168 +70,40 @@
       </div>
     </div>
 
-    <span class="spacer" (click)="toggle()"></span>
+    <span class="spacer" (click)="openEntityMenu($event)"></span>
 
     <span *ngIf="!character.attackModifierDeckVisible" class="attack-modifier-icon"
       (click)="toggleAttackModifierDeckVisible()" title="{{'game.attackModifiers' | ghsLabel}}">
       <img src="./assets/images/attackmodifier/icon.png" />
     </span>
 
-    <ghs-character-summondialog [character]="character"></ghs-character-summondialog>
-    <div class="column col-2" (click)="toggle()">
+    <div class="summon-dialog">
+      <a #summonButton class="summon-dialog-button" (click)="openSummonDialog($event)" title="{{'summon' | ghsLabel}}">
+        <img class="ghs-svg" src="./assets/images/plus.svg">
+      </a>
+    </div>
+
+    <div class="column col-2" (click)="openEntityMenu($event)">
       <span class="experience" title="{{'game.experience' | ghsLabel}}">{{character.experience + experience}}
         <img src="./assets/images/status/experience.svg" />
-        <span *ngIf="experience && !opened" class="value-overlay"
+        <span *ngIf="experience" class="value-overlay"
           [ngClass]="{'negative-value' : experience < 0, 'positive-value' : experience > 0}">
           <span class="value">{{experience | ghsValueSign}}</span>
         </span>
       </span>
       <span class="loot" title="{{'game.loot' | ghsLabel}}">{{character.loot + loot}}
         <img src="./assets/images/status/loot.svg" />
-        <span *ngIf="loot && !opened" class="value-overlay"
-          [ngClass]="{'negative-value' : loot < 0, 'positive-value' : loot > 0}">
+        <span *ngIf="loot" class="value-overlay" [ngClass]="{'negative-value' : loot < 0, 'positive-value' : loot > 0}">
           <span class="value">{{loot | ghsValueSign}}</span>
         </span>
       </span>
     </div>
 
-    <ghs-character-sheet [character]="character"></ghs-character-sheet>
+    <a class="character-sheet-button" (click)="openCharacterSheet()" title="{{'character.progress' | ghsLabel}}">
+      <img [src]="characterManager.characterIcon(character)" />
+    </a>
 
   </div>
 
   <ghs-figure-errors [figure]="character"></ghs-figure-errors>
-</div>
-
-<div #dialog class="dialog">
-  <div *ngIf="!levelDialog" class="status-container">
-    <div class="entity-container">
-      <span class="item">
-        <a class="button" [ngClass]="{'disabled' : character.health + health == 0}" (click)="changeHealth(-1)">
-          <img class="ghs-svg" src="./assets/images/minus.svg">
-        </a>
-      </span>
-      <span class="item" title="{{'game.health' | ghsLabel}}">
-        <img src="./assets/images/status/health.svg" />
-        <span class="badge health-count"
-          [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">{{health | ghsValueSign}}</span>
-      </span>
-      <span class="item">
-        <a class="button" [ngClass]="{'disabled' : character.health + health == character.maxHealth}"
-          (click)="changeHealth(1)">
-          <img class="ghs-svg" src="./assets/images/plus.svg">
-        </a>
-      </span>
-
-
-      <span class="item">
-        <a class="button" [ngClass]="{'disabled' : character.experience + experience == 0}"
-          (click)="changeExperience(-1)">
-          <img class="ghs-svg" src="./assets/images/minus.svg">
-        </a>
-      </span>
-      <span class="item" title="{{'game.experience' | ghsLabel}}">
-        <img src="./assets/images/status/experience.svg" />
-        <span class="badge">{{experience | ghsValueSign}}</span>
-      </span>
-      <span class="item">
-        <a class="button" (click)="changeExperience(1)">
-          <img class="ghs-svg" src="./assets/images/plus.svg">
-        </a>
-      </span>
-
-      <span class="item">
-        <a class="button" [ngClass]="{'disabled' : character.loot + loot == 0}" (click)="changeLoot(-1)">
-          <img class="ghs-svg" src="./assets/images/minus.svg">
-        </a>
-      </span>
-      <span class="item" title="{{'game.loot' | ghsLabel}}">
-        <img src="./assets/images/status/loot.svg" />
-        <span class="badge">{{loot | ghsValueSign}}</span>
-      </span>
-      <span class="item">
-        <a class="button" (click)="changeLoot(1)">
-          <img class="ghs-svg" src="./assets/images/plus.svg">
-        </a>
-      </span>
-
-
-      <span class="item">
-        <a class="button"
-          [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.bless) == countDrawnAttackModifier(AttackModifierType.bless)}"
-          (click)="changeBless(-1)">
-          <img class="ghs-svg" src="./assets/images/minus.svg">
-        </a>
-      </span>
-      <span class="item" title="{{'game.condition.bless' | ghsLabel}}">
-        <span class="condition">
-          <img src="./assets/images/status/bless.svg" />
-        </span>
-        <span class="badge bless-count">{{countAttackModifier(AttackModifierType.bless)}}</span>
-      </span>
-      <span class="item">
-        <a class="button" [ngClass]="{'disabled' : countAllAttackModifier(AttackModifierType.bless) >= 10}"
-          (click)="changeBless(1)">
-          <img class="ghs-svg" src="./assets/images/plus.svg">
-        </a>
-      </span>
-
-      <span class="item">
-        <a class="button"
-          [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.curse) == countDrawnAttackModifier(AttackModifierType.curse)}"
-          (click)="changeCurse(-1)">
-          <img class="ghs-svg" src="./assets/images/minus.svg">
-        </a>
-      </span>
-      <span class="item" title="{{'game.condition.curse' | ghsLabel}}">
-        <span class="condition">
-          <img src="./assets/images/status/curse.svg" />
-        </span>
-        <span class="badge curse-count">{{countAttackModifier(AttackModifierType.curse)}}</span>
-      </span>
-      <span class="item">
-        <a class="button" [ngClass]="{'disabled' : countAllAttackModifier(AttackModifierType.curse) >= 10}"
-          (click)="changeCurse(1)">
-          <img class="ghs-svg" src="./assets/images/plus.svg">
-        </a>
-      </span>
-
-
-      <span class="item" title="{{'game.exhausted' | ghsLabel}}">
-        <a class="condition" [ngClass]="{'active' : character.exhausted}" (click)="toggleExhausted()">
-          <img src="./assets/images/status/exhausted.svg" />
-        </a>
-      </span>
-      <span class="item" title="{{'game.level' | ghsLabel}}">
-        <a class="button level-button" (click)="openLevelDialog()">
-          {{character.level}} <img src="./assets/images/status/level.svg" />
-        </a>
-      </span>
-      <span></span>
-    </div>
-
-    <ghs-conditions [entity]="character" [figure]="character" type="character"></ghs-conditions>
-  </div>
-
-  <div *ngIf="levelDialog" class="level-dialog">
-    <div class="level-container">
-      <span class="item"><img src="./assets/images/status/level.svg" /></span>
-      <span class="item" *ngFor="let level of [] | ghsRange:9"><a class="level"
-          [ngClass]="{'active' : level + 1 == character.level}" (click)="setLevel(level + 1)">{{level +1}}</a></span>
-    </div>
-    <div class="char-container">
-      <input #charactertitle />
-      <a class="button" (click)="changeMaxHealth(-1)">
-        <img class="ghs-svg" src="./assets/images/minus.svg">
-      </a>
-      <span class="item" title="{{'game.maxHealth' | ghsLabel}}">
-        <img src="./assets/images/status/health.svg" />
-        <span class="badge max-health">{{(character.maxHealth + maxHp < character.maxHealth ||
-            character.health==character.maxHealth ? character.maxHealth + maxHp :
-            character.health)}}/{{character.maxHealth + maxHp}}</span>
-        </span>
-        <a class="button" (click)="changeMaxHealth(1)">
-          <img class="ghs-svg" src="./assets/images/plus.svg">
-        </a>
-    </div>
-  </div>
 </div>

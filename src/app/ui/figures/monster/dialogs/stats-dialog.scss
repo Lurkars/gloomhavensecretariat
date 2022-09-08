@@ -1,0 +1,45 @@
+.stats-dialog {
+
+  width: calc(var(--ghs-unit) * 46 * var(--ghs-dialog-factor));
+
+  display: flex;
+  flex-direction: column;
+
+  .name {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-family: 'ghs-title';
+    color: var(--ghs-color-white);
+    font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+    text-align: center;
+    width: 100%;
+  }
+
+  .stats-container {
+    text-align: initial;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+    max-height: 80vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .stats {
+      position: relative;
+      width: calc(var(--ghs-unit) * 40 * var(--ghs-dialog-factor));
+      min-height: calc(var(--ghs-unit) * 21.5 * var(--ghs-dialog-factor));
+      margin: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+    }
+
+    ghs-monster-stats {
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      transform: scale(var(--ghs-dialog-factor));
+      transform-origin: top left;
+    }
+  }
+}

@@ -15,13 +15,13 @@
   <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-hp" (dragMove)="dragHpMove($event)"
     (dragEnd)="dragHpEnd($event)"></ghs-drag-value>
 
-  <ghs-character-initiative (click)="close()" [character]="objective"></ghs-character-initiative>
+  <ghs-character-initiative [character]="objective"></ghs-character-initiative>
 
   <ghs-highlight-conditions [entity]="objective"></ghs-highlight-conditions>
 
   <div class="stats">
-    <div class="column col-1" (click)="toggle()">
-      <div #button class="title"><img class="icon"
+    <div class="column col-1" (click)="openEntityMenu($event)">
+      <div class="title" #objectiveName><img class="icon"
           [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
         {{objective.title ? objective.title : ((objective.name ? ('data.objective.' + objective.name) :
         (objective.escort ? 'escort' : 'objective')) |
@@ -32,10 +32,10 @@
         <div class="health">
           <img src="./assets/images/status/health.svg" />
           {{objective.health}}/{{maxHealth()}} <span class="value-overlay "
-          [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}" *ngIf="health && !opened">
-          <span class="value">{{health |
-            ghsValueSign}}</span>
-        </span>
+            [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}" *ngIf="health">
+            <span class="value">{{health |
+              ghsValueSign}}</span>
+          </span>
         </div>
         <div class="conditions">
           <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.activeConditions(objective)">
@@ -47,75 +47,10 @@
       </div>
     </div>
 
-    <span class="spacer" (click)="toggle()"></span>
+    <span class="spacer" (click)="openEntityMenu($event)"></span>
 
-    <div class="icon-container" (click)="toggle()">
+    <div class="icon-container" (click)="openEntityMenu($event)">
       <img [src]="'./assets/images/objective/' + (objective.escort ? 'escort' : 'objective') + '.svg'" />
     </div>
-  </div>
-</div>
-
-<div #dialog class="dialog">
-  <div class="status-container">
-    <div class="entity-container">
-
-      <span class="item">
-        <a class="button" [ngClass]="{'disabled' : objective.health == 0}" (click)="changeHealth(-1)">
-          <img class="ghs-svg" src="./assets/images/minus.svg">
-        </a>
-      </span>
-      <span class="item">
-        <img src="./assets/images/status/health.svg" />
-        <span class="badge health-count"
-          [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">{{health | ghsValueSign}}</span>
-      </span>
-      <span class="item">
-        <a class="button" [ngClass]="{'disabled' : objective.health == objective.maxHealth}" (click)="changeHealth(1)">
-          <img class="ghs-svg" src="./assets/images/plus.svg">
-        </a>
-      </span>
-
-      <span class="item">
-        <a class="button" (click)="changeId(-1)">
-          <img class="ghs-svg" src="./assets/images/left.svg">
-        </a>
-      </span>
-      <span class="item">
-        <span class="id">{{objective.id + 1}}</span>
-      </span>
-      <span class="item">
-        <a class="button" (click)="changeId(1)">
-          <img class="ghs-svg" src="./assets/images/right.svg">
-        </a>
-      </span>
-
-      <span class="item">
-        <a class="condition" [ngClass]="{'active' : objective.exhausted}" (click)="exhausted()">
-          <img src="./assets/images/status/exhausted.svg" />
-        </a>
-      </span>
-      <span class="item">
-      </span>
-      <span></span>
-    </div>
-
-    <ghs-conditions *ngIf="objective.escort" [entity]="objective" [figure]="objective" type="character">
-    </ghs-conditions>
-  </div>
-
-  <div class="char-container">
-    <input #objectiveTitle [value]="objective.title || ''" />
-    <ng-container *ngIf="showMaxHealth()">
-      <a class="button" (click)="changeMaxHealth(-1)">
-        <img class="ghs-svg" src="./assets/images/minus.svg">
-      </a>
-      <span class="item">
-        <img src="./assets/images/status/health.svg" />
-        <span class="badge max-health">{{objective.health}}/{{maxHealth()}}</span>
-      </span>
-      <a class="button" (click)="changeMaxHealth(1)">
-        <img class="ghs-svg" src="./assets/images/plus.svg">
-      </a>
-    </ng-container>
   </div>
 </div>

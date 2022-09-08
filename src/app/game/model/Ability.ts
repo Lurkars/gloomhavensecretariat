@@ -13,6 +13,7 @@ export class Ability {
   slots: number = 0;
   bottomTypes: AbilityCardType[] = [];
   bottomSlots: number = 0;
+  revealed: boolean = false;
 
   constructor(cardId: number | undefined, name: string | undefined, initiative: number,
     actions: Action[],

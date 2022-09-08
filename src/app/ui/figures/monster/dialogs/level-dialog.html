@@ -1,0 +1,14 @@
+<div class="level-dialog">
+  <span class="title">
+    <span class="name">{{'data.monster.' + monster.name | ghsLabel}} <span class="edition"
+        *ngIf="getEdition()">[{{'data.edition.' + getEdition()| ghsLabel}}]</span>
+    </span>
+    {{'game.level' | ghsLabel}}
+  </span>
+  <div class="level-container">
+    <span class="item"><img src="./assets/images/status/level.svg" /></span>
+    <span *ngFor="let level of levels;"><a class="level"
+        [ngClass]="{'current' : level == gameManager.game.level,  'active' : level == monster.level}"
+        (click)="setLevel(level)">{{level}}</a></span>
+  </div>
+</div>

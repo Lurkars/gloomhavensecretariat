@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ElementRef, Input, ViewChild, ViewEncapsulation } from "@angular/core";
+import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { AfterViewInit, Component, ElementRef, Inject, Input, OnInit, ViewChild, ViewEncapsulation } from "@angular/core";
 import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -10,20 +11,17 @@ import { CharacterProgress } from "src/app/game/model/CharacterProgress";
 import { ItemData } from "src/app/game/model/data/ItemData";
 import { GameState } from "src/app/game/model/Game";
 import { Identifier } from "src/app/game/model/Identifier";
-import { Perk, PerkCard, PerkType } from "src/app/game/model/Perks";
+import { Perk, PerkType } from "src/app/game/model/Perks";
 import { ghsValueSign } from "src/app/ui/helper/Static";
 
-import { PopupComponent } from "src/app/ui/popup/popup";
 
 @Component({
   selector: 'ghs-character-sheet',
   templateUrl: 'character-sheet.html',
-  styleUrls: [ '../../../popup/popup.scss', './character-sheet.scss' ],
+  styleUrls: [ './character-sheet.scss' ],
   encapsulation: ViewEncapsulation.None
 })
-export class CharacterSheetDialog extends PopupComponent implements AfterViewInit {
-
-  @Input() character!: Character;
+export class CharacterSheetDialog implements OnInit, AfterViewInit {
 
   @ViewChild('charactertitle', { static: false }) titleInput!: ElementRef;
   @ViewChild('itemName', { static: false }) itemName!: ElementRef;
@@ -44,9 +42,18 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
   goldTimeout: any = null;
   xpTimeout: any = null;
 
-  override ngOnInit(): void {
-    super.ngOnInit();
+  constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef) {
 
+    this.dialogRef.closed.subscribe({
+      next: (forced) => {
+        if (!forced) {
+          this.close();
+        }
+      }
+    });
+  }
+
+  ngOnInit(): void {
     if (!this.character.progress) {
       this.character.progress = new CharacterProgress();
     }
@@ -66,7 +73,6 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
     this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.retirements;
 
     this.perksWip = this.character.perks.length == 0 || this.character.perks.map((perk) => perk.count).reduce((a, b) => a + b) != 15;
-
 
     this.updateItems();
     this.itemChange();
@@ -88,6 +94,7 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
 
 
   ngAfterViewInit(): void {
+    this.titleInput.nativeElement.value = this.character.title || settingsManager.getLabel('data.character.' + this.character.name.toLowerCase());
     this.itemEdition.nativeElement.value = this.character.edition;
     this.itemName.nativeElement.value = "1";
   }
@@ -204,15 +211,8 @@ export class CharacterSheetDialog extends PopupComponent implements AfterViewIni
     this.gameManager.stateManager.after();
   }
 
-  override open(): void {
-    this.titleInput.nativeElement.value = this.character.title || settingsManager.getLabel('data.character.' + this.character.name.toLowerCase());
-    this.updateItems();
-    this.itemChange();
-    super.open();
-  }
 
-  override close(): void {
-    super.close();
+  close(): void {
     if (this.titleInput) {
       if (this.titleInput.nativeElement.value && this.titleInput.nativeElement.value != settingsManager.getLabel('data.character.' + this.character.name.toLowerCase())) {
         if (this.character.title != this.titleInput.nativeElement.value) {

@@ -1,0 +1,22 @@
+<div class="hint-dialog">
+  <div class="hint">
+    <p *ngIf="empty()">{{'round.hint.empty' | ghsLabel}}</p>
+    <p *ngIf="missingInitative()">{{'round.hint.missingInitative' | ghsLabel}} </p>
+    <p *ngIf="active()">{{'round.hint.active' | ghsLabel}}</p>
+    <a *ngIf="active()" (click)="next()">{{'round.hint.confirm' |
+      ghsLabel}}</a>
+    <a *ngIf="active()" (click)="confirmTurns()">{{'round.hint.confirmTurns' |
+      ghsLabel}}</a>
+    <p *ngIf="finish()">{{'round.hint.finish' | ghsLabel}}</p>
+    <a *ngIf="finish()" (click)="finishScenario(true)">{{'round.hint.confirmFinish' |
+      ghsLabel}}</a>
+    <p *ngIf="failed()">{{'round.hint.failed' | ghsLabel}}</p>
+    <a *ngIf="failed()" (click)="finishScenario(false)">{{'round.hint.confirmFailed' |
+      ghsLabel}}</a>
+    <a *ngIf="failed()" (click)="resetScenario()">{{'round.hint.confirmReset' |
+      ghsLabel}}</a>
+    <a *ngIf="finish() || failed()" (click)="confirmTurns()">{{(gameManager.game.state == GameState.next ?
+      'round.hint.continueNext' : 'round.hint.continueDraw') |
+      ghsLabel}}</a>
+  </div>
+</div>
