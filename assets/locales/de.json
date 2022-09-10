@@ -75,6 +75,7 @@
       "disablePartyCampaignMode": "Kampagnenmodus ausschalten",
       "disableSolo": "Einzelspieler Level Berechnung ausschalten",
       "disabledGe5Player": "≥ 5 Spieler Regel ausschalten",
+      "donate": "{0} spendet an Tempel der Großen Eiche",
       "draw": "Ziehen",
       "drawAbility": "Fertigkeit für {0} ziehen",
       "enableAutomaticLevel": "Automatische Berechnung Level einschalten",
@@ -199,6 +200,17 @@
     "manual": {
       "add": "Szenarien freischalten",
       "index": "Szenarionummern, kommasepariert"
+    },
+    "summary": {
+      ".": "Szenario Zusammenfassung",
+      "name": "%character%",
+      "loot": "Beute",
+      "gold": "Gold",
+      "totalGold": "Gold Gesamt",
+      "xpGained": "EP gesammelt",
+      "xpBonus": "Bonus EP",
+      "xp": "EP",
+      "totalXp": "EP Gesamt"
     }
   },
   "section": "Sektion hinzufügen",
@@ -230,6 +242,8 @@
       "battlegoals": "Kampfziele",
       "notes": "Notizen",
       "gold-notes": "Gold Notizen",
+      "donations": "Spenden an den Tempel der Großen Eiche",
+      "donate": "Spende",
       "items": {
         ".": "Gegenstände",
         "wip": "%wip%! Gegenstände sind noch nicht vollständig."
@@ -292,6 +306,7 @@
     "campaign": {
       ".": "Kampagne",
       "achievements": "Globale Erfolge",
+      "donations": "Spenden an den Tempel der Großen Eiche",
       "scenarios": {
         ".": "Szenarien",
         "index": "#",
@@ -319,8 +334,8 @@
     ".": "Beschwörung",
     "addCustom": "Beschwöre '{0}'",
     "name": "Name",
-    "state" : {
-      "." : "Status",
+    "state": {
+      ".": "Status",
       "new": "Neu",
       "true": "Aktiv",
       "false": "Inaktiv"
@@ -489,6 +504,7 @@
   "update": "Update - Neu Laden",
   "and": "und",
   "or": "oder",
+  "cancel": "Abbrechen",
   "game": {
     "action": {
       "area": "Bereichseffekt",
