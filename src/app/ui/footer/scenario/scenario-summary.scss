@@ -69,13 +69,13 @@
       }
     }
 
-    span:nth-child(6n-5) {
+    >span:nth-child(6n-5) {
       justify-content: flex-start;
       text-align: left;
     }
 
     &:not(:first-child) {
-      span:nth-child(6n-5) {
+      >span:nth-child(6n-5) {
         font-size: 1.3em;
 
         img {
