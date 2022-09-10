@@ -98,71 +98,73 @@ export class MainComponent implements OnInit {
     } else {
       setTimeout(() => {
         const container = this.element.nativeElement.getElementsByClassName('figures')[ 0 ];
-        const figures = container.getElementsByClassName('figure');
+        if (container) {
+          const figures = container.getElementsByClassName('figure');
 
-        for (let i = 0; i < figures.length; i++) {
-          this.resizeObserver.observe(figures[ i ]);
-        }
-        let figureWidth = container.clientWidth;
-        if (figures.length > 0) {
-          figureWidth = figures[ 0 ].firstChild.clientWidth;
-        }
-
-        if (figureWidth < (container.clientWidth / 2)) {
-          let height = 0;
-          let columnSize = 0;
-          const minColumn = Math.ceil(gameManager.game.figures.length / 2);
-          while ((height < container.clientHeight || columnSize < minColumn) && columnSize < figures.length) {
-            height += figures[ columnSize ].clientHeight;
-            columnSize++;
+          for (let i = 0; i < figures.length; i++) {
+            this.resizeObserver.observe(figures[ i ]);
+          }
+          let figureWidth = container.clientWidth;
+          if (figures.length > 0) {
+            figureWidth = figures[ 0 ].firstChild.clientWidth;
           }
 
-          if (columnSize == gameManager.game.figures.length && height > container.clientHeight) {
-            columnSize--;
-          }
-
-          if (columnSize < gameManager.game.figures.length) {
-            this.columns = 2;
-
-            if (columnSize < minColumn) {
-              columnSize = minColumn;
-            } else if (columnSize > minColumn) {
-              columnSize--;
-            }
-
-            height = 0;
-            for (let i = 0; i < columnSize; i++) {
-              height += figures[ i ].clientHeight;
-            }
-
-            let otherHeight = 0;
-            for (let i = columnSize; i < gameManager.game.figures.length; i++) {
-              otherHeight += figures[ i ].clientHeight;
-            }
-
-            while (height > otherHeight && otherHeight + figures[ columnSize - 1 ].clientHeight < height) {
-              otherHeight += figures[ columnSize - 1 ].clientHeight;
-              height -= figures[ columnSize - 1 ].clientHeight;
-              columnSize--;
-            }
-
-            while (height < otherHeight) {
-              otherHeight -= figures[ columnSize ].clientHeight;
+          if (figureWidth < (container.clientWidth / 2)) {
+            let height = 0;
+            let columnSize = 0;
+            const minColumn = Math.ceil(gameManager.game.figures.length / 2);
+            while ((height < container.clientHeight || columnSize < minColumn) && columnSize < figures.length) {
               height += figures[ columnSize ].clientHeight;
               columnSize++;
             }
 
-            this.columnSize = columnSize;
+            if (columnSize == gameManager.game.figures.length && height > container.clientHeight) {
+              columnSize--;
+            }
+
+            if (columnSize < gameManager.game.figures.length) {
+              this.columns = 2;
+
+              if (columnSize < minColumn) {
+                columnSize = minColumn;
+              } else if (columnSize > minColumn) {
+                columnSize--;
+              }
+
+              height = 0;
+              for (let i = 0; i < columnSize; i++) {
+                height += figures[ i ].clientHeight;
+              }
+
+              let otherHeight = 0;
+              for (let i = columnSize; i < gameManager.game.figures.length; i++) {
+                otherHeight += figures[ i ].clientHeight;
+              }
+
+              while (height > otherHeight && otherHeight + figures[ columnSize - 1 ].clientHeight < height) {
+                otherHeight += figures[ columnSize - 1 ].clientHeight;
+                height -= figures[ columnSize - 1 ].clientHeight;
+                columnSize--;
+              }
+
+              while (height < otherHeight) {
+                otherHeight -= figures[ columnSize ].clientHeight;
+                height += figures[ columnSize ].clientHeight;
+                columnSize++;
+              }
+
+              this.columnSize = columnSize;
+            } else {
+              this.columns = 1;
+              this.columnSize = 99;
+            }
           } else {
             this.columns = 1;
             this.columnSize = 99;
           }
-        } else {
-          this.columns = 1;
-          this.columnSize = 99;
-        }
 
-        this.translate(scrollTo);
+          this.translate(scrollTo);
+        }
       }, 0);
     }
   }

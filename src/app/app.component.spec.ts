@@ -33,7 +33,6 @@ import { MonsterToolComponent } from './ui/tools/monster/monster';
 import { MonsterActionToolComponent } from './ui/tools/monster/action/action';
 import { MonsterStatToolComponent } from './ui/tools/monster/stat/stat';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ConditionHighlightAnimationDirective, ConditionsComponent, HighlightConditionsComponent } from './ui/figures/conditions/conditions';
@@ -58,6 +57,7 @@ import { AbilityDialogComponent } from './ui/figures/ability/ability-dialog';
 import { TextShrinkDirective } from './ui/helper/textshrink';
 import { AutoscrollDirective, FigureAutoscrollDirective } from './ui/helper/autoscroll';
 import { AttackModifierToolComponent } from './ui/tools/attackmodifier/attackmodifier-tool';
+import { DialogModule } from '@angular/cdk/dialog';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -91,9 +91,9 @@ describe('AppComponent', () => {
         AttackModifierToolComponent, MonsterToolComponent, MonsterActionToolComponent, MonsterStatToolComponent ],
       imports: [
         BrowserModule,
-        AppRoutingModule,
         FormsModule,
         DragDropModule,
+        DialogModule,
         ServiceWorkerModule.register('ngsw-worker.js', { enabled: false })
       ],
     }).compileComponents();
