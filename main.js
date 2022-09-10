@@ -9,8 +9,7 @@ function createWindow() {
     height: 600,
     show: false
   });
-  mainWindow.webContents.openDevTools();
-
+  
   mainWindow.loadFile('./dist/gloomhavensecretary/index.html');
 
   mainWindow.on("closed", () => {
