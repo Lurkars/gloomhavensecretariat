@@ -75,6 +75,7 @@
       "disablePartyCampaignMode": "Disable campagin mode",
       "disableSolo": "Disable solo level calculation",
       "disabledGe5Player": "Disable ≥ 5 player rules",
+      "donate": "{0} donate to Sanctuary of the Great Oak",
       "draw": "Draw",
       "drawAbility": "Draw ability for {0}",
       "enableAutomaticLevel": "Enable automatic level calculation",
@@ -199,6 +200,17 @@
     "manual": {
       "add": "Unlock Scenarios",
       "index": "Scenario number, commaseparated"
+    },
+    "summary": {
+      ".": "Scenario Summary",
+      "name": "%character%",
+      "loot": "Loot",
+      "gold": "Gold",
+      "totalGold": "Total Gold",
+      "xpGained": "Gained XP",
+      "xpBonus": "Bonus XP",
+      "xp": "XP",
+      "totalXp": "Total XP"
     }
   },
   "section": "Add Section",
@@ -230,6 +242,8 @@
       "battlegoals": "Battelgoals",
       "notes": "Notes",
       "gold-notes": "Gold Notes",
+      "donations": "Donations to Sanctuary of the Great Oak",
+      "donate": "Donate",
       "items": {
         ".": "Items",
         "wip": "%wip%! Items not complete yet."
@@ -292,6 +306,7 @@
     "campaign": {
       ".": "Campaign",
       "achievements": "Global Achievements",
+      "donations": "Donations to Sanctuary of the Great Oak",
       "scenarios": {
         ".": "Scenarios",
         "index": "#",
@@ -492,6 +507,7 @@
   "update": "Update - Reload",
   "and": "and",
   "or": "or",
+  "cancel": "Cancel",
   "game": {
     "action": {
       "area": "Area Effect",

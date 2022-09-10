@@ -42,7 +42,7 @@
       position: relative;
       display: flex;
       height: 100%;
-      width: calc(var(--ghs-unit) * 8 * var(--ghs-text-factor));
+      width: calc(var(--ghs-unit) * 9 * var(--ghs-text-factor));
       background-color: var(--ghs-color-darkgray);
       border: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor)) solid var(--ghs-color-black);
       border-bottom-width: calc(var(--ghs-unit) * 0.35 * var(--ghs-text-factor));
@@ -71,10 +71,10 @@
     }
 
     .health {
-      font-size: calc(var(--ghs-unit) * 4.7 * var(--ghs-text-factor));
+      font-size: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
       position: relative;
       top: calc(var(--ghs-unit) * 1.2 * var(--ghs-text-factor));
-      left: calc(var(--ghs-unit) * -0.8 * var(--ghs-text-factor));
+      left: 0;
       height: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
 
       &::before {
@@ -188,7 +188,7 @@
       position: absolute;
       bottom: calc(var(--ghs-unit) * 0.2 * var(--ghs-text-factor));
       left: calc(var(--ghs-unit) * 0.4 * var(--ghs-text-factor));
-      width: calc(var(--ghs-unit) * 7.2 * var(--ghs-text-factor));
+      width: calc(var(--ghs-unit) * 8.2 * var(--ghs-text-factor));
       height: calc(var(--ghs-unit) * 0.75 * var(--ghs-text-factor));
       z-index: 0;
       border-radius: 15%;

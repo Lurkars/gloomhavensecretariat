@@ -45,6 +45,15 @@
           <div class="row gold-notes">
             <label>{{'character.progress.gold-notes' | ghsLabel}}:</label>
             <input [value]="character.progress.gold" type="number" min="0" (change)="setGold($event)">
+            <span class="donations">
+              {{'character.progress.donations' | ghsLabel}}: {{character.progress.donations}}</span>
+            <span class="donate">
+              {{'character.progress.donate'
+              | ghsLabel}}:
+              <a (click)="donate()"
+                [ngClass]="{'disabled' : character.progress.gold < 10 || gameManager.game.round > 0}"><span
+                  class="price"><img src="./assets/images/loot.svg">10</span></a>
+            </span>
           </div>
           <div class="row items">
             <label>{{'character.progress.items' | ghsLabel}}:</label>
@@ -63,7 +72,8 @@
               </div>
               <span class="spacer"></span>
               <div class="item-form">
-                <span class="prev" [ngClass]="{'disabled' : itemName.value == '1'}" (click)="itemName.value = (+itemName.value - 1) + '';itemChange()"><img
+                <span class="prev" [ngClass]="{'disabled' : itemName.value == '1'}"
+                  (click)="itemName.value = (+itemName.value - 1) + '';itemChange()"><img
                     src="./assets/images/left.svg"></span>
                 <input type="number" (change)="itemChange()" #itemName min="1" value="1"
                   [ngClass]="{'warn' : !itemCanAdd, 'error': !item}">
@@ -73,7 +83,8 @@
                 </select>
                 <a class="button add" (click)="addItem()" [ngClass]="{'disabled': !item || !itemCanAdd}"><img
                     src="./assets/images/plus.svg" [ngClass]="{'warn' : !itemCanAdd}"></a>
-                <span class="next" (click)="itemName.value = (+itemName.value + 1) + '';itemChange()"> <img src="./assets/images/right.svg"></span>
+                <span class="next" (click)="itemName.value = (+itemName.value + 1) + '';itemChange()"> <img
+                    src="./assets/images/right.svg"></span>
                 <ng-container *ngIf="item">
                   <span class="icon"><img [src]="'./assets/images/items/slots/' + item.slot +'.svg'"></span>
                   <span class="name">{{item.name}}</span>

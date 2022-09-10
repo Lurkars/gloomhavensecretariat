@@ -3,6 +3,7 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GameState } from 'src/app/game/model/Game';
 import { SettingsManager, settingsManager } from '../game/businesslogic/SettingsManager';
+import { Character } from '../game/model/Character';
 import { Figure } from '../game/model/Figure';
 
 @Component({
@@ -21,17 +22,28 @@ export class MainComponent implements OnInit {
 
   resizeObserver: ResizeObserver;
 
+  fullviewChar: Character | undefined;
+
   constructor(private element: ElementRef) {
     gameManager.uiChange.subscribe({
       next: () => {
-        this.calcColumns();
+        const figure = gameManager.game.figures.find((figure) => figure instanceof Character && figure.fullview);
+        if (figure) {
+          this.fullviewChar = figure as Character;
+        } else {
+          this.fullviewChar = undefined;
+          this.calcColumns();
+        }
       }
     })
 
     this.resizeObserver = new ResizeObserver((elements) => {
-      this.calcColumns();
+      if (!this.fullviewChar) {
+        this.calcColumns();
+      }
     })
   }
+
 
   async ngOnInit() {
     document.body.classList.add('no-select');
@@ -41,15 +53,39 @@ export class MainComponent implements OnInit {
     document.body.style.setProperty('--ghs-barsize', settingsManager.settings.barsize + '');
     document.body.style.setProperty('--ghs-fontsize', settingsManager.settings.fontsize + '');
 
-    this.calcColumns();
+    const figure = gameManager.game.figures.find((figure) => figure instanceof Character && figure.fullview);
+    if (figure) {
+      this.fullviewChar = figure as Character;
+    } else {
+      this.fullviewChar = undefined;
+      this.calcColumns();
+    }
 
     window.addEventListener('resize', (event) => {
-      this.calcColumns();
+      if (!this.fullviewChar) {
+        this.calcColumns();
+      }
     });
 
     window.addEventListener('fullscreenchange', (event) => {
-      this.calcColumns();
+      if (!this.fullviewChar) {
+        this.calcColumns();
+      }
     });
+
+    window.addEventListener('focus', (event) => {
+      if (settingsManager.settings.serverAutoconnect && gameManager.stateManager.wsState() == WebSocket.CLOSED) {
+        gameManager.stateManager.connect();
+      }
+    });
+
+    window.addEventListener('keydown', (event: KeyboardEvent) => {
+      if (event.ctrlKey && event.key.toLowerCase() === 'z' && !event.shiftKey) {
+        gameManager.stateManager.undo();
+      } else if (event.ctrlKey && event.key === 'y' || event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'z') {
+        gameManager.stateManager.redo();
+      }
+    })
   }
 
   calcColumns(scrollTo: HTMLElement | undefined = undefined): void {

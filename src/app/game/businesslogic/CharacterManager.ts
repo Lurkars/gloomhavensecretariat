@@ -1,4 +1,4 @@
-import { AttackModifierDeck } from "../model/AttackModifier";
+import { AttackModifier, AttackModifierDeck, AttackModifierType } from "../model/AttackModifier";
 import { Character } from "../model/Character";
 import { CharacterStat } from "../model/CharacterStat";
 import { ConditionType, EntityCondition, EntityConditionState } from "../model/Condition";
@@ -225,10 +225,20 @@ export class CharacterManager {
     }
   }
 
+  applyDonations(character: Character) {
+    for (let i = 0; i < character.donations; i++) {
+      gameManager.attackModifierManager.addModifier(character.attackModifierDeck, new AttackModifier(AttackModifierType.bless));
+      gameManager.attackModifierManager.addModifier(character.attackModifierDeck, new AttackModifier(AttackModifierType.bless));
+    }
+
+    character.donations = 0;
+  }
+
   draw() {
     this.game.figures.forEach((figure) => {
       if (figure instanceof Character) {
         figure.initiativeVisible = true;
+        this.applyDonations(figure);
       }
 
       if (figure instanceof Character || figure instanceof Objective) {

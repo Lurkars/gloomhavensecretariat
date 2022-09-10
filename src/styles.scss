@@ -574,16 +574,6 @@ a {
   }
 }
 
-@keyframes dialog-open {
-  from {
-    transform: scale(0);
-  }
-
-  to {
-    transform: none;
-  }
-}
-
 .cdk-overlay-pane {
   pointer-events: auto;
   max-height: 90vh;

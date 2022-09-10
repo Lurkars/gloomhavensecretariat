@@ -1,4 +1,3 @@
-
 <div class="light party-sheet-dialog">
   <div class="scroll-container">
     <div class="container" [ngClass]="{'campaign' : campaign}">
@@ -146,6 +145,21 @@
             </div>
           </div>
         </div>
+
+        <div class="row donations">
+          <label>{{'party.campaign.donations' | ghsLabel}}:</label>
+          <div class="checklist">
+            <div class="tick" *ngFor="let check of []|ghsRange:10; let index = index;">
+              <div class="donation">
+                <div class="checkbox" (click)="setDonations(index+1)" [ngClass]="{'checked': party.donations > index}">
+                </div>
+                <img src="./assets/images/coin.png" />
+                +10g
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>

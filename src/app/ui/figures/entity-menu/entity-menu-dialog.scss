@@ -84,10 +84,11 @@
       justify-content: center;
       align-items: center;
       font-family: 'ghs-title';
-      font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+      font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+      color: var(--ghs-color-gray);
 
       img.icon {
-        height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
         margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
         margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
       }

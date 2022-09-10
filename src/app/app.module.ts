@@ -6,7 +6,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { FormsModule } from '@angular/forms';
 import { APP_BASE_HREF } from '@angular/common';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharacterComponent } from './ui/figures/character/character';
 import { CharacterSummonDialog } from './ui/figures/character/dialogs/summondialog';
@@ -47,7 +46,7 @@ import { EntityAnimationDirective } from './ui/helper/EntityAnimation';
 import { I18nDirective } from './ui/helper/i18n';
 import { ValueCalcDirective } from './ui/helper/valueCalc';
 import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-sheet';
-import { ScenarioComponent, ScenarioDialogComponent } from './ui/footer/scenario/scenario';
+import { ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent } from './ui/footer/scenario/scenario';
 import { PartySheetComponent, PartySheetDialogComponent } from './ui/header/party/party-sheet';
 import { DragValueComponent } from './ui/helper/dragValue/drag';
 import { AutoscrollDirective, FigureAutoscrollDirective } from './ui/helper/autoscroll';
@@ -61,6 +60,7 @@ import { AbiltiesDialogComponent } from './ui/figures/ability/abilities-dialog';
 import { AbilityDialogComponent } from './ui/figures/ability/ability-dialog';
 import { MonsterStatsDialogComponent } from './ui/figures/monster/dialogs/stats-dialog';
 import { MonsterLevelDialogComponent } from './ui/figures/monster/dialogs/level-dialog';
+import { CharacterFullViewComponent } from './ui/figures/character/fullview/fullview';
 
 @NgModule({
   declarations: [
@@ -72,10 +72,10 @@ import { MonsterLevelDialogComponent } from './ui/figures/monster/dialogs/level-
     FooterComponent,
     AttackModifierComponent, HintDialogComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent,
     LevelComponent, LevelDialogComponent,
-    ScenarioComponent, ScenarioDialogComponent,
+    ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent,
     ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
     EntityMenuDialogComponent,
-    CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetDialog,
+    CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetDialog, CharacterFullViewComponent,
     ObjectiveComponent,
     SummonEntityComponent,
     MonsterComponent,
@@ -92,13 +92,12 @@ import { MonsterLevelDialogComponent } from './ui/figures/monster/dialogs/level-
     AttackModifierToolComponent, MonsterToolComponent, MonsterActionToolComponent, MonsterStatToolComponent ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     DragDropModule,
     DialogModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: true, registrationStrategy: 'registerImmediately' })
   ],
-  providers: [ { provide: APP_BASE_HREF, useValue: '.' }, { provide: DEFAULT_DIALOG_CONFIG, useValue: { autoFocus: 'dialog' , hasBackdrop : true} } ],
+  providers: [ { provide: APP_BASE_HREF, useValue: '.' }, { provide: DEFAULT_DIALOG_CONFIG, useValue: { autoFocus: 'dialog', hasBackdrop: true } } ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

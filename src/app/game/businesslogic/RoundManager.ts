@@ -336,6 +336,7 @@ export class RoundManager {
         figure.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => gameManager.characterManager.createSpecialSummon(figure, summonData));
 
         figure.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(figure);
+        gameManager.characterManager.applyDonations(figure);
       }
     })
 

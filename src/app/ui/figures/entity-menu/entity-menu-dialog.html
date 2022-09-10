@@ -27,6 +27,14 @@
     </ng-container>
 
     <ng-container *ngIf="gameManager.isCharacter(data.figure) && gameManager.isSummon(data.entity)">
+      <small>
+        <img class="icon" [src]="gameManager.characterManager.characterIcon(gameManager.toCharacter(data.figure))" />
+        {{gameManager.toCharacter(data.figure).title || ('data.character.' + data.figure.name |
+        ghsLabel)}}
+        <span *ngIf="gameManager.toCharacter(data.figure).title">&nbsp;({{('data.character.' + data.figure.name |
+          ghsLabel)}})</span>
+      </small>
+
       <span *ngIf="gameManager.toSummon(data.entity).name">{{'data.summon.' +
         gameManager.toSummon(data.entity).name | ghsLabel}}</span>
 
@@ -36,14 +44,6 @@
         <span class="summon-number">{{gameManager.toSummon(data.entity).number}}</span>
         <img src="./assets/images/summons/{{gameManager.toSummon(data.entity).color}}.png">
       </span>
-
-      <small>
-        <img class="icon" [src]="gameManager.characterManager.characterIcon(gameManager.toCharacter(data.figure))" />
-        {{gameManager.toCharacter(data.figure).title || ('data.character.' + data.figure.name |
-        ghsLabel)}}
-        <span *ngIf="gameManager.toCharacter(data.figure).title">&nbsp;({{('data.character.' + data.figure.name |
-          ghsLabel)}})</span>
-      </small>
     </ng-container>
   </div>
 

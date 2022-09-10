@@ -165,6 +165,17 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     }
   }
 
+  donate() {
+    if (gameManager.game.round < 1 && this.character.progress.gold > 9) {
+      gameManager.stateManager.before("donate", "data.character." + this.character.name);
+      this.character.progress.donations += 1;
+      this.character.donations += 1;
+      gameManager.game.party.donations += 1;
+      this.character.progress.gold -= 10;
+      this.gameManager.stateManager.after();
+    }
+  }
+
   setPersonalQuest(event: any) {
     if (!isNaN(+event.target.value) && this.character.progress.personalQuest != +event.target.value) {
       gameManager.stateManager.before("setPQ", "data.character." + this.character.name, event.target.value);

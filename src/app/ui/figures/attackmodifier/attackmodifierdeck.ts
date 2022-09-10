@@ -269,17 +269,16 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     this.after.emit(new AttackModiferDeckChange(this.deck, "addCardShuffled", "game.attackModifiers.types." + type));
   }
 
-  curse() {
-    this.newShuffle(AttackModifierType.curse);
-  }
-
-  bless() {
-    this.newShuffle(AttackModifierType.bless);
+  defaultMinus1(): number {
+    if (this.character) {
+      return gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character).cards.filter((attackModifier) => attackModifier.type == AttackModifierType.minus1 && !attackModifier.character).length;
+    }
+    return 5;
   }
 
   countAttackModifier(type: AttackModifierType): number {
     return this.deck.cards.filter((attackModifier) => {
-      return attackModifier.type == type;
+      return attackModifier.type == type && !attackModifier.character;
     }).length;
   }
 
@@ -315,6 +314,12 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     this.before.emit(new AttackModiferDeckChange(this.deck, value < 0 ? "removeCurse" : "addCurse"));
     this.changeAttackModifier(AttackModifierType.curse, value);
     this.after.emit(new AttackModiferDeckChange(this.deck, value < 0 ? "removeCurse" : "addCurse"));
+  }
+
+  changeMinus1(value: number) {
+    this.before.emit(new AttackModiferDeckChange(this.deck, value < 0 ? "removeMinus1" : "addMinus1"));
+    this.changeAttackModifier(AttackModifierType.minus1, value);
+    this.after.emit(new AttackModiferDeckChange(this.deck, value < 0 ? "removeMinus1" : "addMinus1"));
   }
 
   onChange(attackModifier: AttackModifier, revealed: boolean) {

@@ -1,0 +1,7 @@
+<a class="image-container">
+  <img class="image" [src]="gameManager.characterManager.characterThumbnail(character)" />
+  <ghs-healthbar [entity]="character"></ghs-healthbar>
+</a>
+
+<a class="wip" (click)="cancel()"><img class="ghs-svg" src="./assets/images/warning.svg">{{'wip' |
+  ghsLabel}}!&nbsp;{{'cancel' | ghsLabel}}!</a>

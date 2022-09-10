@@ -18,9 +18,11 @@ export class Character extends CharacterData implements Entity, Figure {
   stat: CharacterStat;
   summons: Summon[] = [];
   progress: CharacterProgress;
+  donations: number = 0;
 
   initiativeVisible: boolean = false;
   attackModifierDeckVisible: boolean = false;
+  fullview: boolean = false;
   number: number = 0;
   attackModifierDeck: AttackModifierDeck;
 
@@ -74,7 +76,7 @@ export class Character extends CharacterData implements Entity, Figure {
   }
 
   toModel(): GameCharacterModel {
-    return new GameCharacterModel(this.name, this.edition, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible, this.attackModifierDeckVisible, this.number, this.attackModifierDeck.toModel());
+    return new GameCharacterModel(this.name, this.edition, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible, this.attackModifierDeckVisible, this.fullview, this.number, this.attackModifierDeck.toModel(), this.donations);
   }
 
   fromModel(model: GameCharacterModel) {
@@ -162,6 +164,9 @@ export class Character extends CharacterData implements Entity, Figure {
     if (model.attackModifierDeckVisible) {
       this.attackModifierDeckVisible = true;
     }
+
+    this.fullview = model.fullview;
+    this.donations = model.donations || 0;
   }
 
 
@@ -210,8 +215,10 @@ export class GameCharacterModel {
   progress: CharacterProgress | undefined;
   initiativeVisible: boolean;
   attackModifierDeckVisible: boolean;
+  fullview: boolean;
   number: number;
   attackModifierDeck: GameAttackModifierDeckModel;
+  donations: number;
 
   constructor(name: string,
     edition: string,
@@ -231,8 +238,10 @@ export class GameCharacterModel {
     progress: CharacterProgress | undefined,
     initiativeVisible: boolean,
     attackModifierDeckVisible: boolean,
+    fullview: boolean,
     number: number,
-    attackModifierDeck: GameAttackModifierDeckModel) {
+    attackModifierDeck: GameAttackModifierDeckModel,
+    donations: number) {
     this.name = name;
     this.edition = edition;
     this.title = title;
@@ -251,8 +260,10 @@ export class GameCharacterModel {
     this.progress = JSON.parse(JSON.stringify(progress));
     this.initiativeVisible = initiativeVisible;
     this.attackModifierDeckVisible = attackModifierDeckVisible;
+    this.fullview = fullview;
     this.number = number;
     this.attackModifierDeck = attackModifierDeck;
+    this.donations = donations;
   }
 
 }

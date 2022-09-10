@@ -119,22 +119,34 @@ export class PartySheetDialogComponent {
     }
   }
 
-  setProsperity(value: number) {
-    if (this.party.prosperity != value) {
-      gameManager.stateManager.before("setPartyProsperity", "" + value);
-      if (value > 64) {
-        value = 64
-      } else if (value < 0) {
-        value = 0;
-      }
-      if (this.party.prosperity == value) {
-        this.party.prosperity--;
-      } else {
-        this.party.prosperity = value;
-      }
-      gameManager.game.party = this.party;
-      gameManager.stateManager.after();
+  setDonations(value: number) {
+    if (this.party.donations == value) {
+      value--;
     }
+    if (value < 0) {
+      value = 0;
+    }
+
+    gameManager.stateManager.before("setPartyDonations", "" + value);
+    this.party.donations = value;
+    gameManager.game.party = this.party;
+    gameManager.stateManager.after();
+  }
+
+  setProsperity(value: number) {
+    if (this.party.prosperity == value) {
+      value--;
+    }
+    if (value > 64) {
+      value = 64
+    } else if (value < 0) {
+      value = 0;
+    }
+
+    gameManager.stateManager.before("setPartyProsperity", "" + value);
+    this.party.prosperity = value;
+    gameManager.game.party = this.party;
+    gameManager.stateManager.after();
   }
 
   exportParty() {

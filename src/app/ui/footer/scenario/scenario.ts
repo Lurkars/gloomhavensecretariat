@@ -1,6 +1,7 @@
-import { Dialog, DialogRef } from '@angular/cdk/dialog';
-import { Component } from '@angular/core';
+import { Dialog, DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
+import { Component, Inject } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
+import { Character } from 'src/app/game/model/Character';
 
 @Component({
   selector: 'ghs-scenario',
@@ -28,13 +29,14 @@ export class ScenarioDialogComponent {
 
   gameManager: GameManager = gameManager;
 
-  constructor(private dialogRef: DialogRef) { }
+  constructor(private dialogRef: DialogRef, private dialog: Dialog) { }
 
   finishScenario(success: boolean) {
     this.dialogRef.close();
-    gameManager.stateManager.before("finishScenario." + (success ? "success" : "failure"), ...gameManager.scenarioManager.scenarioUndoArgs());
-    gameManager.scenarioManager.finishScenario(success);
-    gameManager.stateManager.after(1000);
+    this.dialog.open(ScenarioSummaryComponent, {
+      panelClass: 'dialog',
+      data: success
+    })
   }
 
   resetScenario() {
@@ -43,5 +45,32 @@ export class ScenarioDialogComponent {
     gameManager.roundManager.resetScenario();
     gameManager.stateManager.after(1000);
   }
+}
+
+
+@Component({
+  selector: 'ghs-scenario-summary',
+  templateUrl: './scenario-summary.html',
+  styleUrls: [ './scenario-summary.scss' ]
+})
+export class ScenarioSummaryComponent {
+
+  gameManager: GameManager = gameManager;
+
+  characters: Character[];
+
+  constructor(@Inject(DIALOG_DATA) public success: boolean, private dialogRef: DialogRef) {
+    this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => {
+      let char = new Character((figure as Character), figure.level);
+      char.fromModel((figure as Character).toModel());
+      return char;
+    })
+
+    gameManager.stateManager.before("finishScenario." + (success ? "success" : "failure"), ...gameManager.scenarioManager.scenarioUndoArgs());
+    gameManager.scenarioManager.finishScenario(success);
+    gameManager.stateManager.after(1000);
+
+  }
+
 }
 

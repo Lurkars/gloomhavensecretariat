@@ -37,11 +37,24 @@ export class StateManager {
       this.connect();
     }
 
-    window.addEventListener('popstate', ((event: any) => {
+
+    if (settingsManager.settings.browserNavigation) {
+      const currentState = +(localStorage.getItem("ghs-popstate") && typeof localStorage.getItem("ghs-popstate") == 'number' && localStorage.getItem("ghs-popstate") || '0');
+      localStorage.setItem("ghs-popstate", '' + currentState);
+      history.replaceState(currentState, '');
+    }
+
+    window.addEventListener('popstate', (event: PopStateEvent) => {
       if (settingsManager.settings.browserNavigation) {
-        // TODO: undo/redo on state
+        const oldState = +(localStorage.getItem("ghs-popstate") || '0');
+        localStorage.setItem("ghs-popstate", event.state);
+        if (oldState < event.state) {
+          this.redo();
+        } else if (oldState > event.state) {
+          this.undo();
+        }
       }
-    }))
+    })
 
     this.undos = [];
     const undoString: string | null = localStorage.getItem("ghs-undo");
@@ -268,7 +281,9 @@ export class StateManager {
       localStorage.setItem("ghs-redo", JSON.stringify([]));
 
       if (settingsManager.settings.browserNavigation) {
-        // TODO: push state
+        const state = (typeof history.state == 'number') ? history.state + 1 : 1;
+        history.pushState(state, '');
+        localStorage.setItem("ghs-popstate", '' + state);
       }
     }
   }
@@ -278,15 +293,15 @@ export class StateManager {
   }
 
   undo() {
-    window.document.body.classList.add('working');
     if (this.undos.length > 0) {
+      window.document.body.classList.add('working');
       this.redos.push(this.game.toModel());
       const gameModel: GameModel = this.undos.splice(this.undos.length - 1, 1)[ 0 ];
       this.game.fromModel(gameModel);
+      localStorage.setItem("ghs-redo", JSON.stringify(this.redos));
+      localStorage.setItem("ghs-undo", JSON.stringify(this.undos));
+      this.after();
     }
-    localStorage.setItem("ghs-redo", JSON.stringify(this.redos));
-    localStorage.setItem("ghs-undo", JSON.stringify(this.undos));
-    this.after();
   }
 
   hasRedo(): boolean {
@@ -294,16 +309,16 @@ export class StateManager {
   }
 
   redo() {
-    window.document.body.classList.add('working');
     if (this.redos.length > 0) {
+      window.document.body.classList.add('working');
       this.undos.push(this.game.toModel());
       const gameModel: GameModel = this.redos.splice(this.redos.length - 1, 1)[ 0 ];
       this.game.fromModel(gameModel);
-    }
 
-    localStorage.setItem("ghs-redo", JSON.stringify(this.redos));
-    localStorage.setItem("ghs-undo", JSON.stringify(this.undos));
-    this.after();
+      localStorage.setItem("ghs-redo", JSON.stringify(this.redos));
+      localStorage.setItem("ghs-undo", JSON.stringify(this.undos));
+      this.after();
+    }
   }
 
   savePermissions(password: string, permissions: Permissions | undefined) {

@@ -10,7 +10,8 @@ export class Party {
   prosperity: number = 0;
   scenarios: GameScenarioModel[] = [];
   manualScenarios: GameScenarioModel[] = [];
-  campaignMode : boolean = false;
+  campaignMode: boolean = false;
   globalAchievements: string = "";
+  donations: number = 0;
 
 }

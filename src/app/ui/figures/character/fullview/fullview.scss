@@ -1,0 +1,57 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: calc(var(--ghs-unit) * 1);
+
+}
+
+.image-container {
+  position: relative;
+  display: block;
+  width: calc(var(--ghs-unit) * 15);
+  height: calc(var(--ghs-unit) * 15);
+  border-radius: calc(var(--ghs-unit) * 2);
+  overflow: hidden;
+
+  &.disabled {
+    pointer-events: none;
+  }
+
+  &:not(.active-border) {
+    border: calc(var(--ghs-unit) * 0.01) solid transparent;
+  }
+
+  .image {
+    width: auto;
+    height: 100%;
+  }
+
+  ghs-healthbar {
+    position: absolute;
+    bottom: 0;
+    width: calc(var(--ghs-unit) * 15);
+    height: calc(var(--ghs-unit) * 1);
+    left: 0;
+  }
+}
+
+.wip {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: var(--ghs-color-red);
+  font-size: calc(var(--ghs-unit) * 4);
+
+  img {
+    filter: var(--ghs-filter-yellow);
+    width: calc(var(--ghs-unit) * 4);
+    height: auto;
+    margin-right: calc(var(--ghs-unit) * 1);
+  }
+
+  &:hover {
+    color: var(--ghs-color-black);
+  }
+}

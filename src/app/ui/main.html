@@ -1,6 +1,6 @@
 <ghs-header></ghs-header>
 <main>
-  <div class="figures" cdkDropListGroup cdkScrollable>
+  <div *ngIf="!fullviewChar" class="figures" cdkDropListGroup cdkScrollable>
     <div class="figure" *ngFor="let figure of gameManager.game.figures; let i = index;" [figure-autoscroll]="figure"
       [cdkDropListData]="i" cdkDropList (cdkDropListDropped)="drop($event)" cdkDropListAutoScrollStep="20"
       (cdkDropListEntered)="entered($event)" (cdkDropListExited)="exited($event)"
@@ -24,6 +24,9 @@
         </div>
       </div>
     </div>
+  </div>
+  <div *ngIf="fullviewChar">
+    <ghs-character-fullview [character]="fullviewChar"></ghs-character-fullview>
   </div>
 </main>
 <ghs-footer></ghs-footer>
