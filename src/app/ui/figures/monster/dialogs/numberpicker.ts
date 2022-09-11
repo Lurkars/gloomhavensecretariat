@@ -1,5 +1,5 @@
 import { Dialog, DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
-import { ConnectionPositionPair, Overlay } from "@angular/cdk/overlay";
+import { Overlay } from "@angular/cdk/overlay";
 import { Component, ElementRef, Inject, Input, OnInit, ViewChild } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";

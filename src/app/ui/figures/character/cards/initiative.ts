@@ -1,5 +1,5 @@
 import { Dialog, DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
-import { ConnectionPositionPair, Overlay } from "@angular/cdk/overlay";
+import { Overlay } from "@angular/cdk/overlay";
 import { Component, ElementRef, Inject, Input, ViewChild } from "@angular/core";
 import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
@@ -48,7 +48,9 @@ export class CharacterInitiativeComponent {
       if (this.character instanceof Character) {
         this.character.initiativeVisible = true;
       }
-      gameManager.sortFigures();
+      if (gameManager.game.state == GameState.next) {
+        gameManager.sortFigures();
+      }
       gameManager.stateManager.after();
     }
   }
@@ -66,8 +68,6 @@ export class CharacterInitiativeComponent {
   }
 
 }
-
-
 
 @Component({
   selector: 'ghs-character-initiative-dialog',
@@ -96,7 +96,9 @@ export class CharacterInitiativeDialogComponent {
         this.character.initiative = 0;
       }
       this.dialogRef.close();
-      gameManager.sortFigures();
+      if (gameManager.game.state == GameState.next) {
+        gameManager.sortFigures();
+      }
       gameManager.stateManager.after();
     }
   }

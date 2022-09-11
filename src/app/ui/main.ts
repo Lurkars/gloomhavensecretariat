@@ -4,7 +4,7 @@ import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager
 import { GameState } from 'src/app/game/model/Game';
 import { SettingsManager, settingsManager } from '../game/businesslogic/SettingsManager';
 import { Character } from '../game/model/Character';
-import { Figure } from '../game/model/Figure';
+import { Monster } from '../game/model/Monster';
 
 @Component({
   selector: 'ghs-main',
@@ -137,20 +137,28 @@ export class MainComponent implements OnInit {
               }
 
               let otherHeight = 0;
-              for (let i = columnSize; i < gameManager.game.figures.length; i++) {
-                otherHeight += figures[ i ].clientHeight;
-              }
-
-              while (height > otherHeight && otherHeight + figures[ columnSize - 1 ].clientHeight < height) {
-                otherHeight += figures[ columnSize - 1 ].clientHeight;
-                height -= figures[ columnSize - 1 ].clientHeight;
-                columnSize--;
+              for (let i = gameManager.game.figures.length - 1; i >= columnSize; i--) {
+                if (otherHeight != 0 || !(gameManager.game.figures[ i ] instanceof Monster) || (gameManager.game.figures[ i ] as Monster).entities.some((entity) => !entity.dead && entity.health > 0)) {
+                  otherHeight += figures[ i ].clientHeight;
+                }
               }
 
               while (height < otherHeight) {
                 otherHeight -= figures[ columnSize ].clientHeight;
                 height += figures[ columnSize ].clientHeight;
                 columnSize++;
+              }
+
+              while (height > container.clientHeight && otherHeight + figures[ columnSize - 1 ].clientHeight < container.clientHeight) {
+                otherHeight += figures[ columnSize - 1 ].clientHeight;
+                height -= figures[ columnSize - 1 ].clientHeight;
+                columnSize--;
+              }
+
+              while (height > container.clientHeight && height > otherHeight && otherHeight + figures[ columnSize - 1 ].clientHeight < height) {
+                otherHeight += figures[ columnSize - 1 ].clientHeight;
+                height -= figures[ columnSize - 1 ].clientHeight;
+                columnSize--;
               }
 
               this.columnSize = columnSize;

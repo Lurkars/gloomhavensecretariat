@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, Directive, ElementRef } from '@angular/core';
+import { AfterViewChecked, Directive, ElementRef } from '@angular/core';
 
 
 @Directive({

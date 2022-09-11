@@ -4,7 +4,7 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from "src/app/game/model/AttackModifier";
 import { Character } from "src/app/game/model/Character";
-import { Condition, ConditionName, ConditionType } from "src/app/game/model/Condition";
+import { ConditionName, ConditionType } from "src/app/game/model/Condition";
 import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
 import { Figure } from "src/app/game/model/Figure";
 import { GameState } from "src/app/game/model/Game";

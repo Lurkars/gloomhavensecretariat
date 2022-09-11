@@ -1,6 +1,6 @@
-import { AttackModifierDeck, defaultAttackModifier } from "../model/AttackModifier";
+import { AttackModifierDeck } from "../model/AttackModifier";
 import { Character } from "../model/Character";
-import { defeaultElementBoard, ElementState } from "../model/Element";
+import { ElementState } from "../model/Element";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";

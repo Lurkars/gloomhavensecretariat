@@ -1,10 +1,7 @@
 import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
-import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
-import { gameManager } from "src/app/game/businesslogic/GameManager";
 
 import { Action, ActionType } from "src/app/game/model/Action";
-import { AttackModifier, AttackModifierType, defaultAttackModifier } from "src/app/game/model/AttackModifier";
-import { Character } from "src/app/game/model/Character";
+import { AttackModifier, AttackModifierType } from "src/app/game/model/AttackModifier";
 
 @Component({
   selector: 'ghs-attackmodifier',
@@ -23,7 +20,7 @@ export class AttackModifierComponent implements OnInit {
   actionClasses: string = "";
   AttackModifierType = AttackModifierType;
   ActionType = ActionType;
-  defaultType : boolean = true;
+  defaultType: boolean = true;
 
   ngOnInit(): void {
     if (this.attackModifier) {

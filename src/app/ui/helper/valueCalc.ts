@@ -3,7 +3,6 @@ import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { EntityExpressionRegex, EntityValueFunction, EntityValueRegex } from "src/app/game/model/Entity";
-import { Figure } from "src/app/game/model/Figure";
 import { ghsLabelRegex } from "./i18n";
 
 

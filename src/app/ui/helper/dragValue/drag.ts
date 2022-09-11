@@ -1,4 +1,4 @@
-import { Component, Directive, ElementRef, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, ElementRef, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
   selector: 'ghs-drag-value',

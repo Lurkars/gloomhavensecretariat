@@ -1,7 +1,7 @@
-import { AttackModifier, AttackModifierDeck, AttackModifierType } from "../model/AttackModifier";
+import { AttackModifier, AttackModifierType } from "../model/AttackModifier";
 import { Character } from "../model/Character";
 import { CharacterStat } from "../model/CharacterStat";
-import { ConditionType, EntityCondition, EntityConditionState } from "../model/Condition";
+import { ConditionType, EntityConditionState } from "../model/Condition";
 import { CharacterData } from "../model/data/CharacterData";
 import { ObjectiveData } from "../model/data/ObjectiveData";
 import { SummonData } from "../model/data/SummonData";

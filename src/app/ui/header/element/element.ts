@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
-import { Element, ElementModel, ElementState } from "src/app/game/model/Element";
+import { ElementModel, ElementState } from "src/app/game/model/Element";
 import { GameState } from "src/app/game/model/Game";
 
 @Component({

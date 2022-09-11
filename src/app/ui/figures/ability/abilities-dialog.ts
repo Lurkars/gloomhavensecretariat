@@ -1,4 +1,4 @@
-import { Component, ElementRef, Inject, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
@@ -24,7 +24,7 @@ export class AbiltiesDialogComponent implements OnInit {
   edit: boolean = false;
   maxHeight: string = "";
 
-  constructor(@Inject(DIALOG_DATA) public monster: Monster) {}
+  constructor(@Inject(DIALOG_DATA) public monster: Monster) { }
 
   ngOnInit(): void {
     setTimeout(() => {

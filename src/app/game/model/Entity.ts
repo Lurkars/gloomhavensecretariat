@@ -1,7 +1,6 @@
 import { gameManager } from "../businesslogic/GameManager";
 import { Character } from "./Character";
 import { EntityCondition } from "./Condition";
-import { Figure } from "./Figure";
 
 export interface Entity {
   health: number;

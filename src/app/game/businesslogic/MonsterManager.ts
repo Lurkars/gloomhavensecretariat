@@ -1,6 +1,5 @@
 import { Game, GameState } from "../model/Game";
 import { Monster } from '../model/Monster';
-import { Figure } from "../model/Figure";
 import { gameManager } from "./GameManager";
 import { MonsterType } from "../model/MonsterType";
 import { MonsterStat } from "../model/MonsterStat";
@@ -10,7 +9,7 @@ import { Ability } from "../model/Ability";
 import { SummonState } from "../model/Summon";
 import { settingsManager } from "./SettingsManager";
 import { FigureError, FigureErrorType } from "../model/FigureError";
-import { ConditionType, EntityCondition, EntityConditionState } from "../model/Condition";
+import { ConditionType, EntityConditionState } from "../model/Condition";
 
 export class MonsterManager {
 

@@ -1,4 +1,4 @@
-import { GameScenarioModel, ScenarioData } from "./data/ScenarioData";
+import { ScenarioData } from "./data/ScenarioData";
 
 export class Scenario extends ScenarioData {
 
