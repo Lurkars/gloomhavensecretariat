@@ -19,7 +19,11 @@
     font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
 
     .section {
-      padding: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+      padding: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));    
+      
+      &:not(:first-child) {
+        border-left: calc(var(--ghs-unit) * 0.1 * var(--ghs-barsize)) solid var(--ghs-color-white);
+      }
     }
   }
 

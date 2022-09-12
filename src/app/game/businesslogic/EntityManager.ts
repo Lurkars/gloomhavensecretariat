@@ -104,6 +104,8 @@ export class EntityManager {
 
       if (!active && entityCondition.types.indexOf(ConditionType.expire) != -1) {
         entityCondition.state = EntityConditionState.expire;
+      } else if (active && entityCondition.types.indexOf(ConditionType.turn) != -1) {
+        entityCondition.state = EntityConditionState.turn;
       }
 
       if (off && entityCondition.types.indexOf(ConditionType.turn) != -1) {

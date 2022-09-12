@@ -1,8 +1,3 @@
-<div #overlay>
-  <div class="overlay" *ngIf="showOverlay()" (click)="open($event)" title="{{'game.figure.setInitiative' | ghsLabel}}">
-  </div>
-</div>
-
 <div class="initiative"
   [ngClass]="{'empty' : character.initiative <= 0 && !settingsManager.settings.initiativeRequired}"
   title="{{'game.figure.setInitiative' | ghsLabel}}">

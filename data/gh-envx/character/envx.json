@@ -75,13 +75,15 @@
       "level": 3,
       "health": 3,
       "attack": 1,
-      "movement": 3
+      "movement": 3,
+      "count": 3
     },
     {
       "name": "lightning-moth",
       "level": 5,
       "health": 3,
-      "movement": 3
+      "movement": 3,
+      "count": 2
     },
     {
       "name": "rage-hornets",

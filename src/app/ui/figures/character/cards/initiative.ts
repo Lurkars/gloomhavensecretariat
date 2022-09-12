@@ -19,14 +19,13 @@ import { ghsDefaultDialogPositions } from "src/app/ui/helper/Static";
 export class CharacterInitiativeComponent {
 
   @Input() character!: Character | Objective;
-  @ViewChild('overlay') overlayElement!: ElementRef;
 
   characterManager: CharacterManager = gameManager.characterManager;
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
 
-  constructor(private dialog: Dialog, private overlay: Overlay) { };
+  constructor(private dialog: Dialog, private overlay: Overlay, private elementRef: ElementRef) { };
 
   initiativeHidden(): boolean {
     return gameManager.game.state == GameState.draw && this.character instanceof Character && !this.character.initiativeVisible;
@@ -55,15 +54,11 @@ export class CharacterInitiativeComponent {
     }
   }
 
-  showOverlay(): boolean {
-    return settingsManager.settings.initiativeRequired && this.character.initiative <= 0 || gameManager.game.state == GameState.draw;
-  }
-
   open(event: any) {
     this.dialog.open(CharacterInitiativeDialogComponent, {
       panelClass: 'dialog',
       data: this.character,
-      positionStrategy: this.overlay.position().flexibleConnectedTo(this.overlayElement).withPositions(ghsDefaultDialogPositions())
+      positionStrategy: this.overlay.position().flexibleConnectedTo(this.elementRef).withPositions(ghsDefaultDialogPositions())
     });
   }
 

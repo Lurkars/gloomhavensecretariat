@@ -22,9 +22,9 @@
   }
 
   .divider {
-    width: calc(var(--ghs-unit) * 5);
-    border-top: calc(var(--ghs-unit) * 0.27) var(--ghs-color-white) dotted;
-    margin: calc(var(--ghs-unit) * 0.5);
+    width: 15%;
+    border-top: 0.11em var(--ghs-color-white) dotted;
+    margin: 0.2em;
   }
 
   .hint {

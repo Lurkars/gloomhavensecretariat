@@ -47,7 +47,8 @@
       "level": 1,
       "health": 3,
       "attack": 2,
-      "movement": 2
+      "movement": 2,
+      "count": 6
     },
     {
       "name": "wraith",

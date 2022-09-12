@@ -1,63 +1,65 @@
-<div class="condition-container negative">
-  <a class="item" *ngFor="let condition of standardNegative">
-    <span class="condition" (click)="toggleCondition(condition)"
-      title="{{'game.condition.' + condition.name | ghsLabel}}"
-      [ngClass]="{'active' : hasCondition(condition), 'disabled' : isImmune(condition.name) , 'immunity' : isImmune(condition.name)}">
-      <img src="./assets/images/condition/{{condition.name}}.svg" />
-    </span>
-  </a>
-  <a class="item" *ngFor="let condition of upgradeNegative">
-    <img (click)="dec(condition)" class="ghs-svg dec" [ngClass]="{'disabled' : getValue(condition) <= 1}"
-      src="./assets/images/left.svg" />
-    <span class="condition" (click)="toggleCondition(condition)"
-      title="{{'game.condition.' + condition.name | ghsLabel}}"
-      [ngClass]="{'active' : hasCondition(condition), 'disabled' : isImmune(condition.name), 'immunity' : isImmune(condition.name)}">
-      <img src="./assets/images/condition/{{condition.name}}.svg" />
-      <span class="value">{{getValue(condition)}}</span>
-    </span>
-    <img (click)="inc(condition)" class="ghs-svg inc " src="./assets/images/right.svg" />
-  </a>
-  <a class="item" *ngFor="let condition of stackNegative">
-    <img (click)="dec(condition)" class="ghs-svg dec" [ngClass]="{'disabled' : getValue(condition) <= 1}"
-      src="./assets/images/left.svg" />
-    <span class="condition" (click)="toggleCondition(condition)"
-      title="{{'game.condition.' + condition.name | ghsLabel}}"
-      [ngClass]="{'active' : hasCondition(condition), 'disabled' : isImmune(condition.name), 'immunity' : isImmune(condition.name)}">
-      <img src="./assets/images/condition/{{condition.name}}.svg" />
-      <span class="value stack">{{getValue(condition)}}</span>
-    </span>
-    <img (click)="inc(condition)" class="ghs-svg inc " src="./assets/images/right.svg" />
-  </a>
-</div>
+<div [style.--condition-columns]="columns">
+  <div class="condition-container negative">
+    <a class="item" *ngFor="let condition of standardNegative">
+      <span class="condition" (click)="toggleCondition(condition)"
+        title="{{'game.condition.' + condition.name | ghsLabel}}"
+        [ngClass]="{'active' : hasCondition(condition), 'disabled' : isImmune(condition.name) , 'immunity' : isImmune(condition.name)}">
+        <img src="./assets/images/condition/{{condition.name}}.svg" />
+      </span>
+    </a>
+    <a class="item" *ngFor="let condition of upgradeNegative">
+      <img (click)="dec(condition)" class="ghs-svg dec" [ngClass]="{'disabled' : getValue(condition) <= 1}"
+        src="./assets/images/left.svg" />
+      <span class="condition" (click)="toggleCondition(condition)"
+        title="{{'game.condition.' + condition.name | ghsLabel}}"
+        [ngClass]="{'active' : hasCondition(condition), 'disabled' : isImmune(condition.name), 'immunity' : isImmune(condition.name)}">
+        <img src="./assets/images/condition/{{condition.name}}.svg" />
+        <span class="value">{{getValue(condition)}}</span>
+      </span>
+      <img (click)="inc(condition)" class="ghs-svg inc " src="./assets/images/right.svg" />
+    </a>
+    <a class="item" *ngFor="let condition of stackNegative">
+      <img (click)="dec(condition)" class="ghs-svg dec" [ngClass]="{'disabled' : getValue(condition) <= 1}"
+        src="./assets/images/left.svg" />
+      <span class="condition" (click)="toggleCondition(condition)"
+        title="{{'game.condition.' + condition.name | ghsLabel}}"
+        [ngClass]="{'active' : hasCondition(condition), 'disabled' : isImmune(condition.name), 'immunity' : isImmune(condition.name)}">
+        <img src="./assets/images/condition/{{condition.name}}.svg" />
+        <span class="value stack">{{getValue(condition)}}</span>
+      </span>
+      <img (click)="inc(condition)" class="ghs-svg inc " src="./assets/images/right.svg" />
+    </a>
+  </div>
 
-<div class="condition-container positive">
-  <a class="item" *ngFor="let condition of standardPositive">
-    <span class="condition" (click)="toggleCondition(condition)"
-      title="{{'game.condition.' + condition.name | ghsLabel}}"
-      [ngClass]="{'active' : hasCondition(condition), 'disabled' : isImmune(condition.name) , 'immunity' : isImmune(condition.name)}">
-      <img src="./assets/images/condition/{{condition.name}}.svg" />
-    </span>
-  </a>
-  <a class="item" *ngFor="let condition of upgradePositive">
-    <img (click)="dec(condition)" class="ghs-svg dec" [ngClass]="{'disabled' : getValue(condition) <= 1}"
-      src="./assets/images/left.svg" />
-    <span class="condition" (click)="toggleCondition(condition)"
-      title="{{'game.condition.' + condition.name | ghsLabel}}"
-      [ngClass]="{'active' : hasCondition(condition), 'disabled' : isImmune(condition.name), 'immunity' : isImmune(condition.name)}">
-      <img src="./assets/images/condition/{{condition.name}}.svg" />
-      <span class="value">{{getValue(condition)}}</span>
-    </span>
-    <img (click)="inc(condition)" class="ghs-svg inc " src="./assets/images/right.svg" />
-  </a>
-  <a class="item" *ngFor="let condition of stackPositive">
-    <img (click)="dec(condition)" class="ghs-svg dec" [ngClass]="{'disabled' : getValue(condition) <= 1}"
-      src="./assets/images/left.svg" />
-    <span class="condition" (click)="toggleCondition(condition)"
-      title="{{'game.condition.' + condition.name | ghsLabel}}"
-      [ngClass]="{'active' : hasCondition(condition), 'disabled' : isImmune(condition.name), 'immunity' : isImmune(condition.name)}">
-      <img src="./assets/images/condition/{{condition.name}}.svg" />
-      <span class="value stack">{{getValue(condition)}}</span>
-    </span>
-    <img (click)="inc(condition)" class="ghs-svg inc " src="./assets/images/right.svg" />
-  </a>
+  <div class="condition-container positive">
+    <a class="item" *ngFor="let condition of standardPositive">
+      <span class="condition" (click)="toggleCondition(condition)"
+        title="{{'game.condition.' + condition.name | ghsLabel}}"
+        [ngClass]="{'active' : hasCondition(condition), 'disabled' : isImmune(condition.name) , 'immunity' : isImmune(condition.name)}">
+        <img src="./assets/images/condition/{{condition.name}}.svg" />
+      </span>
+    </a>
+    <a class="item" *ngFor="let condition of upgradePositive">
+      <img (click)="dec(condition)" class="ghs-svg dec" [ngClass]="{'disabled' : getValue(condition) <= 1}"
+        src="./assets/images/left.svg" />
+      <span class="condition" (click)="toggleCondition(condition)"
+        title="{{'game.condition.' + condition.name | ghsLabel}}"
+        [ngClass]="{'active' : hasCondition(condition), 'disabled' : isImmune(condition.name), 'immunity' : isImmune(condition.name)}">
+        <img src="./assets/images/condition/{{condition.name}}.svg" />
+        <span class="value">{{getValue(condition)}}</span>
+      </span>
+      <img (click)="inc(condition)" class="ghs-svg inc " src="./assets/images/right.svg" />
+    </a>
+    <a class="item" *ngFor="let condition of stackPositive">
+      <img (click)="dec(condition)" class="ghs-svg dec" [ngClass]="{'disabled' : getValue(condition) <= 1}"
+        src="./assets/images/left.svg" />
+      <span class="condition" (click)="toggleCondition(condition)"
+        title="{{'game.condition.' + condition.name | ghsLabel}}"
+        [ngClass]="{'active' : hasCondition(condition), 'disabled' : isImmune(condition.name), 'immunity' : isImmune(condition.name)}">
+        <img src="./assets/images/condition/{{condition.name}}.svg" />
+        <span class="value stack">{{getValue(condition)}}</span>
+      </span>
+      <img (click)="inc(condition)" class="ghs-svg inc " src="./assets/images/right.svg" />
+    </a>
+  </div>
 </div>

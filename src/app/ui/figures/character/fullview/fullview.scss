@@ -3,38 +3,83 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: calc(var(--ghs-unit) * 1);
 
 }
 
-.image-container {
+.fullview {
   position: relative;
-  display: block;
-  width: calc(var(--ghs-unit) * 15);
-  height: calc(var(--ghs-unit) * 15);
-  border-radius: calc(var(--ghs-unit) * 2);
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 
-  &.disabled {
-    pointer-events: none;
+  .row {
+    margin-top: calc(var(--ghs-unit) * 1);
+    position: relative;
+    display: flex;
   }
 
-  &:not(.active-border) {
-    border: calc(var(--ghs-unit) * 0.01) solid transparent;
-  }
-
-  .image {
-    width: auto;
-    height: 100%;
-  }
-
-  ghs-healthbar {
-    position: absolute;
-    bottom: 0;
+  ghs-character-image {
     width: calc(var(--ghs-unit) * 15);
-    height: calc(var(--ghs-unit) * 1);
-    left: 0;
+    height: calc(var(--ghs-unit) * 15);
+    border-radius: calc(var(--ghs-unit) * 2);
   }
+
+  ghs-highlight-conditions {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: calc(var(--ghs-unit) * 15);
+    z-index: 3;
+  }
+
+  ghs-drag-value.drag-initiative {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(var(--ghs-unit) * 15);
+    height: 100%;
+    z-index: 4;
+
+    &.dragging {
+      left: 0;
+      width: 100%;
+    }
+  }
+
+
+  .conditions {
+    position: relative;
+    display: flex;
+    margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+
+    .condition {
+      position: relative;
+      display: flex;
+      margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+
+      img {
+        width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
+        margin: 0;
+
+        &.stack {
+          margin-left: calc(var(--ghs-unit) * -3 * var(--ghs-text-factor));
+        }
+      }
+
+      .value {
+        font-family: "ghs-title";
+        font-size: calc(var(--ghs-unit) * 1.8 * var(--ghs-text-factor));
+        color: var(--ghs-color-white);
+        position: absolute;
+        top: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+        left: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+        text-shadow: none;
+        transform: translateX(-50%);        
+      }
+    }
+  }
+
 }
 
 .wip {

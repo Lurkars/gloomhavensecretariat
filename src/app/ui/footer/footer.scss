@@ -1,5 +1,5 @@
 footer {
-  height: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor) * var(--ghs-barsize));
+  height: calc(var(--ghs-unit) * 11 * var(--ghs-text-factor) * var(--ghs-barsize));
   display: flex;
   overflow: unset;
   position: relative;
@@ -20,7 +20,8 @@ footer {
     right: 0;
     width: calc(var(--ghs-unit) * 38 * var(--ghs-text-factor) * var(--ghs-barsize));
     height: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor) * var(--ghs-barsize));
-    top: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    top: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    z-index: 2;
   }
 
   ghs-attackmodifier-deck.ally-deck {
@@ -28,7 +29,8 @@ footer {
     right: 0;
     width: calc(var(--ghs-unit) * 38 * var(--ghs-text-factor) * var(--ghs-barsize));
     height: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor) * var(--ghs-barsize));
-    top: calc(var(--ghs-unit) * -9.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    top: calc(var(--ghs-unit) * -11 * var(--ghs-text-factor) * var(--ghs-barsize));
+    z-index: 1;
   }
 
   &::before {
@@ -40,8 +42,9 @@ footer {
     height: 100%;
     background-image: url('~/src/assets/images/bar.png');
     background-size: 100% 105%;
-    background-position: top left;
+    background-position: bottom right;
     background-repeat: no-repeat;
+    transform: scale(-1);
     z-index: -1;
   }
 
@@ -57,64 +60,47 @@ footer {
 
     a {
       font-family: 'ghs-title';
-      color: var(--ghs-color-white);
+      color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
-      font-size: calc(var(--ghs-unit) * 3.7 * var(--ghs-text-factor) * var(--ghs-barsize));
-      line-height: calc(var(--ghs-unit) * 3.7 * var(--ghs-text-factor) * var(--ghs-barsize));
+      font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      line-height: calc(var(--ghs-unit) * 3.4 * var(--ghs-text-factor) * var(--ghs-barsize));
       display: flex;
       align-items: center;
       justify-content: center;
-      height: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor) * var(--ghs-barsize));
+      height: calc(var(--ghs-unit) * 11 * var(--ghs-text-factor) * var(--ghs-barsize));
       width: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor) * var(--ghs-barsize));
-      margin-left: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     }
 
     .time {
       font-family: 'ghs-title';
-      color: var(--ghs-color-white);
+      color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
       position: absolute;
       font-size: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor) * var(--ghs-barsize));
       left: 50%;
       transform: translateX(-50%);
-      bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      bottom: calc(var(--ghs-unit) * 0.2 * var(--ghs-text-factor) * var(--ghs-barsize));
     }
 
     .round {
-      color: var(--ghs-color-white);
+      color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
       position: absolute;
       font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor) * var(--ghs-barsize));
-      left: calc(var(--ghs-unit) * 13.5 * var(--ghs-text-factor) * var(--ghs-barsize));
-      bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      left: calc(var(--ghs-unit) * 11.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      bottom: 0;
     }
 
     &:hover {
 
       a,
       .round {
-        color: var(--ghs-color-gray);
+        color: var(--ghs-color-white);
       }
     }
 
     &.disabled {
       cursor: help;
-
-      a {
-        text-shadow: none;
-        font-weight: bold;
-        color: var(--ghs-color-gray);
-      }
-
-      .time {
-        text-shadow: none;
-        color: var(--ghs-color-gray);
-      }
-
-      .round {
-        text-shadow: none;
-        color: var(--ghs-color-gray);
-      }
     }
 
   }

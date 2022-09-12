@@ -58,9 +58,9 @@
         </div>
         <div class="conditions">
           <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.activeConditions(character)">
-            <img src="./assets/images/condition/{{entityCondition.name}}.svg" />
+            <img src="./assets/images/condition/{{entityCondition.name}}.svg" [style.z-index]="entityCondition.value"/>
             <ng-container *ngIf="entityCondition.types.indexOf(ConditionType.stack) != -1">
-              <img class="stack" *ngFor="let i of [] | ghsRange:(entityCondition.value - 1)"
+              <img class="stack" *ngFor="let i of [] | ghsRange:(entityCondition.value - 1)" [style.z-index]="entityCondition.value - i - 1"
                 src="./assets/images/condition/{{entityCondition.name}}.svg" />
             </ng-container>
             <span class="value"

@@ -5,10 +5,11 @@
   justify-content: center;
   align-items: center;
   font-family: 'ghs-title';
-  color: var(--ghs-color-white);
+  color: var(--ghs-color-gray);
   font-size: calc(var(--ghs-unit) * 3 * var(--ghs-small-text-factor) * var(--ghs-barsize));
+  text-shadow: var(--ghs-outline);
 
   &:hover {
-    color: var(--ghs-color-gray);
+    color: var(--ghs-color-white);
   }
 }

@@ -1,17 +1,13 @@
-import { Component, Input } from "@angular/core";
-import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
-import { Character } from "src/app/game/model/Character";
+import { Component } from "@angular/core";
+import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { CharacterComponent } from "../character";
 
 @Component({
   selector: 'ghs-character-fullview',
   templateUrl: './fullview.html',
-  styleUrls: [ './fullview.scss' ]
+  styleUrls: [ '../character.scss', './fullview.scss' ]
 })
-export class CharacterFullViewComponent {
-
-  @Input() character!: Character;
-
-  gameManager: GameManager = gameManager;
+export class CharacterFullViewComponent extends CharacterComponent {
 
   cancel() {
     this.character.fullview = false;

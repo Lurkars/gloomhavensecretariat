@@ -79,7 +79,7 @@ export class CharacterComponent {
         value = 0;
       }
 
-      if (value == 0 && settingsManager.settings.initiativeRequired) {
+      if (gameManager.game.state == GameState.next && value == 0 && settingsManager.settings.initiativeRequired) {
         value = 1;
       }
 
@@ -100,7 +100,7 @@ export class CharacterComponent {
         value = 0;
       }
 
-      if (value == 0 && settingsManager.settings.initiativeRequired) {
+      if (gameManager.game.state == GameState.next && value == 0 && settingsManager.settings.initiativeRequired) {
         value = 1;
       }
 

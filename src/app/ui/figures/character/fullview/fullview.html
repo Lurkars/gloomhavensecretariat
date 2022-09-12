@@ -1,7 +1,52 @@
-<a class="image-container">
-  <img class="image" [src]="gameManager.characterManager.characterThumbnail(character)" />
-  <ghs-healthbar [entity]="character"></ghs-healthbar>
-</a>
+<div class="summons-container"
+  [ngClass]="{'empty' : emptySummons(), 'off' : character.off || character.exhausted || character.health <= 0  }">
+  <span class="spacer"></span>
+  <span class="icon" [ngClass]="{'empty' : emptySummons()}" [entityAnimation]="emptySummons()">
+    <img [src]="characterManager.characterIcon(character)" />
+  </span>
+  <div class="summons">
+    <ghs-summon-entity *ngFor="let summon of character.summons" [character]="character" [summon]="summon">
+    </ghs-summon-entity>
+  </div>
+</div>
+
+<div class="fullview">
+  <div class="row">
+
+    <ghs-character-image [character]="character"
+      [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
+    </ghs-character-image>
+
+    <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-initiative"
+      (dragMove)="dragInitativeMove($event)" (dragEnd)="dragInitativeEnd($event)">
+    </ghs-drag-value>
+
+    <ghs-character-initiative [character]="character"></ghs-character-initiative>
+
+    <ghs-highlight-conditions [entity]="character"></ghs-highlight-conditions>
+
+  </div>
+
+  <div class="row">
+    <div class="conditions">
+      <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.activeConditions(character)">
+        <img src="./assets/images/condition/{{entityCondition.name}}.svg" [style.z-index]="entityCondition.value"/>
+        <ng-container *ngIf="entityCondition.types.indexOf(ConditionType.stack) != -1">
+          <img class="stack" *ngFor="let i of [] | ghsRange:(entityCondition.value - 1)" [style.z-index]="entityCondition.value - i - 1"
+            src="./assets/images/condition/{{entityCondition.name}}.svg" />
+        </ng-container>
+        <span class="value"
+          *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
+      </span>
+    </div>
+  </div>
+
+  <div class="row">
+    <ghs-conditions class="dialog" [entity]="character" [figure]="character" type="character" [columns]="6">
+    </ghs-conditions>
+  </div>
+
+</div>
 
 <a class="wip" (click)="cancel()"><img class="ghs-svg" src="./assets/images/warning.svg">{{'wip' |
   ghsLabel}}!&nbsp;{{'cancel' | ghsLabel}}!</a>

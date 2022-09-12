@@ -1,13 +1,3 @@
-.overlay {
-  position: absolute;
-  left: calc(var(--ghs-unit) *6);
-  top: calc(var(--ghs-unit) *2);
-  display: block;
-  width: calc(var(--ghs-unit) * 9.5);
-  height: calc(var(--ghs-unit) * 9.5);
-  cursor: pointer;
-}
-
 .initiative {
   display: flex;
   height: 100%;

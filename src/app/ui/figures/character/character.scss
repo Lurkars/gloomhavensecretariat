@@ -61,6 +61,14 @@
     }
   }
 
+  ghs-character-image {
+    position: relative;
+    width: calc(var(--ghs-unit) * 9.5);
+    height: calc(var(--ghs-unit) * 9.5);
+    margin: calc(var(--ghs-unit) * 2.1) calc(var(--ghs-unit) * 3.4);
+    left: calc(var(--ghs-unit) * 2.4);
+  }
+
   ghs-character-initiative {
     margin-right: calc(var(--ghs-unit) * 1);
   }
@@ -117,12 +125,12 @@
   }
 
   ghs-highlight-conditions {
-    z-index: 3;
     position: absolute;
     left: calc(var(--ghs-unit) * 6);
     top: 50%;
     transform: translateY(-50%);
     width: calc(var(--ghs-unit) * 9.5);
+    z-index: 3;
   }
 
   .attack-modifierdeck-container {
@@ -240,7 +248,6 @@
 
           &.stack {
             margin-left: calc(var(--ghs-unit) * -2 * var(--ghs-text-factor));
-            opacity: 0.8;
           }
         }
 
@@ -309,12 +316,12 @@
     stroke: var(--ghs-color-black);
     stroke-width: calc(var(--ghs-unit) * 1.5);
     margin: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
-  
+
     &:hover {
       color: var(--ghs-color-white);
       filter: var(--ghs-filter-white);
     }
-  
+
   }
 
   ghs-figure-errors {

@@ -17,6 +17,7 @@ export class ConditionsComponent implements OnInit {
   @Input() entity!: Entity;
   @Input() figure!: Figure;
   @Input() type!: string;
+  @Input() columns: number = 3;
 
   gameManager: GameManager = gameManager;
 

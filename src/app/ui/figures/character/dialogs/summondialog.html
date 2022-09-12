@@ -34,6 +34,9 @@
         </span>
         <input type="text" [value]="summonName" (change)="setSummonName($event)" (keyup)="setSummonName($event)"
           placeholder="{{'summon.name' | ghsLabel}}" />
+        <span class="add-summon-button" (click)="addCustomSummon()" [ngClass]="{'disabled' : customDisabled()}">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </span>
       </span>
     </div>
   </div>

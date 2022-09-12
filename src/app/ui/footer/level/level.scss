@@ -18,7 +18,7 @@
     justify-content: center;
 
     .ghs-svg {
-      filter: var(--ghs-filter-white);
+      filter: var(--ghs-filter-gray);
       width: calc(var(--ghs-unit) * 3 * var(--ghs-barsize));
       height: calc(var(--ghs-unit) * 3 * var(--ghs-barsize));
       margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-barsize));
@@ -29,8 +29,9 @@
       display: flex;
       align-items: center;
       font-size: calc(var(--ghs-unit) * 3 * var(--ghs-barsize));
-      color: var(--ghs-color-white);
+      color: var(--ghs-color-gray);
       margin-right: calc(var(--ghs-unit) * 2 * var(--ghs-barsize));
+      text-shadow: var(--ghs-outline-thin);
 
       img {
         margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-barsize));
@@ -42,11 +43,11 @@
     &:hover {
 
       .ghs-svg {
-        filter: var(--ghs-filter-gray);
+        filter: var(--ghs-filter-white);
       }
 
       span {
-        color: var(--ghs-color-gray);
+        color: var(--ghs-color-white);
       }
     }
   }

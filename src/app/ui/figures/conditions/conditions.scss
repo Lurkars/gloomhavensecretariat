@@ -1,6 +1,6 @@
 .condition-container {
   display: grid;
-  grid-template-columns: repeat(3, calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor)));
+  grid-template-columns: repeat(var(--condition-columns), calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor)));
   column-gap: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
   row-gap: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
   align-items: center;
