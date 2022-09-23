@@ -75,6 +75,7 @@
       border-bottom-width: calc(var(--ghs-unit) * 0.35 * var(--ghs-text-factor));
       border-top-left-radius: 25%;
       border-top-right-radius: 25%;
+      background-color: var(--ghs-color-black);
 
       .background-image {
         position: absolute;
@@ -242,6 +243,7 @@
     &.normal {
       .standee {
         border-color: var(--ghs-color-gray);
+        background-color: var(--ghs-color-gray);
       }
     }
 
@@ -249,6 +251,7 @@
 
       .standee {
         border-color: var(--ghs-color-yellow);
+        background-color: var(--ghs-color-yellow);
       }
 
       .number {
@@ -260,6 +263,7 @@
 
       .standee {
         border-color: var(--ghs-color-black);
+        background-color: var(--ghs-color-black);
       }
 
       .number {

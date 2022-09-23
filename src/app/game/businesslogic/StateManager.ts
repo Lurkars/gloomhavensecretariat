@@ -56,26 +56,109 @@ export class StateManager {
       }
     })
 
-    this.undos = [];
-    const undoString: string | null = localStorage.getItem("ghs-undo");
-    if (undoString != null) {
-      this.undos = JSON.parse(undoString);
-    }
-    this.redos = [];
-    const redoString: string | null = localStorage.getItem("ghs-redo");
-    if (redoString != null) {
-      this.redos = JSON.parse(redoString);
-    }
-    this.undoInfos = [];
-    const undoInfosString: string | null = localStorage.getItem("ghs-undo-infos");
-    if (undoInfosString != null) {
-      this.undoInfos = JSON.parse(undoInfosString);
-    }
+    this.loadLocalStorage();
 
     // migration
     const missingUndoInfos = this.undos.length + this.redos.length - this.undoInfos.length;
     for (let i = 0; i < missingUndoInfos; i++) {
       this.undoInfos.unshift([]);
+    }
+  }
+
+  loadLocalStorage() {
+    this.undos = [];
+    const undoString: string | null = localStorage.getItem("ghs-undo");
+    if (undoString != null) {
+      this.undos = JSON.parse(undoString);
+      let count = 1;
+      let additionalUndoString = localStorage.getItem("ghs-undo-" + count);
+      while (additionalUndoString) {
+        const additionalUndo: GameModel[] = JSON.parse(additionalUndoString);
+        this.undos.push(...additionalUndo);
+        count++;
+        additionalUndoString = localStorage.getItem("ghs-undo-" + count);
+      }
+    }
+    this.redos = [];
+    const redoString: string | null = localStorage.getItem("ghs-redo");
+    if (redoString != null) {
+      this.redos = JSON.parse(redoString);
+      let count = 1;
+      let additionalRedoString = localStorage.getItem("ghs-redo-" + count);
+      while (additionalRedoString) {
+        const additionalRedo: GameModel[] = JSON.parse(additionalRedoString);
+        this.redos.push(...additionalRedo);
+        count++;
+        additionalRedoString = localStorage.getItem("ghs-redo-" + count);
+      }
+    }
+    this.undoInfos = [];
+    const undoInfosString: string | null = localStorage.getItem("ghs-undo-infos");
+    if (undoInfosString != null) {
+      this.undoInfos = JSON.parse(undoInfosString);
+      let count = 1;
+      let additionalUndoInfosString = localStorage.getItem("ghs-undo-infos-" + count);
+      while (additionalUndoInfosString) {
+        const additionalUndoInfos: string[][] = JSON.parse(additionalUndoInfosString);
+        this.undoInfos.push(...additionalUndoInfos);
+        count++;
+        additionalUndoInfosString = localStorage.getItem("ghs-undo-infos-" + count);
+      }
+    }
+  }
+
+  saveLocalStorage() {
+    this.clearLocalStorage();
+    let limit = 250;
+    if (this.undos.length < limit) {
+      localStorage.setItem("ghs-undo", JSON.stringify(this.undos));
+    } else {
+      let count = 1;
+      localStorage.setItem("ghs-undo", JSON.stringify(this.undos.slice(0, limit)));
+      while (this.undos.length > count * limit) {
+        localStorage.setItem("ghs-undo-" + count, JSON.stringify(this.undos.slice(count * limit, count * limit + limit)));
+        count++;
+      }
+    }
+    if (this.redos.length < limit) {
+      localStorage.setItem("ghs-redo", JSON.stringify(this.redos));
+    } else {
+      let count = 1;
+      localStorage.setItem("ghs-redo", JSON.stringify(this.redos.slice(0, limit)));
+      while (this.redos.length > count * limit) {
+        localStorage.setItem("ghs-redo-" + count, JSON.stringify(this.redos.slice(count * limit, count * limit + limit)));
+        count++;
+      }
+    }
+
+    limit = 1000;
+    if (this.undoInfos.length < limit) {
+      localStorage.setItem("ghs-undo-infos", JSON.stringify(this.undoInfos));
+    } else {
+      let count = 1;
+      localStorage.setItem("ghs-undo-infos", JSON.stringify(this.undoInfos.slice(0, limit)));
+      while (this.undoInfos.length > count * limit) {
+        localStorage.setItem("ghs-undo-infos-" + count, JSON.stringify(this.undoInfos.slice(count * limit, count * limit + limit)));
+        count++;
+      }
+    }
+  }
+
+  clearLocalStorage() {
+    let count = 1;
+    localStorage.removeItem("ghs-undo");
+    while (localStorage.getItem("ghs-undo-" + count)) {
+      localStorage.removeItem("ghs-undo-" + count);
+    }
+    count = 1;
+    localStorage.removeItem("ghs-redo");
+    while (localStorage.getItem("ghs-redo-" + count)) {
+      localStorage.removeItem("ghs-redo-" + count);
+    }
+    count = 1;
+    localStorage.removeItem("ghs-undo-infos");
+    while (localStorage.getItem("ghs-undo-infos-" + count)) {
+      localStorage.removeItem("ghs-undo-infos-" + count);
     }
   }
 
@@ -209,13 +292,12 @@ export class StateManager {
   reset() {
     this.game = new Game();
     localStorage.removeItem("ghs-game");
-    localStorage.removeItem("ghs-undo");
-    localStorage.removeItem("ghs-undo-infos");
-    localStorage.removeItem("ghs-redo");
+    this.clearLocalStorage();
   }
 
   saveLocal() {
     localStorage.setItem("ghs-game", JSON.stringify(this.game.toModel()));
+    this.lastSaveTimestamp = new Date().getTime();
   }
 
   saveSettings() {
@@ -246,7 +328,6 @@ export class StateManager {
       this.ws.send(JSON.stringify(message));
     }
 
-    this.lastSaveTimestamp = new Date().getTime();
     gameManager.uiChange.emit();
 
     if (timeout) {
@@ -276,9 +357,7 @@ export class StateManager {
 
       this.redos = [];
 
-      localStorage.setItem("ghs-undo", JSON.stringify(this.undos));
-      localStorage.setItem("ghs-undo-infos", JSON.stringify(this.undoInfos));
-      localStorage.setItem("ghs-redo", JSON.stringify([]));
+      this.saveLocalStorage();
 
       if (settingsManager.settings.browserNavigation) {
         const state = (typeof history.state == 'number') ? history.state + 1 : 1;
@@ -298,8 +377,7 @@ export class StateManager {
       this.redos.push(this.game.toModel());
       const gameModel: GameModel = this.undos.splice(this.undos.length - 1, 1)[ 0 ];
       this.game.fromModel(gameModel);
-      localStorage.setItem("ghs-redo", JSON.stringify(this.redos));
-      localStorage.setItem("ghs-undo", JSON.stringify(this.undos));
+      this.saveLocalStorage();
       this.after();
     }
   }
@@ -314,9 +392,7 @@ export class StateManager {
       this.undos.push(this.game.toModel());
       const gameModel: GameModel = this.redos.splice(this.redos.length - 1, 1)[ 0 ];
       this.game.fromModel(gameModel);
-
-      localStorage.setItem("ghs-redo", JSON.stringify(this.redos));
-      localStorage.setItem("ghs-undo", JSON.stringify(this.undos));
+      this.saveLocalStorage();
       this.after();
     }
   }

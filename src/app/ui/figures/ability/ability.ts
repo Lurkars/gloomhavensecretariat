@@ -16,6 +16,7 @@ export class AbilityComponent {
   @Input() monster!: Monster;
   @Input() flipped: boolean = false;
   @Input() reveal: boolean = false;
+  @Input() highlightElements: boolean = false;
 
   settingsManager: SettingsManager = settingsManager;
 

@@ -3,14 +3,13 @@
   justify-content: center;
   position: relative;
   color: var(--ghs-color-white);
-  line-height: 1em;
+  line-height: 0.8em;
   filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
 
   .action-default,
   .action-custom,
   .action-trigger,
   .action-specialTarget,
-  .condition,
   .action-condition,
   .action-element {
     display: flex;
@@ -39,7 +38,7 @@
   .custom-value {
     font-size: 82%;
     line-height: 82%;
-    padding: 0 calc(var(--ghs-unit) * 2.5);
+    padding: 0 1.5em
   }
 
 
@@ -65,9 +64,9 @@
       &::after {
         content: ' ';
         position: absolute;
-        width: calc(var(--ghs-unit) * 3.5);
-        height: calc(var(--ghs-unit) * 0.2);
-        left: calc(var(--ghs-unit) * -2);
+        width: 2em;
+        height: 0.09em;
+        left: -1em;
         top: 50%;
         transform: translateY(-50%);
         background: linear-gradient(90deg, transparent 0%, var(--ghs-color-white) 100%);
@@ -75,7 +74,7 @@
 
       &::after {
         left: auto;
-        right: calc(var(--ghs-unit) * -2);
+        right: -1em;
         background: linear-gradient(90deg, var(--ghs-color-white) 0%, transparent 100%);
       }
     }
@@ -86,7 +85,7 @@
 
     &>.type {
       flex-basis: 100%;
-      margin-bottom: calc(var(--ghs-unit) * 0.5);
+      margin-bottom: 0.1em;
     }
 
     ghs-actions {
@@ -100,6 +99,13 @@
     flex-wrap: wrap;
     flex-basis: 100%;
     justify-content: center;
+
+
+    .condition {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   .action-specialTarget {
@@ -111,11 +117,11 @@
     display: flex;
 
     img {
-      height: calc(var(--ghs-unit) * 3);
+      height: 1.2em;
     }
 
     ghs-action {
-      margin-left: calc(var(--ghs-unit) * 0.5);
+      margin-left: 0.1em;
     }
   }
 
@@ -124,7 +130,7 @@
   }
 
   .icon {
-    margin: calc(var(--ghs-unit) * 0.5);
+    margin: 0.1em;
     margin-top: 0;
     height: 1em;
     width: auto;
@@ -137,62 +143,62 @@
 
   .action-element {
     flex-wrap: unset;
-    align-items: flex-start;
-    margin-top: calc(var(--ghs-unit) * 1);
+    align-items: center;
+    margin-top: 0.5%;
 
     .elements {
       display: flex;
       flex-wrap: unset;
       justify-content: center;
       align-items: center;
+      margin-right: 5%;
 
       @keyframes element-pulse {
         0% {
-          transform: scale(1);
+          transform: scale(0.8);
         }
 
         50% {
-          transform: scale(1.3);
+          transform: scale(1);
         }
 
         100% {
-          transform: scale(1);
+          transform: scale(0.8);
         }
       }
 
       @keyframes element-half-pulse {
         0% {
-          transform: scale(1);
+          transform: scale(0.8);
         }
 
         50% {
-          transform: scale(1.2) translateX(-10%);
+          transform: scale(1);
         }
 
         100% {
-          transform: scale(1);
+          transform: scale(0.8);
         }
       }
 
       @keyframes element-half-pulse-right {
         0% {
-          transform: scale(1);
+          transform: scale(0.8);
         }
 
         50% {
-          transform: scale(1.2) translateX(10%);
+          transform: scale(1);
         }
 
         100% {
-          transform: scale(1);
+          transform: scale(0.8);
         }
       }
 
       .element {
         position: relative;
-        margin: calc(var(--ghs-unit) * 0.25);
-        width: calc(var(--ghs-unit) * 3);
-        height: calc(var(--ghs-unit) * 3);
+        width: 1.2em;
+        height: 1.2em;
 
         &.highlight {
 
@@ -200,14 +206,14 @@
           animation: element-pulse 1000ms ease-in-out infinite;
 
           &:hover {
-            transform: scale(1.3) !important;
+            transform: scale(1) !important;
           }
         }
       }
 
       .element-half {
         position: relative;
-        width: calc(var(--ghs-unit) * 1.5);
+        width: 0.6em;
         overflow: hidden;
 
         img {
@@ -220,9 +226,10 @@
 
           &.highlight {
             animation: element-half-pulse 1000ms ease-in-out infinite;
+            transform-origin: center right;
 
             &:hover {
-              transform: scale(1.2) translateX(-10%) !important;
+              transform: scale(1) !important;
             }
           }
 
@@ -242,9 +249,10 @@
 
           &.highlight {
             animation: element-half-pulse-right 1000ms ease-in-out infinite;
+            transform-origin: center left;
 
             &:hover {
-              transform: scale(1.2) translateX(10%) !important;
+              transform: scale(1) !important;
             }
           }
         }
@@ -254,7 +262,7 @@
       .minus {
         display: flex;
         align-items: center;
-        width: calc(var(--ghs-unit) * 1);
+        width: 1%;
         position: relative;
       }
     }
@@ -264,18 +272,16 @@
     flex-basis: 100%;
 
     &.subaction-area:not(:nth-of-type(1)) {
-      margin-top: calc(var(--ghs-unit) * 0.5);
+      margin-top: 0.1%;
     }
 
     &.subaction-area:nth-of-type(1) {
       flex-basis: 0;
-      margin-left: calc(var(--ghs-unit) * 0.5);
 
       .action-area {
 
         ghs-action-hex {
-          transform: translate(0, -50%);
-          position: absolute;
+          position: relative;
         }
       }
     }
@@ -294,22 +300,25 @@
 
       .custom-value {
         font-size: 100%;
-        padding-left: calc(var(--ghs-unit) * 2);
+        padding-left: 0.5%;
       }
 
       img.icon {
-        margin: calc(var(--ghs-unit) * 0.25);
+        margin: 5%;
         margin-top: 0;
       }
     }
 
 
     &.element-subaction {
+
       .action {
         .custom-value {
           padding: 0;
           font-size: 82%;
         }
+
+
       }
     }
 
@@ -361,12 +370,12 @@
   .element-subactions {
     display: flex;
     flex-direction: column;
-    flex-basis: 100%;
     min-height: 100%;
     justify-content: center;
 
     .element {
       margin-top: 0;
+      margin-left: 5%;
     }
   }
 
@@ -428,7 +437,7 @@
     .condition,
     .action-condition {
       display: inline-flex;
-      gap: calc(var(--ghs-unit) * 0.25);
+      gap: 0.1%;
       justify-content: flex-start;
     }
 
@@ -449,7 +458,7 @@
 
       .condition {
         .icon {
-          margin: calc(var(--ghs-unit) * 0.1);
+          margin: 5%;
           margin-top: -0.1em;
           height: 1em;
           width: auto;
@@ -464,19 +473,19 @@
       &.subaction-area~ghs-action {
         flex-basis: 100%;
         flex-shrink: 1;
-        margin-left: calc(var(--ghs-unit) * 0.2);
+        margin-left: 0.1%;
       }
     }
 
     .action-element {
       flex-wrap: unset;
-      margin-top: calc(var(--ghs-unit) * 0.5);
+      margin-top: 0.1%;
 
       .elements {
         .element {
-          width: calc(var(--ghs-unit) * 2);
-          height: calc(var(--ghs-unit) * 2);
-          margin: calc(var(--ghs-unit) * 0.1);
+          width: 0.5%;
+          height: 0.5%;
+          margin: 0.1%;
         }
       }
     }
@@ -487,7 +496,7 @@
     }
 
     .icon {
-      margin: calc(var(--ghs-unit) * 0.1);
+      margin: 5%;
       margin-top: 0;
       height: 0.7em;
       width: auto;

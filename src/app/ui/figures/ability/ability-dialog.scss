@@ -12,4 +12,9 @@
   max-height: 384.3px;
   border-image: none;
   background: none;
+
+  &.bottom-actions {
+    height: 135vw;
+    max-height: 810px;
+  }
 }

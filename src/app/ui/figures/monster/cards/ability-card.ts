@@ -10,11 +10,11 @@ import { AbiltiesDialogComponent } from '../../ability/abilities-dialog';
 import { AbilityDialogComponent } from '../../ability/ability-dialog';
 
 @Component({
-  selector: 'ghs-monster-ability',
-  templateUrl: './ability.html',
-  styleUrls: [ './ability.scss' ]
+  selector: 'ghs-monster-ability-card',
+  templateUrl: './ability-card.html',
+  styleUrls: [ './ability-card.scss' ]
 })
-export class MonsterAbilityComponent {
+export class MonsterAbilityCardComponent {
 
   @Input() monster!: Monster;
   @Input() index: number = -1;

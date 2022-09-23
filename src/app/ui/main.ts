@@ -44,7 +44,6 @@ export class MainComponent implements OnInit {
     })
   }
 
-
   async ngOnInit() {
     document.body.classList.add('no-select');
     await settingsManager.init();
@@ -217,13 +216,15 @@ export class MainComponent implements OnInit {
 
   drop(event: CdkDragDrop<number>) {
     if (event.previousContainer != event.container && (event.currentIndex == 0 && event.container.data != event.previousContainer.data + 1 || event.currentIndex != 0 && event.container.data != event.previousContainer.data - event.currentIndex)) {
-      gameManager.stateManager.before("reorder");
-      moveItemInArray(gameManager.game.figures, event.previousContainer.data, event.container.data);
+      let prev = event.previousContainer.data;
+      let next = event.container.data;
       if (event.currentIndex > 0 && event.previousContainer.data > event.container.data) {
-        moveItemInArray(gameManager.game.figures, event.container.data + event.currentIndex, event.container.data);
+        next++;
       } else if (event.currentIndex == 0 && event.previousContainer.data < event.container.data) {
-        moveItemInArray(gameManager.game.figures, event.container.data - 1, event.container.data);
+        next--;
       }
+      gameManager.stateManager.before("reorder");
+      moveItemInArray(gameManager.game.figures, prev, next);
       gameManager.stateManager.after();
       this.calcColumns(event.item.element.nativeElement);
     } else {

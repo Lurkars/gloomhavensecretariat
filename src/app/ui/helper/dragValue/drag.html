@@ -1,2 +1,2 @@
 <input class="drag-value-input" type="range" [min]="min" [max]="max" [step]="step" (click)="click($event)"
-  (touchstart)="touchstart($event)" (touchend)="touchend($event)" (change)="change($event)" (input)="input($event)">
+  (touchstart)="touchstart($event)"(touchmove)="touchmove($event)"  (touchend)="touchend($event)" (change)="change($event)" (input)="input($event)">

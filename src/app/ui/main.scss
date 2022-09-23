@@ -68,7 +68,7 @@ main {
   position: absolute;
   cursor: grab;
   top: 0;
-  left: calc(var(--ghs-unit) * (-2.5 + var(--ghs-text-factor)));
+  left: calc(var(--ghs-unit) * (-2 + var(--ghs-text-factor)));
   width: calc(var(--ghs-unit) * 8);
   height: 100%;
   z-index: 2;
@@ -78,7 +78,7 @@ main {
       display: block;
       content: ' ';
       position: absolute;
-      left: calc(var(--ghs-unit) * 1);
+      left: calc(var(--ghs-unit) * -0.5);
       width: calc(var(--ghs-unit) * 1);
       height: 100%;
       background-color: var(--ghs-color-darkgray);
@@ -99,12 +99,12 @@ main {
   }
 
   &.right {
-    right: calc(var(--ghs-unit) * (-2.5 + var(--ghs-text-factor)));
+    right: calc(var(--ghs-unit) * (-2 + var(--ghs-text-factor)));
     left: auto;
 
     &:hover {
       &::before {
-        right: calc(var(--ghs-unit) * 1);
+        right: calc(var(--ghs-unit) * -0.5);
         left: auto;
       }
     }

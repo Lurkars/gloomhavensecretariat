@@ -3,14 +3,14 @@
   display: grid;
   justify-items: center;
   align-items: center;
-  grid-template-columns: calc(var(--ghs-unit) * var(--ghs-hex-size));
+  grid-template-columns: calc(0.5em * var(--ghs-hex-size));
 
   .hex {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: calc(var(--ghs-unit) * var(--ghs-hex-size) * 2);
-    height: calc(var(--ghs-unit) * var(--ghs-hex-size) * 1.7);
+    width: calc(0.5em * var(--ghs-hex-size) * 2);
+    height: calc(0.5em * var(--ghs-hex-size) * 1.7);
 
     img {
       width: 100%;

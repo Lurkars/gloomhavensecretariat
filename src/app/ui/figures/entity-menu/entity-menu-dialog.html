@@ -49,6 +49,14 @@
 
   <div *ngIf="!levelDialog" class="status-container">
     <div class="entity-container">
+
+      <ng-container *ngIf="gameManager.isMonster(data.figure) && shieldValue()">
+        <div class="shield-value">
+          {{'game.action.shield' | ghsLabel}} <img class="ghs-svg" src="./assets/images/action/shield.svg">
+          {{shieldValue()}}
+        </div>
+      </ng-container>
+
       <span class="item">
         <a class="button" [ngClass]="{'disabled' : data.entity.health + health == 0}" (click)="changeHealth(-1)">
           <img class="ghs-svg" src="./assets/images/minus.svg">

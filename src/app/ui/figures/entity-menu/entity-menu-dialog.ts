@@ -2,6 +2,7 @@ import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 import { ChangeDetectorRef, Component, ElementRef, Inject, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { ActionType } from "src/app/game/model/Action";
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from "src/app/game/model/AttackModifier";
 import { Character } from "src/app/game/model/Character";
 import { ConditionName, ConditionType } from "src/app/game/model/Condition";
@@ -225,6 +226,37 @@ export class EntityMenuDialogComponent {
       return gameManager.entityManager.isImmune(this.data.figure, this.data.entity, conditionName);
     }
     return false;
+  }
+
+  shieldValue(): number {
+    if (this.data.figure instanceof Monster && this.data.entity instanceof MonsterEntity) {
+      const stat = gameManager.monsterManager.getStat(this.data.figure, this.data.entity.type);
+      let shieldValue = 0;
+      const shieldAction = stat.actions.find((action) => action.type == ActionType.shield);
+      if (shieldAction) {
+        shieldValue += +shieldAction.value;
+      }
+
+      const activeFigure = gameManager.game.figures.find((figure) => figure.active);
+      if (this.data.figure.active || gameManager.game.state == GameState.next && (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(this.data.figure))) {
+        let ability = gameManager.monsterManager.getAbility(this.data.figure);
+        if (ability) {
+          ability.actions.forEach((action) => {
+            if (action.type == ActionType.shield) {
+              shieldValue += +action.value;
+            } else if (action.type == ActionType.monsterType && action.value == (this.data.entity as MonsterEntity).type) {
+              action.subActions.forEach((action) => {
+                if (action.type == ActionType.shield) {
+                  shieldValue += +action.value;
+                }
+              });
+            }
+          })
+        }
+      }
+      return shieldValue;
+    }
+    return 0;
   }
 
   hasMarker(marker: string) {

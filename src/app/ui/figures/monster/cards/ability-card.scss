@@ -1,3 +1,7 @@
+:host {
+  position: relative;
+}
+
 .container {
   position: relative;
   width: calc(var(--ghs-unit) * 40);
@@ -21,21 +25,26 @@
       top: calc(var(--ghs-unit) * -4);
     }
 
-    &:hover {
-      ghs-ability {
-        top: 0;
-      }
+  }
+
+  &.bottom-actions {
+
+    overflow-y: auto;
+
+    ghs-ability {
+      top: 0;
+      height: calc(var(--ghs-unit) * 54);
     }
 
   }
 
-  .left-abilities {
-    font-size: calc(var(--ghs-unit) * 2);
-    position: absolute;
-    color: var(--ghs-color-white);
-    right: calc(var(--ghs-unit) * 1);
-    bottom: calc(var(--ghs-unit) * 0.5);
-  }
 
+}
 
+.left-abilities {
+  font-size: calc(var(--ghs-unit) * 2);
+  position: absolute;
+  color: var(--ghs-color-white);
+  right: calc(var(--ghs-unit) * 0.3);
+  bottom: calc(var(--ghs-unit) * 0);
 }

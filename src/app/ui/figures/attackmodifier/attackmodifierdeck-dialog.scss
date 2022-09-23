@@ -27,6 +27,7 @@
     .curse-bless {
 
       display: flex;
+      max-width: calc(100% - calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor)) * 2);
 
       span.item {
         position: relative;
@@ -120,6 +121,7 @@
       align-items: center;
       flex-basis: 100%;
       flex-shrink: 0;
+      max-width: calc(100% - calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor)) * 2);
 
       .attack-modifier {
         display: flex;

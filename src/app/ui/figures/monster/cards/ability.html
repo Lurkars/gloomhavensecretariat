@@ -1,5 +1,0 @@
-<div class="container" (click)="click()" [ngClass]="{'flipped' : flipped() }">
-  <ghs-ability [ability]="ability" [monster]="monster" [flipped]="flipped()"></ghs-ability>
-  <span class="left-abilities">{{monster.abilities.length - ( monster.ability >= 0 ? monster.ability + 1 :
-    0)}}</span>
-</div>
