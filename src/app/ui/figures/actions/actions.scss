@@ -6,6 +6,10 @@
 
   &.inline {
     align-items: flex-start;
+
+    &> ghs-action {
+      width: 100%;
+    }
   }
 
   &.right {
@@ -46,5 +50,15 @@
 
   :last-child {
     margin-bottom: auto;
+  }
+
+  &.fh {
+    .divider {
+      width: 15%;
+      height: 0.05em;
+      border-top: none;
+      background: linear-gradient(90deg, transparent 0%, var(--ghs-color-white) 50%, transparent 100%);
+      margin: 0.2em;
+    }
   }
 }

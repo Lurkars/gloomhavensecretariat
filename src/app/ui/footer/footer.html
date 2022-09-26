@@ -1,4 +1,4 @@
-<footer>
+<footer [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
   <div [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
     <div #nextButton (click)="next()" class="round-container" [ngClass]="{'disabled' : disabled()}">
       <a>{{ (gameManager.game.state == GameState.next ?

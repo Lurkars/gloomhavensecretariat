@@ -1,4 +1,4 @@
-<div class="card-container ability">
+<div class="card-container ability" [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
   <div class="card" [ngClass]="{'flipped' : flipped || ability && ability.revealed}" card-reveal
     (change)="onChange($event)" [disabled]="!reveal || !ability" #card
     [style.fontSize]=" card.offsetWidth * 0.04 + 'px'">

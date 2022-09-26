@@ -2,7 +2,7 @@ import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { FigureError, FigureErrorType } from 'src/app/game/model/FigureError';
 import { Monster } from 'src/app/game/model/Monster';
@@ -22,6 +22,7 @@ export class MonsterStatsComponent implements OnInit {
   @Input() showName: boolean = false;
   @Input() forceStats: boolean = false;
   MonsterType = MonsterType;
+  settingsManager: SettingsManager = settingsManager;
 
   stats: MonsterStat | undefined = undefined;
   eliteStats: MonsterStat | undefined = undefined;

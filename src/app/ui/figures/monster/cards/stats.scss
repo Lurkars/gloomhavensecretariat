@@ -95,9 +95,9 @@
 
   .stats {
     position: absolute;
-    top: calc(var(--ghs-unit) * 6);
-    left: 0;
-    width: 100%;
+    top: calc(var(--ghs-unit) * 6.2);
+    left: calc(var(--ghs-unit) * 15.1);
+    width: calc(var(--ghs-unit) * 9.5);
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: calc(var(--ghs-unit) * 4.4);
@@ -107,7 +107,7 @@
     .stat {
       font-size: calc(var(--ghs-unit) * 2.7 * var(--ghs-fontsize));
       padding-top: calc(var(--ghs-unit) * 0);
-      line-height: calc(var(--ghs-unit) * 3.45);
+      line-height: calc(var(--ghs-unit) * 3.40);
 
       &.end {
         justify-self: end;
@@ -129,7 +129,9 @@
     background-image: url('~src/assets/images/monster/stats/boss.png');
 
     .stats {
-      width: calc(var(--ghs-unit) * 14);
+      top: calc(var(--ghs-unit) * 6.3);
+      left: calc(var(--ghs-unit) * 4.1);
+      width: calc(var(--ghs-unit) * 10);
       grid-template-columns: 1fr;
       top: calc(var(--ghs-unit) * 6.5);
     }

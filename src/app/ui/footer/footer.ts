@@ -2,7 +2,7 @@ import { Dialog, DialogRef } from '@angular/cdk/dialog';
 import { ConnectionPositionPair, Overlay } from '@angular/cdk/overlay';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
-import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
@@ -18,6 +18,7 @@ export class FooterComponent implements OnInit {
   @ViewChild('nextButton') nextButton!: ElementRef;
 
   gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
   currentTime: string = "";
   hasAllyAttackModifierDeck: boolean = false;

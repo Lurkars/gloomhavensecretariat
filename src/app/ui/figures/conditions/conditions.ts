@@ -20,6 +20,7 @@ export class ConditionsComponent implements OnInit {
   @Input() columns: number = 3;
 
   gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
 
   standardNegative: Condition[] = [];
   upgradeNegative: Condition[] = [];

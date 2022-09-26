@@ -18,6 +18,7 @@ export class Settings {
   ge5Player: boolean | undefined = undefined;
   disableStandees: boolean = false;
   fullscreen: boolean = false;
+  fhStyle: boolean = false;
   autoscroll: boolean = true;
   disableColumns: boolean = false;
   dragValues: boolean = true;

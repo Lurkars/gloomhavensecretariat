@@ -40,12 +40,16 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('~/src/assets/images/bar.png');
+    background-image: url('~/src/assets/images/bar.jpg');
     background-size: 100% 105%;
     background-position: bottom right;
     background-repeat: no-repeat;
     transform: scale(-1);
     z-index: -1;
+  }
+
+  &.fh::before {
+    background-image: url('~/src/assets/images/fh/bar.jpg');
   }
 
   .round-container {

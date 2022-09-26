@@ -1,7 +1,7 @@
 import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 import { ChangeDetectorRef, Component, ElementRef, Inject, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ActionType } from "src/app/game/model/Action";
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from "src/app/game/model/AttackModifier";
 import { Character } from "src/app/game/model/Character";
@@ -25,6 +25,7 @@ export class EntityMenuDialogComponent {
 
 
   gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
 
   @ViewChild('charactertitle', { static: false }) characterTitleInput!: ElementRef;
   @ViewChild('objectiveTitle', { static: false }) objectiveTitleInput!: ElementRef;

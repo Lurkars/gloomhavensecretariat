@@ -1,4 +1,4 @@
-<div class="actions" [ngClass]="{'inline' : inline, 'right' : right}">
+<div class="actions" [ngClass]="{'inline' : inline, 'right' : right, 'fh' : settingsManager.settings.fhStyle}">
   <ng-container *ngFor="let action of actions; let index = index;">
     <div class="divider"
       *ngIf="!inline && index > 0 && action.type != ActionType.card && !((action.type == ActionType.element || action.type == ActionType.elementHalf) && action.valueType != ActionValueType.minus)"></div>

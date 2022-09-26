@@ -1,6 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
-import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Action, ActionType, ActionValueType } from "src/app/game/model/Action";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterType } from "src/app/game/model/MonsterType";
@@ -21,6 +21,9 @@ export class ActionsComponent {
   @Input() highlightElements: boolean = false;
   @Input() hexSize!: number;
   @Input() hint!: string | undefined;
+
+  settingsManager : SettingsManager = settingsManager;
+
   ActionType = ActionType;
   ActionValueType = ActionValueType;
   additionalActions: Action[] = [];

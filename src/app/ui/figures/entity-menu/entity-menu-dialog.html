@@ -1,4 +1,4 @@
-<div class="entity-menu-dialog">
+<div class="entity-menu-dialog" [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
 
   <div class="name">
     <ng-container *ngIf="gameManager.isCharacter(data.figure) && gameManager.isCharacter(data.entity)">
@@ -52,7 +52,7 @@
 
       <ng-container *ngIf="gameManager.isMonster(data.figure) && shieldValue()">
         <div class="shield-value">
-          {{'game.action.shield' | ghsLabel}} <img class="ghs-svg" src="./assets/images/action/shield.svg">
+          {{'game.action.shield' | ghsLabel}} <img class="ghs-svg"[src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/shield.svg'">
           {{shieldValue()}}
         </div>
       </ng-container>

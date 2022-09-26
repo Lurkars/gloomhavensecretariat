@@ -172,4 +172,24 @@
     }
   }
 
+  &.fh {
+
+    .ability-front {
+      background-image: url('~src/assets/images/fh/monster/abilities/monster-ability-front.png');
+
+      &.bottom-actions {
+        background-image: url('~src/assets/images/monster/abilities/monster-ability-front-bottom.png');
+
+      }
+    }
+
+    .ability-back {
+      background-image: url('~src/assets/images/fh/monster/abilities/monster-ability-back.png');
+      
+      &.bottom-actions {
+        background-image: url('~src/assets/images/monster/abilities/monster-ability-back-botton.png');
+      }
+    }
+  }
+
 }

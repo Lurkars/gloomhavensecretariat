@@ -1,4 +1,4 @@
-<div class="stats-container" [ngClass]="{'boss' : monster.boss}">
+<div class="stats-container" [ngClass]="{'boss' : monster.boss, 'fh' : settingsManager.settings.fhStyle}">
   <div #levelButton (click)="openLevelDialog()" class="level" title="{{'game.level' | ghsLabel}}">{{monster.level}}</div>
 
   <div class="name-container" *ngIf="showName">
@@ -6,7 +6,7 @@
       {{'data.monster.' + monster.name | ghsLabel}}
       <span *ngIf="monster.isAlly">({{'game.ally' | ghsLabel}})</span>
     </span>
-    <span *ngIf="monster.flying" class="flying"><img src="./assets/images/action/fly.svg" /></span>
+    <span *ngIf="monster.flying" class="flying"><img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
     <span class="edition" *ngIf="getEdition()">[{{'data.edition.' + getEdition()| ghsLabel}}]</span>
   </div>
 

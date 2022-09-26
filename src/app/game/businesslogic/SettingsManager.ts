@@ -145,6 +145,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setFhStyle(fhStyle: boolean) {
+    this.settings.fhStyle = fhStyle;
+    this.storeSettings();
+  }
+
   setDisableColumns(disableColumns: boolean) {
     this.settings.disableColumns = disableColumns;
     this.storeSettings();

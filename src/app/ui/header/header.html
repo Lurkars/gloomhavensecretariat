@@ -1,4 +1,4 @@
-<header>
+<header [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
   <div class="main-menu">
     <a #mainMenuButton class="menu-button active-outline" title="{{'menu.main' | ghsLabel}}" (click)="openMenu($event)">
       <img class="ghs-svg" src="./assets/images/menu.svg">
