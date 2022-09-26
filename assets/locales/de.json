@@ -380,6 +380,7 @@
       "reset": "Fertigkeit Schriftgröße zurücksetzen"
     },
     "fullscreen": "Vollbild",
+    "fhStyle": "Frosthaven Stil (%wip%)",
     "autoscroll": "Automatisch Scrollen",
     "disableColumns": "Zweispaltiges Layout deaktivieren",
     "dragValues": "Initiative/TP/XP/Beute ziehen",

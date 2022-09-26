@@ -380,6 +380,7 @@
       "reset": "Reset ability fontsize"
     },
     "fullscreen": "Fullscreen",
+    "fhStyle": "Frosthaven Style (%wip%)",
     "autoscroll": "Autoscroll",
     "disableColumns": "Disable column layout",
     "dragValues": "Drag Initiative/HP/XP/Loot",
