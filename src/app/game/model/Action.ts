@@ -38,6 +38,7 @@ export enum ActionType {
   shield = "shield",
   special = "special",
   specialTarget = "specialTarget",
+  summon = "summon",
   swing = "swing",
   target = "target",
   teleport = "teleport",

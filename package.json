@@ -1,6 +1,6 @@
 {
   "name": "gloomhavensecretary",
-  "version": "0.18.0",
+  "version": "0.18.1",
   "license": "AGPL3",
   "description": "Gloomhaven Secretary is an angular based Gloomhaven Companion app.",
   "author": {
@@ -68,7 +68,7 @@
     "@angular/compiler-cli": "^14.2.3",
     "@types/jasmine": "~4.3.0",
     "@types/uuid": "^8.3.4",
-    "electron": "^20.2.0",
+    "electron": "^21.0.0",
     "electron-builder": "^23.3.3",
     "http-server": "^14.1.1",
     "jasmine-core": "~4.4.0",

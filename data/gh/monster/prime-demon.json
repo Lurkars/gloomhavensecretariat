@@ -22,8 +22,8 @@
           "value": "%data.custom.gh.prime-demon.1%"
         },
         {
-          "type": "custom",
-          "value": "%game.custom.summon% %data.monster.demon%"
+          "type": "summon",
+          "value": "%data.monster.demon%"
         },
         {
           "type": "move",
@@ -42,8 +42,8 @@
           "value": "%data.custom.gh.prime-demon.1%"
         },
         {
-          "type": "custom",
-          "value": "%game.custom.summon% %data.monster.demon%"
+          "type": "summon",
+          "value": "%data.monster.demon%"
         },
         {
           "type": "move",

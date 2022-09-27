@@ -4,6 +4,7 @@
   "edition": "gh",
   "deck": "ooze",
   "boss": true,
+  "hidden": true,
   "count": 10,
   "baseStat": {
     "type": "boss",

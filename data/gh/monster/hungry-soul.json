@@ -4,6 +4,7 @@
   "edition": "gh",
   "deck": "living-bones",
   "boss": true,
+  "hidden": true,
   "count": 10,
   "baseStat": {
     "type": "boss",

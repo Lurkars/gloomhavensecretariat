@@ -7,8 +7,8 @@
       "initiative": 97,
       "actions": [
         {
-          "type": "custom",
-          "value": "%game.custom.summon% %data.monster.flame-demon% (%monster.normal%)"
+          "type": "summon",
+          "value": "%data.monster.flame-demon% (%monster.normal%)"
         },
         {
           "type": "element",
@@ -21,8 +21,8 @@
       "initiative": 97,
       "actions": [
         {
-          "type": "custom",
-          "value": "%game.custom.summon% %data.monster.earth-demon% (%monster.normal%)"
+          "type": "summon",
+          "value": "%data.monster.earth-demon% (%monster.normal%)"
         },
         {
           "type": "element",

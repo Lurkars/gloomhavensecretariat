@@ -41,8 +41,8 @@
       "special": [
         [
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.valrath-tracker%"
+            "type": "summon",
+            "value": "%data.monster.valrath-tracker%"
           },
           {
             "type": "move",
@@ -72,8 +72,8 @@
             "valueType": "plus"
           },
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.valrath-savage%"
+            "type": "summon",
+            "value": "%data.monster.valrath-savage%"
           }
         ]
       ]
@@ -93,8 +93,8 @@
       "special": [
         [
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.valrath-tracker%"
+            "type": "summon",
+            "value": "%data.monster.valrath-tracker%"
           },
           {
             "type": "move",
@@ -124,8 +124,8 @@
             "valueType": "plus"
           },
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.valrath-savage%"
+            "type": "summon",
+            "value": "%data.monster.valrath-savage%"
           }
         ]
       ]
@@ -145,8 +145,8 @@
       "special": [
         [
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.valrath-tracker%"
+            "type": "summon",
+            "value": "%data.monster.valrath-tracker%"
           },
           {
             "type": "move",
@@ -176,8 +176,8 @@
             "valueType": "plus"
           },
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.valrath-savage%"
+            "type": "summon",
+            "value": "%data.monster.valrath-savage%"
           }
         ]
       ]
@@ -191,8 +191,8 @@
       "special": [
         [
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.valrath-tracker%"
+            "type": "summon",
+            "value": "%data.monster.valrath-tracker%"
           },
           {
             "type": "move",
@@ -222,8 +222,8 @@
             "valueType": "plus"
           },
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.valrath-savage%"
+            "type": "summon",
+            "value": "%data.monster.valrath-savage%"
           }
         ]
       ]
@@ -237,8 +237,8 @@
       "special": [
         [
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.valrath-tracker%"
+            "type": "summon",
+            "value": "%data.monster.valrath-tracker%"
           },
           {
             "type": "move",
@@ -268,8 +268,8 @@
             "valueType": "plus"
           },
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.valrath-savage%"
+            "type": "summon",
+            "value": "%data.monster.valrath-savage%"
           }
         ]
       ]
@@ -283,8 +283,8 @@
       "special": [
         [
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.valrath-tracker%"
+            "type": "summon",
+            "value": "%data.monster.valrath-tracker%"
           },
           {
             "type": "move",
@@ -314,8 +314,8 @@
             "valueType": "plus"
           },
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.valrath-savage%"
+            "type": "summon",
+            "value": "%data.monster.valrath-savage%"
           }
         ]
       ]
@@ -329,8 +329,8 @@
       "special": [
         [
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.valrath-tracker%"
+            "type": "summon",
+            "value": "%data.monster.valrath-tracker%"
           },
           {
             "type": "move",
@@ -360,8 +360,8 @@
             "valueType": "plus"
           },
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.valrath-savage%"
+            "type": "summon",
+            "value": "%data.monster.valrath-savage%"
           }
         ]
       ]
@@ -375,8 +375,8 @@
       "special": [
         [
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.valrath-tracker%"
+            "type": "summon",
+            "value": "%data.monster.valrath-tracker%"
           },
           {
             "type": "move",
@@ -406,8 +406,8 @@
             "valueType": "plus"
           },
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.valrath-savage%"
+            "type": "summon",
+            "value": "%data.monster.valrath-savage%"
           }
         ]
       ]

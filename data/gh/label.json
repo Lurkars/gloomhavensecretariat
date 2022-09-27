@@ -307,7 +307,7 @@
           "1": "%data.monster.cultist% suffers 2 damage."
         },
         "deep-terror": {
-          "1": "%game.custom.summon% %data.monster.deep-terror% (%monster.normal%) in a hex adjacent to the target"
+          "1": "%game.action.summon% %data.monster.deep-terror% (%monster.normal%) in a hex adjacent to the target"
         },
         "flame-demon": {
           "1": "%data.monster.flame-demon% suffers 1 damage.",
@@ -335,7 +335,7 @@
         },
         "ooze": {
           "1": "Ooze suffers 2 damage.",
-          "2": "%game.custom.summon% %data.monster.ooze% (%monster.normal%) with a hit point value equal to the summoning %data.monster.ooze%'s current hit point value (limited by a normal %data.monster.ooze%'s specified maximum hit point value)"
+          "2": "%game.action.summon% %data.monster.ooze% (%monster.normal%) with a hit point value equal to the summoning %data.monster.ooze%'s current hit point value (limited by a normal %data.monster.ooze%'s specified maximum hit point value)"
         },
         "savvas-lavaflow": {
           "1": "All allies and enemies adjacent to the target suffer 2 damage",
@@ -360,7 +360,7 @@
         },
         "winged-horror": {
           "1": "Hatch eggs",
-          "2": "Summon [C] eggs"
+          "2": "%game.action.summon% [C] eggs"
         },
         "dark-rider": {
           "1": "X = Hexes moved"

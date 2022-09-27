@@ -19,8 +19,8 @@
     "special": [
       [
         {
-          "type": "custom",
-          "value": "%game.custom.summon% %data.monster.deep-terror%"
+          "type": "summon",
+          "value": "%data.monster.deep-terror%"
         },
         {
           "type": "attack",
@@ -36,8 +36,8 @@
       ],
       [
         {
-          "type": "custom",
-          "value": "%game.custom.summon% %data.monster.deep-terror%"
+          "type": "summon",
+          "value": "%data.monster.deep-terror%"
         },
         {
           "type": "attack",

@@ -505,6 +505,7 @@
     "support": "Support the dev",
     "forceUpdate": "Force Update"
   },
+  "help": "Help",
   "update": "Update - Reload",
   "and": "and",
   "or": "or",
@@ -533,6 +534,7 @@
       "shield": "Shield",
       "special": "Special",
       "specialTarget": "Special Target",
+      "summon": "Summon",
       "swing": "Swing",
       "target": "Target",
       "targets": "Targets",
@@ -679,7 +681,6 @@
     },
     "custom": {
       "advantage": "Advantage",
-      "summon": "Summon",
       "ondeath": "On death",
       "instead": "Instead",
       "disadvantage": "Attackers gain Disadvantage",

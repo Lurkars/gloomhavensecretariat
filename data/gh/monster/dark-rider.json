@@ -34,8 +34,8 @@
           "valueType": "plus"
         },
         {
-          "type": "custom",
-          "value": "%game.custom.summon% %data.monster.imp%"
+          "type": "summon",
+          "value": "%data.monster.forest-imp%"
         },
         {
           "type": "attack",

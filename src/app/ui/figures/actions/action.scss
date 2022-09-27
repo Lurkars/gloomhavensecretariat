@@ -9,6 +9,7 @@
 
   .action-default,
   .action-custom,
+  .action-summon,
   .action-trigger,
   .action-specialTarget,
   .action-condition,
@@ -43,19 +44,23 @@
     }
   }
 
-  .custom-value {
+  .custom-value,
+  .summon-value {
     font-size: 82%;
     line-height: 82%;
     padding: 0 1.5em
   }
 
 
-  .action-custom {
+  .action-custom,
+  .action-summon {
 
     ghs-action {
       &.subaction-custom {
+
         .action-custom {
-          .custom-value {
+          .custom-value,
+          .summon-value {
             font-size: 82%;
           }
         }
@@ -65,7 +70,8 @@
 
   .action-trigger {
 
-    .custom-value {
+    .custom-value,
+    .summon-value {
       position: relative;
 
       &::before,
@@ -306,7 +312,8 @@
         font-size: 82%;
       }
 
-      .custom-value {
+      .custom-value,
+      .summon-value {
         font-size: 100%;
         padding-left: 0.5%;
       }
@@ -321,7 +328,8 @@
     &.element-subaction {
 
       .action {
-        .custom-value {
+        .custom-value,
+        .summon-value {
           padding: 0;
           font-size: 82%;
         }
@@ -349,7 +357,8 @@
     }
   }
 
-  .action-custom {
+  .action-custom,
+  .action-summon {
 
     ghs-action {
 
@@ -368,6 +377,7 @@
       &.element-subaction {
 
         .action-custom,
+        .action-summon,
         .action-specialTarget {
           font-size: 100%;
         }
@@ -435,6 +445,7 @@
 
     .action-default,
     .action-custom,
+    .action-summon,
     .action-trigger,
     .action-specialTarget,
     .action-condition,
@@ -452,7 +463,8 @@
       }
     }
 
-    .custom-value {
+    .custom-value,
+    .summon-value {
       text-align: left;
       font-size: 100%;
       padding: 0 !important;
@@ -498,7 +510,8 @@
       }
     }
 
-    .action-custom {
+    .action-custom,
+    .action-summon {
       align-items: flex-start;
       flex-wrap: wrap;
     }
@@ -540,13 +553,22 @@
 
 
     &.inline {
-      .custom-value {
+      .custom-value,
+      .summon-value {
         text-align: right;
       }
     }
 
     .icon.invert {
       filter: invert(100%);
+    }
+
+    .conditions {
+      justify-content: flex-end;
+
+      .condition {
+        justify-content: flex-end;
+      }
     }
   }
 
@@ -570,7 +592,8 @@
       flex-basis: 0;
     }
 
-    .action-custom {
+    .action-custom,
+    .action-summon {
 
       font-size: 80%;
 
@@ -580,6 +603,7 @@
         &.subaction-specialTarget {
 
           .action-custom,
+          .action-summon,
           .action-specialTarget {
             font-size: 82%;
           }
@@ -588,6 +612,7 @@
         &.element-subaction {
 
           .action-custom,
+          .action-summon,
           .action-specialTarget {
             font-size: 100%;
           }
@@ -611,6 +636,7 @@
       flex-basis: 0;
 
       .action-custom,
+      .action-summon,
       .action-specialTarget {
         font-size: 70%;
       }

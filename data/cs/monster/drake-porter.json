@@ -30,8 +30,8 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%game.custom.summon% %data.monster.rending-drake%"
+          "type": "summon",
+          "value": "%data.monster.rending-drake%"
         }
       ],
       [
@@ -40,8 +40,8 @@
           "value": 1
         },
         {
-          "type": "custom",
-          "value": "%game.custom.summon% %data.monster.spitting-drake%"
+          "type": "summon",
+          "value": "%data.monster.spitting-drake%"
         }
       ]
     ]

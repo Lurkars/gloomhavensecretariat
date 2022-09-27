@@ -52,8 +52,8 @@
       "initiative": 98,
       "actions": [
         {
-          "type": "custom",
-          "value": "%game.custom.summon% %data.monster.wind-demon% (%monster.normal%)"
+          "type": "summon",
+          "value": "%data.monster.wind-demon% (%monster.normal%)"
         },
         {
           "type": "element",
@@ -66,8 +66,8 @@
       "initiative": 98,
       "actions": [
         {
-          "type": "custom",
-          "value": "%game.custom.summon% %data.monster.frost-demon% (%monster.normal%)"
+          "type": "summon",
+          "value": "%data.monster.frost-demon% (%monster.normal%)"
         },
         {
           "type": "element",

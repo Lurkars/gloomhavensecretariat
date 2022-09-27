@@ -33,14 +33,14 @@
           "valueType": "plus"
         },
         {
-          "type": "custom",
-          "value": "%game.custom.summon% %data.monster.city-guard%"
+          "type": "summon",
+          "value": "%data.monster.city-guard%"
         }
       ],
       [
         {
-          "type": "custom",
-          "value": "%game.custom.summon% %data.monster.city-guard%"
+          "type": "summon",
+          "value": "%data.monster.city-guard%"
         },
         {
           "type": "move",
@@ -103,14 +103,14 @@
             "valueType": "plus"
           },
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.city-guard%"
+            "type": "summon",
+            "value": "%data.monster.city-guard%"
           }
         ],
         [
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.city-guard%"
+            "type": "summon",
+            "value": "%data.monster.city-guard%"
           },
           {
             "type": "move",
@@ -154,14 +154,14 @@
             "valueType": "plus"
           },
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.city-guard%"
+            "type": "summon",
+            "value": "%data.monster.city-guard%"
           }
         ],
         [
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.city-guard%"
+            "type": "summon",
+            "value": "%data.monster.city-guard%"
           },
           {
             "type": "move",
@@ -205,14 +205,14 @@
             "valueType": "plus"
           },
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.city-guard%"
+            "type": "summon",
+            "value": "%data.monster.city-guard%"
           }
         ],
         [
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.city-guard%"
+            "type": "summon",
+            "value": "%data.monster.city-guard%"
           },
           {
             "type": "move",
@@ -256,14 +256,14 @@
             "valueType": "plus"
           },
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.city-guard%"
+            "type": "summon",
+            "value": "%data.monster.city-guard%"
           }
         ],
         [
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.city-guard%"
+            "type": "summon",
+            "value": "%data.monster.city-guard%"
           },
           {
             "type": "move",
@@ -307,14 +307,14 @@
             "valueType": "plus"
           },
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.city-guard%"
+            "type": "summon",
+            "value": "%data.monster.city-guard%"
           }
         ],
         [
           {
-            "type": "custom",
-            "value": "%game.custom.summon% %data.monster.city-guard%"
+            "type": "summon",
+            "value": "%data.monster.city-guard%"
           },
           {
             "type": "move",

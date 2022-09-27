@@ -132,8 +132,8 @@
       "shuffle": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%game.custom.summon% %data.monster.living-spirit%"
+          "type": "summon",
+          "value": "%data.monster.living-spirit%"
         },
         {
           "type": "custom",
@@ -147,8 +147,8 @@
       "shuffle": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%game.custom.summon% %data.monster.living-spirit%"
+          "type": "summon",
+          "value": "%data.monster.living-spirit%"
         },
         {
           "type": "custom",

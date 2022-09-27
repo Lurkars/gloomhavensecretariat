@@ -24,8 +24,8 @@
       ],
       [
         {
-          "type": "custom",
-          "value": "%game.custom.summon% %data.monster.vermling-scout%"
+          "type": "summon",
+          "value": "%data.monster.vermling-scout%"
         }
       ]
     ]

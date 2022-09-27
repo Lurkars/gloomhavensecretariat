@@ -15,8 +15,8 @@
       </span>
     </span>
     <div class="condition-subactions" *ngIf="subActions.length > 0">
-      <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of subActions"
-        [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
+      <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of subActions" [action]="subAction"
+        [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
         [highlightElements]="highlightElements">
       </ghs-action>
     </div>
@@ -62,8 +62,8 @@
     <span class="monster-type" [ngClass]="'monster-type-' + action.value">{{'monster.' + action.value |
       ghsLabel}}:</span>
     <div class="monster-type-subactions" *ngIf="subActions && subActions.length > 0">
-      <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of subActions"
-        [action]="subAction" [monster]="monster" [relative]="true" [inline]="inline" [right]="right" [hexSize]="hexSize"
+      <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of subActions" [action]="subAction"
+        [monster]="monster" [relative]="true" [inline]="inline" [right]="right" [hexSize]="hexSize"
         [highlightElements]="highlightElements">
       </ghs-action>
     </div>
@@ -76,6 +76,17 @@
 
   <span class="action-custom" *ngSwitchCase="ActionType.custom">
     <span class="custom-value placeholder" [i18n]="action.value + ''"></span>
+    <ng-container *ngIf="subActions && subActions.length > 0">
+      <ghs-action class="full" [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of subActions"
+        [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
+        [highlightElements]="highlightElements">
+      </ghs-action>
+    </ng-container>
+  </span>
+
+  <span class="action-summon" *ngSwitchCase="ActionType.summon">
+    <span class="summon-value"><span class="summon-label">{{'game.action.' + action.type | ghsLabel}}&nbsp;</span><span
+        class="placeholder" [i18n]="action.value + ''"></span></span>
     <ng-container *ngIf="subActions && subActions.length > 0">
       <ghs-action class="full" [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of subActions"
         [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"

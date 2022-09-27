@@ -1113,8 +1113,8 @@
       "initiative": 50,
       "actions": [
         {
-          "type": "custom",
-          "value": "%game.custom.summon% %data.monster.naaret%"
+          "type": "summon",
+          "value": "%data.monster.naaret%"
         },
         {
           "type": "card",
@@ -1123,8 +1123,8 @@
       ],
       "bottomActions": [
         {
-          "type": "custom",
-          "value": "%game.custom.summon% %data.monster.naaret%"
+          "type": "summon",
+          "value": "%data.monster.naaret%"
         },
         {
           "type": "card",

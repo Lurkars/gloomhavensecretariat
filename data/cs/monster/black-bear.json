@@ -182,6 +182,10 @@
         {
           "type": "condition",
           "value": "wound"
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.disadvantage%"
         }
       ]
     },

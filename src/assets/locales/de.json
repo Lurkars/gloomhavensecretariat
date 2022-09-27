@@ -502,6 +502,7 @@
     "support": "Entwickler unterstützen",
     "forceUpdate": "Update erzwingen"
   },
+  "help": "Hilfe",
   "update": "Update - Neu Laden",
   "and": "und",
   "or": "oder",
@@ -530,6 +531,7 @@
       "shield": "Schild",
       "special": "Spezial",
       "specialTarget": "Sonderziel",
+      "summon": "Beschwöre",
       "swing": "Schwingen",
       "target": "Ziel",
       "targets": "Ziele",
@@ -676,7 +678,6 @@
     },
     "custom": {
       "advantage": "Vorteil",
-      "summon": "Beschwöre",
       "ondeath": "Bei Tod",
       "instead": "Stattdessen",
       "disadvantage": "Angreifer erhalten Nachteil",

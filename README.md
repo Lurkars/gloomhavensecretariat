@@ -1,12 +1,12 @@
 # Gloomhaven Secretary
 
-[Latest Online Version](https://ghs.champonthis.de)
+[Latest Online Version](https://gloomhaven-secretary.de)
 
 *Gloomhaven Secretary* is a **Gloomhaven companion app** and does bookkeeping of all entities values to gain more focus on gameplay. It is an open source web app made with [Angular](https://angular.io/).
 
 As GHS is a web application no installation is required and it runs in every modern browser even on mobile, still it can also be [installed](#install).
 
-For usage with multiple clients sharing the same game, the server component [Gloomhaven Secretary Server](https://github.com/Lurkars/ghs-server) is required. A public instance is available under `ghs.champonthis.de/server` port `443` with `secure` option.
+For usage with multiple clients sharing the same game, the server component [Gloomhaven Secretary Server](https://github.com/Lurkars/ghs-server) is required. A public instance is available under `gloomhaven-secretary.de/server` port `443` with `secure` option.
 
 GHS is based on the look&feel of the original [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (by [Esoteric Software®](http://esotericsoftware.com)). Since GHH is discontinued and not available anymore, GHS should become a well maintained successor, implementing all functionality of GHH, many improvements and many more features.
 
@@ -83,7 +83,7 @@ If you need help using the app take a look at the [wiki](https://github.com/Lurk
 
 ### Progressive Web App
 
-You can always install any hosted version as PWA if your OS/Browser supports installation of PWA. For example here is the [Latest Online Version](https://ghs.champonthis.de) or latest version on [GitHub Pages](https://lurkars.github.io/gloomhavensecretary/).
+You can always install any hosted version as PWA if your OS/Browser supports installation of PWA. For example here is the [Latest Online Version](https://gloomhaven-secretary.de) or latest version on [GitHub Pages](https://lurkars.github.io/gloomhavensecretary/).
 
 ### Standalone
 

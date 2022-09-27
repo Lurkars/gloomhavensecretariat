@@ -97,6 +97,19 @@
       "movement": 2
     },
     {
+      "name": "reaching-tentacle",
+      "level": 1,
+      "health": 2,
+      "attack": 2,
+      "range": 4
+    },
+    {
+      "name": "one-eyed-terror",
+      "level": 1,
+      "health": 1,
+      "attack": 2
+    },
+    {
       "name": "bat-cloud",
       "level": 2,
       "health": 2,

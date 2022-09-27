@@ -22,8 +22,8 @@
           "valueType": "minus",
           "subActions": [
             {
-              "type": "custom",
-              "value": "%game.custom.summon% %data.monster.night-demon%"
+              "type": "summon",
+              "value": "%data.monster.night-demon%"
             }
           ]
         },
@@ -45,8 +45,8 @@
           "valueType": "minus",
           "subActions": [
             {
-              "type": "custom",
-              "value": "%game.custom.summon% %data.monster.sun-demon%"
+              "type": "summon",
+              "value": "%data.monster.sun-demon%"
             }
           ]
         },

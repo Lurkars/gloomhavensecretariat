@@ -2,7 +2,7 @@
   "name": "aesther-scout",
   "edition": "fc",
   "deck": "scout",
-  "count": 6,
+  "count": 4,
   "baseStat": {
     "type": "normal",
     "actions": [],

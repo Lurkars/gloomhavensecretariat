@@ -98,8 +98,17 @@
       </div>
     </div>
 
-    <div class="line separator">
-      <a (click)="setActive(SubMenu.about)">{{'about' | ghsLabel}}</a>
+    <div class="columns separator">
+      <div class="column">
+        <div class="line">
+          <a (click)="setActive(SubMenu.about)">{{'about' | ghsLabel}}</a>
+        </div>
+      </div>
+      <div class="column">
+        <div class="line">
+          <a href="https://github.com/Lurkars/gloomhavensecretary/wiki" target="_blank">{{'help' | ghsLabel}}</a>
+        </div>
+      </div>
     </div>
 
     <div class="line separator" *ngIf="isUpdateAvailable()">
