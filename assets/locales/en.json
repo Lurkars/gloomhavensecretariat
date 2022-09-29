@@ -141,11 +141,12 @@
       "setObjectiveInitiative": "Initiative {1} for objective {0}",
       "setPQ": "Personal Quest {1} for {0} ",
       "setPartyAchievements": "Party achievements",
+      "setPartyDonations": "Donations to {0}",
       "setPartyLocation": "Party location '{0}'",
       "setPartyName": "Party name '{0}'",
       "setPartyNotes": "Party notes",
-      "setPartyProperity": "Pprosperity {0}",
-      "setPartyReputation": "Reputation {0}",
+      "setPartyProsperity": "Prosperity to {0}",
+      "setPartyReputation": "Reputation to {0}",
       "setPerk": "Perk {1} to {2} for {0}",
       "setRetired": "{0} retired {1}",
       "setRetirements": "Retirements {1} for {0}",
@@ -201,6 +202,7 @@
       "add": "Unlock Scenarios",
       "index": "Scenario number, commaseparated"
     },
+    "locked": "Locked",
     "summary": {
       ".": "Scenario Summary",
       "name": "%character%",
