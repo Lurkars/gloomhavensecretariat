@@ -12,7 +12,7 @@
   label {
     cursor: pointer;
     display: flex;
-    font-family: 'ghs-title';
+    font-family: var(--ghs-font-title);
     font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
     color: var(--ghs-color-gray);
     text-shadow: var(--ghs-outline);
@@ -52,7 +52,7 @@
       height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
       width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
       cursor: pointer;
-      font-family: 'ghs-title';
+      font-family: var(--ghs-font-title);
       font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
       color: var(--ghs-color-white);
       text-shadow: var(--ghs-outline);
@@ -100,7 +100,7 @@
 
     label {
       display: flex;
-      font-family: 'ghs-title';
+      font-family: var(--ghs-font-title);
       font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
       color: var(--ghs-color-white);
     }

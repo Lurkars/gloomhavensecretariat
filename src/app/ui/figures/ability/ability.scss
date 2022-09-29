@@ -42,7 +42,7 @@
       top: 0.7%;
       left: 0;
       width: 100%;
-      font-family: 'ghs-title';
+      font-family: var(--ghs-font-title);
       font-size: 1.7em;
       filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
       text-align: center;
@@ -50,7 +50,7 @@
 
     .initiative {
       position: absolute;
-      font-family: 'ghs-title';
+      font-family: var(--ghs-font-title);
       font-size: 2.4em;
       filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
       top: 15%;
@@ -143,7 +143,7 @@
       bottom: 13.5%;
       left: 0;
       width: 100%;
-      font-family: 'ghs-title';
+      font-family: var(--ghs-font-title);
       font-size: 1.4em;
       filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
       text-align: center;

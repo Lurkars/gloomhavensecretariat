@@ -455,6 +455,7 @@ export class SettingsManager {
         return;
       });
 
+    this.label.data = {};
     for (let editionData of gameManager.editionData) {
       this.loadDataLabel(editionData);
     }

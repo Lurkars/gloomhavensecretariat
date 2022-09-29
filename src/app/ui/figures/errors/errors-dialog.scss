@@ -11,13 +11,13 @@
     padding: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) 0;
 
     .error {
-      font-family: 'ghs-text';
+      font-family: var(--ghs-font-text);
       font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
       color: var(--ghs-color-red);
     }
 
     .hint {
-      font-family: 'ghs-normal';
+      font-family: var(--ghs-font-normal);
       font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
       color: var(--ghs-color-white);
     }

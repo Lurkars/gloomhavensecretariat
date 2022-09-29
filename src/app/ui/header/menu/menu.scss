@@ -68,7 +68,7 @@
     p {
       margin: 0;
       padding: 0 calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-      font-family: 'ghs-title';
+      font-family: var(--ghs-font-title);
       font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
       color: var(--ghs-color-gray);
       word-wrap: break-word;
@@ -85,7 +85,7 @@
       cursor: pointer;
       display: flex;
       align-items: center;
-      font-family: 'ghs-title';
+      font-family: var(--ghs-font-title);
       font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
       color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
@@ -107,6 +107,9 @@
       }
     }
 
+    &> a {
+      text-decoration: none;
+    }
 
     .state {
 
@@ -125,7 +128,7 @@
         }
 
         .info {
-          font-family: 'ghs-normal';
+          font-family: var(--ghs-font-normal);
           font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
         }
       }
@@ -328,7 +331,7 @@
       height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
       width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
       cursor: pointer;
-      font-family: 'ghs-title';
+      font-family: var(--ghs-font-title);
       font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
       color: var(--ghs-color-white);
       text-shadow: var(--ghs-outline);

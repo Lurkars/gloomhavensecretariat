@@ -82,6 +82,13 @@
 
         <div class="row title">
           <label class="headline">{{'party.campaign.scenarios' | ghsLabel}}</label>
+
+          <select (change)="changeEdition($event)">
+            <option [value]="undefined" [selected]="!edition">{{'game.edition.all' | ghsLabel}}</option>
+            <option *ngFor="let ed of gameManager.editions()" [selected]="ed == edition" [value]="ed">{{'data.edition.'
+              + ed |
+              ghsLabel}}</option>
+          </select>
         </div>
         <div class="row scenarios">
           <div class="scenario header legend seperator">
@@ -99,7 +106,8 @@
               <span>#<span *ngIf="maxScenario(scenarios[edition]) > 2 && scenarioData.index.length < 3">0</span><span
                   *ngIf="maxScenario(scenarios[edition]) > 1 && scenarioData.index.length < 2">0</span>{{scenarioData.index}}</span>
               <span>{{scenarioData.group}}</span>
-              <span [ngClass]="{'blocked' : blocked(scenarioData)}">
+              <span [ngClass]="{'blocked' : blocked(scenarioData)}"
+                [title]="blocked(scenarioData) ? ('scenario.locked' | ghsLabel) : ''">
                 <img *ngIf="blocked(scenarioData)" src="./assets/images/close.svg">
                 {{'data.scenario.' + scenarioData.name | ghsLabel}}
               </span>
@@ -114,8 +122,10 @@
                   (click)="removeManual(scenarioData)" *ngIf="isManual(scenarioData)"><img class="manual"
                     src="./assets/images/hint.svg"><img class="remove" src="./assets/images/close.svg"></a>
                 <span class="spacer"></span>
-                <a class="add-success" [title]="'party.campaign.scenarios.addSuccess' | ghsLabel"
-                  (click)="addSuccess(scenarioData)"><img src="./assets/images/check.svg"></a>
+                <a class="add-success"
+                  [title]="(blocked(scenarioData) ? 'scenario.locked' : 'party.campaign.scenarios.addSuccess') | ghsLabel"
+                  (click)="addSuccess(scenarioData)" [ngClass]="{'disabled' : blocked(scenarioData)}"><img
+                    src="./assets/images/check.svg"></a>
               </span>
             </div>
           </ng-container>

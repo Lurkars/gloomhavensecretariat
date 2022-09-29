@@ -9,7 +9,7 @@
   padding: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) 0;
 
   .url {
-    font-family: 'ghs-normal';
+    font-family: var(--ghs-font-normal);
     align-self: flex-end;
     font-size: 0.8em;
     margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));

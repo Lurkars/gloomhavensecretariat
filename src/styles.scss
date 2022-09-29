@@ -22,6 +22,18 @@
   src: url('./assets/fonts/PirataOne-Gloomhaven.woff') format('woff'), url('./assets/fonts/PirataOne-Gloomhaven.ttf') format('truetype'), url('./assets/fonts/PirataOne-Gloomhaven.svg') format('svg');
 }
 
+@font-face {
+  font-family: 'ghs-normal-fh';
+  src: url('./assets/fonts/markazi.eot');
+  src: url('./assets/fonts/markazi.woff') format('woff'), url('./assets/fonts/markazi.ttf') format('truetype'), url('./assets/fonts/markazi.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'ghs-title-fh';
+  src: url('./assets/fonts/germaniaone.eot');
+  src: url('./assets/fonts/germaniaone.woff') format('woff'), url('./assets/fonts/germaniaone.ttf') format('truetype'), url('./assets/fonts/germaniaone.svg') format('svg');
+}
+
 @import '@angular/cdk/overlay-prebuilt.css';
 
 * {
@@ -37,8 +49,12 @@ body {
 
 body {
   margin: 0;
-  font-family: 'ghs-normal';
+  font-family: var(--ghs-font-normal);
   overscroll-behavior-y: contain;
+  --ghs-font-normal: 'ghs-normal';
+  --ghs-font-text: 'ghs-text';
+  --ghs-font-extra: 'ghs-extra';
+  --ghs-font-title: 'ghs-title';
   --ghs-width: 100px;
   --ghs-factor: 100;
   --ghs-dialog-factor: 1;
@@ -76,7 +92,12 @@ body {
     user-select: none;
   }
 
-
+  &.fh {
+    --ghs-font-normal: 'ghs-normal-fh';
+    --ghs-font-text: 'ghs-text';
+    --ghs-font-extra: 'ghs-extra';
+    --ghs-font-title: 'ghs-title-fh';
+  }
 }
 
 *::-webkit-scrollbar {
@@ -258,7 +279,7 @@ a {
   position: relative;
   margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
   font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
-  font-family: 'ghs-normal';
+  font-family: var(--ghs-font-normal);
   text-shadow: none;
   display: flex;
   justify-content: center;
@@ -468,7 +489,7 @@ a {
 
   .placeholder-initiative {
     position: relative;
-    font-family: 'ghs-title';
+    font-family: var(--ghs-font-title);
     font-size: 0.8em;
     top: 0.1em;
 
@@ -655,7 +676,7 @@ input[type="number"] {
   border-style: solid;
   border-color: var(--ghs-color-gray);
   user-select: auto;
-  font-family: 'ghs-text';
+  font-family: var(--ghs-font-text);
   font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
 }
 

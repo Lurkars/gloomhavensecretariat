@@ -42,7 +42,7 @@
     justify-content: center;
     height: calc(var(--ghs-unit) * 7);
     width: calc(var(--ghs-unit) * 7);
-    font-family: 'ghs-title';
+    font-family: var(--ghs-font-title);
     font-size: calc(var(--ghs-unit) * 3);
     color: var(--ghs-color-white);
     text-shadow: var(--ghs-outline);
@@ -55,7 +55,7 @@
     height: calc(var(--ghs-unit) * 7);
     width: calc(var(--ghs-unit) * 7);
     cursor: pointer;
-    font-family: 'ghs-title';
+    font-family: var(--ghs-font-title);
     font-size: calc(var(--ghs-unit) * 3);
     color: var(--ghs-color-gray);
     text-shadow: var(--ghs-outline);

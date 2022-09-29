@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  font-family: 'ghs-title';
+  font-family: var(--ghs-font-title);
   font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
   color: var(--ghs-color-white);
 
@@ -13,7 +13,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'ghs-title';
+    font-family: var(--ghs-font-title);
     font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
     color: var(--ghs-color-gray);
 
@@ -89,7 +89,7 @@
       justify-content: center;
       height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
       width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
-      font-family: 'ghs-title';
+      font-family: var(--ghs-font-title);
       font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
       color: var(--ghs-color-white);
       text-shadow: var(--ghs-outline);
@@ -102,7 +102,7 @@
       justify-content: center;
       height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
       width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
-      font-family: 'ghs-title';
+      font-family: var(--ghs-font-title);
       font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
       color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
@@ -133,7 +133,7 @@
       label {
         cursor: pointer;
         margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
-        font-family: 'ghs-title';
+        font-family: var(--ghs-font-title);
         font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
         color: var(--ghs-color-gray);
       }
@@ -159,7 +159,7 @@
         border-color: var(--ghs-color-gray);
         border-radius: calc(var(--ghs-unit) * 1);
         user-select: auto;
-        font-family: 'ghs-title';
+        font-family: var(--ghs-font-title);
         font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
       }
 

@@ -59,7 +59,7 @@
     width: calc(var(--ghs-unit) * 30);
     display: flex;
     align-items: center;
-    font-family: 'ghs-title';
+    font-family: var(--ghs-font-title);
     color: var(--ghs-color-white);
     font-size: calc(var(--ghs-unit) * 2.5);
     filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));

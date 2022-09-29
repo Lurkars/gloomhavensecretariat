@@ -156,7 +156,7 @@
         }
 
         .value {
-          font-family: 'ghs-title';
+          font-family: var(--ghs-font-title);
           font-size: calc(var(--ghs-unit) * 1.2 * var(--ghs-text-factor));
           color: var(--ghs-color-white);
           position: absolute;

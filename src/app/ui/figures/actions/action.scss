@@ -51,7 +51,7 @@
     padding: 0 1.5em
   }
 
-
+  .action-special,
   .action-custom,
   .action-summon {
 
@@ -59,6 +59,7 @@
       &.subaction-custom {
 
         .action-custom {
+
           .custom-value,
           .summon-value {
             font-size: 82%;
@@ -328,6 +329,7 @@
     &.element-subaction {
 
       .action {
+
         .custom-value,
         .summon-value {
           padding: 0;
@@ -553,6 +555,7 @@
 
 
     &.inline {
+
       .custom-value,
       .summon-value {
         text-align: right;
@@ -585,8 +588,7 @@
 
   &.fh {
 
-    font-size: 130%;
-
+    font-size: 125%;
 
     ghs-action {
       flex-basis: 0;

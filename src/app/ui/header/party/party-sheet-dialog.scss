@@ -54,7 +54,7 @@
 
     label {
       display: flex;
-      font-family: 'ghs-title';
+      font-family: var(--ghs-font-title);
       font-size: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
 
       img {
@@ -139,7 +139,7 @@
       border-bottom-style: solid;
       border-bottom-color: var(--ghs-color-gray);
       user-select: auto;
-      font-family: 'ghs-text';
+      font-family: var(--ghs-font-text);
       font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
       line-height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
     }
@@ -151,7 +151,7 @@
       background-color: transparent;
       border: none;
       user-select: auto;
-      font-family: 'ghs-text';
+      font-family: var(--ghs-font-text);
       font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
       line-height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
       width: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
@@ -162,11 +162,17 @@
       background-color: transparent;
       border: none;
       user-select: auto;
-      font-family: 'ghs-text';
+      font-family: var(--ghs-font-text);
       font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
       line-height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
       width: 100%;
       height: 100%;
+    }
+
+    select {
+      display: flex;
+      border: none;
+      background: none;
     }
 
     .sheet {
@@ -248,7 +254,7 @@
               display: flex;
               justify-content: center;
               position: relative;
-              font-family: 'ghs-normal';
+              font-family: var(--ghs-font-normal);
               height: calc(var(--ghs-unit) * 1.635 * var(--ghs-dialog-factor));
               font-size: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor));
               line-height: calc(var(--ghs-unit) * 2.1 * var(--ghs-dialog-factor));
@@ -280,7 +286,7 @@
             flex-direction: column;
 
             .value {
-              font-family: 'ghs-title';
+              font-family: var(--ghs-font-title);
               display: flex;
               justify-content: center;
               align-items: center;
@@ -513,6 +519,16 @@
                 display: inline-block;
               }
             }
+
+            &.disabled {
+              pointer-events: initial;
+              cursor: not-allowed;
+              &:hover {
+                img {
+                  display: none;
+                }
+              }
+            }
           }
         }
       }
@@ -531,7 +547,7 @@
         height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
 
         .level {
-          font-family: 'ghs-title';
+          font-family: var(--ghs-font-title);
           font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
         }
 
@@ -547,7 +563,7 @@
           .check {
             display: flex;
             height: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
-            font-family: 'ghs-title';
+            font-family: var(--ghs-font-title);
             font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
             line-height: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
             margin-bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));

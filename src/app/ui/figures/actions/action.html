@@ -118,8 +118,8 @@
   </span>
 
   <span class="action-default action-special" *ngSwitchCase="ActionType.special">
-    <span class="type">{{'game.action.' + action.type | ghsLabel}} {{action.value}}:</span>
-    <ghs-actions class="subactions" [actions]="getSpecial(action)" [monster]="monster" [inline]="inline" [right]="right"
+    <span class="special-type">{{'game.action.' + action.type | ghsLabel}} {{action.value}}:</span>
+    <ghs-actions class="special-subactions" [actions]="getSpecial(action)" [monster]="monster" [inline]="inline" [right]="right"
       [hexSize]="hexSize" [highlightElements]="highlightElements">
     </ghs-actions>
   </span>

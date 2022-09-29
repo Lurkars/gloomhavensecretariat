@@ -38,11 +38,15 @@ export class PartySheetDialogComponent {
   prosperitySteps = [ 3, 8, 14, 21, 29, 38, 49, 63 ];
   priceModifier: number = 0;
   campaign: boolean = false;
+  edition: string | undefined;
+  doubleClickAddSuccess: any = null;
 
   scenarioEditions: string[] = [];
   scenarios: Record<string, ScenarioData[]> = {};
 
   constructor() {
+    this.edition = gameManager.game.edition;
+    console.log(this.edition);
     this.updateScenarios();
     this.party = gameManager.game.party;
     if (this.party.reputation >= 0) {
@@ -194,6 +198,20 @@ export class PartySheetDialogComponent {
   }
 
   addSuccess(scenarioData: ScenarioData) {
+    if (!this.blocked(scenarioData) || this.doubleClickAddSuccess) {
+      clearTimeout(this.doubleClickAddSuccess);
+      this.doubleClickAddSuccess = null;
+      this.addSuccessIntern(scenarioData);
+    } else {
+      this.doubleClickAddSuccess = setTimeout(() => {
+        if (this.doubleClickAddSuccess) {
+          this.doubleClickAddSuccess = null;
+        }
+      }, 200)
+    }
+  }
+
+  addSuccessIntern(scenarioData: ScenarioData) {
     gameManager.stateManager.before("finishScenario.success", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
     this.party.scenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group));
     gameManager.game.party = this.party;
@@ -228,8 +246,18 @@ export class PartySheetDialogComponent {
     return Math.max(...scenarios.map((scnearioData) => scnearioData.index.length));
   }
 
+  changeEdition(event: any) {
+    this.edition = event.target.value != 'undefined' && event.target.value || undefined;
+    if (this.party.campaignMode) {
+      gameManager.stateManager.before("setEdition", "data.edition." + this.edition);
+      gameManager.game.edition = this.edition;
+      gameManager.stateManager.after();
+    }
+    this.updateScenarios();
+  }
+
   updateScenarios(): void {
-    const editions = gameManager.game.edition && [ gameManager.game.edition ] || gameManager.editions();
+    const editions = this.edition && [ this.edition ] || gameManager.editions();
     this.scenarioEditions = [];
     editions.forEach((edition) => {
       let scenarioData = gameManager.scenarioManager.scenarioData(edition);

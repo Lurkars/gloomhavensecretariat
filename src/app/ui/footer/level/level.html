@@ -9,8 +9,10 @@
       {{trap}}</span>
     <span class="experience" title="{{'game.experience' | ghsLabel}}"><img class="ghs-svg"
         src="./assets/images/experience.svg"> +{{experience}}</span>
-    <span *ngIf="gameManager.hazardousTerrain()" class="terrain"
-      title="{{'game.level.hazardousTerrain' | ghsLabel}}"><img class="ghs-svg" src="./assets/images/terrain.svg">
-      +{{terrain}}</span>
+    <span class="terrain" title="{{'game.level.hazardousTerrain' | ghsLabel}}"><img class="ghs-svg"
+        src="./assets/images/terrain.svg">
+      <span *ngIf="gameManager.hazardousTerrain()">+{{hazardousTerrain}}</span>
+      <span *ngIf="!gameManager.hazardousTerrain()">+{{terrain}}</span>
+    </span>
   </div>
 </div>

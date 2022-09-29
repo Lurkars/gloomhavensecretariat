@@ -5,7 +5,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    font-family: 'ghs-title';
+    font-family: var(--ghs-font-title);
     font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
     color: var(--ghs-color-white);
 
@@ -26,7 +26,7 @@
     }
 
     .standee-number {
-      font-family: 'ghs-normal';
+      font-family: var(--ghs-font-normal);
       font-size: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
       margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 
@@ -83,7 +83,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: 'ghs-title';
+      font-family: var(--ghs-font-title);
       font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
       color: var(--ghs-color-gray);
 
@@ -320,7 +320,7 @@
     overflow: hidden;
     background-color: var(--ghs-color-red);
     color: var(--ghs-color-white);
-    font-family: 'ghs-title';
+    font-family: var(--ghs-font-title);
     font-size: calc(var(--ghs-unit) * 5.5 * var(--ghs-dialog-factor));
     line-height: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
     border-radius: 100%;
@@ -348,7 +348,7 @@
       border-color: var(--ghs-color-gray);
       border-radius: calc(var(--ghs-unit) * 1);
       user-select: auto;
-      font-family: 'ghs-text';
+      font-family: var(--ghs-font-text);
       font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
     }
   }
@@ -376,7 +376,7 @@
         height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
         width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
         cursor: pointer;
-        font-family: 'ghs-title';
+        font-family: var(--ghs-font-title);
         font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
         color: var(--ghs-color-white);
         text-shadow: var(--ghs-outline);
@@ -414,7 +414,7 @@
         border-color: var(--ghs-color-gray);
         border-radius: calc(var(--ghs-unit) * 1);
         user-select: auto;
-        font-family: 'ghs-text';
+        font-family: var(--ghs-font-text);
         font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
       }
     }

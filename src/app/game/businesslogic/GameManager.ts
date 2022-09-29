@@ -108,11 +108,10 @@ export class GameManager {
   }
 
   hazardousTerrain(): boolean {
-    if (!this.game.edition) {
-      return this.editionData.some((editionData) => editionData.hazardousTerrain);
-    } else {
+    if (this.game.edition) {
       return this.editionData.some((editionData) => editionData.edition == this.game.edition && editionData.hazardousTerrain);
     }
+    return false;
   }
 
   conditions(all: boolean = false): Condition[] {

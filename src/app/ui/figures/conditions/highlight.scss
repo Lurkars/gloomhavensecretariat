@@ -62,7 +62,7 @@
         position: absolute;
         top: calc(var(--ghs-unit) * 2.5);
         left: calc(var(--ghs-unit) * 2.5);
-        font-family: 'ghs-title';
+        font-family: var(--ghs-font-title);
         font-size: calc(var(--ghs-unit) * 2);
         color: var(--ghs-color-white);
         text-shadow: none;

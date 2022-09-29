@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: 'ghs-title';
+    font-family: var(--ghs-font-title);
     color: var(--ghs-color-white);
     font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
     text-align: center;
@@ -49,7 +49,7 @@
       height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
       width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
       cursor: pointer;
-      font-family: 'ghs-title';
+      font-family: var(--ghs-font-title);
       font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
       color: var(--ghs-color-white);
       text-shadow: var(--ghs-outline);

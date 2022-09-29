@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { gameManager } from './game/businesslogic/GameManager';
 import { settingsManager, SettingsManager } from './game/businesslogic/SettingsManager';
 
 @Component({
@@ -6,8 +7,25 @@ import { settingsManager, SettingsManager } from './game/businesslogic/SettingsM
   templateUrl: './app.component.html',
   styleUrls: [ './app.component.scss' ]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'gloomhavensecretary';
 
   settingsManager: SettingsManager = settingsManager;
+
+  ngOnInit(): void {
+    this.applyFhStyle();
+    gameManager.uiChange.subscribe({
+      next: () => {
+        this.applyFhStyle();
+      }
+    })
+  }
+
+  applyFhStyle() {
+    if (settingsManager.settings.fhStyle) {
+      document.body.classList.add('fh');
+    } else {
+      document.body.classList.remove('fh');
+    }
+  }
 }

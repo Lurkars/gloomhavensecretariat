@@ -95,7 +95,7 @@ header {
 
     .menu-hint {
       cursor: pointer;
-      font-family: 'ghs-title';
+      font-family: var(--ghs-font-title);
       color: var(--ghs-color-gray);
       font-size: calc(var(--ghs-unit) * 3 * var(--ghs-small-text-factor) * var(--ghs-barsize));
       text-shadow: var(--ghs-outline);

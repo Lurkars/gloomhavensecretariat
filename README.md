@@ -12,7 +12,7 @@ GHS is based on the look&feel of the original [Gloomhaven Helper](http://esoteri
 
 As open source software this is meant for the community to actively [contribute](#contributing) with ideas, suggestions and of course feedback. As I am not capable of good design/UX also feel free to contribute better assets. 
 
-If you need help using the app take a look at the [wiki](https://github.com/Lurkars/gloomhavensecretary/wiki). It is not complete but should help with all general steps to use GHS properly.
+If you need help using the app take a look at the [help page](https://help.gloomhaven-secretary.de). It is not complete but should help with all general steps to use GHS properly.
 
 > SPOILER WARNING:
 > The `label-spoiler.json` files inside the `data`-folders and therefore the final edition data files in releases inside `./assets/data`-folder contain spoilers by including the corresponding label.

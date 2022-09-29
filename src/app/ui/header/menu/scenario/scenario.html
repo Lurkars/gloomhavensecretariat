@@ -30,6 +30,7 @@
     <div class="line scenarios">
       <span (click)="setScenario(scenario)" class="scenario"
         [ngClass]="{'disabled' : hasScenario(scenario), 'blocked' : gameManager.scenarioManager.isBlocked(scenario)}"
+        [title]="('data.scenario.' + scenario.name | ghsLabel) + (gameManager.scenarioManager.isBlocked(scenario) ? ' [' + ('scenario.locked' | ghsLabel) + ']' : '')"
         *ngFor="let scenario of scenarios(group)"><span
           *ngIf="maxScenario() > 2 && scenario.index.length < 3">0</span><span
           *ngIf="maxScenario() > 1 && scenario.index.length < 2">0</span>{{scenario.index}}

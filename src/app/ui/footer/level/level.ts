@@ -19,6 +19,7 @@ export class LevelComponent {
   experience: number = 0;
   loot: number = 0;
   terrain: number = 0;
+  hazardousTerrain: number = 0;
 
   constructor(private dialog: Dialog, private overlay: Overlay) {
     gameManager.uiChange.subscribe({
@@ -52,7 +53,8 @@ export class LevelComponent {
     this.trap = gameManager.levelManager.trap();
     this.experience = gameManager.levelManager.experience();
     this.loot = gameManager.levelManager.loot();
-    this.terrain = gameManager.levelManager.terrain();
+    this.terrain = Math.floor(this.trap / 2);
+    this.hazardousTerrain = gameManager.levelManager.terrain();
   }
 
 }

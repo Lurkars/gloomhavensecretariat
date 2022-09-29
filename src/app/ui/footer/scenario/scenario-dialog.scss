@@ -7,7 +7,7 @@
   padding: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
 
   .title {
-    font-family: 'ghs-text';
+    font-family: var(--ghs-font-text);
     font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
   }
 
@@ -30,7 +30,7 @@
   .menu {
 
     margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-    font-family: 'ghs-title';
+    font-family: var(--ghs-font-title);
     font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
 
     .buttons {

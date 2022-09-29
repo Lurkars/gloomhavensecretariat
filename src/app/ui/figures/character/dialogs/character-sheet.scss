@@ -35,7 +35,7 @@
 
     label {
       display: flex;
-      font-family: 'ghs-title';
+      font-family: var(--ghs-font-title);
       font-size: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
 
       img {
@@ -85,7 +85,7 @@
           align-items: center;
           width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
           height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-          font-family: 'ghs-title';
+          font-family: var(--ghs-font-title);
           font-size: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor));
           border: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor)) solid var(--ghs-color-black);
           margin-left: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
@@ -111,7 +111,7 @@
           align-items: flex-end;
           width: calc(var(--ghs-unit) * 2.8 * var(--ghs-dialog-factor));
           height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-          font-family: 'ghs-title';
+          font-family: var(--ghs-font-title);
           font-size: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
           border-right: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor)) solid var(--ghs-color-black);
           margin-top: calc(var(--ghs-unit) * -1 * var(--ghs-dialog-factor));
@@ -205,7 +205,7 @@
       margin-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
 
       .item-list {
-        font-family: 'ghs-text';
+        font-family: var(--ghs-font-text);
         display: flex;
         flex-direction: column;
         height: 100%;
@@ -259,7 +259,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'ghs-title';
+            font-family: var(--ghs-font-title);
             font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
           }
 
@@ -345,7 +345,7 @@
       margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 
       .perk {
-        font-family: 'ghs-normal';
+        font-family: var(--ghs-font-normal);
         font-size: calc(var(--ghs-unit) * 1.9 * var(--ghs-dialog-factor));
         line-height: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
         margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
@@ -408,7 +408,7 @@
           position: relative;
           top: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor));
           display: inline-block;
-          font-family: 'ghs-title';
+          font-family: var(--ghs-font-title);
           font-size: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor));
           text-align: center;
           width: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));
@@ -627,7 +627,7 @@
       border-bottom-style: solid;
       border-bottom-color: var(--ghs-color-gray);
       user-select: auto;
-      font-family: 'ghs-text';
+      font-family: var(--ghs-font-text);
       font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
       line-height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
     }
@@ -639,7 +639,7 @@
       background-color: transparent;
       border: none;
       user-select: auto;
-      font-family: 'ghs-text';
+      font-family: var(--ghs-font-text);
       font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
       line-height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
       width: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
@@ -650,7 +650,7 @@
       background-color: transparent;
       border: none;
       user-select: auto;
-      font-family: 'ghs-text';
+      font-family: var(--ghs-font-text);
       font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
       line-height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
       width: 100%;

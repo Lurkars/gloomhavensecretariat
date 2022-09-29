@@ -63,7 +63,7 @@ footer {
     text-align: center;
 
     a {
-      font-family: 'ghs-title';
+      font-family: var(--ghs-font-title);
       color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
       font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor) * var(--ghs-barsize));
@@ -76,7 +76,7 @@ footer {
     }
 
     .time {
-      font-family: 'ghs-title';
+      font-family: var(--ghs-font-title);
       color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
       position: absolute;

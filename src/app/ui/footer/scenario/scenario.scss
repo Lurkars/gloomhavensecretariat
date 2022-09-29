@@ -16,7 +16,7 @@
 
 .button {
   cursor: pointer;
-  font-family: 'ghs-normal';
+  font-family: var(--ghs-font-normal);
   font-size: calc(var(--ghs-unit) * 2.8 * var(--ghs-barsize));
   text-shadow: var(--ghs-outline-thin);
   color: var(--ghs-color-gray);

@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: 'ghs-title';
+  font-family: var(--ghs-font-title);
   font-size: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
   color: var(--ghs-color-white);
   text-shadow: var(--ghs-outline);
@@ -30,7 +30,7 @@
     width: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
     margin-top: calc(var(--ghs-unit) * -0.7 * var(--ghs-text-factor));
     padding: 0;
-    font-family: 'ghs-title';
+    font-family: var(--ghs-font-title);
     color: var(--ghs-color-white);
     text-shadow: var(--ghs-outline);
     font-size: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
