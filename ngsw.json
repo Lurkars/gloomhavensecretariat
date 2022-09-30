@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1664570085121,
+  "timestamp": 1664570560371,
   "appData": {
     "version": "0.16.4"
   },
@@ -626,7 +626,7 @@
     "gloomhavensecretary/am-character-icon.bd5963f0e2616923.png": "f521aa63594df13e061bd7056553955b9b9177a4",
     "gloomhavensecretary/assets/data/.empty": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "gloomhavensecretary/assets/data/cs.json": "d370e5d8099694402ae230a2f21455b44808589f",
-    "gloomhavensecretary/assets/data/fc.json": "907821634da2e9582a3dcd3146a7abc7e8823184",
+    "gloomhavensecretary/assets/data/fc.json": "46d5f6ad70f94adb5008705a5018135c7073de5b",
     "gloomhavensecretary/assets/data/fh.json": "6528307fa764247335a3bb4dd42620576c354245",
     "gloomhavensecretary/assets/data/gh-envx.json": "4d616bee8a31e166abec8f75a37a063bc6491a64",
     "gloomhavensecretary/assets/data/gh.json": "f1682a7aa9accf5eb4b27a69b3fcf474aa291230",
