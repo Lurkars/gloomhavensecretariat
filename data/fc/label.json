@@ -60,7 +60,7 @@
           "12": "Target all enemies within %game.action.range%4",
           "13": "All adjacent enemies suffer 3 damage.",
           "14": "On the next three sources of damage from attacks targeting you, gain %game.action.shield% 3.",
-          "15": "Create one %game.condition.disarm% and %game.condition.poison% trap in each adjacent empty hed.",
+          "15": "Create one %game.condition.disarm% and %game.condition.poison% trap in each adjacent empty hex.",
           "16": "%game.action.teleport% to the hex occupied by the farthest enemy within %game.action.range%+1 and simultaneously %game.action.teleport% that enemy to the hex you occupy.",
           "17": "Summon one normal %data.monster.valrath-savage% adjacent to each enemy character within %game.action.range%5.",
           "18": "All attackers targeting you gain %game.condition.curse%.",

@@ -45,7 +45,7 @@ import { ValueCalcDirective } from './ui/helper/valueCalc';
 import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-sheet';
 import { PartySheetComponent, PartySheetDialogComponent } from './ui/header/party/party-sheet';
 import { DragValueComponent } from './ui/helper/dragValue/drag';
-import { AttackModifierDeckComponent, AttackModifierDeckDialogComponent } from './ui/figures/attackmodifier/attackmodifierdeck';
+import { AttackModifierDeckComponent } from './ui/figures/attackmodifier/attackmodifierdeck';
 import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodifier';
 import { ScenarioComponent, ScenarioDialogComponent } from './ui/footer/scenario/scenario';
 import { EntityMenuDialogComponent } from './ui/figures/entity-menu/entity-menu-dialog';
@@ -58,6 +58,8 @@ import { TextShrinkDirective } from './ui/helper/textshrink';
 import { AutoscrollDirective, FigureAutoscrollDirective } from './ui/helper/autoscroll';
 import { AttackModifierToolComponent } from './ui/tools/attackmodifier/attackmodifier-tool';
 import { DialogModule } from '@angular/cdk/dialog';
+import { AttackModifierDeckDialogComponent } from './ui/figures/attackmodifier/attackmodifierdeck-dialog';
+import { AttackModifierDeckFullscreenComponent } from './ui/figures/attackmodifier/attackmodifierdeck-fullscreen';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -69,7 +71,7 @@ describe('AppComponent', () => {
         PartySheetComponent, PartySheetDialogComponent,
         MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent,
         FooterComponent,
-        AttackModifierComponent, HintDialogComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent,
+        AttackModifierComponent, HintDialogComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent,
         LevelComponent, LevelDialogComponent,
         ScenarioComponent, ScenarioDialogComponent,
         ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
