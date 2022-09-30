@@ -8,6 +8,7 @@
     <span class="number" *ngIf="deck.current < deck.cards.length -1">{{
       deck.cards.length - deck.current - 1 }}</span>
     <img *ngIf="deck.current == deck.cards.length -1" class="shuffle" src="./assets/images/shuffle.svg">
+    <img [title]="'game.cards.fullscreen' | ghsLabel" *ngIf="fullscreen && gameManager.game.state == GameState.next" (click)="openFullscreen($event)" class="fullscreen" src="./assets/images/fullscreen.svg">
   </div>
 
   <ng-container *ngFor="let attackModifier of deck.cards; let index = index;">
@@ -16,7 +17,7 @@
       *ngIf="index <= deck.current + 1"
       [style.z-index]="index > deck.current ? deck.cards.length - index : deck.cards.length + index + 1"
       [ngClass]="{'disgarded' : index < deck.current - 1, 'current' : index == deck.current, 'last' : index == deck.current - 1, 'bottom' : bottom, 'rolling' : attackModifier.rolling, 'open-dialog' : index <= deck.current}"
-      [style.left]="attackModifier.rolling && rollingIndex(index) ?  'calc(var(--ghs-unit) * ' + (26 + 10 * (rollingIndex(index) - 1)) + ' * var(--ghs-text-factor))' : ''"
+      [style.left]="attackModifier.rolling && rollingIndex(index) ?  'calc(75% + ' + (rollingIndex(index) - 1) + ' * 25%)' : ''"
       title="{{'game.cards.openDialog' | ghsLabel}}" (click)="click(index)">
     </ghs-attackmodifier>
   </ng-container>

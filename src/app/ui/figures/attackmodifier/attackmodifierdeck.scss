@@ -20,25 +20,39 @@
       color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
       position: absolute;
-      font-size: 2.5em;
-      right: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+      font-size: 2.3em;
+      right: 6%;
       bottom: 0;
       z-index: 500;
 
       img {
-        width: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+        width: 2.5%;
         height: auto;
       }
     }
 
     .shuffle {
-      height: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
+      height: 5%;
       width: auto;
       position: absolute;
-      right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
-      bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+      right: 2.5%;
+      bottom: 2.5%;
       filter: var(--ghs-filter-white);
     }
+
+    .fullscreen {
+      width: calc(15% * var(--ghs-text-factor));
+      height: auto;
+      position: absolute;
+      left: 2.5%;
+      top: 2.5%;
+      filter: var(--ghs-filter-gray);
+
+      &:hover {
+        filter: var(--ghs-filter-white);
+      }
+    }
+
 
     &.open-dialog {
       cursor: help;

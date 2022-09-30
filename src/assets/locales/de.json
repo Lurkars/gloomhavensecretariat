@@ -617,7 +617,7 @@
       "loot": "Geldwechselkurs",
       "trap": "Fallenschaden",
       "experience": "Bonuserfahrung",
-      "hazardousTerrain": "Gefährliches Gelände"
+      "hazardousTerrain": "Gefährliches Gelände Schaden"
     },
     "exhausted": "Erschöpfung",
     "dead": "Tot",
@@ -635,7 +635,8 @@
       "edit": "Editieren",
       "restore": "Standard wiederherstellen",
       "defaultSort": "Sortieren",
-      "openDialog": "Alle Karten anzeigen"
+      "openDialog": "Alle Karten anzeigen",
+      "fullscreen": "Vollbildansicht"
     },
     "attackModifiers": {
       ".": "Angriffsmodifikatordeck",

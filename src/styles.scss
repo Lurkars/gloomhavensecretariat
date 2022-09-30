@@ -634,6 +634,7 @@ a {
   border-image-outset: calc(var(--ghs-unit) * -1);
   border-image-width: calc(var(--ghs-unit) * 6);
   background-color: var(--ghs-color-black);
+  overflow: auto;
 
   .ghs-svg {
     color: var(--ghs-color-white);
@@ -648,6 +649,15 @@ a {
     background-image: none;
   }
 
+}
+
+.fullscreen-backdrop {
+  background-image: url('~src/assets/images/bg.jpg');
+  background-size: cover;
+}
+
+.fh .fullscreen-backdrop {
+  background-image: url('~src/assets/images/fh/bg.jpg');
 }
 
 .disable-animation * {

@@ -1,0 +1,7 @@
+<div class="attack-modifiers-fullscreen">
+  <div class="attack-modifierdeck-container">
+    <ghs-attackmodifier-deck [deck]="deck" [character]="character" [numeration]="numeration" [fullscreen]="false"
+      (before)="beforeAttackModifierDeck($event)" (after)="afterAttackModifierDeck($event)"></ghs-attackmodifier-deck>
+    <div class="close-container" (click)="dialogRef.close()"></div>
+  </div>
+</div>
