@@ -620,7 +620,7 @@
       "loot": "Gold conversion",
       "trap": "Trap damage",
       "experience": "Bonus experience",
-      "hazardousTerrain": "Hazardous terrain"
+      "hazardousTerrain": "Hazardous terrain damage"
     },
     "exhausted": "Exhausted",
     "dead": "Dead",
@@ -638,7 +638,8 @@
       "edit": "Edit",
       "restore": "Restore defaults",
       "defaultSort": "Sort",
-      "openDialog": "Show all cards"
+      "openDialog": "Show all cards",
+      "fullscreen": "Show Fullscreen"
     },
     "attackModifiers": {
       ".": "Attack Modifier Deck",
