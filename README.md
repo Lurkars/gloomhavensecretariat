@@ -38,7 +38,8 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - **Monster Ability Cards** auto-shuffling, calculated values (separated for normal and elite)
   - **Character Summons**
   - **Scenarios** and **Sections** with automatic level calculation + scenario finish for applying character progress
-  - **Party Sheet** work in progress
+  - **Party Sheet**
+  - **Campaign Management**
   - **Markers** (currently Hatchet only)
 - Eliminating the following physical components:
   - monster ability cards
@@ -68,16 +69,14 @@ If you need help using the app take a look at the [help page](https://help.gloom
 ### Short term plans
 
 - validation of all existing data
-- improve code base (many repeated component for now for figures/entities)
-- start with FH data
-- tools like monster editor to create/update monster stats and abilities via UI (WIP)
+- FH style (WIP)
 
 ### Long term plans
 
 - support for managing character ability cards
-- support for campaign tracking
-- support for player tracking (retirements etc.)
-- FH style
+- support multiple parties
+- tools like monster editor to create/update monster stats and abilities via UI (WIP)
+- FH data (as soon as available)
 
 ## Install
 
