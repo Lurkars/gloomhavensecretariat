@@ -546,7 +546,6 @@
     },
     "specialTarget": {
       "self": "Sur lui-même",
-      "self2": "Sur elle-même",
       "selfAllies": "Sur lui-même et tous les alliés",
       "selfAlliesAffect": "Sur lui-même et tous les alliés",
       "selfAlliesRange": "Sur lui-même et tous les alliés à %game.action.range% {0}",

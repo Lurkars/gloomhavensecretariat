@@ -129,7 +129,7 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "selfFemale"
+              "value": "self"
             },
             {
               "type": "element",
@@ -195,7 +195,7 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "selfFemale"
+              "value": "self"
             }
           ]
         },
@@ -222,7 +222,7 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "selfFemale"
+              "value": "self"
             },
             {
               "type": "element",
