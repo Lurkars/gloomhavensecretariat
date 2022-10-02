@@ -37,4 +37,28 @@
       </label>
     </div>
   </div>
+
+  <div class="values">
+    <div class="loot">
+      <span class="icon"><img class="ghs-svg" src="./assets/images/loot.svg">:</span>
+      <span class="value">x{{loot}}</span>
+      <span class="hint">{{'game.level.loot' | ghsLabel}}</span>
+    </div>
+    <div class="trap">
+      <span class="icon"><img class="ghs-svg" src="./assets/images/trap.svg">:</span>
+      <span class="value">{{trap}}</span>
+      <span class="hint">{{'game.level.trap' | ghsLabel}}</span>
+    </div>
+    <div class="experience">
+      <span class="icon"><img class="ghs-svg" src="./assets/images/experience.svg">:</span>
+      <span class="value">+{{experience}}</span>
+      <span class="hint">{{'game.level.experience' | ghsLabel}}</span>
+    </div>
+    <div class="terrain">
+      <span class="icon"><img class="ghs-svg" src="./assets/images/terrain.svg">:</span>
+      <span class="value" *ngIf="gameManager.hazardousTerrain()">{{hazardousTerrain}}</span>
+      <span class="value" *ngIf="!gameManager.hazardousTerrain()">{{terrain}}</span>
+      <span class="hint">{{'game.level.hazardousTerrain' | ghsLabel}}</span>
+    </div>
+  </div>
 </div>

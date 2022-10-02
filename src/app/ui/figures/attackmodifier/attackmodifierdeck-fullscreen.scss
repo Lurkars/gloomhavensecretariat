@@ -1,0 +1,35 @@
+.attack-modifiers-fullscreen {
+  width: 100vw;
+  height: 90vh;
+
+  .attack-modifierdeck-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+
+    ghs-attackmodifier-deck {
+      display: flex;
+      width: 99vw;
+      max-width: 800px;
+      height: 31vw;
+      max-height: 252.5px;
+      z-index: 2;
+      margin-left: 1%;
+    }
+
+    .close-container {
+      cursor: ne-resize;
+      position: absolute;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+  }
+
+}

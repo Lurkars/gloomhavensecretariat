@@ -125,25 +125,35 @@ export class EntityMenuDialogComponent {
     }).length;
   }
 
+  countUpcomingAttackModifier(type: AttackModifierType): number {
+    return this.attackModifierDeck().cards.filter((attackModifier, index) => {
+      return attackModifier.type == type && index > this.attackModifierDeck().current;
+    }).length;
+  }
+
   countDrawnAttackModifier(type: AttackModifierType): number {
     return this.attackModifierDeck().cards.filter((attackModifier, index) => {
       return attackModifier.type == type && index <= this.attackModifierDeck().current;
     }).length;
   }
 
-  countAllAttackModifier(type: AttackModifierType) {
+  countAllUpcomingAttackModifier(type: AttackModifierType) {
     if (this.data.entity instanceof Character) {
-      return gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => (figure as Character).attackModifierDeck.cards).flat().filter((attackModifier) => {
-        return attackModifier.type == type;
-      }).length;
+      let count = 0;
+      gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => (figure as Character)).forEach((character) => {
+        count += character.attackModifierDeck.cards.filter((attackModifier, index) => {
+          return attackModifier.type == type && index > character.attackModifierDeck.current;
+        }).length
+      })
+      return count;
     } else {
-      return this.countAttackModifier(type);
+      return this.countUpcomingAttackModifier(type);
     }
   }
 
   changeAttackModifier(type: AttackModifierType, value: number) {
     if (value > 0) {
-      if (this.countAllAttackModifier(type) == 10) {
+      if (this.countAllUpcomingAttackModifier(type) == 10) {
         return;
       }
       gameManager.attackModifierManager.addModifier(this.attackModifierDeck(), new AttackModifier(type));

@@ -10,17 +10,17 @@
     <div class="curse-bless" *ngIf="!edit">
       <span class="item">
         <a class="button"
-          [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.bless) == countDrawnAttackModifier(AttackModifierType.bless)}"
+          [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.bless) == 0}"
           (click)="changeBless(-1)">
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </a>
       </span>
       <span class="item" title="{{'game.condition.bless' | ghsLabel}}">
         <img src="./assets/images/status/bless.svg" />
-        <span class="badge bless-count">{{countAttackModifier(AttackModifierType.bless)}}</span>
+        <span class="badge bless-count">{{countUpcomingAttackModifier(AttackModifierType.bless)}}</span>
       </span>
       <span class="item">
-        <a class="button" [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.bless) >= 10}"
+        <a class="button" [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.bless) >= 10}"
           (click)="changeBless(1)">
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </a>
@@ -28,17 +28,17 @@
 
       <span class="item">
         <a class="button"
-          [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.curse) == countDrawnAttackModifier(AttackModifierType.curse)}"
+          [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.curse) == 0}"
           (click)="changeCurse(-1)">
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </a>
       </span>
       <span class="item" title="{{'game.condition.curse' | ghsLabel}}">
         <img src="./assets/images/status/curse.svg" />
-        <span class="badge curse-count">{{countAttackModifier(AttackModifierType.curse)}}</span>
+        <span class="badge curse-count">{{countUpcomingAttackModifier(AttackModifierType.curse)}}</span>
       </span>
       <span class="item">
-        <a class="button" [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.curse) >= 10}"
+        <a class="button" [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.curse) >= 10}"
           (click)="changeCurse(1)">
           <img class="ghs-svg" src="./assets/images/plus.svg">
         </a>

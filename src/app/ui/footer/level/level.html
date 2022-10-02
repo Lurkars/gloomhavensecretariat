@@ -11,8 +11,8 @@
         src="./assets/images/experience.svg"> +{{experience}}</span>
     <span class="terrain" title="{{'game.level.hazardousTerrain' | ghsLabel}}"><img class="ghs-svg"
         src="./assets/images/terrain.svg">
-      <span *ngIf="gameManager.hazardousTerrain()">+{{hazardousTerrain}}</span>
-      <span *ngIf="!gameManager.hazardousTerrain()">+{{terrain}}</span>
+      <span *ngIf="gameManager.hazardousTerrain()">{{hazardousTerrain}}</span>
+      <span *ngIf="!gameManager.hazardousTerrain()">{{terrain}}</span>
     </span>
   </div>
 </div>

@@ -68,7 +68,22 @@ export class LevelComponent {
 export class LevelDialogComponent {
 
   gameManager: GameManager = gameManager;
+  trap: number = 0;
+  experience: number = 0;
+  loot: number = 0;
+  terrain: number = 0;
+  hazardousTerrain: number = 0;
+
   levels: number[] = [ 0, 1, 2, 3, 4, 5, 6, 7 ];
+
+  constructor() {
+    this.calculateValues();
+    gameManager.uiChange.subscribe({
+      next: () => {
+        this.calculateValues();
+      }
+    })
+  }
 
   setLevelCalculation(levelCalculation: boolean) {
     gameManager.stateManager.before(levelCalculation ? "enableAutomaticLevel" : "disabledAutomaticLevel");
@@ -115,5 +130,13 @@ export class LevelDialogComponent {
     gameManager.stateManager.after();
   }
 
+
+  calculateValues() {
+    this.trap = gameManager.levelManager.trap();
+    this.experience = gameManager.levelManager.experience();
+    this.loot = gameManager.levelManager.loot();
+    this.terrain = Math.floor(this.trap / 2);
+    this.hazardousTerrain = gameManager.levelManager.terrain();
+  }
 }
 
