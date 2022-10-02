@@ -111,7 +111,7 @@
       <ng-container *ngIf="gameManager.isCharacter(data.entity) || gameManager.isMonsterEntity(data.entity)">
         <span class="item">
           <a class="button"
-            [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.bless) == countDrawnAttackModifier(AttackModifierType.bless) || isImmune(ConditionName.bless)}"
+            [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.bless) == 0 || isImmune(ConditionName.bless)}"
             (click)="changeBless(-1)">
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </a>
@@ -120,11 +120,11 @@
           <span class="condition" [ngClass]="{'immunity disabled' : isImmune(ConditionName.bless)}">
             <img src="./assets/images/status/bless.svg" />
           </span>
-          <span class="badge bless-count">{{countAttackModifier(AttackModifierType.bless)}}</span>
+          <span class="badge bless-count">{{countUpcomingAttackModifier(AttackModifierType.bless)}}</span>
         </span>
         <span class="item">
           <a class="button"
-            [ngClass]="{'disabled' : countAllAttackModifier(AttackModifierType.bless) >= 10 || isImmune(ConditionName.bless)}"
+            [ngClass]="{'disabled' : countAllUpcomingAttackModifier(AttackModifierType.bless) >= 10 || isImmune(ConditionName.bless)}"
             (click)="changeBless(1)">
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </a>
@@ -132,7 +132,7 @@
 
         <span class="item">
           <a class="button"
-            [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.curse) == countDrawnAttackModifier(AttackModifierType.curse) || isImmune(ConditionName.curse)}"
+            [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.curse) == 0 || isImmune(ConditionName.curse)}"
             (click)="changeCurse(-1)">
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </a>
@@ -141,11 +141,11 @@
           <span class="condition" [ngClass]="{'immunity disabled' : isImmune(ConditionName.curse)}">
             <img src="./assets/images/status/curse.svg" />
           </span>
-          <span class="badge curse-count">{{countAttackModifier(AttackModifierType.curse)}}</span>
+          <span class="badge curse-count">{{countUpcomingAttackModifier(AttackModifierType.curse)}}</span>
         </span>
         <span class="item">
           <a class="button"
-            [ngClass]="{'disabled' : countAllAttackModifier(AttackModifierType.curse) >= 10 || isImmune(ConditionName.curse)}"
+            [ngClass]="{'disabled' : countAllUpcomingAttackModifier(AttackModifierType.curse) >= 10 || isImmune(ConditionName.curse)}"
             (click)="changeCurse(1)">
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </a>

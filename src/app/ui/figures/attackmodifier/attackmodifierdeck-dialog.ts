@@ -169,9 +169,16 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     }).length;
   }
 
+  countUpcomingAttackModifier(type: AttackModifierType): number {
+    return this.deck.cards.filter((attackModifier, index) => {
+      return attackModifier.type == type && index > this.deck.current;
+    }).length;
+  }
+
+
   changeAttackModifier(type: AttackModifierType, value: number) {
     if (value > 0) {
-      if (this.countAttackModifier(type) == 10) {
+      if (this.countUpcomingAttackModifier(type) == 10) {
         return;
       }
       gameManager.attackModifierManager.addModifier(this.deck, new AttackModifier(type));

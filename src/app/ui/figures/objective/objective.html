@@ -13,7 +13,7 @@
   </ghs-drag-value>
 
   <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-hp" (dragMove)="dragHpMove($event)"
-    (dragEnd)="dragHpEnd($event)"></ghs-drag-value>
+  (dragEnd)="dragHpEnd($event)" [relative]="true"></ghs-drag-value>
 
   <ghs-character-initiative [character]="objective"></ghs-character-initiative>
 
