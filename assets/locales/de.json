@@ -131,6 +131,7 @@
       "setCustomScenario": "Benutzerdefiniertes Szenario",
       "setDrawExtraAbility": "Zusätzlich Aufdecken für {0} aktivieren",
       "setEdition": "Edition {0} setzen",
+      "setEntityActive": "Aufsteller {1} von {0} aktiv",
       "setEntitySummonState": "Beschwörung {3} für {1} Aufsteller {2} von {0}",
       "setExhausted": "{0} erschöpft",
       "setGold": "Gold {1} für {0}",
@@ -161,6 +162,7 @@
       "unsetAlly": "{0} als Gegner",
       "unsetCustomScenario": "Benutzerdefiniertes Szenario deaktivieren",
       "unsetDrawExtraAbility": "Zusätzlich Aufdecken für {0} deaktivieren",
+      "unsetEntityActive": "Aufsteller {1} von {0} inaktiv",
       "unsetExhausted": "{0} nicht erschöpft",
       "unsetObjectiveExhausted": "Ziel {0} nicht erschöpft",
       "unsetTitle": "Titel '{1}' von {0} entfernen",
@@ -397,7 +399,8 @@
     "locale": {
       ".": "Sprache",
       "en": "Englisch (English)",
-      "de": "Deutsch"
+      "de": "Deutsch",
+      "fr": "Französisch (Français)"
     }
   },
   "server": {
