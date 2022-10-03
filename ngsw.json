@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1664798234881,
+  "timestamp": 1664822621226,
   "appData": {
     "version": "0.16.4"
   },
@@ -627,11 +627,11 @@
     "gloomhavensecretary/am-character-icon.bd5963f0e2616923.png": "f521aa63594df13e061bd7056553955b9b9177a4",
     "gloomhavensecretary/assets/data/.empty": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "gloomhavensecretary/assets/data/cs.json": "d370e5d8099694402ae230a2f21455b44808589f",
-    "gloomhavensecretary/assets/data/fc.json": "b1031d658e41f1f9cf480ddcb68561558107c130",
+    "gloomhavensecretary/assets/data/fc.json": "3e3b2f8f82e0805daf282f294936aa90db5d9d79",
     "gloomhavensecretary/assets/data/fh.json": "6528307fa764247335a3bb4dd42620576c354245",
-    "gloomhavensecretary/assets/data/gh-envx.json": "30a15dbb56cc816bb5a3328c7a02db48b8da7648",
-    "gloomhavensecretary/assets/data/gh.json": "3263554a42282a0fa552fe9c06cb9ea0790c3deb",
-    "gloomhavensecretary/assets/data/jotl.json": "ad9d3d19f4dbf670439566d53db1397305f1dd53",
+    "gloomhavensecretary/assets/data/gh-envx.json": "81f3c6fed4c0729930581224433448b9157c5989",
+    "gloomhavensecretary/assets/data/gh.json": "06a41a2f9ba1f1547b615df4fdcda03f57d9bfbf",
+    "gloomhavensecretary/assets/data/jotl.json": "c84403c5b1a0a9d0c71834f01a2b219b5fa8a062",
     "gloomhavensecretary/assets/fonts/HighTower.eot": "5f2bcc12b7e238b60715d1b43358d557f9dc7aaa",
     "gloomhavensecretary/assets/fonts/HighTower.otf": "8b0e782d811a5d212dd00c6a8b4351cccf6e2429",
     "gloomhavensecretary/assets/fonts/HighTower.svg": "15d93a196556cace48d9dbd86cf9050145938f43",
