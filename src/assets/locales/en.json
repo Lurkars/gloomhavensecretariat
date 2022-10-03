@@ -131,6 +131,7 @@
       "setCustomScenario": "Set custom scenario",
       "setDrawExtraAbility": "Set draw extra for {0}",
       "setEdition": "Set edition to {0}",
+      "setEntityActive": "Set standee {1} of {0} active",
       "setEntitySummonState": "Set summon {3} for {1} standee {2} of {0}",
       "setExhausted": "{0} exhausted",
       "setGold": "Gold {1} for {0}",
@@ -161,6 +162,7 @@
       "unsetAlly": "{0} as enemy",
       "unsetCustomScenario": "Unset custom scenario",
       "unsetDrawExtraAbility": "Unset draw extra for {0}",
+      "unsetEntityActive": "Set standee {1} of {0} inactive",
       "unsetExhausted": "{0} not exhausted",
       "unsetObjectiveExhausted": "Objective {0} not exhausted",
       "unsetTitle": "Remove title '{1}' from {0}",
@@ -397,7 +399,8 @@
     "locale": {
       ".": "Language",
       "en": "English",
-      "de": "German (Deutsch)"
+      "de": "German (Deutsch)",
+      "fr": "French (Français)"
     }
   },
   "server": {
