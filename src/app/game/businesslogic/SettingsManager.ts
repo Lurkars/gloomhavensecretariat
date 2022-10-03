@@ -10,7 +10,7 @@ export class SettingsManager {
 
   settings: Settings = new Settings();
   label: any = {};
-  locales: string[] = [ "en", "de" ];
+  locales: string[] = [ "en", "de", "fr" ];
 
   constructor() {
     this.loadSettings();
