@@ -234,14 +234,14 @@
           "1": "%data.monster.frost-demon% erleidet 1 Schaden."
         },
         "giant-viper": {
-          "1": "Füge +2 %game.action.attack% hinzu wenn das Ziel an einer verbündeten %data.monster.giant-viper% angrenzt.",
+          "1": "Füge +2 %game.action.attack% hinzu wenn das Ziel an einem Verbündeten der %data.monster.giant-viper% angrenzt.",
           "2": "Alle Angriffe gegen %data.monster.giant-viper% erhalten in dieser Runde Nachteil."
         },
         "harrower-infester": {
           "1": "Führe \"%game.action.heal% 2, %game.specialTarget.self%\" für jedes angegriffene Ziel durch."
         },
         "hound": {
-          "1": "Füge +2 %game.action.attack% hinzu wenn das Ziel an einem verbündeten %data.monster.hound% angrenzt."
+          "1": "Füge +2 %game.action.attack% hinzu wenn das Ziel an einem Verbündeten des %data.monster.hound% angrenzt."
         },
         "living-corpse": {
           "1": "%data.monster.living-corpse% erleidet 1 Schaden."
@@ -251,38 +251,38 @@
         },
         "ooze": {
           "1": "%data.monster.ooze% erleidet 1 Schaden.",
-          "2": "%game.action.summon% %data.monster.ooze% (%monster.normal%) with a hit point value equal to the summoning %data.monster.ooze%'s current hit point value (limited by a normal %data.monster.ooze%'s specified maximum hit point value)"
+          "2": "%game.action.summon% %data.monster.ooze% (%monster.normal%) mit einem TP Wert gleich dem beschwörenden %data.monster.ooze% (limitiert auf den maximalen TP Wert eines normalens %data.monster.ooze%)"
         },
         "savvas-lavaflow": {
-          "1": "All allies and enemies adjacent to the target suffer 2 damage",
-          "2": "All enemies suffer 2 damage."
+          "1": "Alle an das Ziel angrenzenden Verbündeten und Gegner erleiden 2 Schaden.",
+          "2": "Alle Gegner erleiden 2 Schaden."
         },
         "stone-golem": {
-          "1": "%data.monster.stone-golem% suffers 1 damage.",
-          "2": "%data.monster.stone-golem% suffers 2 damage."
+          "1": "%data.monster.stone-golem% erleidet 1 Schaden.",
+          "2": "%data.monster.stone-golem% erleidet 2 Schaden."
         },
         "bandit-commander": {
-          "1": "Move to next door and reveal room"
+          "1": "Zur nächsten Tür gehen und den Raum aufdecken."
         },
         "captain-of-the-guard": {
-          "1": "All allies add +1 %game.action.attack% to all attacks this round"
+          "1": "Alle Verbündeten fügen +1 %game.action.attack% zu allen Angriffen dieser Runde hinzu."
         },
         "merciless-overseer": {
-          "1": "All Scouts act again",
-          "2": "V = Number of Scouts present"
+          "1": "Alle Späher sind erneut an der Reihe",
+          "2": "V = Anzahl der vorhnanden Späher"
         },
         "prime-demon": {
-          "1": "Throne moves"
+          "1": "Thron bewegen"
         },
         "winged-horror": {
-          "1": "Hatch eggs",
-          "2": "%game.action.summon% [C] eggs"
+          "1": "Eier schlüpfen",
+          "2": "%game.action.summon% [C] Eier"
         },
         "dark-rider": {
-          "1": "X = Hexes moved"
+          "1": "X = Bewegte Felder"
         },
         "the-betrayer": {
-          "1": "Mind Control"
+          "1": "Gedankenkontrolle"
         }
       }
     }

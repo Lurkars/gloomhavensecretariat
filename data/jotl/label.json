@@ -66,6 +66,65 @@
       "The Greatest Job in the World": "Der beste Beruf der Welt"
     },
     "custom": {
+      "jotl": {
+        "giant-viper": {
+          "1": "Alle Angriffe an %data.monster.giant-viper% erhalten in dieser Runde Nachteil.",
+          "2": "Füge +2 %game.action.attack% wenn das Ziel an einer %data.monster.giant-viper%'s Verbündeten angrenzt."
+        },
+        "black-sludge": {
+          "1": "Der nächste Gegner in Sichtline, ungachtet der Reichweite, erleidet [1+L/2{%math.ceil}] Schaden."
+        },
+        "chaos-demon": {
+          "1": "Jedesmal wenn eine Figur den %data.monster.chaos-demon% in dieser Runde angreift, erleidet die Figur 2 Schaden.",
+          "2": "Alle an das Ziel angrenzenden Gegner erleiden 1 Schaden."
+        },
+        "living-corpse": {
+          "1": "Das Ziel erleidet ebenfalls 1 Schaden.",
+          "2": "Falls eine Bewegung ausgeführt wird, erleidet die %data.monster.living-corpse% 1 Schaden.",
+          "3": "Falls ein Angriff ausgeführt wird, erleidet die %data.monster.living-corpse% 1 Schaden."
+        },
+        "monstrosity": {
+          "1": "Falls dieser Angriff ausgeführt wird, erleidet die %data.monster.monstrosity% 1 Schaden.",
+          "2": "Füge +1 %game.action.attack% hinzu falls das Ziel an einen Verbündeten der %data.monster.monstrosity% angrenzt.",
+          "3": "Jede Figur die die %data.monster.monstrosity% diese Runde angreift erleidet 1 Schaden.",
+          "4": "%data.monster.monstrosity% erleidet 1 Schaden."
+        },
+        "stone-golem": {
+          "1": "Jede Figur die den %data.monster.stone-golem% diese Runde angreift erleidet 3 Schaden.",
+          "2": "Falls diese Beweung ausgeführt wird erleidet der %data.monster.stone-golem% 1 Schaden.",
+          "3": "Falls dieser Angriff ausgeführt wird erleidet der %data.monster.stone-golem% 2 Schaden."
+        },
+        "vermling-raider": {
+          "1": "Erstelle eine Schaden 3 Falle in einem an das Ziel angrenzenden freiem Feld."
+        },
+        "zealot": {
+          "1": "X ist der durch den Angriff erlittene Schaden des Ziels."
+        },
+        "blood-horror": {
+          "1": "Springe zum am weitesten entfernen toten %data.monster.zealot% und belebe diesen wieder oder springe zum am weitesten entfernten Charakter und führe %game.action.attack%+0 aus.",
+          "2": "Belebe alle toten %data.monster.zealot% um Raum."
+        },
+        "blood-monstrosity": {
+          "1": "Bei Tod: alle angrenzenden Figuren erleiden 1 Schaden."
+        },
+        "first-of-the-order": {
+          "1": "Alle Gegner in %game.action.range% 2 erleiden 2 Schaden.",
+          "2": "Beschwöre [C/2{math.ceil}] %data.monster.black-imp%",
+          "3": "innerhalb von %game.action.range% 2 vom Ziel"
+        },
+        "rat-monstrosity": {
+          "1": "Bei Tod: alle angrenzenden Figuren erleiden 1 Schaden.",
+          "2": "Bei Tod: alle angrenzenden Figuren erleiden 2 Schaden.",
+          "3": "Bei Tod: alle angrenzenden Figuren erleiden 3 Schaden.",
+          "4": "Bei Tod: alle angrenzenden Figuren erleiden 4 Schaden."
+        },
+        "basic-vermling-raider": {
+          "1": "Mische diese Karten am Ende der Runde.",
+          "2": "Werden sich bewegen um zu vermeiden an ihren Fokus anzugrenzen.",
+          "3": "Bewegen sich diese Runde nicht.",
+          "4": "Dies ist dasselbe Verhalten wie im vorherigen Szenario."
+        }
+      },
       "perks": {
         "demolitionist": {
           "1": "Alle angrenzenden Gegner erleiden 1 Schaden"
