@@ -40,7 +40,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - **Scenarios** and **Sections** with automatic level calculation + scenario finish for applying character progress
   - **Party Sheet**
   - **Campaign Management**
-  - **Markers** (currently Hatchet only)
+  - **Markers**
 - Eliminating the following physical components:
   - monster ability cards
   - monster stats sheets
@@ -51,10 +51,10 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - character HP/XP dials
   - character boards
   - character sheets
-  - character attack modifier deck
-  - party sheet (! not fully implemented yet)
+  - character attack modifier deck (perks for CS missing)
+  - party sheet
 - Other features:
-  - i18n support (translations required!) for everything!
+  - i18n support (currently en, de and fr, more translations required!)
   - PWA for installation on all devices!
   - Synchronize state (+ settings) with [GHS Server](https://github.com/Lurkars/ghs-server)
   - Permission management for different clients with [GHS Server](https://github.com/Lurkars/ghs-server)
