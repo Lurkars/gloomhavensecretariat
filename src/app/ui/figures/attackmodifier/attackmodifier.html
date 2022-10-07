@@ -5,11 +5,11 @@
       <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
     </div>
     <div class="card-front front">
-      <div class="type" [ngClass]="actionClasses">
+      <div class="type" [ngClass]="effectClasses">
         <img [src]="'./assets/images/attackmodifier/' + (defaultType ? attackModifier.type : 'front') + '.png'" />
       </div>
       <img class="overlay"
-        *ngIf="attackModifier.actions && attackModifier.actions.length > 0 && attackModifier.type != AttackModifierType.plus0"
+        *ngIf="attackModifier.effects && attackModifier.effects.length > 0 && attackModifier.type != AttackModifierType.plus0"
         [src]="'./assets/images/attackmodifier/overlays/' + attackModifier.type + '.png'" />
       <img class="rolling" *ngIf="attackModifier.rolling" src="./assets/images/attackmodifier/rolling.svg" />
       <span *ngIf="(!characterIcon || !attackModifier.character && attackModifier.type !=
@@ -22,56 +22,9 @@
       <span *ngIf="characterIcon && attackModifier.character" class="character-icon">
         <img [src]="characterIcon" />
       </span>
-      <ng-container *ngIf="attackModifier.actions">
-        <span class="actions">
-          <span *ngFor="let action of attackModifier.actions; let index = index;" class="action {{action.type}}"
-            [ngClass]="{'center' : attackModifier.type == AttackModifierType.plus0 && index == 0}">
-
-            <ng-container [ngSwitch]="action.type">
-
-              <img *ngSwitchCase="ActionType.condition" [src]="'./assets/images/condition/' + action.value + '.svg'" />
-              <img *ngSwitchCase="ActionType.element" [src]="'./assets/images/element/' + action.value + '.svg'" />
-
-              <div class="action-container heal-container" *ngSwitchCase="ActionType.heal"
-                [style.border-width]="card.offsetWidth * ( attackModifier.type == AttackModifierType.plus0 && index == 0 ? 0.020 : 0.010)  + 'px'"
-                [ngClass]="{'target' : getTarget(action)}">
-                <img [src]="'./assets/images/action/' + action.type + '.svg'" />
-                <span class="value" *ngIf="action.value">{{+action.value | ghsValueSign}}</span>
-                <span class="target-value-container" *ngIf="getTarget(action)">
-                  <span class="target-value" text-shrink>{{'game.specialTarget.'
-                    + getTarget(action) | ghsLabel}}</span>
-                </span>
-              </div>
-
-              <div class="action-container shield-container" *ngSwitchCase="ActionType.shield"
-                [style.border-width]="card.offsetWidth * ( attackModifier.type == AttackModifierType.plus0 && index == 0 ? 0.020 : 0.010)  + 'px'"
-                [ngClass]="{'target' : getTarget(action)}">
-                <img [src]="'./assets/images/action/' + action.type + '.svg'" />
-                <span class="value" *ngIf="action.value">{{+action.value}}</span>
-                <span class="target-value-container" *ngIf="getTarget(action)">
-                  <span class="target-value" text-shrink>{{'game.specialTarget.'
-                    + getTarget(action) | ghsLabel}}</span>
-                </span>
-              </div>
-
-              <ng-container *ngSwitchCase="ActionType.target">
-                <img src="./assets/images/attackmodifier/target.svg" />
-              </ng-container>
-
-              <ng-container *ngSwitchCase="ActionType.custom">
-                <span class="type">{{attackModifier.value < 0 ? '-' : '+' }}{{attackModifier.value}}</span>
-                    <span class="custom-value-container">
-                      <span class="custom-value placeholder" [i18n]="action.value + ''" text-shrink></span>
-                    </span>
-              </ng-container>
-
-              <ng-container *ngSwitchDefault>
-                <img [src]="'./assets/images/action/' + action.type + '.svg'" />
-                <span class="value" *ngIf="action.value">{{+action.value}}</span>
-              </ng-container>
-            </ng-container>
-          </span>
-        </span>
+      <ng-container *ngIf="attackModifier.effects">
+        <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="attackModifier.effects"
+          [offsetWidth]="card.offsetWidth"></ghs-attackmodifier-effects>
       </ng-container>
     </div>
   </div>

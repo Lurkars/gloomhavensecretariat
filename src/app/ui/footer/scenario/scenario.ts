@@ -6,7 +6,7 @@ import { Character } from 'src/app/game/model/Character';
 @Component({
   selector: 'ghs-scenario',
   templateUrl: './scenario.html',
-  styleUrls: [ './scenario.scss' ]
+  styleUrls: ['./scenario.scss']
 })
 export class ScenarioComponent {
 
@@ -23,7 +23,7 @@ export class ScenarioComponent {
 @Component({
   selector: 'ghs-scenario-dialog',
   templateUrl: './scenario-dialog.html',
-  styleUrls: [ './scenario-dialog.scss' ]
+  styleUrls: ['./scenario-dialog.scss']
 })
 export class ScenarioDialogComponent {
 
@@ -39,10 +39,10 @@ export class ScenarioDialogComponent {
     })
   }
 
-  resetScenario() {
+  cancelScenario() {
     this.dialogRef.close();
-    gameManager.stateManager.before("resetScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
-    gameManager.roundManager.resetScenario();
+    gameManager.stateManager.before("cancelScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
+    gameManager.scenarioManager.setScenario(undefined);
     gameManager.stateManager.after(1000);
   }
 }
@@ -51,7 +51,7 @@ export class ScenarioDialogComponent {
 @Component({
   selector: 'ghs-scenario-summary',
   templateUrl: './scenario-summary.html',
-  styleUrls: [ './scenario-summary.scss' ]
+  styleUrls: ['./scenario-summary.scss']
 })
 export class ScenarioSummaryComponent {
 

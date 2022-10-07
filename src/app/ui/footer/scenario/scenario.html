@@ -1,7 +1,8 @@
 <div (click)="open($event)" class="button">
   <span *ngIf="gameManager.game.scenario && gameManager.game.scenario.index"
     class="index">#{{gameManager.game.scenario.index}}</span>
-  <span *ngIf="gameManager.game.scenario" class="name">{{'data.scenario.' + gameManager.game.scenario.name |
+  <span *ngIf="gameManager.game.scenario" class="name">{{(gameManager.game.scenario.name ? 'data.scenario.' +
+    gameManager.game.scenario.name : (gameManager.game.scenario.custom ? 'scenario.custom' : 'scenario')) |
     ghsLabel}}</span>
   <div class="sections" *ngIf="gameManager.game.sections && gameManager.game.sections.length > 0">
     <ng-container *ngFor="let section of gameManager.game.sections; let index = index;">
@@ -9,4 +10,3 @@
     </ng-container>
   </div>
 </div>
-

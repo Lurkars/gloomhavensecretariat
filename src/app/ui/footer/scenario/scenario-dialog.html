@@ -2,7 +2,8 @@
   <div class="title">
     <span *ngIf="gameManager.game.scenario && gameManager.game.scenario.index"
       class="index">#{{gameManager.game.scenario.index}}</span>
-    <span *ngIf="gameManager.game.scenario" class="name">{{'data.scenario.' + gameManager.game.scenario.name |
+    <span *ngIf="gameManager.game.scenario" class="name">{{(gameManager.game.scenario.name ? 'data.scenario.' +
+      gameManager.game.scenario.name : (gameManager.game.scenario.custom ? 'scenario.custom' : 'scenario')) |
       ghsLabel}}</span>
   </div>
 
@@ -18,6 +19,9 @@
       <a class="failure" (click)="finishScenario(false)">{{'scenario.finish.failure' | ghsLabel}}</a>
       <span class="spacer"></span>
       <a class="success" (click)="finishScenario(true)">{{'scenario.finish.success' | ghsLabel}}</a>
+    </div>
+    <div class="cancel">
+      <a (click)="cancelScenario()">{{'scenario.cancel' | ghsLabel}}</a>
     </div>
   </div>
 </div>

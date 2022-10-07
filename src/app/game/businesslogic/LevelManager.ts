@@ -14,7 +14,7 @@ export class LevelManager {
     if (!this.game.ge5Player) {
       return 0;
     }
-    const chars = this.game.figures.filter((figure) => figure instanceof Character).length;
+    const chars = this.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length;
     if (chars <= 4) {
       return 0;
     }
@@ -53,13 +53,13 @@ export class LevelManager {
   }
 
   scenarioLevel(): number {
-    const charCount = this.game.figures.filter((figure) => figure instanceof Character).length;
+    const charCount = this.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length;
 
     if (charCount == 0) {
       return 0;
     }
 
-    const charLevel = this.game.figures.filter((figure) => figure instanceof Character).map((figure) => (figure as Character).level).reduce((a, b) => a + b);
+    const charLevel = this.game.figures.filter((figure) => figure instanceof Character && !figure.absent).map((figure) => (figure as Character).level).reduce((a, b) => a + b);
 
 
     return Math.ceil(((charLevel / charCount) + (this.game.solo ? 1 : 0)) / 2) + this.ge5PlayerOffset();

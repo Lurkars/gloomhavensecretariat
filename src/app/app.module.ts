@@ -63,6 +63,7 @@ import { MonsterLevelDialogComponent } from './ui/figures/monster/dialogs/level-
 import { CharacterFullViewComponent } from './ui/figures/character/fullview/fullview';
 import { AttackModifierDeckDialogComponent } from './ui/figures/attackmodifier/attackmodifierdeck-dialog';
 import { AttackModifierDeckFullscreenComponent } from './ui/figures/attackmodifier/attackmodifierdeck-fullscreen';
+import { AttackModifierEffectsComponent } from './ui/figures/attackmodifier/attackmodifier-effects';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,7 @@ import { AttackModifierDeckFullscreenComponent } from './ui/figures/attackmodifi
     PartySheetComponent, PartySheetDialogComponent,
     MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent,
     FooterComponent,
-    AttackModifierComponent, HintDialogComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent,
+    AttackModifierComponent, AttackModifierEffectsComponent, HintDialogComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent,
     LevelComponent, LevelDialogComponent,
     ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent,
     ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,

@@ -1,0 +1,253 @@
+.effects {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  .effect {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    width: 18%;
+    height: 28%;
+    top: 35%;
+    left: 6%;
+
+    &:nth-child(2) {
+      top: 5%;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    .value {
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: "ghs-title";
+      font-size: 0.6em;
+      color: var(--ghs-color-white);
+    }
+
+    .effect-container {
+      width: 100%;
+      height: 100%;
+      border: 1px solid var(--ghs-color-white);
+      border-radius: 100%;
+
+      &.target {
+        img {
+          top: 8%;
+          width: 40%;
+        }
+
+        .value {
+          top: 22%;
+          font-size: 0.8em;
+        }
+      }
+
+
+      img {
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30%;
+        height: auto;
+      }
+
+      .value {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: "ghs-title";
+        font-size: 0.6em;
+        color: var(--ghs-color-black);
+      }
+
+      .target-value-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        height: 40%;
+        bottom: 5%;
+        font-family: "ghs-title";
+        font-size: 0.6em;
+        color: var(--ghs-color-white);
+        left: 50%;
+        transform: translateX(-50%);
+
+        .target-value {
+          display: block;
+        }
+      }
+
+
+
+      &.heal-container {
+        background-color: #a11f1a;
+      }
+
+      &.shield-container {
+        background-color: #6e4e34;
+
+        img {
+          width: 60%;
+        }
+
+        .value {
+          font-size: 1em;
+          top: 20%;
+        }
+
+        &.target {
+
+          img {
+            top: 15%;
+            width: 48%;
+          }
+
+          .value {
+            top: 17%;
+            font-size: 0.8em;
+          }
+        }
+      }
+    }
+
+    .custom-value-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--ghs-color-white);
+      font-family: ghs-normal;
+      text-shadow: var(--ghs-outline-thin);
+
+      .custom-value {
+        display: block;
+        text-align: center;
+        line-height: 0.8em;
+      }
+    }
+
+    .effect-icon {
+      img {
+        filter: var(--ghs-filter-white);
+      }
+    }
+
+
+    &.pull,
+    &.push {
+      .value {
+        top: 60%;
+      }
+    }
+
+    &.pierce {
+
+      .value {
+        left: 30%;
+        background-color: #c6833f;
+      }
+    }
+
+    &.center {
+      top: 50%;
+      left: 49.5%;
+      width: 34%;
+      height: 52%;
+      transform: translate(-50%, -50%);
+
+      &.heal,
+      &.shield {
+        width: 46%;
+        height: 68%;
+      }
+
+      &.element {
+        width: 38%;
+        height: 50%;
+      }
+
+      &.custom {
+        width: 46%;
+        height: 68%;
+
+        .type {
+          position: absolute;
+          top: -2%;
+          left: 20%;
+          font-family: "ghs-title";
+          font-size: 3em;
+          color: var(--ghs-color-white);
+          text-shadow: var(--ghs-outline-thin);
+        }
+
+        .custom-value-container {
+          width: 80%;
+          height: 40%;
+          top: 20%;
+        }
+
+      }
+
+      .value {
+        font-size: 1em;
+      }
+
+      .effect-container {
+        width: 80%;
+        height: 80%;
+
+        .value {
+          font-size: 1.6em;
+        }
+
+        .target-value-container {
+          width: 70%;
+          height: 30%;
+          bottom: 15%;
+        }
+
+        &.target {
+
+          img {
+            top: 17%;
+            width: 28%;
+          }
+
+          .value {
+            top: 30%;
+            font-size: 1.4em;
+          }
+
+          &.shield-container {
+            img {
+              top: 20%;
+              width: 40%;
+            }
+
+            .value {
+              top: 25%;
+            }
+          }
+        }
+      }
+    }
+
+    .sub-effects {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+}

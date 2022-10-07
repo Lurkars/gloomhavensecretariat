@@ -126,11 +126,11 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "heal",
                 "value": 1,
-                "subActions": [
+                "effects": [
                   {
                     "type": "specialTarget",
                     "value": "self"
@@ -151,7 +151,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "stun"
@@ -170,7 +170,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "light"
@@ -189,11 +189,11 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "shield",
                 "value": 1,
-                "subActions": [
+                "effects": [
                   {
                     "type": "specialTarget",
                     "value": "self"

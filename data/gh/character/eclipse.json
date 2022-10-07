@@ -76,7 +76,7 @@
           "count": 1,
           "attackModifier": {
             "type": "minus1",
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "dark"
@@ -94,7 +94,7 @@
           "count": 1,
           "attackModifier": {
             "type": "minus1",
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "dark"
@@ -106,7 +106,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus1",
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "dark"
@@ -124,7 +124,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus1",
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "invisible"
@@ -143,7 +143,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "muddle"
@@ -162,11 +162,11 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "heal",
                 "value": 1,
-                "subActions": [
+                "effects": [
                   {
                     "type": "specialTarget",
                     "value": "self"
@@ -187,7 +187,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "curse"
@@ -206,7 +206,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "target",
                 "value": 1

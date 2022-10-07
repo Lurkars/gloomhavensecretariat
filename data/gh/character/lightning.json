@@ -114,7 +114,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "wound"
@@ -133,7 +133,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "stun"
@@ -152,7 +152,7 @@
           "attackModifier": {
             "type": "plus1",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "disarm"
@@ -171,11 +171,11 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "heal",
                 "value": 1,
-                "subActions": [
+                "effects": [
                   {
                     "type": "specialTarget",
                     "value": "self"
@@ -195,7 +195,7 @@
           "count": 2,
           "attackModifier": {
             "type": "plus2",
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "fire"

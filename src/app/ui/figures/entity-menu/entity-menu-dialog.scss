@@ -172,12 +172,13 @@
 
   .marker-container {
     display: grid;
-    grid-template-columns: repeat(6, calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor)));
+    grid-template-columns: repeat(3, calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor)));
     column-gap: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
     row-gap: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
     align-items: center;
     justify-items: center;
     margin-bottom: auto;
+    grid-column: 1 / span 3;
 
     .item {
 

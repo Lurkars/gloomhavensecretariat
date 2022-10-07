@@ -132,7 +132,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus2",
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "ice"
@@ -164,7 +164,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "pull",
                 "value": 1
@@ -183,7 +183,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "muddle"
@@ -202,7 +202,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "immobilize"
@@ -221,7 +221,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "stun"
@@ -240,7 +240,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "disarm"
@@ -253,7 +253,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "muddle"

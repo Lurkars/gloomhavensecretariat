@@ -1,6 +1,7 @@
 import { Dialog } from "@angular/cdk/dialog";
 import { Component } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
+import { Character } from "src/app/game/model/Character";
 import { GameScenarioModel, ScenarioData } from "src/app/game/model/data/ScenarioData";
 
 import { Party } from "src/app/game/model/Party";
@@ -38,17 +39,14 @@ export class PartySheetDialogComponent {
   prosperitySteps = [ 3, 8, 14, 21, 29, 38, 49, 63 ];
   priceModifier: number = 0;
   campaign: boolean = false;
-  edition: string | undefined;
   doubleClickAddSuccess: any = null;
 
   scenarioEditions: string[] = [];
   scenarios: Record<string, ScenarioData[]> = {};
 
   constructor() {
-    this.edition = gameManager.game.edition;
-    console.log(this.edition);
-    this.updateScenarios();
     this.party = gameManager.game.party;
+    this.updateScenarios();
     if (this.party.reputation >= 0) {
       this.priceModifier = Math.ceil((this.party.reputation - 2) / 4) * -1;
     } else {
@@ -59,7 +57,9 @@ export class PartySheetDialogComponent {
   toggleCampaignMode() {
     gameManager.stateManager.before(this.party.campaignMode ? "disablePartyCampaignMode" : "enablePartyCampaignMode");
     this.party.campaignMode = !this.party.campaignMode;
-    gameManager.game.party = this.party;
+    if (this.party.campaignMode) {
+      gameManager.game.edition = this.party.edition;
+    }
     gameManager.stateManager.after();
     this.updateScenarios();
   }
@@ -68,7 +68,6 @@ export class PartySheetDialogComponent {
     if (this.party.name != event.target.value) {
       gameManager.stateManager.before("setPartyName", event.target.value);
       this.party.name = event.target.value;
-      gameManager.game.party = this.party;
       gameManager.stateManager.after();
     }
   }
@@ -77,7 +76,6 @@ export class PartySheetDialogComponent {
     if (this.party.location != event.target.value) {
       gameManager.stateManager.before("setPartyLocation", event.target.value);;
       this.party.location = event.target.value;
-      gameManager.game.party = this.party;
       gameManager.stateManager.after();
     }
   }
@@ -86,7 +84,6 @@ export class PartySheetDialogComponent {
     if (this.party.notes != event.target.value) {
       gameManager.stateManager.before("setPartyNotes", event.target.value);
       this.party.notes = event.target.value;
-      gameManager.game.party = this.party;
       gameManager.stateManager.after();
     }
   }
@@ -95,7 +92,6 @@ export class PartySheetDialogComponent {
     if (this.party.achievements != event.target.value) {
       gameManager.stateManager.before("setPartyAchievements", event.target.value);
       this.party.achievements = event.target.value;
-      gameManager.game.party = this.party;
       gameManager.stateManager.after();
     }
   }
@@ -104,7 +100,6 @@ export class PartySheetDialogComponent {
     if (this.party.globalAchievements != event.target.value) {
       gameManager.stateManager.before("setGlobalAchievements", event.target.value);
       this.party.globalAchievements = event.target.value;
-      gameManager.game.party = this.party;
       gameManager.stateManager.after();
     }
   }
@@ -118,9 +113,61 @@ export class PartySheetDialogComponent {
         value = -20;
       }
       this.party.reputation = value;
-      gameManager.game.party = this.party;
+      if (this.party.reputation >= 0) {
+        this.priceModifier = Math.ceil((this.party.reputation - 2) / 4) * -1;
+      } else {
+        this.priceModifier = Math.floor((this.party.reputation + 2) / 4) * -1;
+      }
       gameManager.stateManager.after();
     }
+  }
+
+  removeParty() {
+    if (gameManager.game.parties.length > 1) {
+      gameManager.stateManager.before("removeParty", this.party.name || '%party% ' + this.party.id);
+      gameManager.game.parties.splice(gameManager.game.parties.indexOf(this.party), 1);
+      this.changeParty(gameManager.game.parties[ 0 ]);
+      gameManager.stateManager.after();
+    }
+  }
+
+  newParty() {
+    let party = new Party();
+    let id = 0;
+    while (gameManager.game.parties.some((party) => party.id == id)) {
+      id++;
+    }
+    party.id = id;
+    gameManager.stateManager.before("addParty", party.name || '%party% ' + party.id);
+    gameManager.game.parties.push(party);
+    this.changeParty(party);
+    gameManager.stateManager.after();
+  }
+
+  selectParty(event: any) {
+    const party = gameManager.game.parties.find((party) => party.id == event.target.value);
+    if (party) {
+      gameManager.stateManager.before("changeParty", party.name || '%party% ' + party.id);
+      this.changeParty(party);
+      gameManager.stateManager.after();
+    }
+  }
+
+  changeParty(party: Party) {
+    this.party.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel()));
+    this.party = party;
+    gameManager.game.party = this.party;
+    if (this.party.edition) {
+      gameManager.game.edition = this.party.edition;
+    }
+    gameManager.game.figures = gameManager.game.figures.filter((figure) => !(figure instanceof Character));
+    gameManager.scenarioManager.setScenario(undefined);
+    party.characters.forEach((value) => {
+      let character = new Character(gameManager.getCharacterData(value.name, value.edition), value.level);
+      character.fromModel(value);
+      gameManager.game.figures.push(character);
+    });
+    this.updateScenarios();
   }
 
   setDonations(value: number) {
@@ -133,7 +180,6 @@ export class PartySheetDialogComponent {
 
     gameManager.stateManager.before("setPartyDonations", "" + value);
     this.party.donations = value;
-    gameManager.game.party = this.party;
     gameManager.stateManager.after();
   }
 
@@ -149,7 +195,6 @@ export class PartySheetDialogComponent {
 
     gameManager.stateManager.before("setPartyProsperity", "" + value);
     this.party.prosperity = value;
-    gameManager.game.party = this.party;
     gameManager.stateManager.after();
   }
 
@@ -214,7 +259,6 @@ export class PartySheetDialogComponent {
   addSuccessIntern(scenarioData: ScenarioData) {
     gameManager.stateManager.before("finishScenario.success", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
     this.party.scenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group));
-    gameManager.game.party = this.party;
     gameManager.stateManager.after();
 
     this.updateScenarios();
@@ -225,7 +269,6 @@ export class PartySheetDialogComponent {
     if (value) {
       gameManager.stateManager.before("finishScenario.remove", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
       this.party.scenarios.splice(this.party.scenarios.indexOf(value), 1);
-      gameManager.game.party = this.party;
       gameManager.stateManager.after();
     }
     this.updateScenarios();
@@ -236,7 +279,6 @@ export class PartySheetDialogComponent {
     if (value) {
       gameManager.stateManager.before("removeManualScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
       this.party.manualScenarios.splice(this.party.manualScenarios.indexOf(value), 1);
-      gameManager.game.party = this.party;
       gameManager.stateManager.after();
     }
     this.updateScenarios();
@@ -247,17 +289,17 @@ export class PartySheetDialogComponent {
   }
 
   changeEdition(event: any) {
-    this.edition = event.target.value != 'undefined' && event.target.value || undefined;
+    this.party.edition = event.target.value != 'undefined' && event.target.value || undefined;
     if (this.party.campaignMode) {
-      gameManager.stateManager.before("setEdition", "data.edition." + this.edition);
-      gameManager.game.edition = this.edition;
+      gameManager.stateManager.before("setEdition", "data.edition." + this.party.edition);
+      gameManager.game.edition = this.party.edition;
       gameManager.stateManager.after();
     }
     this.updateScenarios();
   }
 
   updateScenarios(): void {
-    const editions = this.edition && [ this.edition ] || gameManager.editions();
+    const editions = this.party.edition && [ this.party.edition ] || gameManager.editions();
     this.scenarioEditions = [];
     editions.forEach((edition) => {
       let scenarioData = gameManager.scenarioManager.scenarioData(edition);

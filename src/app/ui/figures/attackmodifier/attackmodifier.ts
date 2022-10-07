@@ -1,12 +1,12 @@
 import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
 
 import { Action, ActionType } from "src/app/game/model/Action";
-import { AttackModifier, AttackModifierType } from "src/app/game/model/AttackModifier";
+import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType } from "src/app/game/model/AttackModifier";
 
 @Component({
   selector: 'ghs-attackmodifier',
   templateUrl: './attackmodifier.html',
-  styleUrls: [ './attackmodifier.scss' ],
+  styleUrls: ['./attackmodifier.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class AttackModifierComponent implements OnInit {
@@ -17,23 +17,23 @@ export class AttackModifierComponent implements OnInit {
   @Input() number: number = 0;
   @Input() reveal: boolean = false;
   @Input() flipped: boolean = false;
-  actionClasses: string = "";
+  effectClasses: string = "";
   AttackModifierType = AttackModifierType;
-  ActionType = ActionType;
+  AttackModifierEffectType = AttackModifierEffectType;
   defaultType: boolean = true;
 
   ngOnInit(): void {
     if (this.attackModifier) {
-      if (this.attackModifier.actions) {
-        this.attackModifier.actions.forEach((action) => {
-          if (action.type != ActionType.heal && action.type != ActionType.shield) {
+      if (this.attackModifier.effects) {
+        this.attackModifier.effects.forEach((effect) => {
+          if (effect.type != AttackModifierEffectType.heal && effect.type != AttackModifierEffectType.shield) {
             this.defaultType = false;
           }
 
-          if (action.type == ActionType.condition || action.type == ActionType.element) {
-            this.actionClasses += " " + action.value;
+          if (effect.type == AttackModifierEffectType.condition || effect.type == AttackModifierEffectType.element) {
+            this.effectClasses += " " + effect.value;
           } else {
-            this.actionClasses += " " + action.type;
+            this.effectClasses += " " + effect.type;
           }
         })
       }
@@ -44,9 +44,9 @@ export class AttackModifierComponent implements OnInit {
     this.attackModifier.revealed = revealed;
   }
 
-  getTarget(action: Action): string {
-    if (action.subActions) {
-      const specialTarget = action.subActions.find((subAction) => subAction.type == ActionType.specialTarget);
+  getTarget(effect: AttackModifierEffect): string {
+    if (effect.effects) {
+      const specialTarget = effect.effects.find((subEffect) => subEffect.type == AttackModifierEffectType.specialTarget);
       if (specialTarget) {
         return "" + specialTarget.value;
       }
@@ -54,4 +54,4 @@ export class AttackModifierComponent implements OnInit {
     return "";
   }
 
-}
+} 

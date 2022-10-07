@@ -27,16 +27,18 @@ export class CharacterImageComponent {
   constructor(private dialog: Dialog, private overlay: Overlay, private elementRef: ElementRef) { }
 
   toggleFigure(): void {
-    if (gameManager.game.state == GameState.next && !this.character.exhausted && (!settingsManager.settings.initiativeRequired || this.character.initiative > 0)) {
-      gameManager.stateManager.before(this.character.active ? "unsetActive" : "setActive", "data.character." + this.character.name);
-      gameManager.roundManager.toggleFigure(this.character);
-      gameManager.stateManager.after(250);
-    } else if (settingsManager.settings.initiativeRequired && this.character.initiative <= 0 || gameManager.game.state == GameState.draw) {
-      this.dialog.open(CharacterInitiativeDialogComponent, {
-        panelClass: 'dialog',
-        data: this.character,
-        positionStrategy: this.overlay.position().flexibleConnectedTo(this.elementRef).withPositions(ghsDefaultDialogPositions())
-      });
+    if (!this.character.absent) {
+      if (gameManager.game.state == GameState.next && !this.character.exhausted && (!settingsManager.settings.initiativeRequired || this.character.initiative > 0)) {
+        gameManager.stateManager.before(this.character.active ? "unsetActive" : "setActive", "data.character." + this.character.name);
+        gameManager.roundManager.toggleFigure(this.character);
+        gameManager.stateManager.after(250);
+      } else if (settingsManager.settings.initiativeRequired && this.character.initiative <= 0 || gameManager.game.state == GameState.draw) {
+        this.dialog.open(CharacterInitiativeDialogComponent, {
+          panelClass: 'dialog',
+          data: this.character,
+          positionStrategy: this.overlay.position().flexibleConnectedTo(this.elementRef).withPositions(ghsDefaultDialogPositions())
+        });
+      }
     }
   }
 

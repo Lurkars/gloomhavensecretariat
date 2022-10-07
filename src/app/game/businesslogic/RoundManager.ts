@@ -19,7 +19,7 @@ export class RoundManager {
   }
 
   nextAvailable(): boolean {
-    return this.game.figures.length > 0 && (this.game.state == GameState.next || this.game.figures.every((figure) => figure instanceof Monster || (figure instanceof Objective || figure instanceof Character) && (figure.getInitiative() > 0 || figure.exhausted || !settingsManager.settings.initiativeRequired)
+    return this.game.figures.length > 0 && (this.game.state == GameState.next || this.game.figures.every((figure) => figure instanceof Monster || figure instanceof Objective && (figure.getInitiative() > 0 || figure.exhausted || !settingsManager.settings.initiativeRequired) || figure instanceof Character && (figure.getInitiative() > 0 || figure.exhausted || figure.absent || !settingsManager.settings.initiativeRequired)
     ));
   }
 
@@ -332,6 +332,7 @@ export class RoundManager {
         figure.active = false;
         figure.off = false;
         figure.exhausted = false;
+        figure.absent = false;
 
         figure.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => gameManager.characterManager.createSpecialSummon(figure, summonData));
 

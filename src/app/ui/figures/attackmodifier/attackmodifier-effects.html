@@ -1,0 +1,64 @@
+<span class="effects" *ngIf="effects">
+  <span *ngFor="let effect of effects; let index = index;" class="effect {{effect.type}}"
+    [ngClass]="{'center' : attackModifier.type == AttackModifierType.plus0 && index == 0}">
+
+    <ng-container [ngSwitch]="effect.type">
+
+      <img *ngSwitchCase="AttackModifierEffectType.condition"
+        [src]="'./assets/images/condition/' + effect.value + '.svg'" />
+      <img *ngSwitchCase="AttackModifierEffectType.element"
+        [src]="'./assets/images/element/' + effect.value + '.svg'" />
+
+      <div class="effect-container heal-container" *ngSwitchCase="AttackModifierEffectType.heal"
+        [style.border-width]="offsetWidth * ( attackModifier.type == AttackModifierType.plus0 && index == 0 ? 0.020 : 0.010)  + 'px'"
+        [ngClass]="{'target' : getTarget(effect)}">
+        <img [src]="'./assets/images/action/' + effect.type + '.svg'" />
+        <span class="value" *ngIf="effect.value">{{+effect.value | ghsValueSign}}</span>
+        <span class="target-value-container" *ngIf="getTarget(effect)">
+          <span class="target-value" text-shrink>{{'game.specialTarget.'
+            + getTarget(effect) | ghsLabel}}</span>
+        </span>
+      </div>
+
+      <div class="effect-container shield-container" *ngSwitchCase="AttackModifierEffectType.shield"
+        [style.border-width]="offsetWidth * ( attackModifier.type == AttackModifierType.plus0 && index == 0 ? 0.020 : 0.010)  + 'px'"
+        [ngClass]="{'target' : getTarget(effect)}">
+        <img [src]="'./assets/images/action/' + effect.type + '.svg'" />
+        <span class="value" *ngIf="effect.value">{{+effect.value}}</span>
+        <span class="target-value-container" *ngIf="getTarget(effect)">
+          <span class="target-value" text-shrink>{{'game.specialTarget.'
+            + getTarget(effect) | ghsLabel}}</span>
+        </span>
+      </div>
+
+      <ng-container *ngSwitchCase="AttackModifierEffectType.target">
+        <img src="./assets/images/attackmodifier/target.svg" />
+      </ng-container>
+
+      <ng-container *ngSwitchCase="AttackModifierEffectType.custom">
+        <ng-container *ngIf="!effect.icon">
+          <span class="type">{{attackModifier.value < 0 ? '-' : '+' }}{{attackModifier.value}}</span>
+              <span class="custom-value-container">
+                <span class="custom-value placeholder" [i18n]="effect.value + ''" text-shrink></span>
+              </span>
+        </ng-container>
+        <ng-container *ngIf="effect.icon">
+          <span class="effect-icon">
+            <img [src]="'./assets/images/attackmodifier/effects/' + effect.value + '.svg'" />
+          </span>
+        </ng-container>
+
+        <div class="sub-effects" *ngIf="effect.effects">
+          <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="effect.effects"
+            [offsetWidth]="offsetWidth"></ghs-attackmodifier-effects>
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchDefault>
+        <img [src]="'./assets/images/action/' + effect.type + '.svg'" />
+        <span class="value" *ngIf="effect.value">{{+effect.value}}</span>
+      </ng-container>
+
+    </ng-container>
+  </span>
+</span>

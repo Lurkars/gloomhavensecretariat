@@ -115,7 +115,7 @@
           "count": 3,
           "attackModifier": {
             "type": "plus0",
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "fire"
@@ -133,7 +133,7 @@
           "count": 3,
           "attackModifier": {
             "type": "plus0",
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "ice"
@@ -151,7 +151,7 @@
           "count": 3,
           "attackModifier": {
             "type": "plus0",
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "air"
@@ -169,7 +169,7 @@
           "count": 3,
           "attackModifier": {
             "type": "plus0",
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "earth"
@@ -193,7 +193,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus0",
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "fire"
@@ -205,7 +205,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus0",
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "earth"
@@ -229,7 +229,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus0",
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "ice"
@@ -241,7 +241,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus0",
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "air"
@@ -259,7 +259,7 @@
           "count": 2,
           "attackModifier": {
             "type": "plus1",
-            "actions": [
+            "effects": [
               {
                 "type": "push",
                 "value": 1
@@ -277,7 +277,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus1",
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "wound"
@@ -295,7 +295,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus0",
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "stun"
@@ -313,7 +313,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus0",
-            "actions": [
+            "effects": [
               {
                 "type": "target",
                 "value": 1

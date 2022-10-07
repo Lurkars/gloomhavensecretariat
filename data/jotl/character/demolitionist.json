@@ -99,7 +99,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus2",
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "muddle"
@@ -123,7 +123,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus0",
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "poison"
@@ -159,7 +159,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus2",
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "earth"
@@ -183,7 +183,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus2",
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "fire"
@@ -201,7 +201,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus0",
-            "actions": [
+            "effects": [
               {
                 "type": "custom",
                 "value": "%data.custom.perks.demolitionist.1%"

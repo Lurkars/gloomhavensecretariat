@@ -133,7 +133,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus0",
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "wound"
@@ -157,7 +157,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus0",
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "poison"
@@ -181,7 +181,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus1",
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "air"
@@ -205,7 +205,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus1",
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "earth"
@@ -229,7 +229,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus1",
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "light"
@@ -253,7 +253,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus1",
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "dark"
@@ -271,7 +271,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus2",
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "muddle"
@@ -290,7 +290,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "heal",
                 "value": 1

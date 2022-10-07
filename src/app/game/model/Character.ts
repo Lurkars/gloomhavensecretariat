@@ -26,6 +26,8 @@ export class Character extends CharacterData implements Entity, Figure {
   number: number = 0;
   attackModifierDeck: AttackModifierDeck;
 
+  absent: boolean = false;
+
   // from figure
   level: number;
   off: boolean = false;
@@ -38,7 +40,14 @@ export class Character extends CharacterData implements Entity, Figure {
   markers: string[] = [];
 
   getInitiative(): number {
-    return (this.exhausted || this.health <= 0) ? 100 : this.initiative;
+    if (this.absent) {
+      return 200;
+    }
+
+    if (this.exhausted || this.health <= 0) {
+      return 100;
+    }
+    return this.initiative;
   }
 
   constructor(character: CharacterData, level: number) {
@@ -76,7 +85,7 @@ export class Character extends CharacterData implements Entity, Figure {
   }
 
   toModel(): GameCharacterModel {
-    return new GameCharacterModel(this.name, this.edition, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible, this.attackModifierDeckVisible, this.fullview, this.number, this.attackModifierDeck.toModel(), this.donations);
+    return new GameCharacterModel(this.name, this.edition, this.marker, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible, this.attackModifierDeckVisible, this.fullview, this.number, this.attackModifierDeck.toModel(), this.donations, this.absent);
   }
 
   fromModel(model: GameCharacterModel) {
@@ -90,6 +99,8 @@ export class Character extends CharacterData implements Entity, Figure {
         this.edition = "";
       }
     }
+
+    this.marker = model.marker || this.marker;
     this.title = model.title;
 
     if (!this.initiativeVisible || model.initiative <= 0 || this.initiative != model.initiative) {
@@ -167,6 +178,7 @@ export class Character extends CharacterData implements Entity, Figure {
 
     this.fullview = model.fullview;
     this.donations = model.donations || 0;
+    this.absent = model.absent;
   }
 
 
@@ -199,6 +211,7 @@ export class GameCharacterModel {
 
   name: string;
   edition: string;
+  marker: boolean;
   title: string;
   initiative: number;
   experience: number;
@@ -219,9 +232,11 @@ export class GameCharacterModel {
   number: number;
   attackModifierDeck: GameAttackModifierDeckModel;
   donations: number;
+  absent: boolean;
 
   constructor(name: string,
     edition: string,
+    marker: boolean,
     title: string,
     initiative: number,
     experience: number,
@@ -241,9 +256,11 @@ export class GameCharacterModel {
     fullview: boolean,
     number: number,
     attackModifierDeck: GameAttackModifierDeckModel,
-    donations: number) {
+    donations: number,
+    absent: boolean) {
     this.name = name;
     this.edition = edition;
+    this.marker = marker;
     this.title = title;
     this.initiative = initiative;
     this.experience = experience;
@@ -264,6 +281,7 @@ export class GameCharacterModel {
     this.number = number;
     this.attackModifierDeck = attackModifierDeck;
     this.donations = donations;
+    this.absent = absent;
   }
 
 }

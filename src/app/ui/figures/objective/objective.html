@@ -27,6 +27,12 @@
         (objective.escort ? 'escort' : 'objective')) |
         ghsLabel)}}
         <img class="ghs-svg exhausted" *ngIf="objective.exhausted" src="./assets/images/status/exhausted.svg" />
+
+        <div class="markers">
+          <span class="marker" *ngFor="let marker of objective.markers;">
+            <img src="./assets/images/character/icons/{{marker}}.svg" />
+          </span>
+        </div>
       </div>
       <div class="status-bar">
         <div class="health">

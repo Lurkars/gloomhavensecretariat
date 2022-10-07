@@ -108,7 +108,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "muddle"
@@ -127,7 +127,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "pierce",
                 "value": 3
@@ -146,7 +146,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "stun"
@@ -165,7 +165,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "target",
                 "value": 1
@@ -183,7 +183,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus0",
-            "actions": [
+            "effects": [
               {
                 "type": "refreshItem"
               }

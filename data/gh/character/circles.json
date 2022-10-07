@@ -200,7 +200,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "wound"
@@ -219,7 +219,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "poison"
@@ -238,11 +238,11 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "heal",
                 "value": 1,
-                "subActions": [
+                "effects": [
                   {
                     "type": "specialTarget",
                     "value": "self"
@@ -263,7 +263,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "fire"
@@ -276,7 +276,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "air"
@@ -295,7 +295,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "dark"
@@ -308,7 +308,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "earth"

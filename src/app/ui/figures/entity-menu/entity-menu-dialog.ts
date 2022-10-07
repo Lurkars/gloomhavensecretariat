@@ -271,18 +271,31 @@ export class EntityMenuDialogComponent {
   }
 
   hasMarker(marker: string) {
-    if (this.data.entity instanceof MonsterEntity) {
-      return gameManager.entityManager.hasMarker(this.data.entity, marker);
+    return gameManager.entityManager.hasMarker(this.data.entity, marker);
+  }
+
+  toggleCharacterMarker() {
+    if (this.data.entity instanceof Character) {
+      gameManager.stateManager.before(this.data.entity.marker ? "disableMarker" : "enableMarker", "data.character." + this.data.entity.name);
+      this.data.entity.marker = !this.data.entity.marker;
+      gameManager.stateManager.after();
     }
-    return false;
   }
 
   toggleMarker(marker: string) {
     if (this.data.entity instanceof MonsterEntity) {
       gameManager.stateManager.before(this.hasMarker(marker) ? "removeEntityMarker" : "addEntityMarker", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, "data.character." + marker);
-      gameManager.entityManager.toggleMarker(this.data.entity, marker);
-      gameManager.stateManager.after();
+    } else if (this.data.entity instanceof Character) {
+      gameManager.stateManager.before(this.hasMarker(marker) ? "removeMarker" : "addMarker", "data.character." + this.data.entity.name, "data.character." + marker);
+    } else if (this.data.entity instanceof Summon) {
+      gameManager.stateManager.before(this.hasMarker(marker) ? "removeSummonMarker" : "addSummonMarker", "data.character." + this.data.figure.name, "data.summon." + this.data.entity.name, "data.character." + marker);
+    } else if (this.data.entity instanceof Objective) {
+      gameManager.stateManager.before(this.hasMarker(marker) ? "removeObjectiveMarker" : "addObjectiveMarker", this.data.entity.title || this.data.entity.name, "data.character." + marker);
     }
+
+    gameManager.entityManager.toggleMarker(this.data.entity, marker);
+    gameManager.stateManager.after();
+
   }
 
   toggleSummon() {

@@ -10,6 +10,8 @@ import { SummonState } from "../model/Summon";
 import { settingsManager } from "./SettingsManager";
 import { FigureError, FigureErrorType } from "../model/FigureError";
 import { ConditionType, EntityConditionState } from "../model/Condition";
+import { Scenario } from "../model/Scenario";
+import { ScenarioData } from "../model/data/ScenarioData";
 
 export class MonsterManager {
 
@@ -46,6 +48,11 @@ export class MonsterManager {
   }
 
   addMonster(monsterData: MonsterData): Monster {
+
+    if (!this.game.scenario) {
+      gameManager.scenarioManager.setScenario(new Scenario(new ScenarioData("", "", [], [], [], [], [], [], [], ""), true));
+    }
+
     let monster: Monster | undefined = this.game.figures.find((figure) =>
       figure instanceof MonsterData && figure.name == monsterData.name && figure.edition == monsterData.edition) as Monster;
     if (!monster) {

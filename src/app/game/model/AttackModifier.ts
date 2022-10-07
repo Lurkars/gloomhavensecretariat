@@ -28,15 +28,15 @@ export class AttackModifier {
   value: number = 0;
   valueType: AttackModifierValueType = AttackModifierValueType.plus;
   shuffle: boolean = false;
-  actions: Action[];
+  effects: AttackModifierEffect[];
   rolling: boolean;
   revealed: boolean = false;
   character: boolean = false;
 
-  constructor(type: AttackModifierType, id: string | undefined = undefined, actions: Action[] = [], rolling: boolean = false) {
+  constructor(type: AttackModifierType, id: string | undefined = undefined, effects: AttackModifierEffect[] = [], rolling: boolean = false) {
     this.type = type;
     this.id = id || type;
-    this.actions = actions;
+    this.effects = effects;
     this.rolling = rolling;
     switch (type) {
       case AttackModifierType.plus0:
@@ -81,6 +81,41 @@ export class AttackModifier {
         this.value = 0;
         break;
     }
+  }
+}
+
+export enum AttackModifierEffectType {
+  condition = "condition",
+  custom = "custom",
+  element = "element",
+  elementHalf = "elementHalf",
+  heal = "heal",
+  pierce = "pierce",
+  pull = "pull",
+  push = "push",
+  range = "range",
+  refreshItem = "refreshItem",
+  retaliate = "retaliate",
+  shield = "shield",
+  specialTarget = "specialTarget",
+  summon = "summon",
+  swing = "swing",
+  target = "target",
+}
+
+export class AttackModifierEffect {
+
+  type: AttackModifierEffectType;
+  value: string;
+  hint: string;
+  effects: AttackModifierEffect[];
+  icon: boolean = false;
+
+  constructor(type: AttackModifierEffectType, value: string = "", hint: string = "", effects: AttackModifierEffect[] = []) {
+    this.type = type;
+    this.value = value;
+    this.hint = hint;
+    this.effects = effects;
   }
 }
 

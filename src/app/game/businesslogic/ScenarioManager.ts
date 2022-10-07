@@ -24,6 +24,8 @@ export class ScnearioManager {
       }
       gameManager.roundManager.resetScenario();
       this.applyScenarioData(editionData, scenario);
+    } else if (!scenario) {
+      gameManager.roundManager.resetScenario();
     }
   }
 
@@ -36,7 +38,7 @@ export class ScnearioManager {
     })
 
     if (success && this.game.party && this.game.scenario) {
-      this.game.party.scenarios.push(new GameScenarioModel(this.game.scenario.index, this.game.scenario.edition, this.game.scenario.group, this.game.scenario.custom ? this.game.scenario.name : ""));
+      this.game.party.scenarios.push(new GameScenarioModel(this.game.scenario.index, this.game.scenario.edition, this.game.scenario.group, this.game.scenario.custom, this.game.scenario.custom ? this.game.scenario.name : ""));
       this.game.party.manualScenarios = this.game.party.manualScenarios.filter((identifier) => this.game.scenario && (this.game.scenario.index != identifier.index || this.game.scenario.edition != identifier.edition || this.game.scenario.group != identifier.group));
     }
 
@@ -68,6 +70,8 @@ export class ScnearioManager {
           if (scenarioData.allies && scenarioData.allies.indexOf(monster.name) != -1) {
             monster.isAlly = true;
           }
+        } else {
+          console.error("Monster not found: '" + name + "'");
         }
       });
     }
@@ -141,14 +145,14 @@ export class ScnearioManager {
   scenarioUndoArgs(scenario: Scenario | undefined = undefined): string[] {
     scenario = scenario || gameManager.game.scenario;
     if (!scenario) {
-      return [ "", "", "" ];
+      return ["", "", ""];
     }
 
-    return [ scenario.index, "data.scenario." + scenario.name, scenario.custom ? 'scenario.custom' : 'data.edition.' + scenario.edition ];
+    return [scenario.index, "data.scenario." + scenario.name, scenario.custom ? 'scenario.custom' : 'data.edition.' + scenario.edition];
   }
 
   scenarioDataForModel(model: GameScenarioModel): ScenarioData | undefined {
-    if (model.custom) {
+    if (model.isCustom) {
       return new ScenarioData(model.custom, "", [], [], [], [], [], [], [], "");
     }
 
@@ -172,7 +176,7 @@ export class ScnearioManager {
 
   }
 
-  toModel(scenarioData: ScenarioData, custom: string = ""): GameScenarioModel {
-    return new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group, custom);
+  toModel(scenarioData: ScenarioData, custom: boolean = false, customName: string = ""): GameScenarioModel {
+    return new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group, custom, customName);
   }
 }

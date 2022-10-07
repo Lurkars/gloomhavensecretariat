@@ -135,8 +135,11 @@
           {{'settings.zoom.reset' | ghsLabel}}
         </a>
       </div>
-      <div class="line ">
-        <label>&nbsp;</label>
+      <div class="line">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.fullscreen" (change)="fullscreen()">
+          {{'settings.fullscreen' | ghsLabel}}
+        </label>
       </div>
       <div class="line ">
         <label (click)="resetBarsize($event)">{{'settings.barsize' | ghsLabel}}
@@ -155,8 +158,9 @@
       </div>
       <div class="line">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.fullscreen" (change)="fullscreen()">
-          {{'settings.fullscreen' | ghsLabel}}
+          <input type="checkbox" [checked]="settingsManager.settings.hideAbsent"
+            (change)="settingsManager.setHideAbsent(!settingsManager.settings.hideAbsent)">
+          {{'settings.hideAbsent' | ghsLabel}}
         </label>
       </div>
       <div class="line">

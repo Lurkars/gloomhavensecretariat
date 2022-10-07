@@ -127,7 +127,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "fire"
@@ -146,7 +146,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "muddle"
@@ -164,7 +164,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus1",
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "wound"
@@ -182,7 +182,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus1",
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "immobilize"
@@ -200,11 +200,11 @@
           "count": 1,
           "attackModifier": {
             "type": "plus1",
-            "actions": [
+            "effects": [
               {
                 "type": "heal",
                 "value": 2,
-                "subActions": [
+                "effects": [
                   {
                     "type": "specialTarget",
                     "value": "self"
@@ -224,7 +224,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus0",
-            "actions": [
+            "effects": [
               {
                 "type": "target",
                 "value": 1

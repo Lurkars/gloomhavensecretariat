@@ -4,7 +4,7 @@ import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Action, ActionType } from "src/app/game/model/Action";
-import { AttackModifier, AttackModifierValueType } from "src/app/game/model/AttackModifier";
+import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierValueType } from "src/app/game/model/AttackModifier";
 
 import { Character, GameCharacterModel } from "src/app/game/model/Character";
 import { CharacterProgress } from "src/app/game/model/CharacterProgress";
@@ -118,6 +118,14 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
       } else {
         this.priceModifier = Math.floor((gameManager.game.party.reputation + 2) / 4) * -1;
       }
+    }
+  }
+
+  toggleCharacterAbsent() {
+    if (this.character.absent || gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length > 1) {
+      gameManager.stateManager.before(this.character.absent ? "unsetAbsent" : "setAbsent", "data.character." + this.character.name);
+      this.character.absent = !this.character.absent;
+      this.gameManager.stateManager.after();
     }
   }
 
@@ -353,10 +361,10 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
 
   attackModifierHtml(attackModifier: AttackModifier): string {
     let html = "";
-    attackModifier = new AttackModifier(attackModifier.type, attackModifier.id, attackModifier.actions, attackModifier.rolling);
+    attackModifier = new AttackModifier(attackModifier.type, attackModifier.id, attackModifier.effects, attackModifier.rolling);
 
     if (attackModifier.rolling) {
-      html += '<span class="attack-modifier-action">&zwj;<img src="./assets/images/attackmodifier/icons/actions/rolling.svg"></span>';
+      html += '<span class="attack-modifier-effect">&zwj;<img src="./assets/images/attackmodifier/icons/actions/rolling.svg"></span>';
     }
 
 
@@ -372,45 +380,45 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
       html += '<span class="attack-modifier-icon">' + valueSign + attackModifier.value + '</span>';
     }
 
-    if (attackModifier.actions) {
-      attackModifier.actions.forEach((action) => {
-        html += this.attackModifierActionHtml(action);
+    if (attackModifier.effects) {
+      attackModifier.effects.forEach((effect) => {
+        html += this.attackModifierEffectHtml(effect);
       })
     }
 
     return html;
   }
 
-  attackModifierActionHtml(action: Action): string {
+  attackModifierEffectHtml(effect: AttackModifierEffect): string {
     let html = "";
 
-    switch (action.type) {
-      case ActionType.condition:
-        html += '<span class="attack-modifier-action condition">' + settingsManager.getLabel('game.condition.' + action.value) + '<img src="./assets/images/attackmodifier/icons/actions/' + action.value + '.svg"></span>';
+    switch (effect.type) {
+      case AttackModifierEffectType.condition:
+        html += '<span class="attack-modifier-effect condition">' + settingsManager.getLabel('game.condition.' + effect.value) + '<img src="./assets/images/attackmodifier/icons/actions/' + effect.value + '.svg"></span>';
         break;
-      case ActionType.element:
-        html += '<span class="attack-modifier-action element">&zwj;<img src="./assets/images/attackmodifier/icons/actions/' + action.value + '.svg"></span>';
+      case AttackModifierEffectType.element:
+        html += '<span class="attack-modifier-effect element">&zwj;<img src="./assets/images/attackmodifier/icons/actions/' + effect.value + '.svg"></span>';
         break;
-      case ActionType.target:
-        html += '<span class="placeholder attack-modifier-action target">' + settingsManager.getLabel(action.value <= 1 ? 'game.custom.perks.addTarget' : 'game.custom.perks.addTargets', [ action.value + "" ]) + '<img src="./assets/images/attackmodifier/icons/actions/target.svg"></span>';
+      case AttackModifierEffectType.target:
+        html += '<span class="placeholder attack-modifier-effect target">' + settingsManager.getLabel((+effect.value) <= 1 ? 'game.custom.perks.addTarget' : 'game.custom.perks.addTargets', [ effect.value + "" ]) + '<img src="./assets/images/attackmodifier/icons/actions/target.svg"></span>';
         break;
-      case ActionType.specialTarget:
-        html += '<span class="placeholder attack-modifier-action special-target">' + settingsManager.getLabel('game.specialTarget.' + action.value) + '</span>';
+      case AttackModifierEffectType.specialTarget:
+        html += '<span class="placeholder attack-modifier-effect special-target">' + settingsManager.getLabel('game.specialTarget.' + effect.value) + '</span>';
         break;
-      case ActionType.refreshItem:
-        html += '<span class="placeholder attack-modifier-action special-target">' + settingsManager.getLabel('game.action.' + action.type) + '</span>';
+      case AttackModifierEffectType.refreshItem:
+        html += '<span class="placeholder attack-modifier-effect special-target">' + settingsManager.getLabel('game.action.' + effect.type) + '</span>';
         break;
-      case ActionType.custom:
-        html += '<span class="placeholder attack-modifier-action custom">' + settingsManager.getLabel('' + action.value) + '</span>';
+      case AttackModifierEffectType.custom:
+        html += '<span class="placeholder attack-modifier-effect custom">' + settingsManager.getLabel('' + effect.value) + '</span>';
         break;
       default:
-        html += '<span class="placeholder attack-modifier-action ' + action.type + '">' + settingsManager.getLabel('game.action.' + action.type) + '<img src="./assets/images/attackmodifier/icons/actions/' + action.type + '.svg"><span class="value">' + action.value + '</span></span>';
+        html += '<span class="placeholder attack-modifier-effect ' + effect.type + '">' + settingsManager.getLabel('game.action.' + effect.type) + '<img src="./assets/images/attackmodifier/icons/actions/' + effect.type + '.svg"><span class="value">' + effect.value + '</span></span>';
         break;
     }
 
-    if (action.subActions) {
-      action.subActions.forEach((subAction) => {
-        html += "," + this.attackModifierActionHtml(subAction);
+    if (effect.effects) {
+      effect.effects.forEach((subEffect) => {
+        html += "," + this.attackModifierEffectHtml(subEffect);
       })
     }
 

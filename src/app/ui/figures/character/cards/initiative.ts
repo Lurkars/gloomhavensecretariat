@@ -78,24 +78,35 @@ export class CharacterInitiativeDialogComponent {
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
 
-  constructor(@Inject(DIALOG_DATA) public character: Character | Objective, private dialogRef: DialogRef) { };
+  constructor(@Inject(DIALOG_DATA) public character: Character | Objective, private dialogRef: DialogRef) {
+    dialogRef.closed.subscribe({
+      next: () => {
+        if (this.value.indexOf("_") != -1 && !isNaN(+this.value.replace('_', ''))) {
+          this.updateInitiative(+this.value.replace('_', ''));
+        }
+      }
+    })
+  }
 
   pickNumber(number: number) {
     this.value = (this.value + "" + number).substring(1, 3);
     if (this.value.indexOf("_") == -1) {
-      const initative: number = + this.value;
-      gameManager.stateManager.before("setInitiative", "data.character." + this.character.name, "" + (initative > 0 && initative < 100 ? initative : 0));
-      if (initative > 0 && initative < 100) {
-        this.setInitiative(initative);
-      } else if (gameManager.game.state == GameState.draw) {
-        this.character.initiative = 0;
-      }
+      this.updateInitiative(+this.value);
       this.dialogRef.close();
-      if (gameManager.game.state == GameState.next) {
-        gameManager.sortFigures();
-      }
-      gameManager.stateManager.after();
     }
+  }
+
+  updateInitiative(initative: number) {
+    gameManager.stateManager.before("setInitiative", "data.character." + this.character.name, "" + (initative > 0 && initative < 100 ? initative : 0));
+    if (initative > 0 && initative < 100) {
+      this.setInitiative(initative);
+    } else if (gameManager.game.state == GameState.draw) {
+      this.character.initiative = 0;
+    }
+    if (gameManager.game.state == GameState.next) {
+      gameManager.sortFigures();
+    }
+    gameManager.stateManager.after();
   }
 
   setInitiative(initative: number) {

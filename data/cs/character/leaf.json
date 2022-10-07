@@ -3,6 +3,7 @@
   "characterClass": "human",
   "edition": "cs",
   "color": "#ddde8b",
+  "marker": true,
   "spoiler": true,
   "stats": [
     {

@@ -152,7 +152,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus1",
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "wound"
@@ -170,7 +170,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus1",
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "immobilize"
@@ -189,11 +189,11 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "heal",
                 "value": 1,
-                "subActions": [
+                "effects": [
                   {
                     "type": "specialTarget",
                     "value": "self"
@@ -214,7 +214,7 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "earth"

@@ -22,6 +22,7 @@ export class Settings {
   autoscroll: boolean = true;
   disableColumns: boolean = false;
   dragValues: boolean = true;
+  hideAbsent: boolean = false;
   hints: boolean = true;
   zoom: number = 100;
   barsize: number = 1;

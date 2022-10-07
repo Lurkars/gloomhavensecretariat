@@ -29,14 +29,16 @@ export class Game {
   elementBoard: ElementModel[];
   solo: boolean = false;
   party: Party;
+  parties: Party[];
 
   constructor() {
     this.elementBoard = JSON.parse(JSON.stringify(defeaultElementBoard));
     this.party = new Party();
+    this.parties = [this.party];
   }
 
   toModel(): GameModel {
-    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario && gameManager.scenarioManager.toModel(this.scenario, this.scenario.custom ? this.scenario.name : "") || undefined, this.sections.map((sectionData) => gameManager.scenarioManager.toModel(sectionData)), this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.round, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party);
+    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario && gameManager.scenarioManager.toModel(this.scenario, this.scenario.custom, this.scenario.custom ? this.scenario.name : "") || undefined, this.sections.map((sectionData) => gameManager.scenarioManager.toModel(sectionData)), this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.round, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party, this.parties);
   }
 
   fromModel(model: GameModel, server: boolean = false) {
@@ -90,7 +92,7 @@ export class Game {
     if (model.scenario) {
       const scenarioData = gameManager.scenarioManager.scenarioDataForModel(model.scenario);
       if (scenarioData) {
-        this.scenario = new Scenario(scenarioData, model.scenario.custom != "");
+        this.scenario = new Scenario(scenarioData, model.scenario.isCustom);
       } else {
         this.scenario = undefined;
       }
@@ -159,7 +161,7 @@ export class Game {
     this.elementBoard = this.elementBoard || defeaultElementBoard;
 
     if (model.elementBoard) {
-      model.elementBoard.forEach((element, index) => this.elementBoard[ index ].state = element.state);
+      model.elementBoard.forEach((element, index) => this.elementBoard[index].state = element.state);
     }
 
     // migration
@@ -186,6 +188,14 @@ export class Game {
 
     this.solo = model.solo;
     this.party = model.party ? Object.assign(new Party(), model.party) : new Party();
+    this.parties = [this.party];
+    if (model.parties) {
+      model.parties.forEach((party) => {
+        if (party.id != this.party.id) {
+          this.parties.push(Object.assign(new Party(), party));
+        }
+      })
+    }
   }
 }
 
@@ -222,6 +232,7 @@ export class GameModel {
   elements: Element[] = [];
   solo: boolean;
   party: Party;
+  parties: Party[];
 
   constructor(edition: string | undefined = undefined,
     figures: string[] = [],
@@ -243,7 +254,8 @@ export class GameModel {
     allyAttackModifierDeck: GameAttackModifierDeckModel = new GameAttackModifierDeckModel(-1, defaultAttackModifierCards),
     elementBoard: ElementModel[] = [],
     solo: boolean = false,
-    party: Party = new Party()) {
+    party: Party = new Party(),
+    parties: Party[] = []) {
     this.edition = edition;
     this.figures = figures;
     this.characters = characters;
@@ -265,6 +277,7 @@ export class GameModel {
     this.elementBoard = JSON.parse(JSON.stringify(elementBoard));
     this.solo = solo;
     this.party = JSON.parse(JSON.stringify(party));
+    this.parties = JSON.parse(JSON.stringify(parties));
   }
 
 }

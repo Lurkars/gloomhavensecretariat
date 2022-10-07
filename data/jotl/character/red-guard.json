@@ -117,7 +117,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus2",
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "fire"
@@ -141,7 +141,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus2",
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "light"
@@ -159,7 +159,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus1",
-            "actions": [
+            "effects": [
               {
                 "type": "element",
                 "value": "fire"
@@ -181,11 +181,11 @@
           "count": 1,
           "attackModifier": {
             "type": "plus1",
-            "actions": [
+            "effects": [
               {
                 "type": "shield",
                 "value": 1,
-                "subActions": [
+                "effects": [
                   {
                     "type": "specialTarget",
                     "value": "self"
@@ -211,7 +211,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus1",
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "immobilize"
@@ -235,7 +235,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus1",
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "wound"

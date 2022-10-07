@@ -44,15 +44,18 @@ export class GameScenarioModel {
   index: string;
   edition: string;
   group: string | undefined;
+  isCustom: boolean;
   custom: string;
 
   constructor(index: string,
     edition: string,
     group: string | undefined,
+    isCustom: boolean = false,
     custom: string = "") {
     this.index = index;
     this.edition = edition;
     this.group = group;
+    this.isCustom = isCustom;
     this.custom = custom;
   }
 

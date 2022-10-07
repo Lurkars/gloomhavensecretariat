@@ -140,6 +140,12 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setHideAbsent(hideAbsent: boolean) {
+    this.settings.hideAbsent = hideAbsent;
+    this.storeSettings();
+  }
+
+
   setFullscreen(fullscreen: boolean) {
     this.settings.fullscreen = fullscreen;
     this.storeSettings();

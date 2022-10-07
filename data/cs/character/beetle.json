@@ -73,10 +73,18 @@
           "count": 1,
           "attackModifier": {
             "type": "minus1",
-            "actions": [
+            "effects": [
               {
                 "type": "custom",
-                "value": "%data.custom.perks.beetle.1%"
+                "value": "cs-colony",
+                "icon": true,
+                "hint": "%data.custom.perks.beetle.1%",
+                "effects": [
+                  {
+                    "type": "range",
+                    "value": 2
+                  }
+                ]
               }
             ]
           }
@@ -121,7 +129,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus2",
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "muddle"
@@ -145,7 +153,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus1",
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "poison"
@@ -169,7 +177,7 @@
           "count": 1,
           "attackModifier": {
             "type": "plus1",
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "wound"
@@ -188,7 +196,7 @@
           "attackModifier": {
             "type": "plus1",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "condition",
                 "value": "immobilize"
@@ -207,11 +215,11 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "heal",
                 "value": 1,
-                "subActions": [
+                "effects": [
                   {
                     "type": "specialTarget",
                     "value": "self"
@@ -226,11 +234,11 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "shield",
                 "value": 1,
-                "subActions": [
+                "effects": [
                   {
                     "type": "specialTarget",
                     "value": "self"
@@ -251,11 +259,11 @@
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
-            "actions": [
+            "effects": [
               {
                 "type": "retaliate",
                 "value": 1,
-                "subActions": [
+                "effects": [
                   {
                     "type": "range",
                     "value": 3

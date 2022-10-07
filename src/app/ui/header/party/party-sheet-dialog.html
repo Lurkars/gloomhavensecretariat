@@ -1,6 +1,6 @@
 <div class="light party-sheet-dialog">
   <div class="scroll-container">
-    <div class="container" [ngClass]="{'campaign' : campaign}">
+    <div class="container" [ngClass]="{'campaign-container' : campaign}">
       <div class="sheet" *ngIf="!campaign">
         <div class="columns">
           <div class="column column-left">
@@ -8,13 +8,27 @@
               <span class="campaign-toggle" (click)="campaign = true">
                 <img src="./assets/images/left.svg">{{'party.campaign' | ghsLabel}}
               </span>
-              <label class="headline">{{'party.sheet' | ghsLabel}}</label>
+              <label class="headline">{{'party.sheet' | ghsLabel}}
+              </label>
               <span class="spacer"></span>
+              <select *ngIf="gameManager.game.parties.length > 1 && !gameManager.game.scenario" class="select-party"
+                (change)="selectParty($event)" [title]="'party.change' | ghsLabel">
+                <option *ngFor="let p of gameManager.game.parties" [selected]="p.id == party.id"
+                  [disabled]="p.id == party.id" value="{{p.id}}">{{p.name || ('party' | ghsLabel) + ' ' + p.id}}
+                </option>
+              </select>
             </div>
             <div class="row name">
               <label>{{'party.name' | ghsLabel}}:</label>
               <input type="text" [value]="party.name" (change)="setName($event)"
                 placeholder="{{'party.name' | ghsLabel}}">
+              <ng-container *ngIf="!gameManager.game.scenario">
+                <img *ngIf="gameManager.game.parties.length > 1" class="remove-party" src="./assets/images/minus.svg"
+                  (click)="removeParty()" [title]="'party.remove' | ghsLabel">
+                <span class="spacer"></span>
+                <img class="new-party" src="./assets/images/plus.svg" (click)="newParty()"
+                  [title]="'party.new' | ghsLabel">
+              </ng-container>
             </div>
             <div class="row location">
               <label>{{'party.location' | ghsLabel}}:</label>
@@ -84,8 +98,9 @@
           <label class="headline">{{'party.campaign.scenarios' | ghsLabel}}</label>
 
           <select (change)="changeEdition($event)">
-            <option [value]="undefined" [selected]="!edition">{{'game.edition.all' | ghsLabel}}</option>
-            <option *ngFor="let ed of gameManager.editions()" [selected]="ed == edition" [value]="ed">{{'data.edition.'
+            <option [value]="undefined" [selected]="!party.edition">{{'game.edition.all' | ghsLabel}}</option>
+            <option *ngFor="let ed of gameManager.editions()" [selected]="ed == party.edition" [value]="ed">
+              {{'data.edition.'
               + ed |
               ghsLabel}}</option>
           </select>

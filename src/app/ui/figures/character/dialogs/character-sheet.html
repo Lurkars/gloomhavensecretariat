@@ -5,9 +5,14 @@
         <div class="column column-left">
           <div class="row title">
             <img [src]="characterManager.characterIcon(character)" />
-            <label class="headline"><span *ngIf="character.characterClass">{{'character.class.' +
-                character.characterClass
-                | ghsLabel}}&nbsp;</span>{{'data.character.' + character.name | ghsLabel}}</label>
+            <label class="headline" [ngClass]="{'absent' : character.absent}" (click)="toggleCharacterAbsent()"
+              [title]="(character.absent ? 'character.absent' : 'character.present') | ghsLabel">
+              <span *ngIf="character.characterClass">
+                {{'character.class.' + character.characterClass | ghsLabel}}&nbsp;
+              </span>
+              {{'data.character.' + character.name | ghsLabel}}
+              <img *ngIf="character.absent" src="./assets/images/status/exhausted.svg">
+            </label>
           </div>
           <div class="row base">
             <div class="name">

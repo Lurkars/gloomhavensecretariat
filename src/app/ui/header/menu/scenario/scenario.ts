@@ -8,7 +8,7 @@ import { Scenario } from "src/app/game/model/Scenario";
 @Component({
   selector: 'ghs-scenario-menu',
   templateUrl: 'scenario.html',
-  styleUrls: [ '../menu.scss', 'scenario.scss' ]
+  styleUrls: ['../menu.scss', 'scenario.scss']
 })
 export class ScenarioMenuComponent implements OnInit {
 
@@ -23,9 +23,9 @@ export class ScenarioMenuComponent implements OnInit {
       // edition of current scenario
       gameManager.game.scenario && !gameManager.game.scenario.custom && gameManager.game.scenario.edition ||
       // edition of last scenario
-      !gameManager.game.edition && (!gameManager.game.scenario || !gameManager.game.scenario.custom) && gameManager.game.party.scenarios.length > 0 && gameManager.game.party.scenarios[ gameManager.game.party.scenarios.length - 1 ].edition ||
+      !gameManager.game.edition && (!gameManager.game.scenario || !gameManager.game.scenario.custom) && gameManager.game.party.scenarios.length > 0 && gameManager.game.party.scenarios[gameManager.game.party.scenarios.length - 1].edition ||
       // set edition or first
-      (gameManager.game.edition || gameManager.editions()[ 0 ]);
+      (gameManager.game.edition || gameManager.editions()[0]);
   }
 
   editions(): string[] {
@@ -91,8 +91,8 @@ export class ScenarioMenuComponent implements OnInit {
       gameManager.stateManager.after();
     } else {
       gameManager.stateManager.before("unsetCustomScenario");
-      gameManager.game.scenario = undefined;
-      this.edition = gameManager.game.edition || gameManager.editions()[ 0 ];
+      gameManager.scenarioManager.setScenario(undefined);
+      this.edition = gameManager.game.edition || gameManager.editions()[0];
       gameManager.stateManager.after();
     }
   }

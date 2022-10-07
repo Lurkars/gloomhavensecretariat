@@ -114,7 +114,7 @@ export class LevelDialogComponent {
   }
 
   ge5Player(): boolean {
-    return gameManager.game.figures.filter((figure) => figure instanceof Character).length > 4;
+    return gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length > 4;
   }
 
   setLevel(level: number) {
