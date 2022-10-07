@@ -39,6 +39,7 @@
       "addMonster": "Monster {0} hinzufügen",
       "addNextStandee": "Aufsteller {1} {0} hinzufügen",
       "addObjective": "Ziel {0} hinzufügen",
+      "addParty": "Neue Gruppe '{0}' erstellen",
       "addRandomStandee": "Zufälliger Aufsteller {1} {0} {2} hinzufügen",
       "addSection": "Abschnitt #{0} {1} ({2}) hinzufügen",
       "addStandee": "Aufsteller {1} {0} {2} hinzufügen",
@@ -50,6 +51,7 @@
         "summon": "{2} anwenden auf '{1}' von {0}"
       },
       "buyItem": "Gegenstand {1} (%data.edition.{2}%) für {0} kaufen",
+      "cancelScenario": "Szenario #{0} {1} ({2}) abbrechen",
       "changeCustomScenario": "Namen '{0}' fpr benutzerdefiniertes Szenario",
       "changeEntityHp": "TP {1} für Aufsteller {2} von {0}: {3}",
       "changeEntityMaxHp": "Max. TP {1} für Aufsteller von {0}: {3}",
@@ -59,6 +61,7 @@
       "changeObjectiveHP": "TP {1} für Ziel {0}",
       "changeObjectiveId": "ID '{1}' für {0} ",
       "changeObjectiveMaxHP": "Max. TP {1} für Ziel {0}",
+      "changeParty": "Wechsel zu Gruppe '{0}'",
       "changeSummonAttack": "Angriff {2} für Beschwörung '{1}' von {0}",
       "changeSummonHp": "TP {2} für Beschwörung '{1}' von {0}",
       "changeSummonMaxHp": "Max. TP {2} fpr Beschwörung '{1}' von {0}",
@@ -113,6 +116,7 @@
       "removeManualScenario": "Szenario #{0} {1} ({2}) von Freigeschaltenen entfernen",
       "removeMonster": "Monster {0} entfernen",
       "removeObjective": "Ziel {0} entfernen",
+      "removeParty": "Gruppe '{0}' löschen",
       "reorder": "Figuren neu anordnen",
       "reorderAbilities": "Fertigkeitskarten von {0} neu anordnen",
       "resetScenario": "Szenario #{0} {1} ({2}) zurücksetzen",
@@ -120,6 +124,7 @@
       "sellItem": "Gegenstand {1} (%data.edition.{2}%) von {0} verkaufen",
       "serverSync": "Server: {0}",
       "setActive": "Zug von {0} beginnen",
+      "setAbsent": "{0} abwesend",
       "setAlly": "{0} als Verbündeter",
       "setBG": "Kampfziele {1} für {0}",
       "setConditionValue": {
@@ -158,6 +163,7 @@
       "setXP": "EP {1} für {0}",
       "shuffleAbilityDeck": "Fertigkeiten mischen für {0}",
       "summonDead": "Töte Beschwörung '{1}' von {0}",
+      "unsetAbsent": "{0} anwesend",
       "unsetActive": "Zug beenden von {0}",
       "unsetAlly": "{0} als Gegner",
       "unsetCustomScenario": "Benutzerdefiniertes Szenario deaktivieren",
@@ -194,6 +200,7 @@
     "custom": "Benutzerdefiniert",
     "title": "Titel",
     "reset": "Scenario neustarten",
+    "cancel": "Szenario abbrechen",
     "finish": {
       ".": "Szenario beenden",
       "success": "Erfolg",
@@ -238,6 +245,8 @@
     "add": "Charakter hinzufügen",
     "remove": "Charakter entfernen",
     "removeAll": "Alle entfernen",
+    "absent": "Abwesend",
+    "present": "Anwesend",
     "progress": {
       ".": "Charakterbogen",
       "name": "Name",
@@ -301,6 +310,9 @@
     "reputation": "Ansehen",
     "prosperity": "Wohlstand",
     "campaignMode": "Kampagnenmodus",
+    "new": "Neue Gruppe erstellen",
+    "remove": "Gruppe löschen",
+    "change": "Gruppe wechseln",
     "shop": {
       ".": "Ladenpreis-Modifikator",
       "none": "Keiner"
@@ -385,6 +397,7 @@
     },
     "fullscreen": "Vollbild",
     "fhStyle": "Frosthaven Stil (%wip%)",
+    "hideAbsent": "Abwesende Figuren ausblenden",
     "autoscroll": "Automatisch Scrollen",
     "disableColumns": "Zweispaltiges Layout deaktivieren",
     "dragValues": "Initiative/TP/XP/Beute ziehen",
