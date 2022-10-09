@@ -101,6 +101,15 @@ To selfhost *Gloomhaven Secretary* on your webserver, simple download the zip fi
 
 If you want to create you own custom build (for example to [selfhost](#selfhost)), prepare a [development setup](#development). Afterwards run `npm run build` ([available options](https://angular.io/cli/build#options)) and access build under `./dist/gloomhavensecretary`.
 
+## Build from source using Docker
+
+If you want to use docker to build, simply have docker installed and configured and do the following:
+
+```shell
+docker build -t gloomhavensecretary .
+docker run --rm -p 80:80 gloomhavensecretary
+```
+
 ## Development
 
 Prerequisite:
@@ -112,6 +121,8 @@ Checkout the source code with `git clone https://github.com/Lurkars/gloomhavense
 Install dependencies with `npm install`.
 
 Afterwards run `npm run start` to create a development server at [http://localhost:4200](http://localhost:4200).
+
+Alternatively, you can use docker (see the [docker instructions](#build-from-source-using-docker)).
 
 ## Contributing
 
