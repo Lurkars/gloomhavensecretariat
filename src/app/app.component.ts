@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, isDevMode, OnInit } from '@angular/core';
 import { gameManager } from './game/businesslogic/GameManager';
 import { settingsManager, SettingsManager } from './game/businesslogic/SettingsManager';
 
@@ -27,5 +27,21 @@ export class AppComponent implements OnInit {
     } else {
       document.body.classList.remove('fh');
     }
+  }
+
+  isAppDevMode() {
+    // This function is meant to be a means for allowing us to spyOn isDevMode
+    return isDevMode();
+  }
+
+  onRightClick() {
+    if(!this.isAppDevMode()) {
+      // Ignores right click events in the application when running in prod mode
+      // This is helpful on touch devices such as surfaces, chromebooks wh`ere right clicks are
+      // much easier to mistakenly trigger than mobile devices or desktops`
+      return false;
+    }
+    // If in dev mode, don't disable the context menu
+    return true;
   }
 }

@@ -113,4 +113,19 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('gloomhavensecretary');
   });
 
+  describe('onRightClick', () => {
+    it('should return true in dev mode', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const component = fixture.componentInstance;
+      spyOn(component, "isAppDevMode").and.returnValue(true);
+      expect(component.onRightClick()).toEqual(true);
+    });
+
+    it('should return false in prod mode', () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const component = fixture.componentInstance;
+      spyOn(component, "isAppDevMode").and.returnValue(false);
+      expect(component.onRightClick()).toEqual(false);
+    });
+  });
 });
