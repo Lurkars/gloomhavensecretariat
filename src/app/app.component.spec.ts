@@ -60,6 +60,8 @@ import { AttackModifierDeckFullscreenComponent } from './ui/figures/attackmodifi
 import { AttackModifierEffectsComponent } from './ui/figures/attackmodifier/attackmodifier-effects';
 import { MonsterEditorActionComponent, MonsterEditorActionDialogComponent } from './ui/tools/editor/monster/action/action';
 import { MonsterEditorComponent } from './ui/tools/editor/monster/monster';
+import { CharacterFullViewComponent } from './ui/figures/character/fullview/fullview';
+import { AppRoutingModule } from './app-routing.module';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -94,6 +96,7 @@ describe('AppComponent', () => {
         MonsterEditorComponent, MonsterEditorActionComponent, MonsterEditorActionDialogComponent],
       imports: [
         BrowserModule,
+        AppRoutingModule,
         FormsModule,
         DragDropModule,
         DialogModule,

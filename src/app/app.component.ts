@@ -29,8 +29,12 @@ export class AppComponent implements OnInit {
     }
   }
 
+  isAppDevMode() : boolean {
+    return isDevMode();
+  }
+
   onRightClick() {
-    if (!isDevMode() && !settingsManager.settings.debugRightClick) {
+    if (!this.isAppDevMode() && !settingsManager.settings.debugRightClick) {
       return false;
     }
     return true;
