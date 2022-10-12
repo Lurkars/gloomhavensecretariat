@@ -6,11 +6,11 @@ import { gameManager } from "./GameManager";
 export class SettingsManager {
 
   defaultLocale: string = 'en';
-  defaultEditionDataUrls: string[] = [ "./assets/data/gh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/fh.json", "./assets/data/cs.json" ];
+  defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/fh.json", "./assets/data/cs.json"];
 
   settings: Settings = new Settings();
   label: any = {};
-  locales: string[] = [ "en", "de", "fr" ];
+  locales: string[] = ["en", "de", "fr"];
 
   constructor() {
     this.loadSettings();
@@ -222,6 +222,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setDebugRightClick(debugRightClick: boolean) {
+    this.settings.debugRightClick = debugRightClick;
+    this.storeSettings();
+  }
+
   addSpoiler(spoiler: string) {
     if (this.settings.spoilers.indexOf(spoiler) == -1) {
       this.settings.spoilers.push(spoiler);
@@ -301,19 +306,19 @@ export class SettingsManager {
     }
 
     // default label
-    if (this.settings.locale != this.defaultLocale && value.label && value.label[ this.defaultLocale ]) {
-      this.label.data = this.merge(this.label.data, value.label[ this.defaultLocale ]);
-      if (value.labelSpoiler && value.labelSpoiler[ this.defaultLocale ]) {
-        this.label.data = this.merge(this.label.data, value.labelSpoiler[ this.defaultLocale ]);
+    if (this.settings.locale != this.defaultLocale && value.label && value.label[this.defaultLocale]) {
+      this.label.data = this.merge(this.label.data, value.label[this.defaultLocale]);
+      if (value.labelSpoiler && value.labelSpoiler[this.defaultLocale]) {
+        this.label.data = this.merge(this.label.data, value.labelSpoiler[this.defaultLocale]);
       }
     }
 
-    if (value.label && value.label[ this.settings.locale ]) {
-      this.label.data = this.merge(this.label.data, value.label[ this.settings.locale ]);
+    if (value.label && value.label[this.settings.locale]) {
+      this.label.data = this.merge(this.label.data, value.label[this.settings.locale]);
     }
 
-    if (value.labelSpoiler && value.labelSpoiler[ this.settings.locale ]) {
-      this.label.data = this.merge(this.label.data, value.labelSpoiler[ this.settings.locale ]);
+    if (value.labelSpoiler && value.labelSpoiler[this.settings.locale]) {
+      this.label.data = this.merge(this.label.data, value.labelSpoiler[this.settings.locale]);
     }
 
     if (!this.label.data.edition) {
@@ -360,21 +365,21 @@ export class SettingsManager {
       const len: number = sources.length;
 
       for (let i = 0; i < len; i += 1) {
-        const elm: any = sources[ i ];
+        const elm: any = sources[i];
 
         if (this.isObject(elm)) {
           for (const key in elm) {
             if (elm.hasOwnProperty(key)) {
-              if (this.isObject(elm[ key ])) {
-                if (!result[ key ] || !this.isObject(result[ key ])) {
-                  result[ key ] = {};
+              if (this.isObject(elm[key])) {
+                if (!result[key] || !this.isObject(result[key])) {
+                  result[key] = {};
                 }
-                this.merge(result[ key ], elm[ key ]);
+                this.merge(result[key], elm[key]);
               } else {
-                if (Array.isArray(result[ key ]) && Array.isArray(elm[ key ])) {
-                  result[ key ] = Array.from(new Set(result[ key ].concat(elm[ key ])));
+                if (Array.isArray(result[key]) && Array.isArray(elm[key])) {
+                  result[key] = Array.from(new Set(result[key].concat(elm[key])));
                 } else {
-                  result[ key ] = elm[ key ];
+                  result[key] = elm[key];
                 }
               }
             }
@@ -471,19 +476,19 @@ export class SettingsManager {
     key += '';
     if (!from) {
       return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : key || "");
-    } else if (from[ key ]) {
-      if (typeof from[ key ] === 'object') {
-        if (from[ key ][ "." ]) {
-          return this.insertLabelArguments(from[ key ][ "." ], args, argLabel);
+    } else if (from[key]) {
+      if (typeof from[key] === 'object') {
+        if (from[key]["."]) {
+          return this.insertLabelArguments(from[key]["."], args, argLabel);
         }
         return empty ? this.emptyLabel(key, args, path) : (path && key ? this.getLabel(key) : key || "");
       }
-      return this.insertLabelArguments(from[ key ], args, argLabel);
+      return this.insertLabelArguments(from[key], args, argLabel);
     } else {
       let keys = key.split(".");
-      if (from[ keys[ 0 ] ]) {
+      if (from[keys[0]]) {
         key = keys.slice(1, keys.length).join(".");
-        return this.getLabel(key, args, argLabel, from[ keys[ 0 ] ], path + keys[ 0 ] + ".", empty)
+        return this.getLabel(key, args, argLabel, from[keys[0]], path + keys[0] + ".", empty)
       }
     }
 
@@ -498,7 +503,7 @@ export class SettingsManager {
     if (args) {
       for (let index in args) {
         while (label.indexOf(`{${index}}`) != -1) {
-          label = label.replace(`{${index}}`, argLabel ? this.getLabel(args[ index ]) : args[ index ]);
+          label = label.replace(`{${index}}`, argLabel ? this.getLabel(args[index]) : args[index]);
         }
       }
     }

@@ -14,13 +14,13 @@ import { ObjectiveData } from "src/app/game/model/data/ObjectiveData";
 import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 
 export enum SubMenu {
-  main, edition, scenario, section, monster_add, monster_remove, character_add, character_remove, objective_add, objective_remove, settings, server, datamanagement, about
+  main, edition, scenario, section, monster_add, monster_remove, character_add, character_remove, objective_add, objective_remove, settings, debug, server, datamanagement, about
 }
 
 @Component({
   selector: 'ghs-main-menu',
   templateUrl: 'menu.html',
-  styleUrls: [ './menu.scss' ]
+  styleUrls: ['./menu.scss']
 })
 export class MainMenuComponent implements OnInit {
 
@@ -83,29 +83,29 @@ export class MainMenuComponent implements OnInit {
 
   updateUndoRedo() {
     if (gameManager.stateManager.undos.length > 0 && gameManager.stateManager.undoInfos.length >= gameManager.stateManager.undos.length) {
-      this.undoInfo = gameManager.stateManager.undoInfos[ gameManager.stateManager.undos.length - 1 ];
-      if (this.undoInfo.length > 1 && this.undoInfo[ 0 ] == "serverSync") {
-        if (this.undoInfo[ 1 ] == "setInitiative" && this.undoInfo.length > 3) {
-          this.undoInfo = [ "serverSync", settingsManager.getLabel('state.info.' + this.undoInfo[ 1 ], [ this.undoInfo[ 2 ], "" ]) ];
+      this.undoInfo = gameManager.stateManager.undoInfos[gameManager.stateManager.undos.length - 1];
+      if (this.undoInfo.length > 1 && this.undoInfo[0] == "serverSync") {
+        if (this.undoInfo[1] == "setInitiative" && this.undoInfo.length > 3) {
+          this.undoInfo = ["serverSync", settingsManager.getLabel('state.info.' + this.undoInfo[1], [this.undoInfo[2], ""])];
         } else {
-          this.undoInfo = [ "serverSync", settingsManager.getLabel('state.info.' + this.undoInfo[ 1 ], this.undoInfo.slice(2)) ];
+          this.undoInfo = ["serverSync", settingsManager.getLabel('state.info.' + this.undoInfo[1], this.undoInfo.slice(2))];
         }
-      } else if (this.undoInfo.length == 1 && this.undoInfo[ 0 ] == "serverSync") {
-        this.undoInfo = [ "serverSync", "" ]
+      } else if (this.undoInfo.length == 1 && this.undoInfo[0] == "serverSync") {
+        this.undoInfo = ["serverSync", ""]
       }
     } else {
       this.undoInfo = [];
     }
     if (gameManager.stateManager.redos.length > 0 && gameManager.stateManager.undoInfos.length > gameManager.stateManager.undos.length) {
-      this.redoInfo = gameManager.stateManager.undoInfos[ gameManager.stateManager.undos.length ];
-      if (this.redoInfo.length > 1 && this.redoInfo[ 0 ] == "serverSync") {
-        if (this.redoInfo[ 1 ] == "setInitiative" && this.redoInfo.length > 3) {
-          this.redoInfo = [ "serverSync", settingsManager.getLabel('state.info.' + this.redoInfo[ 1 ], [ this.redoInfo[ 2 ], "" ]) ];
+      this.redoInfo = gameManager.stateManager.undoInfos[gameManager.stateManager.undos.length];
+      if (this.redoInfo.length > 1 && this.redoInfo[0] == "serverSync") {
+        if (this.redoInfo[1] == "setInitiative" && this.redoInfo.length > 3) {
+          this.redoInfo = ["serverSync", settingsManager.getLabel('state.info.' + this.redoInfo[1], [this.redoInfo[2], ""])];
         } else {
-          this.redoInfo = [ "serverSync", settingsManager.getLabel('state.info.' + this.redoInfo[ 1 ], this.redoInfo.slice(2)) ];
+          this.redoInfo = ["serverSync", settingsManager.getLabel('state.info.' + this.redoInfo[1], this.redoInfo.slice(2))];
         }
-      } else if (this.redoInfo.length == 1 && this.redoInfo[ 0 ] == "serverSync") {
-        this.redoInfo = [ "serverSync", "" ]
+      } else if (this.redoInfo.length == 1 && this.redoInfo[0] == "serverSync") {
+        this.redoInfo = ["serverSync", ""]
       }
     } else {
       this.redoInfo = [];

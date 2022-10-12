@@ -64,6 +64,7 @@ import { AttackModifierEffectsComponent } from './ui/figures/attackmodifier/atta
 import { AppRoutingModule } from './app-routing.module';
 import { MonsterEditorComponent } from './ui/tools/editor/monster/monster';
 import { MonsterEditorActionComponent, MonsterEditorActionDialogComponent } from './ui/tools/editor/monster/action/action';
+import { SettingsDebugMenuComponent } from './ui/header/menu/debug/debug';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,7 @@ import { MonsterEditorActionComponent, MonsterEditorActionDialogComponent } from
     MainComponent,
     HeaderComponent, ElementIconComponent,
     PartySheetComponent, PartySheetDialogComponent,
-    MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent,
+    MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent,
     FooterComponent,
     AttackModifierComponent, AttackModifierEffectsComponent, HintDialogComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent,
     LevelComponent, LevelDialogComponent,

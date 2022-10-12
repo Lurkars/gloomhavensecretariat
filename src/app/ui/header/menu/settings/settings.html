@@ -215,9 +215,20 @@
       {{'settings.locale.' + locale | ghsLabel}}
     </label>
   </div>
-  <div class="line separator">
-    <a (click)="helperDefaults()">
-      {{'settings.helperDefaults' | ghsLabel}}
-    </a>
+  <div class="columns separator">
+    <div class="column">
+      <div class="line">
+        <a (click)="helperDefaults()">
+          {{'settings.helperDefaults' | ghsLabel}}
+        </a>
+      </div>
+    </div>
+    <div class="column">
+      <div class="line">
+        <a (click)="setMenu.emit(SubMenu.debug)">
+          {{'settings.debug' | ghsLabel}}
+        </a>
+      </div>
+    </div>
   </div>
 </div>

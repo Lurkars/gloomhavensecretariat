@@ -1,18 +1,22 @@
-import { Component } from "@angular/core";
+import { Component, EventEmitter, Output } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GameState } from "src/app/game/model/Game";
+import { SubMenu } from "../menu";
 
 @Component({
   selector: 'ghs-settings-menu',
   templateUrl: 'settings.html',
-  styleUrls: [ '../menu.scss', 'settings.scss' ]
+  styleUrls: ['../menu.scss', 'settings.scss']
 })
 export class SettingsMenuComponent {
+
+  @Output() setMenu: EventEmitter<SubMenu> = new EventEmitter<SubMenu>();
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
+  SubMenu = SubMenu;
 
   doubleClick: any = null;
 

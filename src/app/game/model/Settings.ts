@@ -39,4 +39,5 @@ export class Settings {
   serverSettings: boolean = false;
   serverWss: boolean = false;
   maxUndo: number = 50;
+  debugRightClick: boolean = false;
 }

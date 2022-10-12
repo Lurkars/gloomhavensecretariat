@@ -258,7 +258,9 @@
     </div>
   </div>
 
-  <ghs-settings-menu *ngSwitchCase="SubMenu.settings"></ghs-settings-menu>
+  <ghs-settings-menu *ngSwitchCase="SubMenu.settings" (setMenu)="setActive($event)"></ghs-settings-menu>
+
+  <ghs-debug-menu *ngSwitchCase="SubMenu.debug"></ghs-debug-menu>
 
   <ghs-server-menu *ngSwitchCase="SubMenu.server"></ghs-server-menu>
 

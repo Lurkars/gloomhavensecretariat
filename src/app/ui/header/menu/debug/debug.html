@@ -1,0 +1,13 @@
+<div class="menu-container debug">
+  <div class="columns">
+    <div class="column">
+      <div class="line">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.debugRightClick"
+            (change)="settingsManager.setDebugRightClick(!settingsManager.settings.debugRightClick)">
+          {{'settings.debug.rightClick' | ghsLabel}}
+        </label>
+      </div>
+    </div>
+  </div>
+</div>

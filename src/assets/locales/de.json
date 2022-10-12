@@ -414,6 +414,10 @@
       "en": "Englisch (English)",
       "de": "Deutsch",
       "fr": "Französisch (Français)"
+    },
+    "debug" : {
+      "." : "Debug Einstellung",
+      "rightClick" : "Rechtsklick immer erlauben"
     }
   },
   "server": {
