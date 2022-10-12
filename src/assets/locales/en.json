@@ -721,5 +721,54 @@
     "add": "Add Spoiler",
     "all": "Reveal All Spoilers"
   },
+  "editor": {
+    "monster": {
+      ".": "Monster Editor",
+      "edition": "Edition",
+      "new": "New Monster",
+      "stats": {
+        ".": "Monster Stats",
+        "deck": "Ability Deck Name",
+        "boss": "Is Boss",
+        "flying": "Is Flying",
+        "hidden": "Is Hidden",
+        "count": "Standee Count",
+        "applyAll": "Apply to all level",
+        "addSpecial": "Add Special",
+        "levelSelect": "Select Level",
+        "json": {
+          ".": "Monster Stats JSON Data",
+          "download": "Download Monster Stats as JSON file"
+        }
+      },
+      "deck": {
+        ".": "Monster Abilities Deck",
+        "new": "New Abilities Deck",
+        "addAbility": "Add Ability",
+        "removeAbility": "Remove Ability",
+        "name": "Deck Name",
+        "json": {
+          ".": "Abilities Deck JSON Data",
+          "download": "Download Abilities Deck as JSON file"
+        }
+      }
+    },
+    "action": {
+      "add": "Add Action",
+      "remove": "Remove Action",
+      "addSubAction": "Add Subaction",
+      "removeSubAction": "Remove Subaction",
+      "type": "Action Type",
+      "value": "Action Value",
+      "valueType": {
+        ".": "Value Type",
+        "fixed": "Fixed",
+        "plus": "Plus",
+        "minus": "Minus",
+        "add": "Add",
+        "subtract": "Subtract"
+      }
+    }
+  },
   "wip": "Work In Progress"
 }

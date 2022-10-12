@@ -1,0 +1,64 @@
+.action {
+  display: flex;
+  flex-direction: column;
+  color: var(--ghs-color-white);
+
+  .subactions {
+    display: flex;
+    flex-direction: column;
+
+    .subaction {
+      margin-left: calc(var(--ghs-unit) * 2);
+    }
+  }
+
+  .hexes {
+    width: 0;
+  }
+}
+
+label.inline {
+  margin-top: calc(var(--ghs-unit) * 0.5);
+  display: flex;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  min-width: initial;
+  color: var(--ghs-color-white);
+  background-color: transparent;
+  border: 1px solid var(--ghs-color-gray);
+  font-family: var(--ghs-font-normal);
+  font-size: calc(var(--ghs-unit) * 2.7 * var(--ghs-fontsize));
+
+
+  &:hover {
+    border: 1px solid var(--ghs-color-gray);
+  }
+}
+
+
+
+
+.ghs-icon {
+  height: 1em;
+  width: auto;
+
+  filter: var(--ghs-filter-white);
+}
+
+a {
+  display: flex;
+  align-items: center;
+
+  .ghs-icon:nth-child(1) {
+    margin-right: 0.2em;
+  }
+}
+
+a,
+ghs-action-hex {
+  cursor: pointer;
+}

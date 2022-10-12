@@ -15,8 +15,8 @@ export class Ability {
   bottomSlots: number = 0;
   revealed: boolean = false;
 
-  constructor(cardId: number | undefined, name: string | undefined, initiative: number,
-    actions: Action[],
+  constructor(cardId: number | undefined = undefined, name: string | undefined = undefined, initiative: number = 0,
+    actions: Action[] = [],
     shuffle: boolean = false, bottomActions: Action[] = [], level: number = 0, hint: string | undefined = undefined) {
     this.cardId = cardId;
     this.name = name;
@@ -34,5 +34,5 @@ export enum AbilityCardType {
   lost = "lost",
   infinity = "infinity",
   round = "round"
-  
+
 }

@@ -59,7 +59,37 @@ export enum ActionHexType {
   target = "target",
   conditional = "conditional",
   ally = "ally",
-  blank = "blank"
+  blank = "blank",
+  invisible = "invisible"
+}
+
+export enum ActionSpecialTarget {
+  self = "self",
+  selfAllies = "selfAllies",
+  selfAlliesAffect = "selfAlliesAffect",
+  selfAlliesRange = "selfAlliesRange",
+  selfAlliesAdjacentAffect = "selfAlliesAdjacentAffect",
+  ally = "ally",
+  allyShort = "allyShort",
+  allyAffect = "allyAffect",
+  allyAdjacent = "allyAdjacent",
+  allies = "allies",
+  alliesAdjacent = "alliesAdjacent",
+  alliesAdjacentAffect = "alliesAdjacentAffect",
+  alliesRange = "alliesRange",
+  alliesRangeAffect = "alliesRangeAffect",
+  enemy = "enemy",
+  enemyAdjacent = "enemyAdjacent",
+  enemyRange = "enemyRange",
+  enemyOneAll = "enemyOneAll",
+  enemies = "enemies",
+  enemiesAdjacent = "enemiesAdjacent",
+  enemiesRange = "enemiesRange",
+  enemiesRangeAffect = "enemiesRangeAffect",
+  figures = "figures",
+  figuresAdjacent = "figuresAdjacent",
+  figuresRange = "figuresRange",
+  targets = "targets"
 }
 
 export class ActionHex {
@@ -76,17 +106,17 @@ export class ActionHex {
 
   public static fromString(string: string): ActionHex | null {
 
-    let groups: RegExpExecArray | null = new RegExp(/^\((\d+),(\d+),(active|target|conditional|ally|blank)\)$/).exec(string);
+    let groups: RegExpExecArray | null = new RegExp(/^\((\d+),(\d+),(active|target|conditional|ally|blank|invisible)\)$/).exec(string);
 
     if (groups == null) {
       return null;
     }
 
-    return new ActionHex(+groups[ 1 ], +groups[ 2 ], groups[ 3 ] as ActionHexType);
+    return new ActionHex(+groups[1], +groups[2], groups[3] as ActionHexType);
   }
 
   public static toString(actionHex: ActionHex): string {
-    return "(" + actionHex.x + "," + actionHex.y + "," + ActionHexType[ actionHex.type ] + ")"
+    return "(" + actionHex.x + "," + actionHex.y + "," + ActionHexType[actionHex.type] + ")"
   }
 
 }

@@ -1,0 +1,66 @@
+<div class="action">
+  <label>{{'editor.action.type' | ghsLabel}}</label>
+  <select [(ngModel)]="action.type" placeholder="type" (change)="changeType()">
+    <option *ngFor="let actionType of ActionTypes" [value]="actionType">{{'game.action.' + actionType | ghsLabel}}
+    </option>
+  </select>
+  <label>{{'editor.action.value' | ghsLabel}}</label>
+
+  <ng-container *ngIf="action.type == ActionType.specialTarget">
+    <select [(ngModel)]="value" (change)="changeSpecialTarget()">
+      <option *ngFor="let specialTarget of ActionSpecialTarget" [value]="specialTarget">
+        <span [i18n]="'game.specialTarget.' + specialTarget" [i18n-args]="['X']"></span>
+      </option>
+    </select>
+    <label class="inline" *ngIf="subValue">
+      X: <input min="1" type="number" [(ngModel)]="subValue" (change)="changeSpecialTarget()">
+    </label>
+  </ng-container>
+
+  <input
+    *ngIf="[ActionType.area, ActionType.condition, ActionType.element, ActionType.monsterType, ActionType.specialTarget].indexOf(action.type) == -1"
+    type="text" [ngModel]="action.value" (ngModelChange)="action.value=valueChange($event)" (change)="change()">
+
+  <div class="hexes" *ngIf="action.type == ActionType.area">
+    <ghs-action-hex [value]="hexValue" (clickCallback)="toggleHex($event)" (doubleclickCallback)="removeHex($event)">
+    </ghs-action-hex>
+  </div>
+
+  <ng-container *ngIf="action.type == ActionType.condition">
+    <select [(ngModel)]="value" (change)="changeCondition()">
+      <option *ngFor="let condition of ConditionNames" [value]="condition">{{'game.condition.' + condition | ghsLabel}}
+      </option>
+    </select>
+    <label class="inline" *ngIf="subValue">
+      X: <input min="1" type="number" [(ngModel)]="subValue" (change)="changeCondition()">
+    </label>
+  </ng-container>
+
+  <select *ngIf="action.type == ActionType.element" [(ngModel)]="action.value" (change)="change()">
+    <option *ngFor="let element of Elements" [value]="element">{{'game.element.' + element | ghsLabel}}</option>
+  </select>
+
+  <select *ngIf="action.type == ActionType.monsterType" [(ngModel)]="action.value" (change)="change()">
+    <option *ngFor="let monsterType of MonsterTypes" [value]="monsterType">{{'game.monster.' + monsterType | ghsLabel}}</option>
+  </select>
+
+  <ng-container *ngIf="[ActionType.area, ActionType.card, ActionType.condition, ActionType.custom, ActionType.monsterType,
+     ActionType.refreshItem, ActionType.specialTarget, ActionType.summon, ActionType.trigger].indexOf(action.type) == -1">
+    <label>{{'editor.action.valueType' | ghsLabel}}</label>
+    <select [(ngModel)]="action.valueType" placeholder="valueType" (change)="change()">
+      <option *ngFor="let valueType of ActionValueTypes" [value]="valueType">{{'editor.action.valueType.' + valueType |
+        ghsLabel}}</option>
+    </select>
+  </ng-container>
+
+  <div class="subactions">
+    <label>SubActions</label>
+    <a (click)="addSubAction()"><img class="ghs-icon" src="./assets/images/plus.svg"> {{'editor.action.addSubAction' |
+      ghsLabel}}</a>
+    <div class="subaction" *ngFor="let subAction of action.subActions; let i = index">
+      <ghs-monster-editor-action [(action)]="action.subActions[i]" [monster]="monster"></ghs-monster-editor-action>
+      <a (click)="removeSubAction(i)"><img class="ghs-icon" src="./assets/images/minus.svg">
+        {{'editor.action.removeSubAction' | ghsLabel}}</a>
+    </div>
+  </div>
+</div>

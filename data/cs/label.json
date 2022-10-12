@@ -64,7 +64,10 @@
       "water-spirit": "Water Spirit",
       "your-shadow": "Your Shadow"
     },
-    "deck": {},
+    "deck": {
+      "scout-ally" : "%data.deck.scout% (%game.ally%)",
+      "shaman-ally" : "%data.deck.shaman% (%game.ally%)"
+    },
     "ability": {},
     "scenario": {},
     "summon": {

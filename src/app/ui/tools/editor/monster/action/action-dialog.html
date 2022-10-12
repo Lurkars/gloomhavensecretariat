@@ -1,0 +1,7 @@
+<ghs-action (click)="relative = !relative" [action]="data.action" [monster]="data.monster" [relative]="relative">
+</ghs-action>
+
+<ghs-monster-editor-action [(action)]="data.action" [monster]="data.monster"></ghs-monster-editor-action>
+
+<a (click)="deleteAction()"><img class="ghs-icon" src="./assets/images/minus.svg">
+    {{'editor.action.remove' | ghsLabel}}</a>

@@ -96,11 +96,11 @@
   .stats {
     position: absolute;
     top: calc(var(--ghs-unit) * 6.2);
-    left: calc(var(--ghs-unit) * 15.1);
-    width: calc(var(--ghs-unit) * 9.5);
+    left: 0;
+    width: calc(var(--ghs-unit) * 40);
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: calc(var(--ghs-unit) * 4.4);
+    column-gap: calc(var(--ghs-unit) * 4);
     filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
     z-index: 1;
 
@@ -108,6 +108,7 @@
       font-size: calc(var(--ghs-unit) * 2.7 * var(--ghs-fontsize));
       padding-top: calc(var(--ghs-unit) * 0);
       line-height: calc(var(--ghs-unit) * 3.40);
+      width: calc(var(--ghs-unit) * 18 * var(--ghs-fontsize));
 
       &.end {
         justify-self: end;
@@ -130,10 +131,14 @@
 
     .stats {
       top: calc(var(--ghs-unit) * 6.3);
-      left: calc(var(--ghs-unit) * 4.1);
-      width: calc(var(--ghs-unit) * 10);
+      left: 0;
+      width: calc(var(--ghs-unit) * 14);
       grid-template-columns: 1fr;
       top: calc(var(--ghs-unit) * 6.5);
+
+      .stat {
+        width: calc(var(--ghs-unit) * 14);
+      }
     }
   }
 
@@ -261,7 +266,7 @@
     }
 
     &.boss {
-      width: calc(var(--ghs-unit) * 22);
+      width: calc(var(--ghs-unit) * 21);
       right: calc(var(--ghs-unit) * 0.5);
       color: var(--ghs-color-white);
 

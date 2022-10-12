@@ -34,9 +34,6 @@ import { DatamanagementMenuComponent } from './ui/header/menu/datamanagement/dat
 import { ScenarioMenuComponent } from './ui/header/menu/scenario/scenario';
 import { CharacterInitiativeComponent, CharacterInitiativeDialogComponent } from './ui/figures/character/cards/initiative';
 import { ObjectiveComponent } from './ui/figures/objective/objective';
-import { MonsterToolComponent } from './ui/tools/monster/monster';
-import { MonsterStatToolComponent } from './ui/tools/monster/stat/stat';
-import { MonsterActionToolComponent } from './ui/tools/monster/action/action';
 import { ServerMenuComponent } from './ui/header/menu/server/server';
 import { FigureErrorsComponent, FigureErrorsDialogComponent } from './ui/figures/errors/errors';
 import { SectionMenuComponent } from './ui/header/menu/section/section';
@@ -64,6 +61,9 @@ import { CharacterFullViewComponent } from './ui/figures/character/fullview/full
 import { AttackModifierDeckDialogComponent } from './ui/figures/attackmodifier/attackmodifierdeck-dialog';
 import { AttackModifierDeckFullscreenComponent } from './ui/figures/attackmodifier/attackmodifierdeck-fullscreen';
 import { AttackModifierEffectsComponent } from './ui/figures/attackmodifier/attackmodifier-effects';
+import { AppRoutingModule } from './app-routing.module';
+import { MonsterEditorComponent } from './ui/tools/editor/monster/monster';
+import { MonsterEditorActionComponent, MonsterEditorActionDialogComponent } from './ui/tools/editor/monster/action/action';
 
 @NgModule({
   declarations: [
@@ -92,15 +92,17 @@ import { AttackModifierEffectsComponent } from './ui/figures/attackmodifier/atta
     FigureErrorsComponent, FigureErrorsDialogComponent,
     CardRevealDirective, EntityAnimationDirective, I18nDirective, ValueCalcDirective, DragValueComponent, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
     GhsValueSignPipe, GhsLabelPipe, GhsRangePipe,
-    AttackModifierToolComponent, MonsterToolComponent, MonsterActionToolComponent, MonsterStatToolComponent ],
+    AttackModifierToolComponent,
+    MonsterEditorComponent, MonsterEditorActionComponent, MonsterEditorActionDialogComponent],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
     DragDropModule,
     DialogModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: true, registrationStrategy: 'registerImmediately' })
   ],
-  providers: [ { provide: APP_BASE_HREF, useValue: '.' }, { provide: DEFAULT_DIALOG_CONFIG, useValue: { autoFocus: 'dialog', hasBackdrop: true } } ],
-  bootstrap: [ AppComponent ]
+  providers: [{ provide: APP_BASE_HREF, useValue: '.' }, { provide: DEFAULT_DIALOG_CONFIG, useValue: { autoFocus: 'dialog', hasBackdrop: true } }],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

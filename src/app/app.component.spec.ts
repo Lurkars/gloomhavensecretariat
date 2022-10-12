@@ -29,9 +29,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { ServerMenuComponent } from './ui/header/menu/server/server';
 import { CharacterInitiativeComponent, CharacterInitiativeDialogComponent } from './ui/figures/character/cards/initiative';
 import { ObjectiveComponent } from './ui/figures/objective/objective';
-import { MonsterToolComponent } from './ui/tools/monster/monster';
-import { MonsterActionToolComponent } from './ui/tools/monster/action/action';
-import { MonsterStatToolComponent } from './ui/tools/monster/stat/stat';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -47,7 +44,7 @@ import { PartySheetComponent, PartySheetDialogComponent } from './ui/header/part
 import { DragValueComponent } from './ui/helper/dragValue/drag';
 import { AttackModifierDeckComponent } from './ui/figures/attackmodifier/attackmodifierdeck';
 import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodifier';
-import { ScenarioComponent, ScenarioDialogComponent } from './ui/footer/scenario/scenario';
+import { ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent } from './ui/footer/scenario/scenario';
 import { EntityMenuDialogComponent } from './ui/figures/entity-menu/entity-menu-dialog';
 import { MonsterLevelDialogComponent } from './ui/figures/monster/dialogs/level-dialog';
 import { MonsterStatsDialogComponent } from './ui/figures/monster/dialogs/stats-dialog';
@@ -60,6 +57,9 @@ import { AttackModifierToolComponent } from './ui/tools/attackmodifier/attackmod
 import { DialogModule } from '@angular/cdk/dialog';
 import { AttackModifierDeckDialogComponent } from './ui/figures/attackmodifier/attackmodifierdeck-dialog';
 import { AttackModifierDeckFullscreenComponent } from './ui/figures/attackmodifier/attackmodifierdeck-fullscreen';
+import { AttackModifierEffectsComponent } from './ui/figures/attackmodifier/attackmodifier-effects';
+import { MonsterEditorActionComponent, MonsterEditorActionDialogComponent } from './ui/tools/editor/monster/action/action';
+import { MonsterEditorComponent } from './ui/tools/editor/monster/monster';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -71,12 +71,12 @@ describe('AppComponent', () => {
         PartySheetComponent, PartySheetDialogComponent,
         MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent,
         FooterComponent,
-        AttackModifierComponent, HintDialogComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent,
+        AttackModifierComponent, AttackModifierEffectsComponent, HintDialogComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent,
         LevelComponent, LevelDialogComponent,
-        ScenarioComponent, ScenarioDialogComponent,
+        ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent,
         ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
         EntityMenuDialogComponent,
-        CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetDialog,
+        CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetDialog, CharacterFullViewComponent,
         ObjectiveComponent,
         SummonEntityComponent,
         MonsterComponent,
@@ -90,7 +90,8 @@ describe('AppComponent', () => {
         FigureErrorsComponent, FigureErrorsDialogComponent,
         CardRevealDirective, EntityAnimationDirective, I18nDirective, ValueCalcDirective, DragValueComponent, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
         GhsValueSignPipe, GhsLabelPipe, GhsRangePipe,
-        AttackModifierToolComponent, MonsterToolComponent, MonsterActionToolComponent, MonsterStatToolComponent ],
+        AttackModifierToolComponent,
+        MonsterEditorComponent, MonsterEditorActionComponent, MonsterEditorActionDialogComponent],
       imports: [
         BrowserModule,
         FormsModule,

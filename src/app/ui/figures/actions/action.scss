@@ -501,15 +501,6 @@
 
     .action-element {
       flex-wrap: unset;
-      margin-top: 0.1%;
-
-      .elements {
-        .element {
-          width: 0.5%;
-          height: 0.5%;
-          margin: 0.1%;
-        }
-      }
     }
 
     .action-custom,
@@ -519,8 +510,6 @@
     }
 
     .icon {
-      margin: 5%;
-      margin-top: 0;
       height: 0.7em;
       width: auto;
     }
@@ -559,6 +548,12 @@
       .custom-value,
       .summon-value {
         text-align: right;
+      }
+
+
+
+      .subactions {
+        align-items: flex-end;
       }
     }
 

@@ -1,0 +1,28 @@
+:host {
+    display: block;
+    font-size: calc(var(--ghs-unit) * 2.7 * var(--ghs-fontsize));
+    width: 500px;
+}
+
+ghs-action {
+    font-size: calc(var(--ghs-unit) * 2.7 * var(--ghs-fontsize));
+}
+
+
+
+.ghs-icon {
+    height: 1em;
+    width: auto;
+
+    filter: var(--ghs-filter-white);
+}
+
+a {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    .ghs-icon:nth-child(1) {
+        margin-right: 0.2em;
+    }
+}

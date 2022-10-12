@@ -14,7 +14,7 @@ import { MonsterLevelDialogComponent } from '../dialogs/level-dialog';
 @Component({
   selector: 'ghs-monster-stats',
   templateUrl: './stats.html',
-  styleUrls: [ './stats.scss' ]
+  styleUrls: ['./stats.scss']
 })
 export class MonsterStatsComponent implements OnInit {
 
@@ -84,17 +84,12 @@ export class MonsterStatsComponent implements OnInit {
   }
 
   statsForType(type: MonsterType): MonsterStat {
-    const stat = this.monster.stats.find((monsterStat) => {
+    let stat = this.monster.stats.find((monsterStat) => {
       return monsterStat.level == this.monster.level && monsterStat.type == type;
     });
     if (!stat) {
-      this.monster.errors = this.monster.errors || [];
-      if (!this.monster.errors.find((figureError) => figureError.type == FigureErrorType.unknown) && !this.monster.errors.find((figureError) => figureError.type == FigureErrorType.stat)) {
-        console.error("Could not find '" + type + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
-        this.monster.errors.push(new FigureError(FigureErrorType.stat, "monster", this.monster.name, this.monster.edition, type, "" + this.monster.level));
-      }
-
-      return new MonsterStat(type, this.monster.level, 0, 0, 0, 0);
+      stat = new MonsterStat(type, this.monster.level, 0, 0, 0, 0);
+      this.monster.stats.push(stat);
     }
     return stat;
   }

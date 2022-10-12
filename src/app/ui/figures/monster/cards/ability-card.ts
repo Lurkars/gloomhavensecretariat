@@ -8,6 +8,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Dialog } from '@angular/cdk/dialog';
 import { AbiltiesDialogComponent } from '../../ability/abilities-dialog';
 import { AbilityDialogComponent } from '../../ability/ability-dialog';
+import { applyPlaceholder } from 'src/app/ui/helper/i18n';
 
 @Component({
   selector: 'ghs-monster-ability-card',
@@ -136,12 +137,12 @@ export class MonsterAbilityCardComponent {
       label = 'data.ability.' + ability.name;
     } else if (this.monster.deck != this.monster.name) {
       label = 'data.deck.' + this.monster.deck;
-      if (label.split('.')[ label.split('.').length - 1 ] === settingsManager.getLabel(label) && this.monster.deck) {
+      if (label.split('.')[ label.split('.').length - 1 ] === applyPlaceholder(settingsManager.getLabel(label)) && this.monster.deck) {
         label = 'data.monster.' + this.monster.deck;
       }
     }
 
-    return settingsManager.getLabel(label);
+    return applyPlaceholder(settingsManager.getLabel(label));
   }
 
   defaultSort() {

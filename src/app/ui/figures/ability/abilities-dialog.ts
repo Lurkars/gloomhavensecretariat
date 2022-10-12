@@ -6,11 +6,12 @@ import { Ability } from 'src/app/game/model/Ability';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { DIALOG_DATA } from '@angular/cdk/dialog';
+import { applyPlaceholder } from '../../helper/i18n';
 
 @Component({
   selector: 'ghs-abilities-dialog',
   templateUrl: './abilities-dialog.html',
-  styleUrls: [ './abilities-dialog.scss' ]
+  styleUrls: ['./abilities-dialog.scss']
 })
 export class AbiltiesDialogComponent implements OnInit {
 
@@ -42,11 +43,11 @@ export class AbiltiesDialogComponent implements OnInit {
   }
 
   upcomingCards(): Ability[] {
-    return this.monster.abilities.filter((value, index) => index > this.monster.ability).map((value) => gameManager.abilities(this.monster)[ value ]);
+    return this.monster.abilities.filter((value, index) => index > this.monster.ability).map((value) => gameManager.abilities(this.monster)[value]);
   }
 
   disgardedCards(): Ability[] {
-    return this.monster.abilities.filter((value, index) => index <= this.monster.ability).map((value) => gameManager.abilities(this.monster)[ value ]).reverse();
+    return this.monster.abilities.filter((value, index) => index <= this.monster.ability).map((value) => gameManager.abilities(this.monster)[value]).reverse();
   }
 
   abilityIndex(ability: Ability) {
@@ -116,7 +117,7 @@ export class AbiltiesDialogComponent implements OnInit {
   }
 
   remove(index: number) {
-    const ability: Ability = gameManager.abilities(this.monster)[ this.monster.abilities[ index + this.monster.ability + 1 ] ];
+    const ability: Ability = gameManager.abilities(this.monster)[this.monster.abilities[index + this.monster.ability + 1]];
     gameManager.stateManager.before("removeAbility", "data.monster." + this.monster.name, this.abilityLabel(ability));
     this.monster.abilities.splice(index + this.monster.ability + 1, 1);
     gameManager.stateManager.after();
@@ -128,12 +129,12 @@ export class AbiltiesDialogComponent implements OnInit {
       label = 'data.ability.' + ability.name;
     } else if (this.monster.deck != this.monster.name) {
       label = 'data.deck.' + this.monster.deck;
-      if (label.split('.')[ label.split('.').length - 1 ] === settingsManager.getLabel(label) && this.monster.deck) {
+      if (label.split('.')[label.split('.').length - 1] === applyPlaceholder(settingsManager.getLabel(label)) && this.monster.deck) {
         label = 'data.monster.' + this.monster.deck;
       }
     }
 
-    return settingsManager.getLabel(label);
+    return applyPlaceholder(settingsManager.getLabel(label));
   }
 
   defaultSort() {

@@ -2,7 +2,8 @@
   <div class="card" [ngClass]="{'flipped' : flipped || ability && ability.revealed}" card-reveal
     (change)="onChange($event)" [disabled]="!reveal || !ability" #card
     [style.fontSize]=" card.offsetWidth * 0.04 + 'px'">
-    <div class=" card-back ability-back" [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0}">
+    <div class=" card-back ability-back"
+      [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0}">
       <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
       <span class="name">{{'data.monster.' + monster.name | ghsLabel}}</span>
     </div>
@@ -13,14 +14,14 @@
         <span class="name">{{abilityLabel(ability)}}</span>
         <div class="ability-actions">
           <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="1" [hint]="ability.hint"
-            [statsCalculation]="true" [highlightElements]="highlightElements">
+            [statsCalculation]="statsCalculation" [relative]="relative" [highlightElements]="highlightElements">
           </ghs-actions>
         </div>
         <ng-container *ngIf="ability.bottomActions && ability.bottomActions.length > 0">
           <span class="level" *ngIf="ability.level || ability.level == 0">{{ability.level}}</span>
           <div class="ability-actions ability-bottom-actions">
             <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [hexSize]="1" [hint]="ability.hint"
-              [statsCalculation]="true" [highlightElements]="highlightElements">
+              [statsCalculation]="statsCalculation" [relative]="relative" [highlightElements]="highlightElements">
             </ghs-actions>
           </div>
         </ng-container>
