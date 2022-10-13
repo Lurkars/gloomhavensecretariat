@@ -26,19 +26,29 @@
     </label>
   </div>
   <ng-container *ngFor="let group of groups()">
-    <div *ngIf="group" class="line title"><label>{{group}}</label></div>
+    <div *ngIf="group" class="line title"><label>{{'data.scenario.group.' + group | ghsLabel}}</label></div>
     <div class="line scenarios">
       <span (click)="setScenario(scenario)" class="scenario"
         [ngClass]="{'disabled' : hasScenario(scenario), 'blocked' : gameManager.scenarioManager.isBlocked(scenario)}"
         [title]="('data.scenario.' + scenario.name | ghsLabel) + (gameManager.scenarioManager.isBlocked(scenario) ? ' [' + ('scenario.locked' | ghsLabel) + ']' : '')"
-        *ngFor="let scenario of scenarios(group)"><span
-          *ngIf="maxScenario() > 2 && scenario.index.length < 3">0</span><span
-          *ngIf="maxScenario() > 1 && scenario.index.length < 2">0</span>{{scenario.index}}
+        *ngFor="let scenario of scenarios(group)">
+
+        <ng-container *ngIf="!scenario.solo">
+          <span *ngIf="maxScenario(group) > 2 && scenario.index.length < 3">0</span><span
+            *ngIf="maxScenario(group) > 1 && scenario.index.length < 2">0</span>{{scenario.index}}
+        </ng-container>
+        <ng-container *ngIf="scenario.solo">
+          <img class="ghs-svg solo"
+            [src]="characterIcon(scenario.solo)" />
+        </ng-container>
         <span *ngIf="scenarioSuccess(scenario)" class="state success"><img class="ghs-svg"
             src="./assets/images/check.svg" /></span>
         <span *ngIf="gameManager.scenarioManager.isBlocked(scenario)" class="state blocked"><img class="ghs-svg"
             src="./assets/images/close.svg" /></span>
       </span>
+    </div>
+    <div class="line" *ngIf="hasSpoilers(group)">
+      <a (click)="settingsManager.addSpoilers(notSpoiled(group))">{{'spoiler.all' | ghsLabel}}</a>
     </div>
     <ng-container *ngIf="gameManager.game.party.campaignMode">
       <div class="line title">

@@ -9,7 +9,7 @@ import { Monster } from '../game/model/Monster';
 @Component({
   selector: 'ghs-main',
   templateUrl: './main.html',
-  styleUrls: [ './main.scss' ],
+  styleUrls: ['./main.scss'],
 })
 export class MainComponent implements OnInit {
 
@@ -96,32 +96,33 @@ export class MainComponent implements OnInit {
       }, 0)
     } else {
       setTimeout(() => {
-        const container = this.element.nativeElement.getElementsByClassName('figures')[ 0 ];
-        if (container) {
-          const figures = container.getElementsByClassName('figure');
+        const containerElement = this.element.nativeElement.getElementsByClassName('figures')[0];
+        if (containerElement) {
+          const figureElements = containerElement.getElementsByClassName('figure');
+          const figures = gameManager.game.figures;
 
-          for (let i = 0; i < figures.length; i++) {
-            this.resizeObserver.observe(figures[ i ]);
+          for (let i = 0; i < figureElements.length; i++) {
+            this.resizeObserver.observe(figureElements[i]);
           }
-          let figureWidth = container.clientWidth;
-          if (figures.length > 0) {
-            figureWidth = figures[ 0 ].firstChild.clientWidth;
+          let figureWidth = containerElement.clientWidth;
+          if (figureElements.length > 0) {
+            figureWidth = figureElements[0].firstChild.clientWidth;
           }
 
-          if (figureWidth < (container.clientWidth / 2)) {
+          if (figureWidth < (containerElement.clientWidth / 2)) {
             let height = 0;
             let columnSize = 0;
-            const minColumn = Math.ceil(gameManager.game.figures.length / 2);
-            while ((height < container.clientHeight || columnSize < minColumn) && columnSize < figures.length) {
-              height += figures[ columnSize ].clientHeight;
+            const minColumn = Math.ceil(figures.length / 2);
+            while ((height < containerElement.clientHeight || columnSize < minColumn) && columnSize < figureElements.length) {
+              height += figureElements[columnSize].clientHeight;
               columnSize++;
             }
 
-            if (columnSize == gameManager.game.figures.length && height > container.clientHeight) {
+            if (columnSize == figures.length && height > containerElement.clientHeight) {
               columnSize--;
             }
 
-            if (columnSize < gameManager.game.figures.length) {
+            if (columnSize < figures.length) {
               this.columns = 2;
 
               if (columnSize < minColumn) {
@@ -132,31 +133,33 @@ export class MainComponent implements OnInit {
 
               height = 0;
               for (let i = 0; i < columnSize; i++) {
-                height += figures[ i ].clientHeight;
+                height += figureElements[i].clientHeight;
               }
 
               let otherHeight = 0;
-              for (let i = gameManager.game.figures.length - 1; i >= columnSize; i--) {
-                if (otherHeight != 0 || !(gameManager.game.figures[ i ] instanceof Monster) || (gameManager.game.figures[ i ] as Monster).entities.some((entity) => !entity.dead && entity.health > 0)) {
-                  otherHeight += figures[ i ].clientHeight;
+              for (let i = figures.length - 1; i >= columnSize; i--) {
+                const figure = figures[i];
+                const ignore = figure instanceof Monster && (figure.entities.length == 0 || figure.entities.every((entity) => entity.dead || entity.health < 1)) || figure instanceof Character && figure.absent;
+                if (otherHeight != 0 || !ignore) {
+                  otherHeight += figureElements[i].clientHeight;
                 }
               }
 
               while (height < otherHeight) {
-                otherHeight -= figures[ columnSize ].clientHeight;
-                height += figures[ columnSize ].clientHeight;
+                otherHeight -= figureElements[columnSize].clientHeight;
+                height += figureElements[columnSize].clientHeight;
                 columnSize++;
               }
 
-              while (height > container.clientHeight && otherHeight + figures[ columnSize - 1 ].clientHeight < container.clientHeight) {
-                otherHeight += figures[ columnSize - 1 ].clientHeight;
-                height -= figures[ columnSize - 1 ].clientHeight;
+              while (height > containerElement.clientHeight && otherHeight + figureElements[columnSize - 1].clientHeight < containerElement.clientHeight) {
+                otherHeight += figureElements[columnSize - 1].clientHeight;
+                height -= figureElements[columnSize - 1].clientHeight;
                 columnSize--;
               }
 
-              while (height > container.clientHeight && height > otherHeight && otherHeight + figures[ columnSize - 1 ].clientHeight < height) {
-                otherHeight += figures[ columnSize - 1 ].clientHeight;
-                height -= figures[ columnSize - 1 ].clientHeight;
+              while (height > containerElement.clientHeight && height > otherHeight && otherHeight + figureElements[columnSize - 1].clientHeight < height) {
+                otherHeight += figureElements[columnSize - 1].clientHeight;
+                height -= figureElements[columnSize - 1].clientHeight;
                 columnSize--;
               }
 
@@ -178,13 +181,13 @@ export class MainComponent implements OnInit {
 
   translate(scrollTo: HTMLElement | undefined = undefined) {
     setTimeout(() => {
-      const container = this.element.nativeElement.getElementsByClassName('figures')[ 0 ];
+      const container = this.element.nativeElement.getElementsByClassName('figures')[0];
       const figures = container.getElementsByClassName('figure');
       for (let index = 0; index < gameManager.game.figures.length; index++) {
         let start = 0;
         let left = "-50%";
         if (this.columns > 1) {
-          const lastFigure = figures[ 0 ];
+          const lastFigure = figures[0];
           const leftOffset = Math.floor(((container.clientWidth / 2) - lastFigure.clientWidth) / 4);
           if (index < this.columnSize) {
             left = "calc(-100% - " + leftOffset + "px)";
@@ -196,10 +199,10 @@ export class MainComponent implements OnInit {
 
         let height = 0;
         for (let i = start; i < index; i++) {
-          height += figures[ i ].clientHeight;
+          height += figures[i].clientHeight;
         }
 
-        figures[ index ].style.transform = "scale(1) translate(" + left + "," + height + "px)";
+        figures[index].style.transform = "scale(1) translate(" + left + "," + height + "px)";
 
         if (scrollTo) {
           setTimeout(() => {
@@ -242,8 +245,8 @@ export class MainComponent implements OnInit {
 
   handleClick(event: any) {
     let elements = document.elementsFromPoint(event.clientX, event.clientY);
-    if (elements[ 0 ].classList.contains('cdk-drag-handle') && elements.length > 1) {
-      (elements[ 1 ] as HTMLElement).click();
+    if (elements[0].classList.contains('cdk-drag-handle') && elements.length > 1) {
+      (elements[1] as HTMLElement).click();
     }
   }
 }

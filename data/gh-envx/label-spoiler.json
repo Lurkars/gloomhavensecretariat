@@ -1,12 +1,12 @@
 {
-  "de": {
-    "character": {
-      "envx": "Klingenschwarm"
-    }
-  },
   "en": {
     "character": {
       "envx": "Bladeswarm"
+    }
+  },
+  "de": {
+    "character": {
+      "envx": "Klingenschwarm"
     }
   },
   "fr": {

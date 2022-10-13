@@ -1,5 +1,6 @@
 import { GameCharacterModel } from "./Character";
 import { GameScenarioModel } from "./data/ScenarioData";
+import { Identifier } from "./Identifier";
 
 export class Party {
 
@@ -15,6 +16,7 @@ export class Party {
   manualScenarios: GameScenarioModel[] = [];
   campaignMode: boolean = false;
   globalAchievements: string = "";
+  treasures: Identifier[] = [];
   donations: number = 0;
   characters: GameCharacterModel[] = [];
 

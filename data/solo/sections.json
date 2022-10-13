@@ -1,0 +1,65 @@
+[
+  {
+    "index": "68A",
+    "name": "Scenario 60",
+    "edition": "",
+    "monsters": [
+      "drakefiend"
+    ]
+  },
+  {
+    "index": "71A",
+    "name": "Scenario 62",
+    "edition": "",
+    "monsters": [
+      "your-shadow"
+    ]
+  },
+  {
+    "index": "73C",
+    "name": "Scenario 65",
+    "edition": "",
+    "monsters": [],
+    "objectives": [
+      {
+        "name": "Vile Spirit 1",
+        "health": 4,
+        "initiative": 50
+      },
+      {
+        "name": "Vile Spirit 2",
+        "health": 4,
+        "initiative": 50
+      }
+    ]
+  },
+  {
+    "index": "73D",
+    "name": "Scenario 65",
+    "edition": "",
+    "monsters": [],
+    "objectives": [
+      {
+        "name": "Haunted Ghoul Spirit 1",
+        "health": 10,
+        "initiative": 50
+      }
+    ]
+  },
+  {
+    "index": "QA3",
+    "name": "Cooling Chamber",
+    "edition": "",
+    "monsters": [
+      "clockwork-guardian"
+    ]
+  },
+  {
+    "index": "QA3",
+    "name": "Inspection Chamber",
+    "edition": "",
+    "monsters": [
+      "steel-construct"
+    ]
+  }
+]

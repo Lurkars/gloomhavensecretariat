@@ -4,6 +4,7 @@ import { settingsManager, SettingsManager } from "src/app/game/businesslogic/Set
 import { GameScenarioModel, ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { GameState } from "src/app/game/model/Game";
 import { Scenario } from "src/app/game/model/Scenario";
+import { Spoilable, SpoilableMock } from "src/app/game/model/Spoilable";
 
 @Component({
   selector: 'ghs-scenario-menu',
@@ -29,7 +30,7 @@ export class ScenarioMenuComponent implements OnInit {
   }
 
   editions(): string[] {
-    return gameManager.editionData.filter((editionData) => editionData.scenarios && editionData.scenarios.length > 0).map((editionData) => editionData.edition);
+    return gameManager.editionData.filter((editionData) => editionData.scenarios && editionData.scenarios.filter((scenarioData) => scenarioData.edition == editionData.edition).length > 0).map((editionData) => editionData.edition);
   }
 
   setEdition(edition: string) {
@@ -41,15 +42,17 @@ export class ScenarioMenuComponent implements OnInit {
       return [];
     }
 
-    return gameManager.scenarioData(true).filter((scenarioData) => scenarioData.edition == this.edition).map((scenarioData) => scenarioData.group).filter((value, index, self) => self.indexOf(value) === index);
+    let groups = gameManager.scenarioManager.scenarioData(this.edition).map((scenarioData) => scenarioData.group).filter((value, index, self) => value && self.indexOf(value) === index).sort((a, b) => a && b && (a.toLowerCase() < b.toLowerCase() ? -1 : 1) || 0);
+    groups = [undefined, ...groups];
+    return groups;
   }
 
-  scenarios(group: string | undefined = undefined): ScenarioData[] {
+  scenarios(group: string | undefined = undefined, includeSpoiler: boolean = false): ScenarioData[] {
     if (!this.edition) {
       return [];
     }
 
-    return gameManager.scenarioManager.scenarioData(this.edition).filter((scenarioData) => scenarioData.group == group).sort((a, b) => {
+    return gameManager.scenarioManager.scenarioData(this.edition).filter((scenarioData) => scenarioData.group == group && (includeSpoiler || (!scenarioData.spoiler || settingsManager.settings.spoilers.indexOf(scenarioData.name) != -1 || scenarioData.solo && settingsManager.settings.spoilers.indexOf(scenarioData.solo) != -1))).sort((a, b) => {
       if (!isNaN(+a.index) && !isNaN(+b.index)) {
         return +a.index - +b.index;
       }
@@ -62,12 +65,12 @@ export class ScenarioMenuComponent implements OnInit {
     return gameManager.game.party.scenarios && gameManager.game.party.scenarios.find((identifier) => scenario.index == identifier.index && scenario.edition == identifier.edition && scenario.group == identifier.group);
   }
 
-  maxScenario() {
-    return Math.max(...this.scenarios().map((scnearioData) => scnearioData.index.length));
+  maxScenario(group: string | undefined) {
+    return Math.max(...this.scenarios(group).map((scnearioData) => scnearioData.index.length));
   }
 
   hasScenario(scnearioData: ScenarioData): boolean {
-    return gameManager.game.scenario != undefined && gameManager.game.scenario.edition == scnearioData.edition && gameManager.game.scenario.index == scnearioData.index && gameManager.game.scenario.group == scnearioData.group;
+    return gameManager.game.scenario != undefined && gameManager.game.scenario.edition == scnearioData.edition && gameManager.game.scenario.index == scnearioData.index && gameManager.game.scenario.group == scnearioData.group && gameManager.game.scenario.solo == scnearioData.solo;
   }
 
   setScenario(scenarioData: ScenarioData) {
@@ -131,6 +134,22 @@ export class ScenarioMenuComponent implements OnInit {
       }
 
     }
+  }
+
+  hasSpoilers(group: string | undefined): boolean {
+    return this.scenarios(group, true).some((scenarioData) => scenarioData.spoiler && (!scenarioData.solo && settingsManager.settings.spoilers.indexOf(scenarioData.name) == -1 || scenarioData.solo && settingsManager.settings.spoilers.indexOf(scenarioData.solo) == -1))
+  }
+
+  notSpoiled(group: string | undefined): Spoilable[] {
+    return this.scenarios(group, true).filter((scenarioData) => scenarioData.spoiler && (settingsManager.settings.spoilers.indexOf(scenarioData.name) == -1 || scenarioData.solo && settingsManager.settings.spoilers.indexOf(scenarioData.solo) == -1)).map((scenarioData) => scenarioData.solo && new SpoilableMock(scenarioData.solo) || new SpoilableMock(scenarioData.name));
+  }
+
+  characterIcon(name: string): string {
+    const char = gameManager.charactersData(true).find((characterData) => characterData.name == name);
+    if (char) {
+      return gameManager.characterManager.characterIcon(char);
+    }
+    return "";
   }
 
 }

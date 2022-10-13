@@ -15,6 +15,8 @@ export class ScenarioData implements Editional, Spoilable {
   allies: string[];
   objectives: ObjectiveData[];
   initial: boolean = false;
+  solo: string | undefined;
+
 
   // from Editional
   edition: string;

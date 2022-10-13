@@ -67,7 +67,7 @@ export class RoundManager {
       gameManager.sortFigures();
 
       if (this.game.figures.length > 0) {
-        this.toggleFigure(this.game.figures[ 0 ]);
+        this.toggleFigure(this.game.figures[0]);
       }
 
     }
@@ -101,7 +101,8 @@ export class RoundManager {
     }
 
     for (let i = 0; i < figures.length; i++) {
-      const otherFigure = figures[ i ];
+      const otherFigure = figures[i];
+      const absent = otherFigure instanceof Character && otherFigure.absent;
       if (figure.active) {
         if (i != index) {
           otherFigure.active = false;
@@ -113,10 +114,10 @@ export class RoundManager {
         }
       }
       if (figure.off && !this.permanentDead(otherFigure)) {
-        if (i < index && !otherFigure.off && !figures.some((figure) => figure.active)) {
+        if (i < index && !otherFigure.off && !figures.some((figure) => figure.active) && !absent) {
           this.turn(otherFigure);
         } else if (i > index && (!(otherFigure instanceof Monster) || (otherFigure instanceof Monster && otherFigure.entities.length > 0))) {
-          if (!otherFigure.off && i > index && !figures.some((figure, activeIndex) => figure.active && activeIndex < i)) {
+          if (!otherFigure.off && i > index && !figures.some((figure, activeIndex) => figure.active && activeIndex < i) && !absent) {
             this.turn(otherFigure);
           } else {
             otherFigure.active = false;

@@ -146,10 +146,41 @@
           </ng-container>
         </div>
 
-        <div class="row achievements">
-          <label>{{'party.campaign.achievements' | ghsLabel}}:</label>
-          <textarea type="text" [value]="party.globalAchievements" (change)="setGlobalAchievements($event)"
-            placeholder="{{'party.campaign.achievements' | ghsLabel}}"></textarea>
+        <div class="row columns">
+          <div class="achievements">
+            <label>{{'party.campaign.achievements' | ghsLabel}}:</label>
+            <textarea type="text" [value]="party.globalAchievements" (change)="setGlobalAchievements($event)"
+              placeholder="{{'party.campaign.achievements' | ghsLabel}}"></textarea>
+          </div>
+          <div class="treasures">
+            <label>{{'party.campaign.treasures' | ghsLabel}}:</label>
+
+            <div class="treasure-add">
+              <input min="1" #treasureIndex type="number" value="0">
+              <a [ngClass]="{'disabled' : !treasureIndex.value || +treasureIndex.value < 1 || hasTreasure(treasureIndex.value,treasureEdition.value)}"
+                (click)="addTreasure(treasureIndex.value, treasureEdition.value)"><img
+                  src="./assets/images/plus.svg"></a>
+              <select #treasureEdition [value]="party.edition || gameManager.editions()[0]" [disabled]="party.edition">
+                <option *ngFor="let edition of gameManager.editions()" [value]="edition">{{'data.edition.' + edition |
+                  ghsLabel}}</option>
+              </select>
+            </div>
+
+            <div class="treasure-list">
+              <label class="treasure" (click)="removeTreasure(treasure)" *ngFor="let treasure of treasures()">
+                <span class="index">{{treasure.name}}</span>
+                <span class="separator">:</span>
+                <span class="checkbox"><img class="check" src="./assets/images/check.svg"><img class="close"
+                    src="./assets/images/close.svg"></span>
+                <span class="text">
+                  <span [i18n]="'data.treasures.' + treasure.edition + '.' + treasure.name"></span>
+                  <span *ngIf="!party.edition">[{{'data.edition.' +
+                    treasure.edition |
+                    ghsLabel}}]</span>
+                </span>
+              </label>
+            </div>
+          </div>
         </div>
 
         <div class="prosperity">

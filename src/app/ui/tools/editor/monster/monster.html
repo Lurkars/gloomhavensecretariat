@@ -92,7 +92,7 @@
 
             <ng-container *ngIf="!monster.boss">
               <div class="extra normal">
-                <div class="notes placeholder" [i18n]="statsForType(MonsterType.normal).note"></div>
+                <div class="notes" [i18n]="statsForType(MonsterType.normal).note"></div>
                 <div class="additional">
                   <ng-container *ngFor="let action of statsForType(MonsterType.normal).actions">
                     <ghs-action (click)="editMonsterAction(MonsterType.normal, action)" [action]="action"
@@ -104,7 +104,7 @@
                 </div>
               </div>
               <div class="extra elite">
-                <div class="notes placeholder" [i18n]="statsForType(MonsterType.elite).note"></div>
+                <div class="notes" [i18n]="statsForType(MonsterType.elite).note"></div>
                 <div class="additional">
                   <ng-container *ngFor="let action of statsForType(MonsterType.elite).actions">
                     <ghs-action (click)="editMonsterAction(MonsterType.elite, action)" [action]="action"
@@ -119,7 +119,7 @@
 
             <ng-container *ngIf="monster.boss">
               <div class="extra boss">
-                <div class="notes placeholder" [i18n]="statsForType(MonsterType.boss).note"></div>
+                <div class="notes" [i18n]="statsForType(MonsterType.boss).note"></div>
                 <div class="additional">
                   <ng-container *ngFor="let action of statsForType(MonsterType.boss).actions">
                     <ghs-action (click)="editMonsterAction(MonsterType.boss, action)" [action]="action"

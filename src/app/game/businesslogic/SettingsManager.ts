@@ -6,7 +6,7 @@ import { gameManager } from "./GameManager";
 export class SettingsManager {
 
   defaultLocale: string = 'en';
-  defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/fh.json", "./assets/data/cs.json"];
+  defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/fh.json", "./assets/data/cs.json", "./assets/data/solo.json"];
 
   settings: Settings = new Settings();
   label: any = {};
@@ -338,6 +338,9 @@ export class SettingsManager {
     }
     if (!this.label.data.scenario) {
       this.label.data.scenario = {};
+    }
+    if (!this.label.data.scenario.group) {
+      this.label.data.scenario.group = {};
     }
     if (!this.label.data.section) {
       this.label.data.section = {};

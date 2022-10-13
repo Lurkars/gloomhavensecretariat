@@ -1,4 +1,132 @@
 {
+  "en": {
+    "character": {
+      "demolitionist": "Demolitionist",
+      "hatchet": "Hatchet",
+      "red-guard": "Red Guard",
+      "voidwarden": "Voidwarden"
+    },
+    "edition": {
+      "jotl": "Jaws Of The Lion"
+    },
+    "monster": {
+      "basic-giant-viper": "Basic Giant Viper",
+      "basic-vermling-raider": "Basic Vermling Raider",
+      "basic-zealot": "Basic Zealot",
+      "black-imp": "Black Imp",
+      "black-sludge": "Black Sludge",
+      "blood-horror": "Blood Horror",
+      "blood-imp": "Blood Imp",
+      "blood-monstrosity": "Blood Monstrosity",
+      "blood-tumor": "Blood Tumor",
+      "chaos-demon": "Chaos Demon",
+      "common-vermling-raider": "Common Vermling Raider",
+      "first-of-the-order": "First of the Order",
+      "giant-viper": "Giant Viper",
+      "living-corpse": "Living Corpse",
+      "living-spirit": "Living Spirit",
+      "monstrosity": "Monstrosity",
+      "rat-monstrosity": "Rat Monstrosity",
+      "stone-golem": "Stone Golem",
+      "vermling-raider": "Vermling Raider",
+      "vermling-scout": "Vermling Scout",
+      "zealot": "Zealot"
+    },
+    "deck": {
+      "boss": "Boss",
+      "monstrosity": "Monstrosity",
+      "imp": "Imp"
+    },
+    "ability": {},
+    "scenario": {},
+    "custom": {
+      "jotl": {
+        "giant-viper": {
+          "1": "All attacks targeting %data.monster.giant-viper% gain Disadvantage this round.",
+          "2": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.giant-viper%'s allies."
+        },
+        "black-sludge": {
+          "1": "The closest enemy in line-of-sight, regardless of range, suffer [1+L/2{%math.ceil}] damage"
+        },
+        "chaos-demon": {
+          "1": "Any time a figure attacks the %data.monster.chaos-demon% this round, that figure suffer 2 damage",
+          "2": "All enemies adjacent to the target suffer 1 damage"
+        },
+        "living-corpse": {
+          "1": "The target also suffers 2 damage.",
+          "2": "If this movement is performed, the %data.monster.living-corpse% suffers 1 damage.",
+          "3": "If this attack is performed, the %data.monster.living-corpse% suffers 1 damage."
+        },
+        "monstrosity": {
+          "1": "If this attack is performed, the %data.monster.monstrosity% suffers 1 damage.",
+          "2": "Add +1 %game.action.attack% if the target is adjacent to any of the %data.monster.monstrosity%'s allies.",
+          "3": "Any time a figure attacks the %data.monster.monstrosity% this round, that figure suffers 2 damage.",
+          "4": "%data.monster.monstrosity% suffers 1 damage"
+        },
+        "stone-golem": {
+          "1": "Any time a figure attacks the %data.monster.stone-golem% this round, that figure suffers 3 damage.",
+          "2": "If the Move ability was performed, the %data.monster.stone-golem% suffers 1 damage.",
+          "3": "If this attack is performed, the %data.monster.stone-golem% suffers 2 damage."
+        },
+        "vermling-raider": {
+          "1": "Create one 3-damage trap in an adjacent empty hex closest to an enemy."
+        },
+        "zealot": {
+          "1": "X is damage suffered by target of attack"
+        },
+        "blood-horror": {
+          "1": "Jump to farthest dead %data.monster.zealot% and revive or jump to farthest character and %game.action.attack%+0",
+          "2": "Revive all dead %data.monster.zealot% in room"
+        },
+        "blood-monstrosity": {
+          "1": "On death, all adjacent figures suffer 1 damage"
+        },
+        "first-of-the-order": {
+          "1": "All enemies within %game.action.range% 2 suffer 2 damage",
+          "2": "Spawn [C/2{math.ceil}] %data.monster.black-imp%",
+          "3": "within %game.action.range% 2 of target"
+        },
+        "rat-monstrosity": {
+          "1": "On death, all adjacent figures suffer 1 damage",
+          "2": "On death, all adjacent figures suffer 2 damage",
+          "3": "On death, all adjacent figures suffer 3 damage",
+          "4": "On death, all adjacent figures suffer 4 damage"
+        },
+        "basic-vermling-raider": {
+          "1": "Shuffle this deck at the end of the round.",
+          "2": "They will move to avoid being adjacent to their focus.",
+          "3": "They are not moving this round.",
+          "4": "This is exactly how they acted last scenario."
+        }
+      },
+      "perks": {
+        "demolitionist": {
+          "1": "All adjacent enemies suffer 1 damage"
+        }
+      }
+    },
+    "treasures": {
+      "jotl": {
+        "1": "Gain 10 experience",
+        "2": "'Ring of Strength' (Item 31)",
+        "3": "Gain 15 experience",
+        "4": "Gain 5 gold",
+        "5": "Gain 1 ✔",
+        "6": "Gain 10 gold",
+        "7": "Gain 5 gold",
+        "8": "Suffer 3 damage, gain {POISON}",
+        "9": "Gain 5 gold",
+        "10": "'Fateful Compass' (Item 27)",
+        "11": "'Ring of Haste' (Item 30)",
+        "12": "Gain 5 gold",
+        "13": "Gain 5 gold",
+        "14": "Gain 3 money tokens",
+        "15": "Gain 1 ✔",
+        "16": "'Mana Potion' (Item 14)",
+        "X": "'Ring of Restoration' (Item 32)"
+      }
+    }
+  },
   "de": {
     "character": {
       "demolitionist": "Sprengmeisterin",
@@ -128,113 +256,6 @@
       "perks": {
         "demolitionist": {
           "1": "Alle angrenzenden Gegner erleiden 1 Schaden"
-        }
-      }
-    }
-  },
-  "en": {
-    "character": {
-      "demolitionist": "Demolitionist",
-      "hatchet": "Hatchet",
-      "red-guard": "Red Guard",
-      "voidwarden": "Voidwarden"
-    },
-    "edition": {
-      "jotl": "Jaws Of The Lion"
-    },
-    "monster": {
-      "basic-giant-viper": "Basic Giant Viper",
-      "basic-vermling-raider": "Basic Vermling Raider",
-      "basic-zealot": "Basic Zealot",
-      "black-imp": "Black Imp",
-      "black-sludge": "Black Sludge",
-      "blood-horror": "Blood Horror",
-      "blood-imp": "Blood Imp",
-      "blood-monstrosity": "Blood Monstrosity",
-      "blood-tumor": "Blood Tumor",
-      "chaos-demon": "Chaos Demon",
-      "common-vermling-raider": "Common Vermling Raider",
-      "first-of-the-order": "First of the Order",
-      "giant-viper": "Giant Viper",
-      "living-corpse": "Living Corpse",
-      "living-spirit": "Living Spirit",
-      "monstrosity": "Monstrosity",
-      "rat-monstrosity": "Rat Monstrosity",
-      "stone-golem": "Stone Golem",
-      "vermling-raider": "Vermling Raider",
-      "vermling-scout": "Vermling Scout",
-      "zealot": "Zealot"
-    },
-    "deck": {
-      "boss": "Boss",
-      "monstrosity": "Monstrosity",
-      "imp": "Imp"
-    },
-    "ability": {},
-    "scenario": {},
-    "custom": {
-      "jotl": {
-        "giant-viper": {
-          "1": "All attacks targeting %data.monster.giant-viper% gain Disadvantage this round.",
-          "2": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.giant-viper%'s allies."
-        },
-        "black-sludge": {
-          "1": "The closest enemy in line-of-sight, regardless of range, suffer [1+L/2{%math.ceil}] damage"
-        },
-        "chaos-demon": {
-          "1": "Any time a figure attacks the %data.monster.chaos-demon% this round, that figure suffer 2 damage",
-          "2": "All enemies adjacent to the target suffer 1 damage"
-        },
-        "living-corpse": {
-          "1": "The target also suffers 2 damage.",
-          "2": "If this movement is performed, the %data.monster.living-corpse% suffers 1 damage.",
-          "3": "If this attack is performed, the %data.monster.living-corpse% suffers 1 damage."
-        },
-        "monstrosity": {
-          "1": "If this attack is performed, the %data.monster.monstrosity% suffers 1 damage.",
-          "2": "Add +1 %game.action.attack% if the target is adjacent to any of the %data.monster.monstrosity%'s allies.",
-          "3": "Any time a figure attacks the %data.monster.monstrosity% this round, that figure suffers 2 damage.",
-          "4": "%data.monster.monstrosity% suffers 1 damage"
-        },
-        "stone-golem": {
-          "1": "Any time a figure attacks the %data.monster.stone-golem% this round, that figure suffers 3 damage.",
-          "2": "If the Move ability was performed, the %data.monster.stone-golem% suffers 1 damage.",
-          "3": "If this attack is performed, the %data.monster.stone-golem% suffers 2 damage."
-        },
-        "vermling-raider": {
-          "1": "Create one 3-damage trap in an adjacent empty hex closest to an enemy."
-        },
-        "zealot": {
-          "1": "X is damage suffered by target of attack"
-        },
-        "blood-horror": {
-          "1": "Jump to farthest dead %data.monster.zealot% and revive or jump to farthest character and %game.action.attack%+0",
-          "2": "Revive all dead %data.monster.zealot% in room"
-        },
-        "blood-monstrosity": {
-          "1": "On death, all adjacent figures suffer 1 damage"
-        },
-        "first-of-the-order": {
-          "1": "All enemies within %game.action.range% 2 suffer 2 damage",
-          "2": "Spawn [C/2{math.ceil}] %data.monster.black-imp%",
-          "3": "within %game.action.range% 2 of target"
-        },
-        "rat-monstrosity": {
-          "1": "On death, all adjacent figures suffer 1 damage",
-          "2": "On death, all adjacent figures suffer 2 damage",
-          "3": "On death, all adjacent figures suffer 3 damage",
-          "4": "On death, all adjacent figures suffer 4 damage"
-        },
-        "basic-vermling-raider": {
-          "1": "Shuffle this deck at the end of the round.",
-          "2": "They will move to avoid being adjacent to their focus.",
-          "3": "They are not moving this round.",
-          "4": "This is exactly how they acted last scenario."
-        }
-      },
-      "perks": {
-        "demolitionist": {
-          "1": "All adjacent enemies suffer 1 damage"
         }
       }
     }

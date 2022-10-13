@@ -39,7 +39,7 @@
         <ng-container *ngIf="!effect.icon">
           <span class="type">{{attackModifier.value < 0 ? '-' : '+' }}{{attackModifier.value}}</span>
               <span class="custom-value-container">
-                <span class="custom-value placeholder" [i18n]="effect.value + ''" text-shrink></span>
+                <span class="custom-value" [i18n]="effect.value + ''" text-shrink></span>
               </span>
         </ng-container>
         <ng-container *ngIf="effect.icon">

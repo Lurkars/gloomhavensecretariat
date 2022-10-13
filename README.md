@@ -60,6 +60,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - Permission management for different clients with [GHS Server](https://github.com/Lurkars/ghs-server)
   - load custom JSON edition data for custom content!
   - edit Monster Attack Modifier and Monster Ability decks (support for Diviner class mechanics): reveal cards, remove cards, re-order cards
+  - includes Solo Scenarios for GH, FC and CS
   - <details>
       <summary>SPOILER WARNING: Envelope X</summary>
 

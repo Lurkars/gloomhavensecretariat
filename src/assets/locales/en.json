@@ -44,6 +44,7 @@
       "addSection": "Add section #{0} {1} ({2})",
       "addStandee": "Add {1} {0} standee {2}",
       "addSummon": "Add summon '{1}' for {0}",
+      "addTreasure": "Add treasure {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
       "applyCondition": {
         "char": "Apply {1} to {0}",
         "objective": "Apply {1} to {0}",
@@ -117,6 +118,7 @@
       "removeMonster": "Remove monster {0}",
       "removeObjective": "Remove objective {0}",
       "removeParty": "Remove party '{0}'",
+      "removeTreasure": "Remove treasure {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
       "reorder": "Reorder figures",
       "reorderAbilities": "Reorder abilities of {0}",
       "resetScenario": "Reset scenario #{0} {1} ({2})",
@@ -322,6 +324,7 @@
     "campaign": {
       ".": "Campaign",
       "achievements": "Global Achievements",
+      "treasures": "Treasures",
       "donations": "Donations to Sanctuary of the Great Oak",
       "scenarios": {
         ".": "Scenarios",

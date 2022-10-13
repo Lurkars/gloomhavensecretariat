@@ -11,7 +11,7 @@ import { AttackModiferDeckChange } from '../figures/attackmodifier/attackmodifie
 @Component({
   selector: 'ghs-footer',
   templateUrl: './footer.html',
-  styleUrls: [ './footer.scss' ]
+  styleUrls: ['./footer.scss']
 })
 export class FooterComponent implements OnInit {
 
@@ -61,9 +61,9 @@ export class FooterComponent implements OnInit {
     if (!force && this.disabled()) {
       this.dialog.open(HintDialogComponent, {
         panelClass: 'dialog',
-        positionStrategy: this.overlay.position().flexibleConnectedTo(this.nextButton).withPositions([ new ConnectionPositionPair(
+        positionStrategy: this.overlay.position().flexibleConnectedTo(this.nextButton).withPositions([new ConnectionPositionPair(
           { originX: 'end', originY: 'bottom' },
-          { overlayX: 'start', overlayY: 'bottom' }) ]).withDefaultOffsetX(10).withDefaultOffsetY(-10)
+          { overlayX: 'start', overlayY: 'bottom' })]).withDefaultOffsetX(10).withDefaultOffsetY(-10)
       })
     } else {
       gameManager.stateManager.before(gameManager.game.state == GameState.next ? "nextRound" : "draw");
@@ -120,7 +120,7 @@ export class FooterComponent implements OnInit {
   }
 
   active(): boolean {
-    return gameManager.game.figures.find((figure) => figure.active && !figure.off) != undefined;
+    return gameManager.game.figures.find((figure) => figure.active && !figure.off && (!(figure instanceof Character) || !figure.absent)) != undefined;
   };
 
   finish(): boolean {
@@ -149,7 +149,7 @@ export class FooterComponent implements OnInit {
 @Component({
   selector: 'ghs-hint-dialog',
   templateUrl: './hint-dialog.html',
-  styleUrls: [ './hint-dialog.scss' ]
+  styleUrls: ['./hint-dialog.scss']
 })
 export class HintDialogComponent {
 

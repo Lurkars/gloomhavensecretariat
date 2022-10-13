@@ -1,19 +1,4 @@
 {
-  "de": {
-    "character": {
-      "angry-face": "Schicksalsläufer",
-      "circles": "Ruferin",
-      "eclipse": "Nachtschleier",
-      "lightning": "Berserkerin",
-      "music-note": "Wahrsängerin",
-      "saw": "Knochenflicker",
-      "squidface": "Seuchenbringer",
-      "sun": "Sonnenhüterin",
-      "three-spears": "Quartiermeister",
-      "triangles": "Elementarist",
-      "two-mini": "Bestienmeister"
-    }
-  },
   "en": {
     "character": {
       "angry-face": "Doomstalker",
@@ -27,6 +12,21 @@
       "three-spears": "Quartermaster",
       "triangles": "Elementalist",
       "two-mini": "Beast Tyrant"
+    }
+  },
+  "de": {
+    "character": {
+      "angry-face": "Schicksalsläufer",
+      "circles": "Ruferin",
+      "eclipse": "Nachtschleier",
+      "lightning": "Berserkerin",
+      "music-note": "Wahrsängerin",
+      "saw": "Knochenflicker",
+      "squidface": "Seuchenbringer",
+      "sun": "Sonnenhüterin",
+      "three-spears": "Quartiermeister",
+      "triangles": "Elementarist",
+      "two-mini": "Bestienmeister"
     }
   },
   "fr": {

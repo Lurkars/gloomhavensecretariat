@@ -88,6 +88,7 @@ export class I18nDirective implements OnInit, OnChanges {
   private locale: string;
 
   constructor(private el: ElementRef) {
+    el.nativeElement.classList.add('placeholder');
     this.C = gameManager.game.figures.filter((figure) => figure instanceof Character).length;
     this.L = gameManager.game.level;
     this.locale = settingsManager.settings.locale;

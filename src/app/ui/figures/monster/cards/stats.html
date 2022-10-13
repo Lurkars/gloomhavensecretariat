@@ -57,7 +57,7 @@
         </span>
       </div>
       <div class="extra-container">
-        <div class="notes placeholder" [i18n]="statsForType(MonsterType.normal).note"></div>
+        <div class="notes" [i18n]="statsForType(MonsterType.normal).note"></div>
         <div class="additional">
           <ghs-actions [actions]="statsForType(MonsterType.normal).actions" [monster]="monster" [inline]="true"
             [right]="true" [hexSize]="0.5">
@@ -77,7 +77,7 @@
         </span>
       </div>
       <div class="extra-container">
-        <div class="notes placeholder" [i18n]="statsForType(MonsterType.elite).note"></div>
+        <div class="notes" [i18n]="statsForType(MonsterType.elite).note"></div>
         <div class="additional">
           <ghs-actions [actions]="statsForType(MonsterType.elite).actions" [monster]="monster" [inline]="true"
             [hexSize]="0.5">
@@ -92,7 +92,7 @@
     </div>
   </ng-container>
   <div class="extra boss" *ngIf="monster.boss" [ngClass]="{'hidden' : hideStats(MonsterType.boss)}">
-    <div class="notes placeholder" [i18n]="statsForType(MonsterType.boss).note"></div>
+    <div class="notesa" [i18n]="statsForType(MonsterType.boss).note"></div>
     <div class="immunities">
       <span class="immunity" *ngFor="let immunity of statsForType(MonsterType.boss).immunities">
         <img class="icon" src="./assets/images/condition/{{immunity}}.svg" />

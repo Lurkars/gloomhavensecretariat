@@ -1,4 +1,303 @@
 {
+  "en": {
+    "character": {
+      "brute": "Brute",
+      "cragheart": "Cragheart",
+      "mindthief": "Mindthief",
+      "scoundrel": "Scoundrel",
+      "spellweaver": "Spellweaver",
+      "tinkerer": "Tinkerer"
+    },
+    "edition": {
+      "gh": "Gloomhaven"
+    },
+    "monster": {
+      "ancient-artillery": "Ancient Artillery",
+      "arcane-golem": "Arcane Golem",
+      "bandit-archer": "Bandit Archer",
+      "bandit-commander": "Bandit Commander",
+      "bandit-guard": "Bandit Guard",
+      "black-imp": "Black Imp",
+      "bloated-regent": "Bloated Regent",
+      "captain-of-the-guard": "Captain of the Guard",
+      "cave-bear": "Cave Bear",
+      "city-archer": "City Archer",
+      "city-guard": "City Guard",
+      "cultist": "Cultist",
+      "dark-rider": "Dark Rider",
+      "deep-terror": "Deep Terror",
+      "earth-demon": "Earth Demon",
+      "elder-drake": "Elder Drake",
+      "flame-demon": "Flame Demon",
+      "forest-imp": "Forest Imp",
+      "frost-demon": "Frost Demon",
+      "giant-ooze": "Giant Ooze",
+      "giant-viper": "Giant Viper",
+      "harrower-infester": "Harrower Infester",
+      "hound": "Hound",
+      "hungry-soul": "Hungry Soul",
+      "infiltrator": "Infiltrator",
+      "inox-archer": "Inox Archer",
+      "inox-bodyguard": "Inox Bodyguard",
+      "inox-guard": "Inox Guard",
+      "inox-shaman": "Inox Shaman",
+      "jekserah": "Jekserah",
+      "living-bones": "Living Bones",
+      "living-corpse": "Living Corpse",
+      "living-spirit": "Living Spirit",
+      "lurker": "Lurker",
+      "lurker-king": "Lurker King",
+      "merciless-overseer": "Merciless Overseer",
+      "night-demon": "Night Demon",
+      "ooze": "Ooze",
+      "prime-demon": "Prime Demon",
+      "prime-lieutenant": "Prime Lieutenant",
+      "rending-drake": "Rending Drake",
+      "savvas-icestorm": "Savvas Icestorm",
+      "savvas-lavaflow": "Savvas Lavaflow",
+      "siege-cannon": "Siege Cannon",
+      "spitting-drake": "Spitting Drake",
+      "stone-golem": "Stone Golem",
+      "sun-demon": "Sun Demon",
+      "the-betrayer": "The Betrayer",
+      "the-colorless": "The Colorless",
+      "the-gloom": "The Gloom",
+      "the-harvester": "The Harvester",
+      "the-sightless-eye": "The Sightless Eye",
+      "vermling-scout": "Vermling Scout",
+      "vermling-shaman": "Vermling Shaman",
+      "wind-demon": "Wind Demon",
+      "winged-horror": "Winged Horror"
+    },
+    "deck": {
+      "archer": "Archer",
+      "boss": "Boss",
+      "guard": "Guard",
+      "imp": "Imp",
+      "scout": "Scout",
+      "shaman": "Shaman"
+    },
+    "ability": {},
+    "scenario": {},
+    "summon": {
+      "angry-wasps": "Angry Wasps",
+      "bat-swarm": "Bat Swarm",
+      "battle-boar": "Battle Boar",
+      "battle-bot": "Battle Bot",
+      "black-unicorn": "Black Unicorn",
+      "bloat-maggot": "Bloat Maggot",
+      "burning-avatar": "Burning Avatar",
+      "creeping-beetles": "Creeping Beetles",
+      "decoy": "Decoy",
+      "doppelganger": "Doppelganger",
+      "giant-toad": "Giant Toad",
+      "green-adder": "Green Adder",
+      "healing-sprite": "Healing Sprite",
+      "iron-beast": "Iron Beast",
+      "kill-bot": "Kill Bot",
+      "lava-golem": "Lava Golem",
+      "lightning-moth": "Lightning Moth",
+      "living-bomb": "Living Bomb",
+      "mana-sphere": "Mana Sphere",
+      "monolith": "Monolith",
+      "monstrous-rat": "Monstrous Rat",
+      "mystic-ally": "Mystic Ally",
+      "nail-sphere": "Nail Sphere",
+      "rage-hornets": "Rage Hornets",
+      "rat-king": "Rat King",
+      "rat-swarm": "Rat Swarm",
+      "red-falcon": "Red Falcon",
+      "rock-colossus": "Rock Colossus",
+      "rust-vermin": "Rust Vermin",
+      "shadow-wolf": "Shadow wolf",
+      "slime-spirit": "Slime Spirit",
+      "soul-leeches": "Soul Leeches",
+      "spirit-banner": "Spirit Banner",
+      "spitting-cobra": "Spitting Cobra",
+      "steel-scarabs": "Steel Scarabs",
+      "swamp-alligator": "Swamp Alligator",
+      "tattered-wolf": "Tattered Wolf",
+      "thorn-shooter": "Thorn Shooter",
+      "two-mini": "Bear",
+      "vicious-jackal": "Vicious Jackal",
+      "void-eater": "Void Eater",
+      "war-hawk": "War Hawk",
+      "wind-totem": "Wind Totem"
+    },
+    "custom": {
+      "gh": {
+        "ancient-artillery": {
+          "1": "All adjacent enemies suffer 2 damage."
+        },
+        "archer": {
+          "1": "Create a 3 damage trap in an adjacent empty hex closest to an enemy."
+        },
+        "cultist": {
+          "1": "%data.monster.cultist% suffers 2 damage."
+        },
+        "deep-terror": {
+          "1": "%game.action.summon% %data.monster.deep-terror% (%monster.normal%) in a hex adjacent to the target"
+        },
+        "flame-demon": {
+          "1": "%data.monster.flame-demon% suffers 1 damage.",
+          "2": "All adjacent enemies suffer 2 damage.",
+          "3": "Create a 4 damage trap in an adjacent empty hex closest to an enemy."
+        },
+        "frost-demon": {
+          "1": "%data.monster.frost-demon% suffers 1 damage."
+        },
+        "giant-viper": {
+          "1": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.giant-viper%'s allies.",
+          "2": "All attacks targeting %data.monster.giant-viper% this round gain Disadvantage."
+        },
+        "harrower-infester": {
+          "1": "Perform \"%game.action.heal% 2, %game.specialTarget.self%\" for each target damaged"
+        },
+        "hound": {
+          "1": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.hound%'s allies."
+        },
+        "living-corpse": {
+          "1": "%data.monster.living-corpse% suffers 1 damage."
+        },
+        "night-demon": {
+          "1": "All adjacent enemies and allies suffer 1 damage."
+        },
+        "ooze": {
+          "1": "Ooze suffers 2 damage.",
+          "2": "%game.action.summon% %data.monster.ooze% (%monster.normal%) with a hit point value equal to the summoning %data.monster.ooze%'s current hit point value (limited by a normal %data.monster.ooze%'s specified maximum hit point value)"
+        },
+        "savvas-lavaflow": {
+          "1": "All allies and enemies adjacent to the target suffer 2 damage",
+          "2": "All enemies suffer 2 damage."
+        },
+        "stone-golem": {
+          "1": "%data.monster.stone-golem% suffers 1 damage.",
+          "2": "%data.monster.stone-golem% suffers 2 damage."
+        },
+        "bandit-commander": {
+          "1": "Move to next door and reveal room"
+        },
+        "captain-of-the-guard": {
+          "1": "All allies add +1 %game.action.attack% to all attacks this round"
+        },
+        "merciless-overseer": {
+          "1": "All Scouts act again",
+          "2": "V = Number of Scouts present"
+        },
+        "prime-demon": {
+          "1": "Throne moves"
+        },
+        "winged-horror": {
+          "1": "Hatch eggs",
+          "2": "%game.action.summon% [C] eggs"
+        },
+        "dark-rider": {
+          "1": "X = Hexes moved"
+        },
+        "the-betrayer": {
+          "1": "Mind Control"
+        }
+      }
+    },
+    "treasures": {
+      "gh": {
+        "1": "Random Item Design",
+        "2": "Gain 'Tower Shield' (Item 032)",
+        "3": "Gain 'Splintmail' (Item 044)",
+        "4": "Gain 15 Gold",
+        "5": " Gain 'Chainmail' (Item 023)",
+        "6": "Gain 'Hooked Chain' (Item 039)",
+        "7": "Random Side Scenario",
+        "8": "Gain 1 ✔",
+        "9": "Gain 'Wave Crest' (Item 111)",
+        "10": "Gain 10 Experience",
+        "11": "Random Item Design",
+        "12": "Gain 'Magma Waders' (Item 099)",
+        "13": "Suffer 5 Damage and gain %game.condition.poison% and %game.condition.wound%",
+        "14": "Gain 10 Experience",
+        "15": "Gain 'Pendant of Dark Pacts' (Item 045)",
+        "16": "Gain 10 gold",
+        "17": "Gain 20 Gold",
+        "18": "Gain 15 gold",
+        "19": "Random Item Design",
+        "20": "Random Item Design",
+        "21": "Suffer 5 Damage",
+        "22": "Random Item Design",
+        "23": "Gain 'Drakescale Armor' (Item 103)",
+        "24": "Suffer 5 damage",
+        "25": "Gain 25 gold",
+        "26": "Gain 20 Gold",
+        "27": "Gain 'Orb of Twilight' (Item 122)",
+        "28": "Gain 15 Gold",
+        "29": "Gain 'Endurance Footwraps' (Item 097)",
+        "30": "Gain 1 ✔",
+        "31": "Random Item Design",
+        "32": "Random Item Design",
+        "33": "Gain 'Weighted Net' (Item 019)",
+        "34": "Gain 'Amulet of Life' (Item 024)",
+        "35": "Gain 'Drakescale Boots' (Item 098)",
+        "36": "'Rocket Boots' design (Item 096)",
+        "37": "Gain 1 ✔",
+        "38": "'Ring of Skulls' design (Item 123)",
+        "39": "Suffer 5 damage",
+        "40": "Random Item Design",
+        "41": "Gain 'Black Knife' (Item 053)",
+        "42": "Random Item Design",
+        "43": "Suffer 5 damage gain %game.condition.poison% and %game.condition.wound%",
+        "44": "Random Side Scenario",
+        "45": "Random Item Design",
+        "46": "Suffer 3 damage and gain %game.condition.poison%",
+        "47": "Gain 'Steam Armor' (Item 104)",
+        "48": "Gain 30 gold",
+        "49": "New Scenario: Lost Island (Scenario 17 at K-17)",
+        "50": "Gain 'Second Skin' (Item 101)",
+        "51": "Random Side Scenario",
+        "52": "Gain 'Heart of the Betrayer' (Item 131)",
+        "53": "Random Item Design",
+        "54": "Gain 'Doomed Compass' (Item 124)",
+        "55": "Gain 1 ✔",
+        "56": "Gain 'Star Earring' (Item 069)",
+        "57": "Gain 15 gold",
+        "58": "Gain 'Drakescale Helm' (Item 108)",
+        "59": "Random Item Design",
+        "60": "Gain 'Skullbane Axe' (Item 113)",
+        "61": "Gain 'Versatile Dagger' (Item 040)",
+        "62": "Gain 'Helm of the Mountain' (Item 110) and “Mountain Hammer” (Item 115)",
+        "63": "Random Item Design",
+        "64": "Gain 30 gold",
+        "65": "'Horned Helm' design (Item 107)",
+        "66": "Gain 'Volatile Bomb' (Item 033)",
+        "67": "Gain 10 Gold",
+        "68": "Gain 'Helix Ring' (Item 130)",
+        "69": "Gain 'Robes of Summoning' (Item 100)",
+        "70": "Random Side Scenario",
+        "71": "Random Side Scenario",
+        "72": "'Fueled Falchion' design (Item 116)",
+        "73": "Random Item Design",
+        "74": "Random Item Design",
+        "75": "Cryptogram Found (See scenario book page 121)",
+        "76": "Suffer 3 damage, gain {WOUND} and 10 gold",
+        "77": "Gain 'Major Cure Potion' (Item 090)",
+        "78": "'Ancient Bow' (Item 157)",
+        "79": "Gain 'Falcon Figurine' (Item 157)",
+        "80": "Gain 1 ✓ and add Rift Event 19 to the deck",
+        "81": "Gain 'Scroll of Haste' (Item 159) and 10 gold",
+        "82": "'Rejuvenation Greaves' (Item 158)",
+        "83": "Gain 'Major Power Potion' (Item 041)",
+        "84": "Gain 'Mask of Terrors' (Item 066)",
+        "85": "Suffer 3 damage, gain %game.condition.poison% and 10 gold",
+        "86": "Unlock Diviner {DR} Solo Scenario 'Forecast of the Inevitable",
+        "87": "Suffer 2 damage, gain CURSE and 15 gold",
+        "88": "Gain 'Second Chance Ring' (Item 070)",
+        "90": "10 gold each, Read section 75 on page 49",
+        "91": "Gain 30 gold and Party Achievement: 'Opportunists' Add City Event 84 to the deck",
+        "93": "'Scroll of Haste' (Item 159)",
+        "94": "Gain 1 ✓ and add Rift Event 20 to the deck",
+        "95": "Gain 25 gold and Party Achievement: 'A Strongbox' Add City Event  85 to the deck",
+        "96": "You find an old tome littered with technical drawings and design schematics of a wide array of exotic machines. There is a curious handwritten note inside the front cover: {NOTE_115}"
+      }
+    }
+  },
   "de": {
     "character": {
       "brute": "Barbar",
@@ -283,207 +582,6 @@
         },
         "the-betrayer": {
           "1": "Gedankenkontrolle"
-        }
-      }
-    }
-  },
-  "en": {
-    "character": {
-      "brute": "Brute",
-      "cragheart": "Cragheart",
-      "mindthief": "Mindthief",
-      "scoundrel": "Scoundrel",
-      "spellweaver": "Spellweaver",
-      "tinkerer": "Tinkerer"
-    },
-    "edition": {
-      "gh": "Gloomhaven"
-    },
-    "monster": {
-      "ancient-artillery": "Ancient Artillery",
-      "arcane-golem": "Arcane Golem",
-      "bandit-archer": "Bandit Archer",
-      "bandit-commander": "Bandit Commander",
-      "bandit-guard": "Bandit Guard",
-      "black-imp": "Black Imp",
-      "bloated-regent": "Bloated Regent",
-      "captain-of-the-guard": "Captain of the Guard",
-      "cave-bear": "Cave Bear",
-      "city-archer": "City Archer",
-      "city-guard": "City Guard",
-      "cultist": "Cultist",
-      "dark-rider": "Dark Rider",
-      "deep-terror": "Deep Terror",
-      "earth-demon": "Earth Demon",
-      "elder-drake": "Elder Drake",
-      "flame-demon": "Flame Demon",
-      "forest-imp": "Forest Imp",
-      "frost-demon": "Frost Demon",
-      "giant-ooze": "Giant Ooze",
-      "giant-viper": "Giant Viper",
-      "harrower-infester": "Harrower Infester",
-      "hound": "Hound",
-      "hungry-soul": "Hungry Soul",
-      "infiltrator": "Infiltrator",
-      "inox-archer": "Inox Archer",
-      "inox-bodyguard": "Inox Bodyguard",
-      "inox-guard": "Inox Guard",
-      "inox-shaman": "Inox Shaman",
-      "jekserah": "Jekserah",
-      "living-bones": "Living Bones",
-      "living-corpse": "Living Corpse",
-      "living-spirit": "Living Spirit",
-      "lurker": "Lurker",
-      "lurker-king": "Lurker King",
-      "merciless-overseer": "Merciless Overseer",
-      "night-demon": "Night Demon",
-      "ooze": "Ooze",
-      "prime-demon": "Prime Demon",
-      "prime-lieutenant": "Prime Lieutenant",
-      "rending-drake": "Rending Drake",
-      "savvas-icestorm": "Savvas Icestorm",
-      "savvas-lavaflow": "Savvas Lavaflow",
-      "siege-cannon": "Siege Cannon",
-      "spitting-drake": "Spitting Drake",
-      "stone-golem": "Stone Golem",
-      "sun-demon": "Sun Demon",
-      "the-betrayer": "The Betrayer",
-      "the-colorless": "The Colorless",
-      "the-gloom": "The Gloom",
-      "the-harvester": "The Harvester",
-      "the-sightless-eye": "The Sightless Eye",
-      "vermling-scout": "Vermling Scout",
-      "vermling-shaman": "Vermling Shaman",
-      "wind-demon": "Wind Demon",
-      "winged-horror": "Winged Horror"
-    },
-    "deck": {
-      "archer": "Archer",
-      "boss": "Boss",
-      "guard": "Guard",
-      "imp": "Imp",
-      "scout": "Scout",
-      "shaman": "Shaman"
-    },
-    "ability": {},
-    "scenario": {},
-    "summon": {
-      "angry-wasps": "Angry Wasps",
-      "bat-swarm": "Bat Swarm",
-      "battle-boar": "Battle Boar",
-      "battle-bot": "Battle Bot",
-      "black-unicorn": "Black Unicorn",
-      "bloat-maggot": "Bloat Maggot",
-      "burning-avatar": "Burning Avatar",
-      "creeping-beetles": "Creeping Beetles",
-      "decoy": "Decoy",
-      "doppelganger": "Doppelganger",
-      "giant-toad": "Giant Toad",
-      "green-adder": "Green Adder",
-      "healing-sprite": "Healing Sprite",
-      "iron-beast": "Iron Beast",
-      "kill-bot": "Kill Bot",
-      "lava-golem": "Lava Golem",
-      "lightning-moth": "Lightning Moth",
-      "living-bomb": "Living Bomb",
-      "mana-sphere": "Mana Sphere",
-      "monolith": "Monolith",
-      "monstrous-rat": "Monstrous Rat",
-      "mystic-ally": "Mystic Ally",
-      "nail-sphere": "Nail Sphere",
-      "rage-hornets": "Rage Hornets",
-      "rat-king": "Rat King",
-      "rat-swarm": "Rat Swarm",
-      "red-falcon": "Red Falcon",
-      "rock-colossus": "Rock Colossus",
-      "rust-vermin": "Rust Vermin",
-      "shadow-wolf": "Shadow wolf",
-      "slime-spirit": "Slime Spirit",
-      "soul-leeches": "Soul Leeches",
-      "spirit-banner": "Spirit Banner",
-      "spitting-cobra": "Spitting Cobra",
-      "steel-scarabs": "Steel Scarabs",
-      "swamp-alligator": "Swamp Alligator",
-      "tattered-wolf": "Tattered Wolf",
-      "thorn-shooter": "Thorn Shooter",
-      "two-mini": "Bear",
-      "vicious-jackal": "Vicious Jackal",
-      "void-eater": "Void Eater",
-      "war-hawk": "War Hawk",
-      "wind-totem": "Wind Totem"
-    },
-    "custom": {
-      "gh": {
-        "ancient-artillery": {
-          "1": "All adjacent enemies suffer 2 damage."
-        },
-        "archer": {
-          "1": "Create a 3 damage trap in an adjacent empty hex closest to an enemy."
-        },
-        "cultist": {
-          "1": "%data.monster.cultist% suffers 2 damage."
-        },
-        "deep-terror": {
-          "1": "%game.action.summon% %data.monster.deep-terror% (%monster.normal%) in a hex adjacent to the target"
-        },
-        "flame-demon": {
-          "1": "%data.monster.flame-demon% suffers 1 damage.",
-          "2": "All adjacent enemies suffer 2 damage.",
-          "3": "Create a 4 damage trap in an adjacent empty hex closest to an enemy."
-        },
-        "frost-demon": {
-          "1": "%data.monster.frost-demon% suffers 1 damage."
-        },
-        "giant-viper": {
-          "1": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.giant-viper%'s allies.",
-          "2": "All attacks targeting %data.monster.giant-viper% this round gain Disadvantage."
-        },
-        "harrower-infester": {
-          "1": "Perform \"%game.action.heal% 2, %game.specialTarget.self%\" for each target damaged"
-        },
-        "hound": {
-          "1": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.hound%'s allies."
-        },
-        "living-corpse": {
-          "1": "%data.monster.living-corpse% suffers 1 damage."
-        },
-        "night-demon": {
-          "1": "All adjacent enemies and allies suffer 1 damage."
-        },
-        "ooze": {
-          "1": "Ooze suffers 2 damage.",
-          "2": "%game.action.summon% %data.monster.ooze% (%monster.normal%) with a hit point value equal to the summoning %data.monster.ooze%'s current hit point value (limited by a normal %data.monster.ooze%'s specified maximum hit point value)"
-        },
-        "savvas-lavaflow": {
-          "1": "All allies and enemies adjacent to the target suffer 2 damage",
-          "2": "All enemies suffer 2 damage."
-        },
-        "stone-golem": {
-          "1": "%data.monster.stone-golem% suffers 1 damage.",
-          "2": "%data.monster.stone-golem% suffers 2 damage."
-        },
-        "bandit-commander": {
-          "1": "Move to next door and reveal room"
-        },
-        "captain-of-the-guard": {
-          "1": "All allies add +1 %game.action.attack% to all attacks this round"
-        },
-        "merciless-overseer": {
-          "1": "All Scouts act again",
-          "2": "V = Number of Scouts present"
-        },
-        "prime-demon": {
-          "1": "Throne moves"
-        },
-        "winged-horror": {
-          "1": "Hatch eggs",
-          "2": "%game.action.summon% [C] eggs"
-        },
-        "dark-rider": {
-          "1": "X = Hexes moved"
-        },
-        "the-betrayer": {
-          "1": "Mind Control"
         }
       }
     }

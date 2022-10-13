@@ -64,7 +64,13 @@ export class ScnearioManager {
   applyScenarioData(editionData: EditionData, scenarioData: ScenarioData) {
     if (scenarioData.monsters) {
       scenarioData.monsters.forEach((name) => {
-        const monsterData = gameManager.monstersData(true).find((monsterData) => monsterData.name == name && (monsterData.edition == editionData.edition || editionData.extentions && editionData.extentions.indexOf(monsterData.edition) != -1));
+        let monsterData = gameManager.monstersData(true).find((monsterData) => monsterData.name == name && (monsterData.edition == editionData.edition || editionData.extentions && editionData.extentions.indexOf(monsterData.edition) != -1));
+
+        if (!monsterData) {
+          console.warn("Monster not found: '" + name + "' for edition :" + editionData.edition);
+          monsterData = gameManager.monstersData(true).find((monsterData) => monsterData.name == name);
+        }
+
         if (monsterData) {
           let monster = gameManager.monsterManager.addMonster(monsterData);
           if (scenarioData.allies && scenarioData.allies.indexOf(monster.name) != -1) {
@@ -76,6 +82,19 @@ export class ScnearioManager {
       });
     }
 
+    if (scenarioData.solo) {
+      gameManager.game.figures = gameManager.game.figures.filter((figure) => !(figure instanceof Character) || figure.name == scenarioData.solo && figure.edition == scenarioData.edition);
+
+      if (!gameManager.game.figures.some((figure) => figure instanceof Character && figure.name == scenarioData.solo && figure.edition == scenarioData.edition)) {
+        const characterData = gameManager.charactersData(true).find((characterData) => characterData.name == scenarioData.solo && characterData.edition == scenarioData.edition);
+        if (characterData) {
+          gameManager.characterManager.addCharacter(characterData, 1);
+        } else {
+          console.error("Solo Scneario Character not found: '" + scenarioData.solo + "' (" + scenarioData.name + ")");
+        }
+      }
+    }
+
     if (scenarioData.objectives) {
       scenarioData.objectives.forEach((objectiveData) => {
         gameManager.characterManager.addObjective(objectiveData)
@@ -83,17 +102,23 @@ export class ScnearioManager {
     }
   }
 
-  scenarioData(edition: string): ScenarioData[] {
-    const editionData = gameManager.editionData.find((editionData) => editionData.edition == edition);
+  scenarioData(edition: string | undefined): ScenarioData[] {
+    const scenarios = gameManager.editionData.map((editionData) => editionData.scenarios).flat();
 
-    if (!editionData) {
-      return [];
-    }
-    if (!this.game.party.campaignMode || !editionData.scenarios.some((scenarioData) => scenarioData.initial)) {
-      return editionData.scenarios;
+    if (!edition) {
+      return scenarios;
     }
 
-    return editionData.scenarios.filter((scenarioData) => {
+    if (!this.game.party.campaignMode || !scenarios.some((scenarioData) => scenarioData.initial)) {
+      return scenarios.filter((scenarioData) => scenarioData.edition == edition);
+    }
+
+    return scenarios.filter((scenarioData) => {
+
+      if (scenarioData.edition != edition) {
+        return false;
+      }
+
       if (scenarioData.initial) {
         return true;
       }
@@ -109,7 +134,7 @@ export class ScnearioManager {
       let unlocked: boolean = false;
       let requires: boolean = !scenarioData.requires || scenarioData.requires.length == 0;
       this.game.party.scenarios.forEach((identifier) => {
-        const scenario = editionData.scenarios.find((value) => value.index == identifier.index && value.edition == identifier.edition && value.group == identifier.group);
+        const scenario = scenarios.find((value) => value.index == identifier.index && value.edition == identifier.edition && value.group == identifier.group);
 
         if (scenario && scenario.group == scenarioData.group) {
           if ((scenario.unlocks && scenario.unlocks.indexOf(scenarioData.index) != -1)) {

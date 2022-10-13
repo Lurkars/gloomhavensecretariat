@@ -1,0 +1,8 @@
+{
+  "edition": "solo",
+  "extentions": [
+    "gh",
+    "fc",
+    "cs"
+  ]
+}

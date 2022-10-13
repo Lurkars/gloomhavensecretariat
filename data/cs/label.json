@@ -65,8 +65,8 @@
       "your-shadow": "Your Shadow"
     },
     "deck": {
-      "scout-ally" : "%data.deck.scout% (%game.ally%)",
-      "shaman-ally" : "%data.deck.shaman% (%game.ally%)"
+      "scout-ally": "%data.deck.scout% (%game.ally%)",
+      "shaman-ally": "%data.deck.shaman% (%game.ally%)"
     },
     "ability": {},
     "scenario": {},
@@ -256,6 +256,58 @@
           "1": "Place one Colony token of your choice on any empty hex within %game.action.range% 2",
           "2": "where X is the number of active Cultivate actions"
         }
+      }
+    },
+    "treasures": {
+      "cs": {
+        "1": "'Drake's Blood' (Item 14)",
+        "2": "'Orb of Fortune' (Item 09)",
+        "3": "'Chain Mace' (Item 14)",
+        "4": "Gain 15 gold and Recover one lost card",
+        "5": "'Concussion Mine' (Item 31)",
+        "6": "Gain 20 gold and disarm all adjacent traps",
+        "7": "One random 'Stone' item (Item 94-100)",
+        "8": "'Dizzying Tincture' (Item 58)",
+        "9": "'Orb of Fortune' (Item 9)",
+        "10": "One random 'Stone' item (Item 94-100)",
+        "11": "'Dizzying Tincture' (Item 58)",
+        "12": "'Mana Medicine' (Item 60)",
+        "13": "'Orb of Despair' (Item 10)",
+        "14": "'Steel Helmet' (Item 22)",
+        "15": "'Shifting Compass' (Item 32)",
+        "16": "Perform 'Heal 6, Self', gain {POISON}",
+        "17": "'Concussion Mine' (Item 31)",
+        "18": "'Boneclad Shawl (Item 25)",
+        "19": "Gain ✓ and generate a Wild Element",
+        "20": "One random 'Stone' item (Item 94-100)",
+        "21": "'Steel Helmet' (Item 22)",
+        "22": "'Boots of Perpetuity' (Item 19)",
+        "23": "'Trophy Helmet' (Item 12)",
+        "24": "One random 'Stone' item (Item 94-100)",
+        "25": "'Draining Greaves' (Item 15)",
+        "26": "'Iron Snare' (Item 30)",
+        "27": "'Woven Plate Armor' (Item 23)",
+        "28": "'Chain Mace' (Item 14)",
+        "29": "'Woven Plate Armor' (Item 23)",
+        "30": "'Boneclad Shawl (Item 25)",
+        "31": "'Drake's Blood' (Item 14)",
+        "32": "'Curious Pendant' (Item 20)",
+        "33": "25  gold, gain {POISON}",
+        "34": "Suffer hazardous terrain damage, gain {INVISIBLE}",
+        "35": "'Curseblood Blade' (Item 36)",
+        "36": "10 experience, gain {INVSIBLE}",
+        "37": "'Draining Greaves' (Item 15)",
+        "38": "'War Pick' (Item 13)",
+        "39": "'Infrared Goggles' (Item 21)",
+        "40": "One random 'Stone' item (Item 94-100)",
+        "41": "'Ashsteel Gauntlets' (Item 61)",
+        "42": "'War Pick' (Item 13)",
+        "43": "10 experience and Refresh all spent items",
+        "44": "'Mana Medicine' (Item 60)",
+        "46": "'Vipertooth Dagger' design (Item 54)",
+        "47": "15 gold",
+        "48": "15 gold",
+        "49": "'Magma Waders' (Item 99)"
       }
     }
   }
