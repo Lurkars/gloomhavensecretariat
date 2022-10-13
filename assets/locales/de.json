@@ -44,6 +44,7 @@
       "addSection": "Abschnitt #{0} {1} ({2}) hinzufügen",
       "addStandee": "Aufsteller {1} {0} {2} hinzufügen",
       "addSummon": "Beschwöre '{1}' von {0}",
+      "addTreasure": "Schatz {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%) hinzufügen",
       "applyCondition": {
         "char": "{1} anwenden auf {0}",
         "objective": "{1} anwenden auf {0}",
@@ -117,6 +118,7 @@
       "removeMonster": "Monster {0} entfernen",
       "removeObjective": "Ziel {0} entfernen",
       "removeParty": "Gruppe '{0}' löschen",
+      "removeTreasure": "Schatz {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%) entfernen",
       "reorder": "Figuren neu anordnen",
       "reorderAbilities": "Fertigkeitskarten von {0} neu anordnen",
       "resetScenario": "Szenario #{0} {1} ({2}) zurücksetzen",
@@ -289,15 +291,15 @@
     },
     "class": {
       "aesther": "Aesther",
-      "harrower": "Harrower",
-      "human": "Mensch",
+      "harrower": "Schwarmling",
+      "human": "Menschlich/e",
       "inox": "Inox",
       "lurker": "Pirscher",
-      "orchid": "Orchid",
+      "orchid": "Antriden",
       "quatryl": "Quatryl",
       "savvas": "Savvas",
       "valrath": "Valrath",
-      "vermling": "Ratze"
+      "vermling": "Ratzen"
     }
   },
   "party": {
@@ -322,6 +324,7 @@
     "campaign": {
       ".": "Kampagne",
       "achievements": "Globale Erfolge",
+      "treasures": "Schatztruhen",
       "donations": "Spenden an den Tempel der Großen Eiche",
       "scenarios": {
         ".": "Szenarien",
