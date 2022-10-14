@@ -610,8 +610,8 @@
       "brittle": "Gebrechlich",
       "impair": "Beschädigt",
       "rupture": "Bruch",
-      "poison_x": "Gift X",
-      "wound_x": "Wunde X"
+      "poison_x": "Gift {0}",
+      "wound_x": "Wunde {0}"
     },
     "element": {
       "all": "Alle",
