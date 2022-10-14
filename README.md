@@ -60,6 +60,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - Permission management for different clients with [GHS Server](https://github.com/Lurkars/ghs-server)
   - load custom JSON edition data for custom content!
   - edit Monster Attack Modifier and Monster Ability decks (support for Diviner class mechanics): reveal cards, remove cards, re-order cards
+  - [Monster data editor](https://gloomhaven-secretary.de/editor/monster)
   - includes Solo Scenarios for GH, FC and CS
   - <details>
       <summary>SPOILER WARNING: Envelope X</summary>
@@ -76,7 +77,6 @@ If you need help using the app take a look at the [help page](https://help.gloom
 
 - support for managing character ability cards
 - support multiple parties
-- tools like monster editor to create/update monster stats and abilities via UI (WIP)
 - FH data (as soon as available)
 
 ## Install
@@ -98,18 +98,20 @@ To selfhost *Gloomhaven Secretary* on your webserver, simple download the zip fi
 
 > The base url for this build is set to root. To use a different base url please [build your own package](#build-from-source).
 
-## Build from source
+#### Build and run using Docker
 
-If you want to create you own custom build (for example to [selfhost](#selfhost)), prepare a [development setup](#development). Afterwards run `npm run build` ([available options](https://angular.io/cli/build#options)) and access build under `./dist/gloomhavensecretary`.
-
-## Build from source using Docker
-
-If you want to use docker to build, simply have docker installed and configured and do the following:
+If you want to use docker for running on port 80 execute following:
 
 ```shell
 docker build -t gloomhavensecretary .
 docker run --rm -p 80:80 gloomhavensecretary
 ```
+
+For usage with docker compose, simple run `docker compose up -d`.
+
+## Build from source
+
+If you want to create you own custom build (for example to [selfhost](#selfhost)), prepare a [development setup](#development). Afterwards run `npm run build` ([available options](https://angular.io/cli/build#options)) and access build under `./dist/gloomhavensecretary`.
 
 ## Development
 
@@ -123,7 +125,7 @@ Install dependencies with `npm install`.
 
 Afterwards run `npm run start` to create a development server at [http://localhost:4200](http://localhost:4200).
 
-Alternatively, you can use docker (see the [docker instructions](#build-from-source-using-docker)).
+For development with docker, install docker compose and run `docker compose -f docker-compose.dev.yaml up -d`.
 
 ## Contributing
 

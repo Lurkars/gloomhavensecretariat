@@ -66,6 +66,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MonsterEditorComponent } from './ui/tools/editor/monster/monster';
 import { MonsterEditorActionComponent, MonsterEditorActionDialogComponent } from './ui/tools/editor/monster/action/action';
 import { SettingsDebugMenuComponent } from './ui/header/menu/debug/debug';
+import { EditionEditorComponent } from './ui/tools/editor/edition';
 
 @NgModule({
   declarations: [
@@ -95,6 +96,7 @@ import { SettingsDebugMenuComponent } from './ui/header/menu/debug/debug';
     CardRevealDirective, EntityAnimationDirective, I18nDirective, ValueCalcDirective, DragValueComponent, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
     GhsValueSignPipe, GhsLabelPipe, GhsRangePipe,
     AttackModifierToolComponent,
+    EditionEditorComponent,
     MonsterEditorComponent, MonsterEditorActionComponent, MonsterEditorActionDialogComponent],
   imports: [
     BrowserModule,

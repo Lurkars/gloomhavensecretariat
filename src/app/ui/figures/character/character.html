@@ -18,17 +18,17 @@
   </ghs-character-image>
 
   <ng-container *ngIf="!character.absent">
-    <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-initiative"
+    <ghs-drag-value *ngIf="settingsManager.settings.dragValues && !character.attackModifierDeckVisible" class="drag-initiative"
       (dragMove)="dragInitativeMove($event)" (dragEnd)="dragInitativeEnd($event)">
     </ghs-drag-value>
 
-    <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-hp" (dragMove)="dragHpMove($event)"
+    <ghs-drag-value *ngIf="settingsManager.settings.dragValues && !character.attackModifierDeckVisible" class="drag-hp" (dragMove)="dragHpMove($event)"
       (dragEnd)="dragHpEnd($event)" [relative]="true"></ghs-drag-value>
 
-    <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-xp" (dragMove)="dragXpMove($event)"
+    <ghs-drag-value *ngIf="settingsManager.settings.dragValues && !character.attackModifierDeckVisible" class="drag-xp" (dragMove)="dragXpMove($event)"
       (dragEnd)="dragXpEnd($event)" [relative]="true"></ghs-drag-value>
 
-    <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-loot" (dragMove)="dragLootMove($event)"
+    <ghs-drag-value *ngIf="settingsManager.settings.dragValues && !character.attackModifierDeckVisible" class="drag-loot" (dragMove)="dragLootMove($event)"
       (dragEnd)="dragLootEnd($event)" [relative]="true"></ghs-drag-value>
 
     <ghs-character-initiative [character]="character"></ghs-character-initiative>

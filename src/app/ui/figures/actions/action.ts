@@ -11,7 +11,7 @@ import { MonsterType } from 'src/app/game/model/MonsterType';
 @Component({
   selector: 'ghs-action',
   templateUrl: './action.html',
-  styleUrls: [ './action.scss' ]
+  styleUrls: ['./action.scss']
 })
 export class ActionComponent implements OnInit {
 
@@ -29,12 +29,12 @@ export class ActionComponent implements OnInit {
   subActions: Action[] = [];
   additionalSubActions: Action[] = [];
   elementActions: Action[] = [];
-  additionAttackSubActionTypes: ActionType[] = [ ActionType.condition, ActionType.target, ActionType.pierce, ActionType.pull, ActionType.push, ActionType.swing, ActionType.area ];
+  additionAttackSubActionTypes: ActionType[] = [ActionType.condition, ActionType.target, ActionType.pierce, ActionType.pull, ActionType.push, ActionType.swing, ActionType.area];
 
   ActionType = ActionType;
   ActionValueType = ActionValueType;
 
-  invertIcons: ActionType[] = [ ActionType.attack, ActionType.fly, ActionType.heal, ActionType.jump, ActionType.loot, ActionType.move, ActionType.range, ActionType.retaliate, ActionType.shield, ActionType.target, ActionType.teleport ];
+  invertIcons: ActionType[] = [ActionType.attack, ActionType.fly, ActionType.heal, ActionType.jump, ActionType.loot, ActionType.move, ActionType.range, ActionType.retaliate, ActionType.shield, ActionType.target, ActionType.teleport];
 
   hasAOE: boolean = false;
 
@@ -65,7 +65,14 @@ export class ActionComponent implements OnInit {
   }
 
   getSpecial(action: Action): Action[] {
-    return this.getStat(MonsterType.boss).special[ (action.value as number) - 1 ];
+    if (this.monster.boss) {
+      return this.getStat(MonsterType.boss).special[(action.value as number) - 1];
+    } else {
+      return [
+        new Action(ActionType.monsterType, MonsterType.normal, ActionValueType.fixed, this.getStat(MonsterType.normal).special[(action.value as number) - 1]),
+        new Action(ActionType.monsterType, MonsterType.elite, ActionValueType.fixed, this.getStat(MonsterType.elite).special[(action.value as number) - 1])
+      ]
+    }
   }
 
   getValue(type: MonsterType): number | string {
@@ -154,7 +161,7 @@ export class ActionComponent implements OnInit {
                   this.additionalSubActions.push(newStatAction);
                 } else if (eliteStat && (!eliteStat.actions || !this.subActionExists(eliteStat.actions, newStatAction))) {
                   if (!normalActions && !this.subActionExists(this.subActions, newStatAction) && !this.subActionExists(this.additionalSubActions, newStatAction)) {
-                    normalActions = new Action(ActionType.monsterType, MonsterType.normal, ActionValueType.fixed, [ newStatAction ])
+                    normalActions = new Action(ActionType.monsterType, MonsterType.normal, ActionValueType.fixed, [newStatAction])
                     this.additionalSubActions.push(normalActions);
                   } else if (normalActions && !this.subActionExists(this.subActions, newStatAction) && !this.subActionExists(this.additionalSubActions, newStatAction) && !this.subActionExists(normalActions.subActions, newStatAction)) {
                     normalActions.subActions.push(newStatAction);
@@ -171,7 +178,7 @@ export class ActionComponent implements OnInit {
             const newEliteAction = new Action(eliteAction.type, eliteAction.value, eliteAction.valueType, eliteAction.subActions);
             if (!stat.actions || !this.subActionExists(stat.actions, newEliteAction)) {
               if (!eliteActions && !this.subActionExists(this.subActions, newEliteAction) && !this.subActionExists(this.additionalSubActions, newEliteAction)) {
-                eliteActions = new Action(ActionType.monsterType, MonsterType.elite, ActionValueType.fixed, [ newEliteAction ]);
+                eliteActions = new Action(ActionType.monsterType, MonsterType.elite, ActionValueType.fixed, [newEliteAction]);
                 this.additionalSubActions.push(eliteActions);
               } else if (eliteActions && !this.subActionExists(this.subActions, newEliteAction) && !this.subActionExists(this.additionalSubActions, newEliteAction) && !this.subActionExists(eliteActions.subActions, newEliteAction)) {
                 eliteActions.subActions.push(newEliteAction);

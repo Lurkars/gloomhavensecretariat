@@ -19,7 +19,7 @@ export class EditionData implements Editional {
   label: any = {};
   labelSpoiler: any = {};
   url: string = "";
-  extentions: string[] = [];
+  extensions: string[] = [];
   hazardousTerrain: boolean = false;
 
   constructor(edition: string, characters: CharacterData[],
@@ -29,7 +29,7 @@ export class EditionData implements Editional {
     sections: ScenarioData[],
     items: ItemData[],
     conditions: string[] | undefined = undefined,
-    extentions: string[] = [],
+    extensions: string[] = [],
     hazardousTerrain: boolean = false) {
     this.edition = edition;
     this.characters = characters;
@@ -41,7 +41,7 @@ export class EditionData implements Editional {
     if (conditions) {
       this.conditions = conditions;
     }
-    this.extentions = extentions;
+    this.extensions = extensions;
     this.hazardousTerrain = hazardousTerrain;
   }
 

@@ -1,6 +1,6 @@
 {
   "edition": "solo",
-  "extentions": [
+  "extensions": [
     "gh",
     "fc",
     "cs"

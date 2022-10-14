@@ -606,8 +606,8 @@
       "brittle": "Fragile",
       "impair": "Impair",
       "rupture": "Rupture",
-      "poison_x": "Poison X",
-      "wound_x": "Blessure X"
+      "poison_x": "Poison {0}",
+      "wound_x": "Blessure {0}"
     },
     "element": {
       "all": "Tous",

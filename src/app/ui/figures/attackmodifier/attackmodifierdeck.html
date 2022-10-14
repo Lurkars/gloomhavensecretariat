@@ -3,12 +3,16 @@
 
   <div #drawCard class="draw"
     title="{{(gameManager.game.state == GameState.next ? (deck.current == deck.cards.length -1 ? 'game.cards.shuffle' : 'game.cards.draw') : 'game.cards.openDialog') | ghsLabel}}"
-    (click)="click(deck.cards.length + 1)" [ngClass]="{'open-dialog' : gameManager.game.state == GameState.draw}"
-    [style.z-index]="deck.cards.length + 1" [style.fontSize]="drawCard.offsetWidth * 0.08 + 'px'">
-    <span class="number" *ngIf="deck.current < deck.cards.length -1">{{
+    (click)="gameManager.game.state == GameState.next ? draw() : open($event)"
+    [ngClass]="{'open-dialog' : gameManager.game.state == GameState.draw}" [style.z-index]="deck.cards.length + 1"
+    [style.fontSize]="drawCard.offsetWidth * 0.08 + 'px'">
+    <span class="number" title="{{'game.cards.openDialog' | ghsLabel}}" (click)="open($event)"
+      *ngIf="deck.current < deck.cards.length -1">{{
       deck.cards.length - deck.current - 1 }}</span>
-    <img *ngIf="deck.current == deck.cards.length -1" class="shuffle" src="./assets/images/shuffle.svg">
-    <img [title]="'game.cards.fullscreen' | ghsLabel" *ngIf="fullscreen && gameManager.game.state == GameState.next" (click)="openFullscreen($event)" class="fullscreen" src="./assets/images/fullscreen.svg">
+    <img *ngIf="deck.current == deck.cards.length -1" class="shuffle" title="{{'game.cards.openDialog' | ghsLabel}}"
+      (click)="open($event)" src="./assets/images/shuffle.svg">
+    <img [title]="'game.cards.fullscreen' | ghsLabel" *ngIf="fullscreen"
+      (click)="openFullscreen($event)" class="fullscreen" src="./assets/images/fullscreen.svg">
   </div>
 
   <ng-container *ngFor="let attackModifier of deck.cards; let index = index;">
@@ -18,7 +22,7 @@
       [style.z-index]="index > deck.current ? deck.cards.length - index : deck.cards.length + index + 1"
       [ngClass]="{'disgarded' : index < deck.current - 1, 'current' : index == deck.current, 'last' : index == deck.current - 1, 'bottom' : bottom, 'rolling' : attackModifier.rolling, 'open-dialog' : index <= deck.current}"
       [style.left]="attackModifier.rolling && rollingIndex(index) ?  'calc(75% + ' + (rollingIndex(index) - 1) + ' * 25%)' : ''"
-      title="{{'game.cards.openDialog' | ghsLabel}}" (click)="click(index)">
+      title="{{'game.cards.openDialog' | ghsLabel}}" (click)="open($event)">
     </ghs-attackmodifier>
   </ng-container>
 </div>

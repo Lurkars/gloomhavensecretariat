@@ -23,6 +23,7 @@ export class MonsterEditorActionComponent implements OnInit {
   ActionSpecialTarget: ActionSpecialTarget[] = Object.values(ActionSpecialTarget);
   ConditionNames: ConditionName[] = Object.values(ConditionName);
   Elements: Element[] = Object.values(Element);
+  ActionValueType = ActionValueType;
   ActionValueTypes: ActionValueType[] = Object.values(ActionValueType);
   MonsterTypes: MonsterType[] = Object.values(MonsterType);
   hexValue: string = "(0,0,invisible)";
@@ -42,12 +43,12 @@ export class MonsterEditorActionComponent implements OnInit {
       hexes.forEach((other) => this.fillHexes(other, hexes));
       this.hexValue = hexes.map((hex) => ActionHex.toString(hex)).join('|');
       this.change();
-    } else if (this.action.type == ActionType.specialTarget) {
+    } else if (this.action.type == ActionType.specialTarget || this.action.type == ActionType.condition) {
       if (('' + this.action.value).indexOf(':') != -1) {
         this.value = ('' + this.action.value).split(':')[0];
         this.subValue = ('' + this.action.value).split(':')[1];
       } else {
-        this.subValue = '' + this.action.value;
+        this.value = '' + this.action.value;
       }
     }
   }

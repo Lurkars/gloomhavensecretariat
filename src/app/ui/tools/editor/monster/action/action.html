@@ -28,7 +28,8 @@
 
   <ng-container *ngIf="action.type == ActionType.condition">
     <select [(ngModel)]="value" (change)="changeCondition()">
-      <option *ngFor="let condition of ConditionNames" [value]="condition">{{'game.condition.' + condition | ghsLabel}}
+      <option *ngFor="let condition of ConditionNames" [value]="condition">{{'game.condition.' + condition |
+        ghsLabel:['X']}}
       </option>
     </select>
     <label class="inline" *ngIf="subValue">
@@ -41,14 +42,18 @@
   </select>
 
   <select *ngIf="action.type == ActionType.monsterType" [(ngModel)]="action.value" (change)="change()">
-    <option *ngFor="let monsterType of MonsterTypes" [value]="monsterType">{{'game.monster.' + monsterType | ghsLabel}}</option>
+    <option *ngFor="let monsterType of MonsterTypes" [value]="monsterType">{{'game.monster.' + monsterType | ghsLabel}}
+    </option>
   </select>
 
-  <ng-container *ngIf="[ActionType.area, ActionType.card, ActionType.condition, ActionType.custom, ActionType.monsterType,
+  <ng-container
+    *ngIf="[ActionType.area, ActionType.card, ActionType.condition, ActionType.custom, ActionType.monsterType,
      ActionType.refreshItem, ActionType.specialTarget, ActionType.summon, ActionType.trigger].indexOf(action.type) == -1">
     <label>{{'editor.action.valueType' | ghsLabel}}</label>
     <select [(ngModel)]="action.valueType" placeholder="valueType" (change)="change()">
-      <option *ngFor="let valueType of ActionValueTypes" [value]="valueType">{{'editor.action.valueType.' + valueType |
+      <option *ngFor="let valueType of ActionValueTypes" [value]="valueType"
+        [selected]="action.valueType == valueType || !action.valueType && valueType == ActionValueType.fixed">
+        {{'editor.action.valueType.' + valueType |
         ghsLabel}}</option>
     </select>
   </ng-container>

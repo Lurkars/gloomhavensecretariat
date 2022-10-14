@@ -120,6 +120,35 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
+      .condition-image {
+        position: relative;
+        width: 1em;
+        height: 1em;
+        margin: 0.1em;
+        margin-top: 0;
+
+        img.icon {
+          width: 100%;
+          height: auto;
+          margin: 0;
+        }
+
+        .value {
+          font-family: var(--ghs-font-title);
+          font-size: 0.45em;
+          line-height: 1em;
+          color: var(--ghs-color-white);
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+          width: 100%;
+          height: 100%;
+        }
+      }
     }
   }
 

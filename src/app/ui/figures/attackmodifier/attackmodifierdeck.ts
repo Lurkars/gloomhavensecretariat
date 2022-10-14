@@ -25,7 +25,7 @@ export class AttackModiferDeckChange {
 @Component({
   selector: 'ghs-attackmodifier-deck',
   templateUrl: './attackmodifierdeck.html',
-  styleUrls: [ './attackmodifierdeck.scss' ]
+  styleUrls: ['./attackmodifierdeck.scss']
 })
 export class AttackModifierDeckComponent implements OnInit {
 
@@ -54,8 +54,8 @@ export class AttackModifierDeckComponent implements OnInit {
     this.deck = new AttackModifierDeck();
     this.element.nativeElement.addEventListener('click', (event: any) => {
       let elements = document.elementsFromPoint(event.clientX, event.clientY);
-      if (elements[ 0 ].classList.contains('attack-modifiers') && elements.length > 2) {
-        (elements[ 2 ] as HTMLElement).click();
+      if (elements[0].classList.contains('attack-modifiers') && elements.length > 2) {
+        (elements[2] as HTMLElement).click();
       }
     })
   };
@@ -78,23 +78,19 @@ export class AttackModifierDeckComponent implements OnInit {
     if (this.currentAttackModifier != this.deck.current) {
       this.currentAttackModifier = this.deck.current;
       this.drawing = true;
-      this.element.nativeElement.getElementsByClassName('attack-modifiers')[ 0 ].classList.add('drawing');
+      this.element.nativeElement.getElementsByClassName('attack-modifiers')[0].classList.add('drawing');
       setTimeout(() => {
-        this.element.nativeElement.getElementsByClassName('attack-modifiers')[ 0 ].classList.remove('drawing');
+        this.element.nativeElement.getElementsByClassName('attack-modifiers')[0].classList.remove('drawing');
         this.drawing = false;
       }, 1100);
     }
   }
 
-  click(index: number) {
-    if (!this.drawing) {
-      if (index > this.deck.current && gameManager.game.state == GameState.next) {
-        this.before.emit(new AttackModiferDeckChange(this.deck, "draw"));
-        gameManager.attackModifierManager.drawModifier(this.deck);
-        this.after.emit(new AttackModiferDeckChange(this.deck, "draw"));
-      } else {
-        this.open();
-      }
+  draw() {
+    if (!this.drawing && gameManager.game.state == GameState.next) {
+      this.before.emit(new AttackModiferDeckChange(this.deck, "draw"));
+      gameManager.attackModifierManager.drawModifier(this.deck);
+      this.after.emit(new AttackModiferDeckChange(this.deck, "draw"));
     }
   }
 
@@ -114,7 +110,7 @@ export class AttackModifierDeckComponent implements OnInit {
   }
 
   rollingIndex(index: number): number {
-    if (!this.deck.cards[ index ].rolling) {
+    if (!this.deck.cards[index].rolling) {
       return 0;
     }
 
@@ -128,7 +124,7 @@ export class AttackModifierDeckComponent implements OnInit {
   }
 
 
-  open() {
+  open(event : any) {
     this.dialog.open(AttackModifierDeckDialogComponent, {
       panelClass: 'dialog', data: {
         deck: this.deck,
@@ -138,6 +134,8 @@ export class AttackModifierDeckComponent implements OnInit {
         after: this.after
       }
     });
+    event.preventDefault();
+    event.stopPropagation();
   }
 
 }

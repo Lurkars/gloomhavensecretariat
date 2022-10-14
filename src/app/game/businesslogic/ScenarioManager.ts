@@ -64,7 +64,7 @@ export class ScnearioManager {
   applyScenarioData(editionData: EditionData, scenarioData: ScenarioData) {
     if (scenarioData.monsters) {
       scenarioData.monsters.forEach((name) => {
-        let monsterData = gameManager.monstersData(true).find((monsterData) => monsterData.name == name && (monsterData.edition == editionData.edition || editionData.extentions && editionData.extentions.indexOf(monsterData.edition) != -1));
+        let monsterData = gameManager.monstersData(true).find((monsterData) => monsterData.name == name && (monsterData.edition == editionData.edition || editionData.extensions && editionData.extensions.indexOf(monsterData.edition) != -1));
 
         if (!monsterData) {
           console.warn("Monster not found: '" + name + "' for edition :" + editionData.edition);

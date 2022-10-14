@@ -2,6 +2,7 @@
   "name": "city-guard-saw-solo",
   "thumbnail": "gh-city-guard",
   "edition": "gh",
+  "hidden": true,
   "count": 6,
   "baseStat": {
     "type": "normal",

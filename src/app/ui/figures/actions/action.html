@@ -8,15 +8,18 @@
     <span class="conditions">
       <span class="condition" *ngFor="let condition of getValues(action); let index = index;">
         <span *ngIf="index > 0 && !inline">&nbsp;{{'and' | ghsLabel}}&nbsp;</span>
-        <span class="condition-value">{{('game.condition.' + condition.split(':')[0]) | ghsLabel}}</span>
-        <img class="icon"
-          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.split(':')[0] + '.svg'" />
-        <span *ngIf="condition.split(':').length > 1" class="value">{{condition.split(':')[1]}}</span>
+        <span class="condition-value">{{('game.condition.' + condition.split(':')[0]) |
+          ghsLabel:(condition.split(':').length > 1 ? [condition.split(':')[1]] : [])}}</span>
+        <span class="condition-image">
+          <img class="icon"
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.split(':')[0] + '.svg'" />
+          <span *ngIf="condition.split(':').length > 1" class="value">{{condition.split(':')[1]}}</span>
+        </span>
       </span>
     </span>
     <div class="condition-subactions" *ngIf="subActions.length > 0">
       <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of subActions" [action]="subAction"
-        [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
+        [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize" [statsCalculation]="statsCalculation"
         [highlightElements]="highlightElements">
       </ghs-action>
     </div>
@@ -53,7 +56,8 @@
     <div class="element-subactions" *ngIf="subActions && subActions.length > 0">
       <ghs-action class="full element-subaction" [ngClass]="'subaction-' + subAction.type"
         *ngFor="let subAction of subActions" [action]="subAction" [monster]="monster" [relative]="true"
-        [inline]="inline" [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements">
+        [inline]="inline" [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
+        [statsCalculation]="statsCalculation">
       </ghs-action>
     </div>
   </span>
@@ -64,7 +68,7 @@
     <div class="monster-type-subactions" *ngIf="subActions && subActions.length > 0">
       <ghs-action [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of subActions" [action]="subAction"
         [monster]="monster" [relative]="true" [inline]="inline" [right]="right" [hexSize]="hexSize"
-        [highlightElements]="highlightElements">
+        [highlightElements]="highlightElements" [statsCalculation]="statsCalculation">
       </ghs-action>
     </div>
   </span>
@@ -79,7 +83,7 @@
     <ng-container *ngIf="subActions && subActions.length > 0">
       <ghs-action class="full" [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of subActions"
         [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
-        [highlightElements]="highlightElements">
+        [highlightElements]="highlightElements" [relative]="relative" [statsCalculation]="statsCalculation">
       </ghs-action>
     </ng-container>
   </span>
@@ -90,7 +94,7 @@
     <ng-container *ngIf="subActions && subActions.length > 0">
       <ghs-action class="full" [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of subActions"
         [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
-        [highlightElements]="highlightElements">
+        [highlightElements]="highlightElements" [relative]="relative" [statsCalculation]="statsCalculation">
       </ghs-action>
     </ng-container>
   </span>
@@ -100,7 +104,7 @@
     <ng-container *ngIf="subActions && subActions.length > 0">
       <ghs-action class="full" [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of subActions"
         [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
-        [highlightElements]="highlightElements">
+        [highlightElements]="highlightElements" [relative]="relative" [statsCalculation]="statsCalculation">
       </ghs-action>
     </ng-container>
   </span>
@@ -112,7 +116,7 @@
     <ng-container *ngIf="subActions && subActions.length > 0">
       <ghs-action class="full" [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of subActions"
         [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
-        [highlightElements]="highlightElements">
+        [highlightElements]="highlightElements" [relative]="relative" [statsCalculation]="statsCalculation">
       </ghs-action>
     </ng-container>
   </span>
@@ -120,7 +124,8 @@
   <span class="action-default action-special" *ngSwitchCase="ActionType.special">
     <span class="special-type">{{'game.action.' + action.type | ghsLabel}} {{action.value}}:</span>
     <ghs-actions class="special-subactions" [actions]="getSpecial(action)" [monster]="monster" [inline]="inline"
-      [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements">
+      [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements" [relative]="relative"
+      [statsCalculation]="statsCalculation">
     </ghs-actions>
   </span>
 
@@ -174,7 +179,7 @@
         <ghs-action [ngClass]="'subaction-area'"
           [action]="(statsCalculation && additionalSubActions.length > 0 ? additionalSubActions : subActions)[0]"
           [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
-          [highlightElements]="highlightElements">
+          [highlightElements]="highlightElements" [relative]="relative" [statsCalculation]="statsCalculation">
         </ghs-action>
       </div>
     </span>
@@ -185,7 +190,7 @@
         *ngFor="let subAction of (statsCalculation && additionalSubActions.length > 0 ? additionalSubActions : subActions); let index = index">
         <ghs-action *ngIf="!hasAOE || index != 0" [ngClass]="'subaction-' + subAction.type" [action]="subAction"
           [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
-          [highlightElements]="highlightElements">
+          [highlightElements]="highlightElements" [relative]="relative" [statsCalculation]="statsCalculation">
         </ghs-action>
       </ng-container>
     </div>
@@ -194,13 +199,15 @@
   <div class="aoe" *ngIf="hasAOE && settingsManager.settings.fhStyle">
     <ghs-action [ngClass]="'subaction-area'"
       [action]="(statsCalculation && additionalSubActions.length > 0 ? additionalSubActions : subActions)[0]"
-      [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements">
+      [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
+      [relative]="relative" [statsCalculation]="statsCalculation">
     </ghs-action>
   </div>
 
   <div class="element-actions" *ngIf="elementActions.length > 0 && settingsManager.settings.fhStyle">
     <ghs-action *ngFor="let subAction of elementActions" [ngClass]="'subaction-' + subAction.type" [action]="subAction"
-      [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements">
+      [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
+      [relative]="relative" [statsCalculation]="statsCalculation">
     </ghs-action>
   </div>
 </span>

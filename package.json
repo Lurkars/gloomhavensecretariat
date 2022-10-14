@@ -1,6 +1,6 @@
 {
   "name": "gloomhavensecretary",
-  "version": "0.21.0",
+  "version": "0.21.1",
   "license": "AGPL3",
   "description": "Gloomhaven Secretary is an angular based Gloomhaven Companion app.",
   "author": {
@@ -77,7 +77,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "puppeteer": "^18.2.1",
+    "puppeteer": "^19.0.0",
     "typescript": "~4.8.4"
   }
 }

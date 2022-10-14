@@ -41,8 +41,8 @@
       <span *ngIf="!gameManager.toSummon(data.entity).name">{{'game.summon' | ghsLabel}}</span>
 
       <span class="summon-icon">
-        <span class="summon-number">{{gameManager.toSummon(data.entity).number}}</span>
         <img src="./assets/images/summons/{{gameManager.toSummon(data.entity).color}}.png">
+        <span class="summon-number">{{gameManager.toSummon(data.entity).number}}</span>
       </span>
     </ng-container>
   </div>

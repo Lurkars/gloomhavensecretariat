@@ -20,7 +20,7 @@ export const newMonsterJson: string = '{"name": "new-monster", "thumbnail" : "",
 @Component({
   selector: 'ghs-monster-editor',
   templateUrl: './monster.html',
-  styleUrls: ['./monster.scss']
+  styleUrls: ['../editor.scss', './monster.scss']
 })
 export class MonsterEditorComponent implements OnInit {
 
@@ -35,7 +35,7 @@ export class MonsterEditorComponent implements OnInit {
   ActionValueType = ActionValueType;
   encodeURIComponent = encodeURIComponent;
   levels: number[] = [0, 1, 2, 3, 4, 5, 6, 7];
-  monster: Monster;
+  level: number = 1;
   deckData: DeckData;
   monsterError: any;
   deckError: any;
@@ -45,7 +45,6 @@ export class MonsterEditorComponent implements OnInit {
     this.deckData = new DeckData(this.monsterData.name, [], this.monsterData.edition);
     this.deckData.abilities.push(new Ability());
     this.updateType(false);
-    this.monster = new Monster(this.monsterData);
   }
 
   async ngOnInit() {
@@ -62,15 +61,26 @@ export class MonsterEditorComponent implements OnInit {
   }
 
   monsterDataToJson() {
-    this.monster.deck = this.monsterData.deck;
+
+    this.monsterData.stats.sort((a, b) => {
+      if (a.level - b.level != 0) {
+        return a.level - b.level;
+      }
+
+      if (a.type == MonsterType.normal && b.type == MonsterType.elite) {
+        return -1;
+      }
+
+      return 1;
+    })
+
     let compactData: any = JSON.parse(JSON.stringify(this.monsterData));
 
-    if (!compactData.boss) {
-      compactData.baseStat.type = 'normal';
-      compactData.stats.filter((stat: any) => stat.type == 'normal').forEach((stat: any) => {
-        stat.type = undefined;
-      })
-    }
+
+
+    compactData.baseStat.actions = compactData.baseStat.actions || [];
+    compactData.baseStat.immunities = compactData.baseStat.immunities || [];
+    compactData.baseStat.special = compactData.baseStat.special || [];
 
     Object.keys(compactData.stats[0]).forEach((key) => {
       if (compactData.stats.every((stat: any) => JSON.stringify(stat[key]) == JSON.stringify(compactData.stats[0][key]))) {
@@ -81,6 +91,39 @@ export class MonsterEditorComponent implements OnInit {
       }
     });
 
+    if (!compactData.boss) {
+      compactData.baseStat.type = 'normal';
+      compactData.stats.filter((stat: any) => stat.type == 'normal').forEach((stat: any) => {
+        stat.type = undefined;
+      })
+
+      let normalBaseStats: string[] = [];
+      const normalStat = compactData.stats.filter((stat: any) => !stat.type)[0];
+      if (normalStat) {
+        Object.keys(normalStat).forEach((key) => {
+          if (normalStat[key] && compactData.stats.filter((stat: any) => !stat.type).every((stat: any) => JSON.stringify(stat[key]) == JSON.stringify(normalStat[key])) && key != 'type') {
+            compactData.baseStat[key] = normalStat[key];
+            normalBaseStats.push(key);
+            compactData.stats.filter((stat: any) => !stat.type).forEach((stat: any) => {
+              stat[key] = undefined;
+            })
+          }
+        });
+      }
+
+      const eliteStat = compactData.stats.filter((stat: any) => stat.type == 'elite')[0];
+      if (eliteStat) {
+        Object.keys(eliteStat).forEach((key) => {
+          if (eliteStat[key] && compactData.stats.filter((stat: any) => stat.type == 'elite').every((stat: any) => JSON.stringify(stat[key]) == JSON.stringify(eliteStat[key])) && normalBaseStats.indexOf(key) == -1 && key != 'type') {
+            compactData.baseStat[key] = eliteStat[key];
+            compactData.stats.filter((stat: any) => stat.type == 'elite').forEach((stat: any) => {
+              stat[key] = undefined;
+            })
+          }
+        });
+      }
+    }
+
 
     Object.keys(compactData).forEach((key) => {
       if (!compactData[key]) {
@@ -90,11 +133,47 @@ export class MonsterEditorComponent implements OnInit {
 
     compactData.stats.forEach((stat: any) => {
       Object.keys(stat).forEach((key) => {
-        if (!stat[key]) {
+        if (!stat[key] && key != 'level') {
           stat[key] = undefined;
         }
       })
+
+      if (stat.immunities && stat.immunities.length == 0) {
+        stat.immunities = undefined;
+      }
+
+      if (stat.actions && stat.actions.length == 0) {
+        stat.actions = undefined;
+      } else if (stat.actions) {
+        stat.actions.forEach((action: any) => this.compactAction(action));
+      }
+
+      if (stat.special && stat.special.length == 0) {
+        stat.special = undefined;
+      } else if (stat.special) {
+        stat.special.forEach((special: any) => {
+          special.forEach((action: any) => this.compactAction(action));
+        })
+      }
     })
+
+    Object.keys(compactData.baseStat).forEach((key) => {
+      if (!compactData.baseStat[key]) {
+        compactData.baseStat[key] = undefined;
+      }
+    })
+
+    if (compactData.baseStat.actions && compactData.baseStat.actions.length == 0) {
+      compactData.baseStat.actions = undefined;
+    } else if (compactData.baseStat.actions) {
+      compactData.baseStat.actions.forEach((action: any) => this.compactAction(action));
+    }
+
+    if (compactData.baseStat.special) {
+      compactData.baseStat.special.forEach((special: any) => {
+        special.forEach((action: any) => this.compactAction(action));
+      })
+    }
 
     this.inputMonsterData.nativeElement.value = JSON.stringify(compactData, null, 2);
   }
@@ -131,6 +210,13 @@ export class MonsterEditorComponent implements OnInit {
         if (!ability[key]) {
           ability[key] = undefined;
         }
+        if (ability.actions && ability.actions.length == 0) {
+          ability.actions = undefined;
+        } else if (ability.actions) {
+          ability.actions.forEach((action: any) => {
+            this.compactAction(action);
+          })
+        }
         if (ability.types && ability.types.length == 0) {
           ability.types = undefined;
         }
@@ -161,6 +247,24 @@ export class MonsterEditorComponent implements OnInit {
     }
   }
 
+  compactAction(action: any) {
+    if (action.valueType && action.valueType == ActionValueType.fixed) {
+      action.valueType = undefined;
+    }
+
+    if (action.subActions && action.subActions.length == 0) {
+      action.subActions = undefined;
+    } else if (action.subActions) {
+      action.subActions.forEach((action: any) => {
+        this.compactAction(action);
+      })
+    }
+
+    if (!action.value) {
+      action.value = undefined;
+    }
+  }
+
   valueChange(value: string): number | string {
     if (!isNaN(+value)) {
       return +value;
@@ -168,20 +272,20 @@ export class MonsterEditorComponent implements OnInit {
     return value;
   }
 
-  statsForType(type: MonsterType): MonsterStat {
-    let stat = this.monster.stats.find((monsterStat) => {
-      return this.monster && monsterStat.level == this.monster.level && monsterStat.type == type;
+  statsForType(type: MonsterType, level: number): MonsterStat {
+    let stat = this.monsterData.stats.find((monsterStat) => {
+      return this.monsterData && monsterStat.level == level && monsterStat.type == type;
     });
 
     if (!stat) {
-      this.monster.errors = this.monster.errors || [];
-      if (!this.monster.errors.find((figureError) => figureError.type == FigureErrorType.unknown) && !this.monster.errors.find((figureError) => figureError.type == FigureErrorType.stat)) {
-        console.error("Could not find '" + type + "' stats for monster: " + this.monster.name + " level: " + this.monster.level);
-        this.monster.errors.push(new FigureError(FigureErrorType.stat, "monster", this.monster.name, this.monster.edition, type, "" + this.monster.level));
+      this.monsterData.errors = this.monsterData.errors || [];
+      if (!this.monsterData.errors.find((figureError) => figureError.type == FigureErrorType.unknown) && !this.monsterData.errors.find((figureError) => figureError.type == FigureErrorType.stat)) {
+        console.error("Could not find '" + type + "' stats for monster: " + this.monsterData.name + " level: " + level);
+        this.monsterData.errors.push(new FigureError(FigureErrorType.stat, "monster", this.monsterData.name, this.monsterData.edition, type, "" + level));
       }
 
-      stat = new MonsterStat(type, this.monster.level, 0, 0, 0, 0);
-      this.monster.stats.push(stat);
+      stat = new MonsterStat(type, level, 0, 0, 0, 0);
+      this.monsterData.stats.push(stat);
     }
     return stat;
   }
@@ -190,21 +294,27 @@ export class MonsterEditorComponent implements OnInit {
     this.monsterStats.setLevel(level);
   }
 
-  applyToAllLevel() {
-    this.monsterData.stats = this.monsterData.stats.filter((stat) => stat.level == this.monster.level);
-    for (let level of this.levels) {
-      if (level != this.monster.level) {
+  getMonsterForLevel(level: number): Monster {
+    let monster: Monster = new Monster(this.monsterData);
+    monster.level = level != -1 ? level : 1;
+    return monster;
+  }
+
+  applyToAllLevel(level: number) {
+    this.monsterData.stats = this.monsterData.stats.filter((stat) => stat.level == level);
+    for (let l of this.levels) {
+      if (l != level) {
         if (this.monsterData.boss) {
-          let stat = JSON.parse(JSON.stringify(this.statsForType(MonsterType.boss)));
-          stat.level = level;
+          let stat = JSON.parse(JSON.stringify(this.statsForType(MonsterType.boss, level)));
+          stat.level = l;
           this.monsterData.stats.push(stat);
         } else {
-          let stat = JSON.parse(JSON.stringify(this.statsForType(MonsterType.normal)));
-          stat.level = level;
+          let stat = JSON.parse(JSON.stringify(this.statsForType(MonsterType.normal, level)));
+          stat.level = l;
           this.monsterData.stats.push(stat);
 
-          stat = JSON.parse(JSON.stringify(this.statsForType(MonsterType.elite)));
-          stat.level = level;
+          stat = JSON.parse(JSON.stringify(this.statsForType(MonsterType.elite, level)));
+          stat.level = l;
           this.monsterData.stats.push(stat);
         }
       }
@@ -237,8 +347,6 @@ export class MonsterEditorComponent implements OnInit {
           }
         }
       }
-
-      this.monster = new Monster(this.monsterData);
     }
 
     if (toJson) {
@@ -246,14 +354,14 @@ export class MonsterEditorComponent implements OnInit {
     }
   }
 
-  addMonsterAction(type: MonsterType) {
+  addMonsterAction(type: MonsterType, level: number) {
     let action = new Action(ActionType.attack);
 
-    const stat = this.statsForType(type);
+    const stat = this.statsForType(type, level);
     stat.actions.push(action);
     const dialog = this.dialog.open(MonsterEditorActionDialogComponent, {
       panelClass: 'dialog',
-      data: { action: action, monster: this.monster }
+      data: { action: action, monster: this.getMonsterForLevel(level) }
     });
 
     dialog.closed.subscribe({
@@ -266,16 +374,16 @@ export class MonsterEditorComponent implements OnInit {
     })
   }
 
-  editMonsterAction(type: MonsterType, action: Action) {
+  editMonsterAction(type: MonsterType, action: Action, level: number) {
     const dialog = this.dialog.open(MonsterEditorActionDialogComponent, {
       panelClass: 'dialog',
-      data: { action: action, monster: this.monster }
+      data: { action: action, monster: this.getMonsterForLevel(level) }
     });
 
     dialog.closed.subscribe({
       next: (value) => {
         if (value == false) {
-          const stat = this.statsForType(type);
+          const stat = this.statsForType(type, level);
           stat.actions.splice(stat.actions.indexOf(action), 1);
         }
         this.monsterDataToJson();
@@ -283,10 +391,10 @@ export class MonsterEditorComponent implements OnInit {
     })
   }
 
-  addSpecialAction(type: MonsterType, index: number) {
+  addSpecialAction(type: MonsterType, index: number, level: number) {
     let action = new Action(ActionType.attack);
 
-    const stat = this.statsForType(type);
+    const stat = this.statsForType(type, level);
 
     if (!stat.special) {
       stat.special = [];
@@ -299,7 +407,7 @@ export class MonsterEditorComponent implements OnInit {
     stat.special[index].push(action);
     const dialog = this.dialog.open(MonsterEditorActionDialogComponent, {
       panelClass: 'dialog',
-      data: { action: action, monster: this.monster }
+      data: { action: action, monster: this.getMonsterForLevel(level) }
     });
 
     dialog.closed.subscribe({
@@ -316,16 +424,16 @@ export class MonsterEditorComponent implements OnInit {
     })
   }
 
-  editSpecialAction(type: MonsterType, index: number, action: Action) {
+  editSpecialAction(type: MonsterType, index: number, action: Action, level: number) {
     const dialog = this.dialog.open(MonsterEditorActionDialogComponent, {
       panelClass: 'dialog',
-      data: { action: action, monster: this.monster }
+      data: { action: action, monster: this.getMonsterForLevel(level) }
     });
 
     dialog.closed.subscribe({
       next: (value) => {
         if (value == false) {
-          const stat = this.statsForType(type);
+          const stat = this.statsForType(type, level);
 
           if (!stat.special) {
             stat.special = [];
@@ -351,21 +459,20 @@ export class MonsterEditorComponent implements OnInit {
     } else {
       ability.initiative = 0;
     }
-    if (ability.initiative < 10) {
+    if (!ability.initiative || ability.initiative < 10) {
       event.target.value = '0' + (ability.initiative ? ability.initiative : '0');
     }
     this.deckDataToJson();
   }
 
   updateDeck() {
-    if (this.deckData.name != this.monster.name && this.deckData.name != this.monster.deck) {
+    if (this.deckData.name != this.monsterData.name && this.deckData.name != this.monsterData.deck) {
       this.monsterData.deck = this.deckData.name;
       this.monsterDataToJson();
-    } else if (this.monsterData.deck == this.monsterData.name || this.monster.name == this.deckData.name) {
+    } else if (this.monsterData.deck == this.monsterData.name || this.monsterData.name == this.deckData.name) {
       this.monsterData.deck = "";
       this.monsterDataToJson();
     }
-    this.monster.deck = this.monsterData.deck;
   }
 
   addAbility() {
@@ -380,11 +487,13 @@ export class MonsterEditorComponent implements OnInit {
 
   addAbilityAction(ability: Ability) {
     let action = new Action(ActionType.attack);
-
+    if (!ability.actions) {
+      ability.actions = [];
+    }
     ability.actions.push(action);
     const dialog = this.dialog.open(MonsterEditorActionDialogComponent, {
       panelClass: 'dialog',
-      data: { action: action, monster: this.monster }
+      data: { action: action, monster: this.getMonsterForLevel(this.level) }
     });
 
     dialog.closed.subscribe({
@@ -400,7 +509,7 @@ export class MonsterEditorComponent implements OnInit {
   editAbilityAction(ability: Ability, action: Action) {
     const dialog = this.dialog.open(MonsterEditorActionDialogComponent, {
       panelClass: 'dialog',
-      data: { action: action, monster: this.monster }
+      data: { action: action, monster: this.getMonsterForLevel(this.level) }
     });
 
     dialog.closed.subscribe({
@@ -413,14 +522,14 @@ export class MonsterEditorComponent implements OnInit {
     })
   }
 
-  abilitykPlaceholder(name: string | undefined): string {
-    let label = 'data.monster.' + this.monster.name;
+  abilityPlaceholder(name: string | undefined): string {
+    let label = 'data.monster.' + this.monsterData.name;
     if (name) {
       label = 'data.ability.' + name;
-    } else if (this.monster.deck != this.monster.name) {
-      label = 'data.deck.' + this.monster.deck;
-      if (label.split('.')[label.split('.').length - 1] === applyPlaceholder(settingsManager.getLabel(label)) && this.monster.deck) {
-        label = 'data.monster.' + this.monster.deck;
+    } else if (this.monsterData.deck && this.monsterData.deck != this.monsterData.name) {
+      label = 'data.deck.' + this.monsterData.deck;
+      if (label.split('.')[label.split('.').length - 1] === applyPlaceholder(settingsManager.getLabel(label)) && this.monsterData.deck) {
+        label = 'data.monster.' + this.monsterData.deck;
       }
     }
 
@@ -435,15 +544,16 @@ export class MonsterEditorComponent implements OnInit {
     return applyPlaceholder(settingsManager.getLabel(label));
   }
 
-
-  loadMonsterData(monsterData: MonsterData | undefined) {
-    this.monsterData = monsterData || JSON.parse(newMonsterJson);
+  loadMonsterData(event: any) {
+    const index = +event.target.value;
+    this.monsterData = index != -1 ? gameManager.monstersData(true)[index] : JSON.parse(newMonsterJson);
     this.updateType();
     this.monsterDataToJson();
   }
 
-  loadDeckData(deckData: DeckData | undefined) {
-    this.deckData = deckData || new DeckData(this.monsterData.name, [], this.monsterData.edition);
+  loadDeckData(event: any) {
+    const index = +event.target.value;
+    this.deckData = index != -1 ? gameManager.decksData(true)[index] : new DeckData(this.monsterData.name, [], this.monsterData.edition);
     this.deckDataToJson();
   }
 }

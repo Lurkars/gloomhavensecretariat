@@ -12,7 +12,9 @@
     <div class="color-container">
       <span *ngFor="let color of summonColors" class="summon-button" (click)="selectColor(color)"
         [ngClass]="{'active' : color == summonColor}">
-        <img src="./assets/images/summons/{{color}}.png">
+        <span class="image">
+          <img src="./assets/images/summons/{{color}}.png">
+        </span>
       </span>
       <span *ngFor="let number of [1,2,3,4]" class="number-button" (click)="pickNumber(number)"
         [ngClass]="{'disabled' : summonNumber == number}">
@@ -23,14 +25,20 @@
       <span *ngFor="let summonData of summonData()" class="summon" (click)="addSummon(summonData)"
         [ngClass]="{'disabled' : !available(summonData)}">
         <span class="summon-button">
-          <img *ngIf="summonData.special" src="./assets/images/summons/custom.png">
-          <img *ngIf="!summonData.special" src="./assets/images/summons/{{summonColor}}.png">
+          <span class="image">
+            <img *ngIf="summonData.special" src="./assets/images/summons/custom.png">
+            <img *ngIf="!summonData.special" src="./assets/images/summons/{{summonColor}}.png">
+            <span class="summon-number">{{summonNumber}}</span>
+          </span>
         </span>
         <label>{{'data.summon.' + summonData.name | ghsLabel}}</label>
       </span>
       <span class="summon">
         <span class="summon-button" (click)="addCustomSummon()" [ngClass]="{'disabled' : customDisabled()}">
-          <img src="./assets/images/summons/{{summonColor}}.png">
+          <span class="image">
+            <img src="./assets/images/summons/{{summonColor}}.png">
+            <span class="summon-number">{{summonNumber}}</span>
+          </span>
         </span>
         <input type="text" [value]="summonName" (change)="setSummonName($event)" (keyup)="setSummonName($event)"
           placeholder="{{'summon.name' | ghsLabel}}" />

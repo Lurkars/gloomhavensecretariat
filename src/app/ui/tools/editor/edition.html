@@ -1,0 +1,34 @@
+<div class="edition-editor">
+    <h1>{{'editor.edition' | ghsLabel}} ({{'wip' | ghsLabel}})</h1>
+    <div class="columns">
+        <div class="input">
+            <div class="edition-base">
+                <h2>{{'editor.edition.base' | ghsLabel}}</h2>
+
+                <div class="base-data dialog">
+                    <label>{{'editor.edition.edition' | ghsLabel}}</label>
+                    <input [(ngModel)]="editionData.edition" placeholder="{{'editor.edition.edition' | ghsLabel}}"
+                        (change)="editionDataToJson()" (keyup)="editionDataToJson()">
+                </div>
+            </div>
+        </div>
+        <div class="output">
+            <h2>{{'editor.edition.json' | ghsLabel}}
+
+                <select (change)="loadEditionData($event)">
+                  <option [value]="-1">&lt;{{'editor.edition.new' | ghsLabel}}&gt;</option>
+                  <option [value]="index" *ngFor="let editionData of gameManager.editionData; let index = index;">
+                    {{'data.edition.' + editionData.edition | ghsLabel}} [{{editionData.edition}}]</option>
+                </select>
+        
+              </h2>
+        
+              <div> {{editionError}} </div>
+              <textarea #inputEditionData></textarea>
+        
+              <a class="button" [href]="'data:application/json;charset=utf-8,' + encodeURIComponent(inputEditionData.value)"
+                [download]="editionData.edition + '.json'"><img class="ghs-icon" src="./assets/images/export.svg">
+                {{'editor.edition.json.download' | ghsLabel}}</a>
+        </div>
+    </div>
+</div>

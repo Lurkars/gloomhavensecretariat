@@ -24,20 +24,30 @@
       right: 6%;
       bottom: 0;
       z-index: 500;
+      cursor: help;
 
       img {
         width: 2.5%;
         height: auto;
       }
+
+      &:hover {
+        color: var(--ghs-color-white);
+      }
     }
 
     .shuffle {
-      height: 5%;
+      height: 22%;
       width: auto;
       position: absolute;
-      right: 2.5%;
-      bottom: 2.5%;
+      right: 5%;
+      bottom: 5%;
       filter: var(--ghs-filter-white);
+      cursor: help;
+
+      &:hover {
+        filter: var(--ghs-filter-gray);
+      }
     }
 
     .fullscreen {
@@ -47,6 +57,7 @@
       left: 2.5%;
       top: 2.5%;
       filter: var(--ghs-filter-gray);
+      cursor: zoom-in;
 
       &:hover {
         filter: var(--ghs-filter-white);

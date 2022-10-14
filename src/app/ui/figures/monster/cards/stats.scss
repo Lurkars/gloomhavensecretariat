@@ -254,6 +254,10 @@
       .condition {
         justify-content: end;
       }
+
+      .placeholder {
+        filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.01) var(--ghs-color-gray));
+      }
     }
 
     &.elite {

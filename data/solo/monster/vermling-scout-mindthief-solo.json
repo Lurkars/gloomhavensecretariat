@@ -3,6 +3,7 @@
   "thumbnail": "gh-vermling-scout",
   "edition": "gh",
   "deck": "scout",
+  "hidden": true,
   "count": 10,
   "baseStat": {
     "type": "normal",

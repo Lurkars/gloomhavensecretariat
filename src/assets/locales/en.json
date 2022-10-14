@@ -418,9 +418,9 @@
       "de": "German (Deutsch)",
       "fr": "French (Français)"
     },
-    "debug" : {
-      "." : "Debug Settings",
-      "rightClick" : "Always enable Right-Click"
+    "debug": {
+      ".": "Debug Settings",
+      "rightClick": "Always enable Right-Click"
     }
   },
   "server": {
@@ -613,8 +613,8 @@
       "brittle": "Brittle",
       "impair": "Impair",
       "rupture": "Rupture",
-      "poison_x": "Poison X",
-      "wound_x": "Wound X"
+      "poison_x": "Poison {0}",
+      "wound_x": "Wound {0}"
     },
     "element": {
       "all": "All",
@@ -729,6 +729,9 @@
     "all": "Reveal All Spoilers"
   },
   "editor": {
+    "edition": {
+      ".": "Edition Editor"
+    },
     "monster": {
       ".": "Monster Editor",
       "edition": "Edition",
@@ -743,6 +746,7 @@
         "applyAll": "Apply to all level",
         "addSpecial": "Add Special",
         "levelSelect": "Select Level",
+        "allLevel": "All Level",
         "json": {
           ".": "Monster Stats JSON Data",
           "download": "Download Monster Stats as JSON file"

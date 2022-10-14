@@ -37,6 +37,10 @@ select {
   &:hover {
     border: 1px solid var(--ghs-color-gray);
   }
+
+  option {
+    color: var(--ghs-color-black);
+  }
 }
 
 

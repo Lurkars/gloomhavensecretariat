@@ -8,9 +8,28 @@
     height: 100%;
     overflow-x: auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 2;
+
+    .title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: var(--ghs-font-title);
+      font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+      cursor: initial;
+      z-index: 2;
+
+      .icon {
+        height: 2.5em;
+        width: auto;
+        margin-right: 0.2em;
+      }
+
+      margin-bottom: calc(var(--ghs-unit) * 2);
+    }
 
     ghs-attackmodifier-deck {
       display: flex;
@@ -23,7 +42,7 @@
     }
 
     .close-container {
-      cursor: ne-resize;
+      cursor: zoom-out;
       position: absolute;
       display: flex;
       width: 100%;
