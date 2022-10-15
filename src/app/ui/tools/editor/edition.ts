@@ -1,7 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { ConditionName } from "src/app/game/model/Condition";
+import { CharacterData } from "src/app/game/model/data/CharacterData";
+import { DeckData } from "src/app/game/model/data/DeckData";
 import { EditionData } from "src/app/game/model/data/EditionData";
+import { MonsterData } from "src/app/game/model/data/MonsterData";
 
 @Component({
     selector: 'ghs-edition-editor',
@@ -13,6 +17,7 @@ export class EditionEditorComponent implements OnInit {
 
     gameManager: GameManager = gameManager;
     encodeURIComponent = encodeURIComponent;
+    Conditions: ConditionName[] = Object.values(ConditionName);
 
     editionData: EditionData;
     editionError: any;
@@ -38,9 +43,111 @@ export class EditionEditorComponent implements OnInit {
         this.inputEditionData.nativeElement.value = JSON.stringify(compactData, null, 2);
     }
 
+    jsonDownload(): string {
+        let compactData: any = JSON.parse(JSON.stringify(this.editionData));
+
+        Object.keys(compactData).forEach((key) => {
+            if (!compactData[key]) {
+                compactData[key] = undefined;
+            }
+        })
+
+        return this.encodeURIComponent(JSON.stringify(compactData));
+    }
+
     loadEditionData(event: any) {
         const index = +event.target.value;
         this.editionData = index != -1 ? gameManager.editionData[index] : new EditionData("", [], [], [], [], [], []);
+        this.editionDataToJson();
+    }
+
+    addCharacterJson(event: any) {
+        if (event.target.files) {
+            for (let i = 0; i < event.target.files.length; i++) {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    try {
+                        let character: CharacterData = JSON.parse(reader.result as string);
+                        if (character) {
+                            if (!this.editionData.characters.find((characterData) => character.name == characterData.name && character.edition == characterData.edition)) {
+                                this.editionData.characters.push(new CharacterData(character));
+                                this.editionDataToJson();
+                            }
+                        }
+                        return;
+                    } catch (e) {
+                        console.error(e);
+                    }
+
+                };
+                reader.readAsText(event.target.files[i]);
+            }
+        }
+        event.target.value = '';
+    }
+
+    removeCharacter(index: number) {
+        this.editionData.characters.splice(index, 1);
+        this.editionDataToJson();
+    }
+
+    addMonsterJson(event: any) {
+        if (event.target.files) {
+            for (let i = 0; i < event.target.files.length; i++) {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    try {
+                        const monster: MonsterData = JSON.parse(reader.result as string);
+                        if (monster) {
+                            if (!this.editionData.monsters.find((monsterData) => monster.name == monsterData.name && monster.edition == monsterData.edition)) {
+                                this.editionData.monsters.push(new MonsterData(monster.name, monster.count, monster.baseStat, monster.stats, monster.edition, monster.deck, monster.boss, monster.flying, monster.thumbnail, monster.thumbnailUrl, monster.spoiler));
+                                this.editionDataToJson();
+                            }
+                        }
+                        return;
+                    } catch (e) {
+                        console.error(e);
+                    }
+
+                };
+                reader.readAsText(event.target.files[i]);
+            }
+        }
+        event.target.value = '';
+    }
+
+    removeMonster(index: number) {
+        this.editionData.monsters.splice(index, 1);
+        this.editionDataToJson();
+    }
+
+    addDeckJson(event: any) {
+        if (event.target.files) {
+            for (let i = 0; i < event.target.files.length; i++) {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    try {
+                        const deck: DeckData = JSON.parse(reader.result as string);
+                        if (deck) {
+                            if (!this.editionData.decks.find((deckData) => deck.name == deckData.name && deck.edition == deckData.edition)) {
+                                this.editionData.decks.push(deck);
+                                this.editionDataToJson();
+                            }
+                        }
+                        return;
+                    } catch (e) {
+                        console.error(e);
+                    }
+
+                };
+                reader.readAsText(event.target.files[i]);
+            }
+        }
+        event.target.value = '';
+    }
+
+    removeDeck(index: number) {
+        this.editionData.decks.splice(index, 1);
         this.editionDataToJson();
     }
 } 

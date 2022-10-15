@@ -13,7 +13,7 @@ export class SummonData {
     attack: number | string,
     movement: number | string,
     range: number | string,
-    level: number,
+    level: number | undefined,
     special: boolean,
     count: number) {
     this.name = name;

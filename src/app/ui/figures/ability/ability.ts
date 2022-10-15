@@ -15,31 +15,36 @@ export class AbilityComponent {
 
   @Input() ability: Ability | undefined;
   @Input() abilities!: Ability[];
-  @Input() monster!: Monster;
+  @Input() monster: Monster | undefined;
   @Input() flipped: boolean = false;
   @Input() reveal: boolean = false;
   @Input() relative: boolean = false;
   @Input() highlightElements: boolean = false;
   @Input() statsCalculation: boolean = true;
-  
+
 
   settingsManager: SettingsManager = settingsManager;
 
-  abilityIndex(ability: Ability) {
+  abilityIndex(ability: Ability): number {
     if (this.abilities && this.abilities.length > 0) {
       return this.abilities.indexOf(ability);
+    } else if (this.monster) {
+      return gameManager.abilities(this.monster).indexOf(ability);
     }
-    return gameManager.abilities(this.monster).indexOf(ability);
+    return -1;
   }
 
   abilityLabel(ability: Ability): string {
-    let label = 'data.monster.' + this.monster.name;
-    if (ability?.name) {
-      label = 'data.ability.' + ability.name;
-    } else if (this.monster.deck != this.monster.name) {
-      label = 'data.deck.' + this.monster.deck;
-      if (label.split('.')[label.split('.').length - 1] === applyPlaceholder(settingsManager.getLabel(label)) && this.monster.deck) {
-        label = 'data.monster.' + this.monster.deck;
+    let label = ability.name || "";
+    if (this.monster) {
+      label = 'data.monster.' + this.monster.name;
+      if (ability?.name) {
+        label = 'data.ability.' + ability.name;
+      } else if (this.monster.deck != this.monster.name) {
+        label = 'data.deck.' + this.monster.deck;
+        if (label.split('.')[label.split('.').length - 1] === applyPlaceholder(settingsManager.getLabel(label)) && this.monster.deck) {
+          label = 'data.monster.' + this.monster.deck;
+        }
       }
     }
 

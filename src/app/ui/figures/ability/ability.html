@@ -5,7 +5,7 @@
     <div class=" card-back ability-back"
       [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0}">
       <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
-      <span class="name">{{'data.monster.' + monster.name | ghsLabel}}</span>
+      <span class="name" *ngIf="monster">{{'data.monster.' + monster.name | ghsLabel}}</span>
     </div>
     <div class="card-front ability-front"
       [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0}">

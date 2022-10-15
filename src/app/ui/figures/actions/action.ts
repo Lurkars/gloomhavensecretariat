@@ -15,7 +15,7 @@ import { MonsterType } from 'src/app/game/model/MonsterType';
 })
 export class ActionComponent implements OnInit {
 
-  @Input() monster!: Monster;
+  @Input() monster: Monster | undefined;
   @Input() action!: Action;
   @Input() relative: boolean = false;
   @Input() inline: boolean = false;
@@ -39,14 +39,14 @@ export class ActionComponent implements OnInit {
   hasAOE: boolean = false;
 
   getNormalValue() {
-    if (this.monster.boss) {
+    if (this.monster && this.monster.boss) {
       return this.getValue(MonsterType.boss);
     }
     return this.getValue(MonsterType.normal);
   }
 
   getEliteValue() {
-    if (!this.monster.entities.some((monsterEntity) => monsterEntity.type == MonsterType.elite && !monsterEntity.dead)) {
+    if (this.monster && !this.monster.entities.some((monsterEntity) => monsterEntity.type == MonsterType.elite && !monsterEntity.dead)) {
       return this.getNormalValue();
     }
 
@@ -54,7 +54,10 @@ export class ActionComponent implements OnInit {
   }
 
   getStat(type: MonsterType): MonsterStat {
-    return gameManager.monsterManager.getStat(this.monster, type);
+    if (this.monster) {
+      return gameManager.monsterManager.getStat(this.monster, type);
+    }
+    return new MonsterStat(type, gameManager.game.level, 0, 0, 0, 0);
   }
 
   getValues(action: Action): string[] {
@@ -65,7 +68,7 @@ export class ActionComponent implements OnInit {
   }
 
   getSpecial(action: Action): Action[] {
-    if (this.monster.boss) {
+    if (this.monster && this.monster.boss) {
       return this.getStat(MonsterType.boss).special[(action.value as number) - 1];
     } else {
       return [
@@ -86,7 +89,7 @@ export class ActionComponent implements OnInit {
             statValue = stat.attack;
           } else {
             try {
-              statValue = EntityValueFunction(stat.attack, this.monster.level);
+              statValue = EntityValueFunction(stat.attack, this.monster && this.monster.level || gameManager.game.level);
             } catch {
               sign = false;
             }
@@ -142,7 +145,7 @@ export class ActionComponent implements OnInit {
     }
 
     this.additionalSubActions = JSON.parse(JSON.stringify(this.subActions));
-    if (settingsManager.settings.calculateStats) {
+    if (this.monster && settingsManager.settings.calculateStats) {
       const stat = gameManager.monsterManager.getStat(this.monster, this.monster.boss ? MonsterType.boss : MonsterType.normal);
       let eliteStat = this.monster.boss ? undefined : gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
       if (this.action.type == ActionType.attack) {
@@ -157,7 +160,7 @@ export class ActionComponent implements OnInit {
             const newStatAction = new Action(statAction.type, statAction.value, statAction.valueType, statAction.subActions);
             if (!this.subActionExists(this.subActions, newStatAction) && !this.subActionExists(this.additionalSubActions, newStatAction)) {
               if (statAction.type != ActionType.area || this.subActions.every((subAction) => subAction.type != ActionType.area)) {
-                if (!eliteStat || eliteStat.actions && this.subActionExists(eliteStat.actions, newStatAction) || (settingsManager.settings.hideStats && !this.monster.entities.some((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && monsterEntity.type == MonsterType.elite))) {
+                if (!eliteStat || eliteStat.actions && this.subActionExists(eliteStat.actions, newStatAction) || (settingsManager.settings.hideStats && this.monster && !this.monster.entities.some((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && monsterEntity.type == MonsterType.elite))) {
                   this.additionalSubActions.push(newStatAction);
                 } else if (eliteStat && (!eliteStat.actions || !this.subActionExists(eliteStat.actions, newStatAction))) {
                   if (!normalActions && !this.subActionExists(this.subActions, newStatAction) && !this.subActionExists(this.additionalSubActions, newStatAction)) {
@@ -201,14 +204,14 @@ export class ActionComponent implements OnInit {
   }
 
   highlightElement(elementType: string, consume: boolean): boolean {
-    return this.highlightElements && this.monster.active && (!consume && gameManager.game.elementBoard.some((element) => element.type == elementType && element.state != ElementState.new && element.state != ElementState.strong) || consume && gameManager.game.elementBoard.some((element) => element.type == elementType && (element.state == ElementState.strong || element.state == ElementState.waning)));
+    return this.highlightElements && this.monster && this.monster.active && (!consume && gameManager.game.elementBoard.some((element) => element.type == elementType && element.state != ElementState.new && element.state != ElementState.strong) || consume && gameManager.game.elementBoard.some((element) => element.type == elementType && (element.state == ElementState.strong || element.state == ElementState.waning))) || false;
   }
 
   elementAction(event: any, action: Action, element: string) {
-    if (this.highlightElement(element, action.valueType == ActionValueType.minus)) {
+    if (this.monster && this.highlightElement(element, action.valueType == ActionValueType.minus)) {
       if (action.valueType == ActionValueType.minus) {
         gameManager.game.elementBoard.forEach((elementModel) => {
-          if (elementModel.type == element) {
+          if (elementModel.type == element && this.monster) {
             gameManager.stateManager.before("monsterConsumeElement", "data.monster." + this.monster.name, "game.element." + element);
             elementModel.state = ElementState.inert;
             gameManager.stateManager.after();
@@ -216,7 +219,7 @@ export class ActionComponent implements OnInit {
         })
       } else {
         gameManager.game.elementBoard.forEach((elementModel) => {
-          if (elementModel.type == element) {
+          if (elementModel.type == element && this.monster) {
             gameManager.stateManager.before("monsterInfuseElement", "data.monster." + this.monster.name, "game.element." + element);
             elementModel.state = ElementState.new;
             gameManager.stateManager.after();

@@ -12,7 +12,7 @@ import { MonsterType } from "src/app/game/model/MonsterType";
 })
 export class ActionsComponent {
 
-  @Input() monster!: Monster;
+  @Input() monster: Monster | undefined;
   @Input() actions!: Action[];
   @Input() relative: boolean = false;
   @Input() inline: boolean = false;
@@ -40,7 +40,7 @@ export class ActionsComponent {
 
   updateAdditionalActions(): void {
     this.additionalActions = [];
-    if (settingsManager.settings.calculateStats) {
+    if (this.monster && settingsManager.settings.calculateStats) {
       const stat = gameManager.monsterManager.getStat(this.monster, this.monster.boss ? MonsterType.boss : MonsterType.normal);
       let eliteStat = this.monster.boss ? undefined : gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
 

@@ -1,0 +1,17 @@
+.files {
+
+    .file-list {
+        display: flex;
+        flex-direction: column;
+
+        .file {
+            font-size: 1.5em;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: line-through;
+            }
+        }
+    }
+
+}

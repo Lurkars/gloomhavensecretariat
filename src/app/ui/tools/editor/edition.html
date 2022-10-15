@@ -9,24 +9,85 @@
                     <label>{{'editor.edition.edition' | ghsLabel}}</label>
                     <input [(ngModel)]="editionData.edition" placeholder="{{'editor.edition.edition' | ghsLabel}}"
                         (change)="editionDataToJson()" (keyup)="editionDataToJson()">
+
+                    <label>{{'editor.edition.extensions' | ghsLabel}}</label>
+                    <select [(ngModel)]="editionData.extensions" multiple (change)="editionDataToJson()">
+                        <option [value]="editionData.edition" *ngFor="let editionData of gameManager.editionData;">
+                            {{'data.edition.' + editionData.edition | ghsLabel}} [{{editionData.edition}}]</option>
+                    </select>
+
+                    <label>{{'editor.edition.conditions' | ghsLabel}}</label>
+                    <select [(ngModel)]="editionData.conditions" multiple (change)="editionDataToJson()">
+                        <option disabled [selected]="editionData.conditions.length == 0">{{
+                            (editionData.conditions.length == 0 ?
+                            'editor.edition.conditions.allSelected': 'editor.edition.conditions.allHint') | ghsLabel}}
+                        </option>
+                        <option [value]="condition" *ngFor="let condition of Conditions;">
+                            {{'game.condition.' + condition| ghsLabel:['X']}}</option>
+                    </select>
                 </div>
+            </div>
+
+            <div class="files">
+
+                <h2>{{'editor.edition.character' | ghsLabel}}</h2>
+
+                <div class="file-list characters">
+                    <span class="file" [title]="'editor.edition.character.remove' | ghsLabel"
+                        *ngFor="let characterData of editionData.characters; let index = index;"
+                        (click)="removeCharacter(index)">{{'data.character.' + characterData.name |
+                        ghsLabel}}
+                        [{{characterData.name}}]</span>
+                </div>
+
+                <input type="file" multiple accept="application/json" (change)="addCharacterJson($event)">
+            </div>
+
+            <div class="files">
+
+                <h2>{{'editor.edition.monster' | ghsLabel}}</h2>
+
+                <div class="file-list monsters">
+                    <span class="file" [title]="'editor.edition.monster.remove' | ghsLabel"
+                        *ngFor="let monsterData of editionData.monsters; let index = index;"
+                        (click)="removeMonster(index)">{{'data.monster.' + monsterData.name |
+                        ghsLabel}}
+                        [{{monsterData.name}}]</span>
+                </div>
+
+                <input type="file" multiple accept="application/json" (change)="addMonsterJson($event)">
+            </div>
+
+            <div class="files">
+
+                <h2>{{'editor.edition.decks' | ghsLabel}}</h2>
+
+                <div class="file-list decks">
+                    <span class="file" [title]="'editor.edition.decks.remove' | ghsLabel"
+                        *ngFor="let deckData of editionData.decks; let index = index;"
+                        (click)="removeDeck(index)">{{'data.deck.' + deckData.name |
+                        ghsLabel}}
+                        [{{deckData.name}}]</span>
+                </div>
+
+                <input type="file" multiple accept="application/json" (change)="addDeckJson($event)">
             </div>
         </div>
         <div class="output">
             <h2>{{'editor.edition.json' | ghsLabel}}
 
                 <select (change)="loadEditionData($event)">
-                  <option [value]="-1">&lt;{{'editor.edition.new' | ghsLabel}}&gt;</option>
-                  <option [value]="index" *ngFor="let editionData of gameManager.editionData; let index = index;">
-                    {{'data.edition.' + editionData.edition | ghsLabel}} [{{editionData.edition}}]</option>
+                    <option [value]="-1">&lt;{{'editor.edition.new' | ghsLabel}}&gt;</option>
+                    <option [value]="index" *ngFor="let editionData of gameManager.editionData; let index = index;">
+                        {{'data.edition.' + editionData.edition | ghsLabel}} [{{editionData.edition}}]</option>
                 </select>
-        
-              </h2>
-        
-              <div> {{editionError}} </div>
-              <textarea #inputEditionData></textarea>
-        
-              <a class="button" [href]="'data:application/json;charset=utf-8,' + encodeURIComponent(inputEditionData.value)"
+
+            </h2>
+
+            <div> {{editionError}} </div>
+            <textarea #inputEditionData></textarea>
+
+            <a class="button" [href]="'data:application/json;charset=utf-8,' + jsonDownload()"
                 [download]="editionData.edition + '.json'"><img class="ghs-icon" src="./assets/images/export.svg">
                 {{'editor.edition.json.download' | ghsLabel}}</a>
         </div>
