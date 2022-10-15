@@ -730,7 +730,31 @@
   },
   "editor": {
     "edition": {
-      ".": "Edition Editor"
+      ".": "Edition Editor",
+      "base": "Basic Data",
+      "edition": "Edition Name",
+      "character": {
+        ".": "Add Character Files",
+        "remove": "Remove Character"
+      },
+      "monster": {
+        ".": "Add Monster Files",
+        "remove": "Remove Monster"
+      },
+      "decks": {
+        ".": "Add Ability Decks Files",
+        "remove": "Remove Ability Deck"
+      },
+      "extensions": "Editions to extend",
+      "conditions": {
+        ".": "Available Conditions",
+        "allSelected": "Use all available Conditions",
+        "allHint": "Deselect all conditions to use all available"
+      },
+      "json": {
+        ".": "Edition JSON Data",
+        "download": "Download Edition Data as JSON file"
+      }
     },
     "monster": {
       ".": "Monster Editor",
