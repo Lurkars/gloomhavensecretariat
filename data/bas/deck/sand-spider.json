@@ -1,0 +1,149 @@
+{
+  "name": "sand-spider",
+  "abilities": [
+    {
+      "initiative": 30,
+      "actions": [
+        {
+          "type": "move",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.bas.sand-spider.1%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "initiative": 12,
+      "actions": [
+        {
+          "type": "move",
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "initiative": 62,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "condition",
+          "value": "immobilized",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            },
+            {
+              "type": "target",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.bas.sand-spider.2%"
+        }
+      ]
+    },
+    {
+      "initiative": 42,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "initiative": 40,
+      "actions": [
+        {
+          "type": "move",
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump"
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "initiative": 84,
+      "actions": [
+        {
+          "type": "summon",
+          "value": "normal Sand Spider"
+        }
+      ],
+      "shuffle": true
+    },
+    {
+      "initiative": 50,
+      "actions": [
+        {
+          "type": "attack",
+          "valueType": "plus"
+        },
+        {
+          "type": "custom",
+          "value": "%data.custom.bas.sand-spider.3%"
+        }
+      ],
+      "shuffle": true
+    }
+  ],
+  "edition": "bas"
+}

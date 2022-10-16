@@ -62,6 +62,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - edit Monster Attack Modifier and Monster Ability decks (support for Diviner class mechanics): reveal cards, remove cards, re-order cards
   - [Monster data editor](https://gloomhaven-secretary.de/editor/monster)
   - includes Solo Scenarios for GH, FC and CS
+  - includes [Blood and Sand](https://boardgamegeek.com/thread/2613617/blood-and-sand-gloomhaven-campaign-set-red-desert) campaign: add the following Edition Data Url under Data Management `./assets/data/bas.json` (Big thanks to [/u/Calm_Construction131](https://www.reddit.com/user/Calm_Construction131) for contribution)
   - <details>
       <summary>SPOILER WARNING: Envelope X</summary>
 

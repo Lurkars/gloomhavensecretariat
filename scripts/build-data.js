@@ -33,7 +33,11 @@ const load_file = function (edition_path, file, default_value) {
   if (fs.existsSync(file_path) && fs.lstatSync(file_path).isFile()) {
     // console.debug("\nLoad file: '" + file_path + "'");
     const f = fs.readFileSync(file_path, 'utf8');
-    return JSON.parse(f);
+    try {
+      return JSON.parse(f);
+    } catch (e) {
+      console.error(file, e);
+    }
   }
   console.warn("\nCould not load file: '" + file_path + "'");
   return default_value;

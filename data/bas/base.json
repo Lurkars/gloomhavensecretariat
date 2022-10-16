@@ -1,0 +1,8 @@
+{
+  "edition": "bas",
+  "extensions": [
+    "gh",
+    "fc",
+    "fh"
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "name": "horned-lizard",
+  "edition": "bas",
+  "count": 6,
+  "baseStat": {
+    "immunities": [],
+    "special": [],
+    "movement": 4,
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 5,
+      "attack": 3,
+      "range": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 9,
+      "attack": 4,
+      "range": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": 6,
+      "attack": 4,
+      "range": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 9,
+      "attack": 5,
+      "range": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 7,
+      "attack": 4,
+      "range": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 10,
+      "attack": 5,
+      "range": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 11,
+      "attack": 4,
+      "range": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 12,
+      "attack": 5,
+      "range": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 11,
+      "attack": 4,
+      "range": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 13,
+      "attack": 5,
+      "range": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 11,
+      "attack": 4,
+      "range": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 12,
+      "attack": 5,
+      "range": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 13,
+      "attack": 4,
+      "range": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 13,
+      "attack": 5,
+      "range": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 13,
+      "attack": 4,
+      "range": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 14,
+      "attack": 5,
+      "range": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    }
+  ]
+}
