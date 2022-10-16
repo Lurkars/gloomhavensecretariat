@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1665928290157,
+  "timestamp": 1665948389324,
   "appData": {
     "version": "0.16.4"
   },
@@ -16,7 +16,7 @@
       "urls": [
         "gloomhavensecretary/favicon.ico",
         "gloomhavensecretary/index.html",
-        "gloomhavensecretary/main.22359cdffa2b83d6.js",
+        "gloomhavensecretary/main.b5f199bd41ebc55a.js",
         "gloomhavensecretary/manifest.webmanifest",
         "gloomhavensecretary/polyfills.a38de1c0e5b88bd3.js",
         "gloomhavensecretary/runtime.0269065d32db7f2e.js",
@@ -638,7 +638,7 @@
     "gloomhavensecretary/PirataOne-Gloomhaven.da25f1617794b910.woff": "1693718d90f437a9062a7777440852b6b07fe15f",
     "gloomhavensecretary/am-character-icon.bd5963f0e2616923.png": "f521aa63594df13e061bd7056553955b9b9177a4",
     "gloomhavensecretary/assets/data/.empty": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
-    "gloomhavensecretary/assets/data/bas.json": "6c5bae8c3d0123b266cb54dad1efb4288586b344",
+    "gloomhavensecretary/assets/data/bas.json": "6f0b7e716ad810db1d0dceb140f4ffe2f62e7aa4",
     "gloomhavensecretary/assets/data/cs.json": "9273031cc22206e536c357941d2b769c1734ba71",
     "gloomhavensecretary/assets/data/fc.json": "5ab31ea0f5d1aed135caf98aee09ff36075c7227",
     "gloomhavensecretary/assets/data/fh.json": "6528307fa764247335a3bb4dd42620576c354245",
@@ -1185,9 +1185,9 @@
     "gloomhavensecretary/germaniaone.bac4423c0d7806c3.woff": "35cbaf83de233ad3f8f7852748bb4e6dfca63261",
     "gloomhavensecretary/health.8d6a842a197d29d3.svg": "05afb6de2ed74490df7d750cc939124afb1c5457",
     "gloomhavensecretary/immunity.5d026de2db8a1d8f.svg": "ad20fc18e93269c79312170674c6008615438f9b",
-    "gloomhavensecretary/index.html": "e97d33f4640566348e495d1119f48008035a6611",
+    "gloomhavensecretary/index.html": "08df2ce94816e91e771fbf39d9a494b1dff4aa1a",
     "gloomhavensecretary/initiative.a7663b57012bb669.svg": "85c1e0fe11ba2111c2dc55370ff84796c86eb556",
-    "gloomhavensecretary/main.22359cdffa2b83d6.js": "88d16bb4a724569e761575ec87312e4b826fb1bf",
+    "gloomhavensecretary/main.b5f199bd41ebc55a.js": "7f0a48776b1df3f5662d92eef005c5965d95a264",
     "gloomhavensecretary/majallab.00c7b4c865792c45.ttf": "cd2e9e61aca39d2b987b66e4c2a0a3ea13c3be48",
     "gloomhavensecretary/majallab.3bc19f63b5b1d474.svg": "68458a0f79e0e45258f0948d48f2a65c125b4322",
     "gloomhavensecretary/majallab.4ef31693f35ab4df.woff": "5f4a605494c5e4adbe49e3b23bfdcf1f7f8a92b6",
