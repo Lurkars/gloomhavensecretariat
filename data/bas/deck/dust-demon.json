@@ -6,7 +6,8 @@
       "actions": [
         {
           "type": "move",
-          "valueType": "plus"
+          "valueType": "plus",
+          "value": 0
         },
         {
           "type": "push",
@@ -31,7 +32,8 @@
       "actions": [
         {
           "type": "move",
-          "valueType": "plus"
+          "valueType": "plus",
+          "value": 0
         },
         {
           "type": "condition",
@@ -97,11 +99,13 @@
       "actions": [
         {
           "type": "move",
-          "valueType": "plus"
+          "valueType": "plus",
+          "value": 0
         },
         {
           "type": "attack",
-          "valueType": "plus"
+          "valueType": "plus",
+          "value": 0
         }
       ]
     },

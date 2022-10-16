@@ -6,7 +6,8 @@
       "actions": [
         {
           "type": "move",
-          "valueType": "plus"
+          "valueType": "plus",
+          "value": 0
         },
         {
           "type": "attack",
@@ -16,7 +17,8 @@
               "type": "custom",
               "value": "%data.custom.bas.sand-spider.1%"
             }
-          ]
+          ],
+          "value": 0
         }
       ]
     },
@@ -25,7 +27,8 @@
       "actions": [
         {
           "type": "move",
-          "valueType": "plus"
+          "valueType": "plus",
+          "value": 0
         },
         {
           "type": "attack",
@@ -35,7 +38,8 @@
               "type": "target",
               "value": 2
             }
-          ]
+          ],
+          "value": 0
         }
       ]
     },
@@ -49,7 +53,7 @@
         },
         {
           "type": "condition",
-          "value": "immobilized",
+          "value": "immobilize",
           "subActions": [
             {
               "type": "range",
@@ -112,11 +116,13 @@
             {
               "type": "jump"
             }
-          ]
+          ],
+          "value": 0
         },
         {
           "type": "attack",
-          "valueType": "plus"
+          "valueType": "plus",
+          "value": 0
         }
       ]
     },
@@ -135,7 +141,8 @@
       "actions": [
         {
           "type": "attack",
-          "valueType": "plus"
+          "valueType": "plus",
+          "value": 0
         },
         {
           "type": "custom",

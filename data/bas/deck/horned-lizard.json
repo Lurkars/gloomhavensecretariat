@@ -6,11 +6,13 @@
       "actions": [
         {
           "type": "move",
-          "valueType": "plus"
+          "valueType": "plus",
+          "value": 0
         },
         {
           "type": "attack",
-          "valueType": "plus"
+          "valueType": "plus",
+          "value": 0
         },
         {
           "type": "retaliate",
@@ -45,7 +47,8 @@
       "actions": [
         {
           "type": "move",
-          "valueType": "plus"
+          "valueType": "plus",
+          "value": 0
         },
         {
           "type": "attack",
@@ -55,7 +58,8 @@
               "type": "condition",
               "value": "muddle"
             }
-          ]
+          ],
+          "value": 0
         }
       ],
       "shuffle": true
@@ -65,7 +69,8 @@
       "actions": [
         {
           "type": "move",
-          "valueType": "plus"
+          "valueType": "plus",
+          "value": 0
         },
         {
           "type": "heal",
@@ -89,15 +94,13 @@
           "valueType": "minus",
           "subActions": [
             {
+              "type": "area",
+              "value": "(0,0,target)|(0,1,target)|(1,0,target)"
+            },
+            {
               "type": "range",
               "value": 1,
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "area",
-                  "value": "(0,0,target)|(0,1,target)|(1,0,target)"
-                }
-              ]
+              "valueType": "minus"
             }
           ]
         }
@@ -108,7 +111,8 @@
       "actions": [
         {
           "type": "move",
-          "valueType": "plus"
+          "valueType": "plus",
+          "value": 0
         },
         {
           "type": "condition",
@@ -127,11 +131,13 @@
       "actions": [
         {
           "type": "move",
-          "valueType": "plus"
+          "valueType": "plus",
+          "value": 0
         },
         {
           "type": "attack",
-          "valueType": "plus"
+          "valueType": "plus",
+          "value": 0
         }
       ]
     },
@@ -140,11 +146,13 @@
       "actions": [
         {
           "type": "move",
-          "valueType": "plus"
+          "valueType": "plus",
+          "value": 0
         },
         {
           "type": "attack",
-          "valueType": "plus"
+          "valueType": "plus",
+          "value": 0
         }
       ]
     }

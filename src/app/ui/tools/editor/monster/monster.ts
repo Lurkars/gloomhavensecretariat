@@ -260,7 +260,7 @@ export class MonsterEditorComponent implements OnInit {
       })
     }
 
-    if (!action.value) {
+    if (!action.value && action.value != 0) {
       action.value = undefined;
     }
   }
