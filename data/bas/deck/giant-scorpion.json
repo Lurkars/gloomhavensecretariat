@@ -22,19 +22,19 @@
       "actions": [
         {
           "type": "attack",
-          "valueType": "plus",
-          "value": 0
+          "value": 0,
+          "valueType": "plus"
         },
         {
           "type": "attack",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "specialTarget",
               "value": "enemyOneAll"
             }
-          ],
-          "value": 0
+          ]
         }
       ]
     },
@@ -59,19 +59,19 @@
       "actions": [
         {
           "type": "move",
-          "valueType": "plus",
-          "value": 0
+          "value": 0,
+          "valueType": "plus"
         },
         {
           "type": "attack",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "pierce",
               "value": 2
             }
-          ],
-          "value": 0
+          ]
         }
       ]
     },
@@ -114,8 +114,8 @@
       "actions": [
         {
           "type": "move",
-          "valueType": "plus",
-          "value": 0
+          "value": 0,
+          "valueType": "plus"
         },
         {
           "type": "attack",
@@ -135,8 +135,8 @@
       "actions": [
         {
           "type": "attack",
-          "valueType": "plus",
-          "value": 0
+          "value": 0,
+          "valueType": "plus"
         },
         {
           "type": "shield",

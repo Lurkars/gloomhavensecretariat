@@ -6,13 +6,13 @@
       "actions": [
         {
           "type": "move",
-          "valueType": "plus",
-          "value": 0
+          "value": 0,
+          "valueType": "plus"
         },
         {
           "type": "attack",
-          "valueType": "plus",
-          "value": 0
+          "value": 0,
+          "valueType": "plus"
         },
         {
           "type": "retaliate",
@@ -47,19 +47,19 @@
       "actions": [
         {
           "type": "move",
-          "valueType": "plus",
-          "value": 0
+          "value": 0,
+          "valueType": "plus"
         },
         {
           "type": "attack",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "condition",
               "value": "muddle"
             }
-          ],
-          "value": 0
+          ]
         }
       ],
       "shuffle": true
@@ -69,8 +69,8 @@
       "actions": [
         {
           "type": "move",
-          "valueType": "plus",
-          "value": 0
+          "value": 0,
+          "valueType": "plus"
         },
         {
           "type": "heal",
@@ -111,8 +111,8 @@
       "actions": [
         {
           "type": "move",
-          "valueType": "plus",
-          "value": 0
+          "value": 0,
+          "valueType": "plus"
         },
         {
           "type": "condition",
@@ -131,13 +131,13 @@
       "actions": [
         {
           "type": "move",
-          "valueType": "plus",
-          "value": 0
+          "value": 0,
+          "valueType": "plus"
         },
         {
           "type": "attack",
-          "valueType": "plus",
-          "value": 0
+          "value": 0,
+          "valueType": "plus"
         }
       ]
     },
@@ -146,13 +146,13 @@
       "actions": [
         {
           "type": "move",
-          "valueType": "plus",
-          "value": 0
+          "value": 0,
+          "valueType": "plus"
         },
         {
           "type": "attack",
-          "valueType": "plus",
-          "value": 0
+          "value": 0,
+          "valueType": "plus"
         }
       ]
     }

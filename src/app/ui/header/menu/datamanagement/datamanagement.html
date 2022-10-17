@@ -42,9 +42,12 @@
           <span class="add-button" (click)="addSpoiler()" [ngClass]="{'disabled' : !(inputSpoiler.value)}"></span>
         </span>
       </div>
-      <div class="line" *ngFor="let spoiler of settingsManager.settings.spoilers">
-        <a class="remove" (click)="removeSpoiler(spoiler)">
+      <div class="line spoilers">
+        <a class="spoiler-item" *ngFor="let spoiler of settingsManager.settings.spoilers">
           {{spoiler}}
+          <span class="spacer"></span>
+          <span (click)="removeSpoiler(spoiler)" [title]="'datamanagement.removeSpoiler' | ghsLabel"
+            class="remove"></span>
         </a>
       </div>
       <div class="spacer"></div>
@@ -67,13 +70,25 @@
         </span>
       </div>
       <div class="line editions" cdkDropList (cdkDropListDropped)="drop($event)">
-        <a class="edition"  *ngFor="let editionData of gameManager.editionData" cdkDrag>
-          {{'data.edition.' + editionData.edition | ghsLabel}} <span class="url">{{editionData.url}}</span>
-          <span (click)="removeEditionDataUrl(editionData.url)" class="remove"></span>
+        <a class="edition" *ngFor="let editionData of gameManager.editionData" cdkDrag>
+          <label
+            [title]="(settingsManager.settings.editions.indexOf(editionData.edition) != -1 ? 'datamanagement.editionDataUrls.disable' : 'datamanagement.editionDataUrls.enable') | ghsLabel">
+            <input type="checkbox" [checked]="settingsManager.settings.editions.indexOf(editionData.edition) != -1"
+              (change)="toggleEdition(editionData.edition)">
+            {{'data.edition.' + editionData.edition | ghsLabel}}
+          </label>
+          <span class="custom" [title]="'datamanagement.editionDataUrls.custom' | ghsLabel"
+            *ngIf="settingsManager.defaultEditionDataUrls.indexOf(editionData.url) == -1">
+            <img src="./assets/images/hint.svg">
+            <span class="url">{{editionData.url}}</span>
+          </span>
+          <span class="spacer"></span>
+          <span (click)="removeEditionDataUrl(editionData.url)"
+            [title]="'datamanagement.editionDataUrls.remove' | ghsLabel" class="remove"></span>
         </a>
       </div>
       <div class="spacer"></div>
-      <div class="line separator" *ngIf="!isDefaultEditionData()">
+      <div class="line separator" *ngIf="!hasDefaultEditionData()">
         <a (click)="settingsManager.restoreDefaultEditionDataUrls()">{{'datamanagement.restoreEditionDataUrls' |
           ghsLabel}}</a>
       </div>

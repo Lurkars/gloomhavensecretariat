@@ -1,0 +1,42 @@
+{
+  "en": {
+    "edition": {
+      "sox": "Seeker of Xorn"
+    },
+    "monster": {
+      "night-demon-sox": "%data.monster.night-demon% (%data.edition.sox%)",
+      "tormented-soul": "Tormented Soul",
+      "water-eel": "Water Eel"
+    }
+  },
+  "de": {
+    "edition": {
+      "sox": "Suchende von Xorn"
+    },
+    "monster": {
+      "night-demon-sox": "%data.monster.night-demon% (%data.edition.sox%)",
+      "tormented-soul": "Gequälte Seele",
+      "water-eel": "Wasseraal"
+    },
+    "scenario" : {
+      "Nobles' Crypt" : "Adelsgruft",
+      "Flooded Crypt" : "Überflutete Krypta",
+      "Crypt of the Ancients" : "Krypta der Ältesten"
+    }
+  },
+  "fr": {
+    "edition": {
+      "sox": "Chercheur de Xor"
+    },
+    "monster": {
+      "night-demon-sox": "%data.monster.night-demon% (%data.edition.sox%)",
+      "tormented-soul": "Âme tourmentée",
+      "water-eel": "Anguille d'eau"
+    },
+    "scenario" : {
+      "Nobles' Crypt" : "Crypte des nobles",
+      "Flooded Crypt" : "Crypte inondée",
+      "Crypt of the Ancients" : "Crypte des Anciens"
+    }
+  }
+}

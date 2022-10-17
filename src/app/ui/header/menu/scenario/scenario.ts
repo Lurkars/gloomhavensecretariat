@@ -30,7 +30,7 @@ export class ScenarioMenuComponent implements OnInit {
   }
 
   editions(): string[] {
-    return gameManager.editionData.filter((editionData) => editionData.scenarios && editionData.scenarios.filter((scenarioData) => scenarioData.edition == editionData.edition).length > 0).map((editionData) => editionData.edition);
+    return gameManager.editionData.filter((editionData) => editionData.scenarios && editionData.scenarios.filter((scenarioData) => scenarioData.edition == editionData.edition && settingsManager.settings.editions.indexOf(scenarioData.edition) != -1).length > 0).map((editionData) => editionData.edition);
   }
 
   setEdition(edition: string) {

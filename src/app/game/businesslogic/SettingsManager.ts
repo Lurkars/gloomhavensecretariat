@@ -6,7 +6,8 @@ import { gameManager } from "./GameManager";
 export class SettingsManager {
 
   defaultLocale: string = 'en';
-  defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/fh.json", "./assets/data/cs.json", "./assets/data/solo.json"];
+  defaultEditions: string[] = ["gh", "fc", "jotl", "fh", "cs", "solo"];
+  defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/fc.json", "./assets/data/jotl.json", "./assets/data/fh.json", "./assets/data/cs.json", "./assets/data/solo.json", "./assets/data/sox.json", "./assets/data/bas.json"];
 
   settings: Settings = new Settings();
   label: any = {};
@@ -17,7 +18,7 @@ export class SettingsManager {
   }
 
   reset() {
-    localStorage.removeItem("ghs-settings")
+    localStorage.removeItem("ghs-settings");
     this.loadSettings();
   }
 
@@ -38,6 +39,18 @@ export class SettingsManager {
           });
       } catch (error) {
         this.settings = new Settings();
+      }
+    }
+
+    if (!this.settings.editions || this.settings.editions.length == 0) {
+      this.settings.editions.push(...this.defaultEditions);
+    }
+
+    if (!this.settings.editionDataUrls || this.settings.editionDataUrls.length == 0) {
+      for (let defaultEditionDataUrl of this.defaultEditionDataUrls) {
+        if (this.settings.editionDataUrls.indexOf(defaultEditionDataUrl) == -1 && this.settings.excludeEditionDataUrls.indexOf(defaultEditionDataUrl) == -1) {
+          this.settings.editionDataUrls.push(defaultEditionDataUrl);
+        }
       }
     }
 
@@ -256,6 +269,18 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  addEdition(edition: string) {
+    if (this.settings.editions.indexOf(edition) == -1) {
+      this.settings.editions.push(edition);
+      this.storeSettings();
+    }
+  }
+
+  removeEdition(edition: string) {
+    this.settings.editions.splice(this.settings.editions.indexOf(edition), 1);
+    this.storeSettings();
+  }
+
   sortSpoilers() {
     this.settings.spoilers.sort((a: string, b: string) => {
       if (a.toLowerCase() > b.toLowerCase()) {
@@ -290,6 +315,9 @@ export class SettingsManager {
 
           value.url = url;
           gameManager.editionData.push(value);
+          gameManager.editionData.sort((a, b) => {
+            return this.settings.editionDataUrls.indexOf(a.url) - this.settings.editionDataUrls.indexOf(b.url);
+          });
           this.loadDataLabel(value);
           return true;
         });
@@ -408,6 +436,9 @@ export class SettingsManager {
       const success = await this.loadEditionData(editionDataUrl);
       if (success) {
         this.settings.editionDataUrls.push(editionDataUrl);
+        gameManager.editionData.sort((a, b) => {
+          return this.settings.editionDataUrls.indexOf(a.url) - this.settings.editionDataUrls.indexOf(b.url);
+        });
         if (this.settings.excludeEditionDataUrls.indexOf(editionDataUrl) != -1) {
           this.settings.excludeEditionDataUrls.splice(this.settings.excludeEditionDataUrls.indexOf(editionDataUrl), 1);
         }
@@ -437,6 +468,22 @@ export class SettingsManager {
         await this.loadEditionData(editionDataUrl);
       }
     }
+
+    this.settings.editionDataUrls.sort((a, b) => {
+      if (this.defaultEditionDataUrls.indexOf(a) != -1 && this.defaultEditionDataUrls.indexOf(b) != -1) {
+        return this.defaultEditionDataUrls.indexOf(a) - this.defaultEditionDataUrls.indexOf(b);
+      } else if (this.defaultEditionDataUrls.indexOf(a) != -1 && this.defaultEditionDataUrls.indexOf(b) == -1) {
+        return -1;
+      } else if (this.defaultEditionDataUrls.indexOf(a) == -1 && this.defaultEditionDataUrls.indexOf(b) != -1) {
+        return 1;
+      } else {
+        return this.settings.editionDataUrls.indexOf(a) - this.settings.editionDataUrls.indexOf(b);
+      }
+    });
+
+    gameManager.editionData.sort((a, b) => {
+      return this.settings.editionDataUrls.indexOf(a.url) - this.settings.editionDataUrls.indexOf(b.url);
+    });
 
     this.storeSettings();
   }

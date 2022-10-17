@@ -476,7 +476,12 @@
               align-items: center;
             }
 
-            span:nth-child(4) {
+            img.ghs-svg.solo {
+              filter: none;
+              height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+            }
+
+            span:nth-child(2), span:nth-child(4) {
               justify-content: center;
             }
 

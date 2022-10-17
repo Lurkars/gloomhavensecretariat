@@ -118,9 +118,20 @@
               <span class="span">{{'data.edition.' + edition | ghsLabel}}</span>
             </div>
             <div class="scenario" *ngFor="let scenarioData of scenarios[edition]">
-              <span>#<span *ngIf="maxScenario(scenarios[edition]) > 2 && scenarioData.index.length < 3">0</span><span
-                  *ngIf="maxScenario(scenarios[edition]) > 1 && scenarioData.index.length < 2">0</span>{{scenarioData.index}}</span>
-              <span>{{scenarioData.group}}</span>
+
+              <span>
+                <ng-container *ngIf="!scenarioData.solo">
+                  #<span *ngIf="maxScenario(scenarios[edition]) > 2 && scenarioData.index.length < 3">0</span><span
+                    *ngIf="maxScenario(scenarios[edition]) > 1 && scenarioData.index.length < 2">0</span>{{scenarioData.index}}
+                </ng-container>
+                <ng-container *ngIf="scenarioData.solo">
+                  <img class="ghs-svg solo" [src]="characterIcon(scenarioData.solo)" />
+                </ng-container>
+              </span>
+              <span>
+                <ng-container *ngIf="scenarioData.group">{{'data.scenario.group.' + scenarioData.group |
+                  ghsLabel}}</ng-container>
+              </span>
               <span [ngClass]="{'blocked' : blocked(scenarioData)}"
                 [title]="blocked(scenarioData) ? ('scenario.locked' | ghsLabel) : ''">
                 <img *ngIf="blocked(scenarioData)" src="./assets/images/close.svg">

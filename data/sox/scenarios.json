@@ -1,0 +1,35 @@
+[
+  {
+    "index": "SoX 1",
+    "name": "Nobles' Crypt",
+    "edition": "sox",
+    "initial": true,
+    "monsters": [
+      "cultist",
+      "living-bones",
+      "living-corpse",
+      "living-spirit",
+      "tormented-soul"
+    ]
+  },
+  {
+    "index": "SoX 2",
+    "name": "Flooded Crypt",
+    "edition": "sox",
+    "monsters": [
+      "water-eel",
+      "living-spirit",
+      "lurker"
+    ]
+  },
+  {
+    "index": "SoX 3",
+    "name": "Crypt of the Ancients",
+    "edition": "sox",
+    "monsters": [
+      "ancient-artillery",
+      "night-demon-sox",
+      "stone-golem"
+    ]
+  }
+]

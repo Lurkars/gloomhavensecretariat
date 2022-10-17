@@ -6,6 +6,7 @@ export enum AttackModifierType {
   plus2 = "plus2",
   plus3 = "plus3",
   plus4 = "plus4",
+  plusX = "plusX",
   minus1 = "minus1",
   minus2 = "minus2",
   null = "null",
@@ -85,6 +86,7 @@ export class AttackModifier {
 }
 
 export enum AttackModifierEffectType {
+  changeType = "changeType",
   condition = "condition",
   custom = "custom",
   element = "element",

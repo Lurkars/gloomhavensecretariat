@@ -2,6 +2,7 @@ import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, ElementRef, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { EditionData } from "src/app/game/model/data/EditionData";
 import { GameModel } from "src/app/game/model/Game";
 import { Settings } from "src/app/game/model/Settings";
 
@@ -9,7 +10,7 @@ import { Settings } from "src/app/game/model/Settings";
 @Component({
   selector: 'ghs-datamanagement-menu',
   templateUrl: 'datamanagement.html',
-  styleUrls: [ 'datamanagement.scss', '../menu.scss' ]
+  styleUrls: ['datamanagement.scss', '../menu.scss']
 })
 export class DatamanagementMenuComponent {
 
@@ -41,14 +42,22 @@ export class DatamanagementMenuComponent {
     }
   }
 
+  toggleEdition(edition: string) {
+    if (this.settingsManager.settings.editions.indexOf(edition) != -1) {
+      this.settingsManager.removeEdition(edition);
+    } else {
+      this.settingsManager.addEdition(edition);
+    }
+  }
+
   drop(event: CdkDragDrop<number>) {
     moveItemInArray(settingsManager.settings.editionDataUrls, event.previousIndex, event.currentIndex);
     moveItemInArray(gameManager.editionData, event.previousIndex, event.currentIndex);
     settingsManager.storeSettings();
   }
 
-  isDefaultEditionData(): boolean {
-    return this.settingsManager.settings.editionDataUrls.length == settingsManager.defaultEditionDataUrls.length && this.settingsManager.settings.editionDataUrls.every((editionDataUrl) => settingsManager.defaultEditionDataUrls.indexOf(editionDataUrl) != -1);
+  hasDefaultEditionData(): boolean {
+    return this.settingsManager.defaultEditionDataUrls.every((editionDataUrl) => settingsManager.settings.editionDataUrls.indexOf(editionDataUrl) != -1);
   }
 
   addSpoiler(): void {
@@ -87,7 +96,7 @@ export class DatamanagementMenuComponent {
         gameManager.stateManager.after();
       });
 
-      reader.readAsText(event.target.files[ 0 ]);
+      reader.readAsText(event.target.files[0]);
     } catch (e: any) {
       console.warn(e);
       event.target.parentElement.classList.add("error");
@@ -121,7 +130,7 @@ export class DatamanagementMenuComponent {
         settingsManager.settings = settings;
       });
 
-      reader.readAsText(event.target.files[ 0 ]);
+      reader.readAsText(event.target.files[0]);
     } catch (e: any) {
       console.warn(e);
       event.target.parentElement.classList.add("error");

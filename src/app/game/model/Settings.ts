@@ -28,6 +28,7 @@ export class Settings {
   barsize: number = 1;
   fontsize: number = 1;
   locale: string = "en";
+  editions: string[] = [];
   editionDataUrls: string[] = [];
   excludeEditionDataUrls: string[] = [];
   spoilers: string[] = [];

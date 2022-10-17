@@ -274,6 +274,58 @@
           }
         }
       ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "elementHalf",
+                "value": "leaf|fire"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "custom": "%game.custom.perks.ignoreNegativeItem%",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plusX",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "cs-colony",
+                "icon": true,
+                "hint": "%data.custom.perks.beetle.2%"
+              }
+            ]
+          }
+        }
+      ]
     }
   ]
 }

@@ -389,11 +389,10 @@
               margin-left: calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
               margin-top: calc(var(--ghs-unit) * -1 * var(--ghs-dialog-factor));
               width: auto;
-              filter: brightness(0);
             }
           }
 
-          &.placeholder-effect {
+          .placeholder-action {
             img {
               filter: brightness(0);
             }

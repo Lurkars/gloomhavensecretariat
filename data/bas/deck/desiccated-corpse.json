@@ -3,7 +3,7 @@
   "abilities": [
     {
       "initiative": 27,
-      "shuffle":true,
+      "shuffle": true,
       "actions": [
         {
           "type": "retaliate",

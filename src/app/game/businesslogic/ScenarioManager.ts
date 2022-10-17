@@ -4,6 +4,7 @@ import { GameScenarioModel, ScenarioData } from "../model/data/ScenarioData";
 import { Game } from "../model/Game";
 import { Scenario } from "../model/Scenario";
 import { gameManager } from "./GameManager";
+import { settingsManager } from "./SettingsManager";
 
 export class ScnearioManager {
 
@@ -103,7 +104,7 @@ export class ScnearioManager {
   }
 
   scenarioData(edition: string | undefined): ScenarioData[] {
-    const scenarios = gameManager.editionData.map((editionData) => editionData.scenarios).flat();
+    const scenarios = gameManager.editionData.filter((editionData) => settingsManager.settings.editions.indexOf(editionData.edition) != -1).map((editionData) => editionData.scenarios).flat();
 
     if (!edition) {
       return scenarios;

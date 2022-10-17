@@ -144,7 +144,7 @@
 
         <span class="value">
           <span *ngIf="!relative">
-            <span [value-calc]="getNormalValue()" [level]="monster && monster.level" [empty]="true"></span>
+            <span [value-calc]="getNormalValue()" [level]="monster && monster.level"></span>
             <span *ngIf="getEliteValue() && getNormalValue() != getEliteValue()">/</span>
             <span *ngIf="getEliteValue() && getNormalValue() != getEliteValue()" class="elite"
               [value-calc]="getEliteValue()" [level]="monster && monster.level"></span>

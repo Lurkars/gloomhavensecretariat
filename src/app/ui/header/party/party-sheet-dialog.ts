@@ -1,6 +1,7 @@
 import { Dialog } from "@angular/cdk/dialog";
 import { Component, ElementRef, ViewChild } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
+import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { GameScenarioModel, ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { Identifier } from "src/app/game/model/Identifier";
@@ -285,7 +286,7 @@ export class PartySheetDialogComponent {
     const editions = this.party.edition && [this.party.edition] || gameManager.editions();
     this.scenarioEditions = [];
     editions.forEach((edition) => {
-      let scenarioData = gameManager.scenarioManager.scenarioData(edition);
+      let scenarioData = gameManager.scenarioManager.scenarioData(edition).filter((scenarioData) => (!scenarioData.spoiler || settingsManager.settings.spoilers.indexOf(scenarioData.name) != -1 || scenarioData.solo && settingsManager.settings.spoilers.indexOf(scenarioData.solo) != -1));
       if (scenarioData.length > 0) {
         this.scenarios[edition] = scenarioData.sort((a, b) => {
           if (a.group && !b.group) {
@@ -305,6 +306,14 @@ export class PartySheetDialogComponent {
         this.scenarioEditions.push(edition);
       }
     });
+  }  
+  
+  characterIcon(name: string): string {
+    const char = gameManager.charactersData(true).find((characterData) => characterData.name == name);
+    if (char) {
+      return gameManager.characterManager.characterIcon(char);
+    }
+    return "";
   }
 
   treasures(): Identifier[] {

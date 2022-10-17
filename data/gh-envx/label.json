@@ -1,0 +1,17 @@
+{
+  "en": {
+    "edition": {
+      "gh-envx": "Gloomhaven Envelope X"
+    }
+  },
+  "de": {
+    "edition": {
+      "gh-envx": "Gloomhaven Umschlag X"
+    }
+  },
+  "fr": {
+    "edition": {
+      "gh-envx": "Gloomhaven Enveloppe X"
+    }
+  }
+}

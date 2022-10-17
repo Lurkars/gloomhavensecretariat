@@ -6,19 +6,19 @@
       "actions": [
         {
           "type": "move",
-          "valueType": "plus",
-          "value": 0
+          "value": 0,
+          "valueType": "plus"
         },
         {
           "type": "attack",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "custom",
               "value": "%data.custom.bas.sand-spider.1%"
             }
-          ],
-          "value": 0
+          ]
         }
       ]
     },
@@ -27,19 +27,19 @@
       "actions": [
         {
           "type": "move",
-          "valueType": "plus",
-          "value": 0
+          "value": 0,
+          "valueType": "plus"
         },
         {
           "type": "attack",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "target",
               "value": 2
             }
-          ],
-          "value": 0
+          ]
         }
       ]
     },
@@ -111,18 +111,18 @@
       "actions": [
         {
           "type": "move",
+          "value": 0,
           "valueType": "plus",
           "subActions": [
             {
               "type": "jump"
             }
-          ],
-          "value": 0
+          ]
         },
         {
           "type": "attack",
-          "valueType": "plus",
-          "value": 0
+          "value": 0,
+          "valueType": "plus"
         }
       ]
     },
@@ -141,8 +141,8 @@
       "actions": [
         {
           "type": "attack",
-          "valueType": "plus",
-          "value": 0
+          "value": 0,
+          "valueType": "plus"
         },
         {
           "type": "custom",

@@ -18,7 +18,7 @@ import { ghsValueSign } from "src/app/ui/helper/Static";
 @Component({
   selector: 'ghs-character-sheet',
   templateUrl: 'character-sheet.html',
-  styleUrls: [ './character-sheet.scss' ],
+  styleUrls: ['./character-sheet.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class CharacterSheetDialog implements OnInit, AfterViewInit {
@@ -61,13 +61,13 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     this.character.progress.perks = this.character.progress.perks || [];
 
     for (let i = 0; i < 15; i++) {
-      if (!this.character.progress.perks[ i ]) {
-        this.character.progress.perks[ i ] = 0;
+      if (!this.character.progress.perks[i]) {
+        this.character.progress.perks[i] = 0;
       }
     }
 
-    if (this.character.progress.experience < this.characterManager.xpMap[ this.character.level - 1 ]) {
-      this.character.progress.experience = this.characterManager.xpMap[ this.character.level - 1 ];
+    if (this.character.progress.experience < this.characterManager.xpMap[this.character.level - 1]) {
+      this.character.progress.experience = this.characterManager.xpMap[this.character.level - 1];
     }
 
     this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.retirements;
@@ -82,8 +82,8 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
         this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.retirements;
 
         for (let i = 0; i < 15; i++) {
-          if (!this.character.progress.perks[ i ]) {
-            this.character.progress.perks[ i ] = 0;
+          if (!this.character.progress.perks[i]) {
+            this.character.progress.perks[i] = 0;
           }
         }
 
@@ -296,7 +296,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     const item = this.character.progress.items.find((item) => item.name == "" + itemData.id && item.edition == itemData.edition);
     if (item) {
       const index = this.character.progress.items.indexOf(item)
-      gameManager.stateManager.before("removeItem", "data.character." + this.character.name, this.character.progress.items[ index ].name, this.character.progress.items[ index ].edition);
+      gameManager.stateManager.before("removeItem", "data.character." + this.character.name, this.character.progress.items[index].name, this.character.progress.items[index].edition);
       this.character.progress.items.splice(index, 1);
       this.items.splice(index, 1);
       gameManager.stateManager.after();
@@ -308,7 +308,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     const item = this.character.progress.items.find((item) => item.name == "" + itemData.id && item.edition == itemData.edition);
     if (item) {
       const index = this.character.progress.items.indexOf(item)
-      gameManager.stateManager.before("sellItem", "data.character." + this.character.name, this.character.progress.items[ index ].name, this.character.progress.items[ index ].edition);
+      gameManager.stateManager.before("sellItem", "data.character." + this.character.name, this.character.progress.items[index].name, this.character.progress.items[index].edition);
       this.character.progress.gold += Math.ceil(itemData.cost / 2);
       this.character.progress.items.splice(index, 1);
       this.items.splice(index, 1);
@@ -319,16 +319,16 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
 
   addPerk(index: number, value: number) {
 
-    const disabled: boolean = gameManager.game.state == GameState.next || this.character.progress.perks[ index ] < value && this.availablePerks < value - this.character.progress.perks[ index ];
+    const disabled: boolean = gameManager.game.state == GameState.next || this.character.progress.perks[index] < value && this.availablePerks < value - this.character.progress.perks[index];
 
     if (!disabled || this.doubleClickPerk) {
       clearTimeout(this.doubleClickPerk);
       this.doubleClickPerk = null;
       gameManager.stateManager.before("setPerk", "data.character." + this.character.name, "" + index, "" + value);
-      if (this.character.progress.perks[ index ] && this.character.progress.perks[ index ] == value) {
-        this.character.progress.perks[ index ]--;
+      if (this.character.progress.perks[index] && this.character.progress.perks[index] == value) {
+        this.character.progress.perks[index]--;
       } else {
-        this.character.progress.perks[ index ] = value;
+        this.character.progress.perks[index] = value;
       }
       this.character.mergeAttackModifierDeck(gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character));
       gameManager.attackModifierManager.shuffleModifiers(this.character.attackModifierDeck);
@@ -351,7 +351,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
           label.push(this.attackModifierHtml(card.attackModifier));
           label.push(card.count > 1 ? 'character.progress.perks.cards' : 'character.progress.perks.card');
         } else {
-          label[ label.length - 1 ] += settingsManager.getLabel('character.progress.perks.additional', [ 'character.progress.perks.cards.' + card.count, this.attackModifierHtml(card.attackModifier), card.count > 1 ? 'character.progress.perks.cards' : 'character.progress.perks.card' ]);
+          label[label.length - 1] += settingsManager.getLabel('character.progress.perks.additional', ['character.progress.perks.cards.' + card.count, this.attackModifierHtml(card.attackModifier), card.count > 1 ? 'character.progress.perks.cards' : 'character.progress.perks.card']);
         }
       });
     }
@@ -364,7 +364,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     attackModifier = new AttackModifier(attackModifier.type, attackModifier.id, attackModifier.effects, attackModifier.rolling);
 
     if (attackModifier.rolling) {
-      html += '<span class="attack-modifier-effect">&zwj;<img src="./assets/images/attackmodifier/icons/actions/rolling.svg"></span>';
+      html += '<span class="attack-modifier-effect">&zwj;<img src="./assets/images/attackmodifier/icons/effects/rolling.svg"></span>';
     }
 
 
@@ -394,13 +394,13 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
 
     switch (effect.type) {
       case AttackModifierEffectType.condition:
-        html += '<span class="attack-modifier-effect condition">' + settingsManager.getLabel('game.condition.' + effect.value) + '<img src="./assets/images/attackmodifier/icons/actions/' + effect.value + '.svg"></span>';
+        html += '<span class="attack-modifier-effect condition">' + settingsManager.getLabel('game.condition.' + effect.value) + '<img src="./assets/images/attackmodifier/icons/effects/' + effect.value + '.svg"></span>';
         break;
       case AttackModifierEffectType.element:
-        html += '<span class="attack-modifier-effect element">&zwj;<img src="./assets/images/attackmodifier/icons/actions/' + effect.value + '.svg"></span>';
+        html += '<span class="attack-modifier-effect element">&zwj;<img src="./assets/images/attackmodifier/icons/effects/' + effect.value + '.svg"></span>';
         break;
       case AttackModifierEffectType.target:
-        html += '<span class="placeholder attack-modifier-effect target">' + settingsManager.getLabel((+effect.value) <= 1 ? 'game.custom.perks.addTarget' : 'game.custom.perks.addTargets', [ effect.value + "" ]) + '<img src="./assets/images/attackmodifier/icons/actions/target.svg"></span>';
+        html += '<span class="placeholder attack-modifier-effect target">' + settingsManager.getLabel((+effect.value) <= 1 ? 'game.custom.perks.addTarget' : 'game.custom.perks.addTargets', [effect.value + ""]) + '<img src="./assets/images/attackmodifier/icons/effects/target.svg"></span>';
         break;
       case AttackModifierEffectType.specialTarget:
         html += '<span class="placeholder attack-modifier-effect special-target">' + settingsManager.getLabel('game.specialTarget.' + effect.value) + '</span>';
@@ -409,10 +409,24 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
         html += '<span class="placeholder attack-modifier-effect special-target">' + settingsManager.getLabel('game.action.' + effect.type) + '</span>';
         break;
       case AttackModifierEffectType.custom:
-        html += '<span class="placeholder attack-modifier-effect custom">' + settingsManager.getLabel('' + effect.value) + '</span>';
+        if (effect.hint) {
+          html += '<span class="placeholder attack-modifier-effect custom-hint">' + settingsManager.getLabel(effect.hint) + '</span>';
+        } else {
+          html += '<span class="placeholder attack-modifier-effect custom">' + settingsManager.getLabel('' + effect.value) + '</span>';
+        }
+        break;
+      case AttackModifierEffectType.changeType:
+        if (effect.value.startsWith('plus')) {
+          html += '<span class="attack-modifier-icon">+' + effect.value.replace('plus', '') + '</span>';
+        } else if (effect.value.startsWith('minus')) {
+          html += '<span class="attack-modifier-icon">-' + effect.value.replace('minus', '') + '</span>';
+
+        } else if (effect.value.startsWith('multiply')) {
+          html += '<span class="attack-modifier-icon">x' + effect.value.replace('multiply', '') + '</span>';
+        }
         break;
       default:
-        html += '<span class="placeholder attack-modifier-effect ' + effect.type + '">' + settingsManager.getLabel('game.action.' + effect.type) + '<img src="./assets/images/attackmodifier/icons/actions/' + effect.type + '.svg"><span class="value">' + effect.value + '</span></span>';
+        html += '<span class="placeholder attack-modifier-effect ' + effect.type + '">' + settingsManager.getLabel('game.action.' + effect.type) + '<img src="./assets/images/attackmodifier/icons/effects/' + effect.type + '.svg"><span class="value">' + effect.value + '</span></span>';
         break;
     }
 
@@ -450,7 +464,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
         }
       });
 
-      reader.readAsText(event.target.files[ 0 ]);
+      reader.readAsText(event.target.files[0]);
     } catch (e: any) {
       console.warn(e);
       parent.classList.add("error");

@@ -498,10 +498,17 @@
   "datamanagement": {
     ".": "Daten verwalten",
     "spoilers": "Spoiler bearbeiten",
-    "editionDataUrls": "Editionsdaten bearbeiten",
+    "editionDataUrls": {
+      ".": "Editionsdaten bearbeiten",
+      "enable" : "Edition aktivieren",
+      "disable": "Edition deaktivieren",
+      "remove": "Editionsdaten entfernen",
+      "custom": "Zusätzliche Editionsdaten"
+    },
     "addEditionDataUrl": "Editionasdaten Url hinzufügen",
     "restoreEditionDataUrls": "Standard wiederherstellen",
     "addSpoiler": "Spoiler hinzufügen",
+    "removeSpoiler": "Spoiler entfernen",
     "removeAllSpoilers": "Alle löschen",
     "importGame": "Spiel aus Datei importieren",
     "exportGame": "Spiel in Datei exportieren",

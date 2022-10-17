@@ -4,6 +4,7 @@
     "name": "Return to the Black Barrow",
     "edition": "gh",
     "group": "solo",
+    "initial": true,
     "solo": "brute",
     "monsters": [
       "bandit-guard",
@@ -16,6 +17,7 @@
     "name": "An Unfortunate Intrusion",
     "edition": "gh",
     "group": "solo",
+    "initial": true,
     "solo": "tinkerer",
     "monsters": [
       "city-guard-tinkerer-solo",
@@ -31,6 +33,7 @@
     "name": "Corrupted Laboratory",
     "edition": "gh",
     "group": "solo",
+    "initial": true,
     "solo": "spellweaver",
     "monsters": [
       "black-imp",
@@ -43,6 +46,7 @@
     "name": "Armory Heist",
     "edition": "gh",
     "group": "solo",
+    "initial": true,
     "solo": "scoundrel",
     "monsters": [
       "city-guard-scoundrel-solo",
@@ -63,6 +67,7 @@
     "name": "Stone Defense",
     "edition": "gh",
     "group": "solo",
+    "initial": true,
     "solo": "cragheart",
     "monsters": [
       "cave-bear",
@@ -75,6 +80,7 @@
     "name": "Rodent Liberation",
     "edition": "gh",
     "group": "solo",
+    "initial": true,
     "solo": "mindthief",
     "monsters": [
       "vermling-scout-mindthief-solo",
@@ -101,6 +107,7 @@
     "name": "Caravan Escort",
     "edition": "gh",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "sun",
     "monsters": [
@@ -124,6 +131,7 @@
     "name": "Unnatural Insults",
     "edition": "gh",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "lightning",
     "monsters": [
@@ -138,6 +146,7 @@
     "name": "Storage Fees",
     "edition": "gh",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "three-spears",
     "monsters": [
@@ -151,6 +160,7 @@
     "name": "Plane of Wild Beasts",
     "edition": "gh",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "circles",
     "monsters": [
@@ -164,6 +174,7 @@
     "name": "Harvesting the Night",
     "edition": "gh",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "eclipse",
     "monsters": [
@@ -176,6 +187,7 @@
     "name": "Plagued Crypt",
     "edition": "gh",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "squidface",
     "monsters": [
@@ -220,6 +232,7 @@
     "name": "Battle of the Bards",
     "edition": "gh",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "music-note",
     "monsters": [
@@ -241,6 +254,7 @@
     "name": "Corrupted Hunt",
     "edition": "gh",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "angry-face",
     "monsters": [
@@ -255,6 +269,7 @@
     "name": "Aftermath",
     "edition": "gh",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "saw",
     "monsters": [
@@ -270,6 +285,7 @@
     "name": "Elemental Secrets",
     "edition": "gh",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "triangles",
     "monsters": [
@@ -284,6 +300,7 @@
     "name": "The Caged Bear",
     "edition": "gh",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "two-mini",
     "monsters": [
@@ -299,6 +316,7 @@
     "name": "The Sands of Time",
     "edition": "gh-envx",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "bladeswarm",
     "monsters": [
@@ -312,6 +330,7 @@
     "name": "Forecast of the Inevitable",
     "edition": "fc",
     "group": "solo",
+    "initial": true,
     "solo": "diviner",
     "monsters": [
       "earth-demon-diviner-solo",
@@ -345,6 +364,7 @@
     "name": "Disarm the Machine",
     "edition": "cs",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "target",
     "monsters": [
@@ -357,6 +377,7 @@
     "name": "Elemental Converter",
     "edition": "cs",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "flask",
     "monsters": [
@@ -373,6 +394,7 @@
     "name": "Penitentiary Lockdown",
     "edition": "cs",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "chain-helmet",
     "monsters": [
@@ -385,6 +407,7 @@
     "name": "Forest Invaders",
     "edition": "cs",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "tusks",
     "monsters": [
@@ -400,6 +423,7 @@
     "name": "Through the Fire and the Flames",
     "edition": "cs",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "ladder-axe",
     "monsters": [
@@ -414,6 +438,7 @@
     "name": "Archaic Preservation",
     "edition": "cs",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "leaf",
     "monsters": [
@@ -429,6 +454,7 @@
     "name": "Hallow Redemption",
     "edition": "cs",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "vortex",
     "monsters": [
@@ -444,6 +470,7 @@
     "name": "A Cornered Viper",
     "edition": "cs",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "sprig",
     "monsters": [
@@ -460,6 +487,7 @@
     "name": "Glowing Crystals",
     "edition": "cs",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "crescent-sun",
     "monsters": [
@@ -472,6 +500,7 @@
     "name": "Beyond the Grave",
     "edition": "cs",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "skull",
     "monsters": [
@@ -497,6 +526,7 @@
     "name": "Otherworldly Strangers",
     "edition": "cs",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "galaxy",
     "monsters": [
@@ -513,6 +543,7 @@
     "name": "Hive Guardian",
     "edition": "cs",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "beetle",
     "monsters": [
@@ -543,6 +574,7 @@
     "name": "Magnum Opus",
     "edition": "cs",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "tools",
     "monsters": [
@@ -555,6 +587,7 @@
     "name": "The Fall of Shadow's Respite",
     "edition": "cs",
     "group": "solo",
+    "initial": true,
     "spoiler": true,
     "solo": "bleeding-claw",
     "monsters": [

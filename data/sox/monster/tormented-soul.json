@@ -1,0 +1,125 @@
+{
+  "name": "tormented-soul",
+  "thumbnail": "gh-living-spirit",
+  "edition": "sox",
+  "deck": "living-spirit",
+  "boss": true,
+  "hidden": true,
+  "count": 6,
+  "baseStat": {
+    "type": "boss",
+    "actions": [],
+    "immunities": [
+      "stun",
+      "disarm",
+      "immobilize"
+    ],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "3xC",
+      "movement": 3,
+      "attack": 3,
+      "range": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": "3xC",
+      "movement": 3,
+      "attack": 3,
+      "range": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "3xC",
+      "movement": 4,
+      "attack": 3,
+      "range": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "4xC",
+      "movement": 4,
+      "attack": 4,
+      "range": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "4xC",
+      "movement": 4,
+      "attack": 4,
+      "range": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "6xC",
+      "movement": 4,
+      "attack": 4,
+      "range": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "7xC",
+      "movement": 4,
+      "attack": 5,
+      "range": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "9xC",
+      "movement": 4,
+      "attack": 5,
+      "range": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ]
+    }
+  ]
+}

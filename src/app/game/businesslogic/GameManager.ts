@@ -62,8 +62,8 @@ export class GameManager {
     })
   }
 
-  editions(): string[] {
-    return this.editionData.map((editionData) => editionData.edition);
+  editions(all: boolean = false): string[] {
+    return this.editionData.map((editionData) => editionData.edition).filter((edition) => settingsManager.settings.editions.indexOf(edition) != -1);
   }
 
   currentEditions(): string[] {
@@ -71,7 +71,7 @@ export class GameManager {
       return this.editions();
     }
 
-    return [ this.game.edition, ...this.editionExtensions(this.game.edition) ];
+    return [this.game.edition, ...this.editionExtensions(this.game.edition)];
   }
 
   editionExtensions(edition: string): string[] {
@@ -124,7 +124,7 @@ export class GameManager {
     if (editionData && editionData.conditions) {
       return editionData.conditions.map((value) => {
         if (value.split(':').length > 1) {
-          return new Condition(value.split(':')[ 0 ] as ConditionName, + value.split(':')[ 1 ]);
+          return new Condition(value.split(':')[0] as ConditionName, + value.split(':')[1]);
         } else {
           return new Condition(value as ConditionName);
         }
