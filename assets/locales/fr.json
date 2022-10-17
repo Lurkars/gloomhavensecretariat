@@ -490,11 +490,18 @@
   },
   "datamanagement": {
     ".": "Gestion des données",
-    "spoilers": "Gérer les spoilers",
-    "editionDataUrls": "Gérer les données des éditions",
+    "spoilers": "Gérer les spoilers",    
+    "editionDataUrls": {
+      ".": "Gérer les données des éditions",
+      "enable" : "Activer l'édition",
+      "disable": "Désactiver l'édition",
+      "remove": "Retrait les données des éditions",
+      "custom": "Les données des éditions supplémentaire"
+    },
     "addEditionDataUrl": "Ajouter une URL de donnée d'édition",
     "restoreEditionDataUrls": "Remettre par défaut",
     "addSpoiler": "Ajouter un spoiler",
+    "removeSpoiler": "Retrait le spoiler",
     "removeAllSpoilers": "Tout supprimer",
     "importGame": "Importer une partie depuis un fichier",
     "exportGame": "Exporter la partie vers un fichier",

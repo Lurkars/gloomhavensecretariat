@@ -498,10 +498,17 @@
   "datamanagement": {
     ".": "Data Management",
     "spoilers": "Manage Spoilers",
-    "editionDataUrls": "Manage Edition Data",
+    "editionDataUrls": {
+      ".": "Manage Edition Data",
+      "enable" : "Enable Edition",
+      "disable": "Disable Edition",
+      "remove": "Remove Edition Data",
+      "custom": "Additional Edition Data"
+    },
     "addEditionDataUrl": "Add Edition Data Url",
     "restoreEditionDataUrls": "Restore Defaults",
     "addSpoiler": "Add Spoiler",
+    "removeSpoiler": "Remove Spoiler",
     "removeAllSpoilers": "Delete all",
     "importGame": "Import Game from File",
     "exportGame": "Export Game to File",
