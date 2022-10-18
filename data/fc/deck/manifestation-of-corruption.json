@@ -465,6 +465,10 @@
           "valueType": "plus",
           "subActions": [
             {
+              "type": "area",
+              "value": "(0,0,active)|(1,0,target)|(2,0,target)|(3,0,target)|(4,0,target)|(5,0,target)|(6,0,target)"
+            },
+            {
               "type": "pierce",
               "value": 3
             },
@@ -479,10 +483,6 @@
                   "valueType": "add"
                 }
               ]
-            },
-            {
-              "type": "area",
-              "value": "(0,0,active)|(1,0,target)|(2,0,target)|(3,0,target)|(4,0,target)|(5,0,target)|(6,0,target)"
             }
           ]
         }
@@ -759,12 +759,12 @@
           "value": "bless|strengthen",
           "subActions": [
             {
-              "type": "area",
-              "value": "(2,0,target)|(3,0,target)|(1,1,target)|(2,1,target)|(3,1,target)|(1,2,target)|(2,2,target)|(3,2,target)|(0,3,target)|(1,3,target)|(2,3,target)|(0,4,target)|(1,4,target)|(2,4,target)|(0,5,active)|(1,5,target)"
-            },
-            {
               "type": "specialTarget",
               "value": "selfAlliesAffect"
+            },
+            {
+              "type": "area",
+              "value": "(2,0,target)|(3,0,target)|(1,1,target)|(2,1,target)|(3,1,target)|(1,2,target)|(2,2,target)|(3,2,target)|(0,3,target)|(1,3,target)|(2,3,target)|(0,4,target)|(1,4,target)|(2,4,target)|(0,5,active)|(1,5,target)"
             },
             {
               "type": "element",

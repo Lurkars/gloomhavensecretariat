@@ -207,9 +207,10 @@ export class MonsterEditorComponent implements OnInit {
 
     compactData.abilities.forEach((ability: any) => {
       Object.keys(ability).forEach((key) => {
-        if (!ability[key]) {
+        if (!ability[key] && ability[key] != 0) {
           ability[key] = undefined;
         }
+
         if (ability.actions && ability.actions.length == 0) {
           ability.actions = undefined;
         } else if (ability.actions) {
@@ -217,14 +218,20 @@ export class MonsterEditorComponent implements OnInit {
             this.compactAction(action);
           })
         }
+
+        if (ability.bottomActions && ability.bottomActions.length == 0) {
+          ability.bottomActions = undefined;
+        } else if (ability.bottomActions) {
+          ability.bottomActions.forEach((action: any) => {
+            this.compactAction(action);
+          })
+        }
+
         if (ability.types && ability.types.length == 0) {
           ability.types = undefined;
         }
         if (ability.bottomTypes && ability.bottomTypes.length == 0) {
           ability.bottomTypes = undefined;
-        }
-        if (ability.bottomActions && ability.bottomActions.length == 0) {
-          ability.bottomActions = undefined;
         }
       })
     })
@@ -266,7 +273,7 @@ export class MonsterEditorComponent implements OnInit {
   }
 
   valueChange(value: string): number | string {
-    if (!isNaN(+value)) {
+    if (value && !isNaN(+value)) {
       return +value;
     }
     return value;
@@ -493,7 +500,7 @@ export class MonsterEditorComponent implements OnInit {
     ability.actions.push(action);
     const dialog = this.dialog.open(MonsterEditorActionDialogComponent, {
       panelClass: 'dialog',
-      data: { action: action, monster: this.getMonsterForLevel(this.level) }
+      data: action
     });
 
     dialog.closed.subscribe({
@@ -509,13 +516,50 @@ export class MonsterEditorComponent implements OnInit {
   editAbilityAction(ability: Ability, action: Action) {
     const dialog = this.dialog.open(MonsterEditorActionDialogComponent, {
       panelClass: 'dialog',
-      data: { action: action, monster: this.getMonsterForLevel(this.level) }
+      data: action
     });
 
     dialog.closed.subscribe({
       next: (value) => {
         if (value == false) {
           ability.actions.splice(ability.actions.indexOf(action), 1);
+        }
+        this.deckDataToJson();
+      }
+    })
+  }
+
+  addAbilityActionBottom(ability: Ability) {
+    let action = new Action(ActionType.attack);
+    if (!ability.bottomActions) {
+      ability.bottomActions = [];
+    }
+    ability.bottomActions.push(action);
+    const dialog = this.dialog.open(MonsterEditorActionDialogComponent, {
+      panelClass: 'dialog',
+      data: action
+    });
+
+    dialog.closed.subscribe({
+      next: (value) => {
+        if (value == false) {
+          ability.bottomActions.splice(ability.bottomActions.indexOf(action), 1);
+        }
+        this.deckDataToJson();
+      }
+    })
+  }
+
+  editAbilityActionBottom(ability: Ability, action: Action) {
+    const dialog = this.dialog.open(MonsterEditorActionDialogComponent, {
+      panelClass: 'dialog',
+      data: action
+    });
+
+    dialog.closed.subscribe({
+      next: (value) => {
+        if (value == false) {
+          ability.bottomActions.splice(ability.actions.indexOf(action), 1);
         }
         this.deckDataToJson();
       }

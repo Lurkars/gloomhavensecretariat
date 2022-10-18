@@ -121,8 +121,8 @@ export class GameManager {
 
     const editionData = this.editionData.find((value) => value.edition == this.game.edition);
 
-    if (editionData && editionData.conditions) {
-      return editionData.conditions.map((value) => {
+    if (editionData) {
+      return this.editionData.filter((other) => (other.edition == this.game.edition || editionData.extensions && editionData.extensions.indexOf(other.edition) != -1) && other.conditions && other.conditions.length > 0).map((other) => other.conditions).flat().filter((value, index, self) => self.indexOf(value) == index).map((value) => {
         if (value.split(':').length > 1) {
           return new Condition(value.split(':')[0] as ConditionName, + value.split(':')[1]);
         } else {

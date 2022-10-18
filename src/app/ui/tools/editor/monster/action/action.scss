@@ -8,7 +8,14 @@
     flex-direction: column;
 
     .subaction {
+      position: relative;
       margin-left: calc(var(--ghs-unit) * 2);
+
+      .handle {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
     }
   }
 

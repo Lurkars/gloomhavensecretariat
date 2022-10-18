@@ -1,4 +1,5 @@
 import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, EventEmitter, Inject, Input, OnInit, Output } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -17,7 +18,6 @@ export class MonsterEditorActionComponent implements OnInit {
 
   @Input() action!: Action;
   @Output() actionChange = new EventEmitter<Action>();
-  @Input() monster!: Monster;
   ActionType = ActionType;
   ActionTypes: ActionType[] = Object.values(ActionType);
   ActionSpecialTarget: ActionSpecialTarget[] = Object.values(ActionSpecialTarget);
@@ -211,6 +211,10 @@ export class MonsterEditorActionComponent implements OnInit {
     this.change();
   }
 
+  dropSubAction(event: CdkDragDrop<number>) {
+    moveItemInArray(this.action.subActions, event.previousIndex, event.currentIndex);
+    gameManager.uiChange.emit();
+  }
 }
 
 
@@ -223,7 +227,7 @@ export class MonsterEditorActionDialogComponent {
 
   relative: boolean = true;
 
-  constructor(@Inject(DIALOG_DATA) public data: { action: Action, monster: Monster }, private dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) public action: Action, private dialogRef: DialogRef) {
 
   }
 

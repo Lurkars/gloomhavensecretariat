@@ -33,9 +33,6 @@
         "char-am-deck": "Uses character AM deck"
       },
       "gh": {
-        "city-guard-sun-solo": {
-          "1": "Suffer 1 damage at end of round until fully healed"
-        },
         "city-guard-saw-solo": {
           "1": "Suffer 1 damage at end of round until fully healed"
         }

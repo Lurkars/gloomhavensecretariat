@@ -797,6 +797,7 @@
     },
     "action": {
       "add": "Add Action",
+      "addBottom": "Add Bottom Action",
       "remove": "Remove Action",
       "addSubAction": "Add Subaction",
       "removeSubAction": "Remove Subaction",

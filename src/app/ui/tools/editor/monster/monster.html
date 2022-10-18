@@ -205,12 +205,17 @@
 
         <div class="abilities-container" *ngFor="let ability of deckData.abilities">
           <div class="ability-input">
-            <div class="ability" #card [style.fontSize]=" card.offsetWidth * 0.04 + 'px'">
+            <div class="ability"
+              [ngClass]="{'bottom-actions' : ability.bottomActions && ability.bottomActions.length > 0}" #card
+              [style.fontSize]=" card.offsetWidth * 0.04 + 'px'">
               <input class="name" [(ngModel)]="ability.name" (change)="deckDataToJson()"
                 [placeholder]="abilityPlaceholder(ability.name)" (keyup)="deckDataToJson()">
               <input class="initiative" min="0" max="100" type="number"
                 [value]="ability.initiative && (ability.initiative < 10 ? '0' + ability.initiative : ability.initiative)"
                 (change)="changeInitiative($event, ability)">
+
+              <input class="level" *ngIf="ability.bottomActions && ability.bottomActions.length > 0"
+              [ngModel]="ability.level" (ngModelChange)="ability.level=valueChange($event)" (change)="deckDataToJson()">
 
               <input class="card-id" type="number" [(ngModel)]="ability.cardId" (change)="deckDataToJson()"
                 (keyup)="deckDataToJson()">
@@ -227,8 +232,21 @@
                       *ngIf="index > 0 && action.type != ActionType.card && !((action.type == ActionType.element || action.type == ActionType.elementHalf) && action.valueType != ActionValueType.minus)">
                     </div>
 
-                    <ghs-action (click)="editAbilityAction(ability, action)" [action]="action"
-                      [monster]="getMonsterForLevel(level)" [relative]="true">
+                    <ghs-action (click)="editAbilityAction(ability, action)" [action]="action" [relative]="true">
+                    </ghs-action>
+                  </ng-container>
+                </div>
+              </div>
+
+
+              <div class="actions-container bottom" *ngIf="ability.bottomActions && ability.bottomActions.length > 0">
+                <div class="actions">
+                  <ng-container *ngFor="let action of ability.bottomActions; let index = index;">
+                    <div class="divider"
+                      *ngIf="index > 0 && action.type != ActionType.card && !((action.type == ActionType.element || action.type == ActionType.elementHalf) && action.valueType != ActionValueType.minus)">
+                    </div>
+
+                    <ghs-action (click)="editAbilityActionBottom(ability, action)" [action]="action" [relative]="true">
                     </ghs-action>
                   </ng-container>
                 </div>
@@ -237,13 +255,21 @@
               <a class="remove" (click)="removeAbility(ability)"><img class="ghs-icon"
                   src="./assets/images/minus.svg"></a>
             </div>
-              
-            <a class="button add" (click)="addAbilityAction(ability)"><img class="ghs-icon" src="./assets/images/plus.svg">
-              {{'editor.action.add' | ghsLabel}}</a>
+
+            <div class="buttons"  [ngClass]="{'bottom-actions' : ability.bottomActions && ability.bottomActions.length > 0}">
+              <a class="button add" (click)="addAbilityAction(ability)"><img class="ghs-icon"
+                  src="./assets/images/plus.svg">
+                {{'editor.action.add' | ghsLabel}}</a>
+
+              <a class="button add bottom" (click)="addAbilityActionBottom(ability)"><img class="ghs-icon"
+                  src="./assets/images/plus.svg">
+                {{'editor.action.addBottom' | ghsLabel}}</a>
+            </div>
           </div>
 
-          <ghs-ability [ability]="ability" [abilities]="deckData.abilities" [monster]="getMonsterForLevel(level)"
-            [relative]="true" [flipped]="true" [statsCalculation]="false">
+          <ghs-ability [ngClass]="{'bottom-actions' : ability.bottomActions && ability.bottomActions.length > 0}"
+            [ability]="ability" [abilities]="deckData.abilities" [monster]="getMonsterForLevel(level)" [relative]="true"
+            [flipped]="true" [statsCalculation]="false">
           </ghs-ability>
         </div>
 

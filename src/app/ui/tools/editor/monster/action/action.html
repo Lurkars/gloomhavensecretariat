@@ -58,12 +58,13 @@
     </select>
   </ng-container>
 
-  <div class="subactions">
+  <div class="subactions" cdkDropList (cdkDropListDropped)="dropSubAction($event)">
     <label>SubActions</label>
     <a (click)="addSubAction()"><img class="ghs-icon" src="./assets/images/plus.svg"> {{'editor.action.addSubAction' |
       ghsLabel}}</a>
-    <div class="subaction" *ngFor="let subAction of action.subActions; let i = index">
-      <ghs-monster-editor-action [(action)]="action.subActions[i]" [monster]="monster"></ghs-monster-editor-action>
+    <div class="subaction" *ngFor="let subAction of action.subActions; let i = index" cdkDrag>
+      <span class="handle" cdkDragHandle><img class="ghs-icon" src="./assets/images/menu.svg"></span>
+      <ghs-monster-editor-action [(action)]="action.subActions[i]"></ghs-monster-editor-action>
       <a (click)="removeSubAction(i)"><img class="ghs-icon" src="./assets/images/minus.svg">
         {{'editor.action.removeSubAction' | ghsLabel}}</a>
     </div>
