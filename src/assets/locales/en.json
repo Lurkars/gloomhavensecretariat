@@ -500,7 +500,7 @@
     "spoilers": "Manage Spoilers",
     "editionDataUrls": {
       ".": "Manage Edition Data",
-      "enable" : "Enable Edition",
+      "enable": "Enable Edition",
       "disable": "Disable Edition",
       "remove": "Remove Edition Data",
       "custom": "Additional Edition Data"
