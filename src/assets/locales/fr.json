@@ -252,6 +252,7 @@
     "progress": {
       ".": "Feuille de personnage",
       "name": "Nom",
+      "title" : "{0} {1}",
       "level": "Niveau",
       "xp": "XP",
       "battlegoals": "Objectifs de bataille",
@@ -274,12 +275,13 @@
           "4": "quatre",
           "5": "cinq"
         },
+        "cardLabel": "{0} {2}{1}",
         "type": {
-          "add": "Ajouter {0} {2}{1}",
-          "remove": "Retirer {0} {2} {1}",
-          "replace": "Remplacer {0} {2} {1} par {3} {5} {4}"
+          "add": "Ajouter {0}",
+          "remove": "Retirer {0}",
+          "replace": "Remplacer {0} par {1}"
         },
-        "additional": " et {0} {2}{1}",
+        "additional": "{0} et {1}",
         "warning": "Trop de bénéfices sélectionnés !",
         "wip": "%wip%! Gestion des bénéfices non terminée."
       },

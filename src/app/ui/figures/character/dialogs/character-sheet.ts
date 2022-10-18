@@ -343,17 +343,30 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
   }
 
   perkLabel(perk: Perk): string[] {
+
     let label: string[] = [];
+    let cardLabel: string[] = [];
     if (perk.cards) {
-      perk.cards.forEach((card, index) => {
-        if (index == 0 || perk.type == PerkType.replace && index < 2) {
-          label.push('character.progress.perks.cards.' + card.count);
-          label.push(this.attackModifierHtml(card.attackModifier));
-          label.push(card.count > 1 ? 'character.progress.perks.cards' : 'character.progress.perks.card');
-        } else {
-          label[label.length - 1] += settingsManager.getLabel('character.progress.perks.additional', ['character.progress.perks.cards.' + card.count, this.attackModifierHtml(card.attackModifier), card.count > 1 ? 'character.progress.perks.cards' : 'character.progress.perks.card']);
-        }
-      });
+      perk.cards.forEach((card) => {
+        cardLabel.push(settingsManager.getLabel('character.progress.perks.cardLabel', ['character.progress.perks.cards.' + card.count, this.attackModifierHtml(card.attackModifier), card.count > 1 ? 'character.progress.perks.cards' : 'character.progress.perks.card']))
+      })
+
+      if (cardLabel.length < 2 || perk.type == PerkType.replace && cardLabel.length == 2) {
+        label = cardLabel;
+      } else if (perk.type == PerkType.replace) {
+        label.push(cardLabel[0]);
+        cardLabel.forEach((value, index, self) => {
+          if (index > 0 && index % 2 == 1 && index < self.length - 1) {
+            label.push(settingsManager.getLabel('character.progress.perks.additional', [value, cardLabel[index + 1]]));
+          }
+        });
+      } else {
+        cardLabel.forEach((value, index, self) => {
+          if (index % 2 == 0 && index < self.length - 1) {
+            label.push(settingsManager.getLabel('character.progress.perks.additional', [value, cardLabel[index + 1]]));
+          }
+        });
+      }
     }
 
     return label;

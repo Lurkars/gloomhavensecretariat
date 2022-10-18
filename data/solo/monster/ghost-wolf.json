@@ -20,12 +20,14 @@
       "attack": 2,
       "actions": [
         {
-          "type": "condition",
-          "value": "invisible"
-        },
-        {
           "type": "custom",
-          "value": "at the start of each round"
+          "value": "%data.custom.gh.ghost-wolf.1%",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "invisible"
+            }
+          ]
         }
       ]
     },
@@ -40,12 +42,14 @@
           "value": 2
         },
         {
-          "type": "condition",
-          "value": "invisible"
-        },
-        {
           "type": "custom",
-          "value": "at the start of each round"
+          "value": "%data.custom.gh.ghost-wolf.1%",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "invisible"
+            }
+          ]
         }
       ]
     },
@@ -60,12 +64,14 @@
           "value": 2
         },
         {
-          "type": "condition",
-          "value": "invisible"
-        },
-        {
           "type": "custom",
-          "value": "at the start of each round"
+          "value": "%data.custom.gh.ghost-wolf.1%",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "invisible"
+            }
+          ]
         }
       ]
     },
@@ -80,12 +86,14 @@
           "value": 2
         },
         {
-          "type": "condition",
-          "value": "invisible"
-        },
-        {
           "type": "custom",
-          "value": "at the start of each round"
+          "value": "%data.custom.gh.ghost-wolf.1%",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "invisible"
+            }
+          ]
         }
       ]
     },
@@ -100,12 +108,14 @@
           "value": 2
         },
         {
-          "type": "condition",
-          "value": "invisible"
-        },
-        {
           "type": "custom",
-          "value": "at the start of each round"
+          "value": "%data.custom.gh.ghost-wolf.1%",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "invisible"
+            }
+          ]
         }
       ]
     },
@@ -120,12 +130,14 @@
           "value": 3
         },
         {
-          "type": "condition",
-          "value": "invisible"
-        },
-        {
           "type": "custom",
-          "value": "at the start of each round"
+          "value": "%data.custom.gh.ghost-wolf.1%",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "invisible"
+            }
+          ]
         }
       ]
     },
@@ -140,12 +152,14 @@
           "value": 3
         },
         {
-          "type": "condition",
-          "value": "invisible"
-        },
-        {
           "type": "custom",
-          "value": "at the start of each round"
+          "value": "%data.custom.gh.ghost-wolf.1%",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "invisible"
+            }
+          ]
         }
       ]
     },
@@ -160,12 +174,14 @@
           "value": 4
         },
         {
-          "type": "condition",
-          "value": "invisible"
-        },
-        {
           "type": "custom",
-          "value": "at the start of each round"
+          "value": "%data.custom.gh.ghost-wolf.1%",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "invisible"
+            }
+          ]
         }
       ]
     }

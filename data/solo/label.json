@@ -35,6 +35,52 @@
       "gh": {
         "city-guard-saw-solo": {
           "1": "Suffer 1 damage at end of round until fully healed"
+        },
+        "ghost-wolf": {
+          "1": "At start of each round:"
+        }
+      }
+    }
+  },
+  "de": {
+    "edition": {
+      "solo": "Solo Szenarien (alle Editionen)"
+    },
+    "monster": {
+      "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.music-note% %solo%)",
+      "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.music-note% %solo%)",
+      "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.circles% %solo%)",
+      "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.saw% %solo%)",
+      "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.scoundrel% %solo%)",
+      "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.sun% %solo%)",
+      "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.tinkerer% %solo%)",
+      "deep-earth": "Tiefe Erde",
+      "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.diviner% %solo%)",
+      "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.mindthief% %solo%)",
+      "ghost-wolf": "Geisterwolf",
+      "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.angry-face% %solo%)",
+      "high-flame": "Hohe Flamme",
+      "inox-necromancer": "Inox Geisterbeschwörer",
+      "lieutenant": "Leutnant",
+      "song-of-the-deep": "Lied der Tiefe",
+      "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.scoundrel% %solo%)",
+      "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.mindthief% %solo%)"
+    },
+    "scenario": {
+      "group": {
+        "solo": "Solo Szenarien"
+      }
+    },
+    "custom": {
+      "solo": {
+        "char-am-deck": "Verwendet die Charakter AM Karten"
+      },
+      "gh": {
+        "city-guard-saw-solo": {
+          "1": "Erleidet 1 Schaden am Ende der Runde solange nicht vollständig geheilt."
+        },
+        "ghost-wolf": {
+          "1": "Zum Beginn jeder Runde:"
         }
       }
     }
@@ -92,11 +138,11 @@
         "char-am-deck": "Utilise le paquet de modificateur d'attaque du personnage"
       },
       "gh": {
-        "city-guard-sun-solo": {
-          "1": "Suffer 1 damage at end of round until fully healed"
-        },
         "city-guard-saw-solo": {
           "1": "Subit 1 dégât à la fin de chaque round tant qu'il n'a pas récupéré tous ses PV"
+        },
+        "ghost-wolf": {
+          "1": "Au début de chaque round:"
         }
       }
     }

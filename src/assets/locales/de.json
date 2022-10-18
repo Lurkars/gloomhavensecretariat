@@ -252,6 +252,7 @@
     "progress": {
       ".": "Charakterbogen",
       "name": "Name",
+      "title" : "{1} {0}",
       "level": "Level",
       "xp": "XP",
       "battlegoals": "Kampfziele",
@@ -274,12 +275,13 @@
           "4": "vier",
           "5": "fünf"
         },
+        "cardLabel": "{0}{1} {2}",
         "type": {
-          "add": "füge {0}{1} {2} hinzu",
-          "remove": "entferne {0}{1} {2}",
-          "replace": "ersetze {0}{1} {2} durch {3}{4} {5}"
+          "add": "füge {0} hinzu",
+          "remove": "entferne {0}",
+          "replace": "ersetze {0} durch {1}"
         },
-        "additional": " und {0}{1} {2}",
+        "additional": "{0} und {1}",
         "warning": "Mehr Verbesserungen ausgewählt als verfügbar!",
         "wip": "%wip%! Verbesserungen sind noch nicht vollständig."
       },

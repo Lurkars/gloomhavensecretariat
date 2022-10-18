@@ -7,10 +7,8 @@
             <img [src]="characterManager.characterIcon(character)" />
             <label class="headline" [ngClass]="{'absent' : character.absent}" (click)="toggleCharacterAbsent()"
               [title]="(character.absent ? 'character.absent' : 'character.present') | ghsLabel">
-              <span *ngIf="character.characterClass">
-                {{'character.class.' + character.characterClass | ghsLabel}}&nbsp;
-              </span>
-              {{'data.character.' + character.name | ghsLabel}}
+              {{'character.progress.title' | ghsLabel:[('data.character.' + character.name | ghsLabel),
+              character.characterClass ? ('character.class.' + character.characterClass | ghsLabel) : '']}}
               <img *ngIf="character.absent" src="./assets/images/status/exhausted.svg">
             </label>
           </div>

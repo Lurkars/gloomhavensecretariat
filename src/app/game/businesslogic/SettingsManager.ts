@@ -509,7 +509,6 @@ export class SettingsManager {
         return response.json();
       }).then(data => {
         this.label = this.merge(this.label, data);
-        this.storeSettings();
       })
       .catch((error: Error) => {
         console.error("Invalid locale: " + locale, error);
@@ -520,6 +519,8 @@ export class SettingsManager {
     for (let editionData of gameManager.editionData) {
       this.loadDataLabel(editionData);
     }
+
+    this.storeSettings();
   }
 
   getLabel(key: string, args: string[] = [], argLabel: boolean = true, from: any = this.label, path: string = "", empty: boolean = false): string {

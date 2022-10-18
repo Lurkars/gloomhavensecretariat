@@ -9,31 +9,31 @@ export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\%)+)\%/;
 export const applyPlaceholder = function (value: string): string {
   while (value.match(ghsLabelRegex)) {
     value = value.replace(ghsLabelRegex, (match, ...args) => {
-      const label: string = args[ 0 ];
+      const label: string = args[0];
       const split: string[] = label.split('.');
-      const type = split[ 1 ];
+      const type = split[1];
 
-      let quotes = false;
+      let quotes : boolean = false;
 
       if (match.startsWith("\"") && match.endsWith("\"")) {
         quotes = true;
       }
 
-      let replace = match;
-      let image = '';
+      let replace: string = match;
+      let image: string = '';
       if (type == "condition") {
         split.splice(0, 1);
         image = '<img  src="./assets/images/' + split.join('/') + '.svg" class="icon">';
         replace = '<span class="placeholder-condition">' + settingsManager.getLabel(label) + image + '</span>';
-      } else if (type == "action" && split.length == 3 && !split[ 2 ].startsWith('specialTarget')) {
+      } else if (type == "action" && split.length == 3 && !split[2].startsWith('specialTarget')) {
         split.splice(0, 1);
         image = '<img  src="./assets/images/' + split.join('/') + '.svg" class="icon">';
         replace = '<span class="placeholder-action">' + settingsManager.getLabel(label) + image + '</span>';
       } else if (type == "element") {
-        let element = split[ 2 ];
+        let element = split[2];
         if (element == "consume") {
           image = '<span class="element inline consume">';
-          element = split[ 3 ];
+          element = split[3];
         } else {
           image = '<span class="element inline">';
         }
@@ -41,12 +41,12 @@ export const applyPlaceholder = function (value: string): string {
         replace = image;
       } else if (type == "initiative" && split.length == 3) {
         image = '<img class="ghs-svg" src="./assets/images/initiative.svg"></span>'
-        replace = '<span class="placeholder-initiative">' + split[ 2 ] + image + '</span>';
+        replace = '<span class="placeholder-initiative">' + split[2] + image + '</span>';
       } else if (type == "attackmodifier" && split.length == 3) {
-        image = '<img  src="./assets/images/attackmodifier/icons/' + split[ 2 ] + '.png" class="icon">';
+        image = '<img  src="./assets/images/attackmodifier/icons/' + split[2] + '.png" class="icon">';
         replace = '<span class="placeholder-attackmodifier">' + image + '</span>';
       } else {
-        replace = settingsManager.getLabel(label.split(':')[ 0 ], label.split(':').splice(1).map((arg) =>
+        replace = settingsManager.getLabel(label.split(':')[0], label.split(':').splice(1).map((arg) =>
           applyPlaceholder(settingsManager.getLabel(arg))
         )) + image;
       }
@@ -61,12 +61,12 @@ export const applyPlaceholder = function (value: string): string {
         const result = EntityValueFunction(match)
         return "" + result;
       } else {
-        let func = args[ 2 ];
+        let func = args[2];
         const funcLabel = func && func.startsWith('%');
         if (funcLabel) {
           func = func.replace('%', '');
         }
-        return funcLabel ? args[ 0 ] + ' ' + settingsManager.getLabel('game.custom.' + func) : args[ 0 ];
+        return funcLabel ? args[0] + ' ' + settingsManager.getLabel('game.custom.' + func) : args[0];
       }
     });
   }
@@ -109,7 +109,7 @@ export class I18nDirective implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes[ 'args' ] && JSON.stringify(changes[ 'args' ].previousValue) != JSON.stringify(changes[ 'args' ].currentValue) || changes[ 'value' ] && changes[ 'value' ].previousValue != changes[ 'value' ].currentValue) {
+    if (changes['args'] && JSON.stringify(changes['args'].previousValue) != JSON.stringify(changes['args'].currentValue) || changes['value'] && changes['value'].previousValue != changes['value'].currentValue) {
       this.apply();
     }
   }
