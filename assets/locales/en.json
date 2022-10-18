@@ -252,6 +252,7 @@
     "progress": {
       ".": "Character Sheet",
       "name": "Name",
+      "title": "{1} {0}",
       "level": "Level",
       "xp": "XP",
       "battlegoals": "Battelgoals",
@@ -274,12 +275,13 @@
           "4": "four",
           "5": "five"
         },
+        "cardLabel": "{0}{1} {2}",
         "type": {
-          "add": "add {0}{1} {2}",
-          "remove": "remove {0}{1} {2}",
-          "replace": "replace {0}{1} {2} with {3}{4} {5}"
+          "add": "add {0}",
+          "remove": "remove {0}",
+          "replace": "replace {0} with {1}"
         },
-        "additional": " and {0}{1} {2}",
+        "additional": "{0} and {1}",
         "warning": "More perks than available selected!",
         "wip": "%wip%! Perks not complete yet."
       },
@@ -500,7 +502,7 @@
     "spoilers": "Manage Spoilers",
     "editionDataUrls": {
       ".": "Manage Edition Data",
-      "enable" : "Enable Edition",
+      "enable": "Enable Edition",
       "disable": "Disable Edition",
       "remove": "Remove Edition Data",
       "custom": "Additional Edition Data"
@@ -797,6 +799,7 @@
     },
     "action": {
       "add": "Add Action",
+      "addBottom": "Add Bottom Action",
       "remove": "Remove Action",
       "addSubAction": "Add Subaction",
       "removeSubAction": "Remove Subaction",
