@@ -39,11 +39,12 @@
       "addMonster": "Ajouter monstre {0}",
       "addNextStandee": "Ajouter {1} {0} silhouette",
       "addObjective": "Ajouter objectif {0}",
-      "addParty": "Créer de nouvelles compagnie '{0}'",
+      "addParty": "Créer une nouvelle compagnie '{0}'",
       "addRandomStandee": "Ajouter {1} {0} silhouette aléatoire {2}",
       "addSection": "Ajouter section #{0} {1} ({2})",
       "addStandee": "Ajout {0} n°{2} ({1})",
       "addSummon": "Ajouter invocation '{1}' pour {0}",
+      "addTreasure": "Ajout trésor {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
       "applyCondition": {
         "char": "Appliquer {1} to {0}",
         "objective": "Appliquer {1} to {0}",
@@ -61,7 +62,7 @@
       "changeObjectiveHP": "PV {1} pour objectif {0}",
       "changeObjectiveId": "ID '{1}' pour {0}",
       "changeObjectiveMaxHP": "Max. PV {1} pour objectif {0}",
-      "changeParty": "Changer de compagnie en '{0}'",
+      "changeParty": "Changer compagnie en '{0}'",
       "changeSummonAttack": "Attaque {2} pour invocation '{1}' de {0}",
       "changeSummonHp": "PV {2} pour invocation '{1}' de {0}",
       "changeSummonMaxHp": "Max. PV {2} pour invocation '{1}' de {0}",
@@ -116,7 +117,8 @@
       "removeManualScenario": "Retrait du scénario #{0} {1} ({2})",
       "removeMonster": "Retrait du monstre {0}",
       "removeObjective": "Retrait de l'objectif {0}",
-      "removeParty": "Retirer de compagnie '{0}'",
+      "removeParty": "Retrait de la compagnie '{0}'",
+      "removeTreasure": "Retrait trésor {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
       "reorder": "Réarranger les figurines",
       "reorderAbilities": "Réarranger les capacités de {0}",
       "resetScenario": "Redémarrer le scénario #{0} {1} ({2})",
@@ -217,7 +219,7 @@
       "name": "%character%",
       "loot": "Pillage",
       "gold": "Or",
-      "totalGold": "Total Gold",
+      "totalGold": "Or total",
       "xpGained": "Gain d'expérience",
       "xpBonus": "Expérience bonus",
       "xp": "Expérience",
@@ -310,8 +312,8 @@
     "reputation": "Réputation",
     "prosperity": "Prosperité",
     "campaignMode": "Mode Campagne",
-    "new": "Créer de nouvelles compagnie",
-    "remove": "Retirer de compagnie",
+    "new": "Créer une nouvelle compagnie",
+    "remove": "Retirer la compagnie",
     "change": "Changer de compagnie",
     "shop": {
       ".": "Modificateur de prix",
@@ -322,6 +324,7 @@
     "campaign": {
       ".": "Campagne",
       "achievements": "Hauts Faits généraux",
+      "treasures": "Trésors",
       "donations": "Donations au Sanctuaire du Grand Chêne",
       "scenarios": {
         ".": "Scénarios",
@@ -397,7 +400,7 @@
     },
     "fullscreen": "Plein écran",
     "fhStyle": "Style Frosthaven (%wip%)",
-    "hideAbsent": "Cacher absent figurines",
+    "hideAbsent": "Cacher les figurines absentes",
     "autoscroll": "Défilement automatique",
     "disableColumns": "Désactiver affichage en colonnes",
     "dragValues": "Glisser pour modifier Initiative/HP/XP/Loot",
@@ -414,6 +417,10 @@
       "en": "Anglais (English)",
       "de": "Allemand (Deutsch)",
       "fr": "Français"
+    },
+    "debug": {
+      ".": "Paramètres de debug",
+      "rightClick": "Toujour activer le clic droit"
     }
   },
   "server": {
@@ -490,10 +497,10 @@
   },
   "datamanagement": {
     ".": "Gestion des données",
-    "spoilers": "Gérer les spoilers",    
+    "spoilers": "Gérer les spoilers",
     "editionDataUrls": {
       ".": "Gérer les données des éditions",
-      "enable" : "Activer l'édition",
+      "enable": "Activer l'édition",
       "disable": "Désactiver l'édition",
       "remove": "Retrait les données des éditions",
       "custom": "Les données des éditions supplémentaire"
@@ -661,7 +668,8 @@
       "edit": "Éditer",
       "restore": "Restaurer les cartes par défaut",
       "defaultSort": "Trier",
-      "openDialog": "Montrer toutes les cartes"
+      "openDialog": "Montrer toutes les cartes",
+      "fullscreen": "Montrer en plein écran"
     },
     "attackModifiers": {
       ".": "Paquet de Modificateur d'Attaque",
