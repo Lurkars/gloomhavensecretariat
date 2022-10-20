@@ -252,7 +252,7 @@
     "progress": {
       ".": "Charakterbogen",
       "name": "Name",
-      "title" : "{1} {0}",
+      "title": "{1} {0}",
       "level": "Level",
       "xp": "XP",
       "battlegoals": "Kampfziele",
@@ -294,14 +294,38 @@
     "class": {
       "aesther": "Aesther",
       "harrower": "Schwarmling",
-      "human": "Menschlich/e",
+      "human": "Menschlich",
       "inox": "Inox",
       "lurker": "Pirscher",
       "orchid": "Antriden",
       "quatryl": "Quatryl",
       "savvas": "Savvas",
       "valrath": "Valrath",
-      "vermling": "Ratzen"
+      "vermling": "Ratzen",
+      "m": {
+        "aesther": "Aesther",
+        "harrower": "Schwarmling",
+        "human": "Menschlicher",
+        "inox": "Inox",
+        "lurker": "Pirscher",
+        "orchid": "Antriden",
+        "quatryl": "Quatryl",
+        "savvas": "Savvas",
+        "valrath": "Valrath",
+        "vermling": "Ratzen"
+      },
+      "f": {
+        "aesther": "Aesther",
+        "harrower": "Schwarmling",
+        "human": "Menschliche",
+        "inox": "Inox",
+        "lurker": "Pirscher",
+        "orchid": "Antriden",
+        "quatryl": "Quatryl",
+        "savvas": "Savvas",
+        "valrath": "Valrath",
+        "vermling": "Ratzen"
+      }
     }
   },
   "party": {
@@ -420,9 +444,9 @@
       "de": "Deutsch",
       "fr": "Französisch (Français)"
     },
-    "debug" : {
-      "." : "Debug Einstellung",
-      "rightClick" : "Rechtsklick immer erlauben"
+    "debug": {
+      ".": "Debug Einstellung",
+      "rightClick": "Rechtsklick immer erlauben"
     }
   },
   "server": {
@@ -502,7 +526,7 @@
     "spoilers": "Spoiler bearbeiten",
     "editionDataUrls": {
       ".": "Editionsdaten bearbeiten",
-      "enable" : "Edition aktivieren",
+      "enable": "Edition aktivieren",
       "disable": "Edition deaktivieren",
       "remove": "Editionsdaten entfernen",
       "custom": "Zusätzliche Editionsdaten"

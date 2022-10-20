@@ -301,7 +301,31 @@
       "quatryl": "Quatryl",
       "savvas": "Savvas",
       "valrath": "Valrath",
-      "vermling": "Vermling"
+      "vermling": "Vermling",
+      "m": {
+        "aesther": "Aesther",
+        "harrower": "Harrower",
+        "human": "Human",
+        "inox": "Inox",
+        "lurker": "Lurker",
+        "orchid": "Orchid",
+        "quatryl": "Quatryl",
+        "savvas": "Savvas",
+        "valrath": "Valrath",
+        "vermling": "Vermling"
+      },
+      "f": {
+        "aesther": "Aesther",
+        "harrower": "Harrower",
+        "human": "Human",
+        "inox": "Inox",
+        "lurker": "Lurker",
+        "orchid": "Orchid",
+        "quatryl": "Quatryl",
+        "savvas": "Savvas",
+        "valrath": "Valrath",
+        "vermling": "Vermling"
+      }
     }
   },
   "party": {

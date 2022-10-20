@@ -252,7 +252,7 @@
     "progress": {
       ".": "Feuille de personnage",
       "name": "Nom",
-      "title" : "{0} {1}",
+      "title": "{0} {1}",
       "level": "Niveau",
       "xp": "XP",
       "battlegoals": "Objectifs de bataille",
@@ -301,7 +301,31 @@
       "quatryl": "Quatryl",
       "savvas": "Savvas",
       "valrath": "Valrath",
-      "vermling": "Vermling"
+      "vermling": "Vermling",
+      "m": {
+        "aesther": "Esther",
+        "harrower": "Persécuteur",
+        "human": "Humain",
+        "inox": "Inox",
+        "lurker": "Fouineur",
+        "orchid": "Orchid",
+        "quatryl": "Quatryl",
+        "savvas": "Savvas",
+        "valrath": "Valrath",
+        "vermling": "Vermling"
+      },
+      "f": {
+        "aesther": "Esther",
+        "harrower": "Persécuteur",
+        "human": "Humaine",
+        "inox": "Inox",
+        "lurker": "Fouineur",
+        "orchid": "Orchid",
+        "quatryl": "Quatryl",
+        "savvas": "Savvas",
+        "valrath": "Valrath",
+        "vermling": "Vermling"
+      }
     }
   },
   "party": {
