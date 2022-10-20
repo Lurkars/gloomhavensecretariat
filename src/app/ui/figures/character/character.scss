@@ -69,10 +69,6 @@
     left: calc(var(--ghs-unit) * 2.4);
   }
 
-  ghs-character-initiative {
-    margin-right: calc(var(--ghs-unit) * 1);
-  }
-
   ghs-character-initiative,
   ghs-character-image {
     z-index: 2;
@@ -170,6 +166,7 @@
     display: flex;
     flex-basis: 100%;
     cursor: pointer;
+    margin-left: calc(var(--ghs-unit) * 1);
 
     .column {
       display: flex;

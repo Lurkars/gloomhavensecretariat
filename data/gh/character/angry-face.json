@@ -1,6 +1,7 @@
 {
   "name": "angry-face",
   "characterClass": "orchid",
+  "gender" : "m",
   "edition": "gh",
   "color": "#5bc5dc",
   "marker": true,

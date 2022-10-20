@@ -50,7 +50,6 @@
       border-top-right-radius: 25%;
     }
 
-    .number,
     .health {
       display: flex;
       width: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
@@ -62,12 +61,51 @@
       z-index: 1;
     }
 
-    .number {
-      background-color: var(--ghs-color-darkred);
-      border-bottom-right-radius: 50%;
-      border-top-left-radius: 35%;
-      height: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
-      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+    .image {
+      position: relative;
+      top: calc(var(--ghs-unit) * 0.5);
+      width: calc(var(--ghs-unit) * 4);
+      height: calc(var(--ghs-unit) * 4);
+
+
+      &.new::before {
+        content: " ";
+        display: block;
+        position: absolute;
+        width: calc(var(--ghs-unit) * 4);
+        height: calc(var(--ghs-unit) * 4);
+        background-image: url('~src/assets/images/summons/minus.svg');
+        background-size: cover;
+        z-index: 2;
+      }
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+
+      .summon-number {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        left: calc(var(--ghs-unit) * -0.1);
+        height: calc(var(--ghs-unit) * 4);
+        width: calc(var(--ghs-unit) * 2);
+        font-family: var(--ghs-font-title);
+        font-size: calc(var(--ghs-unit) * 2.5);
+        color: var(--ghs-color-white);
+        background-color: var(--ghs-color-darkgray);
+        border-top-left-radius: calc(var(--ghs-unit) * 4);
+        border-bottom-left-radius: calc(var(--ghs-unit) * 4);
+        z-index: 3;
+        opacity: 0.9;
+      }
     }
 
     .health {
@@ -142,8 +180,7 @@
       grid-template-rows: repeat(2, auto);
       grid-auto-flow: column;
 
-      .condition,
-      .summon-state {
+      .condition {
         position: relative;
         display: flex;
         align-items: center;
@@ -168,18 +205,6 @@
 
         &.center {
           grid-row: span 2;
-        }
-      }
-
-      .summon-state {
-        &.new::before {
-          content: " ";
-          display: block;
-          position: absolute;
-          width: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
-          height: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
-          background-image: url('~src/assets/images/summons/minus.svg');
-          background-size: cover;
         }
       }
     }

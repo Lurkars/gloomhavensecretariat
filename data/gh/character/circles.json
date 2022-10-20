@@ -1,6 +1,7 @@
 {
   "name": "circles",
   "characterClass": "aesther",
+  "gender" : "f",
   "edition": "gh",
   "color": "#e570b3",
   "spoiler": true,

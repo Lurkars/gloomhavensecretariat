@@ -1,6 +1,7 @@
 {
   "name": "red-guard",
   "characterClass": "valrath",
+  "gender" : "m",
   "edition": "jotl",
   "color": "#d8585d",
   "stats": [

@@ -104,6 +104,10 @@
     &.disabled {
       pointer-events: none;
       opacity: 0.5;
+
+      &:hover {
+        border: none;
+      }
     }
 
   }
@@ -147,6 +151,10 @@
       &.disabled {
         pointer-events: none;
         color: var(--ghs-color-darkgray);
+
+        &:hover {
+          border: none;
+        }
       }
     }
   }
@@ -173,6 +181,11 @@
         .summon-button {
           border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
           border-radius: 100%;
+
+          &.disabled {
+            pointer-events: none !important;
+            border: none;
+          }
         }
 
         label {

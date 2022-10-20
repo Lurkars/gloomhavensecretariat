@@ -68,6 +68,12 @@
       label {
         font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
         padding-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        overflow: hidden;
+
+        .character-title {
+          display: table;
+          align-self: center;
+        }
       }
     }
 

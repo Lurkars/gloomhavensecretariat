@@ -1,6 +1,7 @@
 {
   "name": "lightning",
   "characterClass": "inox",
+  "gender" : "f",
   "edition": "gh",
   "color": "#f07c4e",
   "spoiler": true,

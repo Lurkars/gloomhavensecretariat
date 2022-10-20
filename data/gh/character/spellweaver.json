@@ -1,6 +1,7 @@
 {
   "name": "spellweaver",
   "characterClass": "orchid",
+  "gender" : "f",
   "edition": "gh",
   "color": "#b28ac2",
   "stats": [

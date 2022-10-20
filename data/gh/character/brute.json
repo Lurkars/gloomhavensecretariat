@@ -1,6 +1,7 @@
 {
   "name": "brute",
   "characterClass": "inox",
+  "gender" : "m",
   "edition": "gh",
   "color": "#35acd5",
   "stats": [

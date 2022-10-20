@@ -1,6 +1,7 @@
 {
   "name": "three-spears",
   "characterClass": "valrath",
+  "gender" : "m",
   "edition": "gh",
   "color": "#ad9477",
   "spoiler": true,

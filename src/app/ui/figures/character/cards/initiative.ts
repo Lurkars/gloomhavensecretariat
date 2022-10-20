@@ -14,7 +14,7 @@ import { ghsDefaultDialogPositions } from "src/app/ui/helper/Static";
 @Component({
   selector: 'ghs-character-initiative',
   templateUrl: 'initiative.html',
-  styleUrls: [ './initiative.scss' ]
+  styleUrls: ['./initiative.scss']
 })
 export class CharacterInitiativeComponent {
 
@@ -62,12 +62,28 @@ export class CharacterInitiativeComponent {
     });
   }
 
+  tabindex(): number {
+    return gameManager.game.figures.filter((figure) => figure instanceof Character).indexOf(this.character);
+  }
+
+  focusNext(event: any) {
+    const tabindex = this.tabindex();
+    let next = document.getElementById('initative-input-' + (tabindex + 1));
+    if (!next && tabindex > 0) {
+      next = document.getElementById('initative-input-0');
+    }
+    if (next) {
+      next.focus();
+    }
+    event.preventDefault();
+  }
+
 }
 
 @Component({
   selector: 'ghs-character-initiative-dialog',
   templateUrl: 'initiative-dialog.html',
-  styleUrls: [ './initiative-dialog.scss' ]
+  styleUrls: ['./initiative-dialog.scss']
 })
 export class CharacterInitiativeDialogComponent {
 

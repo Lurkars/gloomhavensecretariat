@@ -1,6 +1,7 @@
 {
   "name": "mindthief",
   "characterClass": "vermling",
+  "gender" : "f",
   "edition": "gh",
   "color": "#6279a5",
   "stats": [

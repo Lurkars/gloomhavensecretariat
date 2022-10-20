@@ -1,6 +1,7 @@
 {
   "name": "hatchet",
   "characterClass": "inox",
+  "gender" : "m",
   "edition": "jotl",
   "color": "#7bbbd6",
   "marker": true,

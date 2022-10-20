@@ -2,9 +2,9 @@
   [ngClass]="{'empty' : character.initiative <= 0 && !settingsManager.settings.initiativeRequired}"
   title="{{'game.figure.setInitiative' | ghsLabel}}">
   <img (click)="open($event)" class="ghs-svg" src="./assets/images/initiative.svg" />
-  <input
-    [value]="character.initiative > 0 ? (character.initiative < 10 ? '0' + character.initiative : character.initiative) || '' : ''"
-    (change)="updateInitiative($event)" type="number" min="1" max="99" maxlength="2"
-    *ngIf="character.initiative <= 0 || !initiativeHidden()">
+  <input 
+  *ngIf="character.initiative <= 0 || !initiativeHidden()"  #initiative
+    [value]="character.initiative > 0 ? (character.initiative < 10 && character.initiative > 0 ? '0' + character.initiative : character.initiative) || '' : ''"
+    (change)="updateInitiative($event)" (focus)="initiative.select()" type="number" [min]="gameManager.game.state == GameState.draw ? 0 : 1" max="99" maxlength="2" [id]="'initative-input-' + tabindex()" (keydown.tab)="focusNext($event)">
   <span *ngIf="character.initiative > 0 && initiativeHidden()">??</span>
 </div>

@@ -20,11 +20,18 @@ export enum CharacterClass {
 
 }
 
+export enum CharacterGender {
+  male = "m",
+  female = "f",
+  unknown = ""
+}
+
 
 export class CharacterData implements Editional, Spoilable {
   name: string = "";
   stats: CharacterStat[] = [];
   characterClass: CharacterClass | undefined;
+  gender: CharacterGender = CharacterGender.unknown;
   availableSummons: SummonData[] = [];
 
   iconUrl: string | undefined;
@@ -53,6 +60,7 @@ export class CharacterData implements Editional, Spoilable {
       this.name = character.name;
       this.stats = character.stats || [];
       this.characterClass = character.characterClass || undefined;
+      this.gender = character.gender || CharacterGender.unknown;
       this.availableSummons = character.availableSummons || [];
       this.edition = character.edition || "";
       this.iconUrl = character.iconUrl || undefined;

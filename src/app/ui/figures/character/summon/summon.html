@@ -1,8 +1,14 @@
 <div class="summon-border" [ngClass]="{'dead' : summon.dead}" [entityAnimation]="summon.dead">
   <div class="summon" title="{{'data.summon.' + summon.name | ghsLabel}}" (click)="open()">
     <div #standee class="standee">
-      <span class="number"><span *ngIf="summon.number == 0">-</span><span
-          *ngIf="summon.number > 0">#{{summon.number}}</span></span>
+
+      <span class="image" [ngClass]="{'active' : summon.state == SummonState.true, 'new' : summon.state == SummonState.new, 'center' : (summon.entityConditions.length % 2) == 0}">
+        <img src="./assets/images/summons/{{summon.color}}.png">
+        <span class="summon-number">
+          <span *ngIf="summon.number == 0">-</span>
+          <span *ngIf="summon.number > 0">{{summon.number}}</span></span>
+      </span>
+
       <span class="health">{{summon.health + health}}
         <span class="value-overlay" [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}"
           *ngIf="health"><span class="value">{{health |
@@ -24,12 +30,6 @@
         <span class="value"
           *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
       </span>
-
-      <span class="summon-state"
-        [ngClass]="{'active' : summon.state == SummonState.true, 'new' : summon.state == SummonState.new, 'center' : (summon.entityConditions.length % 2) == 0}">
-        <img src="./assets/images/summons/{{summon.color}}.png">
-      </span>
-
     </div>
     <ghs-healthbar [entity]="summon" [diff]="health"></ghs-healthbar>
   </div>
