@@ -413,6 +413,39 @@
           &.pierce {
             text-transform: uppercase;
           }
+
+          &.element-half {
+
+            display: inline-flex;
+            width: calc(var(--ghs-unit) * 2.6 * var(--ghs-dialog-factor));
+            height: 0;
+            top: calc(var(--ghs-unit) * -0.3 * var(--ghs-dialog-factor));
+
+            .element {
+              position: relative;
+              overflow: hidden;
+              width: 50%;
+              padding: 0;
+              height: calc(var(--ghs-unit) * 2.6 * var(--ghs-dialog-factor));
+
+              img {
+                margin: 0;
+                top: 0;
+              }
+
+              &:nth-child(1) {
+                left: 0;   
+              }
+      
+              &:nth-child(2) {
+                right: 0;
+      
+                img {
+                  transform: translateX(-50%);
+                }
+              }
+            }
+          }
         }
 
         .attack-modifier-icon {

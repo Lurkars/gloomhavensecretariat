@@ -412,6 +412,10 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
       case AttackModifierEffectType.element:
         html += '<span class="attack-modifier-effect element">&zwj;<img src="./assets/images/attackmodifier/icons/effects/' + effect.value + '.svg"></span>';
         break;
+      case AttackModifierEffectType.elementHalf:
+        const elements = effect.value.split('|');
+        html += '<span class="attack-modifier-effect element-half">&zwj;<span class="element"><img src="./assets/images/attackmodifier/icons/effects/' + elements[0] + '.svg"></span><span class="element"><img src="./assets/images/attackmodifier/icons/effects/' + elements[1] + '.svg"></span></span>';
+        break;
       case AttackModifierEffectType.target:
         html += '<span class="placeholder attack-modifier-effect target">' + settingsManager.getLabel((+effect.value) <= 1 ? 'game.custom.perks.addTarget' : 'game.custom.perks.addTargets', [effect.value + ""]) + '<img src="./assets/images/attackmodifier/icons/effects/target.svg"></span>';
         break;
@@ -429,6 +433,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
         }
         break;
       case AttackModifierEffectType.changeType:
+        html += '"';
         if (effect.value.startsWith('plus')) {
           html += '<span class="attack-modifier-icon">+' + effect.value.replace('plus', '') + '</span>';
         } else if (effect.value.startsWith('minus')) {
@@ -437,7 +442,14 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
         } else if (effect.value.startsWith('multiply')) {
           html += '<span class="attack-modifier-icon">x' + effect.value.replace('multiply', '') + '</span>';
         }
-        break;
+        if (effect.effects) {
+          effect.effects.forEach((subEffect) => {
+            html += this.attackModifierEffectHtml(subEffect);
+          })
+        }
+
+        html += '"';
+        return html;
       default:
         html += '<span class="placeholder attack-modifier-effect ' + effect.type + '">' + settingsManager.getLabel('game.action.' + effect.type) + '<img src="./assets/images/attackmodifier/icons/effects/' + effect.type + '.svg"><span class="value">' + effect.value + '</span></span>';
         break;

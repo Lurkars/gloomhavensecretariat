@@ -13,7 +13,7 @@ export const applyPlaceholder = function (value: string): string {
       const split: string[] = label.split('.');
       const type = split[1];
 
-      let quotes : boolean = false;
+      let quotes: boolean = false;
 
       if (match.startsWith("\"") && match.endsWith("\"")) {
         quotes = true;
@@ -42,6 +42,9 @@ export const applyPlaceholder = function (value: string): string {
       } else if (type == "initiative" && split.length == 3) {
         image = '<img class="ghs-svg" src="./assets/images/initiative.svg"></span>'
         replace = '<span class="placeholder-initiative">' + split[2] + image + '</span>';
+      } else if (type == "attackmodifier" && split.length == 4 && split[2] == 'effects') {
+        image = '<img  src="./assets/images/attackmodifier/effects/' + split[3] + '.svg" class="icon">';
+        replace = '<span class="placeholder-attackmodifier-effect">' + image + '</span>';
       } else if (type == "attackmodifier" && split.length == 3) {
         image = '<img  src="./assets/images/attackmodifier/icons/' + split[2] + '.png" class="icon">';
         replace = '<span class="placeholder-attackmodifier">' + image + '</span>';

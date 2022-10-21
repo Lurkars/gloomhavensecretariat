@@ -17,7 +17,7 @@ import { Scenario } from "src/app/game/model/Scenario";
 export class PartySheetDialogComponent {
 
   gameManager: GameManager = gameManager;
-  party: Party = new Party();
+  party: Party;
   prosperitySteps = [3, 8, 14, 21, 29, 38, 49, 63];
   priceModifier: number = 0;
   campaign: boolean = false;
@@ -30,12 +30,15 @@ export class PartySheetDialogComponent {
 
   constructor() {
     this.party = gameManager.game.party;
-    this.updateScenarios();
-    if (this.party.reputation >= 0) {
-      this.priceModifier = Math.ceil((this.party.reputation - 2) / 4) * -1;
-    } else {
-      this.priceModifier = Math.floor((this.party.reputation + 2) / 4) * -1;
-    }
+    this.update();
+    gameManager.uiChange.subscribe({
+      next: () => {
+        if (this.party != gameManager.game.party) {
+          this.party = gameManager.game.party;
+          this.update();
+        }
+      }
+    })
   }
 
   toggleCampaignMode() {
@@ -45,7 +48,7 @@ export class PartySheetDialogComponent {
       gameManager.game.edition = this.party.edition;
     }
     gameManager.stateManager.after();
-    this.updateScenarios();
+    this.update();
   }
 
   setName(event: any) {
@@ -97,12 +100,8 @@ export class PartySheetDialogComponent {
         value = -20;
       }
       this.party.reputation = value;
-      if (this.party.reputation >= 0) {
-        this.priceModifier = Math.ceil((this.party.reputation - 2) / 4) * -1;
-      } else {
-        this.priceModifier = Math.floor((this.party.reputation + 2) / 4) * -1;
-      }
       gameManager.stateManager.after();
+      this.update();
     }
   }
 
@@ -151,7 +150,7 @@ export class PartySheetDialogComponent {
       character.fromModel(value);
       gameManager.game.figures.push(character);
     });
-    this.updateScenarios();
+    this.update();
   }
 
   setDonations(value: number) {
@@ -245,7 +244,7 @@ export class PartySheetDialogComponent {
     this.party.scenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group));
     gameManager.stateManager.after();
 
-    this.updateScenarios();
+    this.update();
   }
 
   removeSuccess(scenarioData: ScenarioData) {
@@ -255,7 +254,7 @@ export class PartySheetDialogComponent {
       this.party.scenarios.splice(this.party.scenarios.indexOf(value), 1);
       gameManager.stateManager.after();
     }
-    this.updateScenarios();
+    this.update();
   }
 
   removeManual(scenarioData: ScenarioData) {
@@ -265,7 +264,7 @@ export class PartySheetDialogComponent {
       this.party.manualScenarios.splice(this.party.manualScenarios.indexOf(value), 1);
       gameManager.stateManager.after();
     }
-    this.updateScenarios();
+    this.update();
   }
 
   maxScenario(scenarios: ScenarioData[]) {
@@ -279,10 +278,10 @@ export class PartySheetDialogComponent {
       gameManager.game.edition = this.party.edition;
       gameManager.stateManager.after();
     }
-    this.updateScenarios();
+    this.update();
   }
 
-  updateScenarios(): void {
+  update(): void {
     const editions = this.party.edition && [this.party.edition] || gameManager.editions();
     this.scenarioEditions = [];
     editions.forEach((edition) => {
@@ -306,8 +305,14 @@ export class PartySheetDialogComponent {
         this.scenarioEditions.push(edition);
       }
     });
-  }  
-  
+
+    if (this.party.reputation >= 0) {
+      this.priceModifier = Math.ceil((this.party.reputation - 2) / 4) * -1;
+    } else {
+      this.priceModifier = Math.floor((this.party.reputation + 2) / 4) * -1;
+    }
+  }
+
   characterIcon(name: string): string {
     const char = gameManager.charactersData(true).find((characterData) => characterData.name == name);
     if (char) {
