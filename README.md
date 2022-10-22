@@ -54,7 +54,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - character attack modifier deck (perks for CS missing)
   - party sheet
 - Other features:
-  - i18n support (currently en, de and fr, more translations required. Big thanks to @Boomchil for french translations!)
+  - i18n support (currently en, de and fr, more translations required. Big thanks to [@Boomchil](https://github.com/Boomchil) for french translations!)
   - PWA for installation on all devices!
   - Synchronize state (+ settings) with [GHS Server](https://github.com/Lurkars/ghs-server)
   - Permission management for different clients with [GHS Server](https://github.com/Lurkars/ghs-server)
