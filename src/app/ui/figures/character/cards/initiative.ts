@@ -32,18 +32,18 @@ export class CharacterInitiativeComponent {
   }
 
   updateInitiative(event: any) {
-    const initative: number = isNaN(+event.target.value) ? 0 : +event.target.value;
-    if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initative >= 0 || initative > 0) && initative < 100) {
-      this.setInitiative(initative);
+    const initiative: number = isNaN(+event.target.value) ? 0 : +event.target.value;
+    if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0 || initiative > 0) && initiative < 100) {
+      this.setInitiative(initiative);
     } else {
       event.target.value = (this.character.initiative < 10 ? '0' : '') + this.character.initiative;
     }
   }
 
-  setInitiative(initative: number) {
-    if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initative >= 0 || initative > 0) && initative < 100) {
-      gameManager.stateManager.before("setInitiative", "data.character." + this.character.name, "" + initative);
-      this.character.initiative = initative;
+  setInitiative(initiative: number) {
+    if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0 || initiative > 0) && initiative < 100) {
+      gameManager.stateManager.before("setInitiative", "data.character." + this.character.name, "" + initiative);
+      this.character.initiative = initiative;
       if (this.character instanceof Character) {
         this.character.initiativeVisible = true;
       }
@@ -68,9 +68,9 @@ export class CharacterInitiativeComponent {
 
   focusNext(event: any) {
     const tabindex = this.tabindex();
-    let next = document.getElementById('initative-input-' + (tabindex + 1));
+    let next = document.getElementById('initiative-input-' + (tabindex + 1));
     if (!next && tabindex > 0) {
-      next = document.getElementById('initative-input-0');
+      next = document.getElementById('initiative-input-0');
     }
     if (next) {
       next.focus();
@@ -112,10 +112,10 @@ export class CharacterInitiativeDialogComponent {
     }
   }
 
-  updateInitiative(initative: number) {
-    gameManager.stateManager.before("setInitiative", "data.character." + this.character.name, "" + (initative > 0 && initative < 100 ? initative : 0));
-    if (initative > 0 && initative < 100) {
-      this.setInitiative(initative);
+  updateInitiative(initiative: number) {
+    gameManager.stateManager.before("setInitiative", "data.character." + this.character.name, "" + (initiative > 0 && initiative < 100 ? initiative : 0));
+    if (initiative > 0 && initiative < 100) {
+      this.setInitiative(initiative);
     } else if (gameManager.game.state == GameState.draw) {
       this.character.initiative = 0;
     }
@@ -125,9 +125,9 @@ export class CharacterInitiativeDialogComponent {
     gameManager.stateManager.after();
   }
 
-  setInitiative(initative: number) {
-    if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initative >= 0 || initative > 0) && initative < 100) {
-      this.character.initiative = initative;
+  setInitiative(initiative: number) {
+    if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0 || initiative > 0) && initiative < 100) {
+      this.character.initiative = initiative;
       if (this.character instanceof Character) {
         this.character.initiativeVisible = true;
       }

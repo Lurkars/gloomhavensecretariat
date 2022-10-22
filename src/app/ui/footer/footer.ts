@@ -115,7 +115,7 @@ export class FooterComponent implements OnInit {
     return gameManager.game.figures.length == 0;
   }
 
-  missingInitative(): boolean {
+  missingInitiative(): boolean {
     return gameManager.game.figures.some((figure) => figure instanceof Character && settingsManager.settings.initiativeRequired && figure.initiative < 1 && !figure.exhausted && !figure.absent);
   }
 
@@ -136,7 +136,7 @@ export class FooterComponent implements OnInit {
   }
 
   drawDisabled(): boolean {
-    return this.empty() || this.missingInitative() || this.finish() || this.failed();
+    return this.empty() || this.missingInitiative() || this.finish() || this.failed();
   }
 
   nextDisabled(): boolean {
@@ -190,7 +190,7 @@ export class HintDialogComponent {
     return gameManager.game.figures.length == 0;
   }
 
-  missingInitative(): boolean {
+  missingInitiative(): boolean {
     return gameManager.game.figures.some((figure) => figure instanceof Character && settingsManager.settings.initiativeRequired && figure.initiative < 1 && !figure.exhausted && !figure.absent);
   }
 

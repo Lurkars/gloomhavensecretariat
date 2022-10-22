@@ -4,7 +4,7 @@
     "next": "Nächste Runde",
     "hint": {
       "empty": "Vor der Runde bitte Charaktere und Monster hinzufügen.",
-      "missingInitative": "Die Initaitive muss gesetzt sein. Zum Festlegen der Initiative auf das Charakter-Portrait klicken.",
+      "missingInitiative": "Die Initiative muss gesetzt sein. Zum Festlegen der Initiative auf das Charakter-Portrait klicken.",
       "active": "Es waren noch nicht alle Figuren am Zug. Trotzdem die Runde beenden?",
       "confirm": "Bestätigen",
       "confirmTurns": "Bestätigen und alle Züge beenden",

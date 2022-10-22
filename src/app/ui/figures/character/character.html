@@ -19,7 +19,7 @@
 
   <ng-container *ngIf="!character.absent">
     <ghs-drag-value *ngIf="settingsManager.settings.dragValues && !character.attackModifierDeckVisible" class="drag-initiative"
-      (dragMove)="dragInitativeMove($event)" (dragEnd)="dragInitativeEnd($event)">
+      (dragMove)="dragInitiativeMove($event)" (dragEnd)="dragInitiativeEnd($event)">
     </ghs-drag-value>
 
     <ghs-drag-value *ngIf="settingsManager.settings.dragValues && !character.attackModifierDeckVisible" class="drag-hp" (dragMove)="dragHpMove($event)"

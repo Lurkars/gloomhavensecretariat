@@ -1,7 +1,7 @@
 <div class="hint-dialog">
   <div class="hint">
     <p *ngIf="empty()">{{'round.hint.empty' | ghsLabel}}</p>
-    <p *ngIf="missingInitative()">{{'round.hint.missingInitative' | ghsLabel}} </p>
+    <p *ngIf="missingInitiative()">{{'round.hint.missingInitiative' | ghsLabel}} </p>
     <p *ngIf="active()">{{'round.hint.active' | ghsLabel}}</p>
     <a *ngIf="active()" (click)="next()">{{'round.hint.confirm' |
       ghsLabel}}</a>

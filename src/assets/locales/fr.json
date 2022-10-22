@@ -4,7 +4,7 @@
     "next": "Round suivant",
     "hint": {
       "empty": "Il faut d'abord ajouter des monstres et/ou des personnages.",
-      "missingInitative": "L'initiative des joueurs doit être définie en cliquant sur le portrait du personnage.",
+      "missingInitiative": "L'initiative des joueurs doit être définie en cliquant sur le portrait du personnage.",
       "active": "Toutes les figurines en place n'ont pas encore joué. Terminer le round quand-même ?",
       "confirm": "Confirmer",
       "confirmTurns": "Confirmer et terminer tous les tours",

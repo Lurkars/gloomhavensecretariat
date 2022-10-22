@@ -61,7 +61,7 @@ export class ObjectiveComponent {
     }
   }
 
-  dragInitativeMove(value: number) {
+  dragInitiativeMove(value: number) {
     if (settingsManager.settings.dragValues) {
 
       if (value > 99) {
@@ -78,7 +78,7 @@ export class ObjectiveComponent {
     }
   }
 
-  dragInitativeEnd(value: number) {
+  dragInitiativeEnd(value: number) {
     if (settingsManager.settings.dragValues) {
       if (value > 99) {
         value = 99;
