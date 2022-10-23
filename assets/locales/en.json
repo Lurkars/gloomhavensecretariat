@@ -4,7 +4,7 @@
     "next": "Next Round",
     "hint": {
       "empty": "Please add monsters and characters before round.",
-      "missingInitative": "Players initiative must be set. Select initiative by clicking on character portrait.",
+      "missingInitiative": "Players initiative must be set. Select initiative by clicking on character portrait.",
       "active": "Not all figures are done yet. End round anyway?",
       "confirm": "Confirm",
       "confirmTurns": "Confirm and end all turns",
