@@ -18,7 +18,7 @@ import { MonsterStatsComponent } from './ui/figures/monster/cards/stats';
 import { MonsterNumberPicker, MonsterNumberPickerDialog } from './ui/figures/monster/dialogs/numberpicker';
 import { MonsterEntityComponent } from './ui/figures/monster/entity/entity';
 import { MonsterComponent } from './ui/figures/monster/monster';
-import { FooterComponent, HintDialogComponent } from './ui/footer/footer';
+import { FooterComponent } from './ui/footer/footer';
 import { LevelComponent, LevelDialogComponent } from './ui/footer/level/level';
 import { ElementIconComponent } from './ui/header/element/element';
 import { HeaderComponent } from './ui/header/header';
@@ -67,6 +67,8 @@ import { MonsterEditorComponent } from './ui/tools/editor/monster/monster';
 import { MonsterEditorActionComponent, MonsterEditorActionDialogComponent } from './ui/tools/editor/monster/action/action';
 import { SettingsDebugMenuComponent } from './ui/header/menu/debug/debug';
 import { EditionEditorComponent } from './ui/tools/editor/edition';
+import { HintDialogComponent } from './ui/footer/hint-dialog/hint-dialog';
+import { RulesDialogComponent } from './ui/footer/rules-dialog/rules-dialog';
 
 @NgModule({
   declarations: [
@@ -76,7 +78,7 @@ import { EditionEditorComponent } from './ui/tools/editor/edition';
     PartySheetComponent, PartySheetDialogComponent,
     MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent,
     FooterComponent,
-    AttackModifierComponent, AttackModifierEffectsComponent, HintDialogComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent,
+    AttackModifierComponent, AttackModifierEffectsComponent, HintDialogComponent, RulesDialogComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent,
     LevelComponent, LevelDialogComponent,
     ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent,
     ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,

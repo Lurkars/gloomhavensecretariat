@@ -1,0 +1,30 @@
+.rules-dialog {
+
+  font-family: var(--ghs-font-text);
+  text-align: center;
+
+  .rule {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor));
+
+    p {
+      margin: 0;
+      padding: 0;
+      color: var(--ghs-color-gray);
+      font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+    }
+
+    a {
+      cursor: pointer;
+      margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+      color: var(--ghs-color-gray);
+      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+
+      &:hover {
+        color: var(--ghs-color-white);
+      }
+    }
+  }
+}

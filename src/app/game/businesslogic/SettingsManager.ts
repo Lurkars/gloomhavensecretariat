@@ -25,7 +25,7 @@ export class SettingsManager {
   async loadSettings() {
     const settingsString: string | null = localStorage.getItem("ghs-settings");
     if (settingsString != null) {
-      this.settings = Object.assign(new Settings(), JSON.parse(settingsString));
+      this.setSettings(Object.assign(new Settings(), JSON.parse(settingsString)));
     } else {
       try {
         await fetch('./ghs-settings-default.json')
@@ -35,13 +35,16 @@ export class SettingsManager {
             }
             return response.json();
           }).then((value: Settings) => {
-            this.settings = Object.assign(new Settings(), value);
+            this.setSettings(Object.assign(new Settings(), value));
           });
       } catch (error) {
-        this.settings = new Settings();
+        this.setSettings(new Settings());
       }
     }
+  }
 
+  setSettings(settings: Settings) {
+    this.settings = settings;
     if (!this.settings.editions || this.settings.editions.length == 0) {
       this.settings.editions.push(...this.defaultEditions);
     }

@@ -164,7 +164,7 @@ export class StateManager {
 
   buildWsUrl(protocol: string, serverUrl: string, port: number | string) {
     let urls = serverUrl.split("/");
-    const url = urls[ 0 ];
+    const url = urls[0];
     let path: string = "";
     if (urls.length > 1) {
       path = "/" + (urls.splice(1, urls.length + 1).join("/"));
@@ -199,7 +199,7 @@ export class StateManager {
           let gameModel: GameModel = message.payload as GameModel;
           const undoinfo = message.undoinfo;
           if (undoinfo) {
-            if (undoinfo.length > 0 && undoinfo[ 0 ] == "serverSync") {
+            if (undoinfo.length > 0 && undoinfo[0] == "serverSync") {
               gameManager.stateManager.before("serverSync", ...undoinfo.slice(1));
             } else {
               gameManager.stateManager.before("serverSync", ...undoinfo);
@@ -229,7 +229,7 @@ export class StateManager {
               settings.serverSettings = settingsManager.settings.serverSettings;
             }
 
-            settingsManager.settings = settings;
+            settingsManager.setSettings(settings);
             localStorage.setItem("ghs-settings", JSON.stringify(settingsManager.settings));
           }
           break;
@@ -323,7 +323,7 @@ export class StateManager {
         "password": settingsManager.settings.serverPassword,
         "type": "game",
         "payload": this.game.toModel(),
-        "undoinfo": this.undoInfos[ this.undos.length - 1 ]
+        "undoinfo": this.undoInfos[this.undos.length - 1]
       }
       this.ws.send(JSON.stringify(message));
     }
@@ -340,7 +340,7 @@ export class StateManager {
   }
 
   addToUndo(info: string[]) {
-    if (this.game.toModel() != this.undos[ this.undos.length - 1 ]) {
+    if (this.game.toModel() != this.undos[this.undos.length - 1]) {
       this.undos.push(this.game.toModel());
 
       if (this.undos.length > settingsManager.settings.maxUndo) {
@@ -375,7 +375,7 @@ export class StateManager {
     if (this.undos.length > 0) {
       window.document.body.classList.add('working');
       this.redos.push(this.game.toModel());
-      const gameModel: GameModel = this.undos.splice(this.undos.length - 1, 1)[ 0 ];
+      const gameModel: GameModel = this.undos.splice(this.undos.length - 1, 1)[0];
       this.game.fromModel(gameModel);
       this.saveLocalStorage();
       this.after();
@@ -390,7 +390,7 @@ export class StateManager {
     if (this.redos.length > 0) {
       window.document.body.classList.add('working');
       this.undos.push(this.game.toModel());
-      const gameModel: GameModel = this.redos.splice(this.redos.length - 1, 1)[ 0 ];
+      const gameModel: GameModel = this.redos.splice(this.redos.length - 1, 1)[0];
       this.game.fromModel(gameModel);
       this.saveLocalStorage();
       this.after();
