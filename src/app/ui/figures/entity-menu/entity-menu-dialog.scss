@@ -130,6 +130,12 @@
     color: var(--ghs-color-white);
     text-shadow: var(--ghs-outline);
 
+    &.button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     &.disabled {
       pointer-events: none;
       color: var(--ghs-color-gray);
@@ -166,6 +172,7 @@
     color: var(--ghs-color-white);
     font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
     text-shadow: var(--ghs-outline);
+    text-align: center;
   }
 
 
@@ -222,7 +229,6 @@
       height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
       margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
       width: auto;
-      filter: none;
     }
   }
 
@@ -363,6 +369,7 @@
 
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     .level-container {
       display: grid;

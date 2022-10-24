@@ -21,6 +21,10 @@
     img {
       width: 100%;
       height: auto;
+
+      &.ghs-svg {
+        filter: var(--ghs-filter-white);
+      }
     }
 
     .value {
@@ -90,8 +94,6 @@
         }
       }
 
-
-
       &.heal-container {
         background-color: #a11f1a;
       }
@@ -121,6 +123,34 @@
           }
         }
       }
+    }
+
+
+
+    .card-action-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card-action {
+      position: relative;
+
+      img {
+        position: relative;
+        top: 0;
+        left: 0;
+
+        &.overlay {
+          position: absolute;
+        }
+      }
+    }
+
+    .label {
+      color: var(--ghs-color-white);
+      text-transform: uppercase;
     }
 
     .custom-value-container {

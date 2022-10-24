@@ -26,7 +26,7 @@
      inkscape:zoom="2.5785564"
      inkscape:cx="127.00905"
      inkscape:cy="151.82914"
-     inkscape:window-width="1850"
+     inkscape:window-width="1846"
      inkscape:window-height="1016"
      inkscape:window-x="0"
      inkscape:window-y="0"
@@ -150,28 +150,28 @@
   <g
      id="layer1"
      transform="translate(101.55661,131.90438)"
-     style="fill:#ffffff">
+     style="fill:#000000">
     <g
        id="g4489"
        clip-path="url(#clipPath4493)"
        transform="matrix(0.35277777,0,0,-0.35277777,-120.18356,-40.159893)"
-       style="fill:#ffffff">
+       style="fill:#000000">
       <g
          id="g4495"
          transform="translate(83.5189,108.5928)"
-         style="fill:#ffffff">
+         style="fill:#000000">
         <path
            d="m 0,0 -16.316,129.236 c 0.024,-0.02 0.046,-0.036 0.071,-0.055 10.503,-8.434 26.666,-6.715 42.221,-15.298 13.848,-7.645 27.632,-19.576 54.168,-56.893 26.536,-37.317 33.279,-54.255 35.954,-69.845 3,-17.511 -3.931,-32.214 0.587,-44.904 0.01,-0.029 0.018,-0.055 0.028,-0.085 z m 127.398,-49.345 c -0.273,13.057 6.858,25.019 3.338,46.368 -3.52,21.35 -22.37,48.231 -37.39,69.354 -15.021,21.123 -34.222,47.754 -53.233,58.089 -19.009,10.335 -32.65,7.527 -44.893,12.072 -12.243,4.546 -18.267,17.489 -22.491,14.485 -2.374,-1.687 -1.914,-5.717 0.812,-10.415 L -8.282,-3.381 -5.914,-6.712 124.124,-71.158 c 3.543,-4.117 7.199,-5.875 9.571,-4.188 4.225,3.004 -6.023,12.945 -6.297,26.001"
-           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
            id="path4497" />
       </g>
       <g
          id="g4499"
          transform="translate(111.7698,118.2012)"
-         style="fill:#ffffff">
+         style="fill:#000000">
         <path
            d="m 0,0 3.535,-15.243 -35.718,-24.883 -5.648,24.342 -21.138,13.327 35.718,24.884 13.238,-8.344 96.054,68.182 -13.921,8.552 59.46,13.228 -32.018,-51.819 -3.507,15.957 z"
-           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
            id="path4501" />
       </g>
     </g>

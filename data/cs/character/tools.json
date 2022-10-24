@@ -110,7 +110,7 @@
             "effects": [
               {
                 "type": "element",
-                "value": "all"
+                "value": "any"
               }
             ]
           }
@@ -205,7 +205,7 @@
             "type": "plus0",
             "effects": [
               {
-                "type": "refreshItem"
+                "type": "refreshSpentItem"
               }
             ]
           }

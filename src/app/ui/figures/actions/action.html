@@ -75,11 +75,11 @@
 
   <span class="action-specialTarget" *ngSwitchCase="ActionType.specialTarget">
     <span class="special-target-value" [i18n]="('game.specialTarget.' + ('' +action.value).split(':')[0])"
-      [i18n-args]="('' +action.value).split(':').splice(1)"></span>
+      [i18n-args]="('' +action.value).split(':').splice(1)" [ngClass]="{'text-white' : !right}"></span>
   </span>
 
   <span class="action-custom" *ngSwitchCase="ActionType.custom">
-    <span class="custom-value" [i18n]="action.value + ''"></span>
+    <span class="custom-value" [i18n]="action.value + ''" [ngClass]="{'text-white' : !right}"></span>
     <ng-container *ngIf="subActions && subActions.length > 0">
       <ghs-action class="full" [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of subActions"
         [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
@@ -89,8 +89,8 @@
   </span>
 
   <span class="action-summon" *ngSwitchCase="ActionType.summon">
-    <span class="summon-value"><span class="summon-label">{{'game.action.' + action.type | ghsLabel}}&nbsp;</span><span
-        [i18n]="action.value + ''"></span></span>
+    <span class="summon-value"><span class="summon-label">{{'game.action.' + action.type |
+        ghsLabel}}&nbsp;</span><span [i18n]="action.value + ''"  [ngClass]="{'text-white' : !right}"></span></span>
     <ng-container *ngIf="subActions && subActions.length > 0">
       <ghs-action class="full" [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of subActions"
         [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
@@ -100,7 +100,7 @@
   </span>
 
   <span class="action-trigger" *ngSwitchCase="ActionType.trigger">
-    <span class="custom-value" [i18n]="action.value + ''"></span>
+    <span class="custom-value" [i18n]="action.value + ''" [ngClass]="{'text-white' : !right}"></span>
     <ng-container *ngIf="subActions && subActions.length > 0">
       <ghs-action class="full" [ngClass]="'subaction-' + subAction.type" *ngFor="let subAction of subActions"
         [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
@@ -136,11 +136,10 @@
 
         <img *ngIf="action.type != ActionType.move || monster && !monster.flying"
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/' + action.type + '.svg'"
-          class="icon" [ngClass]="{'invert' : isInvertIcon(action.type)}" />
+          class="icon" [ngClass]="{'ghs-svg' : isGhsSvg(action.type)}" />
         <img *ngIf="action.type == ActionType.move && monster && monster.flying"
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/fly.svg'" class="icon"
-          [ngClass]="{'invert' : isInvertIcon(action.type)}" class="icon"
-          [ngClass]="{'invert' : isInvertIcon(action.type)}" />
+          [ngClass]="{'ghs-svg' : isGhsSvg(action.type)}" />
 
         <span class="value">
           <span *ngIf="!relative">
@@ -169,10 +168,10 @@
 
         <img *ngIf="action.type != ActionType.move || monster && !monster.flying"
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/' + action.type + '.svg'"
-          class="icon" [ngClass]="{'invert' : isInvertIcon(action.type)}" />
+          class="icon" [ngClass]="{'ghs-svg' : isGhsSvg(action.type)}" />
         <img *ngIf="action.type == ActionType.move && monster && monster.flying"
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/fly.svg'" class="icon"
-          [ngClass]="{'invert' : isInvertIcon(action.type)}" />
+          [ngClass]="{'ghs-svg' : isGhsSvg(action.type)}" />
       </ng-container>
 
       <div class="aoe" *ngIf="hasAOE && !settingsManager.settings.fhStyle">

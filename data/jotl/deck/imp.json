@@ -23,7 +23,7 @@
         },
         {
           "type": "element",
-          "value": "all"
+          "value": "any"
         }
       ]
     },

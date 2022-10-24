@@ -2,7 +2,8 @@
 
   <div class="name">
     <ng-container *ngIf="gameManager.isCharacter(data.figure) && gameManager.isCharacter(data.entity)">
-      <img (click)="toggleCharacterMarker()" class="icon" [src]="gameManager.characterManager.characterIcon(gameManager.toCharacter(data.figure))" />
+      <img (click)="toggleCharacterMarker()" class="icon"
+        [src]="gameManager.characterManager.characterIcon(gameManager.toCharacter(data.figure))" />
       {{gameManager.toCharacter(data.figure).title || ('data.character.' + data.figure.name |
       ghsLabel)}}
       <span *ngIf="gameManager.toCharacter(data.figure).title">&nbsp;({{('data.character.' + data.figure.name |
@@ -200,17 +201,17 @@
       <ng-container *ngIf="gameManager.isSummon(data.entity)">
         <div class="summon-stats-container">
           <span class="stat" (click)="openLevelDialog()">
-            <img src="./assets/images/action/move.svg" />
+            <img class="ghs-svg" src="./assets/images/action/move.svg" />
             <span [value-calc]="gameManager.toSummon(data.entity).movement" [empty]="true">></span>
           </span>
 
           <span class="stat" (click)="openLevelDialog()">
-            <img src="./assets/images/action/attack.svg" />
+            <img class="ghs-svg" src="./assets/images/action/attack.svg" />
             <span [value-calc]="gameManager.toSummon(data.entity).attack" [empty]="true">></span>
           </span>
 
           <span class="stat" (click)="openLevelDialog()">
-            <img src="./assets/images/action/range.svg" />
+            <img class="ghs-svg" src="./assets/images/action/range.svg" />
             <span [value-calc]="gameManager.toSummon(data.entity).range" [empty]="true">></span>
           </span>
         </div>
@@ -342,7 +343,7 @@
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </a>
           <span class="item">
-            <img src="./assets/images/action/move.svg" />
+            <img class="ghs-svg" src="./assets/images/action/move.svg" />
             <span class="badge" [value-calc]="gameManager.toSummon(data.entity).movement + movement"
               [empty]="true">></span>
           </span>
@@ -354,7 +355,7 @@
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </a>
           <span class="item">
-            <img src="./assets/images/action/attack.svg" />
+            <img class="ghs-svg" src="./assets/images/action/attack.svg" />
             <span class="badge" [value-calc]="gameManager.toSummon(data.entity).attack + attack" [empty]="true">></span>
           </span>
           <a class="button" (click)="changeAttack(1)">
@@ -365,7 +366,7 @@
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </a>
           <span class="item">
-            <img src="./assets/images/action/range.svg" />
+            <img class="ghs-svg" src="./assets/images/action/range.svg" />
             <span class="badge" [value-calc]="gameManager.toSummon(data.entity).range + range" [empty]="true">></span>
           </span>
           <a class="button" (click)="changeRange(1)">

@@ -473,6 +473,7 @@ a {
     height: 0.9em;
     width: auto;
     margin: 0 0.1em;
+    vertical-align: middle;
   }
 
 
@@ -522,6 +523,32 @@ a {
 
   }
 
+  .placeholder-card {
+    position: relative;
+    margin: 0 0.1em;
+    display: inline-block;
+    height: 1em;
+
+    img {
+      position: relative;
+      height: 100%;
+      top: 0.2em;
+      left: 0;
+    }
+
+    img.card-overlay {
+      position: absolute;
+    }
+  }
+
+}
+
+.text-white {
+  color: var(--ghs-color-white);
+
+  .icon {
+    filter: var(--ghs-filter-white);
+  }
 }
 
 .element {

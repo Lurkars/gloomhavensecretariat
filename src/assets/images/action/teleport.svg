@@ -25,10 +25,10 @@
    inkscape:pagecheckerboard="0"
    inkscape:document-units="mm"
    showgrid="false"
-   inkscape:zoom="18.947268"
-   inkscape:cx="20.029273"
-   inkscape:cy="20.609832"
-   inkscape:window-width="1850"
+   inkscape:zoom="4.736817"
+   inkscape:cx="35.783523"
+   inkscape:cy="-18.683432"
+   inkscape:window-width="1846"
    inkscape:window-height="1016"
    inkscape:window-x="0"
    inkscape:window-y="0"
@@ -120,7 +120,37 @@
   
   
   
- </defs>
+ 
+   
+  
+    
+    
+   
+   
+  
+    
+    
+   
+   
+  
+    
+    
+   
+   
+  
+    
+    
+   
+   
+  
+    
+    
+   
+   
+  
+    
+    
+   </defs>
  <g
    class="com.sun.star.drawing.ClosedBezierShape"
    id="g39">
@@ -241,12 +271,7 @@
    d="m 2637,12320 -239,413 -238,-413 h 135 v -26 c 33,2 68,3 103,3 36,0 71,-1 104,-3 v 26 z"
    id="path71" />
    </g>
-  </g><g
-   class="com.sun.star.drawing.ClosedBezierShape"
-   id="g81">
-   <g
-   id="id9">
-    <rect
+  </g><rect
    class="BoundingBox"
    stroke="none"
    fill="none"
@@ -254,20 +279,11 @@
    y="11892"
    width="590"
    height="126"
-   id="rect76" />
-    <path
-   fill="#231f20"
-   stroke="none"
-   d="m 2104,11954 c 0,29 80,54 191,63 v -29 c -67,-7 -112,-19 -112,-34 0,-14 45,-26 112,-33 v -29 c -111,9 -191,34 -191,62 z m 398,-62 v 29 c 67,7 112,19 112,33 0,15 -45,27 -112,34 v 29 c 111,-9 191,-34 191,-63 0,-28 -80,-53 -191,-62 z"
+   id="rect76" /><path
    id="path78"
-   style="fill:#ffffff;fill-opacity:1" />
-   </g>
-  </g><g
-   class="com.sun.star.drawing.ClosedBezierShape"
-   id="g88">
-   <g
-   id="id10">
-    <rect
+   style="fill:#000000;fill-opacity:1;stroke-width:1.06666"
+   d="M 16.101562 0 L 16.101562 2.7207031 C 11.906287 3.0608606 8.8828125 4.0061854 8.8828125 5.0644531 C 8.8828125 6.1605161 11.906287 7.105155 16.101562 7.4453125 C 17.311011 7.5586983 18.632825 7.5976562 20.03125 7.5976562 C 21.429675 7.5976562 22.753442 7.5586983 23.962891 7.4453125 L 23.962891 7.4394531 C 28.13364 7.0960574 31.142578 6.1564036 31.142578 5.0644531 C 31.142578 4.0101567 28.133637 3.0699581 23.962891 2.7265625 L 23.962891 0 L 16.101562 0 z M 16.101562 3.8164062 L 16.101562 6.3496094 C 13.569279 6.0850425 11.867188 5.6313822 11.867188 5.0644531 C 11.867188 4.5353193 13.569279 4.0809732 16.101562 3.8164062 z M 23.962891 3.8222656 C 26.46858 4.0875324 28.158203 4.5386776 28.158203 5.0644531 C 28.158203 5.6277849 26.468586 6.0784819 23.962891 6.34375 L 23.962891 3.8222656 z "
+   transform="matrix(26.458334,0,0,26.458334,1869,11820)" /><rect
    class="BoundingBox"
    stroke="none"
    fill="none"
@@ -275,20 +291,11 @@
    y="12075"
    width="805"
    height="177"
-   id="rect83" />
-    <path
-   fill="#231f20"
-   stroke="none"
-   d="m 1997,12162 c 0,43 127,79 299,89 v -40 c -112,-7 -191,-26 -191,-49 0,-21 79,-40 191,-47 v -40 c -172,10 -299,45 -299,87 z m 506,-87 v 40 c 111,7 191,26 191,47 0,23 -80,42 -191,49 v 40 c 172,-10 298,-46 298,-89 0,-42 -126,-77 -298,-87 z"
+   id="rect83" /><path
    id="path85"
-   style="fill:#ffffff;fill-opacity:1" />
-   </g>
-  </g><g
-   class="com.sun.star.drawing.PolyPolygonShape"
-   id="g95">
-   <g
-   id="id11">
-    <rect
+   style="fill:#000000;fill-opacity:1;stroke-width:1.06666"
+   d="M 16.101562 8.9960938 L 16.101562 9.6425781 C 9.6211649 10.023633 4.8378906 11.341648 4.8378906 12.925781 C 4.8378906 14.547632 9.6211624 15.903947 16.101562 16.285156 L 16.101562 16.289062 C 17.348807 16.402448 18.67062 16.441406 20.03125 16.441406 C 21.39188 16.441406 22.715647 16.402448 23.962891 16.289062 C 30.463678 15.91111 35.224609 14.550978 35.224609 12.925781 C 35.224609 11.33838 30.463678 10.016625 23.962891 9.6386719 L 23.962891 8.9960938 C 23.8873 8.9960938 23.810651 9.0332031 23.697266 9.0332031 C 22.412226 9.1087937 21.127313 9.1464844 20.03125 9.1464844 C 18.935187 9.1464844 17.65096 9.1087937 16.328125 9.0332031 C 16.252534 9.0332031 16.177153 8.9960938 16.101562 8.9960938 z M 23.962891 11.150391 C 28.158166 11.414958 31.181641 12.13208 31.181641 12.925781 C 31.181641 13.795073 28.158166 14.512777 23.962891 14.777344 L 23.962891 11.150391 z M 16.101562 11.15625 L 16.101562 14.771484 C 11.892574 14.504632 8.9199219 13.79196 8.9199219 12.925781 C 8.9199219 12.134923 11.892579 11.423102 16.101562 11.15625 z "
+   transform="matrix(26.458334,0,0,26.458334,1869,11820)" /><rect
    class="BoundingBox"
    stroke="none"
    fill="none"
@@ -296,20 +303,12 @@
    y="12478"
    width="1061"
    height="434"
-   id="rect90" />
-    <path
+   id="rect90" /><path
    fill="#231f20"
    stroke="none"
    d="m 2929,12546 v 252 l -531,113 -529,-113 v -252 l 335,-68 194,337 194,-337 z"
    id="path92"
-   style="fill:#ffffff;fill-opacity:1" />
-   </g>
-  </g><g
-   class="com.sun.star.drawing.ClosedBezierShape"
-   id="g102">
-   <g
-   id="id12">
-    <rect
+   style="fill:#000000;fill-opacity:1" /><rect
    class="BoundingBox"
    stroke="none"
    fill="none"
@@ -317,20 +316,7 @@
    y="12056"
    width="209"
    height="199"
-   id="rect97" />
-    <path
-   fill="#231f20"
-   stroke="none"
-   d="m 2503,12057 v 193 c -33,3 -68,4 -104,4 -36,0 -71,-1 -104,-4 v -193 c 2,0 4,1 6,1 35,2 69,3 98,3 29,0 63,-1 97,-3 3,0 5,-1 7,-1 z"
-   id="path99"
-   style="fill:#ffffff;fill-opacity:1" />
-   </g>
-  </g><g
-   class="com.sun.star.drawing.ClosedBezierShape"
-   id="g109">
-   <g
-   id="id13">
-    <rect
+   id="rect97" /><rect
    class="BoundingBox"
    stroke="none"
    fill="none"
@@ -338,20 +324,7 @@
    y="11820"
    width="209"
    height="202"
-   id="rect104" />
-    <path
-   fill="#231f20"
-   stroke="none"
-   d="m 2503,11820 v 197 c -32,3 -67,4 -104,4 -37,0 -72,-1 -104,-4 v -197 z"
-   id="path106"
-   style="fill:#ffffff;fill-opacity:1" />
-   </g>
-  </g><g
-   class="com.sun.star.drawing.ClosedBezierShape"
-   id="g116">
-   <g
-   id="id14">
-    <rect
+   id="rect104" /><rect
    class="BoundingBox"
    stroke="none"
    fill="none"
@@ -359,13 +332,10 @@
    y="12294"
    width="478"
    height="440"
-   id="rect111" />
-    <path
+   id="rect111" /><path
    fill="#231f20"
    stroke="none"
    d="m 2637,12320 -239,413 -238,-413 h 135 v -26 c 33,2 68,3 103,3 36,0 71,-1 104,-3 v 26 z"
    id="path113"
-   style="fill:#ffffff;fill-opacity:1" />
-   </g>
-  </g>
+   style="fill:#000000;fill-opacity:1" />
 </svg>

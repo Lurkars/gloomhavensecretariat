@@ -199,7 +199,7 @@ export class ActionComponent implements OnInit {
     return additionalSubActions.some((action) => action.type == subAction.type && action.value == subAction.value && (action.valueType || ActionValueType.fixed) == (subAction.valueType || ActionValueType.fixed));
   }
 
-  isInvertIcon(type: ActionType) {
+  isGhsSvg(type: ActionType) {
     return this.invertIcons.indexOf(type) != -1;
   }
 

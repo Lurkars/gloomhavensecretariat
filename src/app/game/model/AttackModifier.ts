@@ -90,6 +90,7 @@ export enum AttackModifierEffectType {
   condition = "condition",
   custom = "custom",
   element = "element",
+  elementConsume = "elementConsume",
   elementHalf = "elementHalf",
   heal = "heal",
   pierce = "pierce",
@@ -97,12 +98,16 @@ export enum AttackModifierEffectType {
   push = "push",
   range = "range",
   refreshItem = "refreshItem",
+  refreshSpentItem = "refreshSpentItem",
+  recoverRandomDiscard = "recoverRandomDiscard",
   retaliate = "retaliate",
   shield = "shield",
   specialTarget = "specialTarget",
   summon = "summon",
   swing = "swing",
   target = "target",
+  attack = "attack",
+  or = "or"
 }
 
 export class AttackModifierEffect {

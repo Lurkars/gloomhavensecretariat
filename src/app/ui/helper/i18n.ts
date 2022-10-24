@@ -42,9 +42,13 @@ export const applyPlaceholder = function (value: string): string {
       } else if (type == "initiative" && split.length == 3) {
         image = '<img class="ghs-svg" src="./assets/images/initiative.svg"></span>'
         replace = '<span class="placeholder-initiative">' + split[2] + image + '</span>';
-      } else if (type == "attackmodifier" && split.length == 4 && split[2] == 'effects') {
-        image = '<img  src="./assets/images/attackmodifier/effects/' + split[3] + '.svg" class="icon">';
-        replace = '<span class="placeholder-attackmodifier-effect">' + image + '</span>';
+      } else if (type == "action" && split.length == 4) {
+        image = '<img  src="./assets/images/action/' + split[2] + '/' + split[3] + '.svg" class="icon">';
+        replace = '<span class="placeholder-perk">' + image + '</span>';
+      } else if (type == "card" && split.length == 3) {
+        image = '<img src="./assets/images/action/card/' + split[2] + '.svg">';
+        let overlay = '<img class="card-overlay" src="./assets/images/action/card/overlay/' + split[2] + '.svg">';
+        replace = '<span class="placeholder-effect placeholder-card">' + image + overlay + '</span>';
       } else if (type == "attackmodifier" && split.length == 3) {
         image = '<img  src="./assets/images/attackmodifier/icons/' + split[2] + '.png" class="icon">';
         replace = '<span class="placeholder-attackmodifier">' + image + '</span>';

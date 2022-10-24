@@ -253,11 +253,11 @@
       },
       "perks": {
         "beetle": {
-          "1": "Place one Colony %data.attackmodifier.effects.cs-colony% token of your choice on any empty hex within %game.action.range% 2",
-          "2": "where X is the number of active Cultivate %data.attackmodifier.effects.cs-cultivate% actions"
+          "1": "Place one Colony %data.action.custom.cs-colony% token of your choice on any empty hex within %game.action.range% 2",
+          "2": "where X is the number of active Cultivate %data.action.custom.cs-cultivate% actions"
         },
         "target" : {
-          "1" : "if projectile %data.attackmodifier.effects.cs-projectile%"
+          "1" : "if projectile %data.action.custom.cs-projectile%"
         }
       }
     },

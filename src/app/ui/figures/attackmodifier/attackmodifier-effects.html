@@ -12,7 +12,7 @@
       <div class="effect-container heal-container" *ngSwitchCase="AttackModifierEffectType.heal"
         [style.border-width]="offsetWidth * ( attackModifier.type == AttackModifierType.plus0 && index == 0 ? 0.020 : 0.010)  + 'px'"
         [ngClass]="{'target' : getTarget(effect)}">
-        <img [src]="'./assets/images/action/' + effect.type + '.svg'" />
+        <img [ngClass]="{'ghs-svg' : isGhsSvg(effect.type)}" [src]="'./assets/images/action/' + effect.type + '.svg'" />
         <span class="value" *ngIf="effect.value">{{+effect.value | ghsValueSign}}</span>
         <span class="target-value-container" *ngIf="getTarget(effect)">
           <span class="target-value" text-shrink>{{'game.specialTarget.'
@@ -23,7 +23,7 @@
       <div class="effect-container shield-container" *ngSwitchCase="AttackModifierEffectType.shield"
         [style.border-width]="offsetWidth * ( attackModifier.type == AttackModifierType.plus0 && index == 0 ? 0.020 : 0.010)  + 'px'"
         [ngClass]="{'target' : getTarget(effect)}">
-        <img [src]="'./assets/images/action/' + effect.type + '.svg'" />
+        <img [ngClass]="{'ghs-svg' : isGhsSvg(effect.type)}" [src]="'./assets/images/action/' + effect.type + '.svg'" />
         <span class="value" *ngIf="effect.value">{{+effect.value}}</span>
         <span class="target-value-container" *ngIf="getTarget(effect)">
           <span class="target-value" text-shrink>{{'game.specialTarget.'
@@ -33,6 +33,48 @@
 
       <ng-container *ngSwitchCase="AttackModifierEffectType.target">
         <img src="./assets/images/attackmodifier/target.svg" />
+
+        <div class="sub-effects" *ngIf="effect.effects">
+          <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="effect.effects"
+            [offsetWidth]="offsetWidth"></ghs-attackmodifier-effects>
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="AttackModifierEffectType.refreshItem">
+        <span class="card-action">
+          <img class="ghs-svg" src="./assets/images/action/card/refresh.svg" />
+          <img class="overlay" src="./assets/images/action/card/overlay/refresh.svg" />
+        </span>
+        <div class="sub-effects" *ngIf="effect.effects">
+          <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="effect.effects"
+            [offsetWidth]="offsetWidth"></ghs-attackmodifier-effects>
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="AttackModifierEffectType.refreshSpentItem">
+        <div class="card-action-container">
+          <span class="card-action">
+            <img class="ghs-svg" src="./assets/images/action/card/refresh.svg" />
+            <img class="overlay" src="./assets/images/action/card/overlay/refresh.svg" />
+          </span>
+          <span class="label">{{'game.attackModifiers.effects.refreshSpentItem' | ghsLabel}}</span>
+
+          <div class="sub-effects" *ngIf="effect.effects">
+            <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="effect.effects"
+              [offsetWidth]="offsetWidth"></ghs-attackmodifier-effects>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="AttackModifierEffectType.recoverRandomDiscard">
+        <span class="card-action">
+          <img class="ghs-svg" src="./assets/images/action/card/recover.svg" />
+          <img class="overlay" src="./assets/images/action/card/overlay/recover.svg" />
+        </span>
+        <div class="sub-effects" *ngIf="effect.effects">
+          <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="effect.effects"
+            [offsetWidth]="offsetWidth"></ghs-attackmodifier-effects>
+        </div>
       </ng-container>
 
       <ng-container *ngSwitchCase="AttackModifierEffectType.custom">
@@ -44,7 +86,7 @@
         </ng-container>
         <ng-container *ngIf="effect.icon">
           <span class="effect-icon">
-            <img [src]="'./assets/images/attackmodifier/effects/' + effect.value + '.svg'" />
+            <img [src]="'./assets/images/action/custom/' + effect.value + '.svg'" />
           </span>
         </ng-container>
 
@@ -55,7 +97,7 @@
       </ng-container>
 
       <ng-container *ngSwitchDefault>
-        <img [src]="'./assets/images/action/' + effect.type + '.svg'" />
+        <img [ngClass]="{'ghs-svg' : isGhsSvg(effect.type)}" [src]="'./assets/images/action/' + effect.type + '.svg'" />
         <span class="value" *ngIf="effect.value">{{+effect.value}}</span>
       </ng-container>
 

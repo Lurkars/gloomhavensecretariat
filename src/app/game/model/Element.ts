@@ -1,5 +1,5 @@
 export enum Element {
-  all = "all",
+  any = "any",
   fire = "fire",
   ice = "ice",
   air = "air",

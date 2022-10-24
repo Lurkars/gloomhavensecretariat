@@ -9,7 +9,7 @@ function createWindow() {
     height: 600,
     show: false
   });
-  
+
   mainWindow.loadFile('./dist/gloomhavensecretary/index.html');
 
   mainWindow.on("closed", () => {
@@ -17,7 +17,8 @@ function createWindow() {
   });
 
   mainWindow.once('ready-to-show', () => {
-    mainWindow.show()
+    mainWindow.show();
+    mainWindow.loadFile('./dist/gloomhavensecretary/index.html');
   })
 }
 

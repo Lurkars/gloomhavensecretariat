@@ -46,9 +46,8 @@
     </option>
   </select>
 
-  <ng-container
-    *ngIf="[ActionType.area, ActionType.card, ActionType.condition, ActionType.custom, ActionType.monsterType,
-     ActionType.refreshItem, ActionType.specialTarget, ActionType.summon, ActionType.trigger].indexOf(action.type) == -1">
+  <ng-container *ngIf="[ActionType.area, ActionType.card, ActionType.condition, ActionType.custom, ActionType.monsterType,
+      ActionType.specialTarget, ActionType.summon, ActionType.trigger].indexOf(action.type) == -1">
     <label>{{'editor.action.valueType' | ghsLabel}}</label>
     <select [(ngModel)]="action.valueType" placeholder="valueType" (change)="change()">
       <option *ngFor="let valueType of ActionValueTypes" [value]="valueType"

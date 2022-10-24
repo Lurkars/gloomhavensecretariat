@@ -14,6 +14,7 @@ export class AttackModifierEffectsComponent {
 
   AttackModifierType = AttackModifierType;
   AttackModifierEffectType = AttackModifierEffectType;
+  invertIcons: AttackModifierEffectType[] = [AttackModifierEffectType.attack, AttackModifierEffectType.heal, AttackModifierEffectType.range, AttackModifierEffectType.retaliate, AttackModifierEffectType.shield, AttackModifierEffectType.target];
 
   getTarget(effect: AttackModifierEffect): string {
     if (effect.effects) {
@@ -23,5 +24,9 @@ export class AttackModifierEffectsComponent {
       }
     }
     return "";
+  }
+
+  isGhsSvg(type: AttackModifierEffectType) {
+    return this.invertIcons.indexOf(type) != -1;
   }
 }

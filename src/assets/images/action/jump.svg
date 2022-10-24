@@ -26,7 +26,7 @@
      inkscape:zoom="3.1000369"
      inkscape:cx="170.15926"
      inkscape:cy="125.96624"
-     inkscape:window-width="1850"
+     inkscape:window-width="1846"
      inkscape:window-height="1016"
      inkscape:window-x="0"
      inkscape:window-y="0"
@@ -101,37 +101,37 @@
   <g
      id="layer1"
      transform="translate(-24.867941,-8.5944608)"
-     style="fill:#ffffff">
+     style="fill:#000000">
     <g
        id="g2942"
        clip-path="url(#clipPath2946)"
        transform="matrix(0.35277777,0,0,-0.35277777,16.972104,94.88221)"
-       style="fill:#ffffff">
+       style="fill:#000000">
       <g
          id="g2948"
          transform="translate(129.5013,124.2959)"
-         style="fill:#ffffff">
+         style="fill:#000000">
         <path
            d="m 0,0 c -22.726,0 -41.146,-9.21 -41.146,-20.573 0,-11.363 18.42,-20.573 41.146,-20.573 22.72,0 41.146,9.21 41.146,20.573 C 41.146,-9.21 22.72,0 0,0"
-           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
            id="path2950" />
       </g>
       <g
          id="g2952"
          transform="translate(166.8929,148.1709)"
-         style="fill:#ffffff">
+         style="fill:#000000">
         <path
            d="M 0,0 C -2.39,-3.46 -4.438,-7.159 -6.105,-11.045 H 3.409 L 44.213,-46.383 3.409,-81.719 h -81.606 l -40.804,35.336 40.804,35.338 h 17.202 c 0.811,3.735 1.81,7.42 2.988,11.045 h -32.945 l -53.559,-46.383 53.559,-46.384 H 16.164 L 69.722,-46.383 16.164,0 Z"
-           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
            id="path2954" />
       </g>
       <g
          id="g2956"
          transform="translate(129.4993,94.7012)"
-         style="fill:#ffffff">
+         style="fill:#000000">
         <path
            d="m 0,0 c -9.896,0 -17.949,8.052 -17.949,17.949 0,26.7 9.938,52.28 27.984,72.026 16.786,18.366 39.202,30.229 63.57,33.742 v 26.177 L 148.118,106.868 73.605,63.841 V 87.256 C 41.471,80.177 17.95,51.424 17.95,17.949 17.95,8.052 9.897,0 0,0"
-           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
            id="path2958" />
       </g>
     </g>

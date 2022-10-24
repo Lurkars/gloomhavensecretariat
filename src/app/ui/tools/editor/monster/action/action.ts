@@ -227,7 +227,7 @@ export class MonsterEditorActionDialogComponent {
 
   relative: boolean = true;
 
-  constructor(@Inject(DIALOG_DATA) public action: Action, private dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) public data: { action: Action }, private dialogRef: DialogRef) {
 
   }
 

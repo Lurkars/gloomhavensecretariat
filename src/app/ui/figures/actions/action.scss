@@ -44,6 +44,11 @@
     }
   }
 
+  .ghs-svg,
+  .placeholder-action .icon {
+    filter: var(--ghs-filter-white);
+  }
+
   .custom-value,
   .summon-value {
     font-size: 82%;
@@ -428,7 +433,6 @@
     }
   }
 
-
   .monster-type {
     text-transform: uppercase;
 
@@ -457,8 +461,6 @@
       }
     }
   }
-
-
 
   ghs-action.subaction-monsterType {
     flex-basis: 0;
@@ -579,15 +581,13 @@
         text-align: right;
       }
 
-
-
       .subactions {
         align-items: flex-end;
       }
-    }
 
-    .icon.invert {
-      filter: invert(100%);
+      .ghs-svg {
+        filter: none;
+      }
     }
 
     .conditions {
@@ -598,8 +598,6 @@
       }
     }
   }
-
-
 
   .subactions {
     flex-basis: 100%;

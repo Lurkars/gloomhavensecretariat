@@ -2,7 +2,7 @@
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "index": "/index.html",
   "appData": {
-    "version": "0.16.4"
+    "version": "@APP_VERSION@"
   },
   "assetGroups": [
     {
@@ -37,8 +37,7 @@
     {
       "name": "data",
       "urls": [
-        "/assets/data/**",
-        "/assets/locales/**"
+        "/assets/data/**"
       ],
       "cacheConfig": {
         "strategy": "freshness",

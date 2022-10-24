@@ -204,7 +204,7 @@
         },
         {
           "type": "element",
-          "value": "all",
+          "value": "any",
           "valueType": "minus",
           "subActions": [
             {

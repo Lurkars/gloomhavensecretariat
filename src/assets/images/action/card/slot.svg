@@ -30,7 +30,7 @@
      inkscape:zoom="0.69664703"
      inkscape:cx="570.59025"
      inkscape:cy="551.92943"
-     inkscape:window-width="1850"
+     inkscape:window-width="1846"
      inkscape:window-height="1016"
      inkscape:window-x="0"
      inkscape:window-y="0"
@@ -83,23 +83,23 @@
        id="g1922"
        clip-path="url(#clipPath1926)"
        transform="matrix(0.35277777,0,0,-0.35277777,-58.102546,89.161597)"
-       style="fill:#ffffff">
+       style="fill:#000000">
       <g
          id="g1928"
          transform="translate(131.8196,67.1739)"
-         style="fill:#ffffff">
+         style="fill:#000000">
         <path
            d="m 0,0 c -45.743,0 -82.826,37.082 -82.826,82.826 0,45.744 37.083,82.826 82.826,82.826 45.744,0 82.827,-37.082 82.827,-82.826 C 82.827,37.082 45.744,0 0,0 m 0,179.676 c -53.488,0 -96.849,-43.362 -96.849,-96.85 0,-53.488 43.361,-96.849 96.849,-96.849 53.489,0 96.85,43.361 96.85,96.849 0,53.488 -43.361,96.85 -96.85,96.85"
-           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
            id="path1930" />
       </g>
       <g
          id="g1932"
          transform="translate(239.6497,119.1289)"
-         style="fill:#ffffff">
+         style="fill:#000000">
         <path
            d="m 0,0 c -1.471,-1.036 -3.42,0.376 -2.886,2.095 2.827,9.089 4.352,18.757 4.352,28.776 0,10.02 -1.525,19.688 -4.352,28.776 -0.534,1.719 1.415,3.131 2.886,2.095 L 24.579,32.414 c 1.067,-0.752 1.067,-2.334 0,-3.086 z"
-           style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
            id="path1934" />
       </g>
     </g>
