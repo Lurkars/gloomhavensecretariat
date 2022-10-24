@@ -283,7 +283,12 @@
         },
         "additional": "{0} and {1}",
         "warning": "More perks than available selected!",
-        "wip": "%wip%! Perks not complete yet."
+        "wip": "%wip%! Perks not complete yet.",
+        "effects": {
+          "refreshItem": "Refresh an item",
+          "refreshSpentItem": "Refresh a spent item",
+          "recoverRandomDiscard": "Recover %game.card.recover% one random card from your dicard pile"
+        }
       },
       "personalQuest": "Personal Quest",
       "retired": "Retired",
@@ -608,6 +613,7 @@
       "ally": "Target one ally",
       "allyShort": "Ally",
       "allyAffect": "Affect any ally",
+      "allyAffectRange": "Affect one ally %game.action.range% {0}",
       "allyAdjacent": "Target one adjacent ally",
       "allies": "Target all allies",
       "alliesAdjacent": "Target all adjacent allies",
@@ -650,7 +656,7 @@
       "wound_x": "Wound {0}"
     },
     "element": {
-      "all": "All",
+      "any": "Any",
       "fire": "Fire",
       "ice": "Ice",
       "air": "Air",
@@ -713,6 +719,9 @@
         "bless": "Bless",
         "curse": "Curse",
         "invalid": "Invalid"
+      },
+      "effects": {
+        "refreshSpentItem": "Spent"
       }
     },
     "figure": {

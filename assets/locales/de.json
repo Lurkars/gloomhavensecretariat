@@ -283,7 +283,12 @@
         },
         "additional": "{0} und {1}",
         "warning": "Mehr Verbesserungen ausgewählt als verfügbar!",
-        "wip": "%wip%! Verbesserungen sind noch nicht vollständig."
+        "wip": "%wip%! Verbesserungen sind noch nicht vollständig.",
+        "effects": {
+          "refreshItem": "Einen Gegenstand erneuern",
+          "refreshSpentItem": "Einen verbrauchten Gegenstand erneuern",
+          "recoverRandomDiscard": "Hole %game.card.recover% eine zufällig Karte vom Abwurfstapel zurück"
+        }
       },
       "personalQuest": "Persönliche Quest",
       "retired": "Ruhestand",
@@ -605,6 +610,7 @@
       "ally": "Visiere einen Verbündeten an",
       "allyShort": "Verbündeter",
       "allyAffect": "Visiere irgendeinen Verbündeten an",
+      "allyAffectRange": "Visiere einen Verbündeten in %game.action.range% {0}an",
       "allyAdjacent": "Visiere einen angrenzenden Verbündeten an",
       "allies": "Visiere alle Verbündeten an",
       "alliesAdjacent": "Visiere alle angrenzenden Verbündeten an",
@@ -647,7 +653,7 @@
       "wound_x": "Wunde {0}"
     },
     "element": {
-      "all": "Alle",
+      "any": "Beliebig",
       "fire": "Feuer",
       "ice": "Eis",
       "air": "Luft",
@@ -710,6 +716,9 @@
         "bless": "Segen",
         "curse": "Fluch",
         "invalid": "Ungültig"
+      },
+      "effects": {
+        "refreshSpentItem": "Verbraucht"
       }
     },
     "figure": {

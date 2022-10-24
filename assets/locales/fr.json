@@ -283,7 +283,12 @@
         },
         "additional": "{0} et {1}",
         "warning": "Trop de bénéfices sélectionnés !",
-        "wip": "%wip%! Gestion des bénéfices non terminée."
+        "wip": "%wip%! Gestion des bénéfices non terminée.",
+        "effects": {
+          "refreshItem": "Rafraîchir un objet",
+          "refreshSpentItem": "Rafraîchir un objet consommé",
+          "recoverRandomDiscard": "Récupérer %game.card.recover% une carte aléatoire de votre pile de dicards"
+        }
       },
       "personalQuest": "Quête personnelle",
       "retired": "Retraité",
@@ -608,6 +613,7 @@
       "ally": "Cible un allié",
       "allyShort": "Allié",
       "allyAffect": "Affecte tous les alliés",
+      "allyAffectRange": "Cible un allié à %game.action.range% {0}",
       "allyAdjacent": "Cible un allié adjacent",
       "allies": "Cible tous les alliés",
       "alliesAdjacent": "Cible tous les alliés",
@@ -650,7 +656,7 @@
       "wound_x": "Blessure {0}"
     },
     "element": {
-      "all": "Tous",
+      "any": "Tous",
       "fire": "Feu",
       "ice": "Glace",
       "air": "Air",
@@ -713,6 +719,9 @@
         "bless": "Bénédiction",
         "curse": "Malédiction",
         "invalid": "Invalide"
+      },
+      "effects": {
+        "refreshSpentItem": "Consommé"
       }
     },
     "figure": {
