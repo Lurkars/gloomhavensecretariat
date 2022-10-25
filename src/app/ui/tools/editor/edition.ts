@@ -17,7 +17,7 @@ export class EditionEditorComponent implements OnInit {
 
     gameManager: GameManager = gameManager;
     encodeURIComponent = encodeURIComponent;
-    Conditions: ConditionName[] = Object.values(ConditionName);
+    Conditions: ConditionName[] = Object.values(ConditionName).filter((condition) => condition != ConditionName.bless && condition != ConditionName.curse);
 
     editionData: EditionData;
     editionError: any;
@@ -58,6 +58,17 @@ export class EditionEditorComponent implements OnInit {
     loadEditionData(event: any) {
         const index = +event.target.value;
         this.editionData = index != -1 ? gameManager.editionData[index] : new EditionData("", [], [], [], [], [], []);
+        this.editionDataToJson();
+    }
+
+    toggleAllConditions(conditionSelect: HTMLSelectElement) {
+        if (this.editionData.conditions.length == this.Conditions.length) {
+            this.editionData.conditions = [];
+            conditionSelect.blur();
+        } else {
+            this.editionData.conditions = JSON.parse(JSON.stringify(this.Conditions));
+            conditionSelect.focus();
+        }
         this.editionDataToJson();
     }
 

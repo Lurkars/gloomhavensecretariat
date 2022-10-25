@@ -17,14 +17,18 @@
                     </select>
 
                     <label>{{'editor.edition.conditions' | ghsLabel}}</label>
-                    <select [(ngModel)]="editionData.conditions" multiple (change)="editionDataToJson()">
-                        <option disabled [selected]="editionData.conditions.length == 0">{{
-                            (editionData.conditions.length == 0 ?
-                            'editor.edition.conditions.allSelected': 'editor.edition.conditions.allHint') | ghsLabel}}
-                        </option>
-                        <option [value]="condition" *ngFor="let condition of Conditions;">
-                            {{'game.condition.' + condition| ghsLabel:['X']}}</option>
-                    </select>
+
+                    <div class="conditions">
+                        <a (click)="toggleAllConditions(conditionSelect)">{{
+                            (editionData.conditions.length != Conditions.length ?
+                            'editor.edition.conditions.allSelected': 'editor.edition.conditions.allHint') |
+                            ghsLabel}}</a>
+                        <select #conditionSelect [(ngModel)]="editionData.conditions" multiple
+                            (change)="editionDataToJson()">
+                            <option [value]="condition" *ngFor="let condition of Conditions;">
+                                {{'game.condition.' + condition| ghsLabel:['X']}}</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 

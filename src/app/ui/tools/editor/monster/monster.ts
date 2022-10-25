@@ -12,7 +12,7 @@ import { MonsterStat } from "src/app/game/model/MonsterStat";
 import { MonsterType } from "src/app/game/model/MonsterType";
 import { MonsterStatsComponent } from "src/app/ui/figures/monster/cards/stats";
 import { applyPlaceholder } from "src/app/ui/helper/i18n";
-import { MonsterEditorActionDialogComponent } from "./action/action";
+import { EditorActionDialogComponent } from "../action/action";
 
 
 export const newMonsterJson: string = '{"name": "new-monster", "thumbnail" : "", "edition": "", "deck": "", "boss": false, "flying" : false, "hidden":false, "count": 10, "baseStat" : {}, "stats": []}';
@@ -200,14 +200,14 @@ export class MonsterEditorComponent implements OnInit {
     let compactData: any = JSON.parse(JSON.stringify(this.deckData));
 
     Object.keys(compactData).forEach((key) => {
-      if (!compactData[key]) {
+      if (!compactData[key] || compactData[key] == false) {
         compactData[key] = undefined;
       }
     })
 
     compactData.abilities.forEach((ability: any) => {
       Object.keys(ability).forEach((key) => {
-        if (!ability[key] && ability[key] != 0) {
+        if (!ability[key] && ability[key] != 0 || typeof ability[key] == 'boolean' && ability[key] == false) {
           ability[key] = undefined;
         }
 
@@ -225,13 +225,6 @@ export class MonsterEditorComponent implements OnInit {
           ability.bottomActions.forEach((action: any) => {
             this.compactAction(action);
           })
-        }
-
-        if (ability.types && ability.types.length == 0) {
-          ability.types = undefined;
-        }
-        if (ability.bottomTypes && ability.bottomTypes.length == 0) {
-          ability.bottomTypes = undefined;
         }
       })
     })
@@ -366,7 +359,7 @@ export class MonsterEditorComponent implements OnInit {
 
     const stat = this.statsForType(type, level);
     stat.actions.push(action);
-    const dialog = this.dialog.open(MonsterEditorActionDialogComponent, {
+    const dialog = this.dialog.open(EditorActionDialogComponent, {
       panelClass: 'dialog',
       data: { action: action, monster: this.getMonsterForLevel(level) }
     });
@@ -382,7 +375,7 @@ export class MonsterEditorComponent implements OnInit {
   }
 
   editMonsterAction(type: MonsterType, action: Action, level: number) {
-    const dialog = this.dialog.open(MonsterEditorActionDialogComponent, {
+    const dialog = this.dialog.open(EditorActionDialogComponent, {
       panelClass: 'dialog',
       data: { action: action, monster: this.getMonsterForLevel(level) }
     });
@@ -412,7 +405,7 @@ export class MonsterEditorComponent implements OnInit {
     }
 
     stat.special[index].push(action);
-    const dialog = this.dialog.open(MonsterEditorActionDialogComponent, {
+    const dialog = this.dialog.open(EditorActionDialogComponent, {
       panelClass: 'dialog',
       data: { action: action, monster: this.getMonsterForLevel(level) }
     });
@@ -432,7 +425,7 @@ export class MonsterEditorComponent implements OnInit {
   }
 
   editSpecialAction(type: MonsterType, index: number, action: Action, level: number) {
-    const dialog = this.dialog.open(MonsterEditorActionDialogComponent, {
+    const dialog = this.dialog.open(EditorActionDialogComponent, {
       panelClass: 'dialog',
       data: { action: action, monster: this.getMonsterForLevel(level) }
     });
@@ -466,9 +459,7 @@ export class MonsterEditorComponent implements OnInit {
     } else {
       ability.initiative = 0;
     }
-    if (!ability.initiative || ability.initiative < 10) {
-      event.target.value = '0' + (ability.initiative ? ability.initiative : '0');
-    }
+    event.target.value = (ability.initiative < 10 ? '0' : '') + ability.initiative;
     this.deckDataToJson();
   }
 
@@ -498,9 +489,9 @@ export class MonsterEditorComponent implements OnInit {
       ability.actions = [];
     }
     ability.actions.push(action);
-    const dialog = this.dialog.open(MonsterEditorActionDialogComponent, {
+    const dialog = this.dialog.open(EditorActionDialogComponent, {
       panelClass: 'dialog',
-      data: action
+      data: { action: action }
     });
 
     dialog.closed.subscribe({
@@ -514,9 +505,9 @@ export class MonsterEditorComponent implements OnInit {
   }
 
   editAbilityAction(ability: Ability, action: Action) {
-    const dialog = this.dialog.open(MonsterEditorActionDialogComponent, {
+    const dialog = this.dialog.open(EditorActionDialogComponent, {
       panelClass: 'dialog',
-      data: action
+      data: { action: action }
     });
 
     dialog.closed.subscribe({
@@ -535,9 +526,9 @@ export class MonsterEditorComponent implements OnInit {
       ability.bottomActions = [];
     }
     ability.bottomActions.push(action);
-    const dialog = this.dialog.open(MonsterEditorActionDialogComponent, {
+    const dialog = this.dialog.open(EditorActionDialogComponent, {
       panelClass: 'dialog',
-      data: action
+      data: { action: action }
     });
 
     dialog.closed.subscribe({
@@ -551,9 +542,9 @@ export class MonsterEditorComponent implements OnInit {
   }
 
   editAbilityActionBottom(ability: Ability, action: Action) {
-    const dialog = this.dialog.open(MonsterEditorActionDialogComponent, {
+    const dialog = this.dialog.open(EditorActionDialogComponent, {
       panelClass: 'dialog',
-      data: action
+      data: { action: action }
     });
 
     dialog.closed.subscribe({

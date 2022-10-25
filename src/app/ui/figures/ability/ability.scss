@@ -2,6 +2,7 @@
   width: 100%;
   height: 100%;
   color: var(--ghs-color-white);
+  --ghs-ability-color: var(--ghs-color-red);
 
   .ability-back,
   .ability-front {
@@ -18,6 +19,7 @@
   .ability-front {
     background-image: url('~src/assets/images/monster/abilities/monster-ability-front.png');
     background-position: bottom;
+    z-index: 1;
 
     .ability-actions {
       position: absolute;
@@ -82,13 +84,67 @@
       left: 5.5%;
     }
 
+    .lost {
+      position: absolute;
+      bottom: 50%;
+      right: 15%;
+      height: 6%;
 
+      img {
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: auto;
 
-    &.bottom-actions {
-      background-image: url('~src/assets/images/monster/abilities/monster-ability-front-bottom.png');
+        &:nth-child(1) {
+          filter: var(--ghs-filter-white);
+        }
+
+        &:nth-child(2) {
+          position: absolute;
+
+        }
+      }
+
+      &.bottom {
+        right: 19%;
+        bottom: 9%;
+      }
+    }
+
+    &.bottom-actions,
+    &.character-actions {
+
       background-position: top;
       background-attachment: local;
       height: 100%;
+
+      &.bottom-actions {
+        background-image: url('~src/assets/images/monster/abilities/monster-ability-front-bottom.png');
+      }
+
+      &.character-actions {
+        background-color: var(--ghs-ability-color);
+        background-image: url('~src/assets/images/character/abilities/character-ability-front.png'), url('~src/assets/images/character/abilities/character-ability-front-blend.png');
+        background-blend-mode: screen, luminosity;
+
+        .logo {
+          position: absolute;
+          bottom: 3.5%;
+          left: 50%;
+          width: 7%;
+          height: auto;
+          transform: translateX(-50%);
+          z-index: 1;
+
+          img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0.5em 0.5em 0.5em var(--ghs-color-black));
+          }
+        }
+      }
 
       .name {
         top: 4.5%;
@@ -102,12 +158,22 @@
 
       .level {
         position: absolute;
-        top: 11.5%;
+        top: 11%;
         left: 50%;
+        width: 10%;
+        height: 6%;
         transform: translateX(-50%);
-        color: var(--ghs-color-black);
+        color: var(--ghs-color-white);
         font-size: 1.2em;
         font-family: ghs-title;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--ghs-ability-color);
+        mask-image: url('~src/assets/images/level.png');
+        mask-size: 2em;
+        mask-repeat: no-repeat;
+        mask-position: top center;
       }
 
       .shuffle {
@@ -137,6 +203,7 @@
 
   .ability-back {
     background-image: url('~src/assets/images/monster/abilities/monster-ability-back.png');
+    z-index: 1;
 
     .name {
       position: absolute;
@@ -150,16 +217,50 @@
     }
 
 
-    &.bottom-actions {
-      background-image: url('~src/assets/images/monster/abilities/monster-ability-back-botton.png');
+    &.bottom-actions,
+    &.character-actions {
 
-      .name {
-        bottom: 25%;
+      .logo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 50%;
+        height: auto;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+
+        img {
+          width: 100%;
+          height: auto;
+          filter: drop-shadow(0.5em 0.5em 0.5em var(--ghs-color-black));
+        }
+      }
+
+      &.bottom-actions {
+        background-image: url('~src/assets/images/monster/abilities/monster-ability-back-botton.png');
+
+        .name {
+          bottom: 25%;
+        }
+      }
+
+      &.character-actions {
+        background-color: var(--ghs-ability-color);
+        background-image: url('~src/assets/images/character/abilities/character-ability-back.png'), url('~src/assets/images/character/abilities/character-ability-back-blend.png');
+        background-blend-mode: screen, luminosity;
+
+        .name {
+          top: 3%;
+          bottom: initial;
+          font-size: 2em;
+        }
+
       }
     }
   }
 
   .confirm {
+
     .revealed {
       width: 100%;
       height: 100%;
@@ -169,6 +270,7 @@
       color: var(--ghs-color-white);
       font-size: 2.3em;
       filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
+      z-index: 2;
     }
   }
 
@@ -185,7 +287,7 @@
 
     .ability-back {
       background-image: url('~src/assets/images/fh/monster/abilities/monster-ability-back.png');
-      
+
       &.bottom-actions {
         background-image: url('~src/assets/images/monster/abilities/monster-ability-back-botton.png');
       }

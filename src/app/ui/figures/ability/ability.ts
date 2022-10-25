@@ -1,7 +1,9 @@
 import { Component, Input } from "@angular/core";
+import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Ability } from "src/app/game/model/Ability";
+import { Character } from "src/app/game/model/Character";
 import { Monster } from "src/app/game/model/Monster";
 import { applyPlaceholder } from "../../helper/i18n";
 
@@ -16,6 +18,7 @@ export class AbilityComponent {
   @Input() ability: Ability | undefined;
   @Input() abilities!: Ability[];
   @Input() monster: Monster | undefined;
+  @Input() character: Character | undefined;
   @Input() flipped: boolean = false;
   @Input() reveal: boolean = false;
   @Input() relative: boolean = false;
@@ -24,6 +27,7 @@ export class AbilityComponent {
 
 
   settingsManager: SettingsManager = settingsManager;
+  characterManager: CharacterManager = gameManager.characterManager;
 
   abilityIndex(ability: Ability): number {
     if (this.abilities && this.abilities.length > 0) {

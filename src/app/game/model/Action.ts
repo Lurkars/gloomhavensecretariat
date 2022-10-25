@@ -42,6 +42,8 @@ export enum ActionType {
   target = "target",
   teleport = "teleport",
   trigger = "trigger",
+  or = "or",
+  and = "and",
 }
 
 export enum ActionValueType {

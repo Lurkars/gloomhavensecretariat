@@ -254,16 +254,15 @@
 
         &.bottom-actions {
           position: absolute;
-          right: 3%;
-          top: 50%;
-          transform: translateY(-14%);
+          left: -3%;
+          top: 49%;
           z-index: 2;
           flex-direction: column;
-          align-items: flex-end;
+          align-items: flex-start;
 
           .add {
             padding: calc(var(--ghs-unit) * 0.2);
-            margin-right: 0;
+            margin: calc(var(--ghs-unit) * 0.5) 0;
           }
         }
       }
@@ -428,7 +427,7 @@
 
           .initiative {
             top: 49%;
-            left: 50%;
+            left: 52.5%;
             transform: translateX(-50%);
           }
 
@@ -451,8 +450,59 @@
             }
           }
 
+          .lost {
+            position: absolute;
+            bottom: 50%;
+            right: 15%;
+            height: 6%;
+            z-index: 3;
+            filter: grayscale(1);
+            opacity: 0.5;
+  
+            &:hover {
+              filter: grayscale(0);
+            }
+  
+            &.enabled {
+              filter: grayscale(0);
+              opacity: 1;
+  
+              &:hover {
+                filter: grayscale(1);
+                opacity: 0.5;
+              }
+            }
+  
+            img {
+              position: relative;
+              top: 0;
+              left: 0;
+              height: 100%;
+              width: auto;
+  
+              &:nth-child(1) {
+                filter: var(--ghs-filter-white);
+              }
+  
+              &:nth-child(2) {
+                position: absolute;
+  
+              }
+            }
+  
+            &.bottom {
+              right: 19%;
+              bottom: 9%;
+            }
+          }
+
+          .card-id {
+            left: calc(var(--ghs-unit) * 23);
+            bottom: calc(var(--ghs-unit) * 3.5);
+          }
+
           .shuffle {
-            bottom: 0.5%;
+            display: none;
           }
 
           .index {

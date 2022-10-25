@@ -1,26 +1,31 @@
-<div class="card-container ability" [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
+<div class="card-container ability" [ngClass]="{'fh' : settingsManager.settings.fhStyle}"
+  [style.--ghs-ability-color]="character && character.color">
   <div class="card" [ngClass]="{'flipped' : flipped || ability && ability.revealed}" card-reveal
     (change)="onChange($event)" [disabled]="!reveal || !ability" #card
     [style.fontSize]=" card.offsetWidth * 0.04 + 'px'">
     <div class=" card-back ability-back"
-      [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0}">
+      [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0 && !character, 'character-actions' : character}">
       <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
       <span class="name" *ngIf="monster">{{'data.monster.' + monster.name | ghsLabel}}</span>
+      <span class="name" *ngIf="character">{{'data.character.' + character.name | ghsLabel}}</span>
+      <span class="logo" *ngIf="character"><img [src]="characterManager.characterIcon(character)" /></span>
     </div>
     <div class="card-front ability-front"
-      [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0}">
+      [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0 && !character, 'character-actions' : character}">
       <ng-container *ngIf="ability">
         <div class="initiative"><span *ngIf="ability.initiative < 10">0</span>{{ability.initiative}}</div>
         <span class="name">{{abilityLabel(ability)}}</span>
         <div class="ability-actions">
-          <ghs-actions [actions]="ability.actions" [monster]="monster" [hexSize]="1" [hint]="ability.hint"
+          <ghs-actions [actions]="ability.actions" [monster]="monster" [hint]="ability.hint"
             [statsCalculation]="statsCalculation" [relative]="relative" [highlightElements]="highlightElements">
           </ghs-actions>
         </div>
-        <ng-container *ngIf="ability.bottomActions && ability.bottomActions.length > 0">
-          <span class="level" *ngIf="ability.level || ability.level == 0">{{ability.level}}</span>
+        <ng-container *ngIf="ability.bottomActions && ability.bottomActions.length > 0 || character">
+          <span class="level" *ngIf="ability.level || ability.level == 0">
+            {{ability.level}}
+          </span>
           <div class="ability-actions ability-bottom-actions">
-            <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [hexSize]="1" [hint]="ability.hint"
+            <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [hint]="ability.hint"
               [statsCalculation]="statsCalculation" [relative]="relative" [highlightElements]="highlightElements">
             </ghs-actions>
           </div>
@@ -28,7 +33,20 @@
         <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
         <span class="index" *ngIf="!ability.cardId && settingsManager.settings.abilityNumbers">[{{abilityIndex(ability)
           + 1}}]</span>
-        <span class="index" *ngIf="ability.cardId && settingsManager.settings.abilityNumbers">{{ability.cardId}}</span>
+        <span class="index" *ngIf="ability.cardId && settingsManager.settings.abilityNumbers">
+          <span *ngIf="character && ability.cardId < 100">0</span>
+          <span *ngIf="character && ability.cardId < 10">0</span>
+          <span>{{ability.cardId}}</span>
+        </span>
+        <span class="logo" *ngIf="character"><img [src]="characterManager.characterIcon(character)" /></span>
+        <span *ngIf="ability.lost" class="lost">
+          <img src="./assets/images/action/card/lost.svg">
+          <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
+        </span>
+        <span *ngIf="ability.bottomLost" class="lost bottom">
+          <img src="./assets/images/action/card/lost.svg">
+          <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
+        </span>
       </ng-container>
     </div>
   </div>

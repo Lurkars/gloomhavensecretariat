@@ -93,10 +93,6 @@
           ]
         }
       ],
-      "bottomTypes": [
-        "infinity"
-      ],
-      "bottomSlots": 3,
       "bottomActions": [
         {
           "type": "custom",
@@ -105,6 +101,10 @@
         {
           "type": "element",
           "value": "fire"
+        },
+        {
+          "type": "card",
+          "value": "infinity|slot|slot|slot"
         }
       ]
     },
@@ -308,9 +308,6 @@
           ]
         }
       ],
-      "bottomTypes": [
-        "round"
-      ],
       "bottomActions": [
         {
           "type": "move",
@@ -331,9 +328,6 @@
       "cardId": 608,
       "level": 0,
       "initiative": 20,
-      "types": [
-        "round"
-      ],
       "actions": [
         {
           "type": "retaliate",
@@ -426,9 +420,6 @@
           "value": "fire|dark"
         }
       ],
-      "bottomTypes": [
-        "round"
-      ],
       "bottomActions": [
         {
           "type": "custom",
@@ -465,10 +456,6 @@
           "valueType": "plus",
           "subActions": [
             {
-              "type": "area",
-              "value": "(0,0,active)|(1,0,target)|(2,0,target)|(3,0,target)|(4,0,target)|(5,0,target)|(6,0,target)"
-            },
-            {
               "type": "pierce",
               "value": 3
             },
@@ -483,6 +470,10 @@
                   "valueType": "add"
                 }
               ]
+            },
+            {
+              "type": "area",
+              "value": "(0,0,active)|(1,0,target)|(2,0,target)|(3,0,target)|(4,0,target)|(5,0,target)|(6,0,target)"
             }
           ]
         }
@@ -593,9 +584,6 @@
           ]
         }
       ],
-      "bottomTypes": [
-        "round"
-      ],
       "bottomActions": [
         {
           "type": "shield",
@@ -680,9 +668,6 @@
           ]
         }
       ],
-      "bottomTypes": [
-        "round"
-      ],
       "bottomActions": [
         {
           "type": "move",
@@ -694,7 +679,13 @@
         },
         {
           "type": "element",
-          "value": "dark"
+          "value": "dark",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "round"
+            }
+          ]
         }
       ]
     },
@@ -824,10 +815,6 @@
           ]
         }
       ],
-      "bottomTypes": [
-        "infinity"
-      ],
-      "bottomSlots": 3,
       "bottomActions": [
         {
           "type": "custom",
@@ -956,10 +943,6 @@
       "cardId": 618,
       "level": "A",
       "initiative": 50,
-      "types": [
-        "infinity",
-        "lost"
-      ],
       "actions": [
         {
           "type": "custom",
@@ -971,13 +954,16 @@
         },
         {
           "type": "element",
-          "value": "dark|fire"
+          "value": "dark|fire",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "infinity"
+            }
+          ]
         }
       ],
-      "bottomTypes": [
-        "infinity",
-        "lost"
-      ],
+      "lost": true,
       "bottomActions": [
         {
           "type": "custom",
@@ -989,18 +975,22 @@
         },
         {
           "type": "element",
-          "value": "dark|fire"
+          "value": "dark|fire",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "infinity"
+            }
+          ]
         }
-      ]
+      ],
+      "bottomLost": true
     },
     {
       "name": "Legandary - Shadows",
       "cardId": 619,
       "level": "B",
       "initiative": 50,
-      "types": [
-        "lost"
-      ],
       "actions": [
         {
           "type": "attack",
@@ -1019,9 +1009,7 @@
           "value": "%data.custom.fc.manifestation-of-corruption.17%"
         }
       ],
-      "bottomTypes": [
-        "lost"
-      ],
+      "lost": true,
       "bottomActions": [
         {
           "type": "attack",
@@ -1039,16 +1027,14 @@
           "type": "custom",
           "value": "%data.custom.fc.manifestation-of-corruption.17%"
         }
-      ]
+      ],
+      "bottomLost": true
     },
     {
       "name": "Legengary - Gloom",
       "cardId": 620,
       "level": "C",
       "initiative": 50,
-      "types": [
-        "lost"
-      ],
       "actions": [
         {
           "type": "custom",
@@ -1075,6 +1061,7 @@
           ]
         }
       ],
+      "lost": true,
       "bottomActions": [
         {
           "type": "custom",
@@ -1099,12 +1086,9 @@
               "value": "self"
             }
           ]
-        },
-        {
-          "type": "card",
-          "value": "lost"
         }
-      ]
+      ],
+      "bottomLost": true
     },
     {
       "name": "Legendary - Domination",
@@ -1115,22 +1099,16 @@
         {
           "type": "summon",
           "value": "%data.monster.naaret%"
-        },
-        {
-          "type": "card",
-          "value": "lost"
         }
       ],
+      "lost": true,
       "bottomActions": [
         {
           "type": "summon",
           "value": "%data.monster.naaret%"
-        },
-        {
-          "type": "card",
-          "value": "lost"
         }
-      ]
+      ],
+      "bottomLost": true
     }
   ]
 }

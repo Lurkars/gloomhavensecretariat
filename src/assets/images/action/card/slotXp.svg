@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="80.432961mm"
+   height="67.720634mm"
+   viewBox="0 0 80.432961 67.720635"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="slotXp.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="1.9704154"
+     inkscape:cx="124.08551"
+     inkscape:cy="155.2972"
+     inkscape:window-width="1846"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath854">
+      <path
+         d="M 0,300 H 300 V 0 H 0 Z"
+         id="path852" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath983">
+      <path
+         d="M 0,300 H 300 V 0 H 0 Z"
+         id="path981" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1482">
+      <path
+         d="M 0,300 H 300 V 0 H 0 Z"
+         id="path1480" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1743">
+      <path
+         d="M 0,300 H 300 V 0 H 0 Z"
+         id="path1741" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1926">
+      <path
+         d="M 0,300 H 300 V 0 H 0 Z"
+         id="path1924" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath868">
+      <path
+         d="M 0,300 H 300 V 0 H 0 Z"
+         id="path866" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(45.819849,-2.4368503)">
+    <g
+       id="g864"
+       clip-path="url(#clipPath868)"
+       transform="matrix(0.35277777,0,0,-0.35277777,-58.520096,89.213867)"
+       style="fill:#000000">
+      <g
+         id="g870"
+         transform="translate(131.9827,67.9151)"
+         style="fill:#000000">
+        <path
+           d="m 0,0 c -45.334,0 -82.085,36.75 -82.085,82.085 0,45.334 36.751,82.085 82.085,82.085 45.335,0 82.085,-36.751 82.085,-82.085 C 82.085,36.75 45.335,0 0,0 m 0,178.067 c -53.01,0 -95.982,-42.972 -95.982,-95.982 0,-53.01 42.972,-95.982 95.982,-95.982 53.01,0 95.982,42.972 95.982,95.982 0,53.01 -42.972,95.982 -95.982,95.982"
+           style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="path872" />
+      </g>
+      <g
+         id="g874"
+         transform="translate(238.8479,119.4053)"
+         style="fill:#000000">
+        <path
+           d="m 0,0 c -1.458,-1.027 -3.39,0.373 -2.86,2.076 2.801,9.008 4.312,18.589 4.312,28.519 0,9.929 -1.511,19.51 -4.312,28.518 -0.53,1.703 1.402,3.104 2.86,2.076 L 24.359,32.124 c 1.057,-0.745 1.057,-2.313 0,-3.059 z"
+           style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="path876" />
+      </g>
+      <g
+         id="g878"
+         transform="translate(131.9827,217.2862)"
+         style="fill:#000000">
+        <path
+           d="m 0,0 17.925,-24.013 29.653,4.305 -4.305,-29.653 24.013,-17.925 -24.013,-17.925 4.305,-29.653 -29.653,4.304 L 0,-134.572 l -17.925,24.012 -29.653,-4.304 4.305,29.653 -24.013,17.925 24.013,17.925 -4.305,29.653 29.653,-4.305 z"
+           style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           id="path880" />
+      </g>
+    </g>
+  </g>
+</svg>

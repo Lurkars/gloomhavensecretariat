@@ -18,6 +18,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    width: 100%;
   }
 
   .action-monster-type {
@@ -32,14 +33,28 @@
       white-space: nowrap;
     }
 
-    .main-action {
-      flex-basis: 100%;
+    .action-group {
       display: flex;
       justify-content: center;
       align-items: center;
+    }
 
-      &.aoe {
-        flex-basis: 0;
+    .main-action {
+      display: flex;
+      align-items: center;
+    }
+
+    &.aoe {
+      flex-wrap: nowrap;
+
+      .action-group {
+        flex-direction: column;
+        margin-left: 0.3em;
+      }
+
+      .aoe-value {
+        margin: 0 0.3em;
+        align-self: flex-start;
       }
     }
   }
@@ -53,7 +68,7 @@
   .summon-value {
     font-size: 82%;
     line-height: 82%;
-    padding: 0 1.5em
+    padding: 0 0.5em
   }
 
   .action-special,
@@ -162,11 +177,60 @@
   }
 
   .action-card {
-
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0.3em;
 
-    img {
-      height: 1.2em;
+    .card-value {
+      position: relative;
+      margin-right: 0.3em;
+
+      img {
+        position: relative;
+        height: 1.2em;
+        width: auto;
+        z-index: 1;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+      }
+
+      .value {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: var(--ghs-font-title);
+        font-size: 0.8em;
+        filter: invert(1);
+        z-index: 3;
+      }
+
+      &.slot,
+      &.slotXp {
+        img {
+          height: 2em;
+        }
+
+        .overlay {
+          filter: var(--ghs-filter-white);
+        }
+
+        .value {
+          left: 42%;
+        }
+
+        &+.slot,
+        &+.slotXp {
+          margin-left: -0.1em;
+        }
+      }
     }
 
     ghs-action {
@@ -350,7 +414,6 @@
       .custom-value,
       .summon-value {
         font-size: 100%;
-        padding-left: 0.5%;
       }
 
       img.icon {
@@ -438,6 +501,24 @@
 
     &.monster-type-elite {
       color: var(--ghs-color-yellow);
+    }
+  }
+
+  .action-and,
+  .action-or {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    ghs-action {
+      flex-basis: auto;
+      flex-shrink: 0;
+    }
+
+    .action-or-item,
+    .action-and-item {
+      margin: 0 0.2em;
     }
   }
 

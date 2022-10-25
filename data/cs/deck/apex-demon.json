@@ -24,11 +24,13 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "immobilize"
-            },
-            {
-              "type": "specialTarget",
-              "value": "enemiesRange:3"
+              "value": "immobilize",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "enemiesRange:3"
+                }
+              ]
             }
           ]
         }

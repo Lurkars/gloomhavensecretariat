@@ -3,18 +3,18 @@ import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, EventEmitter, Inject, Input, OnInit, Output } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { AbilityCardType } from "src/app/game/model/Ability";
 import { Action, ActionHex, ActionHexType, ActionSpecialTarget, ActionType, ActionValueType } from "src/app/game/model/Action";
 import { Condition, ConditionName, ConditionType } from "src/app/game/model/Condition";
 import { Element } from "src/app/game/model/Element";
-import { Monster } from "src/app/game/model/Monster";
 import { MonsterType } from "src/app/game/model/MonsterType";
 
 @Component({
-  selector: 'ghs-monster-editor-action',
+  selector: 'ghs-editor-action',
   templateUrl: './action.html',
   styleUrls: ['./action.scss']
 })
-export class MonsterEditorActionComponent implements OnInit {
+export class EditorActionComponent implements OnInit {
 
   @Input() action!: Action;
   @Output() actionChange = new EventEmitter<Action>();
@@ -25,6 +25,7 @@ export class MonsterEditorActionComponent implements OnInit {
   Elements: Element[] = Object.values(Element);
   ActionValueType = ActionValueType;
   ActionValueTypes: ActionValueType[] = Object.values(ActionValueType);
+  AbilityCardTypes: AbilityCardType[] = Object.values(AbilityCardType);
   MonsterTypes: MonsterType[] = Object.values(MonsterType);
   hexValue: string = "(0,0,invisible)";
   value: string = '';
@@ -57,7 +58,7 @@ export class MonsterEditorActionComponent implements OnInit {
     if (!isNaN(+value)) {
       return +value;
     }
-    return value;
+    return value || "";
   }
 
   addSubAction() {
@@ -82,7 +83,10 @@ export class MonsterEditorActionComponent implements OnInit {
       this.action.value = this.ConditionNames[0];
     } else if (this.action.type == ActionType.element) {
       this.action.value = this.Elements[0];
+    } else if (this.action.type == ActionType.jump) {
+      this.action.value = "";
     }
+    this.change();
   }
 
   change() {
@@ -219,17 +223,15 @@ export class MonsterEditorActionComponent implements OnInit {
 
 
 @Component({
-  selector: 'ghs-monster-editor-action-dialog',
+  selector: 'ghs-editor-action-dialog',
   templateUrl: './action-dialog.html',
   styleUrls: ['./action-dialog.scss']
 })
-export class MonsterEditorActionDialogComponent {
+export class EditorActionDialogComponent {
 
   relative: boolean = true;
 
-  constructor(@Inject(DIALOG_DATA) public data: { action: Action }, private dialogRef: DialogRef) {
-
-  }
+  constructor(@Inject(DIALOG_DATA) public data: { action: Action }, private dialogRef: DialogRef) { }
 
   deleteAction() {
     this.dialogRef.close(false);

@@ -59,12 +59,13 @@ import { DialogModule } from '@angular/cdk/dialog';
 import { AttackModifierDeckDialogComponent } from './ui/figures/attackmodifier/attackmodifierdeck-dialog';
 import { AttackModifierDeckFullscreenComponent } from './ui/figures/attackmodifier/attackmodifierdeck-fullscreen';
 import { AttackModifierEffectsComponent } from './ui/figures/attackmodifier/attackmodifier-effects';
-import { MonsterEditorActionComponent, MonsterEditorActionDialogComponent } from './ui/tools/editor/monster/action/action';
 import { MonsterEditorComponent } from './ui/tools/editor/monster/monster';
 import { CharacterFullViewComponent } from './ui/figures/character/fullview/fullview';
 import { AppRoutingModule } from './app-routing.module';
 import { HintDialogComponent } from './ui/footer/hint-dialog/hint-dialog';
 import { RulesDialogComponent } from './ui/footer/rules-dialog/rules-dialog';
+import { EditorActionComponent, EditorActionDialogComponent } from './ui/tools/editor/action/action';
+import { CharacterEditorComponent } from './ui/tools/editor/character/character';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -95,8 +96,8 @@ describe('AppComponent', () => {
         FigureErrorsComponent, FigureErrorsDialogComponent,
         CardRevealDirective, EntityAnimationDirective, I18nDirective, ValueCalcDirective, DragValueComponent, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
         GhsValueSignPipe, GhsLabelPipe, GhsRangePipe,
-        AttackModifierToolComponent,
-        MonsterEditorComponent, MonsterEditorActionComponent, MonsterEditorActionDialogComponent],
+        AttackModifierToolComponent, CharacterEditorComponent,
+        MonsterEditorComponent, EditorActionComponent, EditorActionDialogComponent],
       imports: [
         BrowserModule,
         AppRoutingModule,

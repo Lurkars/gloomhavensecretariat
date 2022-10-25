@@ -6,10 +6,6 @@
 
   &.inline {
     align-items: flex-start;
-
-    &> ghs-action {
-      width: 100%;
-    }
   }
 
   &.right {
@@ -23,12 +19,13 @@
 
   ghs-action {
     position: relative;
+    width: 100%;
   }
 
   .divider {
     width: 15%;
     border-top: 0.11em var(--ghs-color-white) dotted;
-    margin: 0.2em;
+    margin: 0.1em;
   }
 
   .hint {

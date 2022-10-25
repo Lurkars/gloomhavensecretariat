@@ -64,11 +64,12 @@ import { AttackModifierDeckFullscreenComponent } from './ui/figures/attackmodifi
 import { AttackModifierEffectsComponent } from './ui/figures/attackmodifier/attackmodifier-effects';
 import { AppRoutingModule } from './app-routing.module';
 import { MonsterEditorComponent } from './ui/tools/editor/monster/monster';
-import { MonsterEditorActionComponent, MonsterEditorActionDialogComponent } from './ui/tools/editor/monster/action/action';
+import { EditorActionComponent, EditorActionDialogComponent } from './ui/tools/editor/action/action';
 import { SettingsDebugMenuComponent } from './ui/header/menu/debug/debug';
 import { EditionEditorComponent } from './ui/tools/editor/edition';
 import { HintDialogComponent } from './ui/footer/hint-dialog/hint-dialog';
 import { RulesDialogComponent } from './ui/footer/rules-dialog/rules-dialog';
+import { CharacterEditorComponent } from './ui/tools/editor/character/character';
 
 @NgModule({
   declarations: [
@@ -99,7 +100,9 @@ import { RulesDialogComponent } from './ui/footer/rules-dialog/rules-dialog';
     GhsValueSignPipe, GhsLabelPipe, GhsRangePipe,
     AttackModifierToolComponent,
     EditionEditorComponent,
-    MonsterEditorComponent, MonsterEditorActionComponent, MonsterEditorActionDialogComponent],
+    EditorActionComponent, EditorActionDialogComponent,
+    CharacterEditorComponent,
+    MonsterEditorComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

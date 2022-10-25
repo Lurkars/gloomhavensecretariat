@@ -790,8 +790,8 @@
       "extensions": "Editions to extend",
       "conditions": {
         ".": "Available Conditions",
-        "allSelected": "Use all available Conditions",
-        "allHint": "Deselect all conditions to use all available"
+        "allSelected": "Select all conditions",
+        "allHint": "Deselect all conditions"
       },
       "json": {
         ".": "Edition JSON Data",
@@ -820,6 +820,30 @@
       },
       "deck": {
         ".": "Monster Abilities Deck",
+        "new": "New Abilities Deck",
+        "addAbility": "Add Ability",
+        "removeAbility": "Remove Ability",
+        "name": "Deck Name",
+        "json": {
+          ".": "Abilities Deck JSON Data",
+          "download": "Download Abilities Deck as JSON file"
+        }
+      }
+    },
+    "character": {
+      ".": "Character Editor",
+      "edition": "Edition",
+      "new": "New Character",
+      "data": {
+        ".": "Character Data",
+        "deck": "Ability Deck Name",
+        "json": {
+          ".": "Character Data JSON Data",
+          "download": "Download Character Data as JSON file"
+        }
+      },
+      "deck": {
+        ".": "Character Abilities Deck",
         "new": "New Abilities Deck",
         "addAbility": "Add Ability",
         "removeAbility": "Remove Ability",

@@ -15,3 +15,12 @@
     }
 
 }
+
+.conditions {
+    display: flex;
+    flex-direction: column;
+
+    a {
+        font-size: 0.7em;
+    }
+}

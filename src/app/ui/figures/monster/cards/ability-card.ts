@@ -13,7 +13,7 @@ import { applyPlaceholder } from 'src/app/ui/helper/i18n';
 @Component({
   selector: 'ghs-monster-ability-card',
   templateUrl: './ability-card.html',
-  styleUrls: [ './ability-card.scss' ]
+  styleUrls: ['./ability-card.scss']
 })
 export class MonsterAbilityCardComponent {
 
@@ -23,6 +23,7 @@ export class MonsterAbilityCardComponent {
   reveal: number = 0;
 
   ability: Ability | undefined = undefined;
+  secondAbility: Ability | undefined = undefined;
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
@@ -37,8 +38,12 @@ export class MonsterAbilityCardComponent {
   flipped(): boolean {
     if (this.index == -1) {
       this.ability = gameManager.monsterManager.getAbility(this.monster);
+      if (this.ability && this.ability.bottomActions && this.ability.bottomActions.length > 0) {
+        // Manifestation of Corruption mechanic?!
+        // this.secondAbility = gameManager.abilities(this.monster)[this.monster.ability + 1];
+      }
     } else {
-      this.ability = gameManager.abilities(this.monster)[ this.index ];
+      this.ability = gameManager.abilities(this.monster)[this.index];
     }
     return gameManager.roundManager.working && gameManager.game.state == GameState.draw || !gameManager.roundManager.working && gameManager.game.state == GameState.next && this.ability != undefined && this.monster.entities.filter((monsterEntity) => !monsterEntity.dead).length > 0;
   }
@@ -51,11 +56,11 @@ export class MonsterAbilityCardComponent {
   }
 
   upcomingCards(): Ability[] {
-    return this.monster.abilities.filter((value, index) => index > this.monster.ability).map((value) => gameManager.abilities(this.monster)[ value ]);
+    return this.monster.abilities.filter((value, index) => index > this.monster.ability).map((value) => gameManager.abilities(this.monster)[value]);
   }
 
   disgardedCards(): Ability[] {
-    return this.monster.abilities.filter((value, index) => index <= this.monster.ability).map((value) => gameManager.abilities(this.monster)[ value ]).reverse();
+    return this.monster.abilities.filter((value, index) => index <= this.monster.ability).map((value) => gameManager.abilities(this.monster)[value]).reverse();
   }
 
   abilityIndex(ability: Ability) {
@@ -125,7 +130,7 @@ export class MonsterAbilityCardComponent {
   }
 
   remove(index: number) {
-    const ability: Ability = gameManager.abilities(this.monster)[ this.monster.abilities[ index + this.monster.ability + 1 ] ];
+    const ability: Ability = gameManager.abilities(this.monster)[this.monster.abilities[index + this.monster.ability + 1]];
     gameManager.stateManager.before("removeAbility", "data.monster." + this.monster.name, this.abilityLabel(ability));
     this.monster.abilities.splice(index + this.monster.ability + 1, 1);
     gameManager.stateManager.after();
@@ -137,7 +142,7 @@ export class MonsterAbilityCardComponent {
       label = 'data.ability.' + ability.name;
     } else if (this.monster.deck != this.monster.name) {
       label = 'data.deck.' + this.monster.deck;
-      if (label.split('.')[ label.split('.').length - 1 ] === applyPlaceholder(settingsManager.getLabel(label)) && this.monster.deck) {
+      if (label.split('.')[label.split('.').length - 1] === applyPlaceholder(settingsManager.getLabel(label)) && this.monster.deck) {
         label = 'data.monster.' + this.monster.deck;
       }
     }

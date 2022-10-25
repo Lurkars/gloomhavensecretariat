@@ -28,6 +28,19 @@
 
   }
 
+  &.second-ability {
+
+    ghs-ability {
+      top: 0;
+      width: calc(var(--ghs-unit) * 20);
+      height: calc(var(--ghs-unit) * 10.75);
+
+      &:nth-of-type(2) {
+        left: 50%;
+      }
+    }
+  }
+
   &.bottom-actions {
 
     overflow-y: auto;
@@ -35,8 +48,15 @@
     ghs-ability {
       top: 0;
       height: calc(var(--ghs-unit) * 54);
+
     }
 
+    &.second-ability {
+  
+      ghs-ability {
+        height: calc(var(--ghs-unit) * 27);
+      }
+    }
   }
 
 

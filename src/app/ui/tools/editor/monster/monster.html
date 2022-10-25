@@ -215,7 +215,8 @@
                 (change)="changeInitiative($event, ability)">
 
               <input class="level" *ngIf="ability.bottomActions && ability.bottomActions.length > 0"
-              [ngModel]="ability.level" (ngModelChange)="ability.level=valueChange($event)" (change)="deckDataToJson()">
+                [ngModel]="ability.level" (ngModelChange)="ability.level=valueChange($event)"
+                (change)="deckDataToJson()">
 
               <input class="card-id" type="number" [(ngModel)]="ability.cardId" (change)="deckDataToJson()"
                 (keyup)="deckDataToJson()">
@@ -224,6 +225,20 @@
                 <input type="checkbox" [(ngModel)]="ability.shuffle" (change)="deckDataToJson()">
                 <img src="./assets/images/shuffle.svg">
               </label>
+
+              <ng-container *ngIf="ability.bottomActions && ability.bottomActions.length > 0">
+                <a class="lost" (click)="ability.lost=!ability.lost;deckDataToJson();"
+                  [ngClass]="{'enabled' : ability.lost }">
+                  <img src="./assets/images/action/card/lost.svg">
+                  <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
+                </a>
+
+                <a class="lost bottom" (click)="ability.bottomLost=!ability.bottomLost;deckDataToJson();"
+                  [ngClass]="{'enabled' : ability.bottomLost}">
+                  <img src="./assets/images/action/card/lost.svg">
+                  <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">
+                </a>
+              </ng-container>
 
               <div class="actions-container">
                 <div class="actions">
@@ -256,7 +271,8 @@
                   src="./assets/images/minus.svg"></a>
             </div>
 
-            <div class="buttons"  [ngClass]="{'bottom-actions' : ability.bottomActions && ability.bottomActions.length > 0}">
+            <div class="buttons"
+              [ngClass]="{'bottom-actions' : ability.bottomActions && ability.bottomActions.length > 0}">
               <a class="button add" (click)="addAbilityAction(ability)"><img class="ghs-icon"
                   src="./assets/images/plus.svg">
                 {{'editor.action.add' | ghsLabel}}</a>

@@ -18,7 +18,7 @@
   </ng-container>
 
   <input
-    *ngIf="[ActionType.area, ActionType.condition, ActionType.element, ActionType.monsterType, ActionType.specialTarget].indexOf(action.type) == -1"
+    *ngIf="[ActionType.area, ActionType.condition, ActionType.element, ActionType.jump, ActionType.monsterType, ActionType.specialTarget].indexOf(action.type) == -1"
     type="text" [ngModel]="action.value" (ngModelChange)="action.value=valueChange($event)" (change)="change()">
 
   <div class="hexes" *ngIf="action.type == ActionType.area">
@@ -63,7 +63,7 @@
       ghsLabel}}</a>
     <div class="subaction" *ngFor="let subAction of action.subActions; let i = index" cdkDrag>
       <span class="handle" cdkDragHandle><img class="ghs-icon" src="./assets/images/menu.svg"></span>
-      <ghs-monster-editor-action [(action)]="action.subActions[i]"></ghs-monster-editor-action>
+      <ghs-editor-action [(action)]="action.subActions[i]"></ghs-editor-action>
       <a (click)="removeSubAction(i)"><img class="ghs-icon" src="./assets/images/minus.svg">
         {{'editor.action.removeSubAction' | ghsLabel}}</a>
     </div>

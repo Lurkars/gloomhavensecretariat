@@ -1,0 +1,1059 @@
+{
+  "name": "brute",
+  "edition": "gh",
+  "abilities": [
+    {
+      "name": "Trample",
+      "cardId": 1,
+      "level": 1,
+      "initiative": 72,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "pierce",
+              "value": 2
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "jump",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target all enemies moved through"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "experience:2"
+        }
+      ],
+      "bottomLost": true
+    },
+    {
+      "name": "Eye for an Eye",
+      "cardId": 2,
+      "level": 1,
+      "initiative": 18,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            },
+            {
+              "type": "custom",
+              "value": "Gain %game.card.experience:1% each time you Retaliate this round."
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "round"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "earth"
+        }
+      ]
+    },
+    {
+      "name": "Sweeping Blow",
+      "cardId": 3,
+      "level": 1,
+      "initiative": 64,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "push",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Provoking Roar",
+      "cardId": 4,
+      "level": 1,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "disarm"
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "Any enemy who targets one of your adjacent allies with an attack this rount targets you with that attack instead, regardless of the attack's range."
+        },
+        {
+          "type": "card",
+          "value": "round"
+        }
+      ]
+    },
+    {
+      "name": "Overhelming Assault",
+      "cardId": 5,
+      "level": 1,
+      "initiative": 61,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 6
+        },
+        {
+          "type": "card",
+          "value": "experience:2"
+        }
+      ],
+      "lost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "push",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemyAdjacent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Grab and Go",
+      "cardId": 6,
+      "level": 1,
+      "initiative": 87,
+      "actions": [
+        {
+          "type": "loot",
+          "value": 1
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "name": "Warding Strength",
+      "cardId": 7,
+      "level": 1,
+      "initiative": 32,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "push",
+              "value": 2
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "On the next six sources of damage from attacks targeting you, gain %game.action.shield%1."
+        },
+        {
+          "type": "card",
+          "value": "infinity|slot|slotXp:1|slot|slotXp:1|slot|slotXp:1|lost"
+        }
+      ]
+    },
+    {
+      "name": "Shield Bash",
+      "cardId": 8,
+      "level": 1,
+      "initiative": 15,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "stun"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "experience:2"
+        }
+      ],
+      "lost": true,
+      "bottomActions": [
+        {
+          "type": "shield",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "round"
+        }
+      ]
+    },
+    {
+      "name": "Leaping Cleave",
+      "cardId": 9,
+      "level": 1,
+      "initiative": 54,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(1,0,target)|(1,1,target)|(0,1,active)"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "experience:1"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "jump",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "air"
+        }
+      ]
+    },
+    {
+      "name": "Spare Dagger",
+      "cardId": 10,
+      "level": 1,
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "experience:1"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "name": "Skewer",
+      "cardId": 11,
+      "level": "X",
+      "initiative": 35,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(0,2,active)"
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add"
+                },
+                {
+                  "type": "pierce",
+                  "value": 1
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "experience:1"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 6
+        },
+        {
+          "type": "card",
+          "value": "experience:1"
+        }
+      ],
+      "bottomLost": true
+    },
+    {
+      "name": "Balanced Measure",
+      "cardId": 12,
+      "level": "X",
+      "initiative": 77,
+      "actions": [
+        {
+          "type": "attack",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "where X is the number of hexes you have moved so far this turn."
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "experience:1"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": "X",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "where X is the amount of damage you have inflicted so far this turn."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Wall of Doom",
+      "cardId": 13,
+      "level": "X",
+      "initiative": 20,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "experience:2|round"
+        }
+      ],
+      "lost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "Add +1 %game.action.attack% to all your attacks this round."
+        },
+        {
+          "type": "card",
+          "value": "round"
+        }
+      ]
+    },
+    {
+      "name": "Fatal Advance",
+      "cardId": 14,
+      "level": 2,
+      "initiative": 40,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Kill one adjacent normal enemy."
+        },
+        {
+          "type": "card",
+          "value": "experience:2"
+        }
+      ],
+      "lost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "name": "Juggernaut",
+      "cardId": 15,
+      "level": 2,
+      "initiative": 34,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 2
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "On the next three sources of damage to you, suffer no damage instead."
+        },
+        {
+          "type": "card",
+          "value": "infinity|slotXp:1|slotXp:1|slotXp:1|lost"
+        }
+      ]
+    },
+    {
+      "name": "Hook and Chain",
+      "cardId": 16,
+      "level": 3,
+      "initiative": 42,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            },
+            {
+              "type": "pull",
+              "value": 2
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "If the movement was in a straight line, perform"
+            },
+            {
+              "type": "attack",
+              "value": "X"
+            },
+            {
+              "type": "custom",
+              "value": "where X is the number of hexes you moved with this action."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Brute Force",
+      "cardId": 17,
+      "level": 3,
+      "initiative": 51,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)"
+            },
+            {
+              "type": "condition",
+              "value": "muddle"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "experience:1"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "shield",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "round"
+        }
+      ]
+    },
+    {
+      "name": "Unstoppable Chard",
+      "cardId": 18,
+      "level": 4,
+      "initiative": 86,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 5
+        },
+        {
+          "type": "card",
+          "value": "experience:1"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4
+        },
+        {
+          "type": "condition",
+          "value": "stun",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent"
+            }
+          ]
+        }
+      ],
+      "bottomLost": true
+    },
+    {
+      "name": "Devastating Hack",
+      "cardId": 19,
+      "level": 4,
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 8
+        },
+        {
+          "type": "card",
+          "value": "experience:3"
+        }
+      ],
+      "lost": true,
+      "bottomActions": [
+        {
+          "type": "loot",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "Whirlwind",
+      "cardId": 20,
+      "level": 5,
+      "initiative": 28,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent"
+            },
+            {
+              "type": "custom",
+              "value": "Gain %game.card.experience:1% for each enemy targeted."
+            }
+          ]
+        }
+      ],
+      "lost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4
+        },
+        {
+          "type": "push",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemyAdjacent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Skirmishing Maneuver",
+      "cardId": 21,
+      "level": 5,
+      "initiative": 29,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2
+        },
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 2
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "experience:1"
+        }
+      ]
+    },
+    {
+      "name": "Quietus",
+      "cardId": 22,
+      "level": 6,
+      "initiative": 57,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Kill one adjacent normal enemy with %game.condition.stun%."
+        },
+        {
+          "type": "card",
+          "value": "experience:1"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "custom",
+          "value": "Add +1 %game.action.attack% to all your attacks this round."
+        },
+        {
+          "type": "card",
+          "value": "round"
+        }
+      ]
+    },
+    {
+      "name": "Immovable Phalanx",
+      "cardId": 23,
+      "level": 6,
+      "initiative": 17,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 4
+        },
+        {
+          "type": "shield",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "round"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "You may treat all %game.action.move% abilities as %game.action.attack% abilities of equal value."
+        },
+        {
+          "type": "card",
+          "value": "infinity"
+        }
+      ],
+      "bottomLost": true
+    },
+    {
+      "name": "Defensive Tactics",
+      "cardId": 24,
+      "level": 7,
+      "initiative": 26,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            },
+            {
+              "type": "target",
+              "value": 2
+            },
+            {
+              "type": "condition",
+              "value": "immobilize"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "experience:1"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "retaliate",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "experience:2|infinity"
+        }
+      ],
+      "bottomLost": true
+    },
+    {
+      "name": "Crippling Offensive",
+      "cardId": 25,
+      "level": 7,
+      "initiative": 33,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 6,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
+            },
+            {
+              "type": "condition",
+              "value": "stun"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "experience:3"
+        }
+      ],
+      "lost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "and",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize"
+            },
+            {
+              "type": "push",
+              "value": 1
+            },
+            {
+              "type": "specialTarget",
+              "value": "enemyAdjacent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Frenzied Onslaught",
+      "cardId": 26,
+      "level": 8,
+      "initiative": 41,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 2
+        },
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 2
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "Add +3 %game.action.attack% to all your attacks targeting enemies with %game.condition.disarm%, %game.condition.immobilize%, or %game.condition.stun% this round."
+        },
+        {
+          "type": "card",
+          "value": "experience:1|round"
+        }
+      ]
+    },
+    {
+      "name": "Selfish Retribution",
+      "cardId": 27,
+      "level": 8,
+      "initiative": 12,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1
+        },
+        {
+          "type": "loot",
+          "value": 2
+        }
+      ],
+      "lost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "experience:1|round"
+        }
+      ]
+    },
+    {
+      "name": "King of the Hill",
+      "cardId": 28,
+      "level": 9,
+      "initiative": 39,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 6,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent"
+            },
+            {
+              "type": "push",
+              "value": 1
+            },
+            {
+              "type": "custom",
+              "value": "Gain %game.card.experience:1% for each enemy targeted."
+            }
+          ]
+        }
+      ],
+      "lost": true,
+      "bottomActions": [
+        {
+          "type": "heal",
+          "value": 5,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Face Your End",
+      "cardId": 29,
+      "level": 9,
+      "initiative": 67,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4
+            },
+            {
+              "type": "target",
+              "value": 3
+            },
+            {
+              "type": "pull",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "experience:1"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "Kill one adjacent normal or elite enemy."
+        },
+        {
+          "type": "card",
+          "value": "experience:2"
+        }
+      ],
+      "bottomLost": true
+    }
+  ]
+}

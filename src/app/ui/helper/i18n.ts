@@ -25,9 +25,9 @@ export const applyPlaceholder = function (value: string): string {
         split.splice(0, 1);
         image = '<img  src="./assets/images/' + split.join('/') + '.svg" class="icon">';
         replace = '<span class="placeholder-condition">' + settingsManager.getLabel(label) + image + '</span>';
-      } else if (type == "action" && split.length == 3 && !split[2].startsWith('specialTarget')) {
+      } else if (type == "action" && split.length == 3 && !split[2].startsWith('specialTarget') && !split[2].startsWith('summon')) {
         split.splice(0, 1);
-        image = '<img  src="./assets/images/' + split.join('/') + '.svg" class="icon">';
+        image = '<img  src="./assets/images/' + split.join('/') + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-action">' + settingsManager.getLabel(label) + image + '</span>';
       } else if (type == "element") {
         let element = split[2];
@@ -43,12 +43,18 @@ export const applyPlaceholder = function (value: string): string {
         image = '<img class="ghs-svg" src="./assets/images/initiative.svg"></span>'
         replace = '<span class="placeholder-initiative">' + split[2] + image + '</span>';
       } else if (type == "action" && split.length == 4) {
-        image = '<img  src="./assets/images/action/' + split[2] + '/' + split[3] + '.svg" class="icon">';
+        image = '<img  src="./assets/images/action/' + split[2] + '/' + split[3] + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-perk">' + image + '</span>';
       } else if (type == "card" && split.length == 3) {
-        image = '<img src="./assets/images/action/card/' + split[2] + '.svg">';
-        let overlay = '<img class="card-overlay" src="./assets/images/action/card/overlay/' + split[2] + '.svg">';
-        replace = '<span class="placeholder-effect placeholder-card">' + image + overlay + '</span>';
+        let card = split[2]
+        let cardValue = "";
+        if (card.split(':').length > 1) {
+          cardValue = '<span class="card-value">' + card.split(':')[1] + '</span>';
+          card = card.split(':')[0];
+        }
+        image = '<img class="icon ghs-svg" src="./assets/images/action/card/' + card + '.svg">';
+        let cardOverlay = '<img class="card-overlay" src="./assets/images/action/card/overlay/' + card + '.svg">';
+        replace = '<span class="placeholder-effect placeholder-card">' + image + cardOverlay + cardValue + '</span>';
       } else if (type == "attackmodifier" && split.length == 3) {
         image = '<img  src="./assets/images/attackmodifier/icons/' + split[2] + '.png" class="icon">';
         replace = '<span class="placeholder-attackmodifier">' + image + '</span>';

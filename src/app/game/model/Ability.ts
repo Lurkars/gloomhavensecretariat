@@ -4,15 +4,13 @@ export class Ability {
   cardId: number | undefined;
   name: string | undefined;
   initiative: number;
-  actions: Action[];
-  shuffle: boolean;
-  bottomActions: Action[];
   level: number | string = 0;
+  shuffle: boolean;
+  actions: Action[];
+  lost: boolean = false;
+  bottomActions: Action[];
+  bottomLost: boolean = false;
   hint: string | undefined;
-  types: AbilityCardType[] = [];
-  slots: number = 0;
-  bottomTypes: AbilityCardType[] = [];
-  bottomSlots: number = 0;
   revealed: boolean = false;
 
   constructor(cardId: number | undefined = undefined, name: string | undefined = undefined, initiative: number = 0,
@@ -31,8 +29,13 @@ export class Ability {
 
 export enum AbilityCardType {
 
-  lost = "lost",
+  experience = "experience",
   infinity = "infinity",
-  round = "round"
+  lost = "lost",
+  recover = "recover",
+  refresh = "refresh",
+  round = "round",
+  slot = "slot",
+  slotXp = "slotXp"
 
 }
