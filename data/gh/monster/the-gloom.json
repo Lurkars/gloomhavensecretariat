@@ -43,8 +43,21 @@
               "value": 5
             },
             {
-              "type": "condition",
-              "value": "poison|wound|stun"
+              "type": "and",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "poison"
+                },
+                {
+                  "type": "condition",
+                  "value": "wound"
+                },
+                {
+                  "type": "condition",
+                  "value": "stun"
+                }
+              ]
             }
           ]
         }

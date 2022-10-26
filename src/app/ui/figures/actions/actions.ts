@@ -8,7 +8,7 @@ import { MonsterType } from "src/app/game/model/MonsterType";
 @Component({
   selector: 'ghs-actions',
   templateUrl: './actions.html',
-  styleUrls: [ './actions.scss' ]
+  styleUrls: ['./actions.scss']
 })
 export class ActionsComponent {
 
@@ -22,12 +22,12 @@ export class ActionsComponent {
   @Input() hexSize!: number;
   @Input() hint!: string | undefined;
 
-  settingsManager : SettingsManager = settingsManager;
+  settingsManager: SettingsManager = settingsManager;
 
   ActionType = ActionType;
   ActionValueType = ActionValueType;
   additionalActions: Action[] = [];
-  additionActionTypes: ActionType[] = [ ActionType.shield, ActionType.retaliate, ActionType.heal, ActionType.element, ActionType.elementHalf ];
+  additionActionTypes: ActionType[] = [ActionType.shield, ActionType.retaliate, ActionType.heal, ActionType.element, ActionType.elementHalf];
 
   ngOnInit(): void {
     this.updateAdditionalActions();
@@ -49,7 +49,7 @@ export class ActionsComponent {
           if (!eliteStat || eliteStat.actions && eliteStat.actions.some((eliteAction) => JSON.stringify(statAction) == JSON.stringify(eliteAction))) {
             this.additionalActions.push(JSON.parse(JSON.stringify(statAction)));
           } else if (eliteStat && (!eliteStat.actions || !eliteStat.actions.some((eliteAction) => JSON.stringify(statAction) == JSON.stringify(eliteAction)))) {
-            this.additionalActions.push(new Action(ActionType.monsterType, MonsterType.normal, ActionValueType.fixed, [ JSON.parse(JSON.stringify(statAction)) ]));
+            this.additionalActions.push(new Action(ActionType.monsterType, MonsterType.normal, ActionValueType.fixed, [JSON.parse(JSON.stringify(statAction))]));
           }
         })
       }
@@ -57,12 +57,31 @@ export class ActionsComponent {
       if (eliteStat) {
         eliteStat.actions.filter((eliteAction) => this.additionActionTypes.indexOf(eliteAction.type) != -1).forEach((eliteAction) => {
           if (!stat.actions || !stat.actions.some((statAction) => JSON.stringify(eliteAction) == JSON.stringify(statAction))) {
-            this.additionalActions.push(new Action(ActionType.monsterType, MonsterType.elite, ActionValueType.fixed, [ JSON.parse(JSON.stringify(eliteAction)) ]));
+            this.additionalActions.push(new Action(ActionType.monsterType, MonsterType.elite, ActionValueType.fixed, [JSON.parse(JSON.stringify(eliteAction))]));
           }
         })
       }
-
     }
   }
 
-}
+  divider(action: Action, index: number): boolean {
+    if (index < 1 || this.inline) {
+      return false;
+    }
+
+    if (((action.type == ActionType.element || action.type == ActionType.elementHalf) && action.valueType != ActionValueType.minus)) {
+      return false;
+    }
+
+    if (action.type == ActionType.card) {
+      return false;
+    }
+
+    if (action.type == ActionType.or || action.type == ActionType.and && action.subActions.every((subAction) => subAction.type == ActionType.card || subAction.type == ActionType.element || subAction.type == ActionType.elementHalf)) {
+      return false;
+    }
+
+    return true;
+  }
+
+} 

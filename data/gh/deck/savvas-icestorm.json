@@ -21,13 +21,11 @@
               "subActions": [
                 {
                   "type": "push",
-                  "value": 4,
-                  "subActions": [
-                    {
-                      "type": "custom",
-                      "value": "%game.custom.instead%"
-                    }
-                  ]
+                  "value": 4
+                },
+                {
+                  "type": "custom",
+                  "value": "%game.custom.instead%"
                 }
               ]
             }

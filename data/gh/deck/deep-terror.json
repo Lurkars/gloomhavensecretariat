@@ -197,9 +197,17 @@
       "initiative": 54,
       "actions": [
         {
-          "type": "condition",
-          "value": "wound|poison",
+          "type": "and",
+          "value": 2,
           "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
+            },
+            {
+              "type": "condition",
+              "value": "poison"
+            },
             {
               "type": "specialTarget",
               "value": "enemiesAdjacent"

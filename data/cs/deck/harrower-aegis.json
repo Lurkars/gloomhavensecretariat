@@ -184,8 +184,17 @@
           ]
         },
         {
-          "type": "element",
-          "value": "fire|earth"
+          "type": "and",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            },
+            {
+              "type": "element",
+              "value": "earth"
+            }
+          ]
         }
       ]
     },

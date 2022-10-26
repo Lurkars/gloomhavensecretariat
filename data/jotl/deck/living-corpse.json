@@ -13,9 +13,17 @@
           "valueType": "plus"
         },
         {
-          "type": "condition",
-          "value": "muddle|immobilize",
+          "type": "and",
+          "value": 2,
           "subActions": [
+            {
+              "type": "condition",
+              "value": "muddle"
+            },
+            {
+              "type": "condition",
+              "value": "immobilize"
+            },
             {
               "type": "specialTarget",
               "value": "enemyAdjacent"

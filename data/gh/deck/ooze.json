@@ -137,9 +137,17 @@
       "initiative": 85,
       "actions": [
         {
-          "type": "condition",
-          "value": "push|poison",
+          "type": "and",
+          "value": 2,
           "subActions": [
+            {
+              "type": "push",
+              "value": 1
+            },
+            {
+              "type": "condition",
+              "value": "poison"
+            },
             {
               "type": "specialTarget",
               "value": "enemiesAdjacent"

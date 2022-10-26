@@ -44,6 +44,7 @@ export enum ActionType {
   trigger = "trigger",
   or = "or",
   and = "and",
+  grid = "grid",
 }
 
 export enum ActionValueType {

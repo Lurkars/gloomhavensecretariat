@@ -7,6 +7,15 @@
   line-height: 0.8em;
   filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
 
+
+
+
+  &.aoe {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 0.3em;
+  }
+
   .action-default,
   .action-custom,
   .action-summon,
@@ -15,10 +24,9 @@
   .action-condition,
   .action-element {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
   }
 
   .action-monster-type {
@@ -29,34 +37,20 @@
   }
 
   .action-default {
-    .value {
-      white-space: nowrap;
-    }
-
-    .action-group {
+    .main-action {
       display: flex;
       justify-content: center;
       align-items: center;
-    }
 
-    .main-action {
-      display: flex;
-      align-items: center;
-    }
-
-    &.aoe {
-      flex-wrap: nowrap;
-
-      .action-group {
-        flex-direction: column;
-        margin-left: 0.3em;
-      }
-
-      .aoe-value {
-        margin: 0 0.3em;
-        align-self: flex-start;
+      .value {
+        white-space: nowrap;
       }
     }
+  }
+
+  .aoe-value {
+    margin: 0 0.3em;
+    align-self: flex-start;
   }
 
   .ghs-svg,
@@ -101,7 +95,7 @@
         position: absolute;
         width: 2em;
         height: 0.09em;
-        left: -1em;
+        left: -1.6em;
         top: 50%;
         transform: translateY(-50%);
         background: linear-gradient(90deg, transparent 0%, var(--ghs-color-white) 100%);
@@ -109,7 +103,7 @@
 
       &::after {
         left: auto;
-        right: -1em;
+        right: -1.6em;
         background: linear-gradient(90deg, var(--ghs-color-white) 0%, transparent 100%);
       }
     }
@@ -119,55 +113,44 @@
   .action-special {
 
     &>.type {
-      flex-basis: 100%;
       margin-bottom: 0.1em;
-    }
-
-    ghs-actions {
-      flex-basis: 100%;
     }
 
   }
 
-  .conditions {
+
+
+  .condition {
     display: flex;
-    flex-wrap: wrap;
-    flex-basis: 100%;
     justify-content: center;
+    align-items: center;
 
+    .condition-image {
+      position: relative;
+      width: 1em;
+      height: 1em;
+      margin: 0.1em;
+      margin-top: 0;
 
-    .condition {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      img.icon {
+        width: 100%;
+        height: auto;
+        margin: 0;
+      }
 
-      .condition-image {
-        position: relative;
-        width: 1em;
-        height: 1em;
-        margin: 0.1em;
-        margin-top: 0;
-
-        img.icon {
-          width: 100%;
-          height: auto;
-          margin: 0;
-        }
-
-        .value {
-          font-family: var(--ghs-font-title);
-          font-size: 0.45em;
-          line-height: 1em;
-          color: var(--ghs-color-white);
-          position: absolute;
-          top: 0;
-          left: 0;
-          display: flex;
-          justify-content: center;
-          align-items: flex-end;
-          width: 100%;
-          height: 100%;
-        }
+      .value {
+        font-family: var(--ghs-font-title);
+        font-size: 0.45em;
+        line-height: 1em;
+        color: var(--ghs-color-white);
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        width: 100%;
+        height: 100%;
       }
     }
   }
@@ -181,15 +164,15 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin: 0.3em;
+    margin: 0.15em 0;
 
     .card-value {
       position: relative;
-      margin-right: 0.3em;
+      height: 1.2em;
 
       img {
         position: relative;
-        height: 1.2em;
+        height: 100%;
         width: auto;
         z-index: 1;
       }
@@ -203,7 +186,7 @@
 
       .value {
         position: absolute;
-        top: 45%;
+        top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         font-family: var(--ghs-font-title);
@@ -214,9 +197,7 @@
 
       &.slot,
       &.slotXp {
-        img {
-          height: 2em;
-        }
+        height: 2em;
 
         .overlay {
           filter: var(--ghs-filter-white);
@@ -255,7 +236,9 @@
 
 
   .action-element {
-    flex-wrap: unset;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 0.3em;
     align-items: center;
     margin-top: 0.5%;
 
@@ -264,7 +247,6 @@
       flex-wrap: unset;
       justify-content: center;
       align-items: center;
-      margin-right: 5%;
 
       @keyframes element-pulse {
         0% {
@@ -335,7 +317,7 @@
 
         &:nth-child(1) {
           left: 0;
-          margin-right: 0;
+          margin-right: -0.01em;
 
           &.highlight {
             animation: element-half-pulse 1000ms ease-in-out infinite;
@@ -350,7 +332,7 @@
 
         &:nth-child(2) {
           right: 0;
-          margin-left: 0;
+          margin-left: -0.01em;
 
           img {
             transform: translateX(-50%);
@@ -373,16 +355,12 @@
       }
 
       .minus {
-        display: flex;
-        align-items: center;
-        width: 1%;
-        position: relative;
+        font-size: 1.5em;
       }
     }
   }
 
   ghs-action {
-    flex-basis: 100%;
 
     &.subaction-area:not(:nth-of-type(1)) {
       margin-top: 0.1%;
@@ -415,11 +393,6 @@
       .summon-value {
         font-size: 100%;
       }
-
-      img.icon {
-        margin: 5%;
-        margin-top: 0;
-      }
     }
 
 
@@ -438,18 +411,31 @@
     }
 
     &.full {
-      .action {
+      &>.action {
         font-size: 100%;
 
         .condition-value {
           font-size: 100%;
         }
 
-        .action {
+        &>.action {
           font-size: 82%;
+
+          &.action-element {
+            font-size: 100%;
+          }
 
           .condition-value {
             font-size: 82%;
+          }
+        }
+      }
+
+
+      &.subaction-element {
+        &>.action {
+          &>.action {
+            font-size: 100% !important;
           }
         }
       }
@@ -489,11 +475,16 @@
     flex-direction: column;
     min-height: 100%;
     justify-content: center;
+    flex: 1 0 auto;
 
     .element {
       margin-top: 0;
       margin-left: 5%;
     }
+  }
+
+  .aoe .element-subactions {
+    flex: initial;
   }
 
   .monster-type {
@@ -504,8 +495,7 @@
     }
   }
 
-  .action-and,
-  .action-or {
+  .action-concatenation {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -516,10 +506,15 @@
       flex-shrink: 0;
     }
 
-    .action-or-item,
-    .action-and-item {
-      margin: 0 0.2em;
+    .action-concatenation-item {
+      margin: 0 0.15em;
     }
+  }
+
+  .action-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0.3em;
   }
 
   .monster-type-subactions {
@@ -568,7 +563,6 @@
     .action-condition {
       display: flex;
       justify-content: flex-start;
-      width: 100%;
     }
 
     .action-default {
@@ -584,20 +578,9 @@
       padding: 0 !important;
     }
 
-    .conditions {
+    .action-concatenation {
       flex-direction: column;
-      justify-content: flex-start;
-
-      .condition {
-        justify-content: flex-start;
-
-        .icon {
-          margin: 5%;
-          margin-top: -0.1em;
-          height: 1em;
-          width: auto;
-        }
-      }
+      align-items: flex-start;
     }
 
     .element-subactions,
@@ -670,28 +653,33 @@
         filter: none;
       }
     }
-
-    .conditions {
-      justify-content: flex-end;
-
-      .condition {
-        justify-content: flex-end;
-      }
-    }
   }
 
   .subactions {
-    flex-basis: 100%;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    .subaction-area {
+      margin-top: 0.3em;
+    }
   }
 
   &.fh {
 
     font-size: 125%;
+    
+    .action-default,
+    .action-custom,
+    .action-summon,
+    .action-trigger,
+    .action-specialTarget,
+    .action-condition,
+    .action-element {
+      flex-direction: row;
+    }
 
     ghs-action {
       flex-basis: 0;
@@ -784,7 +772,6 @@
 
     .element-actions {
       margin-top: 0.5em;
-      flex-basis: 100%;
       font-size: 80%;
 
       .action-element-consume {

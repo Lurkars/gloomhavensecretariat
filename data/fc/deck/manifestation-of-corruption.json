@@ -103,8 +103,25 @@
           "value": "fire"
         },
         {
-          "type": "card",
-          "value": "infinity|slot|slot|slot"
+          "type": "and",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "infinity"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            }
+          ]
         }
       ]
     },
@@ -239,9 +256,17 @@
           ]
         },
         {
-          "type": "condition",
-          "value": "wound|push:2",
+          "type": "and",
+          "value": 2,
           "subActions": [
+            {
+              "type": "condition",
+              "value": "wound"
+            },
+            {
+              "type": "push",
+              "value": 2
+            },
             {
               "type": "specialTarget",
               "value": "enemiesAdjacent"
@@ -416,8 +441,17 @@
           ]
         },
         {
-          "type": "element",
-          "value": "fire|dark"
+          "type": "and",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            },
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ]
         }
       ],
       "bottomActions": [
@@ -510,74 +544,84 @@
           "valueType": "minus"
         },
         {
-          "type": "element",
-          "value": "air",
-          "valueType": "minus",
+          "type": "grid",
           "subActions": [
             {
-              "type": "attack",
-              "value": 2,
+              "type": "element",
+              "value": "air",
               "valueType": "minus",
               "subActions": [
                 {
-                  "type": "range",
+                  "type": "attack",
                   "value": 2,
-                  "valueType": "plus"
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 2,
+                      "valueType": "plus"
+                    }
+                  ]
                 }
               ]
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "ice",
-          "valueType": "minus",
-          "subActions": [
+            },
             {
-              "type": "attack",
-              "value": 3,
+              "type": "element",
+              "value": "ice",
               "valueType": "minus",
               "subActions": [
                 {
-                  "type": "condition",
-                  "value": "stun"
+                  "type": "attack",
+                  "value": 3,
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "stun"
+                    }
+                  ]
                 }
               ]
             }
           ]
         },
         {
-          "type": "element",
-          "value": "earth",
-          "valueType": "minus",
+          "type": "grid",
           "subActions": [
             {
-              "type": "attack",
-              "value": 0,
-              "valueType": "plus",
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
               "subActions": [
                 {
-                  "type": "range",
+                  "type": "attack",
+                  "value": 0,
+                  "valueType": "plus",
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 2,
+                      "valueType": "minus"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
                   "value": 2,
-                  "valueType": "minus"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "light",
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "attack",
-              "value": 2,
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "specialTarget",
-                  "value": "enemiesAdjacent"
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "enemiesAdjacent"
+                    }
+                  ]
                 }
               ]
             }
@@ -590,64 +634,78 @@
           "value": 1
         },
         {
-          "type": "element",
-          "value": "earth",
-          "valueType": "minus",
+          "type": "grid",
           "subActions": [
             {
-              "type": "shield",
-              "value": 1,
-              "valueType": "plus"
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "ice",
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "shield",
-              "value": 1,
-              "valueType": "plus"
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "air",
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "retaliate",
-              "value": 2,
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
               "subActions": [
                 {
-                  "type": "range",
+                  "type": "shield",
                   "value": 1,
-                  "valueType": "minus"
+                  "valueType": "plus"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "shield",
+                  "value": 1,
+                  "valueType": "plus"
                 }
               ]
             }
           ]
         },
         {
-          "type": "element",
-          "value": "light",
-          "valueType": "minus",
+          "type": "grid",
           "subActions": [
             {
-              "type": "retaliate",
-              "value": 2,
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
               "subActions": [
                 {
-                  "type": "range",
-                  "value": 1,
-                  "valueType": "minus"
+                  "type": "retaliate",
+                  "value": 2,
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 1,
+                      "valueType": "minus"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "retaliate",
+                  "value": 2,
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 1,
+                      "valueType": "minus"
+                    }
+                  ]
                 }
               ]
             }
           ]
+        },
+        {
+          "type": "card",
+          "value": "round"
         }
       ]
     },
@@ -678,9 +736,12 @@
           "value": "%data.custom.fc.manifestation-of-corruption.4%"
         },
         {
-          "type": "element",
-          "value": "dark",
+          "type": "and",
           "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            },
             {
               "type": "card",
               "value": "round"
@@ -746,16 +807,24 @@
       "initiative": 49,
       "actions": [
         {
-          "type": "condition",
-          "value": "bless|strengthen",
+          "type": "and",
+          "value": 2,
           "subActions": [
-            {
-              "type": "specialTarget",
-              "value": "selfAlliesAffect"
-            },
             {
               "type": "area",
               "value": "(2,0,target)|(3,0,target)|(1,1,target)|(2,1,target)|(3,1,target)|(1,2,target)|(2,2,target)|(3,2,target)|(0,3,target)|(1,3,target)|(2,3,target)|(0,4,target)|(1,4,target)|(2,4,target)|(0,5,active)|(1,5,target)"
+            },
+            {
+              "type": "condition",
+              "value": "bless"
+            },
+            {
+              "type": "condition",
+              "value": "strengthen"
+            },
+            {
+              "type": "specialTarget",
+              "value": "selfAlliesAffect"
             },
             {
               "type": "element",
@@ -763,8 +832,17 @@
               "valueType": "minus",
               "subActions": [
                 {
-                  "type": "element",
-                  "value": "dark|fire"
+                  "type": "and",
+                  "subActions": [
+                    {
+                      "type": "element",
+                      "value": "dark"
+                    },
+                    {
+                      "type": "element",
+                      "value": "fire"
+                    }
+                  ]
                 }
               ]
             }
@@ -805,9 +883,17 @@
           ]
         },
         {
-          "type": "condition",
-          "value": "regenerate|strengthen",
+          "type": "and",
+          "value": 2,
           "subActions": [
+            {
+              "type": "condition",
+              "value": "regenerate"
+            },
+            {
+              "type": "condition",
+              "value": "strengthen"
+            },
             {
               "type": "specialTarget",
               "value": "selfAlliesAdjacentAffect"
@@ -826,8 +912,17 @@
               "valueType": "minus",
               "subActions": [
                 {
-                  "type": "element",
-                  "value": "dark|fire"
+                  "type": "and",
+                  "subActions": [
+                    {
+                      "type": "element",
+                      "value": "dark"
+                    },
+                    {
+                      "type": "element",
+                      "value": "fire"
+                    }
+                  ]
                 }
               ]
             }
@@ -953,9 +1048,16 @@
           "value": "%data.custom.fc.manifestation-of-corruption.19%"
         },
         {
-          "type": "element",
-          "value": "dark|fire",
+          "type": "and",
           "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            },
+            {
+              "type": "element",
+              "value": "fire"
+            },
             {
               "type": "card",
               "value": "infinity"
@@ -974,9 +1076,16 @@
           "value": "%data.custom.fc.manifestation-of-corruption.19%"
         },
         {
-          "type": "element",
-          "value": "dark|fire",
+          "type": "and",
           "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            },
+            {
+              "type": "element",
+              "value": "fire"
+            },
             {
               "type": "card",
               "value": "infinity"

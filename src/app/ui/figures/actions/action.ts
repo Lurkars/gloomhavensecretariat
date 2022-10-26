@@ -38,14 +38,14 @@ export class ActionComponent implements OnInit {
 
   hasAOE: boolean = false;
 
-  getNormalValue() {
+  getNormalValue(): number | string {
     if (this.monster && this.monster.boss) {
       return this.getValue(MonsterType.boss);
     }
     return this.getValue(MonsterType.normal);
   }
 
-  getEliteValue() {
+  getEliteValue(): number | string {
     if (this.monster && !this.monster.entities.some((monsterEntity) => monsterEntity.type == MonsterType.elite && !monsterEntity.dead)) {
       return this.getNormalValue();
     }
@@ -79,8 +79,8 @@ export class ActionComponent implements OnInit {
   }
 
   getValue(type: MonsterType): number | string {
-    const stat = this.getStat(type);
     if (settingsManager.settings.calculate && !this.relative) {
+      const stat = this.getStat(type);
       let statValue: number = 0;
       let sign: boolean = true;
       switch (this.action.type) {
@@ -148,7 +148,7 @@ export class ActionComponent implements OnInit {
     if (this.monster && settingsManager.settings.calculateStats) {
       const stat = gameManager.monsterManager.getStat(this.monster, this.monster.boss ? MonsterType.boss : MonsterType.normal);
       let eliteStat = this.monster.boss ? undefined : gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
-      if (this.action.type == ActionType.attack) {
+      if (this.action.type == ActionType.attack && this.action.valueType != ActionValueType.add && this.action.valueType != ActionValueType.subtract) {
         if (stat.range && (!this.subActions.some((subAction) => subAction.type == ActionType.range || subAction.type == ActionType.area && ("" + subAction.value).indexOf('active') != -1 || subAction.type == ActionType.specialTarget))) {
           const area = this.subActions.find((subAction) => subAction.type == ActionType.area);
           this.additionalSubActions.splice(area ? this.subActions.indexOf(area) + 1 : 0, 0, new Action(ActionType.range, 0, ActionValueType.plus));
@@ -190,6 +190,12 @@ export class ActionComponent implements OnInit {
           })
         }
       }
+
+      if (this.additionalSubActions.some((action, index, self) => action.type == ActionType.monsterType && index < self.length - 1 && self[index + 1].type == ActionType.monsterType)) {
+        const index = this.additionalSubActions.findIndex((action) => action.type == ActionType.monsterType);
+        this.additionalSubActions.splice(index, 2, new Action(ActionType.grid, "", ActionValueType.fixed, [this.additionalSubActions[index], this.additionalSubActions[index + 1]]));
+      }
+
     }
 
     this.hasAOE = this.additionalSubActions.some((subAction, index) => index == 0 && subAction.type == ActionType.area);

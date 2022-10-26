@@ -229,9 +229,33 @@
           "valueType": "plus"
         },
         {
-          "type": "element",
-          "value": "fire|ice|air|earth|light|dark",
-          "valueType": "plus"
+          "type": "and",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            },
+            {
+              "type": "element",
+              "value": "ice"
+            },
+            {
+              "type": "element",
+              "value": "air"
+            },
+            {
+              "type": "element",
+              "value": "earth"
+            },
+            {
+              "type": "element",
+              "value": "light"
+            },
+            {
+              "type": "element",
+              "value": "dark"
+            }
+          ]
         }
       ]
     },

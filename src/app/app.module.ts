@@ -70,6 +70,7 @@ import { EditionEditorComponent } from './ui/tools/editor/edition';
 import { HintDialogComponent } from './ui/footer/hint-dialog/hint-dialog';
 import { RulesDialogComponent } from './ui/footer/rules-dialog/rules-dialog';
 import { CharacterEditorComponent } from './ui/tools/editor/character/character';
+import { DecksToolComponent } from './ui/tools/decks/decks-tool';
 
 @NgModule({
   declarations: [
@@ -98,7 +99,7 @@ import { CharacterEditorComponent } from './ui/tools/editor/character/character'
     FigureErrorsComponent, FigureErrorsDialogComponent,
     CardRevealDirective, EntityAnimationDirective, I18nDirective, ValueCalcDirective, DragValueComponent, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
     GhsValueSignPipe, GhsLabelPipe, GhsRangePipe,
-    AttackModifierToolComponent,
+    AttackModifierToolComponent, DecksToolComponent,
     EditionEditorComponent,
     EditorActionComponent, EditorActionDialogComponent,
     CharacterEditorComponent,

@@ -225,8 +225,41 @@
           "value": "On the next six sources of damage from attacks targeting you, gain %game.action.shield%1."
         },
         {
-          "type": "card",
-          "value": "infinity|slot|slotXp:1|slot|slotXp:1|slot|slotXp:1|lost"
+          "type": "and",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "infinity"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotXp:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotXp:1"
+            },
+            {
+              "type": "card",
+              "value": "slot"
+            },
+            {
+              "type": "card",
+              "value": "slotXp:1"
+            },
+            {
+              "type": "card",
+              "value": "lost"
+            }
+          ]
         }
       ]
     },
@@ -445,8 +478,17 @@
           ]
         },
         {
-          "type": "card",
-          "value": "experience:2|round"
+          "type": "and",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "experience:2"
+            },
+            {
+              "type": "card",
+              "value": "round"
+            }
+          ]
         }
       ],
       "lost": true,
@@ -505,8 +547,29 @@
           "value": "On the next three sources of damage to you, suffer no damage instead."
         },
         {
-          "type": "card",
-          "value": "infinity|slotXp:1|slotXp:1|slotXp:1|lost"
+          "type": "and",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "infinity"
+            },
+            {
+              "type": "card",
+              "value": "slotXp:1"
+            },
+            {
+              "type": "card",
+              "value": "slotXp:1"
+            },
+            {
+              "type": "card",
+              "value": "slotXp:1"
+            },
+            {
+              "type": "card",
+              "value": "lost"
+            }
+          ]
         }
       ]
     },
@@ -847,8 +910,17 @@
           ]
         },
         {
-          "type": "card",
-          "value": "experience:2|infinity"
+          "type": "and",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "experience:2"
+            },
+            {
+              "type": "card",
+              "value": "infinity"
+            }
+          ]
         }
       ],
       "bottomLost": true
@@ -933,8 +1005,17 @@
           "value": "Add +3 %game.action.attack% to all your attacks targeting enemies with %game.condition.disarm%, %game.condition.immobilize%, or %game.condition.stun% this round."
         },
         {
-          "type": "card",
-          "value": "experience:1|round"
+          "type": "and",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "experience:1"
+            },
+            {
+              "type": "card",
+              "value": "round"
+            }
+          ]
         }
       ]
     },
@@ -970,8 +1051,17 @@
           ]
         },
         {
-          "type": "card",
-          "value": "experience:1|round"
+          "type": "and",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "experience:1"
+            },
+            {
+              "type": "card",
+              "value": "round"
+            }
+          ]
         }
       ]
     },

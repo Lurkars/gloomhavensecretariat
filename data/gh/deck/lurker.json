@@ -18,13 +18,11 @@
               "subActions": [
                 {
                   "type": "shield",
-                  "value": 2,
-                  "subActions": [
-                    {
-                      "type": "custom",
-                      "value": "game.custom.instead"
-                    }
-                  ]
+                  "value": 2
+                },
+                {
+                  "type": "custom",
+                  "value": "game.custom.instead"
                 }
               ]
             }

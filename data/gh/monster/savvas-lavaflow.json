@@ -71,7 +71,11 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison|wound"
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
         }
       ]
     },
@@ -83,7 +87,11 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison|wound"
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
         }
       ]
     },
@@ -95,7 +103,11 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison|wound"
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
         }
       ]
     },
@@ -128,7 +140,11 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison|wound"
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
         }
       ]
     },
@@ -141,7 +157,11 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison|wound"
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
         }
       ]
     },
@@ -154,7 +174,11 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison|wound"
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
         }
       ]
     },
@@ -167,7 +191,11 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison|wound"
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
         }
       ]
     },
@@ -180,7 +208,11 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison|wound"
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
         }
       ]
     },
@@ -193,7 +225,11 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison|wound"
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
         }
       ]
     }
