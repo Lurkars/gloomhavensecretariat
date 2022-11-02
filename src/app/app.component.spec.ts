@@ -66,6 +66,11 @@ import { HintDialogComponent } from './ui/footer/hint-dialog/hint-dialog';
 import { RulesDialogComponent } from './ui/footer/rules-dialog/rules-dialog';
 import { EditorActionComponent, EditorActionDialogComponent } from './ui/tools/editor/action/action';
 import { CharacterEditorComponent } from './ui/tools/editor/character/character';
+import { SettingsDebugMenuComponent } from './ui/header/menu/debug/debug';
+import { ActionSummonComponent } from './ui/figures/actions/summon/action-summon';
+import { DecksToolComponent } from './ui/tools/decks/decks-tool';
+import { EditionEditorComponent } from './ui/tools/editor/edition';
+import { DeckEditorComponent } from './ui/tools/editor/deck/deck';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -75,7 +80,7 @@ describe('AppComponent', () => {
         MainComponent,
         HeaderComponent, ElementIconComponent,
         PartySheetComponent, PartySheetDialogComponent,
-        MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent,
+        MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent,
         FooterComponent,
         AttackModifierComponent, AttackModifierEffectsComponent, HintDialogComponent, RulesDialogComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent,
         LevelComponent, LevelDialogComponent,
@@ -92,12 +97,14 @@ describe('AppComponent', () => {
         MonsterStatsComponent, MonsterStatsDialogComponent, MonsterLevelDialogComponent,
         MonsterNumberPicker, MonsterNumberPickerDialog,
         AbilityComponent, AbiltiesDialogComponent, AbilityDialogComponent,
-        ActionsComponent, ActionComponent, ActionHexComponent,
+        ActionsComponent, ActionComponent, ActionHexComponent, ActionSummonComponent,
         FigureErrorsComponent, FigureErrorsDialogComponent,
         CardRevealDirective, EntityAnimationDirective, I18nDirective, ValueCalcDirective, DragValueComponent, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
         GhsValueSignPipe, GhsLabelPipe, GhsRangePipe,
-        AttackModifierToolComponent, CharacterEditorComponent,
-        MonsterEditorComponent, EditorActionComponent, EditorActionDialogComponent],
+        AttackModifierToolComponent, DecksToolComponent,
+        EditionEditorComponent,
+        EditorActionComponent, EditorActionDialogComponent,
+        DeckEditorComponent, CharacterEditorComponent, MonsterEditorComponent],
       imports: [
         BrowserModule,
         AppRoutingModule,
