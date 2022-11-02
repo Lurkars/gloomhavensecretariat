@@ -3,7 +3,7 @@ import { AppComponent } from './app.component';
 import { CharacterComponent } from './ui/figures/character/character';
 import { ActionComponent } from './ui/figures/actions/action';
 import { ActionsComponent } from './ui/figures/actions/actions';
-import { ActionHexComponent } from './ui/figures/actions/action-hex';
+import { ActionHexComponent } from './ui/figures/actions/area/action-hex';
 import { MonsterAbilityCardComponent } from './ui/figures/monster/cards/ability-card';
 import { MonsterImageComponent } from './ui/figures/monster/cards/image';
 import { MonsterStatsComponent } from './ui/figures/monster/cards/stats';

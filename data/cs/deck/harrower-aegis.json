@@ -14,15 +14,18 @@
           "subActions": [
             {
               "type": "pierce",
-              "value": 2
+              "value": 2,
+              "small": true
             },
             {
               "type": "push",
-              "value": 2
+              "value": 2,
+              "small": true
             },
             {
               "type": "condition",
-              "value": "immobilize"
+              "value": "immobilize",
+              "small": true
             }
           ]
         },
@@ -32,7 +35,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         },
@@ -53,11 +57,13 @@
           "subActions": [
             {
               "type": "range",
-              "value": "2 %or% 3"
+              "value": "2 %or% 3",
+              "small": true
             },
             {
               "type": "specialTarget",
-              "value": "enemiesRangeAffect:3"
+              "value": "enemiesRangeAffect:3",
+              "small": true
             }
           ]
         },
@@ -67,7 +73,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesRange:3"
+              "value": "enemiesRange:3",
+              "small": true
             },
             {
               "type": "element",
@@ -95,15 +102,18 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.harrower-aegis.3%"
+              "value": "%data.custom.cs.harrower-aegis.3%",
+              "small": true
             },
             {
               "type": "pull",
-              "value": 2
+              "value": 2,
+              "small": true
             },
             {
               "type": "condition",
-              "value": "immobilize"
+              "value": "immobilize",
+              "small": true
             },
             {
               "type": "element",
@@ -112,7 +122,8 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.cs.harrower-aegis.4%"
+                  "value": "%data.custom.cs.harrower-aegis.4%",
+                  "small": true
                 }
               ]
             }
@@ -136,11 +147,13 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             },
             {
               "type": "target",
-              "value": 3
+              "value": 3,
+              "small": true
             },
             {
               "type": "element",
@@ -149,7 +162,8 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.cs.harrower-aegis.5%"
+                  "value": "%data.custom.cs.harrower-aegis.5%",
+                  "small": true
                 }
               ]
             }
@@ -179,12 +193,14 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "selfAlliesAdjacentAffect"
+              "value": "selfAlliesAdjacentAffect",
+              "small": true
             }
           ]
         },
         {
-          "type": "and",
+          "type": "concatenation",
+          "value": 0,
           "subActions": [
             {
               "type": "element",
@@ -205,7 +221,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.cs.harrower-aegis.6%"
+          "value": "%data.custom.cs.harrower-aegis.6%",
+          "small": true
         },
         {
           "type": "move",
@@ -219,7 +236,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "poison"
+              "value": "poison",
+              "small": true
             }
           ]
         },
@@ -229,7 +247,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         },
@@ -251,15 +270,18 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             },
             {
               "type": "target",
-              "value": 3
+              "value": 3,
+              "small": true
             },
             {
               "type": "custom",
-              "value": "%data.custom.cs.harrower-aegis.5%"
+              "value": "%data.custom.cs.harrower-aegis.5%",
+              "small": true
             }
           ]
         },
@@ -277,7 +299,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.cs.harrower-aegis.7%"
+          "value": "%data.custom.cs.harrower-aegis.7%",
+          "small": true
         },
         {
           "type": "move",
@@ -285,7 +308,8 @@
           "valueType": "plus",
           "subActions": [
             {
-              "type": "jump"
+              "type": "jump",
+              "small": true
             }
           ]
         },
@@ -296,16 +320,18 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.harrower-aegis.8%"
+              "value": "%data.custom.cs.harrower-aegis.8%",
+              "small": true
             },
             {
               "type": "elementHalf",
-              "value": "earth|fire",
+              "value": "earth:fire",
               "valueType": "minus",
               "subActions": [
                 {
                   "type": "condition",
-                  "value": "immobilize"
+                  "value": "immobilize",
+                  "small": true
                 }
               ]
             }

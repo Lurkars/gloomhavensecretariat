@@ -30,7 +30,8 @@
             "valueType": "plus",
             "subActions": [
               {
-                "type": "jump"
+                "type": "jump",
+                "small": true
               }
             ]
           },
@@ -81,7 +82,8 @@
             "valueType": "plus",
             "subActions": [
               {
-                "type": "jump"
+                "type": "jump",
+                "small": true
               }
             ]
           },
@@ -132,7 +134,8 @@
             "valueType": "plus",
             "subActions": [
               {
-                "type": "jump"
+                "type": "jump",
+                "small": true
               }
             ]
           },
@@ -183,7 +186,8 @@
             "valueType": "plus",
             "subActions": [
               {
-                "type": "jump"
+                "type": "jump",
+                "small": true
               }
             ]
           },
@@ -234,7 +238,8 @@
             "valueType": "plus",
             "subActions": [
               {
-                "type": "jump"
+                "type": "jump",
+                "small": true
               }
             ]
           },
@@ -285,7 +290,8 @@
             "valueType": "plus",
             "subActions": [
               {
-                "type": "jump"
+                "type": "jump",
+                "small": true
               }
             ]
           },
@@ -336,7 +342,8 @@
             "valueType": "plus",
             "subActions": [
               {
-                "type": "jump"
+                "type": "jump",
+                "small": true
               }
             ]
           },
@@ -387,7 +394,8 @@
             "valueType": "plus",
             "subActions": [
               {
-                "type": "jump"
+                "type": "jump",
+                "small": true
               }
             ]
           },

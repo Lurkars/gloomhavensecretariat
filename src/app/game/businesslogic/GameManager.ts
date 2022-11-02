@@ -63,7 +63,7 @@ export class GameManager {
   }
 
   editions(all: boolean = false): string[] {
-    return this.editionData.map((editionData) => editionData.edition).filter((edition) => settingsManager.settings.editions.indexOf(edition) != -1);
+    return this.editionData.map((editionData) => editionData.edition).filter((edition) => all || settingsManager.settings.editions.indexOf(edition) != -1);
   }
 
   currentEditions(): string[] {
@@ -143,7 +143,15 @@ export class GameManager {
   }
 
   markers(): string[] {
-    return this.game.figures.filter((figure) => figure instanceof Character && figure.marker).map((figure) => (figure as Character).edition + '-' + figure.name);
+    return this.game.figures.filter((figure) => figure instanceof Character && (figure.marker || this.game.state == GameState.next && figure.active)).map((figure) => figure as Character).sort((a, b) => {
+      if (a.marker && !b.marker) {
+        return -1;
+      } else if (!a.marker && b.marker) {
+        return 1;
+      }
+
+      return 0;
+    }).map((figure) => (figure as Character).edition + '-' + figure.name);
   }
 
   sortFigures() {
@@ -221,8 +229,8 @@ export class GameManager {
     return this.deckData(figure).abilities || [];
   }
 
-  getCharacterData(name: string, edition: string): CharacterData {
-    let characterData = this.charactersData(true).find((value) => value.name == name && value.edition == edition);
+  getCharacterData(name: string, edition: string = ''): CharacterData {
+    let characterData = this.charactersData(true).find((value) => value.name == name && (!edition || value.edition == edition));
     if (!characterData) {
       characterData = this.charactersData(true).find((value) => value.name == name);
       if (!characterData) {

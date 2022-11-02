@@ -17,7 +17,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         },
@@ -34,7 +35,8 @@
                   "type": "specialTarget",
                   "value": "self"
                 }
-              ]
+              ],
+              "small": true
             }
           ]
         }
@@ -57,7 +59,8 @@
           "subActions": [
             {
               "type": "pull",
-              "value": 1
+              "value": 1,
+              "small": true
             }
           ]
         },
@@ -84,7 +87,8 @@
           "subActions": [
             {
               "type": "pull",
-              "value": 1
+              "value": 1,
+              "small": true
             }
           ]
         },
@@ -110,7 +114,8 @@
           "subActions": [
             {
               "type": "target",
-              "value": 2
+              "value": 2,
+              "small": true
             },
             {
               "type": "element",
@@ -119,7 +124,8 @@
               "subActions": [
                 {
                   "type": "push",
-                  "value": 2
+                  "value": 2,
+                  "small": true
                 }
               ]
             }
@@ -159,7 +165,8 @@
                       "type": "area",
                       "value": "(1,0,target)|(2,0,target)|(0,1,active)|(1,1,target)|(2,1,target)|(1,2,target)|(2,2,target)"
                     }
-                  ]
+                  ],
+                  "small": true
                 }
               ]
             }
@@ -188,7 +195,8 @@
               "subActions": [
                 {
                   "type": "target",
-                  "value": 2
+                  "value": 2,
+                  "small": true
                 }
               ]
             }
@@ -206,7 +214,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         },
@@ -223,7 +232,8 @@
                 {
                   "type": "range",
                   "value": 2,
-                  "valueType": "subtract"
+                  "valueType": "subtract",
+                  "small": true
                 }
               ]
             }

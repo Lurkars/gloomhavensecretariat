@@ -14,7 +14,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         },
@@ -25,7 +26,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 2
+              "value": 2,
+              "small": true
             }
           ]
         }
@@ -48,7 +50,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 4
+              "value": 4,
+              "small": true
             }
           ]
         }
@@ -66,11 +69,13 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             },
             {
               "type": "target",
-              "value": 2
+              "value": 2,
+              "small": true
             }
           ]
         }
@@ -110,7 +115,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         }
@@ -133,7 +139,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "disarm"
+              "value": "disarm",
+              "small": true
             }
           ]
         }
@@ -156,11 +163,13 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             },
             {
               "type": "condition",
-              "value": "wound"
+              "value": "wound",
+              "small": true
             }
           ]
         }
@@ -178,13 +187,15 @@
           "subActions": [
             {
               "type": "range",
-              "value": 4
+              "value": 4,
+              "small": true
             }
           ]
         },
         {
           "type": "custom",
-          "value": "%data.custom.jotl.vermling-raider.1%"
+          "value": "%data.custom.jotl.vermling-raider.1%",
+          "small": true
         }
       ]
     }

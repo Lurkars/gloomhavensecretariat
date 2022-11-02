@@ -24,6 +24,7 @@
               "type": "attack",
               "value": 5,
               "valueType": "plus",
+              "small": true,
               "subActions": [
                 {
                   "type": "area",
@@ -57,6 +58,7 @@
               "type": "attack",
               "value": 5,
               "valueType": "plus",
+              "small": true,
               "subActions": [
                 {
                   "type": "area",
@@ -120,7 +122,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         }
@@ -133,11 +136,12 @@
       "actions": [
         {
           "type": "summon",
-          "value": "%data.monster.living-spirit%"
+          "value": "living-spirit"
         },
         {
           "type": "custom",
-          "value": "%data.custom.cs.the-cultist.1%"
+          "value": "%data.custom.cs.the-cultist.1%",
+          "small": true
         }
       ]
     },
@@ -148,11 +152,12 @@
       "actions": [
         {
           "type": "summon",
-          "value": "%data.monster.living-spirit%"
+          "value": "living-spirit"
         },
         {
           "type": "custom",
-          "value": "%data.custom.cs.the-cultist.1%"
+          "value": "%data.custom.cs.the-cultist.1%",
+          "small": true
         }
       ]
     },
@@ -171,7 +176,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         }

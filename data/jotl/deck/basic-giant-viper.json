@@ -13,7 +13,8 @@
           "valueType": "plus",
           "subActions": [
             {
-              "type": "jump"
+              "type": "jump",
+              "small": true
             }
           ]
         },
@@ -24,7 +25,8 @@
           "subActions": [
             {
               "type": "target",
-              "value": 2
+              "value": 2,
+              "small": true
             }
           ]
         }
@@ -41,7 +43,8 @@
           "valueType": "plus",
           "subActions": [
             {
-              "type": "jump"
+              "type": "jump",
+              "small": true
             }
           ]
         },
@@ -52,7 +55,8 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.jotl.giant-viper.1%"
+          "value": "%data.custom.jotl.giant-viper.1%",
+          "small": true
         }
       ]
     },
@@ -73,7 +77,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "immobilize"
+              "value": "immobilize",
+              "small": true
             }
           ]
         }
@@ -91,7 +96,8 @@
           "valueType": "plus",
           "subActions": [
             {
-              "type": "jump"
+              "type": "jump",
+              "small": true
             }
           ]
         },
@@ -102,7 +108,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         }

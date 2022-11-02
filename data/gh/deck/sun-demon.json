@@ -13,7 +13,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             },
             {
               "type": "element",
@@ -22,7 +23,8 @@
               "subActions": [
                 {
                   "type": "specialTarget",
-                  "value": "alliesRange:"
+                  "value": "alliesRange:",
+                  "small": true
                 }
               ]
             }
@@ -46,7 +48,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         },
@@ -72,7 +75,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         },
@@ -128,7 +132,8 @@
               "subActions": [
                 {
                   "type": "specialTarget",
-                  "value": "self"
+                  "value": "self",
+                  "small": true
                 }
               ]
             }
@@ -161,7 +166,8 @@
               "subActions": [
                 {
                   "type": "specialTarget",
-                  "value": "enemiesRange:"
+                  "value": "enemiesRange:",
+                  "small": true
                 }
               ]
             }
@@ -185,7 +191,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         },
@@ -202,7 +209,8 @@
                   "type": "specialTarget",
                   "value": "self"
                 }
-              ]
+              ],
+              "small": true
             }
           ]
         }
@@ -224,7 +232,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         },

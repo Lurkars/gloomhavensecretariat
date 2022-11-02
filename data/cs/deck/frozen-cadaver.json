@@ -18,7 +18,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.frozen-cadaver.1%"
+              "value": "%data.custom.cs.frozen-cadaver.1%",
+              "small": true
             }
           ]
         }
@@ -36,7 +37,8 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.cs.frozen-cadaver.2%"
+          "value": "%data.custom.cs.frozen-cadaver.2%",
+          "small": true
         }
       ]
     },
@@ -71,7 +73,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "chill"
+              "value": "chill",
+              "small": true
             }
           ]
         },
@@ -97,7 +100,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.frozen-cadaver.3%"
+              "value": "%data.custom.cs.frozen-cadaver.3%",
+              "small": true
             }
           ]
         }
@@ -119,7 +123,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.frozen-cadaver.3%"
+              "value": "%data.custom.cs.frozen-cadaver.3%",
+              "small": true
             }
           ]
         }
@@ -145,7 +150,8 @@
               "subActions": [
                 {
                   "type": "specialTarget",
-                  "value": "self"
+                  "value": "self",
+                  "small": true
                 }
               ]
             }
@@ -167,7 +173,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemyAdjacent"
+              "value": "enemyAdjacent",
+              "small": true
             }
           ]
         }

@@ -42,7 +42,7 @@ export class AbilityComponent {
     let label = ability.name || "";
     if (this.monster) {
       label = 'data.monster.' + this.monster.name;
-      if (ability?.name) {
+      if (ability.name) {
         label = 'data.ability.' + ability.name;
       } else if (this.monster.deck != this.monster.name) {
         label = 'data.deck.' + this.monster.deck;

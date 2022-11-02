@@ -45,11 +45,13 @@
           "subActions": [
             {
               "type": "target",
-              "value": 2
+              "value": 2,
+              "small": true
             },
             {
               "type": "condition",
-              "value": "poison"
+              "value": "poison",
+              "small": true
             }
           ]
         }
@@ -71,7 +73,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 1
+              "value": 1,
+              "small": true
             }
           ]
         }
@@ -84,11 +87,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.ooze.1%"
+          "value": "%data.custom.gh.ooze.1%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%data.custom.gh.ooze.2%"
+          "value": "%data.custom.gh.ooze.2%",
+          "small": true
         }
       ]
     },
@@ -99,11 +104,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.gh.ooze.1%"
+          "value": "%data.custom.gh.ooze.1%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%data.custom.gh.ooze.2%"
+          "value": "%data.custom.gh.ooze.2%",
+          "small": true
         }
       ]
     },
@@ -126,7 +133,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         }
@@ -137,7 +145,7 @@
       "initiative": 85,
       "actions": [
         {
-          "type": "and",
+          "type": "concatenation",
           "value": 2,
           "subActions": [
             {
@@ -150,7 +158,8 @@
             },
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         },
@@ -162,7 +171,8 @@
             {
               "type": "range",
               "value": 1,
-              "valueType": "minus"
+              "valueType": "minus",
+              "small": true
             }
           ]
         }

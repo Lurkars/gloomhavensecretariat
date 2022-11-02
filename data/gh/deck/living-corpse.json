@@ -12,8 +12,8 @@
           "valueType": "plus"
         },
         {
-          "type": "and",
-          "value": 2,
+          "type": "concatenation",
+          "value": "and:2",
           "subActions": [
             {
               "type": "condition",
@@ -25,7 +25,8 @@
             },
             {
               "type": "specialTarget",
-              "value": "enemyAdjacent"
+              "value": "enemyAdjacent",
+              "small": true
             }
           ]
         }
@@ -108,7 +109,8 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.gh.living-corpse.1%"
+          "value": "%data.custom.gh.living-corpse.1%",
+          "small": true
         }
       ]
     },
@@ -132,7 +134,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         }
@@ -149,13 +152,15 @@
           "subActions": [
             {
               "type": "push",
-              "value": 1
+              "value": 1,
+              "small": true
             }
           ]
         },
         {
           "type": "custom",
-          "value": "%data.custom.gh.living-corpse.1%"
+          "value": "%data.custom.gh.living-corpse.1%",
+          "small": true
         }
       ]
     }

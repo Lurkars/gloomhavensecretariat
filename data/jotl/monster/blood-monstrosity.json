@@ -8,7 +8,8 @@
     "actions": [
       {
         "type": "custom",
-        "value": "%data.custom.jotl.blood-monstrosity.1%"
+        "value": "%data.custom.jotl.blood-monstrosity.1%",
+        "small": true
       }
     ],
     "immunities": [],
@@ -47,7 +48,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.blood-monstrosity.1%"
+          "value": "%data.custom.jotl.blood-monstrosity.1%",
+          "small": true
         },
         {
           "type": "shield",
@@ -63,7 +65,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.blood-monstrosity.1%"
+          "value": "%data.custom.jotl.blood-monstrosity.1%",
+          "small": true
         },
         {
           "type": "shield",
@@ -79,7 +82,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.blood-monstrosity.1%"
+          "value": "%data.custom.jotl.blood-monstrosity.1%",
+          "small": true
         },
         {
           "type": "shield",
@@ -95,7 +99,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.blood-monstrosity.1%"
+          "value": "%data.custom.jotl.blood-monstrosity.1%",
+          "small": true
         },
         {
           "type": "shield",
@@ -119,7 +124,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.blood-monstrosity.1%"
+          "value": "%data.custom.jotl.blood-monstrosity.1%",
+          "small": true
         },
         {
           "type": "shield",
@@ -136,7 +142,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.blood-monstrosity.1%"
+          "value": "%data.custom.jotl.blood-monstrosity.1%",
+          "small": true
         },
         {
           "type": "shield",
@@ -153,7 +160,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.blood-monstrosity.1%"
+          "value": "%data.custom.jotl.blood-monstrosity.1%",
+          "small": true
         },
         {
           "type": "shield",
@@ -170,7 +178,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.blood-monstrosity.1%"
+          "value": "%data.custom.jotl.blood-monstrosity.1%",
+          "small": true
         },
         {
           "type": "shield",
@@ -187,7 +196,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.blood-monstrosity.1%"
+          "value": "%data.custom.jotl.blood-monstrosity.1%",
+          "small": true
         },
         {
           "type": "shield",
@@ -204,7 +214,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.blood-monstrosity.1%"
+          "value": "%data.custom.jotl.blood-monstrosity.1%",
+          "small": true
         },
         {
           "type": "shield",
@@ -221,7 +232,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.blood-monstrosity.1%"
+          "value": "%data.custom.jotl.blood-monstrosity.1%",
+          "small": true
         },
         {
           "type": "shield",

@@ -18,7 +18,8 @@
           "subActions": [
             {
               "type": "target",
-              "value": 2
+              "value": 2,
+              "small": true
             }
           ]
         }
@@ -40,7 +41,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "poison"
+              "value": "poison",
+              "small": true
             }
           ]
         },
@@ -70,7 +72,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         }
@@ -87,7 +90,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "immobilize"
+              "value": "immobilize",
+              "small": true
             }
           ]
         },
@@ -112,7 +116,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         }
@@ -143,7 +148,8 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.gh.harrower-infester.1%"
+                  "value": "%data.custom.gh.harrower-infester.1%",
+                  "small": true
                 }
               ]
             }
@@ -167,7 +173,8 @@
           "subActions": [
             {
               "type": "target",
-              "value": 2
+              "value": 2,
+              "small": true
             },
             {
               "type": "element",
@@ -177,11 +184,13 @@
                 {
                   "type": "attack",
                   "value": 2,
-                  "valueType": "add"
+                  "valueType": "add",
+                  "small": true
                 },
                 {
                   "type": "condition",
-                  "value": "disarm"
+                  "value": "disarm",
+                  "small": true
                 }
               ]
             }
@@ -201,11 +210,13 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             },
             {
               "type": "condition",
-              "value": "muddle"
+              "value": "muddle",
+              "small": true
             }
           ]
         },
@@ -215,7 +226,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         }

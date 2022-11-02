@@ -50,7 +50,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemyOneAll"
+              "value": "enemyOneAll",
+              "small": true
             }
           ]
         }
@@ -93,7 +94,8 @@
             },
             {
               "type": "pierce",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         }
@@ -115,7 +117,8 @@
             },
             {
               "type": "pierce",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         }
@@ -132,7 +135,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         },
@@ -143,11 +147,13 @@
           "subActions": [
             {
               "type": "range",
-              "value": 4
+              "value": 4,
+              "small": true
             },
             {
               "type": "condition",
-              "value": "wound"
+              "value": "wound",
+              "small": true
             }
           ]
         }
@@ -158,8 +164,8 @@
       "initiative": 54,
       "actions": [
         {
-          "type": "and",
-          "value": 2,
+          "type": "concatenation",
+          "value": "and:2",
           "subActions": [
             {
               "type": "condition",
@@ -171,7 +177,8 @@
             },
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         },
@@ -182,7 +189,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 4
+              "value": 4,
+              "small": true
             }
           ]
         }

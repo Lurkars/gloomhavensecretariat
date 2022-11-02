@@ -1,0 +1,1870 @@
+{
+  "name": "mindthief",
+  "edition": "gh",
+  "character": true,
+  "abilities": [
+    {
+      "name": "Submissive Affliction",
+      "cardId": 146,
+      "level": 1,
+      "initiative": 48,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "small": false,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Add +1 %game.action.attack% for each negative condition on the target",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "experience:1",
+          "small": false
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "Force one enemy within %game.action.range% 5 to perform",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 0,
+                  "valueType": "plus",
+                  "small": false
+                }
+              ],
+              "small": false
+            },
+            {
+              "type": "custom",
+              "value": "targeting another enemy with you controlling the action.",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Info the Night",
+      "cardId": 147,
+      "level": 1,
+      "initiative": 14,
+      "actions": [
+        {
+          "type": "loot",
+          "value": 1,
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "small": false
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "condition",
+          "value": "invisible",
+          "small": false,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fearsome Blade",
+      "cardId": 148,
+      "level": 1,
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "push",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "experience:1"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4
+        },
+        {
+          "type": "attack",
+          "value": 2
+        },
+        {
+          "type": "card",
+          "value": "experience:2"
+        }
+      ],
+      "bottomLost": true
+    },
+    {
+      "name": "Feedback Loop",
+      "cardId": 149,
+      "level": 1,
+      "initiative": 79,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.gh.mindthief.augment%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "On your melee attacks:"
+                },
+                {
+                  "type": "custom",
+                  "value": "Gain %game.action.shield% 1"
+                },
+                {
+                  "type": "card",
+                  "value": "infinity"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "experience:1"
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "infinity"
+            },
+            {
+              "type": "custom",
+              "value": "When another %data.custom.gh.mindthief.augment% is played, discard this card.",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "If you end the movement in the same hex you started in, perform",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "muddle"
+            },
+            {
+              "type": "specialTarget",
+              "value": "enemiesMovedThrough",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gnawing Horde",
+      "cardId": 150,
+      "level": 1,
+      "initiative": 82,
+      "actions": [
+        {
+          "type": "summon",
+          "value": "{\"name\":\"Rat Swarm\",\"health\":6,\"movement\":1,\"attack\":2,\"action\":{\"type\":\"condition\",\"value\":\"poison\"}}",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "experience:2"
+            },
+            {
+              "type": "card",
+              "value": "infinity"
+            }
+          ]
+        }
+      ],
+      "lost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "name": "The Mind's Weakness",
+      "cardId": 151,
+      "level": 1,
+      "initiative": 0,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.gh.mindthief.augment%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "On your melee attacks:"
+                },
+                {
+                  "type": "custom",
+                  "value": "Add +2 %game.action.attack%"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "experience:1"
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "infinity"
+            },
+            {
+              "type": "custom",
+              "value": "When another %data.custom.gh.mindthief.augment% is played, discard this card.",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "small": false,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Parasitic Influence",
+      "cardId": 152,
+      "level": 1,
+      "initiative": 71,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.gh.mindthief.augment%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "On your melee attacks:"
+                },
+                {
+                  "type": "heal",
+                  "value": 2,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "experience:1"
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "infinity"
+            },
+            {
+              "type": "custom",
+              "value": "When another %data.custom.gh.mindthief.augment% is played, discard this card.",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "Force one enemy within %game.action.range% 4 to perform",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 1,
+              "small": false
+            },
+            {
+              "type": "custom",
+              "value": "with you controlling the action.",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Scurry",
+      "cardId": 153,
+      "level": 1,
+      "initiative": 20,
+      "actions": [
+        {
+          "type": "move",
+          "value": 3,
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "small": false
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "loot",
+          "value": 2,
+          "small": false
+        },
+        {
+          "type": "card",
+          "value": "experience:1",
+          "small": false
+        }
+      ],
+      "bottomLost": true
+    },
+    {
+      "name": "Perverse Edge",
+      "cardId": 154,
+      "level": 1,
+      "initiative": 8,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "small": false,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Add +2 %game.action.attack% and gain %game.card.experience:1% for each negative condition on the target.",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "lost": true,
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "small": false,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": false
+            },
+            {
+              "type": "condition",
+              "value": "stun",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "small": false,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice",
+              "small": false
+            },
+            {
+              "type": "card",
+              "value": "experience:1",
+              "small": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Empathetic Assault",
+      "cardId": 155,
+      "level": 1,
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "disarm",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            },
+            {
+              "type": "card",
+              "value": "experience:2"
+            }
+          ]
+        }
+      ],
+      "lost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Withering Claw",
+      "cardId": 156,
+      "level": 1,
+      "initiative": 77,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.gh.mindthief.augment%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "On your melee attacks:"
+                },
+                {
+                  "type": "concatenation",
+                  "value": "and",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "muddle",
+                      "small": false
+                    },
+                    {
+                      "type": "condition",
+                      "value": "poison",
+                      "small": false
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1
+            },
+            {
+              "type": "card",
+              "value": "experience:1"
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "infinity"
+            },
+            {
+              "type": "custom",
+              "value": "When another %data.custom.gh.mindthief.augment% is played, discard this card.",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "condition",
+          "value": "immobilize",
+          "small": false,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemyAdjacent",
+              "small": false
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 3,
+          "small": false
+        }
+      ]
+    },
+    {
+      "name": "Possesion",
+      "cardId": 157,
+      "level": "X",
+      "initiative": 51,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "One adjacent ally may perform",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 6,
+              "small": false
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "experience:2",
+          "small": false
+        }
+      ],
+      "lost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "One ally within %game.action.range% 3 may perform",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 4,
+              "small": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Frigid Apparition",
+      "cardId": 158,
+      "level": "X",
+      "initiative": 29,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "small": false,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "stun",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": false
+                    }
+                  ],
+                  "small": false
+                }
+              ],
+              "small": false
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "small": false
+        },
+        {
+          "type": "condition",
+          "value": "stun",
+          "small": false,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemyAdjacent",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "experience:1",
+          "small": false
+        }
+      ],
+      "bottomLost": true
+    },
+    {
+      "name": "Wretched Creature",
+      "cardId": 159,
+      "level": 2,
+      "initiative": 84,
+      "actions": [
+        {
+          "type": "summon",
+          "value": "{\"name\":\"Monstrous Rat\",\"health\":\"4\",\"attack\":\"3\",\"movement\":\"3\",\"count\":1}",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "small": false,
+          "subActions": [
+            {
+              "type": "card",
+              "value": "experience:2",
+              "small": false
+            },
+            {
+              "type": "card",
+              "value": "infinity",
+              "small": false
+            }
+          ]
+        }
+      ],
+      "lost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "small": false,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "curse",
+              "small": true
+            },
+            {
+              "type": "specialTarget",
+              "value": "enemyAdjacent",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Hostile Takeover",
+      "cardId": 160,
+      "level": 2,
+      "initiative": 9,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "small": false,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "small": false,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice",
+              "small": false
+            },
+            {
+              "type": "card",
+              "value": "experience:1",
+              "small": false
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "Force one normal or elite enemy within %game.action.range% 3 to perform its turn this round as if its allies were enemies and its enemies were allies.",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "To signify this, place one of your character tokens on this enemy for the round.",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "small": false,
+          "subActions": [
+            {
+              "type": "card",
+              "value": "experience:2",
+              "small": false
+            },
+            {
+              "type": "card",
+              "value": "round",
+              "small": false
+            }
+          ]
+        }
+      ],
+      "bottomLost": true
+    },
+    {
+      "name": "Brain Leech",
+      "cardId": 161,
+      "level": 3,
+      "initiative": 16,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark"
+            },
+            {
+              "type": "card",
+              "value": "experience:2"
+            }
+          ]
+        }
+      ],
+      "lost": true,
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 1
+        },
+        {
+          "type": "condition",
+          "value": "strengthen",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Silent Scream",
+      "cardId": 162,
+      "level": 3,
+      "initiative": 73,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.gh.mindthief.augment%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "On your melee attacks:"
+                },
+                {
+                  "type": "heal",
+                  "value": 2,
+                  "subActions": [
+                    {
+                      "type": "range",
+                      "value": 2,
+                      "small": false
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2
+            },
+            {
+              "type": "card",
+              "value": "experience:1"
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "infinity"
+            },
+            {
+              "type": "custom",
+              "value": "When another %data.custom.gh.mindthief.augment% is played, discard this card.",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3,
+          "small": false
+        },
+        {
+          "type": "push",
+          "value": 2,
+          "small": false,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "push",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1",
+                      "small": false
+                    }
+                  ],
+                  "small": false
+                }
+              ],
+              "small": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pilfer",
+      "cardId": 163,
+      "level": 4,
+      "initiative": 68,
+      "actions": [
+        {
+          "type": "loot",
+          "value": 1,
+          "small": false,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Gain one additional money token from the supply for each adjacent enemy.",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "small": false
+        },
+        {
+          "type": "move",
+          "value": 3,
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "small": false
+        },
+        {
+          "type": "card",
+          "value": "experience:2",
+          "small": false
+        }
+      ],
+      "bottomLost": true
+    },
+    {
+      "name": "Cranium Overload",
+      "cardId": 164,
+      "level": 4,
+      "initiative": 5,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Kill one normal enemy withing %game.action.range% 4.",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Target all enemies adjacent to the killed target",
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "Gain %game.card.experience:1% for each enemy targeted with this attack.",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "lost": true,
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "name": "Mass Hysteria",
+      "cardId": 165,
+      "level": 5,
+      "initiative": 12,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "small": false,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "target",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "small": false,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice",
+              "small": false
+            },
+            {
+              "type": "card",
+              "value": "experience:1",
+              "small": false
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "You may have two %data.custom.gh.mindthief.augments% active at once.",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "If a third %data.custom.gh.mindthief.augment% is played, discard one of the others.",
+          "small": true
+        },
+        {
+          "type": "card",
+          "value": "infinity",
+          "small": false
+        }
+      ],
+      "bottomLost": true
+    },
+    {
+      "name": "Frozen Mind",
+      "cardId": 166,
+      "level": 5,
+      "initiative": 81,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.gh.mindthief.augment%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "On your melee attacks:"
+                },
+                {
+                  "type": "element",
+                  "value": "ice",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "stun",
+                      "small": false
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2
+            },
+            {
+              "type": "card",
+              "value": "experience:2"
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "infinity"
+            },
+            {
+              "type": "custom",
+              "value": "When another %data.custom.gh.mindthief.augment% is played, discard this card.",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "Force on enemy within %game.action.range% 5 to perform",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "small": false
+            },
+            {
+              "type": "custom",
+              "value": "with you controlling the action.",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Corrupting Embrace",
+      "cardId": 167,
+      "level": 6,
+      "initiative": 39,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "jump",
+              "value": "",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "poison",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesMovedThrough",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dark Frenzy",
+      "cardId": 168,
+      "level": 6,
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 2,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 2,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "card",
+                      "value": "experience:1"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice"
+            },
+            {
+              "type": "card",
+              "value": "experience:1"
+            }
+          ]
+        }
+      ],
+      "revealed": true
+    },
+    {
+      "name": "Vicious Blood",
+      "cardId": 169,
+      "level": 7,
+      "initiative": 83,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.gh.mindthief.augment%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "On your melee attacks:"
+                },
+                {
+                  "type": "custom",
+                  "value": "Gain",
+                  "subActions": [
+                    {
+                      "type": "retaliate",
+                      "value": 2,
+                      "small": false
+                    }
+                  ],
+                  "small": false
+                },
+                {
+                  "type": "card",
+                  "value": "round",
+                  "small": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2
+            },
+            {
+              "type": "card",
+              "value": "experience:1"
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "infinity"
+            },
+            {
+              "type": "custom",
+              "value": "When another %data.custom.gh.mindthief.augment% is played, discard this card.",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "small": false
+        }
+      ]
+    },
+    {
+      "name": "Psychic Projection",
+      "cardId": 170,
+      "level": 7,
+      "initiative": 92,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 5,
+          "small": false,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "small": false,
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ],
+              "small": false
+            },
+            {
+              "type": "card",
+              "value": "round",
+              "small": false
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "stun",
+          "small": false,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": false
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "All your ranged attacks gain the effects of your %data.custom.gh.mindthief.augments% this round.",
+          "small": true
+        },
+        {
+          "type": "card",
+          "value": "round",
+          "small": false
+        }
+      ],
+      "bottomLost": true
+    },
+    {
+      "name": "Shared Nightmare",
+      "cardId": 171,
+      "level": 8,
+      "initiative": 7,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 3,
+          "small": false,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "target",
+              "value": 2,
+              "small": false
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "concatenation",
+                  "value": ",",
+                  "subActions": [
+                    {
+                      "type": "condition",
+                      "value": "poison",
+                      "small": false
+                    },
+                    {
+                      "type": "condition",
+                      "value": "curse",
+                      "small": false
+                    }
+                  ],
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "small": false,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice",
+              "small": false
+            },
+            {
+              "type": "card",
+              "value": "experience:1",
+              "small": false
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 5,
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
+          "small": false,
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "shield",
+                  "value": 1,
+                  "subActions": [
+                    {
+                      "type": "specialTarget",
+                      "value": "self",
+                      "small": true
+                    }
+                  ],
+                  "small": true
+                },
+                {
+                  "type": "card",
+                  "value": "experience:1",
+                  "small": false
+                },
+                {
+                  "type": "card",
+                  "value": "round",
+                  "small": false
+                }
+              ],
+              "small": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Domination",
+      "cardId": 172,
+      "level": 8,
+      "initiative": 13,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "One adjacent ally may perform",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 4
+            },
+            {
+              "type": "custom",
+              "value": "This attack gains the effects of your %custom.augments%.",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "card",
+          "value": "experience:1"
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "Force one normal or elite enemy within %game.action.range% 5 to perfom its turn this round as if its allies were enemies and its enemies were allies, with you controlling the actions.<br><br>To signify this, place one of your character tokens on this enemy for the round.",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "experience:2"
+            },
+            {
+              "type": "card",
+              "value": "round"
+            }
+          ]
+        }
+      ],
+      "bottomLost": true
+    },
+    {
+      "name": "Many as One",
+      "cardId": 173,
+      "level": 9,
+      "initiative": 91,
+      "actions": [
+        {
+          "type": "summon",
+          "value": "{\"name\":\"Rat King\",\"health\":\"9\",\"attack\":\"X\",\"movement\":\"2\",\"action\":{\"type\":\"custom\",\"value\":\"X is half the rat's current hit point value (rounded up).\",\"small\":true},\"count\":1}",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "small": false,
+          "subActions": [
+            {
+              "type": "card",
+              "value": "experience:2",
+              "small": false
+            },
+            {
+              "type": "card",
+              "value": "infinity",
+              "small": false
+            }
+          ]
+        }
+      ],
+      "lost": true,
+      "bottomActions": [
+        {
+          "type": "custom",
+          "value": "All allies withing %game.action.range% 2 add +X %game.action.attack% to all their attacks this round, where X is the number of your allies within %game.action.range% 2 of you.",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "small": false,
+          "subActions": [
+            {
+              "type": "card",
+              "value": "experience:2",
+              "small": false
+            },
+            {
+              "type": "card",
+              "value": "round",
+              "small": false
+            }
+          ]
+        }
+      ],
+      "bottomLost": true
+    },
+    {
+      "name": "Phantasmal Killer",
+      "cardId": 174,
+      "level": 9,
+      "initiative": 67,
+      "actions": [
+        {
+          "type": "box",
+          "value": "%data.custom.gh.mindthief.augment%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "grid",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "On your melee attacks:"
+                },
+                {
+                  "type": "element",
+                  "value": "dark",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "Kill one normal target instead",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 2
+            },
+            {
+              "type": "card",
+              "value": "experience:2"
+            }
+          ]
+        },
+        {
+          "type": "grid",
+          "subActions": [
+            {
+              "type": "card",
+              "value": "infinity"
+            },
+            {
+              "type": "custom",
+              "value": "When another %data.custom.gh.mindthief.augment% is played, discard this card.",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "bottomActions": [
+        {
+          "type": "move",
+          "value": 2,
+          "small": false
+        },
+        {
+          "type": "loot",
+          "value": 1,
+          "small": false
+        },
+        {
+          "type": "condition",
+          "value": "invisible",
+          "small": false,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "small": false
+        }
+      ]
+    }
+  ],
+  "cardId": 150
+}

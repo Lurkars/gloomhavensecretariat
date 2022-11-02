@@ -38,7 +38,7 @@
         },
         {
           "type": "summon",
-          "value": "2 %data.monster.zephyrs%"
+          "value": "zephyrs:2"
         }
       ]
     ]

@@ -74,7 +74,7 @@
         position: absolute;
         width: calc(var(--ghs-unit) * 4);
         height: calc(var(--ghs-unit) * 4);
-        background-image: url('~src/assets/images/summons/minus.svg');
+        background-image: url('~/src/assets/images/summons/minus.svg');
         background-size: cover;
         z-index: 2;
       }
@@ -122,7 +122,7 @@
         top: calc(var(--ghs-unit) * -0.9 * var(--ghs-text-factor));
         width: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
         height: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
-        background-image: url('~src/assets/images/status/health.svg');
+        background-image: url('~/src/assets/images/status/health.svg');
         background-size: contain;
         background-repeat: no-repeat;
         transform: translateX(-50%);

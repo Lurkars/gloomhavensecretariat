@@ -159,6 +159,10 @@
         "living-corpse": {
           "1": "%data.monster.living-corpse% suffers 1 damage."
         },
+        "mindthief" : {
+          "augment" : "Augment %game.characterToken.mindthief%",
+          "augments" : "Augments %game.characterToken.mindthief%"
+        },
         "night-demon": {
           "1": "All adjacent enemies and allies suffer 1 damage."
         },
@@ -545,6 +549,10 @@
         "living-corpse": {
           "1": "%data.monster.living-corpse% erleidet 1 Schaden."
         },
+        "mindthief" : {
+          "augment" : "Erweiterung %game.characterToken.mindthief%",
+          "augments" : "Erweiterungen %game.characterToken.mindthief%"
+        },
         "night-demon": {
           "1": "Alle angrenzenden Verbündeten und Gegner erleiden 2 Schaden."
         },
@@ -836,6 +844,10 @@
         },
         "living-corpse": {
           "1": "Le %data.monster.living-corpse% subit 1 dégât."
+        },
+        "mindthief" : {
+          "augment" : "Augmentation %game.characterToken.mindthief%",
+          "augments" : "Augmente %game.characterToken.mindthief%"
         },
         "night-demon": {
           "1": "Tous les alliés et adversaires adjacents subissent 1 dégât."

@@ -34,7 +34,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "immobilize"
+              "value": "immobilize",
+              "small": true
             }
           ]
         }
@@ -52,7 +53,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "wound"
+              "value": "wound",
+              "small": true
             }
           ]
         }
@@ -112,7 +114,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "wound"
+              "value": "wound",
+              "small": true
             }
           ]
         }
@@ -134,7 +137,8 @@
           "subActions": [
             {
               "type": "target",
-              "value": 2
+              "value": 2,
+              "small": true
             }
           ]
         }
@@ -158,7 +162,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         }

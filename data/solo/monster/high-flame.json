@@ -8,7 +8,6 @@
   "count": 6,
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [],
     "special": []
   },
@@ -26,7 +25,7 @@
         },
         {
           "type": "range",
-          "value": "^2"
+          "value": 2
         },
         {
           "type": "shield",
@@ -47,7 +46,7 @@
         },
         {
           "type": "range",
-          "value": "^4"
+          "value": 4
         },
         {
           "type": "shield",
@@ -68,7 +67,7 @@
         },
         {
           "type": "range",
-          "value": "^4"
+          "value": 4
         },
         {
           "type": "shield",
@@ -89,7 +88,7 @@
         },
         {
           "type": "range",
-          "value": "^5"
+          "value": 5
         },
         {
           "type": "shield",
@@ -110,7 +109,7 @@
         },
         {
           "type": "range",
-          "value": "^5"
+          "value": 5
         },
         {
           "type": "shield",
@@ -131,7 +130,7 @@
         },
         {
           "type": "range",
-          "value": "^5"
+          "value": 5
         },
         {
           "type": "shield",
@@ -152,7 +151,7 @@
         },
         {
           "type": "range",
-          "value": "^5"
+          "value": 5
         },
         {
           "type": "shield",
@@ -173,7 +172,7 @@
         },
         {
           "type": "range",
-          "value": "^6"
+          "value": 6
         },
         {
           "type": "shield",

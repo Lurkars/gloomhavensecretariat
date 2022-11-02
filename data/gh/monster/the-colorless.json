@@ -6,7 +6,6 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [
       "wound",
       "poison",
@@ -23,7 +22,8 @@
           "subActions": [
             {
               "type": "summon",
-              "value": "%data.monster.night-demon%"
+              "value": "night-demon",
+              "small": true
             }
           ]
         },
@@ -33,7 +33,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         }
@@ -46,7 +47,8 @@
           "subActions": [
             {
               "type": "summon",
-              "value": "%data.monster.sun-demon%"
+              "value": "sun-demon",
+              "small": true
             }
           ]
         },
@@ -56,7 +58,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         },

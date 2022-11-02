@@ -12,7 +12,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         },
@@ -23,11 +24,13 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "wound"
+              "value": "wound",
+              "small": true
             },
             {
               "type": "custom",
-              "value": "%data.custom.fc.savage.1%"
+              "value": "%data.custom.fc.savage.1%",
+              "small": true
             }
           ]
         }
@@ -44,7 +47,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         },
@@ -54,11 +58,13 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "regenerate"
+              "value": "regenerate",
+              "small": true
             },
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         }
@@ -101,7 +107,8 @@
           "subActions": [
             {
               "type": "pierce",
-              "value": 2
+              "value": 2,
+              "small": true
             }
           ]
         }
@@ -123,7 +130,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         }
@@ -145,7 +153,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         }

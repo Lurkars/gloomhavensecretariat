@@ -18,7 +18,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "immobilize"
+              "value": "immobilize",
+              "small": true
             }
           ]
         }
@@ -39,7 +40,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         }
@@ -62,7 +64,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.hound.1%"
+              "value": "%data.custom.gh.hound.1%",
+              "small": true
             }
           ]
         }
@@ -85,7 +88,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.hound.1%"
+              "value": "%data.custom.gh.hound.1%",
+              "small": true
             }
           ]
         }
@@ -150,7 +154,8 @@
           "subActions": [
             {
               "type": "pierce",
-              "value": 2
+              "value": 2,
+              "small": true
             }
           ]
         },
@@ -166,7 +171,8 @@
           "subActions": [
             {
               "type": "pierce",
-              "value": 2
+              "value": 2,
+              "small": true
             }
           ]
         }

@@ -628,6 +628,7 @@
       "enemiesAdjacent": "Cible tous les ennemis adjacents",
       "enemiesRange": "Cible tous les ennemis à %game.action.range% {0}",
       "enemiesRangeAffect": "Affecte tous les ennemis à %game.action.range% {0}",
+      "enemiesMovedThrough": "Ciblez tous les ennemis déplacé",
       "figures": "Cible toutes les figurines",
       "figuresAdjacent": "Cible toutes les figures adjacentes",
       "figuresRange": "Cible toutes les figurine à %game.action.range% {0}",
@@ -749,7 +750,7 @@
     },
     "custom": {
       "advantage": "Avantage",
-      "ondeath": "Lors de la mort",
+      "ondeath": "Lors de la mort:",
       "instead": "À la place de",
       "disadvantage": "L'attaquant gagne désavantage",
       "math": {

@@ -46,7 +46,7 @@ export function ghsDefaultDialogPositions(defaultDirection: 'right' | 'left' | '
     // bottom right
     new ConnectionPositionPair(
       { originX: 'end', originY: 'bottom' },
-      { overlayX: 'start', overlayY: 'bottom' }, ghsUnit() * factor_x, ghsUnit() * factor_y) ];
+      { overlayX: 'start', overlayY: 'bottom' }, ghsUnit() * factor_x, ghsUnit() * factor_y)];
 
   const left = [
     // top left
@@ -62,7 +62,7 @@ export function ghsDefaultDialogPositions(defaultDirection: 'right' | 'left' | '
     // bottom left
     new ConnectionPositionPair(
       { originX: 'start', originY: 'bottom' },
-      { overlayX: 'end', overlayY: 'bottom' }, ghsUnit() * -factor_x, ghsUnit() * factor_y) ];
+      { overlayX: 'end', overlayY: 'bottom' }, ghsUnit() * -factor_x, ghsUnit() * factor_y)];
 
   const center = [
     // center top
@@ -78,15 +78,15 @@ export function ghsDefaultDialogPositions(defaultDirection: 'right' | 'left' | '
     // center bottom
     new ConnectionPositionPair(
       { originX: 'center', originY: 'top' },
-      { overlayX: 'center', overlayY: 'bottom' }, 0, ghsUnit() * -factor_y) ];
+      { overlayX: 'center', overlayY: 'bottom' }, 0, ghsUnit() * -factor_y)];
 
   switch (defaultDirection) {
     case 'right':
-      return [ ...right, ...left, ...center ];
+      return [...right, ...left, ...center];
     case 'left':
-      return [ ...left, ...right, ...center ];
+      return [...left, ...right, ...center];
     case 'center':
-      return [ ...center, ...left, ...right ];
+      return [...center, ...left, ...right];
   }
 
 }

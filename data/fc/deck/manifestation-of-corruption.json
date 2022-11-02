@@ -15,15 +15,18 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesRange:2"
+              "value": "enemiesRange:2",
+              "small": true
             },
             {
               "type": "condition",
-              "value": "curse"
+              "value": "curse",
+              "small": true
             },
             {
               "type": "condition",
-              "value": "muddle"
+              "value": "muddle",
+              "small": true
             }
           ]
         },
@@ -39,7 +42,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesRange:3"
+              "value": "enemiesRange:3",
+              "small": true
             }
           ]
         },
@@ -49,7 +53,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesRange:3"
+              "value": "enemiesRange:3",
+              "small": true
             }
           ]
         }
@@ -67,7 +72,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.fc.manifestation-of-corruption.12%"
+              "value": "%data.custom.fc.manifestation-of-corruption.12%",
+              "small": true
             }
           ]
         },
@@ -77,7 +83,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         },
@@ -88,7 +95,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.fc.manifestation-of-corruption.13%"
+              "value": "%data.custom.fc.manifestation-of-corruption.13%",
+              "small": true
             }
           ]
         }
@@ -96,14 +104,15 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.14%"
+          "value": "%data.custom.fc.manifestation-of-corruption.14%",
+          "small": true
         },
         {
           "type": "element",
           "value": "fire"
         },
         {
-          "type": "and",
+          "type": "concatenation",
           "subActions": [
             {
               "type": "card",
@@ -142,7 +151,8 @@
             },
             {
               "type": "condition",
-              "value": "wound"
+              "value": "wound",
+              "small": true
             }
           ]
         },
@@ -164,7 +174,8 @@
                 {
                   "type": "move",
                   "value": 2,
-                  "valueType": "add"
+                  "valueType": "add",
+                  "small": true
                 }
               ]
             }
@@ -176,7 +187,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         }
@@ -200,11 +212,13 @@
             {
               "type": "range",
               "value": 1,
-              "valueType": "minus"
+              "valueType": "minus",
+              "small": true
             },
             {
               "type": "condition",
-              "value": "poison"
+              "value": "poison",
+              "small": true
             }
           ]
         }
@@ -218,11 +232,13 @@
             {
               "type": "range",
               "value": 1,
-              "valueType": "plus"
+              "valueType": "plus",
+              "small": true
             },
             {
               "type": "condition",
-              "value": "poison"
+              "value": "poison",
+              "small": true
             },
             {
               "type": "element",
@@ -251,13 +267,14 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         },
         {
-          "type": "and",
-          "value": 2,
+          "type": "concatenation",
+          "value": "and:2",
           "subActions": [
             {
               "type": "condition",
@@ -269,7 +286,8 @@
             },
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         }
@@ -286,7 +304,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             },
             {
               "type": "element",
@@ -316,7 +335,8 @@
           "subActions": [
             {
               "type": "target",
-              "value": "C-1"
+              "value": "C-1",
+              "small": true
             },
             {
               "type": "element",
@@ -326,7 +346,8 @@
                 {
                   "type": "target",
                   "value": 2,
-                  "valueType": "add"
+                  "valueType": "add",
+                  "small": true
                 }
               ]
             }
@@ -361,7 +382,8 @@
             {
               "type": "range",
               "value": 1,
-              "valueType": "minus"
+              "valueType": "minus",
+              "small": true
             },
             {
               "type": "element",
@@ -371,7 +393,8 @@
                 {
                   "type": "retaliate",
                   "value": 1,
-                  "valueType": "plus"
+                  "valueType": "plus",
+                  "small": true
                 }
               ]
             }
@@ -396,7 +419,8 @@
                   "type": "specialTarget",
                   "value": "enemiesAdjacent"
                 }
-              ]
+              ],
+              "small": true
             }
           ]
         },
@@ -413,7 +437,8 @@
                   "type": "specialTarget",
                   "value": "enemiesAdjacent"
                 }
-              ]
+              ],
+              "small": true
             }
           ]
         }
@@ -432,16 +457,18 @@
             {
               "type": "range",
               "value": 0,
-              "valueType": "plus"
+              "valueType": "plus",
+              "small": true
             },
             {
               "type": "target",
-              "value": "C-1"
+              "value": "C-1",
+              "small": true
             }
           ]
         },
         {
-          "type": "and",
+          "type": "concatenation",
           "subActions": [
             {
               "type": "element",
@@ -457,7 +484,8 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%game.custom.disadvantage%"
+          "value": "%game.custom.disadvantage%",
+          "small": true
         },
         {
           "type": "element",
@@ -472,7 +500,8 @@
                   "type": "specialTarget",
                   "value": "enemiesRange:-1"
                 }
-              ]
+              ],
+              "small": true
             }
           ]
         }
@@ -491,7 +520,8 @@
           "subActions": [
             {
               "type": "pierce",
-              "value": 3
+              "value": 3,
+              "small": true
             },
             {
               "type": "element",
@@ -501,7 +531,8 @@
                 {
                   "type": "pierce",
                   "value": 2,
-                  "valueType": "add"
+                  "valueType": "add",
+                  "small": true
                 }
               ]
             },
@@ -516,17 +547,17 @@
         {
           "type": "custom",
           "value": "%data.custom.fc.manifestation-of-corruption.10%",
+          "small": true
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
           "subActions": [
             {
-              "type": "element",
-              "value": "dark",
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "custom",
-                  "value": "%data.custom.fc.manifestation-of-corruption.11%"
-                }
-              ]
+              "type": "custom",
+              "value": "%data.custom.fc.manifestation-of-corruption.11%",
+              "small": true
             }
           ]
         }
@@ -583,7 +614,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "small": true
         },
         {
           "type": "grid",
@@ -625,7 +657,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "small": true
         }
       ],
       "bottomActions": [
@@ -660,7 +693,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "small": true
         },
         {
           "type": "grid",
@@ -701,7 +735,8 @@
                 }
               ]
             }
-          ]
+          ],
+          "small": true
         },
         {
           "type": "card",
@@ -718,10 +753,12 @@
         {
           "type": "custom",
           "value": "%data.custom.fc.manifestation-of-corruption.2%",
+          "small": true,
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.fc.manifestation-of-corruption.3%"
+              "value": "%data.custom.fc.manifestation-of-corruption.3%",
+              "small": true
             }
           ]
         }
@@ -733,10 +770,11 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.4%"
+          "value": "%data.custom.fc.manifestation-of-corruption.4%",
+          "small": true
         },
         {
-          "type": "and",
+          "type": "concatenation",
           "subActions": [
             {
               "type": "element",
@@ -759,6 +797,7 @@
         {
           "type": "custom",
           "value": "%data.custom.fc.manifestation-of-corruption.5%",
+          "small": true,
           "subActions": [
             {
               "type": "element",
@@ -767,7 +806,8 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.fc.manifestation-of-corruption.7%"
+                  "value": "%data.custom.fc.manifestation-of-corruption.7%",
+                  "small": true
                 }
               ]
             },
@@ -778,7 +818,8 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.fc.manifestation-of-corruption.8%"
+                  "value": "%data.custom.fc.manifestation-of-corruption.8%",
+                  "small": true
                 }
               ]
             }
@@ -792,7 +833,8 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.9%"
+          "value": "%data.custom.fc.manifestation-of-corruption.9%",
+          "small": true
         },
         {
           "type": "element",
@@ -807,8 +849,8 @@
       "initiative": 49,
       "actions": [
         {
-          "type": "and",
-          "value": 2,
+          "type": "concatenation",
+          "value": "and:2",
           "subActions": [
             {
               "type": "area",
@@ -824,7 +866,8 @@
             },
             {
               "type": "specialTarget",
-              "value": "selfAlliesAffect"
+              "value": "selfAlliesAffect",
+              "small": true
             },
             {
               "type": "element",
@@ -832,7 +875,7 @@
               "valueType": "minus",
               "subActions": [
                 {
-                  "type": "and",
+                  "type": "concatenation",
                   "subActions": [
                     {
                       "type": "element",
@@ -856,13 +899,15 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         },
         {
           "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.15%"
+          "value": "%data.custom.fc.manifestation-of-corruption.15%",
+          "small": true
         }
       ]
     },
@@ -878,13 +923,14 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         },
         {
-          "type": "and",
-          "value": 2,
+          "type": "concatenation",
+          "value": "and:2",
           "subActions": [
             {
               "type": "condition",
@@ -896,7 +942,8 @@
             },
             {
               "type": "specialTarget",
-              "value": "selfAlliesAdjacentAffect"
+              "value": "selfAlliesAdjacentAffect",
+              "small": true
             }
           ]
         }
@@ -905,24 +952,24 @@
         {
           "type": "custom",
           "value": "%data.custom.fc.manifestation-of-corruption.22%",
+          "small": true
+        },
+        {
+          "type": "element",
+          "value": "any",
+          "valueType": "minus",
           "subActions": [
             {
-              "type": "element",
-              "value": "any",
-              "valueType": "minus",
+              "type": "concatenation",
+              "value": "",
               "subActions": [
                 {
-                  "type": "and",
-                  "subActions": [
-                    {
-                      "type": "element",
-                      "value": "dark"
-                    },
-                    {
-                      "type": "element",
-                      "value": "fire"
-                    }
-                  ]
+                  "type": "element",
+                  "value": "dark"
+                },
+                {
+                  "type": "element",
+                  "value": "fire"
                 }
               ]
             }
@@ -943,11 +990,13 @@
             {
               "type": "range",
               "value": 1,
-              "valueType": "minus"
+              "valueType": "minus",
+              "small": true
             },
             {
               "type": "custom",
-              "value": "%data.custom.fc.manifestation-of-corruption.20%"
+              "value": "%data.custom.fc.manifestation-of-corruption.20%",
+              "small": true
             },
             {
               "type": "element",
@@ -960,9 +1009,10 @@
                   "subActions": [
                     {
                       "type": "specialTarget",
-                      "value": "allTargets"
+                      "value": "targets"
                     }
-                  ]
+                  ],
+                  "small": true
                 }
               ]
             }
@@ -977,7 +1027,8 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.21%"
+          "value": "%data.custom.fc.manifestation-of-corruption.21%",
+          "small": true
         },
         {
           "type": "element",
@@ -999,19 +1050,23 @@
             {
               "type": "range",
               "value": 1,
-              "valueType": "plus"
+              "valueType": "plus",
+              "small": true
             },
             {
               "type": "condition",
-              "value": "poison"
+              "value": "poison",
+              "small": true
             },
             {
               "type": "condition",
-              "value": "stun"
+              "value": "stun",
+              "small": true
             },
             {
               "type": "condition",
-              "value": "wound"
+              "value": "wound",
+              "small": true
             }
           ]
         },
@@ -1024,10 +1079,12 @@
         {
           "type": "custom",
           "value": "%data.custom.fc.manifestation-of-corruption.2%",
+          "small": true,
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.fc.manifestation-of-corruption.3%"
+              "value": "%data.custom.fc.manifestation-of-corruption.3%",
+              "small": true
             }
           ]
         }
@@ -1041,14 +1098,16 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.18%"
+          "value": "%data.custom.fc.manifestation-of-corruption.18%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.19%"
+          "value": "%data.custom.fc.manifestation-of-corruption.19%",
+          "small": true
         },
         {
-          "type": "and",
+          "type": "concatenation",
           "subActions": [
             {
               "type": "element",
@@ -1069,14 +1128,16 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.18%"
+          "value": "%data.custom.fc.manifestation-of-corruption.18%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.19%"
+          "value": "%data.custom.fc.manifestation-of-corruption.19%",
+          "small": true
         },
         {
-          "type": "and",
+          "type": "concatenation",
           "subActions": [
             {
               "type": "element",
@@ -1109,13 +1170,15 @@
             {
               "type": "range",
               "value": 1,
-              "valueType": "minus"
+              "valueType": "minus",
+              "small": true
             }
           ]
         },
         {
           "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.17%"
+          "value": "%data.custom.fc.manifestation-of-corruption.17%",
+          "small": true
         }
       ],
       "lost": true,
@@ -1128,13 +1191,15 @@
             {
               "type": "range",
               "value": 1,
-              "valueType": "minus"
+              "valueType": "minus",
+              "small": true
             }
           ]
         },
         {
           "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.17%"
+          "value": "%data.custom.fc.manifestation-of-corruption.17%",
+          "small": true
         }
       ],
       "bottomLost": true
@@ -1147,7 +1212,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.16%"
+          "value": "%data.custom.fc.manifestation-of-corruption.16%",
+          "small": true
         },
         {
           "type": "condition",
@@ -1155,7 +1221,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemies"
+              "value": "enemies",
+              "small": true
             }
           ]
         },
@@ -1165,7 +1232,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         }
@@ -1174,7 +1242,8 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "%data.custom.fc.manifestation-of-corruption.16%"
+          "value": "%data.custom.fc.manifestation-of-corruption.16%",
+          "small": true
         },
         {
           "type": "condition",
@@ -1182,7 +1251,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemies"
+              "value": "enemies",
+              "small": true
             }
           ]
         },
@@ -1192,7 +1262,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         }
@@ -1207,14 +1278,14 @@
       "actions": [
         {
           "type": "summon",
-          "value": "%data.monster.naaret%"
+          "value": "naaret"
         }
       ],
       "lost": true,
       "bottomActions": [
         {
           "type": "summon",
-          "value": "%data.monster.naaret%"
+          "value": "naaret"
         }
       ],
       "bottomLost": true

@@ -10,7 +10,8 @@
     "actions": [
       {
         "type": "custom",
-        "value": "%data.custom.fc.manifestation-of-corruption.1%"
+        "value": "%data.custom.fc.manifestation-of-corruption.1%",
+        "small": true
       }
     ],
     "immunities": [
@@ -73,5 +74,6 @@
       "attack": 8,
       "range": 7
     }
-  ]
+  ],
+  "deck": "boss"
 }

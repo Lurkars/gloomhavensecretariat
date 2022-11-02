@@ -83,6 +83,8 @@ body {
   --ghs-filter-red: invert(26%) sepia(70%) saturate(2000%) hue-rotate(348deg) brightness(104%) contrast(97%);
   --ghs-outline: calc(var(--ghs-unit) * -0.2) 0px var(--ghs-color-black), 0px calc(var(--ghs-unit) * 0.2) var(--ghs-color-black), calc(var(--ghs-unit) * 0.2) 0px var(--ghs-color-black), 0px calc(var(--ghs-unit) * -0.2) var(--ghs-color-black);
   --ghs-outline-thin: calc(var(--ghs-unit) * -0.1) 0px var(--ghs-color-black), 0px calc(var(--ghs-unit) * 0.1) var(--ghs-color-black), calc(var(--ghs-unit) * 0.1) 0px var(--ghs-color-black), 0px calc(var(--ghs-unit) * -0.1) var(--ghs-color-black);
+  --ghs-outline-white: calc(var(--ghs-unit) * -0.2) 0px var(--ghs-color-white), 0px calc(var(--ghs-unit) * 0.2) var(--ghs-color-white), calc(var(--ghs-unit) * 0.2) 0px var(--ghs-color-white), 0px calc(var(--ghs-unit) * -0.2) var(--ghs-color-white);
+  --ghs-outline-white-thin: calc(var(--ghs-unit) * -0.1) 0px var(--ghs-color-white), 0px calc(var(--ghs-unit) * 0.1) var(--ghs-color-white), calc(var(--ghs-unit) * 0.1) 0px var(--ghs-color-white), 0px calc(var(--ghs-unit) * -0.1) var(--ghs-color-white);
 
 
   &.no-select {
@@ -779,6 +781,23 @@ input[type="radio"] {
       margin: 0;
     }
 
+  }
+
+  .placeholder-character-token {
+    position: relative;
+    top: 0.1em;
+    display: inline-flex;
+    height: 1em;
+    width: 1em;
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 80%;
+      height: auto;
+      filter: brightness(10);
+    }
   }
 
   .placeholder-card {

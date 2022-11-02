@@ -602,7 +602,10 @@
       "target": "Target",
       "targets": "Targets",
       "teleport": "Teleport",
-      "trigger": "Trigger"
+      "trigger": "Trigger",
+      "concatenation": "[Concatenation]",
+      "box": "[Box]",
+      "grid": "[Grid]"
     },
     "specialTarget": {
       "self": "Self",
@@ -618,7 +621,7 @@
       "allies": "Target all allies",
       "alliesAdjacent": "Target all adjacent allies",
       "alliesAdjacentAffect": "Affect all adjacent allies",
-      "alliesRange": "Target all allies %game.action.range% {0}",
+      "alliesRange": "Target all allies within %game.action.range% {0}",
       "alliesRangeAffect": "Affect all allies within %game.action.range% {0}",
       "enemy": "Target one enemy",
       "enemyAdjacent": "Target one adjacent enemy",
@@ -628,6 +631,7 @@
       "enemiesAdjacent": "Target all adjacent enemies",
       "enemiesRange": "Target all enemies within %game.action.range% {0}",
       "enemiesRangeAffect": "Affect all enemies within %game.action.range% {0}",
+      "enemiesMovedThrough": "Target all enemies moved through",
       "figures": "Target all figures",
       "figuresAdjacent": "Target all adjacent figures",
       "figuresRange": "Target all figures %game.action.range% {0}",
@@ -687,6 +691,16 @@
     "exhausted": "Exhausted",
     "dead": "Dead",
     "solo": "Solo",
+    "card": {
+      "experience": "X Experience",
+      "infinity": "Infinity",
+      "lost": "Lost",
+      "recover": "Recover",
+      "refresh": "Refresh",
+      "round": "Round",
+      "slot": "Slot",
+      "slotXp": "Slot X Experience"
+    },
     "cards": {
       "shuffle": "Shuffle",
       "confirmReveal": "Click again to reveal!",
@@ -749,7 +763,7 @@
     },
     "custom": {
       "advantage": "Advantage",
-      "ondeath": "On death",
+      "ondeath": "On death:",
       "instead": "Instead",
       "disadvantage": "Attackers gain Disadvantage",
       "math": {
@@ -817,17 +831,6 @@
           ".": "Monster Stats JSON Data",
           "download": "Download Monster Stats as JSON file"
         }
-      },
-      "deck": {
-        ".": "Monster Abilities Deck",
-        "new": "New Abilities Deck",
-        "addAbility": "Add Ability",
-        "removeAbility": "Remove Ability",
-        "name": "Deck Name",
-        "json": {
-          ".": "Abilities Deck JSON Data",
-          "download": "Download Abilities Deck as JSON file"
-        }
       }
     },
     "character": {
@@ -841,17 +844,19 @@
           ".": "Character Data JSON Data",
           "download": "Download Character Data as JSON file"
         }
-      },
-      "deck": {
-        ".": "Character Abilities Deck",
-        "new": "New Abilities Deck",
-        "addAbility": "Add Ability",
-        "removeAbility": "Remove Ability",
-        "name": "Deck Name",
-        "json": {
-          ".": "Abilities Deck JSON Data",
-          "download": "Download Abilities Deck as JSON file"
-        }
+      }
+    },
+    "deck": {
+      ".": "Abilities Deck",
+      "new": "New Abilities Deck",
+      "addAbility": "Add Ability",
+      "removeAbility": "Remove Ability",
+      "name": "Deck Name",
+      "abilityName": "Ability Name",
+      "character": "Character Deck",
+      "json": {
+        ".": "Abilities Deck JSON Data",
+        "download": "Download Abilities Deck as JSON file"
       }
     },
     "action": {
@@ -869,7 +874,8 @@
         "minus": "Minus",
         "add": "Add",
         "subtract": "Subtract"
-      }
+      },
+      "small": "Smaller"
     }
   },
   "wip": "Work In Progress"

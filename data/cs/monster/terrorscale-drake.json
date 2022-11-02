@@ -29,11 +29,13 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.cs.terrorscale-drake.1%"
+          "value": "%data.custom.cs.terrorscale-drake.1%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%data.custom.cs.terrorscale-drake.2%"
+          "value": "%data.custom.cs.terrorscale-drake.2%",
+          "small": true
         }
       ],
       [
@@ -56,7 +58,8 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.cs.terrorscale-drake.2%"
+          "value": "%data.custom.cs.terrorscale-drake.2%",
+          "small": true
         }
       ]
     ]

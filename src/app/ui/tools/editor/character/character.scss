@@ -81,9 +81,9 @@
         border-radius: 3.5%;
         width: calc(var(--ghs-unit) * 40);
         height: calc(var(--ghs-unit) * 54);
-        --ghs-character-color: var(--ghs-color-white);
-        background-color: var(--ghs-character-color);
-        background-image: url('~src/assets/images/character/abilities/character-ability-front.png'), url('~src/assets/images/character/abilities/character-ability-front-blend.png');
+        --ghs-ability-color: var(--ghs-color-white);
+        background-color: var(--ghs-ability-color);
+        background-image: url('~/src/assets/images/character/abilities/character-ability-front.png'), url('~/src/assets/images/character/abilities/character-ability-front-blend.png');
         background-blend-mode: screen, luminosity;
         z-index: 1;
         background-position: top;
@@ -161,8 +161,8 @@
         .actions-container {
           position: absolute;
           top: 17%;
-          left: 12%;
-          width: 76%;
+          left: 10.6%;
+          width: 78.3%;
           height: 30%;
           min-height: 30%;
           z-index: 1;
@@ -181,15 +181,35 @@
             min-height: 100%;
             font-size: calc(1.7em * var(--ghs-fontsize));
 
-            ghs-action {
-              display: inline-flex;
-              cursor: pointer;
-            }
+            .action-container {
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              width: 100%;
 
-            .divider {
-              width: 15%;
-              border-top: 0.11em var(--ghs-color-white) dotted;
-              margin: 0.2em;
+
+              ghs-action {
+                width: 100%;
+                display: inline-flex;
+                cursor: pointer;
+              }
+
+              .divider {
+                width: 15%;
+                border-top: 0.11em var(--ghs-color-white) dotted;
+                margin: 0.2em;
+              }
+
+              .handle {
+                position: absolute;
+                left: -3%;
+                top: 0;
+                z-index: 2;
+                cursor: grab;
+                opacity: 0.7;
+              }
             }
           }
         }

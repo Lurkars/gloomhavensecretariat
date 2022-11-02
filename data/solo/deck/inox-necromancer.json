@@ -18,7 +18,8 @@
           "subActions": [
             {
               "type": "summon",
-              "value": "%data.monster.living-corpse% (%monster.normal%)"
+              "value": "living-corpse:normal",
+              "small": true
             }
           ]
         }
@@ -40,7 +41,8 @@
           "subActions": [
             {
               "type": "summon",
-              "value": "%data.monster.living-corpse% (%monster.normal%)"
+              "value": "living-corpse:normal",
+              "small": true
             }
           ]
         }
@@ -62,7 +64,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         }
@@ -84,7 +87,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         }
@@ -137,7 +141,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "alliesAdjacentAffect"
+              "value": "alliesAdjacentAffect",
+              "small": true
             }
           ]
         },
@@ -147,7 +152,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         }
@@ -169,7 +175,8 @@
           "subActions": [
             {
               "type": "summon",
-              "value": "%data.monster.living-corpse% (%monster.normal%)"
+              "value": "living-corpse:normal",
+              "small": true
             }
           ]
         }

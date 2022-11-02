@@ -49,7 +49,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 2
+              "value": 2,
+              "small": true
             }
           ]
         }
@@ -123,7 +124,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         }
@@ -145,7 +147,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "poison"
+              "value": "poison",
+              "small": true
             }
           ]
         }

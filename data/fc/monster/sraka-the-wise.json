@@ -7,7 +7,6 @@
   "count": 6,
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [
       "stun",
       "wound"
@@ -23,16 +22,22 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.fc.sraka-the-wise.1%"
+          "value": "%data.custom.fc.sraka-the-wise.1%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%data.custom.fc.sraka-the-wise.2%"
+          "value": "%data.custom.fc.sraka-the-wise.2%",
+          "small": true
         },
         {
           "type": "shield",
           "value": 2
         }
+      ],
+      "immunities": [
+        "stun",
+        "wound"
       ]
     },
     {
@@ -43,16 +48,22 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.fc.sraka-the-wise.1%"
+          "value": "%data.custom.fc.sraka-the-wise.1%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%data.custom.fc.sraka-the-wise.2%"
+          "value": "%data.custom.fc.sraka-the-wise.2%",
+          "small": true
         },
         {
           "type": "shield",
           "value": 3
         }
+      ],
+      "immunities": [
+        "stun",
+        "wound"
       ]
     },
     {
@@ -63,16 +74,22 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.fc.sraka-the-wise.1%"
+          "value": "%data.custom.fc.sraka-the-wise.1%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%data.custom.fc.sraka-the-wise.2%"
+          "value": "%data.custom.fc.sraka-the-wise.2%",
+          "small": true
         },
         {
           "type": "shield",
           "value": 3
         }
+      ],
+      "immunities": [
+        "stun",
+        "wound"
       ]
     },
     {
@@ -83,16 +100,22 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.fc.sraka-the-wise.1%"
+          "value": "%data.custom.fc.sraka-the-wise.1%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%data.custom.fc.sraka-the-wise.2%"
+          "value": "%data.custom.fc.sraka-the-wise.2%",
+          "small": true
         },
         {
           "type": "shield",
           "value": 3
         }
+      ],
+      "immunities": [
+        "stun",
+        "wound"
       ]
     },
     {
@@ -103,11 +126,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.fc.sraka-the-wise.1%"
+          "value": "%data.custom.fc.sraka-the-wise.1%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%data.custom.fc.sraka-the-wise.2%"
+          "value": "%data.custom.fc.sraka-the-wise.2%",
+          "small": true
         },
         {
           "type": "shield",
@@ -117,6 +142,10 @@
           "type": "condition",
           "value": "muddle"
         }
+      ],
+      "immunities": [
+        "stun",
+        "wound"
       ]
     },
     {
@@ -127,11 +156,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.fc.sraka-the-wise.1%"
+          "value": "%data.custom.fc.sraka-the-wise.1%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%data.custom.fc.sraka-the-wise.2%"
+          "value": "%data.custom.fc.sraka-the-wise.2%",
+          "small": true
         },
         {
           "type": "shield",
@@ -141,6 +172,10 @@
           "type": "condition",
           "value": "muddle"
         }
+      ],
+      "immunities": [
+        "stun",
+        "wound"
       ]
     },
     {
@@ -151,11 +186,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.fc.sraka-the-wise.1%"
+          "value": "%data.custom.fc.sraka-the-wise.1%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%data.custom.fc.sraka-the-wise.2%"
+          "value": "%data.custom.fc.sraka-the-wise.2%",
+          "small": true
         },
         {
           "type": "shield",
@@ -181,11 +218,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.fc.sraka-the-wise.1%"
+          "value": "%data.custom.fc.sraka-the-wise.1%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%data.custom.fc.sraka-the-wise.2%"
+          "value": "%data.custom.fc.sraka-the-wise.2%",
+          "small": true
         },
         {
           "type": "shield",

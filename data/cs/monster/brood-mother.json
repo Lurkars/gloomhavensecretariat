@@ -7,7 +7,6 @@
   "baseStat": {
     "type": "boss",
     "note": "%data.custom.cs.brood-mother.1%",
-    "actions": [],
     "immunities": [
       "immobilize",
       "curse",
@@ -42,7 +41,8 @@
               "subActions": [
                 {
                   "type": "specialTarget",
-                  "value": "self"
+                  "value": "self",
+                  "small": true
                 }
               ]
             }
@@ -74,7 +74,8 @@
               "subActions": [
                 {
                   "type": "specialTarget",
-                  "value": "self"
+                  "value": "self",
+                  "small": true
                 }
               ]
             }
@@ -106,7 +107,8 @@
               "subActions": [
                 {
                   "type": "specialTarget",
-                  "value": "self"
+                  "value": "self",
+                  "small": true
                 }
               ]
             }
@@ -138,7 +140,8 @@
               "subActions": [
                 {
                   "type": "specialTarget",
-                  "value": "self"
+                  "value": "self",
+                  "small": true
                 }
               ]
             }
@@ -170,7 +173,8 @@
               "subActions": [
                 {
                   "type": "specialTarget",
-                  "value": "self"
+                  "value": "self",
+                  "small": true
                 }
               ]
             }
@@ -202,7 +206,8 @@
               "subActions": [
                 {
                   "type": "specialTarget",
-                  "value": "self"
+                  "value": "self",
+                  "small": true
                 }
               ]
             }
@@ -234,7 +239,8 @@
               "subActions": [
                 {
                   "type": "specialTarget",
-                  "value": "self"
+                  "value": "self",
+                  "small": true
                 }
               ]
             }

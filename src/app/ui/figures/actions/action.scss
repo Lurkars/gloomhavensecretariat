@@ -3,17 +3,18 @@
   justify-content: center;
   flex-wrap: wrap;
   position: relative;
+  width: 100%;
   color: var(--ghs-color-white);
   line-height: 0.8em;
-  filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
-
-
-
 
   &.aoe {
     display: grid;
     grid-template-columns: auto auto;
     column-gap: 0.3em;
+  }
+
+  .small {
+    font-size: 82%;
   }
 
   .action-default,
@@ -27,6 +28,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+
+  .action-default,
+  .action-custom,
+  .action-trigger,
+  .action-specialTarget,
+  .action-condition {
+    filter: drop-shadow(0.01em 0.01em 0.01em var(--ghs-color-black));
   }
 
   .action-monster-type {
@@ -58,36 +68,25 @@
     filter: var(--ghs-filter-white);
   }
 
-  .custom-value,
-  .summon-value {
-    font-size: 82%;
-    line-height: 82%;
-    padding: 0 0.5em
+  .action-summon {
+    width: 100%;
+
+    ghs-action-summon {
+      width: 100%;
+    }
   }
 
-  .action-special,
-  .action-custom,
-  .action-summon {
-
-    ghs-action {
-      &.subaction-custom {
-
-        .action-custom {
-
-          .custom-value,
-          .summon-value {
-            font-size: 82%;
-          }
-        }
-      }
-    }
+  .custom-value,
+  ghs-action-summon {
+    padding: 0 0.2em;
   }
 
   .action-trigger {
 
-    .custom-value,
-    .summon-value {
+    .custom-value {
       position: relative;
+      font-size: 82%;
+      padding: 0 0.5em;
 
       &::before,
       &::after {
@@ -118,7 +117,9 @@
 
   }
 
-
+  .special-type {
+    color: var(--ghs-color-red);
+  }
 
   .condition {
     display: flex;
@@ -181,6 +182,8 @@
         position: absolute;
         top: 0;
         left: 0;
+        width: 100%;
+        height: 100%;
         z-index: 2;
       }
 
@@ -200,7 +203,10 @@
         height: 2em;
 
         .overlay {
-          filter: var(--ghs-filter-white);
+          background-color: var(--ghs-ability-color);
+          mask-position: top left;
+          mask-size: 100% 100%;
+          mask-repeat: no-repeat;
         }
 
         .value {
@@ -381,93 +387,6 @@
       margin-top: 0;
     }
 
-    .action {
-      font-size: 82%;
-      filter: drop-shadow(calc(var(--ghs-unit) * 0.01) calc(var(--ghs-unit) * 0.01) calc(var(--ghs-unit) * 0.01) var(--ghs-color-black));
-
-      .condition-value {
-        font-size: 82%;
-      }
-
-      .custom-value,
-      .summon-value {
-        font-size: 100%;
-      }
-    }
-
-
-    &.element-subaction {
-
-      .action {
-
-        .custom-value,
-        .summon-value {
-          padding: 0;
-          font-size: 82%;
-        }
-
-
-      }
-    }
-
-    &.full {
-      &>.action {
-        font-size: 100%;
-
-        .condition-value {
-          font-size: 100%;
-        }
-
-        &>.action {
-          font-size: 82%;
-
-          &.action-element {
-            font-size: 100%;
-          }
-
-          .condition-value {
-            font-size: 82%;
-          }
-        }
-      }
-
-
-      &.subaction-element {
-        &>.action {
-          &>.action {
-            font-size: 100% !important;
-          }
-        }
-      }
-    }
-  }
-
-  .action-custom,
-  .action-summon {
-
-    ghs-action {
-
-      &.subaction-custom,
-      &.subaction-specialTarget {
-
-        .action-custom,
-        .action-specialTarget {
-          font-size: 82%;
-        }
-      }
-    }
-
-    ghs-action {
-
-      &.element-subaction {
-
-        .action-custom,
-        .action-summon,
-        .action-specialTarget {
-          font-size: 100%;
-        }
-      }
-    }
   }
 
   .element-subactions {
@@ -512,28 +431,47 @@
   }
 
   .action-grid {
+    --ghs-grid-columns: 2;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 0.3em;
+    grid-template-columns: repeat(var(--ghs-grid-columns), auto);
+    column-gap: 0.2em;
+    margin: 0 0.5em;
+    align-items: center;
   }
 
-  .monster-type-subactions {
+  .action-box-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5em;
 
-    ghs-action {
-      .action {
-        font-size: 100%;
+    .action-box-label {
+      color: var(--ghs-ability-color);
+      text-align: left;
+      padding: 0.3em 1em;
+    }
 
-        .condition-value {
-          font-size: 100%;
-        }
+    .action-box {
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0.2em 0.3em;
 
-        .action {
-          font-size: 82%;
-
-          .condition-value {
-            font-size: 82%;
-          }
-        }
+      &:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--ghs-color-black);
+        opacity: 0.5;
+        z-index: 0;
       }
     }
   }
@@ -558,23 +496,22 @@
     .action-trigger,
     .action-specialTarget,
     .action-condition,
-    .action-element,
     .condition,
     .action-condition {
       display: flex;
       justify-content: flex-start;
     }
 
-    .action-default {
-      .main-action {
-        justify-content: flex-start;
-      }
+    .main-action,
+    .subactions,
+    .condition-subactions {
+      align-self: flex-start;
+      justify-content: flex-start;
     }
 
     .custom-value,
-    .summon-value {
+    ghs-action-summon {
       text-align: left;
-      font-size: 100%;
       padding: 0 !important;
     }
 
@@ -616,7 +553,7 @@
 
   &.right {
     color: var(--ghs-color-black);
-    filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-white));
+    filter: drop-shadow(0.01em 0.01em 0.01em var(--ghs-color-white));
     justify-content: flex-end;
     text-align: right;
 
@@ -641,12 +578,13 @@
     &.inline {
 
       .custom-value,
-      .summon-value {
+      ghs-action-summon {
         text-align: right;
       }
 
       .subactions {
         align-items: flex-end;
+        align-self: flex-end;
       }
 
       .ghs-svg {
@@ -670,7 +608,7 @@
   &.fh {
 
     font-size: 125%;
-    
+
     .action-default,
     .action-custom,
     .action-summon,
@@ -683,34 +621,6 @@
 
     ghs-action {
       flex-basis: 0;
-    }
-
-    .action-custom,
-    .action-summon {
-
-      font-size: 80%;
-
-      ghs-action {
-
-        &.subaction-custom,
-        &.subaction-specialTarget {
-
-          .action-custom,
-          .action-summon,
-          .action-specialTarget {
-            font-size: 82%;
-          }
-        }
-
-        &.element-subaction {
-
-          .action-custom,
-          .action-summon,
-          .action-specialTarget {
-            font-size: 100%;
-          }
-        }
-      }
     }
 
     .main-action {
@@ -741,7 +651,6 @@
       flex-basis: 0 !important;
       padding: 0.1em;
       margin-left: 0.2em;
-      font-size: 80%;
 
       &::before {
         content: ' ';
@@ -772,7 +681,6 @@
 
     .element-actions {
       margin-top: 0.5em;
-      font-size: 80%;
 
       .action-element-consume {
         padding: 0.4em;

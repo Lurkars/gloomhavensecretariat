@@ -6,7 +6,6 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [
       "disarm",
       "poison",
@@ -23,7 +22,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         },
@@ -34,19 +34,22 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         },
         {
           "type": "custom",
-          "value": "%data.custom.gh.winged-horror.1%"
+          "value": "%data.custom.gh.winged-horror.1%",
+          "small": true
         }
       ],
       [
         {
           "type": "custom",
-          "value": "%data.custom.gh.winged-horror.2%"
+          "value": "%data.custom.gh.winged-horror.2%",
+          "small": true
         },
         {
           "type": "move",

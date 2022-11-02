@@ -12,7 +12,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             },
             {
               "type": "element",
@@ -21,11 +22,15 @@
               "subActions": [
                 {
                   "type": "push",
-                  "value": 4
-                },
-                {
-                  "type": "custom",
-                  "value": "%game.custom.instead%"
+                  "value": 4,
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "%game.custom.instead%",
+                      "small": true
+                    }
+                  ]
                 }
               ]
             }
@@ -39,7 +44,8 @@
             {
               "type": "range",
               "value": 1,
-              "valueType": "plus"
+              "valueType": "plus",
+              "small": true
             }
           ]
         }
@@ -51,7 +57,7 @@
       "actions": [
         {
           "type": "summon",
-          "value": "%data.monster.wind-demon% (%monster.normal%)"
+          "value": "wind-demon:normal"
         },
         {
           "type": "element",
@@ -65,7 +71,7 @@
       "actions": [
         {
           "type": "summon",
-          "value": "%data.monster.frost-demon% (%monster.normal%)"
+          "value": "frost-demon:normal"
         },
         {
           "type": "element",
@@ -90,7 +96,8 @@
             {
               "type": "range",
               "value": 1,
-              "valueType": "minus"
+              "valueType": "minus",
+              "small": true
             }
           ]
         },
@@ -100,7 +107,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "selfAlliesRange:2"
+              "value": "selfAlliesRange:2",
+              "small": true
             }
           ]
         },
@@ -125,15 +133,20 @@
               "valueType": "minus",
               "subActions": [
                 {
-                  "type": "attack",
-                  "value": 2,
-                  "valueType": "add",
+                  "type": "concatenation",
+                  "value": ",",
                   "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 2,
+                      "valueType": "add"
+                    },
                     {
                       "type": "condition",
                       "value": "immobilize"
                     }
-                  ]
+                  ],
+                  "small": true
                 }
               ]
             }
@@ -163,7 +176,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             },
             {
               "type": "element",
@@ -173,7 +187,8 @@
                 {
                   "type": "heal",
                   "value": 3,
-                  "valueType": "add"
+                  "valueType": "add",
+                  "small": true
                 }
               ]
             }
@@ -187,7 +202,8 @@
             {
               "type": "attack",
               "value": 0,
-              "valueType": "plus"
+              "valueType": "plus",
+              "small": true
             }
           ]
         }
@@ -204,7 +220,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         },

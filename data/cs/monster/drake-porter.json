@@ -10,7 +10,6 @@
     "type": "boss",
     "note": "%data.custom.cs.drake-porter.1%",
     "movement": 3,
-    "actions": [],
     "immunities": [
       "immobilize",
       "wound",
@@ -25,13 +24,14 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         },
         {
           "type": "summon",
-          "value": "%data.monster.rending-drake%"
+          "value": "rending-drake"
         }
       ],
       [
@@ -41,7 +41,7 @@
         },
         {
           "type": "summon",
-          "value": "%data.monster.spitting-drake%"
+          "value": "spitting-drake"
         }
       ]
     ]

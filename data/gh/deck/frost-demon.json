@@ -12,7 +12,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesRange:2"
+              "value": "enemiesRange:2",
+              "small": true
             }
           ]
         },
@@ -29,7 +30,8 @@
                   "type": "specialTarget",
                   "value": "self"
                 }
-              ]
+              ],
+              "small": true
             }
           ]
         }
@@ -83,7 +85,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 2
+              "value": 2,
+              "small": true
             },
             {
               "type": "element",
@@ -93,12 +96,14 @@
                 {
                   "type": "attack",
                   "value": 2,
-                  "valueType": "add"
+                  "valueType": "add",
+                  "small": true
                 },
                 {
                   "type": "range",
                   "value": 1,
-                  "valueType": "add"
+                  "valueType": "add",
+                  "small": true
                 }
               ]
             }
@@ -176,7 +181,8 @@
           "subActions": [
             {
               "type": "pierce",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         },
@@ -213,7 +219,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.frost-demon.1%"
+              "value": "%data.custom.gh.frost-demon.1%",
+              "small": true
             }
           ]
         }

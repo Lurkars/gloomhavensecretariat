@@ -16,13 +16,14 @@
       [
         {
           "type": "custom",
-          "value": "%data.custom.gh.bandit-commander.1%"
+          "value": "%data.custom.gh.bandit-commander.1%",
+          "small": true
         }
       ],
       [
         {
           "type": "summon",
-          "value": "%data.monster.living-bones%"
+          "value": "living-bones"
         }
       ]
     ]

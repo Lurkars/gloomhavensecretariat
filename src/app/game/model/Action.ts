@@ -3,15 +3,18 @@ export class Action {
   value: number | string;
   valueType: ActionValueType;
   subActions: Action[];
+  small: boolean;
 
   constructor(type: ActionType,
     value: number | string = "",
     valueType: ActionValueType = ActionValueType.fixed,
-    subActions: Action[] = []) {
+    subActions: Action[] = [],
+    small: boolean = false) {
     this.type = type;
     this.value = value;
     this.valueType = valueType;
     this.subActions = subActions || [];
+    this.small = small;
   }
 }
 
@@ -42,9 +45,9 @@ export enum ActionType {
   target = "target",
   teleport = "teleport",
   trigger = "trigger",
-  or = "or",
-  and = "and",
+  concatenation = "concatenation",
   grid = "grid",
+  box = "box",
 }
 
 export enum ActionValueType {
@@ -54,7 +57,6 @@ export enum ActionValueType {
   subtract = "subtract",
   fixed = "fixed"
 }
-
 
 export enum ActionHexType {
   active = "active",
@@ -89,10 +91,24 @@ export enum ActionSpecialTarget {
   enemiesAdjacent = "enemiesAdjacent",
   enemiesRange = "enemiesRange",
   enemiesRangeAffect = "enemiesRangeAffect",
+  enemiesMovedThrough = "enemiesMovedThrough",
   figures = "figures",
   figuresAdjacent = "figuresAdjacent",
   figuresRange = "figuresRange",
   targets = "targets"
+}
+
+export enum ActionCardType {
+
+  experience = "experience",
+  infinity = "infinity",
+  lost = "lost",
+  recover = "recover",
+  refresh = "refresh",
+  round = "round",
+  slot = "slot",
+  slotXp = "slotXp"
+
 }
 
 export class ActionHex {

@@ -6,7 +6,6 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [
       "disarm",
       "muddle",
@@ -27,7 +26,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "self"
+                "value": "self",
+                "small": true
               }
             ]
           }
@@ -39,7 +39,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "allies"
+                "value": "allies",
+                "small": true
               }
             ]
           }
@@ -58,7 +59,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "self"
+                "value": "self",
+                "small": true
               }
             ]
           }
@@ -70,7 +72,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "allies"
+                "value": "allies",
+                "small": true
               }
             ]
           }
@@ -89,7 +92,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "self"
+                "value": "self",
+                "small": true
               }
             ]
           }
@@ -101,7 +105,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "allies"
+                "value": "allies",
+                "small": true
               }
             ]
           }
@@ -120,7 +125,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "self"
+                "value": "self",
+                "small": true
               }
             ]
           }
@@ -132,7 +138,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "allies"
+                "value": "allies",
+                "small": true
               }
             ]
           }
@@ -151,7 +158,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "self"
+                "value": "self",
+                "small": true
               }
             ]
           }
@@ -163,7 +171,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "allies"
+                "value": "allies",
+                "small": true
               }
             ]
           }
@@ -182,7 +191,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "self"
+                "value": "self",
+                "small": true
               }
             ]
           }
@@ -194,7 +204,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "allies"
+                "value": "allies",
+                "small": true
               }
             ]
           }
@@ -213,7 +224,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "self"
+                "value": "self",
+                "small": true
               }
             ]
           }
@@ -225,7 +237,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "allies"
+                "value": "allies",
+                "small": true
               }
             ]
           }
@@ -244,7 +257,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "self"
+                "value": "self",
+                "small": true
               }
             ]
           }
@@ -256,7 +270,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "allies"
+                "value": "allies",
+                "small": true
               }
             ]
           }

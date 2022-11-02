@@ -3,6 +3,11 @@
   flex-direction: column;
   color: var(--ghs-color-white);
 
+  .type {
+    display: flex;
+    align-items: center;
+  }
+
   .subactions {
     display: flex;
     flex-direction: column;
@@ -50,9 +55,6 @@ select {
   }
 }
 
-
-
-
 .ghs-icon {
   height: 1em;
   width: auto;
@@ -72,4 +74,68 @@ a {
 a,
 ghs-action-hex {
   cursor: pointer;
+}
+
+.summon {
+  .summon-type {
+    display: flex;
+
+    label {
+      display: flex;
+    }
+  }
+
+  .summon-monster {
+    display: flex;
+  }
+
+  .summon-form {
+    position: relative;
+    padding-top: 38%;
+    background-color: var(--ghs-color-darkgray);
+
+    ghs-action-summon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .summon-name {
+      position: absolute;
+      top: 5%;
+      left: 50%;
+      width: 65%;
+      height: 20%;
+      transform: translateX(-50%);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 32% 32% 36%;
+      grid-template-rows: 1fr 1fr;
+      position: absolute;
+      justify-items: stretch;
+      top: 36%;
+      left: 13%;
+      width: 87%;
+      height: 56%;
+
+      .item {
+        display: flex;
+        justify-content: center;
+      }
+
+      input {
+        height: 100%;
+        width: 30%;
+        margin-left: 40%;
+      }
+
+      a:hover {
+        background-color: var(--ghs-color-black);
+        opacity: 0.7;
+      }
+    }
+  }
 }

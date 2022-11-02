@@ -18,7 +18,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "muddle"
+              "value": "muddle",
+              "small": true
             }
           ]
         }
@@ -40,7 +41,8 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.fc.tracker.1%"
+          "value": "%data.custom.fc.tracker.1%",
+          "small": true
         }
       ]
     },
@@ -78,11 +80,13 @@
             {
               "type": "range",
               "value": 1,
-              "valueType": "plus"
+              "valueType": "plus",
+              "small": true
             },
             {
               "type": "pierce",
-              "value": 1
+              "value": 1,
+              "small": true
             }
           ]
         }
@@ -105,11 +109,13 @@
             {
               "type": "range",
               "value": 1,
-              "valueType": "plus"
+              "valueType": "plus",
+              "small": true
             },
             {
               "type": "condition",
-              "value": "immobilize"
+              "value": "immobilize",
+              "small": true
             }
           ]
         }
@@ -125,7 +131,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.fc.tracker.2%"
+              "value": "%data.custom.fc.tracker.2%",
+              "small": true
             }
           ]
         },
@@ -151,7 +158,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.fc.tracker.2%"
+              "value": "%data.custom.fc.tracker.2%",
+              "small": true
             }
           ]
         },
@@ -167,7 +175,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "wound"
+              "value": "wound",
+              "small": true
             }
           ]
         }
@@ -189,11 +198,13 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "regenerate"
+              "value": "regenerate",
+              "small": true
             },
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         }

@@ -14,14 +14,14 @@
           "value": 2,
           "subActions": [
             {
+              "type": "specialTarget",
+              "value": "enemiesMovedThrough",
+              "small": true
+            },
+            {
               "type": "custom",
               "value": "%data.custom.bas.dust-demon.1%",
-              "subActions": [
-                {
-                  "type": "custom",
-                  "value": "%data.custom.bas.dust-demon.2%"
-                }
-              ]
+              "small": true
             }
           ]
         }
@@ -40,14 +40,14 @@
           "value": "curse",
           "subActions": [
             {
+              "type": "specialTarget",
+              "value": "enemiesMovedThrough",
+              "small": true
+            },
+            {
               "type": "custom",
               "value": "%data.custom.bas.dust-demon.1%",
-              "subActions": [
-                {
-                  "type": "custom",
-                  "value": "%data.custom.bas.dust-demon.2%"
-                }
-              ]
+              "small": true
             }
           ]
         }
@@ -78,7 +78,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesRange:2"
+              "value": "enemiesRange:2",
+              "small": true
             }
           ]
         }

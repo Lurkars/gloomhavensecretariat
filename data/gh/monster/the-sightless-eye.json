@@ -20,7 +20,7 @@
       [
         {
           "type": "summon",
-          "value": "%data.monster.deep-terror%"
+          "value": "deep-terror"
         },
         {
           "type": "attack",
@@ -37,7 +37,7 @@
       [
         {
           "type": "summon",
-          "value": "%data.monster.deep-terror%"
+          "value": "deep-terror"
         },
         {
           "type": "attack",

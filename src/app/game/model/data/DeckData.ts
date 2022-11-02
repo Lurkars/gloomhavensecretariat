@@ -4,6 +4,7 @@ import { Ability } from "../Ability";
 export class DeckData implements Editional {
 
   name: string;
+  character: boolean = false;
   abilities: Ability[];
 
   // from Editional

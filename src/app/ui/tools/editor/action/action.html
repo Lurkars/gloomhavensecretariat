@@ -1,10 +1,10 @@
 <div class="action">
-  <label>{{'editor.action.type' | ghsLabel}}</label>
+  <label class="type">{{'editor.action.type' | ghsLabel}} <input type="checkbox" [(ngModel)]="action.small" (change)="change()"> {{'editor.action.small' | ghsLabel}}</label>
   <select [(ngModel)]="action.type" placeholder="type" (change)="changeType()">
     <option *ngFor="let actionType of ActionTypes" [value]="actionType">{{'game.action.' + actionType | ghsLabel}}
     </option>
   </select>
-  <label>{{'editor.action.value' | ghsLabel}}</label>
+  <label *ngIf="[ActionType.jump].indexOf(action.type) == -1">{{'editor.action.value' | ghsLabel}}</label>
 
   <ng-container *ngIf="action.type == ActionType.specialTarget">
     <select [(ngModel)]="value" (change)="changeSpecialTarget()">
@@ -18,12 +18,59 @@
   </ng-container>
 
   <input
-    *ngIf="[ActionType.area, ActionType.condition, ActionType.element, ActionType.jump, ActionType.monsterType, ActionType.specialTarget].indexOf(action.type) == -1"
+    *ngIf="[ActionType.area, ActionType.card, ActionType.condition, ActionType.element, ActionType.jump, ActionType.monsterType, ActionType.specialTarget, ActionType.summon].indexOf(action.type) == -1"
     type="text" [ngModel]="action.value" (ngModelChange)="action.value=valueChange($event)" (change)="change()">
 
   <div class="hexes" *ngIf="action.type == ActionType.area">
     <ghs-action-hex [value]="hexValue" (clickCallback)="toggleHex($event)" (doubleclickCallback)="removeHex($event)">
     </ghs-action-hex>
+  </div>
+
+  <div class="summon" *ngIf="action.type == ActionType.summon">
+    <div class="summon-type">
+      <label>
+        <input type="radio" name="summonType" (change)="changeSummonType($event)" value="monster" [checked]="!summon">
+        {{'editor.action.summon.type.monster' | ghsLabel}}
+      </label>
+      <label>
+        <input type="radio" name="summonType" (change)="changeSummonType($event)" value="summon"
+          [checked]="summon">{{'editor.action.summon.type.summon' | ghsLabel}}
+      </label>
+    </div>
+    <div class="summon-monster" *ngIf="!summon">
+      <select [(ngModel)]="monster" (change)="changeSummonMonster()">
+        <option *ngFor="let monster of monsters" [value]="monster">{{'data.monster.' + monster |
+          ghsLabel}}
+        </option>
+      </select>
+      <select [(ngModel)]="monsterType" (change)="changeSummonMonster()">
+        <option></option>
+        <option *ngFor="let monsterType of MonsterTypes" [value]="monsterType">{{'monster.' + monsterType |
+          ghsLabel}}
+        </option>
+      </select>
+    </div>
+    <div class="summon-form" *ngIf="summon">
+      <ghs-action-summon [value]="action.value + ''" [additional]="true"></ghs-action-summon>
+      <input class="summon-name" [(ngModel)]="summon.name" (change)="changeSummon()">
+      <div class="grid">
+        <span class="item">
+          <input class="summon-health" [(ngModel)]="summon.health" (change)="changeSummon()">
+        </span>
+        <span class="item">
+          <input class="summon-movement" [(ngModel)]="summon.movement" (change)="changeSummon()">
+        </span>
+        <a (click)="editSummonAction()"><span *ngIf="!summon.action">{{'editor.action.add' | ghsLabel}}</span></a>
+        <span class="item">
+          <input class="summon-attack" [(ngModel)]="summon.attack" (change)="changeSummon()">
+        </span>
+        <span class="item">
+          <input class="summon-range" [(ngModel)]="summon.range" (change)="changeSummon()">
+        </span>
+        <a (click)="editSummonAdditionalAction()"><span *ngIf="!summon.additionalAction">{{'editor.action.add' |
+            ghsLabel}}</span></a>
+      </div>
+    </div>
   </div>
 
   <ng-container *ngIf="action.type == ActionType.condition">
@@ -37,6 +84,17 @@
     </label>
   </ng-container>
 
+  <ng-container *ngIf="action.type == ActionType.card">
+    <select [(ngModel)]="value" (change)="changeCard()">
+      <option *ngFor="let card of ActionCardTypes" [value]="card">{{'game.card.' + card |
+        ghsLabel:['X']}}
+      </option>
+    </select>
+    <label class="inline" *ngIf="subValue">
+      X: <input min="1" type="number" [(ngModel)]="subValue" (change)="changeCard()">
+    </label>
+  </ng-container>
+
   <select *ngIf="action.type == ActionType.element" [(ngModel)]="action.value" (change)="change()">
     <option *ngFor="let element of Elements" [value]="element">{{'game.element.' + element | ghsLabel}}</option>
   </select>
@@ -46,8 +104,8 @@
     </option>
   </select>
 
-  <ng-container *ngIf="[ActionType.area, ActionType.card, ActionType.condition, ActionType.custom, ActionType.monsterType,
-      ActionType.specialTarget, ActionType.summon, ActionType.trigger].indexOf(action.type) == -1">
+  <ng-container
+    *ngIf="[ActionType.area, ActionType.card, ActionType.condition, ActionType.concatenation,  ActionType.custom, ActionType.grid, ActionType.jump,  ActionType.monsterType, ActionType.specialTarget, ActionType.summon, ActionType.trigger].indexOf(action.type) == -1">
     <label>{{'editor.action.valueType' | ghsLabel}}</label>
     <select [(ngModel)]="action.valueType" placeholder="valueType" (change)="change()">
       <option *ngFor="let valueType of ActionValueTypes" [value]="valueType"

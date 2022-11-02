@@ -5,7 +5,7 @@
   background-position: top;
   background-repeat: no-repeat;
   background-size: 100% auto;
-  background-image: url('~src/assets/images/monster/stats/standard.png');
+  background-image: url('~/src/assets/images/monster/stats/standard.png');
   border-radius: calc(var(--ghs-unit) * 1);
 
   * {
@@ -26,7 +26,7 @@
     font-family: var(--ghs-font-title);
     color: var(--ghs-color-white);
     font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
-    filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
+    filter: drop-shadow(0.01em 0.01em 0.01em var(--ghs-color-black));
     text-align: left;
     white-space: nowrap;
     overflow: auto;
@@ -45,6 +45,7 @@
       img {
         height: 1em;
         width: auto;
+        filter: var(--ghs-filter-white);
       }
     }
   }
@@ -101,7 +102,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: calc(var(--ghs-unit) * 4);
-    filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
+    filter: drop-shadow(0.01em 0.01em 0.01em var(--ghs-color-black));
     z-index: 1;
 
     .stat {
@@ -113,21 +114,21 @@
       &.end {
         justify-self: end;
         text-align: right;
-        filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-white));
+        filter: drop-shadow(0.01em 0.01em 0.01em var(--ghs-color-white));
       }
 
       &.start {
         justify-self: start;
         text-align: left;
         color: var(--ghs-color-white);
-        filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
+        filter: drop-shadow(0.01em 0.01em 0.01em var(--ghs-color-black));
       }
     }
 
   }
 
   &.boss {
-    background-image: url('~src/assets/images/monster/stats/boss.png');
+    background-image: url('~/src/assets/images/monster/stats/boss.png');
 
     .stats {
       top: calc(var(--ghs-unit) * 6.3);
@@ -150,6 +151,7 @@
     flex-direction: column;
     font-size: calc(var(--ghs-unit) * 2 * var(--ghs-fontsize));
     height: calc(100% - calc(var(--ghs-unit) * 5.5));
+    z-index: 2;
 
     .extra-container {
       overflow-x: unset;
@@ -247,6 +249,7 @@
       text-align: right;
 
       .immunities {
+        top: calc(var(--ghs-unit) * 4);
         left: calc(var(--ghs-unit) * -2);
         width: calc(var(--ghs-unit) * 13);
       }
@@ -256,7 +259,7 @@
       }
 
       .placeholder {
-        filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.01) var(--ghs-color-gray));
+        filter: drop-shadow(0.01em 0.01em 0.01em var(--ghs-color-gray));
       }
     }
 
@@ -265,6 +268,8 @@
       color: var(--ghs-color-white);
 
       .immunities {
+        top: calc(var(--ghs-unit) * 4);
+        right: calc(var(--ghs-unit) * -2);
         width: calc(var(--ghs-unit) * 13);
       }
     }
@@ -279,7 +284,6 @@
       }
 
       .immunities {
-        top: calc(var(--ghs-unit) * 1);
         left: calc(var(--ghs-unit) * -19);
       }
     }
@@ -287,7 +291,7 @@
     .notes {
       margin-top: calc(var(--ghs-unit) * 0.5);
       line-height: 0.8em;
-      filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.01) var(--ghs-color-black));
+      filter: drop-shadow(0.01em 0.01em 0.01em var(--ghs-color-black));
     }
 
     .additional,

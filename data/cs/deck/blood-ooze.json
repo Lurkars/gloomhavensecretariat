@@ -14,13 +14,15 @@
           "subActions": [
             {
               "type": "range",
-              "value": 5
+              "value": 5,
+              "small": true
             }
           ]
         },
         {
           "type": "custom",
-          "value": "%data.custom.cs.blood-ooze.1%"
+          "value": "%data.custom.cs.blood-ooze.1%",
+          "small": true
         }
       ]
     },
@@ -32,6 +34,7 @@
         {
           "type": "custom",
           "value": "%data.custom.cs.blood-ooze.2%",
+          "small": true,
           "subActions": [
             {
               "type": "element",
@@ -40,7 +43,8 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.cs.blood-ooze.3%"
+                  "value": "%data.custom.cs.blood-ooze.3%",
+                  "small": true
                 }
               ]
             }
@@ -54,7 +58,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.cs.blood-ooze.4%"
+          "value": "%data.custom.cs.blood-ooze.4%",
+          "small": true
         },
         {
           "type": "move",
@@ -67,7 +72,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.blood-ooze.5%"
+              "value": "%data.custom.cs.blood-ooze.5%",
+              "small": true
             }
           ]
         }
@@ -89,11 +95,13 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemyAdjacent"
+              "value": "enemyAdjacent",
+              "small": true
             },
             {
               "type": "custom",
-              "value": "%data.custom.cs.blood-ooze.6%"
+              "value": "%data.custom.cs.blood-ooze.6%",
+              "small": true
             }
           ]
         }
@@ -110,11 +118,13 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "poison"
+              "value": "poison",
+              "small": true
             },
             {
               "type": "specialTarget",
-              "value": "enemyAdjacent"
+              "value": "enemyAdjacent",
+              "small": true
             }
           ]
         },
@@ -125,7 +135,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.blood-ooze.7%"
+              "value": "%data.custom.cs.blood-ooze.7%",
+              "small": true
             }
           ]
         }
@@ -147,6 +158,7 @@
         {
           "type": "custom",
           "value": "%data.custom.cs.blood-ooze.8%",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
@@ -167,7 +179,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         },
@@ -182,7 +195,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         }
@@ -194,7 +208,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.cs.blood-ooze.9%"
+          "value": "%data.custom.cs.blood-ooze.9%",
+          "small": true
         },
         {
           "type": "condition",
@@ -202,7 +217,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         }

@@ -7,7 +7,6 @@
   "baseStat": {
     "type": "boss",
     "note": "%data.custom.cs.goremyon-shatter-mind.6%",
-    "actions": [],
     "immunities": [
       "wound",
       "poison",
@@ -22,6 +21,7 @@
         {
           "type": "custom",
           "value": "%data.custom.cs.goremyon-shatter-mind.1%",
+          "small": true,
           "subActions": [
             {
               "type": "move",
@@ -35,13 +35,15 @@
               "subActions": [
                 {
                   "type": "specialTarget",
-                  "value": "enemiesAdjacent"
+                  "value": "enemiesAdjacent",
+                  "small": true
                 }
               ]
             },
             {
               "type": "custom",
-              "value": "%data.custom.cs.goremyon-shatter-mind.2%"
+              "value": "%data.custom.cs.goremyon-shatter-mind.2%",
+              "small": true
             }
           ]
         }
@@ -50,6 +52,7 @@
         {
           "type": "custom",
           "value": "%data.custom.cs.goremyon-shatter-mind.3%",
+          "small": true,
           "subActions": [
             {
               "type": "move",
@@ -61,13 +64,15 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.cs.goremyon-shatter-mind.4%"
+                  "value": "%data.custom.cs.goremyon-shatter-mind.4%",
+                  "small": true
                 }
               ]
             },
             {
               "type": "custom",
-              "value": "%data.custom.cs.goremyon-shatter-mind.5%"
+              "value": "%data.custom.cs.goremyon-shatter-mind.5%",
+              "small": true
             }
           ]
         }

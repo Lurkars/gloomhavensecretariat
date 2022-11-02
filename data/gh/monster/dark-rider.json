@@ -35,7 +35,7 @@
         },
         {
           "type": "summon",
-          "value": "%data.monster.forest-imp%"
+          "value": "forest-imp"
         },
         {
           "type": "attack",

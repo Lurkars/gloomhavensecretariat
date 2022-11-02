@@ -39,7 +39,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         }
@@ -120,7 +121,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemyOneAll"
+              "value": "enemyOneAll",
+              "small": true
             }
           ]
         }
@@ -141,7 +143,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         }

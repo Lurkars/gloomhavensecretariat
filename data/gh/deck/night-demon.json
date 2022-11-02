@@ -49,7 +49,8 @@
                   "type": "specialTarget",
                   "value": "self"
                 }
-              ]
+              ],
+              "small": true
             }
           ]
         }
@@ -86,11 +87,13 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             },
             {
               "type": "target",
-              "value": 3
+              "value": 3,
+              "small": true
             },
             {
               "type": "element",
@@ -99,7 +102,8 @@
               "subActions": [
                 {
                   "type": "condition",
-                  "value": "muddle"
+                  "value": "muddle",
+                  "small": true
                 }
               ]
             }
@@ -130,7 +134,8 @@
                 {
                   "type": "attack",
                   "value": 2,
-                  "valueType": "add"
+                  "valueType": "add",
+                  "small": true
                 }
               ]
             }
@@ -192,7 +197,8 @@
                   "type": "specialTarget",
                   "value": "self"
                 }
-              ]
+              ],
+              "small": true
             }
           ]
         }
@@ -214,7 +220,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.night-demon.1%"
+              "value": "%data.custom.gh.night-demon.1%",
+              "small": true
             }
           ]
         },

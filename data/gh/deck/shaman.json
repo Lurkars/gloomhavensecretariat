@@ -18,7 +18,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "disarm"
+              "value": "disarm",
+              "small": true
             }
           ]
         }
@@ -40,7 +41,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "immobilize"
+              "value": "immobilize",
+              "small": true
             }
           ]
         }
@@ -62,7 +64,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         }
@@ -84,7 +87,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         }
@@ -137,7 +141,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "alliesAdjacentAffect"
+              "value": "alliesAdjacentAffect",
+              "small": true
             }
           ]
         },
@@ -147,7 +152,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         }
@@ -169,11 +175,13 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "curse"
+              "value": "curse",
+              "small": true
             },
             {
               "type": "target",
-              "value": 2
+              "value": 2,
+              "small": true
             }
           ]
         }

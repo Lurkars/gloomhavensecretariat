@@ -18,11 +18,15 @@
               "subActions": [
                 {
                   "type": "shield",
-                  "value": 2
-                },
-                {
-                  "type": "custom",
-                  "value": "game.custom.instead"
+                  "value": 2,
+                  "small": true,
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "game.custom.instead",
+                      "small": true
+                    }
+                  ]
                 }
               ]
             }
@@ -34,7 +38,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         }
@@ -88,7 +93,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemyOneAll"
+              "value": "enemyOneAll",
+              "small": true
             }
           ]
         }
@@ -121,7 +127,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         }
@@ -144,7 +151,8 @@
                   "type": "specialTarget",
                   "value": "self"
                 }
-              ]
+              ],
+              "small": true
             }
           ]
         },
@@ -160,7 +168,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "wound"
+              "value": "wound",
+              "small": true
             }
           ]
         }

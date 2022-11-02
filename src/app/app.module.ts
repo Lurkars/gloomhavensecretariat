@@ -11,7 +11,7 @@ import { CharacterComponent } from './ui/figures/character/character';
 import { CharacterSummonDialog } from './ui/figures/character/dialogs/summondialog';
 import { ActionComponent } from './ui/figures/actions/action';
 import { ActionsComponent } from './ui/figures/actions/actions';
-import { ActionHexComponent } from './ui/figures/actions/action-hex';
+import { ActionHexComponent } from './ui/figures/actions/area/action-hex';
 import { MonsterAbilityCardComponent } from './ui/figures/monster/cards/ability-card';
 import { MonsterImageComponent } from './ui/figures/monster/cards/image';
 import { MonsterStatsComponent } from './ui/figures/monster/cards/stats';
@@ -71,6 +71,8 @@ import { HintDialogComponent } from './ui/footer/hint-dialog/hint-dialog';
 import { RulesDialogComponent } from './ui/footer/rules-dialog/rules-dialog';
 import { CharacterEditorComponent } from './ui/tools/editor/character/character';
 import { DecksToolComponent } from './ui/tools/decks/decks-tool';
+import { ActionSummonComponent } from './ui/figures/actions/summon/action-summon';
+import { DeckEditorComponent } from './ui/tools/editor/deck/deck';
 
 @NgModule({
   declarations: [
@@ -95,15 +97,14 @@ import { DecksToolComponent } from './ui/tools/decks/decks-tool';
     MonsterStatsComponent, MonsterStatsDialogComponent, MonsterLevelDialogComponent,
     MonsterNumberPicker, MonsterNumberPickerDialog,
     AbilityComponent, AbiltiesDialogComponent, AbilityDialogComponent,
-    ActionsComponent, ActionComponent, ActionHexComponent,
+    ActionsComponent, ActionComponent, ActionHexComponent, ActionSummonComponent,
     FigureErrorsComponent, FigureErrorsDialogComponent,
     CardRevealDirective, EntityAnimationDirective, I18nDirective, ValueCalcDirective, DragValueComponent, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
     GhsValueSignPipe, GhsLabelPipe, GhsRangePipe,
     AttackModifierToolComponent, DecksToolComponent,
     EditionEditorComponent,
     EditorActionComponent, EditorActionDialogComponent,
-    CharacterEditorComponent,
-    MonsterEditorComponent],
+    DeckEditorComponent, CharacterEditorComponent, MonsterEditorComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

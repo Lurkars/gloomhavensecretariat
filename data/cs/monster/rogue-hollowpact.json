@@ -29,7 +29,8 @@
           "valueType": "plus",
           "subActions": [
             {
-              "type": "jump"
+              "type": "jump",
+              "small": true
             }
           ]
         },
@@ -44,7 +45,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.rogue-hollowpact.1%"
+              "value": "%data.custom.cs.rogue-hollowpact.1%",
+              "small": true
             }
           ]
         }
@@ -52,7 +54,8 @@
       [
         {
           "type": "custom",
-          "value": "%data.custom.cs.rogue-hollowpact.2%"
+          "value": "%data.custom.cs.rogue-hollowpact.2%",
+          "small": true
         },
         {
           "type": "attack",
@@ -61,7 +64,8 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.cs.rogue-hollowpact.3%"
+          "value": "%data.custom.cs.rogue-hollowpact.3%",
+          "small": true
         }
       ]
     ]

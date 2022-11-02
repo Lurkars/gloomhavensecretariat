@@ -144,12 +144,4 @@ export class ScenarioMenuComponent implements OnInit {
     return this.scenarios(group, true).filter((scenarioData) => scenarioData.spoiler && (settingsManager.settings.spoilers.indexOf(scenarioData.name) == -1 || scenarioData.solo && settingsManager.settings.spoilers.indexOf(scenarioData.solo) == -1)).map((scenarioData) => scenarioData.solo && new SpoilableMock(scenarioData.solo) || new SpoilableMock(scenarioData.name));
   }
 
-  characterIcon(name: string): string {
-    const char = gameManager.charactersData(true).find((characterData) => characterData.name == name);
-    if (char) {
-      return gameManager.characterManager.characterIcon(char);
-    }
-    return "";
-  }
-
 }

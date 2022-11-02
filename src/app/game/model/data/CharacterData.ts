@@ -36,7 +36,7 @@ export class CharacterData implements Editional, Spoilable {
 
   iconUrl: string | undefined;
   thumbnailUrl: string | undefined;
-  color: string = "#000000";
+  color: string = "#aaaaaa";
 
   marker: boolean = false;
 

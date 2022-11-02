@@ -32,7 +32,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemyOneAll"
+              "value": "enemyOneAll",
+              "small": true
             }
           ]
         }
@@ -69,7 +70,8 @@
           "subActions": [
             {
               "type": "pierce",
-              "value": 2
+              "value": 2,
+              "small": true
             }
           ]
         }

@@ -5,7 +5,6 @@
   "count": 6,
   "baseStat": {
     "type": "normal",
-    "actions": [],
     "immunities": [],
     "special": []
   },
@@ -24,6 +23,20 @@
       ]
     },
     {
+      "type": "elite",
+      "level": 0,
+      "health": 3,
+      "movement": 3,
+      "attack": 2,
+      "range": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
       "level": 1,
       "health": 2,
       "movement": 3,
@@ -37,6 +50,31 @@
       ]
     },
     {
+      "type": "elite",
+      "level": 1,
+      "health": 3,
+      "movement": 3,
+      "attack": 2,
+      "range": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ]
+    },
+    {
       "level": 2,
       "health": 3,
       "movement": 3,
@@ -46,6 +84,30 @@
         {
           "type": "shield",
           "value": 3
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 4,
+      "movement": 3,
+      "attack": 3,
+      "range": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 4
         }
       ]
     },
@@ -73,6 +135,30 @@
       ]
     },
     {
+      "type": "elite",
+      "level": 3,
+      "health": 5,
+      "movement": 3,
+      "attack": 3,
+      "range": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ]
+    },
+    {
       "level": 4,
       "health": 3,
       "movement": 4,
@@ -92,6 +178,30 @@
         {
           "type": "shield",
           "value": 3
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 5,
+      "movement": 4,
+      "attack": 4,
+      "range": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 4
         }
       ]
     },
@@ -109,162 +219,6 @@
             {
               "type": "range",
               "value": 2
-            }
-          ]
-        },
-        {
-          "type": "shield",
-          "value": 4
-        }
-      ]
-    },
-    {
-      "level": 6,
-      "health": 4,
-      "movement": 4,
-      "attack": 4,
-      "range": 4,
-      "actions": [
-        {
-          "type": "retaliate",
-          "value": 4,
-          "subActions": [
-            {
-              "type": "range",
-              "value": 2
-            }
-          ]
-        },
-        {
-          "type": "shield",
-          "value": 4
-        }
-      ]
-    },
-    {
-      "level": 7,
-      "health": 5,
-      "movement": 4,
-      "attack": 4,
-      "range": 5,
-      "actions": [
-        {
-          "type": "retaliate",
-          "value": 4,
-          "subActions": [
-            {
-              "type": "range",
-              "value": 3
-            }
-          ]
-        },
-        {
-          "type": "shield",
-          "value": 4
-        }
-      ]
-    },
-    {
-      "type": "elite",
-      "level": 0,
-      "health": 3,
-      "movement": 3,
-      "attack": 2,
-      "range": 3,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 3
-        }
-      ]
-    },
-    {
-      "type": "elite",
-      "level": 1,
-      "health": 3,
-      "movement": 3,
-      "attack": 2,
-      "range": 4,
-      "actions": [
-        {
-          "type": "retaliate",
-          "value": 2,
-          "subActions": [
-            {
-              "type": "range",
-              "value": 2
-            }
-          ]
-        },
-        {
-          "type": "shield",
-          "value": 4
-        }
-      ]
-    },
-    {
-      "type": "elite",
-      "level": 2,
-      "health": 4,
-      "movement": 3,
-      "attack": 3,
-      "range": 4,
-      "actions": [
-        {
-          "type": "retaliate",
-          "value": 3,
-          "subActions": [
-            {
-              "type": "range",
-              "value": 2
-            }
-          ]
-        },
-        {
-          "type": "shield",
-          "value": 4
-        }
-      ]
-    },
-    {
-      "type": "elite",
-      "level": 3,
-      "health": 5,
-      "movement": 3,
-      "attack": 3,
-      "range": 5,
-      "actions": [
-        {
-          "type": "retaliate",
-          "value": 3,
-          "subActions": [
-            {
-              "type": "range",
-              "value": 3
-            }
-          ]
-        },
-        {
-          "type": "shield",
-          "value": 4
-        }
-      ]
-    },
-    {
-      "type": "elite",
-      "level": 4,
-      "health": 5,
-      "movement": 4,
-      "attack": 4,
-      "range": 5,
-      "actions": [
-        {
-          "type": "retaliate",
-          "value": 4,
-          "subActions": [
-            {
-              "type": "range",
-              "value": 3
             }
           ]
         },
@@ -299,6 +253,29 @@
       ]
     },
     {
+      "level": 6,
+      "health": 4,
+      "movement": 4,
+      "attack": 4,
+      "range": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ]
+    },
+    {
       "type": "elite",
       "level": 6,
       "health": 7,
@@ -319,6 +296,29 @@
         {
           "type": "shield",
           "value": 5
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 5,
+      "movement": 4,
+      "attack": 4,
+      "range": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 4
         }
       ]
     },

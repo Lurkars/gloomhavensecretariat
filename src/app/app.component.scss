@@ -4,11 +4,11 @@
   max-height: 100%;
   display: flex;
   flex-direction: column;
-  background-image: url('~src/assets/images/bg.jpg');
+  background-image: url('~/src/assets/images/bg.jpg');
   background-size: cover;
   overflow: auto;
 
   &.fh {
-    background-image: url('~src/assets/images/fh/bg.jpg');
+    background-image: url('~/src/assets/images/fh/bg.jpg');
   }
 }

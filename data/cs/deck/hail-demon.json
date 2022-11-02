@@ -14,7 +14,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.hail-demon.1%"
+              "value": "%data.custom.cs.hail-demon.1%",
+              "small": true
             }
           ]
         },
@@ -37,7 +38,8 @@
             {
               "type": "range",
               "value": 1,
-              "valueType": "plus"
+              "valueType": "plus",
+              "small": true
             },
             {
               "type": "element",
@@ -46,7 +48,8 @@
               "subActions": [
                 {
                   "type": "condition",
-                  "value": "chill"
+                  "value": "chill",
+                  "small": true
                 }
               ]
             }
@@ -75,7 +78,8 @@
               "subActions": [
                 {
                   "type": "pull",
-                  "value": 2
+                  "value": 2,
+                  "small": true
                 }
               ]
             }
@@ -93,7 +97,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         },
@@ -103,7 +108,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.hail-demon.2%"
+              "value": "%data.custom.cs.hail-demon.2%",
+              "small": true
             }
           ]
         }
@@ -125,7 +131,8 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.cs.hail-demon.3%"
+          "value": "%data.custom.cs.hail-demon.3%",
+          "small": true
         }
       ]
     },
@@ -139,7 +146,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         },
@@ -156,7 +164,8 @@
                 {
                   "type": "range",
                   "value": 1,
-                  "valueType": "minus"
+                  "valueType": "minus",
+                  "small": true
                 }
               ]
             }
@@ -174,7 +183,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemyRange:3"
+              "value": "enemyRange:3",
+              "small": true
             }
           ]
         },
@@ -206,7 +216,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemyRange:2"
+              "value": "enemyRange:2",
+              "small": true
             },
             {
               "type": "element",

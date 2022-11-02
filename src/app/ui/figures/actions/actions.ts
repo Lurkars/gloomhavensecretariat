@@ -77,7 +77,11 @@ export class ActionsComponent {
       return false;
     }
 
-    if (action.type == ActionType.or || action.type == ActionType.and && action.subActions.every((subAction) => subAction.type == ActionType.card || subAction.type == ActionType.element || subAction.type == ActionType.elementHalf)) {
+    if (this.actions[index -1].type == ActionType.box) {
+      return false;
+    }
+
+    if (action.type == ActionType.concatenation && action.subActions.every((subAction) => subAction.type == ActionType.card || subAction.type == ActionType.element || subAction.type == ActionType.elementHalf)) {
       return false;
     }
 

@@ -229,7 +229,8 @@
             "rolling": true,
             "effects": [
               {
-                "type": "or",
+                "type": "concatenation",
+                "value": "or",
                 "effects": [
                   {
                     "type": "push",

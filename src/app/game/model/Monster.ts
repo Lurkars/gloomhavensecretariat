@@ -10,7 +10,7 @@ export class Monster extends MonsterData implements Figure {
   summonColor: SummonColor = SummonColor.blue;
 
   // from figure
-  level: number = 1;
+  level: number;
   off: boolean = false;
   active: boolean = false;
   drawExtra: boolean = false;
@@ -26,9 +26,10 @@ export class Monster extends MonsterData implements Figure {
   entities: MonsterEntity[] = [];
   isAlly: boolean = false;
 
-  constructor(monsterData: MonsterData) {
+  constructor(monsterData: MonsterData, level: number = 1) {
     super(monsterData.name, monsterData.count, monsterData.baseStat, monsterData.stats, monsterData.edition, monsterData.deck, monsterData.boss, monsterData.flying, monsterData.thumbnail, monsterData.thumbnailUrl, monsterData.spoiler);
     this.errors = monsterData.errors;
+    this.level = level;
     if (monsterData.baseStat) {
       for (let stat of monsterData.stats) {
         if (!stat.health && stat.health != 0) {

@@ -19,7 +19,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         }
@@ -42,7 +43,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 2
+              "value": 2,
+              "small": true
             }
           ]
         }
@@ -60,15 +62,18 @@
           "subActions": [
             {
               "type": "range",
-              "value": 2
+              "value": 2,
+              "small": true
             },
             {
               "type": "target",
-              "value": 2
+              "value": 2,
+              "small": true
             },
             {
               "type": "condition",
-              "value": "poison"
+              "value": "poison",
+              "small": true
             },
             {
               "type": "element",
@@ -78,7 +83,8 @@
                 {
                   "type": "target",
                   "value": 1,
-                  "valueType": "add"
+                  "valueType": "add",
+                  "small": true
                 }
               ]
             }
@@ -103,7 +109,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         }
@@ -129,7 +136,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             },
             {
               "type": "element",
@@ -139,7 +147,8 @@
                 {
                   "type": "heal",
                   "value": 1,
-                  "valueType": "add"
+                  "valueType": "add",
+                  "small": true
                 }
               ]
             }
@@ -153,16 +162,21 @@
       "initiative": 85,
       "actions": [
         {
-          "type": "push",
-          "value": 1,
+          "type": "concatenation",
+          "value": "and:2",
           "subActions": [
+            {
+              "type": "push",
+              "value": 1
+            },
             {
               "type": "condition",
               "value": "poison"
             },
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         },
@@ -173,7 +187,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 2
+              "value": 2,
+              "small": true
             }
           ]
         }
@@ -187,7 +202,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.black-sludge.1%"
+          "value": "%data.custom.jotl.black-sludge.1%",
+          "small": true
         },
         {
           "type": "heal",
@@ -195,7 +211,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         },
@@ -214,7 +231,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.black-sludge.1%"
+          "value": "%data.custom.jotl.black-sludge.1%",
+          "small": true
         },
         {
           "type": "heal",
@@ -222,7 +240,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             },
             {
               "type": "element",

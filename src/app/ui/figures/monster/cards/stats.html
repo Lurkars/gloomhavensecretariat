@@ -92,7 +92,7 @@
     </div>
   </ng-container>
   <div class="extra boss" *ngIf="monster.boss" [ngClass]="{'hidden' : hideStats(MonsterType.boss)}">
-    <div class="notesa" [i18n]="statsForType(MonsterType.boss).note"></div>
+    <div class="notes" [i18n]="statsForType(MonsterType.boss).note"></div>
     <div class="immunities">
       <span class="immunity" *ngFor="let immunity of statsForType(MonsterType.boss).immunities">
         <img class="icon" src="./assets/images/condition/{{immunity}}.svg" />

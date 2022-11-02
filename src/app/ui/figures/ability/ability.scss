@@ -159,21 +159,27 @@
       .level {
         position: absolute;
         top: 11%;
-        left: 50%;
+        left: 45%;
         width: 10%;
         height: 6%;
-        transform: translateX(-50%);
-        color: var(--ghs-color-white);
         font-size: 1.2em;
-        font-family: ghs-title;
+        font-family: var(--ghs-font-title);
         display: flex;
         justify-content: center;
         align-items: center;
         background-color: var(--ghs-ability-color);
-        mask-image: url('~src/assets/images/level.png');
-        mask-size: 2em;
+        mask-image: url('~/src/assets/images/level.svg');
+        mask-size: 115% 170%;
         mask-repeat: no-repeat;
-        mask-position: top center;
+        mask-position: 60% 66%;
+
+        .text {
+          background: inherit;
+          background-clip: text;
+          color: transparent;
+          filter: invert(1) grayscale(1) contrast(100);
+        }
+
       }
 
       .shuffle {
@@ -189,8 +195,8 @@
 
       .ability-actions {
         top: 17%;
-        left: 12%;
-        width: 76%;
+        left: 10.6%;
+        width: 78.3%;
         height: 30%;
 
         &.ability-bottom-actions {

@@ -19,7 +19,7 @@ import { AttackModiferDeckChange } from "../attackmodifier/attackmodifierdeck";
 @Component({
   selector: 'ghs-entity-menu-dialog',
   templateUrl: 'entity-menu-dialog.html',
-  styleUrls: [ './entity-menu-dialog.scss' ]
+  styleUrls: ['./entity-menu-dialog.scss']
 })
 export class EntityMenuDialogComponent {
 
@@ -270,6 +270,10 @@ export class EntityMenuDialogComponent {
     return 0;
   }
 
+  markers(): string[] {
+    return [...gameManager.markers(), ...this.data.entity.markers].filter((marker, index, self) => index == self.indexOf(marker));
+  }
+
   hasMarker(marker: string) {
     return gameManager.entityManager.hasMarker(this.data.entity, marker);
   }
@@ -284,13 +288,13 @@ export class EntityMenuDialogComponent {
 
   toggleMarker(marker: string) {
     if (this.data.entity instanceof MonsterEntity) {
-      gameManager.stateManager.before(this.hasMarker(marker) ? "removeEntityMarker" : "addEntityMarker", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, "data.character." + marker);
+      gameManager.stateManager.before(this.hasMarker(marker) ? "removeEntityMarker" : "addEntityMarker", "data.monster." + this.data.figure.name, "" + this.data.entity.number, "data.character." + marker.split('-')[1]);
     } else if (this.data.entity instanceof Character) {
-      gameManager.stateManager.before(this.hasMarker(marker) ? "removeMarker" : "addMarker", "data.character." + this.data.entity.name, "data.character." + marker);
+      gameManager.stateManager.before(this.hasMarker(marker) ? "removeMarker" : "addMarker", "data.character." + this.data.entity.name, "data.character." + marker.split('-')[1]);
     } else if (this.data.entity instanceof Summon) {
-      gameManager.stateManager.before(this.hasMarker(marker) ? "removeSummonMarker" : "addSummonMarker", "data.character." + this.data.figure.name, "data.summon." + this.data.entity.name, "data.character." + marker);
+      gameManager.stateManager.before(this.hasMarker(marker) ? "removeSummonMarker" : "addSummonMarker", "data.character." + this.data.figure.name, "data.summon." + this.data.entity.name, "data.character." + marker.split('-')[1]);
     } else if (this.data.entity instanceof Objective) {
-      gameManager.stateManager.before(this.hasMarker(marker) ? "removeObjectiveMarker" : "addObjectiveMarker", this.data.entity.title || this.data.entity.name, "data.character." + marker);
+      gameManager.stateManager.before(this.hasMarker(marker) ? "removeObjectiveMarker" : "addObjectiveMarker", this.data.entity.title || this.data.entity.name, "data.character." + marker.split('-')[1]);
     }
 
     gameManager.entityManager.toggleMarker(this.data.entity, marker);

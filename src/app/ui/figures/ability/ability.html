@@ -22,7 +22,7 @@
         </div>
         <ng-container *ngIf="ability.bottomActions && ability.bottomActions.length > 0 || character">
           <span class="level" *ngIf="ability.level || ability.level == 0">
-            {{ability.level}}
+            <span class="text">{{ability.level}}</span>
           </span>
           <div class="ability-actions ability-bottom-actions">
             <ghs-actions [actions]="ability.bottomActions" [monster]="monster" [hint]="ability.hint"

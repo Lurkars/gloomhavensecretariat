@@ -9,7 +9,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.stone-golem.1%"
+          "value": "%data.custom.jotl.stone-golem.1%",
+          "small": true
         }
       ]
     },
@@ -30,7 +31,8 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.jotl.stone-golem.2%"
+          "value": "%data.custom.jotl.stone-golem.2%",
+          "small": true
         }
       ]
     },
@@ -81,11 +83,13 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             },
             {
               "type": "custom",
-              "value": "%data.custom.jotl.stone-golem.3%"
+              "value": "%data.custom.jotl.stone-golem.3%",
+              "small": true
             }
           ]
         }
@@ -126,7 +130,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         }
@@ -149,15 +154,18 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             },
             {
               "type": "pull",
-              "value": 2
+              "value": 2,
+              "small": true
             },
             {
               "type": "condition",
-              "value": "immobilize"
+              "value": "immobilize",
+              "small": true
             }
           ]
         }

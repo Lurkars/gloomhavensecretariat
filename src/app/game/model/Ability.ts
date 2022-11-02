@@ -26,16 +26,3 @@ export class Ability {
     this.hint = hint;
   }
 }
-
-export enum AbilityCardType {
-
-  experience = "experience",
-  infinity = "infinity",
-  lost = "lost",
-  recover = "recover",
-  refresh = "refresh",
-  round = "round",
-  slot = "slot",
-  slotXp = "slotXp"
-
-}

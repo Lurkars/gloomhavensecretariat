@@ -58,6 +58,10 @@ export const applyPlaceholder = function (value: string): string {
       } else if (type == "attackmodifier" && split.length == 3) {
         image = '<img  src="./assets/images/attackmodifier/icons/' + split[2] + '.png" class="icon">';
         replace = '<span class="placeholder-attackmodifier">' + image + '</span>';
+      } else if (type == "characterToken" && split.length == 3) {
+        let characterName = split[2];
+        image = '<img src="' + gameManager.characterManager.characterIcon(characterName) + '">';
+        replace = '<span class="placeholder-character-token" style="background-color:' + gameManager.characterManager.characterColor(characterName) + '">' + image + '</span>';
       } else {
         replace = settingsManager.getLabel(label.split(':')[0], label.split(':').splice(1).map((arg) =>
           applyPlaceholder(settingsManager.getLabel(arg))

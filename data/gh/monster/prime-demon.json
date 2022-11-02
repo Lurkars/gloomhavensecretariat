@@ -19,11 +19,12 @@
       [
         {
           "type": "custom",
-          "value": "%data.custom.gh.prime-demon.1%"
+          "value": "%data.custom.gh.prime-demon.1%",
+          "small": true
         },
         {
           "type": "summon",
-          "value": "%data.monster.demon%"
+          "value": "demon"
         },
         {
           "type": "move",
@@ -39,11 +40,12 @@
       [
         {
           "type": "custom",
-          "value": "%data.custom.gh.prime-demon.1%"
+          "value": "%data.custom.gh.prime-demon.1%",
+          "small": true
         },
         {
           "type": "summon",
-          "value": "%data.monster.demon%"
+          "value": "demon"
         },
         {
           "type": "move",

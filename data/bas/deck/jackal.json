@@ -32,7 +32,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "wound"
+              "value": "wound",
+              "small": true
             }
           ]
         }

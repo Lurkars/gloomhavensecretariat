@@ -54,13 +54,15 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         },
         {
           "type": "custom",
-          "value": "%data.custom.cs.harrower-icecrawlers.1%"
+          "value": "%data.custom.cs.harrower-icecrawlers.1%",
+          "small": true
         }
       ]
     },
@@ -89,7 +91,8 @@
               "subActions": [
                 {
                   "type": "pierce",
-                  "value": 2
+                  "value": 2,
+                  "small": true
                 }
               ]
             }
@@ -113,7 +116,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             },
             {
               "type": "element",
@@ -122,7 +126,8 @@
               "subActions": [
                 {
                   "type": "pierce",
-                  "value": 2
+                  "value": 2,
+                  "small": true
                 }
               ]
             }
@@ -141,7 +146,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 5
+              "value": 5,
+              "small": true
             },
             {
               "type": "element",
@@ -150,7 +156,8 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.cs.harrower-icecrawlers.2%"
+                  "value": "%data.custom.cs.harrower-icecrawlers.2%",
+                  "small": true
                 }
               ]
             }
@@ -186,7 +193,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.cs.harrower-icecrawlers.3%"
+          "value": "%data.custom.cs.harrower-icecrawlers.3%",
+          "small": true
         },
         {
           "type": "move",
@@ -199,7 +207,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         }

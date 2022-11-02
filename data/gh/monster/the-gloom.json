@@ -6,7 +6,6 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [
       "wound",
       "poison",
@@ -43,7 +42,8 @@
               "value": 5
             },
             {
-              "type": "and",
+              "type": "concatenation",
+              "value": "and",
               "subActions": [
                 {
                   "type": "condition",
@@ -57,7 +57,8 @@
                   "type": "condition",
                   "value": "stun"
                 }
-              ]
+              ],
+              "small": true
             }
           ]
         }

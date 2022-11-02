@@ -13,15 +13,18 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             },
             {
               "type": "target",
-              "value": 3
+              "value": 3,
+              "small": true
             },
             {
               "type": "condition",
-              "value": "curse"
+              "value": "curse",
+              "small": true
             }
           ]
         }
@@ -43,7 +46,8 @@
             },
             {
               "type": "pierce",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         }
@@ -65,7 +69,8 @@
             },
             {
               "type": "pierce",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         }
@@ -82,7 +87,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         },
@@ -93,11 +99,13 @@
           "subActions": [
             {
               "type": "range",
-              "value": 4
+              "value": 4,
+              "small": true
             },
             {
               "type": "condition",
-              "value": "wound"
+              "value": "wound",
+              "small": true
             }
           ]
         }
@@ -114,7 +122,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "poison"
+              "value": "poison",
+              "small": true
             }
           ]
         },
@@ -125,11 +134,13 @@
           "subActions": [
             {
               "type": "range",
-              "value": 5
+              "value": 5,
+              "small": true
             },
             {
               "type": "condition",
-              "value": "immobilize"
+              "value": "immobilize",
+              "small": true
             }
           ]
         }
@@ -146,11 +157,13 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             },
             {
               "type": "condition",
-              "value": "disarm"
+              "value": "disarm",
+              "small": true
             }
           ]
         },
@@ -161,11 +174,13 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             },
             {
               "type": "target",
-              "value": 2
+              "value": 2,
+              "small": true
             }
           ]
         }
@@ -182,11 +197,13 @@
           "subActions": [
             {
               "type": "range",
-              "value": 6
+              "value": 6,
+              "small": true
             },
             {
               "type": "custom",
-              "value": "%data.custom.cs.terror-drone.1%"
+              "value": "%data.custom.cs.terror-drone.1%",
+              "small": true
             }
           ]
         }
@@ -197,8 +214,8 @@
       "initiative": 54,
       "actions": [
         {
-          "type": "and",
-          "value": 2,
+          "type": "concatenation",
+          "value": "and:2",
           "subActions": [
             {
               "type": "condition",
@@ -210,7 +227,8 @@
             },
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         },
@@ -221,7 +239,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 4
+              "value": 4,
+              "small": true
             }
           ]
         }

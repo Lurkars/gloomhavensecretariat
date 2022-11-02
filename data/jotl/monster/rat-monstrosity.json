@@ -8,7 +8,8 @@
     "actions": [
       {
         "type": "custom",
-        "value": "%data.custom.jotl.rat-monstrosity.1%"
+        "value": "%data.custom.jotl.rat-monstrosity.1%",
+        "small": true
       }
     ],
     "immunities": [],
@@ -41,7 +42,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.rat-monstrosity.2%"
+          "value": "%data.custom.jotl.rat-monstrosity.2%",
+          "small": true
         }
       ]
     },
@@ -53,7 +55,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.rat-monstrosity.2%"
+          "value": "%data.custom.jotl.rat-monstrosity.2%",
+          "small": true
         }
       ]
     },
@@ -65,7 +68,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.rat-monstrosity.2%"
+          "value": "%data.custom.jotl.rat-monstrosity.2%",
+          "small": true
         }
       ]
     },
@@ -77,7 +81,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.rat-monstrosity.3%"
+          "value": "%data.custom.jotl.rat-monstrosity.3%",
+          "small": true
         }
       ]
     },
@@ -89,7 +94,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.rat-monstrosity.3%"
+          "value": "%data.custom.jotl.rat-monstrosity.3%",
+          "small": true
         }
       ]
     },
@@ -109,11 +115,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.rat-monstrosity.2%"
+          "value": "%data.custom.jotl.rat-monstrosity.2%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         }
       ]
     },
@@ -126,11 +134,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.rat-monstrosity.2%"
+          "value": "%data.custom.jotl.rat-monstrosity.2%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         }
       ]
     },
@@ -143,11 +153,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.rat-monstrosity.2%"
+          "value": "%data.custom.jotl.rat-monstrosity.2%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         }
       ]
     },
@@ -160,11 +172,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.rat-monstrosity.3%"
+          "value": "%data.custom.jotl.rat-monstrosity.3%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         }
       ]
     },
@@ -177,11 +191,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.rat-monstrosity.3%"
+          "value": "%data.custom.jotl.rat-monstrosity.3%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         }
       ]
     },
@@ -194,11 +210,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.rat-monstrosity.3%"
+          "value": "%data.custom.jotl.rat-monstrosity.3%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         }
       ]
     },
@@ -211,11 +229,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.rat-monstrosity.4%"
+          "value": "%data.custom.jotl.rat-monstrosity.4%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         }
       ]
     }

@@ -17,7 +17,8 @@
       [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.blood-horror.1%"
+          "value": "%data.custom.jotl.blood-horror.1%",
+          "small": true
         }
       ],
       [
@@ -33,7 +34,8 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.jotl.blood-horror.2%"
+          "value": "%data.custom.jotl.blood-horror.2%",
+          "small": true
         }
       ]
     ]

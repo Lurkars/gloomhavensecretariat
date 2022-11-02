@@ -39,7 +39,7 @@
         </ng-container>
         <ng-container *ngIf="scenario.solo">
           <img class="ghs-svg solo"
-            [src]="characterIcon(scenario.solo)" />
+            [src]="gameManager.characterManager.characterIcon(scenario.solo)" />
         </ng-container>
         <span *ngIf="scenarioSuccess(scenario)" class="state success"><img class="ghs-svg"
             src="./assets/images/check.svg" /></span>

@@ -36,7 +36,8 @@
             {
               "type": "range",
               "value": 1,
-              "valueType": "plus"
+              "valueType": "plus",
+              "small": true
             }
           ]
         }
@@ -57,7 +58,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "muddle"
+              "value": "muddle",
+              "small": true
             }
           ]
         }
@@ -78,7 +80,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         }
@@ -100,7 +103,8 @@
             {
               "type": "range",
               "value": 1,
-              "valueType": "minus"
+              "valueType": "minus",
+              "small": true
             }
           ]
         }
@@ -120,7 +124,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemyAdjacent"
+              "value": "enemyAdjacent",
+              "small": true
             }
           ]
         }

@@ -20,8 +20,7 @@
           "3": "%data.monster.desiccated-corpse% suffers 1 damage."
         },
         "dust-demon": {
-          "1": "Target all enemies %data.monster.dust-demon% moved through.",
-          "2": "%data.monster.dust-demon% moves through as many enemies as possible."
+          "1": "%data.monster.dust-demon% moves through as many enemies as possible."
         },
         "jackal": {
           "1": "Pack"
@@ -58,8 +57,7 @@
           "3": "%data.monster.desiccated-corpse% erleidet 1 Schaden."
         },
         "dust-demon": {
-          "1": "Visiere alle vom %data.monster.dust-demon% durchquerten Gegner an.",
-          "2": "%data.monster.dust-demon% bewegt sich durch so viele Gegner wie möglich."
+          "1": "%data.monster.dust-demon% bewegt sich durch so viele Gegner wie möglich."
         },
         "jackal": {
           "1": "Rudel"
@@ -96,8 +94,7 @@
           "3": "%data.monster.desiccated-corpse% subit 1 dégâts."
         },
         "dust-demon": {
-          "1": "Ciblez tous les ennemis %data.monster.dust-demon% déplacé.",
-          "2": "%data.monster.dust-demon% se déplace à travers autant d'ennemis que possible."
+          "1": "%data.monster.dust-demon% se déplace à travers autant d'ennemis que possible."
         },
         "jackal": {
           "1": "Emballer"

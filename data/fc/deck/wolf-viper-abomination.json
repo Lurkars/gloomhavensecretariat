@@ -18,7 +18,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "immobilize"
+              "value": "immobilize",
+              "small": true
             }
           ]
         }
@@ -41,7 +42,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.hound.1%"
+              "value": "%data.custom.gh.hound.1%",
+              "small": true
             }
           ]
         }
@@ -64,7 +66,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.hound.1%"
+              "value": "%data.custom.gh.hound.1%",
+              "small": true
             }
           ]
         }
@@ -81,7 +84,8 @@
           "subActions": [
             {
               "type": "pierce",
-              "value": 2
+              "value": 2,
+              "small": true
             }
           ]
         },
@@ -97,7 +101,8 @@
           "subActions": [
             {
               "type": "pierce",
-              "value": 2
+              "value": 2,
+              "small": true
             }
           ]
         }
@@ -113,7 +118,8 @@
           "valueType": "plus",
           "subActions": [
             {
-              "type": "jump"
+              "type": "jump",
+              "small": true
             }
           ]
         },
@@ -124,7 +130,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         }
@@ -146,7 +153,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.giant-viper.2%"
+              "value": "%data.custom.gh.giant-viper.2%",
+              "small": true
             }
           ]
         }
@@ -162,7 +170,8 @@
           "valueType": "minus",
           "subActions": [
             {
-              "type": "jump"
+              "type": "jump",
+              "small": true
             }
           ]
         },
@@ -173,7 +182,8 @@
           "subActions": [
             {
               "type": "target",
-              "value": 2
+              "value": 2,
+              "small": true
             }
           ]
         }
@@ -195,7 +205,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "immobilize"
+              "value": "immobilize",
+              "small": true
             }
           ]
         },

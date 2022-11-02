@@ -51,7 +51,8 @@
             {
               "type": "range",
               "value": 1,
-              "valueType": "minus"
+              "valueType": "minus",
+              "small": true
             }
           ]
         }
@@ -84,7 +85,8 @@
           "subActions": [
             {
               "type": "target",
-              "value": 2
+              "value": 2,
+              "small": true
             }
           ]
         }
@@ -103,7 +105,8 @@
             {
               "type": "range",
               "value": 1,
-              "valueType": "plus"
+              "valueType": "plus",
+              "small": true
             }
           ]
         }
@@ -125,7 +128,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.archer.1%"
+              "value": "%data.custom.gh.archer.1%",
+              "small": true
             }
           ]
         }
@@ -149,11 +153,13 @@
             {
               "type": "range",
               "value": 1,
-              "valueType": "plus"
+              "valueType": "plus",
+              "small": true
             },
             {
               "type": "condition",
-              "value": "immobilize"
+              "value": "immobilize",
+              "small": true
             }
           ]
         }

@@ -8,7 +8,6 @@
   "count": 10,
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [
       "immobilize",
       "muddle",
@@ -30,6 +29,7 @@
         {
           "type": "custom",
           "value": "%data.custom.cs.gelatinous-giant.1%",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
@@ -38,7 +38,8 @@
               "subActions": [
                 {
                   "type": "specialTarget",
-                  "value": "enemyAdjacent"
+                  "value": "enemyAdjacent",
+                  "small": true
                 }
               ]
             }
@@ -53,7 +54,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesRange:3"
+              "value": "enemiesRange:3",
+              "small": true
             }
           ]
         },

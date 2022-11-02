@@ -4,7 +4,7 @@
   .container {
     width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
     height: calc(var(--ghs-unit) * 94 * var(--ghs-dialog-factor));
-    background-image: url('~src/assets/images/character/character-sheet.svg');
+    background-image: url('~/src/assets/images/character/character-sheet.svg');
     background-position: top center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -137,7 +137,7 @@
             top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
             width: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
             height: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
-            background-image: url('~src/assets/images/initiative.svg');
+            background-image: url('~/src/assets/images/initiative.svg');
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;

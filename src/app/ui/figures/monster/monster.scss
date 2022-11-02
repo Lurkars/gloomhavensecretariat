@@ -66,29 +66,30 @@
     text-align: left;
     white-space: nowrap;
     overflow: auto;
-  
+
     .name {
       cursor: pointer;
-  
+
       &:hover {
         color: var(--ghs-color-gray);
       }
     }
-  
+
     .edition {
       margin-left: calc(var(--ghs-unit) * 0.5);
     }
-  
+
     .flying {
       display: flex;
       justify-content: center;
       align-items: center;
       width: auto;
       margin-left: calc(var(--ghs-unit) * 0.5);
-  
+
       img {
         height: 1em;
         width: auto;
+        filter: var(--ghs-filter-white);
       }
     }
   }

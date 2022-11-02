@@ -286,7 +286,7 @@
             "effects": [
               {
                 "type": "elementHalf",
-                "value": "earth|fire"
+                "value": "earth:fire"
               }
             ]
           }

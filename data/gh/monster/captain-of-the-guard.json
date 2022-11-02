@@ -6,7 +6,6 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [
       "disarm",
       "wound",
@@ -21,7 +20,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "selfAlliesAffect"
+              "value": "selfAlliesAffect",
+              "small": true
             }
           ]
         }
@@ -29,7 +29,8 @@
       [
         {
           "type": "custom",
-          "value": "%data.custom.gh.captain-of-the-guard.1%"
+          "value": "%data.custom.gh.captain-of-the-guard.1%",
+          "small": true
         },
         {
           "type": "attack",

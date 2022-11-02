@@ -55,7 +55,8 @@
           "subActions": [
             {
               "type": "pierce",
-              "value": 2
+              "value": 2,
+              "small": true
             }
           ]
         },
@@ -81,11 +82,13 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             },
             {
               "type": "condition",
-              "value": "immobilize"
+              "value": "immobilize",
+              "small": true
             }
           ]
         }
@@ -112,7 +115,8 @@
               "subActions": [
                 {
                   "type": "condition",
-                  "value": "disarm"
+                  "value": "disarm",
+                  "small": true
                 }
               ]
             }
@@ -147,7 +151,8 @@
                       "type": "specialTarget",
                       "value": "self"
                     }
-                  ]
+                  ],
+                  "small": true
                 }
               ]
             }
@@ -176,7 +181,8 @@
               "subActions": [
                 {
                   "type": "condition",
-                  "value": "wound"
+                  "value": "wound",
+                  "small": true
                 }
               ]
             },
@@ -187,7 +193,8 @@
               "subActions": [
                 {
                   "type": "condition",
-                  "value": "curse"
+                  "value": "curse",
+                  "small": true
                 }
               ]
             }
@@ -201,11 +208,13 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.fc.ashblade.1%"
+          "value": "%data.custom.fc.ashblade.1%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%data.custom.fc.ashblade.2%"
+          "value": "%data.custom.fc.ashblade.2%",
+          "small": true
         },
         {
           "type": "attack",

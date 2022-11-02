@@ -149,7 +149,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.disadvantage%"
+          "value": "%game.custom.disadvantage%",
+          "small": true
         },
         {
           "type": "condition",
@@ -166,7 +167,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.disadvantage%"
+          "value": "%game.custom.disadvantage%",
+          "small": true
         },
         {
           "type": "condition",
@@ -183,7 +185,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.disadvantage%"
+          "value": "%game.custom.disadvantage%",
+          "small": true
         },
         {
           "type": "condition",
@@ -200,7 +203,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.disadvantage%"
+          "value": "%game.custom.disadvantage%",
+          "small": true
         },
         {
           "type": "condition",
@@ -217,7 +221,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.disadvantage%"
+          "value": "%game.custom.disadvantage%",
+          "small": true
         },
         {
           "type": "condition",

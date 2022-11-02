@@ -10,7 +10,8 @@
     "actions": [
       {
         "type": "custom",
-        "value": "%game.custom.disadvantage%"
+        "value": "%game.custom.disadvantage%",
+        "small": true
       }
     ],
     "immunities": [],

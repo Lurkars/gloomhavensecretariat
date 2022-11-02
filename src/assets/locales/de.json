@@ -625,6 +625,7 @@
       "enemiesAdjacent": "Visiere alle angrenzenden Gegner an",
       "enemiesRange": "Visiere alle Gegner in %game.action.range% {0} an",
       "enemiesRangeAffect": "Visiere alle Gegner in %game.action.range% {0}",
+      "enemiesMovedThrough": "Visiere alle durchquerten Gegner an",
       "figures": "Visiere alle Figuren an",
       "figuresAdjacent": "Visiere alle angrenzenden Figuren an",
       "figuresRange": "Visiere alle Figuren in %game.action.range% {0} an",
@@ -746,7 +747,7 @@
     },
     "custom": {
       "advantage": "Vorteil",
-      "ondeath": "Bei Tod",
+      "ondeath": "Bei Tod:",
       "instead": "Stattdessen",
       "disadvantage": "Angreifer erhalten Nachteil",
       "math": {

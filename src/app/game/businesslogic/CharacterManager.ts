@@ -17,17 +17,35 @@ import { settingsManager } from "./SettingsManager";
 export class CharacterManager {
 
   game: Game;
-  xpMap: number[] = [ 0, 45, 95, 150, 210, 275, 345, 420, 500 ];
+  xpMap: number[] = [0, 45, 95, 150, 210, 275, 345, 420, 500];
 
   constructor(game: Game) {
     this.game = game;
   }
 
-  characterIcon(characterData: CharacterData) {
+  characterIcon(character: CharacterData | string): string {
+    let characterData: CharacterData;
+    if (typeof character !== 'string') {
+      characterData = character;
+    } else {
+      characterData = gameManager.getCharacterData(character);
+    }
+
     if (characterData.iconUrl) {
       return characterData.iconUrl;
     }
     return './assets/images/character/icons/' + characterData.edition + '-' + characterData.name + '.svg';
+  }
+
+  characterColor(character: CharacterData | string): string {
+    let characterData: CharacterData;
+    if (character instanceof CharacterData) {
+      characterData = character;
+    } else {
+      characterData = gameManager.getCharacterData(character);
+    }
+
+    return characterData.color;
   }
 
   characterThumbnail(characterData: CharacterData) {
@@ -169,7 +187,7 @@ export class CharacterManager {
   addXP(character: Character, value: number) {
     character.progress.experience += value;
     this.xpMap.forEach((value, index) => {
-      if (character.progress.experience >= value && (index < this.xpMap.length - 1 && character.progress.experience < this.xpMap[ index + 1 ] || index == this.xpMap.length - 1)) {
+      if (character.progress.experience >= value && (index < this.xpMap.length - 1 && character.progress.experience < this.xpMap[index + 1] || index == this.xpMap.length - 1)) {
         this.setLevel(character, index + 1);
       }
     })
@@ -201,8 +219,8 @@ export class CharacterManager {
 
     character.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => this.createSpecialSummon(character, summonData));
 
-    if (character.progress.experience < gameManager.characterManager.xpMap[ level - 1 ] || character.progress.experience >= gameManager.characterManager.xpMap[ level ]) {
-      character.progress.experience = gameManager.characterManager.xpMap[ level - 1 ];
+    if (character.progress.experience < gameManager.characterManager.xpMap[level - 1] || character.progress.experience >= gameManager.characterManager.xpMap[level]) {
+      character.progress.experience = gameManager.characterManager.xpMap[level - 1];
     }
 
     if (this.game.levelCalculation) {

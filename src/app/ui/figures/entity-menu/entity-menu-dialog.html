@@ -265,7 +265,7 @@
       </ng-container>
 
       <div class="marker-container">
-        <span *ngFor="let marker of gameManager.markers()">
+        <span *ngFor="let marker of markers()">
           <a class="item" [ngClass]="{'active' : hasMarker(marker)}" (click)="toggleMarker(marker)">
             <span class="condition marker">
               <img src="./assets/images/character/icons/{{marker}}.svg" />

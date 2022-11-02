@@ -19,13 +19,14 @@
       [
         {
           "type": "custom",
-          "value": "%data.custom.gh.merciless-overseer.1%"
+          "value": "%data.custom.gh.merciless-overseer.1%",
+          "small": true
         }
       ],
       [
         {
           "type": "summon",
-          "value": "%data.monster.vermling-scout%"
+          "value": "vermling-scout"
         }
       ]
     ]

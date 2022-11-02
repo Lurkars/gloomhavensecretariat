@@ -29,7 +29,8 @@
               "subActions": [
                 {
                   "type": "condition",
-                  "value": "immobilize"
+                  "value": "immobilize",
+                  "small": true
                 }
               ]
             }
@@ -70,11 +71,13 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             },
             {
               "type": "custom",
-              "value": "%data.custom.cs.ravenous-gharial.5%"
+              "value": "%data.custom.cs.ravenous-gharial.5%",
+              "small": true
             }
           ]
         }
@@ -97,7 +100,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "immobilize"
+              "value": "immobilize",
+              "small": true
             }
           ]
         },
@@ -107,7 +111,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.ravenous-gharial.6%"
+              "value": "%data.custom.cs.ravenous-gharial.6%",
+              "small": true
             }
           ]
         }
@@ -131,15 +136,18 @@
           "subActions": [
             {
               "type": "range",
-              "value": 2
+              "value": 2,
+              "small": true
             },
             {
               "type": "pull",
-              "value": 1
+              "value": 1,
+              "small": true
             },
             {
               "type": "condition",
-              "value": "wound"
+              "value": "wound",
+              "small": true
             }
           ]
         }
@@ -157,7 +165,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.ravenous-gharial.7%"
+              "value": "%data.custom.cs.ravenous-gharial.7%",
+              "small": true
             }
           ]
         },
@@ -172,7 +181,8 @@
             },
             {
               "type": "push",
-              "value": 2
+              "value": 2,
+              "small": true
             }
           ]
         }
@@ -194,13 +204,15 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.ravenous-gharial.8%"
+              "value": "%data.custom.cs.ravenous-gharial.8%",
+              "small": true
             }
           ]
         },
         {
           "type": "custom",
-          "value": "%data.custom.cs.ravenous-gharial.9%"
+          "value": "%data.custom.cs.ravenous-gharial.9%",
+          "small": true
         }
       ]
     },
@@ -237,7 +249,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.ravenous-gharial.11%"
+              "value": "%data.custom.cs.ravenous-gharial.11%",
+              "small": true
             }
           ]
         }
@@ -260,7 +273,8 @@
           "subActions": [
             {
               "type": "pierce",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         }

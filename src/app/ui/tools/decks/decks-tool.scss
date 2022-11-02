@@ -1,8 +1,20 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .menu {
   display: flex;
+
+  label {
+    display: flex;
+  }
 }
 
 .decks {
+  flex: 1 1 auto;
   width: 100%;
   overflow: auto;
   display: flex;
@@ -11,7 +23,14 @@
     display: flex;
     flex-direction: column;
 
+    h2,
+    h3 {
+      text-align: center;
+      margin: 0;
+    }
+
     ghs-ability {
+      flex-shrink: 0;
       width: 400px;
       height: 255px;
       margin: 10px;

@@ -57,7 +57,7 @@ export class ValueCalcDirective implements OnInit, OnChanges {
     if (0 == +value) {
       return "-";
     } else if (!value) {
-      return "";
+      return empty ? "-" : "";
     }
 
     let L = gameManager.game.level;
@@ -77,22 +77,22 @@ export class ValueCalcDirective implements OnInit, OnChanges {
 
     const match = value.match(EntityValueRegex);
     if (match) {
-      let func = match[ 3 ];
+      let func = match[3];
       const funcLabel = func && func.startsWith('%');
       if (funcLabel) {
         func = func.replace('%', '');
       }
-      return funcLabel ? match[ 1 ] + ' ' + settingsManager.getLabel('game.custom.' + func) : match[ 1 ];
+      return funcLabel ? match[1] + ' ' + settingsManager.getLabel('game.custom.' + func) : match[1];
     }
 
 
     while (value.match(ghsLabelRegex)) {
       value = value.replace(ghsLabelRegex, (match, ...args) => {
-        return settingsManager.getLabel(args[ 0 ]);
+        return settingsManager.getLabel(args[0]);
       });
     }
 
-    return value;
+    return value ? value : (empty ? '-' : '');
   }
 
 }

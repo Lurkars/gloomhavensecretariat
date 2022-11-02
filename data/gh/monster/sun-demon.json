@@ -18,7 +18,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         },
         {
           "type": "shield",
@@ -34,7 +35,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         },
         {
           "type": "shield",
@@ -50,7 +52,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         },
         {
           "type": "shield",
@@ -66,7 +69,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         },
         {
           "type": "shield",
@@ -82,7 +86,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         },
         {
           "type": "shield",
@@ -98,7 +103,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         },
         {
           "type": "shield",
@@ -114,7 +120,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         },
         {
           "type": "shield",
@@ -130,7 +137,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         },
         {
           "type": "shield",
@@ -147,7 +155,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         },
         {
           "type": "shield",
@@ -164,7 +173,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         },
         {
           "type": "shield",
@@ -181,7 +191,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         },
         {
           "type": "shield",
@@ -198,7 +209,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         },
         {
           "type": "shield",
@@ -215,7 +227,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         },
         {
           "type": "shield",
@@ -232,7 +245,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         },
         {
           "type": "shield",
@@ -249,7 +263,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         },
         {
           "type": "shield",
@@ -266,7 +281,8 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%game.custom.advantage%"
+          "value": "%game.custom.advantage%",
+          "small": true
         },
         {
           "type": "shield",

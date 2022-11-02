@@ -1,4 +1,5 @@
-<ghs-action (click)="relative = !relative" [action]="data.action" [relative]="relative">
+<ghs-action (click)="relative = !relative" [action]="data.action" [relative]="relative"
+    *ngIf="noPreview.indexOf(data.action.type) == -1">
 </ghs-action>
 
 <ghs-editor-action [(action)]="data.action"></ghs-editor-action>

@@ -18,13 +18,14 @@
       [
         {
           "type": "summon",
-          "value": "%data.monster.giant-viper% %and% %data.monster.fear%"
+          "value": "giant-viper|fear"
         }
       ],
       [
         {
           "type": "custom",
-          "value": "%data.custom.gh.the-betrayer.1%"
+          "value": "%data.custom.gh.the-betrayer.1%",
+          "small": true
         }
       ]
     ]

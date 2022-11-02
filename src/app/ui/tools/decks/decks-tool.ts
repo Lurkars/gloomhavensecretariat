@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { Character } from "src/app/game/model/Character";
 import { DeckData } from "src/app/game/model/data/DeckData";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterType } from "src/app/game/model/MonsterType";
@@ -12,9 +13,12 @@ import { MonsterType } from "src/app/game/model/MonsterType";
 })
 export class DecksToolComponent implements OnInit {
 
+  gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
-  decks: DeckData[] = [];
-  monsters: (Monster | undefined)[] = [];
+  edition: string = "";
+  monsters: Monster[] = [];
+  characters: Character[] = [];
+  character: boolean = false;
   entity: boolean = true;
   elite: boolean = true;
   level: number = 1;
@@ -22,52 +26,46 @@ export class DecksToolComponent implements OnInit {
   async ngOnInit() {
     await settingsManager.init();
     gameManager.stateManager.init();
-
+    this.edition = gameManager.editions(true)[0];
     this.update();
   }
 
   update() {
-    this.decks = gameManager.decksData(true).sort((a, b) => {
-      if (a.edition == b.edition) {
-        return a.name < b.name ? -1 : 1;
-      } else {
-        return gameManager.editionData.map((editionData) => editionData.edition).indexOf(a.edition) - gameManager.editionData.map((editionData) => editionData.edition).indexOf(b.edition);
-      }
-    });
-
     this.monsters = [];
-    if (settingsManager.settings.calculate) {
-      this.decks.forEach((deckData) => {
-        this.monsters.push(this.monster(deckData.name));
-      })
+    this.characters = [];
+    if (!this.character) {
+      const monsterData = gameManager.editionData.filter((editionData) => editionData.edition == this.edition).map((editionData) => editionData.monsters).flat().filter((monsterData, index, monsters) => monsterData.replace || !monsterData.replace && !monsters.find((monsterDataReplacement) => monsterDataReplacement.replace && monsterDataReplacement.name == monsterData.name && monsterDataReplacement.edition == monsterData.edition));
+
+      this.monsters = monsterData.sort((a, b) => a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1).map((monsterData) => {
+        let monster = new Monster(monsterData, this.level);
+
+        if (monster.boss && this.entity) {
+          gameManager.monsterManager.addMonsterEntity(monster, 1, MonsterType.boss);
+        }
+
+        if (!monster.boss && this.elite) {
+          gameManager.monsterManager.addMonsterEntity(monster, 1, MonsterType.elite);
+        }
+        if (!monster.boss && this.entity) {
+          gameManager.monsterManager.addMonsterEntity(monster, 2, MonsterType.normal);
+        }
+
+        return monster;
+      });
+    } else {
+      const characterData = gameManager.editionData.filter((editionData) => editionData.edition == this.edition).map((editionData) => editionData.characters).flat().filter((characterData) => gameManager.decksData(true).some((deckData) => deckData.name == characterData.deck || deckData.name == characterData.name));
+
+      this.characters = characterData.sort((a, b) => a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1).map((characterData) => {
+        return new Character(characterData, this.level);
+      });
     }
+
     gameManager.uiChange.emit();
   }
 
-  monster(deck: string): Monster | undefined {
-    let monsterData = gameManager.monstersData(true).find((monsterData) => monsterData.name == deck);
-
-    if (!monsterData) {
-      monsterData = gameManager.monstersData(true).find((monsterData) => monsterData.deck == deck);
-    }
-
-    if (monsterData) {
-      const monster = new Monster(monsterData);
-      monster.level = this.level;
-      if (monster.boss && this.entity) {
-        gameManager.monsterManager.addMonsterEntity(monster, 1, MonsterType.boss);
-      }
-
-      if (!monster.boss && this.elite) {
-        gameManager.monsterManager.addMonsterEntity(monster, 1, MonsterType.elite);
-      }
-      if (!monster.boss && this.entity) {
-        gameManager.monsterManager.addMonsterEntity(monster, 2, MonsterType.normal);
-      }
-
-      return monster;
-    }
-    return undefined;
+  deck(monster: Monster | Character): DeckData {
+    return gameManager.deckData(monster);
   }
+
 
 }

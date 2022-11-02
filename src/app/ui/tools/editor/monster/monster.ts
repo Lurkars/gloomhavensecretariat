@@ -2,17 +2,15 @@ import { Dialog } from "@angular/cdk/dialog";
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Ability } from "src/app/game/model/Ability";
 import { Action, ActionType, ActionValueType } from "src/app/game/model/Action";
-import { DeckData } from "src/app/game/model/data/DeckData";
 import { MonsterData } from "src/app/game/model/data/MonsterData";
 import { FigureError, FigureErrorType } from "src/app/game/model/FigureError";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterStat } from "src/app/game/model/MonsterStat";
 import { MonsterType } from "src/app/game/model/MonsterType";
 import { MonsterStatsComponent } from "src/app/ui/figures/monster/cards/stats";
-import { applyPlaceholder } from "src/app/ui/helper/i18n";
 import { EditorActionDialogComponent } from "../action/action";
+import { DeckEditorComponent } from "../deck/deck";
 
 
 export const newMonsterJson: string = '{"name": "new-monster", "thumbnail" : "", "edition": "", "deck": "", "boss": false, "flying" : false, "hidden":false, "count": 10, "baseStat" : {}, "stats": []}';
@@ -25,8 +23,8 @@ export const newMonsterJson: string = '{"name": "new-monster", "thumbnail" : "",
 export class MonsterEditorComponent implements OnInit {
 
   @ViewChild('inputMonsterData', { static: true }) inputMonsterData!: ElementRef;
-  @ViewChild('inputDeckData', { static: true }) inputDeckData!: ElementRef;
   @ViewChild('monsterStats') monsterStats!: MonsterStatsComponent;
+  @ViewChild('deckEditor') deckEditor!: DeckEditorComponent;
 
   gameManager: GameManager = gameManager;
   MonsterType = MonsterType;
@@ -36,27 +34,18 @@ export class MonsterEditorComponent implements OnInit {
   encodeURIComponent = encodeURIComponent;
   levels: number[] = [0, 1, 2, 3, 4, 5, 6, 7];
   level: number = 1;
-  deckData: DeckData;
   monsterError: any;
-  deckError: any;
 
   constructor(private dialog: Dialog) {
     this.monsterData = JSON.parse(newMonsterJson);
-    this.deckData = new DeckData(this.monsterData.name, [], this.monsterData.edition);
-    this.deckData.abilities.push(new Ability());
     this.updateType(false);
   }
 
   async ngOnInit() {
     await settingsManager.init();
     this.monsterDataToJson();
-    this.deckDataToJson();
     this.inputMonsterData.nativeElement.addEventListener('change', (event: any) => {
       this.monsterDataFromJson();
-    });
-
-    this.inputDeckData.nativeElement.addEventListener('change', (event: any) => {
-      this.deckDataFromJson();
     });
   }
 
@@ -145,14 +134,14 @@ export class MonsterEditorComponent implements OnInit {
       if (stat.actions && stat.actions.length == 0) {
         stat.actions = undefined;
       } else if (stat.actions) {
-        stat.actions.forEach((action: any) => this.compactAction(action));
+        stat.actions.forEach((action: any) => this.deckEditor.compactAction(action));
       }
 
       if (stat.special && stat.special.length == 0) {
         stat.special = undefined;
       } else if (stat.special) {
         stat.special.forEach((special: any) => {
-          special.forEach((action: any) => this.compactAction(action));
+          special.forEach((action: any) => this.deckEditor.compactAction(action));
         })
       }
     })
@@ -166,12 +155,12 @@ export class MonsterEditorComponent implements OnInit {
     if (compactData.baseStat.actions && compactData.baseStat.actions.length == 0) {
       compactData.baseStat.actions = undefined;
     } else if (compactData.baseStat.actions) {
-      compactData.baseStat.actions.forEach((action: any) => this.compactAction(action));
+      compactData.baseStat.actions.forEach((action: any) => this.deckEditor.compactAction(action));
     }
 
     if (compactData.baseStat.special) {
       compactData.baseStat.special.forEach((special: any) => {
-        special.forEach((action: any) => this.compactAction(action));
+        special.forEach((action: any) => this.deckEditor.compactAction(action));
       })
     }
 
@@ -191,77 +180,6 @@ export class MonsterEditorComponent implements OnInit {
         this.monsterData = JSON.parse(newMonsterJson);
         this.monsterError = e;
       }
-    }
-  }
-
-
-  deckDataToJson() {
-    this.updateDeck();
-    let compactData: any = JSON.parse(JSON.stringify(this.deckData));
-
-    Object.keys(compactData).forEach((key) => {
-      if (!compactData[key] || compactData[key] == false) {
-        compactData[key] = undefined;
-      }
-    })
-
-    compactData.abilities.forEach((ability: any) => {
-      Object.keys(ability).forEach((key) => {
-        if (!ability[key] && ability[key] != 0 || typeof ability[key] == 'boolean' && ability[key] == false) {
-          ability[key] = undefined;
-        }
-
-        if (ability.actions && ability.actions.length == 0) {
-          ability.actions = undefined;
-        } else if (ability.actions) {
-          ability.actions.forEach((action: any) => {
-            this.compactAction(action);
-          })
-        }
-
-        if (ability.bottomActions && ability.bottomActions.length == 0) {
-          ability.bottomActions = undefined;
-        } else if (ability.bottomActions) {
-          ability.bottomActions.forEach((action: any) => {
-            this.compactAction(action);
-          })
-        }
-      })
-    })
-
-    this.inputDeckData.nativeElement.value = JSON.stringify(compactData, null, 2);
-  }
-
-  deckDataFromJson() {
-    this.deckError = "";
-    if (this.inputDeckData.nativeElement.value) {
-      try {
-        this.deckData = JSON.parse(this.inputDeckData.nativeElement.value);
-        this.updateDeck();
-        return;
-      } catch (e) {
-        this.deckData = new DeckData(this.monsterData.name, [], this.monsterData.edition);
-        this.deckData.abilities.push(new Ability());
-        this.deckError = e;
-      }
-    }
-  }
-
-  compactAction(action: any) {
-    if (action.valueType && action.valueType == ActionValueType.fixed) {
-      action.valueType = undefined;
-    }
-
-    if (action.subActions && action.subActions.length == 0) {
-      action.subActions = undefined;
-    } else if (action.subActions) {
-      action.subActions.forEach((action: any) => {
-        this.compactAction(action);
-      })
-    }
-
-    if (!action.value && action.value != 0) {
-      action.value = undefined;
     }
   }
 
@@ -325,9 +243,6 @@ export class MonsterEditorComponent implements OnInit {
   updateType(toJson: boolean = true) {
     if (this.monsterData) {
       if (this.monsterData.boss) {
-        if (!this.monsterData.deck) {
-          this.monsterData.deck = 'boss';
-        }
         this.monsterData.stats = this.monsterData.stats.filter((stat) => !stat.type || stat.type == MonsterType.boss);
 
         for (let level of this.levels) {
@@ -453,132 +368,6 @@ export class MonsterEditorComponent implements OnInit {
     })
   }
 
-  changeInitiative(event: any, ability: Ability) {
-    if (event.target.value) {
-      ability.initiative = +event.target.value;
-    } else {
-      ability.initiative = 0;
-    }
-    event.target.value = (ability.initiative < 10 ? '0' : '') + ability.initiative;
-    this.deckDataToJson();
-  }
-
-  updateDeck() {
-    if (this.deckData.name != this.monsterData.name && this.deckData.name != this.monsterData.deck) {
-      this.monsterData.deck = this.deckData.name;
-      this.monsterDataToJson();
-    } else if (this.monsterData.deck == this.monsterData.name || this.monsterData.name == this.deckData.name) {
-      this.monsterData.deck = "";
-      this.monsterDataToJson();
-    }
-  }
-
-  addAbility() {
-    this.deckData.abilities.push(new Ability());
-    this.deckDataToJson();
-  }
-
-  removeAbility(ability: Ability) {
-    this.deckData.abilities.splice(this.deckData.abilities.indexOf(ability), 1);
-    this.deckDataToJson();
-  }
-
-  addAbilityAction(ability: Ability) {
-    let action = new Action(ActionType.attack);
-    if (!ability.actions) {
-      ability.actions = [];
-    }
-    ability.actions.push(action);
-    const dialog = this.dialog.open(EditorActionDialogComponent, {
-      panelClass: 'dialog',
-      data: { action: action }
-    });
-
-    dialog.closed.subscribe({
-      next: (value) => {
-        if (value == false) {
-          ability.actions.splice(ability.actions.indexOf(action), 1);
-        }
-        this.deckDataToJson();
-      }
-    })
-  }
-
-  editAbilityAction(ability: Ability, action: Action) {
-    const dialog = this.dialog.open(EditorActionDialogComponent, {
-      panelClass: 'dialog',
-      data: { action: action }
-    });
-
-    dialog.closed.subscribe({
-      next: (value) => {
-        if (value == false) {
-          ability.actions.splice(ability.actions.indexOf(action), 1);
-        }
-        this.deckDataToJson();
-      }
-    })
-  }
-
-  addAbilityActionBottom(ability: Ability) {
-    let action = new Action(ActionType.attack);
-    if (!ability.bottomActions) {
-      ability.bottomActions = [];
-    }
-    ability.bottomActions.push(action);
-    const dialog = this.dialog.open(EditorActionDialogComponent, {
-      panelClass: 'dialog',
-      data: { action: action }
-    });
-
-    dialog.closed.subscribe({
-      next: (value) => {
-        if (value == false) {
-          ability.bottomActions.splice(ability.bottomActions.indexOf(action), 1);
-        }
-        this.deckDataToJson();
-      }
-    })
-  }
-
-  editAbilityActionBottom(ability: Ability, action: Action) {
-    const dialog = this.dialog.open(EditorActionDialogComponent, {
-      panelClass: 'dialog',
-      data: { action: action }
-    });
-
-    dialog.closed.subscribe({
-      next: (value) => {
-        if (value == false) {
-          ability.bottomActions.splice(ability.actions.indexOf(action), 1);
-        }
-        this.deckDataToJson();
-      }
-    })
-  }
-
-  abilityPlaceholder(name: string | undefined): string {
-    let label = 'data.monster.' + this.monsterData.name;
-    if (name) {
-      label = 'data.ability.' + name;
-    } else if (this.monsterData.deck && this.monsterData.deck != this.monsterData.name) {
-      label = 'data.deck.' + this.monsterData.deck;
-      if (label.split('.')[label.split('.').length - 1] === applyPlaceholder(settingsManager.getLabel(label)) && this.monsterData.deck) {
-        label = 'data.monster.' + this.monsterData.deck;
-      }
-    }
-
-    return applyPlaceholder(settingsManager.getLabel(label));
-  }
-
-  deckPlaceholder(name: string): string {
-    let label = 'data.deck.' + name;
-    if (applyPlaceholder(settingsManager.getLabel(label)) == name) {
-      label = 'data.monster.' + name;
-    }
-    return applyPlaceholder(settingsManager.getLabel(label));
-  }
-
   loadMonsterData(event: any) {
     const index = +event.target.value;
     this.monsterData = index != -1 ? gameManager.monstersData(true)[index] : JSON.parse(newMonsterJson);
@@ -586,9 +375,4 @@ export class MonsterEditorComponent implements OnInit {
     this.monsterDataToJson();
   }
 
-  loadDeckData(event: any) {
-    const index = +event.target.value;
-    this.deckData = index != -1 ? gameManager.decksData(true)[index] : new DeckData(this.monsterData.name, [], this.monsterData.edition);
-    this.deckDataToJson();
-  }
 }

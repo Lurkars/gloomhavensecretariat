@@ -9,7 +9,6 @@
   "baseStat": {
     "type": "boss",
     "note": "%game.custom.scenarioBook%",
-    "actions": [],
     "immunities": [
       "wound",
       "poison",
@@ -22,6 +21,7 @@
         {
           "type": "custom",
           "value": "%data.custom.cs.your-shadow.2%",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
@@ -30,7 +30,8 @@
               "subActions": [
                 {
                   "type": "condition",
-                  "value": "muddle"
+                  "value": "muddle",
+                  "small": true
                 }
               ]
             }
@@ -39,6 +40,7 @@
         {
           "type": "custom",
           "value": "%data.custom.cs.your-shadow.3%",
+          "small": true,
           "subActions": [
             {
               "type": "move",
@@ -52,7 +54,8 @@
               "subActions": [
                 {
                   "type": "range",
-                  "value": 5
+                  "value": 5,
+                  "small": true
                 }
               ]
             }
@@ -72,7 +75,8 @@
           "subActions": [
             {
               "type": "condition",
-              "value": "wound"
+              "value": "wound",
+              "small": true
             }
           ]
         },
@@ -82,7 +86,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         },
@@ -92,7 +97,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         }

@@ -8,7 +8,6 @@
   "count": 6,
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [
       "immobilize",
       "wound"
@@ -36,10 +35,15 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "selfAllies"
+              "value": "selfAllies",
+              "small": true
             }
           ]
         }
+      ],
+      "immunities": [
+        "immobilize",
+        "wound"
       ]
     },
     {
@@ -62,10 +66,15 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "selfAllies"
+              "value": "selfAllies",
+              "small": true
             }
           ]
         }
+      ],
+      "immunities": [
+        "immobilize",
+        "wound"
       ]
     },
     {
@@ -88,10 +97,15 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "selfAllies"
+              "value": "selfAllies",
+              "small": true
             }
           ]
         }
+      ],
+      "immunities": [
+        "immobilize",
+        "wound"
       ]
     },
     {
@@ -114,7 +128,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "selfAllies"
+              "value": "selfAllies",
+              "small": true
             }
           ]
         },
@@ -122,6 +137,10 @@
           "type": "retaliate",
           "value": 1
         }
+      ],
+      "immunities": [
+        "immobilize",
+        "wound"
       ]
     },
     {
@@ -144,7 +163,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "selfAllies"
+              "value": "selfAllies",
+              "small": true
             }
           ]
         },
@@ -152,6 +172,10 @@
           "type": "retaliate",
           "value": 2
         }
+      ],
+      "immunities": [
+        "immobilize",
+        "wound"
       ]
     },
     {
@@ -174,7 +198,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "selfAllies"
+              "value": "selfAllies",
+              "small": true
             }
           ]
         },
@@ -182,6 +207,10 @@
           "type": "retaliate",
           "value": 2
         }
+      ],
+      "immunities": [
+        "immobilize",
+        "wound"
       ]
     },
     {
@@ -204,7 +233,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "selfAllies"
+              "value": "selfAllies",
+              "small": true
             }
           ]
         },
@@ -240,7 +270,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "selfAllies"
+              "value": "selfAllies",
+              "small": true
             }
           ]
         },

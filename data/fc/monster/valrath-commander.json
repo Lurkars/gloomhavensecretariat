@@ -23,7 +23,8 @@
       "wound",
       "curse",
       "stun"
-    ]
+    ],
+    "special": []
   },
   "stats": [
     {
@@ -42,7 +43,7 @@
         [
           {
             "type": "summon",
-            "value": "%data.monster.valrath-tracker%"
+            "value": "valrath-tracker"
           },
           {
             "type": "move",
@@ -55,7 +56,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "alliesAdjacentAffect"
+                "value": "alliesAdjacentAffect",
+                "small": true
               }
             ]
           }
@@ -73,7 +75,7 @@
           },
           {
             "type": "summon",
-            "value": "%data.monster.valrath-savage%"
+            "value": "valrath-savage"
           }
         ]
       ]
@@ -94,7 +96,7 @@
         [
           {
             "type": "summon",
-            "value": "%data.monster.valrath-tracker%"
+            "value": "valrath-tracker"
           },
           {
             "type": "move",
@@ -107,7 +109,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "alliesAdjacentAffect"
+                "value": "alliesAdjacentAffect",
+                "small": true
               }
             ]
           }
@@ -125,7 +128,7 @@
           },
           {
             "type": "summon",
-            "value": "%data.monster.valrath-savage%"
+            "value": "valrath-savage"
           }
         ]
       ]
@@ -146,7 +149,7 @@
         [
           {
             "type": "summon",
-            "value": "%data.monster.valrath-tracker%"
+            "value": "valrath-tracker"
           },
           {
             "type": "move",
@@ -159,7 +162,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "alliesAdjacentAffect"
+                "value": "alliesAdjacentAffect",
+                "small": true
               }
             ]
           }
@@ -177,7 +181,7 @@
           },
           {
             "type": "summon",
-            "value": "%data.monster.valrath-savage%"
+            "value": "valrath-savage"
           }
         ]
       ]
@@ -192,7 +196,7 @@
         [
           {
             "type": "summon",
-            "value": "%data.monster.valrath-tracker%"
+            "value": "valrath-tracker"
           },
           {
             "type": "move",
@@ -205,7 +209,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "alliesAdjacentAffect"
+                "value": "alliesAdjacentAffect",
+                "small": true
               }
             ]
           }
@@ -223,9 +228,19 @@
           },
           {
             "type": "summon",
-            "value": "%data.monster.valrath-savage%"
+            "value": "valrath-savage"
           }
         ]
+      ],
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
       ]
     },
     {
@@ -238,7 +253,7 @@
         [
           {
             "type": "summon",
-            "value": "%data.monster.valrath-tracker%"
+            "value": "valrath-tracker"
           },
           {
             "type": "move",
@@ -251,7 +266,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "alliesAdjacentAffect"
+                "value": "alliesAdjacentAffect",
+                "small": true
               }
             ]
           }
@@ -269,9 +285,19 @@
           },
           {
             "type": "summon",
-            "value": "%data.monster.valrath-savage%"
+            "value": "valrath-savage"
           }
         ]
+      ],
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
       ]
     },
     {
@@ -284,7 +310,7 @@
         [
           {
             "type": "summon",
-            "value": "%data.monster.valrath-tracker%"
+            "value": "valrath-tracker"
           },
           {
             "type": "move",
@@ -297,7 +323,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "alliesAdjacentAffect"
+                "value": "alliesAdjacentAffect",
+                "small": true
               }
             ]
           }
@@ -315,9 +342,19 @@
           },
           {
             "type": "summon",
-            "value": "%data.monster.valrath-savage%"
+            "value": "valrath-savage"
           }
         ]
+      ],
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
       ]
     },
     {
@@ -330,7 +367,7 @@
         [
           {
             "type": "summon",
-            "value": "%data.monster.valrath-tracker%"
+            "value": "valrath-tracker"
           },
           {
             "type": "move",
@@ -343,7 +380,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "alliesAdjacentAffect"
+                "value": "alliesAdjacentAffect",
+                "small": true
               }
             ]
           }
@@ -361,9 +399,19 @@
           },
           {
             "type": "summon",
-            "value": "%data.monster.valrath-savage%"
+            "value": "valrath-savage"
           }
         ]
+      ],
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
       ]
     },
     {
@@ -376,7 +424,7 @@
         [
           {
             "type": "summon",
-            "value": "%data.monster.valrath-tracker%"
+            "value": "valrath-tracker"
           },
           {
             "type": "move",
@@ -389,7 +437,8 @@
             "subActions": [
               {
                 "type": "specialTarget",
-                "value": "alliesAdjacentAffect"
+                "value": "alliesAdjacentAffect",
+                "small": true
               }
             ]
           }
@@ -407,9 +456,19 @@
           },
           {
             "type": "summon",
-            "value": "%data.monster.valrath-savage%"
+            "value": "valrath-savage"
           }
         ]
+      ],
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
       ]
     }
   ]

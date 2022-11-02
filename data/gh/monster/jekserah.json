@@ -17,7 +17,7 @@
       [
         {
           "type": "summon",
-          "value": "%data.monster.living-bones%"
+          "value": "living-bones"
         },
         {
           "type": "attack",
@@ -26,7 +26,8 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemiesAdjacent"
+              "value": "enemiesAdjacent",
+              "small": true
             }
           ]
         }
@@ -34,7 +35,7 @@
       [
         {
           "type": "summon",
-          "value": "%data.monster.living-corpse%"
+          "value": "living-corpse"
         },
         {
           "type": "move",

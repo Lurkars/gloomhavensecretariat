@@ -19,7 +19,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.water-spirit.2%"
+              "value": "%data.custom.cs.water-spirit.2%",
+              "small": true
             }
           ]
         }
@@ -42,11 +43,13 @@
           "subActions": [
             {
               "type": "pierce",
-              "value": "X"
+              "value": "X",
+              "small": true
             },
             {
               "type": "custom",
-              "value": "%data.custom.cs.water-spirit.3%"
+              "value": "%data.custom.cs.water-spirit.3%",
+              "small": true
             }
           ]
         }
@@ -68,7 +71,8 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.cs.water-spirit.4%"
+          "value": "%data.custom.cs.water-spirit.4%",
+          "small": true
         }
       ]
     },
@@ -92,7 +96,8 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.cs.water-spirit.5%"
+              "value": "%data.custom.cs.water-spirit.5%",
+              "small": true
             }
           ]
         }
@@ -109,15 +114,18 @@
           "subActions": [
             {
               "type": "range",
-              "value": 3
+              "value": 3,
+              "small": true
             },
             {
               "type": "pull",
-              "value": 2
+              "value": 2,
+              "small": true
             },
             {
               "type": "condition",
-              "value": "immobilize"
+              "value": "immobilize",
+              "small": true
             }
           ]
         }
@@ -139,7 +147,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.water-spirit.6%"
+              "value": "%data.custom.cs.water-spirit.6%",
+              "small": true
             }
           ]
         }
@@ -160,13 +169,15 @@
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self"
+              "value": "self",
+              "small": true
             }
           ]
         },
         {
           "type": "custom",
-          "value": "%data.custom.cs.water-spirit.7%"
+          "value": "%data.custom.cs.water-spirit.7%",
+          "small": true
         }
       ]
     },
@@ -181,11 +192,13 @@
           "subActions": [
             {
               "type": "target",
-              "value": 2
+              "value": 2,
+              "small": true
             },
             {
               "type": "custom",
-              "value": "%data.custom.cs.water-spirit.5%"
+              "value": "%data.custom.cs.water-spirit.5%",
+              "small": true
             }
           ]
         }

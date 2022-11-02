@@ -6,7 +6,6 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [
       "disarm",
       "immobilize",
@@ -18,11 +17,13 @@
       [
         {
           "type": "custom",
-          "value": "%data.custom.jotl.first-of-the-order.1%"
+          "value": "%data.custom.jotl.first-of-the-order.1%",
+          "small": true
         },
         {
           "type": "custom",
-          "value": "%data.custom.jotl.first-of-the-order.2%"
+          "value": "%data.custom.jotl.first-of-the-order.2%",
+          "small": true
         }
       ],
       [
@@ -38,7 +39,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.jotl.first-of-the-order.3%"
+              "value": "%data.custom.jotl.first-of-the-order.3%",
+              "small": true
             }
           ]
         },
@@ -49,7 +51,8 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.jotl.first-of-the-order.3%"
+              "value": "%data.custom.jotl.first-of-the-order.3%",
+              "small": true
             }
           ]
         }

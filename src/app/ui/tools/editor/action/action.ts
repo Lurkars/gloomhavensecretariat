@@ -1,11 +1,11 @@
-import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { Dialog, DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, EventEmitter, Inject, Input, OnInit, Output } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { AbilityCardType } from "src/app/game/model/Ability";
-import { Action, ActionHex, ActionHexType, ActionSpecialTarget, ActionType, ActionValueType } from "src/app/game/model/Action";
+import { Action, ActionCardType, ActionHex, ActionHexType, ActionSpecialTarget, ActionType, ActionValueType } from "src/app/game/model/Action";
 import { Condition, ConditionName, ConditionType } from "src/app/game/model/Condition";
+import { SummonData } from "src/app/game/model/data/SummonData";
 import { Element } from "src/app/game/model/Element";
 import { MonsterType } from "src/app/game/model/MonsterType";
 
@@ -25,13 +25,21 @@ export class EditorActionComponent implements OnInit {
   Elements: Element[] = Object.values(Element);
   ActionValueType = ActionValueType;
   ActionValueTypes: ActionValueType[] = Object.values(ActionValueType);
-  AbilityCardTypes: AbilityCardType[] = Object.values(AbilityCardType);
+  ActionCardTypes: ActionCardType[] = Object.values(ActionCardType);
   MonsterTypes: MonsterType[] = Object.values(MonsterType);
   hexValue: string = "(0,0,invisible)";
   value: string = '';
   subValue: string = '';
+  summon: SummonData | undefined;
+  monster: string = '';
+  monsterType: MonsterType | undefined;
+  monsters: string[] = [];
+
+  constructor(private dialog: Dialog) { }
 
   ngOnInit(): void {
+    this.monsters = gameManager.monstersData(true).map((monsterData) => monsterData.name);
+
     if (this.action && this.action.type == ActionType.area) {
       this.hexValue = '' + this.action.value;
       let hexes: ActionHex[] = [];
@@ -44,12 +52,28 @@ export class EditorActionComponent implements OnInit {
       hexes.forEach((other) => this.fillHexes(other, hexes));
       this.hexValue = hexes.map((hex) => ActionHex.toString(hex)).join('|');
       this.change();
-    } else if (this.action.type == ActionType.specialTarget || this.action.type == ActionType.condition) {
+    } else if (this.action.type == ActionType.condition || this.action.type == ActionType.specialTarget || this.action.type == ActionType.card) {
       if (('' + this.action.value).indexOf(':') != -1) {
         this.value = ('' + this.action.value).split(':')[0];
         this.subValue = ('' + this.action.value).split(':')[1];
       } else {
         this.value = '' + this.action.value;
+      }
+    } else if (this.action.type == ActionType.summon && this.action.value) {
+      try {
+        let value = JSON.parse(this.action.value + '');
+        if (typeof value != 'string') {
+          this.summon = new SummonData(value.name, value.health, value.attack, value.movement, value.range, value.action, value.additionalAction);
+        } else {
+          throw Error("fallback");
+        }
+      } catch (e) {
+        this.summon = undefined;
+        const summonValue = (this.action.value + '').split(':');
+        this.monster = summonValue[0];
+        if (summonValue.length > 1) {
+          this.monsterType = summonValue[1] as unknown as MonsterType;
+        }
       }
     }
   }
@@ -80,11 +104,13 @@ export class EditorActionComponent implements OnInit {
     if (this.action.type == ActionType.area) {
       this.hexValue = "(0,0,invisible)";
     } else if (this.action.type == ActionType.condition) {
-      this.action.value = this.ConditionNames[0];
+      this.value = this.ConditionNames[0];
+      this.changeCondition();
     } else if (this.action.type == ActionType.element) {
       this.action.value = this.Elements[0];
-    } else if (this.action.type == ActionType.jump) {
-      this.action.value = "";
+    } else if (this.action.type == ActionType.card) {
+      this.value = this.ActionCardTypes[0];
+      this.changeCard();
     }
     this.change();
   }
@@ -215,9 +241,91 @@ export class EditorActionComponent implements OnInit {
     this.change();
   }
 
+  changeCard() {
+    if (this.value == ActionCardType.experience || this.value == ActionCardType.slotXp) {
+      if (!this.subValue) {
+        this.subValue = '1';
+      }
+      this.action.value = this.value + ":" + this.subValue;
+    } else {
+      this.action.value = this.value;
+      this.subValue = '';
+    }
+    this.change();
+  }
+
   dropSubAction(event: CdkDragDrop<number>) {
     moveItemInArray(this.action.subActions, event.previousIndex, event.currentIndex);
     gameManager.uiChange.emit();
+  }
+
+  changeSummonType(event: any) {
+    this.monster = "";
+    this.monsterType = undefined;
+    if (event.target.value == 'monster') {
+      this.summon = undefined;
+      this.changeSummonMonster();
+    } else if (event.target.value == 'summon') {
+      this.summon = new SummonData("", 0, 0, 0, 0);
+      this.action.value = JSON.stringify(this.summon);
+    }
+  }
+
+  changeSummonMonster() {
+    this.action.value = this.monster + (this.monsterType ? ':' + this.monsterType : '');
+    gameManager.uiChange.emit();
+  }
+
+  changeSummon() {
+    if (this.summon) {
+      this.action.value = JSON.stringify(this.summon);
+    }
+    gameManager.uiChange.emit();
+  }
+
+  editSummonAction() {
+    if (this.summon) {
+      if (!this.summon.action) {
+        this.summon.action = new Action(ActionType.attack);
+      }
+
+      const dialog = this.dialog.open(EditorActionDialogComponent, {
+        panelClass: 'dialog',
+        data: { action: this.summon.action }
+      });
+
+      dialog.closed.subscribe({
+        next: (value) => {
+          if (value == false && this.summon) {
+            this.summon.action = undefined;
+          }
+          this.changeSummon();
+        }
+      })
+
+    }
+  }
+
+  editSummonAdditionalAction() {
+    if (this.summon) {
+      if (!this.summon.additionalAction) {
+        this.summon.additionalAction = new Action(ActionType.attack);
+      }
+
+      const dialog = this.dialog.open(EditorActionDialogComponent, {
+        panelClass: 'dialog',
+        data: { action: this.summon.additionalAction }
+      });
+
+      dialog.closed.subscribe({
+        next: (value) => {
+          if (value == false && this.summon) {
+            this.summon.additionalAction = undefined;
+          }
+          this.changeSummon();
+        }
+      })
+    }
   }
 }
 
@@ -230,6 +338,7 @@ export class EditorActionComponent implements OnInit {
 export class EditorActionDialogComponent {
 
   relative: boolean = true;
+  noPreview: ActionType[] = [];
 
   constructor(@Inject(DIALOG_DATA) public data: { action: Action }, private dialogRef: DialogRef) { }
 

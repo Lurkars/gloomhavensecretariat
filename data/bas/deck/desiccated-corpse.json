@@ -8,13 +8,11 @@
         {
           "type": "retaliate",
           "value": 3,
-          "valueType": "fixed",
           "subActions": [
             {
               "type": "range",
               "value": 3,
-              "valueType": "fixed",
-              "subActions": []
+              "small": true
             }
           ]
         }
@@ -26,25 +24,21 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "subActions": []
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 1,
-          "valueType": "plus",
-          "subActions": []
+          "valueType": "plus"
         },
         {
           "type": "condition",
           "value": "curse",
-          "valueType": "fixed",
           "subActions": [
             {
               "type": "specialTarget",
               "value": "enemiesAdjacent",
-              "valueType": "fixed",
-              "subActions": []
+              "small": true
             }
           ]
         }
@@ -56,19 +50,16 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus",
-          "subActions": []
+          "valueType": "plus"
         },
         {
           "type": "custom",
           "value": "%data.custom.bas.desiccated-corpse.1%",
-          "valueType": "fixed",
           "subActions": [
             {
               "type": "custom",
               "value": "%data.custom.bas.desiccated-corpse.2%",
-              "valueType": "fixed",
-              "subActions": []
+              "small": true
             }
           ]
         }
@@ -81,20 +72,17 @@
         {
           "type": "move",
           "value": 2,
-          "valueType": "plus",
-          "subActions": []
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 1,
-          "valueType": "minus",
-          "subActions": []
+          "valueType": "minus"
         },
         {
           "type": "custom",
           "value": "%data.custom.bas.desiccated-corpse.3%",
-          "valueType": "fixed",
-          "subActions": []
+          "small": true
         }
       ]
     },
@@ -104,14 +92,12 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "subActions": []
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 0,
-          "valueType": "plus",
-          "subActions": []
+          "valueType": "plus"
         }
       ]
     },
@@ -121,19 +107,16 @@
         {
           "type": "attack",
           "value": 1,
-          "valueType": "plus",
-          "subActions": []
+          "valueType": "plus"
         },
         {
           "type": "push",
           "value": 1,
-          "valueType": "fixed",
           "subActions": [
             {
               "type": "specialTarget",
               "value": "enemiesAdjacent",
-              "valueType": "fixed",
-              "subActions": []
+              "small": true
             }
           ]
         }
@@ -145,14 +128,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "minus",
-          "subActions": []
+          "valueType": "minus"
         },
         {
           "type": "attack",
           "value": 1,
-          "valueType": "plus",
-          "subActions": []
+          "valueType": "plus"
         }
       ]
     },
@@ -162,19 +143,16 @@
         {
           "type": "attack",
           "value": 0,
-          "valueType": "plus",
-          "subActions": []
+          "valueType": "plus"
         },
         {
           "type": "condition",
           "value": "curse",
-          "valueType": "fixed",
           "subActions": [
             {
               "type": "specialTarget",
               "value": "enemiesRangeAffect:2",
-              "valueType": "fixed",
-              "subActions": []
+              "small": true
             }
           ]
         }

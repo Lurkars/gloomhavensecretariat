@@ -1,10 +1,14 @@
-import { AfterViewChecked, Directive, ElementRef } from '@angular/core';
+import { AfterViewChecked, Directive, ElementRef, Input } from '@angular/core';
 
 
 @Directive({
   selector: '[text-shrink]'
 })
 export class TextShrinkDirective implements AfterViewChecked {
+
+  @Input() keepCurrent: boolean = false;
+  @Input() ignoreHeight: boolean = false;
+  @Input() ignoreWidth: boolean = false;
 
   constructor(private el: ElementRef) { }
 
@@ -14,9 +18,9 @@ export class TextShrinkDirective implements AfterViewChecked {
 
     const parent = this.el.nativeElement.parentElement;
 
-    while (!overflow && i < 100) {
+    while (!overflow && i < (this.keepCurrent ? window.getComputedStyle(this.el.nativeElement, null).getPropertyValue('font-size') : 100)) {
       this.el.nativeElement.style.fontSize = i + "px";
-      overflow = this.el.nativeElement.clientWidth > parent.clientWidth || this.el.nativeElement.clientHeight > parent.clientHeight;
+      overflow = !this.ignoreWidth && this.el.nativeElement.clientWidth > parent.clientWidth || !this.ignoreHeight && this.el.nativeElement.clientHeight > parent.clientHeight;
 
       if (!overflow) {
         i += 1;
