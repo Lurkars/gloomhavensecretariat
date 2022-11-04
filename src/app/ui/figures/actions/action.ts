@@ -20,6 +20,7 @@ export class ActionComponent implements OnInit {
   @Input() relative: boolean = false;
   @Input() inline: boolean = false;
   @Input() right: boolean = false;
+  @Input() highlight: boolean = false;
   @Input() highlightElements: boolean = false;
   @Input() statsCalculation: boolean = false;
   @Input() hexSize!: number;

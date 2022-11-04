@@ -69,7 +69,43 @@
       "shaman-ally": "%data.deck.shaman% (%game.ally%)"
     },
     "ability": {},
-    "scenario": {},
+    "scenario": {
+      "rules": {
+        "cs": {
+          "11": {
+            "1": "Spawn one normal Inox guard and one elite Inox Archer on each tile occupied by a character."
+          },
+          "15": {
+            "1": "Spawn Hound at %game.mapMarker.a%",
+            "2": "Spawn Cave Bear at %game.mapMarker.c%",
+            "3": "Spawn Giant Viper at %game.mapMarker.b% and Rending Drake at %game.mapMarker.d%",
+            "4": "Spawn Lurker at %game.mapMarker.a% and Hound at %game.mapMarker.c%",
+            "5": "Spawn Cave Bear at %game.mapMarker.b% and Giant Viper at %game.mapMarker.d%",
+            "6": "Spawn Rending Drake at %game.mapMarker.a% and Lurker at %game.mapMarker.c%",
+            "7": "Spawn Hound at %game.mapMarker.b% and Cave Bear at %game.mapMarker.d%",
+            "8": "Spawn Giant Viper at %game.mapMarker.a% and Rending Drake at %game.mapMarker.c%",
+            "9": "Spawn Lurker at %game.mapMarker.b% and Hound at %game.mapMarker.d%",
+            "10": "Scenario won!"
+          },
+          "52": {
+            "1": "Spawn Spitting Drake at %game.mapMarker.c%"
+          },
+          "AA-1": {
+            "1": "Spawn [C] normal Bandit Guards",
+            "2": "Spawn [C] normal Bandit Archers",
+            "3": "Spawn [C] normal Hounds",
+            "4": "Spawn [C] normal Wind Demons",
+            "5": "Spawn [C] normal Ice Demons"
+          },
+          "AA-3": {
+            "1": "Spawn normal Flame Demon at %game.mapMarker.c%",
+            "2": "Spawn two normal Sun Demons at %game.mapMarker.d%",
+            "3": "Spawn normal Night Demon at %game.mapMarker.b%",
+            "4": "Spawn two normal Wind Demon at %game.mapMarker.e%"
+          }
+        }
+      }
+    },
     "summon": {
       "bat-cloud": "Bat Cloud",
       "battle-rhinoceros": "Battle Rhinoceros",
@@ -256,8 +292,8 @@
           "1": "Place one Colony %data.action.custom.cs-colony% token of your choice on any empty hex within %game.action.range% 2",
           "2": "where X is the number of active Cultivate %data.action.custom.cs-cultivate% actions"
         },
-        "target" : {
-          "1" : "if projectile %data.action.custom.cs-projectile%"
+        "target": {
+          "1": "if projectile %data.action.custom.cs-projectile%"
         }
       }
     },

@@ -38,7 +38,19 @@
       "imp": "Imp"
     },
     "ability": {},
-    "scenario": {},
+    "scenario": {
+      "rules": {
+        "jotl": {
+          "15": {
+            "1": "Spawn Black Imps adjacent to revealed tables.",
+            "2": "Each Zealot kills one Black Imp within %game.action.range% 3 and gains %game.condition.stun%. Spwan elite Blood Imps."
+          },
+          "16": {
+            "1" : "Spawn Rat Monstrosities"
+          }
+        }
+      }
+    },
     "custom": {
       "jotl": {
         "giant-viper": {

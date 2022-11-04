@@ -183,6 +183,11 @@
       "inox-shaman",
       "night-demon"
     ],
+    "rules": [
+      {
+        "round": "R == 1"
+      }
+    ],
     "unlocks": [
       "12"
     ]
@@ -231,6 +236,38 @@
       "hound",
       "lurker",
       "rending-drake"
+    ],
+    "rules": [
+      {
+        "round": "R == 1"
+      },
+      {
+        "round": "R == 2"
+      },
+      {
+        "round": "R == 3"
+      },
+      {
+        "round": "R == 4"
+      },
+      {
+        "round": "R == 5"
+      },
+      {
+        "round": "R == 6"
+      },
+      {
+        "round": "R == 7"
+      },
+      {
+        "round": "R == 8"
+      },
+      {
+        "round": "R == 9"
+      },
+      {
+        "round": "R == 10"
+      }
     ],
     "unlocks": [
       "16"
@@ -675,7 +712,7 @@
     "monsters": [
       "black-imp",
       "forest-imp",
-      "land-leviathan"
+      "land-leviathan:+1"
     ],
     "objectives": []
   },
@@ -717,8 +754,8 @@
     "name": "Oak Invasion A",
     "edition": "cs",
     "monsters": [
-      "city-archer",
-      "city-guard",
+      "city-archer:-1",
+      "city-guard:-1",
       "inox-archer",
       "inox-bodyguard",
       "inox-guard",
@@ -742,8 +779,8 @@
       "cave-bear",
       "city-archer",
       "city-guard",
-      "inox-archer",
-      "inox-guard"
+      "inox-archer:-1",
+      "inox-guard:-1"
     ],
     "allies": [
       "inox-archer",
@@ -774,6 +811,11 @@
       "living-corpse",
       "ooze",
       "spitting-drake"
+    ],
+    "rules": [
+      {
+        "round": "R % 2 == 0"
+      }
     ]
   },
   {
@@ -879,12 +921,11 @@
     "name": "Hallow Redemption",
     "edition": "cs",
     "monsters": [
-      "aesther-ashblade",
+      "aesther-ashblade:-1",
       "cave-bear",
       "forest-imp",
       "vermling-shaman"
-    ],
-    "objectives": []
+    ]
   },
   {
     "index": "63",
@@ -914,6 +955,20 @@
     "edition": "cs",
     "monsters": [
       "vermling-shaman"
+    ],
+    "objectives": [
+      {
+        "name": "Angry Spirit 1",
+        "health": "6",
+        "escort": true,
+        "initiative": 25
+      },
+      {
+        "name": "Angry Spirit 2",
+        "health": "6",
+        "escort": true,
+        "initiative": 25
+      }
     ]
   },
   {
@@ -931,6 +986,7 @@
   },
   {
     "index": "1",
+    "group": "AA",
     "name": "The Riches of the Steelsilk",
     "edition": "cs",
     "initial": true,
@@ -942,13 +998,35 @@
       "hound",
       "wind-demon"
     ],
+    "rules": [
+      {
+        "round": "R == 2 || R == 6",
+        "start": true
+      },
+      {
+        "round": "R == 3 || R == 7",
+        "start": true
+      },
+      {
+        "round": "R == 4 || R == 8",
+        "start": true
+      },
+      {
+        "round": "R == 5",
+        "start": true
+      },
+      {
+        "round": "R == 9",
+        "start": true
+      }
+    ],
     "unlocks": [
       "2"
-    ],
-    "group": "AA"
+    ]
   },
   {
     "index": "2",
+    "group": "AA",
     "name": "Malign Echoes",
     "edition": "cs",
     "monsters": [
@@ -960,11 +1038,11 @@
     ],
     "unlocks": [
       "3"
-    ],
-    "group": "AA"
+    ]
   },
   {
     "index": "3",
+    "group": "AA",
     "name": "Solo: Hive Guardian",
     "edition": "cs",
     "monsters": [
@@ -975,14 +1053,46 @@
       "sun-demon",
       "wind-demon"
     ],
+    "objectives": [
+      {
+        "name": "Soul Leech Egg 1",
+        "health": "3+L",
+        "escort": true,
+        "initiative": 25
+      },
+      {
+        "name": "Soul Leech Egg 2",
+        "health": "3+L",
+        "escort": true,
+        "initiative": 25
+      }
+    ],
+    "rules": [
+      {
+        "round": "R == 2 || R == 6",
+        "start": true
+      },
+      {
+        "round": "R == 3 || R == 7",
+        "start": true
+      },
+      {
+        "round": "R == 4 || R == 8",
+        "start": true
+      },
+      {
+        "round": "R == 5 || R == 9",
+        "start": true
+      }
+    ],
     "unlocks": [
       "4",
       "7"
-    ],
-    "group": "AA"
+    ]
   },
   {
     "index": "1",
+    "group": "QA",
     "name": "Capstone Test",
     "edition": "cs",
     "initial": true,
@@ -992,11 +1102,11 @@
     ],
     "unlocks": [
       "2"
-    ],
-    "group": "QA"
+    ]
   },
   {
     "index": "2",
+    "group": "QA",
     "name": "Mother Lode",
     "edition": "cs",
     "monsters": [
@@ -1008,11 +1118,11 @@
     ],
     "unlocks": [
       "3"
-    ],
-    "group": "QA"
+    ]
   },
   {
     "index": "3",
+    "group": "QA",
     "name": "Solo: Magnum Opus",
     "edition": "cs",
     "monsters": [
@@ -1022,11 +1132,11 @@
     "unlocks": [
       "4",
       "7"
-    ],
-    "group": "QA"
+    ]
   },
   {
     "index": "1",
+    "group": "RM",
     "name": "Mind Your Manners",
     "edition": "cs",
     "initial": true,
@@ -1038,11 +1148,11 @@
     ],
     "unlocks": [
       "2"
-    ],
-    "group": "RM"
+    ]
   },
   {
     "index": "2",
+    "group": "RM",
     "name": "Sinking Kingpin",
     "edition": "cs",
     "monsters": [
@@ -1055,11 +1165,11 @@
     ],
     "unlocks": [
       "3"
-    ],
-    "group": "RM"
+    ]
   },
   {
     "index": "3",
+    "group": "RM",
     "name": "Ruined Colony",
     "edition": "cs",
     "monsters": [
@@ -1072,11 +1182,11 @@
     "unlocks": [
       "4",
       "7"
-    ],
-    "group": "RM"
+    ]
   },
   {
     "index": "4",
+    "group": "RM",
     "name": "Terrorscale Lair",
     "edition": "cs",
     "monsters": [
@@ -1088,11 +1198,11 @@
     "unlocks": [
       "5",
       "6"
-    ],
-    "group": "RM"
+    ]
   },
   {
     "index": "5",
+    "group": "RM",
     "name": "Unseen Plight",
     "edition": "cs",
     "monsters": [
@@ -1101,11 +1211,11 @@
     ],
     "unlocks": [
       "6"
-    ],
-    "group": "RM"
+    ]
   },
   {
     "index": "6",
+    "group": "RM",
     "name": "Solo: The Fall of Shadow's Respite",
     "edition": "cs",
     "monsters": [
@@ -1115,15 +1225,22 @@
       "vermling-scout-ally",
       "vermling-shaman-ally"
     ],
+    "objectives": [
+      {
+        "name": "The Choosen",
+        "health": "6+L",
+        "escort": true
+      }
+    ],
     "requires": [
       [
         "5"
       ]
-    ],
-    "group": "RM"
+    ]
   },
   {
     "index": "7",
+    "group": "RM",
     "name": "Insatiable",
     "edition": "cs",
     "monsters": [
@@ -1136,7 +1253,6 @@
     "unlocks": [
       "10",
       "8"
-    ],
-    "group": "RM"
+    ]
   }
 ]

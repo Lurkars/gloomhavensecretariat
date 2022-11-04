@@ -19,6 +19,7 @@ export class ActionsComponent {
   @Input() right: boolean = false;
   @Input() statsCalculation: boolean = false;
   @Input() highlightElements: boolean = false;
+  @Input() highlightActions: ActionType[] = [];
   @Input() hexSize!: number;
   @Input() hint!: string | undefined;
 

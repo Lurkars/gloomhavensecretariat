@@ -1,32 +1,32 @@
 [
   {
-    "edition": "cs",
-    "name": "Scenario 5",
     "index": "8A",
+    "name": "Scenario 5",
+    "edition": "cs",
     "monsters": [
       "gelatinous-giant"
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 16",
     "index": "17D",
+    "name": "Scenario 16",
+    "edition": "cs",
     "monsters": [
       "apex-demon"
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 21",
     "index": "21B",
+    "name": "Scenario 21",
+    "edition": "cs",
     "monsters": [
       "lavalite"
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 26",
     "index": "27C",
+    "name": "Scenario 26",
+    "edition": "cs",
     "objectives": [
       {
         "name": "Hot thermal stone 1",
@@ -39,9 +39,9 @@
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 26",
     "index": "28A",
+    "name": "Scenario 26",
+    "edition": "cs",
     "objectives": [
       {
         "name": "Icy Flame thermal stone",
@@ -50,17 +50,17 @@
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 27",
     "index": "29A",
+    "name": "Scenario 27",
+    "edition": "cs",
     "monsters": [
       "savvas-icebound"
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 28",
     "index": "30B",
+    "name": "Scenario 28",
+    "edition": "cs",
     "objectives": [
       {
         "name": "Fountain of Bones",
@@ -69,33 +69,33 @@
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 30",
     "index": "32A",
+    "name": "Scenario 30",
+    "edition": "cs",
     "monsters": [
       "shadow-demon"
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 30",
     "index": "32B",
+    "name": "Scenario 30",
+    "edition": "cs",
     "monsters": [
       "twin-corpse"
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 31",
     "index": "33C",
+    "name": "Scenario 31",
+    "edition": "cs",
     "monsters": [
       "eternal-demon"
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 34",
     "index": "36B",
+    "name": "Scenario 34",
+    "edition": "cs",
     "objectives": [
       {
         "name": "Holy Monk 1",
@@ -112,9 +112,9 @@
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 34",
     "index": "37C",
+    "name": "Scenario 34",
+    "edition": "cs",
     "objectives": [
       {
         "name": "Revered Monk 1",
@@ -127,9 +127,9 @@
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 34",
     "index": "38A",
+    "name": "Scenario 34",
+    "edition": "cs",
     "objectives": [
       {
         "name": "Ordained Monk",
@@ -138,25 +138,25 @@
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 36",
     "index": "40A",
+    "name": "Scenario 36",
+    "edition": "cs",
     "monsters": [
       "terrible-two-archer"
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 36",
     "index": "40B",
+    "name": "Scenario 36",
+    "edition": "cs",
     "monsters": [
       "terrible-two-guard"
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 38",
     "index": "42B",
+    "name": "Scenario 38",
+    "edition": "cs",
     "objectives": [
       {
         "name": "Altar of Mystification",
@@ -165,9 +165,9 @@
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 38",
     "index": "43A",
+    "name": "Scenario 38",
+    "edition": "cs",
     "objectives": [
       {
         "name": "Altar of Disorientation",
@@ -176,9 +176,9 @@
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 38",
     "index": "43B",
+    "name": "Scenario 38",
+    "edition": "cs",
     "objectives": [
       {
         "name": "Altar of Perplexity",
@@ -187,17 +187,25 @@
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 40",
     "index": "44C",
+    "name": "Scenario 40",
+    "edition": "cs",
     "monsters": [
       "drake-porter"
     ]
   },
   {
+    "index": "45D",
+    "name": "Scenario 42",
     "edition": "cs",
-    "name": "Scenario 41",
+    "monsters": [
+      "goring-grizzly"
+    ]
+  },
+  {
     "index": "46A",
+    "name": "Scenario 41",
+    "edition": "cs",
     "monsters": [
       "rogue-hollowpact"
     ],
@@ -229,33 +237,25 @@
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 42",
-    "index": "45D",
-    "monsters": [
-      "goring-grizzly"
-    ]
-  },
-  {
-    "edition": "cs",
-    "name": "Scenario 42",
     "index": "46B",
+    "name": "Scenario 42",
+    "edition": "cs",
     "monsters": [
       "king-cobra"
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 42",
     "index": "47A",
+    "name": "Scenario 42",
+    "edition": "cs",
     "monsters": [
       "sly-wolf"
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 46",
     "index": "52C",
+    "name": "Scenario 46",
+    "edition": "cs",
     "objectives": [
       {
         "name": "Tree of Death",
@@ -264,51 +264,51 @@
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 53",
     "index": "60A",
+    "name": "Scenario 53",
+    "edition": "cs",
     "monsters": [
       "morphling"
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 54",
     "index": "61B",
+    "name": "Scenario 54",
+    "edition": "cs",
     "monsters": [
       "undead-archer",
       "terror-drone"
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 54",
     "index": "62A",
+    "name": "Scenario 54",
+    "edition": "cs",
     "monsters": [
       "black-bear",
       "cave-imp"
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 60",
     "index": "68A",
+    "name": "Scenario 60",
+    "edition": "cs",
     "monsters": [
       "drakefiend"
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 62",
     "index": "71A",
+    "name": "Scenario 62",
+    "edition": "cs",
     "monsters": [
       "your-shadow"
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 65",
     "index": "73C",
+    "name": "Scenario 65",
+    "edition": "cs",
     "objectives": [
       {
         "name": "Vile Spirit 1",
@@ -321,75 +321,86 @@
     ]
   },
   {
-    "edition": "cs",
-    "name": "Scenario 65",
     "index": "73D",
+    "name": "Scenario 65",
+    "edition": "cs",
     "objectives": [
       {
         "name": "Haunted Ghoul Spirit 1",
-        "health": 10
+        "health": 10,
+        "initiative": 50
       }
     ]
   },
   {
-    "edition": "cs",
-    "name": "The Gilded Condescent",
     "index": "1",
+    "group": "AA",
+    "name": "The Gilded Condescent",
+    "edition": "cs",
     "monsters": [
-      "the-gilded-one"
+      "the-gilded-one:+1"
     ],
-    "objectives": [],
-    "group": "AA"
+    "objectives": []
   },
   {
-    "edition": "cs",
-    "name": "The Banishment",
     "index": "2",
+    "group": "AA",
+    "name": "The Banishment",
+    "edition": "cs",
     "monsters": [
       "the-echo"
-    ],
-    "group": "AA"
+    ]
   },
   {
-    "edition": "cs",
-    "name": "Power Conduit Relay",
     "index": "1-1",
+    "group": "QA",
+    "name": "Power Conduit Relay",
+    "edition": "cs",
     "monsters": [
       "clockwork-ravager"
-    ],
-    "group": "QA"
+    ]
   },
   {
-    "edition": "cs",
-    "name": "Refractor Assembly",
     "index": "2-1",
+    "group": "QA",
+    "name": "Refractor Assembly",
+    "edition": "cs",
     "monsters": [
       "clockwork-bombard"
-    ],
-    "group": "QA"
+    ]
   },
   {
+    "index": "2-3",
+    "group": "QA",
+    "name": "Mechanical Menace",
     "edition": "cs",
-    "name": "Cooling Chamber",
+    "monsters": [
+      "clockwork-devastator"
+    ]
+  },
+  {
     "index": "3-1",
+    "group": "QA",
+    "name": "Cooling Chamber",
+    "edition": "cs",
     "monsters": [
       "clockwork-guardian"
-    ],
-    "group": "QA"
+    ]
   },
   {
-    "edition": "cs",
-    "name": "Inspection Chamber",
     "index": "3-2",
+    "group": "QA",
+    "name": "Inspection Chamber",
+    "edition": "cs",
     "monsters": [
       "steel-construct"
-    ],
-    "group": "QA"
+    ]
   },
   {
-    "edition": "cs",
-    "name": "Cooling Chamber",
     "index": "5-2",
+    "group": "QA",
+    "name": "Cooling Chamber",
+    "edition": "cs",
     "objectives": [
       {
         "name": "Stalagmite 1",
@@ -399,49 +410,40 @@
         "name": "Stalagmite 2",
         "health": "C+L"
       }
-    ],
-    "group": "QA"
+    ]
   },
   {
-    "edition": "cs",
-    "name": "Mechanical Menace",
-    "index": "2-3",
-    "monsters": [
-      "clockwork-devastator"
-    ],
-    "group": "QA"
-  },
-  {
-    "edition": "cs",
-    "name": "Courtyard",
-    "index": "2-1",
-    "monsters": [
-      "living-wall"
-    ],
-    "group": "RM"
-  },
-  {
-    "edition": "cs",
-    "name": "Broken Homes",
     "index": "1-5",
+    "group": "RM",
+    "name": "Broken Homes",
+    "edition": "cs",
     "monsters": [
       "carrion-scavenger"
-    ],
-    "group": "RM"
+    ]
   },
   {
+    "index": "2-1",
+    "group": "RM",
+    "name": "Courtyard",
     "edition": "cs",
-    "name": "Guttermaw's Lair",
+    "monsters": [
+      "living-wall"
+    ]
+  },
+  {
     "index": "2-5",
+    "group": "RM",
+    "name": "Guttermaw's Lair",
+    "edition": "cs",
     "monsters": [
       "guttermaw"
-    ],
-    "group": "RM"
+    ]
   },
   {
-    "edition": "cs",
-    "name": "Wrong Turn",
     "index": "3-5",
+    "group": "RM",
+    "name": "Wrong Turn",
+    "edition": "cs",
     "objectives": [
       {
         "name": "Vermling 1",
@@ -461,16 +463,15 @@
         "health": "C+L",
         "initiative": 35
       }
-    ],
-    "group": "RM"
+    ]
   },
   {
-    "edition": "cs",
-    "name": "The Shadow Falls",
     "index": "4-6",
+    "group": "RM",
+    "name": "The Shadow Falls",
+    "edition": "cs",
     "monsters": [
       "brood-mother"
-    ],
-    "group": "RM"
+    ]
   }
 ]

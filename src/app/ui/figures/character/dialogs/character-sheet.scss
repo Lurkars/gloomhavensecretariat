@@ -1,5 +1,23 @@
 .character-sheet-dialog {
+  position: relative;
   background-color: var(--ghs-color-white);
+
+  .close {
+    position: absolute;
+    top: calc(var(--ghs-unit) * -1 * var(--ghs-dialog-factor));
+    right: calc(var(--ghs-unit) * -1 * var(--ghs-dialog-factor));
+    z-index: 1;
+    cursor: pointer;
+
+    img {
+      width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+      height: auto;
+    }
+
+    &:hover {
+      filter: var(--ghs-filter-gray);
+    }
+  }
 
   .container {
     width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
@@ -47,7 +65,6 @@
       &.headline {
         width: 100%;
         justify-content: center;
-        cursor: pointer;
 
         &.absent {
           text-decoration: line-through;
@@ -73,6 +90,7 @@
         .character-title {
           display: table;
           align-self: center;
+          cursor: pointer;
         }
       }
     }

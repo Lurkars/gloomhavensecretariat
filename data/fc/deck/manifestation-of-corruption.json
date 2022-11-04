@@ -116,7 +116,7 @@
           "subActions": [
             {
               "type": "card",
-              "value": "infinity"
+              "value": "persistent"
             },
             {
               "type": "card",
@@ -1119,7 +1119,7 @@
             },
             {
               "type": "card",
-              "value": "infinity"
+              "value": "persistent"
             }
           ]
         }
@@ -1149,7 +1149,7 @@
             },
             {
               "type": "card",
-              "value": "infinity"
+              "value": "persistent"
             }
           ]
         }

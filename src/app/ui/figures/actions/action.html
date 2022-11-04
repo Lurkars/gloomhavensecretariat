@@ -1,5 +1,5 @@
 <span class="action" [ngSwitch]="action.type"
-  [ngClass]="{'inline' : inline, 'right' : right, 'fh' : settingsManager.settings.fhStyle, 'aoe' : hasAOE && !settingsManager.settings.fhStyle}">
+  [ngClass]="{'highlight' : highlight, 'inline' : inline, 'right' : right, 'fh' : settingsManager.settings.fhStyle, 'aoe' : hasAOE && !settingsManager.settings.fhStyle}">
   <span class="action-area" *ngSwitchCase="ActionType.area" [ngClass]="{'small' : action.small}">
     <ghs-action-hex [value]="action.value + ''" [size]="hexSize"></ghs-action-hex>
   </span>

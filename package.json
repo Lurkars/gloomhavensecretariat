@@ -1,6 +1,6 @@
 {
   "name": "gloomhavensecretary",
-  "version": "0.23.0",
+  "version": "0.24.0",
   "license": "AGPL3",
   "description": "Gloomhaven Secretary is a Gloomhaven Companion app.",
   "homepage": "https://gloomhaven-secretary.de",
@@ -63,16 +63,16 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^14.2.8",
+    "@angular/animations": "^14.2.9",
     "@angular/cdk": "^14.2.6",
-    "@angular/common": "^14.2.8",
-    "@angular/compiler": "^14.2.8",
-    "@angular/core": "^14.2.8",
-    "@angular/forms": "^14.2.8",
-    "@angular/platform-browser": "^14.2.8",
-    "@angular/platform-browser-dynamic": "^14.2.8",
-    "@angular/router": "^14.2.8",
-    "@angular/service-worker": "^14.2.8",
+    "@angular/common": "^14.2.9",
+    "@angular/compiler": "^14.2.9",
+    "@angular/core": "^14.2.9",
+    "@angular/forms": "^14.2.9",
+    "@angular/platform-browser": "^14.2.9",
+    "@angular/platform-browser-dynamic": "^14.2.9",
+    "@angular/router": "^14.2.9",
+    "@angular/service-worker": "^14.2.9",
     "rxjs": "~7.5.7",
     "tslib": "^2.4.1",
     "zone.js": "~0.11.8"
@@ -80,10 +80,10 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "^14.2.8",
     "@angular/cli": "^14.2.8",
-    "@angular/compiler-cli": "^14.2.8",
+    "@angular/compiler-cli": "^14.2.9",
     "@types/jasmine": "~4.3.0",
     "@types/uuid": "^8.3.4",
-    "electron": "^21.2.1",
+    "electron": "^21.2.2",
     "electron-builder": "^23.6.0",
     "http-server": "^14.1.1",
     "jasmine-core": "~4.5.0",
@@ -92,7 +92,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "puppeteer": "^19.2.1",
+    "puppeteer": "^19.2.2",
     "typescript": "~4.8.4"
   }
 }

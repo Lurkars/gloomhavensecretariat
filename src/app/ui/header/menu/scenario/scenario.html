@@ -25,13 +25,16 @@
       {{'data.edition.' + e | ghsLabel}}
     </label>
   </div>
+  <div class="line search">
+      <input type="text" #search>
+  </div>
   <ng-container *ngFor="let group of groups()">
     <div *ngIf="group" class="line title"><label>{{'data.scenario.group.' + group | ghsLabel}}</label></div>
     <div class="line scenarios">
       <span (click)="setScenario(scenario)" class="scenario"
-        [ngClass]="{'disabled' : hasScenario(scenario), 'blocked' : gameManager.scenarioManager.isBlocked(scenario)}"
+        [ngClass]="{'current' : hasScenario(scenario), 'blocked' : gameManager.scenarioManager.isBlocked(scenario)}"
         [title]="('data.scenario.' + scenario.name | ghsLabel) + (gameManager.scenarioManager.isBlocked(scenario) ? ' [' + ('scenario.locked' | ghsLabel) + ']' : '')"
-        *ngFor="let scenario of scenarios(group)">
+        *ngFor="let scenario of scenarios(group) | ghsScenarioSearch:search.value">
 
         <ng-container *ngIf="!scenario.solo">
           <span *ngIf="maxScenario(group) > 2 && scenario.index.length < 3">0</span><span

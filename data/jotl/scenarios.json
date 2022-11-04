@@ -199,6 +199,15 @@
       "blood-imp",
       "zealot"
     ],
+    "rules": [
+      {
+        "round": "true",
+        "start": true
+      },
+      {
+        "round": "true"
+      }
+    ],
     "unlocks": [
       "16"
     ]
@@ -211,6 +220,12 @@
       "black-imp",
       "blood-imp",
       "rat-monstrosity"
+    ],
+    "rules": [
+      {
+        "round": "R == 2",
+        "start": true
+      }
     ],
     "unlocks": [
       "17"

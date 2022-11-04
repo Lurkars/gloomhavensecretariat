@@ -20,6 +20,8 @@ export class Settings {
   fullscreen: boolean = false;
   fhStyle: boolean = false;
   autoscroll: boolean = true;
+  scenarioRules: boolean = true;
+  scenarioNumberInput: boolean = false;
   disableColumns: boolean = false;
   dragValues: boolean = true;
   hideAbsent: boolean = false;

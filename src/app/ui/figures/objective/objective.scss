@@ -248,23 +248,8 @@
     border-radius: calc(var(--ghs-unit) * 1);
     flex-shrink: 0;
 
-    .image {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      width: calc(var(--ghs-unit) * 8);
-      height: calc(var(--ghs-unit) * 8);
-      overflow: hidden;
-      background-color: var(--ghs-color-red);
-      color: var(--ghs-color-white);
-      font-family: var(--ghs-font-title);
-      font-size: calc(var(--ghs-unit) * 7);
-      line-height: calc(var(--ghs-unit) * 6);
-      border-radius: 100%;
-      border-color: var(--ghs-color-white);
-      border-style: solid;
-      border-width: calc(var(--ghs-unit) * 1);
-      transition: box-shadow 100ms ease-in-out;
+    .objective-marker {
+      font-size: calc(var(--ghs-unit) * 3.8);
     }
 
     ghs-healthbar {

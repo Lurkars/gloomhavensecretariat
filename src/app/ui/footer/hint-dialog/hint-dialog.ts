@@ -17,13 +17,17 @@ export class HintDialogComponent {
 
     constructor(private dialogRef: DialogRef) { }
 
-    confirmTurns() {
-        gameManager.game.figures.forEach((figure) => gameManager.roundManager.afterTurn(figure));
+    confirm() {
+        const active = gameManager.game.figures.find((figure) => figure.active);
+        if (active) {
+            gameManager.stateManager.before("endAllTurns");
+            gameManager.game.figures.forEach((figure) => gameManager.roundManager.afterTurn(figure));
+            gameManager.stateManager.after();
+        }
         this.next();
     }
 
     next() {
-        gameManager.stateManager.before(gameManager.game.state == GameState.next ? "nextRound" : "draw");
         this.dialogRef.close(true);
     }
 

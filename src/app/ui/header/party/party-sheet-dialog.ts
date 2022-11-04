@@ -1,4 +1,4 @@
-import { Dialog } from "@angular/cdk/dialog";
+import { Dialog, DialogRef } from "@angular/cdk/dialog";
 import { Component, ElementRef, ViewChild } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -28,7 +28,7 @@ export class PartySheetDialogComponent {
 
   @ViewChild('treasureIndex') treasureIndex!: ElementRef;
 
-  constructor() {
+  constructor(private dialogRef : DialogRef) {
     this.party = gameManager.game.party;
     this.update();
     gameManager.uiChange.subscribe({
@@ -39,6 +39,10 @@ export class PartySheetDialogComponent {
         }
       }
     })
+  }
+
+  close() {
+    this.dialogRef.close();
   }
 
   toggleCampaignMode() {

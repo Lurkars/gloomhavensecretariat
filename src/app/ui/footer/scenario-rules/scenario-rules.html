@@ -1,0 +1,8 @@
+<div class="rules-dialog">
+  <div class="rule dialog" #ruleElement *ngFor="let rule of gameManager.game.scenarioRules; let index = index;"
+    (click)="close(ruleElement, index)">
+    <p
+      [i18n]="'data.' + (rule.section ? 'section' : 'scenario') + '.rules.' + rule.edition + '.' + (rule.group ? rule.group + '-' : '') +  rule.scenario + '.' + rule.index">
+    </p>
+  </div>
+</div>

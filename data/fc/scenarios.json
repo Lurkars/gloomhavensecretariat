@@ -10,6 +10,17 @@
       "frost-demon",
       "wind-demon"
     ],
+    "rules": [
+      {
+        "round": "R > 3 && R % 3 = 1"
+      },
+      {
+        "round": "R > 4 && R % 3 = 2"
+      },
+      {
+        "round": "R > 5 && R % 3 = 0"
+      }
+    ],
     "unlocks": [
       "97"
     ]
@@ -39,6 +50,12 @@
       "bandit-archer",
       "bandit-guard",
       "spitting-drake"
+    ],
+    "rules": [
+      {
+        "round": "true",
+        "start": true
+      }
     ],
     "unlocks": [
       "102",
@@ -95,6 +112,15 @@
       "rending-drake",
       "spitting-drake"
     ],
+    "rules": [
+      {
+        "round": "true",
+        "start": true
+      },
+      {
+        "round": "R % 2 == 0"
+      }
+    ],
     "unlocks": [
       "108",
       "109"
@@ -107,11 +133,6 @@
     "monsters": [],
     "unlocks": [
       "110"
-    ],
-    "requires": [
-      [],
-      [],
-      []
     ]
   },
   {
@@ -128,11 +149,6 @@
     ],
     "unlocks": [
       "110"
-    ],
-    "requires": [
-      [],
-      [],
-      []
     ]
   },
   {
@@ -151,13 +167,22 @@
         "health": "6+2xL"
       }
     ],
+    "rules": [
+      {
+        "round": "R % 8 == 2"
+      },
+      {
+        "round": "R % 8 == 4"
+      },
+      {
+        "round": "R % 8 == 6"
+      },
+      {
+        "round": "R % 8 == 0"
+      }
+    ],
     "unlocks": [
       "111"
-    ],
-    "requires": [
-      [],
-      [],
-      []
     ]
   },
   {
@@ -170,11 +195,6 @@
     ],
     "unlocks": [
       "111"
-    ],
-    "requires": [
-      [],
-      [],
-      []
     ]
   },
   {
@@ -186,11 +206,6 @@
     ],
     "unlocks": [
       "112"
-    ],
-    "requires": [
-      [],
-      [],
-      []
     ]
   },
   {
@@ -200,11 +215,6 @@
     "monsters": [],
     "unlocks": [
       "112"
-    ],
-    "requires": [
-      [],
-      [],
-      []
     ]
   },
   {
@@ -218,11 +228,6 @@
       "valrath-commander",
       "valrath-savage",
       "valrath-tracker"
-    ],
-    "requires": [
-      [],
-      [],
-      []
     ]
   },
   {
@@ -237,11 +242,6 @@
     ],
     "unlocks": [
       "113"
-    ],
-    "requires": [
-      [],
-      [],
-      []
     ]
   },
   {
@@ -270,6 +270,11 @@
       "night-demon",
       "the-husk"
     ],
+    "rules": [
+      {
+        "round": "R % 3 == 0"
+      }
+    ],
     "unlocks": [
       "114"
     ]
@@ -285,9 +290,6 @@
     ],
     "unlocks": [
       "114"
-    ],
-    "requires": [
-      []
     ]
   },
   {
@@ -322,17 +324,11 @@
       {
         "name": "Hail",
         "escort": true,
-        "health": "4+2xL",
-        "initiative": 99
+        "health": "4+2xL"
       }
     ],
     "unlocks": [
       "115"
-    ],
-    "requires": [
-      [],
-      [],
-      []
     ]
   },
   {
@@ -347,6 +343,22 @@
       "naaret",
       "valrath-savage",
       "valrath-tracker"
+    ],
+    "rules": [
+      {
+        "round": "R < 10",
+        "start": true
+      },
+      {
+        "round": "R > 9",
+        "start": true
+      },
+      {
+        "round": "R == 5 || R == 10"
+      },
+      {
+        "round": "R == 15"
+      }
     ]
   }
 ]

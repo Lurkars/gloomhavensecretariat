@@ -83,13 +83,14 @@ export class LevelManager {
 
   setLevel(level: number) {
     if (this.game.level != level) {
+      const diff = level - this.game.level;
       this.game.level = level;
 
       this.game.figures.forEach((figure) => {
         if (figure instanceof Monster) {
-          figure.level = level;
+          figure.level += diff;
           figure.entities.forEach((monsterEntity) => {
-            monsterEntity.level = level
+            monsterEntity.level += diff
           })
         }
       })

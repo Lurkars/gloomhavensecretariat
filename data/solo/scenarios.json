@@ -1,11 +1,296 @@
 [
   {
-    "index": "0",
+    "index": "1",
+    "group": "solo",
+    "name": "Disarm the Machine",
+    "edition": "cs",
+    "solo": "target",
+    "initial": true,
+    "spoiler": true,
+    "monsters": [
+      "ancient-artillery",
+      "stone-golem"
+    ]
+  },
+  {
+    "index": "2",
+    "group": "solo",
+    "name": "Elemental Converter",
+    "edition": "cs",
+    "solo": "flask",
+    "initial": true,
+    "spoiler": true,
+    "monsters": [
+      "black-imp",
+      "deep-terror",
+      "hound",
+      "lurker",
+      "rending-drake",
+      "spitting-drake"
+    ]
+  },
+  {
+    "index": "3",
+    "group": "solo",
+    "name": "Penitentiary Lockdown",
+    "edition": "cs",
+    "solo": "chain-helmet",
+    "initial": true,
+    "spoiler": true,
+    "monsters": [
+      "bandit-archer",
+      "bandit-guard"
+    ]
+  },
+  {
+    "index": "4",
+    "group": "solo",
+    "name": "Forest Invaders",
+    "edition": "cs",
+    "solo": "tusks",
+    "initial": true,
+    "spoiler": true,
+    "monsters": [
+      "cave-bear",
+      "giant-viper",
+      "hound",
+      "vermling-scout",
+      "vermling-shaman"
+    ]
+  },
+  {
+    "index": "5",
+    "group": "solo",
+    "name": "Through the Fire and the Flames",
+    "edition": "cs",
+    "solo": "ladder-axe",
+    "initial": true,
+    "spoiler": true,
+    "monsters": [
+      "flame-demon",
+      "rending-drake-cs",
+      "savvas-lavaflow",
+      "spitting-drake"
+    ]
+  },
+  {
+    "index": "6",
+    "group": "solo",
+    "name": "Archaic Preservation",
+    "edition": "cs",
+    "solo": "leaf",
+    "initial": true,
+    "spoiler": true,
+    "monsters": [
+      "ancient-artillery",
+      "black-imp",
+      "lurker",
+      "rending-drake",
+      "stone-golem"
+    ]
+  },
+  {
+    "index": "7",
+    "group": "solo",
+    "name": "Hallow Redemption",
+    "edition": "cs",
+    "solo": "vortex",
+    "initial": true,
+    "spoiler": true,
+    "monsters": [
+      "aesther-ashblade",
+      "cave-bear",
+      "forest-imp",
+      "vermling-shaman"
+    ],
+    "objectives": []
+  },
+  {
+    "index": "8",
+    "group": "solo",
+    "name": "A Cornered Viper",
+    "edition": "cs",
+    "solo": "sprig",
+    "initial": true,
+    "spoiler": true,
+    "monsters": [
+      "cave-bear",
+      "giant-viper",
+      "inox-archer",
+      "living-corpse",
+      "living-spirit",
+      "stone-golem"
+    ]
+  },
+  {
+    "index": "9",
+    "group": "solo",
+    "name": "Glowing Crystals",
+    "edition": "cs",
+    "solo": "crescent-sun",
+    "initial": true,
+    "spoiler": true,
+    "monsters": [
+      "deep-terror",
+      "lurker"
+    ]
+  },
+  {
+    "index": "10",
+    "group": "solo",
+    "name": "Beyond the Grave",
+    "edition": "cs",
+    "solo": "skull",
+    "initial": true,
+    "spoiler": true,
+    "monsters": [
+      "vermling-shaman"
+    ],
+    "objectives": [
+      {
+        "name": "Angry Spirit 1",
+        "escort": true,
+        "health": "6",
+        "initiative": 25
+      },
+      {
+        "name": "Angry Spirit 2",
+        "escort": true,
+        "health": "6",
+        "initiative": 25
+      }
+    ]
+  },
+  {
+    "index": "11",
+    "group": "solo",
+    "name": "Otherworldly Strangers",
+    "edition": "cs",
+    "solo": "galaxy",
+    "initial": true,
+    "spoiler": true,
+    "monsters": [
+      "city-archer",
+      "city-guard",
+      "earth-demon",
+      "harrower-infester",
+      "night-demon",
+      "sun-demon"
+    ]
+  },
+  {
+    "index": "12",
+    "group": "solo",
+    "name": "Hive Guardian",
+    "edition": "cs",
+    "solo": "beetle",
+    "initial": true,
+    "spoiler": true,
+    "monsters": [
+      "flame-demon",
+      "frost-demon",
+      "wind-demon",
+      "earth-demon",
+      "night-demon",
+      "sun-demon"
+    ],
+    "objectives": [
+      {
+        "name": "Soul Leech Egg 1",
+        "escort": true,
+        "health": "3+L",
+        "initiative": 25
+      },
+      {
+        "name": "Soul Leech Egg 2",
+        "escort": true,
+        "health": "3+L",
+        "initiative": 25
+      }
+    ]
+  },
+  {
+    "index": "13",
+    "group": "solo",
+    "name": "Magnum Opus",
+    "edition": "cs",
+    "solo": "tools",
+    "initial": true,
+    "spoiler": true,
+    "monsters": [
+      "clockwork-soldier",
+      "clockwork-railcaster"
+    ]
+  },
+  {
+    "index": "14",
+    "group": "solo",
+    "name": "The Fall of Shadow's Respite",
+    "edition": "cs",
+    "solo": "bleeding-claw",
+    "initial": true,
+    "spoiler": true,
+    "monsters": [
+      "gnashing-drake",
+      "spitting-drake",
+      "rending-drake",
+      "vermling-scout",
+      "vermling-shaman"
+    ],
+    "allies": [
+      "vermling-scout",
+      "vermling-shaman"
+    ],
+    "objectives": [
+      {
+        "name": "The Chosen",
+        "escort": true,
+        "health": "6+L",
+        "initiative": 99
+      }
+    ]
+  },
+  {
+    "index": "1",
+    "group": "solo",
+    "name": "Forecast of the Inevitable",
+    "edition": "fc",
+    "solo": "diviner",
+    "initial": true,
+    "monsters": [
+      "earth-demon-diviner-solo",
+      "valrath-savage"
+    ],
+    "objectives": [
+      {
+        "name": "Rift 1",
+        "escort": true,
+        "health": "3+L"
+      },
+      {
+        "name": "Rift 2",
+        "escort": true,
+        "health": "3+L"
+      },
+      {
+        "name": "Rift 3",
+        "escort": true,
+        "health": "3+L"
+      },
+      {
+        "name": "Rift 4",
+        "escort": true,
+        "health": "3+L"
+      }
+    ]
+  },
+  {
+    "index": "1",
+    "group": "solo",
     "name": "Return to the Black Barrow",
     "edition": "gh",
-    "group": "solo",
-    "initial": true,
     "solo": "brute",
+    "initial": true,
     "monsters": [
       "bandit-guard",
       "bandit-archer",
@@ -13,12 +298,12 @@
     ]
   },
   {
-    "index": "0",
+    "index": "2",
+    "group": "solo",
     "name": "An Unfortunate Intrusion",
     "edition": "gh",
-    "group": "solo",
-    "initial": true,
     "solo": "tinkerer",
+    "initial": true,
     "monsters": [
       "city-guard-tinkerer-solo",
       "vermling-scout",
@@ -26,15 +311,20 @@
     ],
     "allies": [
       "city-guard-tinkerer-solo"
+    ],
+    "rules": [
+      {
+        "round": "R % 2 == 0"
+      }
     ]
   },
   {
-    "index": "0",
+    "index": "3",
+    "group": "solo",
     "name": "Corrupted Laboratory",
     "edition": "gh",
-    "group": "solo",
-    "initial": true,
     "solo": "spellweaver",
+    "initial": true,
     "monsters": [
       "black-imp",
       "spitting-drake",
@@ -42,12 +332,12 @@
     ]
   },
   {
-    "index": "0",
+    "index": "4",
+    "group": "solo",
     "name": "Armory Heist",
     "edition": "gh",
-    "group": "solo",
-    "initial": true,
     "solo": "scoundrel",
+    "initial": true,
     "monsters": [
       "city-guard-scoundrel-solo",
       "stone-golem-scoundrel-solo",
@@ -63,12 +353,12 @@
     ]
   },
   {
-    "index": "0",
+    "index": "5",
+    "group": "solo",
     "name": "Stone Defense",
     "edition": "gh",
-    "group": "solo",
-    "initial": true,
     "solo": "cragheart",
+    "initial": true,
     "monsters": [
       "cave-bear",
       "ooze",
@@ -76,12 +366,12 @@
     ]
   },
   {
-    "index": "0",
+    "index": "6",
+    "group": "solo",
     "name": "Rodent Liberation",
     "edition": "gh",
-    "group": "solo",
-    "initial": true,
     "solo": "mindthief",
+    "initial": true,
     "monsters": [
       "vermling-scout-mindthief-solo",
       "vermling-shaman",
@@ -103,13 +393,13 @@
     ]
   },
   {
-    "index": "0",
+    "index": "7",
+    "group": "solo",
     "name": "Caravan Escort",
     "edition": "gh",
-    "group": "solo",
+    "solo": "sun",
     "initial": true,
     "spoiler": true,
-    "solo": "sun",
     "monsters": [
       "city-guard-sun-solo",
       "bandit-guard",
@@ -127,13 +417,13 @@
     "objectives": []
   },
   {
-    "index": "0",
+    "index": "8",
+    "group": "solo",
     "name": "Unnatural Insults",
     "edition": "gh",
-    "group": "solo",
+    "solo": "lightning",
     "initial": true,
     "spoiler": true,
-    "solo": "lightning",
     "monsters": [
       "living-corpse",
       "living-bones",
@@ -142,13 +432,13 @@
     ]
   },
   {
-    "index": "0",
+    "index": "9",
+    "group": "solo",
     "name": "Storage Fees",
     "edition": "gh",
-    "group": "solo",
+    "solo": "three-spears",
     "initial": true,
     "spoiler": true,
-    "solo": "three-spears",
     "monsters": [
       "hound",
       "bandit-guard",
@@ -156,13 +446,13 @@
     ]
   },
   {
-    "index": "0",
+    "index": "10",
+    "group": "solo",
     "name": "Plane of Wild Beasts",
     "edition": "gh",
-    "group": "solo",
+    "solo": "circles",
     "initial": true,
     "spoiler": true,
-    "solo": "circles",
     "monsters": [
       "hound",
       "spitting-drake",
@@ -170,26 +460,26 @@
     ]
   },
   {
-    "index": "0",
+    "index": "11",
+    "group": "solo",
     "name": "Harvesting the Night",
     "edition": "gh",
-    "group": "solo",
+    "solo": "eclipse",
     "initial": true,
     "spoiler": true,
-    "solo": "eclipse",
     "monsters": [
       "night-demon",
       "deep-terror"
     ]
   },
   {
-    "index": "0",
+    "index": "12",
+    "group": "solo",
     "name": "Plagued Crypt",
     "edition": "gh",
-    "group": "solo",
+    "solo": "squidface",
     "initial": true,
     "spoiler": true,
-    "solo": "squidface",
     "monsters": [
       "giant-viper",
       "black-imp"
@@ -228,13 +518,13 @@
     ]
   },
   {
-    "index": "0",
+    "index": "13",
+    "group": "solo",
     "name": "Battle of the Bards",
     "edition": "gh",
-    "group": "solo",
+    "solo": "music-note",
     "initial": true,
     "spoiler": true,
-    "solo": "music-note",
     "monsters": [
       "bandit-guard-music-note-solo",
       "bandit-archer-music-note-solo",
@@ -250,13 +540,13 @@
     "objectives": []
   },
   {
-    "index": "0",
+    "index": "14",
+    "group": "solo",
     "name": "Corrupted Hunt",
     "edition": "gh",
-    "group": "solo",
+    "solo": "angry-face",
     "initial": true,
     "spoiler": true,
-    "solo": "angry-face",
     "monsters": [
       "ghost-wolf",
       "deep-earth",
@@ -265,13 +555,13 @@
     ]
   },
   {
-    "index": "0",
+    "index": "15",
+    "group": "solo",
     "name": "Aftermath",
     "edition": "gh",
-    "group": "solo",
+    "solo": "saw",
     "initial": true,
     "spoiler": true,
-    "solo": "saw",
     "monsters": [
       "city-guard-saw-solo",
       "lieutenant"
@@ -281,13 +571,13 @@
     ]
   },
   {
-    "index": "0",
+    "index": "16",
+    "group": "solo",
     "name": "Elemental Secrets",
     "edition": "gh",
-    "group": "solo",
+    "solo": "triangles",
     "initial": true,
     "spoiler": true,
-    "solo": "triangles",
     "monsters": [
       "flame-demon",
       "earth-demon",
@@ -296,13 +586,13 @@
     ]
   },
   {
-    "index": "0",
+    "index": "17",
+    "group": "solo",
     "name": "The Caged Bear",
     "edition": "gh",
-    "group": "solo",
+    "solo": "two-mini",
     "initial": true,
     "spoiler": true,
-    "solo": "two-mini",
     "monsters": [
       "hound",
       "forest-imp",
@@ -312,302 +602,17 @@
     ]
   },
   {
-    "index": "0",
+    "index": "1",
+    "group": "solo",
     "name": "The Sands of Time",
     "edition": "gh-envx",
-    "group": "solo",
-    "initial": true,
-    "spoiler": true,
     "solo": "bladeswarm",
+    "initial": true,
+    "spoiler": true,
     "monsters": [
       "giant-viper",
       "living-spirit",
       "stone-golem"
-    ]
-  },
-  {
-    "index": "0",
-    "name": "Forecast of the Inevitable",
-    "edition": "fc",
-    "group": "solo",
-    "initial": true,
-    "solo": "diviner",
-    "monsters": [
-      "earth-demon-diviner-solo",
-      "valrath-savage"
-    ],
-    "objectives": [
-      {
-        "name": "Rift 1",
-        "escort": true,
-        "health": "3+L"
-      },
-      {
-        "name": "Rift 2",
-        "escort": true,
-        "health": "3+L"
-      },
-      {
-        "name": "Rift 3",
-        "escort": true,
-        "health": "3+L"
-      },
-      {
-        "name": "Rift 4",
-        "escort": true,
-        "health": "3+L"
-      }
-    ]
-  },
-  {
-    "index": "0",
-    "name": "Disarm the Machine",
-    "edition": "cs",
-    "group": "solo",
-    "initial": true,
-    "spoiler": true,
-    "solo": "target",
-    "monsters": [
-      "ancient-artillery",
-      "stone-golem"
-    ]
-  },
-  {
-    "index": "0",
-    "name": "Elemental Converter",
-    "edition": "cs",
-    "group": "solo",
-    "initial": true,
-    "spoiler": true,
-    "solo": "flask",
-    "monsters": [
-      "black-imp",
-      "deep-terror",
-      "hound",
-      "lurker",
-      "rending-drake",
-      "spitting-drake"
-    ]
-  },
-  {
-    "index": "0",
-    "name": "Penitentiary Lockdown",
-    "edition": "cs",
-    "group": "solo",
-    "initial": true,
-    "spoiler": true,
-    "solo": "chain-helmet",
-    "monsters": [
-      "bandit-archer",
-      "bandit-guard"
-    ]
-  },
-  {
-    "index": "0",
-    "name": "Forest Invaders",
-    "edition": "cs",
-    "group": "solo",
-    "initial": true,
-    "spoiler": true,
-    "solo": "tusks",
-    "monsters": [
-      "cave-bear",
-      "giant-viper",
-      "hound",
-      "vermling-scout",
-      "vermling-shaman"
-    ]
-  },
-  {
-    "index": "0",
-    "name": "Through the Fire and the Flames",
-    "edition": "cs",
-    "group": "solo",
-    "initial": true,
-    "spoiler": true,
-    "solo": "ladder-axe",
-    "monsters": [
-      "flame-demon",
-      "rending-drake-cs",
-      "savvas-lavaflow",
-      "spitting-drake"
-    ]
-  },
-  {
-    "index": "0",
-    "name": "Archaic Preservation",
-    "edition": "cs",
-    "group": "solo",
-    "initial": true,
-    "spoiler": true,
-    "solo": "leaf",
-    "monsters": [
-      "ancient-artillery",
-      "black-imp",
-      "lurker",
-      "rending-drake",
-      "stone-golem"
-    ]
-  },
-  {
-    "index": "0",
-    "name": "Hallow Redemption",
-    "edition": "cs",
-    "group": "solo",
-    "initial": true,
-    "spoiler": true,
-    "solo": "vortex",
-    "monsters": [
-      "aesther-ashblade",
-      "cave-bear",
-      "forest-imp",
-      "vermling-shaman"
-    ],
-    "objectives": []
-  },
-  {
-    "index": "0",
-    "name": "A Cornered Viper",
-    "edition": "cs",
-    "group": "solo",
-    "initial": true,
-    "spoiler": true,
-    "solo": "sprig",
-    "monsters": [
-      "cave-bear",
-      "giant-viper",
-      "inox-archer",
-      "living-corpse",
-      "living-spirit",
-      "stone-golem"
-    ]
-  },
-  {
-    "index": "0",
-    "name": "Glowing Crystals",
-    "edition": "cs",
-    "group": "solo",
-    "initial": true,
-    "spoiler": true,
-    "solo": "crescent-sun",
-    "monsters": [
-      "deep-terror",
-      "lurker"
-    ]
-  },
-  {
-    "index": "0",
-    "name": "Beyond the Grave",
-    "edition": "cs",
-    "group": "solo",
-    "initial": true,
-    "spoiler": true,
-    "solo": "skull",
-    "monsters": [
-      "vermling-shaman"
-    ],
-    "objectives": [
-      {
-        "name": "Angry Spirit 1",
-        "escort": true,
-        "health": "6",
-        "initiative": 25
-      },
-      {
-        "name": "Angry Spirit 2",
-        "escort": true,
-        "health": "6",
-        "initiative": 25
-      }
-    ]
-  },
-  {
-    "index": "0",
-    "name": "Otherworldly Strangers",
-    "edition": "cs",
-    "group": "solo",
-    "initial": true,
-    "spoiler": true,
-    "solo": "galaxy",
-    "monsters": [
-      "city-archer",
-      "city-guard",
-      "earth-demon",
-      "harrower-infester",
-      "night-demon",
-      "sun-demon"
-    ]
-  },
-  {
-    "index": "0",
-    "name": "Hive Guardian",
-    "edition": "cs",
-    "group": "solo",
-    "initial": true,
-    "spoiler": true,
-    "solo": "beetle",
-    "monsters": [
-      "flame-demon",
-      "frost-demon",
-      "wind-demon",
-      "earth-demon",
-      "night-demon",
-      "sun-demon"
-    ],
-    "objectives": [
-      {
-        "name": "Soul Leech Egg 1",
-        "escort": true,
-        "health": "3+L",
-        "initiative": 25
-      },
-      {
-        "name": "Soul Leech Egg 2",
-        "escort": true,
-        "health": "3+L",
-        "initiative": 25
-      }
-    ]
-  },
-  {
-    "index": "0",
-    "name": "Magnum Opus",
-    "edition": "cs",
-    "group": "solo",
-    "initial": true,
-    "spoiler": true,
-    "solo": "tools",
-    "monsters": [
-      "clockwork-soldier",
-      "clockwork-railcaster"
-    ]
-  },
-  {
-    "index": "0",
-    "name": "The Fall of Shadow's Respite",
-    "edition": "cs",
-    "group": "solo",
-    "initial": true,
-    "spoiler": true,
-    "solo": "bleeding-claw",
-    "monsters": [
-      "gnashing-drake",
-      "spitting-drake",
-      "rending-drake",
-      "vermling-scout",
-      "vermling-shaman"
-    ],
-    "allies": [
-      "vermling-scout",
-      "vermling-shaman"
-    ],
-    "objectives": [
-      {
-        "name": "The Chosen",
-        "escort": true,
-        "health": "6+L",
-        "initiative": 99
-      }
     ]
   }
 ]

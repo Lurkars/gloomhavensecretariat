@@ -109,15 +109,23 @@ footer {
 
   }
 
-}
+  .level-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-.level-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    ghs-level {
+      margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor) * var(--ghs-barsize));
+    }
 
-  ghs-level {
-    margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor) * var(--ghs-barsize));
+    ghs-scenario-rules {
+      position: absolute;
+      left: 50%;
+      bottom: calc(var(--ghs-unit) * 11.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      transform: translateX(-50%);
+    }
+  
   }
 }

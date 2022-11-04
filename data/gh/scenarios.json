@@ -489,6 +489,26 @@
         "health": "4+(2xL)"
       }
     ],
+    "rules": [
+      {
+        "round": "R == 1"
+      },
+      {
+        "round": "R == 2"
+      },
+      {
+        "round": "R == 3 || R == 6 || R == 9"
+      },
+      {
+        "round": "R == 4 || R == 7"
+      },
+      {
+        "round": "R == 5 || R == 8"
+      },
+      {
+        "round": "R >= 10"
+      }
+    ],
     "requires": [
       [
         "19"
@@ -508,7 +528,7 @@
     "monsters": [
       "cultist",
       "living-bones",
-      "living-corpse",
+      "living-corpse:+2",
       "night-demon",
       "sun-demon"
     ],
@@ -582,6 +602,12 @@
       {
         "name": "Rock Column",
         "health": "(8+L)xC"
+      }
+    ],
+    "rules": [
+      {
+        "round": "true",
+        "start": true
       }
     ],
     "unlocks": [
@@ -718,6 +744,20 @@
         "health": "10+(2xL)"
       }
     ],
+    "rules": [
+      {
+        "round": "R % 4 == 1"
+      },
+      {
+        "round": "R % 4 == 2"
+      },
+      {
+        "round": "R % 4 == 3"
+      },
+      {
+        "round": "R % 4 == 0"
+      }
+    ],
     "requires": [
       [
         "10"
@@ -784,6 +824,12 @@
       {
         "name": "Altar",
         "health": "6+(CxL)"
+      }
+    ],
+    "rules": [
+      {
+        "round": "true",
+        "start": true
       }
     ],
     "unlocks": [
@@ -1093,6 +1139,27 @@
       "living-spirit",
       "ooze"
     ],
+    "rules": [
+      {
+        "round": "R == 2",
+        "start": true
+      },
+      {
+        "round": "R == 4",
+        "start": true
+      },
+      {
+        "round": "R == 6",
+        "start": true
+      },
+      {
+        "round": "R == 8",
+        "start": true
+      },
+      {
+        "round": "R == 10"
+      }
+    ],
     "unlocks": [
       "54"
     ]
@@ -1156,7 +1223,7 @@
       "city-archer",
       "city-guard",
       "hound",
-      "infiltrator"
+      "infiltrator:+1"
     ],
     "unlocks": [
       "58"
@@ -1170,7 +1237,7 @@
       "black-imp",
       "earth-demon",
       "harrower-infester",
-      "the-harvester"
+      "the-harvester:+1"
     ],
     "objectives": [
       {
@@ -1214,6 +1281,15 @@
       "ooze",
       "rending-drake",
       "spitting-drake"
+    ],
+    "rules": [
+      {
+        "round": "R > 6 && R < 13",
+        "start": true
+      },
+      {
+        "round": "R == 12"
+      }
     ]
   },
   {
@@ -1226,6 +1302,16 @@
       "giant-viper",
       "ooze"
     ],
+    "rules": [
+      {
+        "round": "R % 2 == 1",
+        "start": true
+      },
+      {
+        "round": "R % 2 == 0",
+        "start": true
+      }
+    ],
     "unlocks": [
       "62"
     ]
@@ -1237,6 +1323,12 @@
     "monsters": [
       "hungry-soul",
       "living-spirit"
+    ],
+    "rules": [
+      {
+        "round": "true",
+        "start": true
+      }
     ]
   },
   {
@@ -1291,7 +1383,7 @@
     "name": "Arcane Library",
     "edition": "gh",
     "monsters": [
-      "arcane-golem",
+      "arcane-golem:+1",
       "cave-bear",
       "forest-imp"
     ]
@@ -1334,6 +1426,17 @@
       "living-spirit",
       "night-demon",
       "wind-demon"
+    ],
+    "rules": [
+      {
+        "round": "R % 2 == 1 && C <= 3"
+      },
+      {
+        "round": "R % 2 == 0 && C < 3"
+      },
+      {
+        "round": "R % 2 == 1 && C > 3 || R % 2 == 0 && C >= 3"
+      }
     ]
   },
   {
@@ -1344,6 +1447,20 @@
       "spitting-drake",
       "sun-demon",
       "wind-demon"
+    ],
+    "rules": [
+      {
+        "round": "R % 4 == 1"
+      },
+      {
+        "round": "R % 4 == 2"
+      },
+      {
+        "round": "R % 4 == 3"
+      },
+      {
+        "round": "R % 4 == 0"
+      }
     ]
   },
   {
@@ -1368,6 +1485,17 @@
         "name": "Tree C",
         "health": "Cx(3+L)"
       }
+    ],
+    "rules": [
+      {
+        "round": "R % 3 == 1"
+      },
+      {
+        "round": "R % 3 == 2"
+      },
+      {
+        "round": "R % 3 == 0"
+      }
     ]
   },
   {
@@ -1380,6 +1508,11 @@
       "inox-archer",
       "inox-guard",
       "inox-shaman"
+    ],
+    "rules": [
+      {
+        "round": "true"
+      }
     ]
   },
   {
@@ -1392,8 +1525,16 @@
       "deep-terror",
       "lurker"
     ],
-    "requires": [
-      []
+    "rules": [
+      {
+        "round": "R % 2 == 0 || C > 2"
+      },
+      {
+        "round": "R == 3"
+      },
+      {
+        "round": "R == 6"
+      }
     ]
   },
   {
@@ -1404,9 +1545,6 @@
       "bloated-regent",
       "living-bones",
       "living-spirit"
-    ],
-    "requires": [
-      []
     ]
   },
   {
@@ -1484,6 +1622,12 @@
       "stone-golem",
       "sun-demon",
       "the-colorless"
+    ],
+    "rules": [
+      {
+        "round": "true",
+        "start": true
+      }
     ]
   },
   {

@@ -8,12 +8,27 @@
     flex-direction: column;
     justify-content: center;
     min-height: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor));
+    cursor: zoom-out;
+    margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+    transition: all 100ms ease-in-out;
+    overflow: hidden;
+    width: 100%;
 
     p {
       margin: 0;
       padding: 0;
       color: var(--ghs-color-gray);
       font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+    }
+
+    &.closed {
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      height: 0;
+      min-height: initial;
+      width: 100%;
     }
 
     a {

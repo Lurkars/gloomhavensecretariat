@@ -60,7 +60,7 @@
         <div class="notes" [i18n]="statsForType(MonsterType.normal).note"></div>
         <div class="additional">
           <ghs-actions [actions]="statsForType(MonsterType.normal).actions" [monster]="monster" [inline]="true"
-            [right]="true" [hexSize]="0.5">
+            [right]="true" [hexSize]="0.5" [highlightActions]="highlightActions">
           </ghs-actions>
         </div>
         <div class="specials" *ngFor="let special of (statsForType(MonsterType.normal).special); let index = index;">
@@ -80,7 +80,7 @@
         <div class="notes" [i18n]="statsForType(MonsterType.elite).note"></div>
         <div class="additional">
           <ghs-actions [actions]="statsForType(MonsterType.elite).actions" [monster]="monster" [inline]="true"
-            [hexSize]="0.5">
+            [hexSize]="0.5" [highlightActions]="highlightActions">
           </ghs-actions>
         </div>
         <div class="specials" *ngFor="let special of (statsForType(MonsterType.elite).special); let index = index;">
@@ -101,7 +101,7 @@
     <div class="extra-container">
       <div class="additional">
         <ghs-actions [actions]="statsForType(MonsterType.boss).actions" [monster]="monster" [inline]="true"
-          [hexSize]="0.5">
+          [hexSize]="0.5" [highlightActions]="highlightActions">
         </ghs-actions>
       </div>
       <div class="specials" *ngFor="let special of (statsForType(MonsterType.boss).special); let index = index;">

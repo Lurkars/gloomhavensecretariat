@@ -828,7 +828,60 @@ input[type="radio"] {
       z-index: 3;
     }
   }
+}
 
+.map-marker {
+  display: inline-flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 1.2em;
+  height: 1.2em;
+  overflow: hidden;
+  background-color: var(--ghs-color-red);
+  color: var(--ghs-color-white);
+  font-family: var(--ghs-font-title);
+  font-size: 1em;
+  line-height: 0.9em;
+  border-radius: 100%;
+  border-color: var(--ghs-color-white);
+  border-style: solid;
+  border-width: 0.15em;
+  transition: box-shadow 100ms ease-in-out;
+}
+
+.objective-marker {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5em;
+  height: 2.5em;
+  overflow: hidden;
+  color: var(--ghs-color-white);
+  font-family: var(--ghs-font-title);
+  font-size: 1em;
+  line-height: 0.9em;
+  border-radius: 100%;
+  border-color: var(--ghs-color-darkgray);
+  border-style: solid;
+  border-width: 0.3em;
+  transition: box-shadow 100ms ease-in-out;
+
+  &::before {
+    content: ' ';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1.2em;
+    height: 1.2em;
+    transform: translate(-50%, -50%);
+    border-color: var(--ghs-color-gray);
+    border-radius: 100%;
+    background-color: var(--ghs-color-darkgray);
+    border-style: solid;
+    border-width: 1em;
+    z-index: -1;
+  }
 }
 
 .text-white {

@@ -101,8 +101,8 @@ export enum ActionSpecialTarget {
 export enum ActionCardType {
 
   experience = "experience",
-  infinity = "infinity",
   lost = "lost",
+  persistent = "persistent",
   recover = "recover",
   refresh = "refresh",
   round = "round",

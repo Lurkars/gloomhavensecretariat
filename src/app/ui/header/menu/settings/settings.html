@@ -57,6 +57,13 @@
           {{'settings.autoscroll' | ghsLabel}}
         </label>
       </div>
+      <div class="line">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.scenarioRules"
+            (change)="settingsManager.setScenarioRules(!settingsManager.settings.scenarioRules)">
+          {{'settings.scenarioRules' | ghsLabel}}
+        </label>
+      </div>
     </div>
     <div class="column">
       <div class="line">
@@ -114,6 +121,13 @@
           <input type="checkbox" [checked]="settingsManager.settings.disableStandees"
             (change)="settingsManager.setDisableStandees(!settingsManager.settings.disableStandees)">
           {{'settings.disableStandees' | ghsLabel}}
+        </label>
+      </div>
+      <div class="line disabled">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.scenarioNumberInput"
+            (change)="settingsManager.setScenarioNumberInput(!settingsManager.settings.scenarioNumberInput)">
+          {{'settings.scenarioNumberInput' | ghsLabel}}
         </label>
       </div>
     </div>

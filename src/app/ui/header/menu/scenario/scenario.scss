@@ -35,8 +35,8 @@
       color: var(--ghs-color-white);
     }
 
-    &.disabled {
-      pointer-events: none;
+    &.current {
+      cursor: initial;
       border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
       color: var(--ghs-color-darkgray);
     }

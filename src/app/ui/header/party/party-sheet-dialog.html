@@ -1,4 +1,5 @@
 <div class="light party-sheet-dialog">
+  <a class="close" (click)="close()" [title]="'close' | ghsLabel"><img src="./assets/images/close.svg"></a>
   <div class="scroll-container">
     <div class="container" [ngClass]="{'campaign-container' : campaign}">
       <div class="sheet" *ngIf="!campaign">

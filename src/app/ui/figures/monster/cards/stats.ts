@@ -3,6 +3,7 @@ import { Overlay } from '@angular/cdk/overlay';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { ActionType } from 'src/app/game/model/Action';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { FigureError, FigureErrorType } from 'src/app/game/model/FigureError';
 import { Monster } from 'src/app/game/model/Monster';
@@ -27,6 +28,7 @@ export class MonsterStatsComponent implements OnInit {
   stats: MonsterStat | undefined = undefined;
   eliteStats: MonsterStat | undefined = undefined;
   statOverview: boolean = false;
+  highlightActions: ActionType[] = [ActionType.shield, ActionType.retaliate];
 
   @ViewChild('levelButton', { read: ElementRef }) levelButton!: ElementRef;
 

@@ -117,9 +117,12 @@ export class CharacterManager {
 
 
   addObjective(objectiveData: ObjectiveData | undefined = undefined) {
-    let id = 0;
-    while (this.game.figures.some((figure) => figure instanceof Objective && figure.id == id)) {
-      id++;
+    const objectiveCount = gameManager.game.figures.filter((figure) => figure instanceof Objective).length;
+    let id = objectiveCount % 12;
+    if (objectiveCount < 12) {
+      while (this.game.figures.some((figure) => figure instanceof Objective && figure.id == id)) {
+        id++;
+      }
     }
 
     let objective = new Objective(id);

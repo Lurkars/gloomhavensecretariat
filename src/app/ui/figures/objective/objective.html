@@ -2,7 +2,7 @@
   [ngClass]="{'off' : objective.off || objective.exhausted || (objective.health <= 0), 'escort' : objective.escort, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
   <a class="image-container" (click)="toggleFigure()"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round }">
-    <span class="image" [ngClass]="{'active-border' : objective.active}">
+    <span class="objective-marker" [ngClass]="{'active-border' : objective.active}">
       {{objective.id + 1}}
     </span>
     <ghs-healthbar [entity]="objective"></ghs-healthbar>

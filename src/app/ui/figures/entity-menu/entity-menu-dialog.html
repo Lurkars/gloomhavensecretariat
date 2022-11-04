@@ -51,13 +51,13 @@
   <div *ngIf="!levelDialog" class="status-container">
     <div class="entity-container">
 
-      <ng-container *ngIf="gameManager.isMonster(data.figure) && shieldValue()">
-        <div class="shield-value">
-          {{'game.action.shield' | ghsLabel}} <img class="ghs-svg"
-            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/shield.svg'">
-          {{shieldValue()}}
-        </div>
-      </ng-container>
+      <div class="shield-action" *ngIf="gameManager.isMonster(data.figure) && +shieldAction().value > 0u">
+        <ghs-action [action]="shieldAction()" ></ghs-action>
+      </div>
+
+      <div class="retaliate-action" *ngIf="gameManager.isMonster(data.figure) && +retaliateAction().value > 0u">
+        <ghs-action [action]="retaliateAction()"></ghs-action>
+      </div>
 
       <span class="item">
         <a class="button" [ngClass]="{'disabled' : data.entity.health + health == 0}" (click)="changeHealth(-1)">
@@ -162,7 +162,7 @@
           </a>
         </span>
         <span class="item">
-          <span class="objective-id">{{gameManager.toObjective(data.entity).id + 1}}</span>
+          <span class="objective-marker">{{gameManager.toObjective(data.entity).id + 1}}</span>
         </span>
         <span class="item">
           <a class="button" (click)="changeId(1)">

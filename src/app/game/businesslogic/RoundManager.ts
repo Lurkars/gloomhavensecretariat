@@ -27,6 +27,9 @@ export class RoundManager {
     this.working = true;
     this.game.totalSeconds += this.game.playSeconds;
     this.game.playSeconds = 0;
+
+    gameManager.scenarioManager.applyScenarioRules();
+
     if (this.game.state == GameState.next) {
       this.game.state = GameState.draw;
       gameManager.characterManager.next();
@@ -74,8 +77,6 @@ export class RoundManager {
     gameManager.uiChange.emit();
     setTimeout(() => this.working = false, 1);
   }
-
-
 
   toggleFigure(figure: Figure) {
     const figures: Figure[] = this.game.figures;
@@ -236,6 +237,9 @@ export class RoundManager {
         }
       }
     }
+    if (figure instanceof Objective) {
+      this.toggleFigure(figure);
+    }
   }
 
   afterTurn(figure: Figure) {
@@ -316,6 +320,7 @@ export class RoundManager {
   resetScenario() {
     this.game.playSeconds = 0;
     this.game.sections = [];
+    this.game.scenarioRules = [];
     this.game.round = 0;
     this.game.state = GameState.draw;
     this.game.elementBoard.forEach((element) => element.state = ElementState.inert);

@@ -74,9 +74,11 @@ export class ScenarioMenuComponent implements OnInit {
   }
 
   setScenario(scenarioData: ScenarioData) {
-    gameManager.stateManager.before("setScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
-    gameManager.scenarioManager.setScenario(scenarioData as Scenario)
-    gameManager.stateManager.after();
+    if (!this.hasScenario(scenarioData)) {
+      gameManager.stateManager.before("setScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
+      gameManager.scenarioManager.setScenario(scenarioData as Scenario)
+      gameManager.stateManager.after();
+    }
   }
 
   resetScenario() {
@@ -90,7 +92,7 @@ export class ScenarioMenuComponent implements OnInit {
   customScenario() {
     if (!gameManager.game.scenario || !gameManager.game.scenario.custom) {
       gameManager.stateManager.before("setCustomScenario");
-      gameManager.scenarioManager.setScenario(new Scenario(new ScenarioData("", "", [], [], [], [], [], [], [], ""), true));
+      gameManager.scenarioManager.setScenario(new Scenario(new ScenarioData("", "", [], [], [], [], [], [], [], [], ""), true));
       gameManager.stateManager.after();
     } else {
       gameManager.stateManager.before("unsetCustomScenario");

@@ -2,7 +2,7 @@ import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 import { ChangeDetectorRef, Component, ElementRef, Inject, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { ActionType } from "src/app/game/model/Action";
+import { Action, ActionType, ActionValueType } from "src/app/game/model/Action";
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from "src/app/game/model/AttackModifier";
 import { Character } from "src/app/game/model/Character";
 import { ConditionName, ConditionType } from "src/app/game/model/Condition";
@@ -239,13 +239,17 @@ export class EntityMenuDialogComponent {
     return false;
   }
 
-  shieldValue(): number {
+  shieldAction(): Action {
+    let shieldAction = new Action(ActionType.shield, 0, ActionValueType.fixed, []);
     if (this.data.figure instanceof Monster && this.data.entity instanceof MonsterEntity) {
       const stat = gameManager.monsterManager.getStat(this.data.figure, this.data.entity.type);
       let shieldValue = 0;
-      const shieldAction = stat.actions.find((action) => action.type == ActionType.shield);
-      if (shieldAction) {
-        shieldValue += +shieldAction.value;
+      const statAction = stat.actions.find((action) => action.type == ActionType.shield);
+      if (statAction) {
+        shieldAction.value = +shieldAction.value + +statAction.value;
+        if (statAction.subActions && statAction.subActions.length > 0) {
+          shieldAction.subActions.push(...JSON.parse(JSON.stringify(statAction.subActions)));
+        }
       }
 
       const activeFigure = gameManager.game.figures.find((figure) => figure.active);
@@ -254,20 +258,66 @@ export class EntityMenuDialogComponent {
         if (ability) {
           ability.actions.forEach((action) => {
             if (action.type == ActionType.shield) {
-              shieldValue += +action.value;
+              shieldAction.value = +shieldAction.value + +action.value;
+              if (action.subActions && action.subActions.length > 0) {
+                shieldAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions)));
+              }
             } else if (action.type == ActionType.monsterType && action.value == (this.data.entity as MonsterEntity).type) {
               action.subActions.forEach((action) => {
                 if (action.type == ActionType.shield) {
-                  shieldValue += +action.value;
+                  shieldAction.value = +shieldAction.value + +action.value;
+                  if (action.subActions && action.subActions.length > 0) {
+                    shieldAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions)));
+                  }
                 }
               });
             }
           })
         }
       }
-      return shieldValue;
+
     }
-    return 0;
+    return shieldAction;
+  }
+
+  retaliateAction(): Action {
+    let retaliateAction = new Action(ActionType.retaliate, 0, ActionValueType.fixed, []);
+    if (this.data.figure instanceof Monster && this.data.entity instanceof MonsterEntity) {
+      const stat = gameManager.monsterManager.getStat(this.data.figure, this.data.entity.type);
+      const statAction = stat.actions.find((action) => action.type == ActionType.retaliate);
+      if (statAction) {
+        retaliateAction.value = +retaliateAction.value + +statAction.value;
+        if (statAction.subActions && statAction.subActions.length > 0) {
+          retaliateAction.subActions.push(...JSON.parse(JSON.stringify(statAction.subActions)));
+        }
+      }
+
+      const activeFigure = gameManager.game.figures.find((figure) => figure.active);
+      if (this.data.figure.active || gameManager.game.state == GameState.next && (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(this.data.figure))) {
+        let ability = gameManager.monsterManager.getAbility(this.data.figure);
+        if (ability) {
+          ability.actions.forEach((action) => {
+            if (action.type == ActionType.retaliate) {
+              retaliateAction.value = +retaliateAction.value + +action.value;
+              if (action.subActions && action.subActions.length > 0) {
+                retaliateAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions)));
+              }
+            } else if (action.type == ActionType.monsterType && action.value == (this.data.entity as MonsterEntity).type) {
+              action.subActions.forEach((action) => {
+                if (action.type == ActionType.retaliate) {
+                  retaliateAction.value = +retaliateAction.value + +action.value;
+                  if (action.subActions && action.subActions.length > 0) {
+                    retaliateAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions)));
+                  }
+                }
+              });
+            }
+          })
+        }
+      }
+    }
+
+    return retaliateAction;
   }
 
   markers(): string[] {
@@ -408,17 +458,19 @@ export class EntityMenuDialogComponent {
     if (this.data.entity instanceof Objective) {
       let id = this.data.entity.id + value;
       if (id < 0) {
-        id = 98;
-      } else if (id > 98) {
+        id = 11;
+      } else if (id > 11) {
         id = 0;
       }
-
-      while (gameManager.game.figures.some((figure) => figure instanceof Objective && figure.id == id)) {
-        id = id + value;
-        if (id < 0) {
-          id = 98;
-        } else if (id > 98) {
-          id = 0;
+      
+      if (gameManager.game.figures.filter((figure) => figure instanceof Objective).length < 12) {
+        while (gameManager.game.figures.some((figure) => figure instanceof Objective && figure.id == id)) {
+          id = id + value;
+          if (id < 0) {
+            id = 11;
+          } else if (id > 11) {
+            id = 0;
+          }
         }
       }
 

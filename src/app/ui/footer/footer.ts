@@ -79,7 +79,7 @@ export class FooterComponent implements OnInit {
     }
   }
 
-  nextState() {
+  async nextState() {
     gameManager.stateManager.before(gameManager.game.state == GameState.next ? "nextRound" : "draw");
     const activeFigure = gameManager.game.figures.find((figure) => figure.active && !figure.off);
     if (!this.active() && activeFigure) {
@@ -87,12 +87,6 @@ export class FooterComponent implements OnInit {
     }
     gameManager.roundManager.nextGameState();
     gameManager.stateManager.after(1000);
-
-    this.applyRule();
-  }
-
-  applyRule() {
-    // TODO
   }
 
   beforeMonsterAttackModifierDeck(change: AttackModiferDeckChange) {

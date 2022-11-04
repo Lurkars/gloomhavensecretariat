@@ -316,7 +316,7 @@ export class MainMenuComponent implements OnInit {
 
   addMonster(monsterData: MonsterData) {
     gameManager.stateManager.before("addMonster", "data.monster." + monsterData.name);
-    gameManager.monsterManager.addMonster(monsterData);
+    gameManager.monsterManager.addMonster(monsterData, gameManager.game.level);
     if (this.hasAllMonster()) {
       this.dialogRef.close();
     }

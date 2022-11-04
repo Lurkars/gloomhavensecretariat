@@ -26,7 +26,7 @@ import { EditionMenuComponent } from './ui/header/menu/edition/edition';
 import { MainMenuComponent } from './ui/header/menu/menu';
 import { SettingsMenuComponent } from './ui/header/menu/settings/settings';
 import { CardRevealDirective } from './ui/helper/CardReveal';
-import { GhsLabelPipe, GhsRangePipe, GhsValueSignPipe } from './ui/helper/Pipes';
+import { GhsLabelPipe, GhsRangePipe, GhsScenarioSearch, GhsValueSignPipe } from './ui/helper/Pipes';
 import { MainComponent } from './ui/main';
 import { SummonEntityComponent } from './ui/figures/character/summon/summon';
 import { CharacterImageComponent } from './ui/figures/character/cards/image';
@@ -68,11 +68,11 @@ import { EditorActionComponent, EditorActionDialogComponent } from './ui/tools/e
 import { SettingsDebugMenuComponent } from './ui/header/menu/debug/debug';
 import { EditionEditorComponent } from './ui/tools/editor/edition';
 import { HintDialogComponent } from './ui/footer/hint-dialog/hint-dialog';
-import { RulesDialogComponent } from './ui/footer/rules-dialog/rules-dialog';
 import { CharacterEditorComponent } from './ui/tools/editor/character/character';
 import { DecksToolComponent } from './ui/tools/decks/decks-tool';
 import { ActionSummonComponent } from './ui/figures/actions/summon/action-summon';
 import { DeckEditorComponent } from './ui/tools/editor/deck/deck';
+import { ScenarioRulesComponent } from './ui/footer/scenario-rules/scenario-rules';
 
 @NgModule({
   declarations: [
@@ -82,7 +82,7 @@ import { DeckEditorComponent } from './ui/tools/editor/deck/deck';
     PartySheetComponent, PartySheetDialogComponent,
     MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent,
     FooterComponent,
-    AttackModifierComponent, AttackModifierEffectsComponent, HintDialogComponent, RulesDialogComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent,
+    AttackModifierComponent, AttackModifierEffectsComponent, HintDialogComponent, ScenarioRulesComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent,
     LevelComponent, LevelDialogComponent,
     ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent,
     ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
@@ -100,7 +100,7 @@ import { DeckEditorComponent } from './ui/tools/editor/deck/deck';
     ActionsComponent, ActionComponent, ActionHexComponent, ActionSummonComponent,
     FigureErrorsComponent, FigureErrorsDialogComponent,
     CardRevealDirective, EntityAnimationDirective, I18nDirective, ValueCalcDirective, DragValueComponent, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
-    GhsValueSignPipe, GhsLabelPipe, GhsRangePipe,
+    GhsValueSignPipe, GhsLabelPipe, GhsRangePipe, GhsScenarioSearch,
     AttackModifierToolComponent, DecksToolComponent,
     EditionEditorComponent,
     EditorActionComponent, EditorActionDialogComponent,

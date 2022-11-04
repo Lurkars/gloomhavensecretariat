@@ -63,7 +63,7 @@ import { MonsterEditorComponent } from './ui/tools/editor/monster/monster';
 import { CharacterFullViewComponent } from './ui/figures/character/fullview/fullview';
 import { AppRoutingModule } from './app-routing.module';
 import { HintDialogComponent } from './ui/footer/hint-dialog/hint-dialog';
-import { RulesDialogComponent } from './ui/footer/rules-dialog/rules-dialog';
+import { ScenarioRulesComponent } from './ui/footer/scenario-rules/scenario-rules';
 import { EditorActionComponent, EditorActionDialogComponent } from './ui/tools/editor/action/action';
 import { CharacterEditorComponent } from './ui/tools/editor/character/character';
 import { SettingsDebugMenuComponent } from './ui/header/menu/debug/debug';
@@ -82,7 +82,7 @@ describe('AppComponent', () => {
         PartySheetComponent, PartySheetDialogComponent,
         MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent,
         FooterComponent,
-        AttackModifierComponent, AttackModifierEffectsComponent, HintDialogComponent, RulesDialogComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent,
+        AttackModifierComponent, AttackModifierEffectsComponent, HintDialogComponent, ScenarioRulesComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent,
         LevelComponent, LevelDialogComponent,
         ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent,
         ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,

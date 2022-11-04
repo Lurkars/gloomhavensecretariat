@@ -43,12 +43,23 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
   xpTimeout: any = null;
 
   constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef) {
-
     this.dialogRef.closed.subscribe({
-      next: (forced) => {
-        if (!forced) {
-          this.close();
+      next: () => {
+        if (this.titleInput) {
+          if (this.titleInput.nativeElement.value && this.titleInput.nativeElement.value != settingsManager.getLabel('data.character.' + this.character.name.toLowerCase())) {
+            if (this.character.title != this.titleInput.nativeElement.value) {
+              gameManager.stateManager.before("setTitle", "data.character." + this.character.name, this.titleInput.nativeElement.value);
+              this.character.title = this.titleInput.nativeElement.value;
+              gameManager.stateManager.after();
+            }
+          } else if (this.character.title != "") {
+            gameManager.stateManager.before("unsetTitle", "data.character." + this.character.name, this.character.title);
+            this.character.title = "";
+            gameManager.stateManager.after();
+          }
         }
+
+        this.itemEdition.nativeElement.value = this.character.edition;
       }
     });
   }
@@ -92,11 +103,14 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     })
   }
 
-
   ngAfterViewInit(): void {
     this.titleInput.nativeElement.value = this.character.title || settingsManager.getLabel('data.character.' + this.character.name.toLowerCase());
     this.itemEdition.nativeElement.value = this.character.edition;
     this.itemName.nativeElement.value = "1";
+  }
+
+  close() {
+    this.dialogRef.close();
   }
 
   updateItems() {
@@ -228,25 +242,6 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     gameManager.stateManager.before("setRetired", "data.character." + this.character.name, "" + !this.character.progress.retired);
     this.character.progress.retired = !this.character.progress.retired;
     this.gameManager.stateManager.after();
-  }
-
-
-  close(): void {
-    if (this.titleInput) {
-      if (this.titleInput.nativeElement.value && this.titleInput.nativeElement.value != settingsManager.getLabel('data.character.' + this.character.name.toLowerCase())) {
-        if (this.character.title != this.titleInput.nativeElement.value) {
-          gameManager.stateManager.before("setTitle", "data.character." + this.character.name, this.titleInput.nativeElement.value);
-          this.character.title = this.titleInput.nativeElement.value;
-          gameManager.stateManager.after();
-        }
-      } else if (this.character.title != "") {
-        gameManager.stateManager.before("unsetTitle", "data.character." + this.character.name, this.character.title);
-        this.character.title = "";
-        gameManager.stateManager.after();
-      }
-    }
-
-    this.itemEdition.nativeElement.value = this.character.edition;
   }
 
   itemChange() {

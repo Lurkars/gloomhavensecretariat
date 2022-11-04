@@ -47,17 +47,17 @@ export class MonsterManager {
     return stat;
   }
 
-  addMonster(monsterData: MonsterData): Monster {
+  addMonster(monsterData: MonsterData, level: number): Monster {
 
     if (!this.game.scenario) {
-      gameManager.scenarioManager.setScenario(new Scenario(new ScenarioData("", "", [], [], [], [], [], [], [], ""), true));
+      gameManager.scenarioManager.setScenario(new Scenario(new ScenarioData("", "", [], [], [], [], [], [], [], [], ""), true));
     }
 
     let monster: Monster | undefined = this.game.figures.find((figure) =>
       figure instanceof MonsterData && figure.name == monsterData.name && figure.edition == monsterData.edition) as Monster;
     if (!monster) {
       monster = new Monster(monsterData);
-      monster.level = gameManager.game.level;
+      monster.level = level;
       monster.off = true;
       if (!this.applySameDeck(monster)) {
         if (!monster.abilities || monster.abilities.length == 0) {
@@ -343,6 +343,6 @@ export class MonsterManager {
       return undefined;
     }
 
-    return abilities[ monster.abilities[ monster.ability ] ]
+    return abilities[monster.abilities[monster.ability]]
   }
 }

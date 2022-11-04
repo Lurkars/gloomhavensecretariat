@@ -381,7 +381,7 @@ export class EntityManager {
     } else if (entity instanceof Objective) {
       infos.push(prefix + ".objective", entity.title || entity.name)
     } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
-      infos.push(prefix + ".monster", "data.monster." + figure.name, "monster." + entity.type, "" + entity.number)
+      infos.push(prefix + ".monster", "data.monster." + figure.name, "" + entity.number)
     }
 
     return infos;

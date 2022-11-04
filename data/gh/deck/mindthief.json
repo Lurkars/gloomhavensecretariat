@@ -150,7 +150,7 @@
                 },
                 {
                   "type": "card",
-                  "value": "infinity"
+                  "value": "persistent"
                 }
               ]
             }
@@ -175,7 +175,7 @@
           "subActions": [
             {
               "type": "card",
-              "value": "infinity"
+              "value": "persistent"
             },
             {
               "type": "custom",
@@ -228,7 +228,7 @@
             },
             {
               "type": "card",
-              "value": "infinity"
+              "value": "persistent"
             }
           ]
         }
@@ -287,7 +287,7 @@
           "subActions": [
             {
               "type": "card",
-              "value": "infinity"
+              "value": "persistent"
             },
             {
               "type": "custom",
@@ -365,7 +365,7 @@
           "subActions": [
             {
               "type": "card",
-              "value": "infinity"
+              "value": "persistent"
             },
             {
               "type": "custom",
@@ -597,7 +597,7 @@
           "subActions": [
             {
               "type": "card",
-              "value": "infinity"
+              "value": "persistent"
             },
             {
               "type": "custom",
@@ -755,7 +755,7 @@
             },
             {
               "type": "card",
-              "value": "infinity",
+              "value": "persistent",
               "small": false
             }
           ]
@@ -974,7 +974,7 @@
           "subActions": [
             {
               "type": "card",
-              "value": "infinity"
+              "value": "persistent"
             },
             {
               "type": "custom",
@@ -1168,7 +1168,7 @@
         },
         {
           "type": "card",
-          "value": "infinity",
+          "value": "persistent",
           "small": false
         }
       ],
@@ -1228,7 +1228,7 @@
           "subActions": [
             {
               "type": "card",
-              "value": "infinity"
+              "value": "persistent"
             },
             {
               "type": "custom",
@@ -1462,7 +1462,7 @@
           "subActions": [
             {
               "type": "card",
-              "value": "infinity"
+              "value": "persistent"
             },
             {
               "type": "custom",
@@ -1738,7 +1738,7 @@
             },
             {
               "type": "card",
-              "value": "infinity",
+              "value": "persistent",
               "small": false
             }
           ]
@@ -1825,7 +1825,7 @@
           "subActions": [
             {
               "type": "card",
-              "value": "infinity"
+              "value": "persistent"
             },
             {
               "type": "custom",

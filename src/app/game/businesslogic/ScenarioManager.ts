@@ -1,7 +1,7 @@
 import { Character } from "../model/Character";
 import { EditionData } from "../model/data/EditionData";
-import { GameScenarioModel, ScenarioData } from "../model/data/ScenarioData";
-import { Game } from "../model/Game";
+import { GameScenarioModel, ScenarioData, ScenarioRule } from "../model/data/ScenarioData";
+import { Game, GameState } from "../model/Game";
 import { Scenario } from "../model/Scenario";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
@@ -65,6 +65,13 @@ export class ScnearioManager {
   applyScenarioData(editionData: EditionData, scenarioData: ScenarioData) {
     if (scenarioData.monsters) {
       scenarioData.monsters.forEach((name) => {
+
+        let level = gameManager.game.level;
+        if (name.indexOf(':') != -1) {
+          level = eval(gameManager.game.level + name.split(':')[1]);
+          name = name.split(':')[0]
+        }
+
         let monsterData = gameManager.monstersData(true).find((monsterData) => monsterData.name == name && (monsterData.edition == editionData.edition || editionData.extensions && editionData.extensions.indexOf(monsterData.edition) != -1));
 
         if (!monsterData) {
@@ -73,7 +80,7 @@ export class ScnearioManager {
         }
 
         if (monsterData) {
-          let monster = gameManager.monsterManager.addMonster(monsterData);
+          let monster = gameManager.monsterManager.addMonster(monsterData, level);
           if (scenarioData.allies && scenarioData.allies.indexOf(monster.name) != -1) {
             monster.isAlly = true;
           }
@@ -168,6 +175,42 @@ export class ScnearioManager {
     return blocked;
   }
 
+  applyScenarioRules() {
+    this.game.scenarioRules = [];
+    const scenario = this.game.scenario;
+    if (scenario && scenario.rules) {
+      scenario.rules.forEach((rule, index) => {
+        this.applyScenarioRule(scenario, rule, index, false);
+      })
+    }
+
+    if (this.game.sections) {
+      this.game.sections.forEach((section) => {
+        if (section.rules) {
+          section.rules.forEach((rule, index) => {
+            this.applyScenarioRule(section, rule, index, true);
+          })
+        }
+      })
+    }
+  }
+
+  applyScenarioRule(scenarioData: ScenarioData, rule: ScenarioRule, index: number, section: boolean) {
+    let round = rule.round || 'false';
+
+    while (round.indexOf('R') != -1) {
+      round = round.replace('R', '' + this.game.round);
+    }
+
+    while (round.indexOf('C') != -1) {
+      round = round.replace('C', '' + this.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length);
+    }
+
+    if (eval(round) && (this.game.state == GameState.next && !rule.start || this.game.state == GameState.draw && rule.start)) {
+      this.game.scenarioRules.push({ "edition": scenarioData.edition, "scenario": scenarioData.index, "group": scenarioData.group, "index": index + 1, "section": section });
+    }
+  }
+
   scenarioUndoArgs(scenario: Scenario | undefined = undefined): string[] {
     scenario = scenario || gameManager.game.scenario;
     if (!scenario) {
@@ -179,7 +222,7 @@ export class ScnearioManager {
 
   scenarioDataForModel(model: GameScenarioModel): ScenarioData | undefined {
     if (model.isCustom) {
-      return new ScenarioData(model.custom, "", [], [], [], [], [], [], [], "");
+      return new ScenarioData(model.custom, "", [], [], [], [], [], [], [], [], "");
     }
 
     const scenarioData = gameManager.scenarioData(true).find((scenarioData) => scenarioData.index == model.index && scenarioData.edition == model.edition && scenarioData.group == model.group);
@@ -188,7 +231,7 @@ export class ScnearioManager {
       return undefined;
     }
 
-    return new ScenarioData(scenarioData.name, scenarioData.index, scenarioData.unlocks, scenarioData.blocks, scenarioData.requires, scenarioData.links, scenarioData.monsters, scenarioData.allies, scenarioData.objectives, scenarioData.edition, scenarioData.group, scenarioData.spoiler);
+    return new ScenarioData(scenarioData.name, scenarioData.index, scenarioData.unlocks, scenarioData.blocks, scenarioData.requires, scenarioData.links, scenarioData.monsters, scenarioData.allies, scenarioData.objectives, scenarioData.rules, scenarioData.edition, scenarioData.group, scenarioData.spoiler);
   }
 
   sectionDataForModel(model: GameScenarioModel): ScenarioData | undefined {
@@ -198,7 +241,7 @@ export class ScnearioManager {
       return undefined;
     }
 
-    return new ScenarioData(sectionData.name, sectionData.index, sectionData.unlocks, sectionData.blocks, sectionData.requires, sectionData.links, sectionData.monsters, sectionData.allies, sectionData.objectives, sectionData.edition, sectionData.group, sectionData.spoiler);
+    return new ScenarioData(sectionData.name, sectionData.index, sectionData.unlocks, sectionData.blocks, sectionData.requires, sectionData.links, sectionData.monsters, sectionData.allies, sectionData.objectives, sectionData.rules, sectionData.edition, sectionData.group, sectionData.spoiler);
 
   }
 

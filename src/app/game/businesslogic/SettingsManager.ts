@@ -182,6 +182,16 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setScenarioRules(scenarioRules: boolean) {
+    this.settings.scenarioRules = scenarioRules;
+    this.storeSettings();
+  }
+
+  setScenarioNumberInput(scenarioNumberInput: boolean) {
+    this.settings.scenarioNumberInput = scenarioNumberInput;
+    this.storeSettings();
+  }
+
   setHints(hints: boolean) {
     this.settings.hints = hints;
     this.storeSettings();

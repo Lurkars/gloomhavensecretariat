@@ -3,19 +3,14 @@
     <p *ngIf="empty()">{{'round.hint.empty' | ghsLabel}}</p>
     <p *ngIf="missingInitiative()">{{'round.hint.missingInitiative' | ghsLabel}} </p>
     <p *ngIf="active()">{{'round.hint.active' | ghsLabel}}</p>
-    <a *ngIf="active()" (click)="next()">{{'round.hint.confirm' |
-      ghsLabel}}</a>
-    <a *ngIf="active()" (click)="confirmTurns()">{{'round.hint.confirmTurns' |
-      ghsLabel}}</a>
+    <a *ngIf="active()" (click)="confirm()">{{'round.hint.confirm' | ghsLabel}}</a>
+    <a *ngIf="active()" (click)="next()" class="small">{{'round.hint.confirmTurns' | ghsLabel}}</a>
     <p *ngIf="finish()">{{'round.hint.finish' | ghsLabel}}</p>
-    <a *ngIf="finish()" (click)="finishScenario(true)">{{'round.hint.confirmFinish' |
-      ghsLabel}}</a>
+    <a *ngIf="finish()" (click)="finishScenario(true)">{{'round.hint.confirmFinish' | ghsLabel}}</a>
     <p *ngIf="failed()">{{'round.hint.failed' | ghsLabel}}</p>
-    <a *ngIf="failed()" (click)="finishScenario(false)">{{'round.hint.confirmFailed' |
-      ghsLabel}}</a>
-    <a *ngIf="failed()" (click)="resetScenario()">{{'round.hint.confirmReset' |
-      ghsLabel}}</a>
-    <a *ngIf="finish() || failed()" (click)="confirmTurns()">{{(gameManager.game.state == GameState.next ?
+    <a *ngIf="failed()" (click)="finishScenario(false)">{{'round.hint.confirmFailed' | ghsLabel}}</a>
+    <a *ngIf="failed()" (click)="resetScenario()">{{'round.hint.confirmReset' | ghsLabel}}</a>
+    <a *ngIf="finish() || failed()" (click)="confirm()">{{(gameManager.game.state == GameState.next ?
       'round.hint.continueNext' : 'round.hint.continueDraw') |
       ghsLabel}}</a>
   </div>

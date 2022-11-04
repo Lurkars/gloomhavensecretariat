@@ -1,8 +1,8 @@
 [
   {
-    "edition": "fc",
-    "name": "Volcanic Wasteland",
     "index": "1",
+    "name": "Volcanic Wasteland",
+    "edition": "fc",
     "monsters": [
       "flame-demon"
     ],
@@ -14,9 +14,9 @@
     ]
   },
   {
-    "edition": "fc",
-    "name": "Barge Ablaze",
     "index": "4",
+    "name": "Barge Ablaze",
+    "edition": "fc",
     "monsters": [
       "bandit-archer",
       "bandit-guard",
@@ -24,9 +24,9 @@
     ]
   },
   {
-    "edition": "fc",
-    "name": "Kennel of Things",
     "index": "6",
+    "name": "Kennel of Things",
+    "edition": "fc",
     "monsters": [
       "bandit-guard",
       "valrath-tracker",
@@ -34,17 +34,17 @@
     ]
   },
   {
-    "edition": "fc",
-    "name": "A Life Taken, a Life Given",
     "index": "8",
+    "name": "A Life Taken, a Life Given",
+    "edition": "fc",
     "monsters": [
       "valrath-savage"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Shrine of Ashtar",
     "index": "13",
+    "name": "Shrine of Ashtar",
+    "edition": "fc",
     "monsters": [
       "ancient-artillery",
       "earth-demon",
@@ -53,27 +53,27 @@
     ]
   },
   {
-    "edition": "fc",
-    "name": "The Floor Moves",
     "index": "14",
+    "name": "The Floor Moves",
+    "edition": "fc",
     "monsters": [
       "living-spirit",
       "stone-golem"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Trash Dump",
     "index": "15",
+    "name": "Trash Dump",
+    "edition": "fc",
     "monsters": [
       "vermling-scout",
       "vermling-shaman"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Escape is Not So Easy",
     "index": "17",
+    "name": "Escape is Not So Easy",
+    "edition": "fc",
     "monsters": [
       "aesther-ashblade",
       "aesther-scout",
@@ -81,26 +81,26 @@
     ]
   },
   {
-    "edition": "fc",
-    "name": "A Rumbling Sound",
     "index": "22",
+    "name": "A Rumbling Sound",
+    "edition": "fc",
     "monsters": [
       "living-spirit"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Narrow Vault",
     "index": "23",
+    "name": "Narrow Vault",
+    "edition": "fc",
     "monsters": [
       "living-bones",
       "living-corpse"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Withered Grove",
     "index": "24",
+    "name": "Withered Grove",
+    "edition": "fc",
     "monsters": [
       "earth-demon"
     ],
@@ -112,17 +112,17 @@
     ]
   },
   {
-    "edition": "fc",
-    "name": "Secret Library",
     "index": "26",
+    "name": "Secret Library",
+    "edition": "fc",
     "monsters": [
       "ancient-artillery"
     ]
   },
   {
-    "edition": "fc",
-    "name": "A Bear of a Drake",
     "index": "28",
+    "name": "A Bear of a Drake",
+    "edition": "fc",
     "monsters": [
       "bandit-guard",
       "valrath-tracker",
@@ -130,26 +130,26 @@
     ]
   },
   {
-    "edition": "fc",
-    "name": "Serene Path",
     "index": "29",
+    "name": "Serene Path",
+    "edition": "fc",
     "monsters": [
       "valrath-savage"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Seal of Attraction",
     "index": "30",
+    "name": "Seal of Attraction",
+    "edition": "fc",
     "monsters": [
       "deep-terror",
       "living-bones"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Flaming Caravel",
     "index": "32",
+    "name": "Flaming Caravel",
+    "edition": "fc",
     "monsters": [
       "bandit-archer",
       "bandit-guard",
@@ -157,9 +157,9 @@
     ]
   },
   {
-    "edition": "fc",
-    "name": "Frozen Cave",
     "index": "34",
+    "name": "Frozen Cave",
+    "edition": "fc",
     "monsters": [
       "frost-demon"
     ],
@@ -171,9 +171,9 @@
     ]
   },
   {
-    "edition": "fc",
-    "name": "Shrine of Thelija",
     "index": "35",
+    "name": "Shrine of Thelija",
+    "edition": "fc",
     "monsters": [
       "ancient-artillery",
       "frost-demon",
@@ -182,31 +182,31 @@
     ]
   },
   {
-    "edition": "fc",
+    "index": "37",
     "name": "Aiding Diamara",
-    "index": "37"
+    "edition": "fc"
   },
   {
-    "edition": "fc",
-    "name": "Another Revolution",
     "index": "39",
+    "name": "Another Revolution",
+    "edition": "fc",
     "monsters": [
       "ancient-artillery"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Venerated Tomb",
     "index": "40",
+    "name": "Venerated Tomb",
+    "edition": "fc",
     "monsters": [
       "living-bones",
       "living-corpse"
     ]
   },
   {
-    "edition": "fc",
-    "name": "A Sphere of Nightmares",
     "index": "41",
+    "name": "A Sphere of Nightmares",
+    "edition": "fc",
     "monsters": [
       "living-spirit",
       "night-demon"
@@ -216,28 +216,37 @@
         "name": "Altar",
         "health": "20+L+2xC"
       }
+    ],
+    "rules": [
+      {
+        "round": "true",
+        "start": true
+      },
+      {
+        "round": "true"
+      }
     ]
   },
   {
-    "edition": "fc",
-    "name": "Collapsed Atrium",
     "index": "42",
+    "name": "Collapsed Atrium",
+    "edition": "fc",
     "monsters": [
       "living-spirit"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Quick Turn",
     "index": "46",
+    "name": "Quick Turn",
+    "edition": "fc",
     "monsters": [
       "living-spirit"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Hall of Horrors",
     "index": "47",
+    "name": "Hall of Horrors",
+    "edition": "fc",
     "monsters": [
       "black-imp",
       "deep-terror",
@@ -245,35 +254,35 @@
     ]
   },
   {
-    "edition": "fc",
-    "name": "Slow Turn",
     "index": "50",
+    "name": "Slow Turn",
+    "edition": "fc",
     "monsters": [
       "living-spirit"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Seal of Repulsion",
     "index": "60",
+    "name": "Seal of Repulsion",
+    "edition": "fc",
     "monsters": [
       "living-corpse",
       "living-spirit"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Flooded Catacombs",
     "index": "64",
+    "name": "Flooded Catacombs",
+    "edition": "fc",
     "monsters": [
       "living-bones",
       "living-corpse"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Branching Alleyway",
     "index": "67",
+    "name": "Branching Alleyway",
+    "edition": "fc",
     "monsters": [
       "aesther-scout",
       "black-imp",
@@ -281,35 +290,44 @@
     ]
   },
   {
-    "edition": "fc",
-    "name": "Quiet Rotation",
     "index": "71",
+    "name": "Quiet Rotation",
+    "edition": "fc",
     "monsters": [
       "living-spirit",
       "stone-golem"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Clinging Fog",
     "index": "72",
+    "name": "Clinging Fog",
+    "edition": "fc",
     "monsters": [
       "living-spirit",
       "night-demon"
+    ],
+    "rules": [
+      {
+        "round": "R % 2 == 2",
+        "start": true
+      },
+      {
+        "round": "R % 2 == 1"
+      }
     ]
   },
   {
-    "edition": "fc",
-    "name": "Reflecting Road",
     "index": "73",
+    "name": "Reflecting Road",
+    "edition": "fc",
     "monsters": [
       "valrath-savage"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Narrow Street",
     "index": "81",
+    "name": "Narrow Street",
+    "edition": "fc",
     "monsters": [
       "aesther-scout",
       "black-imp",
@@ -317,9 +335,9 @@
     ]
   },
   {
-    "edition": "fc",
-    "name": "Gateway to the Firmament",
     "index": "84",
+    "name": "Gateway to the Firmament",
+    "edition": "fc",
     "monsters": [
       "elham",
       "earth-demon",
@@ -330,26 +348,26 @@
     ]
   },
   {
-    "edition": "fc",
-    "name": "Misty Glade",
     "index": "90",
+    "name": "Misty Glade",
+    "edition": "fc",
     "monsters": [
       "valrath-savage"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Nesting Grounds",
     "index": "92",
+    "name": "Nesting Grounds",
+    "edition": "fc",
     "monsters": [
       "vermling-scout",
       "vermling-shaman"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Rays of Sunlight",
     "index": "93",
+    "name": "Rays of Sunlight",
+    "edition": "fc",
     "monsters": [
       "living-spirit",
       "night-demon"
@@ -362,34 +380,34 @@
     ]
   },
   {
-    "edition": "fc",
-    "name": "Seal of Reanimation",
     "index": "94",
+    "name": "Seal of Reanimation",
+    "edition": "fc",
     "monsters": [
       "living-corpse",
       "living-spirit"
     ]
   },
   {
-    "edition": "fc",
-    "name": "The Horde's Kitchen",
     "index": "95",
+    "name": "The Horde's Kitchen",
+    "edition": "fc",
     "monsters": [
       "vermling-scout"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Haunted Treasury",
     "index": "96",
+    "name": "Haunted Treasury",
+    "edition": "fc",
     "monsters": [
       "living-spirit"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Sekhem Fountain",
     "index": "100",
+    "name": "Sekhem Fountain",
+    "edition": "fc",
     "monsters": [
       "black-imp",
       "cultist",
@@ -429,9 +447,9 @@
     ]
   },
   {
-    "edition": "fc",
-    "name": "The Thorns of Hate",
     "index": "103",
+    "name": "The Thorns of Hate",
+    "edition": "fc",
     "monsters": [
       "earth-demon",
       "forest-imp",
@@ -439,79 +457,88 @@
     ]
   },
   {
-    "edition": "fc",
-    "name": "Strangler's Park",
     "index": "106",
+    "name": "Strangler's Park",
+    "edition": "fc",
     "monsters": [
       "harrower-infester",
       "vermling-shaman"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Seal of Distortion",
     "index": "108",
+    "name": "Seal of Distortion",
+    "edition": "fc",
     "monsters": [
       "deep-terror",
       "living-bones"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Access Hall",
     "index": "112",
+    "name": "Access Hall",
+    "edition": "fc",
     "monsters": [
       "aesther-scout"
     ]
   },
   {
-    "edition": "fc",
-    "name": "A Multitude of Tomes",
     "index": "119",
+    "name": "A Multitude of Tomes",
+    "edition": "fc",
     "monsters": [
       "black-imp",
       "deep-terror"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Lingering Darkness",
     "index": "123",
+    "name": "Lingering Darkness",
+    "edition": "fc",
     "monsters": [
       "living-spirit",
       "night-demon"
+    ],
+    "rules": [
+      {
+        "round": "R % 2 == 2",
+        "start": true
+      },
+      {
+        "round": "R % 2 == 1"
+      }
     ]
   },
   {
-    "edition": "fc",
-    "name": "Training Maneuvers",
     "index": "126",
+    "name": "Training Maneuvers",
+    "edition": "fc",
     "monsters": [
       "vermling-scout",
       "vermling-shaman"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Guarded Nursery",
     "index": "127",
+    "name": "Guarded Nursery",
+    "edition": "fc",
     "monsters": [
       "vermling-scout",
       "vermling-shaman"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Fighting Dirty",
     "index": "129",
+    "name": "Fighting Dirty",
+    "edition": "fc",
     "monsters": [
       "ooze"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Near the Gates",
     "index": "132",
+    "name": "Near the Gates",
+    "edition": "fc",
     "monsters": [
       "aesther-scout",
       "black-imp",
@@ -519,17 +546,17 @@
     ]
   },
   {
-    "edition": "fc",
-    "name": "A Secret Floor",
     "index": "133",
+    "name": "A Secret Floor",
+    "edition": "fc",
     "monsters": [
       "ancient-artillery"
     ]
   },
   {
-    "edition": "fc",
-    "name": "Clawing at Victory",
     "index": "134",
+    "name": "Clawing at Victory",
+    "edition": "fc",
     "monsters": [
       "lurker"
     ]

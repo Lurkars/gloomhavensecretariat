@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 import { applyPlaceholder } from './i18n';
 import { ghsValueSign } from './Static';
 
@@ -39,6 +40,41 @@ export class GhsRangePipe implements PipeTransform {
       items.push(i);
     }
     return items;
+  }
+}
+
+@Pipe({
+  name: 'ghsScenarioSearch'
+})
+export class GhsScenarioSearch implements PipeTransform {
+  transform(items: ScenarioData[], search: string): ScenarioData[] {
+    return items.filter((scenarioData) => {
+      if (!search || search == '') {
+        return true;
+      }
+      search = search.toLowerCase();
+      let index = scenarioData.index.toLowerCase()
+
+      let zeros = 0;
+
+      while (search.startsWith('0')) {
+        zeros++;
+        search = search.replace('0', '');
+      }
+
+      for (let i = 0; i < zeros; i++) {
+        search = '0' + search;
+        if (index.length < search.length) {
+          index = '0' + index;
+        }
+      }
+
+      if (index.includes(search)) {
+        return true;
+      }
+
+      return settingsManager.getLabel(scenarioData.name).toLowerCase().includes(search)
+    });
   }
 }
 

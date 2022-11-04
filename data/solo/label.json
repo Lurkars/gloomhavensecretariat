@@ -26,6 +26,13 @@
     "scenario": {
       "group": {
         "solo": "Solo Scenarios"
+      },
+      "rules": {
+        "gh": {
+          "solo-2": {
+            "1": "Spawn four normal Vermling Scouts at %game.mapMarker.a%"
+          }
+        }
       }
     },
     "custom": {

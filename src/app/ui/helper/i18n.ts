@@ -62,6 +62,10 @@ export const applyPlaceholder = function (value: string): string {
         let characterName = split[2];
         image = '<img src="' + gameManager.characterManager.characterIcon(characterName) + '">';
         replace = '<span class="placeholder-character-token" style="background-color:' + gameManager.characterManager.characterColor(characterName) + '">' + image + '</span>';
+      } else if (type == "mapMarker" && split.length == 3) {
+        replace = '<span class="map-marker">' + split[2] + '</span>';
+      } else if (type == "objectiveMarker" && split.length == 3) {
+        replace = '<span class="objective-marker">' + split[2] + '</span>';
       } else {
         replace = settingsManager.getLabel(label.split(':')[0], label.split(':').splice(1).map((arg) =>
           applyPlaceholder(settingsManager.getLabel(arg))

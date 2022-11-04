@@ -37,7 +37,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - **Monster Modifier Deck** addition of **Blesses** and **Curses**, auto-shuffling
   - **Monster Ability Cards** auto-shuffling, calculated values (separated for normal and elite)
   - **Character Summons**
-  - **Scenarios** and **Sections** with automatic level calculation + scenario finish for applying character progress
+  - **Scenarios** and **Sections** with automatic level calculation, special rules reminder and scenario finish for applying character progress
   - **Party Sheet**
   - **Campaign Management**
   - **Markers**
@@ -74,11 +74,12 @@ If you need help using the app take a look at the [help page](https://help.gloom
 ### Short term plans
 
 - validation of all existing data
-- FH style (WIP)
+- support for CS AM decks
+- support for managing character ability cards
 
 ### Long term plans
 
-- support for managing character ability cards
+- FH style (WIP)
 - FH data (as soon as available)
 
 ## Install
