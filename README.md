@@ -74,12 +74,12 @@ If you need help using the app take a look at the [help page](https://help.gloom
 ### Short term plans
 
 - validation of all existing data
+- FH style (WIP)
 - support for CS AM decks
 - support for managing character ability cards
 
 ### Long term plans
 
-- FH style (WIP)
 - FH data (as soon as available)
 
 ## Install

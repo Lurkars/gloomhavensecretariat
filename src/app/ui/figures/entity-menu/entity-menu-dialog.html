@@ -52,11 +52,11 @@
     <div class="entity-container">
 
       <div class="shield-action" *ngIf="gameManager.isMonster(data.figure) && +shieldAction().value > 0u">
-        <ghs-action [action]="shieldAction()" ></ghs-action>
+        <ghs-action [action]="shieldAction()" [highlight]="true"></ghs-action>
       </div>
 
       <div class="retaliate-action" *ngIf="gameManager.isMonster(data.figure) && +retaliateAction().value > 0u">
-        <ghs-action [action]="retaliateAction()"></ghs-action>
+        <ghs-action [action]="retaliateAction()" [highlight]="true"></ghs-action>
       </div>
 
       <span class="item">

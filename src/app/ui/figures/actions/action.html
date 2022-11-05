@@ -237,7 +237,7 @@
     </span>
 
     <div class="subactions"
-      *ngIf="(statsCalculation && additionalSubActions.length > 0 ? additionalSubActions : subActions).length >  0">
+      *ngIf="((statsCalculation && additionalSubActions.length > 0 ? additionalSubActions : subActions) | slice:(hasAOE ? 1 : 0)).length >  0">
       <ng-container
         *ngFor="let subAction of (statsCalculation && additionalSubActions.length > 0 ? additionalSubActions : subActions) | slice:(hasAOE ? 1 : 0)">
         <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster" [inline]="inline"

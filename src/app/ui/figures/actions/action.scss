@@ -13,24 +13,15 @@
     column-gap: 0.3em;
   }
 
-  &.highlight-fix {
+  &.highlight {
 
     @keyframes highlight-animation {
       0% {
-        background-image: none;
-      }
-
-      69% {
-        background-image: none;
+        background-position: 0% center;
       }
 
       70% {
-        background-image: linear-gradient(-225deg,
-        var(--ghs-color-white) 0%,
-        var(--ghs-color-gray) 25%,
-        var(--ghs-color-darkgray) 50%,
-        var(--ghs-color-gray) 75%,
-        var(--ghs-color-white) 100%);
+        background-position: 0% center;
       }
 
       100% {
@@ -38,41 +29,30 @@
       }
     }
 
-    @keyframes highlight-animation-right {
-      0% {
-        background-image: none;
-      }
+    span {
+      background-image: linear-gradient(-225deg,
+          var(--ghs-color-white) 0%,
+          var(--ghs-color-white) 50%,
+          var(--ghs-color-darkgray) 75%,
+          var(--ghs-color-white) 100%);
 
-      64% {
-        background-image: none;
-      }
-
-      65% {
-        background-image: linear-gradient(-225deg,
-        var(--ghs-color-darkgray) 0%,
-        var(--ghs-color-gray) 25%,
-        var(--ghs-color-white) 50%,
-        var(--ghs-color-gray) 75%,
-        var(--ghs-color-darkgray) 100%);
-      }
-
-      100% {
-        background-position: 200% center;
-      }
+      background-position: 0% center;
+      background-clip: border-box;
+      background-size: 200% auto;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: highlight-animation 3.5s linear infinite;
     }
-
-    background-color: var(--ghs-color-white);
-    background-clip: border-box;
-    background-size: 200% auto;
-    background-clip: text;
-    -webkit-background-clip: text;
-    text-fill-color: transparent;
-    -webkit-text-fill-color: transparent;
-    animation: highlight-animation 5s linear infinite;
 
     &.right {
-      background-color: var(--ghs-color-black);
-      animation: highlight-animation-right 5s linear infinite;
+      span {
+        background-image: linear-gradient(-225deg,
+            var(--ghs-color-black) 0%,
+            var(--ghs-color-black) 50%,
+            var(--ghs-color-white) 75%,
+            var(--ghs-color-black) 100%);
+      }
     }
   }
 
@@ -670,7 +650,7 @@
 
   &.fh {
 
-    font-size: 125%;
+    max-width: 100%;
 
     .action-default,
     .action-custom,
@@ -680,14 +660,15 @@
     .action-condition,
     .action-element {
       flex-direction: row;
-    }
-
-    ghs-action {
-      flex-basis: 0;
+      flex-wrap: wrap;
     }
 
     .main-action {
-      flex-basis: 0 !important;
+      font-size: 125%;
+
+      &.small {
+        font-size: 100%;
+      }
     }
 
     .type,
@@ -699,19 +680,19 @@
     .element-subactions {
       flex-direction: row;
       align-items: center;
-      flex-basis: 0;
 
       .action-custom,
       .action-summon,
       .action-specialTarget {
-        font-size: 70%;
+        //font-size: 55%;
       }
     }
 
     .subactions {
       position: relative;
       flex-direction: row;
-      flex-basis: 0 !important;
+      flex-wrap: wrap;
+      max-width: 95%;
       padding: 0.1em;
       margin-left: 0.2em;
 
@@ -720,8 +701,8 @@
         position: absolute;
         z-index: 0;
         top: 50%;
-        height: 1.1em;
         width: 100%;
+        height: 100%;
         transform: translateY(-50%);
         background-color: var(--ghs-color-white);
         opacity: 0.2;
@@ -731,7 +712,8 @@
         border-bottom-right-radius: 1em 100%;
       }
 
-      .condition .icon {
+      .condition-image {
+        width: 1.6em;
         height: 1.6em;
       }
 
@@ -740,16 +722,13 @@
       }
     }
 
-
-
     .element-actions {
-      margin-top: 0.5em;
+      margin-left: 0.5em;
 
       .action-element-consume {
         padding: 0.4em;
       }
     }
-
 
     .action-element {
       position: relative;
@@ -757,6 +736,11 @@
       justify-content: center;
       align-items: center;
       padding: 0.2em;
+    }
+
+    .special-type {
+      flex-basis: 100%;
+      flex-shrink: 0;
     }
 
     .action-element-consume {
@@ -770,7 +754,6 @@
       border-top-right-radius: 2em 100%;
       border-bottom-left-radius: 2em 100%;
       border-bottom-right-radius: 2em 100%;
-      flex-basis: 0;
 
       &::before {
         content: ' ';
