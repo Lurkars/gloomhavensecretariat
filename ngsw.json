@@ -1,8 +1,8 @@
 {
   "configVersion": 1,
-  "timestamp": 1667576381214,
+  "timestamp": 1667655451464,
   "appData": {
-    "version": "0.24.0"
+    "version": "0.24.1"
   },
   "index": "gloomhavensecretary/index.html",
   "assetGroups": [
@@ -16,11 +16,11 @@
       "urls": [
         "gloomhavensecretary/favicon.ico",
         "gloomhavensecretary/index.html",
-        "gloomhavensecretary/main.de5a608089623db7.js",
+        "gloomhavensecretary/main.254fe5e360a7efb5.js",
         "gloomhavensecretary/manifest.webmanifest",
         "gloomhavensecretary/polyfills.a38de1c0e5b88bd3.js",
         "gloomhavensecretary/runtime.0269065d32db7f2e.js",
-        "gloomhavensecretary/styles.c069f029800282fc.css"
+        "gloomhavensecretary/styles.b1b72c9f0ecbe9c5.css"
       ],
       "patterns": []
     },
@@ -385,7 +385,7 @@
         "gloomhavensecretary/assets/images/fh/element/air or earth.svg",
         "gloomhavensecretary/assets/images/fh/element/air or light.svg",
         "gloomhavensecretary/assets/images/fh/element/air.svg",
-        "gloomhavensecretary/assets/images/fh/element/all.svg",
+        "gloomhavensecretary/assets/images/fh/element/any.svg",
         "gloomhavensecretary/assets/images/fh/element/consume.svg",
         "gloomhavensecretary/assets/images/fh/element/dark.svg",
         "gloomhavensecretary/assets/images/fh/element/earth or dark.svg",
@@ -994,7 +994,7 @@
     "gloomhavensecretary/assets/images/fh/element/air or earth.svg": "4ee33063153019b9722123da0f02bd4c62bd27c3",
     "gloomhavensecretary/assets/images/fh/element/air or light.svg": "94a02a3407cf5e8ebdbc4adee9f085d37bb2ca9a",
     "gloomhavensecretary/assets/images/fh/element/air.svg": "fde38948a0956975c70e9075f72171dd4be7539f",
-    "gloomhavensecretary/assets/images/fh/element/all.svg": "acbba8bacf0d99d4c46113ff4e6db93ff2b8c4be",
+    "gloomhavensecretary/assets/images/fh/element/any.svg": "acbba8bacf0d99d4c46113ff4e6db93ff2b8c4be",
     "gloomhavensecretary/assets/images/fh/element/consume.svg": "a82e212a6b420aff70fb8e7cee6bc588af2a7d6e",
     "gloomhavensecretary/assets/images/fh/element/dark.svg": "ff91594acdac875593f50cb65ea65fef3cd36280",
     "gloomhavensecretary/assets/images/fh/element/earth or dark.svg": "7c0e7a44dac78603fc92e8d00d07f0ea42d61ad1",
@@ -1207,10 +1207,10 @@
     "gloomhavensecretary/germaniaone.bac4423c0d7806c3.woff": "35cbaf83de233ad3f8f7852748bb4e6dfca63261",
     "gloomhavensecretary/health.8d6a842a197d29d3.svg": "05afb6de2ed74490df7d750cc939124afb1c5457",
     "gloomhavensecretary/immunity.5d026de2db8a1d8f.svg": "ad20fc18e93269c79312170674c6008615438f9b",
-    "gloomhavensecretary/index.html": "7481abb180a2210e8118da0545cc4d65bf831244",
+    "gloomhavensecretary/index.html": "f45eb6017f708c3d4cbbfb66608f1dad4774397c",
     "gloomhavensecretary/initiative.a7663b57012bb669.svg": "85c1e0fe11ba2111c2dc55370ff84796c86eb556",
     "gloomhavensecretary/level.38e1f58a07dc5898.svg": "004f02ea9f24d4ecbfef70b7d0c9cbd5e731827e",
-    "gloomhavensecretary/main.de5a608089623db7.js": "778210016aed6e3c649208ca910ffbf8864045a4",
+    "gloomhavensecretary/main.254fe5e360a7efb5.js": "63156ee679f567336aabe6ee8d642200c9319cc4",
     "gloomhavensecretary/majallab.00c7b4c865792c45.ttf": "cd2e9e61aca39d2b987b66e4c2a0a3ea13c3be48",
     "gloomhavensecretary/majallab.3bc19f63b5b1d474.svg": "68458a0f79e0e45258f0948d48f2a65c125b4322",
     "gloomhavensecretary/majallab.4ef31693f35ab4df.woff": "5f4a605494c5e4adbe49e3b23bfdcf1f7f8a92b6",
@@ -1233,7 +1233,7 @@
     "gloomhavensecretary/runtime.0269065d32db7f2e.js": "b302558fd0ee2307d99ca4df1eb66f6f672d5046",
     "gloomhavensecretary/select-arrow.ed190f6187dac3c2.svg": "b2f97789c89b781d0277dc473fe4193c0cb7ed87",
     "gloomhavensecretary/standard.a54477c1eda06c8b.png": "b7464c7a959660e975135cd86cac578f69c63a30",
-    "gloomhavensecretary/styles.c069f029800282fc.css": "c70851967d504969fa77e08afaae9443107f0069"
+    "gloomhavensecretary/styles.b1b72c9f0ecbe9c5.css": "acb27a69b28c0e3555436f23c844dd5cc500f1c2"
   },
   "navigationUrls": [
     {
