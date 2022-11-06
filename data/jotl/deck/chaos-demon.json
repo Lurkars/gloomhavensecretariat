@@ -241,7 +241,6 @@
         },
         {
           "type": "concatenation",
-          "value": 0,
           "subActions": [
             {
               "type": "element",

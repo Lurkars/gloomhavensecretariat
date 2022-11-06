@@ -961,7 +961,6 @@
           "subActions": [
             {
               "type": "concatenation",
-              "value": "",
               "subActions": [
                 {
                   "type": "element",

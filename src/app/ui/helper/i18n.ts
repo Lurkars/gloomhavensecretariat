@@ -7,6 +7,11 @@ import { EntityValueFunction, EntityValueRegex } from "src/app/game/model/Entity
 export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\%)+)\%/;
 
 export const applyPlaceholder = function (value: string): string {
+
+  if (settingsManager.settings.fhStyle) {
+    return applyFhPlaceholder(value);
+  }
+
   while (value.match(ghsLabelRegex)) {
     value = value.replace(ghsLabelRegex, (match, ...args) => {
       const label: string = args[0];
@@ -66,6 +71,98 @@ export const applyPlaceholder = function (value: string): string {
         replace = '<span class="map-marker">' + split[2] + '</span>';
       } else if (type == "objectiveMarker" && split.length == 3) {
         replace = '<span class="objective-marker">' + split[2] + '</span>';
+      } else {
+        replace = settingsManager.getLabel(label.split(':')[0], label.split(':').splice(1).map((arg) =>
+          applyPlaceholder(settingsManager.getLabel(arg))
+        )) + image;
+      }
+
+      return replace;
+    });
+  }
+
+  while (value.match(EntityValueRegex)) {
+    value = value.replace(EntityValueRegex, (match, ...args) => {
+      if (settingsManager.settings.calculate) {
+        const result = EntityValueFunction(match)
+        return "" + result;
+      } else {
+        let func = args[2];
+        const funcLabel = func && func.startsWith('%');
+        if (funcLabel) {
+          func = func.replace('%', '');
+        }
+        return funcLabel ? args[0] + ' ' + settingsManager.getLabel('game.custom.' + func) : args[0];
+      }
+    });
+  }
+
+  return value;
+}
+
+export const applyFhPlaceholder = function (value: string): string {
+  while (value.match(ghsLabelRegex)) {
+    value = value.replace(ghsLabelRegex, (match, ...args) => {
+      const label: string = args[0];
+      const split: string[] = label.split('.');
+      const type = split[1];
+
+      let quotes: boolean = false;
+
+      if (match.startsWith("\"") && match.endsWith("\"")) {
+        quotes = true;
+      }
+
+      let replace: string = match;
+      let image: string = '';
+      if (type == "condition") {
+        split.splice(0, 1);
+        image = '<img  src="./assets/images/fh/' + split.join('/') + '.svg" class="icon">';
+        replace = '<span class="placeholder-condition">' + image + '</span>';
+      } else if (type == "action" && split.length == 3 && !split[2].startsWith('specialTarget') && !split[2].startsWith('summon')) {
+        split.splice(0, 1);
+        image = '<img  src="./assets/images/fh/' + split.join('/') + '.svg" class="icon ghs-svg">';
+        replace = '<span class="placeholder-action">' + image + '</span>';
+      } else if (type == "element") {
+        let element = split[2];
+        if (element == "consume") {
+          image = '<span class="element inline consume">';
+          element = split[3];
+        } else {
+          image = '<span class="element inline">';
+        }
+        image += '<img src="./assets/images/fh/element/' + element + '.svg"></span>';
+        replace = image;
+      } else if (type == "initiative" && split.length == 3) {
+        image = '<img class="ghs-svg" src="./assets/images/initiative.svg"></span>'
+        replace = '<span class="placeholder-initiative">' + split[2] + image + '</span>';
+      } else if (type == "action" && split.length == 4) {
+        image = '<img  src="./assets/images/fh/action/' + split[2] + '/' + split[3] + '.svg" class="icon ghs-svg">';
+        replace = '<span class="placeholder-perk">' + image + '</span>';
+      } else if (type == "card" && split.length == 3) {
+        let card = split[2]
+        let cardValue = "";
+        if (card.split(':').length > 1) {
+          cardValue = '<span class="card-value">' + card.split(':')[1] + '</span>';
+          card = card.split(':')[0];
+        }
+        image = '<img class="icon ghs-svg" src="./assets/images/action/card/' + card + '.svg">';
+        let cardOverlay = '<img class="card-overlay" src="./assets/images/action/card/overlay/' + card + '.svg">';
+        replace = '<span class="placeholder-effect placeholder-card">' + image + cardOverlay + cardValue + '</span>';
+      } else if (type == "attackmodifier" && split.length == 3) {
+        image = '<img  src="./assets/images/attackmodifier/icons/' + split[2] + '.png" class="icon">';
+        replace = '<span class="placeholder-attackmodifier">' + image + '</span>';
+      } else if (type == "characterToken" && split.length == 3) {
+        let characterName = split[2];
+        image = '<img src="' + gameManager.characterManager.characterIcon(characterName) + '">';
+        replace = '<span class="placeholder-character-token" style="background-color:' + gameManager.characterManager.characterColor(characterName) + '">' + image + '</span>';
+      } else if (type == "mapMarker" && split.length == 3) {
+        replace = '<span class="map-marker">' + split[2] + '</span>';
+      } else if (type == "objectiveMarker" && split.length == 3) {
+        replace = '<span class="objective-marker">' + split[2] + '</span>';
+      } else if (type == "target" && split.length == 2) {
+        image = '<img  src="./assets/images/fh/action/target.svg" class="icon ghs-svg">';
+        replace = '<span class="placeholder-action">' + image + '</span>';
       } else {
         replace = settingsManager.getLabel(label.split(':')[0], label.split(':').splice(1).map((arg) =>
           applyPlaceholder(settingsManager.getLabel(arg))

@@ -74,6 +74,7 @@
             {
               "type": "range",
               "value": 1,
+              "valueType": "plus",
               "small": true
             }
           ]
@@ -146,7 +147,7 @@
       "actions": [
         {
           "type": "concatenation",
-          "value": 2,
+          "value": "and:2",
           "subActions": [
             {
               "type": "push",

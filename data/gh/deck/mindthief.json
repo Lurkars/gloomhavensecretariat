@@ -12,7 +12,6 @@
         {
           "type": "attack",
           "value": 2,
-          "small": false,
           "subActions": [
             {
               "type": "custom",
@@ -23,8 +22,7 @@
         },
         {
           "type": "card",
-          "value": "experience:1",
-          "small": false
+          "value": "experience:1"
         }
       ],
       "bottomActions": [
@@ -40,11 +38,9 @@
                 {
                   "type": "range",
                   "value": 0,
-                  "valueType": "plus",
-                  "small": false
+                  "valueType": "plus"
                 }
-              ],
-              "small": false
+              ]
             },
             {
               "type": "custom",
@@ -63,20 +59,17 @@
       "actions": [
         {
           "type": "loot",
-          "value": 1,
-          "small": false
+          "value": 1
         },
         {
           "type": "element",
-          "value": "dark",
-          "small": false
+          "value": "dark"
         }
       ],
       "bottomActions": [
         {
           "type": "condition",
           "value": "invisible",
-          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
@@ -158,7 +151,6 @@
         },
         {
           "type": "concatenation",
-          "value": "",
           "subActions": [
             {
               "type": "attack",
@@ -245,7 +237,7 @@
       "name": "The Mind's Weakness",
       "cardId": 151,
       "level": 1,
-      "initiative": 0,
+      "initiative": 75,
       "actions": [
         {
           "type": "box",
@@ -270,7 +262,6 @@
         },
         {
           "type": "concatenation",
-          "value": "",
           "subActions": [
             {
               "type": "attack",
@@ -301,7 +292,6 @@
         {
           "type": "attack",
           "value": 1,
-          "small": false,
           "subActions": [
             {
               "type": "condition",
@@ -348,7 +338,6 @@
         },
         {
           "type": "concatenation",
-          "value": "",
           "subActions": [
             {
               "type": "attack",
@@ -383,8 +372,7 @@
           "subActions": [
             {
               "type": "move",
-              "value": 1,
-              "small": false
+              "value": 1
             },
             {
               "type": "custom",
@@ -403,25 +391,21 @@
       "actions": [
         {
           "type": "move",
-          "value": 3,
-          "small": false
+          "value": 3
         },
         {
           "type": "attack",
-          "value": 1,
-          "small": false
+          "value": 1
         }
       ],
       "bottomActions": [
         {
           "type": "loot",
-          "value": 2,
-          "small": false
+          "value": 2
         },
         {
           "type": "card",
-          "value": "experience:1",
-          "small": false
+          "value": "experience:1"
         }
       ],
       "bottomLost": true
@@ -435,7 +419,6 @@
         {
           "type": "attack",
           "value": 3,
-          "small": false,
           "subActions": [
             {
               "type": "custom",
@@ -450,12 +433,10 @@
         {
           "type": "attack",
           "value": 1,
-          "small": false,
           "subActions": [
             {
               "type": "range",
-              "value": 2,
-              "small": false
+              "value": 2
             },
             {
               "type": "condition",
@@ -466,18 +447,14 @@
         },
         {
           "type": "concatenation",
-          "value": "",
-          "small": false,
           "subActions": [
             {
               "type": "element",
-              "value": "ice",
-              "small": false
+              "value": "ice"
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "small": false
+              "value": "experience:1"
             }
           ]
         }
@@ -507,7 +484,6 @@
         },
         {
           "type": "concatenation",
-          "value": "",
           "subActions": [
             {
               "type": "element",
@@ -564,13 +540,11 @@
                   "subActions": [
                     {
                       "type": "condition",
-                      "value": "muddle",
-                      "small": false
+                      "value": "muddle"
                     },
                     {
                       "type": "condition",
-                      "value": "poison",
-                      "small": false
+                      "value": "poison"
                     }
                   ]
                 }
@@ -580,7 +554,6 @@
         },
         {
           "type": "concatenation",
-          "value": "",
           "subActions": [
             {
               "type": "attack",
@@ -611,19 +584,16 @@
         {
           "type": "condition",
           "value": "immobilize",
-          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "enemyAdjacent",
-              "small": false
+              "value": "enemyAdjacent"
             }
           ]
         },
         {
           "type": "move",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ]
     },
@@ -640,15 +610,13 @@
           "subActions": [
             {
               "type": "attack",
-              "value": 6,
-              "small": false
+              "value": 6
             }
           ]
         },
         {
           "type": "card",
-          "value": "experience:2",
-          "small": false
+          "value": "experience:2"
         }
       ],
       "lost": true,
@@ -660,8 +628,7 @@
           "subActions": [
             {
               "type": "move",
-              "value": 4,
-              "small": false
+              "value": 4
             }
           ]
         }
@@ -676,7 +643,6 @@
         {
           "type": "attack",
           "value": 3,
-          "small": false,
           "subActions": [
             {
               "type": "element",
@@ -694,14 +660,11 @@
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "small": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": false
+                  ]
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }
@@ -709,13 +672,11 @@
       "bottomActions": [
         {
           "type": "move",
-          "value": 4,
-          "small": false
+          "value": 4
         },
         {
           "type": "condition",
           "value": "stun",
-          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
@@ -726,8 +687,7 @@
         },
         {
           "type": "card",
-          "value": "experience:1",
-          "small": false
+          "value": "experience:1"
         }
       ],
       "bottomLost": true
@@ -745,18 +705,14 @@
         },
         {
           "type": "concatenation",
-          "value": "",
-          "small": false,
           "subActions": [
             {
               "type": "card",
-              "value": "experience:2",
-              "small": false
+              "value": "experience:2"
             },
             {
               "type": "card",
-              "value": "persistent",
-              "small": false
+              "value": "persistent"
             }
           ]
         }
@@ -765,14 +721,12 @@
       "bottomActions": [
         {
           "type": "move",
-          "value": 3,
-          "small": false
+          "value": 3
         },
         {
           "type": "element",
           "value": "dark",
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "condition",
@@ -797,7 +751,6 @@
         {
           "type": "attack",
           "value": 2,
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -813,18 +766,14 @@
         },
         {
           "type": "concatenation",
-          "value": "",
-          "small": false,
           "subActions": [
             {
               "type": "element",
-              "value": "ice",
-              "small": false
+              "value": "ice"
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "small": false
+              "value": "experience:1"
             }
           ]
         }
@@ -842,18 +791,14 @@
         },
         {
           "type": "concatenation",
-          "value": "",
-          "small": false,
           "subActions": [
             {
               "type": "card",
-              "value": "experience:2",
-              "small": false
+              "value": "experience:2"
             },
             {
               "type": "card",
-              "value": "round",
-              "small": false
+              "value": "round"
             }
           ]
         }
@@ -946,8 +891,7 @@
                   "subActions": [
                     {
                       "type": "range",
-                      "value": 2,
-                      "small": false
+                      "value": 2
                     }
                   ]
                 }
@@ -957,7 +901,6 @@
         },
         {
           "type": "concatenation",
-          "value": "",
           "subActions": [
             {
               "type": "attack",
@@ -987,13 +930,11 @@
       "bottomActions": [
         {
           "type": "move",
-          "value": 3,
-          "small": false
+          "value": 3
         },
         {
           "type": "push",
           "value": 2,
-          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
@@ -1017,14 +958,11 @@
                     },
                     {
                       "type": "card",
-                      "value": "experience:1",
-                      "small": false
+                      "value": "experience:1"
                     }
-                  ],
-                  "small": false
+                  ]
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }
@@ -1039,7 +977,6 @@
         {
           "type": "loot",
           "value": 1,
-          "small": false,
           "subActions": [
             {
               "type": "custom",
@@ -1052,23 +989,19 @@
       "bottomActions": [
         {
           "type": "attack",
-          "value": 2,
-          "small": false
+          "value": 2
         },
         {
           "type": "move",
-          "value": 3,
-          "small": false
+          "value": 3
         },
         {
           "type": "attack",
-          "value": 2,
-          "small": false
+          "value": 2
         },
         {
           "type": "card",
-          "value": "experience:2",
-          "small": false
+          "value": "experience:2"
         }
       ],
       "bottomLost": true
@@ -1118,7 +1051,6 @@
         {
           "type": "attack",
           "value": 1,
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -1139,18 +1071,14 @@
         },
         {
           "type": "concatenation",
-          "value": "",
-          "small": false,
           "subActions": [
             {
               "type": "element",
-              "value": "ice",
-              "small": false
+              "value": "ice"
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "small": false
+              "value": "experience:1"
             }
           ]
         }
@@ -1168,8 +1096,7 @@
         },
         {
           "type": "card",
-          "value": "persistent",
-          "small": false
+          "value": "persistent"
         }
       ],
       "bottomLost": true
@@ -1200,8 +1127,7 @@
                   "subActions": [
                     {
                       "type": "condition",
-                      "value": "stun",
-                      "small": false
+                      "value": "stun"
                     }
                   ]
                 }
@@ -1211,7 +1137,6 @@
         },
         {
           "type": "concatenation",
-          "value": "",
           "subActions": [
             {
               "type": "attack",
@@ -1246,8 +1171,7 @@
           "subActions": [
             {
               "type": "move",
-              "value": 2,
-              "small": false
+              "value": 2
             },
             {
               "type": "custom",
@@ -1428,16 +1352,13 @@
                   "subActions": [
                     {
                       "type": "retaliate",
-                      "value": 2,
-                      "small": false
+                      "value": 2
                     }
-                  ],
-                  "small": false
+                  ]
                 },
                 {
                   "type": "card",
-                  "value": "round",
-                  "small": false
+                  "value": "round"
                 }
               ]
             }
@@ -1445,7 +1366,6 @@
         },
         {
           "type": "concatenation",
-          "value": "",
           "subActions": [
             {
               "type": "attack",
@@ -1475,13 +1395,11 @@
       "bottomActions": [
         {
           "type": "move",
-          "value": 2,
-          "small": false
+          "value": 2
         },
         {
           "type": "attack",
-          "value": 2,
-          "small": false
+          "value": 2
         }
       ]
     },
@@ -1494,7 +1412,6 @@
         {
           "type": "heal",
           "value": 5,
-          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
@@ -1505,8 +1422,6 @@
         },
         {
           "type": "concatenation",
-          "value": "",
-          "small": false,
           "subActions": [
             {
               "type": "shield",
@@ -1517,25 +1432,21 @@
                   "value": "self",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             },
             {
               "type": "card",
-              "value": "round",
-              "small": false
+              "value": "round"
             }
           ]
         },
         {
           "type": "condition",
           "value": "stun",
-          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self",
-              "small": false
+              "value": "self"
             }
           ]
         }
@@ -1548,8 +1459,7 @@
         },
         {
           "type": "card",
-          "value": "round",
-          "small": false
+          "value": "round"
         }
       ],
       "bottomLost": true
@@ -1563,7 +1473,6 @@
         {
           "type": "attack",
           "value": 3,
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -1572,8 +1481,7 @@
             },
             {
               "type": "target",
-              "value": 2,
-              "small": false
+              "value": 2
             },
             {
               "type": "element",
@@ -1586,36 +1494,29 @@
                   "subActions": [
                     {
                       "type": "condition",
-                      "value": "poison",
-                      "small": false
+                      "value": "poison"
                     },
                     {
                       "type": "condition",
-                      "value": "curse",
-                      "small": false
+                      "value": "curse"
                     }
                   ],
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         },
         {
           "type": "concatenation",
-          "value": "",
-          "small": false,
           "subActions": [
             {
               "type": "element",
-              "value": "ice",
-              "small": false
+              "value": "ice"
             },
             {
               "type": "card",
-              "value": "experience:1",
-              "small": false
+              "value": "experience:1"
             }
           ]
         }
@@ -1623,14 +1524,12 @@
       "bottomActions": [
         {
           "type": "move",
-          "value": 5,
-          "small": false
+          "value": 5
         },
         {
           "type": "element",
           "value": "ice",
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "concatenation",
@@ -1650,16 +1549,13 @@
                 },
                 {
                   "type": "card",
-                  "value": "experience:1",
-                  "small": false
+                  "value": "experience:1"
                 },
                 {
                   "type": "card",
-                  "value": "round",
-                  "small": false
+                  "value": "round"
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }
@@ -1729,17 +1625,14 @@
         {
           "type": "concatenation",
           "value": "",
-          "small": false,
           "subActions": [
             {
               "type": "card",
-              "value": "experience:2",
-              "small": false
+              "value": "experience:2"
             },
             {
               "type": "card",
-              "value": "persistent",
-              "small": false
+              "value": "persistent"
             }
           ]
         }
@@ -1754,17 +1647,14 @@
         {
           "type": "concatenation",
           "value": "",
-          "small": false,
           "subActions": [
             {
               "type": "card",
-              "value": "experience:2",
-              "small": false
+              "value": "experience:2"
             },
             {
               "type": "card",
-              "value": "round",
-              "small": false
+              "value": "round"
             }
           ]
         }
@@ -1838,18 +1728,15 @@
       "bottomActions": [
         {
           "type": "move",
-          "value": 2,
-          "small": false
+          "value": 2
         },
         {
           "type": "loot",
-          "value": 1,
-          "small": false
+          "value": 1
         },
         {
           "type": "condition",
           "value": "invisible",
-          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
@@ -1860,8 +1747,7 @@
         },
         {
           "type": "element",
-          "value": "dark",
-          "small": false
+          "value": "dark"
         }
       ]
     }

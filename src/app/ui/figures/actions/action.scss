@@ -18,14 +18,17 @@
     @keyframes highlight-animation {
       0% {
         background-position: 0% center;
+        mask-position: 0% center;
       }
 
-      70% {
+      65% {
         background-position: 0% center;
+        mask-position: 0% center;
       }
 
       100% {
         background-position: 200% center;
+        mask-position: 200% center;
       }
     }
 
@@ -42,7 +45,8 @@
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: highlight-animation 3.5s linear infinite;
+      animation: highlight-animation 3s linear infinite;
+      animation-delay: -1.5s;
     }
 
     &.right {
@@ -680,16 +684,12 @@
     .element-subactions {
       flex-direction: row;
       align-items: center;
-
-      .action-custom,
-      .action-summon,
-      .action-specialTarget {
-        //font-size: 55%;
-      }
     }
 
-    .subactions {
+    .subactions,
+    .condition-subactions {
       position: relative;
+      display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       max-width: 95%;
@@ -722,12 +722,19 @@
       }
     }
 
-    .element-actions {
-      margin-left: 0.5em;
-
-      .action-element-consume {
-        padding: 0.4em;
+    .action-concatenation {
+      .action-concatenation-item {
+        display: none;
       }
+    }
+
+    .special-type {
+      flex-basis: 100%;
+      flex-shrink: 0;
+    }
+
+    .element-actions {
+      flex-basis: 100%;
     }
 
     .action-element {
@@ -736,11 +743,6 @@
       justify-content: center;
       align-items: center;
       padding: 0.2em;
-    }
-
-    .special-type {
-      flex-basis: 100%;
-      flex-shrink: 0;
     }
 
     .action-element-consume {
@@ -755,7 +757,7 @@
       border-bottom-left-radius: 2em 100%;
       border-bottom-right-radius: 2em 100%;
 
-      &::before {
+      &::after {
         content: ' ';
         position: absolute;
         z-index: 0;

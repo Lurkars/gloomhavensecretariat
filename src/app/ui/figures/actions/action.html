@@ -256,10 +256,12 @@
     </ghs-action>
   </div>
 
-  <div class="element-actions" *ngIf="elementActions.length > 0 && settingsManager.settings.fhStyle">
-    <ghs-action *ngFor="let subAction of elementActions" [ngClass]="'subaction-' + subAction.type" [action]="subAction"
-      [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
-      [relative]="relative" [statsCalculation]="statsCalculation">
-    </ghs-action>
-  </div>
+  <ng-container *ngIf="elementActions.length > 0 && settingsManager.settings.fhStyle">
+    <div class="element-actions">
+      <ghs-action *ngFor="let subAction of elementActions" [ngClass]="'subaction-' + subAction.type"
+        [action]="subAction" [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize"
+        [highlightElements]="highlightElements" [relative]="relative" [statsCalculation]="statsCalculation">
+      </ghs-action>
+    </div>
+  </ng-container>
 </span>
