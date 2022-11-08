@@ -259,7 +259,7 @@
       "teleport": "Teleport",
       "trigger": "Trigger"
     },
-    "affect" : "Affect",
+    "affect": "Affect",
     "ally": "Ally",
     "attackModifiers": {
       ".": "Attack Modifier Deck",
@@ -431,7 +431,7 @@
       "selfAlliesRange": "%game.target% self and all allies within %game.action.range% {0}",
       "targets": "All targets"
     },
-    "target" : "Target"
+    "target": "Target"
   },
   "help": "Help",
   "hints": {
@@ -576,6 +576,7 @@
     ".": "Set Scenario",
     "cancel": "Cancel Scenario",
     "custom": "Custom",
+    "filter": "Filter Scenario",
     "finish": {
       ".": "Finish Scenario",
       "failure": "Failure",
@@ -611,6 +612,10 @@
     "connecting": "Connecting",
     "disconnect": "Disconnect",
     "disconnected": "No Connection",
+    "list": {
+      "deselect" : "Manual enter Server",
+      "select" : "Select public Server"
+    },
     "menu": {
       "connect": "Connect to Server",
       "connected": "Server Connection"
@@ -632,6 +637,7 @@
   "settings": {
     ".": "Settings",
     "abilityNumbers": "Show ability numbers",
+    "abilityReveal": "Reveal abilities directly",
     "activeApplyConditions": "Confirm applicable conditions",
     "activeStandees": "Active standees",
     "allyAttackModifierDeck": "Attack Modifier Deck for allies",

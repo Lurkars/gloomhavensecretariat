@@ -165,7 +165,7 @@
       "teleport": "Teleport",
       "trigger": "Auslöser"
     },
-    "affect" : "Visiere",
+    "affect": "Visiere",
     "ally": "Verbündeter",
     "attackModifiers": {
       ".": "Angriffsmodifikatordeck",
@@ -337,7 +337,7 @@
       "selfAlliesRange": "%game.target% dich selbst und alle Verbündeten in %game.action.range% {0} an",
       "targets": "Alle Ziele"
     },
-    "target" : "Visiere"
+    "target": "Visiere"
   },
   "help": "Hilfe",
   "hints": {
@@ -482,6 +482,7 @@
     ".": "Szenario auswählen",
     "cancel": "Szenario abbrechen",
     "custom": "Benutzerdefiniert",
+    "filter": "Szenario filtern",
     "finish": {
       ".": "Szenario beenden",
       "failure": "Niederlage",
@@ -493,7 +494,7 @@
       "add": "Szenarien freischalten",
       "index": "Szenarionummern, kommasepariert"
     },
-    "reset": "Scenario neustarten",
+    "reset": "Szenario neustarten",
     "summary": {
       ".": "Szenario Zusammenfassung",
       "gold": "Gold",
@@ -517,6 +518,10 @@
     "connecting": "Verbinde",
     "disconnect": "Trennen",
     "disconnected": "Keine Verbindung",
+    "list": {
+      "deselect": "Server manuell eintragen",
+      "select": "Öffentlichen Server auswählen"
+    },
     "menu": {
       "connect": "Mit Server verbinden",
       "connected": "Server Verbindung"
@@ -538,6 +543,7 @@
   "settings": {
     ".": "Einstellungen",
     "abilityNumbers": "Zeige Fertigkeitsnummern an",
+    "abilityReveal": "Fertigkeitskarten direkt aufdecken",
     "activeApplyConditions": "Bestätige anwendbare Zustände",
     "activeStandees": "Aktive Aufsteller",
     "allyAttackModifierDeck": "Angriffsmodifikatordeck für Verbündete",
