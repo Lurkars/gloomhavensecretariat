@@ -30,6 +30,7 @@ export class MonsterAbilityCardComponent {
   edit: boolean = false;
   cardPopup: boolean = false;
   maxHeight: string = "";
+  lastReveal: number = 0;
 
   doubleClick: any = null;
 
@@ -45,7 +46,20 @@ export class MonsterAbilityCardComponent {
     } else {
       this.ability = gameManager.abilities(this.monster)[this.index];
     }
-    return gameManager.roundManager.working && gameManager.game.state == GameState.draw || !gameManager.roundManager.working && gameManager.game.state == GameState.next && this.ability != undefined && this.monster.entities.filter((monsterEntity) => !monsterEntity.dead).length > 0;
+
+    let flipped = gameManager.roundManager.working && gameManager.game.state == GameState.draw || !gameManager.roundManager.working && gameManager.game.state == GameState.next && this.ability != undefined && this.monster.entities.filter((monsterEntity) => !monsterEntity.dead).length > 0;
+
+    if (flipped) {
+      this.lastReveal = gameManager.game.round;
+    }
+
+    let reveal = settingsManager.settings.abilityReveal || this.monster.active || this.monster.off && (gameManager.game.figures.some((figure, index, self) => figure.active && index > self.indexOf(this.monster)) || gameManager.game.figures.every((figure) => !figure.active));
+
+    if (gameManager.game.state == GameState.next && reveal) {
+      flipped = flipped || gameManager.game.state == GameState.next && this.lastReveal == gameManager.game.round;
+    }
+
+    return flipped && reveal;
   }
 
   toggleEdit() {

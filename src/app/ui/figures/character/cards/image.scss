@@ -28,6 +28,12 @@
     height: 5%;
     left: 0;
   }
+
+  &.off {
+    .image {
+      filter: grayscale(1);
+    }
+  }
 }
 
 .number-container {

@@ -640,7 +640,8 @@
     }
   }
 
-  .subactions {
+  .subactions,
+  .monster-type-subactions {
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -671,7 +672,7 @@
       font-size: 125%;
 
       &.small {
-        font-size: 100%;
+        font-size: 90%;
       }
     }
 
@@ -687,7 +688,8 @@
     }
 
     .subactions,
-    .condition-subactions {
+    .condition-subactions,
+    .monster-type-subactions {
       position: relative;
       display: flex;
       flex-direction: row;
@@ -712,13 +714,19 @@
         border-bottom-right-radius: 1em 100%;
       }
 
+      &.monster-type-subactions {
+        &::before {
+          display: none;
+        }
+      }
+
       .condition-image {
         width: 1.6em;
         height: 1.6em;
       }
 
       ghs-action {
-        margin: 0 0.2em;
+        margin: 0 0.1em;
       }
     }
 
@@ -735,6 +743,32 @@
 
     .element-actions {
       flex-basis: 100%;
+
+      .action-element {
+
+        margin-top: 0.5em;
+
+        &::before {
+          content: ' ';
+          position: absolute;
+          top: -0.4em;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 2em;
+          height: 0.4em;
+          color: radial-gradient(var(--ghs-color-white) 0%, transparent 100%);
+          background: radial-gradient(var(--ghs-color-white) 0%, transparent 100%);
+          background-clip: padding-box;
+          clip-path: polygon(48% 100%, 52% 100%, 52% 15%, 100% 15%, 100% 0%, 0% 0%, 0% 15%, 48.5% 15%);
+        }
+
+        .subactions,
+        .condition-subactions {
+          &::before {
+            display: none;
+          }
+        }
+      }
     }
 
     .action-element {
@@ -751,7 +785,7 @@
       justify-content: center;
       align-items: center;
       z-index: 1;
-      border: 0.1em dotted var(--ghs-color-white);
+      border: 0.04em dashed var(--ghs-color-white);
       border-top-left-radius: 2em 100%;
       border-top-right-radius: 2em 100%;
       border-bottom-left-radius: 2em 100%;
@@ -760,12 +794,14 @@
       &::after {
         content: ' ';
         position: absolute;
-        z-index: 0;
-        top: 0;
+        z-index: -1;
+        top: -0.04em;
+        left: -0.02em;
         height: 100%;
         width: 100%;
         background-color: var(--ghs-color-white);
         opacity: 0.2;
+        border: 0.04em solid var(--ghs-color-white);
         border-top-left-radius: 2em 100%;
         border-top-right-radius: 2em 100%;
         border-bottom-left-radius: 2em 100%;

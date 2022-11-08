@@ -17,6 +17,7 @@ export class Settings {
   bonusAdjustment: number | undefined = undefined;
   ge5Player: boolean | undefined = undefined;
   disableStandees: boolean = false;
+  abilityReveal: boolean = true;
   fullscreen: boolean = false;
   fhStyle: boolean = false;
   autoscroll: boolean = true;

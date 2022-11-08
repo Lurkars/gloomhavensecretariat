@@ -58,7 +58,8 @@
           "subActions": [
             {
               "type": "retaliate",
-              "value": 3
+              "value": 3,
+              "small": true
             }
           ]
         }

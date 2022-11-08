@@ -221,6 +221,13 @@
     }
   }
 
+  &.off {
+
+    .summon .standee .image {
+      opacity: 0.7;
+    }
+  }
+
   ghs-drag-value.drag-hp {
     position: absolute;
     top: 0;

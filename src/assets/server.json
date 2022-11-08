@@ -1,0 +1,11 @@
+[
+    {
+        "url": "gloomhaven-secretary.de",
+        "port": 8443,
+        "privacy": "https://github.com/Lurkars/ghs-server#privacy",
+        "secure": true,
+        "website": "https://github.com/Lurkars/ghs-server",
+        "description": "Public instance hosted by Lurkars",
+        "location": "Germany"
+    }
+]

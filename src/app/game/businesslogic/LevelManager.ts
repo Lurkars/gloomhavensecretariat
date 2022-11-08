@@ -1,6 +1,7 @@
 import { Character } from "../model/Character";
 import { Game } from "../model/Game";
 import { Monster } from "../model/Monster";
+import { gameManager } from "./GameManager";
 
 export class LevelManager {
 
@@ -89,9 +90,12 @@ export class LevelManager {
       this.game.figures.forEach((figure) => {
         if (figure instanceof Monster) {
           figure.level += diff;
-          figure.entities.forEach((monsterEntity) => {
-            monsterEntity.level += diff
-          })
+          if (figure.level > 7) {
+            figure.level = 7;
+          } else if (figure.level < 0) {
+            figure.level = 0;
+          }
+          gameManager.monsterManager.setLevel(figure, figure.level)
         }
       })
     }

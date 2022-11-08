@@ -38,6 +38,13 @@
       </div>
       <div class="line">
         <label>
+          <input type="checkbox" [checked]="settingsManager.settings.abilityReveal"
+            (change)="settingsManager.setAbilityReveal(!settingsManager.settings.abilityReveal)">{{'settings.abilityReveal'
+          | ghsLabel}}
+        </label>
+      </div>
+      <div class="line">
+        <label>
           <input type="checkbox" [checked]="settingsManager.settings.abilityNumbers"
             (change)="settingsManager.setAbilityNumbers(!settingsManager.settings.abilityNumbers)">{{'settings.abilityNumbers'
           | ghsLabel}}

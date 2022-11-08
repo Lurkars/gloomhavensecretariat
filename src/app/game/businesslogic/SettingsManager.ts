@@ -161,6 +161,10 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setAbilityReveal(abilityReveal: boolean) {
+    this.settings.abilityReveal = abilityReveal;
+    this.storeSettings();
+  }
 
   setFullscreen(fullscreen: boolean) {
     this.settings.fullscreen = fullscreen;

@@ -25,6 +25,14 @@
       width: auto;
     }
 
+    .character-icon {
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.4;
+      }
+    }
+
     .standee-number {
       font-family: var(--ghs-font-normal);
       font-size: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
@@ -101,6 +109,7 @@
     .entity-container {
       display: grid;
       grid-template-columns: repeat(3, calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor)));
+      align-content: space-between;
     }
 
     .condition {
@@ -134,6 +143,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
+      &:hover {
+        opacity: 0.4;
+      }
     }
 
     &.disabled {
@@ -179,8 +192,7 @@
   .marker-container {
     display: grid;
     grid-template-columns: repeat(3, calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor)));
-    column-gap: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-    row-gap: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+    row-gap: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
     align-items: center;
     justify-items: center;
     margin-bottom: auto;
@@ -209,12 +221,6 @@
     }
 
 
-  }
-
-  .summon-button {
-    grid-column: span 3;
-    display: flex;
-    justify-content: center;
   }
 
   .shield-action,

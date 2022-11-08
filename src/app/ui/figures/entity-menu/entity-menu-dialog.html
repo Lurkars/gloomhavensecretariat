@@ -2,7 +2,7 @@
 
   <div class="name">
     <ng-container *ngIf="gameManager.isCharacter(data.figure) && gameManager.isCharacter(data.entity)">
-      <img (click)="toggleCharacterMarker()" class="icon"
+      <img (click)="toggleCharacterMarker()" class="icon character-icon"
         [src]="gameManager.characterManager.characterIcon(gameManager.toCharacter(data.figure))" />
       {{gameManager.toCharacter(data.figure).title || ('data.character.' + data.figure.name |
       ghsLabel)}}
@@ -171,6 +171,40 @@
         </span>
       </ng-container>
 
+      <ng-container *ngIf="gameManager.isSummon(data.entity)">
+        <div class="summon-stats-container">
+          <span class="stat" (click)="openLevelDialog()">
+            <img class="ghs-svg" src="./assets/images/action/move.svg" />
+            <span [value-calc]="gameManager.toSummon(data.entity).movement" [empty]="true">></span>
+          </span>
+
+          <span class="stat" (click)="openLevelDialog()">
+            <img class="ghs-svg" src="./assets/images/action/attack.svg" />
+            <span [value-calc]="gameManager.toSummon(data.entity).attack" [empty]="true">></span>
+          </span>
+
+          <span class="stat" (click)="openLevelDialog()">
+            <img class="ghs-svg" src="./assets/images/action/range.svg" />
+            <span [value-calc]="gameManager.toSummon(data.entity).range" [empty]="true">></span>
+          </span>
+        </div>
+      </ng-container>
+
+      <div class="marker-container">
+        <a class="summon" *ngIf="gameManager.isMonsterEntity(data.entity)"
+          [ngClass]="{'active' : gameManager.toMonsterEntity(data.entity).summon == SummonState.true, 'new' : gameManager.toMonsterEntity(data.entity).summon == SummonState.new }"
+          (click)="toggleSummon()">
+          <img src="./assets/images/summons/{{gameManager.toMonster(data.figure).summonColor}}.png">
+        </a>
+        <span *ngFor="let marker of markers()">
+          <a class="item" [ngClass]="{'active' : hasMarker(marker)}" (click)="toggleMarker(marker)">
+            <span class="condition marker">
+              <img src="./assets/images/character/icons/{{marker}}.svg" />
+            </span>
+          </a>
+        </span>
+      </div>
+
       <ng-container *ngIf="gameManager.isCharacter(data.entity)">
         <span class="item" title="{{'game.exhausted' | ghsLabel}}">
           <a class="condition" [ngClass]="{'active' : gameManager.toCharacter(data.entity).exhausted}"
@@ -199,23 +233,6 @@
       </ng-container>
 
       <ng-container *ngIf="gameManager.isSummon(data.entity)">
-        <div class="summon-stats-container">
-          <span class="stat" (click)="openLevelDialog()">
-            <img class="ghs-svg" src="./assets/images/action/move.svg" />
-            <span [value-calc]="gameManager.toSummon(data.entity).movement" [empty]="true">></span>
-          </span>
-
-          <span class="stat" (click)="openLevelDialog()">
-            <img class="ghs-svg" src="./assets/images/action/attack.svg" />
-            <span [value-calc]="gameManager.toSummon(data.entity).attack" [empty]="true">></span>
-          </span>
-
-          <span class="stat" (click)="openLevelDialog()">
-            <img class="ghs-svg" src="./assets/images/action/range.svg" />
-            <span [value-calc]="gameManager.toSummon(data.entity).range" [empty]="true">></span>
-          </span>
-        </div>
-
         <span class="item" title="{{'game.dead' | ghsLabel}}">
           <a class="button" (click)="toggleDead()">
             <img src="./assets/images/status/dead.svg" />
@@ -255,24 +272,7 @@
                 <img class="ghs-svg" src="./assets/images/plus.svg">
               </a>
           </span>
-          <span class="summon-button" title="{{'summon' | ghsLabel}}">
-            <a class="summon"
-              [ngClass]="{'active' : gameManager.toMonsterEntity(data.entity).summon == SummonState.true, 'new' : gameManager.toMonsterEntity(data.entity).summon == SummonState.new }"
-              (click)="toggleSummon()">
-              <img src="./assets/images/summons/{{gameManager.toMonster(data.figure).summonColor}}.png">
-            </a>
-          </span>
       </ng-container>
-
-      <div class="marker-container">
-        <span *ngFor="let marker of markers()">
-          <a class="item" [ngClass]="{'active' : hasMarker(marker)}" (click)="toggleMarker(marker)">
-            <span class="condition marker">
-              <img src="./assets/images/character/icons/{{marker}}.svg" />
-            </span>
-          </a>
-        </span>
-      </div>
     </div>
 
     <ng-container *ngIf="!gameManager.isObjective(data.entity) || gameManager.toObjective(data.entity).escort">

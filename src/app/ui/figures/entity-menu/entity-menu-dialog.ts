@@ -212,7 +212,6 @@ export class EntityMenuDialogComponent {
       } else {
         this.data.entity.off = false;
       }
-      gameManager.sortFigures();
     }
   }
 
@@ -462,7 +461,7 @@ export class EntityMenuDialogComponent {
       } else if (id > 11) {
         id = 0;
       }
-      
+
       if (gameManager.game.figures.filter((figure) => figure instanceof Objective).length < 12) {
         while (gameManager.game.figures.some((figure) => figure instanceof Objective && figure.id == id)) {
           id = id + value;

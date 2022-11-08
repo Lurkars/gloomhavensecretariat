@@ -77,7 +77,6 @@
       height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
 
       img {
-        filter: grayscale(100%) brightness(0);
         width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
         height: auto;
       }

@@ -337,7 +337,7 @@
       "selfAlliesRange": "Sur lui-même et tous les alliés à %game.action.range% {0}",
       "targets": "Toutes les cibles"
     },
-    "target" : "Cible"
+    "target": "Cible"
   },
   "help": "Aide",
   "hints": {
@@ -538,6 +538,7 @@
   "settings": {
     ".": "Paramètres",
     "abilityNumbers": "Afficher les numéros des capacités",
+    "abilityReveal": "Révéler les capacités directement",
     "activeApplyConditions": "Confirmer les conditions applicables",
     "activeStandees": "Standees actifs",
     "allyAttackModifierDeck": "Paquet de modificateurs d'attaque pour les alliés",

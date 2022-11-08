@@ -12,6 +12,7 @@ import { FigureError, FigureErrorType } from "../model/FigureError";
 import { ConditionType, EntityConditionState } from "../model/Condition";
 import { Scenario } from "../model/Scenario";
 import { ScenarioData } from "../model/data/ScenarioData";
+import { EntityValueFunction } from "../model/Entity";
 
 export class MonsterManager {
 
@@ -145,6 +146,38 @@ export class MonsterManager {
         monster.off = true;
       }
     }
+  }
+  
+  setLevel(monster: Monster, level : number) {
+    const abilities = gameManager.abilities(monster);
+      if (monster.abilities.length != abilities.filter((ability) => !ability.level || isNaN(+ability.level) || ability.level <= level).length) {
+        monster.abilities = abilities.filter((ability) => !ability.level || isNaN(+ability.level) || ability.level <= level).map((ability, index) => index);
+        gameManager.monsterManager.shuffleAbilities(monster);
+      }
+
+      monster.level = level;
+
+      monster.entities.forEach((monsterEntity) => {
+        let stat = this.getStat(monster, monsterEntity.type);
+
+        monsterEntity.level = monster.level;
+
+        let maxHealth: number;
+        if (typeof stat.health === "number") {
+          maxHealth = stat.health;
+        } else {
+          maxHealth = EntityValueFunction(stat.health);
+        }
+
+        if (monsterEntity.health == monsterEntity.maxHealth) {
+          monsterEntity.health = maxHealth;
+        }
+
+        monsterEntity.maxHealth = maxHealth;
+        if (monsterEntity.health > monsterEntity.maxHealth) {
+          monsterEntity.health = monsterEntity.maxHealth;
+        }
+      });
   }
 
   toggleActive(monster: Monster, entity: MonsterEntity) {

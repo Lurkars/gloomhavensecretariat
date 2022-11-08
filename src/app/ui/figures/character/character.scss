@@ -22,15 +22,6 @@
     z-index: -1;
   }
 
-  ghs-character-image,
-  .title,
-  .conditions,
-  .experience,
-  .loot,
-  .icon-container {
-    transition: filter 150ms ease-in-out;
-  }
-
   &.dimmed {
     background-color: var(--ghs-color-gray);
 
@@ -44,20 +35,6 @@
     .stats .column {
       filter: grayscale(15%);
       opacity: 0.5;
-    }
-  }
-
-  &.off {
-
-    background-color: var(--ghs-color-gray);
-
-    ghs-character-image,
-    .title,
-    .conditions,
-    .experience,
-    .loot,
-    .icon-container {
-      filter: grayscale(100%);
     }
   }
 
@@ -152,7 +129,7 @@
 
     .attack-modifierdeck-close {
       position: absolute;
-      cursor: initial;
+      cursor: zoom-out;
       top: 0;
       left: 0;
       z-index: 2;
@@ -298,6 +275,10 @@
         height: auto;
         margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
       }
+
+      &:hover {
+        opacity: 0.7;
+      }
     }
 
     .experience,
@@ -379,6 +360,31 @@
     }
   }
 
+  .title,
+  .conditions,
+  .experience,
+  .loot,
+  .icon-container,
+  .attack-modifier-icon,
+  .character-sheet-button,
+  &::before {
+    transition: filter 150ms ease-in-out;
+  }
+
+  &.off {
+    background-color: var(--ghs-color-gray);
+
+    .title,
+    .conditions,
+    .experience,
+    .loot,
+    .icon-container,
+    .attack-modifier-icon,
+    .character-sheet-button,
+    &::before {
+      filter: grayscale(1);
+    }
+  }
 }
 
 .summons-container {

@@ -1,6 +1,7 @@
 import { Editional } from "../Editional";
 import { Spoilable } from "../Spoilable";
 import { ObjectiveData } from "./ObjectiveData";
+import { RoomData } from "./RoomData";
 
 export class ScenarioData implements Editional, Spoilable {
 
@@ -17,7 +18,7 @@ export class ScenarioData implements Editional, Spoilable {
   rules: ScenarioRule[];
   initial: boolean = false;
   solo: string | undefined;
-
+  rooms: RoomData[] = [];
 
   // from Editional
   edition: string;

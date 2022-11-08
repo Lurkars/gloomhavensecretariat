@@ -1,19 +1,20 @@
-import { Component, } from "@angular/core";
+import { Component, OnInit, } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { Identifier } from "src/app/game/model/Identifier";
 import { Monster } from "src/app/game/model/Monster";
 import { Permissions } from "src/app/game/model/Permissions";
+import { ServerInfo } from "src/app/game/model/ServerInfo";
 import { v4 as uuidv4 } from 'uuid';
 
 
 @Component({
   selector: 'ghs-server-menu',
   templateUrl: 'server.html',
-  styleUrls: [ 'server.scss', '../menu.scss' ]
+  styleUrls: ['server.scss', '../menu.scss']
 })
-export class ServerMenuComponent {
+export class ServerMenuComponent implements OnInit {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -23,7 +24,30 @@ export class ServerMenuComponent {
   WebSocket = WebSocket;
 
   permissions: Permissions | undefined = new Permissions();
+  publicServer: ServerInfo[] = [];
+  selectedServerIndex: number = -1;
+
   password: string = '';
+
+
+  async ngOnInit() {
+
+    try {
+      await fetch('./assets/server.json')
+        .then(response => {
+          if (!response.ok) {
+            throw Error();
+          }
+          return response.json();
+        }).then((value: ServerInfo[]) => {
+          this.publicServer = value;
+        });
+    } catch (error) {
+      this.publicServer = [];
+    }
+
+    this.updateServer();
+  }
 
   connect(url: string, port: string, password: string): void {
     if (url && !isNaN(+port) && password) {
@@ -49,22 +73,48 @@ export class ServerMenuComponent {
     this.permissions = gameManager.stateManager.permissions;
   }
 
+  selectServer(event: any) {
+    this.selectedServerIndex = -1;
+    if (!isNaN(+event.target.value)) {
+      this.selectedServerIndex = +event.target.value;
+      if (this.selectedServerIndex > -1 && this.selectedServerIndex < this.publicServer.length) {
+        const server = this.publicServer[this.selectedServerIndex];
+        settingsManager.settings.serverUrl = server.url;
+        settingsManager.settings.serverPort = server.port;
+        settingsManager.settings.serverWss = server.secure;
+      }
+    }
+  }
+
+  updateServer() {
+    this.selectedServerIndex = -1;
+    this.publicServer.forEach((server, index) => {
+      if (settingsManager.settings.serverUrl == server.url && settingsManager.settings.serverPort == server.port && settingsManager.settings.serverWss == server.secure) {
+        this.selectedServerIndex = index;
+        return;
+      }
+    })
+  }
+
   setServerUrl(event: any) {
     this.tryConnect = false;
     settingsManager.settings.serverUrl = event.target.value;
     settingsManager.storeSettings();
+    this.updateServer();
   }
 
   setServerPort(event: any) {
     this.tryConnect = false;
     settingsManager.settings.serverPort = event.target.value;
     settingsManager.storeSettings();
+    this.updateServer();
   }
 
   setServerPassword(event: any) {
     this.tryConnect = false;
     settingsManager.settings.serverPassword = event.target.value;
     settingsManager.storeSettings();
+    this.updateServer();
   }
 
   permissionsAll(event: any) {

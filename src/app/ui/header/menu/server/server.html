@@ -26,12 +26,20 @@
         <p *ngSwitchDefault>{{'server.undefined' | ghsLabel}}</p>
       </div>
 
-      <div class="line separator">
+      <div class="line separator" *ngIf="publicServer">
+        <select (change)="selectServer($event)">
+          <option>{{('server.list.' + (selectedServerIndex == -1 ? 'select' : 'deselect')) | ghsLabel}}</option>
+          <option *ngFor="let server of publicServer; let i = index;" [value]="i" [selected]="selectedServerIndex == i">
+            {{server.url}}:{{server.port}}</option>
+        </select>
+      </div>
+
+      <div class="line separator" [ngClass]="{'hidden' : selectedServerIndex != -1}">
         <label class="label">{{'server.url' | ghsLabel}}</label>
         <input type="text" #serverUrl [value]="settingsManager.settings.serverUrl || ''" (keyup)="0"
           (change)="setServerUrl($event)" placeholder="{{'server.url' | ghsLabel}}">
       </div>
-      <div class="line">
+      <div class="line" [ngClass]="{'hidden' : selectedServerIndex != -1}">
         <label class="label">{{'server.port' | ghsLabel}}</label>
         <input type="number" #serverPort [value]="settingsManager.settings.serverPort || ''" (keyup)="0"
           (change)="setServerPort($event)" placeholder="{{'server.port' | ghsLabel}}">
@@ -40,18 +48,19 @@
         <div class="password-container">
           <label class="label">{{'server.password' | ghsLabel}}</label>
           <span class="spacer"></span>
-          <a *ngIf="!settingsManager.settings.serverPassword" (click)="createUUID()">{{'server.password.uuid' | ghsLabel}}</a>
+          <a *ngIf="!settingsManager.settings.serverPassword" (click)="createUUID()">{{'server.password.uuid' |
+            ghsLabel}}</a>
         </div>
         <input type="text" #serverPassword [value]="settingsManager.settings.serverPassword || ''" (keyup)="0"
           (change)="setServerPassword($event)" placeholder="{{'server.password' | ghsLabel}}">
       </div>
 
-      <div class="columns">
+      <div class="columns" [ngClass]="{'hidden' : selectedServerIndex != -1}">
         <div class="column">
           <div class="line">
             <label>
-              <input type="checkbox" [checked]="settingsManager.settings.serverWss"
-                (change)="settingsManager.setServerWss(!settingsManager.settings.serverWss)">
+              <input type="checkbox" [checked]="settingsManager.settings.serverWss" (change)="settingsManager.setServerWss(!settingsManager.settings.serverWss);
+                this.updateServer();">
               {{'server.wss' | ghsLabel}}
             </label>
           </div>

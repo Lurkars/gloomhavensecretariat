@@ -1,6 +1,6 @@
 [
   {
-    "index": "SoX 1",
+    "index": "1",
     "name": "Nobles' Crypt",
     "edition": "sox",
     "initial": true,
@@ -13,7 +13,7 @@
     ]
   },
   {
-    "index": "SoX 2",
+    "index": "2",
     "name": "Flooded Crypt",
     "edition": "sox",
     "monsters": [
@@ -23,7 +23,7 @@
     ]
   },
   {
-    "index": "SoX 3",
+    "index": "3",
     "name": "Crypt of the Ancients",
     "edition": "sox",
     "monsters": [

@@ -1,4 +1,4 @@
-<div class="summon-border" [ngClass]="{'dead' : summon.dead}" [entityAnimation]="summon.dead">
+<div class="summon-border" [ngClass]="{'dead' : summon.dead, 'off' : character.off}" [entityAnimation]="summon.dead">
   <div class="summon" title="{{'data.summon.' + summon.name | ghsLabel}}" (click)="open()">
     <div #standee class="standee">
 

@@ -1,0 +1,365 @@
+{
+    "index": "1",
+    "name": "Black Barrow",
+    "edition": "gh",
+    "initial": true,
+    "monsters": [
+        "bandit-archer",
+        "bandit-guard",
+        "living-bones"
+    ],
+    "unlocks": [
+        "2"
+    ],
+    "rooms": [
+        {
+            "number": 1,
+            "initial": true,
+            "map": "gh-l1a",
+            "rotation": 3,
+            "overlays": [],
+            "monster": [
+                {
+                    "name": "bandit-guard",
+                    "coordinitate": {
+                        "x": 0,
+                        "y": 1
+                    },
+                    "player3": "normal",
+                    "player4": "normal"
+                },
+                {
+                    "name": "bandit-guard",
+                    "coordinitate": {
+                        "x": 1,
+                        "y": 2
+                    },
+                    "player3": "normal",
+                    "player4": "elite"
+                },
+                {
+                    "name": "bandit-guard",
+                    "coordinitate": {
+                        "x": 0,
+                        "y": 3
+                    },
+                    "player2": "normal",
+                    "player3": "normal",
+                    "player4": "normal"
+                },
+                {
+                    "name": "bandit-guard",
+                    "coordinitate": {
+                        "x": 1,
+                        "y": 4
+                    },
+                    "player2": "elite"
+                },
+                {
+                    "name": "bandit-guard",
+                    "coordinitate": {
+                        "x": 0,
+                        "y": 5
+                    },
+                    "player2": "normal",
+                    "player3": "normal",
+                    "player4": "normal"
+                },
+                {
+                    "name": "bandit-guard",
+                    "coordinitate": {
+                        "x": 1,
+                        "y": 6
+                    },
+                    "player3": "normal",
+                    "player4": "elite"
+                },
+                {
+                    "name": "bandit-guard",
+                    "coordinitate": {
+                        "x": 0,
+                        "y": 7
+                    },
+                    "player3": "normal",
+                    "player4": "normal"
+                }
+            ],
+            "doors": [
+                {
+                    "coordinitate": {
+                        "x": 0,
+                        "y": 4
+                    },
+                    "token": "gh-stone-door",
+                    "room": 2
+                }
+            ]
+        },
+        {
+            "room": 2,
+            "map": "gh-g1b",
+            "rotation": 1,
+            "overlays": [
+                {
+                    "type": "trap",
+                    "coordinitates": [
+                        {
+                            "x": 3,
+                            "y": 3
+                        }
+                    ],
+                    "token": "gh-spike-pit-trap",
+                    "value": "damage"
+                },
+                {
+                    "type": "trap",
+                    "coordinitates": [
+                        {
+                            "x": 4,
+                            "y": 3
+                        }
+                    ],
+                    "token": "gh-spike-pit-trap",
+                    "value": "damage"
+                }
+            ],
+            "monster": [
+                {
+                    "name": "bandit-guard",
+                    "coordinitate": {
+                        "x": 2,
+                        "y": 3
+                    },
+                    "player2": "normal",
+                    "player4": "normal"
+                },
+                {
+                    "name": "bandit-guard",
+                    "coordinitate": {
+                        "x": 2,
+                        "y": 2
+                    },
+                    "player3": "elite",
+                    "player4": "elite"
+                },
+                {
+                    "name": "bandit-guard",
+                    "coordinitate": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "player2": "normal",
+                    "player4": "normal"
+                },
+                {
+                    "name": "bandit-archer",
+                    "coordinitate": {
+                        "x": 7,
+                        "y": 3
+                    },
+                    "player3": "normal",
+                    "player4": "normal"
+                },
+                {
+                    "name": "bandit-archer",
+                    "coordinitate": {
+                        "x": 7,
+                        "y": 2
+                    },
+                    "player2": "elite",
+                    "player3": "elite",
+                    "player4": "elite"
+                },
+                {
+                    "name": "bandit-archer",
+                    "coordinitate": {
+                        "x": 7,
+                        "y": 1
+                    },
+                    "player3": "normal",
+                    "player4": "normal"
+                }
+            ],
+            "doors": [
+                {
+                    "coordinitate": {
+                        "x": 4,
+                        "y": 4
+                    },
+                    "token": "gh-stone-door",
+                    "room": 3
+                }
+            ]
+        },
+        {
+            "room": 3,
+            "map": "gh-i1b",
+            "rotation": 3,
+            "overlays": [
+                {
+                    "type": "obstacle",
+                    "coordinitates": [
+                        {
+                            "x": 1,
+                            "y": 4
+                        },
+                        {
+                            "x": 2,
+                            "y": 4
+                        }
+                    ],
+                    "token": "gh-table"
+                },
+                {
+                    "type": "obstacle",
+                    "coordinitates": [
+                        {
+                            "x": 4,
+                            "y": 4
+                        },
+                        {
+                            "x": 5,
+                            "y": 4
+                        }
+                    ],
+                    "token": "gh-table"
+                },
+                {
+                    "type": "treasure",
+                    "coordinitates": [
+                        {
+                            "x": 0,
+                            "y": 3
+                        }
+                    ],
+                    "token": "gh-coin-1"
+                },
+                {
+                    "type": "treasure",
+                    "coordinitates": [
+                        {
+                            "x": 1,
+                            "y": 2
+                        }
+                    ],
+                    "token": "gh-coin-1"
+                },
+                {
+                    "type": "treasure",
+                    "coordinitates": [
+                        {
+                            "x": 0,
+                            "y": 1
+                        }
+                    ],
+                    "token": "gh-coin-1"
+                },
+                {
+                    "type": "treasure",
+                    "coordinitates": [
+                        {
+                            "x": 5,
+                            "y": 1
+                        }
+                    ],
+                    "token": "gh-treasure",
+                    "value": "07"
+                },
+                {
+                    "type": "treasure",
+                    "coordinitates": [
+                        {
+                            "x": 5,
+                            "y": 2
+                        }
+                    ],
+                    "token": "gh-coin-1"
+                },
+                {
+                    "type": "treasure",
+                    "coordinitates": [
+                        {
+                            "x": 5,
+                            "y": 3
+                        }
+                    ],
+                    "token": "gh-coin-1"
+                }
+            ],
+            "monster": [
+                {
+                    "name": "bandit-archer",
+                    "coordinitate": {
+                        "x": 4,
+                        "y": 1
+                    },
+                    "player4": "normal"
+                },
+                {
+                    "name": "bandit-archer",
+                    "coordinitate": {
+                        "x": 3,
+                        "y": 1
+                    },
+                    "player2": "normal",
+                    "player3": "normal",
+                    "player4": "normal"
+                },
+                {
+                    "name": "bandit-archer",
+                    "coordinitate": {
+                        "x": 2,
+                        "y": 1
+                    },
+                    "player2": "normal",
+                    "player3": "elite",
+                    "player4": "normal"
+                },
+                {
+                    "name": "bandit-archer",
+                    "coordinitate": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "player4": "normal"
+                },
+                {
+                    "name": "living-bones",
+                    "coordinitate": {
+                        "x": 2,
+                        "y": 3
+                    },
+                    "player2": "normal",
+                    "player3": "normal",
+                    "player4": "normal"
+                },
+                {
+                    "name": "living-bones",
+                    "coordinitate": {
+                        "x": 3,
+                        "y": 3
+                    },
+                    "player2": "normal",
+                    "player3": "elite",
+                    "player4": "normal"
+                },
+                {
+                    "name": "living-bones",
+                    "coordinitate": {
+                        "x": 2,
+                        "y": 5
+                    },
+                    "player4": "normal"
+                },
+                {
+                    "name": "living-bones",
+                    "coordinitate": {
+                        "x": 3,
+                        "y": 5
+                    },
+                    "player4": "normal"
+                }
+            ]
+        }
+    ]
+}

@@ -106,11 +106,13 @@
     }
 
     .number {
-      background-color: var(--ghs-color-darkred);
+      color: var(--ghs-color-darkgray);
+      background-color: var(--ghs-color-white);
       border-bottom-right-radius: 50%;
       border-top-left-radius: 35%;
       height: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
-      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+      font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+      text-shadow: none;
     }
 
     .health {
@@ -242,32 +244,33 @@
 
     &.normal {
       .standee {
-        border-color: var(--ghs-color-gray);
-        background-color: var(--ghs-color-gray);
+        background-color: var(--ghs-color-white);
+
+        .number {
+          background-color: var(--ghs-color-white);
+        }
       }
     }
 
     &.elite {
 
       .standee {
-        border-color: var(--ghs-color-yellow);
         background-color: var(--ghs-color-yellow);
       }
 
       .number {
-        color: var(--ghs-color-yellow);
+        background-color: var(--ghs-color-yellow);
       }
     }
 
     &.boss {
 
       .standee {
-        border-color: var(--ghs-color-black);
-        background-color: var(--ghs-color-black);
+        background-color: var(--ghs-color-red);
       }
 
       .number {
-        color: var(--ghs-color-red);
+        background-color: var(--ghs-color-red);
       }
     }
   }
