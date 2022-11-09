@@ -10,7 +10,6 @@ import { MonsterEditorComponent } from './ui/tools/editor/monster/monster';
 
 
 const routes: Routes = [
-  { path: 'index.html', component: MainComponent },
   { path: 'editor/edition', component: EditionEditorComponent },
   { path: 'editor/deck', component: DeckEditorComponent },
   { path: 'editor/monster', component: MonsterEditorComponent },

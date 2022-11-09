@@ -113,7 +113,7 @@ import { ScenarioRulesComponent } from './ui/footer/scenario-rules/scenario-rule
     DialogModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: true, registrationStrategy: 'registerImmediately' })
   ],
-  providers: [{ provide: APP_BASE_HREF, useValue: '.' }, { provide: DEFAULT_DIALOG_CONFIG, useValue: { autoFocus: 'dialog', hasBackdrop: true } }],
+  providers: [{ provide: DEFAULT_DIALOG_CONFIG, useValue: { autoFocus: 'dialog', hasBackdrop: true } }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

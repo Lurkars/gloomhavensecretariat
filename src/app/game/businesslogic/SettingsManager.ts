@@ -41,9 +41,14 @@ export class SettingsManager {
         this.setSettings(new Settings());
       }
     }
+    
+    this.updateLocale(this.settings.locale);
   }
 
   setSettings(settings: Settings) {
+    if (settings.locale != this.settings.locale) {
+      this.updateLocale(this.settings.locale);
+    }
     this.settings = settings;
     if (!this.settings.editions || this.settings.editions.length == 0) {
       this.settings.editions.push(...this.defaultEditions);
@@ -57,7 +62,6 @@ export class SettingsManager {
       }
     }
 
-    this.setLocale(this.settings.locale);
     this.sortSpoilers();
   }
 
@@ -505,7 +509,7 @@ export class SettingsManager {
     this.storeSettings();
   }
 
-  async setLocale(locale: string) {
+  async updateLocale(locale: string) {
     // default label
     if (locale != this.defaultLocale) {
       await fetch('./assets/locales/' + this.defaultLocale + '.json')
@@ -522,7 +526,6 @@ export class SettingsManager {
 
     await fetch('./assets/locales/' + locale + '.json')
       .then(response => {
-        this.settings.locale = locale;
         return response.json();
       }).then(data => {
         this.label = this.merge(this.label, data);
@@ -536,7 +539,11 @@ export class SettingsManager {
     for (let editionData of gameManager.editionData) {
       this.loadDataLabel(editionData);
     }
+  }
 
+  async setLocale(locale: string) {
+    this.updateLocale(locale);
+    this.settings.locale = locale;
     this.storeSettings();
   }
 
