@@ -1,0 +1,128 @@
+{
+  "name": "vestige-of-the-imprisioned-god",
+  "edition": "fh",
+  "deck": "boss",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "immunities": [
+      "wound",
+      "immobilize",
+      "disarm",
+      "stun",
+      "muddle",
+      "curse"
+    ],
+    "special": [
+      [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(2,0,target)|(2,1,target)|(1,2,target)|(2,2,target)",
+              "small": false
+            }
+          ],
+          "small": false
+        }
+      ],
+      [
+        {
+          "type": "shield",
+          "value": 3,
+          "small": false
+        },
+        {
+          "type": "custom",
+          "value": "Modify terrain.",
+          "small": false
+        },
+        {
+          "type": "push",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%game.target.all%",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "custom",
+          "value": "All characters who did not attack suffer trap damage at end of round.",
+          "small": false
+        }
+      ]
+    ],
+    "actions": [
+      {
+        "type": "retaliate",
+        "value": 1,
+        "subActions": [
+          {
+            "type": "range",
+            "value": 3,
+            "small": true
+          }
+        ],
+        "small": false
+      }
+    ],
+    "health": "Cx16",
+    "attack": 3
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx16",
+      "attack": 3
+    },
+    {
+      "level": 1,
+      "health": "Cx20",
+      "attack": 4
+    },
+    {
+      "level": 2,
+      "health": "Cx25",
+      "attack": 4
+    },
+    {
+      "level": 3,
+      "health": "Cx30",
+      "attack": 5
+    },
+    {
+      "level": 4,
+      "health": "Cx37",
+      "attack": 5
+    },
+    {
+      "level": 5,
+      "health": "Cx44",
+      "attack": 6
+    },
+    {
+      "level": 6,
+      "health": "Cx60",
+      "attack": 7
+    },
+    {
+      "level": 7,
+      "health": "Cx80",
+      "attack": 8
+    }
+  ]
+}

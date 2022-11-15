@@ -68,8 +68,8 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%data.custom.cs.gnashing-drake.1%",
+          "type": "specialTarget",
+          "value": "focusEnemyFarthest",
           "small": true,
           "subActions": [
             {
@@ -114,7 +114,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.gnashing-drake.2%",
+              "value": "%data.custom.cs.gnashing-drake.1%",
               "small": true
             }
           ]
@@ -169,7 +169,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.cs.gnashing-drake.2%",
+              "value": "%data.custom.cs.gnashing-drake.1%",
               "small": true
             }
           ]

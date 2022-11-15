@@ -58,51 +58,51 @@
           "2": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.giant-viper%'s allies."
         },
         "black-sludge": {
-          "1": "The closest enemy in line-of-sight, regardless of range, suffer [1+L/2{%math.ceil}] damage"
+          "1": "The closest enemy in line-of-sight, regardless of range, suffer [1+L/2{%math.ceil}] %game.damage%"
         },
         "chaos-demon": {
-          "1": "Any time a figure attacks the %data.monster.chaos-demon% this round, that figure suffer 2 damage",
-          "2": "All enemies adjacent to the target suffer 1 damage"
+          "1": "Any time a figure attacks the %data.monster.chaos-demon% this round, that figure suffer %game.damage:2%",
+          "2": "All enemies adjacent to the target suffer %game.damage:1%"
         },
         "living-corpse": {
-          "1": "The target also suffers 2 damage.",
-          "2": "If this movement is performed, the %data.monster.living-corpse% suffers 1 damage.",
-          "3": "If this attack is performed, the %data.monster.living-corpse% suffers 1 damage."
+          "1": "The target also suffers %game.damage:2%.",
+          "2": "If this movement is performed, the %data.monster.living-corpse% suffers %game.damage:1%.",
+          "3": "If this attack is performed, the %data.monster.living-corpse% suffers %game.damage:1%."
         },
         "monstrosity": {
-          "1": "If this attack is performed, the %data.monster.monstrosity% suffers 1 damage.",
+          "1": "If this attack is performed, the %data.monster.monstrosity% suffers %game.damage:1%.",
           "2": "Add +1 %game.action.attack% if the target is adjacent to any of the %data.monster.monstrosity%'s allies.",
-          "3": "Any time a figure attacks the %data.monster.monstrosity% this round, that figure suffers 2 damage.",
-          "4": "%data.monster.monstrosity% suffers 1 damage"
+          "3": "Any time a figure attacks the %data.monster.monstrosity% this round, that figure suffers %game.damage:2%.",
+          "4": "%data.monster.monstrosity% suffers %game.damage:1%"
         },
         "stone-golem": {
-          "1": "Any time a figure attacks the %data.monster.stone-golem% this round, that figure suffers 3 damage.",
-          "2": "If the Move ability was performed, the %data.monster.stone-golem% suffers 1 damage.",
-          "3": "If this attack is performed, the %data.monster.stone-golem% suffers 2 damage."
+          "1": "Any time a figure attacks the %data.monster.stone-golem% this round, that figure suffers %game.damage:3%.",
+          "2": "If the Move ability was performed, the %data.monster.stone-golem% suffers %game.damage:1%.",
+          "3": "If this attack is performed, the %data.monster.stone-golem% suffers %game.damage:2%."
         },
         "vermling-raider": {
-          "1": "Create one 3-damage trap in an adjacent empty hex closest to an enemy."
+          "1": "Create one 3-%game.damage% trap in an adjacent empty hex closest to an enemy."
         },
         "zealot": {
-          "1": "X is damage suffered by target of attack"
+          "1": "X is %game.damage% suffered by target of attack"
         },
         "blood-horror": {
           "1": "Jump to farthest dead %data.monster.zealot% and revive or jump to farthest character and %game.action.attack%+0",
           "2": "Revive all dead %data.monster.zealot% in room"
         },
         "blood-monstrosity": {
-          "1": "On death, all adjacent figures suffer 1 damage"
+          "1": "On death, all adjacent figures suffer %game.damage:1%"
         },
         "first-of-the-order": {
-          "1": "All enemies within %game.action.range% 2 suffer 2 damage",
+          "1": "All enemies within %game.action.range% 2 suffer %game.damage:2%",
           "2": "Spawn [C/2{math.ceil}] %data.monster.black-imp%",
           "3": "within %game.action.range% 2 of target"
         },
         "rat-monstrosity": {
-          "1": "On death, all adjacent figures suffer 1 damage",
-          "2": "On death, all adjacent figures suffer 2 damage",
-          "3": "On death, all adjacent figures suffer 3 damage",
-          "4": "On death, all adjacent figures suffer 4 damage"
+          "1": "On death, all adjacent figures suffer %game.damage:1%",
+          "2": "On death, all adjacent figures suffer %game.damage:2%",
+          "3": "On death, all adjacent figures suffer %game.damage:3%",
+          "4": "On death, all adjacent figures suffer %game.damage:4%"
         },
         "basic-vermling-raider": {
           "1": "Shuffle this deck at the end of the round.",
@@ -113,7 +113,7 @@
       },
       "perks": {
         "demolitionist": {
-          "1": "All adjacent enemies suffer 1 damage"
+          "1": "All adjacent enemies suffer %game.damage:1%"
         }
       }
     },
@@ -126,7 +126,7 @@
         "5": "Gain 1 ✔",
         "6": "Gain 10 gold",
         "7": "Gain 5 gold",
-        "8": "Suffer 3 damage, gain {POISON}",
+        "8": "Suffer %game.damage:3%, gain {POISON}",
         "9": "Gain 5 gold",
         "10": "'Fateful Compass' (Item 27)",
         "11": "'Ring of Haste' (Item 30)",
@@ -212,30 +212,30 @@
           "2": "Füge +2 %game.action.attack% wenn das Ziel an einer %data.monster.giant-viper%'s Verbündeten angrenzt."
         },
         "black-sludge": {
-          "1": "Der nächste Gegner in Sichtline, ungachtet der Reichweite, erleidet [1+L/2{%math.ceil}] Schaden."
+          "1": "Der nächste Gegner in Sichtline, ungachtet der Reichweite, erleidet %game.damage:[1+L/2{%math.ceil}]%."
         },
         "chaos-demon": {
-          "1": "Jedesmal wenn eine Figur den %data.monster.chaos-demon% in dieser Runde angreift, erleidet die Figur 2 Schaden.",
-          "2": "Alle an das Ziel angrenzenden Gegner erleiden 1 Schaden."
+          "1": "Jedesmal wenn eine Figur den %data.monster.chaos-demon% in dieser Runde angreift, erleidet die Figur %game.damage:2%.",
+          "2": "Alle an das Ziel angrenzenden Gegner erleiden %game.damage:1%."
         },
         "living-corpse": {
-          "1": "Das Ziel erleidet ebenfalls 1 Schaden.",
-          "2": "Falls eine Bewegung ausgeführt wird, erleidet die %data.monster.living-corpse% 1 Schaden.",
-          "3": "Falls ein Angriff ausgeführt wird, erleidet die %data.monster.living-corpse% 1 Schaden."
+          "1": "Das Ziel erleidet ebenfalls %game.damage:1%.",
+          "2": "Falls eine Bewegung ausgeführt wird, erleidet die %data.monster.living-corpse% %game.damage:1%.",
+          "3": "Falls ein Angriff ausgeführt wird, erleidet die %data.monster.living-corpse% %game.damage:1%."
         },
         "monstrosity": {
-          "1": "Falls dieser Angriff ausgeführt wird, erleidet die %data.monster.monstrosity% 1 Schaden.",
+          "1": "Falls dieser Angriff ausgeführt wird, erleidet die %data.monster.monstrosity% %game.damage:1%.",
           "2": "Füge +1 %game.action.attack% hinzu falls das Ziel an einen Verbündeten der %data.monster.monstrosity% angrenzt.",
-          "3": "Jede Figur die die %data.monster.monstrosity% diese Runde angreift erleidet 1 Schaden.",
-          "4": "%data.monster.monstrosity% erleidet 1 Schaden."
+          "3": "Jede Figur die die %data.monster.monstrosity% diese Runde angreift erleidet %game.damage:1%.",
+          "4": "%data.monster.monstrosity% erleidet %game.damage:1%."
         },
         "stone-golem": {
-          "1": "Jede Figur die den %data.monster.stone-golem% diese Runde angreift erleidet 3 Schaden.",
-          "2": "Falls diese Beweung ausgeführt wird erleidet der %data.monster.stone-golem% 1 Schaden.",
-          "3": "Falls dieser Angriff ausgeführt wird erleidet der %data.monster.stone-golem% 2 Schaden."
+          "1": "Jede Figur die den %data.monster.stone-golem% diese Runde angreift erleidet %game.damage:3%.",
+          "2": "Falls diese Beweung ausgeführt wird erleidet der %data.monster.stone-golem% %game.damage:1%.",
+          "3": "Falls dieser Angriff ausgeführt wird erleidet der %data.monster.stone-golem% %game.damage:2%."
         },
         "vermling-raider": {
-          "1": "Erstelle eine Schaden 3 Falle in einem an das Ziel angrenzenden freiem Feld."
+          "1": "Erstelle eine %game.damage:3% Falle in einem an das Ziel angrenzenden freiem Feld."
         },
         "zealot": {
           "1": "X ist der durch den Angriff erlittene Schaden des Ziels."
@@ -245,18 +245,18 @@
           "2": "Belebe alle toten %data.monster.zealot% um Raum."
         },
         "blood-monstrosity": {
-          "1": "Bei Tod: alle angrenzenden Figuren erleiden 1 Schaden."
+          "1": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:1%."
         },
         "first-of-the-order": {
-          "1": "Alle Gegner in %game.action.range% 2 erleiden 2 Schaden.",
+          "1": "Alle Gegner in %game.action.range% 2 erleiden %game.damage:2%.",
           "2": "Beschwöre [C/2{math.ceil}] %data.monster.black-imp%",
           "3": "innerhalb von %game.action.range% 2 vom Ziel"
         },
         "rat-monstrosity": {
-          "1": "Bei Tod: alle angrenzenden Figuren erleiden 1 Schaden.",
-          "2": "Bei Tod: alle angrenzenden Figuren erleiden 2 Schaden.",
-          "3": "Bei Tod: alle angrenzenden Figuren erleiden 3 Schaden.",
-          "4": "Bei Tod: alle angrenzenden Figuren erleiden 4 Schaden."
+          "1": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:1%.",
+          "2": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:2%.",
+          "3": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:3%.",
+          "4": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:4%."
         },
         "basic-vermling-raider": {
           "1": "Mische diese Karten am Ende der Runde.",
@@ -267,7 +267,7 @@
       },
       "perks": {
         "demolitionist": {
-          "1": "Alle angrenzenden Gegner erleiden 1 Schaden"
+          "1": "Alle angrenzenden Gegner erleiden %game.damage:1%"
         }
       }
     }
@@ -414,30 +414,30 @@
           "2": "Ajoute +2 %game.action.attack% si la cible est adjacente à un allié de la Vipère Géante."
         },
         "black-sludge": {
-          "1": "L'adversaire en ligne de vue le plus proche, sans considération de portée, subit [1+L/2{%math.ceil}] dégâts."
+          "1": "L'adversaire en ligne de vue le plus proche, sans considération de portée, subit %game.damage:[1+L/2{%math.ceil}]%."
         },
         "chaos-demon": {
-          "1": "Chaque fois qu'un personnage attaque le %data.monster.chaos-demon%, ce personnage subit 2 dégâts.",
+          "1": "Chaque fois qu'un personnage attaque le %data.monster.chaos-demon%, ce personnage subit %game.damage:2%.",
           "2": "Tous les adversaires adjacents à la cible subissent 1 dégât."
         },
         "living-corpse": {
-          "1": "La cible subit aussi 2 dégâts.",
+          "1": "La cible subit aussi %game.damage:2%.",
           "2": "Si le déplacement est effectué, le %data.monster.living-corpse% subit 1 dégât.",
           "3": "Si cette attaque est effectuée, le %data.monster.living-corpse% subit 1 dégât."
         },
         "monstrosity": {
           "1": "Si cette attaque est effectuée, la %data.monster.monstrosity% subit 1 dégât.",
           "2": "Ajoute +1 %game.action.attack% si la cible est adjacente à un allié de la %data.monster.monstrosity%.",
-          "3": "Chaque fois qu'un personnage attaque la %data.monster.monstrosity%, ce personnage subit 2 dégâts.",
+          "3": "Chaque fois qu'un personnage attaque la %data.monster.monstrosity%, ce personnage subit %game.damage:2%.",
           "4": "La %data.monster.monstrosity% subit 1 dégât."
         },
         "stone-golem": {
-          "1": "Chaque fois qu'un personnage attaque le %data.monster.stone-golem% this round, ce personnage subit 3 dégâts.",
+          "1": "Chaque fois qu'un personnage attaque le %data.monster.stone-golem% this round, ce personnage subit %game.damage:3%.",
           "2": "Si le déplacement est effectué, le %data.monster.stone-golem% subit 1 dégât.",
-          "3": "Si cette attaque est effectuée, le %data.monster.stone-golem% subit 2 dégâts."
+          "3": "Si cette attaque est effectuée, le %data.monster.stone-golem% subit %game.damage:2%."
         },
         "vermling-raider": {
-          "1": "Crée un piège à 3 dégâts sur l'hexagone vide adjacent le plus proche d'un adversaire."
+          "1": "Crée un piège à %game.damage:3% sur l'hexagone vide adjacent le plus proche d'un adversaire."
         },
         "zealot": {
           "1": "X est le montant des dégâts subit pas la cible de l'attaque."
@@ -450,15 +450,15 @@
           "1": "À sa mort, tous les personnages adjacents subissent 1 dégât."
         },
         "first-of-the-order": {
-          "1": "Tous les adversaires à %game.action.range% 2 subissent 2 dégâts.",
+          "1": "Tous les adversaires à %game.action.range% 2 subissent %game.damage:2%.",
           "2": "Générez [C/2{math.ceil}] %data.monster.black-imp%",
           "3": "à %game.action.range% 2 de la cible."
         },
         "rat-monstrosity": {
           "1": "À sa mort, tous les personnages adjacents subissent 1 dégât.",
-          "2": "À sa mort, tous les personnages adjacents subissent 2 dégâts.",
-          "3": "À sa mort, tous les personnages adjacents subissent 3 dégâts.",
-          "4": "À sa mort, tous les personnages adjacents subissent 4 dégâts."
+          "2": "À sa mort, tous les personnages adjacents subissent %game.damage:2%.",
+          "3": "À sa mort, tous les personnages adjacents subissent %game.damage:3%.",
+          "4": "À sa mort, tous les personnages adjacents subissent %game.damage:4%."
         },
         "basic-vermling-raider": {
           "1": "Mélangez ce paquet à la fin du round.",

@@ -1,0 +1,228 @@
+{
+  "name": "polar-bear",
+  "edition": "fh",
+  "count": 10,
+  "baseStat": {
+    "immunities": [
+      "immobilize",
+      "stun"
+    ],
+    "special": [],
+    "type": "normal",
+    "actions": [
+      {
+        "type": "condition",
+        "value": "wound",
+        "small": false
+      }
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 6,
+      "movement": 2,
+      "attack": 3,
+      "immunities": [
+        "immobilize",
+        "stun"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 10,
+      "movement": 2,
+      "attack": 4,
+      "immunities": [
+        "immobilize",
+        "stun"
+      ]
+    },
+    {
+      "level": 1,
+      "health": 8,
+      "movement": 2,
+      "attack": 3,
+      "immunities": [
+        "immobilize",
+        "stun"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 12,
+      "movement": 2,
+      "attack": 4,
+      "immunities": [
+        "immobilize",
+        "stun"
+      ]
+    },
+    {
+      "level": 2,
+      "health": 10,
+      "movement": 2,
+      "attack": 3,
+      "immunities": [
+        "immobilize",
+        "stun"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 14,
+      "movement": 3,
+      "attack": 4,
+      "immunities": [
+        "immobilize",
+        "stun"
+      ]
+    },
+    {
+      "level": 3,
+      "health": 10,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound",
+          "small": false
+        }
+      ],
+      "immunities": [
+        "immobilize",
+        "stun"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 16,
+      "movement": 3,
+      "attack": 5,
+      "immunities": [
+        "immobilize",
+        "stun"
+      ]
+    },
+    {
+      "level": 4,
+      "health": 12,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound",
+          "small": false
+        }
+      ],
+      "immunities": [
+        "immobilize",
+        "stun"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 20,
+      "movement": 4,
+      "attack": 5,
+      "immunities": [
+        "immobilize",
+        "stun"
+      ]
+    },
+    {
+      "level": 5,
+      "health": 16,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound",
+          "small": false
+        }
+      ],
+      "immunities": [
+        "immobilize",
+        "stun"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 24,
+      "movement": 4,
+      "attack": 6,
+      "immunities": [
+        "immobilize",
+        "stun"
+      ]
+    },
+    {
+      "level": 6,
+      "health": 23,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound",
+          "small": false
+        }
+      ],
+      "immunities": [
+        "immobilize",
+        "stun"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 36,
+      "movement": 4,
+      "attack": 6,
+      "immunities": [
+        "immobilize",
+        "disarm",
+        "stun"
+      ]
+    },
+    {
+      "level": 7,
+      "health": 29,
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound",
+          "small": false
+        }
+      ],
+      "immunities": [
+        "immobilize",
+        "disarm",
+        "stun"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 44,
+      "movement": 4,
+      "attack": 7,
+      "immunities": [
+        "immobilize",
+        "disarm",
+        "stun"
+      ]
+    }
+  ]
+}

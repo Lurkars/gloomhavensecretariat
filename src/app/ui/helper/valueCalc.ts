@@ -54,7 +54,7 @@ export class ValueCalcDirective implements OnInit, OnChanges {
       return value;
     }
 
-    if (0 == +value) {
+    if (typeof value === "string" && value == '0') {
       return "-";
     } else if (!value) {
       return empty ? "-" : "";

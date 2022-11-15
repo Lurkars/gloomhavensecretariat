@@ -29,6 +29,12 @@
 }
 
 @font-face {
+  font-family: 'ghs-text-fh';
+  src: url('./assets/fonts/majallab.eot');
+  src: url('./assets/fonts/majallab.woff') format('woff'), url('./assets/fonts/majallab.ttf') format('truetype'), url('./assets/fonts/majallab.svg') format('svg');
+}
+
+@font-face {
   font-family: 'ghs-title-fh';
   src: url('./assets/fonts/germaniaone.eot');
   src: url('./assets/fonts/germaniaone.woff') format('woff'), url('./assets/fonts/germaniaone.ttf') format('truetype'), url('./assets/fonts/germaniaone.svg') format('svg');
@@ -96,7 +102,7 @@ body {
 
   &.fh {
     --ghs-font-normal: 'ghs-normal-fh';
-    --ghs-font-text: 'ghs-text';
+    --ghs-font-text: 'ghs-text-fh';
     --ghs-font-extra: 'ghs-extra';
     --ghs-font-title: 'ghs-title-fh';
   }
@@ -714,6 +720,7 @@ input[type="radio"] {
 
 .placeholder {
   position: relative;
+  vertical-align: middle;
 
   .icon {
     height: 0.9em;
@@ -897,5 +904,15 @@ input[type="radio"] {
     font-size: 0.7em;
     top: initial;
     transform: translateX(-50%);
+  }
+
+  .immunity::before {
+    top: 50%;
+    left: initial;
+    right: -20%;
+    width: 45%;
+    height: 45%;
+    background-image: url('~src/assets/images/fh/condition/immune.svg');
+    transform: translateY(-50%);
   }
 }

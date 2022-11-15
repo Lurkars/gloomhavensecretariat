@@ -1,0 +1,277 @@
+{
+  "name": "flaming-bladespinner",
+  "abilities": [
+    {
+      "name": "Calculated Strike",
+      "initiative": 78,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "small": false
+        }
+      ],
+      "shuffle": true,
+      "cardId": 610
+    },
+    {
+      "name": "Hasty Assualt",
+      "initiative": 38,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "small": false
+        }
+      ],
+      "shuffle": true,
+      "cardId": 611
+    },
+    {
+      "name": "Increase Momentum",
+      "initiative": 33,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "condition",
+          "value": "strengthen",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "small": false
+        }
+      ],
+      "cardId": 612
+    },
+    {
+      "name": "Defensive Blades",
+      "initiative": 12,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2,
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "All enemies within<br>%game.action.range% 2 suffer %game.damage:2%.",
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 613
+    },
+    {
+      "name": "Heated Sweep",
+      "initiative": 58,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add",
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "wound",
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 614
+    },
+    {
+      "name": "Flame Jets",
+      "initiative": 43,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "custom",
+          "value": "All enemies within %game.action.range% 2 suffer %game.damage:1%.",
+          "small": true
+        },
+        {
+          "type": "element",
+          "value": "fire",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true,
+              "subActions": [
+                {
+                  "type": "target",
+                  "value": "%game.target.all%",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 2,
+                  "small": true
+                }
+              ]
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 615
+    },
+    {
+      "name": "Firestorm",
+      "initiative": 17,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1,
+          "small": false
+        },
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 616
+    },
+    {
+      "name": "Spinning Charge",
+      "initiative": 68,
+      "actions": [
+        {
+          "type": "specialTarget",
+          "value": "focusEnemyFarthest",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 1,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "jump",
+                  "value": "",
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ],
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesMovedThroughAdjacent",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "wound",
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 617
+    }
+  ],
+  "edition": "fh"
+}

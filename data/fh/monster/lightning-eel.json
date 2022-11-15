@@ -1,0 +1,171 @@
+{
+  "name": "lightning-eel",
+  "edition": "fh",
+  "count": 6,
+  "baseStat": {
+    "type": "normal",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "Treats water hexes as corridors and non-water hexes as obstacles",
+        "small": true
+      }
+    ],
+    "immunities": [],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 1,
+      "movement": 2,
+      "attack": 2
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 3,
+      "movement": 3,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Treats water hexes as corridors and non-water hexes as obstacles"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": 2,
+      "movement": 2,
+      "attack": 2
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 3,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Treats water hexes as corridors and non-water hexes as obstacles"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 3,
+      "movement": 3,
+      "attack": 2
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 5,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Treats water hexes as corridors and non-water hexes as obstacles"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 4,
+      "movement": 3,
+      "attack": 2
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 6,
+      "movement": 4,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Treats water hexes as corridors and non-water hexes as obstacles"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 5,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 7,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Treats water hexes as corridors and non-water hexes as obstacles"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 6,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 9,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Treats water hexes as corridors and non-water hexes as obstacles"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 9,
+      "movement": 4,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 13,
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Treats water hexes as corridors and non-water hexes as obstacles"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 11,
+      "movement": 4,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 17,
+      "movement": 4,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Treats water hexes as corridors and non-water hexes as obstacles"
+        }
+      ]
+    }
+  ]
+}

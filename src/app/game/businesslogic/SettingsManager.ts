@@ -41,7 +41,7 @@ export class SettingsManager {
         this.setSettings(new Settings());
       }
     }
-    
+
     this.updateLocale(this.settings.locale);
   }
 
@@ -339,7 +339,10 @@ export class SettingsManager {
           gameManager.editionData.sort((a, b) => {
             return this.settings.editionDataUrls.indexOf(a.url) - this.settings.editionDataUrls.indexOf(b.url);
           });
-          this.loadDataLabel(value);
+          
+          if (settingsManager.settings.editions.indexOf(value.edition) != -1) {
+            this.loadDataLabel(value);
+          }
           return true;
         });
       return success;

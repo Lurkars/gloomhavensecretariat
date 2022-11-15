@@ -41,7 +41,7 @@
       },
       "gh": {
         "city-guard-saw-solo": {
-          "1": "Suffer 1 damage at end of round until fully healed"
+          "1": "Suffer %game.damage:1% at end of round until fully healed"
         },
         "ghost-wolf": {
           "1": "At start of each round:"
@@ -84,7 +84,7 @@
       },
       "gh": {
         "city-guard-saw-solo": {
-          "1": "Erleidet 1 Schaden am Ende der Runde solange nicht vollständig geheilt."
+          "1": "Erleidet %game.damage:1% am Ende der Runde solange nicht vollständig geheilt."
         },
         "ghost-wolf": {
           "1": "Zum Beginn jeder Runde:"

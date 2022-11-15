@@ -1,0 +1,252 @@
+{
+  "name": "living-doom",
+  "abilities": [
+    {
+      "name": "Chilling Aura",
+      "initiative": 70,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)",
+              "small": false
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "small": false
+        }
+      ],
+      "cardId": 650
+    },
+    {
+      "name": "Face of Darkness",
+      "initiative": 82,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "dark",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "disarm",
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 651
+    },
+    {
+      "name": "Arresting Advance",
+      "initiative": 32,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "immobilize",
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 652
+    },
+    {
+      "name": "Nothing Special",
+      "initiative": 57,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "small": false
+        }
+      ],
+      "cardId": 653
+    },
+    {
+      "name": "Sunless Abyss",
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "curse",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "shield",
+          "value": 1,
+          "small": false
+        },
+        {
+          "type": "retaliate",
+          "value": 2,
+          "small": false,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice",
+              "small": false
+            },
+            {
+              "type": "element",
+              "value": "dark",
+              "small": false
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 654
+    },
+    {
+      "name": "Hateful Spikes",
+      "initiative": 17,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "retaliate",
+          "value": 2,
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "small": false
+        }
+      ],
+      "cardId": 655
+    },
+    {
+      "name": "Pull of the Grave",
+      "initiative": 98,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 3,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "bane",
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "shuffle": true,
+      "cardId": 656
+    },
+    {
+      "name": "Call For Souls",
+      "initiative": 78,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Summon X normal<br>Living Spirits",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "<br>where X is the Living<br>Doom's current hit point value<br>divided by 5 (rounded down),<br>up to a maximum of three.",
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "shuffle": true,
+      "cardId": 657
+    }
+  ],
+  "edition": "fh"
+}

@@ -1,0 +1,200 @@
+{
+  "name": "lurker-wavethrower",
+  "abilities": [
+    {
+      "name": "Powerful Claw",
+      "initiative": 60,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "plus",
+          "small": false
+        }
+      ],
+      "cardId": 698
+    },
+    {
+      "name": "Distant Wave",
+      "initiative": 51,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Focus on the enemy<br>farthest away withing %game.action.range% 6",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 6,
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 699
+    },
+    {
+      "name": "Tsunami",
+      "initiative": 29,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(1,0,target)|(2,0,target)|(2,1,target)|(0,1,target)|(1,1,target)|(1,2,target)|(2,2,target)",
+              "small": false
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 700
+    },
+    {
+      "name": "Aid from Below",
+      "initiative": 98,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Create one 1-hex water tile<br>in an adjacent empty hex.",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "Summone one Lightning Eel in an adjacenty<br>unoccupied hex with a water tile.<br>Normal Wavethrowers summon<br>normal Eels, elites summon elites.",
+          "small": true
+        }
+      ],
+      "shuffle": true,
+      "cardId": 701
+    },
+    {
+      "name": "Aid from Below",
+      "initiative": 98,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Create one 1-hex water tile<br>in an adjacent empty hex.",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "Summone one Lightning Eel in an adjacenty<br>unoccupied hex with a water tile.<br>Normal Wavethrowers summon<br>normal Eels, elites summon elites.",
+          "small": true
+        }
+      ],
+      "shuffle": true,
+      "cardId": 702
+    },
+    {
+      "name": "Crushing Crest",
+      "initiative": 36,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)",
+              "small": false
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 703
+    },
+    {
+      "name": "Twin Claws",
+      "initiative": 48,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)",
+              "small": false
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 704
+    },
+    {
+      "name": "Massive Swell",
+      "initiative": 40,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(1,0,target)|(0,1,target)|(1,1,target)",
+              "small": false
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 705
+    }
+  ],
+  "edition": "fh"
+}

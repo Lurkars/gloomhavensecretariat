@@ -1,6 +1,8 @@
+import { query } from "@angular/animations";
 import { Dialog } from "@angular/cdk/dialog";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Ability } from "src/app/game/model/Ability";
@@ -12,6 +14,49 @@ import { DeckData } from "src/app/game/model/data/DeckData";
 import { Monster } from "src/app/game/model/Monster";
 import { EditorActionDialogComponent } from "../action/action";
 
+
+export function compactAction(action: any) {
+    if (action.valueType && action.valueType == ActionValueType.fixed) {
+        action.valueType = undefined;
+    }
+
+    if (action.subActions && action.subActions.length == 0) {
+        action.subActions = undefined;
+    } else if (action.subActions) {
+        action.subActions.forEach((action: any) => {
+            compactAction(action);
+        })
+    }
+
+    if (action.type == ActionType.summon) {
+        try {
+            let value = JSON.parse(action.value);
+            if (typeof value != 'string') {
+
+                Object.keys(value).forEach((key) => {
+                    if (!value[key] || value[key] == false) {
+                        value[key] = undefined;
+                    }
+                })
+
+                if (value.action) {
+                    compactAction(value.action);
+                }
+                if (value.additionalAction) {
+                    compactAction(value.additionalAction);
+                }
+            }
+            action.value = JSON.stringify(value);
+        } catch (e) {
+
+        }
+    }
+
+    if (!action.value && action.value != 0) {
+        action.value = undefined;
+    }
+}
+
 @Component({
     selector: 'ghs-deck-editor',
     templateUrl: './deck.html',
@@ -22,6 +67,7 @@ export class DeckEditorComponent implements OnInit {
     @ViewChild('inputDeckData', { static: true }) inputDeckData!: ElementRef;
     @Input() character: Character | undefined;
     @Input() monster: Monster | undefined;
+    @Input() edition: string | undefined;
 
     gameManager: GameManager = gameManager;
     ActionType = ActionType;
@@ -30,7 +76,7 @@ export class DeckEditorComponent implements OnInit {
     deckData: DeckData;
     deckError: any;
 
-    constructor(private dialog: Dialog) {
+    constructor(private dialog: Dialog, private route: ActivatedRoute, private router: Router) {
         this.deckData = new DeckData("", [], "");
         this.deckData.abilities.push(new Ability());
     }
@@ -45,10 +91,46 @@ export class DeckEditorComponent implements OnInit {
         this.inputDeckData.nativeElement.addEventListener('change', (event: any) => {
             this.deckDataFromJson();
         });
+
+        this.route.queryParams.subscribe({
+            next: (queryParams) => {
+                if (queryParams['edition']) {
+                    this.edition = queryParams['edition'];
+                    if (this.edition && gameManager.editions(true).indexOf(this.edition) == -1) {
+                        this.edition == undefined;
+                    }
+                }
+
+                if (queryParams['deck']) {
+                    const deckData = this.decksData().find((deckData) => deckData.name == queryParams['deck']);
+                    if (deckData) {
+                        this.deckData = deckData;
+                        this.deckDataToJson();
+                    }
+                }
+
+                if (!this.deckData.edition && this.edition) {
+                    this.deckData.edition = this.edition;
+                }
+            }
+        })
+    }
+
+    updateQueryParams() {
+        if (!this.deckData.edition && this.edition) {
+            this.deckData.edition = this.edition;
+        }
+        this.router.navigate(
+            [],
+            {
+                relativeTo: this.route,
+                queryParams: { edition: this.edition || undefined, monster: this.monster && this.monster.name || undefined, character: this.character && this.character.name || undefined, deck: this.deckData.name || undefined },
+                queryParamsHandling: 'merge'
+            });
     }
 
     decksData(): DeckData[] {
-        return gameManager.decksData(true).filter((deckData) => {
+        return gameManager.decksData(this.edition).filter((deckData) => {
             if (this.character) {
                 return deckData.character;
             } else if (this.monster) {
@@ -68,29 +150,35 @@ export class DeckEditorComponent implements OnInit {
             }
         })
 
-        compactData.abilities.forEach((ability: any) => {
-            Object.keys(ability).forEach((key) => {
-                if (!ability[key] && ability[key] != 0 || typeof ability[key] == 'boolean' && ability[key] == false) {
-                    ability[key] = undefined;
-                }
+        if (compactData.abilities) {
+            compactData.abilities.forEach((ability: any) => {
+                Object.keys(ability).forEach((key) => {
+                    if (!ability[key] && ability[key] != 0 || typeof ability[key] == 'boolean' && ability[key] == false) {
+                        ability[key] = undefined;
+                    }
 
-                if (ability.actions && ability.actions.length == 0) {
-                    ability.actions = undefined;
-                } else if (ability.actions) {
-                    ability.actions.forEach((action: any) => {
-                        this.compactAction(action);
-                    })
-                }
+                    if (key == 'level' && ability[key] == 0) {
+                        ability[key] = undefined;
+                    }
 
-                if (ability.bottomActions && ability.bottomActions.length == 0) {
-                    ability.bottomActions = undefined;
-                } else if (ability.bottomActions) {
-                    ability.bottomActions.forEach((action: any) => {
-                        this.compactAction(action);
-                    })
-                }
+                    if (ability.actions && ability.actions.length == 0) {
+                        ability.actions = undefined;
+                    } else if (ability.actions) {
+                        ability.actions.forEach((action: any) => {
+                            compactAction(action);
+                        })
+                    }
+
+                    if (ability.bottomActions && ability.bottomActions.length == 0) {
+                        ability.bottomActions = undefined;
+                    } else if (ability.bottomActions) {
+                        ability.bottomActions.forEach((action: any) => {
+                            compactAction(action);
+                        })
+                    }
+                })
             })
-        })
+        }
 
         this.inputDeckData.nativeElement.value = JSON.stringify(compactData, null, 2);
     }
@@ -106,48 +194,6 @@ export class DeckEditorComponent implements OnInit {
                 this.deckData.abilities.push(new Ability());
                 this.deckError = e;
             }
-        }
-    }
-
-    compactAction(action: any) {
-        if (action.valueType && action.valueType == ActionValueType.fixed) {
-            action.valueType = undefined;
-        }
-
-        if (action.subActions && action.subActions.length == 0) {
-            action.subActions = undefined;
-        } else if (action.subActions) {
-            action.subActions.forEach((action: any) => {
-                this.compactAction(action);
-            })
-        }
-
-        if (action.type == ActionType.summon) {
-            try {
-                let value = JSON.parse(action.value);
-                if (typeof value != 'string') {
-
-                    Object.keys(value).forEach((key) => {
-                        if (!value[key] || value[key] == false) {
-                            value[key] = undefined;
-                        }
-                    })
-
-                    if (value.action) {
-                        this.compactAction(value.action);
-                    }
-                    if (value.additionalAction) {
-                        this.compactAction(value.additionalAction);
-                    }
-                }
-                action.value = JSON.stringify(value);
-            } catch (e) {
-
-            }
-        }
-
-        if (!action.value && action.value != 0) {
-            action.value = undefined;
         }
     }
 
@@ -306,7 +352,7 @@ export class DeckEditorComponent implements OnInit {
             const characterData = new CharacterData();
             characterData.iconUrl = './assets/images/warning.svg';
             for (let i = 0; i < 9; i++) {
-              characterData.stats.push(new CharacterStat(i, i));
+                characterData.stats.push(new CharacterStat(i, i));
             }
             return new Character(characterData, 1);
         }
@@ -316,7 +362,16 @@ export class DeckEditorComponent implements OnInit {
 
     loadDeckData(event: any) {
         const index = +event.target.value;
-        this.deckData = index != -1 ? this.decksData()[index] : new DeckData("", [], "");
+        if (index == -1) {
+            this.deckData = new DeckData("", [], "");
+            this.deckData.abilities.push(new Ability());
+            if (this.character) {
+                this.deckData.character = true;
+            }
+        } else {
+            this.deckData = this.decksData()[index];
+        }
         this.deckDataToJson();
+        this.updateQueryParams();
     }
 } 

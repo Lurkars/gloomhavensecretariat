@@ -6,10 +6,10 @@ import { EntityValueFunction, EntityValueRegex } from "src/app/game/model/Entity
 
 export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\%)+)\%/;
 
-export const applyPlaceholder = function (value: string): string {
+export const applyPlaceholder = function (value: string, relative: boolean = false): string {
 
   if (settingsManager.settings.fhStyle) {
-    return applyFhPlaceholder(value);
+    return applyFhPlaceholder(value, relative);
   }
 
   while (value.match(ghsLabelRegex)) {
@@ -71,9 +71,15 @@ export const applyPlaceholder = function (value: string): string {
         replace = '<span class="map-marker">' + split[2] + '</span>';
       } else if (type == "objectiveMarker" && split.length == 3) {
         replace = '<span class="objective-marker">' + split[2] + '</span>';
+      } else if (type && type.startsWith("damage")) {
+        let value = '';
+        if (type.split(':').length > 1) {
+          value = type.split(':')[1];
+        }
+        replace = '<span class="damage">' + settingsManager.getLabel('game.damage', [value]) + '</span>';
       } else {
         replace = settingsManager.getLabel(label.split(':')[0], label.split(':').splice(1).map((arg) =>
-          applyPlaceholder(settingsManager.getLabel(arg))
+          applyPlaceholder(settingsManager.getLabel(arg), relative)
         )) + image;
       }
 
@@ -81,26 +87,12 @@ export const applyPlaceholder = function (value: string): string {
     });
   }
 
-  while (value.match(EntityValueRegex)) {
-    value = value.replace(EntityValueRegex, (match, ...args) => {
-      if (settingsManager.settings.calculate) {
-        const result = EntityValueFunction(match)
-        return "" + result;
-      } else {
-        let func = args[2];
-        const funcLabel = func && func.startsWith('%');
-        if (funcLabel) {
-          func = func.replace('%', '');
-        }
-        return funcLabel ? args[0] + ' ' + settingsManager.getLabel('game.custom.' + func) : args[0];
-      }
-    });
-  }
+  value = applyValueCalc(value, relative);
 
   return value;
 }
 
-export const applyFhPlaceholder = function (value: string): string {
+export const applyFhPlaceholder = function (value: string, relative: boolean = false): string {
   while (value.match(ghsLabelRegex)) {
     value = value.replace(ghsLabelRegex, (match, ...args) => {
       const label: string = args[0];
@@ -163,9 +155,16 @@ export const applyFhPlaceholder = function (value: string): string {
       } else if (type == "target" && split.length == 2) {
         image = '<img  src="./assets/images/fh/action/target.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-action">' + image + '</span>';
+      } else if (type && type.startsWith("damage")) {
+        let value = '';
+        if (type.split(':').length > 1) {
+          value = type.split(':')[1];
+        }
+        image = '<img  src="./assets/images/fh/action/damage.svg" class="icon ghs-svg">';
+        replace = '<span class="damage">' + image + value + '</span>';
       } else {
         replace = settingsManager.getLabel(label.split(':')[0], label.split(':').splice(1).map((arg) =>
-          applyPlaceholder(settingsManager.getLabel(arg))
+          applyFhPlaceholder(settingsManager.getLabel(arg), relative)
         )) + image;
       }
 
@@ -173,9 +172,16 @@ export const applyFhPlaceholder = function (value: string): string {
     });
   }
 
+  value = applyValueCalc(value, relative);
+
+  return value;
+}
+
+export const applyValueCalc = function (value: string, relative: boolean): string {
+
   while (value.match(EntityValueRegex)) {
     value = value.replace(EntityValueRegex, (match, ...args) => {
-      if (settingsManager.settings.calculate) {
+      if (settingsManager.settings.calculate && !relative) {
         const result = EntityValueFunction(match)
         return "" + result;
       } else {
@@ -200,6 +206,7 @@ export class I18nDirective implements OnInit, OnChanges {
   @Input('i18n') value!: string;
   @Input('i18n-args') args: string[] = [];
   @Input('i18n-arg-label') argLabel: boolean = true;
+  @Input('relative') relative: boolean = false;
 
   private C: number;
   private L: number;
@@ -233,7 +240,7 @@ export class I18nDirective implements OnInit, OnChanges {
   }
 
   apply(): void {
-    this.el.nativeElement.innerHTML = this.value && applyPlaceholder(settingsManager.getLabel(this.value, this.args, this.argLabel)) || "";
+    this.el.nativeElement.innerHTML = this.value && applyPlaceholder(settingsManager.getLabel(this.value, this.args, this.argLabel), this.relative) || "";
   }
 
 

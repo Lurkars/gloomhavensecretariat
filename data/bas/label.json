@@ -17,7 +17,7 @@
         "desiccated-corpse": {
           "1": "DESICCATE",
           "2": "Destroy all water carried by adjacent enemies.",
-          "3": "%data.monster.desiccated-corpse% suffers 1 damage."
+          "3": "%data.monster.desiccated-corpse% suffers %game.damage:1%."
         },
         "dust-demon": {
           "1": "%data.monster.dust-demon% moves through as many enemies as possible."
@@ -54,7 +54,7 @@
         "desiccated-corpse": {
           "1": "AUSTROCKNEN",
           "2": "Zerstöre von angrenzenden Gegnern getragenes Wasser.",
-          "3": "%data.monster.desiccated-corpse% erleidet 1 Schaden."
+          "3": "%data.monster.desiccated-corpse% erleidet %game.damage:1%."
         },
         "dust-demon": {
           "1": "%data.monster.dust-demon% bewegt sich durch so viele Gegner wie möglich."
@@ -91,7 +91,7 @@
         "desiccated-corpse": {
           "1": "SÉCHER",
           "2": "Détruisez toute l'eau transportée par les ennemis adjacents.",
-          "3": "%data.monster.desiccated-corpse% subit 1 dégâts."
+          "3": "%data.monster.desiccated-corpse% subit %game.damage:1%."
         },
         "dust-demon": {
           "1": "%data.monster.dust-demon% se déplace à travers autant d'ennemis que possible."

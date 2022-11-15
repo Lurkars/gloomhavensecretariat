@@ -1,1 +1,80 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 23.44 34.92"><defs><style>.cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}</style><clipPath id="clip-path" transform="translate(0 0)"><rect class="cls-1" width="23.44" height="34.92"/></clipPath></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g class="cls-2"><path d="M23.23,0,18.57,3.59a.86.86,0,0,0-.33.52A4.84,4.84,0,0,0,19.58,9a2.51,2.51,0,0,0,1.18.56.78.78,0,0,0,.87-.6L23.44.16A.13.13,0,0,0,23.23,0" transform="translate(0 0)"/><path d="M16.82,5.35l-.89.73a5.79,5.79,0,0,0,.86,6C18.57,14.42,20,13.69,20,13.69l.4-1.56a3.76,3.76,0,0,1,.23,3c-.71,1.79-2.43,1.72-4.35.12s-4.08-6.35-1.68-9.08a2.07,2.07,0,0,1,2.25-.78" transform="translate(0 0)"/><path d="M11.37,9.88l-1.14.95a10,10,0,0,0,2.48,9.68c3.39,3.64,5.05,1.79,5.05,1.79l.47-1.84a5.69,5.69,0,0,1,.21,4c-.83,2-3.4,2.2-6,.57s-7.29-7.75-4.32-13.6a2.78,2.78,0,0,1,3.29-1.58" transform="translate(0 0)"/><path d="M4.74,15.34,2.82,16.92A13.85,13.85,0,0,0,7.29,28.68c5.45,4.92,8.4,1.77,8.4,1.77l.48-1.85a4.51,4.51,0,0,1-.24,4.31c-1.15,2.18-3.81,2.56-7.49,1.25-5.9-2.1-11.17-12.28-6.87-17.65a2.78,2.78,0,0,1,3.17-1.17" transform="translate(0 0)"/></g></g></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 23.44 34.92"
+   version="1.1"
+   id="svg21"
+   sodipodi:docname="fh-drill.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview23"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="25.000001"
+     inkscape:cx="11.739999"
+     inkscape:cy="17.459999"
+     inkscape:window-width="1846"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg21" />
+  <defs
+     id="defs7">
+    <style
+       id="style2">.cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}</style>
+    <clipPath
+       id="clip-path"
+       transform="translate(0 0)">
+      <rect
+         class="cls-1"
+         width="23.44"
+         height="34.92"
+         id="rect4" />
+    </clipPath>
+  </defs>
+  <g
+     id="Layer_2"
+     data-name="Layer 2"
+     style="fill:#d3c6a4;fill-opacity:1">
+    <g
+       id="Layer_1-2"
+       data-name="Layer 1"
+       style="fill:#d3c6a4;fill-opacity:1">
+      <g
+         class="cls-2"
+         clip-path="url(#clip-path)"
+         id="g17"
+         style="fill:#d3c6a4;fill-opacity:1">
+        <path
+           d="M23.23,0,18.57,3.59a.86.86,0,0,0-.33.52A4.84,4.84,0,0,0,19.58,9a2.51,2.51,0,0,0,1.18.56.78.78,0,0,0,.87-.6L23.44.16A.13.13,0,0,0,23.23,0"
+           transform="translate(0 0)"
+           id="path9"
+           style="fill:#d3c6a4;fill-opacity:1" />
+        <path
+           d="M16.82,5.35l-.89.73a5.79,5.79,0,0,0,.86,6C18.57,14.42,20,13.69,20,13.69l.4-1.56a3.76,3.76,0,0,1,.23,3c-.71,1.79-2.43,1.72-4.35.12s-4.08-6.35-1.68-9.08a2.07,2.07,0,0,1,2.25-.78"
+           transform="translate(0 0)"
+           id="path11"
+           style="fill:#d3c6a4;fill-opacity:1" />
+        <path
+           d="M11.37,9.88l-1.14.95a10,10,0,0,0,2.48,9.68c3.39,3.64,5.05,1.79,5.05,1.79l.47-1.84a5.69,5.69,0,0,1,.21,4c-.83,2-3.4,2.2-6,.57s-7.29-7.75-4.32-13.6a2.78,2.78,0,0,1,3.29-1.58"
+           transform="translate(0 0)"
+           id="path13"
+           style="fill:#d3c6a4;fill-opacity:1" />
+        <path
+           d="M4.74,15.34,2.82,16.92A13.85,13.85,0,0,0,7.29,28.68c5.45,4.92,8.4,1.77,8.4,1.77l.48-1.85a4.51,4.51,0,0,1-.24,4.31c-1.15,2.18-3.81,2.56-7.49,1.25-5.9-2.1-11.17-12.28-6.87-17.65a2.78,2.78,0,0,1,3.17-1.17"
+           transform="translate(0 0)"
+           id="path15"
+           style="fill:#d3c6a4;fill-opacity:1" />
+      </g>
+    </g>
+  </g>
+</svg>

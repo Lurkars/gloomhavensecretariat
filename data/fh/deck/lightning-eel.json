@@ -1,0 +1,242 @@
+{
+  "name": "lightning-eel",
+  "abilities": [
+    {
+      "name": "Nothing Special",
+      "initiative": 20,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "light",
+          "small": false
+        }
+      ],
+      "cardId": 706
+    },
+    {
+      "name": "Shocking Voltage",
+      "initiative": 82,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "stun",
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ],
+          "small": false
+        }
+      ],
+      "shuffle": true,
+      "cardId": 707
+    },
+    {
+      "name": "Trashing in the Water",
+      "initiative": 9,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "shuffle": true,
+      "cardId": 708
+    },
+    {
+      "name": "Calculated Strike",
+      "initiative": 35,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "light",
+          "small": false
+        }
+      ],
+      "cardId": 709
+    },
+    {
+      "name": "Paralyzing Bite",
+      "initiative": 67,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "light",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add",
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "stun",
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 710
+    },
+    {
+      "name": "Leaping Dive",
+      "initiative": 12,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump",
+              "value": "",
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "light",
+          "small": false
+        }
+      ],
+      "cardId": 711
+    },
+    {
+      "name": "Electric Pulse",
+      "initiative": 16,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "small": false,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "light",
+          "small": false
+        }
+      ],
+      "cardId": 712
+    },
+    {
+      "name": "Hasty Assault",
+      "initiative": 5,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        }
+      ],
+      "cardId": 713
+    }
+  ],
+  "edition": "fh"
+}

@@ -32,6 +32,20 @@
       }
     }
 
+    @keyframes highlight-image {
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0.5;
+      }
+    }
+
     span {
       background-image: linear-gradient(-225deg,
           var(--ghs-color-white) 0%,
@@ -46,6 +60,11 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: highlight-animation 3s linear infinite;
+      animation-delay: -1.5s;
+    }
+
+    img {
+      animation: highlight-image 3s ease-in-out infinite;
       animation-delay: -1.5s;
     }
 
@@ -449,6 +468,10 @@
     }
   }
 
+  .custom-subactions {
+    width: 100%;
+  }
+
   .aoe .element-subactions {
     flex: initial;
   }
@@ -458,6 +481,10 @@
 
     &.monster-type-elite {
       color: var(--ghs-color-yellow);
+    }
+
+    &.monster-type-boss {
+      color: var(--ghs-color-red);
     }
   }
 
@@ -668,6 +695,11 @@
       flex-wrap: wrap;
     }
 
+    .custom-value,
+    .special-target-value {
+      font-family: var(--ghs-font-text);
+    }
+
     .main-action {
       font-size: 125%;
 
@@ -687,9 +719,46 @@
       align-items: center;
     }
 
+
+    &:not(.inline) {
+      .condition {
+        .condition-image {
+          width: 1.4em;
+          height: 1.4em;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      .subactions {
+        .condition {
+          .condition-image {
+            width: 1.2em;
+            height: 1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img.icon {
+              width: 1.5em;
+              height: 1.5em;
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+
+    .elements .minus {
+      margin-left: 0.15em;
+    }
+
     .subactions,
     .condition-subactions,
-    .monster-type-subactions {
+    .monster-type-subactions,
+    .subaction-custom .custom-subactions,
+    .subaction-specialTarget .special-target-subactions {
       position: relative;
       display: flex;
       flex-direction: row;
@@ -697,6 +766,7 @@
       max-width: 95%;
       padding: 0.1em;
       margin-left: 0.2em;
+      width: auto;
 
       &::before {
         content: ' ';
@@ -718,11 +788,6 @@
         &::before {
           display: none;
         }
-      }
-
-      .condition-image {
-        width: 1.6em;
-        height: 1.6em;
       }
 
       ghs-action {
@@ -760,14 +825,9 @@
           background: radial-gradient(var(--ghs-color-white) 0%, transparent 100%);
           background-clip: padding-box;
           clip-path: polygon(48% 100%, 52% 100%, 52% 15%, 100% 15%, 100% 0%, 0% 0%, 0% 15%, 48.5% 15%);
+          z-index: -1;
         }
 
-        .subactions,
-        .condition-subactions {
-          &::before {
-            display: none;
-          }
-        }
       }
     }
 
@@ -777,6 +837,10 @@
       justify-content: center;
       align-items: center;
       padding: 0.2em;
+
+      .element-subactions {
+        margin-left: -0.2em;
+      }
     }
 
     .action-element-consume {
@@ -806,6 +870,7 @@
         border-top-right-radius: 2em 100%;
         border-bottom-left-radius: 2em 100%;
         border-bottom-right-radius: 2em 100%;
+        z-index: -1;
       }
     }
 

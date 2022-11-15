@@ -1,0 +1,152 @@
+{
+  "name": "the-relic",
+  "edition": "fh",
+  "deck": "boss",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "immunities": [
+      "wound",
+      "poison",
+      "immobilize",
+      "disarm",
+      "stun"
+    ],
+    "special": [
+      [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        }
+      ],
+      [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        }
+      ]
+    ],
+    "actions": [
+      {
+        "type": "retaliate",
+        "value": 1,
+        "small": false
+      }
+    ],
+    "health": "Cx12",
+    "movement": 3,
+    "attack": 3
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx12",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1,
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": "Cx13",
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1,
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "Cx15",
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1,
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "Cx18",
+      "movement": 5,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "Cx21",
+      "movement": 5,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "Cx25",
+      "movement": 6,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "Cx33",
+      "movement": 6,
+      "attack": 7,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3,
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "Cx43",
+      "movement": 6,
+      "attack": 8,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3,
+          "small": false
+        }
+      ]
+    }
+  ]
+}

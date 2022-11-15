@@ -1,0 +1,137 @@
+{
+  "name": "elder-ooze",
+  "edition": "fh",
+  "deck": "boss",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "immunities": [
+      "wound",
+      "poison",
+      "immobilize",
+      "stun"
+    ],
+    "special": [
+      [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "The target loses one item.",
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "custom",
+          "value": "All adjacent characters gain 1 slime.",
+          "small": true
+        }
+      ],
+      [
+        {
+          "type": "specialTarget",
+          "value": "focusEnemyFarthest",
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 8,
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ],
+          "small": true
+        },
+        {
+          "type": "push",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%game.target.all%",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ]
+    ],
+    "health": "Cx16",
+    "movement": 3,
+    "attack": 3
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx16",
+      "attack": 3,
+      "movement": 3
+    },
+    {
+      "level": 1,
+      "health": "Cx20",
+      "attack": 3,
+      "movement": 4
+    },
+    {
+      "level": 2,
+      "health": "Cx24",
+      "attack": 4,
+      "movement": 4
+    },
+    {
+      "level": 3,
+      "health": "Cx30",
+      "attack": 4,
+      "movement": 5
+    },
+    {
+      "level": 4,
+      "health": "Cx36",
+      "attack": 5,
+      "movement": 5
+    },
+    {
+      "level": 5,
+      "health": "Cx42",
+      "attack": 5,
+      "movement": 5
+    },
+    {
+      "level": 6,
+      "health": "Cx59",
+      "attack": 6,
+      "movement": 5
+    },
+    {
+      "level": 7,
+      "health": "Cx76",
+      "attack": 7,
+      "movement": 5
+    }
+  ]
+}

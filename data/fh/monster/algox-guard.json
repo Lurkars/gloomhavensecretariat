@@ -1,0 +1,117 @@
+{
+  "name": "algox-guard",
+  "edition": "fh",
+  "deck": "guard",
+  "count": 10,
+  "baseStat": {
+    "immunities": [],
+    "special": [],
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 6,
+      "movement": 2,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 10,
+      "movement": 2,
+      "attack": 4
+    },
+    {
+      "level": 1,
+      "health": 7,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 12,
+      "movement": 3,
+      "attack": 4
+    },
+    {
+      "level": 2,
+      "health": 10,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 15,
+      "movement": 3,
+      "attack": 5
+    },
+    {
+      "level": 3,
+      "health": 12,
+      "movement": 3,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 19,
+      "movement": 4,
+      "attack": 5
+    },
+    {
+      "level": 4,
+      "health": 15,
+      "movement": 4,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 22,
+      "movement": 4,
+      "attack": 6
+    },
+    {
+      "level": 5,
+      "health": 19,
+      "movement": 4,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 27,
+      "movement": 5,
+      "attack": 6
+    },
+    {
+      "level": 6,
+      "health": 25,
+      "movement": 4,
+      "attack": 5
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 37,
+      "movement": 5,
+      "attack": 7
+    },
+    {
+      "level": 7,
+      "health": 33,
+      "movement": 5,
+      "attack": 5
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 47,
+      "movement": 6,
+      "attack": 7
+    }
+  ]
+}

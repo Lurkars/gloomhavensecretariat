@@ -1,0 +1,298 @@
+{
+  "name": "burrowing-blade",
+  "abilities": [
+    {
+      "name": "Tunneling Slices",
+      "initiative": 68,
+      "actions": [
+        {
+          "type": "specialTarget",
+          "value": "focusEnemyFarthest",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 1,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "jump",
+                  "value": "",
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ],
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesMovedThroughAdjacent",
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "shuffle": true,
+      "cardId": 818
+    },
+    {
+      "name": "Tunneling Slices",
+      "initiative": 68,
+      "actions": [
+        {
+          "type": "specialTarget",
+          "value": "focusEnemyFarthest",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 1,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "jump",
+                  "value": "",
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ],
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesMovedThroughAdjacent",
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "shuffle": true,
+      "cardId": 819
+    },
+    {
+      "name": "Descend",
+      "initiative": 75,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "All adjacent enemies suffer %game.damage:2%.",
+          "small": true
+        },
+        {
+          "type": "condition",
+          "value": "invisible",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "small": false
+        }
+      ],
+      "cardId": 820
+    },
+    {
+      "name": "Soaring Strikes",
+      "initiative": 53,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump",
+              "value": "",
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "small": false
+        }
+      ],
+      "cardId": 821
+    },
+    {
+      "name": "Explosive Ascent",
+      "initiative": 63,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump",
+              "value": "",
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "custom",
+          "value": "All enenmies within %game.action.range% 3 suffer %game.damage:2%.",
+          "small": true
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "small": false
+        }
+      ],
+      "cardId": 822
+    },
+    {
+      "name": "Aura of Fear",
+      "initiative": 37,
+      "actions": [
+        {
+          "type": "specialTarget",
+          "value": "focusEnemyFarthest",
+          "subActions": [
+            {
+              "type": "move",
+              "value": 2,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "jump",
+                  "value": "",
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ],
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "and:2",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "curse",
+              "small": false
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": false
+            },
+            {
+              "type": "specialTarget",
+              "value": "enemiesRange:2",
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 823
+    },
+    {
+      "name": "Rocky Thrust",
+      "initiative": 65,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add",
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 824
+    },
+    {
+      "name": "Crashing Blow",
+      "initiative": 85,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 825
+    }
+  ],
+  "edition": "fh"
+}

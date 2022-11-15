@@ -166,22 +166,22 @@
           "1": "Summon one normal %data.monster.blood-ooze% in a hex adjacent to the target with a hit point value equal to the summoning %data.monster.blood-ooze%'s current hit point value minus 2 (limited by a normal %data.monster.blood-ooze%'s specific maximum hit point value)",
           "2": "Summon one normal %data.monster.blood-ooze% with a current hit point value equal to four.",
           "3": "Hit point value equal to three instead",
-          "4": "All adjacent enemies suffer one damage.",
+          "4": "All adjacent enemies suffer %game.damage:1%.",
           "5": "Target all adjacent %data.monster.blood-ooze%s",
           "6": "Add +2 %game.action.attack% if the target is adjacent to at least two %data.monster.blood-ooze%s",
           "7": "Target one enemy at exactly %game.action.range% 2",
           "8": "If at least one money token was looted:",
-          "9": "%data.monster.blood-ooze% suffers two damage."
+          "9": "%data.monster.blood-ooze% suffers %game.damage:2%."
         },
         "brood-mother": {
           "1": "She cannot be reduced below 1 hit point. When attacks, she considers any %game.attackmodifier.double% attack modifier card the enemy draws to be %game.attackmodifier.plus0% instead.",
           "2": "If no focus: "
         },
         "drake-porter": {
-          "1": "Every time you kill a drake, the %data.monster.drake-porter% suffers 2 damage."
+          "1": "Every time you kill a drake, the %data.monster.drake-porter% suffers %game.damage:2%."
         },
         "drakefiend": {
-          "1": "All adjacent figures with %game.condition.wound% suffer 1 damage."
+          "1": "All adjacent figures with %game.condition.wound% suffer %game.damage:1%."
         },
         "eternal-demon": {
           "1": "to a map tile occupied by the least amount of characters.",
@@ -190,15 +190,14 @@
         },
         "frozen-cadaver": {
           "1": "Target all adjacent enemies that do not have any %game.condition.chill% tokens",
-          "2": "All adjacent enemies with %game.condition.chill% suffer 1 damage.",
+          "2": "All adjacent enemies with %game.condition.chill% suffer %game.damage:1%.",
           "3": "Add +2 %game.action.attack% if the target has %game.condition.chill%"
         },
         "gelatinous-giant": {
           "1": "All %data.monster.blood-ooze% perform:"
         },
         "gnashing-drake": {
-          "1": "Focus on the enemy farthest away.",
-          "2": "Add +1 %game.action.attack% if the target's current hit point value is less than maximum."
+          "1": "Add +1 %game.action.attack% if the target's current hit point value is less than maximum."
         },
         "goremyon-shatter-mind": {
           "1": "Normal ally with the fewest hit points performs:",
@@ -217,16 +216,15 @@
           "3": "Create a %game.condition.chill% trap in an adjacent empty hex closest to an enemy."
         },
         "harrower-aegis": {
-          "3": "Affect one ally within %game.action.range% 3",
-          "4": "The affected ally gains \"%game.action.retaliate% 1\".",
-          "5": "All targets suffer 1 damage.",
-          "6": "Remove %game.condition.poison% from self.",
-          "7": "Focus on the enemy farthest away.",
-          "8": "Target all enemies within one hex along the path moved"
+          "1": "Affect one ally within %game.action.range% 3",
+          "2": "The affected ally gains \"%game.action.retaliate% 1\".",
+          "3": "All targets suffer %game.damage:1%.",
+          "4": "Remove %game.condition.poison% from self.",
+          "5": "Target all enemies within one hex along the path moved"
         },
         "harrower-icecrawlers": {
-          "1": "If any enemy suffers %game.action.retaliate% damage from attacking an Icecrawler this round, this enemy gains %game.condition.chill%.",
-          "2": "All enemies adjacent to the target suffer one damage",
+          "1": "If any enemy suffers %game.action.retaliate% %game.damage% from attacking an Icecrawler this round, this enemy gains %game.condition.chill%.",
+          "2": "All enemies adjacent to the target suffer %game.damage:1%",
           "3": "Gain %game.action.range% 3 on all %game.action.retaliate% abilities."
         },
         "land-leviathan": {
@@ -240,7 +238,7 @@
           "2": "Shield only applies on ranged attacks",
           "3": "At %game.initiative.60% perform the following abilities",
           "4": "At %game.initiative.90% perform the following abilities",
-          "5": "where X is the damage dealt by the attack ability.",
+          "5": "where X is the %game.damage% dealt by the attack ability.",
           "6": "Target all enemies at exactly %game.action.range% 2 or 3",
           "7": "This movement may move through all figures.",
           "8": "where X is this figure's %game.action.attack% value.",
@@ -251,20 +249,20 @@
         "rogue-hollowpact": {
           "1": "where X is equal to the number of Void Pit obstacles",
           "2": "Jump to an empty hex adjacent to a Void Pit obstacle furthest away from a character within %game.action.range% 4.",
-          "3": "All enemies adjacent to a Void Pit obstacle suffer 2 damage."
+          "3": "All enemies adjacent to a Void Pit obstacle suffer %game.damage:2%."
         },
         "terrible-two-archer": {
-          "1": "Create a 3 damage trap in an adjacent empty hex closest to an enemy"
+          "1": "Create a %game.damage:3% trap in an adjacent empty hex closest to an enemy"
         },
         "terror-drone": {
           "1": "Summon a normal %data.monster.dead-archer% in a hex adjacent to the target"
         },
         "terrorscale-drake": {
-          "1": "all enemies adjacent to the target suffer 1 damage",
+          "1": "all enemies adjacent to the target suffer %game.damage:1%",
           "2": "destroy the occupied obstacle"
         },
         "the-cultist": {
-          "1": "%data.monster.the-cultist% suffers 2 damage.",
+          "1": "%data.monster.the-cultist% suffers %game.damage:2%.",
           "2": "For three or more characters, every other %data.monster.living-spirit% summoned is elite."
         },
         "toxic-imp": {
@@ -276,7 +274,7 @@
           "1": "Shield only applies before its turn.",
           "2": "Add +2 %game.action.attack% if the target is occupying a water tile",
           "3": "where X is equal to the number of water tiles within %game.action.range% 1.",
-          "4": "All enemies occupying a water tile suffer 1 damage.",
+          "4": "All enemies occupying a water tile suffer %game.damage:1%.",
           "5": "Create a water tile in all hexes occupied by a target containing no overlay tiles.",
           "6": "Where X is equal to the number of water tiles within %game.action.range% 1, up to 3.",
           "7": "Create a water tile in an unoccupied adjacent hex closest to an enemy containing no overlay tile."
@@ -332,7 +330,7 @@
         "31": "'Drake's Blood' (Item 14)",
         "32": "'Curious Pendant' (Item 20)",
         "33": "25  gold, gain {POISON}",
-        "34": "Suffer hazardous terrain damage, gain {INVISIBLE}",
+        "34": "Suffer hazardous terrain %game.damage%, gain {INVISIBLE}",
         "35": "'Curseblood Blade' (Item 36)",
         "36": "10 experience, gain {INVSIBLE}",
         "37": "'Draining Greaves' (Item 15)",

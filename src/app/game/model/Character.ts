@@ -92,7 +92,7 @@ export class Character extends CharacterData implements Entity, Figure {
     this.edition = model.edition;
 
     if (!this.edition) {
-      const characterData = gameManager.charactersData(true).find((characterData) => characterData.name == model.name);
+      const characterData = gameManager.charactersData().find((characterData) => characterData.name == model.name);
       if (characterData) {
         this.edition = characterData.edition;
       } else {

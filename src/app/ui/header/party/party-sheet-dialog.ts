@@ -318,7 +318,7 @@ export class PartySheetDialogComponent {
   }
 
   characterIcon(name: string): string {
-    const char = gameManager.charactersData(true).find((characterData) => characterData.name == name);
+    const char = gameManager.charactersData().find((characterData) => characterData.name == name);
     if (char) {
       return gameManager.characterManager.characterIcon(char);
     }

@@ -1,0 +1,166 @@
+{
+  "name": "render",
+  "edition": "fh",
+  "deck": "boss",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "immunities": [
+      "brittle",
+      "immobilize",
+      "disarm",
+      "stun",
+      "curse"
+    ],
+    "special": [
+      [
+        {
+          "type": "grid",
+          "value": "",
+          "small": false,
+          "subActions": [
+            {
+              "type": "teleport",
+              "value": "",
+              "small": false
+            },
+            {
+              "type": "custom",
+              "value": "to farthest totem and destroy it.",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            },
+            {
+              "type": "push",
+              "value": 2,
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "Destroy all adjacent totems.",
+          "small": true
+        },
+        {
+          "type": "pull",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "[C]",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "heal",
+          "value": "[C]",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ]
+    ],
+    "actions": [
+      {
+        "type": "condition",
+        "value": "wound",
+        "small": false
+      }
+    ],
+    "health": "Cx20",
+    "movement": 4,
+    "attack": "C+2"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx14",
+      "movement": 3,
+      "attack": "C"
+    },
+    {
+      "level": 1,
+      "health": "Cx16",
+      "movement": 3,
+      "attack": "C+2"
+    },
+    {
+      "level": 2,
+      "health": "Cx20",
+      "movement": 4,
+      "attack": "C+2"
+    },
+    {
+      "level": 3,
+      "health": "Cx25",
+      "movement": 4,
+      "attack": "C+3"
+    },
+    {
+      "level": 4,
+      "health": "Cx32",
+      "movement": 4,
+      "attack": "C+3"
+    },
+    {
+      "level": 5,
+      "health": "Cx39",
+      "movement": 4,
+      "attack": "C+4"
+    },
+    {
+      "level": 6,
+      "health": "Cx54",
+      "movement": 4,
+      "attack": "C+5"
+    },
+    {
+      "level": 7,
+      "health": "Cx70",
+      "movement": 4,
+      "attack": "C+6"
+    }
+  ]
+}

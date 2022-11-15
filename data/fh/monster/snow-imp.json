@@ -1,0 +1,202 @@
+{
+  "name": "snow-imp",
+  "edition": "fh",
+  "deck": "imp",
+  "flying": true,
+  "count": 10,
+  "baseStat": {
+    "type": "normal",
+    "immunities": [],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 2,
+      "movement": 2,
+      "attack": 1
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 4,
+      "movement": 2,
+      "attack": 2
+    },
+    {
+      "level": 1,
+      "health": 2,
+      "movement": 2,
+      "attack": 1,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "brittle"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 4,
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "brittle"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 3,
+      "movement": 2,
+      "attack": 1,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "brittle"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 5,
+      "movement": 3,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "brittle"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 3,
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "brittle"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 7,
+      "movement": 3,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "brittle"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 4,
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "brittle"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 8,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "brittle"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 5,
+      "movement": 3,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "brittle"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 10,
+      "movement": 4,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "brittle"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 7,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "brittle"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 13,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "brittle"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 11,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "brittle"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 18,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "brittle"
+        }
+      ]
+    }
+  ]
+}

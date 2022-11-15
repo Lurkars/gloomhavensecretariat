@@ -1,0 +1,360 @@
+{
+  "name": "ice-wraith",
+  "abilities": [
+    {
+      "name": "Shift Form",
+      "initiative": 95,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "All elite Ice Wraiths<br> become normal, and all<br> normal Ice Wraiths become elite.",
+          "small": true
+        },
+        {
+          "type": "heal",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "small": false,
+          "subActions": [
+            {
+              "type": "monsterType",
+              "value": "normal",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true
+                }
+              ],
+              "small": true
+            }
+          ]
+        }
+      ],
+      "shuffle": true,
+      "cardId": 642
+    },
+    {
+      "name": "Renewed Aggression",
+      "initiative": 44,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "small": false,
+          "subActions": [
+            {
+              "type": "monsterType",
+              "value": "normal",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true
+                }
+              ],
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "small": false
+        }
+      ],
+      "shuffle": true,
+      "cardId": 643
+    },
+    {
+      "name": "Unholy Strength",
+      "initiative": 59,
+      "actions": [
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "and:2",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "bless",
+                  "small": false
+                },
+                {
+                  "type": "condition",
+                  "value": "strengthen",
+                  "small": false
+                },
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 644
+    },
+    {
+      "name": "Fade Out",
+      "initiative": 59,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "invisible",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "concatenation",
+              "value": "and:2",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "bless",
+                  "small": false
+                },
+                {
+                  "type": "condition",
+                  "value": "strengthen",
+                  "small": false
+                },
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "small": false
+        }
+      ],
+      "cardId": 645
+    },
+    {
+      "name": "Hasty Assault",
+      "initiative": 41,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "small": false,
+          "subActions": [
+            {
+              "type": "monsterType",
+              "value": "normal",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true
+                }
+              ],
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "small": false
+        }
+      ],
+      "cardId": 646
+    },
+    {
+      "name": "Calculated Strike",
+      "initiative": 71,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "small": false,
+          "subActions": [
+            {
+              "type": "monsterType",
+              "value": "normal",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true
+                }
+              ],
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "small": false
+        }
+      ],
+      "cardId": 647
+    },
+    {
+      "name": "Restore Essence",
+      "initiative": 13,
+      "actions": [
+        {
+          "type": "heal",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 2,
+              "small": false
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 648
+    },
+    {
+      "name": "Shard Strike",
+      "initiative": 16,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "small": false,
+          "subActions": [
+            {
+              "type": "monsterType",
+              "value": "normal",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 4,
+                  "small": true
+                }
+              ],
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "retaliate",
+              "value": 2,
+              "small": false
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 649
+    }
+  ],
+  "edition": "fh"
+}

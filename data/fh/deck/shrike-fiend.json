@@ -1,0 +1,251 @@
+{
+  "name": "shrike-fiend",
+  "abilities": [
+    {
+      "name": "Darken the Skies",
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 810
+    },
+    {
+      "name": "Concentrated Flock",
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "shuffle": true,
+      "cardId": 811
+    },
+    {
+      "name": "Friendish Charge",
+      "initiative": 73,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "push",
+              "value": 2,
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 785
+    },
+    {
+      "name": "Angry Cloud",
+      "initiative": 9,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "All enemies within %game.action.range% 3 suffer %game.damage:2%.",
+          "small": true
+        },
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "small": false
+        }
+      ],
+      "cardId": 813
+    },
+    {
+      "name": "Gather the Flock",
+      "initiative": 72,
+      "actions": [
+        {
+          "type": "pull",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%game.target.all%",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "custom",
+          "value": "All enemies within %game.action.range% 3 suffer %game.damage:2%.",
+          "small": true
+        }
+      ],
+      "cardId": 814
+    },
+    {
+      "name": "Dive Bombs",
+      "initiative": 49,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 815
+    },
+    {
+      "name": "Nothing Special",
+      "initiative": 90,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "small": false
+        }
+      ],
+      "shuffle": true,
+      "cardId": 816
+    },
+    {
+      "name": "Birds of Prey",
+      "initiative": 23,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 6,
+              "small": true
+            },
+            {
+              "type": "pull",
+              "value": 2,
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "dark",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "shield",
+              "value": 2,
+              "small": false
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 817
+    }
+  ],
+  "edition": "fh"
+}

@@ -59,8 +59,8 @@
             "1": "Husk gain %game.condition.invisible%"
           },
           "115": {
-            "1": "Remove one damage token from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2:{%math.floor}] hit points for each damage token removed.",
-            "2": "Remove two damage tokens from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2:{%math.floor}] hit points for each damage token removed.",
+            "1": "Remove one damage token from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{%math.floor}] hit points for each damage token removed.",
+            "2": "Remove two damage tokens from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{%math.floor}] hit points for each damage token removed.",
             "3": "Spawn Valrath Savage and Tracker at %game.mapMarker.c% if alter %game.mapMarker.a% has no damage token on it, and three Black Imps at %game.mapMarker.d% if altar %game.mapMarker.b% has no damage tokens.",
             "4": "Scenario lost!"
           }
@@ -107,7 +107,7 @@
           "10": "Summon two %data.monster.black-imp%s: both normal for two characters; one normal, one elite for three chararcers; both elite for four characters.",
           "11": "Summon one additional elite %data.monster.black-imp%",
           "12": "Target all enemies within %game.action.range%4",
-          "13": "All adjacent enemies suffer 3 damage.",
+          "13": "All adjacent enemies suffer %game.damage:3%.",
           "14": "On the next three sources of damage from attacks targeting you, gain %game.action.shield% 3.",
           "15": "Create one %game.condition.disarm% and %game.condition.poison% trap in each adjacent empty hex.",
           "16": "%game.action.teleport% to the hex occupied by the farthest enemy within %game.action.range%+1 and simultaneously %game.action.teleport% that enemy to the hex you occupy.",
@@ -119,7 +119,7 @@
           "22": "On the next three sources of damage to you, suffer no damage instead."
         },
         "savage": {
-          "1": "%data.deck.savage% suffers 2 damage."
+          "1": "%data.deck.savage% suffers %game.damage:2%."
         },
         "sraka-the-wise": {
           "1": "Double all Heal values. Heals target The Steel Lion if able",
@@ -244,7 +244,7 @@
           "10": "Beschwöre zwei %data.monster.black-imp%s: beide Normal für zwei; einen Normal und einen Elite für drei; zwei Elite für vier Charaktere.",
           "11": "Beschwöre einen zusätzlichen Elite %data.monster.black-imp%",
           "12": "Visiere alle Gegner in %game.action.range%4",
-          "13": "Alle angrenzenden Gegner erleiden 3 Schaden.",
+          "13": "Alle angrenzenden Gegner erleiden %game.damage:3%.",
           "14": "Die nächsten drei mal wenn du Schaden erleidest, erhalte %game.action.shield% 3.",
           "15": "Erstelle eine %game.condition.disarm% und eine %game.condition.poison% Falle in jeweils einem angrenzenden freien Feld.",
           "16": "%game.action.teleport% zum Feld des weitesten Gegners in %game.action.range%+1 und %game.action.teleport% diesen gleichzeitig auf dein Feld.",
@@ -256,7 +256,7 @@
           "22": "Die nächsten drei mal wenn du Schaden erleidest, erleide stattdessen keinen Schaden."
         },
         "savage": {
-          "1": "%data.deck.savage% erleidet 2 Schaden."
+          "1": "%data.deck.savage% erleidet %game.damage:2%."
         },
         "sraka-the-wise": {
           "1": "Verdopple alle Heil-Werte. Wenn möglich visiert Heilung den Stählernden Löwen an.",
@@ -436,7 +436,7 @@
           "10": "Invoque deux Diablotins Noirs: normaux à deux aventuriers; un normal et un d'élite à trois aventuriers; d'élite à quatre aventuriers.",
           "11": "Invoque un Diablotin Noir d'élite supplémentaire",
           "12": "Cible tous les adversaires à %game.action.range%4",
-          "13": "Tous les adversaires adjacents subissent 3 dégâts.",
+          "13": "Tous les adversaires adjacents subissent %game.damage:3%.",
           "14": "Pour les trois prochaines attaques le ciblant et lui causant des dégâts, gagne %game.action.shield% 3.",
           "15": "Crée un piège à %game.condition.disarm% et %game.condition.poison% sur chaque hexagone vide adjacent.",
           "16": "Se %game.action.teleport% sur l'hexagone occupé par l'adversaire le plus éloigné à %game.action.range%+1 et le %game.action.teleport% simultanément sur l'hexagone qu'il occupait.",
@@ -448,7 +448,7 @@
           "22": "Les trois prochaines fois qu'une source lui inflige des dégâts, il ne subit pas de dégâts à la place."
         },
         "savage": {
-          "1": "Le %data.deck.savage% subit 2 dégâts."
+          "1": "Le %data.deck.savage% subit %game.damage:2%."
         },
         "sraka-the-wise": {
           "1": "Double toutes les valeurs de Soin. Si possible, les soins ciblent en priorité le Lion d'Acier",
@@ -456,7 +456,7 @@
         },
         "the-steel-lion": {
           "1": "Toutes les attaques ciblant un de ses alliés adjacents le prennent pour cible à la place, sans considération de portée",
-          "2": "Les [C] premières fois qu'il subit 6 dégâts ou plus provenant d'une seule source, il n'en subit aucun à la place"
+          "2": "Les [C] premières fois qu'il subit %game.damage:6% ou plus provenant d'une seule source, il n'en subit aucun à la place"
         },
         "tracker": {
           "1": "Crée un piège à %game.condition.disarm% sur l'hexagone vide adjacent le plus proche d'un adversaire.",

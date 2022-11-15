@@ -253,6 +253,7 @@
       },
       "scenarioBook": "Im Szenariobuch nachschlagen"
     },
+    "damage": "{0} Schaden",
     "dead": "Tot",
     "element": {
       "air": "Luft",
@@ -337,7 +338,10 @@
       "selfAlliesRange": "%game.target% dich selbst und alle Verbündeten in %game.action.range% {0} an",
       "targets": "Alle Ziele"
     },
-    "target": "Visiere"
+    "target": {
+      ".": "Visiere",
+      "all": "alle"
+    }
   },
   "help": "Hilfe",
   "hints": {

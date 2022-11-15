@@ -86,8 +86,8 @@
         background-color: var(--ghs-color-darkgray);
         background-size: calc(var(--ghs-unit) * 9 * var(--ghs-text-factor)) AUTO;
         background-repeat: no-repeat;
-        border-top-left-radius: 25%;
-        border-top-right-radius: 25%;
+        border-top-left-radius: 24%;
+        border-top-right-radius: 24%;
         z-index: 0;
         filter: brightness(70%);
       }

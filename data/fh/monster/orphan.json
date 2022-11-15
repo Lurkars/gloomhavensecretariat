@@ -1,0 +1,115 @@
+{
+  "name": "orphan",
+  "edition": "fh",
+  "deck": "boss",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "immunities": [
+      "wound",
+      "brittle",
+      "poison",
+      "immobilize",
+      "disarm",
+      "stun"
+    ],
+    "special": [
+      [
+        {
+          "type": "heal",
+          "value": "[Cx3/2{%math.ceil}]",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "self or glowing orb",
+              "small": true
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump",
+              "value": "",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 6,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "brittle",
+              "small": true
+            }
+          ]
+        }
+      ]
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx7",
+      "movement": 2,
+      "attack": "C"
+    },
+    {
+      "level": 1,
+      "health": "Cx9",
+      "movement": 3,
+      "attack": "C+1"
+    },
+    {
+      "level": 2,
+      "health": "Cx12",
+      "movement": 3,
+      "attack": "C+1"
+    },
+    {
+      "level": 3,
+      "health": "Cx15",
+      "movement": 3,
+      "attack": "C+2"
+    },
+    {
+      "level": 4,
+      "health": "Cx20",
+      "movement": 3,
+      "attack": "C+3"
+    },
+    {
+      "level": 5,
+      "health": "Cx24",
+      "movement": 3,
+      "attack": "C+4"
+    },
+    {
+      "level": 6,
+      "health": "Cx36",
+      "movement": 3,
+      "attack": "C+4"
+    },
+    {
+      "level": 7,
+      "health": "Cx45",
+      "movement": 3,
+      "attack": "C+5"
+    }
+  ]
+}

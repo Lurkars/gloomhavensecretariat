@@ -1272,7 +1272,7 @@
     {
       "name": "Legendary - Domination",
       "cardId": 621,
-      "level": 0,
+      "level": "D",
       "initiative": 50,
       "actions": [
         {

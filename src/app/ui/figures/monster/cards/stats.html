@@ -1,12 +1,14 @@
 <div class="stats-container" [ngClass]="{'boss' : monster.boss, 'fh' : settingsManager.settings.fhStyle}">
-  <div #levelButton (click)="openLevelDialog()" class="level" title="{{'game.level' | ghsLabel}}">{{monster.level}}</div>
+  <div #levelButton (click)="openLevelDialog()" class="level" title="{{'game.level' | ghsLabel}}">{{monster.level}}
+  </div>
 
   <div class="name-container" *ngIf="showName">
     <span class="name">
       {{'data.monster.' + monster.name | ghsLabel}}
       <span *ngIf="monster.isAlly">({{'game.ally' | ghsLabel}})</span>
     </span>
-    <span *ngIf="monster.flying" class="flying"><img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
+    <span *ngIf="monster.flying" class="flying"><img
+        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
     <span class="edition" *ngIf="getEdition()">[{{'data.edition.' + getEdition()| ghsLabel}}]</span>
   </div>
 
@@ -53,19 +55,21 @@
     <div class="extra normal" [ngClass]="{'hidden' : hideStats(MonsterType.normal)}">
       <div class="immunities">
         <span class="immunity" *ngFor="let immunity of statsForType(MonsterType.normal).immunities">
-          <img class="icon" src="./assets/images/condition/{{immunity}}.svg" />
+          <img class="icon"
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + immunity+ '.svg'" />
         </span>
       </div>
       <div class="extra-container">
         <div class="notes" [i18n]="statsForType(MonsterType.normal).note"></div>
         <div class="additional">
           <ghs-actions [actions]="statsForType(MonsterType.normal).actions" [monster]="monster" [inline]="true"
-            [right]="true" [hexSize]="0.5" [highlightActions]="highlightActions">
+            [relative]="relative" [right]="true" [hexSize]="0.5" [highlightActions]="highlightActions">
           </ghs-actions>
         </div>
         <div class="specials" *ngFor="let special of (statsForType(MonsterType.normal).special); let index = index;">
           <span class="special">{{index+1}}:</span>
-          <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [right]="true" [hexSize]="0.5">
+          <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [relative]="relative" [right]="true"
+            [hexSize]="0.5">
           </ghs-actions>
         </div>
       </div>
@@ -73,19 +77,20 @@
     <div class="extra elite" [ngClass]="{'hidden' : hideStats(MonsterType.elite)}">
       <div class="immunities">
         <span class="immunity" *ngFor="let immunity of statsForType(MonsterType.elite).immunities">
-          <img class="icon" src="./assets/images/condition/{{immunity}}.svg" />
+          <img class="icon"
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + immunity+ '.svg'" />
         </span>
       </div>
       <div class="extra-container">
         <div class="notes" [i18n]="statsForType(MonsterType.elite).note"></div>
         <div class="additional">
           <ghs-actions [actions]="statsForType(MonsterType.elite).actions" [monster]="monster" [inline]="true"
-            [hexSize]="0.5" [highlightActions]="highlightActions">
+            [relative]="relative" [hexSize]="0.5" [highlightActions]="highlightActions">
           </ghs-actions>
         </div>
         <div class="specials" *ngFor="let special of (statsForType(MonsterType.elite).special); let index = index;">
           <span class="special">{{index+1}}:</span>
-          <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [hexSize]="0.5">
+          <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [relative]="relative" [hexSize]="0.5">
           </ghs-actions>
         </div>
       </div>
@@ -95,21 +100,21 @@
     <div class="notes" [i18n]="statsForType(MonsterType.boss).note"></div>
     <div class="immunities">
       <span class="immunity" *ngFor="let immunity of statsForType(MonsterType.boss).immunities">
-        <img class="icon" src="./assets/images/condition/{{immunity}}.svg" />
+        <img class="icon"
+          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + immunity+ '.svg'" />
       </span>
     </div>
     <div class="extra-container">
       <div class="additional">
         <ghs-actions [actions]="statsForType(MonsterType.boss).actions" [monster]="monster" [inline]="true"
-          [hexSize]="0.5" [highlightActions]="highlightActions">
+          [relative]="relative" [hexSize]="0.5" [highlightActions]="highlightActions">
         </ghs-actions>
       </div>
       <div class="specials" *ngFor="let special of (statsForType(MonsterType.boss).special); let index = index;">
         <span class="special">{{index+1}}:</span>
-        <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [hexSize]="0.5"></ghs-actions>
+        <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [relative]="relative" [hexSize]="0.5">
+        </ghs-actions>
       </div>
     </div>
   </div>
 </div>
-
-

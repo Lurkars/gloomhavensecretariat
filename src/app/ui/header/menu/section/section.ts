@@ -27,14 +27,14 @@ export class SectionMenuComponent {
       return [];
     }
 
-    return gameManager.sectionData(true).filter((sectionData) => sectionData.edition == this.edition).map((sectionData) => sectionData.group).filter((value, index, self) => self.indexOf(value) === index);
+    return gameManager.sectionData().filter((sectionData) => sectionData.edition == this.edition).map((sectionData) => sectionData.group).filter((value, index, self) => self.indexOf(value) === index);
   }
 
   sections(group: string | undefined = undefined): ScenarioData[] {
     if (!this.edition) {
       return [];
     }
-    return gameManager.sectionData(true).filter((sectionData) => sectionData.edition == this.edition && sectionData.group == group).sort((sA, sB) => {
+    return gameManager.sectionData().filter((sectionData) => sectionData.edition == this.edition && sectionData.group == group).sort((sA, sB) => {
       const a = sA.index;
       const b = sB.index;
       if (!isNaN(+a) && !isNaN(+b)) {

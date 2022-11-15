@@ -102,7 +102,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.harrower-aegis.3%",
+              "value": "%data.custom.cs.harrower-aegis.1%",
               "small": true
             },
             {
@@ -122,7 +122,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.cs.harrower-aegis.4%",
+                  "value": "%data.custom.cs.harrower-aegis.2%",
                   "small": true
                 }
               ]
@@ -162,7 +162,7 @@
               "subActions": [
                 {
                   "type": "custom",
-                  "value": "%data.custom.cs.harrower-aegis.5%",
+                  "value": "%data.custom.cs.harrower-aegis.3%",
                   "small": true
                 }
               ]
@@ -220,7 +220,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.cs.harrower-aegis.6%",
+          "value": "%data.custom.cs.harrower-aegis.4%",
           "small": true
         },
         {
@@ -279,7 +279,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.cs.harrower-aegis.5%",
+              "value": "%data.custom.cs.harrower-aegis.3%",
               "small": true
             }
           ]
@@ -297,8 +297,8 @@
       "shuffle": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%data.custom.cs.harrower-aegis.7%",
+          "type": "specialTarget",
+          "value": "focusEnemyFarthest",
           "small": true
         },
         {
@@ -319,7 +319,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.harrower-aegis.8%",
+              "value": "%data.custom.cs.harrower-aegis.5%",
               "small": true
             },
             {

@@ -1,0 +1,123 @@
+{
+  "name": "night-demon",
+  "edition": "fh",
+  "count": 6,
+  "baseStat": {
+    "type": "normal",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%game.custom.disadvantage%",
+        "small": true
+      }
+    ],
+    "immunities": [],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 3,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 5,
+      "movement": 4,
+      "attack": 4
+    },
+    {
+      "level": 1,
+      "health": 5,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 8,
+      "movement": 4,
+      "attack": 4
+    },
+    {
+      "level": 2,
+      "health": 6,
+      "movement": 3,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 11,
+      "movement": 4,
+      "attack": 4
+    },
+    {
+      "level": 3,
+      "health": 7,
+      "movement": 4,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 13,
+      "movement": 4,
+      "attack": 5
+    },
+    {
+      "level": 4,
+      "health": 8,
+      "movement": 4,
+      "attack": 5
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 15,
+      "movement": 5,
+      "attack": 5
+    },
+    {
+      "level": 5,
+      "health": 11,
+      "movement": 4,
+      "attack": 5
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 17,
+      "movement": 5,
+      "attack": 6
+    },
+    {
+      "level": 6,
+      "health": 16,
+      "movement": 4,
+      "attack": 5
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 23,
+      "movement": 5,
+      "attack": 7
+    },
+    {
+      "level": 7,
+      "health": 20,
+      "movement": 4,
+      "attack": 6
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 30,
+      "movement": 5,
+      "attack": 8
+    }
+  ]
+}

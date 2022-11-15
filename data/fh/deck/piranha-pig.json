@@ -1,0 +1,245 @@
+{
+  "name": "piranha-pig",
+  "abilities": [
+    {
+      "name": "Schooling",
+      "initiative": 40,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "small": false
+            },
+            {
+              "type": "custom",
+              "value": "Add +1 %game.action.attack% if the target is adjecent<br>to any of the Piranha Pig's allies.",
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "shuffle": true,
+      "cardId": 714
+    },
+    {
+      "name": "Bloodthirst",
+      "initiative": 38,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus",
+              "small": false
+            },
+            {
+              "type": "custom",
+              "value": "Add +2 %game.action.attack% if the target has %game.condition.wound%.",
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 715
+    },
+    {
+      "name": "Easy Prey",
+      "initiative": 58,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "plus",
+              "small": false
+            },
+            {
+              "type": "custom",
+              "value": "Add +1 %game.action.attack% if the target is occupying<br>a water hex.",
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 716
+    },
+    {
+      "name": "Feast",
+      "initiative": 26,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": "X",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": false
+                }
+              ],
+              "small": false
+            },
+            {
+              "type": "custom",
+              "value": "where X is the amount of<br>damage done by the<br>target of the attack ability.",
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "shuffle": true,
+      "cardId": 717
+    },
+    {
+      "name": "Hasty Assault",
+      "initiative": 18,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump",
+              "value": "",
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        }
+      ],
+      "cardId": 718
+    },
+    {
+      "name": "No Escape",
+      "initiative": 23,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 719
+    },
+    {
+      "name": "Bared Teeth",
+      "initiative": 13,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump",
+              "value": "",
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "condition",
+          "value": "wound",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%game.target.all%",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "retaliate",
+          "value": 2,
+          "small": false
+        }
+      ],
+      "cardId": 720
+    },
+    {
+      "name": "Nothing Special",
+      "initiative": 31,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        }
+      ],
+      "cardId": 721
+    }
+  ],
+  "edition": "fh"
+}

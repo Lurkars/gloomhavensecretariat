@@ -109,7 +109,7 @@
             "5": "Scenario won!"
           },
           "60": {
-            "1": "All figures suffer 2 damage.",
+            "1": "All figures suffer %game.damage:2%.",
             "2": "Scenario lost!"
           },
           "61": {
@@ -198,24 +198,24 @@
     "custom": {
       "gh": {
         "ancient-artillery": {
-          "1": "All adjacent enemies suffer 2 damage."
+          "1": "All adjacent enemies suffer %game.damage:2%."
         },
         "archer": {
-          "1": "Create a 3 damage trap in an adjacent empty hex closest to an enemy."
+          "1": "Create a %game.damage:3% trap in an adjacent empty hex closest to an enemy."
         },
         "cultist": {
-          "1": "%data.monster.cultist% suffers 2 damage."
+          "1": "%data.monster.cultist% suffers %game.damage:2%."
         },
         "deep-terror": {
           "1": "%game.action.summon% %data.monster.deep-terror% (%monster.normal%) in a hex adjacent to the target"
         },
         "flame-demon": {
-          "1": "%data.monster.flame-demon% suffers 1 damage.",
-          "2": "All adjacent enemies suffer 2 damage.",
-          "3": "Create a 4 damage trap in an adjacent empty hex closest to an enemy."
+          "1": "%data.monster.flame-demon% suffers %game.damage:1%.",
+          "2": "All adjacent enemies suffer %game.damage:2%.",
+          "3": "Create a %game.damage:4% trap in an adjacent empty hex closest to an enemy."
         },
         "frost-demon": {
-          "1": "%data.monster.frost-demon% suffers 1 damage."
+          "1": "%data.monster.frost-demon% suffers %game.damage:1%."
         },
         "giant-viper": {
           "1": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.giant-viper%'s allies.",
@@ -228,26 +228,26 @@
           "1": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.hound%'s allies."
         },
         "living-corpse": {
-          "1": "%data.monster.living-corpse% suffers 1 damage."
+          "1": "%data.monster.living-corpse% suffers %game.damage:1%."
         },
         "mindthief": {
           "augment": "Augment %game.characterToken.mindthief%",
           "augments": "Augments %game.characterToken.mindthief%"
         },
         "night-demon": {
-          "1": "All adjacent enemies and allies suffer 1 damage."
+          "1": "All adjacent enemies and allies suffer %game.damage:1%."
         },
         "ooze": {
-          "1": "Ooze suffers 2 damage.",
+          "1": "Ooze suffers %game.damage:2%.",
           "2": "%game.action.summon% %data.monster.ooze% (%monster.normal%) with a hit point value equal to the summoning %data.monster.ooze%'s current hit point value (limited by a normal %data.monster.ooze%'s specified maximum hit point value)"
         },
         "savvas-lavaflow": {
-          "1": "All allies and enemies adjacent to the target suffer 2 damage",
-          "2": "All enemies suffer 2 damage."
+          "1": "All allies and enemies adjacent to the target suffer %game.damage:2%",
+          "2": "All enemies suffer %game.damage:2%."
         },
         "stone-golem": {
-          "1": "%data.monster.stone-golem% suffers 1 damage.",
-          "2": "%data.monster.stone-golem% suffers 2 damage."
+          "1": "%data.monster.stone-golem% suffers %game.damage:1%.",
+          "2": "%data.monster.stone-golem% suffers %game.damage:2%."
         },
         "bandit-commander": {
           "1": "Move to next door and reveal room"
@@ -288,7 +288,7 @@
         "10": "Gain 10 Experience",
         "11": "Random Item Design",
         "12": "Gain 'Magma Waders' (Item 099)",
-        "13": "Suffer 5 Damage and gain %game.condition.poison% and %game.condition.wound%",
+        "13": "Suffer %game.damage:5% and gain %game.condition.poison% and %game.condition.wound%",
         "14": "Gain 10 Experience",
         "15": "Gain 'Pendant of Dark Pacts' (Item 045)",
         "16": "Gain 10 gold",
@@ -296,10 +296,10 @@
         "18": "Gain 15 gold",
         "19": "Random Item Design",
         "20": "Random Item Design",
-        "21": "Suffer 5 Damage",
+        "21": "Suffer %game.damage:5%",
         "22": "Random Item Design",
         "23": "Gain 'Drakescale Armor' (Item 103)",
-        "24": "Suffer 5 damage",
+        "24": "Suffer %game.damage:5%",
         "25": "Gain 25 gold",
         "26": "Gain 20 Gold",
         "27": "Gain 'Orb of Twilight' (Item 122)",
@@ -314,14 +314,14 @@
         "36": "'Rocket Boots' design (Item 096)",
         "37": "Gain 1 ✔",
         "38": "'Ring of Skulls' design (Item 123)",
-        "39": "Suffer 5 damage",
+        "39": "Suffer %game.damage:5%",
         "40": "Random Item Design",
         "41": "Gain 'Black Knife' (Item 053)",
         "42": "Random Item Design",
-        "43": "Suffer 5 damage gain %game.condition.poison% and %game.condition.wound%",
+        "43": "Suffer %game.damage:5% gain %game.condition.poison% and %game.condition.wound%",
         "44": "Random Side Scenario",
         "45": "Random Item Design",
-        "46": "Suffer 3 damage and gain %game.condition.poison%",
+        "46": "Suffer %game.damage:3% and gain %game.condition.poison%",
         "47": "Gain 'Steam Armor' (Item 104)",
         "48": "Gain 30 gold",
         "49": "New Scenario: Lost Island (Scenario 17 at K-17)",
@@ -351,7 +351,7 @@
         "73": "Random Item Design",
         "74": "Random Item Design",
         "75": "Cryptogram Found (See scenario book page 121)",
-        "76": "Suffer 3 damage, gain {WOUND} and 10 gold",
+        "76": "Suffer %game.damage:3%, gain {WOUND} and 10 gold",
         "77": "Gain 'Major Cure Potion' (Item 090)",
         "78": "'Ancient Bow' (Item 157)",
         "79": "Gain 'Falcon Figurine' (Item 157)",
@@ -360,9 +360,9 @@
         "82": "'Rejuvenation Greaves' (Item 158)",
         "83": "Gain 'Major Power Potion' (Item 041)",
         "84": "Gain 'Mask of Terrors' (Item 066)",
-        "85": "Suffer 3 damage, gain %game.condition.poison% and 10 gold",
+        "85": "Suffer %game.damage:3%, gain %game.condition.poison% and 10 gold",
         "86": "Unlock Diviner {DR} Solo Scenario 'Forecast of the Inevitable",
-        "87": "Suffer 2 damage, gain CURSE and 15 gold",
+        "87": "Suffer %game.damage:2%, gain CURSE and 15 gold",
         "88": "Gain 'Second Chance Ring' (Item 070)",
         "90": "10 gold each, Read section 75 on page 49",
         "91": "Gain 30 gold and Party Achievement: 'Opportunists' Add City Event 84 to the deck",
@@ -588,24 +588,24 @@
     "custom": {
       "gh": {
         "ancient-artillery": {
-          "1": "Alle angrenzenden Gegner erleiden 2 Schaden."
+          "1": "Alle angrenzenden Gegner erleiden %game.damage:2%."
         },
         "archer": {
-          "1": "Erstelle eine Schaden 3 Falle in einem leeren angrenzenden Feld zum nächsten Gegner."
+          "1": "Erstelle eine %game.damage:3% Falle in einem leeren angrenzenden Feld zum nächsten Gegner."
         },
         "cultist": {
-          "1": "%data.monster.cultist% erleidet 2 Schaden."
+          "1": "%data.monster.cultist% erleidet %game.damage:2%."
         },
         "deep-terror": {
           "1": "%game.action.summon% %data.monster.deep-terror% (%monster.normal%) in einem am Ziel angrenzenden Feld."
         },
         "flame-demon": {
-          "1": "%data.monster.flame-demon% erleidet 1 Schaden.",
-          "2": "Alle angrenzenden Gegner erleiden 2 Schaden.",
-          "3": "Erstelle eine Schaden 4 Falle in einem leeren angrenzenden Feld zum nächsten Gegner."
+          "1": "%data.monster.flame-demon% erleidet %game.damage:1%.",
+          "2": "Alle angrenzenden Gegner erleiden %game.damage:2%.",
+          "3": "Erstelle eine %game.damage:4% Falle in einem leeren angrenzenden Feld zum nächsten Gegner."
         },
         "frost-demon": {
-          "1": "%data.monster.frost-demon% erleidet 1 Schaden."
+          "1": "%data.monster.frost-demon% erleidet %game.damage:1%."
         },
         "giant-viper": {
           "1": "Füge +2 %game.action.attack% hinzu wenn das Ziel an einem Verbündeten der %data.monster.giant-viper% angrenzt.",
@@ -618,26 +618,26 @@
           "1": "Füge +2 %game.action.attack% hinzu wenn das Ziel an einem Verbündeten des %data.monster.hound% angrenzt."
         },
         "living-corpse": {
-          "1": "%data.monster.living-corpse% erleidet 1 Schaden."
+          "1": "%data.monster.living-corpse% erleidet %game.damage:1%."
         },
         "mindthief": {
           "augment": "Erweiterung %game.characterToken.mindthief%",
           "augments": "Erweiterungen %game.characterToken.mindthief%"
         },
         "night-demon": {
-          "1": "Alle angrenzenden Verbündeten und Gegner erleiden 2 Schaden."
+          "1": "Alle angrenzenden Verbündeten und Gegner erleiden %game.damage:2%."
         },
         "ooze": {
-          "1": "%data.monster.ooze% erleidet 1 Schaden.",
+          "1": "%data.monster.ooze% erleidet %game.damage:1%.",
           "2": "%game.action.summon% %data.monster.ooze% (%monster.normal%) mit einem TP Wert gleich dem beschwörenden %data.monster.ooze% (limitiert auf den maximalen TP Wert eines normalens %data.monster.ooze%)"
         },
         "savvas-lavaflow": {
-          "1": "Alle an das Ziel angrenzenden Verbündeten und Gegner erleiden 2 Schaden.",
-          "2": "Alle Gegner erleiden 2 Schaden."
+          "1": "Alle an das Ziel angrenzenden Verbündeten und Gegner erleiden %game.damage:2%.",
+          "2": "Alle Gegner erleiden %game.damage:2%."
         },
         "stone-golem": {
-          "1": "%data.monster.stone-golem% erleidet 1 Schaden.",
-          "2": "%data.monster.stone-golem% erleidet 2 Schaden."
+          "1": "%data.monster.stone-golem% erleidet %game.damage:1%.",
+          "2": "%data.monster.stone-golem% erleidet %game.damage:2%."
         },
         "bandit-commander": {
           "1": "Zur nächsten Tür gehen und den Raum aufdecken."
@@ -884,21 +884,21 @@
     "custom": {
       "gh": {
         "ancient-artillery": {
-          "1": "Tous les adversaires adjacents subissent 2 dégâts."
+          "1": "Tous les adversaires adjacents subissent %game.damage:2%."
         },
         "archer": {
-          "1": "Crée un piège à 3 dégâts sur l'hexagone vide adjacent le plus proche d'un adversaire."
+          "1": "Crée un piège à %game.damage:3% sur l'hexagone vide adjacent le plus proche d'un adversaire."
         },
         "cultist": {
-          "1": "Le %data.monster.cultist% subit 2 dégâts."
+          "1": "Le %data.monster.cultist% subit %game.damage:2%."
         },
         "deep-terror": {
           "1": "Invoque une %data.monster.deep-terror% normale sur un hexagone adjacent à la cible"
         },
         "flame-demon": {
           "1": "Le %data.monster.flame-demon% subit 1 dégât.",
-          "2": "Tous les adversaires adjacents subissent 2 dégâts.",
-          "3": "Crée un piège à 4 dégâts sur l'hexagone vide adjacent le plus proche d'un adversaire."
+          "2": "Tous les adversaires adjacents subissent %game.damage:2%.",
+          "3": "Crée un piège à %game.damage:4% sur l'hexagone vide adjacent le plus proche d'un adversaire."
         },
         "frost-demon": {
           "1": "Le %data.monster.frost-demon% subit 1 dégât."
@@ -924,16 +924,16 @@
           "1": "Tous les alliés et adversaires adjacents subissent 1 dégât."
         },
         "ooze": {
-          "1": "Le %data.monster.ooze% subit 2 dégâts.",
+          "1": "Le %data.monster.ooze% subit %game.damage:2%.",
           "2": "Invoque un %data.monster.ooze% (normal) dont le nombre de points de vie est égal à son propre nombre de points de vie actuel (limité à la valeur maximale de points de vie d'un %data.monster.ooze% normal)"
         },
         "savvas-lavaflow": {
-          "1": "Tous les alliés et adversaires adjacents à la cible subissent 2 dégâts.",
-          "2": "Tous les adversaires subissent 2 dégâts."
+          "1": "Tous les alliés et adversaires adjacents à la cible subissent %game.damage:2%.",
+          "2": "Tous les adversaires subissent %game.damage:2%."
         },
         "stone-golem": {
           "1": "Le %data.monster.stone-golem% subit 1 dégât.",
-          "2": "Le %data.monster.stone-golem% subit 2 dégâts."
+          "2": "Le %data.monster.stone-golem% subit %game.damage:2%."
         },
         "bandit-commander": {
           "1": "Se déplace vers la prochaine porte et révèle la salle"

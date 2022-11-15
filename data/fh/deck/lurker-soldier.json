@@ -1,0 +1,236 @@
+{
+  "name": "lurker-soldier",
+  "abilities": [
+    {
+      "cardId": 674,
+      "name": "Defensive Claws",
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%game.target.all%",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "shield",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "shield",
+                  "value": 1,
+                  "valueType": "add",
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ],
+          "small": false
+        }
+      ],
+      "shuffle": true
+    },
+    {
+      "cardId": 675,
+      "name": "Hasty Assault",
+      "initiative": 28,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        }
+      ]
+    },
+    {
+      "cardId": 676,
+      "name": "Nothing Special",
+      "initiative": 38,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        }
+      ]
+    },
+    {
+      "cardId": 677,
+      "name": "Focused Strikes",
+      "initiative": 38,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemyOneAll",
+              "small": false
+            }
+          ],
+          "small": false
+        }
+      ]
+    },
+    {
+      "cardId": 678,
+      "name": "Calculated Strike",
+      "initiative": 61,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        }
+      ]
+    },
+    {
+      "cardId": 679,
+      "name": "Berserk Rage",
+      "initiative": 64,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.action.target% enemies within 2 hexes",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "impair",
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ]
+    },
+    {
+      "cardId": 680,
+      "name": "Strength of the Deep",
+      "initiative": 41,
+      "actions": [
+        {
+          "type": "element",
+          "value": "ice",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "strengthen",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": false
+                }
+              ],
+              "small": false
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ]
+    },
+    {
+      "cardId": 681,
+      "name": "Hardened by Frost",
+      "initiative": 23,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "shield",
+          "value": 1,
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "small": false
+        }
+      ],
+      "shuffle": true
+    }
+  ],
+  "edition": "fh"
+}

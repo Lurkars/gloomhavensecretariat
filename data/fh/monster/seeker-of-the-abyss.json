@@ -1,0 +1,110 @@
+{
+  "name": "seeker-of-the-abyss",
+  "edition": "fh",
+  "deck": "boss",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "immunities": [
+      "poison",
+      "disarm",
+      "stun",
+      "muddle",
+      "curse"
+    ],
+    "special": [
+      [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "The target lose one card.",
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "Create one %game.condition.immobilize% trap in an adjacent empty hex.",
+          "small": true
+        },
+        {
+          "type": "custom",
+          "value": "All allies add +1 %game.action.attack% to all their attacks.",
+          "small": true
+        }
+      ]
+    ],
+    "actions": [
+      {
+        "type": "target",
+        "value": 2,
+        "small": false
+      }
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx13",
+      "movement": 2,
+      "attack": 5
+    },
+    {
+      "level": 1,
+      "health": "Cx16",
+      "movement": 3,
+      "attack": 6
+    },
+    {
+      "level": 2,
+      "health": "Cx18",
+      "movement": 3,
+      "attack": 7
+    },
+    {
+      "level": 3,
+      "health": "Cx21",
+      "movement": 3,
+      "attack": 8
+    },
+    {
+      "level": 4,
+      "health": "Cx24",
+      "movement": 3,
+      "attack": 9
+    },
+    {
+      "level": 5,
+      "health": "Cx27",
+      "movement": 4,
+      "attack": 10
+    },
+    {
+      "level": 6,
+      "health": "Cx37",
+      "movement": 4,
+      "attack": 11
+    },
+    {
+      "level": 7,
+      "health": "Cx48",
+      "movement": 4,
+      "attack": 12
+    }
+  ]
+}

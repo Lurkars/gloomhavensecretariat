@@ -1,0 +1,278 @@
+{
+  "name": "lurker-clawcrusher",
+  "abilities": [
+    {
+      "name": "Nothing Special",
+      "initiative": 47,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "small": false
+        }
+      ],
+      "cardId": 690
+    },
+    {
+      "name": "Smash Armor",
+      "initiative": 58,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "small": false,
+              "valueType": "plus"
+            },
+            {
+              "type": "custom",
+              "value": "The target suffers %game.damage:X%, where X<br>is their %game.action.shield% value for this attack.",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "earth",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "X is double their %game.action.shield% value instead.",
+                      "small": true
+                    }
+                  ],
+                  "small": false
+                }
+              ],
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "revealed": true,
+      "cardId": 691
+    },
+    {
+      "name": "Crippling Claw",
+      "initiative": 44,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 692
+    },
+    {
+      "name": "Take Hostage",
+      "initiative": 13,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "shield",
+          "value": 2,
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "small": false
+        }
+      ],
+      "shuffle": true,
+      "cardId": 693
+    },
+    {
+      "name": "Earthen Blow",
+      "initiative": 60,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "poison",
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "wound",
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ],
+          "small": false
+        }
+      ],
+      "shuffle": true,
+      "cardId": 694
+    },
+    {
+      "name": "Crush Armor",
+      "initiative": 36,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "small": false,
+              "valueType": "minus"
+            },
+            {
+              "type": "custom",
+              "value": "The target suffers %game.damage:X%, where X<br>is their %game.action.shield% value for this attack.",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "earth",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "X is double their %game.action.shield% value instead.",
+                      "small": true
+                    }
+                  ],
+                  "small": false
+                }
+              ],
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 695
+    },
+    {
+      "name": "Claw Guard",
+      "initiative": 11,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2,
+          "small": false
+        },
+        {
+          "type": "retaliate",
+          "value": 3,
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "small": false
+        }
+      ],
+      "cardId": 696
+    },
+    {
+      "name": "Frantic Swipes",
+      "initiative": 31,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "small": false
+        }
+      ],
+      "cardId": 697
+    }
+  ],
+  "edition": "fh"
+}

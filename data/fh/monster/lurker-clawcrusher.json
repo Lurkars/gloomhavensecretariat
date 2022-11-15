@@ -1,0 +1,306 @@
+{
+  "name": "lurker-clawcrusher",
+  "edition": "fh",
+  "count": 6,
+  "baseStat": {
+    "type": "normal",
+    "immunities": [],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 7,
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 10,
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": 8,
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 10,
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "impair"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 10,
+      "movement": 3,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1,
+          "small": false
+        },
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 13,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "impair"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 13,
+      "movement": 3,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 14,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "impair"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 13,
+      "movement": 3,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 18,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "impair"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 15,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 21,
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "impair"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 21,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 22,
+      "movement": 3,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        },
+        {
+          "type": "target",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "impair"
+        }
+      ],
+      "immunities": [
+        "stun"
+      ]
+    },
+    {
+      "level": 7,
+      "health": 23,
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": 2
+        }
+      ],
+      "immunities": [
+        "stun"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 29,
+      "movement": 3,
+      "attack": 7,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        },
+        {
+          "type": "target",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "impair"
+        }
+      ],
+      "immunities": [
+        "stun"
+      ]
+    }
+  ]
+}

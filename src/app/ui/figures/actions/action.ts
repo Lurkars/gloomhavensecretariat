@@ -125,9 +125,9 @@ export class ActionComponent implements OnInit {
     }
 
     if (this.action.valueType == ActionValueType.plus) {
-      return "+ " + this.action.value;
+      return "+" + (settingsManager.settings.fhStyle ? '' : ' ') + this.action.value;
     } else if (this.action.valueType == ActionValueType.minus) {
-      return "- " + this.action.value;
+      return "-" + (settingsManager.settings.fhStyle ? '' : ' ') + this.action.value;
     } else {
       return this.action.value;
     }
@@ -145,7 +145,7 @@ export class ActionComponent implements OnInit {
   updateSubActions(): void {
     this.subActions = JSON.parse(JSON.stringify(this.action.subActions || []));
 
-    if (settingsManager.settings.fhStyle && this.action.type != ActionType.element) {
+    if (settingsManager.settings.fhStyle && [ActionType.element, ActionType.concatenation, ActionType.grid, ActionType.box].indexOf(this.action.type) == -1) {
       this.elementActions = this.subActions.filter((action) => action.type == ActionType.element);
       this.subActions = this.subActions.filter((action) => action.type != ActionType.element);
     } else {
@@ -153,7 +153,7 @@ export class ActionComponent implements OnInit {
     }
 
     this.additionalSubActions = JSON.parse(JSON.stringify(this.subActions));
-    if (this.monster && settingsManager.settings.calculateStats) {
+    if (this.monster && settingsManager.settings.calculateStats && !this.relative) {
       let newSubActions: Action[] = [];
       const stat = gameManager.monsterManager.getStat(this.monster, this.monster.boss ? MonsterType.boss : MonsterType.normal);
       let eliteStat = this.monster.boss ? undefined : gameManager.monsterManager.getStat(this.monster, MonsterType.elite);

@@ -253,6 +253,7 @@
       },
       "scenarioBook": "Se reporter au livre de scénarios"
     },
+    "damage": "{0} dégâts",
     "dead": "Mort",
     "element": {
       "air": "Air",
@@ -337,7 +338,10 @@
       "selfAlliesRange": "Sur lui-même et tous les alliés à %game.action.range% {0}",
       "targets": "Toutes les cibles"
     },
-    "target": "Cible"
+    "target": {
+      ".": "Cible",
+      "all": "tous"
+    }
   },
   "help": "Aide",
   "hints": {

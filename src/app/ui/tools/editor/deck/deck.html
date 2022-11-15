@@ -36,6 +36,14 @@
                             (change)="changeInitiative($event, ability)">
 
                         <ng-container
+                            *ngIf="!deckData.character && (!ability.bottomActions || ability.bottomActions.length == 0)">
+                            <a class="shuffle" (click)="ability.shuffle=!ability.shuffle;deckDataToJson();"
+                                [ngClass]="{'enabled' : ability.shuffle }">
+                                <img src="./assets/images/shuffle.svg">
+                            </a>
+                        </ng-container>
+
+                        <ng-container
                             *ngIf="deckData.character || ability.bottomActions && ability.bottomActions.length > 0">
                             <a class="lost" (click)="ability.lost=!ability.lost;deckDataToJson();"
                                 [ngClass]="{'enabled' : ability.lost }">
@@ -103,8 +111,8 @@
 
                 <ghs-ability
                     [ngClass]="{'bottom-actions' : deckData.character || ability.bottomActions && ability.bottomActions.length > 0}"
-                    [ability]="ability" [abilities]="deckData.abilities" [character]="getCharacter()" [monster]="monster"
-                    [relative]="true" [flipped]="true" [reveal]="true" [statsCalculation]="false">
+                    [ability]="ability" [abilities]="deckData.abilities" [character]="getCharacter()"
+                    [monster]="monster" [relative]="true" [flipped]="true" [reveal]="true" [statsCalculation]="false">
                 </ghs-ability>
             </div>
 
@@ -119,11 +127,16 @@
 
             <select (change)="loadDeckData($event)">
                 <option [value]="-1">&lt;{{'editor.deck.new' | ghsLabel}}&gt;</option>
-                <option [value]="index" *ngFor="let deckData of decksData(); let index = index;">
-                    {{deckData.name}} ({{'data.edition.' + deckData.edition | ghsLabel}}) [{{deckData.name}}]
+                <option [value]="index" *ngFor="let dd of decksData(); let index = index;"
+                    [selected]="dd.edition == deckData.edition && dd.name == deckData.name">
+                    {{dd.name}} ({{'data.edition.' + dd.edition | ghsLabel}})
                 </option>
             </select>
-
+            <select [(ngModel)]="edition" (change)="updateQueryParams()">
+                <option></option>
+                <option *ngFor="let edition of gameManager.editions(true)" [value]="edition">{{'data.edition.' + edition
+                    | ghsLabel}}</option>
+            </select>
         </h2>
         <div> {{deckError}} </div>
         <textarea #inputDeckData></textarea>

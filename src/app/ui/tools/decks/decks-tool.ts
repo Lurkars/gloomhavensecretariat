@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
@@ -23,11 +24,25 @@ export class DecksToolComponent implements OnInit {
   elite: boolean = true;
   level: number = 1;
 
+  constructor(private route: ActivatedRoute, private router: Router) { }
+
   async ngOnInit() {
     await settingsManager.init();
     gameManager.stateManager.init();
     this.edition = gameManager.editions(true)[0];
     this.update();
+
+    this.route.queryParams.subscribe({
+      next: (queryParams) => {
+        if (queryParams['edition']) {
+          this.edition = queryParams['edition'];
+          if (this.edition && gameManager.editions(true).indexOf(this.edition) == -1) {
+            this.edition == undefined;
+          }
+          this.update();
+        }
+      }
+    })
   }
 
   update() {
@@ -53,7 +68,7 @@ export class DecksToolComponent implements OnInit {
         return monster;
       });
     } else {
-      const characterData = gameManager.editionData.filter((editionData) => editionData.edition == this.edition).map((editionData) => editionData.characters).flat().filter((characterData) => gameManager.decksData(true).some((deckData) => deckData.name == characterData.deck || deckData.name == characterData.name));
+      const characterData = gameManager.editionData.filter((editionData) => editionData.edition == this.edition).map((editionData) => editionData.characters).flat().filter((characterData) => gameManager.decksData().some((deckData) => deckData.name == characterData.deck || deckData.name == characterData.name));
 
       this.characters = characterData.sort((a, b) => a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1).map((characterData) => {
         return new Character(characterData, this.level);
@@ -63,9 +78,18 @@ export class DecksToolComponent implements OnInit {
     gameManager.uiChange.emit();
   }
 
-  deck(monster: Monster | Character): DeckData {
-    return gameManager.deckData(monster);
+  deck(figure: Monster | Character): DeckData {
+    return gameManager.deckData(figure);
   }
 
+  updateQueryParams() {
+    this.router.navigate(
+      [],
+      {
+        relativeTo: this.route,
+        queryParams: { edition: this.edition || undefined },
+        queryParamsHandling: 'merge'
+      });
+  }
 
 }

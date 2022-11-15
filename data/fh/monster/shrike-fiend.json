@@ -1,0 +1,206 @@
+{
+  "name": "shrike-fiend",
+  "edition": "fh",
+  "count": 10,
+  "baseStat": {
+    "type": "normal",
+    "immunities": [
+      "poison",
+      "wound",
+      "muddle"
+    ],
+    "special": [],
+    "movement": 1,
+    "attack": 2,
+    "health": 5
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 6,
+      "movement": 1,
+      "attack": 2,
+      "immunities": [
+        "poison",
+        "wound",
+        "muddle"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 8,
+      "movement": 2,
+      "attack": 3,
+      "immunities": [
+        "poison",
+        "wound",
+        "muddle"
+      ]
+    },
+    {
+      "level": 1,
+      "health": 8,
+      "movement": 1,
+      "attack": 2,
+      "immunities": [
+        "poison",
+        "wound",
+        "muddle"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 10,
+      "movement": 2,
+      "attack": 3,
+      "immunities": [
+        "poison",
+        "wound",
+        "muddle"
+      ]
+    },
+    {
+      "level": 2,
+      "health": 9,
+      "movement": 1,
+      "attack": 3,
+      "immunities": [
+        "poison",
+        "wound",
+        "muddle"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 12,
+      "movement": 2,
+      "attack": 4,
+      "immunities": [
+        "poison",
+        "wound",
+        "muddle"
+      ]
+    },
+    {
+      "level": 3,
+      "health": 10,
+      "movement": 2,
+      "attack": 3,
+      "immunities": [
+        "poison",
+        "wound",
+        "muddle"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 16,
+      "movement": 2,
+      "attack": 4,
+      "immunities": [
+        "poison",
+        "wound",
+        "muddle"
+      ]
+    },
+    {
+      "level": 4,
+      "health": 13,
+      "movement": 2,
+      "attack": 3,
+      "immunities": [
+        "poison",
+        "wound",
+        "muddle"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 20,
+      "movement": 2,
+      "attack": 5,
+      "immunities": [
+        "poison",
+        "wound",
+        "muddle"
+      ]
+    },
+    {
+      "level": 5,
+      "health": 15,
+      "movement": 3,
+      "attack": 4,
+      "immunities": [
+        "poison",
+        "wound",
+        "muddle"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 25,
+      "movement": 2,
+      "attack": 5,
+      "immunities": [
+        "poison",
+        "wound",
+        "muddle"
+      ]
+    },
+    {
+      "level": 6,
+      "health": 21,
+      "movement": 3,
+      "attack": 4,
+      "immunities": [
+        "poison",
+        "wound",
+        "muddle"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 33,
+      "movement": 3,
+      "attack": 6,
+      "immunities": [
+        "poison",
+        "wound",
+        "muddle",
+        "disarm"
+      ]
+    },
+    {
+      "level": 7,
+      "health": 29,
+      "movement": 3,
+      "attack": 4,
+      "immunities": [
+        "poison",
+        "wound",
+        "muddle",
+        "disarm"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 45,
+      "movement": 3,
+      "attack": 6,
+      "immunities": [
+        "poison",
+        "wound",
+        "muddle",
+        "disarm"
+      ]
+    }
+  ]
+}

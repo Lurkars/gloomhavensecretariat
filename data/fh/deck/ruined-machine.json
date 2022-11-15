@@ -1,0 +1,208 @@
+{
+  "name": "ruined-machine",
+  "abilities": [
+    {
+      "name": "Latch On",
+      "initiative": 31,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "concatenation",
+          "value": ",:2",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": false
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": false
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 594
+    },
+    {
+      "name": "Hasty Assault",
+      "initiative": 41,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        }
+      ],
+      "cardId": 595
+    },
+    {
+      "name": "Nothing Special",
+      "initiative": 63,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        }
+      ],
+      "cardId": 596
+    },
+    {
+      "name": "Calculated Strike",
+      "initiative": 85,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        }
+      ],
+      "cardId": 597
+    },
+    {
+      "name": "Fuel Leak",
+      "initiative": 29,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "custom",
+          "value": "If the move ability was perfomed,<br>Ruined Machine suffers %game.damage:1%.",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        }
+      ],
+      "cardId": 598
+    },
+    {
+      "name": "Devastating Tackle",
+      "initiative": 42,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "custom",
+          "value": "If the attack ability was perfomed,<br>Ruined Machine suffers %game.damage:1%.",
+          "small": true
+        }
+      ],
+      "cardId": 599
+    },
+    {
+      "name": "Signal Jam",
+      "initiative": 56,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "condition",
+          "value": "muddle",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%game.action.all%",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "custom",
+          "value": "Ruined Machine suffers %game.damage:1%.",
+          "small": true
+        }
+      ],
+      "shuffle": true,
+      "cardId": 600
+    },
+    {
+      "name": "Self-Destruct",
+      "initiative": 93,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "custom",
+          "value": "If the attack ability was perfomed,<br>all adjacent enemies suffer trap damage<br>and the Ruined Machine dies.",
+          "small": true
+        }
+      ],
+      "shuffle": true,
+      "cardId": 601
+    }
+  ],
+  "edition": "fh"
+}

@@ -72,11 +72,11 @@ export class ScnearioManager {
           name = name.split(':')[0]
         }
 
-        let monsterData = gameManager.monstersData(true).find((monsterData) => monsterData.name == name && (monsterData.edition == editionData.edition || editionData.extensions && editionData.extensions.indexOf(monsterData.edition) != -1));
+        let monsterData = gameManager.monstersData().find((monsterData) => monsterData.name == name && (monsterData.edition == editionData.edition || editionData.extensions && editionData.extensions.indexOf(monsterData.edition) != -1));
 
         if (!monsterData) {
           console.warn("Monster not found: '" + name + "' for edition :" + editionData.edition);
-          monsterData = gameManager.monstersData(true).find((monsterData) => monsterData.name == name);
+          monsterData = gameManager.monstersData().find((monsterData) => monsterData.name == name);
         }
 
         if (monsterData) {
@@ -94,7 +94,7 @@ export class ScnearioManager {
       gameManager.game.figures = gameManager.game.figures.filter((figure) => !(figure instanceof Character) || figure.name == scenarioData.solo && figure.edition == scenarioData.edition);
 
       if (!gameManager.game.figures.some((figure) => figure instanceof Character && figure.name == scenarioData.solo && figure.edition == scenarioData.edition)) {
-        const characterData = gameManager.charactersData(true).find((characterData) => characterData.name == scenarioData.solo && characterData.edition == scenarioData.edition);
+        const characterData = gameManager.charactersData().find((characterData) => characterData.name == scenarioData.solo && characterData.edition == scenarioData.edition);
         if (characterData) {
           gameManager.characterManager.addCharacter(characterData, 1);
         } else {
@@ -225,7 +225,7 @@ export class ScnearioManager {
       return new ScenarioData(model.custom, "", [], [], [], [], [], [], [], [], "");
     }
 
-    const scenarioData = gameManager.scenarioData(true).find((scenarioData) => scenarioData.index == model.index && scenarioData.edition == model.edition && scenarioData.group == model.group);
+    const scenarioData = gameManager.scenarioData().find((scenarioData) => scenarioData.index == model.index && scenarioData.edition == model.edition && scenarioData.group == model.group);
     if (!scenarioData) {
       console.warn("Invalid scenario data:", model);
       return undefined;
@@ -235,7 +235,7 @@ export class ScnearioManager {
   }
 
   sectionDataForModel(model: GameScenarioModel): ScenarioData | undefined {
-    const sectionData = gameManager.sectionData(true).find((sectionData) => sectionData.index == model.index && sectionData.edition == model.edition && sectionData.group == model.group);
+    const sectionData = gameManager.sectionData().find((sectionData) => sectionData.index == model.index && sectionData.edition == model.edition && sectionData.group == model.group);
     if (!sectionData) {
       console.warn("Invalid section data:", model);
       return undefined;

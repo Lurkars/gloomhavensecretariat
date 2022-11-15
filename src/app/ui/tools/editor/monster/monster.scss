@@ -105,6 +105,15 @@
         font-size: calc(var(--ghs-unit) * 2 * var(--ghs-fontsize));
 
 
+        .monster-action {
+          display: flex;
+          justify-content: space-between;
+
+          .handle {
+            cursor: grab;
+          }
+        }
+
         ghs-action {
           cursor: pointer;
 

@@ -21,6 +21,7 @@ export class MonsterStatsComponent implements OnInit {
   @Input() monster!: Monster;
   @Input() showName: boolean = false;
   @Input() forceStats: boolean = false;
+  @Input() relative: boolean = false;
   MonsterType = MonsterType;
   settingsManager: SettingsManager = settingsManager;
 

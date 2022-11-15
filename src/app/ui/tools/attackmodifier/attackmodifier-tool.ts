@@ -17,7 +17,7 @@ export class AttackModifierToolComponent implements OnInit {
   async ngOnInit() {
     await settingsManager.init();
     gameManager.stateManager.init();
-    gameManager.charactersData(true).forEach((characterData) => {
+    gameManager.charactersData().forEach((characterData) => {
       let character = new Character(characterData, 0);
 
       character.attackModifierDeck.cards = [];

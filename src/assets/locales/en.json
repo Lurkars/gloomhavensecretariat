@@ -154,6 +154,13 @@
         "json": {
           ".": "Character Data JSON Data",
           "download": "Download Character Data as JSON file"
+        },
+        "hp": {
+          ".": "Hit Points",
+          "-1": "Custom Profile",
+          "0": "Low Profile",
+          "1": "Middle Profile",
+          "2": "High Profile"
         }
       },
       "edition": "Edition",
@@ -201,7 +208,6 @@
     },
     "monster": {
       ".": "Monster Editor",
-      "edition": "Edition",
       "new": "New Monster",
       "stats": {
         ".": "Monster Stats",
@@ -347,6 +353,7 @@
       },
       "scenarioBook": "Reference the scenario book"
     },
+    "damage": "{0} damage",
     "dead": "Dead",
     "element": {
       "air": "Air",
@@ -415,6 +422,7 @@
       "enemies": "%game.target% all enemies",
       "enemiesAdjacent": "%game.target% all adjacent enemies",
       "enemiesMovedThrough": "%game.target% all enemies moved through",
+      "enemiesMovedThroughAdjacent": "%game.target% all enemies occupying or adjecent to<br>hexes entered during the move ability",
       "enemiesRange": "%game.target% all enemies within %game.action.range% {0}",
       "enemiesRangeAffect": "%game.affect% all enemies within %game.action.range% {0}",
       "enemy": "%game.target% one enemy",
@@ -424,6 +432,7 @@
       "figures": "%game.target% all figures",
       "figuresAdjacent": "%game.target% all adjacent figures",
       "figuresRange": "%game.target% all figures %game.action.range% {0}",
+      "focusEnemyFarthest": "Focus on the enemy farthest away.",
       "self": "Self",
       "selfAllies": "Self and all allies",
       "selfAlliesAdjacentAffect": "Aff%game.affect%ect self and all adjacent allies",
@@ -431,7 +440,10 @@
       "selfAlliesRange": "%game.target% self and all allies within %game.action.range% {0}",
       "targets": "All targets"
     },
-    "target": "Target"
+    "target": {
+      ".": "Target",
+      "all": "all"
+    }
   },
   "help": "Help",
   "hints": {
@@ -613,8 +625,8 @@
     "disconnect": "Disconnect",
     "disconnected": "No Connection",
     "list": {
-      "deselect" : "Manual enter Server",
-      "select" : "Select public Server"
+      "deselect": "Manual enter Server",
+      "select": "Select public Server"
     },
     "menu": {
       "connect": "Connect to Server",

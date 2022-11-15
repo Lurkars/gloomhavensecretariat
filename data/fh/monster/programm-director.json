@@ -1,0 +1,138 @@
+{
+  "name": "programm-director",
+  "edition": "fh",
+  "deck": "boss",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "immunities": [
+      "wound",
+      "poison",
+      "stun"
+    ],
+    "special": [
+      [
+        {
+          "type": "specialTarget",
+          "value": "focusEnemyFarthest",
+          "subActions": [
+            {
+              "type": "grid",
+              "value": "",
+              "small": false,
+              "subActions": [
+                {
+                  "type": "teleport",
+                  "value": "",
+                  "small": false
+                },
+                {
+                  "type": "custom",
+                  "value": "adjacent to focus",
+                  "small": true
+                }
+              ]
+            }
+          ],
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "Ally to all monsters.",
+          "small": true
+        },
+        {
+          "type": "grid",
+          "value": "",
+          "small": false,
+          "subActions": [
+            {
+              "type": "teleport",
+              "value": "",
+              "small": false
+            },
+            {
+              "type": "custom",
+              "value": "adjacent to focus",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 2,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ]
+    ],
+    "health": "Cx10",
+    "attack": "C"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx10",
+      "attack": "C"
+    },
+    {
+      "level": 1,
+      "health": "Cx12",
+      "attack": "C+1"
+    },
+    {
+      "level": 2,
+      "health": "Cx15",
+      "attack": "C+1"
+    },
+    {
+      "level": 3,
+      "health": "Cx18",
+      "attack": "C+2"
+    },
+    {
+      "level": 4,
+      "health": "Cx23",
+      "attack": "C+2"
+    },
+    {
+      "level": 5,
+      "health": "Cx27",
+      "attack": "C+3"
+    },
+    {
+      "level": 6,
+      "health": "Cx40",
+      "attack": "C+3"
+    },
+    {
+      "level": 7,
+      "health": "Cx50",
+      "attack": "C+4"
+    }
+  ]
+}

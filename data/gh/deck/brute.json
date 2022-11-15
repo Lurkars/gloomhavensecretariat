@@ -234,7 +234,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "On the next six sources of damage from attacks targeting you, gain %game.action.shield%1.",
+          "value": "On the next six sources of %game.damage% from attacks targeting you, gain %game.action.shield%1.",
           "small": true
         },
         {
@@ -465,7 +465,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "where X is the amount of damage you have inflicted so far this turn.",
+              "value": "where X is the amount of %game.damage% you have inflicted so far this turn.",
               "small": true
             }
           ]
@@ -567,7 +567,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "On the next three sources of damage to you, suffer no damage instead.",
+          "value": "On the next three sources of %game.damage% to you, suffer no %game.damage% instead.",
           "small": true
         },
         {

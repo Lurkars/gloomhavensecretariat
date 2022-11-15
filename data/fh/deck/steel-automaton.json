@@ -1,0 +1,175 @@
+{
+  "name": "steel-automaton",
+  "abilities": [
+    {
+      "name": "Calculated Strike",
+      "initiative": 95,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        }
+      ],
+      "shuffle": true,
+      "cardId": 618
+    },
+    {
+      "name": "Heavy Footfalls",
+      "initiative": 48,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "All adjaent enemies suffer %game.damage:2%",
+          "small": true
+        },
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "custom",
+          "value": "All adjaent enemies suffer<br>hazardous terrain damage.",
+          "small": true
+        }
+      ],
+      "cardId": 619
+    },
+    {
+      "name": "Clobber",
+      "initiative": 76,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "stun",
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 620
+    },
+    {
+      "name": "Body Block",
+      "initiative": 24,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "shield",
+          "value": 1,
+          "small": false
+        },
+        {
+          "type": "retaliate",
+          "value": 2,
+          "small": false
+        }
+      ],
+      "cardId": 621
+    },
+    {
+      "name": "Nothing Special",
+      "initiative": 70,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        }
+      ],
+      "cardId": 622
+    },
+    {
+      "name": "Mortar Shell",
+      "initiative": 64,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "pierce",
+              "value": 3,
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 623
+    },
+    {
+      "name": "Unstoppable Force",
+      "initiative": 45,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "push",
+              "value": 3,
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      "cardId": 624
+    },
+    {
+      "name": "Immovable Object",
+      "initiative": 10,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 4,
+          "small": false
+        }
+      ],
+      "shuffle": true,
+      "cardId": 625
+    }
+  ],
+  "edition": "fh"
+}

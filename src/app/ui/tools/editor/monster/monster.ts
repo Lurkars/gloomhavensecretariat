@@ -1,5 +1,7 @@
 import { Dialog } from "@angular/cdk/dialog";
+import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Action, ActionType, ActionValueType } from "src/app/game/model/Action";
@@ -10,7 +12,7 @@ import { MonsterStat } from "src/app/game/model/MonsterStat";
 import { MonsterType } from "src/app/game/model/MonsterType";
 import { MonsterStatsComponent } from "src/app/ui/figures/monster/cards/stats";
 import { EditorActionDialogComponent } from "../action/action";
-import { DeckEditorComponent } from "../deck/deck";
+import { compactAction, DeckEditorComponent } from "../deck/deck";
 
 
 export const newMonsterJson: string = '{"name": "new-monster", "thumbnail" : "", "edition": "", "deck": "", "boss": false, "flying" : false, "hidden":false, "count": 10, "baseStat" : {}, "stats": []}';
@@ -33,10 +35,12 @@ export class MonsterEditorComponent implements OnInit {
   ActionValueType = ActionValueType;
   encodeURIComponent = encodeURIComponent;
   levels: number[] = [0, 1, 2, 3, 4, 5, 6, 7];
-  level: number = 1;
+  level: number = -1;
   monsterError: any;
+  edition: string | undefined;
+  init: boolean = false;
 
-  constructor(private dialog: Dialog) {
+  constructor(private dialog: Dialog, private route: ActivatedRoute, private router: Router) {
     this.monsterData = JSON.parse(newMonsterJson);
     this.updateType(false);
   }
@@ -47,6 +51,38 @@ export class MonsterEditorComponent implements OnInit {
     this.inputMonsterData.nativeElement.addEventListener('change', (event: any) => {
       this.monsterDataFromJson();
     });
+
+    this.route.queryParams.subscribe({
+      next: (queryParams) => {
+        if (queryParams['edition']) {
+          this.edition = queryParams['edition'];
+          if (this.edition && gameManager.editions(true).indexOf(this.edition) == -1) {
+            this.edition == undefined;
+          }
+        }
+
+        if (queryParams['monster']) {
+          const monsterData = gameManager.monstersData(this.edition).find((monsterData) => monsterData.name == queryParams['monster']);
+          if (monsterData) {
+            this.monsterData = monsterData;
+            this.monsterDataToJson();
+          }
+        }
+
+        if (queryParams['level']) {
+          this.level = +queryParams['level'];
+          if (this.level != -1 && this.levels.indexOf(this.level) == -1) {
+            this.level = 1;
+          }
+        }
+
+        if (!this.monsterData.edition && this.edition) {
+          this.monsterData.edition = this.edition;
+        }
+      }
+    })
+
+    this.init = true;
   }
 
   monsterDataToJson() {
@@ -134,14 +170,14 @@ export class MonsterEditorComponent implements OnInit {
       if (stat.actions && stat.actions.length == 0) {
         stat.actions = undefined;
       } else if (stat.actions) {
-        stat.actions.forEach((action: any) => this.deckEditor.compactAction(action));
+        stat.actions.forEach((action: any) => compactAction(action));
       }
 
       if (stat.special && stat.special.length == 0) {
         stat.special = undefined;
       } else if (stat.special) {
         stat.special.forEach((special: any) => {
-          special.forEach((action: any) => this.deckEditor.compactAction(action));
+          special.forEach((action: any) => compactAction(action));
         })
       }
     })
@@ -155,12 +191,12 @@ export class MonsterEditorComponent implements OnInit {
     if (compactData.baseStat.actions && compactData.baseStat.actions.length == 0) {
       compactData.baseStat.actions = undefined;
     } else if (compactData.baseStat.actions) {
-      compactData.baseStat.actions.forEach((action: any) => this.deckEditor.compactAction(action));
+      compactData.baseStat.actions.forEach((action: any) => compactAction(action));
     }
 
     if (compactData.baseStat.special) {
       compactData.baseStat.special.forEach((special: any) => {
-        special.forEach((action: any) => this.deckEditor.compactAction(action));
+        special.forEach((action: any) => compactAction(action));
       })
     }
 
@@ -269,6 +305,15 @@ export class MonsterEditorComponent implements OnInit {
     }
   }
 
+  toggleBoss() {
+    if (this.monsterData.boss) {
+      this.monsterData.count = 1;
+    } else {
+      this.monsterData.count = 10;
+    }
+    this.updateType();
+  }
+
   addMonsterAction(type: MonsterType, level: number) {
     let action = new Action(ActionType.attack);
 
@@ -304,6 +349,13 @@ export class MonsterEditorComponent implements OnInit {
         this.monsterDataToJson();
       }
     })
+  }
+
+  dropMonsterAction(type: MonsterType, level: number, event: CdkDragDrop<number>) {
+    const stat = this.statsForType(type, level);
+    moveItemInArray(stat.actions, event.previousIndex, event.currentIndex);
+    gameManager.uiChange.emit();
+    this.monsterDataToJson();
   }
 
   addSpecialAction(type: MonsterType, index: number, level: number) {
@@ -370,9 +422,23 @@ export class MonsterEditorComponent implements OnInit {
 
   loadMonsterData(event: any) {
     const index = +event.target.value;
-    this.monsterData = index != -1 ? gameManager.monstersData(true)[index] : JSON.parse(newMonsterJson);
+    this.monsterData = index != -1 ? gameManager.monstersData(this.edition)[index] : JSON.parse(newMonsterJson);
     this.updateType();
     this.monsterDataToJson();
+    this.updateQueryParams();
+  }
+
+  updateQueryParams() {
+    if (!this.monsterData.edition && this.edition) {
+      this.monsterData.edition = this.edition;
+    }
+    this.router.navigate(
+      [],
+      {
+        relativeTo: this.route,
+        queryParams: { edition: this.edition || undefined, monster: this.monsterData && this.monsterData.name || undefined, level: this.level != 1 ? this.level : undefined },
+        queryParamsHandling: 'merge'
+      });
   }
 
 }

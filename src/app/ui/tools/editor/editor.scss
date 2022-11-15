@@ -75,10 +75,10 @@ a {
 .base-data {
   font-size: calc(var(--ghs-unit) * 2.5);
   color: var(--ghs-color-white);
-  width: 50%;
+  width: 70%;
   min-width: 300px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto auto;
   grid-gap: calc(var(--ghs-unit) * 2);
   margin: calc(var(--ghs-unit) * 1) auto;
   flex-shrink: 1;

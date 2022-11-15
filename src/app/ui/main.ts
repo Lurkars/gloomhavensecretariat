@@ -48,6 +48,7 @@ export class MainComponent implements OnInit {
     document.body.classList.add('no-select');
     await settingsManager.init();
     gameManager.stateManager.init();
+    gameManager.uiChange.emit();
     document.body.style.setProperty('--ghs-factor', settingsManager.settings.zoom + '');
     document.body.style.setProperty('--ghs-barsize', settingsManager.settings.barsize + '');
     document.body.style.setProperty('--ghs-fontsize', settingsManager.settings.fontsize + '');

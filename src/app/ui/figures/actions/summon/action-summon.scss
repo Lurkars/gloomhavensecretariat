@@ -18,6 +18,10 @@
         align-items: center;
     }
 
+    .summon-label {
+        font-family: var(--ghs-font-text);
+    }
+
     .grid {
         display: grid;
         grid-template-columns: 45% 25% 30%;

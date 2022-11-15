@@ -1,0 +1,170 @@
+{
+  "name": "algox-stormcaller",
+  "edition": "fh",
+  "deck": "boss",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "immunities": [
+      "immobilize",
+      "disarm",
+      "stun",
+      "curse"
+    ],
+    "special": [
+      [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": "[C]",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            },
+            {
+              "type": "push",
+              "value": 2,
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "summon",
+          "value": "wind-demon",
+          "small": true
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "Create hazardous terrain, and all enemies occupying or adjacent to hazardous terrain suffer damage.",
+          "small": true
+        },
+        {
+          "type": "summon",
+          "value": "frost-demon",
+          "small": true
+        }
+      ]
+    ],
+    "actions": [
+      {
+        "type": "shield",
+        "value": 1,
+        "small": false
+      }
+    ],
+    "health": "Cx20",
+    "movement": 2,
+    "attack": 3
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx20",
+      "movement": 2,
+      "attack": 3
+    },
+    {
+      "level": 1,
+      "health": "Cx20",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1,
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "Cx22",
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1,
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "Cx26",
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1,
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "Cx29",
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1,
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "Cx29",
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2,
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "Cx39",
+      "movement": 3,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2,
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "Cx44",
+      "movement": 3,
+      "attack": 7,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3,
+          "small": false
+        }
+      ]
+    }
+  ]
+}

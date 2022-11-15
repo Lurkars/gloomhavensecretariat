@@ -40,7 +40,7 @@ export class AbilityComponent {
 
   abilityLabel(ability: Ability): string {
     let label = ability.name || "";
-    if (this.monster) {
+    if (!ability.name && this.monster) {
       label = 'data.monster.' + this.monster.name;
       if (ability.name) {
         label = 'data.ability.' + ability.name;

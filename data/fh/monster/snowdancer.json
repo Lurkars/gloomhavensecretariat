@@ -1,0 +1,129 @@
+{
+  "name": "snowdancer",
+  "edition": "fh",
+  "deck": "boss",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "immunities": [
+      "disarm",
+      "wound",
+      "muddle",
+      "stun"
+    ],
+    "special": [
+      [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(2,0,target)|(2,1,target)|(1,2,target)|(2,2,target)",
+              "small": false
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
+          ],
+          "small": false
+        }
+      ],
+      [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "push",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "immobilize",
+                  "small": false
+                }
+              ],
+              "small": false
+            }
+          ]
+        }
+      ]
+    ],
+    "movement": 3
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx10",
+      "attack": "C"
+    },
+    {
+      "level": 1,
+      "health": "Cx12",
+      "attack": "C+1"
+    },
+    {
+      "level": 2,
+      "health": "Cx15",
+      "attack": "C+1"
+    },
+    {
+      "level": 3,
+      "health": "Cx17",
+      "attack": "C+2"
+    },
+    {
+      "level": 4,
+      "health": "Cx22",
+      "attack": "C+2"
+    },
+    {
+      "level": 5,
+      "health": "Cx25",
+      "attack": "C+3"
+    },
+    {
+      "level": 6,
+      "health": "Cx35",
+      "attack": "C+4"
+    },
+    {
+      "level": 7,
+      "health": "Cx45",
+      "attack": "C+5"
+    }
+  ]
+}

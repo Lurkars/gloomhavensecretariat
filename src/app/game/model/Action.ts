@@ -68,11 +68,7 @@ export enum ActionHexType {
 }
 
 export enum ActionSpecialTarget {
-  self = "self",
-  selfAllies = "selfAllies",
-  selfAlliesAffect = "selfAlliesAffect",
-  selfAlliesRange = "selfAlliesRange",
-  selfAlliesAdjacentAffect = "selfAlliesAdjacentAffect",
+  all = "all",
   ally = "ally",
   allyShort = "allyShort",
   allyAffect = "allyAffect",
@@ -92,9 +88,16 @@ export enum ActionSpecialTarget {
   enemiesRange = "enemiesRange",
   enemiesRangeAffect = "enemiesRangeAffect",
   enemiesMovedThrough = "enemiesMovedThrough",
+  enemiesMovedThroughAdjacent = "enemiesMovedThroughAdjacent",
   figures = "figures",
   figuresAdjacent = "figuresAdjacent",
   figuresRange = "figuresRange",
+  focusEnemyFarthest = "focusEnemyFarthest",
+  self = "self",
+  selfAllies = "selfAllies",
+  selfAlliesAffect = "selfAlliesAffect",
+  selfAlliesRange = "selfAlliesRange",
+  selfAlliesAdjacentAffect = "selfAlliesAdjacentAffect",
   targets = "targets"
 }
 

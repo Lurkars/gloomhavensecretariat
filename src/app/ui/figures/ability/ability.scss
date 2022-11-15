@@ -287,7 +287,11 @@
 
       &.bottom-actions {
         background-image: url('~src/assets/images/monster/abilities/monster-ability-front-bottom.png');
+      }
 
+      .index {
+        bottom: 1%;
+        left: 1%;
       }
     }
 

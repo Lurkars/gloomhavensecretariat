@@ -38,7 +38,7 @@ export class EditorActionComponent implements OnInit {
   constructor(private dialog: Dialog) { }
 
   ngOnInit(): void {
-    this.monsters = gameManager.monstersData(true).map((monsterData) => monsterData.name);
+    this.monsters = gameManager.monstersData().map((monsterData) => monsterData.name);
 
     if (this.action && this.action.type == ActionType.area) {
       this.hexValue = '' + this.action.value;

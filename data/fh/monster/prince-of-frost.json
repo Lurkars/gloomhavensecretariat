@@ -1,0 +1,306 @@
+{
+  "name": "prince-of-frost",
+  "edition": "fh",
+  "deck": "boss",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "immunities": [
+      "immobilize",
+      "disarm",
+      "stun",
+      "curse"
+    ],
+    "special": [
+      [
+        {
+          "type": "custom",
+          "value": "One character %game.card.recover% one lost card.",
+          "small": true
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "[C]",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "summon",
+          "value": "snow-imp",
+          "small": true
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "One character loses one card.",
+          "small": true
+        },
+        {
+          "type": "push",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "[C-1]",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "brittle",
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "summon",
+          "value": "snow-imp",
+          "small": false
+        }
+      ]
+    ],
+    "actions": [
+      {
+        "type": "retaliate",
+        "value": 2,
+        "subActions": [
+          {
+            "type": "range",
+            "value": 3,
+            "small": true
+          }
+        ],
+        "small": false
+      },
+      {
+        "type": "condition",
+        "value": "brittle",
+        "small": false
+      }
+    ],
+    "health": "Cx10",
+    "movement": 2,
+    "attack": 2
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "Cx10",
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "condition",
+          "value": "brittle",
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": "Cx13",
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "condition",
+          "value": "brittle",
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "Cx15",
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "condition",
+          "value": "brittle",
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "Cx18",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "condition",
+          "value": "brittle",
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "Cx24",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "condition",
+          "value": "brittle",
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "Cx25",
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "condition",
+          "value": "brittle",
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "Cx34",
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "condition",
+          "value": "brittle",
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "Cx42",
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ],
+          "small": false
+        },
+        {
+          "type": "condition",
+          "value": "brittle",
+          "small": false
+        }
+      ]
+    }
+  ]
+}

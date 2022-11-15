@@ -162,7 +162,7 @@ export class MainMenuComponent implements OnInit {
   }
 
   characterData(edition: string | undefined = undefined): CharacterData[] {
-    return gameManager.charactersData(true).filter((characterData) => !edition || characterData.edition == edition).sort((a, b) => {
+    return gameManager.charactersData(edition).sort((a, b) => {
       const aName = settingsManager.getLabel('data.character.' + a.name).toLowerCase();
       const bName = settingsManager.getLabel('data.character.' + b.name).toLowerCase();
 
@@ -211,11 +211,11 @@ export class MainMenuComponent implements OnInit {
   }
 
   hasHiddenMonster(): boolean {
-    return gameManager.monstersData(false).some((monsterData) => monsterData.hidden);
+    return gameManager.monstersData(gameManager.game.edition).some((monsterData) => monsterData.hidden);
   }
 
   monsterData(edition: string | undefined = undefined): MonsterData[] {
-    return gameManager.monstersData(true).filter((monsterData) => (!monsterData.hidden || monsterData.hidden == this.showHiddenMonster) && (!edition || monsterData.edition == edition)).sort((a, b) => {
+    return gameManager.monstersData(edition).filter((monsterData) => (!monsterData.hidden || monsterData.hidden == this.showHiddenMonster)).sort((a, b) => {
       const aName = settingsManager.getLabel('data.monster.' + a.name).toLowerCase();
       const bName = settingsManager.getLabel('data.monster.' + b.name).toLowerCase();
 
