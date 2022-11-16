@@ -80,6 +80,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
 
 ### Long term plans
 
+- support for Frosthaven features like Loot Deck
 - support for managing character ability cards
 
 ## Install
