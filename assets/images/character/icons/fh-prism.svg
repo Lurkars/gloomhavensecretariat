@@ -1,1 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.41 36.39"><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><polygon points="4.48 26.16 7.7 31.76 6.46 27.04 4.48 26.16"/><polygon points="14.7 31.76 17.93 26.16 15.95 27.04 14.7 31.76"/><path d="M8.79,20l2.41-4,2.41,4-2.41,4Zm-3.52-.69L11.2,9.53l5.94,9.82-1.72.3L11.2,12.58,7,19.65Zm-3.5-.68L11.2,3.05l9.44,15.62L18.92,19,11.2,6,3.48,19ZM11.2,0,0,18.36l3.79,6.26,3.74,1.63,1.76,8.28,1.07,1.86h1.69l1.07-1.86,1.76-8.28,3.73-1.63,3.8-6.26Z"/></g></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 28.41 42.39"
+   version="1.1"
+   id="svg10"
+   sodipodi:docname="fh-prism.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   width="28.41"
+   height="42.389999"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs14" />
+  <sodipodi:namedview
+     id="namedview12"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="23.990108"
+     inkscape:cx="14.19335"
+     inkscape:cy="21.196236"
+     inkscape:window-width="1846"
+     inkscape:window-height="1136"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg10"
+     lock-margins="true"
+     fit-margin-top="3"
+     fit-margin-left="3"
+     fit-margin-right="3"
+     fit-margin-bottom="3" />
+  <g
+     id="Layer_2"
+     data-name="Layer 2"
+     style="fill:#f6f18d;fill-opacity:1"
+     transform="translate(3,3)">
+    <g
+       id="Layer_1-2"
+       data-name="Layer 1"
+       style="fill:#f6f18d;fill-opacity:1">
+      <polygon
+         points="6.46,27.04 4.48,26.16 7.7,31.76 "
+         id="polygon2"
+         style="fill:#f6f18d;fill-opacity:1" />
+      <polygon
+         points="15.95,27.04 14.7,31.76 17.93,26.16 "
+         id="polygon4"
+         style="fill:#f6f18d;fill-opacity:1" />
+      <path
+         d="m 8.79,20 2.41,-4 2.41,4 -2.41,4 z M 5.27,19.31 11.2,9.53 17.14,19.35 15.42,19.65 11.2,12.58 7,19.65 Z M 1.77,18.63 11.2,3.05 20.64,18.67 18.92,19 11.2,6 3.48,19 Z M 11.2,0 0,18.36 l 3.79,6.26 3.74,1.63 1.76,8.28 1.07,1.86 h 1.69 l 1.07,-1.86 1.76,-8.28 3.73,-1.63 3.8,-6.26 z"
+         id="path6"
+         style="fill:#f6f18d;fill-opacity:1" />
+    </g>
+  </g>
+</svg>
