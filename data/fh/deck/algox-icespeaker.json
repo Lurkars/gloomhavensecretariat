@@ -1,84 +1,48 @@
 {
   "name": "algox-icespeaker",
+  "edition": "fh",
   "abilities": [
     {
-      "cardId": 736,
-      "name": "Terrifying Growl",
-      "initiative": 80,
+      "name": "Warding Swipe",
+      "cardId": 730,
+      "initiative": 17,
+      "shuffle": true,
       "actions": [
         {
-          "type": "attack",
-          "value": 0,
+          "type": "move",
+          "value": 1,
           "valueType": "plus",
           "small": false
         },
         {
-          "type": "condition",
-          "value": "disarm",
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "small": false,
           "subActions": [
             {
-              "type": "target",
-              "value": "%game.target.all%",
-              "small": true
-            },
-            {
-              "type": "range",
-              "value": 2,
-              "small": true
+              "type": "area",
+              "value": "(0,0,target)|(1,0,target)|(1,1,target)|(0,1,active)|(1,2,target)",
+              "small": false
             }
-          ],
-          "small": false
-        }
-      ]
-    },
-    {
-      "cardId": 737,
-      "name": "One with the Earth",
-      "initiative": 12,
-      "actions": [
+          ]
+        },
         {
           "type": "shield",
-          "value": 3,
+          "value": 1,
           "small": false
         },
         {
           "type": "element",
           "value": "earth",
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "heal",
-              "value": 1,
-              "subActions": [
-                {
-                  "type": "specialTarget",
-                  "value": "self",
-                  "small": true
-                }
-              ],
-              "small": false
-            }
-          ],
-          "small": false
-        },
-        {
-          "type": "heal",
-          "value": 3,
-          "subActions": [
-            {
-              "type": "specialTarget",
-              "value": "self",
-              "small": false
-            }
-          ],
           "small": false
         }
       ]
     },
     {
-      "cardId": 735,
-      "name": "Nothing Special",
-      "initiative": 56,
+      "name": "Knockout Punch",
+      "cardId": 731,
+      "initiative": 76,
       "actions": [
         {
           "type": "move",
@@ -88,55 +52,84 @@
         },
         {
           "type": "attack",
-          "value": 0,
-          "valueType": "plus",
-          "small": false
+          "value": 1,
+          "valueType": "minus",
+          "small": false,
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "stun",
+              "small": true
+            }
+          ]
         },
         {
           "type": "element",
-          "value": "earth",
-          "small": false
-        }
-      ],
-      "shuffle": true
-    },
-    {
-      "cardId": 734,
-      "name": "Ice Wall",
-      "initiative": 8,
-      "actions": [
-        {
-          "type": "custom",
-          "value": "Create one 1-hex obstacle<br>tile in an adjacent empty<br>hex closest to an enemy.",
-          "small": true
-        },
-        {
-          "type": "custom",
-          "value": "All enemies adjacent to the created<br>obstacle suffer hazardous terrain damage.",
-          "small": true
-        },
-        {
-          "type": "concatenation",
-          "value": "",
-          "subActions": [
-            {
-              "type": "element",
-              "value": "ice",
-              "small": false
-            },
-            {
-              "type": "element",
-              "value": "earth",
-              "small": false
-            }
-          ],
+          "value": "ice",
           "small": false
         }
       ]
     },
     {
-      "cardId": 733,
+      "name": "Two-Fisted Strike",
+      "cardId": 732,
+      "initiative": 41,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "small": false,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "ice",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "small": false,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "earth",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "Frozen Debris",
+      "cardId": 733,
       "initiative": 39,
       "actions": [
         {
@@ -149,6 +142,7 @@
           "type": "attack",
           "value": 0,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -168,72 +162,49 @@
               ],
               "small": false
             }
-          ],
-          "small": false
+          ]
         }
       ]
     },
     {
-      "cardId": 732,
-      "name": "Two-Fisted Strike",
-      "initiative": 41,
+      "name": "Ice Wall",
+      "cardId": 734,
+      "initiative": 8,
       "actions": [
         {
-          "type": "move",
-          "value": 1,
-          "valueType": "minus",
-          "small": false
+          "type": "custom",
+          "value": "Create one 1-hex obstacle<br>tile in an adjacent empty<br>hex closest to an enemy.",
+          "small": true
         },
         {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus",
+          "type": "custom",
+          "value": "All enemies adjacent to the created<br>obstacle suffer hazardous terrain damage.",
+          "small": true
+        },
+        {
+          "type": "concatenation",
+          "value": "",
+          "small": false,
           "subActions": [
             {
               "type": "element",
               "value": "ice",
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "attack",
-                  "value": 2,
-                  "valueType": "add",
-                  "small": true
-                }
-              ],
               "small": false
-            }
-          ],
-          "small": false
-        },
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus",
-          "subActions": [
+            },
             {
               "type": "element",
               "value": "earth",
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "attack",
-                  "value": 2,
-                  "valueType": "add",
-                  "small": true
-                }
-              ],
               "small": false
             }
-          ],
-          "small": false
+          ]
         }
       ]
     },
     {
-      "cardId": 731,
-      "name": "Knockout Punch",
-      "initiative": 76,
+      "name": "Nothing Special",
+      "cardId": 735,
+      "initiative": 56,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -243,51 +214,8 @@
         },
         {
           "type": "attack",
-          "value": 1,
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "condition",
-              "value": "stun",
-              "small": true
-            }
-          ],
-          "small": false
-        },
-        {
-          "type": "element",
-          "value": "ice",
-          "small": false
-        }
-      ]
-    },
-    {
-      "cardId": 730,
-      "name": "Warding Swipe",
-      "initiative": 17,
-      "actions": [
-        {
-          "type": "move",
-          "value": 1,
+          "value": 0,
           "valueType": "plus",
-          "small": false
-        },
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "area",
-              "value": "(0,0,target)|(1,0,target)|(1,1,target)|(0,1,active)|(1,2,target)",
-              "small": false
-            }
-          ],
-          "small": false
-        },
-        {
-          "type": "shield",
-          "value": 1,
           "small": false
         },
         {
@@ -295,9 +223,81 @@
           "value": "earth",
           "small": false
         }
-      ],
-      "shuffle": true
+      ]
+    },
+    {
+      "name": "Terrifying Growl",
+      "cardId": 736,
+      "initiative": 80,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "condition",
+          "value": "disarm",
+          "small": false,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%game.target.all%",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "One with the Earth",
+      "cardId": 737,
+      "initiative": 12,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3,
+          "small": false
+        },
+        {
+          "type": "element",
+          "value": "earth",
+          "valueType": "minus",
+          "small": false,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 1,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "self",
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 3,
+          "small": false,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": false
+            }
+          ]
+        }
+      ]
     }
-  ],
-  "edition": "fh"
+  ]
 }

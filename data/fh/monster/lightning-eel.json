@@ -22,6 +22,48 @@
       "attack": 2
     },
     {
+      "level": 1,
+      "health": 2,
+      "movement": 2,
+      "attack": 2
+    },
+    {
+      "level": 2,
+      "health": 3,
+      "movement": 3,
+      "attack": 2
+    },
+    {
+      "level": 3,
+      "health": 4,
+      "movement": 3,
+      "attack": 2
+    },
+    {
+      "level": 4,
+      "health": 5,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "level": 5,
+      "health": 6,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "level": 6,
+      "health": 9,
+      "movement": 4,
+      "attack": 3
+    },
+    {
+      "level": 7,
+      "health": 11,
+      "movement": 4,
+      "attack": 4
+    },
+    {
       "type": "elite",
       "level": 0,
       "health": 3,
@@ -35,12 +77,6 @@
       ]
     },
     {
-      "level": 1,
-      "health": 2,
-      "movement": 2,
-      "attack": 2
-    },
-    {
       "type": "elite",
       "level": 1,
       "health": 3,
@@ -52,12 +88,6 @@
           "value": "Treats water hexes as corridors and non-water hexes as obstacles"
         }
       ]
-    },
-    {
-      "level": 2,
-      "health": 3,
-      "movement": 3,
-      "attack": 2
     },
     {
       "type": "elite",
@@ -71,12 +101,6 @@
           "value": "Treats water hexes as corridors and non-water hexes as obstacles"
         }
       ]
-    },
-    {
-      "level": 3,
-      "health": 4,
-      "movement": 3,
-      "attack": 2
     },
     {
       "type": "elite",
@@ -90,12 +114,6 @@
           "value": "Treats water hexes as corridors and non-water hexes as obstacles"
         }
       ]
-    },
-    {
-      "level": 4,
-      "health": 5,
-      "movement": 3,
-      "attack": 3
     },
     {
       "type": "elite",
@@ -111,12 +129,6 @@
       ]
     },
     {
-      "level": 5,
-      "health": 6,
-      "movement": 3,
-      "attack": 3
-    },
-    {
       "type": "elite",
       "level": 5,
       "health": 9,
@@ -130,12 +142,6 @@
       ]
     },
     {
-      "level": 6,
-      "health": 9,
-      "movement": 4,
-      "attack": 3
-    },
-    {
       "type": "elite",
       "level": 6,
       "health": 13,
@@ -147,12 +153,6 @@
           "value": "Treats water hexes as corridors and non-water hexes as obstacles"
         }
       ]
-    },
-    {
-      "level": 7,
-      "health": 11,
-      "movement": 4,
-      "attack": 4
     },
     {
       "type": "elite",

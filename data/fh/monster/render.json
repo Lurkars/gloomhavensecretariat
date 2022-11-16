@@ -7,6 +7,16 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
+    "health": "Cx20",
+    "movement": 4,
+    "attack": "C+2",
+    "actions": [
+      {
+        "type": "condition",
+        "value": "wound",
+        "small": false
+      }
+    ],
     "immunities": [
       "brittle",
       "immobilize",
@@ -101,17 +111,7 @@
           "small": false
         }
       ]
-    ],
-    "actions": [
-      {
-        "type": "condition",
-        "value": "wound",
-        "small": false
-      }
-    ],
-    "health": "Cx20",
-    "movement": 4,
-    "attack": "C+2"
+    ]
   },
   "stats": [
     {

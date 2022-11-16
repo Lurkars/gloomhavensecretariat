@@ -1,7 +1,7 @@
 {
   "name": "banner-spear",
   "characterClass": "human",
-  "gender" : "f",
+  "gender": "f",
   "edition": "fh",
   "color": "#e7b32e",
   "stats": [

@@ -3,8 +3,10 @@
   "edition": "fh",
   "abilities": [
     {
+      "name": "Cruel Bow",
       "cardId": 770,
       "initiative": 29,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -28,11 +30,10 @@
             }
           ]
         }
-      ],
-      "name": "Cruel Bow",
-      "shuffle": true
+      ]
     },
     {
+      "name": "Hasty Assault",
       "cardId": 771,
       "initiative": 40,
       "actions": [
@@ -46,10 +47,10 @@
           "value": 1,
           "valueType": "minus"
         }
-      ],
-      "name": "Hasty Assault"
+      ]
     },
     {
+      "name": "Nothing Special",
       "cardId": 772,
       "initiative": 53,
       "actions": [
@@ -63,10 +64,10 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "name": "Nothing Special"
+      ]
     },
     {
+      "name": "Rancid Arrow",
       "cardId": 773,
       "initiative": 54,
       "actions": [
@@ -92,10 +93,10 @@
             }
           ]
         }
-      ],
-      "name": "Rancid Arrow"
+      ]
     },
     {
+      "name": "Calculated Strike",
       "cardId": 774,
       "initiative": 69,
       "actions": [
@@ -109,10 +110,10 @@
           "value": 1,
           "valueType": "plus"
         }
-      ],
-      "name": "Calculated Strike"
+      ]
     },
     {
+      "name": "Noxious Blade",
       "cardId": 775,
       "initiative": 92,
       "actions": [
@@ -128,10 +129,10 @@
             }
           ]
         }
-      ],
-      "name": "Noxious Blade"
+      ]
     },
     {
+      "name": "Rapid Bolts",
       "cardId": 776,
       "initiative": 79,
       "actions": [
@@ -152,10 +153,10 @@
             }
           ]
         }
-      ],
-      "name": "Rapid Bolts"
+      ]
     },
     {
+      "name": "Greed",
       "cardId": 777,
       "initiative": 35,
       "shuffle": true,
@@ -176,8 +177,7 @@
           "type": "loot",
           "value": 1
         }
-      ],
-      "name": "Greed"
+      ]
     }
   ]
 }

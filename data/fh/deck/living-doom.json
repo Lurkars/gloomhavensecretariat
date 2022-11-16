@@ -1,8 +1,10 @@
 {
   "name": "living-doom",
+  "edition": "fh",
   "abilities": [
     {
       "name": "Chilling Aura",
+      "cardId": 650,
       "initiative": 70,
       "actions": [
         {
@@ -15,25 +17,25 @@
           "type": "attack",
           "value": 1,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "area",
               "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)",
               "small": false
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "element",
           "value": "ice",
           "small": false
         }
-      ],
-      "cardId": 650
+      ]
     },
     {
       "name": "Face of Darkness",
+      "cardId": 651,
       "initiative": 82,
       "actions": [
         {
@@ -46,6 +48,7 @@
           "type": "attack",
           "value": 1,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "element",
@@ -60,14 +63,13 @@
               ],
               "small": false
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 651
+      ]
     },
     {
       "name": "Arresting Advance",
+      "cardId": 652,
       "initiative": 32,
       "actions": [
         {
@@ -80,6 +82,7 @@
           "type": "attack",
           "value": 1,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "element",
@@ -94,14 +97,13 @@
               ],
               "small": false
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 652
+      ]
     },
     {
       "name": "Nothing Special",
+      "cardId": 653,
       "initiative": 57,
       "actions": [
         {
@@ -121,24 +123,24 @@
           "value": "dark",
           "small": false
         }
-      ],
-      "cardId": 653
+      ]
     },
     {
       "name": "Sunless Abyss",
+      "cardId": 654,
       "initiative": 11,
       "actions": [
         {
           "type": "condition",
           "value": "curse",
+          "small": false,
           "subActions": [
             {
               "type": "range",
               "value": 2,
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "shield",
@@ -160,6 +162,7 @@
         {
           "type": "concatenation",
           "value": "",
+          "small": false,
           "subActions": [
             {
               "type": "element",
@@ -171,14 +174,13 @@
               "value": "dark",
               "small": false
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 654
+      ]
     },
     {
       "name": "Hateful Spikes",
+      "cardId": 655,
       "initiative": 17,
       "actions": [
         {
@@ -197,12 +199,13 @@
           "value": "dark",
           "small": false
         }
-      ],
-      "cardId": 655
+      ]
     },
     {
       "name": "Pull of the Grave",
+      "cardId": 656,
       "initiative": 98,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -214,39 +217,36 @@
           "type": "attack",
           "value": 3,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "condition",
               "value": "bane",
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "shuffle": true,
-      "cardId": 656
+      ]
     },
     {
       "name": "Call For Souls",
+      "cardId": 657,
       "initiative": 78,
+      "shuffle": true,
       "actions": [
         {
           "type": "custom",
           "value": "Summon X normal<br>Living Spirits",
+          "small": false,
           "subActions": [
             {
               "type": "custom",
               "value": "<br>where X is the Living<br>Doom's current hit point value<br>divided by 5 (rounded down),<br>up to a maximum of three.",
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "shuffle": true,
-      "cardId": 657
+      ]
     }
-  ],
-  "edition": "fh"
+  ]
 }

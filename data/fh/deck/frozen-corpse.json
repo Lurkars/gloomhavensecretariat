@@ -1,5 +1,6 @@
 {
   "name": "frozen-corpse",
+  "edition": "fh",
   "abilities": [
     {
       "name": "Freezing Embrace",
@@ -14,6 +15,7 @@
         {
           "type": "concatenation",
           "value": "and:2",
+          "small": false,
           "subActions": [
             {
               "type": "condition",
@@ -30,65 +32,7 @@
               "value": "enemyAdjacent",
               "small": true
             }
-          ],
-          "small": false
-        }
-      ]
-    },
-    {
-      "name": "Nothing Special",
-      "initiative": 71,
-      "actions": [
-        {
-          "type": "move",
-          "value": 0,
-          "valueType": "plus",
-          "small": false
-        },
-        {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
-          "small": false
-        },
-        {
-          "type": "element",
-          "value": "ice",
-          "small": false
-        }
-      ],
-      "shuffle": true
-    },
-    {
-      "name": "Cold Snap",
-      "initiative": 42,
-      "actions": [
-        {
-          "type": "move",
-          "value": 1,
-          "valueType": "plus",
-          "small": false
-        },
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "element",
-              "value": "ice",
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "condition",
-                  "value": "brittle",
-                  "small": true
-                }
-              ],
-              "small": false
-            }
-          ],
-          "small": false
+          ]
         }
       ]
     },
@@ -106,6 +50,7 @@
           "type": "attack",
           "value": 1,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "element",
@@ -120,89 +65,42 @@
               ],
               "small": false
             }
-          ],
-          "small": false
+          ]
         }
       ]
     },
     {
-      "name": "Thawed Strike",
-      "initiative": 68,
+      "name": "Cold Snap",
+      "initiative": 42,
       "actions": [
         {
           "type": "move",
           "value": 1,
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "element",
-              "value": "fire",
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "move",
-                  "value": 2,
-                  "valueType": "add",
-                  "small": true
-                },
-                {
-                  "type": "custom",
-                  "value": "Frozen Corpse suffer %game.damage:2%",
-                  "small": true
-                }
-              ],
-              "small": false
-            }
-          ],
+          "valueType": "plus",
           "small": false
         },
         {
           "type": "attack",
           "value": 1,
-          "valueType": "plus",
-          "small": false
-        }
-      ]
-    },
-    {
-      "name": "Thawed Strike",
-      "initiative": 51,
-      "actions": [
-        {
-          "type": "move",
-          "value": 1,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "element",
-              "value": "fire",
+              "value": "ice",
               "valueType": "minus",
               "subActions": [
                 {
-                  "type": "move",
-                  "value": 2,
-                  "valueType": "add",
-                  "small": true
-                },
-                {
-                  "type": "custom",
-                  "value": "Frozen Corpse suffer %game.damage:2%",
+                  "type": "condition",
+                  "value": "brittle",
                   "small": true
                 }
               ],
               "small": false
             }
-          ],
-          "small": false
-        },
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "plus",
-          "small": false
+          ]
         }
-      ],
-      "shuffle": true
+      ]
     },
     {
       "name": "Frost Breath",
@@ -218,13 +116,116 @@
           "type": "attack",
           "value": 2,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "area",
               "value": "(0,1,target)|(1,0,target)|(1,1,target)|(0,2,active)|(1,2,target)|(2,2,target)",
               "small": false
             }
-          ],
+          ]
+        },
+        {
+          "type": "element",
+          "value": "ice",
+          "small": false
+        }
+      ]
+    },
+    {
+      "name": "Thawed Strike",
+      "initiative": 51,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "small": false,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                },
+                {
+                  "type": "custom",
+                  "value": "Frozen Corpse suffer %game.damage:2%",
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        }
+      ]
+    },
+    {
+      "name": "Thawed Strike",
+      "initiative": 68,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "small": false,
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                },
+                {
+                  "type": "custom",
+                  "value": "Frozen Corpse suffer %game.damage:2%",
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "small": false
+        }
+      ]
+    },
+    {
+      "name": "Nothing Special",
+      "initiative": 71,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "small": false
         },
         {
@@ -242,14 +243,14 @@
           "type": "attack",
           "value": 1,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "area",
               "value": "(0,1,active)|(1,0,target)|(1,1,target)",
               "small": false
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "element",
@@ -258,6 +259,5 @@
         }
       ]
     }
-  ],
-  "edition": "fh"
+  ]
 }

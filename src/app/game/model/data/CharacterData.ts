@@ -7,6 +7,7 @@ import { SummonData } from "./SummonData";
 
 export enum CharacterClass {
 
+  algox = "algox",
   aesther = "aesther",
   harrower = "harrower",
   human = "human",
@@ -15,6 +16,7 @@ export enum CharacterClass {
   orchid = "orchid",
   quatryl = "quatryl",
   savvas = "savvas",
+  unfettered = "unfettered",
   valrath = "valrath",
   vermling = "vermling"
 

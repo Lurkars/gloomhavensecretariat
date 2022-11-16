@@ -6,6 +6,57 @@ import { EntityExpressionRegex, EntityValueFunction, EntityValueRegex } from "sr
 import { ghsLabelRegex } from "./i18n";
 
 
+export function valueCalc(value: string | number, level: number | undefined = undefined, empty: boolean = false): string | number {
+
+  if (typeof value === "number") {
+    if (empty && value == 0) {
+      return "-";
+    }
+
+    return value;
+  }
+
+  if (typeof value === "string" && value == '0') {
+    return "-";
+  } else if (!value) {
+    return empty ? "-" : "";
+  }
+
+  let L = gameManager.game.level;
+  if (level && level > 0) {
+    L = level;
+  }
+
+
+  if (settingsManager.settings.calculate && (value.match(EntityExpressionRegex) || value.match(EntityValueRegex))) {
+    try {
+      return EntityValueFunction(value, L)
+    } catch {
+      console.error("Could not calculate value for: ", value);
+      return value;
+    }
+  }
+
+  const match = value.match(EntityValueRegex);
+  if (match) {
+    let func = match[3];
+    const funcLabel = func && func.startsWith('%');
+    if (funcLabel) {
+      func = func.replace('%', '');
+    }
+    return funcLabel ? match[1] + ' ' + settingsManager.getLabel('game.custom.' + func) : match[1];
+  }
+
+
+  while (value.match(ghsLabelRegex)) {
+    value = value.replace(ghsLabelRegex, (match, ...args) => {
+      return settingsManager.getLabel(args[0]);
+    });
+  }
+
+  return value ? value : (empty ? '-' : '');
+}
+
 @Directive({
   selector: ' [value-calc]'
 })
@@ -29,70 +80,21 @@ export class ValueCalcDirective implements OnInit, OnChanges {
           this.C = gameManager.game.figures.filter((figure) => figure instanceof Character).length;
           this.L = gameManager.game.level;
           this.calc = settingsManager.settings.calculate;
-          this.el.nativeElement.innerHTML = this.transform(this.value, this.level, this.empty);
+          this.el.nativeElement.innerHTML = valueCalc(this.value, this.level, this.empty);
         }
       }
     })
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.el.nativeElement.innerHTML = this.transform(this.value, this.level, this.empty);
+    this.el.nativeElement.innerHTML = valueCalc(this.value, this.level, this.empty);
   }
 
 
   ngOnInit(): void {
-    this.el.nativeElement.innerHTML = this.transform(this.value, this.level, this.empty);
+    this.el.nativeElement.innerHTML = valueCalc(this.value, this.level, this.empty);
   }
 
-  transform(value: string | number, level: number | undefined, empty: boolean): string | number {
 
-    if (typeof value === "number") {
-      if (empty && value == 0) {
-        return "-";
-      }
-
-      return value;
-    }
-
-    if (typeof value === "string" && value == '0') {
-      return "-";
-    } else if (!value) {
-      return empty ? "-" : "";
-    }
-
-    let L = gameManager.game.level;
-    if (level && level > 0) {
-      L = level;
-    }
-
-
-    if (settingsManager.settings.calculate && (value.match(EntityExpressionRegex) || value.match(EntityValueRegex))) {
-      try {
-        return EntityValueFunction(value, L)
-      } catch {
-        console.error("Could not calculate value for: ", value);
-        return value;
-      }
-    }
-
-    const match = value.match(EntityValueRegex);
-    if (match) {
-      let func = match[3];
-      const funcLabel = func && func.startsWith('%');
-      if (funcLabel) {
-        func = func.replace('%', '');
-      }
-      return funcLabel ? match[1] + ' ' + settingsManager.getLabel('game.custom.' + func) : match[1];
-    }
-
-
-    while (value.match(ghsLabelRegex)) {
-      value = value.replace(ghsLabelRegex, (match, ...args) => {
-        return settingsManager.getLabel(args[0]);
-      });
-    }
-
-    return value ? value : (empty ? '-' : '');
-  }
 
 }

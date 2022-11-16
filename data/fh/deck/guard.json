@@ -3,6 +3,7 @@
   "edition": "fh",
   "abilities": [
     {
+      "name": "Parry and Thrust",
       "cardId": 746,
       "initiative": 15,
       "shuffle": true,
@@ -15,27 +16,27 @@
           "type": "retaliate",
           "value": 2
         }
-      ],
-      "name": "Parry and Thrust"
+      ]
     },
     {
-      "cardId": 750,
-      "initiative": 30,
+      "name": "Calculated Strike",
+      "cardId": 747,
+      "initiative": 70,
       "actions": [
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus"
+          "valueType": "minus"
         },
         {
           "type": "attack",
           "value": 1,
-          "valueType": "minus"
+          "valueType": "plus"
         }
-      ],
-      "name": "Hasty Assault"
+      ]
     },
     {
+      "name": "Throwing Axe",
       "cardId": 748,
       "initiative": 35,
       "actions": [
@@ -56,10 +57,50 @@
             }
           ]
         }
-      ],
-      "name": "Throwing Axe"
+      ]
     },
     {
+      "name": "Venom Shic",
+      "cardId": 749,
+      "initiative": 15,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "name": "Hasty Assault",
+      "cardId": 750,
+      "initiative": 30,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
+    },
+    {
+      "name": "Nothing Special",
       "cardId": 751,
       "initiative": 50,
       "actions": [
@@ -73,10 +114,10 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "name": "Nothing Special"
+      ]
     },
     {
+      "name": "Nothing Special",
       "cardId": 752,
       "initiative": 50,
       "actions": [
@@ -90,29 +131,13 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "name": "Nothing Special"
+      ]
     },
     {
-      "cardId": 747,
-      "initiative": 70,
-      "actions": [
-        {
-          "type": "move",
-          "value": 1,
-          "valueType": "minus"
-        },
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "plus"
-        }
-      ],
-      "name": "Calculated Strike"
-    },
-    {
+      "name": "Psych Up",
       "cardId": 753,
       "initiative": 55,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -135,32 +160,7 @@
             }
           ]
         }
-      ],
-      "shuffle": true,
-      "name": "Psych Up"
-    },
-    {
-      "cardId": 749,
-      "initiative": 15,
-      "actions": [
-        {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
-          "subActions": [
-            {
-              "type": "condition",
-              "value": "poison",
-              "small": true
-            }
-          ]
-        },
-        {
-          "type": "shield",
-          "value": 1
-        }
-      ],
-      "name": "Venom Shic"
+      ]
     }
   ],
   "initiative": 15,

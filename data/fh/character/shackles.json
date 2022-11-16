@@ -1,5 +1,12 @@
 {
   "name": "shackles",
+  "characterClass": "aesther",
+  "gender": "",
+  "edition": "fh",
+  "color": "#b1b2e0",
+  "spoiler": true,
+  "marker": false,
+  "deck": "",
   "stats": [
     {
       "level": 1,
@@ -38,13 +45,7 @@
       "health": 20
     }
   ],
-  "gender": "",
   "availableSummons": [],
-  "color": "#b1b2e0",
-  "marker": false,
-  "deck": "",
   "perks": [],
-  "edition": "fh",
-  "spoiler": true,
   "replace": false
 }

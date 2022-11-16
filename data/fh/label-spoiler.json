@@ -1,0 +1,17 @@
+{
+  "en": {
+    "character": {
+      "astral": "Infuser",
+      "coral" : "Crashing Tide",
+      "drill" : "Metal Mosaic",
+      "fist" : "Frozen Fist",
+      "kelp" : "Deepwraith",
+      "meteor": "Pyroclast",
+      "prism" : "HIVE",
+      "shackles" : "Pain Conduit",
+      "shards" : "Shattersong",
+      "snowflake" : "Snowdancer",
+      "trap" : "Trapper"
+    }
+  }
+}

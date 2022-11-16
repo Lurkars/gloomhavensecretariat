@@ -1,8 +1,10 @@
 {
   "name": "robotic-boltshooter",
+  "edition": "fh",
   "abilities": [
     {
       "name": "Calculated Shot",
+      "cardId": 602,
       "initiative": 83,
       "actions": [
         {
@@ -24,12 +26,13 @@
             }
           ]
         }
-      ],
-      "cardId": 602
+      ]
     },
     {
       "name": "Safety Valve",
+      "cardId": 603,
       "initiative": 22,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -55,12 +58,11 @@
           "value": 2,
           "small": false
         }
-      ],
-      "shuffle": true,
-      "cardId": 603
+      ]
     },
     {
       "name": "Sharpshooter",
+      "cardId": 604,
       "initiative": 44,
       "actions": [
         {
@@ -73,6 +75,7 @@
           "type": "attack",
           "value": 1,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -84,14 +87,13 @@
               "value": 2,
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 604
+      ]
     },
     {
       "name": "Retracted Assault",
+      "cardId": 605,
       "initiative": 48,
       "actions": [
         {
@@ -118,11 +120,11 @@
           "value": 1,
           "small": false
         }
-      ],
-      "cardId": 605
+      ]
     },
     {
       "name": "Nothing Special",
+      "cardId": 606,
       "initiative": 57,
       "actions": [
         {
@@ -144,17 +146,18 @@
             }
           ]
         }
-      ],
-      "cardId": 606
+      ]
     },
     {
       "name": "Ballista Bolt",
+      "cardId": 607,
       "initiative": 91,
       "actions": [
         {
           "type": "attack",
           "value": 2,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -167,14 +170,13 @@
               "value": 4,
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 607
+      ]
     },
     {
       "name": "Focus Fire",
+      "cardId": 608,
       "initiative": 78,
       "actions": [
         {
@@ -187,6 +189,7 @@
           "type": "attack",
           "value": 0,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
@@ -198,15 +201,15 @@
               "value": 5,
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 608
+      ]
     },
     {
       "name": "Repair Drones",
+      "cardId": 609,
       "initiative": 16,
+      "shuffle": true,
       "actions": [
         {
           "type": "shield",
@@ -216,19 +219,16 @@
         {
           "type": "heal",
           "value": 3,
+          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self",
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "shuffle": true,
-      "cardId": 609
+      ]
     }
-  ],
-  "edition": "fh"
+  ]
 }

@@ -7,6 +7,7 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
+    "movement": 3,
     "immunities": [
       "disarm",
       "wound",
@@ -81,8 +82,7 @@
           ]
         }
       ]
-    ],
-    "movement": 3
+    ]
   },
   "stats": [
     {

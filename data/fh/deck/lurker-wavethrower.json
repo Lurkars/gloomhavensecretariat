@@ -1,8 +1,10 @@
 {
   "name": "lurker-wavethrower",
+  "edition": "fh",
   "abilities": [
     {
       "name": "Powerful Claw",
+      "cardId": 698,
       "initiative": 60,
       "actions": [
         {
@@ -17,11 +19,11 @@
           "valueType": "plus",
           "small": false
         }
-      ],
-      "cardId": 698
+      ]
     },
     {
       "name": "Distant Wave",
+      "cardId": 699,
       "initiative": 51,
       "actions": [
         {
@@ -33,20 +35,20 @@
           "type": "attack",
           "value": 1,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "range",
               "value": 6,
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 699
+      ]
     },
     {
       "name": "Tsunami",
+      "cardId": 700,
       "initiative": 29,
       "actions": [
         {
@@ -59,6 +61,7 @@
           "type": "attack",
           "value": 1,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "area",
@@ -70,15 +73,15 @@
               "value": 2,
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 700
+      ]
     },
     {
       "name": "Aid from Below",
+      "cardId": 701,
       "initiative": 98,
+      "shuffle": true,
       "actions": [
         {
           "type": "custom",
@@ -90,13 +93,13 @@
           "value": "Summone one Lightning Eel in an adjacenty<br>unoccupied hex with a water tile.<br>Normal Wavethrowers summon<br>normal Eels, elites summon elites.",
           "small": true
         }
-      ],
-      "shuffle": true,
-      "cardId": 701
+      ]
     },
     {
       "name": "Aid from Below",
+      "cardId": 702,
       "initiative": 98,
+      "shuffle": true,
       "actions": [
         {
           "type": "custom",
@@ -108,12 +111,11 @@
           "value": "Summone one Lightning Eel in an adjacenty<br>unoccupied hex with a water tile.<br>Normal Wavethrowers summon<br>normal Eels, elites summon elites.",
           "small": true
         }
-      ],
-      "shuffle": true,
-      "cardId": 702
+      ]
     },
     {
       "name": "Crushing Crest",
+      "cardId": 703,
       "initiative": 36,
       "actions": [
         {
@@ -126,20 +128,20 @@
           "type": "attack",
           "value": 1,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "area",
               "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)",
               "small": false
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 703
+      ]
     },
     {
       "name": "Twin Claws",
+      "cardId": 704,
       "initiative": 48,
       "actions": [
         {
@@ -152,20 +154,20 @@
           "type": "attack",
           "value": 0,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "area",
               "value": "(0,1,active)|(1,0,target)|(1,1,target)",
               "small": false
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 704
+      ]
     },
     {
       "name": "Massive Swell",
+      "cardId": 705,
       "initiative": 40,
       "actions": [
         {
@@ -178,6 +180,7 @@
           "type": "attack",
           "value": 0,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "area",
@@ -189,12 +192,9 @@
               "value": 3,
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 705
+      ]
     }
-  ],
-  "edition": "fh"
+  ]
 }

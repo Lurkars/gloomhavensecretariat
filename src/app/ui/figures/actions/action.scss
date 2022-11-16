@@ -750,10 +750,6 @@
       }
     }
 
-    .elements .minus {
-      margin-left: 0.15em;
-    }
-
     .subactions,
     .condition-subactions,
     .monster-type-subactions,
@@ -804,6 +800,22 @@
     .special-type {
       flex-basis: 100%;
       flex-shrink: 0;
+    }
+
+
+
+    .elements {
+      .minus {
+        margin-left: 0.15em;
+      }
+    }
+
+    .element-subactions {
+      .subaction-element {
+        .action-element {
+          padding: 0;
+        }
+      }
     }
 
     .element-actions {

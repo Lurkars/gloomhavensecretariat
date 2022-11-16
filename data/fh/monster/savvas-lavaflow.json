@@ -15,13 +15,6 @@
       "attack": 2
     },
     {
-      "type": "elite",
-      "level": 0,
-      "health": 13,
-      "movement": 3,
-      "attack": 3
-    },
-    {
       "level": 1,
       "health": 7,
       "movement": 3,
@@ -30,19 +23,6 @@
         {
           "type": "condition",
           "value": "poison"
-        }
-      ]
-    },
-    {
-      "type": "elite",
-      "level": 1,
-      "health": 15,
-      "movement": 3,
-      "attack": 3,
-      "actions": [
-        {
-          "type": "condition",
-          "value": "wound"
         }
       ]
     },
@@ -59,6 +39,86 @@
       ]
     },
     {
+      "level": 3,
+      "health": 14,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 16,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 20,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 28,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 35,
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 13,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 15,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
       "type": "elite",
       "level": 2,
       "health": 18,
@@ -69,18 +129,6 @@
           "type": "condition",
           "value": "wound"
         },
-        {
-          "type": "condition",
-          "value": "poison"
-        }
-      ]
-    },
-    {
-      "level": 3,
-      "health": 14,
-      "movement": 3,
-      "attack": 3,
-      "actions": [
         {
           "type": "condition",
           "value": "poison"
@@ -105,18 +153,6 @@
       ]
     },
     {
-      "level": 4,
-      "health": 16,
-      "movement": 3,
-      "attack": 4,
-      "actions": [
-        {
-          "type": "condition",
-          "value": "poison"
-        }
-      ]
-    },
-    {
       "type": "elite",
       "level": 4,
       "health": 25,
@@ -127,18 +163,6 @@
           "type": "condition",
           "value": "wound"
         },
-        {
-          "type": "condition",
-          "value": "poison"
-        }
-      ]
-    },
-    {
-      "level": 5,
-      "health": 20,
-      "movement": 3,
-      "attack": 4,
-      "actions": [
         {
           "type": "condition",
           "value": "poison"
@@ -163,18 +187,6 @@
       ]
     },
     {
-      "level": 6,
-      "health": 28,
-      "movement": 4,
-      "attack": 4,
-      "actions": [
-        {
-          "type": "condition",
-          "value": "poison"
-        }
-      ]
-    },
-    {
       "type": "elite",
       "level": 6,
       "health": 40,
@@ -185,18 +197,6 @@
           "type": "condition",
           "value": "wound"
         },
-        {
-          "type": "condition",
-          "value": "poison"
-        }
-      ]
-    },
-    {
-      "level": 7,
-      "health": 35,
-      "movement": 4,
-      "attack": 5,
-      "actions": [
         {
           "type": "condition",
           "value": "poison"

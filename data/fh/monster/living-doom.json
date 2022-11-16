@@ -15,6 +15,93 @@
       "attack": 3
     },
     {
+      "level": 1,
+      "health": 8,
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 9,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 9,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 11,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 14,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 18,
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 24,
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ],
+      "immunities": [
+        "bane"
+      ]
+    },
+    {
       "type": "elite",
       "level": 0,
       "health": 10,
@@ -28,18 +115,6 @@
       ]
     },
     {
-      "level": 1,
-      "health": 8,
-      "movement": 2,
-      "attack": 3,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 1
-        }
-      ]
-    },
-    {
       "type": "elite",
       "level": 1,
       "health": 10,
@@ -53,35 +128,11 @@
       ]
     },
     {
-      "level": 2,
-      "health": 9,
-      "movement": 2,
-      "attack": 4,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 1
-        }
-      ]
-    },
-    {
       "type": "elite",
       "level": 2,
       "health": 11,
       "movement": 3,
       "attack": 5,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        }
-      ]
-    },
-    {
-      "level": 3,
-      "health": 9,
-      "movement": 2,
-      "attack": 4,
       "actions": [
         {
           "type": "shield",
@@ -95,18 +146,6 @@
       "health": 14,
       "movement": 4,
       "attack": 5,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        }
-      ]
-    },
-    {
-      "level": 4,
-      "health": 11,
-      "movement": 3,
-      "attack": 4,
       "actions": [
         {
           "type": "shield",
@@ -120,18 +159,6 @@
       "health": 18,
       "movement": 4,
       "attack": 5,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        }
-      ]
-    },
-    {
-      "level": 5,
-      "health": 14,
-      "movement": 3,
-      "attack": 4,
       "actions": [
         {
           "type": "shield",
@@ -153,38 +180,11 @@
       ]
     },
     {
-      "level": 6,
-      "health": 18,
-      "movement": 3,
-      "attack": 5,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        }
-      ]
-    },
-    {
       "type": "elite",
       "level": 6,
       "health": 27,
       "movement": 4,
       "attack": 7,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        }
-      ],
-      "immunities": [
-        "bane"
-      ]
-    },
-    {
-      "level": 7,
-      "health": 24,
-      "movement": 4,
-      "attack": 5,
       "actions": [
         {
           "type": "shield",

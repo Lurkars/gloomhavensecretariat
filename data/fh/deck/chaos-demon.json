@@ -4,6 +4,7 @@
   "abilities": [
     {
       "name": "Chilling Breath",
+      "cardId": 538,
       "initiative": 14,
       "actions": [
         {
@@ -41,11 +42,11 @@
             }
           ]
         }
-      ],
-      "cardId": 538
+      ]
     },
     {
       "name": "Heat Blast",
+      "cardId": 539,
       "initiative": 1,
       "actions": [
         {
@@ -77,11 +78,11 @@
             }
           ]
         }
-      ],
-      "cardId": 539
+      ]
     },
     {
       "name": "Seismic Punch",
+      "cardId": 540,
       "initiative": 67,
       "actions": [
         {
@@ -118,11 +119,11 @@
             }
           ]
         }
-      ],
-      "cardId": 540
+      ]
     },
     {
       "name": "Whirlwind",
+      "cardId": 541,
       "initiative": 20,
       "actions": [
         {
@@ -158,11 +159,11 @@
             }
           ]
         }
-      ],
-      "cardId": 541
+      ]
     },
     {
       "name": "White Claws",
+      "cardId": 542,
       "initiative": 42,
       "actions": [
         {
@@ -201,11 +202,11 @@
             }
           ]
         }
-      ],
-      "cardId": 542
+      ]
     },
     {
       "name": "Black Tendrils",
+      "cardId": 543,
       "initiative": 51,
       "actions": [
         {
@@ -222,6 +223,7 @@
           "type": "element",
           "value": "dark",
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "condition",
@@ -235,14 +237,13 @@
               ],
               "small": false
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 543
+      ]
     },
     {
       "name": "Arcane Explosion",
+      "cardId": 544,
       "initiative": 77,
       "shuffle": true,
       "actions": [
@@ -285,11 +286,11 @@
             }
           ]
         }
-      ],
-      "cardId": 544
+      ]
     },
     {
       "name": "Hungry Maw",
+      "cardId": 545,
       "initiative": 98,
       "shuffle": true,
       "actions": [
@@ -317,8 +318,7 @@
             }
           ]
         }
-      ],
-      "cardId": 545
+      ]
     }
   ]
 }

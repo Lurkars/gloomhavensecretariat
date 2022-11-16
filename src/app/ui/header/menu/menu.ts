@@ -11,7 +11,8 @@ import { SwUpdate } from '@angular/service-worker';
 import { ghsHasSpoilers, ghsIsSpoiled, ghsNotSpoiled } from "../../helper/Static";
 import { Objective } from "src/app/game/model/Objective";
 import { ObjectiveData } from "src/app/game/model/data/ObjectiveData";
-import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { Dialog, DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { FeedbackDialogComponent } from "../../tools/feedback/feedback-dialog";
 
 export enum SubMenu {
   main, edition, scenario, section, monster_add, monster_remove, character_add, character_remove, objective_add, objective_remove, settings, debug, server, datamanagement, about
@@ -42,7 +43,7 @@ export class MainMenuComponent implements OnInit {
   undoInfo: string[] = [];
   redoInfo: string[] = [];
 
-  constructor(@Inject(DIALOG_DATA) private data: SubMenu, private swUpdate: SwUpdate, private dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) private data: SubMenu, private swUpdate: SwUpdate, private dialogRef: DialogRef, private dialog: Dialog) {
 
     this.active = data;
 
@@ -390,4 +391,10 @@ export class MainMenuComponent implements OnInit {
     window.location.reload()
   }
 
+  feedbackDialog() {
+    this.dialog.open(FeedbackDialogComponent, {
+      panelClass: 'dialog'
+    })
+    this.dialogRef.close();
+  }
 }

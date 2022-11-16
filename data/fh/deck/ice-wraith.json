@@ -1,9 +1,12 @@
 {
   "name": "ice-wraith",
+  "edition": "fh",
   "abilities": [
     {
       "name": "Shift Form",
+      "cardId": 642,
       "initiative": 95,
+      "shuffle": true,
       "actions": [
         {
           "type": "custom",
@@ -13,14 +16,14 @@
         {
           "type": "heal",
           "value": 1,
+          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self",
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "move",
@@ -48,25 +51,25 @@
             }
           ]
         }
-      ],
-      "shuffle": true,
-      "cardId": 642
+      ]
     },
     {
       "name": "Renewed Aggression",
+      "cardId": 643,
       "initiative": 44,
+      "shuffle": true,
       "actions": [
         {
           "type": "heal",
           "value": 1,
+          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self",
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "move",
@@ -99,18 +102,18 @@
           "value": "ice",
           "small": false
         }
-      ],
-      "shuffle": true,
-      "cardId": 643
+      ]
     },
     {
       "name": "Unholy Strength",
+      "cardId": 644,
       "initiative": 59,
       "actions": [
         {
           "type": "element",
           "value": "ice",
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "concatenation",
@@ -134,45 +137,45 @@
               ],
               "small": false
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "attack",
           "value": 0,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "range",
               "value": 3,
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 644
+      ]
     },
     {
       "name": "Fade Out",
+      "cardId": 645,
       "initiative": 59,
       "actions": [
         {
           "type": "condition",
           "value": "invisible",
+          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self",
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "element",
           "value": "ice",
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "concatenation",
@@ -196,19 +199,18 @@
               ],
               "small": false
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "element",
           "value": "ice",
           "small": false
         }
-      ],
-      "cardId": 645
+      ]
     },
     {
       "name": "Hasty Assault",
+      "cardId": 646,
       "initiative": 41,
       "actions": [
         {
@@ -242,11 +244,11 @@
           "value": "ice",
           "small": false
         }
-      ],
-      "cardId": 646
+      ]
     },
     {
       "name": "Calculated Strike",
+      "cardId": 647,
       "initiative": 71,
       "actions": [
         {
@@ -280,43 +282,43 @@
           "value": "ice",
           "small": false
         }
-      ],
-      "cardId": 647
+      ]
     },
     {
       "name": "Restore Essence",
+      "cardId": 648,
       "initiative": 13,
       "actions": [
         {
           "type": "heal",
           "value": 3,
+          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self",
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "element",
           "value": "ice",
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "shield",
               "value": 2,
               "small": false
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 648
+      ]
     },
     {
       "name": "Shard Strike",
+      "cardId": 649,
       "initiative": 16,
       "actions": [
         {
@@ -343,18 +345,16 @@
           "type": "element",
           "value": "ice",
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "retaliate",
               "value": 2,
               "small": false
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 649
+      ]
     }
-  ],
-  "edition": "fh"
+  ]
 }

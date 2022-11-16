@@ -76,6 +76,14 @@
     <span class="special-target-value" [i18n]="('game.specialTarget.' + getValues(action)[0])"
       [i18n-args]="getValues(action).splice(1)" [relative]="relative"
       [ngClass]="{'text-white' : !right, 'small' : action.small}"></span>
+    <span
+      *ngIf="[ 'alliesRange:',  'alliesRangeAffect:','allyAffectRange:', 'enemiesRange:', 'enemiesRangeAffect:', 'enemyRange:'].indexOf(action.value + '') != -1"
+      [ngClass]="{'small' : action.small}">
+      <span>{{getRange()}}</span>
+      <span *ngIf="getEliteRange() && getRange() != getEliteRange()">/</span>
+      <span *ngIf="getEliteRange() && getRange() != getEliteRange()" class="elite">{{getEliteRange()}}</span>
+    </span>
+
     <div class="special-target-subactions" *ngIf="subActions && subActions.length > 0">
       <ghs-action [ngClass]="'subaction-' + subAction.type"
         *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0)" [action]="subAction" [monster]="monster"

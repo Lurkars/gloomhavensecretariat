@@ -1,5 +1,12 @@
 {
   "name": "shards",
+  "characterClass": "savvas",
+  "gender": "",
+  "edition": "fh",
+  "color": "#c0d7e9",
+  "spoiler": true,
+  "marker": false,
+  "deck": "",
   "stats": [
     {
       "level": 1,
@@ -38,13 +45,7 @@
       "health": 20
     }
   ],
-  "gender": "",
   "availableSummons": [],
-  "color": "#c0d7e9",
-  "marker": false,
-  "deck": "",
   "perks": [],
-  "edition": "fh",
-  "spoiler": true,
   "replace": false
 }

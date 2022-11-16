@@ -1,8 +1,10 @@
 {
   "name": "ruined-machine",
+  "edition": "fh",
   "abilities": [
     {
       "name": "Latch On",
+      "cardId": 594,
       "initiative": 31,
       "actions": [
         {
@@ -14,6 +16,7 @@
         {
           "type": "concatenation",
           "value": ",:2",
+          "small": false,
           "subActions": [
             {
               "type": "condition",
@@ -30,14 +33,13 @@
               "value": 1,
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 594
+      ]
     },
     {
       "name": "Hasty Assault",
+      "cardId": 595,
       "initiative": 41,
       "actions": [
         {
@@ -52,11 +54,11 @@
           "valueType": "minus",
           "small": false
         }
-      ],
-      "cardId": 595
+      ]
     },
     {
       "name": "Nothing Special",
+      "cardId": 596,
       "initiative": 63,
       "actions": [
         {
@@ -71,11 +73,11 @@
           "valueType": "plus",
           "small": false
         }
-      ],
-      "cardId": 596
+      ]
     },
     {
       "name": "Calculated Strike",
+      "cardId": 597,
       "initiative": 85,
       "actions": [
         {
@@ -90,11 +92,11 @@
           "valueType": "plus",
           "small": false
         }
-      ],
-      "cardId": 597
+      ]
     },
     {
       "name": "Fuel Leak",
+      "cardId": 598,
       "initiative": 29,
       "actions": [
         {
@@ -114,37 +116,38 @@
           "valueType": "plus",
           "small": false
         }
-      ],
-      "cardId": 598
+      ]
     },
     {
       "name": "Devastating Tackle",
+      "cardId": 599,
       "initiative": 42,
       "actions": [
         {
           "type": "attack",
           "value": 2,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "condition",
               "value": "immobilize",
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "custom",
           "value": "If the attack ability was perfomed,<br>Ruined Machine suffers %game.damage:1%.",
           "small": true
         }
-      ],
-      "cardId": 599
+      ]
     },
     {
       "name": "Signal Jam",
+      "cardId": 600,
       "initiative": 56,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -155,6 +158,7 @@
         {
           "type": "condition",
           "value": "muddle",
+          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -166,21 +170,20 @@
               "value": 2,
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "custom",
           "value": "Ruined Machine suffers %game.damage:1%.",
           "small": true
         }
-      ],
-      "shuffle": true,
-      "cardId": 600
+      ]
     },
     {
       "name": "Self-Destruct",
+      "cardId": 601,
       "initiative": 93,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -199,10 +202,7 @@
           "value": "If the attack ability was perfomed,<br>all adjacent enemies suffer trap damage<br>and the Ruined Machine dies.",
           "small": true
         }
-      ],
-      "shuffle": true,
-      "cardId": 601
+      ]
     }
-  ],
-  "edition": "fh"
+  ]
 }

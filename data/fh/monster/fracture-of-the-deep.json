@@ -7,6 +7,9 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
+    "health": 20,
+    "movement": 2,
+    "attack": 3,
     "immunities": [
       "wound",
       "poison",
@@ -196,10 +199,7 @@
           "small": false
         }
       ]
-    ],
-    "health": 20,
-    "movement": 2,
-    "attack": 3
+    ]
   },
   "stats": [
     {

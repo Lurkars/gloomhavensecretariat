@@ -14,8 +14,10 @@
     "absent": "Absent",
     "add": "Add Character",
     "class": {
+      "algox": "Algox",
       "aesther": "Aesther",
       "f": {
+        "algox": "Algox",
         "aesther": "Aesther",
         "harrower": "Harrower",
         "human": "Human",
@@ -24,6 +26,7 @@
         "orchid": "Orchid",
         "quatryl": "Quatryl",
         "savvas": "Savvas",
+        "unfettered": "Unfettered",
         "valrath": "Valrath",
         "vermling": "Vermling"
       },
@@ -32,6 +35,7 @@
       "inox": "Inox",
       "lurker": "Lurker",
       "m": {
+        "algox": "Algox",
         "aesther": "Aesther",
         "harrower": "Harrower",
         "human": "Human",
@@ -40,12 +44,14 @@
         "orchid": "Orchid",
         "quatryl": "Quatryl",
         "savvas": "Savvas",
+        "unfettered": "Unfettered",
         "valrath": "Valrath",
         "vermling": "Vermling"
       },
       "orchid": "Orchid",
       "quatryl": "Quatryl",
       "savvas": "Savvas",
+      "unfettered": "Unfettered",
       "valrath": "Valrath",
       "vermling": "Vermling"
     },
@@ -674,6 +680,7 @@
     "dragValues": "Drag Initiative/HP/XP/Loot",
     "eliteFirst": "Elite standees first",
     "expireConditions": "Automatic expire conditions",
+    "feedback": "Disable Feedback Button",
     "fhStyle": "Frosthaven Style (%wip%)",
     "fontsize": {
       ".": "Ability fontsize",
@@ -900,6 +907,51 @@
       "false": "Inactive",
       "new": "New",
       "true": "Active"
+    }
+  },
+  "tools": {
+    "feedback": {
+      ".": "Feedback",
+      "githubIssue": "File a GitHub Issue",
+      "reportIssue": {
+        ".": "Report an Issue",
+        "send": "Send Issue",
+        "specify": "Please specify in text.",
+        "text": "Text",
+        "type": {
+          ".": "Issue Type",
+          "abilityCard": {
+            ".": "Ability Card(s)",
+            "hint": "Wrong value(s) on ability card(s)."
+          },
+          "artwork": {
+            ".": "Artwork",
+            "hint": "Wrong or missing artwork."
+          },
+          "characterStat": {
+            ".": "Character Stat(s)",
+            "hint": "Wrong value(s) on character stat(s)."
+          },
+          "monsterStat": {
+            ".": "Monster Stat(s)",
+            "hint": "Wrong value(s) on monster stat(s)."
+          },
+          "software": {
+            ".": "Software",
+            "hint": "A software bug, something not working as expected."
+          }
+        }
+      },
+      "submitScenario": {
+        ".": "Submit current scenario",
+        "index": "Scenario Number",
+        "name": "Scenario Name",
+        "notes": {
+          ".": "Additional Notes",
+          "hint": "e.g. special scenario rules like monster level adjustments, round events or HP calculations..."
+        },
+        "send": "Send Scneario"
+      }
     }
   },
   "update": "Update - Reload",

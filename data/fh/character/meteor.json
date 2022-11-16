@@ -1,5 +1,12 @@
 {
   "name": "meteor",
+  "characterClass": "savvas",
+  "gender": "",
+  "edition": "fh",
+  "color": "#e3734b",
+  "spoiler": true,
+  "marker": false,
+  "deck": "",
   "stats": [
     {
       "level": 1,
@@ -38,13 +45,7 @@
       "health": 20
     }
   ],
-  "gender": "",
   "availableSummons": [],
-  "color": "#e3734b",
-  "marker": false,
-  "deck": "",
   "perks": [],
-  "edition": "fh",
-  "spoiler": true,
   "replace": false
 }

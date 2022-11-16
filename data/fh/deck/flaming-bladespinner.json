@@ -1,9 +1,12 @@
 {
   "name": "flaming-bladespinner",
+  "edition": "fh",
   "abilities": [
     {
       "name": "Calculated Strike",
+      "cardId": 610,
       "initiative": 78,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -22,13 +25,13 @@
           "value": "fire",
           "small": false
         }
-      ],
-      "shuffle": true,
-      "cardId": 610
+      ]
     },
     {
       "name": "Hasty Assualt",
+      "cardId": 611,
       "initiative": 38,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -47,12 +50,11 @@
           "value": "fire",
           "small": false
         }
-      ],
-      "shuffle": true,
-      "cardId": 611
+      ]
     },
     {
       "name": "Increase Momentum",
+      "cardId": 612,
       "initiative": 33,
       "actions": [
         {
@@ -70,25 +72,25 @@
         {
           "type": "condition",
           "value": "strengthen",
+          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
               "value": "self",
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "element",
           "value": "fire",
           "small": false
         }
-      ],
-      "cardId": 612
+      ]
     },
     {
       "name": "Defensive Blades",
+      "cardId": 613,
       "initiative": 12,
       "actions": [
         {
@@ -100,20 +102,20 @@
           "type": "element",
           "value": "fire",
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "custom",
               "value": "All enemies within<br>%game.action.range% 2 suffer %game.damage:2%.",
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 613
+      ]
     },
     {
       "name": "Heated Sweep",
+      "cardId": 614,
       "initiative": 58,
       "actions": [
         {
@@ -126,6 +128,7 @@
           "type": "attack",
           "value": 0,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "element",
@@ -146,14 +149,13 @@
               ],
               "small": false
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 614
+      ]
     },
     {
       "name": "Flame Jets",
+      "cardId": 615,
       "initiative": 43,
       "actions": [
         {
@@ -171,6 +173,7 @@
           "type": "element",
           "value": "fire",
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "condition",
@@ -189,14 +192,13 @@
                 }
               ]
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 615
+      ]
     },
     {
       "name": "Firestorm",
+      "cardId": 616,
       "initiative": 17,
       "actions": [
         {
@@ -207,25 +209,26 @@
         {
           "type": "retaliate",
           "value": 2,
+          "small": false,
           "subActions": [
             {
               "type": "range",
               "value": 3,
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 616
+      ]
     },
     {
       "name": "Spinning Charge",
+      "cardId": 617,
       "initiative": 68,
       "actions": [
         {
           "type": "specialTarget",
           "value": "focusEnemyFarthest",
+          "small": true,
           "subActions": [
             {
               "type": "move",
@@ -240,13 +243,13 @@
               ],
               "small": false
             }
-          ],
-          "small": true
+          ]
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
@@ -266,12 +269,9 @@
               ],
               "small": false
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 617
+      ]
     }
-  ],
-  "edition": "fh"
+  ]
 }

@@ -4,7 +4,7 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { CharacterStat } from "src/app/game/model/CharacterStat";
-import { CharacterData } from "src/app/game/model/data/CharacterData";
+import { CharacterClass, CharacterData } from "src/app/game/model/data/CharacterData";
 import { ghsIsSpoiled } from "src/app/ui/helper/Static";
 
 @Component({
@@ -24,6 +24,7 @@ export class CharacterEditorComponent implements OnInit {
   edition: string | undefined;
   init: boolean = false;
   hpIndex: number = 0;
+  CharacterClasses: CharacterClass[] = Object.values(CharacterClass);
   hpValues: number[][] = [
     [6, 7, 8, 9, 10, 11, 12, 13, 14],
     [8, 9, 11, 12, 14, 15, 17, 18, 20],

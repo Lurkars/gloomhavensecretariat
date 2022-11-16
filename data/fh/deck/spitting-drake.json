@@ -3,6 +3,7 @@
   "edition": "fh",
   "abilities": [
     {
+      "name": "Hasty Assault",
       "cardId": 858,
       "initiative": 32,
       "actions": [
@@ -23,10 +24,10 @@
             }
           ]
         }
-      ],
-      "name": "Hasty Assault"
+      ]
     },
     {
+      "name": "Nothing Special",
       "cardId": 859,
       "initiative": 52,
       "actions": [
@@ -47,10 +48,10 @@
             }
           ]
         }
-      ],
-      "name": "Nothing Special"
+      ]
     },
     {
+      "name": "Splashing Bile",
       "cardId": 860,
       "initiative": 57,
       "shuffle": true,
@@ -76,10 +77,10 @@
             }
           ]
         }
-      ],
-      "name": "Splashing Bile"
+      ]
     },
     {
+      "name": "Venom Glands",
       "cardId": 861,
       "initiative": 27,
       "actions": [
@@ -105,10 +106,10 @@
             }
           ]
         }
-      ],
-      "name": "Venom Glands"
+      ]
     },
     {
+      "name": "Calculated Strike",
       "cardId": 862,
       "initiative": 87,
       "actions": [
@@ -129,10 +130,10 @@
             }
           ]
         }
-      ],
-      "name": "Calculated Strike"
+      ]
     },
     {
+      "name": "Subduing Spit",
       "cardId": 863,
       "initiative": 89,
       "actions": [
@@ -154,10 +155,10 @@
           ]
         }
       ],
-      "name": "Subduing Spit",
       "revealed": true
     },
     {
+      "name": "Empowring Rest",
       "cardId": 864,
       "initiative": 6,
       "actions": [
@@ -181,10 +182,10 @@
             }
           ]
         }
-      ],
-      "name": "Empowring Rest"
+      ]
     },
     {
+      "name": "Explosive Vomit",
       "cardId": 865,
       "initiative": 89,
       "shuffle": true,
@@ -215,8 +216,7 @@
             }
           ]
         }
-      ],
-      "name": "Explosive Vomit"
+      ]
     }
   ]
 }

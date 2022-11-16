@@ -15,13 +15,6 @@
       "attack": 2
     },
     {
-      "type": "elite",
-      "level": 0,
-      "health": 12,
-      "movement": 2,
-      "attack": 2
-    },
-    {
       "level": 1,
       "health": 7,
       "movement": 2,
@@ -34,10 +27,9 @@
       ]
     },
     {
-      "type": "elite",
-      "level": 1,
-      "health": 12,
-      "movement": 3,
+      "level": 2,
+      "health": 8,
+      "movement": 2,
       "attack": 2,
       "actions": [
         {
@@ -47,9 +39,77 @@
       ]
     },
     {
-      "level": 2,
-      "health": 8,
+      "level": 3,
+      "health": 10,
       "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 12,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 12,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 15,
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 18,
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 12,
+      "movement": 2,
+      "attack": 2
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 12,
+      "movement": 3,
       "attack": 2,
       "actions": [
         {
@@ -72,18 +132,6 @@
       ]
     },
     {
-      "level": 3,
-      "health": 10,
-      "movement": 2,
-      "attack": 3,
-      "actions": [
-        {
-          "type": "retaliate",
-          "value": 2
-        }
-      ]
-    },
-    {
       "type": "elite",
       "level": 3,
       "health": 17,
@@ -97,33 +145,9 @@
       ]
     },
     {
-      "level": 4,
-      "health": 12,
-      "movement": 3,
-      "attack": 3,
-      "actions": [
-        {
-          "type": "retaliate",
-          "value": 2
-        }
-      ]
-    },
-    {
       "type": "elite",
       "level": 4,
       "health": 19,
-      "movement": 3,
-      "attack": 4,
-      "actions": [
-        {
-          "type": "retaliate",
-          "value": 3
-        }
-      ]
-    },
-    {
-      "level": 5,
-      "health": 12,
       "movement": 3,
       "attack": 4,
       "actions": [
@@ -147,18 +171,6 @@
       ]
     },
     {
-      "level": 6,
-      "health": 15,
-      "movement": 3,
-      "attack": 5,
-      "actions": [
-        {
-          "type": "retaliate",
-          "value": 3
-        }
-      ]
-    },
-    {
       "type": "elite",
       "level": 6,
       "health": 22,
@@ -172,18 +184,6 @@
       ],
       "immunities": [
         "poison"
-      ]
-    },
-    {
-      "level": 7,
-      "health": 18,
-      "movement": 3,
-      "attack": 5,
-      "actions": [
-        {
-          "type": "retaliate",
-          "value": 4
-        }
       ]
     },
     {

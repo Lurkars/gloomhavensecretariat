@@ -7,6 +7,16 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
+    "health": "Cx12",
+    "movement": 3,
+    "attack": 3,
+    "actions": [
+      {
+        "type": "retaliate",
+        "value": 1,
+        "small": false
+      }
+    ],
     "immunities": [
       "wound",
       "poison",
@@ -31,17 +41,7 @@
           "small": false
         }
       ]
-    ],
-    "actions": [
-      {
-        "type": "retaliate",
-        "value": 1,
-        "small": false
-      }
-    ],
-    "health": "Cx12",
-    "movement": 3,
-    "attack": 3
+    ]
   },
   "stats": [
     {

@@ -1,5 +1,12 @@
 {
   "name": "coral",
+  "characterClass": "lurker",
+  "gender": "",
+  "edition": "fh",
+  "color": "#8bbac0",
+  "spoiler": true,
+  "marker": false,
+  "deck": "",
   "stats": [
     {
       "level": 1,
@@ -38,13 +45,7 @@
       "health": 26
     }
   ],
-  "gender": "",
   "availableSummons": [],
-  "color": "#8bbac0",
-  "marker": false,
-  "deck": "",
   "perks": [],
-  "edition": "fh",
-  "spoiler": true,
   "replace": false
 }

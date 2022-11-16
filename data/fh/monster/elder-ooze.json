@@ -7,6 +7,9 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
+    "health": "Cx16",
+    "movement": 3,
+    "attack": 3,
     "immunities": [
       "wound",
       "poison",
@@ -79,59 +82,56 @@
           "small": false
         }
       ]
-    ],
-    "health": "Cx16",
-    "movement": 3,
-    "attack": 3
+    ]
   },
   "stats": [
     {
       "level": 0,
       "health": "Cx16",
-      "attack": 3,
-      "movement": 3
+      "movement": 3,
+      "attack": 3
     },
     {
       "level": 1,
       "health": "Cx20",
-      "attack": 3,
-      "movement": 4
+      "movement": 4,
+      "attack": 3
     },
     {
       "level": 2,
       "health": "Cx24",
-      "attack": 4,
-      "movement": 4
+      "movement": 4,
+      "attack": 4
     },
     {
       "level": 3,
       "health": "Cx30",
-      "attack": 4,
-      "movement": 5
+      "movement": 5,
+      "attack": 4
     },
     {
       "level": 4,
       "health": "Cx36",
-      "attack": 5,
-      "movement": 5
+      "movement": 5,
+      "attack": 5
     },
     {
       "level": 5,
       "health": "Cx42",
-      "attack": 5,
-      "movement": 5
+      "movement": 5,
+      "attack": 5
     },
     {
       "level": 6,
       "health": "Cx59",
-      "attack": 6,
-      "movement": 5
+      "movement": 5,
+      "attack": 6
     },
     {
       "level": 7,
       "health": "Cx76",
-      "attack": 7,
-      "movement": 5
+      "movement": 5,
+      "attack": 7
     }
   ]
 }

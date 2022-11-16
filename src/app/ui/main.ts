@@ -99,7 +99,7 @@ export class MainComponent implements OnInit {
       setTimeout(() => {
         const containerElement = this.element.nativeElement.getElementsByClassName('figures')[0];
         if (containerElement) {
-          const figureElements = containerElement.getElementsByClassName('figure');
+          const figureElements: any[] = Array.from(containerElement.getElementsByClassName('figure'));
           const figures = gameManager.game.figures;
 
           for (let i = 0; i < figureElements.length; i++) {
@@ -121,6 +121,7 @@ export class MainComponent implements OnInit {
 
             if (columnSize == figures.length && height > containerElement.clientHeight) {
               columnSize--;
+              height -= figureElements[columnSize].clientHeight;
             }
 
             if (columnSize < figures.length) {
@@ -132,36 +133,32 @@ export class MainComponent implements OnInit {
                 columnSize--;
               }
 
-              height = 0;
-              for (let i = 0; i < columnSize; i++) {
-                height += figureElements[i].clientHeight;
-              }
+              let leftHeight = this.figureSize(0, columnSize, figureElements);
+              let rightHeight = this.figureSize(columnSize, figures.length, figureElements);
 
-              let otherHeight = 0;
-              for (let i = figures.length - 1; i >= columnSize; i--) {
-                const figure = figures[i];
-                const ignore = figure instanceof Monster && (figure.entities.length == 0 || figure.entities.every((entity) => entity.dead || entity.health < 1)) || figure instanceof Character && figure.absent;
-                if (otherHeight != 0 || !ignore) {
-                  otherHeight += figureElements[i].clientHeight;
+              let activeLeftHeight = this.activeFigureSize(0, columnSize, figureElements);
+              let activeRightHeight = this.activeFigureSize(columnSize, figures.length, figureElements);
+
+              if (activeLeftHeight < containerElement.clientHeight || activeRightHeight < containerElement.clientHeight) {
+                while (activeLeftHeight > containerElement.clientHeight && activeRightHeight < containerElement.clientHeight) {
+                  columnSize--;
+                  leftHeight = this.figureSize(0, columnSize, figureElements);
+                  rightHeight = this.figureSize(columnSize, figures.length, figureElements);
+                  activeLeftHeight = this.activeFigureSize(0, columnSize, figureElements);
+                  activeRightHeight = this.activeFigureSize(columnSize, figures.length, figureElements);
+                }
+
+                while (activeLeftHeight < containerElement.clientHeight && activeRightHeight > containerElement.clientHeight) {
+                  columnSize++;
+                  leftHeight = this.figureSize(0, columnSize, figureElements);
+                  rightHeight = this.figureSize(columnSize, figures.length, figureElements);
+                  activeLeftHeight = this.activeFigureSize(0, columnSize, figureElements);
+                  activeRightHeight = this.activeFigureSize(columnSize, figures.length, figureElements);
                 }
               }
 
-              while (height < otherHeight) {
-                otherHeight -= figureElements[columnSize].clientHeight;
-                height += figureElements[columnSize].clientHeight;
+              if (activeLeftHeight < activeRightHeight && activeLeftHeight + figureElements[columnSize].clientHeight > containerElement.clientHeight && activeRightHeight - figureElements[columnSize].clientHeight > containerElement.clientHeight) {
                 columnSize++;
-              }
-
-              while (height > containerElement.clientHeight && otherHeight + figureElements[columnSize - 1].clientHeight < containerElement.clientHeight) {
-                otherHeight += figureElements[columnSize - 1].clientHeight;
-                height -= figureElements[columnSize - 1].clientHeight;
-                columnSize--;
-              }
-
-              while (height > containerElement.clientHeight && height > otherHeight && otherHeight + figureElements[columnSize - 1].clientHeight < height) {
-                otherHeight += figureElements[columnSize - 1].clientHeight;
-                height -= figureElements[columnSize - 1].clientHeight;
-                columnSize--;
               }
 
               this.columnSize = columnSize;
@@ -178,6 +175,18 @@ export class MainComponent implements OnInit {
         }
       }, 0);
     }
+  }
+
+  figureSize(start: number, end: number, figureElements: any[]) {
+    return figureElements.slice(start, end).map((element) => element.clientHeight).reduce((a: any, b: any) => a + b, 0);
+  }
+
+  activeFigureSize(start: number, end: number, figureElements: any[]) {
+    const figures = gameManager.game.figures;
+    return figureElements.slice(start, end).filter((element: any, index: number) => {
+      const figure = figures[index + start];
+      return figure instanceof Monster && figure.entities.length > 0 && figure.entities.some((entity) => !entity.dead && entity.health > 0) || figure instanceof Character && !figure.absent;
+    }).map((element) => element.clientHeight).reduce((a: any, b: any) => a + b, 0);
   }
 
   translate(scrollTo: HTMLElement | undefined = undefined) {

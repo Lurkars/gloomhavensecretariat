@@ -7,6 +7,22 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
+    "health": "Cx16",
+    "attack": 3,
+    "actions": [
+      {
+        "type": "retaliate",
+        "value": 1,
+        "small": false,
+        "subActions": [
+          {
+            "type": "range",
+            "value": 3,
+            "small": true
+          }
+        ]
+      }
+    ],
     "immunities": [
       "wound",
       "immobilize",
@@ -65,23 +81,7 @@
           "small": false
         }
       ]
-    ],
-    "actions": [
-      {
-        "type": "retaliate",
-        "value": 1,
-        "subActions": [
-          {
-            "type": "range",
-            "value": 3,
-            "small": true
-          }
-        ],
-        "small": false
-      }
-    ],
-    "health": "Cx16",
-    "attack": 3
+    ]
   },
   "stats": [
     {

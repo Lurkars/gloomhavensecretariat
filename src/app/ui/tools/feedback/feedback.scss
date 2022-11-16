@@ -1,0 +1,38 @@
+.button {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(var(--ghs-unit) * 5);
+    height: calc(var(--ghs-unit) * 5);
+    top: 0;
+    right: -30%;
+    color: var(--ghs-color-blue);
+
+    img {
+        height: 100%;
+        width: auto;
+        filter: var(--ghs-filter-blue);
+    }
+
+    .text {
+        display: none;
+        padding: 0.3em;
+        font-size: 2em;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &:hover {
+        right: initial;
+        width: auto;
+
+        .text {
+            display: inline-block;
+        }
+
+    }
+}

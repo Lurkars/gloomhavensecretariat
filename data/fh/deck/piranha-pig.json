@@ -1,9 +1,12 @@
 {
   "name": "piranha-pig",
+  "edition": "fh",
   "abilities": [
     {
       "name": "Schooling",
+      "cardId": 714,
       "initiative": 40,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -14,6 +17,7 @@
         {
           "type": "grid",
           "value": 1,
+          "small": false,
           "subActions": [
             {
               "type": "attack",
@@ -26,15 +30,13 @@
               "value": "Add +1 %game.action.attack% if the target is adjecent<br>to any of the Piranha Pig's allies.",
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "shuffle": true,
-      "cardId": 714
+      ]
     },
     {
       "name": "Bloodthirst",
+      "cardId": 715,
       "initiative": 38,
       "actions": [
         {
@@ -46,6 +48,7 @@
         {
           "type": "grid",
           "value": 1,
+          "small": false,
           "subActions": [
             {
               "type": "attack",
@@ -58,14 +61,13 @@
               "value": "Add +2 %game.action.attack% if the target has %game.condition.wound%.",
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 715
+      ]
     },
     {
       "name": "Easy Prey",
+      "cardId": 716,
       "initiative": 58,
       "actions": [
         {
@@ -77,6 +79,7 @@
         {
           "type": "grid",
           "value": 1,
+          "small": false,
           "subActions": [
             {
               "type": "attack",
@@ -89,15 +92,15 @@
               "value": "Add +1 %game.action.attack% if the target is occupying<br>a water hex.",
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 716
+      ]
     },
     {
       "name": "Feast",
+      "cardId": 717,
       "initiative": 26,
+      "shuffle": true,
       "actions": [
         {
           "type": "attack",
@@ -108,6 +111,7 @@
         {
           "type": "grid",
           "value": 1,
+          "small": false,
           "subActions": [
             {
               "type": "heal",
@@ -126,29 +130,27 @@
               "value": "where X is the amount of<br>damage done by the<br>target of the attack ability.",
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "shuffle": true,
-      "cardId": 717
+      ]
     },
     {
       "name": "Hasty Assault",
+      "cardId": 718,
       "initiative": 18,
       "actions": [
         {
           "type": "move",
           "value": 1,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "jump",
               "value": "",
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "attack",
@@ -156,49 +158,50 @@
           "valueType": "minus",
           "small": false
         }
-      ],
-      "cardId": 718
+      ]
     },
     {
       "name": "No Escape",
+      "cardId": 719,
       "initiative": 23,
       "actions": [
         {
           "type": "attack",
           "value": 1,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "condition",
               "value": "immobilize",
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 719
+      ]
     },
     {
       "name": "Bared Teeth",
+      "cardId": 720,
       "initiative": 13,
       "actions": [
         {
           "type": "move",
           "value": 1,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "jump",
               "value": "",
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "condition",
           "value": "wound",
+          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -210,19 +213,18 @@
               "value": 1,
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "retaliate",
           "value": 2,
           "small": false
         }
-      ],
-      "cardId": 720
+      ]
     },
     {
       "name": "Nothing Special",
+      "cardId": 721,
       "initiative": 31,
       "actions": [
         {
@@ -237,9 +239,7 @@
           "valueType": "plus",
           "small": false
         }
-      ],
-      "cardId": 721
+      ]
     }
-  ],
-  "edition": "fh"
+  ]
 }

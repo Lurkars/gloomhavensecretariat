@@ -1,5 +1,12 @@
 {
   "name": "trap",
+  "characterClass": "vermling",
+  "gender": "",
+  "edition": "fh",
+  "color": "#d2d4bf",
+  "spoiler": true,
+  "marker": false,
+  "deck": "",
   "stats": [
     {
       "level": 1,
@@ -38,13 +45,7 @@
       "health": 14
     }
   ],
-  "gender": "",
   "availableSummons": [],
-  "color": "#d2d4bf",
-  "marker": false,
-  "deck": "",
   "perks": [],
-  "edition": "fh",
-  "spoiler": true,
   "replace": false
 }

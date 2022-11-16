@@ -3,6 +3,7 @@
   "edition": "fh",
   "abilities": [
     {
+      "name": "Gripping Teeth",
       "cardId": 842,
       "initiative": 6,
       "actions": [
@@ -23,10 +24,10 @@
             }
           ]
         }
-      ],
-      "name": "Gripping Teeth"
+      ]
     },
     {
+      "name": "Horrowing Howl",
       "cardId": 843,
       "initiative": 7,
       "actions": [
@@ -51,10 +52,10 @@
             }
           ]
         }
-      ],
-      "name": "Horrowing Howl"
+      ]
     },
     {
+      "name": "Pack Hunting",
       "cardId": 844,
       "initiative": 19,
       "shuffle": true,
@@ -81,10 +82,10 @@
             }
           ]
         }
-      ],
-      "name": "Pack Hunting"
+      ]
     },
     {
+      "name": "Pack Hunting",
       "cardId": 845,
       "initiative": 19,
       "shuffle": true,
@@ -111,10 +112,10 @@
             }
           ]
         }
-      ],
-      "name": "Pack Hunting"
+      ]
     },
     {
+      "name": "Nothing Special",
       "cardId": 846,
       "initiative": 26,
       "actions": [
@@ -128,10 +129,10 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "name": "Nothing Special"
+      ]
     },
     {
+      "name": "Nothing Special",
       "cardId": 847,
       "initiative": 26,
       "actions": [
@@ -145,10 +146,10 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "name": "Nothing Special"
+      ]
     },
     {
+      "name": "Calculated Strike",
       "cardId": 848,
       "initiative": 83,
       "actions": [
@@ -162,10 +163,10 @@
           "value": 1,
           "valueType": "plus"
         }
-      ],
-      "name": "Calculated Strike"
+      ]
     },
     {
+      "name": "Sharp Fangs",
       "cardId": 849,
       "initiative": 72,
       "actions": [
@@ -198,8 +199,7 @@
             }
           ]
         }
-      ],
-      "name": "Sharp Fangs"
+      ]
     }
   ]
 }

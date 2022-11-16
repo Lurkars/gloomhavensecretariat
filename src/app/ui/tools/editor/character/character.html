@@ -27,6 +27,12 @@
             (change)="characterDataToJson()" (keyup)="characterDataToJson()">
 
 
+          <label>{{'editor.character.data.class' | ghsLabel}}</label>
+          <select [(ngModel)]="characterData.characterClass" (change)="characterDataToJson()">
+            <option *ngFor="let class of CharacterClasses" [value]="class"
+              [selected]="characterData.characterClass == class">{{'character.class.' + class | ghsLabel }}</option>
+          </select>
+
           <label>{{'editor.character.data.hp' | ghsLabel}}</label>
           <div class="hp-container">
             <select [(ngModel)]="hpIndex" (change)="changeHpIndex()">

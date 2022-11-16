@@ -7,6 +7,9 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
+    "health": "Cx8",
+    "movement": 3,
+    "attack": 3,
     "immunities": [
       "poison",
       "immobilize",
@@ -78,10 +81,7 @@
           "small": true
         }
       ]
-    ],
-    "health": "Cx8",
-    "movement": 3,
-    "attack": 3
+    ]
   },
   "stats": [
     {

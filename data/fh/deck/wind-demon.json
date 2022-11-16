@@ -3,6 +3,7 @@
   "edition": "fh",
   "abilities": [
     {
+      "name": "Into Thin Air",
       "cardId": 562,
       "initiative": 9,
       "actions": [
@@ -40,10 +41,10 @@
             }
           ]
         }
-      ],
-      "name": "Into Thin Air"
+      ]
     },
     {
+      "name": "Tailwind",
       "cardId": 563,
       "initiative": 21,
       "shuffle": true,
@@ -74,10 +75,10 @@
           "type": "element",
           "value": "air"
         }
-      ],
-      "name": "Tailwind"
+      ]
     },
     {
+      "name": "Tailwind",
       "cardId": 564,
       "initiative": 21,
       "shuffle": true,
@@ -108,10 +109,10 @@
           "type": "element",
           "value": "air"
         }
-      ],
-      "name": "Tailwind"
+      ]
     },
     {
+      "name": "Whirlwinds",
       "cardId": 565,
       "initiative": 29,
       "actions": [
@@ -149,10 +150,10 @@
             }
           ]
         }
-      ],
-      "name": "Whirlwinds"
+      ]
     },
     {
+      "name": "Cyclone",
       "cardId": 566,
       "initiative": 37,
       "actions": [
@@ -191,10 +192,10 @@
             }
           ]
         }
-      ],
-      "name": "Cyclone"
+      ]
     },
     {
+      "name": "Cutting Blast",
       "cardId": 567,
       "initiative": 43,
       "actions": [
@@ -227,10 +228,10 @@
             }
           ]
         }
-      ],
-      "name": "Cutting Blast"
+      ]
     },
     {
+      "name": "Blast of Air",
       "cardId": 568,
       "initiative": 43,
       "actions": [
@@ -280,10 +281,10 @@
             }
           ]
         }
-      ],
-      "name": "Blast of Air"
+      ]
     },
     {
+      "name": "Eye of the Storm",
       "cardId": 651,
       "initiative": 2,
       "actions": [
@@ -319,8 +320,7 @@
             }
           ]
         }
-      ],
-      "name": "Eye of the Storm"
+      ]
     }
   ]
 }

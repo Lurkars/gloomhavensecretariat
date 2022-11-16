@@ -1,71 +1,10 @@
 {
   "name": "shrike-fiend",
+  "edition": "fh",
   "abilities": [
     {
-      "name": "Darken the Skies",
-      "initiative": 27,
-      "actions": [
-        {
-          "type": "move",
-          "value": 0,
-          "valueType": "plus",
-          "small": false
-        },
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "target",
-              "value": 3,
-              "small": true
-            },
-            {
-              "type": "range",
-              "value": 3,
-              "small": true
-            }
-          ],
-          "small": false
-        }
-      ],
-      "cardId": 810
-    },
-    {
-      "name": "Concentrated Flock",
-      "initiative": 10,
-      "actions": [
-        {
-          "type": "move",
-          "value": 1,
-          "valueType": "minus",
-          "small": false
-        },
-        {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
-          "subActions": [
-            {
-              "type": "target",
-              "value": 2,
-              "small": true
-            },
-            {
-              "type": "range",
-              "value": 5,
-              "small": true
-            }
-          ],
-          "small": false
-        }
-      ],
-      "shuffle": true,
-      "cardId": 811
-    },
-    {
       "name": "Friendish Charge",
+      "cardId": 785,
       "initiative": 73,
       "actions": [
         {
@@ -78,20 +17,83 @@
           "type": "attack",
           "value": 0,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "push",
               "value": 2,
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 785
+      ]
+    },
+    {
+      "name": "Darken the Skies",
+      "cardId": 810,
+      "initiative": 27,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "small": false,
+          "subActions": [
+            {
+              "type": "target",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Concentrated Flock",
+      "cardId": 811,
+      "initiative": 10,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "small": false,
+          "subActions": [
+            {
+              "type": "target",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            }
+          ]
+        }
+      ]
     },
     {
       "name": "Angry Cloud",
+      "cardId": 813,
       "initiative": 9,
       "actions": [
         {
@@ -102,30 +104,31 @@
         {
           "type": "retaliate",
           "value": 2,
+          "small": false,
           "subActions": [
             {
               "type": "range",
               "value": 3,
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "element",
           "value": "dark",
           "small": false
         }
-      ],
-      "cardId": 813
+      ]
     },
     {
       "name": "Gather the Flock",
+      "cardId": 814,
       "initiative": 72,
       "actions": [
         {
           "type": "pull",
           "value": 2,
+          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -137,25 +140,25 @@
               "value": 5,
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "custom",
           "value": "All enemies within %game.action.range% 3 suffer %game.damage:2%.",
           "small": true
         }
-      ],
-      "cardId": 814
+      ]
     },
     {
       "name": "Dive Bombs",
+      "cardId": 815,
       "initiative": 49,
       "actions": [
         {
           "type": "attack",
           "value": 0,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -172,15 +175,15 @@
               "value": "immobilize",
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 815
+      ]
     },
     {
       "name": "Nothing Special",
+      "cardId": 816,
       "initiative": 90,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -199,18 +202,18 @@
           "value": "dark",
           "small": false
         }
-      ],
-      "shuffle": true,
-      "cardId": 816
+      ]
     },
     {
       "name": "Birds of Prey",
+      "cardId": 817,
       "initiative": 23,
       "actions": [
         {
           "type": "attack",
           "value": 2,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -227,25 +230,22 @@
               "value": 2,
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "element",
           "value": "dark",
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "shield",
               "value": 2,
               "small": false
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 817
+      ]
     }
-  ],
-  "edition": "fh"
+  ]
 }

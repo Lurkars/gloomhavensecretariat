@@ -4,9 +4,9 @@
   "deck": "scout",
   "count": 10,
   "baseStat": {
+    "type": "normal",
     "immunities": [],
-    "special": [],
-    "type": "normal"
+    "special": []
   },
   "stats": [
     {
@@ -16,17 +16,53 @@
       "attack": 2
     },
     {
+      "level": 1,
+      "health": 8,
+      "movement": 4,
+      "attack": 2
+    },
+    {
+      "level": 2,
+      "health": 11,
+      "movement": 4,
+      "attack": 2
+    },
+    {
+      "level": 3,
+      "health": 12,
+      "movement": 4,
+      "attack": 3
+    },
+    {
+      "level": 4,
+      "health": 15,
+      "movement": 4,
+      "attack": 3
+    },
+    {
+      "level": 5,
+      "health": 18,
+      "movement": 5,
+      "attack": 3
+    },
+    {
+      "level": 6,
+      "health": 24,
+      "movement": 5,
+      "attack": 4
+    },
+    {
+      "level": 7,
+      "health": 33,
+      "movement": 5,
+      "attack": 4
+    },
+    {
       "type": "elite",
       "level": 0,
       "health": 10,
       "movement": 4,
       "attack": 3
-    },
-    {
-      "level": 1,
-      "health": 8,
-      "movement": 4,
-      "attack": 2
     },
     {
       "type": "elite",
@@ -43,12 +79,6 @@
       ]
     },
     {
-      "level": 2,
-      "health": 11,
-      "movement": 4,
-      "attack": 2
-    },
-    {
       "type": "elite",
       "level": 2,
       "health": 13,
@@ -61,12 +91,6 @@
           "small": false
         }
       ]
-    },
-    {
-      "level": 3,
-      "health": 12,
-      "movement": 4,
-      "attack": 3
     },
     {
       "type": "elite",
@@ -83,12 +107,6 @@
       ]
     },
     {
-      "level": 4,
-      "health": 15,
-      "movement": 4,
-      "attack": 3
-    },
-    {
       "type": "elite",
       "level": 4,
       "health": 22,
@@ -101,12 +119,6 @@
           "small": false
         }
       ]
-    },
-    {
-      "level": 5,
-      "health": 18,
-      "movement": 5,
-      "attack": 3
     },
     {
       "type": "elite",
@@ -123,12 +135,6 @@
       ]
     },
     {
-      "level": 6,
-      "health": 24,
-      "movement": 5,
-      "attack": 4
-    },
-    {
       "type": "elite",
       "level": 6,
       "health": 32,
@@ -141,12 +147,6 @@
           "small": false
         }
       ]
-    },
-    {
-      "level": 7,
-      "health": 33,
-      "movement": 5,
-      "attack": 4
     },
     {
       "type": "elite",

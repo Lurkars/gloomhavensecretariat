@@ -1,13 +1,17 @@
 {
   "name": "lurker-mindsnipper",
+  "edition": "fh",
   "abilities": [
     {
       "name": "Psychic Shock",
+      "cardId": 682,
       "initiative": 6,
+      "shuffle": true,
       "actions": [
         {
           "type": "retaliate",
           "value": 3,
+          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -28,12 +32,12 @@
               ],
               "small": false
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "condition",
           "value": "muddle",
+          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -45,15 +49,13 @@
               "value": 3,
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "shuffle": true,
-      "cardId": 682
+      ]
     },
     {
       "name": "Hasty Assault",
+      "cardId": 683,
       "initiative": 10,
       "actions": [
         {
@@ -80,11 +82,11 @@
           "value": "dark",
           "small": false
         }
-      ],
-      "cardId": 683
+      ]
     },
     {
       "name": "Consume All Hope",
+      "cardId": 684,
       "initiative": 22,
       "actions": [
         {
@@ -116,11 +118,11 @@
           "value": "dark",
           "small": false
         }
-      ],
-      "cardId": 684
+      ]
     },
     {
       "name": "Calculated Strike",
+      "cardId": 685,
       "initiative": 34,
       "actions": [
         {
@@ -147,17 +149,18 @@
           "value": "dark",
           "small": false
         }
-      ],
-      "cardId": 685
+      ]
     },
     {
       "name": "Instill Fear",
+      "cardId": 686,
       "initiative": 37,
       "actions": [
         {
           "type": "attack",
           "value": 1,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -174,14 +177,13 @@
               "value": 2,
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 686
+      ]
     },
     {
       "name": "Beguiling Thoughts",
+      "cardId": 687,
       "initiative": 18,
       "actions": [
         {
@@ -194,6 +196,7 @@
           "type": "attack",
           "value": 2,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -205,15 +208,15 @@
               "value": "disarm",
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 687
+      ]
     },
     {
       "name": "Turn the Weak",
+      "cardId": 688,
       "initiative": 51,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -225,39 +228,39 @@
           "type": "attack",
           "value": 2,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "range",
               "value": 3,
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "custom",
           "value": "Control all targets of the attack<br>ability in initiative order:",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
               "value": 3,
               "small": false
             }
-          ],
-          "small": true
+          ]
         }
-      ],
-      "shuffle": true,
-      "cardId": 688
+      ]
     },
     {
       "name": "Paralyze",
+      "cardId": 689,
       "initiative": 46,
       "actions": [
         {
           "type": "attack",
           "value": 1,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -277,12 +280,9 @@
               ],
               "small": false
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 689
+      ]
     }
-  ],
-  "edition": "fh"
+  ]
 }

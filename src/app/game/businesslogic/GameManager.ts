@@ -204,7 +204,6 @@ export class GameManager {
 
     // find extensions decks
     if (!deckData) {
-      console.log(figure);
       deckData = this.decksData().find((deck) => (deck.name == figure.deck || deck.name == figure.name) && this.editionExtensions(figure.edition).indexOf(deck.edition) != -1);
     }
 

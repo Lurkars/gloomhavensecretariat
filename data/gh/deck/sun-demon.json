@@ -23,7 +23,7 @@
               "subActions": [
                 {
                   "type": "specialTarget",
-                  "value": "alliesRange:",
+                  "value": "alliesRange:3",
                   "small": true
                 }
               ]
@@ -157,7 +157,8 @@
           "subActions": [
             {
               "type": "range",
-              "value": 4
+              "value": 4,
+              "small": true
             },
             {
               "type": "element",
@@ -166,7 +167,7 @@
               "subActions": [
                 {
                   "type": "specialTarget",
-                  "value": "enemiesRange:",
+                  "value": "enemiesRange:4",
                   "small": true
                 }
               ]

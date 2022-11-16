@@ -3,6 +3,7 @@
   "edition": "fh",
   "abilities": [
     {
+      "name": "Calculated Strike",
       "cardId": 666,
       "initiative": 64,
       "actions": [
@@ -16,10 +17,10 @@
           "value": 1,
           "valueType": "plus"
         }
-      ],
-      "name": "Calculated Strike"
+      ]
     },
     {
+      "name": "Drain Life",
       "cardId": 667,
       "initiative": 20,
       "shuffle": true,
@@ -45,10 +46,10 @@
             }
           ]
         }
-      ],
-      "name": "Drain Life"
+      ]
     },
     {
+      "name": "Hasty Assault",
       "cardId": 668,
       "initiative": 25,
       "actions": [
@@ -62,10 +63,10 @@
           "value": 1,
           "valueType": "minus"
         }
-      ],
-      "name": "Hasty Assault"
+      ]
     },
     {
+      "name": "Nothing Special",
       "cardId": 669,
       "initiative": 45,
       "actions": [
@@ -79,10 +80,10 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "name": "Nothing Special"
+      ]
     },
     {
+      "name": "Nothing Special",
       "cardId": 670,
       "initiative": 45,
       "actions": [
@@ -96,10 +97,10 @@
           "value": 0,
           "valueType": "plus"
         }
-      ],
-      "name": "Nothing Special"
+      ]
     },
     {
+      "name": "Power Slash",
       "cardId": 671,
       "initiative": 81,
       "actions": [
@@ -108,10 +109,10 @@
           "value": 2,
           "valueType": "plus"
         }
-      ],
-      "name": "Power Slash"
+      ]
     },
     {
+      "name": "Focused Stabs",
       "cardId": 672,
       "initiative": 74,
       "actions": [
@@ -132,10 +133,10 @@
             }
           ]
         }
-      ],
-      "name": "Focused Stabs"
+      ]
     },
     {
+      "name": "Eternal Life",
       "cardId": 673,
       "initiative": 12,
       "shuffle": true,
@@ -155,8 +156,7 @@
             }
           ]
         }
-      ],
-      "name": "Eternal Life"
+      ]
     }
   ]
 }

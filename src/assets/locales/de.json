@@ -572,6 +572,7 @@
     "dragValues": "Initiative/TP/XP/Beute ziehen",
     "eliteFirst": "Elite Aufsteller zuerst",
     "expireConditions": "Automatisch Zustände löschen",
+    "feedback": "Feedback Button deaktivieren",
     "fhStyle": "Frosthaven Stil (%wip%)",
     "fontsize": {
       ".": "Fertigkeit Schriftgröße",
@@ -798,6 +799,51 @@
       "false": "Inaktiv",
       "new": "Neu",
       "true": "Aktiv"
+    }
+  },
+  "tools": {
+    "feedback": {
+      ".": "Feedback",
+      "githubIssue": "GitHub Issue erstellen",
+      "reportIssue": {
+        ".": "Ein Problem melden",
+        "send": "Problem senden",
+        "specify": "Bitte Details im Text angeben.",
+        "text": "Text",
+        "type": {
+          ".": "Typ des Problems",
+          "abilityCard": {
+            ".": "Fertigkeitskarte(n)",
+            "hint": "Falsche(r) Wert(e) auf Fertigkeitskarte(n)."
+          },
+          "artwork": {
+            ".": "Artwork",
+            "hint": "Fehlendes oder fehlerhaftes Artwork."
+          },
+          "characterStat": {
+            ".": "Charakter Werte",
+            "hint": "Falsche(r) Wert(e) bei Charakter Werten."
+          },
+          "monsterStat": {
+            ".": "Monster Werte",
+            "hint": "Falsche(r) Wert(e) bei Monster Werten."
+          },
+          "software": {
+            ".": "Software",
+            "hint": "Ein Software fehler, etwas funktioniert nicht wie erwartet."
+          }
+        }
+      },
+      "submitScenario": {
+        ".": "Aktuelles Szenario senden",
+        "index": "Szenario Nummer",
+        "name": "Szenario Name",
+        "notes": {
+          ".": "Weitere Notizen",
+          "hint": "z.B.. spezielle Szenario Regeln wie Monster Level Anpassungen, Rundenereignisse oder TP Berechnungen..."
+        },
+        "send": "Szneario senden"
+      }
     }
   },
   "update": "Update - Neu Laden",

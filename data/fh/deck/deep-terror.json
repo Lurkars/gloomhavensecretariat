@@ -3,6 +3,7 @@
   "edition": "fh",
   "abilities": [
     {
+      "name": "Horrible Glare",
       "cardId": 722,
       "initiative": 65,
       "actions": [
@@ -28,10 +29,10 @@
             }
           ]
         }
-      ],
-      "name": "Horrible Glare"
+      ]
     },
     {
+      "name": "Beam of Annihilation",
       "cardId": 723,
       "initiative": 60,
       "shuffle": true,
@@ -52,10 +53,10 @@
             }
           ]
         }
-      ],
-      "name": "Beam of Annihilation"
+      ]
     },
     {
+      "name": "Beam of Annihilation",
       "cardId": 724,
       "initiative": 60,
       "shuffle": true,
@@ -76,12 +77,12 @@
             }
           ]
         }
-      ],
-      "name": "Beam of Annihilation"
+      ]
     },
     {
-      "cardId": 735,
-      "initiative": 84,
+      "name": "Rooted Fear",
+      "cardId": 726,
+      "initiative": 75,
       "actions": [
         {
           "type": "attack",
@@ -89,8 +90,8 @@
           "valueType": "minus",
           "subActions": [
             {
-              "type": "specialTarget",
-              "value": "enemiesAdjacent",
+              "type": "condition",
+              "value": "poison",
               "small": true
             }
           ]
@@ -102,20 +103,20 @@
           "subActions": [
             {
               "type": "range",
-              "value": 4,
+              "value": 5,
               "small": true
             },
             {
               "type": "condition",
-              "value": "wound",
+              "value": "immobilize",
               "small": true
             }
           ]
         }
-      ],
-      "name": "Burning Gaze"
+      ]
     },
     {
+      "name": "Disruptive Frenzy",
       "cardId": 727,
       "initiative": 75,
       "actions": [
@@ -153,46 +154,10 @@
             }
           ]
         }
-      ],
-      "name": "Disruptive Frenzy"
+      ]
     },
     {
-      "cardId": 726,
-      "initiative": 75,
-      "actions": [
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "condition",
-              "value": "poison",
-              "small": true
-            }
-          ]
-        },
-        {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
-          "subActions": [
-            {
-              "type": "range",
-              "value": 5,
-              "small": true
-            },
-            {
-              "type": "condition",
-              "value": "immobilize",
-              "small": true
-            }
-          ]
-        }
-      ],
-      "name": "Rooted Fear"
-    },
-    {
+      "name": "Terrible Growth",
       "cardId": 728,
       "initiative": 96,
       "actions": [
@@ -213,10 +178,46 @@
           "value": "If the attack ability was performed,<br>summon one normal Deep Terror in<br>an empty hex adjacent to the target<br>of the attack ability",
           "small": true
         }
-      ],
-      "name": "Terrible Growth"
+      ]
     },
     {
+      "name": "Burning Gaze",
+      "cardId": 735,
+      "initiative": 84,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesAdjacent",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "wound",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ray of Hate",
       "cardId": 739,
       "initiative": 54,
       "actions": [
@@ -256,8 +257,7 @@
             }
           ]
         }
-      ],
-      "name": "Ray of Hate"
+      ]
     }
   ]
 }

@@ -1,35 +1,10 @@
 {
   "name": "priest",
+  "edition": "fh",
   "abilities": [
     {
-      "cardId": 765,
-      "name": "Tend to the Clan",
-      "initiative": 23,
-      "actions": [
-        {
-          "type": "move",
-          "value": 0,
-          "valueType": "plus",
-          "small": false
-        },
-        {
-          "type": "heal",
-          "value": 3,
-          "subActions": [
-            {
-              "type": "range",
-              "value": 3,
-              "small": true
-            }
-          ],
-          "small": false
-        }
-      ],
-      "shuffle": true
-    },
-    {
-      "cardId": 762,
       "name": "Drain Speed",
+      "cardId": 762,
       "initiative": 8,
       "actions": [
         {
@@ -42,6 +17,7 @@
           "type": "attack",
           "value": 0,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -53,14 +29,44 @@
               "value": "immobilize",
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
       ]
     },
     {
-      "cardId": 764,
+      "name": "Drain Strength",
+      "cardId": 763,
+      "initiative": 8,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "small": false,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "disarm",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "Nothing Special",
+      "cardId": 764,
       "initiative": 62,
       "actions": [
         {
@@ -73,63 +79,22 @@
           "type": "attack",
           "value": 0,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "range",
               "value": 3,
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
       ]
     },
     {
-      "cardId": 768,
-      "name": "Divine Energy",
-      "initiative": 89,
-      "actions": [
-        {
-          "type": "move",
-          "value": 1,
-          "valueType": "minus",
-          "small": false
-        },
-        {
-          "type": "heal",
-          "value": 1,
-          "subActions": [
-            {
-              "type": "specialTarget",
-              "value": "allies",
-              "small": true
-            },
-            {
-              "type": "range",
-              "value": 1,
-              "small": true
-            }
-          ],
-          "small": false
-        },
-        {
-          "type": "condition",
-          "value": "bless",
-          "subActions": [
-            {
-              "type": "specialTarget",
-              "value": "self",
-              "small": true
-            }
-          ],
-          "small": false
-        }
-      ]
-    },
-    {
-      "cardId": 763,
-      "name": "Drain Strength",
-      "initiative": 8,
+      "name": "Tend to the Clan",
+      "cardId": 765,
+      "initiative": 23,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -138,28 +103,48 @@
           "small": false
         },
         {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus",
+          "type": "heal",
+          "value": 3,
+          "small": false,
           "subActions": [
             {
               "type": "range",
               "value": 3,
               "small": true
-            },
-            {
-              "type": "condition",
-              "value": "disarm",
-              "small": true
             }
-          ],
-          "small": false
+          ]
         }
       ]
     },
     {
-      "cardId": 767,
+      "name": "Tend to the Clan",
+      "cardId": 766,
+      "initiative": 23,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "heal",
+          "value": 3,
+          "small": false,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "Calculated Strike",
+      "cardId": 767,
       "initiative": 74,
       "actions": [
         {
@@ -172,20 +157,62 @@
           "type": "attack",
           "value": 1,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "range",
               "value": 3,
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
       ]
     },
     {
-      "cardId": 769,
+      "name": "Divine Energy",
+      "cardId": 768,
+      "initiative": 89,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "heal",
+          "value": 1,
+          "small": false,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "allies",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "bless",
+          "small": false,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "Angry Hex",
+      "cardId": 769,
       "initiative": 9,
       "actions": [
         {
@@ -198,6 +225,7 @@
           "type": "attack",
           "value": 1,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -214,37 +242,9 @@
               "value": "curse",
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
       ]
-    },
-    {
-      "cardId": 766,
-      "name": "Tend to the Clan",
-      "initiative": 23,
-      "actions": [
-        {
-          "type": "move",
-          "value": 0,
-          "valueType": "plus",
-          "small": false
-        },
-        {
-          "type": "heal",
-          "value": 3,
-          "subActions": [
-            {
-              "type": "range",
-              "value": 3,
-              "small": true
-            }
-          ],
-          "small": false
-        }
-      ],
-      "shuffle": true
     }
-  ],
-  "edition": "fh"
+  ]
 }

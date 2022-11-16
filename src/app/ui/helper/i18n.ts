@@ -6,10 +6,10 @@ import { EntityValueFunction, EntityValueRegex } from "src/app/game/model/Entity
 
 export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\%)+)\%/;
 
-export const applyPlaceholder = function (value: string, relative: boolean = false): string {
+export const applyPlaceholder = function (value: string, placeholder: string[] = [], relative: boolean = false): string {
 
   if (settingsManager.settings.fhStyle) {
-    return applyFhPlaceholder(value, relative);
+    return applyFhPlaceholder(value, placeholder, relative);
   }
 
   while (value.match(ghsLabelRegex)) {
@@ -78,9 +78,10 @@ export const applyPlaceholder = function (value: string, relative: boolean = fal
         }
         replace = '<span class="damage">' + settingsManager.getLabel('game.damage', [value]) + '</span>';
       } else {
-        replace = settingsManager.getLabel(label.split(':')[0], label.split(':').splice(1).map((arg) =>
-          applyPlaceholder(settingsManager.getLabel(arg), relative)
-        )) + image;
+        let labelArgs = label.split(':').splice(1).map((arg) =>
+          applyPlaceholder(settingsManager.getLabel(arg), placeholder, relative));
+        labelArgs.push(...placeholder);
+        replace = settingsManager.getLabel(label.split(':')[0], labelArgs) + image;
       }
 
       return replace;
@@ -92,7 +93,7 @@ export const applyPlaceholder = function (value: string, relative: boolean = fal
   return value;
 }
 
-export const applyFhPlaceholder = function (value: string, relative: boolean = false): string {
+export const applyFhPlaceholder = function (value: string, placeholder: string[] = [], relative: boolean = false): string {
   while (value.match(ghsLabelRegex)) {
     value = value.replace(ghsLabelRegex, (match, ...args) => {
       const label: string = args[0];
@@ -164,7 +165,7 @@ export const applyFhPlaceholder = function (value: string, relative: boolean = f
         replace = '<span class="damage">' + image + value + '</span>';
       } else {
         replace = settingsManager.getLabel(label.split(':')[0], label.split(':').splice(1).map((arg) =>
-          applyFhPlaceholder(settingsManager.getLabel(arg), relative)
+          applyFhPlaceholder(settingsManager.getLabel(arg), placeholder, relative)
         )) + image;
       }
 
@@ -240,7 +241,7 @@ export class I18nDirective implements OnInit, OnChanges {
   }
 
   apply(): void {
-    this.el.nativeElement.innerHTML = this.value && applyPlaceholder(settingsManager.getLabel(this.value, this.args, this.argLabel), this.relative) || "";
+    this.el.nativeElement.innerHTML = this.value && applyPlaceholder(settingsManager.getLabel(this.value, this.args, this.argLabel), this.args, this.relative) || "";
   }
 
 

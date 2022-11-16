@@ -24,6 +24,101 @@
       ]
     },
     {
+      "level": 1,
+      "health": 4,
+      "movement": 1,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "target",
+          "value": 2,
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 6,
+      "movement": 1,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "target",
+          "value": 2,
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 6,
+      "movement": 1,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "target",
+          "value": 3,
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 6,
+      "movement": 1,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "target",
+          "value": 3,
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 8,
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "target",
+          "value": 3,
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 10,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "target",
+          "value": 3,
+          "small": false
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 13,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "target",
+          "value": 3,
+          "small": false
+        }
+      ],
+      "immunities": [
+        "wound",
+        "disarm"
+      ]
+    },
+    {
       "type": "elite",
       "level": 0,
       "health": 7,
@@ -41,19 +136,6 @@
       ]
     },
     {
-      "level": 1,
-      "health": 4,
-      "movement": 1,
-      "attack": 2,
-      "actions": [
-        {
-          "type": "target",
-          "value": 2,
-          "small": false
-        }
-      ]
-    },
-    {
       "type": "elite",
       "level": 1,
       "health": 7,
@@ -68,19 +150,6 @@
       ],
       "immunities": [
         "wound"
-      ]
-    },
-    {
-      "level": 2,
-      "health": 6,
-      "movement": 1,
-      "attack": 2,
-      "actions": [
-        {
-          "type": "target",
-          "value": 2,
-          "small": false
-        }
       ]
     },
     {
@@ -101,19 +170,6 @@
       ]
     },
     {
-      "level": 3,
-      "health": 6,
-      "movement": 1,
-      "attack": 2,
-      "actions": [
-        {
-          "type": "target",
-          "value": 3,
-          "small": false
-        }
-      ]
-    },
-    {
       "type": "elite",
       "level": 3,
       "health": 10,
@@ -128,19 +184,6 @@
       ],
       "immunities": [
         "wound"
-      ]
-    },
-    {
-      "level": 4,
-      "health": 6,
-      "movement": 1,
-      "attack": 3,
-      "actions": [
-        {
-          "type": "target",
-          "value": 3,
-          "small": false
-        }
       ]
     },
     {
@@ -161,19 +204,6 @@
       ]
     },
     {
-      "level": 5,
-      "health": 8,
-      "movement": 2,
-      "attack": 3,
-      "actions": [
-        {
-          "type": "target",
-          "value": 3,
-          "small": false
-        }
-      ]
-    },
-    {
       "type": "elite",
       "level": 5,
       "health": 14,
@@ -191,19 +221,6 @@
       ]
     },
     {
-      "level": 6,
-      "health": 10,
-      "movement": 2,
-      "attack": 4,
-      "actions": [
-        {
-          "type": "target",
-          "value": 3,
-          "small": false
-        }
-      ]
-    },
-    {
       "type": "elite",
       "level": 6,
       "health": 17,
@@ -213,23 +230,6 @@
         {
           "type": "target",
           "value": 4,
-          "small": false
-        }
-      ],
-      "immunities": [
-        "wound",
-        "disarm"
-      ]
-    },
-    {
-      "level": 7,
-      "health": 13,
-      "movement": 2,
-      "attack": 4,
-      "actions": [
-        {
-          "type": "target",
-          "value": 3,
           "small": false
         }
       ],

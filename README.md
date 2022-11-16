@@ -24,6 +24,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
 ## Current Features
 
 - Feature complete for base GH, JOTL, FC and CS (all needs testing, so please [contribute](#contributing)!)
+- ***Current Frosthaven data***: Monster Stats, Monster Abilities, Character Stats
 - Tracking:
   - **initiative** sorting
   - **health** automatic exhausting/dead, max values for every level
@@ -75,12 +76,11 @@ If you need help using the app take a look at the [help page](https://help.gloom
 
 - validation of all existing data
 - FH style (WIP)
-- support for CS AM decks
-- support for managing character ability cards
+- support for FH, CS AM decks and perks
 
 ### Long term plans
 
-- FH data (as soon as available)
+- support for managing character ability cards
 
 ## Install
 

@@ -3,6 +3,7 @@
   "edition": "fh",
   "abilities": [
     {
+      "name": "Phase Out",
       "cardId": 826,
       "initiative": 5,
       "actions": [
@@ -26,10 +27,10 @@
           "value": "any",
           "small": false
         }
-      ],
-      "name": "Phase Out"
+      ]
     },
     {
+      "name": "Nothing Special",
       "cardId": 827,
       "initiative": 37,
       "actions": [
@@ -50,10 +51,10 @@
             }
           ]
         }
-      ],
-      "name": "Nothing Special"
+      ]
     },
     {
+      "name": "Nothing Special",
       "cardId": 828,
       "initiative": 37,
       "actions": [
@@ -75,10 +76,10 @@
             }
           ]
         }
-      ],
-      "name": "Nothing Special"
+      ]
     },
     {
+      "name": "Restoration",
       "cardId": 829,
       "initiative": 42,
       "actions": [
@@ -98,10 +99,10 @@
             }
           ]
         }
-      ],
-      "name": "Restoration"
+      ]
     },
     {
+      "name": "Rotten Sting",
       "cardId": 830,
       "initiative": 43,
       "shuffle": true,
@@ -142,10 +143,10 @@
             }
           ]
         }
-      ],
-      "name": "Rotten Sting"
+      ]
     },
     {
+      "name": "Calculated Strike",
       "cardId": 831,
       "initiative": 76,
       "actions": [
@@ -166,10 +167,10 @@
             }
           ]
         }
-      ],
-      "name": "Calculated Strike"
+      ]
     },
     {
+      "name": "Dark Charm",
       "cardId": 832,
       "initiative": 43,
       "shuffle": true,
@@ -210,10 +211,10 @@
             }
           ]
         }
-      ],
-      "name": "Dark Charm"
+      ]
     },
     {
+      "name": "Tip the Scales",
       "cardId": 833,
       "initiative": 24,
       "actions": [
@@ -249,8 +250,7 @@
             }
           ]
         }
-      ],
-      "name": "Tip the Scales"
+      ]
     }
   ]
 }

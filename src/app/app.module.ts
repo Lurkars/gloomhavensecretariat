@@ -73,6 +73,8 @@ import { DecksToolComponent } from './ui/tools/decks/decks-tool';
 import { ActionSummonComponent } from './ui/figures/actions/summon/action-summon';
 import { DeckEditorComponent } from './ui/tools/editor/deck/deck';
 import { ScenarioRulesComponent } from './ui/footer/scenario-rules/scenario-rules';
+import { FeedbackToolComponent } from './ui/tools/feedback/feedback';
+import { FeedbackDialogComponent } from './ui/tools/feedback/feedback-dialog';
 
 @NgModule({
   declarations: [
@@ -104,7 +106,8 @@ import { ScenarioRulesComponent } from './ui/footer/scenario-rules/scenario-rule
     AttackModifierToolComponent, DecksToolComponent,
     EditionEditorComponent,
     EditorActionComponent, EditorActionDialogComponent,
-    DeckEditorComponent, CharacterEditorComponent, MonsterEditorComponent],
+    DeckEditorComponent, CharacterEditorComponent, MonsterEditorComponent,
+    FeedbackToolComponent, FeedbackDialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -3,6 +3,7 @@
   "edition": "fh",
   "abilities": [
     {
+      "name": "Biting Gnats",
       "cardId": 802,
       "initiative": 38,
       "actions": [
@@ -23,10 +24,10 @@
             }
           ]
         }
-      ],
-      "name": "Biting Gnats"
+      ]
     },
     {
+      "name": "Centipede Strike",
       "cardId": 803,
       "initiative": 7,
       "actions": [
@@ -51,10 +52,10 @@
           "type": "element",
           "value": "dark"
         }
-      ],
-      "name": "Centipede Strike"
+      ]
     },
     {
+      "name": "Restore the Swarm",
       "cardId": 804,
       "initiative": 16,
       "actions": [
@@ -79,10 +80,46 @@
             }
           ]
         }
-      ],
-      "name": "Restore the Swarm"
+      ]
     },
     {
+      "name": "Drain the Essence",
+      "cardId": 805,
+      "initiative": 7,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "muddle",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "heal",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Spiked Mandibles",
       "cardId": 806,
       "initiative": 16,
       "actions": [
@@ -102,10 +139,10 @@
           "type": "retaliate",
           "value": 2
         }
-      ],
-      "name": "Spiked Mandibles"
+      ]
     },
     {
+      "name": "Angry Bulwark",
       "cardId": 807,
       "initiative": 2,
       "shuffle": true,
@@ -125,10 +162,10 @@
             }
           ]
         }
-      ],
-      "name": "Angry Bulwark"
+      ]
     },
     {
+      "name": "Piercing Paracite",
       "cardId": 808,
       "initiative": 30,
       "actions": [
@@ -161,10 +198,10 @@
           ]
         }
       ],
-      "name": "Piercing Paracite",
       "revealed": true
     },
     {
+      "name": "Clouds of Hate",
       "cardId": 809,
       "initiative": 38,
       "actions": [
@@ -203,44 +240,7 @@
             }
           ]
         }
-      ],
-      "name": "Clouds of Hate"
-    },
-    {
-      "cardId": 805,
-      "initiative": 7,
-      "shuffle": true,
-      "actions": [
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "range",
-              "value": 3,
-              "small": true
-            },
-            {
-              "type": "condition",
-              "value": "muddle",
-              "small": true
-            }
-          ]
-        },
-        {
-          "type": "heal",
-          "value": 4,
-          "subActions": [
-            {
-              "type": "specialTarget",
-              "value": "self",
-              "small": true
-            }
-          ]
-        }
-      ],
-      "name": "Drain the Essence"
+      ]
     }
   ]
 }

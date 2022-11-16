@@ -1,12 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Action, ActionType, ActionValueType } from 'src/app/game/model/Action';
+import { Action, ActionSpecialTarget, ActionType, ActionValueType } from 'src/app/game/model/Action';
 import { ElementState } from 'src/app/game/model/Element';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterStat } from 'src/app/game/model/MonsterStat';
 import { MonsterType } from 'src/app/game/model/MonsterType';
+import { valueCalc } from '../../helper/valueCalc';
 
 @Component({
   selector: 'ghs-action',
@@ -59,6 +60,22 @@ export class ActionComponent implements OnInit {
       return gameManager.monsterManager.getStat(this.monster, type);
     }
     return new MonsterStat(type, gameManager.game.level, 0, 0, 0, 0);
+  }
+
+  getRange(type: MonsterType = MonsterType.normal): string | number {
+    if (this.monster && this.monster.boss) {
+      type = MonsterType.boss;
+    }
+
+    return valueCalc(this.getStat(type).range, this.monster ? this.monster.level : undefined);
+  }
+
+  getEliteRange(): number | string {
+    if (this.monster && !this.monster.entities.some((monsterEntity) => monsterEntity.type == MonsterType.elite && !monsterEntity.dead)) {
+      return this.getRange();
+    }
+
+    return this.getRange(MonsterType.elite);
   }
 
   getValues(action: Action): string[] {

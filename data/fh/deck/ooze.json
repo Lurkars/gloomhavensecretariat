@@ -3,6 +3,7 @@
   "edition": "fh",
   "abilities": [
     {
+      "name": "Hasty Assault",
       "cardId": 866,
       "initiative": 36,
       "actions": [
@@ -28,10 +29,10 @@
           "value": "earth",
           "small": false
         }
-      ],
-      "name": "Hasty Assault"
+      ]
     },
     {
+      "name": "Nothing Special",
       "cardId": 867,
       "initiative": 57,
       "actions": [
@@ -52,10 +53,10 @@
             }
           ]
         }
-      ],
-      "name": "Nothing Special"
+      ]
     },
     {
+      "name": "Toxic Explosion",
       "cardId": 868,
       "initiative": 59,
       "actions": [
@@ -95,10 +96,50 @@
             }
           ]
         }
-      ],
-      "name": "Toxic Explosion"
+      ]
     },
     {
+      "name": "Plasma Ward",
+      "cardId": 869,
+      "initiative": 85,
+      "actions": [
+        {
+          "type": "push",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "%game.target.all%",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Calculated Strike",
       "cardId": 870,
       "initiative": 66,
       "actions": [
@@ -124,10 +165,10 @@
           "value": "dark",
           "small": false
         }
-      ],
-      "name": "Calculated Strike"
+      ]
     },
     {
+      "name": "Split",
       "cardId": 871,
       "initiative": 94,
       "shuffle": true,
@@ -142,8 +183,7 @@
           "value": "Summon one normal Ooze with<br>a hit point value equal to the<br>summoning Ooze's cucrent hit point<br>value (limited by a normal Ooze's<br>maximum hit point values).",
           "small": false
         }
-      ],
-      "name": "Split"
+      ]
     },
     {
       "cardId": 872,
@@ -163,6 +203,7 @@
       ]
     },
     {
+      "name": "Feed",
       "cardId": 873,
       "initiative": 66,
       "actions": [
@@ -200,48 +241,7 @@
             }
           ]
         }
-      ],
-      "name": "Feed"
-    },
-    {
-      "cardId": 869,
-      "initiative": 85,
-      "actions": [
-        {
-          "type": "push",
-          "value": 1,
-          "subActions": [
-            {
-              "type": "target",
-              "value": "%game.target.all%",
-              "small": true
-            },
-            {
-              "type": "range",
-              "value": 1,
-              "small": true
-            },
-            {
-              "type": "condition",
-              "value": "poison",
-              "small": true
-            }
-          ]
-        },
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "plus",
-          "subActions": [
-            {
-              "type": "range",
-              "value": 2,
-              "small": true
-            }
-          ]
-        }
-      ],
-      "name": "Plasma Ward"
+      ]
     }
   ]
 }

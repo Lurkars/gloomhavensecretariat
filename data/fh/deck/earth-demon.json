@@ -3,6 +3,7 @@
   "edition": "fh",
   "abilities": [
     {
+      "name": "Strong Groth",
       "cardId": 570,
       "initiative": 40,
       "shuffle": true,
@@ -41,10 +42,10 @@
             }
           ]
         }
-      ],
-      "name": "Strong Groth"
+      ]
     },
     {
+      "name": "Hasty Assault",
       "cardId": 571,
       "initiative": 42,
       "shuffle": true,
@@ -59,10 +60,10 @@
           "value": 1,
           "valueType": "minus"
         }
-      ],
-      "name": "Hasty Assault"
+      ]
     },
     {
+      "name": "Nothing Special",
       "cardId": 572,
       "initiative": 62,
       "actions": [
@@ -80,10 +81,10 @@
           "type": "element",
           "value": "earth"
         }
-      ],
-      "name": "Nothing Special"
+      ]
     },
     {
+      "name": "Boulder Throw",
       "cardId": 573,
       "initiative": 71,
       "actions": [
@@ -112,10 +113,10 @@
             }
           ]
         }
-      ],
-      "name": "Boulder Throw"
+      ]
     },
     {
+      "name": "Calculated Strike",
       "cardId": 574,
       "initiative": 83,
       "actions": [
@@ -133,10 +134,10 @@
           "type": "element",
           "value": "earth"
         }
-      ],
-      "name": "Calculated Strike"
+      ]
     },
     {
+      "name": "Ground Slam",
       "cardId": 575,
       "initiative": 93,
       "actions": [
@@ -169,10 +170,10 @@
             }
           ]
         }
-      ],
-      "name": "Ground Slam"
+      ]
     },
     {
+      "name": "Reckless Charge",
       "cardId": 576,
       "initiative": 79,
       "actions": [
@@ -201,10 +202,10 @@
             }
           ]
         }
-      ],
-      "name": "Reckless Charge"
+      ]
     },
     {
+      "name": "Earthen Eruption",
       "cardId": 577,
       "initiative": 87,
       "actions": [
@@ -235,8 +236,7 @@
             }
           ]
         }
-      ],
-      "name": "Earthen Eruption"
+      ]
     }
   ]
 }

@@ -1,235 +1,10 @@
 {
   "name": "abael-herder",
+  "edition": "fh",
   "abilities": [
     {
-      "cardId": 785,
-      "name": "Nothing Special",
-      "initiative": 56,
-      "actions": [
-        {
-          "type": "move",
-          "value": 0,
-          "valueType": "plus",
-          "small": false
-        },
-        {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
-          "subActions": [
-            {
-              "type": "range",
-              "value": 3,
-              "small": true
-            }
-          ],
-          "small": false
-        }
-      ]
-    },
-    {
-      "cardId": 784,
-      "name": "Heed the Pigs",
-      "initiative": 65,
-      "actions": [
-        {
-          "type": "move",
-          "value": 0,
-          "valueType": "plus",
-          "small": false
-        },
-        {
-          "type": "grid",
-          "value": 1,
-          "subActions": [
-            {
-              "type": "attack",
-              "value": "X",
-              "subActions": [
-                {
-                  "type": "range",
-                  "value": "X+1",
-                  "small": true
-                }
-              ],
-              "small": false
-            },
-            {
-              "type": "custom",
-              "value": "where X is the number of<br>Piranha Pigs on the map.",
-              "small": true
-            }
-          ],
-          "small": false
-        }
-      ],
-      "shuffle": true
-    },
-    {
-      "cardId": 783,
-      "name": "Guide the School",
-      "initiative": 12,
-      "actions": [
-        {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
-          "subActions": [
-            {
-              "type": "range",
-              "value": 3,
-              "small": true
-            }
-          ],
-          "small": false
-        },
-        {
-          "type": "condition",
-          "value": "strengthen",
-          "subActions": [
-            {
-              "type": "target",
-              "value": "all Piranha Pigs",
-              "small": true
-            },
-            {
-              "type": "range",
-              "value": 3,
-              "small": true
-            }
-          ],
-          "small": false
-        }
-      ]
-    },
-    {
-      "cardId": 782,
-      "name": "Advancing Horde",
-      "initiative": 88,
-      "actions": [
-        {
-          "type": "custom",
-          "value": "Grant the closest<br>Piranha Pig within %game.action.range% 4:",
-          "subActions": [
-            {
-              "type": "move",
-              "value": 0,
-              "valueType": "plus",
-              "small": false
-            },
-            {
-              "type": "attack",
-              "value": 0,
-              "valueType": "plus",
-              "subActions": [
-                {
-                  "type": "condition",
-                  "value": "muddle",
-                  "small": true
-                }
-              ],
-              "small": false
-            }
-          ],
-          "small": true
-        },
-        {
-          "type": "custom",
-          "value": "If no Piranha Pig was targeted<br>by the grant ability, summon<br>one normal Piranha Pig.",
-          "small": true
-        }
-      ]
-    },
-    {
-      "cardId": 781,
-      "name": "Fish Net",
-      "initiative": 20,
-      "actions": [
-        {
-          "type": "move",
-          "value": 0,
-          "valueType": "plus",
-          "small": false
-        },
-        {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
-          "subActions": [
-            {
-              "type": "range",
-              "value": 3,
-              "small": true
-            },
-            {
-              "type": "pull",
-              "value": 2,
-              "small": false
-            },
-            {
-              "type": "condition",
-              "value": "immobilize",
-              "small": true
-            }
-          ],
-          "small": false
-        }
-      ]
-    },
-    {
-      "cardId": 780,
-      "name": "Pig Parade",
-      "initiative": 68,
-      "actions": [
-        {
-          "type": "summon",
-          "value": "piranha-pig:normal",
-          "small": false
-        }
-      ],
-      "shuffle": true
-    },
-    {
-      "cardId": 779,
-      "name": "Desperate Herd",
-      "initiative": 72,
-      "actions": [
-        {
-          "type": "move",
-          "value": 1,
-          "valueType": "minus",
-          "small": false
-        },
-        {
-          "type": "custom",
-          "value": "Grant all Piranha Pigs withing %game.action.range% 3:",
-          "subActions": [
-            {
-              "type": "move",
-              "value": 1,
-              "valueType": "minus",
-              "small": false
-            },
-            {
-              "type": "attack",
-              "value": 2,
-              "valueType": "minus",
-              "small": false
-            },
-            {
-              "type": "custom",
-              "value": "Piranha Pig suffers %game.damage:1%.",
-              "small": true
-            }
-          ],
-          "small": true
-        }
-      ]
-    },
-    {
-      "revealed": true,
-      "cardId": 778,
       "name": "Briny Bristles",
+      "cardId": 778,
       "initiative": 18,
       "actions": [
         {
@@ -257,8 +32,233 @@
             }
           ]
         }
+      ],
+      "revealed": true
+    },
+    {
+      "name": "Desperate Herd",
+      "cardId": 779,
+      "initiative": 72,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "small": false
+        },
+        {
+          "type": "custom",
+          "value": "Grant all Piranha Pigs withing %game.action.range% 3:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 1,
+              "valueType": "minus",
+              "small": false
+            },
+            {
+              "type": "attack",
+              "value": 2,
+              "valueType": "minus",
+              "small": false
+            },
+            {
+              "type": "custom",
+              "value": "Piranha Pig suffers %game.damage:1%.",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pig Parade",
+      "cardId": 780,
+      "initiative": 68,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "summon",
+          "value": "piranha-pig:normal",
+          "small": false
+        }
+      ]
+    },
+    {
+      "name": "Fish Net",
+      "cardId": 781,
+      "initiative": 20,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "small": false,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "pull",
+              "value": 2,
+              "small": false
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Advancing Horde",
+      "cardId": 782,
+      "initiative": 88,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Grant the closest<br>Piranha Pig within %game.action.range% 4:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "move",
+              "value": 0,
+              "valueType": "plus",
+              "small": false
+            },
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "muddle",
+                  "small": true
+                }
+              ],
+              "small": false
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "If no Piranha Pig was targeted<br>by the grant ability, summon<br>one normal Piranha Pig.",
+          "small": true
+        }
+      ]
+    },
+    {
+      "name": "Guide the School",
+      "cardId": 783,
+      "initiative": 12,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "small": false,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "strengthen",
+          "small": false,
+          "subActions": [
+            {
+              "type": "target",
+              "value": "all Piranha Pigs",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Heed the Pigs",
+      "cardId": 784,
+      "initiative": 65,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "grid",
+          "value": 1,
+          "small": false,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": "X",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": "X+1",
+                  "small": true
+                }
+              ],
+              "small": false
+            },
+            {
+              "type": "custom",
+              "value": "where X is the number of<br>Piranha Pigs on the map.",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Nothing Special",
+      "cardId": 785,
+      "initiative": 56,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "small": false,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
       ]
     }
-  ],
-  "edition": "fh"
+  ]
 }

@@ -3,6 +3,7 @@
   "edition": "fh",
   "abilities": [
     {
+      "name": "Long Shot",
       "cardId": 626,
       "initiative": 46,
       "actions": [
@@ -23,10 +24,10 @@
             }
           ]
         }
-      ],
-      "name": "Long Shot"
+      ]
     },
     {
+      "name": "Exploding Ammunation",
       "cardId": 627,
       "initiative": 71,
       "shuffle": true,
@@ -55,10 +56,10 @@
             }
           ]
         }
-      ],
-      "name": "Exploding Ammunation"
+      ]
     },
     {
+      "name": "Exploding Ammunation",
       "cardId": 628,
       "initiative": 71,
       "shuffle": true,
@@ -87,10 +88,10 @@
             }
           ]
         }
-      ],
-      "name": "Exploding Ammunation"
+      ]
     },
     {
+      "name": "Grenade",
       "cardId": 629,
       "initiative": 37,
       "actions": [
@@ -126,10 +127,10 @@
             }
           ]
         }
-      ],
-      "name": "Grenade"
+      ]
     },
     {
+      "name": "Massive Blast",
       "cardId": 630,
       "initiative": 57,
       "actions": [
@@ -165,10 +166,10 @@
             }
           ]
         }
-      ],
-      "name": "Massive Blast"
+      ]
     },
     {
+      "name": "Heavy Shot",
       "cardId": 631,
       "initiative": 95,
       "actions": [
@@ -184,10 +185,10 @@
             }
           ]
         }
-      ],
-      "name": "Heavy Shot"
+      ]
     },
     {
+      "name": "Defensive Ordinance",
       "cardId": 632,
       "initiative": 17,
       "actions": [
@@ -223,10 +224,10 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "name": "Defensive Ordinance"
+      ]
     },
     {
+      "name": "Concussive Burst",
       "cardId": 633,
       "initiative": 46,
       "actions": [
@@ -251,8 +252,7 @@
             }
           ]
         }
-      ],
-      "name": "Concussive Burst"
+      ]
     }
   ]
 }

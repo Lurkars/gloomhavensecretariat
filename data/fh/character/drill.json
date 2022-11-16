@@ -1,5 +1,12 @@
 {
   "name": "drill",
+  "characterClass": "unfettered",
+  "gender": "",
+  "edition": "fh",
+  "color": "#d3c6a4",
+  "spoiler": true,
+  "marker": false,
+  "deck": "",
   "stats": [
     {
       "level": 1,
@@ -38,13 +45,7 @@
       "health": 26
     }
   ],
-  "gender": "",
   "availableSummons": [],
-  "color": "#d3c6a4",
-  "marker": false,
-  "deck": "",
   "perks": [],
-  "edition": "fh",
-  "spoiler": true,
   "replace": false
 }

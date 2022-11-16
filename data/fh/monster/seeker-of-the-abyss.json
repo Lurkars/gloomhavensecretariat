@@ -7,6 +7,13 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
+    "actions": [
+      {
+        "type": "target",
+        "value": 2,
+        "small": false
+      }
+    ],
     "immunities": [
       "poison",
       "disarm",
@@ -48,13 +55,6 @@
           "small": true
         }
       ]
-    ],
-    "actions": [
-      {
-        "type": "target",
-        "value": 2,
-        "small": false
-      }
     ]
   },
   "stats": [

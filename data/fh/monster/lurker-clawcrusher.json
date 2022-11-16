@@ -21,23 +21,6 @@
       ]
     },
     {
-      "type": "elite",
-      "level": 0,
-      "health": 10,
-      "movement": 2,
-      "attack": 3,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 1
-        },
-        {
-          "type": "target",
-          "value": 2
-        }
-      ]
-    },
-    {
       "level": 1,
       "health": 8,
       "movement": 2,
@@ -46,27 +29,6 @@
         {
           "type": "target",
           "value": 2
-        }
-      ]
-    },
-    {
-      "type": "elite",
-      "level": 1,
-      "health": 10,
-      "movement": 2,
-      "attack": 3,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        },
-        {
-          "type": "target",
-          "value": 2
-        },
-        {
-          "type": "condition",
-          "value": "impair"
         }
       ]
     },
@@ -88,10 +50,110 @@
       ]
     },
     {
-      "type": "elite",
-      "level": 2,
+      "level": 3,
       "health": 13,
       "movement": 3,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 13,
+      "movement": 3,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 15,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 21,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 23,
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "target",
+          "value": 2
+        }
+      ],
+      "immunities": [
+        "stun"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 10,
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "target",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 10,
+      "movement": 2,
       "attack": 3,
       "actions": [
         {
@@ -109,18 +171,23 @@
       ]
     },
     {
-      "level": 3,
+      "type": "elite",
+      "level": 2,
       "health": 13,
       "movement": 3,
-      "attack": 2,
+      "attack": 3,
       "actions": [
         {
           "type": "shield",
-          "value": 1
+          "value": 2
         },
         {
           "type": "target",
           "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "impair"
         }
       ]
     },
@@ -146,22 +213,6 @@
       ]
     },
     {
-      "level": 4,
-      "health": 13,
-      "movement": 3,
-      "attack": 2,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        },
-        {
-          "type": "target",
-          "value": 2
-        }
-      ]
-    },
-    {
       "type": "elite",
       "level": 4,
       "health": 18,
@@ -183,22 +234,6 @@
       ]
     },
     {
-      "level": 5,
-      "health": 15,
-      "movement": 3,
-      "attack": 3,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        },
-        {
-          "type": "target",
-          "value": 2
-        }
-      ]
-    },
-    {
       "type": "elite",
       "level": 5,
       "health": 21,
@@ -216,22 +251,6 @@
         {
           "type": "condition",
           "value": "impair"
-        }
-      ]
-    },
-    {
-      "level": 6,
-      "health": 21,
-      "movement": 3,
-      "attack": 4,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        },
-        {
-          "type": "target",
-          "value": 2
         }
       ]
     },
@@ -253,25 +272,6 @@
         {
           "type": "condition",
           "value": "impair"
-        }
-      ],
-      "immunities": [
-        "stun"
-      ]
-    },
-    {
-      "level": 7,
-      "health": 23,
-      "movement": 3,
-      "attack": 5,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        },
-        {
-          "type": "target",
-          "value": 2
         }
       ],
       "immunities": [

@@ -3,6 +3,7 @@
   "edition": "fh",
   "abilities": [
     {
+      "name": "Hasty Assault",
       "cardId": 578,
       "initiative": 4,
       "actions": [
@@ -20,10 +21,10 @@
           "type": "element",
           "value": "dark"
         }
-      ],
-      "name": "Hasty Assault"
+      ]
     },
     {
+      "name": "Ino Darkness",
       "cardId": 579,
       "initiative": 7,
       "actions": [
@@ -55,10 +56,10 @@
             }
           ]
         }
-      ],
-      "name": "Ino Darkness"
+      ]
     },
     {
+      "name": "Nothing Special",
       "cardId": 580,
       "initiative": 22,
       "actions": [
@@ -76,10 +77,10 @@
           "type": "element",
           "value": "dark"
         }
-      ],
-      "name": "Nothing Special"
+      ]
     },
     {
+      "name": "Black Thorns",
       "cardId": 581,
       "initiative": 26,
       "actions": [
@@ -112,10 +113,10 @@
             }
           ]
         }
-      ],
-      "name": "Black Thorns"
+      ]
     },
     {
+      "name": "Death's Embrace",
       "cardId": 582,
       "initiative": 46,
       "shuffle": true,
@@ -145,10 +146,10 @@
             }
           ]
         }
-      ],
-      "name": "Death's Embrace"
+      ]
     },
     {
+      "name": "Calculated Strike",
       "cardId": 583,
       "initiative": 41,
       "shuffle": true,
@@ -167,10 +168,10 @@
           "type": "element",
           "value": "dark"
         }
-      ],
-      "name": "Calculated Strike"
+      ]
     },
     {
+      "name": "Impale",
       "cardId": 584,
       "initiative": 35,
       "actions": [
@@ -208,10 +209,10 @@
             }
           ]
         }
-      ],
-      "name": "Impale"
+      ]
     },
     {
+      "name": "The Night Feeds",
       "cardId": 585,
       "initiative": 15,
       "actions": [
@@ -234,17 +235,16 @@
           "type": "element",
           "value": "any",
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "element",
               "value": "dark",
               "small": false
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "name": "The Night Feeds"
+      ]
     }
   ]
 }

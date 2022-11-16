@@ -1,9 +1,12 @@
 {
   "name": "steel-automaton",
+  "edition": "fh",
   "abilities": [
     {
       "name": "Calculated Strike",
+      "cardId": 618,
       "initiative": 95,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -17,12 +20,11 @@
           "valueType": "plus",
           "small": false
         }
-      ],
-      "shuffle": true,
-      "cardId": 618
+      ]
     },
     {
       "name": "Heavy Footfalls",
+      "cardId": 619,
       "initiative": 48,
       "actions": [
         {
@@ -41,31 +43,31 @@
           "value": "All adjaent enemies suffer<br>hazardous terrain damage.",
           "small": true
         }
-      ],
-      "cardId": 619
+      ]
     },
     {
       "name": "Clobber",
+      "cardId": 620,
       "initiative": 76,
       "actions": [
         {
           "type": "attack",
           "value": 1,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "condition",
               "value": "stun",
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 620
+      ]
     },
     {
       "name": "Body Block",
+      "cardId": 621,
       "initiative": 24,
       "actions": [
         {
@@ -84,11 +86,11 @@
           "value": 2,
           "small": false
         }
-      ],
-      "cardId": 621
+      ]
     },
     {
       "name": "Nothing Special",
+      "cardId": 622,
       "initiative": 70,
       "actions": [
         {
@@ -103,17 +105,18 @@
           "valueType": "plus",
           "small": false
         }
-      ],
-      "cardId": 622
+      ]
     },
     {
       "name": "Mortar Shell",
+      "cardId": 623,
       "initiative": 64,
       "actions": [
         {
           "type": "attack",
           "value": 1,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -125,14 +128,13 @@
               "value": 3,
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 623
+      ]
     },
     {
       "name": "Unstoppable Force",
+      "cardId": 624,
       "initiative": 45,
       "actions": [
         {
@@ -145,31 +147,29 @@
           "type": "attack",
           "value": 1,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "push",
               "value": 3,
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 624
+      ]
     },
     {
       "name": "Immovable Object",
+      "cardId": 625,
       "initiative": 10,
+      "shuffle": true,
       "actions": [
         {
           "type": "shield",
           "value": 4,
           "small": false
         }
-      ],
-      "shuffle": true,
-      "cardId": 625
+      ]
     }
-  ],
-  "edition": "fh"
+  ]
 }

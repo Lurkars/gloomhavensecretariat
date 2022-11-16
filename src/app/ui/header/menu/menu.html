@@ -111,6 +111,24 @@
       </div>
     </div>
 
+    <div class="columns separator">
+      <div class="column">
+        <div class="line">
+          <a (click)="feedbackDialog()"><img class="ghs-svg" src="./assets/images/hint.svg">&nbsp;{{'tools.feedback' |
+            ghsLabel}}</a>
+        </div>
+      </div>
+      <div class="column">
+        <div class="line">
+          <label>
+            <input type="checkbox" [checked]="!settingsManager.settings.feedback"
+              (change)="settingsManager.setFeedback(!settingsManager.settings.feedback)">{{'settings.feedback' |
+            ghsLabel}}
+          </label>
+        </div>
+      </div>
+    </div>
+
     <div class="line separator" *ngIf="isUpdateAvailable()">
       <a (click)="update()">&lt;{{'update' | ghsLabel}}(!)&gt;</a>
     </div>
@@ -174,7 +192,6 @@
       </a>
     </div>
   </div>
-
 
   <div *ngSwitchCase="SubMenu.objective_add" class="menu-container objective-add">
     <div class="line">

@@ -3,6 +3,7 @@
   "edition": "fh",
   "abilities": [
     {
+      "name": "Call to the Flame",
       "cardId": 786,
       "initiative": 97,
       "actions": [
@@ -14,10 +15,10 @@
           "type": "element",
           "value": "fire"
         }
-      ],
-      "name": "Call to the Flame"
+      ]
     },
     {
+      "name": "Call to the Earth",
       "cardId": 787,
       "initiative": 97,
       "actions": [
@@ -29,10 +30,10 @@
           "type": "element",
           "value": "earth"
         }
-      ],
-      "name": "Call to the Earth"
+      ]
     },
     {
+      "name": "Circle of Fire",
       "cardId": 788,
       "initiative": 22,
       "actions": [
@@ -65,10 +66,10 @@
             }
           ]
         }
-      ],
-      "name": "Circle of Fire"
+      ]
     },
     {
+      "name": "Rock Bomb",
       "cardId": 789,
       "initiative": 68,
       "shuffle": true,
@@ -81,6 +82,7 @@
         {
           "type": "grid",
           "value": 1,
+          "small": false,
           "subActions": [
             {
               "type": "attack",
@@ -100,17 +102,16 @@
               "value": "All allies and enemies adjacent<br>to the target suffer %game.damage:2%",
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "element",
           "value": "earth"
         }
-      ],
-      "name": "Rock Bomb"
+      ]
     },
     {
+      "name": "Stone Spikes",
       "cardId": 790,
       "initiative": 41,
       "actions": [
@@ -153,10 +154,10 @@
             }
           ]
         }
-      ],
-      "name": "Stone Spikes"
+      ]
     },
     {
+      "name": "Flowing Magma",
       "cardId": 791,
       "initiative": 51,
       "actions": [
@@ -169,6 +170,7 @@
           "type": "element",
           "value": "fire",
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "condition",
@@ -187,13 +189,13 @@
               ],
               "small": false
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "element",
           "value": "earth",
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "condition",
@@ -212,13 +214,12 @@
               ],
               "small": false
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "name": "Flowing Magma"
+      ]
     },
     {
+      "name": "Strength of the Mountain",
       "cardId": 792,
       "initiative": 31,
       "actions": [
@@ -246,10 +247,10 @@
             }
           ]
         }
-      ],
-      "name": "Strength of the Mountain"
+      ]
     },
     {
+      "name": "Fire Bolts",
       "cardId": 793,
       "initiative": 68,
       "shuffle": true,
@@ -280,8 +281,7 @@
           "type": "element",
           "value": "fire"
         }
-      ],
-      "name": "Fire Bolts"
+      ]
     }
   ]
 }

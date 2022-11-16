@@ -1,9 +1,10 @@
 {
   "name": "algox-snowspeaker",
+  "edition": "fh",
   "abilities": [
     {
-      "cardId": 738,
       "name": "Blinding Vortex",
+      "cardId": 738,
       "initiative": 22,
       "actions": [
         {
@@ -16,6 +17,7 @@
           "type": "attack",
           "value": 1,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "area",
@@ -32,8 +34,7 @@
               "value": "muddle",
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "element",
@@ -43,14 +44,15 @@
       ]
     },
     {
-      "cardId": 739,
       "name": "Cold Winds",
+      "cardId": 739,
       "initiative": 18,
       "actions": [
         {
           "type": "attack",
           "value": 0,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -75,14 +77,13 @@
               ],
               "small": false
             }
-          ],
-          "small": false
+          ]
         }
       ]
     },
     {
-      "cardId": 740,
       "name": "Sleet",
+      "cardId": 740,
       "initiative": 43,
       "actions": [
         {
@@ -95,14 +96,14 @@
           "type": "attack",
           "value": 1,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "range",
               "value": 4,
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "element",
@@ -112,8 +113,8 @@
       ]
     },
     {
-      "cardId": 741,
       "name": "Blistering Assault",
+      "cardId": 741,
       "initiative": 30,
       "actions": [
         {
@@ -126,6 +127,7 @@
           "type": "attack",
           "value": 1,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -151,15 +153,15 @@
               ],
               "small": false
             }
-          ],
-          "small": false
+          ]
         }
       ]
     },
     {
-      "cardId": 742,
       "name": "Snowstorm",
+      "cardId": 742,
       "initiative": 6,
+      "shuffle": true,
       "actions": [
         {
           "type": "custom",
@@ -169,6 +171,7 @@
         {
           "type": "push",
           "value": 2,
+          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -180,12 +183,12 @@
               "value": 3,
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "concatenation",
           "value": "",
+          "small": false,
           "subActions": [
             {
               "type": "element",
@@ -197,15 +200,13 @@
               "value": "air",
               "small": false
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "shuffle": true
+      ]
     },
     {
-      "cardId": 743,
       "name": "Hail",
+      "cardId": 743,
       "initiative": 59,
       "actions": [
         {
@@ -218,6 +219,7 @@
           "type": "attack",
           "value": 1,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -238,19 +240,51 @@
               ],
               "small": false
             }
-          ],
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Nothing Special",
+      "cardId": 744,
+      "initiative": 27,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus",
+          "small": false
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "small": false,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "value": "air",
           "small": false
         }
       ]
     },
     {
-      "cardId": 745,
       "name": "Snow Drifts",
+      "cardId": 745,
       "initiative": 66,
       "actions": [
         {
           "type": "condition",
           "value": "immobilize",
+          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -262,13 +296,13 @@
               "value": 6,
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "element",
           "value": "air",
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "condition",
@@ -287,43 +321,9 @@
               ],
               "small": false
             }
-          ],
-          "small": false
+          ]
         }
       ]
-    },
-    {
-      "cardId": 744,
-      "name": "Nothing Special",
-      "initiative": 27,
-      "actions": [
-        {
-          "type": "move",
-          "value": 0,
-          "valueType": "plus",
-          "small": false
-        },
-        {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
-          "subActions": [
-            {
-              "type": "range",
-              "value": 5,
-              "small": true
-            }
-          ],
-          "small": false
-        },
-        {
-          "type": "element",
-          "value": "air",
-          "small": false
-        }
-      ],
-      "shuffle": true
     }
-  ],
-  "edition": "fh"
+  ]
 }

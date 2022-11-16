@@ -3,6 +3,7 @@
   "edition": "fh",
   "abilities": [
     {
+      "name": "Hasty Assault",
       "cardId": 546,
       "initiative": 3,
       "actions": [
@@ -27,10 +28,10 @@
           "type": "element",
           "value": "fire"
         }
-      ],
-      "name": "Hasty Assault"
+      ]
     },
     {
+      "name": "Nothing Special",
       "cardId": 547,
       "initiative": 24,
       "actions": [
@@ -55,10 +56,10 @@
           "type": "element",
           "value": "fire"
         }
-      ],
-      "name": "Nothing Special"
+      ]
     },
     {
+      "name": "Explosive Blase",
       "cardId": 548,
       "initiative": 46,
       "shuffle": true,
@@ -93,10 +94,39 @@
             }
           ]
         }
-      ],
-      "name": "Explosive Blase"
+      ]
     },
     {
+      "name": "Fire Spout",
+      "cardId": 549,
+      "initiative": 8,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "custom",
+          "value": "Create one %game.damage:4% trap in an adjacent<br>empty hex closest to an enemy",
+          "small": true
+        },
+        {
+          "type": "element",
+          "value": "any",
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire"
+            }
+          ]
+        }
+      ],
+      "revealed": true
+    },
+    {
+      "name": "Intense Torch",
       "cardId": 550,
       "initiative": 49,
       "actions": [
@@ -130,38 +160,10 @@
             }
           ]
         }
-      ],
-      "name": "Intense Torch"
+      ]
     },
     {
-      "cardId": 632,
-      "initiative": 67,
-      "actions": [
-        {
-          "type": "move",
-          "value": 1,
-          "valueType": "minus"
-        },
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "plus",
-          "subActions": [
-            {
-              "type": "range",
-              "value": 3,
-              "small": true
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "fire"
-        }
-      ],
-      "name": "Calculated Strike"
-    },
-    {
+      "name": "Heat Aura",
       "cardId": 552,
       "initiative": 77,
       "actions": [
@@ -196,8 +198,7 @@
             }
           ]
         }
-      ],
-      "name": "Heat Aura"
+      ]
     },
     {
       "cardId": 553,
@@ -246,8 +247,9 @@
       ]
     },
     {
-      "cardId": 549,
-      "initiative": 8,
+      "name": "Calculated Strike",
+      "cardId": 632,
+      "initiative": 67,
       "actions": [
         {
           "type": "move",
@@ -255,24 +257,22 @@
           "valueType": "minus"
         },
         {
-          "type": "custom",
-          "value": "Create one %game.damage:4% trap in an adjacent<br>empty hex closest to an enemy",
-          "small": true
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
         },
         {
           "type": "element",
-          "value": "any",
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "element",
-              "value": "fire"
-            }
-          ]
+          "value": "fire"
         }
-      ],
-      "name": "Fire Spout",
-      "revealed": true
+      ]
     }
   ]
 }

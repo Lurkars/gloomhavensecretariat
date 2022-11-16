@@ -15,17 +15,53 @@
       "attack": 1
     },
     {
+      "level": 1,
+      "health": 6,
+      "movement": 1,
+      "attack": 1
+    },
+    {
+      "level": 2,
+      "health": 8,
+      "movement": 1,
+      "attack": 1
+    },
+    {
+      "level": 3,
+      "health": 10,
+      "movement": 2,
+      "attack": 1
+    },
+    {
+      "level": 4,
+      "health": 11,
+      "movement": 2,
+      "attack": 2
+    },
+    {
+      "level": 5,
+      "health": 14,
+      "movement": 2,
+      "attack": 2
+    },
+    {
+      "level": 6,
+      "health": 17,
+      "movement": 3,
+      "attack": 2
+    },
+    {
+      "level": 7,
+      "health": 20,
+      "movement": 3,
+      "attack": 3
+    },
+    {
       "type": "elite",
       "level": 0,
       "health": 6,
       "movement": 1,
       "attack": 2
-    },
-    {
-      "level": 1,
-      "health": 6,
-      "movement": 1,
-      "attack": 1
     },
     {
       "type": "elite",
@@ -42,12 +78,6 @@
       ]
     },
     {
-      "level": 2,
-      "health": 8,
-      "movement": 1,
-      "attack": 1
-    },
-    {
       "type": "elite",
       "level": 2,
       "health": 9,
@@ -62,12 +92,6 @@
       ]
     },
     {
-      "level": 3,
-      "health": 10,
-      "movement": 2,
-      "attack": 1
-    },
-    {
       "type": "elite",
       "level": 3,
       "health": 11,
@@ -80,12 +104,6 @@
           "small": false
         }
       ]
-    },
-    {
-      "level": 4,
-      "health": 11,
-      "movement": 2,
-      "attack": 2
     },
     {
       "type": "elite",
@@ -102,12 +120,6 @@
       ]
     },
     {
-      "level": 5,
-      "health": 14,
-      "movement": 2,
-      "attack": 2
-    },
-    {
       "type": "elite",
       "level": 5,
       "health": 16,
@@ -122,12 +134,6 @@
       ]
     },
     {
-      "level": 6,
-      "health": 17,
-      "movement": 3,
-      "attack": 2
-    },
-    {
       "type": "elite",
       "level": 6,
       "health": 21,
@@ -140,12 +146,6 @@
           "small": false
         }
       ]
-    },
-    {
-      "level": 7,
-      "health": 20,
-      "movement": 3,
-      "attack": 3
     },
     {
       "type": "elite",

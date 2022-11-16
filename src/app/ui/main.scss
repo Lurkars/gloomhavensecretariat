@@ -1,3 +1,8 @@
+:host {
+  position: relative;
+  overflow: hidden;
+}
+
 ghs-header,
 ghs-footer {
   z-index: 2;
@@ -140,4 +145,12 @@ main {
 
 .cdk-drop-list-dragging :not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+ghs-feedback-tool {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
 }

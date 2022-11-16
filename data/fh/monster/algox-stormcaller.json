@@ -7,6 +7,16 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
+    "health": "Cx20",
+    "movement": 2,
+    "attack": 3,
+    "actions": [
+      {
+        "type": "shield",
+        "value": 1,
+        "small": false
+      }
+    ],
     "immunities": [
       "immobilize",
       "disarm",
@@ -56,17 +66,7 @@
           "small": true
         }
       ]
-    ],
-    "actions": [
-      {
-        "type": "shield",
-        "value": 1,
-        "small": false
-      }
-    ],
-    "health": "Cx20",
-    "movement": 2,
-    "attack": 3
+    ]
   },
   "stats": [
     {

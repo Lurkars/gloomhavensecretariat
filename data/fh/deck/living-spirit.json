@@ -3,6 +3,7 @@
   "edition": "fh",
   "abilities": [
     {
+      "name": "Sap Strength",
       "cardId": 658,
       "initiative": 22,
       "shuffle": true,
@@ -29,10 +30,10 @@
             }
           ]
         }
-      ],
-      "name": "Sap Strength"
+      ]
     },
     {
+      "name": "Booming Scream",
       "cardId": 659,
       "initiative": 33,
       "shuffle": true,
@@ -59,10 +60,10 @@
             }
           ]
         }
-      ],
-      "name": "Booming Scream"
+      ]
     },
     {
+      "name": "Nothing Special",
       "cardId": 660,
       "initiative": 48,
       "actions": [
@@ -83,10 +84,10 @@
             }
           ]
         }
-      ],
-      "name": "Nothing Special"
+      ]
     },
     {
+      "name": "Nothing Special",
       "cardId": 661,
       "initiative": 48,
       "actions": [
@@ -107,10 +108,10 @@
             }
           ]
         }
-      ],
-      "name": "Nothing Special"
+      ]
     },
     {
+      "name": "Coupled Chain",
       "cardId": 662,
       "initiative": 61,
       "actions": [
@@ -131,10 +132,10 @@
             }
           ]
         }
-      ],
-      "name": "Coupled Chain"
+      ]
     },
     {
+      "name": "Leech Warmth",
       "cardId": 663,
       "initiative": 75,
       "actions": [
@@ -171,10 +172,10 @@
           "value": "ice",
           "small": false
         }
-      ],
-      "name": "Leech Warmth"
+      ]
     },
     {
+      "name": "Angry Howl",
       "cardId": 664,
       "initiative": 55,
       "actions": [
@@ -203,10 +204,10 @@
           "type": "element",
           "value": "ice"
         }
-      ],
-      "name": "Angry Howl"
+      ]
     },
     {
+      "name": "Ice Glare",
       "cardId": 665,
       "initiative": 67,
       "actions": [
@@ -239,8 +240,7 @@
             }
           ]
         }
-      ],
-      "name": "Ice Glare"
+      ]
     }
   ]
 }

@@ -4,13 +4,13 @@
   "count": 10,
   "baseStat": {
     "type": "normal",
+    "health": 5,
+    "movement": 1,
+    "attack": 2,
     "immunities": [
       "poison"
     ],
-    "special": [],
-    "movement": 1,
-    "attack": 2,
-    "health": 5
+    "special": []
   },
   "stats": [
     {
@@ -23,6 +23,70 @@
       ]
     },
     {
+      "level": 1,
+      "health": 5,
+      "movement": 1,
+      "attack": 1,
+      "immunities": [
+        "poison"
+      ]
+    },
+    {
+      "level": 2,
+      "health": 6,
+      "movement": 2,
+      "attack": 1,
+      "immunities": [
+        "poison"
+      ]
+    },
+    {
+      "level": 3,
+      "health": 6,
+      "movement": 2,
+      "attack": 2,
+      "immunities": [
+        "poison"
+      ]
+    },
+    {
+      "level": 4,
+      "health": 8,
+      "movement": 2,
+      "attack": 2,
+      "immunities": [
+        "poison"
+      ]
+    },
+    {
+      "level": 5,
+      "health": 10,
+      "movement": 2,
+      "attack": 2,
+      "immunities": [
+        "poison"
+      ]
+    },
+    {
+      "level": 6,
+      "health": 12,
+      "movement": 2,
+      "attack": 3,
+      "immunities": [
+        "poison"
+      ]
+    },
+    {
+      "level": 7,
+      "health": 15,
+      "movement": 3,
+      "attack": 3,
+      "immunities": [
+        "poison",
+        "immobilize"
+      ]
+    },
+    {
       "type": "elite",
       "level": 0,
       "health": 5,
@@ -33,29 +97,11 @@
       ]
     },
     {
-      "level": 1,
-      "health": 5,
-      "movement": 1,
-      "attack": 1,
-      "immunities": [
-        "poison"
-      ]
-    },
-    {
       "type": "elite",
       "level": 1,
       "health": 8,
       "movement": 1,
       "attack": 2,
-      "immunities": [
-        "poison"
-      ]
-    },
-    {
-      "level": 2,
-      "health": 6,
-      "movement": 2,
-      "attack": 1,
       "immunities": [
         "poison"
       ]
@@ -71,29 +117,11 @@
       ]
     },
     {
-      "level": 3,
-      "health": 6,
-      "movement": 2,
-      "attack": 2,
-      "immunities": [
-        "poison"
-      ]
-    },
-    {
       "type": "elite",
       "level": 3,
       "health": 10,
       "movement": 2,
       "attack": 3,
-      "immunities": [
-        "poison"
-      ]
-    },
-    {
-      "level": 4,
-      "health": 8,
-      "movement": 2,
-      "attack": 2,
       "immunities": [
         "poison"
       ]
@@ -109,28 +137,10 @@
       ]
     },
     {
-      "level": 5,
-      "health": 10,
-      "movement": 2,
-      "attack": 2,
-      "immunities": [
-        "poison"
-      ]
-    },
-    {
       "type": "elite",
       "level": 5,
       "health": 15,
       "movement": 3,
-      "attack": 3,
-      "immunities": [
-        "poison"
-      ]
-    },
-    {
-      "level": 6,
-      "health": 12,
-      "movement": 2,
       "attack": 3,
       "immunities": [
         "poison"
@@ -142,16 +152,6 @@
       "health": 18,
       "movement": 3,
       "attack": 4,
-      "immunities": [
-        "poison",
-        "immobilize"
-      ]
-    },
-    {
-      "level": 7,
-      "health": 15,
-      "movement": 3,
-      "attack": 3,
       "immunities": [
         "poison",
         "immobilize"

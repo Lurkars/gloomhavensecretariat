@@ -15,13 +15,6 @@
       "attack": 3
     },
     {
-      "type": "elite",
-      "level": 0,
-      "health": 7,
-      "movement": 4,
-      "attack": 4
-    },
-    {
       "level": 1,
       "health": 6,
       "movement": 3,
@@ -34,9 +27,44 @@
       ]
     },
     {
-      "type": "elite",
-      "level": 1,
+      "level": 2,
       "health": 7,
+      "movement": 4,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 7,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 9,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 10,
       "movement": 4,
       "attack": 5,
       "actions": [
@@ -47,10 +75,42 @@
       ]
     },
     {
-      "level": 2,
+      "level": 6,
+      "health": 14,
+      "movement": 5,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 18,
+      "movement": 5,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
       "health": 7,
       "movement": 4,
-      "attack": 3,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 7,
+      "movement": 4,
+      "attack": 5,
       "actions": [
         {
           "type": "condition",
@@ -64,18 +124,6 @@
       "health": 9,
       "movement": 5,
       "attack": 5,
-      "actions": [
-        {
-          "type": "condition",
-          "value": "wound"
-        }
-      ]
-    },
-    {
-      "level": 3,
-      "health": 7,
-      "movement": 4,
-      "attack": 4,
       "actions": [
         {
           "type": "condition",
@@ -89,18 +137,6 @@
       "health": 10,
       "movement": 5,
       "attack": 6,
-      "actions": [
-        {
-          "type": "condition",
-          "value": "wound"
-        }
-      ]
-    },
-    {
-      "level": 4,
-      "health": 9,
-      "movement": 4,
-      "attack": 4,
       "actions": [
         {
           "type": "condition",
@@ -122,18 +158,6 @@
       ]
     },
     {
-      "level": 5,
-      "health": 10,
-      "movement": 4,
-      "attack": 5,
-      "actions": [
-        {
-          "type": "condition",
-          "value": "wound"
-        }
-      ]
-    },
-    {
       "type": "elite",
       "level": 5,
       "health": 15,
@@ -147,35 +171,11 @@
       ]
     },
     {
-      "level": 6,
-      "health": 14,
-      "movement": 5,
-      "attack": 5,
-      "actions": [
-        {
-          "type": "condition",
-          "value": "wound"
-        }
-      ]
-    },
-    {
       "type": "elite",
       "level": 6,
       "health": 19,
       "movement": 6,
       "attack": 7,
-      "actions": [
-        {
-          "type": "condition",
-          "value": "wound"
-        }
-      ]
-    },
-    {
-      "level": 7,
-      "health": 18,
-      "movement": 5,
-      "attack": 6,
       "actions": [
         {
           "type": "condition",

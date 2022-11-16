@@ -1,8 +1,10 @@
 {
   "name": "lurker-clawcrusher",
+  "edition": "fh",
   "abilities": [
     {
       "name": "Nothing Special",
+      "cardId": 690,
       "initiative": 47,
       "actions": [
         {
@@ -22,11 +24,11 @@
           "value": "earth",
           "small": false
         }
-      ],
-      "cardId": 690
+      ]
     },
     {
       "name": "Smash Armor",
+      "cardId": 691,
       "initiative": 58,
       "actions": [
         {
@@ -38,6 +40,7 @@
         {
           "type": "grid",
           "value": 1,
+          "small": false,
           "subActions": [
             {
               "type": "attack",
@@ -65,15 +68,14 @@
               ],
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
       ],
-      "revealed": true,
-      "cardId": 691
+      "revealed": true
     },
     {
       "name": "Crippling Claw",
+      "cardId": 692,
       "initiative": 44,
       "actions": [
         {
@@ -86,34 +88,35 @@
           "type": "attack",
           "value": 1,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "condition",
               "value": "poison",
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 692
+      ]
     },
     {
       "name": "Take Hostage",
+      "cardId": 693,
       "initiative": 13,
+      "shuffle": true,
       "actions": [
         {
           "type": "attack",
           "value": 1,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "condition",
               "value": "immobilize",
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "shield",
@@ -125,13 +128,13 @@
           "value": "earth",
           "small": false
         }
-      ],
-      "shuffle": true,
-      "cardId": 693
+      ]
     },
     {
       "name": "Earthen Blow",
+      "cardId": 694,
       "initiative": 60,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -143,6 +146,7 @@
           "type": "attack",
           "value": 1,
           "valueType": "plus",
+          "small": false,
           "subActions": [
             {
               "type": "element",
@@ -162,15 +166,13 @@
               ],
               "small": false
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "shuffle": true,
-      "cardId": 694
+      ]
     },
     {
       "name": "Crush Armor",
+      "cardId": 695,
       "initiative": 36,
       "actions": [
         {
@@ -182,6 +184,7 @@
         {
           "type": "grid",
           "value": 1,
+          "small": false,
           "subActions": [
             {
               "type": "attack",
@@ -209,14 +212,13 @@
               ],
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
-      ],
-      "cardId": 695
+      ]
     },
     {
       "name": "Claw Guard",
+      "cardId": 696,
       "initiative": 11,
       "actions": [
         {
@@ -234,11 +236,11 @@
           "value": "earth",
           "small": false
         }
-      ],
-      "cardId": 696
+      ]
     },
     {
       "name": "Frantic Swipes",
+      "cardId": 697,
       "initiative": 31,
       "actions": [
         {
@@ -251,6 +253,7 @@
           "type": "attack",
           "value": 2,
           "valueType": "minus",
+          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
@@ -262,17 +265,14 @@
               "value": "poison",
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "element",
           "value": "earth",
           "small": false
         }
-      ],
-      "cardId": 697
+      ]
     }
-  ],
-  "edition": "fh"
+  ]
 }

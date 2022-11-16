@@ -1,5 +1,12 @@
 {
   "name": "kelp",
+  "characterClass": "lurker",
+  "gender": "",
+  "edition": "fh",
+  "color": "#aba4da",
+  "spoiler": true,
+  "marker": false,
+  "deck": "",
   "stats": [
     {
       "level": 1,
@@ -38,13 +45,7 @@
       "health": 20
     }
   ],
-  "gender": "",
   "availableSummons": [],
-  "color": "#aba4da",
-  "marker": false,
-  "deck": "",
   "perks": [],
-  "edition": "fh",
-  "spoiler": true,
   "replace": false
 }
