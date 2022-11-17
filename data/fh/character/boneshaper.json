@@ -83,7 +83,7 @@
       "name": "skeleton-sorcerer",
       "level": 9,
       "health": 6,
-      "attack": 2,
+      "attack": 3,
       "range": 3,
       "movement": 3
     }

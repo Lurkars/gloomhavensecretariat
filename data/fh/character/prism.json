@@ -3,7 +3,7 @@
   "characterClass": "unfettered",
   "gender": "",
   "edition": "fh",
-  "color": "#f6f18d",
+  "color": "#e5de85",
   "spoiler": true,
   "marker": false,
   "deck": "",
@@ -45,7 +45,229 @@
       "health": 20
     }
   ],
-  "availableSummons": [],
+  "availableSummons": [
+    {
+      "name": "armored-tank",
+      "level": 1,
+      "health": 6,
+      "attack": 2,
+      "movement": 2,
+      "action": {
+        "type": "shield",
+        "value": 1
+      }
+    },
+    {
+      "name": "jackal-mech",
+      "level": 1,
+      "health": 4,
+      "attack": 2,
+      "movement": 3,
+      "action": {
+        "type": "condition",
+        "value": "wound"
+      },
+      "additionalAction": {
+        "type": "retaliate",
+        "value": 1
+      }
+    },
+    {
+      "name": "sniper-turret",
+      "level": 1,
+      "health": 3,
+      "attack": 2,
+      "range": 4
+    },
+    {
+      "name": "repair-drone",
+      "level": 1,
+      "health": 3,
+      "attack": 1,
+      "range": 3,
+      "movement": 2,
+      "action": {
+        "type": "grid",
+        "value": "1",
+        "subActions": [
+          {
+            "type": "custom",
+            "small": true,
+            "value": "At the end of turn perform:"
+          },
+          {
+            "type": "heal",
+            "small": true,
+            "value": 1,
+            "subActions": [
+              {
+                "type": "range",
+                "small": true,
+                "value": 3
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "leaper",
+      "level": 1,
+      "health": 7,
+      "attack": 1,
+      "movement": 5,
+      "action": {
+        "type": "shield",
+        "value": 1,
+        "subActions": [
+          {
+            "type": "custom",
+            "small": true,
+            "value": "Focus on the enemy farthest from HIVE."
+          }
+        ]
+      }
+    },
+    {
+      "name": "arcing-generator",
+      "level": 1,
+      "health": 5,
+      "attack": 2,
+      "movement": 4,
+      "action": {
+        "type": "pierce",
+        "value": 2,
+        "subActions": [
+          {
+            "type": "specialTarget",
+            "small": true,
+            "value": "adjecentEnemies"
+          }
+        ]
+      }
+    },
+    {
+      "name": "dampening-unit",
+      "level": 2,
+      "health": 5,
+      "attack": 1,
+      "range": 2,
+      "movement": 2,
+      "action": {
+        "type": "custom",
+        "small": true,
+        "value": "All adjacent allies gain %game.action.shield% 1."
+      }
+    },
+    {
+      "name": "machine-bolter",
+      "level": 3,
+      "health": 3,
+      "attack": 2,
+      "range": 3,
+      "action": {
+        "type": "target",
+        "value": 2
+      }
+    },
+    {
+      "name": "toxin-distributor",
+      "level": 4,
+      "health": 6,
+      "attack": 2,
+      "movement": 2,
+      "action": {
+        "type": "condition",
+        "value": "poison"
+      }
+    },
+    {
+      "name": "trapping-unit",
+      "level": 5,
+      "health": 7,
+      "attack": 2,
+      "movement": 3,
+      "action": {
+        "type": "custom",
+        "small": true,
+        "value": "When attacked reduece %game.damage% by 1 for each negative condition the attacker has."
+      },
+      "additionalAction": {
+        "type": "condition",
+        "value": "immobilize"
+      }
+    },
+    {
+      "name": "sword-propeller",
+      "level": 6,
+      "health": 1,
+      "attack": 2,
+      "movement": 5,
+      "action": {
+        "type": "custom",
+        "small": true,
+        "value": "Give %game.condition.wound% to all adjacent figures and self at the end of turn."
+      }
+    },
+    {
+      "name": "bombardier",
+      "level": 7,
+      "health": 5,
+      "attack": 2,
+      "range": 4,
+      "movement": 1,
+      "action": {
+        "type": "area",
+        "small": true,
+        "value": "(0,0,target)|(0,1,target)|(1,0,target)"
+      }
+    },
+    {
+      "name": "shield-spider",
+      "level": 8,
+      "health": 7,
+      "attack": 2,
+      "movement": 3,
+      "action": {
+        "type": "grid",
+        "value": "1",
+        "subActions": [
+          {
+            "type": "custom",
+            "small": true,
+            "value": "At the end of turn perform:"
+          },
+          {
+            "type": "condition",
+            "small": true,
+            "value": "ward",
+            "subActions": [
+              {
+                "type": "range",
+                "small": true,
+                "value": 4
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "sledge-driver",
+      "level": 9,
+      "health": 9,
+      "attack": 4,
+      "movement": 2,
+      "action": {
+        "type": "shield",
+        "value": 1
+      },
+      "additionalAction": {
+        "type": "pierce",
+        "value": 3
+      }
+    }
+  ],
   "perks": [],
   "replace": false
 }

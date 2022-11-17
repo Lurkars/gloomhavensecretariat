@@ -86,7 +86,7 @@
     {
       "name": "longbowman",
       "level": 7,
-      "health": 3,
+      "health": 4,
       "attack": 2,
       "range": 4,
       "movement": 2

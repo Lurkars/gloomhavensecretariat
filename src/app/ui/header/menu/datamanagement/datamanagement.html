@@ -1,97 +1,96 @@
-<div class="menu-container data">
-  <div class="columns">
-    <div class="column">
-      <div class="line">
-        <a (click)="exportGame()">{{'datamanagement.exportGame' | ghsLabel}}</a>
-      </div>
-      <div class="line">
-        <label class="input-file">
-          <input type="file" accept="application/json" (change)="importGame($event)" />
-          {{'datamanagement.importGame' | ghsLabel}}
-        </label>
-      </div>
-      <div class="line">
-        <a (click)="resetGame()">&lt;{{'datamanagement.resetGame' | ghsLabel}}(!)&gt;</a>
-      </div>
+<div class="menu-container two-column data">
+
+  <div class="line">
+    <a (click)="exportGame()">{{'datamanagement.exportGame' | ghsLabel}}</a>
+  </div>
+
+  <div class="line">
+    <a (click)="exportSettings()">{{'datamanagement.exportSettings' | ghsLabel}}</a>
+  </div>
+
+  <div class="line">
+    <label class="input-file">
+      <input type="file" accept="application/json" (change)="importGame($event)" />
+      {{'datamanagement.importGame' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <label class="input-file">
+      {{'datamanagement.importSettings' | ghsLabel}}
+      <input type="file" accept="application/json" (change)="importSettings($event)" />
+    </label>
+  </div>
+
+  <div class="line">
+    <a (click)="resetGame()">&lt;{{'datamanagement.resetGame' | ghsLabel}}(!)&gt;</a>
+  </div>
+
+  <div class="line">
+    <a (click)="resetSettings()">&lt;{{'datamanagement.resetSettings' | ghsLabel}}(!)&gt;</a>
+  </div>
+
+  <div class="separator"></div>
+  <div class="column">
+    <div class="line title sticky">
+      <label>{{'datamanagement.spoilers' | ghsLabel}}</label>
     </div>
-    <div class="column">
-      <div class="line">
-        <a (click)="exportSettings()">{{'datamanagement.exportSettings' | ghsLabel}}</a>
-      </div>
-      <div class="line">
-        <label class="input-file">
-          {{'datamanagement.importSettings' | ghsLabel}}
-          <input type="file" accept="application/json" (change)="importSettings($event)" />
-        </label>
-      </div>
-      <div class="line">
-        <a (click)="resetSettings()">&lt;{{'datamanagement.resetSettings' | ghsLabel}}(!)&gt;</a>
-      </div>
+    <div class="line">
+      <span class="input-button">
+        <input type="text" #inputSpoiler (keyup.enter)="addSpoiler()" (keyup)="0"
+          placeholder="{{'datamanagement.addSpoiler' | ghsLabel}}">
+        <span class="add-button" (click)="addSpoiler()" [ngClass]="{'disabled' : !(inputSpoiler.value)}"></span>
+      </span>
+    </div>
+    <div class="line spoilers">
+      <a class="spoiler-item" *ngFor="let spoiler of settingsManager.settings.spoilers">
+        {{spoiler}}
+        <span class="spacer"></span>
+        <span (click)="removeSpoiler(spoiler)" [title]="'datamanagement.removeSpoiler' | ghsLabel"
+          class="remove"></span>
+      </a>
+    </div>
+    <div class="spacer"></div>
+    <div class="line separator" *ngIf="settingsManager.settings.spoilers.length > 0">
+      <a (click)="settingsManager.removeAllSpoilers()">{{'datamanagement.removeAllSpoilers' | ghsLabel}}</a>
     </div>
   </div>
 
-  <div class="columns separator">
-    <div class="column">
-      <div class="line title sticky">
-        <label>{{'datamanagement.spoilers' | ghsLabel}}</label>
-      </div>
-      <div class="line">
-        <span class="input-button">
-          <input type="text" #inputSpoiler (keyup.enter)="addSpoiler()" (keyup)="0"
-            placeholder="{{'datamanagement.addSpoiler' | ghsLabel}}">
-          <span class="add-button" (click)="addSpoiler()" [ngClass]="{'disabled' : !(inputSpoiler.value)}"></span>
-        </span>
-      </div>
-      <div class="line spoilers">
-        <a class="spoiler-item" *ngFor="let spoiler of settingsManager.settings.spoilers">
-          {{spoiler}}
-          <span class="spacer"></span>
-          <span (click)="removeSpoiler(spoiler)" [title]="'datamanagement.removeSpoiler' | ghsLabel"
-            class="remove"></span>
-        </a>
-      </div>
-      <div class="spacer"></div>
-      <div class="line separator" *ngIf="settingsManager.settings.spoilers.length > 0">
-        <a (click)="settingsManager.removeAllSpoilers()">{{'datamanagement.removeAllSpoilers' | ghsLabel}}</a>
-      </div>
+  <div class="column">
+    <div class="line title sticky">
+      <label>{{'datamanagement.editionDataUrls' | ghsLabel}}</label>
     </div>
-
-    <div class="column">
-      <div class="line title sticky">
-        <label>{{'datamanagement.editionDataUrls' | ghsLabel}}</label>
-      </div>
-      <div class="line">
-        <span class="input-button">
-          <input type="text" #inputEditionDataUrl (keyup.enter)="addEditionDataUrl()"
-            (keyup)="inputEditionDataUrl.classList.remove('error')"
-            placeholder="{{'datamanagement.addEditionDataUrl' | ghsLabel}}">
-          <span class="add-button" (click)="addEditionDataUrl()"
-            [ngClass]="{'disabled' : !inputEditionDataUrl.value}"></span>
+    <div class="line">
+      <span class="input-button">
+        <input type="text" #inputEditionDataUrl (keyup.enter)="addEditionDataUrl()"
+          (keyup)="inputEditionDataUrl.classList.remove('error')"
+          placeholder="{{'datamanagement.addEditionDataUrl' | ghsLabel}}">
+        <span class="add-button" (click)="addEditionDataUrl()"
+          [ngClass]="{'disabled' : !inputEditionDataUrl.value}"></span>
+      </span>
+    </div>
+    <div class="line editions" cdkDropList (cdkDropListDropped)="drop($event)">
+      <a class="edition" *ngFor="let editionData of gameManager.editionData" cdkDrag>
+        <label
+          [title]="(settingsManager.settings.editions.indexOf(editionData.edition) != -1 ? 'datamanagement.editionDataUrls.disable' : 'datamanagement.editionDataUrls.enable') | ghsLabel">
+          <input type="checkbox" [checked]="settingsManager.settings.editions.indexOf(editionData.edition) != -1"
+            (change)="toggleEdition(editionData.edition)">
+          {{'data.edition.' + editionData.edition | ghsLabel}}
+        </label>
+        <span class="custom" [title]="'datamanagement.editionDataUrls.custom' | ghsLabel"
+          *ngIf="settingsManager.defaultEditionDataUrls.indexOf(editionData.url) == -1">
+          <img src="./assets/images/hint.svg">
+          <span class="url">{{editionData.url}}</span>
         </span>
-      </div>
-      <div class="line editions" cdkDropList (cdkDropListDropped)="drop($event)">
-        <a class="edition" *ngFor="let editionData of gameManager.editionData" cdkDrag>
-          <label
-            [title]="(settingsManager.settings.editions.indexOf(editionData.edition) != -1 ? 'datamanagement.editionDataUrls.disable' : 'datamanagement.editionDataUrls.enable') | ghsLabel">
-            <input type="checkbox" [checked]="settingsManager.settings.editions.indexOf(editionData.edition) != -1"
-              (change)="toggleEdition(editionData.edition)">
-            {{'data.edition.' + editionData.edition | ghsLabel}}
-          </label>
-          <span class="custom" [title]="'datamanagement.editionDataUrls.custom' | ghsLabel"
-            *ngIf="settingsManager.defaultEditionDataUrls.indexOf(editionData.url) == -1">
-            <img src="./assets/images/hint.svg">
-            <span class="url">{{editionData.url}}</span>
-          </span>
-          <span class="spacer"></span>
-          <span (click)="removeEditionDataUrl(editionData.url)"
-            [title]="'datamanagement.editionDataUrls.remove' | ghsLabel" class="remove"></span>
-        </a>
-      </div>
-      <div class="spacer"></div>
-      <div class="line separator" *ngIf="!hasDefaultEditionData()">
-        <a (click)="settingsManager.restoreDefaultEditionDataUrls()">{{'datamanagement.restoreEditionDataUrls' |
-          ghsLabel}}</a>
-      </div>
+        <span class="spacer"></span>
+        <span (click)="removeEditionDataUrl(editionData.url)"
+          [title]="'datamanagement.editionDataUrls.remove' | ghsLabel" class="remove"></span>
+      </a>
+    </div>
+    <div class="spacer"></div>
+    <div class="line separator" *ngIf="!hasDefaultEditionData()">
+      <a (click)="settingsManager.restoreDefaultEditionDataUrls()">{{'datamanagement.restoreEditionDataUrls' |
+        ghsLabel}}</a>
     </div>
   </div>
 </div>

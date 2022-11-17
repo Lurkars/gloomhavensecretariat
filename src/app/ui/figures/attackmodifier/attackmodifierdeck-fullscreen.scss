@@ -1,17 +1,15 @@
 .attack-modifiers-fullscreen {
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
 
-  .attack-modifierdeck-container {
+  .header {
     position: relative;
-    width: 100%;
-    height: 100%;
-    overflow-x: auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    z-index: 2;
+    z-index: 1;
+    height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor));
 
     .title {
       display: flex;
@@ -20,35 +18,60 @@
       font-family: var(--ghs-font-title);
       font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
       cursor: initial;
-      z-index: 2;
 
       .icon {
-        height: 2.5em;
+        height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor));
         width: auto;
         margin-right: 0.2em;
       }
-
-      margin-bottom: calc(var(--ghs-unit) * 2);
     }
+  }
+
+  .attack-modifierdeck-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 3;
 
     ghs-attackmodifier-deck {
       display: flex;
       width: 99vw;
       max-width: 800px;
-      height: 31vw;
-      max-height: 252.5px;
-      z-index: 2;
+      height: 25.5vw;
+      max-height: 213px;
+      z-index: 3;
+      margin-top: 2em;
       margin-left: 1%;
     }
 
-    .close-container {
-      cursor: zoom-out;
-      position: absolute;
-      display: flex;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
+    &.vertical {
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      ghs-attackmodifier-deck {
+        width: 98vw;
+        margin-right: 1%;
+        height: calc(100% - ((var(--ghs-unit) * 10 * var(--ghs-text-factor))));
+        max-height: initial;
+        transform: none;
+      }
     }
+  }
+
+  .close-container {
+    cursor: zoom-out;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    top: 0;
+    left: 0;
   }
 
 }

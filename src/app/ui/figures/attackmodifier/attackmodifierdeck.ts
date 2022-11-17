@@ -1,6 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifierDeck, AttackModifierType } from 'src/app/game/model/AttackModifier';
 import { Character } from 'src/app/game/model/Character';
 import { GameState } from 'src/app/game/model/Game';
@@ -37,6 +38,8 @@ export class AttackModifierDeckComponent implements OnInit {
   @Output('after') after: EventEmitter<AttackModiferDeckChange> = new EventEmitter<AttackModiferDeckChange>();
   @ViewChild('menu') menuElement!: ElementRef;
   @Input('fullscreen') fullscreen: boolean = true;
+  @Input('vertical') vertical: boolean = false;
+
   gameManager: GameManager = gameManager;
   GameState = GameState;
   reveal: number = 0;
@@ -49,6 +52,7 @@ export class AttackModifierDeckComponent implements OnInit {
   currentAttackModifier: number = -1;
   drawing: boolean = false;
 
+  @ViewChild('drawCard') drawCard!: ElementRef;
 
   constructor(private element: ElementRef, private dialog: Dialog) {
     this.deck = new AttackModifierDeck();
@@ -86,8 +90,10 @@ export class AttackModifierDeckComponent implements OnInit {
     }
   }
 
-  draw() {
-    if (!this.drawing && gameManager.game.state == GameState.next) {
+  draw(event: any) {
+    if (this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
+      this.openFullscreen(event);
+    } else if (!this.drawing && gameManager.game.state == GameState.next) {
       this.before.emit(new AttackModiferDeckChange(this.deck, "draw"));
       gameManager.attackModifierManager.drawModifier(this.deck);
       this.after.emit(new AttackModiferDeckChange(this.deck, "draw"));
@@ -124,18 +130,22 @@ export class AttackModifierDeckComponent implements OnInit {
   }
 
 
-  open(event : any) {
-    this.dialog.open(AttackModifierDeckDialogComponent, {
-      panelClass: 'dialog', data: {
-        deck: this.deck,
-        character: this.character,
-        numeration: this.numeration,
-        before: this.before,
-        after: this.after
-      }
-    });
-    event.preventDefault();
-    event.stopPropagation();
+  open(event: any) {
+    if (this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
+      this.openFullscreen(event);
+    } else {
+      this.dialog.open(AttackModifierDeckDialogComponent, {
+        panelClass: 'dialog', data: {
+          deck: this.deck,
+          character: this.character,
+          numeration: this.numeration,
+          before: this.before,
+          after: this.after
+        }
+      });
+      event.preventDefault();
+      event.stopPropagation();
+    }
   }
 
 }

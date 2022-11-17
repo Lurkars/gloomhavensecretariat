@@ -7,14 +7,14 @@ import { GameState } from "src/app/game/model/Game";
 @Component({
   selector: 'ghs-section-menu',
   templateUrl: 'section.html',
-  styleUrls: [ 'section.scss', '../menu.scss' ]
+  styleUrls: ['../menu.scss', 'section.scss']
 })
 export class SectionMenuComponent {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
-  edition: string = (gameManager.game.edition || this.editions()[ 0 ]);
+  edition: string = (gameManager.game.edition || this.editions()[0]);
 
 
   editions(): string[] {

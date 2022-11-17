@@ -1,13 +1,12 @@
-<div class="menu-container edition">
-  <div class="line" [ngClass]="{'disabled' : !gameManager.game.edition}">
+<div class="menu-container two-column edition">
+  <div class="line span" [ngClass]="{'disabled' : !gameManager.game.edition}">
     <label>
       <input type="checkbox" [checked]="!gameManager.game.edition" (change)="setEdition()">
       &lt;{{'edition.all' | ghsLabel}}&gt;
     </label>
   </div>
-  <div class="line editions">
-    <label *ngFor="let edition of gameManager.editions()"
-      [ngClass]="{'disabled' : gameManager.game.edition == edition}">
+  <div class="line" *ngFor="let edition of gameManager.editions()">
+    <label [ngClass]="{'disabled' : gameManager.game.edition == edition}">
       <input type="checkbox" [checked]="gameManager.game.edition == edition" (change)="setEdition(edition)">
       {{'data.edition.' + edition | ghsLabel}}
     </label>

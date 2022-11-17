@@ -1,255 +1,290 @@
-<div class="menu-container settings">
-  <div class="columns">
-    <div class="column">
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.calculate"
-            (change)="settingsManager.setCalculate(!settingsManager.settings.calculate)">
-          {{'settings.calc' | ghsLabel}}
-        </label>
-      </div>
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.calculateStats"
-            (change)="settingsManager.setCalculateStats(!settingsManager.settings.calculateStats)">
-          {{'settings.calcStats' | ghsLabel}}
-        </label>
-      </div>
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.eliteFirst"
-            (change)="settingsManager.setEliteFirst(!settingsManager.settings.eliteFirst)">{{'settings.eliteFirst' |
-          ghsLabel}}
-        </label>
-      </div>
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.hideStats"
-            (change)="settingsManager.setHideStats(!settingsManager.settings.hideStats)">{{'settings.hideStats' |
-          ghsLabel}}
-        </label>
-      </div>
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.dragValues"
-            (change)="settingsManager.setDragValues(!settingsManager.settings.dragValues)">{{'settings.dragValues'
-          | ghsLabel}}
-        </label>
-      </div>
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.abilityReveal"
-            (change)="settingsManager.setAbilityReveal(!settingsManager.settings.abilityReveal)">{{'settings.abilityReveal'
-          | ghsLabel}}
-        </label>
-      </div>
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.abilityNumbers"
-            (change)="settingsManager.setAbilityNumbers(!settingsManager.settings.abilityNumbers)">{{'settings.abilityNumbers'
-          | ghsLabel}}
-        </label>
-      </div>
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.initiativeRequired"
-            (change)="settingsManager.setInitiativeRequired(!settingsManager.settings.initiativeRequired)">
-          {{'settings.initiativeRequired' | ghsLabel}}
-        </label>
-      </div>
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.autoscroll"
-            (change)="settingsManager.setAutoscroll(!settingsManager.settings.autoscroll)">
-          {{'settings.autoscroll' | ghsLabel}}
-        </label>
-      </div>
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.scenarioRules"
-            (change)="settingsManager.setScenarioRules(!settingsManager.settings.scenarioRules)">
-          {{'settings.scenarioRules' | ghsLabel}}
-        </label>
-      </div>
-    </div>
-    <div class="column">
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.expireConditions"
-            (change)="settingsManager.setExpireConditions(!settingsManager.settings.expireConditions)">
-          {{'settings.expireConditions' | ghsLabel}}
-        </label>
-      </div>
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.applyConditions"
-            (change)="settingsManager.setApplyConditions(!settingsManager.settings.applyConditions)">
-          {{'settings.applyConditions' | ghsLabel}}
-        </label>
-      </div>
-      <div class="line" [ngClass]="{'disabled' : !settingsManager.settings.applyConditions}">
-        <label>
-          <input type="checkbox"
-            [checked]="settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions"
-            (change)="settingsManager.setActiveApplyConditions(!settingsManager.settings.activeApplyConditions)">
-          {{'settings.activeApplyConditions' | ghsLabel}}
-        </label>
-      </div>
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.moveElements"
-            (change)="settingsManager.setMoveElements(!settingsManager.settings.moveElements)">
-          {{'settings.moveElements' | ghsLabel}}
-        </label>
-      </div>
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.activeStandees"
-            (change)="settingsManager.setActiveStandees(!settingsManager.settings.activeStandees)">
-          {{'settings.activeStandees' | ghsLabel}}
-        </label>
-      </div>
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.allyAttackModifierDeck"
-            (change)="settingsManager.setAllyAttackModifierDeck(!settingsManager.settings.allyAttackModifierDeck)">
-          {{'settings.allyAttackModifierDeck' | ghsLabel}}
-        </label>
-      </div>
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.randomStandees"
-            (change)="settingsManager.setRandomStandees(!settingsManager.settings.randomStandees)">
-          {{'settings.randomStandees' | ghsLabel}}
-        </label>
-      </div>
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.disableStandees"
-            (change)="settingsManager.setDisableStandees(!settingsManager.settings.disableStandees)">
-          {{'settings.disableStandees' | ghsLabel}}
-        </label>
-      </div>
-      <div class="line disabled">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.scenarioNumberInput"
-            (change)="settingsManager.setScenarioNumberInput(!settingsManager.settings.scenarioNumberInput)">
-          {{'settings.scenarioNumberInput' | ghsLabel}}
-        </label>
-      </div>
-    </div>
+<div class="menu-container two-column settings">
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.calculate"
+        (change)="settingsManager.setCalculate(!settingsManager.settings.calculate)">
+      {{'settings.calc' | ghsLabel}}
+    </label>
   </div>
-  <div class="columns separator">
-    <div class="column">
-      <div class="line ">
-        <a (click)="zoomOut()">
-          {{'settings.zoom.out' | ghsLabel}}
-        </a>
-      </div>
-      <div class="line">
-        <a (click)="zoomIn()">
-          {{'settings.zoom.in' | ghsLabel}}
-        </a>
-      </div>
-      <div class="line">
-        <a (click)="resetZoom()">
-          {{'settings.zoom.reset' | ghsLabel}}
-        </a>
-      </div>
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.fullscreen" (change)="fullscreen()">
-          {{'settings.fullscreen' | ghsLabel}}
-        </label>
-      </div>
-      <div class="line ">
-        <label (click)="resetBarsize($event)">{{'settings.barsize' | ghsLabel}}
-          <input type="range" min="0.1" step="0.1" max="2" [value]="settingsManager.settings.barsize"
-            (change)="setBarsize($event)" (input)="updateBarsize($event)" />
-        </label>
-      </div>
-    </div>
-    <div class="column">
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.hints"
-            (change)="settingsManager.setHints(!settingsManager.settings.hints)">
-          {{'settings.hints' | ghsLabel}}
-        </label>
-      </div>
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.hideAbsent"
-            (change)="settingsManager.setHideAbsent(!settingsManager.settings.hideAbsent)">
-          {{'settings.hideAbsent' | ghsLabel}}
-        </label>
-      </div>
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.fhStyle"
-            (change)="settingsManager.setFhStyle(!settingsManager.settings.fhStyle)">
-          {{'settings.fhStyle' | ghsLabel}}
-        </label>
-      </div>
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.disableColumns"
-            (change)="settingsManager.setDisableColumns(!settingsManager.settings.disableColumns)">
-          {{'settings.disableColumns' | ghsLabel}}
-        </label>
-      </div>
-      <div class="line ">
-        <label (click)="resetFontsize($event)">{{'settings.fontsize' | ghsLabel}}
-          <input type="range" min="0.1" step="0.1" max="2" [value]="settingsManager.settings.fontsize"
-            (change)="setFontsize($event)" (input)="updateFontsize($event)" />
-        </label>
-      </div>
-    </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.expireConditions"
+        (change)="settingsManager.setExpireConditions(!settingsManager.settings.expireConditions)">
+      {{'settings.expireConditions' | ghsLabel}}
+    </label>
   </div>
-  <div class="columns separator">
-    <div class="column">
-      <div class="line">
-        <label class="label">{{'settings.maxUndo' | ghsLabel}}
-          <input type="number" #maxUndo [value]="settingsManager.settings.maxUndo" min="0" max="99999" (keyup)="0"
-            (change)="settingsManager.setMaxUndo(+maxUndo.value)" [size]="maxUndo.value.length"
-            placeholder="{{'settings.maxUndo' | ghsLabel}}"></label>
-      </div>
-    </div>
-    <div class="column">
-      <div class="line disabled">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.browserNavigation"
-            (change)="settingsManager.setBrowserNavigation(!settingsManager.settings.browserNavigation)">
-          {{'settings.browserNavigation' | ghsLabel}}
-        </label>
-      </div>
-    </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.calculateStats"
+        (change)="settingsManager.setCalculateStats(!settingsManager.settings.calculateStats)">
+      {{'settings.calcStats' | ghsLabel}}
+    </label>
   </div>
-  <div class="line title separator">
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.applyConditions"
+        (change)="settingsManager.setApplyConditions(!settingsManager.settings.applyConditions)">
+      {{'settings.applyConditions' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.eliteFirst"
+        (change)="settingsManager.setEliteFirst(!settingsManager.settings.eliteFirst)">{{'settings.eliteFirst' |
+      ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line" [ngClass]="{'disabled' : !settingsManager.settings.applyConditions}">
+    <label>
+      <input type="checkbox"
+        [checked]="settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions"
+        (change)="settingsManager.setActiveApplyConditions(!settingsManager.settings.activeApplyConditions)">
+      {{'settings.activeApplyConditions' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.hideStats"
+        (change)="settingsManager.setHideStats(!settingsManager.settings.hideStats)">{{'settings.hideStats' |
+      ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.moveElements"
+        (change)="settingsManager.setMoveElements(!settingsManager.settings.moveElements)">
+      {{'settings.moveElements' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.dragValues"
+        (change)="settingsManager.setDragValues(!settingsManager.settings.dragValues)">{{'settings.dragValues'
+      | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.activeStandees"
+        (change)="settingsManager.setActiveStandees(!settingsManager.settings.activeStandees)">
+      {{'settings.activeStandees' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.abilityReveal"
+        (change)="settingsManager.setAbilityReveal(!settingsManager.settings.abilityReveal)">{{'settings.abilityReveal'
+      | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.allyAttackModifierDeck"
+        (change)="settingsManager.setAllyAttackModifierDeck(!settingsManager.settings.allyAttackModifierDeck)">
+      {{'settings.allyAttackModifierDeck' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.abilityNumbers"
+        (change)="settingsManager.setAbilityNumbers(!settingsManager.settings.abilityNumbers)">{{'settings.abilityNumbers'
+      | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.randomStandees"
+        (change)="settingsManager.setRandomStandees(!settingsManager.settings.randomStandees)">
+      {{'settings.randomStandees' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.initiativeRequired"
+        (change)="settingsManager.setInitiativeRequired(!settingsManager.settings.initiativeRequired)">
+      {{'settings.initiativeRequired' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.disableStandees"
+        (change)="settingsManager.setDisableStandees(!settingsManager.settings.disableStandees)">
+      {{'settings.disableStandees' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.autoscroll"
+        (change)="settingsManager.setAutoscroll(!settingsManager.settings.autoscroll)">
+      {{'settings.autoscroll' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line disabled">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.scenarioNumberInput"
+        (change)="settingsManager.setScenarioNumberInput(!settingsManager.settings.scenarioNumberInput)">
+      {{'settings.scenarioNumberInput' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.scenarioRules"
+        (change)="settingsManager.setScenarioRules(!settingsManager.settings.scenarioRules)">
+      {{'settings.scenarioRules' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="line ">
+    <a (click)="zoomOut()">
+      {{'settings.zoom.out' | ghsLabel}}
+    </a>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.hints"
+        (change)="settingsManager.setHints(!settingsManager.settings.hints)">
+      {{'settings.hints' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <a (click)="zoomIn()">
+      {{'settings.zoom.in' | ghsLabel}}
+    </a>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.hideAbsent"
+        (change)="settingsManager.setHideAbsent(!settingsManager.settings.hideAbsent)">
+      {{'settings.hideAbsent' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <a (click)="resetZoom()">
+      {{'settings.zoom.reset' | ghsLabel}}
+    </a>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.fhStyle"
+        (change)="settingsManager.setFhStyle(!settingsManager.settings.fhStyle)">
+      {{'settings.fhStyle' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.fullscreen" (change)="fullscreen()">
+      {{'settings.fullscreen' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.disableColumns"
+        (change)="settingsManager.setDisableColumns(!settingsManager.settings.disableColumns)">
+      {{'settings.disableColumns' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="!settingsManager.settings.feedback"
+        (change)="settingsManager.setFeedback(!settingsManager.settings.feedback)">{{'settings.feedback' |
+      ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.automaticAttackModifierFullscreen"
+        (change)="settingsManager.setAutomaticAttackModifierFullscreen(!settingsManager.settings.automaticAttackModifierFullscreen)">
+      {{'settings.automaticAttackModifierFullscreen' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line ">
+    <label (click)="resetBarsize($event)">{{'settings.barsize' | ghsLabel}}
+      <input type="range" min="0.1" step="0.1" max="2" [value]="settingsManager.settings.barsize"
+        (change)="setBarsize($event)" (input)="updateBarsize($event)" />
+    </label>
+  </div>
+
+  <div class="line ">
+    <label (click)="resetFontsize($event)">{{'settings.fontsize' | ghsLabel}}
+      <input type="range" min="0.1" step="0.1" max="2" [value]="settingsManager.settings.fontsize"
+        (change)="setFontsize($event)" (input)="updateFontsize($event)" />
+    </label>
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="line">
+    <label class="label">{{'settings.maxUndo' | ghsLabel}}
+      <input type="number" #maxUndo [value]="settingsManager.settings.maxUndo" min="0" max="99999" (keyup)="0"
+        (change)="settingsManager.setMaxUndo(+maxUndo.value)" [size]="maxUndo.value.length"
+        placeholder="{{'settings.maxUndo' | ghsLabel}}"></label>
+  </div>
+
+  <div class="line disabled">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.browserNavigation"
+        (change)="settingsManager.setBrowserNavigation(!settingsManager.settings.browserNavigation)">
+      {{'settings.browserNavigation' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="line">
     <label class="disabled">{{'settings.locale' | ghsLabel}}</label>
   </div>
-  <div class="line locales">
-    <label *ngFor="let locale of settingsManager.locales"
-      [ngClass]="{'disabled' : settingsManager.settings.locale == locale}">
+
+  <div class="separator"></div>
+
+  <div class="line" *ngFor="let locale of settingsManager.locales">
+    <label [ngClass]="{'disabled' : settingsManager.settings.locale == locale}">
       <input type="checkbox" [checked]="settingsManager.settings.locale == locale"
         (change)="settingsManager.setLocale(locale)">
       {{'settings.locale.' + locale | ghsLabel}}
     </label>
   </div>
-  <div class="columns separator">
-    <div class="column">
-      <div class="line">
-        <a (click)="helperDefaults()">
-          {{'settings.helperDefaults' | ghsLabel}}
-        </a>
-      </div>
-    </div>
-    <div class="column">
-      <div class="line">
-        <a (click)="setMenu.emit(SubMenu.debug)">
-          {{'settings.debug' | ghsLabel}}
-        </a>
-      </div>
-    </div>
+
+  <div class="separator"></div>
+
+  <div class="line">
+    <a (click)="helperDefaults()">
+      {{'settings.helperDefaults' | ghsLabel}}
+    </a>
+  </div>
+
+  <div class="line">
+    <a (click)="setMenu.emit(SubMenu.debug)">
+      {{'settings.debug' | ghsLabel}}
+    </a>
   </div>
 </div>

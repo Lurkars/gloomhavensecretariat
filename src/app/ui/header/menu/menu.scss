@@ -43,6 +43,16 @@
     margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
   }
 
+  &.two-column {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+
+    .separator, .span {
+      grid-column: 2 span;
+    }
+  }
+
   .columns {
     display: flex;
 
@@ -151,6 +161,7 @@
       position: sticky;
       top: 0;
       background-color: var(--ghs-color-black);
+      z-index: 1;
     }
 
     .state {
@@ -292,7 +303,7 @@
     grid-template-columns: repeat(5, calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor)));
     padding: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
     background-color: var(--ghs-color-black);
-    z-index: 1;
+    z-index: 2;
 
     span.item {
       position: relative;
@@ -342,7 +353,7 @@
   .hidden-monster-menu {
     position: fixed;
     background-color: var(--ghs-color-black);
-    z-index: 1;
+    z-index: 2;
     width: inherit;
 
     &+.columns .column .line.sticky,

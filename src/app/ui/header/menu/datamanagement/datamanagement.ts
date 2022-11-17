@@ -10,7 +10,7 @@ import { Settings } from "src/app/game/model/Settings";
 @Component({
   selector: 'ghs-datamanagement-menu',
   templateUrl: 'datamanagement.html',
-  styleUrls: ['datamanagement.scss', '../menu.scss']
+  styleUrls: ['../menu.scss', 'datamanagement.scss']
 })
 export class DatamanagementMenuComponent {
 

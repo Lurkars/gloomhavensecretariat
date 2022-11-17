@@ -1,5 +1,5 @@
 import { EditionData } from "../model/data/EditionData";
-import { Settings } from "../model/Settings";
+import { AttackModifierFullscreenType, Settings } from "../model/Settings";
 import { Spoilable } from "../model/Spoilable";
 import { gameManager } from "./GameManager";
 
@@ -7,7 +7,7 @@ export class SettingsManager {
 
   defaultLocale: string = 'en';
   defaultEditions: string[] = ["gh", "jotl", "fc", "cs", "fh", "solo"];
-  defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/cs.json", "./assets/data/fh.json", "./assets/data/solo.json", "./assets/data/sox.json", "./assets/data/bas.json"];
+  defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/fh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/cs.json", "./assets/data/solo.json", "./assets/data/sox.json", "./assets/data/bas.json"];
 
   settings: Settings = new Settings();
   label: any = {};
@@ -215,6 +215,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setAutomaticAttackModifierFullscreen(automaticAttackModifierFullscreen: boolean) {
+    this.settings.automaticAttackModifierFullscreen = automaticAttackModifierFullscreen;
+    this.storeSettings();
+  }
+
   setBarsize(barsize: number) {
     this.settings.barsize = barsize;
     this.storeSettings();
@@ -344,7 +349,7 @@ export class SettingsManager {
           gameManager.editionData.sort((a, b) => {
             return this.settings.editionDataUrls.indexOf(a.url) - this.settings.editionDataUrls.indexOf(b.url);
           });
-          
+
           if (settingsManager.settings.editions.indexOf(value.edition) != -1) {
             this.loadDataLabel(value);
           }

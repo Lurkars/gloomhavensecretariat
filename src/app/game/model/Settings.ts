@@ -1,3 +1,6 @@
+
+export type AttackModifierFullscreenType = 'automatic' | 'on' | 'off';
+
 export class Settings {
   calculate: boolean = true;
   calculateStats: boolean = true;
@@ -28,6 +31,7 @@ export class Settings {
   hideAbsent: boolean = false;
   hints: boolean = true;
   zoom: number = 100;
+  automaticAttackModifierFullscreen: boolean = true;
   barsize: number = 1;
   fontsize: number = 1;
   locale: string = "en";

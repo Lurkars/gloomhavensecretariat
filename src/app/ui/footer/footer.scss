@@ -18,8 +18,8 @@ footer {
   ghs-attackmodifier-deck.monster-deck {
     position: absolute;
     right: 0;
-    width: calc(var(--ghs-unit) * 38 * var(--ghs-text-factor) * var(--ghs-barsize));
-    height: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor) * var(--ghs-barsize));
+    width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor) * var(--ghs-barsize));
     top: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     z-index: 2;
   }
@@ -27,8 +27,8 @@ footer {
   ghs-attackmodifier-deck.ally-deck {
     position: absolute;
     right: 0;
-    width: calc(var(--ghs-unit) * 38 * var(--ghs-text-factor) * var(--ghs-barsize));
-    height: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor) * var(--ghs-barsize));
+    width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor) * var(--ghs-barsize));
     top: calc(var(--ghs-unit) * -11 * var(--ghs-text-factor) * var(--ghs-barsize));
     z-index: 1;
   }

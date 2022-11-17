@@ -12,7 +12,7 @@ import { v4 as uuidv4 } from 'uuid';
 @Component({
   selector: 'ghs-server-menu',
   templateUrl: 'server.html',
-  styleUrls: ['server.scss', '../menu.scss']
+  styleUrls: ['../menu.scss', 'server.scss']
 })
 export class ServerMenuComponent implements OnInit {
 

@@ -3,156 +3,166 @@
   width: 100%;
   height: 100%;
 
-  .draw {
+
+  .am-container {
     position: absolute;
-    cursor: pointer;
+    width: 40%;
+    padding-top: 26.66%;
     top: 0;
     left: 0;
-    width: 40%;
-    height: 83%;
-    background-position: center;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    background-image: url('~/src/assets/images/attackmodifier/back.png');
-    border-radius: 5%;
-
-    .number {
-      color: var(--ghs-color-gray);
-      text-shadow: var(--ghs-outline);
+    .am {
       position: absolute;
-      font-size: 2.3em;
-      right: 6%;
+      top: 0;
+      left: 0;
       bottom: 0;
-      z-index: 500;
-      cursor: help;
-
-      img {
-        width: 2.5%;
-        height: auto;
-      }
-
-      &:hover {
-        color: var(--ghs-color-white);
-      }
-    }
-
-    .shuffle {
-      height: 22%;
-      width: auto;
-      position: absolute;
-      right: 5%;
-      bottom: 5%;
-      filter: var(--ghs-filter-white);
-      cursor: help;
-
-      &:hover {
-        filter: var(--ghs-filter-gray);
-      }
-    }
-
-    .fullscreen {
-      width: calc(15% * var(--ghs-text-factor));
-      height: auto;
-      position: absolute;
-      left: 2.5%;
-      top: 2.5%;
-      filter: var(--ghs-filter-gray);
-      cursor: zoom-in;
-
-      &:hover {
-        filter: var(--ghs-filter-white);
-      }
-    }
-
-
-    &.open-dialog {
-      cursor: help;
+      right: 0;
+      cursor: pointer;
+      display: block;
     }
   }
 
-  ghs-attackmodifier {
-    position: absolute;
+  .draw {
     cursor: pointer;
-    display: block;
-    top: 0;
-    left: 0;
 
-    width: 40%;
-    height: 83%;
+    .am {
+      background-position: center;
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      background-image: url('~/src/assets/images/attackmodifier/back.png');
+      border-radius: 5%;
 
-    @keyframes attackmodifier-draw {
-      0% {
-        transform: scale(1) translate(-102%, 16.5%);
+      .number {
+        color: var(--ghs-color-gray);
+        text-shadow: var(--ghs-outline);
+        position: absolute;
+        font-size: 2.3em;
+        right: 6%;
+        bottom: 0;
+        z-index: 500;
+        cursor: help;
+
+        img {
+          width: 2.5%;
+          height: auto;
+        }
+
+        &:hover {
+          color: var(--ghs-color-white);
+        }
       }
 
-      35%,
-      70% {
-        transform: scale(1.1) translate(-51%, 25%);
+      .shuffle {
+        height: 22%;
+        width: auto;
+        position: absolute;
+        right: 5%;
+        bottom: 5%;
+        filter: var(--ghs-filter-white);
+        cursor: help;
+
+        &:hover {
+          filter: var(--ghs-filter-gray);
+        }
       }
 
-      100% {
-        transform: scale(1) translate(0, 0);
+      .fullscreen {
+        width: calc(15% * var(--ghs-text-factor));
+        height: auto;
+        position: absolute;
+        left: 2.5%;
+        top: 2.5%;
+        filter: var(--ghs-filter-gray);
+        cursor: zoom-in;
+
+        &:hover {
+          filter: var(--ghs-filter-white);
+        }
+      }
+
+
+      &.open-dialog {
+        cursor: help;
       }
     }
+  }
 
-    @keyframes attackmodifier-draw-bottom {
-      0% {
-        transform: scale(1) translate(-102%, -16.5%);
-      }
 
-      35%,
-      70% {
-        transform: scale(2) translate(-80%, -166.5%);
-      }
-
-      100% {
-        transform: scale(1) translate(0, 0);
-      }
+  @keyframes attackmodifier-draw {
+    0% {
+      transform: scale(1) translate(-102%, 16.5%);
     }
 
-    @keyframes attackmodifier-last {
-      0% {
-        top: 0;
-        left: calc(42%);
-        transform: rotate(0);
-      }
-
-      70% {
-        top: 0;
-        left: calc(42%);
-        transform: rotate(0);
-      }
-
-      100% {
-        top: calc(16.5%);
-        left: calc(68.5%);
-        transform: rotate(25deg);
-      }
+    35%,
+    70% {
+      transform: scale(1.1) translate(-51%, 25%);
     }
 
-    &.current {
-      position: absolute;
+    100% {
+      transform: scale(1) translate(0, 0);
+    }
+  }
+
+  @keyframes attackmodifier-draw-bottom {
+    0% {
+      transform: scale(1) translate(-102%, -16.5%);
+    }
+
+    35%,
+    70% {
+      transform: scale(2) translate(-80%, -166.5%);
+    }
+
+    100% {
+      transform: scale(1) translate(0, 0);
+    }
+  }
+
+  @keyframes attackmodifier-last {
+    0% {
       top: 0;
       left: 42%;
-      z-index: 1;
+      transform: rotate(0);
     }
 
-    &.disgarded,
-    &.last {
-      position: absolute;
+    70% {
+      top: 0;
+      left: 42%;
+      transform: rotate(0);
+    }
+
+    100% {
       top: 16.5%;
       left: 68.5%;
       transform: rotate(25deg);
-      z-index: 0;
-    }
-
-    &.open-dialog {
-      cursor: help;
     }
   }
 
+  .current {
+    position: absolute;
+    top: 0;
+    left: 42%;
+    z-index: 1;
+  }
 
-  &.disabled {
+  .disgarded,
+  .last {
+    position: absolute;
+    top: 16.5%;
+    left: 68.5%;
+    transform: rotate(25deg);
+    z-index: 0;
+
+    &:hover {
+      z-index: 100 !important;
+    }
+
+  }
+
+  &.open-dialog {
+    cursor: help;
+  }
+
+  .disabled {
 
     ghs-attackmodifier {
       filter: grayscale(100%);
@@ -171,7 +181,7 @@
       cursor: wait !important;
     }
 
-    ghs-attackmodifier.current {
+    .current {
       cursor: wait !important;
       animation: attackmodifier-draw 1000ms ease-in-out;
       animation-iteration-count: 1;
@@ -182,11 +192,80 @@
 
     }
 
-    ghs-attackmodifier.last {
+    .last {
       cursor: wait !important;
       animation: attackmodifier-last 1000ms ease-in-out;
       animation-iteration-count: 1;
     }
   }
+}
 
+.vertical {
+
+  .am-container {
+    top: 0;
+    left: 0;
+    width: 60%;
+    padding-top: 40%
+  }
+
+  .current {
+    top: 0;
+    position: absolute;
+    transform: translateY(110%);
+    z-index: 1;
+  }
+
+  .disgarded,
+  .last {
+    position: absolute;
+    top: 0;
+    left: 45%;
+    transform: translateY(130%) rotate(25deg);
+    z-index: 0;
+  }
+
+
+  @keyframes attackmodifier-draw-vertical {
+    0% {
+      transform: scale(1);
+    }
+
+    35%,
+    70% {
+      transform: scale(1.1) translate(15%, 125%);
+    }
+
+    100% {
+      transform: scale(1) translateY(110%);
+    }
+  }
+
+  @keyframes attackmodifier-last-vertical {
+    0% {
+      left: 0;
+      transform: translateY(110%) rotate(0);
+    }
+
+    70% {
+      left: 0;
+      transform: translateY(110%) rotate(0);
+    }
+
+    100% {
+      left: 45%;
+      transform: translateY(130%) rotate(25deg);
+    }
+  }
+
+  &.drawing {
+
+    .current {
+      animation: attackmodifier-draw-vertical 1000ms ease-in-out;
+    }
+
+    .last {
+      animation: attackmodifier-last-vertical 1000ms ease-in-out;
+    }
+  }
 }

@@ -406,10 +406,15 @@
     "spent": true,
     "folder": "29-35",
     "summon": {
+      "name": "Jade Falcon",
       "health": 2,
       "attack": 2,
       "movement": 3,
-      "range": 0
+      "range": 0,
+      "action": {
+        "type": "fly",
+        "value": ""
+      }
     }
   },
   {
@@ -1189,6 +1194,7 @@
     "spent": true,
     "folder": "64-151",
     "summon": {
+      "name": "Warrior Spirit",
       "health": 4,
       "attack": 3,
       "movement": 1,
@@ -1273,6 +1279,7 @@
     "spent": true,
     "folder": "64-151",
     "summon": {
+      "name": "Skeleton",
       "health": 3,
       "attack": 2,
       "movement": 2,
@@ -1369,6 +1376,7 @@
     "spent": true,
     "folder": "64-151",
     "summon": {
+      "name": "Steel Construct",
       "health": 5,
       "attack": 3,
       "movement": 2,

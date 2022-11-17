@@ -3,7 +3,7 @@
   "characterClass": "orchid",
   "gender": "",
   "edition": "fh",
-  "color": "#9bd648",
+  "color": "#b6e56c",
   "spoiler": true,
   "marker": false,
   "deck": "",
@@ -45,7 +45,30 @@
       "health": 20
     }
   ],
-  "availableSummons": [],
+  "availableSummons": [
+    {
+      "name": "animated-claymore",
+      "level": 1,
+      "health": 2,
+      "attack": 3,
+      "movement": 3,
+      "action": {
+        "type": "shield",
+        "value": 1
+      }
+    },
+    {
+      "name": "spiritbound-falchion",
+      "level": 8,
+      "health": 6,
+      "attack": 4,
+      "movement": 3,
+      "action": {
+        "type": "shield",
+        "value": 1
+      }
+    }
+  ],
   "perks": [],
   "replace": false
 }

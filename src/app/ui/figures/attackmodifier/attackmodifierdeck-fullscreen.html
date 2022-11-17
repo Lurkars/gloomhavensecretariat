@@ -1,8 +1,8 @@
 <div class="attack-modifiers-fullscreen">
-  <div class="attack-modifierdeck-container">
+  <div class="header">
     <div class="title">
       <ng-container *ngIf="character">
-        <img class="icon" [src]="characterManager.characterIcon(character)" />
+        <img class="icon" [src]="gameManager.characterManager.characterIcon(character)" />
         {{character.title || ('data.character.' + character.name | ghsLabel)}}
       </ng-container>
 
@@ -14,9 +14,12 @@
       {{'game.attackModifiers' | ghsLabel}}
       <span *ngIf="!character && numeration != 'm' && numeration != 'A'">&nbsp;{{numeration}}</span>
     </div>
-
+  </div>
+  <div class="attack-modifierdeck-container" [ngClass]="{'vertical'  : vertical()}">
     <ghs-attackmodifier-deck [deck]="deck" [character]="character" [numeration]="numeration" [fullscreen]="false"
-      (before)="beforeAttackModifierDeck($event)" (after)="afterAttackModifierDeck($event)"></ghs-attackmodifier-deck>
+      [vertical]="vertical()" (before)="beforeAttackModifierDeck($event)" (after)="afterAttackModifierDeck($event)">
+    </ghs-attackmodifier-deck>
     <div class="close-container" (click)="dialogRef.close()"></div>
   </div>
+  <div class="close-container" (click)="dialogRef.close()"></div>
 </div>

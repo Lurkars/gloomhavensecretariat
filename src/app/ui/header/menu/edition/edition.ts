@@ -6,7 +6,7 @@ import { GameState } from "src/app/game/model/Game";
 @Component({
   selector: 'ghs-edition-menu',
   templateUrl: 'edition.html',
-  styleUrls: [ 'edition.scss', '../menu.scss' ]
+  styleUrls: [ '../menu.scss' ]
 })
 export class EditionMenuComponent {
 

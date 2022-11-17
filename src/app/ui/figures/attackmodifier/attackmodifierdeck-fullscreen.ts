@@ -1,7 +1,7 @@
 import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
-import { Component, EventEmitter, Inject } from "@angular/core";
+import { Component, ElementRef, EventEmitter, Inject } from "@angular/core";
 import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
-import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { AttackModifierDeck } from "src/app/game/model/AttackModifier";
 import { Character } from "src/app/game/model/Character";
 import { AttackModiferDeckChange } from "./attackmodifierdeck";
@@ -19,7 +19,7 @@ export class AttackModifierDeckFullscreenComponent {
   before: EventEmitter<AttackModiferDeckChange>;
   after: EventEmitter<AttackModiferDeckChange>;
 
-  characterManager: CharacterManager = gameManager.characterManager;
+  gameManager: GameManager = gameManager;
 
   constructor(@Inject(DIALOG_DATA) private data: { deck: AttackModifierDeck, character: Character, numeration: string, before: EventEmitter<AttackModiferDeckChange>, after: EventEmitter<AttackModiferDeckChange> }, public dialogRef: DialogRef) {
     this.deck = data.deck;
@@ -35,6 +35,10 @@ export class AttackModifierDeckFullscreenComponent {
 
   afterAttackModifierDeck(change: AttackModiferDeckChange) {
     this.after.emit(change);
+  }
+
+  vertical(): boolean {
+    return window.innerWidth < 800;
   }
 }
 

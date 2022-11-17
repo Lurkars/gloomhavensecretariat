@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, ViewChild } from '@angular/core';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
@@ -10,6 +10,7 @@ import { ConditionType } from 'src/app/game/model/Condition';
 import { GameState } from 'src/app/game/model/Game';
 import { ghsDefaultDialogPositions, ghsValueSign } from '../../helper/Static';
 import { AttackModiferDeckChange } from '../attackmodifier/attackmodifierdeck';
+import { AttackModifierDeckFullscreenComponent } from '../attackmodifier/attackmodifierdeck-fullscreen';
 import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
 import { CharacterSheetDialog } from './dialogs/character-sheet';
 import { CharacterSummonDialog } from './dialogs/summondialog';
@@ -17,7 +18,7 @@ import { CharacterSummonDialog } from './dialogs/summondialog';
 @Component({
   selector: 'ghs-character',
   templateUrl: './character.html',
-  styleUrls: [ './character.scss' ]
+  styleUrls: ['./character.scss']
 })
 export class CharacterComponent {
 
@@ -234,11 +235,36 @@ export class CharacterComponent {
   toggleAttackModifierDeckVisible() {
     if (this.character.attackModifierDeckVisible) {
       this.character.attackModifierDeckVisible = false;
+    } else if (settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
+
+      const before = new EventEmitter<AttackModiferDeckChange>();
+      const after = new EventEmitter<AttackModiferDeckChange>();
+
+      before.subscribe({ next: (change: AttackModiferDeckChange) => this.beforeAttackModifierDeck(change) });
+      after.subscribe({ next: (change: AttackModiferDeckChange) => this.afterAttackModifierDeck(change) });
+
+      const dialog = this.dialog.open(AttackModifierDeckFullscreenComponent, {
+        backdropClass: 'fullscreen-backdrop',
+        data: {
+          deck: this.character.attackModifierDeck,
+          character: this.character,
+          numeration: "" + this.character.number,
+          before: before,
+          after: after
+        }
+      });
+
+      dialog.closed.subscribe({
+        next: () => {
+          before.unsubscribe();
+          after.unsubscribe();
+        }
+      })
+
     } else {
       this.character.attackModifierDeckVisible = true;
     }
     gameManager.stateManager.saveLocal();
   }
-
 
 }

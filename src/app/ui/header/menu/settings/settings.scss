@@ -1,4 +1,14 @@
-.locales {
-  display: grid !important;
-  grid-template-columns: 1fr 1fr;
+@media (max-width: 500px) {
+
+    .menu-container.two-column {
+        display: grid;
+        grid-template-columns: auto;
+        column-gap: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+
+        .separator,
+        .span {
+            grid-column: 1 span;
+        }
+    }
+
 }

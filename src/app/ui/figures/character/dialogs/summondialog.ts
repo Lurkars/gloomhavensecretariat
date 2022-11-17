@@ -10,7 +10,7 @@ import { Summon, SummonColor, SummonState } from "src/app/game/model/Summon";
 @Component({
   selector: 'ghs-character-summondialog',
   templateUrl: 'summondialog.html',
-  styleUrls: [ './summondialog.scss' ]
+  styleUrls: ['./summondialog.scss']
 })
 export class CharacterSummonDialog {
 
@@ -39,7 +39,25 @@ export class CharacterSummonDialog {
   }
 
   summonData(): SummonData[] {
-    return this.character.availableSummons.filter((summonData) => !summonData.level || summonData.level <= this.character.level);
+    let summons: SummonData[] = [];
+    summons.push(...this.character.availableSummons.filter((summonData) => !summonData.level || summonData.level <= this.character.level));
+
+    if (this.character.progress && this.character.progress.items) {
+      for (let itemIdentifier of this.character.progress.items) {
+        const item = gameManager.item(+itemIdentifier.name, itemIdentifier.edition);
+        if (item && item.summon) {
+          if (!item.summon.name) {
+            item.summon.name = item.name;
+          }
+          if (!item.summon.count) {
+            item.summon.count = 1;
+          }
+          summons.push(item.summon);
+        }
+      }
+    }
+
+    return summons;
   }
 
   setSummonName(event: any) {
@@ -54,7 +72,7 @@ export class CharacterSummonDialog {
   }
 
   addSummon(summonData: SummonData) {
-    if (this.character.availableSummons.indexOf(summonData) != -1) {
+    if (this.summonData().indexOf(summonData) != -1) {
       gameManager.stateManager.before("addSummon", "data.character." + this.character.name, "data.summon." + summonData.name);
       let summon: Summon = new Summon(summonData.name, this.character.level, summonData.special ? 0 : this.summonNumber, summonData.special ? SummonColor.custom : this.summonColor);
       summon.maxHealth = typeof summonData.health == "number" ? summonData.health : EntityValueFunction(summonData.health, this.character.level);

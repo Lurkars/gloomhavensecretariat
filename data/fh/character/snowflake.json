@@ -3,7 +3,7 @@
   "characterClass": "algox",
   "gender": "",
   "edition": "fh",
-  "color": "#9cbdd0",
+  "color": "#bbd3e1",
   "spoiler": true,
   "marker": false,
   "deck": "",
@@ -45,7 +45,42 @@
       "health": 20
     }
   ],
-  "availableSummons": [],
+  "availableSummons": [
+    {
+      "name": "snow-fox",
+      "level": 1,
+      "health": 5,
+      "attack": 2,
+      "movement": 3
+    },
+    {
+      "name": "white-owl",
+      "level": 2,
+      "health": 3,
+      "attack": 2,
+      "movement": 3,
+      "count": 2,
+      "action": {
+        "type": "fly",
+        "value": ""
+      }
+    },
+    {
+      "name": "polar-cat",
+      "level": 6,
+      "health": 6,
+      "attack": 2,
+      "movement": 3,
+      "action": {
+        "type": "pierce",
+        "value": 3
+      },
+      "additionalAction": {
+        "type": "condition",
+        "value": "wound"
+      }
+    }
+  ],
   "perks": [],
   "replace": false
 }

@@ -3,7 +3,7 @@
   "characterClass": "vermling",
   "gender": "",
   "edition": "fh",
-  "color": "#d2d4bf",
+  "color": "#ac9c6f",
   "spoiler": true,
   "marker": false,
   "deck": "",
@@ -45,7 +45,52 @@
       "health": 14
     }
   ],
-  "availableSummons": [],
+  "availableSummons": [
+    {
+      "name": "shaggy-lure",
+      "level": 1,
+      "health": 2,
+      "action": {
+        "type": "grid",
+        "value": 1,
+        "subActions": [
+          {
+            "type": "custom",
+            "small": true,
+            "value": "Perform:"
+          },
+          {
+            "type": "pull",
+            "value": 2,
+            "subactions": [
+              {
+                "type": "range",
+                "small": true,
+                "value": 2
+              }
+            ]
+          },
+          {
+            "type": "custom",
+            "small": true,
+            "value": "at end of turn"
+          }
+        ]
+      }
+    },
+    {
+      "name": "defense-grid",
+      "level": 7,
+      "health": 8,
+      "attack": 2,
+      "range": 3,
+      "action": {
+        "type": "custom",
+        "small": true,
+        "value": "Create one %game.damage:2% trap in an adjacent empty hex at end of turn."
+      }
+    }
+  ],
   "perks": [],
   "replace": false
 }
