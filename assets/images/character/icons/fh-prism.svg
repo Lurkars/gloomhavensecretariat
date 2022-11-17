@@ -24,9 +24,9 @@
      showgrid="false"
      inkscape:zoom="23.990108"
      inkscape:cx="14.19335"
-     inkscape:cy="21.196236"
+     inkscape:cy="21.175394"
      inkscape:window-width="1846"
-     inkscape:window-height="1136"
+     inkscape:window-height="1043"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -39,24 +39,24 @@
   <g
      id="Layer_2"
      data-name="Layer 2"
-     style="fill:#f6f18d;fill-opacity:1"
+     style="fill:#e5de85;fill-opacity:1"
      transform="translate(3,3)">
     <g
        id="Layer_1-2"
        data-name="Layer 1"
-       style="fill:#f6f18d;fill-opacity:1">
+       style="fill:#e5de85;fill-opacity:1">
       <polygon
          points="6.46,27.04 4.48,26.16 7.7,31.76 "
          id="polygon2"
-         style="fill:#f6f18d;fill-opacity:1" />
+         style="fill:#e5de85;fill-opacity:1" />
       <polygon
          points="15.95,27.04 14.7,31.76 17.93,26.16 "
          id="polygon4"
-         style="fill:#f6f18d;fill-opacity:1" />
+         style="fill:#e5de85;fill-opacity:1" />
       <path
          d="m 8.79,20 2.41,-4 2.41,4 -2.41,4 z M 5.27,19.31 11.2,9.53 17.14,19.35 15.42,19.65 11.2,12.58 7,19.65 Z M 1.77,18.63 11.2,3.05 20.64,18.67 18.92,19 11.2,6 3.48,19 Z M 11.2,0 0,18.36 l 3.79,6.26 3.74,1.63 1.76,8.28 1.07,1.86 h 1.69 l 1.07,-1.86 1.76,-8.28 3.73,-1.63 3.8,-6.26 z"
          id="path6"
-         style="fill:#f6f18d;fill-opacity:1" />
+         style="fill:#e5de85;fill-opacity:1" />
     </g>
   </g>
 </svg>

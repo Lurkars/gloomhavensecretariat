@@ -553,6 +553,7 @@
     "allyAttackModifierDeck": "Angriffsmodifikatordeck für Verbündete",
     "applyConditions": "Zustände automatisch anweden",
     "autoscroll": "Automatisch Scrollen",
+    "automaticAttackModifierFullscreen" : "Autom. Vollbild AM-Deck",
     "barsize": {
       ".": "Leistengröße",
       "dec": "Leistengröße verringern",

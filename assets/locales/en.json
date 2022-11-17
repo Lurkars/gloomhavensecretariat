@@ -661,6 +661,7 @@
     "allyAttackModifierDeck": "Attack Modifier Deck for allies",
     "applyConditions": "Automatic apply conditions",
     "autoscroll": "Autoscroll",
+    "automaticAttackModifierFullscreen" : "Autom. fullscreen AM Deck",
     "barsize": {
       ".": "Barsize",
       "dec": "Decrease barsize",
