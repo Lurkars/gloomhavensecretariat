@@ -16,7 +16,7 @@ export class DecksToolComponent implements OnInit {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
-  edition: string = "";
+  edition: string | undefined;
   monsters: Monster[] = [];
   characters: Character[] = [];
   character: boolean = false;
