@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { Action } from "src/app/game/model/Action";
 import { SummonData } from "src/app/game/model/data/SummonData";
-import { Monster } from "src/app/game/model/Monster";
 import { MonsterType } from "src/app/game/model/MonsterType";
 
 @Component({
@@ -11,7 +11,7 @@ import { MonsterType } from "src/app/game/model/MonsterType";
 })
 export class ActionSummonComponent implements OnChanges {
 
-  @Input() value!: string;
+  @Input() action!: Action;
   @Input() right: boolean = false;
   @Input() additional: boolean = false;
   monsters: string[] = [];
@@ -38,9 +38,9 @@ export class ActionSummonComponent implements OnChanges {
     this.monsters = [];
     this.count = undefined;
     this.type = undefined;
-    if (this.value) {
+    if (this.action.value) {
       try {
-        let value = JSON.parse(this.value);
+        let value = JSON.parse('' + this.action.value);
         if (typeof value != 'string') {
           this.summon = new SummonData(value.name, value.health, value.attack, value.movement, value.range, value.action, value.additionalAction);
         } else {
@@ -48,7 +48,7 @@ export class ActionSummonComponent implements OnChanges {
         }
       } catch (e) {
         this.summon = undefined;
-        const summonValue = this.value.split(':');
+        const summonValue = ('' + this.action.value).split(':');
         this.monsters = summonValue[0].split('|');
         if (summonValue.length > 1) {
           if (!isNaN(+summonValue[1])) {

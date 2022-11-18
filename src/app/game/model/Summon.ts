@@ -1,5 +1,8 @@
+import { max } from "rxjs";
+import { Action } from "./Action";
 import { EntityCondition, GameEntityConditionModel } from "./Condition";
-import { Entity } from "./Entity";
+import { SummonData } from "./data/SummonData";
+import { Entity, EntityValueFunction } from "./Entity";
 
 export enum SummonState {
   new = "new",
@@ -24,36 +27,41 @@ export class Summon implements Entity {
   name: string;
   number: number;
   color: SummonColor;
-  attack: number;
-  movement: number;
-  range: number;
+  attack: number = 0;
+  movement: number = 0;
+  range: number = 0;
   dead: boolean = false;
   state: SummonState = SummonState.new;
   init: boolean = true;
+  action: Action | undefined;
+  additionalAction: Action | undefined;
 
   // from entity
   level: number;
   health: number;
-  maxHealth: number;
+  maxHealth: number = 0;
   entityConditions: EntityCondition[] = [];
   markers: string[] = [];
 
-  constructor(name: string, level: number, number: number, color: SummonColor, maxHealth: number = 2, attack: number = 0,
-    movement: number = 0,
-    range: number = 0) {
+  constructor(name: string, level: number, number: number, color: SummonColor, summonData: SummonData | undefined = undefined) {
     this.name = name;
     this.level = level;
     this.number = number;
     this.color = color;
-    this.health = maxHealth;
-    this.maxHealth = maxHealth;
-    this.attack = attack;
-    this.movement = movement;
-    this.range = range;
+    if (summonData) {
+      this.maxHealth = EntityValueFunction(summonData.health, level);
+      this.health = this.maxHealth;
+      this.attack = EntityValueFunction(summonData.attack, level);
+      this.movement = EntityValueFunction(summonData.movement, level);
+      this.range = EntityValueFunction(summonData.range, level);
+      this.action = summonData.action ? JSON.parse(JSON.stringify(summonData.action)) : undefined;
+      this.additionalAction = summonData.additionalAction ? JSON.parse(JSON.stringify(summonData.additionalAction)) : undefined;
+    }
+    this.health = this.maxHealth;
   }
 
   toModel(): GameSummonModel {
-    return new GameSummonModel(this.name, this.number, this.color, this.attack, this.movement, this.range, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers);
+    return new GameSummonModel(this.name, this.number, this.color, this.attack, this.movement, this.range, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.action ? JSON.stringify(this.action) : undefined, this.additionalAction ? JSON.stringify(this.additionalAction) : undefined);
   }
 
   fromModel(model: GameSummonModel) {
@@ -76,6 +84,13 @@ export class Summon implements Entity {
         return condition;
       });
     }
+    if (model.action) {
+      this.action = JSON.parse(model.action);
+    }
+
+    if (model.additionalAction) {
+      this.additionalAction = JSON.parse(model.additionalAction);
+    }
 
     this.markers = model.markers;
     this.init = false;
@@ -97,6 +112,8 @@ export class GameSummonModel {
   maxHealth: number;
   entityConditions: GameEntityConditionModel[];
   markers: string[];
+  action: string | undefined;
+  additionalAction: string | undefined;
 
   constructor(name: string,
     number: number,
@@ -110,7 +127,9 @@ export class GameSummonModel {
     health: number,
     maxHealth: number,
     entityConditions: GameEntityConditionModel[],
-    markers: string[]) {
+    markers: string[],
+    action: string | undefined,
+    additionalAction: string | undefined) {
     this.name = name;
     this.number = number;
     this.color = color;
@@ -124,5 +143,7 @@ export class GameSummonModel {
     this.maxHealth = maxHealth;
     this.entityConditions = entityConditions;
     this.markers = markers;
+    this.action = action;
+    this.additionalAction = additionalAction;
   }
 }

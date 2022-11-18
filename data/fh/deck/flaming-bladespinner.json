@@ -11,19 +11,16 @@
         {
           "type": "move",
           "value": 2,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         },
         {
           "type": "attack",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "element",
-          "value": "fire",
-          "small": false
+          "value": "fire"
         }
       ]
     },
@@ -36,19 +33,16 @@
         {
           "type": "move",
           "value": 2,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 1,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         },
         {
           "type": "element",
-          "value": "fire",
-          "small": false
+          "value": "fire"
         }
       ]
     },
@@ -60,19 +54,16 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 1,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         },
         {
           "type": "condition",
           "value": "strengthen",
-          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
@@ -83,8 +74,7 @@
         },
         {
           "type": "element",
-          "value": "fire",
-          "small": false
+          "value": "fire"
         }
       ]
     },
@@ -95,14 +85,12 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         },
         {
           "type": "element",
           "value": "fire",
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "custom",
@@ -121,14 +109,12 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 0,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "element",
@@ -146,8 +132,7 @@
                   "value": "wound",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }
@@ -161,8 +146,7 @@
         {
           "type": "move",
           "value": 2,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "custom",
@@ -173,7 +157,6 @@
           "type": "element",
           "value": "fire",
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "condition",
@@ -203,13 +186,11 @@
       "actions": [
         {
           "type": "shield",
-          "value": 1,
-          "small": false
+          "value": 1
         },
         {
           "type": "retaliate",
           "value": 2,
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -240,8 +221,7 @@
                   "value": "",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         },
@@ -249,7 +229,6 @@
           "type": "attack",
           "value": 1,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
@@ -266,8 +245,7 @@
                   "value": "wound",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }

@@ -64,12 +64,12 @@
 
       &.success {
         left: 0;
-        filter: var(--ghs-filter-green);
+        filter: var(--ghs-filter-green) var(--ghs-filter-shadow);
       }
 
       &.blocked {
         right: 0;
-        filter: var(--ghs-filter-red);
+        filter: var(--ghs-filter-red) var(--ghs-filter-shadow);
       }
 
       img {

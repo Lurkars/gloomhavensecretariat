@@ -14,7 +14,7 @@ ghs-action {
     height: 1em;
     width: auto;
 
-    filter: var(--ghs-filter-white);
+    filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
 }
 
 a {

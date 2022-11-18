@@ -1,7 +1,7 @@
 {
   "name": "mindthief",
   "characterClass": "vermling",
-  "gender" : "f",
+  "gender": "f",
   "edition": "gh",
   "color": "#6279a5",
   "stats": [
@@ -48,7 +48,11 @@
       "level": 1,
       "health": 6,
       "attack": 2,
-      "movement": 1
+      "movement": 1,
+      "action": {
+        "type": "condition",
+        "value": "poison"
+      }
     },
     {
       "name": "monstrous-rat",
@@ -59,9 +63,15 @@
     },
     {
       "name": "rat-king",
+      "attack": "X",
       "level": 9,
       "health": 9,
-      "movement": 2
+      "movement": 2,
+      "action": {
+        "type": "custom",
+        "value": "X is half the rat's current hit point value (rounded up).",
+        "small": true
+      }
     }
   ],
   "perks": [
@@ -151,7 +161,7 @@
           "count": 2,
           "attackModifier": {
             "type": "plus1",
-            "rolling" : true
+            "rolling": true
           }
         }
       ]

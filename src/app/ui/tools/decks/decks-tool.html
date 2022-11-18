@@ -33,6 +33,11 @@
       <input type="number" min="0" max="7" [(ngModel)]="level" (change)="update()">
       {{'tools.decks.level' | ghsLabel}}
     </label>
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.fhStyle"
+        (change)="settingsManager.setFhStyle(!settingsManager.settings.fhStyle)">
+      {{'settings.fhStyle' | ghsLabel}}
+    </label>
   </div>
 
   <div class="decks">

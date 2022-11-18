@@ -147,7 +147,7 @@ export class Character extends CharacterData implements Entity, Figure {
     });
 
     model.summons.forEach((value) => {
-      let summon = this.summons.find((summonEntity) => summonEntity.name == summonEntity.name && summonEntity.number == value.number && summonEntity.color == value.color) as Summon;
+      let summon = this.summons.find((summonEntity) => summonEntity.name == value.name && summonEntity.number == value.number && summonEntity.color == value.color) as Summon;
       if (!summon) {
         summon = new Summon(value.name, value.level, value.number, value.color);
         this.summons.push(summon);
@@ -193,11 +193,11 @@ export class Character extends CharacterData implements Entity, Figure {
       this.attackModifierDeck.current = attackModifierDeck.current;
       changed = true;
     }
-    if (this.attackModifierDeck.attackModifiers.length != attackModifierDeck.attackModifiers.length || !this.attackModifierDeck.attackModifiers.map((card) => card.id).every((cardId, index) => attackModifierDeck.attackModifiers[ index ].id == cardId)) {
+    if (this.attackModifierDeck.attackModifiers.length != attackModifierDeck.attackModifiers.length || !this.attackModifierDeck.attackModifiers.map((card) => card.id).every((cardId, index) => attackModifierDeck.attackModifiers[index].id == cardId)) {
       this.attackModifierDeck.attackModifiers = attackModifierDeck.attackModifiers;
       changed = true;
     }
-    if (this.attackModifierDeck.cards.length != attackModifierDeck.cards.length || !this.attackModifierDeck.cards.map((card) => card.id).every((cardId, index) => attackModifierDeck.cards[ index ].id == cardId)) {
+    if (this.attackModifierDeck.cards.length != attackModifierDeck.cards.length || !this.attackModifierDeck.cards.map((card) => card.id).every((cardId, index) => attackModifierDeck.cards[index].id == cardId)) {
       this.attackModifierDeck.cards = attackModifierDeck.cards;
       changed = true;
     }

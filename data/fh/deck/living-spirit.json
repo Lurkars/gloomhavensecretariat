@@ -169,8 +169,7 @@
         },
         {
           "type": "element",
-          "value": "ice",
-          "small": false
+          "value": "ice"
         }
       ]
     },

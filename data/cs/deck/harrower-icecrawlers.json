@@ -76,25 +76,31 @@
           "valueType": "plus"
         },
         {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
+          "type": "grid",
+          "value": "",
           "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "ice",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "pierce",
+                      "value": 2,
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            },
             {
               "type": "area",
               "value": "(1,0,target)|(0,1,active)|(1,1,target)"
-            },
-            {
-              "type": "element",
-              "value": "ice",
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "pierce",
-                  "value": 2,
-                  "small": true
-                }
-              ]
             }
           ]
         }
@@ -175,10 +181,14 @@
           "valueType": "plus"
         },
         {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus",
+          "type": "grid",
+          "value": "",
           "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus"
+            },
             {
               "type": "area",
               "value": "(0,0,target)|(0,1,target)|(1,1,target)|(0,2,active)"

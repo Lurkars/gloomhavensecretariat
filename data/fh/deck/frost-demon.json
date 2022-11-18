@@ -34,7 +34,8 @@
               "subActions": [
                 {
                   "type": "specialTarget",
-                  "value": "self"
+                  "value": "self",
+                  "small": true
                 }
               ],
               "small": true
@@ -132,10 +133,14 @@
           "valueType": "minus"
         },
         {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
+          "type": "grid",
+          "value": "",
           "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            },
             {
               "type": "area",
               "value": "(0,1,active)|(1,0,target)|(1,1,target)"
@@ -160,10 +165,14 @@
           "valueType": "minus"
         },
         {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
+          "type": "grid",
+          "value": "",
           "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            },
             {
               "type": "area",
               "value": "(0,1,active)|(1,0,target)|(1,1,target)"

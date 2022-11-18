@@ -46,7 +46,7 @@
       width: 100%;
       font-family: var(--ghs-font-title);
       font-size: 1.7em;
-      filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
+      filter: var(--ghs-filter-shadow);
       text-align: center;
     }
 
@@ -54,7 +54,7 @@
       position: absolute;
       font-family: var(--ghs-font-title);
       font-size: 2.4em;
-      filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
+      filter: var(--ghs-filter-shadow);
       top: 15%;
       left: 4%;
       text-align: center;
@@ -67,7 +67,7 @@
       bottom: 3%;
       right: 3%;
       z-index: 0;
-      filter: var(--ghs-filter-white);
+      filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
       width: 8%;
 
       img {
@@ -79,7 +79,7 @@
     .index {
       position: absolute;
       font-size: 1em;
-      filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
+      filter: var(--ghs-filter-shadow-thin);
       bottom: 6.5%;
       left: 5.5%;
     }
@@ -98,7 +98,7 @@
         width: auto;
 
         &:nth-child(1) {
-          filter: var(--ghs-filter-white);
+          filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
         }
 
         &:nth-child(2) {

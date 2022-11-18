@@ -11,31 +11,30 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus",
-          "small": false,
+          "type": "grid",
+          "value": "",
           "subActions": [
             {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus"
+            },
+            {
               "type": "area",
-              "value": "(0,0,target)|(1,0,target)|(1,1,target)|(0,1,active)|(1,2,target)",
-              "small": false
+              "value": "(0,0,target)|(1,0,target)|(1,1,target)|(0,1,active)|(1,2,target)"
             }
           ]
         },
         {
           "type": "shield",
-          "value": 1,
-          "small": false
+          "value": 1
         },
         {
           "type": "element",
-          "value": "earth",
-          "small": false
+          "value": "earth"
         }
       ]
     },
@@ -47,14 +46,12 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "condition",
@@ -65,8 +62,7 @@
         },
         {
           "type": "element",
-          "value": "ice",
-          "small": false
+          "value": "ice"
         }
       ]
     },
@@ -78,14 +74,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "element",
@@ -98,8 +92,7 @@
                   "valueType": "add",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         },
@@ -107,7 +100,6 @@
           "type": "attack",
           "value": 1,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "element",
@@ -120,8 +112,7 @@
                   "valueType": "add",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }
@@ -135,14 +126,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         },
         {
           "type": "attack",
           "value": 0,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -159,8 +148,7 @@
                   "value": "immobilize",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }
@@ -184,17 +172,14 @@
         {
           "type": "concatenation",
           "value": "",
-          "small": false,
           "subActions": [
             {
               "type": "element",
-              "value": "ice",
-              "small": false
+              "value": "ice"
             },
             {
               "type": "element",
-              "value": "earth",
-              "small": false
+              "value": "earth"
             }
           ]
         }
@@ -209,19 +194,16 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "element",
-          "value": "earth",
-          "small": false
+          "value": "earth"
         }
       ]
     },
@@ -233,13 +215,11 @@
         {
           "type": "attack",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "condition",
           "value": "disarm",
-          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -262,14 +242,12 @@
       "actions": [
         {
           "type": "shield",
-          "value": 3,
-          "small": false
+          "value": 3
         },
         {
           "type": "element",
           "value": "earth",
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "heal",
@@ -280,20 +258,17 @@
                   "value": "self",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         },
         {
           "type": "heal",
           "value": 3,
-          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
-              "value": "self",
-              "small": false
+              "value": "self"
             }
           ]
         }

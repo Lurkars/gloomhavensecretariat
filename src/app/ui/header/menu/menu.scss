@@ -12,12 +12,12 @@
   z-index: 1000;
 
   .ghs-svg {
-    filter: var(--ghs-filter-gray) !important;
+    filter: var(--ghs-filter-gray) var(--ghs-filter-shadow) !important;
   }
 
   &:hover {
     .ghs-svg {
-      filter: var(--ghs-filter-white) !important;
+      filter: var(--ghs-filter-white) var(--ghs-filter-shadow) !important;
     }
   }
 
@@ -25,7 +25,7 @@
     pointer-events: none;
 
     .ghs-svg {
-      filter: var(--ghs-filter-darkgray) !important;
+      filter: var(--ghs-filter-darkgray) var(--ghs-filter-shadow) !important;
     }
   }
 }

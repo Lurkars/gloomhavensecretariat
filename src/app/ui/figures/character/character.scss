@@ -286,6 +286,7 @@
       display: flex;
       align-items: center;
       font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+      filter: var(--ghs-filter-shadow);
 
       img {
         height: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
@@ -357,6 +358,7 @@
     img {
       height: calc(var(--ghs-unit) * 8);
       width: auto;
+      filter: var(--ghs-filter-shadow);
     }
   }
 
@@ -417,6 +419,7 @@
     img {
       width: 100%;
       height: auto;
+      filter: var(--ghs-filter-shadow);
     }
 
     &:not(.empty) {

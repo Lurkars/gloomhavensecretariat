@@ -438,7 +438,7 @@
       "figures": "%game.target% all figures",
       "figuresAdjacent": "%game.target% all adjacent figures",
       "figuresRange": "%game.target% all figures %game.action.range% {0}",
-      "focusEnemyFarthest": "Focus on the enemy farthest away.",
+      "focusEnemyFarthest": "Focus on the enemy<br>farthest away.",
       "self": "Self",
       "selfAllies": "Self and all allies",
       "selfAlliesAdjacentAffect": "Aff%game.affect%ect self and all adjacent allies",

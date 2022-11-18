@@ -217,8 +217,7 @@
                   "type": "specialTarget",
                   "value": "self"
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }

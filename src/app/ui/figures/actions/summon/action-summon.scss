@@ -1,3 +1,11 @@
+.summon-value {
+    filter: var(--ghs-filter-shadow);
+
+    &.small {
+        filter: var(--ghs-filter-shadow-thin);
+    }
+}
+
 .summon-container {
     position: relative;
     width: 100%;
@@ -56,7 +64,8 @@
             padding-left: 3em;
         }
 
-        .action, .additionalAction {
+        .action,
+        .additionalAction {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -69,7 +78,7 @@
         .ghs-svg {
             height: 0.9em;
             width: auto;
-            filter: var(--ghs-filter-white);
+            filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
         }
     }
 

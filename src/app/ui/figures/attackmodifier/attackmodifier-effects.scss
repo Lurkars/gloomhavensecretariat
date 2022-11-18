@@ -23,7 +23,7 @@
       height: auto;
 
       &.ghs-svg {
-        filter: var(--ghs-filter-white);
+        filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
       }
     }
 
@@ -171,7 +171,7 @@
 
     .effect-icon {
       img {
-        filter: var(--ghs-filter-white);
+        filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
       }
     }
 

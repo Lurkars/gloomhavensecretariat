@@ -2,7 +2,7 @@
   "name": "city-guard",
   "edition": "fh",
   "deck": "guard",
-  "count": 6,
+  "count": 10,
   "baseStat": {
     "type": "normal",
     "immunities": [],

@@ -48,7 +48,7 @@
                         color: var(--ghs-color-darkgray);
 
                         img {
-                            filter: var(--ghs-filter-darkgray);
+                            filter: var(--ghs-filter-darkgray) var(--ghs-filter-shadow);
                         }
                     }
 
@@ -108,7 +108,7 @@
                     width: calc(var(--ghs-unit) * 3);
 
                     img {
-                        filter: var(--ghs-filter-white);
+                        filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
                         width: 100%;
                         height: auto;
                     }
@@ -189,14 +189,14 @@
                     }
 
                     img {
-                        filter: var(--ghs-filter-gray);
+                        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
                         width: 100%;
                         height: auto;
                     }
 
                     &.enabled {
                         img {
-                            filter: var(--ghs-filter-white);
+                            filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
                         }
                     }
                 }
@@ -332,7 +332,7 @@
                             width: auto;
 
                             &:nth-child(1) {
-                                filter: var(--ghs-filter-white);
+                                filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
                             }
 
                             &:nth-child(2) {

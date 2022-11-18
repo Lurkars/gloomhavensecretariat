@@ -4,6 +4,11 @@
   justify-items: center;
   align-items: center;
   grid-template-columns: calc(0.6em * var(--ghs-hex-size));
+  filter: var(--ghs-filter-shadow);
+
+  &.small {
+    filter: var(--ghs-filter-shadow-thin);
+  }
 
   .hex {
     display: flex;

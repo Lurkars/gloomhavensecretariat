@@ -1,7 +1,7 @@
 {
   "name": "angry-face",
   "characterClass": "orchid",
-  "gender" : "m",
+  "gender": "m",
   "edition": "gh",
   "color": "#5bc5dc",
   "marker": true,
@@ -50,14 +50,26 @@
       "level": 1,
       "health": 3,
       "attack": 3,
-      "movement": 3
+      "movement": 3,
+      "action": {
+        "type": "fly",
+        "value": ""
+      }
     },
     {
       "name": "vicious-jackal",
       "level": 1,
       "health": 5,
       "attack": 1,
-      "movement": 2
+      "movement": 2,
+      "action": {
+        "type": "retaliate",
+        "value": 1
+      },
+      "additionalAction": {
+        "type": "condition",
+        "value": "wound"
+      }
     },
     {
       "name": "battle-boar",
@@ -71,7 +83,11 @@
       "level": 6,
       "health": 7,
       "attack": 1,
-      "movement": 1
+      "movement": 1,
+      "action": {
+        "type": "condition",
+        "value": "stun"
+      }
     },
     {
       "name": "spitting-cobra",
@@ -79,7 +95,11 @@
       "health": 5,
       "attack": 3,
       "range": 3,
-      "movement": 3
+      "movement": 3,
+      "action": {
+        "type": "condition",
+        "value": "poison"
+      }
     }
   ],
   "perks": [

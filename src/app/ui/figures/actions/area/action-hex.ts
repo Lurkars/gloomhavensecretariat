@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, Output } from "@angular/core";
-import { ActionHex } from "src/app/game/model/Action";
+import { Action, ActionHex } from "src/app/game/model/Action";
 
 @Component({
   selector: 'ghs-action-hex',
@@ -8,6 +8,7 @@ import { ActionHex } from "src/app/game/model/Action";
 })
 export class ActionHexComponent implements OnChanges {
 
+  @Input() action!: Action;
   @Input() value!: string;
   @Input() size!: number;
   @Output() clickCallback: EventEmitter<ActionHex> = new EventEmitter<ActionHex>();
@@ -19,6 +20,9 @@ export class ActionHexComponent implements OnChanges {
 
   ngOnChanges(changes: any) {
     this.hexes = [];
+    if (!this.value) {
+      this.value = '' + this.action.value;
+    }
     this.value.split('|').forEach((hexValue) => {
       const hex: ActionHex | null = ActionHex.fromString(hexValue);
       if (hex != null) {

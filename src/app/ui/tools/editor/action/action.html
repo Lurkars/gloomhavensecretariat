@@ -1,5 +1,6 @@
 <div class="action">
-  <label class="type">{{'editor.action.type' | ghsLabel}} <input type="checkbox" [(ngModel)]="action.small" (change)="change()"> {{'editor.action.small' | ghsLabel}}</label>
+  <label class="type">{{'editor.action.type' | ghsLabel}} <input type="checkbox" [(ngModel)]="action.small"
+      (change)="change()"> {{'editor.action.small' | ghsLabel}}</label>
   <select [(ngModel)]="action.type" placeholder="type" (change)="changeType()">
     <option *ngFor="let actionType of ActionTypes" [value]="actionType">{{'game.action.' + actionType | ghsLabel}}
     </option>
@@ -22,7 +23,8 @@
     type="text" [ngModel]="action.value" (ngModelChange)="action.value=valueChange($event)" (change)="change()">
 
   <div class="hexes" *ngIf="action.type == ActionType.area">
-    <ghs-action-hex [value]="hexValue" (clickCallback)="toggleHex($event)" (doubleclickCallback)="removeHex($event)">
+    <ghs-action-hex [action]="hexAction" [value]="'' + hexAction.value" (clickCallback)="toggleHex($event)"
+      (doubleclickCallback)="removeHex($event)">
     </ghs-action-hex>
   </div>
 
@@ -51,7 +53,7 @@
       </select>
     </div>
     <div class="summon-form" *ngIf="summon">
-      <ghs-action-summon [value]="action.value + ''" [additional]="true"></ghs-action-summon>
+      <ghs-action-summon [action]="action" [additional]="true"></ghs-action-summon>
       <input class="summon-name" [(ngModel)]="summon.name" (change)="changeSummon()">
       <div class="grid">
         <span class="item">

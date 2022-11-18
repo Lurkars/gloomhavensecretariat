@@ -187,7 +187,8 @@
           "subActions": [
             {
               "type": "pierce",
-              "value": 2
+              "value": 2,
+              "small": true
             }
           ]
         },
@@ -228,19 +229,16 @@
         },
         {
           "type": "custom",
-          "value": "All adjacent allies and<br>enemies suffer %game.damage:1%.",
-          "small": false
+          "value": "All adjacent allies and<br>enemies suffer %game.damage:1%."
         },
         {
           "type": "element",
           "value": "any",
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "element",
-              "value": "dark",
-              "small": false
+              "value": "dark"
             }
           ]
         }

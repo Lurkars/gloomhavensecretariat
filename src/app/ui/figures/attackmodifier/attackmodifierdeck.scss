@@ -10,6 +10,7 @@
     padding-top: 26.66%;
     top: 0;
     left: 0;
+
     .am {
       position: absolute;
       top: 0;
@@ -57,11 +58,11 @@
         position: absolute;
         right: 5%;
         bottom: 5%;
-        filter: var(--ghs-filter-white);
+        filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
         cursor: help;
 
         &:hover {
-          filter: var(--ghs-filter-gray);
+          filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
         }
       }
 
@@ -71,11 +72,11 @@
         position: absolute;
         left: 2.5%;
         top: 2.5%;
-        filter: var(--ghs-filter-gray);
+        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
         cursor: zoom-in;
 
         &:hover {
-          filter: var(--ghs-filter-white);
+          filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
         }
       }
 
@@ -152,10 +153,10 @@
     transform: rotate(25deg);
     z-index: 0;
 
-    &:hover {
+    &.last:hover,
+    &.rolling:hover {
       z-index: 100 !important;
     }
-
   }
 
   &.open-dialog {

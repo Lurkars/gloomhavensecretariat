@@ -15,10 +15,10 @@
     cursor: pointer;
     width: calc(var(--ghs-unit) * 2.7 * var(--ghs-text-factor));
     height: auto;
-    filter: var(--ghs-filter-white);
+    filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
 
     &:hover {
-      filter: var(--ghs-filter-gray);
+      filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
     }
   }
 

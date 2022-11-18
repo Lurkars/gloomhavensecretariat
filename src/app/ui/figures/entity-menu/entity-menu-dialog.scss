@@ -39,7 +39,7 @@
       margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 
       &.normal {
-        color: var(--ghs-color-gray);
+        color: var(--ghs-color-white);
       }
 
       &.elite {
@@ -154,7 +154,7 @@
       color: var(--ghs-color-gray);
 
       .ghs-svg {
-        filter: var(--ghs-filter-gray) !important;
+        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow) !important;
       }
     }
   }

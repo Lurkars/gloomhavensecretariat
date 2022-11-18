@@ -40,7 +40,7 @@
   .custom {
     display: flex;
     align-items: center;
-    filter: var(--ghs-filter-gray);
+    filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
     margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 
     .url {

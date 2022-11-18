@@ -5,10 +5,14 @@
       "initiative": 16,
       "actions": [
         {
-          "type": "attack",
-          "value": 2,
-          "valueType": "plus",
+          "type": "grid",
+          "value": "",
           "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "valueType": "plus"
+            },
             {
               "type": "area",
               "value": "(0,0,target)|(1,0,active)|(2,0,target)"
@@ -120,10 +124,14 @@
           "valueType": "plus"
         },
         {
-          "type": "attack",
-          "value": 1,
-          "valueType": "plus",
+          "type": "grid",
+          "value": "",
           "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "plus"
+            },
             {
               "type": "area",
               "value": "(0,1,active)|(1,0,target)|(1,1,target)"

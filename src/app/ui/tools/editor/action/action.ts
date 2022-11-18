@@ -27,7 +27,7 @@ export class EditorActionComponent implements OnInit {
   ActionValueTypes: ActionValueType[] = Object.values(ActionValueType);
   ActionCardTypes: ActionCardType[] = Object.values(ActionCardType);
   MonsterTypes: MonsterType[] = Object.values(MonsterType);
-  hexValue: string = "(0,0,invisible)";
+  hexAction: Action = new Action(ActionType.area, "(0,0,invisible)");
   value: string = '';
   subValue: string = '';
   summon: SummonData | undefined;
@@ -41,16 +41,16 @@ export class EditorActionComponent implements OnInit {
     this.monsters = gameManager.monstersData().map((monsterData) => monsterData.name);
 
     if (this.action && this.action.type == ActionType.area) {
-      this.hexValue = '' + this.action.value;
+      this.hexAction.value = '' + this.action.value;
       let hexes: ActionHex[] = [];
-      this.hexValue.split('|').forEach((hexValue) => {
+      this.hexAction.value.split('|').forEach((hexValue) => {
         const hex: ActionHex | null = ActionHex.fromString(hexValue);
         if (hex != null) {
           hexes.push(hex);
         }
       })
       hexes.forEach((other) => this.fillHexes(other, hexes));
-      this.hexValue = hexes.map((hex) => ActionHex.toString(hex)).join('|');
+      this.hexAction.value = hexes.map((hex) => ActionHex.toString(hex)).join('|');
       this.change();
     } else if (this.action.type == ActionType.condition || this.action.type == ActionType.specialTarget || this.action.type == ActionType.card) {
       if (('' + this.action.value).indexOf(':') != -1) {
@@ -102,7 +102,7 @@ export class EditorActionComponent implements OnInit {
     this.action.value = "";
     this.action.valueType = ActionValueType.fixed;
     if (this.action.type == ActionType.area) {
-      this.hexValue = "(0,0,invisible)";
+      this.hexAction.value = "(0,0,invisible)";
     } else if (this.action.type == ActionType.condition) {
       this.value = this.ConditionNames[0];
       this.changeCondition();
@@ -122,7 +122,7 @@ export class EditorActionComponent implements OnInit {
   toggleHex(hex: ActionHex) {
 
     let hexes: ActionHex[] = [];
-    this.hexValue.split('|').forEach((hexValue) => {
+    ('' + this.hexAction.value).split('|').forEach((hexValue) => {
       const hex: ActionHex | null = ActionHex.fromString(hexValue);
       if (hex != null) {
         hexes.push(hex);
@@ -160,7 +160,7 @@ export class EditorActionComponent implements OnInit {
 
     this.fillHexes(hex, hexes);
 
-    this.hexValue = hexes.map((hex) => ActionHex.toString(hex)).join('|');
+    this.hexAction.value = hexes.map((hex) => ActionHex.toString(hex)).join('|');
     this.action.value = hexes.filter((hex) => hex.type != ActionHexType.invisible).map((hex) => ActionHex.toString(hex)).join('|');
     this.change();
   }
@@ -169,7 +169,7 @@ export class EditorActionComponent implements OnInit {
   removeHex(hex: ActionHex) {
 
     let hexes: ActionHex[] = [];
-    this.hexValue.split('|').forEach((hexValue) => {
+    ('' + this.hexAction.value).split('|').forEach((hexValue) => {
       const hex: ActionHex | null = ActionHex.fromString(hexValue);
       if (hex != null) {
         hexes.push(hex);
@@ -198,7 +198,7 @@ export class EditorActionComponent implements OnInit {
 
     hexes.filter((other) => other.type != ActionHexType.invisible).forEach((other) => this.fillHexes(other, hexes));
 
-    this.hexValue = hexes.map((hex) => ActionHex.toString(hex)).join('|');
+    this.hexAction.value = hexes.map((hex) => ActionHex.toString(hex)).join('|');
     this.action.value = hexes.filter((hex) => hex.type != ActionHexType.invisible).map((hex) => ActionHex.toString(hex)).join('|');
     this.change();
   }

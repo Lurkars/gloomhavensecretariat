@@ -103,9 +103,13 @@
       "initiative": 64,
       "actions": [
         {
-          "type": "attack",
-          "value": 2,
+          "type": "grid",
+          "value": "",
           "subActions": [
+            {
+              "type": "attack",
+              "value": 2
+            },
             {
               "type": "area",
               "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)"
@@ -324,9 +328,13 @@
       "initiative": 54,
       "actions": [
         {
-          "type": "attack",
-          "value": 3,
+          "type": "grid",
+          "value": "",
           "subActions": [
+            {
+              "type": "attack",
+              "value": 3
+            },
             {
               "type": "area",
               "value": "(1,0,target)|(1,1,target)|(0,1,active)"
@@ -392,30 +400,36 @@
       "initiative": 35,
       "actions": [
         {
-          "type": "attack",
-          "value": 3,
+          "type": "grid",
+          "value": "",
           "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "air",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "attack",
+                      "value": 1,
+                      "valueType": "add",
+                      "small": true
+                    },
+                    {
+                      "type": "pierce",
+                      "value": 1,
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            },
             {
               "type": "area",
               "value": "(0,1,target)|(1,0,target)|(0,2,active)"
-            },
-            {
-              "type": "element",
-              "value": "air",
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "attack",
-                  "value": 1,
-                  "valueType": "add",
-                  "small": true
-                },
-                {
-                  "type": "pierce",
-                  "value": 1,
-                  "small": true
-                }
-              ]
             }
           ]
         },
@@ -650,17 +664,23 @@
       "initiative": 51,
       "actions": [
         {
-          "type": "attack",
-          "value": 2,
+          "type": "grid",
+          "value": "",
           "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "condition",
+                  "value": "muddle",
+                  "small": true
+                }
+              ]
+            },
             {
               "type": "area",
               "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)"
-            },
-            {
-              "type": "condition",
-              "value": "muddle",
-              "small": true
             }
           ]
         },

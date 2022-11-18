@@ -55,6 +55,10 @@ export function compactAction(action: any) {
     if (!action.value && action.value != 0) {
         action.value = undefined;
     }
+
+    if (!action.small) {
+        action.small = undefined;
+    }
 }
 
 @Component({
@@ -156,6 +160,8 @@ export class DeckEditorComponent implements OnInit {
                     if (!ability[key] && ability[key] != 0 || typeof ability[key] == 'boolean' && ability[key] == false) {
                         ability[key] = undefined;
                     }
+
+                    ability.revealed = undefined;
 
                     if (key == 'level' && ability[key] == 0) {
                         ability[key] = undefined;

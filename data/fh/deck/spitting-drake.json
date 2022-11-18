@@ -62,18 +62,24 @@
           "valueType": "plus"
         },
         {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus",
+          "type": "grid",
+          "value": "",
           "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
+            },
             {
               "type": "area",
               "value": "(1,0,target)|(0,1,target)|(1,1,target)"
-            },
-            {
-              "type": "range",
-              "value": 3,
-              "small": true
             }
           ]
         }
@@ -154,8 +160,7 @@
             }
           ]
         }
-      ],
-      "revealed": true
+      ]
     },
     {
       "name": "Empowring Rest",
@@ -196,23 +201,29 @@
           "valueType": "minus"
         },
         {
-          "type": "attack",
-          "value": 2,
-          "valueType": "minus",
+          "type": "grid",
+          "value": "",
           "subActions": [
+            {
+              "type": "attack",
+              "value": 2,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "poison",
+                  "small": true
+                }
+              ]
+            },
             {
               "type": "area",
               "value": "(1,0,target)|(2,0,target)|(0,1,target)|(1,1,target)|(2,1,target)|(1,2,target)|(2,2,target)"
-            },
-            {
-              "type": "range",
-              "value": 3,
-              "small": true
-            },
-            {
-              "type": "condition",
-              "value": "poison",
-              "small": true
             }
           ]
         }

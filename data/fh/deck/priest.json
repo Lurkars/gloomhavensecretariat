@@ -10,14 +10,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         },
         {
           "type": "attack",
           "value": 0,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -41,14 +39,12 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -72,14 +68,12 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 0,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -99,13 +93,11 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "heal",
           "value": 3,
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -125,13 +117,11 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "heal",
           "value": 3,
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -150,14 +140,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -176,13 +164,11 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         },
         {
           "type": "heal",
           "value": 1,
-          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
@@ -199,7 +185,6 @@
         {
           "type": "condition",
           "value": "bless",
-          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
@@ -218,14 +203,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "target",

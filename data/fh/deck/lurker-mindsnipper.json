@@ -11,7 +11,6 @@
         {
           "type": "retaliate",
           "value": 3,
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -29,15 +28,13 @@
                   "small": true,
                   "valueType": "add"
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         },
         {
           "type": "condition",
           "value": "muddle",
-          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -61,14 +58,12 @@
         {
           "type": "move",
           "value": 2,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -79,8 +74,7 @@
         },
         {
           "type": "element",
-          "value": "dark",
-          "small": false
+          "value": "dark"
         }
       ]
     },
@@ -92,14 +86,12 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 0,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -115,8 +107,7 @@
         },
         {
           "type": "element",
-          "value": "dark",
-          "small": false
+          "value": "dark"
         }
       ]
     },
@@ -128,14 +119,12 @@
         {
           "type": "move",
           "value": 2,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -146,8 +135,7 @@
         },
         {
           "type": "element",
-          "value": "dark",
-          "small": false
+          "value": "dark"
         }
       ]
     },
@@ -160,7 +148,6 @@
           "type": "attack",
           "value": 1,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -189,14 +176,12 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 2,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -221,14 +206,12 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 2,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -244,8 +227,7 @@
           "subActions": [
             {
               "type": "attack",
-              "value": 3,
-              "small": false
+              "value": 3
             }
           ]
         }
@@ -260,7 +242,6 @@
           "type": "attack",
           "value": 1,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -277,8 +258,7 @@
                   "value": "stun",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }

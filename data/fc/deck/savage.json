@@ -213,10 +213,14 @@
           "value": "elite",
           "subActions": [
             {
-              "type": "attack",
-              "value": 0,
-              "valueType": "plus",
+              "type": "grid",
+              "value": "",
               "subActions": [
+                {
+                  "type": "attack",
+                  "value": 0,
+                  "valueType": "plus"
+                },
                 {
                   "type": "area",
                   "value": "(0,0,target)|(1,0,target)|(0,1,active)|(1,1,target)"

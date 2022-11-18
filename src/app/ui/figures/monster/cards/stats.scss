@@ -45,7 +45,7 @@
       img {
         height: 1em;
         width: auto;
-        filter: var(--ghs-filter-white);
+        filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
       }
     }
   }
@@ -463,4 +463,10 @@
     }
   }
 
+}
+
+:host.stats-editor {
+  .extra {
+    display: none !important;
+  }
 }

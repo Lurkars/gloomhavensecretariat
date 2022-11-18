@@ -9,27 +9,23 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "concatenation",
           "value": "and:2",
-          "small": false,
           "subActions": [
             {
               "type": "condition",
-              "value": "brittle",
-              "small": false
+              "value": "brittle"
             },
             {
               "type": "condition",
-              "value": "immobilize",
-              "small": false
+              "value": "immobilize"
             },
             {
-              "type": "specialTarget",
-              "value": "enemyAdjacent",
+              "type": "range",
+              "value": 1,
               "small": true
             }
           ]
@@ -43,14 +39,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "element",
@@ -62,8 +56,7 @@
                   "value": "brittle",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }
@@ -76,14 +69,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "element",
@@ -95,8 +86,7 @@
                   "value": "brittle",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }
@@ -109,26 +99,26 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
-          "type": "attack",
-          "value": 2,
-          "valueType": "minus",
-          "small": false,
+          "type": "grid",
+          "value": "",
           "subActions": [
             {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus"
+            },
+            {
               "type": "area",
-              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(0,2,active)|(1,2,target)|(2,2,target)",
-              "small": false
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(0,2,active)|(1,2,target)|(2,2,target)"
             }
           ]
         },
         {
           "type": "element",
-          "value": "ice",
-          "small": false
+          "value": "ice"
         }
       ]
     },
@@ -141,7 +131,6 @@
           "type": "move",
           "value": 1,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "element",
@@ -153,22 +142,20 @@
                   "value": 2,
                   "valueType": "add",
                   "small": true
-                },
-                {
-                  "type": "custom",
-                  "value": "Frozen Corpse suffer %game.damage:2%",
-                  "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         },
         {
+          "type": "custom",
+          "value": "If the element is consumed by<br>the Frozen Corpse during the<br>move ability, it suffers %game.damage:2%.",
+          "small": true
+        },
+        {
           "type": "attack",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         }
       ]
     },
@@ -180,7 +167,6 @@
           "type": "move",
           "value": 1,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "element",
@@ -192,22 +178,20 @@
                   "value": 2,
                   "valueType": "add",
                   "small": true
-                },
-                {
-                  "type": "custom",
-                  "value": "Frozen Corpse suffer %game.damage:2%",
-                  "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         },
         {
+          "type": "custom",
+          "value": "If the element is consumed by<br>the Frozen Corpse during the<br>move ability, it suffers %game.damage:2%.",
+          "small": true
+        },
+        {
           "type": "attack",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         }
       ]
     },
@@ -219,19 +203,16 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "element",
-          "value": "ice",
-          "small": false
+          "value": "ice"
         }
       ]
     },
@@ -240,22 +221,23 @@
       "initiative": 84,
       "actions": [
         {
-          "type": "attack",
-          "value": 1,
-          "valueType": "plus",
-          "small": false,
+          "type": "grid",
+          "value": "",
           "subActions": [
             {
+              "type": "attack",
+              "value": 1,
+              "valueType": "plus"
+            },
+            {
               "type": "area",
-              "value": "(0,1,active)|(1,0,target)|(1,1,target)",
-              "small": false
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)"
             }
           ]
         },
         {
           "type": "element",
-          "value": "ice",
-          "small": false
+          "value": "ice"
         }
       ]
     }

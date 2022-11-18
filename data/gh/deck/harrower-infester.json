@@ -133,25 +133,31 @@
           "valueType": "minus"
         },
         {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
+          "type": "grid",
+          "value": "",
           "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "element",
+                  "value": "dark",
+                  "valueType": "minus",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "%data.custom.gh.harrower-infester.1%",
+                      "small": true
+                    }
+                  ]
+                }
+              ]
+            },
             {
               "type": "area",
               "value": "(1,0,active)|(1,1,target)|(2,2,target)|(2,3,target)"
-            },
-            {
-              "type": "element",
-              "value": "dark",
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "custom",
-                  "value": "%data.custom.gh.harrower-infester.1%",
-                  "small": true
-                }
-              ]
             }
           ]
         }

@@ -1,0 +1,24 @@
+[
+    {
+        "index": "1",
+        "name": "A town in Flames",
+        "edition": "fh",
+        "initial": true,
+        "monsters": [
+            "algox-archer",
+            "algox-guard",
+            "algox-priest",
+            "city-guard"
+        ]
+    },
+    {
+        "index": "22",
+        "name": "A town in Flames",
+        "edition": "fh",
+        "monsters": [
+            "lightning-eel",
+            "lurker-clawcrusher",
+            "lurker-wavethrower"
+        ]
+    }
+]

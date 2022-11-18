@@ -39,7 +39,7 @@ header {
     &:hover,
     &.active-button {
       color: var(--ghs-color-white);
-      filter: var(--ghs-filter-white);
+      filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
     }
 
   }
@@ -57,23 +57,23 @@ header {
     align-self: center;
 
     &.connected {
-      filter: var(--ghs-filter-green);
+      filter: var(--ghs-filter-green) var(--ghs-filter-shadow);
     }
 
     &.connecting {
-      filter: var(--ghs-filter-blue);
+      filter: var(--ghs-filter-blue) var(--ghs-filter-shadow);
     }
 
     &.closing {
-      filter: var(--ghs-filter-yellow);
+      filter: var(--ghs-filter-yellow) var(--ghs-filter-shadow);
     }
 
     &.closed {
-      filter: var(--ghs-filter-red);
+      filter: var(--ghs-filter-red) var(--ghs-filter-shadow);
     }
 
     &.disconnected {
-      filter: var(--ghs-filter-gray);
+      filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
     }
   }
 

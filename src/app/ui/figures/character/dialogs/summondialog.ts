@@ -19,8 +19,11 @@ export class CharacterSummonDialog {
   summonColor: SummonColor = SummonColor.blue;
   summonNumber: number = 1;
   summonName: string = "";
+  summonFilter: string;
 
-  constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef) { }
+  constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef) {
+    this.summonFilter = "";
+  }
 
   pickNumber(number: number) {
     this.summonNumber = number;
@@ -57,7 +60,7 @@ export class CharacterSummonDialog {
       }
     }
 
-    return summons;
+    return summons.filter((summonData) => !this.summonFilter || summonData.name == this.summonFilter);
   }
 
   setSummonName(event: any) {
@@ -74,12 +77,7 @@ export class CharacterSummonDialog {
   addSummon(summonData: SummonData) {
     if (this.summonData().indexOf(summonData) != -1) {
       gameManager.stateManager.before("addSummon", "data.character." + this.character.name, "data.summon." + summonData.name);
-      let summon: Summon = new Summon(summonData.name, this.character.level, summonData.special ? 0 : this.summonNumber, summonData.special ? SummonColor.custom : this.summonColor);
-      summon.maxHealth = typeof summonData.health == "number" ? summonData.health : EntityValueFunction(summonData.health, this.character.level);
-      summon.attack = typeof summonData.attack == "number" ? summonData.attack : EntityValueFunction(summonData.attack, this.character.level);
-      summon.movement = typeof summonData.movement == "number" ? summonData.movement : EntityValueFunction(summonData.movement, this.character.level);
-      summon.range = typeof summonData.range == "number" ? summonData.range : EntityValueFunction(summonData.range, this.character.level);
-      summon.health = summon.maxHealth;
+      let summon: Summon = new Summon(summonData.name, this.character.level, summonData.special ? 0 : this.summonNumber, summonData.special ? SummonColor.custom : this.summonColor, summonData);
       if (summonData.special) {
         summon.state = SummonState.true;
       } else {
@@ -87,7 +85,15 @@ export class CharacterSummonDialog {
       }
       summon.init = false;
       gameManager.characterManager.addSummon(this.character, summon);
-      this.dialogRef.close();
+      if (!summonData.count || this.character.summons.filter((summon) => summon.name == summonData.name).length == summonData.count) {
+        this.dialogRef.close();
+      } else {
+        this.summonFilter = summonData.name;
+        this.summonNumber++;
+        if (this.summonNumber > 4) {
+          this.summonNumber = 1;
+        }
+      }
       gameManager.stateManager.after();
     }
   }

@@ -10,23 +10,19 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "concatenation",
           "value": ",:2",
-          "small": false,
           "subActions": [
             {
               "type": "condition",
-              "value": "poison",
-              "small": false
+              "value": "poison"
             },
             {
               "type": "condition",
-              "value": "immobilize",
-              "small": false
+              "value": "immobilize"
             },
             {
               "type": "range",
@@ -45,14 +41,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 1,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         }
       ]
     },
@@ -64,14 +58,12 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         }
       ]
     },
@@ -83,14 +75,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         },
         {
           "type": "attack",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         }
       ]
     },
@@ -102,8 +92,7 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "custom",
@@ -113,8 +102,7 @@
         {
           "type": "attack",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         }
       ]
     },
@@ -127,7 +115,6 @@
           "type": "attack",
           "value": 2,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "condition",
@@ -152,13 +139,11 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "condition",
           "value": "muddle",
-          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -188,14 +173,12 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "custom",

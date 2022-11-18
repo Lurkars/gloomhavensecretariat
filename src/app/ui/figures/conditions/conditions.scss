@@ -82,7 +82,7 @@
       filter: grayscale(75%);
 
       .ghs-svg {
-        filter: var(--ghs-filter-gray) !important;
+        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow) !important;
       }
     }
 
@@ -94,7 +94,7 @@
     position: absolute;
     width: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
     height: auto;
-    filter: var(--ghs-filter-white);
+    filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
 
     &.dec {
       left: 0;
@@ -106,7 +106,7 @@
 
     &.disabled {
       pointer-events: none;
-      filter: var(--ghs-filter-darkgray);
+      filter: var(--ghs-filter-darkgray) var(--ghs-filter-shadow);
     }
 
     top: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));

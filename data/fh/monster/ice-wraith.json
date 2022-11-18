@@ -2,7 +2,7 @@
   "name": "ice-wraith",
   "edition": "fh",
   "flying": true,
-  "count": 6,
+  "count": 10,
   "baseStat": {
     "type": "normal",
     "immunities": [],

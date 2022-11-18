@@ -13,10 +13,14 @@ export interface Entity {
 export const EntityExpressionRegex = /^([xCL0-9\+\/\-\*\(\)]+)$/;
 export const EntityValueRegex = /\[([xCL0-9\+\/\-\*\(\)]+)(\{(.*)\})?\]/;
 
-export function EntityValueFunction(value: string, L: number | undefined = undefined): number {
+export function EntityValueFunction(value: string | number, L: number | undefined = undefined): number {
 
   if (!value) {
     return 0;
+  }
+
+  if (typeof value == 'number') {
+    return value;
   }
 
   let expression = value;

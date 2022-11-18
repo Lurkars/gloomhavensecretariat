@@ -21,14 +21,19 @@
           "value": "%game.custom.ondeath%",
           "subActions": [
             {
-              "type": "attack",
-              "value": 2,
-              "valueType": "plus",
-              "small": true,
+              "type": "grid",
+              "value": "",
               "subActions": [
                 {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "plus",
+                  "small": true
+                },
+                {
                   "type": "area",
-                  "value": "(1,0,target)|(2,0,target)|(0,1,target)|(1,1,active)|(2,1,target)|(1,2,target)|(2,2,target)"
+                  "value": "(1,0,target)|(2,0,target)|(0,1,target)|(1,1,active)|(2,1,target)|(1,2,target)|(2,2,target)",
+                  "small": true
                 }
               ]
             }
@@ -55,14 +60,19 @@
           "value": "%game.custom.ondeath%",
           "subActions": [
             {
-              "type": "attack",
-              "value": 2,
-              "valueType": "plus",
-              "small": true,
+              "type": "grid",
+              "value": "",
               "subActions": [
                 {
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "plus",
+                  "small": true
+                },
+                {
                   "type": "area",
-                  "value": "(1,0,target)|(2,0,target)|(0,1,target)|(1,1,active)|(2,1,target)|(1,2,target)|(2,2,target)"
+                  "value": "(1,0,target)|(2,0,target)|(0,1,target)|(1,1,active)|(2,1,target)|(1,2,target)|(2,2,target)",
+                  "small": true
                 }
               ]
             }

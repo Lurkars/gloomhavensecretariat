@@ -108,36 +108,42 @@
           "valueType": "plus"
         },
         {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus",
+          "type": "grid",
+          "value": "",
           "subActions": [
             {
-              "type": "area",
-              "value": "(0,0,active)|(0,1,target)|(1,2,target)|(1,3,target)"
-            },
-            {
-              "type": "element",
-              "value": "earth",
+              "type": "attack",
+              "value": 1,
               "valueType": "minus",
               "subActions": [
                 {
-                  "type": "concatenation",
-                  "value": ",",
+                  "type": "element",
+                  "value": "earth",
+                  "valueType": "minus",
                   "subActions": [
                     {
-                      "type": "attack",
-                      "value": 2,
-                      "valueType": "add"
-                    },
-                    {
-                      "type": "condition",
-                      "value": "immobilize"
+                      "type": "concatenation",
+                      "value": ",",
+                      "subActions": [
+                        {
+                          "type": "attack",
+                          "value": 2,
+                          "valueType": "add"
+                        },
+                        {
+                          "type": "condition",
+                          "value": "immobilize"
+                        }
+                      ],
+                      "small": true
                     }
-                  ],
-                  "small": true
+                  ]
                 }
               ]
+            },
+            {
+              "type": "area",
+              "value": "(0,0,active)|(0,1,target)|(1,2,target)|(1,3,target)"
             }
           ]
         }

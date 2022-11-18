@@ -18,7 +18,7 @@
     justify-content: center;
 
     .ghs-svg {
-      filter: var(--ghs-filter-gray);
+      filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
       width: calc(var(--ghs-unit) * 3 * var(--ghs-barsize));
       height: calc(var(--ghs-unit) * 3 * var(--ghs-barsize));
       margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-barsize));
@@ -43,7 +43,7 @@
     &:hover {
 
       .ghs-svg {
-        filter: var(--ghs-filter-white);
+        filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
       }
 
       span {

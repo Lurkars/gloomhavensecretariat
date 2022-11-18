@@ -10,14 +10,12 @@
         {
           "type": "move",
           "value": 2,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 0,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "push",
@@ -36,14 +34,12 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -68,14 +64,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         },
         {
           "type": "attack",
           "value": 0,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -104,7 +98,6 @@
         {
           "type": "retaliate",
           "value": 2,
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -115,8 +108,7 @@
         },
         {
           "type": "element",
-          "value": "dark",
-          "small": false
+          "value": "dark"
         }
       ]
     },
@@ -128,7 +120,6 @@
         {
           "type": "pull",
           "value": 2,
-          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -158,7 +149,6 @@
           "type": "attack",
           "value": 0,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -188,19 +178,16 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "element",
-          "value": "dark",
-          "small": false
+          "value": "dark"
         }
       ]
     },
@@ -213,7 +200,6 @@
           "type": "attack",
           "value": 2,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -236,12 +222,10 @@
           "type": "element",
           "value": "dark",
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "shield",
-              "value": 2,
-              "small": false
+              "value": 2
             }
           ]
         }

@@ -1,7 +1,7 @@
 {
   "name": "circles",
   "characterClass": "aesther",
-  "gender" : "f",
+  "gender": "f",
   "edition": "gh",
   "color": "#e570b3",
   "spoiler": true,
@@ -49,21 +49,49 @@
       "level": 1,
       "health": 7,
       "attack": 3,
-      "movement": 2
+      "movement": 2,
+      "action": {
+        "type": "retaliate",
+        "value": 2,
+        "subActions": [
+          {
+            "type": "range",
+            "value": 2,
+            "small": true
+          }
+        ]
+      },
+      "additionalAction": {
+        "type": "condition",
+        "value": "wound"
+      }
     },
     {
       "name": "shadow-wolf",
       "level": 1,
       "health": 3,
       "attack": 2,
-      "movement": 3
+      "movement": 3,
+      "count": 2,
+      "action": {
+        "type": "pierce",
+        "value": 2
+      }
     },
     {
       "name": "iron-beast",
       "level": 1,
       "health": 5,
       "attack": 1,
-      "movement": 2
+      "movement": 2,
+      "action": {
+        "type": "retaliate",
+        "value": 1
+      },
+      "additionalAction": {
+        "type": "shield",
+        "value": 1
+      }
     },
     {
       "name": "thorn-shooter",
@@ -71,28 +99,71 @@
       "health": 2,
       "attack": 2,
       "range": 4,
-      "movement": 1
+      "movement": 1,
+      "action": {
+        "type": "condition",
+        "value": "poison"
+      }
     },
     {
       "name": "living-bomb",
       "level": 1,
       "health": 1,
       "attack": 2,
-      "movement": 3
+      "movement": 3,
+      "action": {
+        "type": "grid",
+        "value": "1",
+        "subActions": [
+          {
+            "type": "custom",
+            "value": "%game.custom.ondeath%",
+            "small": true
+          },
+          {
+            "type": "attack",
+            "value": 3,
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "enemiesRange:2",
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "fire",
+            "small": true
+          }
+        ]
+      }
     },
     {
       "name": "bat-swarm",
       "level": 1,
       "health": 4,
       "attack": 2,
-      "movement": 2
+      "movement": 2,
+      "action": {
+        "type": "fly",
+        "value": ""
+      }
     },
     {
       "name": "slime-spirit",
       "level": 3,
       "health": 4,
       "attack": 1,
-      "movement": 3
+      "movement": 3,
+      "action": {
+        "type": "shield",
+        "value": 2
+      },
+      "additionalAction": {
+        "type": "condition",
+        "value": "muddle"
+      }
     },
     {
       "name": "rock-colossus",
@@ -107,13 +178,48 @@
       "health": 2,
       "attack": 1,
       "range": 3,
-      "movement": 2
+      "movement": 2,
+      "action": {
+        "type": "grid",
+        "value": "1",
+        "subActions": [
+          {
+            "type": "custom",
+            "value": "Performs",
+            "small": true
+          },
+          {
+            "type": "heal",
+            "value": 2,
+            "subActions": [
+              {
+                "type": "range",
+                "value": 2,
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "custom",
+            "value": "at end of turn",
+            "small": true
+          }
+        ]
+      }
     },
     {
       "name": "nail-sphere",
       "level": 6,
       "health": 4,
-      "movement": 2
+      "movement": 2,
+      "action": {
+        "type": "retaliate",
+        "value": 2
+      },
+      "additionalAction": {
+        "type": "shield",
+        "value": 1
+      }
     },
     {
       "name": "void-eater",
@@ -121,14 +227,22 @@
       "health": 5,
       "attack": 2,
       "range": 2,
-      "movement": 3
+      "movement": 3,
+      "action": {
+        "type": "condition",
+        "value": "curse"
+      }
     },
     {
       "name": "black-unicorn",
       "level": 9,
       "health": 6,
       "attack": 4,
-      "movement": 4
+      "movement": 4,
+      "action": {
+        "type": "pierce",
+        "value": 3
+      }
     }
   ],
   "perks": [

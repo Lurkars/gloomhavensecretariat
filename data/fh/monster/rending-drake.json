@@ -1,7 +1,7 @@
 {
   "name": "rending-drake",
   "edition": "fh",
-  "count": 6,
+  "count": 10,
   "baseStat": {
     "type": "normal",
     "immunities": [],

@@ -1,7 +1,7 @@
 {
   "name": "algox-snowspeaker",
   "edition": "fh",
-  "count": 6,
+  "count": 10,
   "baseStat": {
     "type": "normal",
     "immunities": [],

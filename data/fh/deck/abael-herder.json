@@ -10,8 +10,7 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         },
         {
           "type": "custom",
@@ -21,19 +20,16 @@
             {
               "type": "move",
               "value": 0,
-              "valueType": "plus",
-              "small": false
+              "valueType": "plus"
             },
             {
               "type": "attack",
               "value": 1,
-              "valueType": "plus",
-              "small": false
+              "valueType": "plus"
             }
           ]
         }
-      ],
-      "revealed": true
+      ]
     },
     {
       "name": "Desperate Herd",
@@ -43,8 +39,7 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         },
         {
           "type": "custom",
@@ -54,14 +49,12 @@
             {
               "type": "move",
               "value": 1,
-              "valueType": "minus",
-              "small": false
+              "valueType": "minus"
             },
             {
               "type": "attack",
               "value": 2,
-              "valueType": "minus",
-              "small": false
+              "valueType": "minus"
             },
             {
               "type": "custom",
@@ -80,8 +73,7 @@
       "actions": [
         {
           "type": "summon",
-          "value": "piranha-pig:normal",
-          "small": false
+          "value": "piranha-pig:normal"
         }
       ]
     },
@@ -93,14 +85,12 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 0,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -110,7 +100,7 @@
             {
               "type": "pull",
               "value": 2,
-              "small": false
+              "small": true
             },
             {
               "type": "condition",
@@ -134,8 +124,7 @@
             {
               "type": "move",
               "value": 0,
-              "valueType": "plus",
-              "small": false
+              "valueType": "plus"
             },
             {
               "type": "attack",
@@ -147,8 +136,7 @@
                   "value": "muddle",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         },
@@ -168,7 +156,6 @@
           "type": "attack",
           "value": 0,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -180,7 +167,6 @@
         {
           "type": "condition",
           "value": "strengthen",
-          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -205,13 +191,11 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "grid",
           "value": 1,
-          "small": false,
           "subActions": [
             {
               "type": "attack",
@@ -222,8 +206,7 @@
                   "value": "X+1",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             },
             {
               "type": "custom",
@@ -242,14 +225,12 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 0,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "range",

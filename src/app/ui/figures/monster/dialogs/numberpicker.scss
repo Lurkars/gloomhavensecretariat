@@ -7,7 +7,7 @@
   font-size: calc(var(--ghs-unit) * 8 * var(--ghs-text-factor));
   line-height: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
   color: var(--ghs-color-gray);
-  filter: var(--ghs-filter-gray);
+  filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
   text-shadow: var(--ghs-outline);
   font-weight: bold;
   width: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
@@ -24,24 +24,24 @@
 
   &.elite {
     color: var(--ghs-color-yellow);
-    filter: var(--ghs-filter-yellow);
+    filter: var(--ghs-filter-yellow) var(--ghs-filter-shadow);
   }
 
   &.boss {
     color: var(--ghs-color-red);
-    filter: var(--ghs-filter-red);
+    filter: var(--ghs-filter-red) var(--ghs-filter-shadow);
   }
 
   &:hover,
   &.active-button {
     color: var(--ghs-color-white);
-    filter: var(--ghs-filter-white);
+    filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
   }
 
   &.disabled {
     pointer-events: none;
     color: var(--ghs-color-gray);
-    filter: var(--ghs-filter-gray);
+    filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
     opacity: 0.5;
   }
 

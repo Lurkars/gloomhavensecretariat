@@ -7,12 +7,6 @@
   color: var(--ghs-color-white);
   line-height: 0.8em;
 
-  &.aoe {
-    display: grid;
-    grid-template-columns: auto auto;
-    column-gap: 0.3em;
-  }
-
   &.highlight {
 
     @keyframes highlight-animation {
@@ -79,8 +73,57 @@
     }
   }
 
+  .ghs-svg,
+  .placeholder-action .icon {
+    filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+  }
+
+  .icon {
+    margin: 0.1em;
+    margin-top: 0;
+    height: 1em;
+    width: auto;
+
+    &:not(.ghs-svg) {
+      filter: var(--ghs-filter-shadow);
+    }
+  }
+
+  .type,
+  .value,
+  .condition-value,
+  .custom-value,
+  .special-target-value,
+  .monster-type,
+  .summon-value {
+    filter: var(--ghs-filter-shadow);
+
+    &.small {
+      filter: var(--ghs-filter-shadow-thin);
+    }
+  }
+
   .small {
     font-size: 82%;
+
+    .type,
+    .value,
+    .condition-value,
+    .custom-value,
+    .special-target-value,
+    .monster-type,
+    .summon-value {
+      filter: var(--ghs-filter-shadow-thin);
+    }
+
+    .ghs-svg,
+    .placeholder-action .icon {
+      filter: var(--ghs-filter-white) var(--ghs-filter-shadow-thin);
+    }
+
+    .icon:not(.ghs-svg) {
+      filter: var(--ghs-filter-shadow-thin);
+    }
   }
 
   .action-default,
@@ -122,16 +165,6 @@
         white-space: nowrap;
       }
     }
-  }
-
-  .aoe-value {
-    margin: 0 0.3em;
-    align-self: flex-start;
-  }
-
-  .ghs-svg,
-  .placeholder-action .icon {
-    filter: var(--ghs-filter-white);
   }
 
   .action-summon {
@@ -185,6 +218,7 @@
 
   .special-type {
     color: var(--ghs-color-red);
+    filter: var(--ghs-filter-shadow);
   }
 
   .condition {
@@ -203,6 +237,7 @@
         width: 100%;
         height: auto;
         margin: 0;
+        filter: var(--ghs-filter-shadow-thin);
       }
 
       .value {
@@ -293,13 +328,6 @@
 
   .condition-value {
     text-transform: uppercase;
-  }
-
-  .icon {
-    margin: 0.1em;
-    margin-top: 0;
-    height: 1em;
-    width: auto;
   }
 
   .elite {
@@ -472,10 +500,6 @@
     width: 100%;
   }
 
-  .aoe .element-subactions {
-    flex: initial;
-  }
-
   .monster-type {
     text-transform: uppercase;
 
@@ -574,6 +598,16 @@
     .action-condition {
       display: flex;
       justify-content: flex-start;
+    }
+
+    .type,
+    .value,
+    .condition-value,
+    .custom-value,
+    .special-target-value,
+    .monster-type,
+    .summon-value {
+      filter: none !important;
     }
 
     .main-action,
@@ -705,6 +739,10 @@
 
       &.small {
         font-size: 90%;
+
+        .icon {
+          height: 0.8em;
+        }
       }
     }
 
@@ -719,6 +757,10 @@
       align-items: center;
     }
 
+
+    .monster-type {
+      text-transform: initial;
+    }
 
     &:not(.inline) {
       .condition {
@@ -793,7 +835,7 @@
 
     .action-concatenation {
       .action-concatenation-item {
-        display: none;
+        margin: 0;
       }
     }
 
@@ -801,8 +843,6 @@
       flex-basis: 100%;
       flex-shrink: 0;
     }
-
-
 
     .elements {
       .minus {
@@ -839,7 +879,6 @@
           clip-path: polygon(48% 100%, 52% 100%, 52% 15%, 100% 15%, 100% 0%, 0% 0%, 0% 15%, 48.5% 15%);
           z-index: -1;
         }
-
       }
     }
 
@@ -852,6 +891,18 @@
 
       .element-subactions {
         margin-left: -0.2em;
+
+        .custom-value {
+          padding: 0;
+        }
+
+        .subactions,
+        .condition-subactions,
+        .monster-type-subactions,
+        .custom-subactions,
+        .special-target-subactions {
+          margin-left: 0.1em;
+        }
       }
     }
 

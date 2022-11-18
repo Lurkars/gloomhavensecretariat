@@ -109,8 +109,7 @@
           "subActions": [
             {
               "type": "shield",
-              "value": 1,
-              "small": false
+              "value": 1
             }
           ]
         },
@@ -136,19 +135,14 @@
               "valueType": "minus",
               "subActions": [
                 {
-                  "type": "concatenation",
-                  "value": ",",
-                  "subActions": [
-                    {
-                      "type": "attack",
-                      "value": 2,
-                      "valueType": "add"
-                    },
-                    {
-                      "type": "condition",
-                      "value": "immobilize"
-                    }
-                  ],
+                  "type": "attack",
+                  "value": 2,
+                  "valueType": "plus",
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "immobilize",
                   "small": true
                 }
               ]
@@ -207,7 +201,6 @@
               "type": "attack",
               "value": 1,
               "valueType": "minus",
-              "small": false,
               "subActions": [
                 {
                   "type": "range",
@@ -218,8 +211,7 @@
             }
           ]
         }
-      ],
-      "revealed": true
+      ]
     },
     {
       "name": "Forceful Gust",
@@ -238,8 +230,7 @@
             },
             {
               "type": "range",
-              "value": 1,
-              "small": false
+              "value": 1
             }
           ]
         },
@@ -278,10 +269,14 @@
           "valueType": "minus"
         },
         {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus",
+          "type": "grid",
+          "value": "",
           "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus"
+            },
             {
               "type": "area",
               "value": "(2,0,target)|(1,1,target)|(2,1,target)|(1,2,active)|(2,2,target)|(3,2,target)"

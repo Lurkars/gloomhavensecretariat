@@ -122,8 +122,7 @@
             }
           ]
         }
-      ],
-      "revealed": true
+      ]
     },
     {
       "name": "Intense Torch",
@@ -131,13 +130,23 @@
       "initiative": 49,
       "actions": [
         {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
+          "type": "grid",
+          "value": "1",
           "subActions": [
             {
-              "type": "area",
-              "value": "(2,0,target)|(1,1,target)|(1,2,active)"
+              "type": "grid",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 0,
+                  "valueType": "plus"
+                },
+                {
+                  "type": "area",
+                  "value": "(2,0,target)|(1,1,target)|(1,2,active)"
+                }
+              ]
             },
             {
               "type": "element",

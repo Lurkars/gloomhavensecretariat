@@ -48,12 +48,12 @@
       border: none !important;
 
       .ghs-svg {
-        filter: var(--ghs-filter-gray);
+        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
       }
 
       &:hover {
         .ghs-svg {
-          filter: var(--ghs-filter-white);
+          filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
         }
       }
     }

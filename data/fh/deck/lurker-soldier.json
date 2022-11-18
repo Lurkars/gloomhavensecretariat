@@ -11,7 +11,6 @@
         {
           "type": "condition",
           "value": "wound",
-          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -28,7 +27,6 @@
         {
           "type": "shield",
           "value": 1,
-          "small": false,
           "subActions": [
             {
               "type": "element",
@@ -41,8 +39,7 @@
                   "valueType": "add",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }
@@ -56,14 +53,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 1,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         }
       ]
     },
@@ -75,14 +70,12 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         }
       ]
     },
@@ -94,19 +87,17 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 0,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
               "value": "enemyOneAll",
-              "small": false
+              "small": true
             }
           ]
         }
@@ -120,14 +111,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         },
         {
           "type": "attack",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         }
       ]
     },
@@ -140,7 +129,6 @@
           "type": "attack",
           "value": 1,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "custom",
@@ -165,7 +153,6 @@
           "type": "element",
           "value": "ice",
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "condition",
@@ -174,24 +161,21 @@
                 {
                   "type": "specialTarget",
                   "value": "self",
-                  "small": false
+                  "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         },
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "condition",
@@ -211,24 +195,20 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 1,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         },
         {
           "type": "shield",
-          "value": 1,
-          "small": false
+          "value": 1
         },
         {
           "type": "element",
-          "value": "ice",
-          "small": false
+          "value": "ice"
         }
       ]
     }

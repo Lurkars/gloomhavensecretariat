@@ -47,7 +47,12 @@
       "name": "doppelganger",
       "level": 6,
       "health": 10,
-      "movement": 2
+      "movement": 2,
+      "action": {
+        "type": "custom",
+        "value": "You may perform Attack actions as if you occupy the summon's hex.",
+        "small": true
+      }
     },
     {
       "name": "mana-sphere",

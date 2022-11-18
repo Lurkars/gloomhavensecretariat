@@ -13,10 +13,14 @@
           "valueType": "minus"
         },
         {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
+          "type": "grid",
+          "value": "",
           "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            },
             {
               "type": "area",
               "value": "(1,0,target)|(0,1,active)|(1,1,target)"
@@ -31,7 +35,6 @@
             {
               "type": "retaliate",
               "value": 2,
-              "small": false,
               "subActions": [
                 {
                   "type": "range",
@@ -106,14 +109,8 @@
               "valueType": "minus",
               "subActions": [
                 {
-                  "type": "concatenation",
-                  "value": "",
-                  "small": false
-                },
-                {
                   "type": "area",
-                  "value": "(0,1,active)|(1,0,target)|(1,1,target)",
-                  "small": true
+                  "value": "(0,1,active)|(1,0,target)|(1,1,target)"
                 }
               ]
             }
@@ -132,18 +129,24 @@
           "valueType": "plus"
         },
         {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus",
+          "type": "grid",
+          "value": "",
           "subActions": [
+            {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 2,
+                  "small": true
+                }
+              ]
+            },
             {
               "type": "area",
               "value": "(1,0,target)|(0,1,target)|(1,1,target)"
-            },
-            {
-              "type": "range",
-              "value": 2,
-              "small": true
             }
           ]
         },
@@ -191,7 +194,6 @@
             {
               "type": "heal",
               "value": 4,
-              "small": false,
               "subActions": [
                 {
                   "type": "specialTarget",
@@ -223,7 +225,6 @@
           "type": "element",
           "value": "dark",
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "condition",
@@ -234,8 +235,7 @@
                   "value": "self",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }

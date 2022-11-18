@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Action, ActionSpecialTarget, ActionType, ActionValueType } from 'src/app/game/model/Action';
+import { Action, ActionType, ActionValueType } from 'src/app/game/model/Action';
 import { ElementState } from 'src/app/game/model/Element';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Monster } from 'src/app/game/model/Monster';
@@ -17,7 +17,7 @@ import { valueCalc } from '../../helper/valueCalc';
 export class ActionComponent implements OnInit {
 
   @Input() monster: Monster | undefined;
-  @Input() action!: Action;
+  @Input() action!: Action | undefined;
   @Input() relative: boolean = false;
   @Input() inline: boolean = false;
   @Input() right: boolean = false;
@@ -37,8 +37,6 @@ export class ActionComponent implements OnInit {
   ActionValueType = ActionValueType;
 
   invertIcons: ActionType[] = [ActionType.attack, ActionType.fly, ActionType.heal, ActionType.jump, ActionType.loot, ActionType.move, ActionType.range, ActionType.retaliate, ActionType.shield, ActionType.target, ActionType.teleport];
-
-  hasAOE: boolean = false;
 
   getNormalValue(): number | string {
     if (this.monster && this.monster.boss) {
@@ -104,6 +102,10 @@ export class ActionComponent implements OnInit {
   }
 
   getValue(type: MonsterType): number | string {
+    if (!this.action) {
+      return "";
+    }
+
     if (settingsManager.settings.calculate && !this.relative) {
       const stat = this.getStat(type);
       let statValue: number = 0;
@@ -160,9 +162,12 @@ export class ActionComponent implements OnInit {
   }
 
   updateSubActions(): void {
+    if (!this.action) {
+      return;
+    }
     this.subActions = JSON.parse(JSON.stringify(this.action.subActions || []));
 
-    if (settingsManager.settings.fhStyle && [ActionType.element, ActionType.concatenation, ActionType.grid, ActionType.box].indexOf(this.action.type) == -1) {
+    if (settingsManager.settings.fhStyle && [ActionType.element, ActionType.concatenation, ActionType.box].indexOf(this.action.type) == -1) {
       this.elementActions = this.subActions.filter((action) => action.type == ActionType.element);
       this.subActions = this.subActions.filter((action) => action.type != ActionType.element);
     } else {
@@ -176,10 +181,9 @@ export class ActionComponent implements OnInit {
       let eliteStat = this.monster.boss ? undefined : gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
       if (this.action.type == ActionType.attack && this.action.valueType != ActionValueType.add && this.action.valueType != ActionValueType.subtract) {
         if (stat.range && (!this.subActions.some((subAction) => subAction.type == ActionType.range || subAction.type == ActionType.area && ("" + subAction.value).indexOf('active') != -1 || subAction.type == ActionType.specialTarget))) {
-          const area = this.subActions.find((subAction) => subAction.type == ActionType.area);
           const newSubAction = new Action(ActionType.range, 0, ActionValueType.plus);
           newSubAction.small = true;
-          this.additionalSubActions.splice(area ? this.subActions.indexOf(area) + 1 : 0, 0, newSubAction);
+          this.additionalSubActions.push(newSubAction);
         }
 
         if (stat.actions) {
@@ -250,8 +254,6 @@ export class ActionComponent implements OnInit {
       }
 
     }
-
-    this.hasAOE = this.additionalSubActions.some((subAction, index) => index == 0 && subAction.type == ActionType.area);
   }
 
   subActionExists(additionalSubActions: Action[], subAction: Action): boolean {

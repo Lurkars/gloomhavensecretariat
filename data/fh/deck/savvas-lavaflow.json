@@ -61,8 +61,7 @@
           "subActions": [
             {
               "type": "retaliate",
-              "value": 3,
-              "small": true
+              "value": 3
             }
           ]
         }
@@ -82,7 +81,6 @@
         {
           "type": "grid",
           "value": 1,
-          "small": false,
           "subActions": [
             {
               "type": "attack",
@@ -94,8 +92,7 @@
                   "value": 3,
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             },
             {
               "type": "custom",
@@ -121,36 +118,37 @@
           "valueType": "plus"
         },
         {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus",
+          "type": "grid",
+          "value": "",
           "subActions": [
             {
-              "type": "area",
-              "value": "(1,2,target)|(1,1,target)|(2,0,target)|(0,3,active)"
-            },
-            {
-              "type": "element",
-              "value": "earth",
+              "type": "attack",
+              "value": 1,
               "valueType": "minus",
               "subActions": [
                 {
-                  "type": "concatenation",
-                  "value": ",",
+                  "type": "element",
+                  "value": "earth",
+                  "valueType": "minus",
                   "subActions": [
                     {
                       "type": "attack",
                       "value": 2,
-                      "valueType": "add"
+                      "valueType": "add",
+                      "small": true
                     },
                     {
                       "type": "condition",
-                      "value": "immobilize"
+                      "value": "immobilize",
+                      "small": true
                     }
-                  ],
-                  "small": true
+                  ]
                 }
               ]
+            },
+            {
+              "type": "area",
+              "value": "(1,2,target)|(1,1,target)|(2,0,target)|(0,3,active)"
             }
           ]
         }
@@ -170,7 +168,6 @@
           "type": "element",
           "value": "fire",
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "condition",
@@ -186,8 +183,7 @@
                   "value": 4,
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         },
@@ -195,7 +191,6 @@
           "type": "element",
           "value": "earth",
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "condition",
@@ -211,8 +206,7 @@
                   "value": 4,
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }

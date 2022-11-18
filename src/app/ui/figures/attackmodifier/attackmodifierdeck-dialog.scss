@@ -45,12 +45,12 @@
         text-shadow: var(--ghs-outline);
 
         .ghs-svg {
-          filter: var(--ghs-filter-gray);
+          filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
         }
 
         &:hover {
           .ghs-svg {
-            filter: var(--ghs-filter-white);
+            filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
           }
         }
 
@@ -59,7 +59,7 @@
           color: var(--ghs-color-darkgray);
 
           .ghs-svg {
-            filter: var(--ghs-filter-darkgray) !important;
+            filter: var(--ghs-filter-darkgray)  var(--ghs-filter-shadow) !important;
           }
         }
       }
@@ -145,10 +145,10 @@
         align-items: center;
         width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
         height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-        filter: var(--ghs-filter-gray);
+        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
 
         &:hover {
-          filter: var(--ghs-filter-white);
+          filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
         }
       }
     }
@@ -219,10 +219,10 @@
         align-items: center;
         width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
         height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-        color: var(--ghs-filter-white);
+        color: var(--ghs-filter-white) var(--ghs-filter-shadow);
 
         &:hover .ghs-svg {
-          filter: var(--ghs-filter-red);
+          filter: var(--ghs-filter-red) var(--ghs-filter-shadow);
         }
       }
 

@@ -43,6 +43,10 @@
 
     ghs-monster-stats {
       pointer-events: none;
+
+      .extra  {
+        display: none;
+      }
     }
 
     .stats-input {
@@ -126,7 +130,7 @@
           color: var(--ghs-color-white);
 
           .ghs-icon {
-            filter: var(--ghs-filter-white);
+            filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
           }
         }
 

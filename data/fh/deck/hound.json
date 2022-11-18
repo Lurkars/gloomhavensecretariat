@@ -72,7 +72,6 @@
             {
               "type": "attack",
               "value": 0,
-              "small": false,
               "valueType": "plus"
             },
             {
@@ -102,7 +101,6 @@
             {
               "type": "attack",
               "value": 0,
-              "small": false,
               "valueType": "plus"
             },
             {

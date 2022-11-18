@@ -64,7 +64,7 @@
         pointer-events: none;
 
         img {
-          filter: var(--ghs-filter-darkgray);
+          filter: var(--ghs-filter-darkgray) var(--ghs-filter-shadow);
         }
       }
 

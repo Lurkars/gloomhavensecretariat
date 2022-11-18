@@ -90,7 +90,7 @@
   font-size: calc(var(--ghs-unit) * 4);
 
   img {
-    filter: var(--ghs-filter-yellow);
+    filter: var(--ghs-filter-yellow) var(--ghs-filter-shadow);
     width: calc(var(--ghs-unit) * 4);
     height: auto;
     margin-right: calc(var(--ghs-unit) * 1);

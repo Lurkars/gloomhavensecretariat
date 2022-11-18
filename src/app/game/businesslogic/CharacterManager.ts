@@ -234,12 +234,7 @@ export class CharacterManager {
   createSpecialSummon(character: Character, summonData: SummonData) {
     character.summons = character.summons.filter((summon) => summon.name != summonData.name || summon.number != 0 || summon.color != SummonColor.custom);
     if (!summonData.level || summonData.level <= character.level) {
-      let summon: Summon = new Summon(summonData.name, character.level, 0, SummonColor.custom);
-      summon.maxHealth = typeof summonData.health == "number" ? summonData.health : EntityValueFunction(summonData.health, character.level);
-      summon.attack = typeof summonData.attack == "number" ? summonData.attack : EntityValueFunction(summonData.attack, character.level);
-      summon.movement = typeof summonData.movement == "number" ? summonData.movement : EntityValueFunction(summonData.movement, character.level);
-      summon.range = typeof summonData.range == "number" ? summonData.range : EntityValueFunction(summonData.range, character.level);
-      summon.health = summon.maxHealth;
+      let summon: Summon = new Summon(summonData.name, character.level, 0, SummonColor.custom, summonData);
       summon.state = SummonState.true;
       summon.init = false;
       this.addSummon(character, summon);

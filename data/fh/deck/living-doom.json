@@ -10,26 +10,26 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus",
-          "small": false,
+          "type": "grid",
+          "value": "",
           "subActions": [
             {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus"
+            },
+            {
               "type": "area",
-              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)",
-              "small": false
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)"
             }
           ]
         },
         {
           "type": "element",
-          "value": "ice",
-          "small": false
+          "value": "ice"
         }
       ]
     },
@@ -41,14 +41,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "element",
@@ -60,8 +58,7 @@
                   "value": "disarm",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }
@@ -75,14 +72,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "element",
@@ -94,8 +89,7 @@
                   "value": "immobilize",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }
@@ -109,19 +103,16 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "element",
-          "value": "dark",
-          "small": false
+          "value": "dark"
         }
       ]
     },
@@ -133,7 +124,6 @@
         {
           "type": "condition",
           "value": "curse",
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -144,13 +134,11 @@
         },
         {
           "type": "shield",
-          "value": 1,
-          "small": false
+          "value": 1
         },
         {
           "type": "retaliate",
           "value": 2,
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -162,17 +150,14 @@
         {
           "type": "concatenation",
           "value": "",
-          "small": false,
           "subActions": [
             {
               "type": "element",
-              "value": "ice",
-              "small": false
+              "value": "ice"
             },
             {
               "type": "element",
-              "value": "dark",
-              "small": false
+              "value": "dark"
             }
           ]
         }
@@ -186,18 +171,15 @@
         {
           "type": "attack",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "retaliate",
-          "value": 2,
-          "small": false
+          "value": 2
         },
         {
           "type": "element",
-          "value": "dark",
-          "small": false
+          "value": "dark"
         }
       ]
     },
@@ -210,14 +192,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 3,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "condition",
@@ -237,7 +217,6 @@
         {
           "type": "custom",
           "value": "Summon X normal<br>Living Spirits",
-          "small": false,
           "subActions": [
             {
               "type": "custom",

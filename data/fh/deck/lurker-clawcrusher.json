@@ -10,19 +10,16 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "element",
-          "value": "earth",
-          "small": false
+          "value": "earth"
         }
       ]
     },
@@ -34,18 +31,15 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         },
         {
           "type": "grid",
           "value": 1,
-          "small": false,
           "subActions": [
             {
               "type": "attack",
               "value": 0,
-              "small": false,
               "valueType": "plus"
             },
             {
@@ -62,16 +56,14 @@
                       "value": "X is double their %game.action.shield% value instead.",
                       "small": true
                     }
-                  ],
-                  "small": false
+                  ]
                 }
               ],
               "small": true
             }
           ]
         }
-      ],
-      "revealed": true
+      ]
     },
     {
       "name": "Crippling Claw",
@@ -81,14 +73,12 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "condition",
@@ -109,7 +99,6 @@
           "type": "attack",
           "value": 1,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "condition",
@@ -120,13 +109,11 @@
         },
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         },
         {
           "type": "element",
-          "value": "earth",
-          "small": false
+          "value": "earth"
         }
       ]
     },
@@ -139,14 +126,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "element",
@@ -163,8 +148,7 @@
                   "value": "wound",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }
@@ -178,18 +162,15 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "grid",
           "value": 1,
-          "small": false,
           "subActions": [
             {
               "type": "attack",
               "value": 1,
-              "small": false,
               "valueType": "minus"
             },
             {
@@ -206,8 +187,7 @@
                       "value": "X is double their %game.action.shield% value instead.",
                       "small": true
                     }
-                  ],
-                  "small": false
+                  ]
                 }
               ],
               "small": true
@@ -223,18 +203,15 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         },
         {
           "type": "retaliate",
-          "value": 3,
-          "small": false
+          "value": 3
         },
         {
           "type": "element",
-          "value": "earth",
-          "small": false
+          "value": "earth"
         }
       ]
     },
@@ -246,14 +223,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 2,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
@@ -269,8 +244,7 @@
         },
         {
           "type": "element",
-          "value": "earth",
-          "small": false
+          "value": "earth"
         }
       ]
     }

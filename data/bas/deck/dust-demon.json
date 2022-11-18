@@ -57,9 +57,13 @@
       "initiative": 56,
       "actions": [
         {
-          "type": "condition",
-          "value": "stun",
+          "type": "grid",
+          "value": "",
           "subActions": [
+            {
+              "type": "condition",
+              "value": "stun"
+            },
             {
               "type": "area",
               "value": "(0,1,target)|(1,0,target)|(1,1,active)|(2,0,target)|(2,1,target)|(1,2,target)|(2,2,target)"

@@ -5,7 +5,7 @@
   display: flex;
   width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
   height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-  filter: var(--ghs-filter-yellow);
+  filter: var(--ghs-filter-yellow) var(--ghs-filter-shadow);
 
   a {
     display: flex;

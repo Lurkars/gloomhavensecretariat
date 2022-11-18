@@ -10,36 +10,38 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus",
-          "small": false,
+          "type": "grid",
+          "value": "",
           "subActions": [
             {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "muddle",
+                  "small": true
+                }
+              ]
+            },
+            {
               "type": "area",
-              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(2,0,target)|(2,1,target)|(1,2,target)|(2,2,target)",
-              "small": false
-            },
-            {
-              "type": "range",
-              "value": 3,
-              "small": true
-            },
-            {
-              "type": "condition",
-              "value": "muddle",
-              "small": true
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(2,0,target)|(2,1,target)|(1,2,target)|(2,2,target)"
             }
           ]
         },
         {
           "type": "element",
-          "value": "air",
-          "small": false
+          "value": "air"
         }
       ]
     },
@@ -52,7 +54,6 @@
           "type": "attack",
           "value": 0,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -74,8 +75,7 @@
                   "value": "immobilize",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }
@@ -89,14 +89,12 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -107,8 +105,7 @@
         },
         {
           "type": "element",
-          "value": "ice",
-          "small": false
+          "value": "ice"
         }
       ]
     },
@@ -120,14 +117,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -150,8 +145,7 @@
                   "valueType": "add",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }
@@ -171,7 +165,6 @@
         {
           "type": "push",
           "value": 2,
-          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -188,17 +181,14 @@
         {
           "type": "concatenation",
           "value": "",
-          "small": false,
           "subActions": [
             {
               "type": "element",
-              "value": "ice",
-              "small": false
+              "value": "ice"
             },
             {
               "type": "element",
-              "value": "air",
-              "small": false
+              "value": "air"
             }
           ]
         }
@@ -212,14 +202,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -237,8 +225,7 @@
                   "valueType": "add",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }
@@ -253,14 +240,12 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 0,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -271,8 +256,7 @@
         },
         {
           "type": "element",
-          "value": "air",
-          "small": false
+          "value": "air"
         }
       ]
     },
@@ -284,7 +268,6 @@
         {
           "type": "condition",
           "value": "immobilize",
-          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -302,7 +285,6 @@
           "type": "element",
           "value": "air",
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "condition",
@@ -318,8 +300,7 @@
                   "value": 6,
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }

@@ -1,7 +1,7 @@
 {
   "name": "spellweaver",
   "characterClass": "orchid",
-  "gender" : "f",
+  "gender": "f",
   "edition": "gh",
   "color": "#b28ac2",
   "stats": [
@@ -57,7 +57,29 @@
       "health": 2,
       "attack": 2,
       "range": 3,
-      "movement": 3
+      "movement": 3,
+      "action": {
+        "type": "grid",
+        "value": "1",
+        "subActions": [
+          {
+            "type": "custom",
+            "value": "%game.custom.ondeath%",
+            "small": true
+          },
+          {
+            "type": "attack",
+            "value": 3,
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "adjacentEnemies",
+                "small": true
+              }
+            ]
+          }
+        ]
+      }
     }
   ],
   "perks": [

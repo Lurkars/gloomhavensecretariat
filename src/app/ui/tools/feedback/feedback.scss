@@ -14,7 +14,7 @@
     img {
         height: 100%;
         width: auto;
-        filter: var(--ghs-filter-blue);
+        filter: var(--ghs-filter-blue) var(--ghs-filter-shadow);
     }
 
     .text {

@@ -15,7 +15,7 @@
     }
 
     &:hover {
-      filter: var(--ghs-filter-gray);
+      filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
     }
   }
 
@@ -219,7 +219,7 @@
 
             img {
               margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-              filter: var(--ghs-filter-yellow);
+              filter: var(--ghs-filter-yellow) var(--ghs-filter-shadow);
               width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
             }
           }
@@ -243,12 +243,12 @@
           display: flex;
 
           &.add img {
-            filter: var(--ghs-filter-green);
+            filter: var(--ghs-filter-green) var(--ghs-filter-shadow);
           }
 
 
           &.remove img {
-            filter: var(--ghs-filter-red);
+            filter: var(--ghs-filter-red) var(--ghs-filter-shadow);
           }
 
           &.loot {
@@ -256,7 +256,7 @@
             color: var(--ghs-color-yellow);
 
             img {
-              filter: var(--ghs-filter-yellow);
+              filter: var(--ghs-filter-yellow) var(--ghs-filter-shadow);
               width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
             }
           }
@@ -266,7 +266,7 @@
             color: var(--ghs-color-darkgray);
 
             img {
-              filter: var(--ghs-filter-darkgray);
+              filter: var(--ghs-filter-darkgray) var(--ghs-filter-shadow);
             }
           }
         }
@@ -354,7 +354,7 @@
               pointer-events: none;
 
               img {
-                filter: var(--ghs-filter-gray);
+                filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
               }
             }
           }
@@ -518,7 +518,7 @@
         width: 100%;
         height: 100%;
 
-        filter: var(--ghs-filter-yellow);
+        filter: var(--ghs-filter-yellow) var(--ghs-filter-shadow);
 
         img {
           width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
@@ -623,7 +623,7 @@
       align-items: center;
       height: 100%;
 
-      filter: var(--ghs-filter-red);
+      filter: var(--ghs-filter-red) var(--ghs-filter-shadow);
 
       img {
         width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));

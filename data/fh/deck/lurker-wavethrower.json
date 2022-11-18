@@ -10,14 +10,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         },
         {
           "type": "attack",
           "value": 2,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         }
       ]
     },
@@ -35,7 +33,6 @@
           "type": "attack",
           "value": 1,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -54,24 +51,27 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus",
-          "small": false,
+          "type": "grid",
+          "value": "",
           "subActions": [
             {
-              "type": "area",
-              "value": "(1,0,target)|(2,0,target)|(2,1,target)|(0,1,target)|(1,1,target)|(1,2,target)|(2,2,target)",
-              "small": false
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 2,
+                  "small": true
+                }
+              ]
             },
             {
-              "type": "range",
-              "value": 2,
-              "small": true
+              "type": "area",
+              "value": "(1,0,target)|(2,0,target)|(2,1,target)|(0,1,target)|(1,1,target)|(1,2,target)|(2,2,target)"
             }
           ]
         }
@@ -121,19 +121,20 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus",
-          "small": false,
+          "type": "grid",
+          "value": "",
           "subActions": [
             {
+              "type": "attack",
+              "value": 1,
+              "valueType": "minus"
+            },
+            {
               "type": "area",
-              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)",
-              "small": false
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)|(1,2,target)"
             }
           ]
         }
@@ -147,19 +148,20 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
-          "small": false,
+          "type": "grid",
+          "value": "",
           "subActions": [
             {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
               "type": "area",
-              "value": "(0,1,active)|(1,0,target)|(1,1,target)",
-              "small": false
+              "value": "(0,1,active)|(1,0,target)|(1,1,target)"
             }
           ]
         }
@@ -173,24 +175,27 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
-          "small": false,
+          "type": "grid",
+          "value": "",
           "subActions": [
             {
-              "type": "area",
-              "value": "(1,0,target)|(0,1,target)|(1,1,target)",
-              "small": false
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus",
+              "subActions": [
+                {
+                  "type": "range",
+                  "value": 3,
+                  "small": true
+                }
+              ]
             },
             {
-              "type": "range",
-              "value": 3,
-              "small": true
+              "type": "area",
+              "value": "(1,0,target)|(0,1,target)|(1,1,target)"
             }
           ]
         }

@@ -16,7 +16,6 @@
         {
           "type": "heal",
           "value": 1,
-          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
@@ -28,14 +27,12 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "monsterType",
@@ -62,7 +59,6 @@
         {
           "type": "heal",
           "value": 1,
-          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
@@ -74,14 +70,12 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 0,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "monsterType",
@@ -99,8 +93,7 @@
         },
         {
           "type": "element",
-          "value": "ice",
-          "small": false
+          "value": "ice"
         }
       ]
     },
@@ -113,7 +106,6 @@
           "type": "element",
           "value": "ice",
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "concatenation",
@@ -121,21 +113,18 @@
               "subActions": [
                 {
                   "type": "condition",
-                  "value": "bless",
-                  "small": false
+                  "value": "bless"
                 },
                 {
                   "type": "condition",
-                  "value": "strengthen",
-                  "small": false
+                  "value": "strengthen"
                 },
                 {
                   "type": "specialTarget",
                   "value": "self",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         },
@@ -143,7 +132,6 @@
           "type": "attack",
           "value": 0,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -162,7 +150,6 @@
         {
           "type": "condition",
           "value": "invisible",
-          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
@@ -175,7 +162,6 @@
           "type": "element",
           "value": "ice",
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "concatenation",
@@ -183,28 +169,24 @@
               "subActions": [
                 {
                   "type": "condition",
-                  "value": "bless",
-                  "small": false
+                  "value": "bless"
                 },
                 {
                   "type": "condition",
-                  "value": "strengthen",
-                  "small": false
+                  "value": "strengthen"
                 },
                 {
                   "type": "specialTarget",
                   "value": "self",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         },
         {
           "type": "element",
-          "value": "ice",
-          "small": false
+          "value": "ice"
         }
       ]
     },
@@ -216,14 +198,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "monsterType",
@@ -241,8 +221,7 @@
         },
         {
           "type": "element",
-          "value": "ice",
-          "small": false
+          "value": "ice"
         }
       ]
     },
@@ -254,14 +233,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "monsterType",
@@ -279,8 +256,7 @@
         },
         {
           "type": "element",
-          "value": "ice",
-          "small": false
+          "value": "ice"
         }
       ]
     },
@@ -292,7 +268,6 @@
         {
           "type": "heal",
           "value": 3,
-          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
@@ -305,12 +280,10 @@
           "type": "element",
           "value": "ice",
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "shield",
-              "value": 2,
-              "small": false
+              "value": 2
             }
           ]
         }
@@ -325,7 +298,6 @@
           "type": "attack",
           "value": 0,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "monsterType",
@@ -345,12 +317,10 @@
           "type": "element",
           "value": "ice",
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "retaliate",
-              "value": 2,
-              "small": false
+              "value": 2
             }
           ]
         }

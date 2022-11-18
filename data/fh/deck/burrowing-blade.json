@@ -23,8 +23,7 @@
                   "value": "",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         },
@@ -32,7 +31,6 @@
           "type": "attack",
           "value": 2,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
@@ -64,8 +62,7 @@
                   "value": "",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         },
@@ -73,7 +70,6 @@
           "type": "attack",
           "value": 2,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
@@ -97,7 +93,6 @@
         {
           "type": "condition",
           "value": "invisible",
-          "small": false,
           "subActions": [
             {
               "type": "specialTarget",
@@ -108,8 +103,7 @@
         },
         {
           "type": "element",
-          "value": "earth",
-          "small": false
+          "value": "earth"
         }
       ]
     },
@@ -122,7 +116,6 @@
           "type": "move",
           "value": 0,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "jump",
@@ -135,7 +128,6 @@
           "type": "attack",
           "value": 1,
           "valueType": "minus",
-          "small": false,
           "subActions": [
             {
               "type": "target",
@@ -146,8 +138,7 @@
         },
         {
           "type": "element",
-          "value": "earth",
-          "small": false
+          "value": "earth"
         }
       ]
     },
@@ -160,7 +151,6 @@
           "type": "move",
           "value": 0,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "jump",
@@ -171,13 +161,12 @@
         },
         {
           "type": "custom",
-          "value": "All enenmies within %game.action.range% 3 suffer %game.damage:2%.",
+          "value": "All enenmies within %game.action.range% 2 suffer %game.damage:2%.",
           "small": true
         },
         {
           "type": "element",
-          "value": "earth",
-          "small": false
+          "value": "earth"
         }
       ]
     },
@@ -201,29 +190,30 @@
                   "value": "",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         },
         {
           "type": "concatenation",
           "value": "and:2",
-          "small": false,
           "subActions": [
             {
               "type": "condition",
-              "value": "curse",
-              "small": false
+              "value": "curse"
             },
             {
               "type": "condition",
-              "value": "muddle",
-              "small": false
+              "value": "muddle"
             },
             {
-              "type": "specialTarget",
-              "value": "enemiesRange:2",
+              "type": "target",
+              "value": "%game.target.all%",
+              "small": true
+            },
+            {
+              "type": "range",
+              "value": 2,
               "small": true
             }
           ]
@@ -238,14 +228,12 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "minus",
-          "small": false
+          "valueType": "minus"
         },
         {
           "type": "attack",
           "value": 1,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "element",
@@ -258,8 +246,7 @@
                   "valueType": "add",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }
@@ -274,7 +261,6 @@
           "type": "attack",
           "value": 2,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "element",
@@ -287,8 +273,7 @@
                   "valueType": "add",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }

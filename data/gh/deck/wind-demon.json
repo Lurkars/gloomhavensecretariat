@@ -143,13 +143,23 @@
           "valueType": "plus"
         },
         {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
+          "type": "grid",
+          "value": "1",
           "subActions": [
             {
-              "type": "area",
-              "value": "(1,0,target)|(2,0,target)|(0,1,active)|(1,1,target)"
+              "type": "grid",
+              "value": "",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 0,
+                  "valueType": "plus"
+                },
+                {
+                  "type": "area",
+                  "value": "(1,0,target)|(2,0,target)|(0,1,active)|(1,1,target)"
+                }
+              ]
             },
             {
               "type": "element",

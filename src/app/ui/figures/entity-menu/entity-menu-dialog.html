@@ -22,9 +22,9 @@
     </ng-container>
     <ng-container *ngIf="gameManager.isMonster(data.figure) && gameManager.isMonsterEntity(data.entity)">
       <img class="standee" [src]="gameManager.monsterManager.monsterThumbnail(gameManager.toMonster(data.figure))" />
+      {{'data.monster.' + data.figure.name | ghsLabel}}&nbsp;
       <span class="standee-number"
-        [ngClass]="gameManager.toMonsterEntity(data.entity).type">#{{gameManager.toMonsterEntity(data.entity).number}}</span>&nbsp;{{'data.monster.'
-      + data.figure.name | ghsLabel}}
+        [ngClass]="gameManager.toMonsterEntity(data.entity).type">#{{gameManager.toMonsterEntity(data.entity).number}}</span>
     </ng-container>
 
     <ng-container *ngIf="gameManager.isCharacter(data.figure) && gameManager.isSummon(data.entity)">
@@ -186,6 +186,14 @@
           <span class="stat" (click)="openLevelDialog()">
             <img class="ghs-svg" src="./assets/images/action/range.svg" />
             <span [value-calc]="gameManager.toSummon(data.entity).range" [empty]="true">></span>
+          </span>
+
+          <span class="action" *ngIf="gameManager.toSummon(data.entity).action">
+            <ghs-action [action]="gameManager.toSummon(data.entity).action"></ghs-action>
+          </span>
+
+          <span class="action" *ngIf="gameManager.toSummon(data.entity).additionalAction">
+            <ghs-action [action]="gameManager.toSummon(data.entity).additionalAction"></ghs-action>
           </span>
         </div>
       </ng-container>

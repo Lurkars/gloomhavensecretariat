@@ -26,8 +26,7 @@
         },
         {
           "type": "element",
-          "value": "earth",
-          "small": false
+          "value": "earth"
         }
       ]
     },
@@ -91,8 +90,7 @@
                   "valueType": "add",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }
@@ -162,8 +160,7 @@
         },
         {
           "type": "element",
-          "value": "dark",
-          "small": false
+          "value": "dark"
         }
       ]
     },
@@ -175,13 +172,11 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Ooze suffers %game.damage:2%",
-          "small": false
+          "value": "Ooze suffers %game.damage:2%"
         },
         {
           "type": "custom",
-          "value": "Summon one normal Ooze with<br>a hit point value equal to the<br>summoning Ooze's cucrent hit point<br>value (limited by a normal Ooze's<br>maximum hit point values).",
-          "small": false
+          "value": "Summon one normal Ooze with<br>a hit point value equal to the<br>summoning Ooze's cucrent hit point<br>value (limited by a normal Ooze's<br>maximum hit point values)."
         }
       ]
     },
@@ -192,13 +187,11 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Ooze suffers %game.damage:2%",
-          "small": false
+          "value": "Ooze suffers %game.damage:2%"
         },
         {
           "type": "custom",
-          "value": "Summon one normal Ooze with<br>a hit point value equal to the<br>summoning Ooze's cucrent hit point<br>value (limited by a normal Ooze's<br>maximum hit point values).",
-          "small": false
+          "value": "Summon one normal Ooze with<br>a hit point value equal to the<br>summoning Ooze's cucrent hit point<br>value (limited by a normal Ooze's<br>maximum hit point values)."
         }
       ]
     },
@@ -236,8 +229,7 @@
                   "valueType": "add",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }

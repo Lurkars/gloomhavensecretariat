@@ -24,8 +24,7 @@
         },
         {
           "type": "element",
-          "value": "any",
-          "small": false
+          "value": "any"
         }
       ]
     },
@@ -67,12 +66,11 @@
           "type": "attack",
           "value": 0,
           "valueType": "plus",
-          "small": false,
           "subActions": [
             {
               "type": "range",
               "value": 3,
-              "small": false
+              "small": true
             }
           ]
         }
@@ -138,8 +136,7 @@
                   "valueType": "add",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }
@@ -206,8 +203,7 @@
                   "valueType": "add",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }

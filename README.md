@@ -2,9 +2,9 @@
 
 [Latest Online Version](https://gloomhaven-secretary.de)
 
-*Gloomhaven Secretary* is a **Gloomhaven companion app** and does bookkeeping of all entities values to gain more focus on gameplay. It is an open source web app made with [Angular](https://angular.io/).
+*Gloomhaven Secretary* is a **Gloomhaven/Frosthaven companion app** and does bookkeeping of all entities values to gain more focus on gameplay. It is an open source web app made with [Angular](https://angular.io/).
 
-As GHS is a web application no installation is required and it runs in every modern browser even on mobile, still it can also be [installed](#install).
+As GHS is a web application no installation is required and it runs in every modern browser even on mobile, still it can also be [installed](#install) for offline usage.
 
 For usage with multiple clients sharing the same game, the server component [Gloomhaven Secretary Server](https://github.com/Lurkars/ghs-server) is required. A public instance is available under `gloomhaven-secretary.de` port `8443` with `secure` option. (I also manage a public server list, so please contact me, if you're running a public instance yourself.)
 
@@ -152,9 +152,11 @@ Assets/Data used:
 
 - [Creator Pack by Isaac Childres](https://boardgamegeek.com/thread/1733586/files-creation) CC BY-NC-SA 4.0
 - [Worldhaven](https://github.com/any2cards/worldhaven)
-- [FrosthavenAssistant](https://github.com/Tarmslitaren/FrosthavenAssistant)
+- [Frosthaven spoiler images](https://drive.google.com/drive/folders/18UUgAemymABv5ljdCn3myonk8EUfNNu3) ([u/Juar99](https://www.reddit.com/user/Juar99))
+- [Nerdhaven Images](https://drive.google.com/drive/folders/16wSfzvrSlpbGY8l4eWn8dnHjDUF7A2_e)
+- [X-Haven Assistant](https://github.com/Tarmslitaren/FrosthavenAssistant)
 - [Gloomhaven Item DB](https://github.com/heisch/gloomhaven-item-db)
-- [Haven Keeper](https://github.com/PrimalZed/haven-keeper)
+- [Virtual Gloomhaven Board](https://github.com/PurpleKingdomGames/virtual-gloomhaven-board)
 - some other assets used are public domain licensed
 
 Source code is licenced under [AGPL](/LICENSE)

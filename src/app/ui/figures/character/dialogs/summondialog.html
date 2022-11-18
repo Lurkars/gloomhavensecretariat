@@ -33,7 +33,7 @@
         </span>
         <label>{{'data.summon.' + summonData.name | ghsLabel}}</label>
       </span>
-      <span class="summon">
+      <span class="summon" *ngIf="!summonFilter">
         <span class="summon-button" (click)="addCustomSummon()" [ngClass]="{'disabled' : customDisabled()}">
           <span class="image">
             <img src="./assets/images/summons/{{summonColor}}.png">

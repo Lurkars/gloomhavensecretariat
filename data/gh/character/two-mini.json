@@ -1,7 +1,7 @@
 {
   "name": "two-mini",
   "characterClass": "vermling",
-  "gender" : "m",
+  "gender": "m",
   "edition": "gh",
   "color": "#b4765a",
   "spoiler": true,
@@ -56,7 +56,11 @@
       "level": 1,
       "health": 4,
       "attack": 1,
-      "movement": 2
+      "movement": 2,
+      "action": {
+        "type": "condition",
+        "value": "poison"
+      }
     },
     {
       "name": "tattered-wolf",
@@ -70,33 +74,58 @@
       "level": 1,
       "health": 2,
       "attack": 2,
-      "movement": 4
+      "movement": 4,
+      "action": {
+        "type": "fly",
+        "value": ""
+      }
     },
     {
       "name": "swamp-alligator",
       "level": 3,
       "health": 5,
       "attack": 3,
-      "movement": 2
+      "movement": 2,
+      "action": {
+        "type": "condition",
+        "value": "immobilize"
+      }
     },
     {
       "name": "monolith",
       "level": 5,
-      "health": 15
+      "health": 15,
+      "action": {
+        "type": "shield",
+        "value": 2
+      }
     },
     {
       "name": "wind-totem",
       "level": 7,
       "health": 8,
-      "attack": 1
+      "attack": 1,
+      "action": {
+        "type": "specialTarget",
+        "value": "adjacentEnemies"
+      },
+      "additionalAction": {
+        "type": "push",
+        "value": 2
+      }
     },
     {
       "name": "spirit-banner",
       "level": 9,
-      "health": 8
+      "health": 8,
+      "action": {
+        "type": "custom",
+        "value": "All adjacent allies add +2 %game.action.attack% to all their attacks.",
+        "small": true
+      }
     }
   ],
-  "perks":  [
+  "perks": [
     {
       "type": "remove",
       "count": 1,

@@ -34,17 +34,19 @@
     "special": [
       [
         {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
+          "type": "grid",
+          "value": "",
           "subActions": [
             {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            },
+            {
               "type": "area",
-              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(2,0,target)|(2,1,target)|(1,2,target)|(2,2,target)",
-              "small": false
+              "value": "(0,1,target)|(1,0,target)|(1,1,target)|(2,0,target)|(2,1,target)|(1,2,target)|(2,2,target)"
             }
-          ],
-          "small": false
+          ]
         }
       ],
       [
