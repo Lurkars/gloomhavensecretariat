@@ -12,6 +12,7 @@
   --ghs-character-color: #000;
   border-radius: calc(var(--ghs-unit) * 0.5);
   filter: var(--ghs-filter-outline);
+  transition: background-color 150ms ease-in-out, background-image 150ms ease-in-out, background-blend-mode 150ms ease-in-out;
 
   &.dimmed {
     background-color: var(--ghs-color-gray);

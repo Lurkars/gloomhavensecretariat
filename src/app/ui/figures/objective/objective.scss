@@ -10,6 +10,7 @@
   background-size: 100% 100%;
   display: flex;
   border-radius: calc(var(--ghs-unit) * 0.5);
+  transition: background-color 150ms ease-in-out, background-image 150ms ease-in-out, background-blend-mode 150ms ease-in-out;
 
   &.escort {
     background-color: var(--ghs-color-red);
