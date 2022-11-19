@@ -191,7 +191,8 @@
         <img *ngIf="getValues(action)[0] != 'slot' && getValues(action)[0] != 'slotXp'" class="overlay"
           src="./assets/images/action/card/overlay/{{getValues(action)[0]}}.svg" />
         <span *ngIf="getValues(action)[0] == 'slot' || getValues(action)[0] == 'slotXp'" class="overlay"
-          [style.mask-image]="'url(\'/assets/images/action/card/overlay/' + getValues(action)[0] +'.svg\')'">
+          [style.mask-image]="'url(\'/assets/images/action/card/overlay/' + getValues(action)[0] +'.svg\')'"
+          [style.-webkit-mask-image]="'url(\'/assets/images/action/card/overlay/' + getValues(action)[0] +'.svg\')'">
         </span>
         <span class="value" *ngIf="getValues(action).length > 1">{{getValues(action)[1]}}</span>
       </div>

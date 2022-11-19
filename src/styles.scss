@@ -57,6 +57,7 @@ body {
   margin: 0;
   font-family: var(--ghs-font-normal);
   overscroll-behavior-y: contain;
+  overflow: hidden;
   --ghs-font-normal: 'ghs-normal';
   --ghs-font-text: 'ghs-text';
   --ghs-font-extra: 'ghs-extra';
@@ -97,10 +98,8 @@ body {
 
 
   &.no-select {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
+    -webkit-user-select: none;
   }
 
   &.fh {
@@ -142,6 +141,7 @@ body {
     --ghs-dialog-factor: 1.8;
     --ghs-text-factor: 1.3;
     --ghs-small-text-factor: 0.7;
+    --ghs-filter-outline: drop-shadow(1px 1px 1px var(--ghs-color-darkgray)) drop-shadow(-1px -1px 1px var(--ghs-color-darkgray));
   }
 
   @media (orientation: landscape) {
@@ -157,6 +157,7 @@ body {
     --ghs-dialog-factor: 1.6;
     --ghs-text-factor: 1.2;
     --ghs-small-text-factor: 0.85;
+    --ghs-filter-outline: drop-shadow(1px 1px 1px var(--ghs-color-darkgray)) drop-shadow(-1px -1px 1px var(--ghs-color-darkgray));
   }
 
   @media (orientation: landscape) {
@@ -176,6 +177,7 @@ body {
     --ghs-dialog-factor: 1.3;
     --ghs-text-factor: 1.1;
     --ghs-small-text-factor: 1;
+    --ghs-filter-outline: drop-shadow(2px 2px 2px var(--ghs-color-darkgray)) drop-shadow(-2px -2px 2px var(--ghs-color-darkgray));
   }
 
   @media (orientation: landscape) {
@@ -625,6 +627,7 @@ input[type="number"] {
   border-style: solid;
   border-color: var(--ghs-color-gray);
   user-select: auto;
+  -webkit-user-select: auto;
   font-family: var(--ghs-font-text);
   font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
 }

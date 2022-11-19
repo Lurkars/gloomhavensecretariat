@@ -133,7 +133,21 @@
 
     100% {
       top: 16.5%;
-      left: 68.5%;
+      left: 75%;
+      transform: rotate(25deg);
+    }
+  }
+
+  @keyframes attackmodifier-rolling {
+    0% {
+      transform: translateX(-61.85%) rotate(25deg);
+    }
+
+    70% {
+      transform: translateX(-61.85%) rotate(25deg);
+    }
+
+    100% {
       transform: rotate(25deg);
     }
   }
@@ -149,7 +163,7 @@
   .last {
     position: absolute;
     top: 16.5%;
-    left: 68.5%;
+    left: 75%;
     transform: rotate(25deg);
     z-index: 0;
 
@@ -196,6 +210,12 @@
     .last {
       cursor: wait !important;
       animation: attackmodifier-last 1000ms ease-in-out;
+      animation-iteration-count: 1;
+    }
+
+    .disgarded.rolling {
+      cursor: wait !important;
+      animation: attackmodifier-rolling 1000ms ease-in-out;
       animation-iteration-count: 1;
     }
   }

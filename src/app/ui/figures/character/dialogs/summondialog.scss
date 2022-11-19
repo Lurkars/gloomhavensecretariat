@@ -203,6 +203,7 @@
         border-color: var(--ghs-color-gray);
         border-radius: calc(var(--ghs-unit) * 1);
         user-select: auto;
+        -webkit-user-select: auto;
         font-family: var(--ghs-font-title);
         font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
       }

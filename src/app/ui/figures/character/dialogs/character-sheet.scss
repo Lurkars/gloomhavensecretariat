@@ -708,6 +708,7 @@
       border-bottom-style: solid;
       border-bottom-color: var(--ghs-color-gray);
       user-select: auto;
+      -webkit-user-select: auto;
       font-family: var(--ghs-font-text);
       font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
       line-height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
@@ -720,6 +721,7 @@
       background-color: transparent;
       border: none;
       user-select: auto;
+      -webkit-user-select: auto;
       font-family: var(--ghs-font-text);
       font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
       line-height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
@@ -731,6 +733,7 @@
       background-color: transparent;
       border: none;
       user-select: auto;
+      -webkit-user-select: auto;
       font-family: var(--ghs-font-text);
       font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
       line-height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));

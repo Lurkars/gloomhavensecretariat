@@ -360,9 +360,13 @@
                         align-items: center;
                         background-color: var(--ghs-ability-color);
                         mask-image: url('~/src/assets/images/level.svg');
+                        -webkit-mask-image: url('~/src/assets/images/level.svg');
                         mask-size: 115% 170%;
+                        -webkit-mask-size: 115% 170%;
                         mask-repeat: no-repeat;
+                        -webkit-mask-repeat: no-repeat;
                         mask-position: 60% 66%;
+                        -webkit-mask-position: 60% 66%;
 
                         .text {
                             background: inherit;
