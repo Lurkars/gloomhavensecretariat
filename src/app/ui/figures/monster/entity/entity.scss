@@ -76,6 +76,8 @@
       border-top-left-radius: 25%;
       border-top-right-radius: 25%;
       background-color: var(--ghs-color-black);
+      filter: var(--ghs-filter-outline);
+
 
       .background-image {
         position: absolute;

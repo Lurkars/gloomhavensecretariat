@@ -38,8 +38,8 @@ export class Summon implements Entity {
 
   // from entity
   level: number;
-  health: number;
-  maxHealth: number = 0;
+  health: number = 2;
+  maxHealth: number = 2;
   entityConditions: EntityCondition[] = [];
   markers: string[] = [];
 

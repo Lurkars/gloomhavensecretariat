@@ -5,9 +5,13 @@
   align-items: center;
   width: calc(var(--ghs-unit) * 98);
 
-  ghs-monster-ability,
+  ghs-monster-ability-card,
   ghs-monster-stats,
   ghs-monster-image {
+    &:not(ghs-monster-image) {
+      filter: var(--ghs-filter-outline);
+    }
+
     transition: filter 150ms ease-in-out;
   }
 
@@ -17,6 +21,10 @@
     ghs-monster-stats,
     ghs-monster-image {
       filter: grayscale(100%);
+
+      &:not(ghs-monster-image) {
+        filter: grayscale(100%) var(--ghs-filter-outline);
+      }
     }
   }
 

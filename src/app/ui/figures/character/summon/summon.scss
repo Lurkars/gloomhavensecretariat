@@ -48,6 +48,7 @@
       border-bottom-width: calc(var(--ghs-unit) * 0.35 * var(--ghs-text-factor));
       border-top-left-radius: 25%;
       border-top-right-radius: 25%;
+      filter: var(--ghs-filter-outline);
     }
 
     .health {

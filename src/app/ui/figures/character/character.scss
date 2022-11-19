@@ -4,23 +4,14 @@
   height: 100%;
   width: calc(var(--ghs-unit) * 98);
   height: calc(var(--ghs-unit) * 14);
-  background-image: url('~/src/assets/images/character/char-mat.png');
   background-color: var(--ghs-character-color);
+  background-image: url('~/src/assets/images/character/char-mat.png'), url('~/src/assets/images/character/char-mat.png');
+  background-blend-mode: multiply, overlay;
   background-size: 100% 100%;
   display: flex;
   --ghs-character-color: #000;
   border-radius: calc(var(--ghs-unit) * 0.5);
-
-  &::before {
-    content: ' ';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: var(--ghs-character-color);
-    opacity: 0.2;
-    pointer-events: none;
-    z-index: -1;
-  }
+  filter: var(--ghs-filter-outline);
 
   &.dimmed {
     background-color: var(--ghs-color-gray);
