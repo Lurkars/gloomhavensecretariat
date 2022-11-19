@@ -15,6 +15,8 @@
 
   &.dimmed {
     background-color: var(--ghs-color-gray);
+    background-image: url('~/src/assets/images/character/char-mat.png');
+    background-blend-mode: multiply;
 
     ghs-character-image,
     ghs-character-initiative,
@@ -366,6 +368,8 @@
 
   &.off {
     background-color: var(--ghs-color-gray);
+    background-image: url('~/src/assets/images/character/char-mat.png');
+    background-blend-mode: multiply;
 
     .title,
     .conditions,
