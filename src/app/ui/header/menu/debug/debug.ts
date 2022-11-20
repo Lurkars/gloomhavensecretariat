@@ -1,7 +1,5 @@
 import { Component } from "@angular/core";
-import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { GameState } from "src/app/game/model/Game";
 
 @Component({
   selector: 'ghs-debug-menu',
@@ -9,8 +7,5 @@ import { GameState } from "src/app/game/model/Game";
   styleUrls: ['../menu.scss', 'debug.scss']
 })
 export class SettingsDebugMenuComponent {
-
   settingsManager: SettingsManager = settingsManager;
-
-
 }

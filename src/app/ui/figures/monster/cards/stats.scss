@@ -109,7 +109,7 @@
       font-size: calc(var(--ghs-unit) * 2.7 * var(--ghs-fontsize));
       padding-top: calc(var(--ghs-unit) * 0);
       line-height: calc(var(--ghs-unit) * 3.40);
-      width: calc(var(--ghs-unit) * 18 * var(--ghs-fontsize));
+      width: calc(var(--ghs-unit) * 18);
 
       &.end {
         justify-self: end;

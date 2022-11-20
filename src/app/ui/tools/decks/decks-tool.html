@@ -1,5 +1,6 @@
 <div class="container">
   <div class="menu">
+    <a  class="back" [routerLink]="'/'">{{'tools.backToGhs' | ghsLabel}}</a>
     <label>
       {{'settings.edition' | ghsLabel}}
       <select [(ngModel)]="edition" (change)="update(); updateQueryParams()">

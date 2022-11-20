@@ -1,3 +1,5 @@
+<a class="back" [routerLink]="'/'">{{'tools.backToGhs' | ghsLabel}}</a>
+
 <div class="characters">
   <ng-container *ngFor="let character of characters">
     <div class="character" *ngIf="character.attackModifierDeck.cards.length > 0">

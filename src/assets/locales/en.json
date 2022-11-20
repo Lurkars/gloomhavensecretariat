@@ -134,6 +134,7 @@
     "all": "All Editions"
   },
   "editor": {
+    ".": "Editor",
     "action": {
       "add": "Add Action",
       "addBottom": "Add Bottom Action",
@@ -173,7 +174,7 @@
       "new": "New Character"
     },
     "deck": {
-      ".": "Abilities Deck",
+      ".": "Abilities Deck Editor",
       "abilityName": "Ability Name",
       "addAbility": "Add Ability",
       "character": "Character Deck",
@@ -441,7 +442,7 @@
       "focusEnemyFarthest": "Focus on the enemy<br>farthest away.",
       "self": "Self",
       "selfAllies": "Self and all allies",
-      "selfAlliesAdjacentAffect": "Aff%game.affect%ect self and all adjacent allies",
+      "selfAlliesAdjacentAffect": "%game.affect%ect self and all adjacent allies",
       "selfAlliesAffect": "%game.affect% self and all allies",
       "selfAlliesRange": "%game.target% self and all allies within %game.action.range% {0}",
       "targets": "All targets"
@@ -661,7 +662,7 @@
     "allyAttackModifierDeck": "Attack Modifier Deck for allies",
     "applyConditions": "Automatic apply conditions",
     "autoscroll": "Autoscroll",
-    "automaticAttackModifierFullscreen" : "Autom. fullscreen AM Deck",
+    "automaticAttackModifierFullscreen": "Autom. fullscreen AM Deck",
     "barsize": {
       ".": "Barsize",
       "dec": "Decrease barsize",
@@ -673,7 +674,7 @@
     "calc": "Show calculated stats",
     "calcStats": "Add stats values to abilities",
     "debug": {
-      ".": "Debug Settings",
+      ".": "Debug Settings/Tools",
       "rightClick": "Always enable Right-Click"
     },
     "disableColumns": "Disable column layout",
@@ -911,6 +912,10 @@
     }
   },
   "tools": {
+    ".": "Tools",
+    "attackModifier": "Attack Modifier",
+    "backToGhs": "Back to GHS",
+    "decks": "Ability Decks",
     "feedback": {
       ".": "Feedback",
       "githubIssue": "File a GitHub Issue",

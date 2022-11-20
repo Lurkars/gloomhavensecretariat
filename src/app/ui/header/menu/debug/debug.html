@@ -1,13 +1,37 @@
 <div class="menu-container debug">
-  <div class="columns">
-    <div class="column">
-      <div class="line">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.debugRightClick"
-            (change)="settingsManager.setDebugRightClick(!settingsManager.settings.debugRightClick)">
-          {{'settings.debug.rightClick' | ghsLabel}}
-        </label>
-      </div>
-    </div>
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.debugRightClick"
+        (change)="settingsManager.setDebugRightClick(!settingsManager.settings.debugRightClick)">
+      {{'settings.debug.rightClick' | ghsLabel}}
+    </label>
+  </div>
+  <div class="line title span">
+    <label>{{'editor' | ghsLabel}}</label>
+  </div>
+  <div class="line">
+    <a [routerLink]="'/editor/monster'">{{'editor.monster' | ghsLabel}}</a>
+  </div>
+  <div class="line">
+    <a [routerLink]="'/editor/character'">{{'editor.character' | ghsLabel}}</a>
+  </div>
+  <div class="line">
+    <a [routerLink]="'/editor/deck'">{{'editor.deck' | ghsLabel}}</a>
+  </div>
+  <div class="line">
+    <a [routerLink]="'/editor/edition'">{{'editor.edition' | ghsLabel}}</a>
+  </div>
+  <div class="line title span">
+    <label>{{'tools' | ghsLabel}}</label>
+  </div>
+  <div class="line">
+    <a [routerLink]="'/tools/decks'">{{'tools.decks' | ghsLabel}}</a>
+  </div>
+  <div class="line">
+    <a [routerLink]="'/tools/attackmodifier'">{{'tools.attackModifier' | ghsLabel}}</a>
+  </div>
+  <div class="separator"></div>
+  <div class="line">
+    <a [routerLink]="'/'">{{'tools.backToGhs' | ghsLabel}}</a>
   </div>
 </div>

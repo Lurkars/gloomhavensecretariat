@@ -559,7 +559,7 @@
     "calc": "Afficher les stats calculées",
     "calcStats": "Ajouter les valeurs des stats aux capacités",
     "debug": {
-      ".": "Paramètres de debug",
+      ".": "Paramètres de debug/instruments",
       "rightClick": "Toujour activer le clic droit"
     },
     "disableColumns": "Désactiver affichage en colonnes",

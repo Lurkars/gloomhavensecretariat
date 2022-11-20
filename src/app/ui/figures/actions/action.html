@@ -243,11 +243,12 @@
             <span *ngIf="getEliteValue() && getNormalValue() != getEliteValue()" class="elite"
               [value-calc]="getEliteValue()" [level]="monster && monster.level"></span>
           </span>
-          <span *ngIf="relative" [i18n]="getNormalValue() + ''" [relative]="relative"><span
-              *ngIf="getNormalValue() != getEliteValue()">/<span class="elite" [i18n]="getEliteValue() + ''"
+          <span *ngIf="relative" [i18n]="getNormalValue() + ''" [relative]="relative">
+            <span *ngIf="getNormalValue() != getEliteValue()">/<span class="elite" [i18n]="getEliteValue() + ''"
                 [relative]="relative"></span>
-            </span><span *ngIf="!settingsManager.settings.fhStyle">&nbsp;</span>
+            </span>
           </span>
+          <span *ngIf="!settingsManager.settings.fhStyle">&nbsp;</span>
         </span>
 
         <span class="type" *ngIf="action.type == ActionType.target && action.value > 1">{{'game.action.targets' |
