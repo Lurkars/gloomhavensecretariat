@@ -565,7 +565,7 @@
     "calc": "Zeige berechnete Werte an",
     "calcStats": "Füge Monsterwerte zu Fähigkeiten zu",
     "debug": {
-      ".": "Debug Einstellung",
+      ".": "Debug Einstellung/Werkzeuge",
       "rightClick": "Rechtsklick immer erlauben"
     },
     "disableColumns": "Zweispaltiges Layout deaktivieren",
