@@ -5,7 +5,7 @@
     <a (click)="shuffle()">{{'game.cards.shuffle' | ghsLabel}}</a>
     <label><input type="checkbox" (click)="toggleEdit()" [checked]="edit">{{'game.cards.edit' | ghsLabel}}</label>
     <div class="insert-menu">
-      <a *ngIf="edit" (click)="draw()">{{'game.cards.drawAnother' | ghsLabel}}</a>
+      <a *ngIf="edit || bottomActions" (click)="draw()">{{'game.cards.drawAnother' | ghsLabel}}</a>
       <a *ngIf="edit" (click)="restoreDefault()">{{'game.cards.restore' | ghsLabel}}</a>
       <a *ngIf="edit" (click)="defaultSort()">{{'game.cards.defaultSort' | ghsLabel}}</a>
       <label *ngIf="gameManager.monsterManager.getSameDeckMonster(monster)"><input type="checkbox"

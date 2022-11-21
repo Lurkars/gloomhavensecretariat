@@ -36,24 +36,18 @@
       "shuffle": true,
       "actions": [
         {
-          "type": "grid",
-          "value": "",
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
-            {
-              "type": "attack",
-              "value": 0,
-              "valueType": "plus",
-              "subActions": [
-                {
-                  "type": "pierce",
-                  "value": 3,
-                  "small": true
-                }
-              ]
-            },
             {
               "type": "area",
               "value": "(3,0,target)|(2,1,target)|(2,2,target)|(1,3,target)|(1,4,target)|(0,5,active)"
+            },
+            {
+              "type": "pierce",
+              "value": 3,
+              "small": true
             }
           ]
         }
@@ -65,24 +59,18 @@
       "shuffle": true,
       "actions": [
         {
-          "type": "grid",
-          "value": "",
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
-            {
-              "type": "attack",
-              "value": 0,
-              "valueType": "plus",
-              "subActions": [
-                {
-                  "type": "pierce",
-                  "value": 3,
-                  "small": true
-                }
-              ]
-            },
             {
               "type": "area",
               "value": "(3,0,target)|(2,1,target)|(2,2,target)|(1,3,target)|(1,4,target)|(0,5,active)"
+            },
+            {
+              "type": "pierce",
+              "value": 3,
+              "small": true
             }
           ]
         }

@@ -164,6 +164,12 @@ export class GameManager {
   }
 
   sortFiguresByTypeAndName(a: Figure, b: Figure): number {
+    if (a.off && !b.off) {
+      return 1;
+    } else if (!a.off && b.off) {
+      return -1;
+    }
+
     let aName = a.name.toLowerCase();
     if (a instanceof Character) {
       aName = a.title.toLowerCase() || settingsManager.getLabel('data.character.' + a.name).toLowerCase();
@@ -287,6 +293,10 @@ export class GameManager {
       return figure.edition;
     }
     return "";
+  }
+
+  gameplayFigure(figure: Figure) {
+    return figure instanceof Monster && figure.entities.length > 0 && figure.entities.some((entity) => !entity.dead && entity.health > 0) || figure instanceof Character && !figure.absent || (figure instanceof Character || figure instanceof Objective) && !figure.exhausted && figure.health > 0;
   }
 
   getMonsterData(name: string, edition: string): MonsterData {

@@ -152,37 +152,31 @@
           "valueType": "minus"
         },
         {
-          "type": "grid",
-          "value": "",
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
-            {
-              "type": "attack",
-              "value": 1,
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "condition",
-                  "value": "poison",
-                  "small": true
-                },
-                {
-                  "type": "element",
-                  "value": "air",
-                  "valueType": "minus",
-                  "subActions": [
-                    {
-                      "type": "attack",
-                      "value": 1,
-                      "valueType": "add",
-                      "small": true
-                    }
-                  ]
-                }
-              ]
-            },
             {
               "type": "area",
               "value": "(0,1,active)|(1,0,target)|(1,1,target)"
+            },
+            {
+              "type": "condition",
+              "value": "poison",
+              "small": true
+            },
+            {
+              "type": "element",
+              "value": "air",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
             }
           ]
         }

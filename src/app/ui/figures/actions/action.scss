@@ -7,6 +7,13 @@
   color: var(--ghs-color-white);
   line-height: 0.8em;
 
+  &.aoe {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 0.2em;
+    align-items: center;
+  }
+
   &.highlight {
 
     @keyframes highlight-animation {

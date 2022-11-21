@@ -73,38 +73,32 @@
       "initiative": 49,
       "actions": [
         {
-          "type": "grid",
-          "value": "",
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
-            {
-              "type": "attack",
-              "value": 0,
-              "valueType": "plus",
-              "subActions": [
-                {
-                  "type": "element",
-                  "value": "fire",
-                  "valueType": "minus",
-                  "subActions": [
-                    {
-                      "type": "attack",
-                      "value": 1,
-                      "valueType": "add",
-                      "small": true
-                    },
-                    {
-                      "type": "condition",
-                      "value": "wound",
-                      "valueType": "plus",
-                      "small": true
-                    }
-                  ]
-                }
-              ]
-            },
             {
               "type": "area",
               "value": "(2,0,target)|(1,1,target)|(1,2,active)"
+            },
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "attack",
+                  "value": 1,
+                  "valueType": "add",
+                  "small": true
+                },
+                {
+                  "type": "condition",
+                  "value": "wound",
+                  "valueType": "plus",
+                  "small": true
+                }
+              ]
             }
           ]
         }

@@ -46,12 +46,12 @@
   }
 
 
-  ghs-drag-value.drag-initiative {
+  ghs-drag-click.drag-initiative {
     position: absolute;
-    top: 0;
+    top: calc(var(--ghs-unit) * 2.1);
     left: calc(var(--ghs-unit) * 6);
     width: calc(var(--ghs-unit) * 9.5);
-    height: 100%;
+    height: calc(var(--ghs-unit) * 9.5);
     z-index: 4;
 
     &.dragging {

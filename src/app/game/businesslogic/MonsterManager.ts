@@ -120,7 +120,19 @@ export class MonsterManager {
     }
 
     if (this.game.state == GameState.next && monster.entities.filter((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0).length == 1) {
-      gameManager.sortFigures();
+      let monsterIndex = gameManager.game.figures.indexOf(monster);
+      const sameDeckMonster = this.getSameDeckMonster(monster);
+
+      if (sameDeckMonster && gameManager.gameplayFigure(sameDeckMonster)) {
+        this.applySameDeck(monster);
+      }
+
+      while (gameManager.game.figures.some((figure, index) => !figure.off && index < monsterIndex &&
+        (figure.getInitiative() > monster.getInitiative() || figure.getInitiative() == monster.getInitiative() && figure instanceof Monster && figure.name.toLowerCase() > monster.name.toLowerCase()))) {
+        gameManager.game.figures.splice(monsterIndex, 1);
+        monsterIndex--;
+        gameManager.game.figures.splice(monsterIndex, 0, monster);
+      }
     }
 
     if (monster.off) {
@@ -147,37 +159,37 @@ export class MonsterManager {
       }
     }
   }
-  
-  setLevel(monster: Monster, level : number) {
+
+  setLevel(monster: Monster, level: number) {
     const abilities = gameManager.abilities(monster);
-      if (monster.abilities.length != abilities.filter((ability) => !ability.level || isNaN(+ability.level) || ability.level <= level).length) {
-        monster.abilities = abilities.filter((ability) => !ability.level || isNaN(+ability.level) || ability.level <= level).map((ability, index) => index);
-        gameManager.monsterManager.shuffleAbilities(monster);
+    if (monster.abilities.length != abilities.filter((ability) => !ability.level || isNaN(+ability.level) || ability.level <= level).length) {
+      monster.abilities = abilities.filter((ability) => !ability.level || isNaN(+ability.level) || ability.level <= level).map((ability, index) => index);
+      gameManager.monsterManager.shuffleAbilities(monster);
+    }
+
+    monster.level = level;
+
+    monster.entities.forEach((monsterEntity) => {
+      let stat = this.getStat(monster, monsterEntity.type);
+
+      monsterEntity.level = monster.level;
+
+      let maxHealth: number;
+      if (typeof stat.health === "number") {
+        maxHealth = stat.health;
+      } else {
+        maxHealth = EntityValueFunction(stat.health);
       }
 
-      monster.level = level;
+      if (monsterEntity.health == monsterEntity.maxHealth) {
+        monsterEntity.health = maxHealth;
+      }
 
-      monster.entities.forEach((monsterEntity) => {
-        let stat = this.getStat(monster, monsterEntity.type);
-
-        monsterEntity.level = monster.level;
-
-        let maxHealth: number;
-        if (typeof stat.health === "number") {
-          maxHealth = stat.health;
-        } else {
-          maxHealth = EntityValueFunction(stat.health);
-        }
-
-        if (monsterEntity.health == monsterEntity.maxHealth) {
-          monsterEntity.health = maxHealth;
-        }
-
-        monsterEntity.maxHealth = maxHealth;
-        if (monsterEntity.health > monsterEntity.maxHealth) {
-          monsterEntity.health = monsterEntity.maxHealth;
-        }
-      });
+      monsterEntity.maxHealth = maxHealth;
+      if (monsterEntity.health > monsterEntity.maxHealth) {
+        monsterEntity.health = monsterEntity.maxHealth;
+      }
+    });
   }
 
   toggleActive(monster: Monster, entity: MonsterEntity) {
@@ -280,7 +292,7 @@ export class MonsterManager {
   draw() {
     this.game.figures.filter((figure) => figure instanceof Monster && !figure.drawExtra).forEach((figure) => {
       if (figure instanceof Monster) {
-        if (figure.entities.length > 0 && figure.entities.some((entity) => !entity.dead && entity.health > 0)) {
+        if (gameManager.gameplayFigure(figure)) {
           figure.ability = figure.ability + 1 + this.game.figures.filter((f) => f instanceof Monster && (f.name != figure.name || f.edition != figure.edition) && gameManager.deckData(f).name == gameManager.deckData(figure).name && gameManager.deckData(f).edition == gameManager.deckData(figure).edition && f.drawExtra && f.ability > -1).length;
 
           if (figure.ability >= figure.abilities.length) {

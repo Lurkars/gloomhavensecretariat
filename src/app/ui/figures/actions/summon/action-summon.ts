@@ -19,8 +19,6 @@ export class ActionSummonComponent implements OnChanges {
   summon: SummonData | undefined;
   count: number | undefined;
 
-  doubleClick: any = null;
-
   constructor() {
     gameManager.uiChange.subscribe({
       next: () => {

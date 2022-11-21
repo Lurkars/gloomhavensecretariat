@@ -11,16 +11,16 @@
     "note": "%data.custom.cs.ravenous-gharial.1%",
     "actions": [
       {
+        "type": "area",
+        "value": "(0,0,active)|(1,0,target)|(2,0,target)"
+      },
+      {
         "type": "pierce",
         "value": 2
       },
       {
         "type": "custom",
         "value": "%data.custom.cs.guttermaw.1%"
-      },
-      {
-        "type": "area",
-        "value": "(0,0,active)|(1,0,target)|(2,0,target)"
       },
       {
         "type": "custom",

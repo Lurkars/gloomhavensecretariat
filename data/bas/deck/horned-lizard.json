@@ -92,25 +92,19 @@
       "initiative": 45,
       "actions": [
         {
-          "type": "grid",
-          "value": "",
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
-            {
-              "type": "attack",
-              "value": 1,
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "range",
-                  "value": 1,
-                  "valueType": "minus",
-                  "small": true
-                }
-              ]
-            },
             {
               "type": "area",
               "value": "(0,0,target)|(0,1,target)|(1,0,target)"
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "valueType": "minus",
+              "small": true
             }
           ]
         }

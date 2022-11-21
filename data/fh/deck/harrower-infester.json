@@ -175,14 +175,10 @@
           "valueType": "minus"
         },
         {
-          "type": "grid",
-          "value": "",
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
-            {
-              "type": "attack",
-              "value": 0,
-              "valueType": "plus"
-            },
             {
               "type": "area",
               "value": "(1,1,target)|(2,0,target)|(1,2,target)|(0,3,active)"

@@ -1,7 +1,7 @@
 <div class="entity-border"
   [ngClass]="{'dead' : entity.dead, 'off' : entity.off, 'active' : entity.active && settingsManager.settings.activeStandees, 'active-focus': entity.active && settingsManager.settings.activeStandees && !monster.active, 'denied' : !gameManager.stateManager.hasMonsterPermission(monster)}"
   [entityAnimation]="entity.dead">
-  <div class="entity" [ngClass]="entity.type" (click)="click($event)">
+  <div class="entity" [ngClass]="entity.type">
     <div #standee class="standee">
       <div class="background-image"
         [style.background-image]="'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'"></div>
@@ -38,6 +38,7 @@
     <ghs-healthbar [entity]="entity" [diff]="health"></ghs-healthbar>
   </div>
 
-  <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-hp" (dragMove)="dragHpMove($event)"
-    (dragEnd)="dragHpEnd($event)" [relative]="true"></ghs-drag-value>
+  <ghs-drag-click *ngIf="settingsManager.settings.dragValues" class="drag-hp" (dragMove)="dragHpMove($event)"
+    (dragEnd)="dragHpEnd($event)" (singleClick)="click($event)" (doubleClick)="doubleClick($event)" [relative]="true">
+  </ghs-drag-click>
 </div>

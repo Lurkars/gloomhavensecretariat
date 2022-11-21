@@ -1,7 +1,12 @@
 .summon-value {
-    filter: var(--ghs-filter-shadow);
 
-    &.small {
+    font-family: var(--ghs-font-text);
+
+    span {
+        filter: var(--ghs-filter-shadow);
+    }
+
+    &.small span {
         filter: var(--ghs-filter-shadow-thin);
     }
 }

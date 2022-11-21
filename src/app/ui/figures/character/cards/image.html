@@ -1,4 +1,4 @@
-<a class="image-container" (click)="toggleFigure()"
+<a class="image-container" 
   [ngClass]="{'active-border' : character.active, 'disabled' : character.absent, 'off' : character.off || character.exhausted || character.health <= 0 }"
   title="{{(gameManager.game.state == GameState.next ? (character.active ? 'game.figure.endTurn' : 'game.figure.startTurn') : 'game.figure.setInitiative') | ghsLabel}}">
   <img class="image" [src]="characterManager.characterThumbnail(character)" />

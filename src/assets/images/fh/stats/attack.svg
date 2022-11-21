@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 8.28 8.23"
+   version="1.1"
+   id="svg31"
+   sodipodi:docname="attack.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview33"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="95.018231"
+     inkscape:cx="4.1413105"
+     inkscape:cy="4.1097376"
+     inkscape:window-width="1846"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg31" />
+  <defs
+     id="defs17">
+    <style
+       id="style2">.cls-1{clip-path:url(#clip-path);}.cls-2{fill:none;}.cls-3{mask:url(#mask);}.cls-4{fill:#fff;}.cls-5{clip-path:url(#clip-path-2);}</style>
+    <clipPath
+       id="clip-path">
+      <rect
+         class="cls-2"
+         x="-1.8"
+         y="-1.8"
+         width="14.04"
+         height="14.04"
+         id="rect4" />
+    </clipPath>
+    <mask
+       id="mask"
+       x="-2.31"
+       y="-2.31"
+       width="14.04"
+       height="14.04"
+       maskUnits="userSpaceOnUse">
+      <g
+         transform="translate(-0.51 -0.51)"
+         id="g11">
+        <g
+           class="cls-1"
+           clip-path="url(#clip-path)"
+           id="g9">
+          <image
+             width="39"
+             height="39"
+             transform="translate(-1.8 -1.8) scale(0.36)"
+             xlink:href="data:image/png;base64,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"
+             id="image7" />
+        </g>
+      </g>
+    </mask>
+    <clipPath
+       id="clip-path-2"
+       transform="translate(-0.51 -0.51)">
+      <rect
+         class="cls-2"
+         x="0.51"
+         y="0.51"
+         width="8.28"
+         height="8.23"
+         id="rect14" />
+    </clipPath>
+  </defs>
+  <g
+     id="Layer_2"
+     data-name="Layer 2"
+     style="fill:#000000">
+    <g
+       id="Layer_1-2"
+       data-name="Layer 1"
+       style="fill:#000000">
+      <polygon
+         class="cls-4"
+         points="6.22 0 4.34 1.33 2.79 0.21 2.87 2.07 0.32 2.18 2.46 3.84 2.81 3.63 2.17 2.83 3.48 2.69 3.54 1.51 4.31 1.99 5.53 1.4 5.69 2.76 6.6 2.99 5.84 3.44 6.39 4.41 5.33 4.38 5.24 5.7 4.41 5.06 4.22 5.42 5.66 7.58 5.88 4.96 8.02 5.71 6.7 3.62 8.28 2.9 6.34 2.25 6.22 0"
+         id="polygon19"
+         style="fill:#000000" />
+      <polygon
+         class="cls-4"
+         points="4.24 2.76 1.29 6.04 0.79 5.59 0.55 5.76 2.49 7.51 2.63 7.26 2.13 6.8 5.12 3.56 5.26 2.52 4.24 2.76"
+         id="polygon21"
+         style="fill:#000000" />
+      <g
+         class="cls-5"
+         clip-path="url(#clip-path-2)"
+         id="g27"
+         style="fill:#000000">
+        <path
+           class="cls-4"
+           d="M2.12,7.5l-.84.92A.42.42,0,0,1,1,8.3.46.46,0,0,1,.82,8l.84-.92Z"
+           transform="translate(-0.51 -0.51)"
+           id="path23"
+           style="fill:#000000" />
+        <path
+           class="cls-4"
+           d="M1.29,8.74h0A3.1,3.1,0,0,1,.51,8l.23-.18a5.33,5.33,0,0,1,.71.63Z"
+           transform="translate(-0.51 -0.51)"
+           id="path25"
+           style="fill:#000000" />
+      </g>
+    </g>
+  </g>
+</svg>

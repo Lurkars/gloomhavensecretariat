@@ -41,13 +41,17 @@ export class MonsterAbilityCardComponent {
       this.ability = gameManager.monsterManager.getAbility(this.monster);
       if (this.ability && this.ability.bottomActions && this.ability.bottomActions.length > 0) {
         // Manifestation of Corruption mechanic?!
-        // this.secondAbility = gameManager.abilities(this.monster)[this.monster.ability + 1];
+        this.secondAbility = gameManager.abilities(this.monster)[this.monster.ability + (this.monster.ability < this.monster.abilities.length + 1 ? 1 : -1)];
       }
     } else {
       this.ability = gameManager.abilities(this.monster)[this.index];
     }
 
-    let flipped = gameManager.roundManager.working && gameManager.game.state == GameState.draw || !gameManager.roundManager.working && gameManager.game.state == GameState.next && this.ability != undefined && this.monster.entities.filter((monsterEntity) => !monsterEntity.dead).length > 0;
+    if (!this.ability) {
+      return false;
+    }
+
+    let flipped = gameManager.roundManager.working && gameManager.game.state == GameState.draw || !gameManager.roundManager.working && gameManager.game.state == GameState.next && gameManager.gameplayFigure(this.monster);
 
     if (flipped) {
       this.lastReveal = gameManager.game.round;
@@ -174,19 +178,19 @@ export class MonsterAbilityCardComponent {
     });
   }
 
-  openAbility(): void {
+  openAbility(second: boolean = false): void {
     if (this.flipped()) {
       this.dialog.open(AbilityDialogComponent, {
-        data: { ability: this.ability, monster: this.monster }
+        data: { ability: second ? this.secondAbility : this.ability, monster: this.monster }
       });
     }
   }
 
-  click(): void {
+  click(second: boolean = false): void {
     if (this.doubleClick) {
       clearTimeout(this.doubleClick);
       this.doubleClick = null;
-      this.openAbility();
+      this.openAbility(second);
     } else {
       this.doubleClick = setTimeout(() => {
         if (this.doubleClick) {

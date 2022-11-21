@@ -19,14 +19,10 @@
     "special": [
       [
         {
-          "type": "grid",
-          "value": "",
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
-            {
-              "type": "attack",
-              "value": 0,
-              "valueType": "plus"
-            },
             {
               "type": "area",
               "value": "(1,0,active)|(2,0,active)|(3,0,target)|(4,0,target)|(1,1,active)|(2,1,target)|(3,1,target)|(2,2,target)|(3,2,target)|(2,3,target)"

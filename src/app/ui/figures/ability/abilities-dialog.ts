@@ -18,12 +18,12 @@ export class AbiltiesDialogComponent implements OnInit {
   @ViewChild('menu') menuElement!: ElementRef;
   reveal: number = 0;
 
-  ability: Ability | undefined = undefined;
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
   edit: boolean = false;
   maxHeight: string = "";
+  bottomActions: boolean = false;
 
   constructor(@Inject(DIALOG_DATA) public monster: Monster) { }
 
@@ -33,6 +33,8 @@ export class AbiltiesDialogComponent implements OnInit {
         this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
       }
     }, 250);
+
+    this.bottomActions = gameManager.abilities(this.monster).some((ability) => ability.bottomActions && ability.bottomActions.length > 0);
   }
 
   toggleEdit() {

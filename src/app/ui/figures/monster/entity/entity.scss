@@ -78,7 +78,6 @@
       background-color: var(--ghs-color-black);
       filter: var(--ghs-filter-outline);
 
-
       .background-image {
         position: absolute;
         top: 0;
@@ -88,8 +87,8 @@
         background-color: var(--ghs-color-darkgray);
         background-size: calc(var(--ghs-unit) * 9 * var(--ghs-text-factor)) AUTO;
         background-repeat: no-repeat;
-        border-top-left-radius: 22%;
-        border-top-right-radius: 22%;
+        border-top-left-radius: 25%;
+        border-top-right-radius: 25%;
         z-index: 0;
         filter: brightness(70%);
       }
@@ -246,8 +245,6 @@
 
     &.normal {
       .standee {
-        background-color: var(--ghs-color-white);
-
         .number {
           background-color: var(--ghs-color-white);
         }
@@ -255,29 +252,23 @@
     }
 
     &.elite {
-
       .standee {
-        background-color: var(--ghs-color-yellow);
-      }
-
-      .number {
-        background-color: var(--ghs-color-yellow);
+        .number {
+          background-color: var(--ghs-color-yellow);
+        }
       }
     }
 
     &.boss {
-
       .standee {
-        background-color: var(--ghs-color-red);
-      }
-
-      .number {
-        background-color: var(--ghs-color-red);
+        .number {
+          background-color: var(--ghs-color-red);
+        }
       }
     }
   }
 
-  ghs-drag-value.drag-hp {
+  .drag-hp {
     position: absolute;
     top: 0;
     left: 0;

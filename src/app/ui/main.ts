@@ -1,5 +1,6 @@
 import { CdkDragDrop, CdkDragEnter, CdkDragExit, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { last } from 'rxjs';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GameState } from 'src/app/game/model/Game';
 import { SettingsManager, settingsManager } from '../game/businesslogic/SettingsManager';
@@ -114,6 +115,7 @@ export class MainComponent implements OnInit {
             let height = 0;
             let columnSize = 0;
             const minColumn = Math.ceil(figures.length / 2);
+
             while ((height < containerElement.clientHeight || columnSize < minColumn) && columnSize < figureElements.length) {
               height += figureElements[columnSize].clientHeight;
               columnSize++;
@@ -133,28 +135,19 @@ export class MainComponent implements OnInit {
                 columnSize--;
               }
 
-              let leftHeight = this.figureSize(0, columnSize, figureElements);
-              let rightHeight = this.figureSize(columnSize, figures.length, figureElements);
-
               let activeLeftHeight = this.activeFigureSize(0, columnSize, figureElements);
               let activeRightHeight = this.activeFigureSize(columnSize, figures.length, figureElements);
 
-              if (activeLeftHeight < containerElement.clientHeight || activeRightHeight < containerElement.clientHeight) {
-                while (activeLeftHeight > containerElement.clientHeight && activeRightHeight < containerElement.clientHeight) {
-                  columnSize--;
-                  leftHeight = this.figureSize(0, columnSize, figureElements);
-                  rightHeight = this.figureSize(columnSize, figures.length, figureElements);
-                  activeLeftHeight = this.activeFigureSize(0, columnSize, figureElements);
-                  activeRightHeight = this.activeFigureSize(columnSize, figures.length, figureElements);
-                }
+              while (activeRightHeight > containerElement.clientHeight && activeLeftHeight > activeRightHeight) {
+                columnSize++;
+                activeLeftHeight = this.activeFigureSize(0, columnSize, figureElements);
+                activeRightHeight = this.activeFigureSize(columnSize, figures.length, figureElements);
+              }
 
-                while (activeLeftHeight < containerElement.clientHeight && activeRightHeight > containerElement.clientHeight) {
-                  columnSize++;
-                  leftHeight = this.figureSize(0, columnSize, figureElements);
-                  rightHeight = this.figureSize(columnSize, figures.length, figureElements);
-                  activeLeftHeight = this.activeFigureSize(0, columnSize, figureElements);
-                  activeRightHeight = this.activeFigureSize(columnSize, figures.length, figureElements);
-                }
+              while (activeLeftHeight > containerElement.clientHeight && activeLeftHeight > activeRightHeight) {
+                columnSize--;
+                activeLeftHeight = this.activeFigureSize(0, columnSize, figureElements);
+                activeRightHeight = this.activeFigureSize(columnSize, figures.length, figureElements);
               }
 
               if (activeLeftHeight < activeRightHeight && activeLeftHeight + figureElements[columnSize].clientHeight > containerElement.clientHeight && activeRightHeight - figureElements[columnSize].clientHeight > containerElement.clientHeight) {
@@ -183,10 +176,15 @@ export class MainComponent implements OnInit {
 
   activeFigureSize(start: number, end: number, figureElements: any[]) {
     const figures = gameManager.game.figures;
-    return figureElements.slice(start, end).filter((element: any, index: number) => {
-      const figure = figures[index + start];
-      return figure instanceof Monster && figure.entities.length > 0 && figure.entities.some((entity) => !entity.dead && entity.health > 0) || figure instanceof Character && !figure.absent;
-    }).map((element) => element.clientHeight).reduce((a: any, b: any) => a + b, 0);
+    let lastActive = 0;
+
+    figures.slice(start, end).forEach((figure, index) => {
+      if (index > lastActive && gameManager.gameplayFigure(figure)) {
+        lastActive = index;
+      }
+    })
+
+    return figureElements.slice(start, end).filter((element: any, index: number) => index <= lastActive).map((element) => element.clientHeight).reduce((a: any, b: any) => a + b, 0);
   }
 
   translate(scrollTo: HTMLElement | undefined = undefined) {

@@ -110,24 +110,18 @@
           ]
         },
         {
-          "type": "grid",
-          "value": "",
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
-            {
-              "type": "attack",
-              "value": 1,
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "range",
-                  "value": 4,
-                  "small": true
-                }
-              ]
-            },
             {
               "type": "area",
               "value": "(0,1,target)|(1,0,target)|(1,1,target)"
+            },
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
             }
           ]
         }
@@ -155,24 +149,18 @@
           ]
         },
         {
-          "type": "grid",
-          "value": "",
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
-            {
-              "type": "attack",
-              "value": 1,
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "range",
-                  "value": 3,
-                  "small": true
-                }
-              ]
-            },
             {
               "type": "area",
               "value": "(1,0,target)|(2,0,target)|(0,1,target)|(1,1,target)|(2,1,target)|(1,2,target)|(2,2,target)"
+            },
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
             }
           ]
         }
@@ -242,29 +230,23 @@
       "initiative": 46,
       "actions": [
         {
-          "type": "grid",
-          "value": "",
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
-            {
-              "type": "attack",
-              "value": 1,
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "range",
-                  "value": 5,
-                  "small": true
-                },
-                {
-                  "type": "condition",
-                  "value": "immobilize",
-                  "small": true
-                }
-              ]
-            },
             {
               "type": "area",
               "value": "(0,1,target)|(1,0,target)|(1,1,target)"
+            },
+            {
+              "type": "range",
+              "value": 5,
+              "small": true
+            },
+            {
+              "type": "condition",
+              "value": "immobilize",
+              "small": true
             }
           ]
         }

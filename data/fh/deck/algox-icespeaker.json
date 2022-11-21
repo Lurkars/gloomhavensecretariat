@@ -14,14 +14,10 @@
           "valueType": "plus"
         },
         {
-          "type": "grid",
-          "value": "",
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
-            {
-              "type": "attack",
-              "value": 1,
-              "valueType": "minus"
-            },
             {
               "type": "area",
               "value": "(0,0,target)|(1,0,target)|(1,1,target)|(0,1,active)|(1,2,target)"

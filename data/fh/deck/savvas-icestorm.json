@@ -269,14 +269,10 @@
           "valueType": "minus"
         },
         {
-          "type": "grid",
-          "value": "",
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
-            {
-              "type": "attack",
-              "value": 1,
-              "valueType": "minus"
-            },
             {
               "type": "area",
               "value": "(2,0,target)|(1,1,target)|(2,1,target)|(1,2,active)|(2,2,target)|(3,2,target)"

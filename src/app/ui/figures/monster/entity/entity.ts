@@ -16,7 +16,7 @@ import { EntityMenuDialogComponent } from '../../entity-menu/entity-menu-dialog'
 @Component({
   selector: 'ghs-monster-entity',
   templateUrl: './entity.html',
-  styleUrls: [ './entity.scss' ]
+  styleUrls: ['./entity.scss']
 })
 export class MonsterEntityComponent {
 
@@ -34,8 +34,6 @@ export class MonsterEntityComponent {
 
   health: number = 0;
   maxHp: number = 0;
-
-  doubleClick: any = null;
 
   constructor(private element: ElementRef, private dialog: Dialog, private overlay: Overlay) { }
 
@@ -84,21 +82,10 @@ export class MonsterEntityComponent {
   }
 
   click(event: any): void {
-    if (this.doubleClick) {
-      clearTimeout(this.doubleClick);
-      this.doubleClick = null;
-      this.doubleClickCallback();
-    } else {
-      this.doubleClick = setTimeout(() => {
-        if (this.doubleClick) {
-          this.openEntityMenu(event);
-          this.doubleClick = null;
-        }
-      }, 200)
-    }
+    this.openEntityMenu(event);
   }
 
-  doubleClickCallback(): void {
+  doubleClick(event: any): void {
     if (settingsManager.settings.activeStandees) {
       gameManager.stateManager.before(this.entity.active ? "unsetEntityActive" : "setEntityActive", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number);
       gameManager.monsterManager.toggleActive(this.monster, this.entity);

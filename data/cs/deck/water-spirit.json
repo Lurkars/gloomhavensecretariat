@@ -86,24 +86,18 @@
           "valueType": "plus"
         },
         {
-          "type": "grid",
-          "value": "",
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
-            {
-              "type": "attack",
-              "value": 1,
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "custom",
-                  "value": "%data.custom.cs.water-spirit.5%",
-                  "small": true
-                }
-              ]
-            },
             {
               "type": "area",
               "value": "(1,0,target)|(0,1,active)|(1,1,target)|(1,2,target)"
+            },
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.water-spirit.5%",
+              "small": true
             }
           ]
         }

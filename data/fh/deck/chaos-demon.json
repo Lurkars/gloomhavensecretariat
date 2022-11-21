@@ -13,14 +13,10 @@
           "valueType": "minus"
         },
         {
-          "type": "grid",
-          "value": "",
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
           "subActions": [
-            {
-              "type": "attack",
-              "value": 0,
-              "valueType": "plus"
-            },
             {
               "type": "area",
               "value": "(1,0,target)|(0,1,active)|(1,1,target)"
@@ -129,24 +125,18 @@
           "valueType": "plus"
         },
         {
-          "type": "grid",
-          "value": "",
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
-            {
-              "type": "attack",
-              "value": 1,
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "range",
-                  "value": 2,
-                  "small": true
-                }
-              ]
-            },
             {
               "type": "area",
               "value": "(1,0,target)|(0,1,target)|(1,1,target)"
+            },
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
             }
           ]
         },
