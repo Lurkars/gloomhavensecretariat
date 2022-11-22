@@ -17,14 +17,6 @@
     width: 100%;
     justify-content: center;
 
-    .ghs-svg {
-      filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
-      width: calc(var(--ghs-unit) * 3 * var(--ghs-barsize));
-      height: calc(var(--ghs-unit) * 3 * var(--ghs-barsize));
-      margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-barsize));
-      display: inline-block;
-    }
-
     span {
       display: flex;
       align-items: center;
@@ -33,21 +25,21 @@
       margin-right: calc(var(--ghs-unit) * 2 * var(--ghs-barsize));
       text-shadow: var(--ghs-outline-thin);
 
-      img {
-        margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-barsize));
-        height: calc(var(--ghs-unit) * 3 * var(--ghs-barsize));
-        width: auto;
-      }
-    }
-
-    &:hover {
-
       .ghs-svg {
-        filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+        margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-barsize));
+        width: calc(var(--ghs-unit) * 3 * var(--ghs-barsize));
+        height: auto;
+        display: inline-block;
+        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
       }
 
-      span {
+      &:hover {
         color: var(--ghs-color-white);
+
+        .ghs-svg {
+          filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+        }
+
       }
     }
   }

@@ -1,0 +1,25 @@
+<div class="deck">
+    <div class="loot-container draw" *ngIf="current < gameManager.game.lootDeck.cards.length - 1" (click)="draw()">
+        <div class="loot">
+            <span class="number" *ngIf="current < gameManager.game.lootDeck.cards.length -1">{{
+                gameManager.game.lootDeck.cards.length - current - 1 }}</span>
+
+        </div>
+    </div>
+
+    <ng-container *ngFor="let card of gameManager.game.lootDeck.cards; let index = index;">
+        <div class="loot-container" (click)="draw()" *ngIf="index > gameManager.game.lootDeck.current - 3"
+            [style.z-index]="index > gameManager.game.lootDeck.current ? gameManager.game.lootDeck.cards.length - index : gameManager.game.lootDeck.cards.length + index + 1"
+            [ngClass]="{'disgarded' : index < gameManager.game.lootDeck.current - 1, 'current' : index == gameManager.game.lootDeck.current, 'last' : index == gameManager.game.lootDeck.current - 1}">
+            <div class="loot">
+                <div class="card" [ngClass]="{'flipped' : index <= gameManager.game.lootDeck.current}">
+                    <div class="card-back back">
+                    </div>
+                    <div class="card-front front">
+                        <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + card + '.svg'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

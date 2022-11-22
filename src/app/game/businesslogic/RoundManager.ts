@@ -3,6 +3,7 @@ import { Character } from "../model/Character";
 import { ElementState } from "../model/Element";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
+import { LootDeck } from "../model/Loot";
 import { Monster } from "../model/Monster";
 import { Objective } from "../model/Objective";
 import { SummonState } from "../model/Summon";
@@ -35,6 +36,7 @@ export class RoundManager {
       gameManager.characterManager.next();
       gameManager.monsterManager.next();
       gameManager.attackModifierManager.next();
+      gameManager.lootManager.next();
 
       if (settingsManager.settings.moveElements) {
         this.game.elementBoard.forEach((element) => {
@@ -58,6 +60,7 @@ export class RoundManager {
       this.game.round++;
       gameManager.characterManager.draw();
       gameManager.monsterManager.draw();
+      gameManager.lootManager.draw();
 
       if (settingsManager.settings.moveElements) {
         this.game.elementBoard.forEach((element) => {
@@ -326,6 +329,7 @@ export class RoundManager {
     this.game.elementBoard.forEach((element) => element.state = ElementState.inert);
     this.game.monsterAttackModifierDeck = new AttackModifierDeck();
     this.game.figures = this.game.figures.filter((figure) => figure instanceof Character);
+    this.game.lootDeck = new LootDeck();
 
     this.game.figures.forEach((figure) => {
       if (figure instanceof Character) {

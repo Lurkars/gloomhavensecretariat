@@ -23,15 +23,20 @@ export class FooterComponent implements OnInit {
   GameState = GameState;
   currentTime: string = "";
   hasAllyAttackModifierDeck: boolean = false;
+  lootDeck: boolean = false;
+  showLoot: boolean = false;
 
   constructor(private dialog: Dialog, private overlay: Overlay) { }
 
   ngOnInit(): void {
     this.hasAllyAttackModifierDeck = settingsManager.settings.allyAttackModifierDeck && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly);
 
+    this.lootDeck = Object.keys(gameManager.game.lootDeck.loot).length > 0;
+
     gameManager.uiChange.subscribe({
       next: () => {
         this.hasAllyAttackModifierDeck = settingsManager.settings.allyAttackModifierDeck && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly);
+        this.lootDeck = Object.keys(gameManager.game.lootDeck.loot).length > 0;
       }
     })
 

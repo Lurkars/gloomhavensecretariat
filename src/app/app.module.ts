@@ -74,6 +74,7 @@ import { DeckEditorComponent } from './ui/tools/editor/deck/deck';
 import { ScenarioRulesComponent } from './ui/footer/scenario-rules/scenario-rules';
 import { FeedbackToolComponent } from './ui/tools/feedback/feedback';
 import { FeedbackDialogComponent } from './ui/tools/feedback/feedback-dialog';
+import { LootDeckComponent } from './ui/footer/loot/loot-deck';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,7 @@ import { FeedbackDialogComponent } from './ui/tools/feedback/feedback-dialog';
     HeaderComponent, ElementIconComponent,
     PartySheetComponent, PartySheetDialogComponent,
     MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent,
-    FooterComponent,
+    FooterComponent, LootDeckComponent,
     AttackModifierComponent, AttackModifierEffectsComponent, HintDialogComponent, ScenarioRulesComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent,
     LevelComponent, LevelDialogComponent,
     ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent,

@@ -2,6 +2,7 @@ import { Character } from "../model/Character";
 import { EditionData } from "../model/data/EditionData";
 import { GameScenarioModel, ScenarioData, ScenarioRule } from "../model/data/ScenarioData";
 import { Game, GameState } from "../model/Game";
+import { LootDeck } from "../model/Loot";
 import { Scenario } from "../model/Scenario";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
@@ -107,6 +108,10 @@ export class ScnearioManager {
       scenarioData.objectives.forEach((objectiveData) => {
         gameManager.characterManager.addObjective(objectiveData)
       })
+    }
+
+    if (scenarioData.loot) {
+      this.game.lootDeck = new LootDeck(scenarioData.loot);
     }
   }
 

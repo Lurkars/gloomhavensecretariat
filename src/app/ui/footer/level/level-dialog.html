@@ -40,7 +40,7 @@
 
   <div class="values">
     <div class="loot">
-      <span class="icon"><img class="ghs-svg" src="./assets/images/loot.svg">:</span>
+      <span class="icon"><img class="ghs-svg" [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/loot.svg'">:</span>
       <span class="value">x{{loot}}</span>
       <span class="hint">{{'game.level.loot' | ghsLabel}}</span>
     </div>

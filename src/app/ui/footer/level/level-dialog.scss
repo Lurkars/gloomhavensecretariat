@@ -41,7 +41,7 @@
 
 
     .item img {
-      filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+      filter: var(--ghs-filter-white);
     }
 
     .level {
@@ -76,7 +76,7 @@
     &.disabled {
 
       .item img {
-        filter: var(--ghs-filter-darkgray) var(--ghs-filter-shadow);
+        filter: var(--ghs-filter-darkgray);
       }
 
       .level {
@@ -174,7 +174,7 @@
       img {
         width: 1.3em;
         height: auto;
-        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+        filter: var(--ghs-filter-gray);
       }
     }
   }

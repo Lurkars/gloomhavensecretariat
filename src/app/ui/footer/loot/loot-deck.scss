@@ -1,0 +1,161 @@
+.deck {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .loot-container {
+        position: absolute;
+        width: 40%;
+        padding-top: 60%;
+        bottom: 5%;
+        left: 0;
+
+        .loot {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            cursor: pointer;
+            display: block;
+
+            .back {
+                background-position: center;
+                background-size: 100% auto;
+                background-repeat: no-repeat;
+                background-image: url('~/src/assets/images/fh/loot/loot-back.png');
+                border-radius: 5%;
+            }
+
+            .front {
+                display: flex;
+                position: relative;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 5%;
+                background-position: center;
+                background-size: 100% auto;
+                background-repeat: no-repeat;
+                background-image: url('~/src/assets/images/fh/loot/loot-front.png');
+
+                img {
+                    width: 20%;
+                    height: auto;
+                }
+
+            }
+
+        }
+    }
+
+    .draw {
+        cursor: pointer;
+
+        .loot {
+            background-position: center;
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            background-image: url('~/src/assets/images/fh/loot/loot-back.png');
+            border-radius: 5%;
+
+            .number {
+                color: var(--ghs-color-gray);
+                text-shadow: var(--ghs-outline);
+                position: absolute;
+                font-size: 2.3em;
+                right: 6%;
+                bottom: 0;
+                z-index: 500;
+                cursor: help;
+
+                img {
+                    width: 2.5%;
+                    height: auto;
+                }
+
+                &:hover {
+                    color: var(--ghs-color-white);
+                }
+            }
+        }
+    }
+
+    @keyframes loot-draw {
+        0% {
+            transform: scale(1) translate(-102%, -16.5%);
+        }
+
+        35%,
+        70% {
+            transform: scale(2) translate(-80%, -166.5%);
+        }
+
+        100% {
+            transform: scale(1) translate(0, 0);
+        }
+    }
+
+    @keyframes loot-last {
+        0% {
+            bottom: 5%;
+            left: 42%;
+            transform: rotate(0);
+        }
+
+        70% {
+            bottom: 5%;
+            left: 42%;
+            transform: rotate(0);
+        }
+
+        100% {
+            bottom: 10%;
+            left: 75%;
+            transform: rotate(5deg);
+        }
+    }
+
+    .current {
+        position: absolute;
+        bottom: 5%;
+        left: 42%;
+        z-index: 1;
+    }
+
+    .disgarded,
+    .last {
+        position: absolute;
+        bottom: 10%;
+        left: 75%;
+        transform: rotate(5deg);
+        z-index: 0;
+
+        &.last:hover {
+            z-index: 100 !important;
+        }
+    }
+
+
+    &.drawing {
+
+        .draw {
+            cursor: wait !important;
+        }
+
+        .current {
+            cursor: wait !important;
+            animation: loot-draw 1000ms ease-in-out;
+            animation-iteration-count: 1;
+
+        }
+
+        .last {
+            cursor: wait !important;
+            animation: loot-last 1000ms ease-in-out;
+            animation-iteration-count: 1;
+        }
+    }
+
+}

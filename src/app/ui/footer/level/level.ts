@@ -2,19 +2,22 @@ import { Dialog } from '@angular/cdk/dialog';
 import { ConnectionPositionPair, Overlay } from '@angular/cdk/overlay';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager, SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
+import { LootDeck, LootType } from 'src/app/game/model/Loot';
 import { ghsValueSign } from '../../helper/Static';
 
 @Component({
   selector: 'ghs-level',
   templateUrl: './level.html',
-  styleUrls: [ './level.scss' ]
+  styleUrls: ['./level.scss']
 })
 export class LevelComponent {
 
   @ViewChild('levelButton') levelButton!: ElementRef;
 
   gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
   trap: number = 0;
   experience: number = 0;
   loot: number = 0;
@@ -41,7 +44,7 @@ export class LevelComponent {
         { overlayX: 'start', overlayY: 'bottom' }),
       new ConnectionPositionPair(
         { originX: 'end', originY: 'top' },
-        { overlayX: 'end', overlayY: 'bottom' }) ];
+        { overlayX: 'end', overlayY: 'bottom' })];
 
     this.dialog.open(LevelDialogComponent, {
       panelClass: 'dialog',
@@ -63,18 +66,19 @@ export class LevelComponent {
 @Component({
   selector: 'ghs-level-dialog',
   templateUrl: './level-dialog.html',
-  styleUrls: [ './level-dialog.scss' ]
+  styleUrls: ['./level-dialog.scss']
 })
 export class LevelDialogComponent {
 
   gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
   trap: number = 0;
   experience: number = 0;
   loot: number = 0;
   terrain: number = 0;
   hazardousTerrain: number = 0;
 
-  levels: number[] = [ 0, 1, 2, 3, 4, 5, 6, 7 ];
+  levels: number[] = [0, 1, 2, 3, 4, 5, 6, 7];
 
   constructor() {
     this.calculateValues();

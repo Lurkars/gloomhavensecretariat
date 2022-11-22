@@ -112,7 +112,7 @@
     }
 
     .stat {
-      font-size: calc(var(--ghs-unit) * 3.2 * var(--ghs-fontsize));
+      font-size: calc(var(--ghs-unit) * 2.7 * var(--ghs-fontsize));
       padding-top: 0;
       line-height: calc(var(--ghs-unit) * 4.5);
       width: 100%;
@@ -199,7 +199,6 @@
       }
 
       .stat {
-        font-size: calc(var(--ghs-unit) * 2.7 * var(--ghs-fontsize));
         line-height: calc(var(--ghs-unit) * 3.40);
 
         &.normal,

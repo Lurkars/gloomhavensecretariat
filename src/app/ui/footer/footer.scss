@@ -24,6 +24,36 @@ footer {
     z-index: 2;
   }
 
+  ghs-loot-deck.loot-deck {
+    position: absolute;
+    right: 0;
+    width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor) * var(--ghs-barsize));
+    top: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    z-index: 2;
+  }
+
+  .loot-toggle {
+    cursor: pointer;
+    position: absolute;
+    right: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    z-index: 1;
+    width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    height: calc(var(--ghs-unit) * 11 * var(--ghs-text-factor) * var(--ghs-barsize));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a img {
+      width: calc(var(--ghs-unit) *4* var(--ghs-text-factor) * var(--ghs-barsize));
+      height: auto;
+
+      &.ghs-svg {
+        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+      }
+    }
+  }
+
   ghs-attackmodifier-deck.ally-deck {
     position: absolute;
     right: 0;
@@ -126,6 +156,6 @@ footer {
       bottom: calc(var(--ghs-unit) * 11.5 * var(--ghs-text-factor) * var(--ghs-barsize));
       transform: translateX(-50%);
     }
-  
+
   }
 }

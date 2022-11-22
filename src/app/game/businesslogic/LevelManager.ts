@@ -24,7 +24,7 @@ export class LevelManager {
   }
 
   adjustedLevel(): number {
-    const level = this.game.level - this.ge5PlayerOffset() + this.game.bonusAdjustment;
+    const level = this.game.level - this.ge5PlayerOffset() - (this.game.solo ? 1 : 0) + this.game.bonusAdjustment;
     if (level < 0) {
       return 0;
     } else if (level > 7) {

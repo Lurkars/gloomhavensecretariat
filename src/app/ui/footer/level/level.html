@@ -3,7 +3,8 @@
   <div class="values" (click)="open($event)">
     <span class="level" title="{{'game.level' | ghsLabel}}"><img class="ghs-svg" src="./assets/images/level.svg">
       {{gameManager.game.level}}</span>
-    <span class="loot" title="{{'game.level.loot' | ghsLabel}}"><img class="ghs-svg" src="./assets/images/loot.svg">
+    <span class="loot" title="{{'game.level.loot' | ghsLabel}}"><img class="ghs-svg"
+        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/loot.svg'">
       x{{loot}}</span>
     <span class="trap" title="{{'game.level.trap' | ghsLabel}}"><img class="ghs-svg" src="./assets/images/trap.svg">
       {{trap}}</span>

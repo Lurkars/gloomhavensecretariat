@@ -1,4 +1,5 @@
 import { Editional } from "../Editional";
+import { LootType } from "../Loot";
 import { Spoilable } from "../Spoilable";
 import { ObjectiveData } from "./ObjectiveData";
 import { RoomData } from "./RoomData";
@@ -18,6 +19,7 @@ export class ScenarioData implements Editional, Spoilable {
   rules: ScenarioRule[];
   initial: boolean = false;
   solo: string | undefined;
+  loot: Partial<Record<LootType, number>> = {};
   rooms: RoomData[] = [];
 
   // from Editional

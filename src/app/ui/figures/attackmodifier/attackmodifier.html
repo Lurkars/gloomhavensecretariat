@@ -6,7 +6,7 @@
     </div>
     <div class="card-front front">
       <div class="type" [ngClass]="effectClasses">
-        <img [src]="'./assets/images/attackmodifier/' + (defaultType ? attackModifier.type : 'front') + '.png'" />
+        <img [src]="'./assets/images/attackmodifier/' + (defaultType ? attackModifier.type : 'am-front') + '.png'" />
       </div>
       <img class="overlay"
         *ngIf="attackModifier.effects && attackModifier.effects.length > 0 && attackModifier.type != AttackModifierType.plus0"

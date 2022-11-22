@@ -27,6 +27,7 @@ import { RoundManager } from "./RoundManager";
 import { Entity } from "../model/Entity";
 import { MonsterEntity } from "../model/MonsterEntity";
 import { Summon } from "../model/Summon";
+import { LootManager } from "./LootManager";
 
 
 export class GameManager {
@@ -41,6 +42,7 @@ export class GameManager {
   levelManager: LevelManager;
   scenarioManager: ScnearioManager;
   roundManager: RoundManager;
+  lootManager: LootManager;
 
   uiChange = new EventEmitter();
 
@@ -53,6 +55,7 @@ export class GameManager {
     this.levelManager = new LevelManager(this.game);
     this.scenarioManager = new ScnearioManager(this.game);
     this.roundManager = new RoundManager(this.game);
+    this.lootManager = new LootManager(this.game);
     this.uiChange.subscribe({
       next: () => {
         if (this.game.levelCalculation) {

@@ -165,40 +165,39 @@ export class DragClickComponent {
   }
 
   click(event: MouseEvent) {
-    if ('ontouchstart' in window) {
-      event.preventDefault();
-      event.stopPropagation();
-    } else {
-      if (this.inputCount < 2) {
-        if (this.timeout) {
-          clearTimeout(this.timeout);
-          this.timeout = null;
+    if (this.inputCount < 2) {
+      if (this.timeout) {
+        clearTimeout(this.timeout);
+        this.timeout = null;
+        if (this.inputCount < 2) {
           if (this.clickBehind) {
             this.emitClickBehind(event.clientX, event.clientY);
           } else {
             this.doubleClick.emit(event);
           }
-        } else {
-          this.timeout = setTimeout(() => {
-            if (this.timeout) {
-              this.timeout = null;
+        }
+      } else {
+        this.timeout = setTimeout(() => {
+          if (this.timeout) {
+            this.timeout = null;
+            if (this.inputCount < 2) {
               if (this.clickBehind) {
                 this.emitClickBehind(event.clientX, event.clientY);
               } else {
                 this.singleClick.emit(event);
               }
             }
-          }, doubleClickTreshhold);
-        }
+          }
+        }, doubleClickTreshhold);
       }
-      this.inputCount = 0;
-      this.relativeValue = -1;
-      this.draggingTimeout = setTimeout(() => {
-        document.body.classList.remove('dragging');
-      }, 200);
-      this.elementRef.nativeElement.classList.remove('dragging');
-      this.elementRef.nativeElement.firstChild.classList.remove('dragging');
     }
+    this.inputCount = 0;
+    this.relativeValue = -1;
+    this.draggingTimeout = setTimeout(() => {
+      document.body.classList.remove('dragging');
+    }, 200);
+    this.elementRef.nativeElement.classList.remove('dragging');
+    this.elementRef.nativeElement.firstChild.classList.remove('dragging');
   }
 
   touchstart(event: TouchEvent) {
@@ -272,10 +271,11 @@ export class DragClickComponent {
       this.dragEndCallback.emit(this.relative ? this.value - this.relativeValue : this.value);
     }
     this.value = this.min - 1;
-    this.inputCount = 0;
     this.relativeValue = -1;
     this.draggingTimeout = setTimeout(() => {
       document.body.classList.remove('dragging');
+      this.draggingTimeout = null;
+      this.inputCount = 0;
     }, 200);
     this.elementRef.nativeElement.classList.remove('dragging');
     this.elementRef.nativeElement.firstChild.classList.remove('dragging');

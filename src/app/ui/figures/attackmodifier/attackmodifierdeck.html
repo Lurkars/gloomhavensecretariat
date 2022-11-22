@@ -1,4 +1,4 @@
-<div #container class="attack-modifiers"
+<div class="attack-modifiers"
   [ngClass]="{'disabled' : gameManager.game.state == GameState.draw, 'vertical' : vertical, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers}">
 
   <div #drawCard class="am-container draw"

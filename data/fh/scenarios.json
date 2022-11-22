@@ -9,7 +9,15 @@
             "algox-guard",
             "algox-priest",
             "city-guard"
-        ]
+        ],
+        "loot": {
+            "money": 6,
+            "lumber": 5,
+            "metal": 3,
+            "hide": 3,
+            "rockroot": 1,
+            "snowthistle": 1
+        }
     },
     {
         "index": "22",
