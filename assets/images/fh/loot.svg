@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 7.02 6.95"
+   version="1.1"
+   id="svg17"
+   sodipodi:docname="loot.svg"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview19"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="62.805757"
+     inkscape:cx="5.4851659"
+     inkscape:cy="5.1746848"
+     inkscape:window-width="1846"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg17" />
+  <defs
+     id="defs7">
+    <style
+       id="style2">.cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}</style>
+    <clipPath
+       id="clip-path"
+       transform="translate(-0.05 -0.04)">
+      <rect
+         class="cls-1"
+         width="7.22"
+         height="7.04"
+         id="rect4" />
+    </clipPath>
+  </defs>
+  <g
+     id="Layer_2"
+     data-name="Layer 2"
+     transform="matrix(0.79357731,0,0,0.79357731,0.73272792,0.69902954)">
+    <g
+       id="Layer_1-2"
+       data-name="Layer 1">
+      <g
+         class="cls-2"
+         clip-path="url(#clip-path)"
+         id="g11">
+        <path
+           d="M 6.92,2.19 A 1.66,1.66 0 0 0 6.37,1.26 3.38,3.38 0 0 0 4.89,0.47 7,7 0 0 0 2.5,0.05 c -0.23,0 -0.47,0.52 -1,0.93 A 6,6 0 0 0 0.86,1.6 3.18,3.18 0 0 0 0.03,3.6 3.68,3.68 0 0 0 0.62,5.27 1.93,1.93 0 0 0 1.71,6.33 16.27,16.27 0 0 1 3.23,6.94 2.47,2.47 0 0 0 4.43,6.89 3.34,3.34 0 0 0 5.69,6.21 4.48,4.48 0 0 0 6.77,4.7 3.62,3.62 0 0 0 6.92,2.19 m -1.61,2 c 0,0.2 0,0.83 0,0.83 A 6.24,6.24 0 0 1 3.58,6.25 6.05,6.05 0 0 1 1.86,5 c 0,0 0,-0.63 0,-0.83 A 0.93,0.93 0 0 1 1.43,3.53 0.82,0.82 0 0 0 1.91,3.13 4.28,4.28 0 0 0 1.69,2.36 C 1.63,2.12 1.91,1.86 1.91,1.86 a 0.38,0.38 0 0 0 0.57,0.08 0.48,0.48 0 0 0 0.1,-0.63 l 1,-0.49 1,0.49 a 0.48,0.48 0 0 0 0.1,0.63 0.37,0.37 0 0 0 0.56,-0.08 c 0,0 0.28,0.26 0.23,0.5 C 5.42,2.6 5.21,3 5.25,3.13 a 0.83,0.83 0 0 0 0.47,0.4 0.87,0.87 0 0 1 -0.43,0.64"
+           transform="translate(-0.05,-0.04)"
+           id="path9" />
+      </g>
+      <polygon
+         points="3.28,3 3.28,3.41 2.62,3.59 2.23,3.96 2.23,4.1 3.28,3.82 3.28,4.23 2.88,4.6 2.88,4.74 3.28,4.64 3.28,4.95 3.54,5.48 3.65,5.48 3.65,4.54 4.04,4.18 4.04,4.03 3.65,4.13 3.65,3.72 4.2,3.57 4.59,3.21 4.59,3.05 3.65,3.31 3.65,2.9 4.2,2.75 4.59,2.39 4.59,2.23 3.65,2.49 3.65,2.34 3.39,1.81 3.28,1.81 3.28,2.59 2.62,2.77 2.23,3.14 2.23,3.28 "
+         id="polygon13" />
+    </g>
+  </g>
+</svg>
