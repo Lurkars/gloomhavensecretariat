@@ -56,9 +56,9 @@ export class LootDeckComponent implements OnInit {
     }
 
     draw(event: any) {
-        if (this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
+        if (gameManager.game.lootDeck.cards.length > 0 && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
             this.openFullscreen(event);
-        } else if (!this.drawing && gameManager.game.state == GameState.next) {
+        } else if (gameManager.game.lootDeck.cards.length > 0 && !this.drawing && gameManager.game.state == GameState.next) {
             gameManager.stateManager.before('lootDeckDraw')
             this.lootManager.drawCard();
             gameManager.stateManager.after();
@@ -79,14 +79,14 @@ export class LootDeckComponent implements OnInit {
     }
 
     open(event: any) {
-        if (gameManager.game.state == GameState.next && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
+        if (gameManager.game.lootDeck.cards.length > 0 && gameManager.game.state == GameState.next && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
             this.openFullscreen(event);
         } else {
             this.dialog.open(LootDeckDialogComponent, {
                 panelClass: 'dialog'
             });
-            event.preventDefault();
-            event.stopPropagation();
         }
+        event.preventDefault();
+        event.stopPropagation();
     }
 }
