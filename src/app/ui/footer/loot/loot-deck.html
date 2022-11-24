@@ -1,25 +1,21 @@
-<div class="deck">
-    <div class="loot-container draw" *ngIf="current < gameManager.game.lootDeck.cards.length - 1" (click)="draw()">
-        <div class="loot">
-            <span class="number" *ngIf="current < gameManager.game.lootDeck.cards.length -1">{{
+<div class="deck"
+    [ngClass]="{'disabled' : gameManager.game.state == GameState.draw, 'vertical' : vertical, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.lootDeck}">
+    <div class="loot-container draw" (click)="draw($event)"
+        [style.z-index]="gameManager.game.lootDeck.cards.length + 1">
+        <div class="loot-card" #card [style.fontSize]="card.offsetWidth * 0.08 + 'px'">
+            <span class="number" *ngIf="current < gameManager.game.lootDeck.cards.length -1" (click)="open($event)">{{
                 gameManager.game.lootDeck.cards.length - current - 1 }}</span>
-
+            <span class="number" *ngIf="gameManager.game.lootDeck.cards.length == 0" (click)="open($event)">0</span>
+            <img [title]="'game.cards.fullscreen' | ghsLabel" *ngIf="fullscreen" (click)="openFullscreen($event)"
+                class="fullscreen" src="./assets/images/fullscreen.svg">
         </div>
     </div>
 
     <ng-container *ngFor="let card of gameManager.game.lootDeck.cards; let index = index;">
-        <div class="loot-container" (click)="draw()" *ngIf="index > gameManager.game.lootDeck.current - 3"
+        <div class="loot-container" (click)="open($event)" *ngIf="index > gameManager.game.lootDeck.current - 3"
             [style.z-index]="index > gameManager.game.lootDeck.current ? gameManager.game.lootDeck.cards.length - index : gameManager.game.lootDeck.cards.length + index + 1"
-            [ngClass]="{'disgarded' : index < gameManager.game.lootDeck.current - 1, 'current' : index == gameManager.game.lootDeck.current, 'last' : index == gameManager.game.lootDeck.current - 1}">
-            <div class="loot">
-                <div class="card" [ngClass]="{'flipped' : index <= gameManager.game.lootDeck.current}">
-                    <div class="card-back back">
-                    </div>
-                    <div class="card-front front">
-                        <img class="ghs-svg" [src]="'./assets/images/fh/loot/' + card + '.svg'">
-                    </div>
-                </div>
-            </div>
+            [ngClass]="{'disgarded' : index < gameManager.game.lootDeck.current - 1, 'current' : index == gameManager.game.lootDeck.current, 'last' : index == gameManager.game.lootDeck.current - 1, 'bottom' : bottom}">
+            <ghs-loot class="loot-card" [loot]="card" [flipped]="index <= gameManager.game.lootDeck.current"></ghs-loot>
         </div>
     </ng-container>
 </div>

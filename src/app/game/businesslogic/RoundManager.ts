@@ -55,12 +55,12 @@ export class RoundManager {
     } else if (this.nextAvailable()) {
       if (this.game.round == 0) {
         gameManager.attackModifierManager.draw();
+        gameManager.lootManager.draw();
       }
       this.game.state = GameState.next;
       this.game.round++;
       gameManager.characterManager.draw();
       gameManager.monsterManager.draw();
-      gameManager.lootManager.draw();
 
       if (settingsManager.settings.moveElements) {
         this.game.elementBoard.forEach((element) => {

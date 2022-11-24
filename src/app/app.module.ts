@@ -45,7 +45,7 @@ import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-s
 import { ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent } from './ui/footer/scenario/scenario';
 import { PartySheetComponent } from './ui/header/party/party-sheet';
 import { PartySheetDialogComponent } from './ui/header/party/party-sheet-dialog';
-import { DragValueComponent, DragClickComponent } from './ui/helper/dragValue/drag';
+import { DragValueComponent, DragClickComponent } from './ui/helper/drag/drag';
 import { AutoscrollDirective, FigureAutoscrollDirective } from './ui/helper/autoscroll';
 import { AttackModifierDeckComponent } from './ui/figures/attackmodifier/attackmodifierdeck';
 import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodifier';
@@ -75,6 +75,9 @@ import { ScenarioRulesComponent } from './ui/footer/scenario-rules/scenario-rule
 import { FeedbackToolComponent } from './ui/tools/feedback/feedback';
 import { FeedbackDialogComponent } from './ui/tools/feedback/feedback-dialog';
 import { LootDeckComponent } from './ui/footer/loot/loot-deck';
+import { LootDeckFullscreenComponent } from './ui/footer/loot/loot-deck-fullscreen';
+import { LootComponent } from './ui/footer/loot/loot';
+import { LootDeckDialogComponent } from './ui/footer/loot/loot-deck-dialog';
 
 @NgModule({
   declarations: [
@@ -83,7 +86,8 @@ import { LootDeckComponent } from './ui/footer/loot/loot-deck';
     HeaderComponent, ElementIconComponent,
     PartySheetComponent, PartySheetDialogComponent,
     MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent,
-    FooterComponent, LootDeckComponent,
+    FooterComponent,
+    LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent,
     AttackModifierComponent, AttackModifierEffectsComponent, HintDialogComponent, ScenarioRulesComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent,
     LevelComponent, LevelDialogComponent,
     ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent,

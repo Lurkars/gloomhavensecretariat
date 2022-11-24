@@ -533,7 +533,7 @@
     "reconnect": "Reconnecter",
     "settings": "Synchroniser les paramètres",
     "undefined": "Connexion non specifiée",
-    "url": "Url",
+    "url": "Hébergeur",
     "wss": {
       ".": "Securisé",
       "accept": "Accepter ?"

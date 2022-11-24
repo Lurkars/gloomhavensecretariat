@@ -412,7 +412,30 @@
       "loot": "Gold conversion",
       "trap": "Trap damage"
     },
-    "loot": "Loot",
+    "loot": {
+      ".": "Loot",
+      "arrowvine": "Arrowvine",
+      "axenut": "Axenut",
+      "config": {
+        ".": "Loot Table",
+        "apply": "Apply Loot Table",
+        "create": "Create Loot Table",
+        "discard": "Discard Changes",
+        "hide": "Hide Loot Table",
+        "show": "Show Loot Table"
+      },
+      "corpsecap": "Corpsecap",
+      "flamefruit": "Flamefruit",
+      "hide": "Hide",
+      "lumber": "Lumber",
+      "metal": "Metal",
+      "money": "Money",
+      "random_item": "Random Item",
+      "rockroot": "Rockroot",
+      "snowthistle": "Snowthistle",
+      "special1": "Special Card 1",
+      "special2": "Special Card 2"
+    },
     "maxHealth": "Maximum hit points",
     "solo": "Solo",
     "specialTarget": {
@@ -647,7 +670,7 @@
     "reconnect": "Reconnect",
     "settings": "Synchronize Settings",
     "undefined": "Connection not specified",
-    "url": "Url",
+    "url": "Host",
     "wss": {
       ".": "Secure",
       "accept": "Accept?"
@@ -797,6 +820,13 @@
       },
       "importParty": "Import party from file",
       "loadGameFromFile": "Load game state from file",
+      "lootDeckChangeConfig": "Change Loot Table",
+      "lootDeckDraw": "Draw Loot card",
+      "lootDeckHide": "Hide Loot deck",
+      "lootDeckRemoveCard": "Remove card {0} from Loot deck ",
+      "lootDeckReorder": "Reorder Loot deck",
+      "lootDeckShow": "Show Loot deck",
+      "lootDeckShuffle": "Shuffle Loot deck",
       "monsterConsumeElement": "{0} consume {1}",
       "monsterInfuseElement": "{0} infuse {1}",
       "nextRound": "Next Round",

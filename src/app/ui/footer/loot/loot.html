@@ -1,0 +1,19 @@
+<div class="loot {{loot.type}}">
+    <div class="card" [ngClass]="{'flipped' : flipped || revealed}" #card
+        [style.fontSize]="card.offsetWidth * 0.08 + 'px'" card-reveal [disabled]="!reveal" (change)="onChange($event)">
+        <div class="card-back back">
+            <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
+        </div>
+        <div class="card-front front"
+            [style.background-image]="'url(./assets/images/fh/loot/loot-' + loot.type +  (loot.type == LootType.money ? loot.value : '') + '.png)'">
+            <span class="header"
+                *ngIf="loot.type != LootType.money && loot.type != LootType.special1 && loot.type != LootType.special2">
+                <span [i18n]="'' +loot.value"></span>&nbsp;{{'game.loot.' + loot.type | ghsLabel}}
+            </span>
+            <span class="footer">
+                <span class="icon"
+                    [style.background-image]="'url(./assets/images/fh/loot/' + (loot.type == LootType.special1 || loot.type == LootType.special2 ? LootType.money : loot.type) + '.svg)'"></span>
+            </span>
+        </div>
+    </div>
+</div>

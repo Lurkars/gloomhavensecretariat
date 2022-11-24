@@ -138,6 +138,7 @@ export const longTouchTreshhold: number = 500;
 })
 export class DragClickComponent {
 
+  @Input() dragOff: boolean = false;
   @Input() clickBehind: boolean = false;
   @Input() relative: boolean = false;
   @Input() step: number = 1;
@@ -193,11 +194,14 @@ export class DragClickComponent {
     }
     this.inputCount = 0;
     this.relativeValue = -1;
-    this.draggingTimeout = setTimeout(() => {
-      document.body.classList.remove('dragging');
-    }, 200);
-    this.elementRef.nativeElement.classList.remove('dragging');
-    this.elementRef.nativeElement.firstChild.classList.remove('dragging');
+
+    if (!this.dragOff) {
+      this.draggingTimeout = setTimeout(() => {
+        document.body.classList.remove('dragging');
+      }, 200);
+      this.elementRef.nativeElement.classList.remove('dragging');
+      this.elementRef.nativeElement.firstChild.classList.remove('dragging');
+    }
   }
 
   touchstart(event: TouchEvent) {
@@ -224,11 +228,11 @@ export class DragClickComponent {
   }
 
   touchmove(event: any) {
-    if (this.timeout) {
-      clearTimeout(this.timeout);
-      this.timeout = null;
-    }
-    if (!this.inputEvent) {
+    if (!this.inputEvent && !this.dragOff) {
+      if (this.timeout) {
+        clearTimeout(this.timeout);
+        this.timeout = null;
+      }
       this.inputCount++;
       if (this.inputCount == 2) {
         document.body.classList.add('dragging');
@@ -259,6 +263,7 @@ export class DragClickComponent {
     }
     this.touchX = 0;
     this.touchY = 0;
+    this.inputCount = 0;
     this.endDrag();
   }
 
@@ -267,41 +272,45 @@ export class DragClickComponent {
   }
 
   endDrag() {
-    if (this.inputCount > 1 && this.value > this.min - 1) {
-      this.dragEndCallback.emit(this.relative ? this.value - this.relativeValue : this.value);
-    }
-    this.value = this.min - 1;
-    this.relativeValue = -1;
-    this.draggingTimeout = setTimeout(() => {
-      document.body.classList.remove('dragging');
-      this.draggingTimeout = null;
-      this.inputCount = 0;
-    }, 200);
-    this.elementRef.nativeElement.classList.remove('dragging');
-    this.elementRef.nativeElement.firstChild.classList.remove('dragging');
-    this.inputEvent = false;
+    if (!this.dragOff) {
+      if (this.inputCount > 1 && this.value > this.min - 1) {
+        this.dragEndCallback.emit(this.relative ? this.value - this.relativeValue : this.value);
+      }
+      this.value = this.min - 1;
+      this.relativeValue = -1;
+      this.draggingTimeout = setTimeout(() => {
+        document.body.classList.remove('dragging');
+        this.draggingTimeout = null;
+        this.inputCount = 0;
+      }, 200);
+      this.elementRef.nativeElement.classList.remove('dragging');
+      this.elementRef.nativeElement.firstChild.classList.remove('dragging');
+      this.inputEvent = false;
 
-    if (this.timeout) {
-      clearTimeout(this.timeout);
-      this.timeout = null;
+      if (this.timeout) {
+        clearTimeout(this.timeout);
+        this.timeout = null;
+      }
     }
   }
 
   input(event: any) {
-    this.inputEvent = true;
-    this.value = event.target.value;
-    this.inputCount++;
-    if (this.inputCount == 2) {
-      document.body.classList.add('dragging');
-      this.elementRef.nativeElement.classList.add('dragging');
-      this.elementRef.nativeElement.firstChild.classList.add('dragging');
-    }
-
-    if (this.inputCount > 3) {
-      if (this.relative && this.relativeValue == -1) {
-        this.relativeValue = this.value;
+    if (!this.dragOff) {
+      this.inputEvent = true;
+      this.value = event.target.value;
+      this.inputCount++;
+      if (this.inputCount == 2) {
+        document.body.classList.add('dragging');
+        this.elementRef.nativeElement.classList.add('dragging');
+        this.elementRef.nativeElement.firstChild.classList.add('dragging');
       }
-      this.dragMoveCallback.emit(this.relative ? this.value - this.relativeValue : this.value);
+
+      if (this.inputCount > 3) {
+        if (this.relative && this.relativeValue == -1) {
+          this.relativeValue = this.value;
+        }
+        this.dragMoveCallback.emit(this.relative ? this.value - this.relativeValue : this.value);
+      }
     }
   }
 

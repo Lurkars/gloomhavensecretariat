@@ -170,6 +170,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setAlwaysLootDeck(alwaysLootDeck: boolean) {
+    this.settings.alwaysLootDeck = alwaysLootDeck;
+    this.storeSettings();
+  }
+
   setFullscreen(fullscreen: boolean) {
     this.settings.fullscreen = fullscreen;
     this.storeSettings();

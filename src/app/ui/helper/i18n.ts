@@ -77,6 +77,9 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
           value = type.split(':')[1];
         }
         replace = '<span class="damage">' + settingsManager.getLabel('game.damage', [value]) + '</span>';
+      } else if (type == "loot" && split.length == 4) {
+        image = '<img  src="./assets/images/' + split[3] + '-player.svg" class="ghs-svg icon">';
+        replace = '<span class="placeholder-player">' + image + '</span>';
       } else {
         let labelArgs = label.split(':').splice(1).map((arg) =>
           applyPlaceholder(settingsManager.getLabel(arg), placeholder, relative));
@@ -163,6 +166,9 @@ export const applyFhPlaceholder = function (value: string, placeholder: string[]
         }
         image = '<img  src="./assets/images/fh/action/damage.svg" class="icon ghs-svg">';
         replace = '<span class="damage">' + image + value + '</span>';
+      } else if (type == "loot" && split.length == 4) {
+        image = '<img  src="./assets/images/' + split[3] + '-player.svg" class="ghs-svg icon">';
+        replace = '<span class="placeholder-player">' + image + '</span>';
       } else {
         replace = settingsManager.getLabel(label.split(':')[0], label.split(':').splice(1).map((arg) =>
           applyFhPlaceholder(settingsManager.getLabel(arg), placeholder, relative)

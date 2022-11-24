@@ -9,51 +9,22 @@
         padding-top: 60%;
         bottom: 5%;
         left: 0;
-
-        .loot {
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            cursor: pointer;
-            display: block;
-
-            .back {
-                background-position: center;
-                background-size: 100% auto;
-                background-repeat: no-repeat;
-                background-image: url('~/src/assets/images/fh/loot/loot-back.png');
-                border-radius: 5%;
-            }
-
-            .front {
-                display: flex;
-                position: relative;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                border-radius: 5%;
-                background-position: center;
-                background-size: 100% auto;
-                background-repeat: no-repeat;
-                background-image: url('~/src/assets/images/fh/loot/loot-front.png');
-
-                img {
-                    width: 20%;
-                    height: auto;
-                }
-
-            }
-
-        }
     }
+
+    .loot-card {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        cursor: pointer;
+        display: block;
+      }
 
     .draw {
         cursor: pointer;
 
-        .loot {
+        .loot-card {
             background-position: center;
             background-size: 100% auto;
             background-repeat: no-repeat;
@@ -79,17 +50,51 @@
                     color: var(--ghs-color-white);
                 }
             }
+
+            .fullscreen {
+              width: calc(15% * var(--ghs-text-factor));
+              height: auto;
+              position: absolute;
+              left: 2.5%;
+              top: 2.5%;
+              filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+              cursor: zoom-in;
+      
+              &:hover {
+                filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+              }
+            }
+      
+      
+            &.open-dialog {
+              cursor: help;
+            }
         }
     }
 
     @keyframes loot-draw {
+        0% {
+            transform: scale(1) translate(-102%, 16.5%);
+        }
+
+        35%,
+        70% {
+            transform: scale(1.1) translate(-51%, 25%);
+        }
+
+        100% {
+            transform: scale(1) translate(0, 0);
+        }
+    }
+
+    @keyframes loot-draw-bottom {
         0% {
             transform: scale(1) translate(-102%, -16.5%);
         }
 
         35%,
         70% {
-            transform: scale(2) translate(-80%, -166.5%);
+            transform: scale(2) translate(-80%, -120%);
         }
 
         100% {
@@ -149,6 +154,9 @@
             animation: loot-draw 1000ms ease-in-out;
             animation-iteration-count: 1;
 
+            &.bottom {
+                animation: loot-draw-bottom 1000ms ease-in-out;
+            }
         }
 
         .last {
@@ -158,4 +166,75 @@
         }
     }
 
+}
+
+.vertical {
+
+    .loot-container {
+        top: 0;
+        bottom: initial;
+        left: 0;
+    }
+
+    .current {
+        top: 0;
+        bottom: initial;
+        position: absolute;
+        transform: translateY(110%);
+        z-index: 1;
+    }
+
+    .disgarded,
+    .last {
+        position: absolute;
+        top: 0;
+        bottom: initial;
+        left: 30%;
+        transform: translateY(118%) rotate(5deg);
+        z-index: 0;
+    }
+
+
+    @keyframes loot-draw-vertical {
+        0% {
+            transform: scale(1);
+        }
+
+        35%,
+        70% {
+            transform: scale(1.1) translate(15%, 125%);
+        }
+
+        100% {
+            transform: scale(1) translateY(110%);
+        }
+    }
+
+    @keyframes loot-last-vertical {
+        0% {
+            left: 0;
+            transform: translateY(110%) rotate(0);
+        }
+
+        70% {
+            left: 0;
+            transform: translateY(110%) rotate(0);
+        }
+
+        100% {
+            left: 30%;
+            transform: translateY(118%) rotate(5deg);
+        }
+    }
+
+    &.drawing {
+
+        .current {
+            animation: loot-draw-vertical 1000ms ease-in-out;
+        }
+
+        .last {
+            animation: loot-last-vertical 1000ms ease-in-out;
+        }
+    }
 }

@@ -136,6 +136,14 @@
     </label>
   </div>
 
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.alwaysLootDeck"
+        (change)="settingsManager.setAlwaysLootDeck(!settingsManager.settings.alwaysLootDeck)">
+      {{'settings.alwaysLootDeck' | ghsLabel}}
+    </label>
+  </div>
+
   <div class="line disabled">
     <label>
       <input type="checkbox" [checked]="settingsManager.settings.scenarioNumberInput"

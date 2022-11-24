@@ -110,8 +110,8 @@ export class ScnearioManager {
       })
     }
 
-    if (scenarioData.loot) {
-      this.game.lootDeck = new LootDeck(scenarioData.loot);
+    if (scenarioData.lootDeckConfig) {
+      this.game.lootDeck = new LootDeck(scenarioData.lootDeckConfig);
     }
   }
 

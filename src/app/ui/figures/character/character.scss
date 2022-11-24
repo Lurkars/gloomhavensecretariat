@@ -341,6 +341,7 @@
   }
 
   .character-sheet-button {
+    position: relative;
     cursor: pointer;
     height: 100%;
     width: calc(var(--ghs-unit) * 12);
@@ -353,6 +354,14 @@
       height: calc(var(--ghs-unit) * 8);
       width: auto;
       filter: var(--ghs-filter-shadow);
+    }
+
+    ghs-drag-click {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
     }
   }
 

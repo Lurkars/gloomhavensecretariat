@@ -44,8 +44,6 @@ export class CharacterComponent {
   loot: number = 0;
   maxHp: number = 0;
 
-  doubleClick: any = null;
-
   constructor(private element: ElementRef, private dialog: Dialog, private overlay: Overlay) { }
 
   emptySummons(): boolean {
@@ -132,7 +130,7 @@ export class CharacterComponent {
     }
   }
 
-  openInitiativeDialog(event : any) {
+  openInitiativeDialog(event: any) {
     this.dialog.open(CharacterInitiativeDialogComponent, {
       panelClass: 'dialog',
       data: this.character,
@@ -228,28 +226,21 @@ export class CharacterComponent {
   }
 
   openCharacterSheet(): void {
-    if (this.doubleClick) {
-      clearTimeout(this.doubleClick);
-      this.doubleClick = null;
-      gameManager.game.figures.forEach((figure) => {
-        if (figure instanceof Character) {
-          figure.fullview = false;
-        }
-      });
-      this.character.fullview = true;
-      gameManager.stateManager.saveLocal();
-      gameManager.uiChange.emit();
-    } else {
-      this.doubleClick = setTimeout(() => {
-        if (this.doubleClick) {
-          this.dialog.open(CharacterSheetDialog, {
-            panelClass: 'dialog-invert',
-            data: this.character
-          });
-          this.doubleClick = null;
-        }
-      }, 200)
-    }
+    this.dialog.open(CharacterSheetDialog, {
+      panelClass: 'dialog-invert',
+      data: this.character
+    });
+  }
+
+  characterFullView() {
+    gameManager.game.figures.forEach((figure) => {
+      if (figure instanceof Character) {
+        figure.fullview = false;
+      }
+    });
+    this.character.fullview = true;
+    gameManager.stateManager.saveLocal();
+    gameManager.uiChange.emit();
   }
 
 

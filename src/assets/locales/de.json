@@ -305,7 +305,30 @@
       "loot": "Geldwechselkurs",
       "trap": "Fallenschaden"
     },
-    "loot": "Beute",
+    "loot": {
+      ".": "Beute",
+      "arrowvine": "Pfeilrebe",
+      "axenut": "Axtnuss",
+      "config": {
+        ".": "Beute Tabelle",
+        "apply": "Beute Tabelle anwenden",
+        "create": "Beute Tabelle erstellen",
+        "discard": "Änderungen verwerfen",
+        "hide": "Beute Tabelle ausblenden",
+        "show": "Beute Tabelle anzeigen"
+      },
+      "corpsecap": "Leichenmütze",
+      "flamefruit": "Flammenfrucht",
+      "hide": "Fell",
+      "lumber": "Holz",
+      "metal": "Metall",
+      "money": "Geld",
+      "random_item": "Zufälliger Gegenstand",
+      "rockroot": "Steinwurzel",
+      "snowthistle": "Schneedistel",
+      "special1": "Spezial Karte 1",
+      "special2": "Spezial Karte 2"
+    },
     "maxHealth": "Maximale Trefferpunkte",
     "solo": "Alleine",
     "specialTarget": {
@@ -538,7 +561,7 @@
     "reconnect": "Neu Verbinden",
     "settings": "Einstellungen synchronisieren",
     "undefined": "Verbindung nicht definiert",
-    "url": "Url",
+    "url": "Host",
     "wss": {
       ".": "Verschlüsselte Verbindung",
       "accept": "Akzeptieren?"
@@ -553,7 +576,7 @@
     "allyAttackModifierDeck": "Angriffsmodifikatordeck für Verbündete",
     "applyConditions": "Zustände automatisch anweden",
     "autoscroll": "Automatisch Scrollen",
-    "automaticAttackModifierFullscreen" : "Autom. Vollbild AM-Deck",
+    "automaticAttackModifierFullscreen": "Autom. Vollbild AM-Deck",
     "barsize": {
       ".": "Leistengröße",
       "dec": "Leistengröße verringern",
@@ -688,6 +711,13 @@
       },
       "importParty": "Gruppe von Datei importieren",
       "loadGameFromFile": "Spiel von Datei importieren",
+      "lootDeckChangeConfig": "Beute Tabelle ändern",
+      "lootDeckDraw": "Beute Karte ziehen",
+      "lootDeckHide": "Beute Karten ausblenden",
+      "lootDeckRemoveCard": "Karte {0} von Beute Karten entfernen",
+      "lootDeckReorder": "Beute Karten neu anordnen",
+      "lootDeckShow": "Beute Karten einblenden",
+      "lootDeckShuffle": "Beute Karten mischen",
       "monsterConsumeElement": "{0} verbraucht {1}",
       "monsterInfuseElement": "{0} reichert {1} an",
       "nextRound": "Nächste Runde",

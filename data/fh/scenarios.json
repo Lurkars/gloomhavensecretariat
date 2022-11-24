@@ -10,18 +10,40 @@
             "algox-priest",
             "city-guard"
         ],
-        "loot": {
+        "allies": [
+            "city-guard"
+        ],
+        "lootDeckConfig": {
             "money": 6,
             "lumber": 5,
             "metal": 3,
             "hide": 3,
             "rockroot": 1,
-            "snowthistle": 1
+            "snowthistle": 2
+        }
+    },
+    {
+        "index": "2",
+        "name": "Algox Scouting",
+        "edition": "fh",
+        "monsters": [
+            "algox-archer",
+            "algox-guard",
+            "algox-priest",
+            "algox-scout"
+        ],
+        "lootDeckConfig": {
+            "money": 4,
+            "lumber": 4,
+            "metal": 4,
+            "hide": 4,
+            "arrowvine": 1,
+            "random_item": 1
         }
     },
     {
         "index": "22",
-        "name": "A town in Flames",
+        "name": "Ice Floes",
         "edition": "fh",
         "monsters": [
             "lightning-eel",

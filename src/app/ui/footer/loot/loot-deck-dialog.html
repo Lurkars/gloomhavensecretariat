@@ -1,0 +1,70 @@
+<div class="loot-deck-dialog">
+  <div class="menu" #menu>
+    <ng-container *ngIf="gameManager.game.lootDeck.cards.length > 0">
+      <a (click)="reveal = (reveal + 1) % 3">{{(reveal == 2 ? 'game.cards.coverAll' : (reveal == 0 ?
+        'game.cards.revealAll' : 'game.cards.revealAllConfirm')) | ghsLabel}}</a>
+      <a (click)="shuffle()">{{'game.cards.shuffle' | ghsLabel}}</a>
+      <label><input type="checkbox" (click)="toggleEdit()" [checked]="edit">{{'game.cards.edit' | ghsLabel}}</label>
+      <a class="toggle-config" *ngIf="edit" (click)="configuration = !configuration"><img class="ghs-svg"
+          src="./assets/images/settings.svg">
+        {{('game.loot.config.' + (configuration ? 'hide' :
+        'show')) | ghsLabel}}</a>
+    </ng-container>
+  </div>
+  <div class="scroll-container">
+    <div class="config" *ngIf="configuration">
+      <label class="title">{{'game.loot.config' | ghsLabel}}</label>
+      <div class="values">
+        <ng-container *ngFor="let type of types">
+          <label><img class="ghs-svg"
+              [src]="'./assets/images/fh/loot/' + (type == LootType.special1 || type == LootType.special2 ? LootType.money : type) + '.svg'">
+            {{'game.loot.' + type | ghsLabel}}</label>
+          <a class="button" [ngClass]="{'disabled' : !lootDeckConfig[type]}" (click)="changeType(type, -1)">
+            <img class="ghs-svg" src="./assets/images/minus.svg">
+          </a>
+          <span class="value" title="{{'game.condition.bless' | ghsLabel}}">
+            {{lootDeckConfig[type] && 'x' + lootDeckConfig[type] || '-'}}
+          </span>
+          <a class="button" [ngClass]="{'disabled' : lootDeckConfig[type] == maxValue(type)}"
+            (click)="changeType(type,  1)">
+            <img class="ghs-svg" src="./assets/images/plus.svg">
+          </a>
+        </ng-container>
+      </div>
+      <div class="config-menu">
+        <a (click)="currentConfig()" *ngIf="gameManager.game.lootDeck.cards.length > 0">{{'game.loot.config.discard' |
+          ghsLabel}}</a>
+        <a (click)="applyConfig()">{{('game.loot.config.' + (gameManager.game.lootDeck.cards.length == 0 ? 'create':
+          'apply')) | ghsLabel}}</a>
+      </div>
+    </div>
+
+    <div class="loot-deck-container" *ngIf="!configuration" [style.maxHeight]="maxHeight">
+      <div class="upcoming drop-list" cdkDropList [cdkDropListDisabled]="!edit" #upcomingList="cdkDropList"
+        [cdkDropListConnectedTo]="disgardedList" (cdkDropListDropped)="dropUpcoming($event)"
+        [cdkDropListAutoScrollStep]="20">
+        <div class="empty" *ngIf="upcomingCards().length == 0"></div>
+        <div class="loot-container" *ngFor="let loot of upcomingCards(); let index = index" cdkDrag>
+          <ghs-loot class="drag-hidden" [loot]="loot" [reveal]="true" [flipped]="reveal == 2">
+          </ghs-loot>
+          <a class="button-remove" *ngIf="edit" (click)="remove(index + gameManager.game.lootDeck.current + 1)">
+            <img class="ghs-svg" src="./assets/images/minus.svg"></a>
+          <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
+        </div>
+      </div>
+
+      <div class="disgarded drop-list" cdkDropList [cdkDropListDisabled]="!edit" #disgardedList="cdkDropList"
+        [cdkDropListConnectedTo]="upcomingList" (cdkDropListDropped)="dropDisgarded($event)"
+        [cdkDropListAutoScrollStep]="20">
+        <div class="empty"></div>
+
+        <div class="loot-container" *ngFor="let loot of disgardedCards(); let index = index" cdkDrag>
+          <ghs-loot class="drag-hidden" [loot]="loot" [flipped]="true"></ghs-loot>
+          <a class="button-remove" *ngIf="edit" (click)="remove(gameManager.game.lootDeck.current - index)">
+            <img class="ghs-svg" src="./assets/images/minus.svg"></a>
+          <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

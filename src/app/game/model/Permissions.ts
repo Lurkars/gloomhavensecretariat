@@ -11,5 +11,6 @@ export class Permissions {
   round: boolean = false;
   level: boolean = false;
   attackModifiers: boolean = false;
+  lootDeck: boolean = false;
 
 }

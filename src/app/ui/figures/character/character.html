@@ -10,7 +10,8 @@
   </div>
 </div>
 
-<div class="character" [style.--ghs-character-color]="character.color" *ngIf="!character.absent || !settingsManager.settings.hideAbsent"
+<div class="character" [style.--ghs-character-color]="character.color"
+  *ngIf="!character.absent || !settingsManager.settings.hideAbsent"
   [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.hasCharacterPermission(character), 'absent' : character.absent, 'dimmed' : character.attackModifierDeckVisible, 'fh' : settingsManager.settings.fhStyle}">
 
   <ghs-character-image [character]="character"
@@ -18,18 +19,20 @@
   </ghs-character-image>
 
   <ng-container *ngIf="!character.absent">
-    <ghs-drag-click *ngIf="settingsManager.settings.dragValues && !character.attackModifierDeckVisible" class="drag-initiative"
-      (dragMove)="dragInitiativeMove($event)" (dragEnd)="dragInitiativeEnd($event)" (singleClick)="toggleFigure($event)" (doubleClick)="openInitiativeDialog($event)">
+    <ghs-drag-click *ngIf="settingsManager.settings.dragValues && !character.attackModifierDeckVisible"
+      class="drag-initiative" (dragMove)="dragInitiativeMove($event)" (dragEnd)="dragInitiativeEnd($event)"
+      (singleClick)="toggleFigure($event)" (doubleClick)="openInitiativeDialog($event)">
     </ghs-drag-click>
 
-    <ghs-drag-value *ngIf="settingsManager.settings.dragValues && !character.attackModifierDeckVisible" class="drag-hp" (dragMove)="dragHpMove($event)"
-      (dragEnd)="dragHpEnd($event)" [relative]="true"></ghs-drag-value>
+    <ghs-drag-value *ngIf="settingsManager.settings.dragValues && !character.attackModifierDeckVisible" class="drag-hp"
+      (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" [relative]="true"></ghs-drag-value>
 
-    <ghs-drag-value *ngIf="settingsManager.settings.dragValues && !character.attackModifierDeckVisible" class="drag-xp" (dragMove)="dragXpMove($event)"
-      (dragEnd)="dragXpEnd($event)" [relative]="true"></ghs-drag-value>
+    <ghs-drag-value *ngIf="settingsManager.settings.dragValues && !character.attackModifierDeckVisible" class="drag-xp"
+      (dragMove)="dragXpMove($event)" (dragEnd)="dragXpEnd($event)" [relative]="true"></ghs-drag-value>
 
-    <ghs-drag-value *ngIf="settingsManager.settings.dragValues && !character.attackModifierDeckVisible" class="drag-loot" (dragMove)="dragLootMove($event)"
-      (dragEnd)="dragLootEnd($event)" [relative]="true"></ghs-drag-value>
+    <ghs-drag-value *ngIf="settingsManager.settings.dragValues && !character.attackModifierDeckVisible"
+      class="drag-loot" (dragMove)="dragLootMove($event)" (dragEnd)="dragLootEnd($event)" [relative]="true">
+    </ghs-drag-value>
 
     <ghs-character-initiative [character]="character"></ghs-character-initiative>
 
@@ -124,9 +127,12 @@
       </div>
     </ng-container>
 
-    <a class="character-sheet-button" (click)="openCharacterSheet()" title="{{'character.progress' | ghsLabel}}">
+    <a class="character-sheet-button" title="{{'character.progress' | ghsLabel}}">
       <img [src]="characterManager.characterIcon(character)" />
+      <ghs-drag-click (singleClick)="openCharacterSheet()" (doubleClick)="characterFullView()" [dragOff]="true"></ghs-drag-click>
     </a>
+
+
 
   </div>
 

@@ -1,0 +1,77 @@
+.loot-deck-fullscreen {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: auto;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 3;
+
+  ghs-loot-deck {
+    display: flex;
+    width: 99vw;
+    max-width: 600px;
+    height: 100vw;
+    max-height: 420px;
+    z-index: 4;
+    margin-top: 2em;
+    margin-left: 1%;
+  }
+
+  .toggle-config {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    z-index: 3;
+    font-size: 2em;
+    color: var(--ghs-color-black);
+
+    .ghs-svg {
+      height: 1em;
+      width: auto;
+      margin-left: 0.3em;
+      filter: var(--ghs-filter-shadow);
+    }
+
+    &:hover {
+      color: var(--ghs-color-gray);
+
+      .ghs-svg {
+        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+      }
+    }
+  }
+
+  ghs-loot-deck-config {
+    z-index: 3;
+  }
+
+  &.vertical {
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    ghs-loot-deck {
+      width: 98vw;
+      margin-right: 1%;
+      height: 132vw;
+      max-height: 800px;
+      transform: none;
+    }
+  }
+
+
+  .close-container {
+    cursor: zoom-out;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    top: 0;
+    left: 0;
+  }
+
+}

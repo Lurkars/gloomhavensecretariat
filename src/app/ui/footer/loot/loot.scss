@@ -1,0 +1,81 @@
+.loot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+    display: block;
+
+    .back {
+        background-position: center;
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        background-image: url('~/src/assets/images/fh/loot/loot-back.png');
+        border-radius: 5%;
+    }
+
+    .front {
+        display: flex;
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 5%;
+        background-position: center;
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10%;
+            font-size: 1.3em;
+            text-align: center;
+            white-space: nowrap;
+            background-color: var(--ghs-color-yellow-light);
+        }
+
+        .footer {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            bottom: 0%;
+            left: 50%;
+            height: 12%;
+            width: 20%;
+            transform: translateX(-50%);
+            background-color: var(--ghs-color-yellow-light);
+            border-top-left-radius: 25%;
+            border-top-right-radius: 25%;
+
+            .icon {
+                width: 80%;
+                height: 80%;
+                background-size: contain;
+                background-position: center center;
+                background-repeat: no-repeat;
+            }
+        }
+    }
+
+    .confirm {
+        .revealed {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--ghs-color-white);
+            font-size: 1.3em;
+            filter: drop-shadow(calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black));
+        }
+    }
+}

@@ -21,6 +21,7 @@ export class Settings {
   ge5Player: boolean | undefined = undefined;
   disableStandees: boolean = false;
   abilityReveal: boolean = true;
+  alwaysLootDeck: boolean = false;
   fullscreen: boolean = false;
   fhStyle: boolean = false;
   autoscroll: boolean = true;
