@@ -567,7 +567,7 @@
     "dragValues": "Glisser pour modifier Initiative/HP/XP/Loot",
     "eliteFirst": "Afficher les élites en premier",
     "expireConditions": "Conditions expirant automatiquement",
-    "fhStyle": "Style Frosthaven (%wip%)",
+    "fhStyle": "Style Frosthaven",
     "fontsize": {
       ".": "Taille police des capacités",
       "dec": "Réduire Taille police des capacités",

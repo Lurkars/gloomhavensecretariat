@@ -707,7 +707,7 @@
     "eliteFirst": "Elite standees first",
     "expireConditions": "Automatic expire conditions",
     "feedback": "Disable Feedback Button",
-    "fhStyle": "Frosthaven Style (%wip%)",
+    "fhStyle": "Frosthaven Style",
     "fontsize": {
       ".": "Ability fontsize",
       "dec": "Decrease ability fontsize",
