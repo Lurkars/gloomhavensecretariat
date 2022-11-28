@@ -425,6 +425,12 @@
         "show": "Show Loot Table"
       },
       "corpsecap": "Corpsecap",
+      "deck": "Loot Deck",
+      "enhancements": {
+        ".": "Enhancements",
+        "add": "Add Enhacement",
+        "remove": "Remove Enhancement"
+      },
       "flamefruit": "Flamefruit",
       "hide": "Hide",
       "lumber": "Lumber",
@@ -827,10 +833,12 @@
       },
       "importParty": "Import party from file",
       "loadGameFromFile": "Load game state from file",
+      "lootDeckAddEnhancement": "Enhance Loot Card '{1} %game.loot.{0}%'",
       "lootDeckChangeConfig": "Change Loot Table",
       "lootDeckDraw": "Draw Loot card",
       "lootDeckHide": "Hide Loot deck",
       "lootDeckRemoveCard": "Remove card {0} from Loot deck ",
+      "lootDeckRemoveEnhancement": "Remove enhancement from Loot Card '{1} %game.loot.{0}%'",
       "lootDeckReorder": "Reorder Loot deck",
       "lootDeckShow": "Show Loot deck",
       "lootDeckShuffle": "Shuffle Loot deck",
