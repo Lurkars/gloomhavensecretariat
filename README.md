@@ -23,8 +23,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
 
 ## Current Features
 
-- Feature complete for base GH, JOTL, FC and CS (all needs testing, so please [contribute](#contributing)!)
-- ***Current Frosthaven data***: Monster Stats, Monster Abilities, Character Stats
+- Feature complete for GH, FH, JOTL, FC and CS (all needs testing, so please [contribute](#contributing)!)
 - Tracking:
   - **initiative** sorting
   - **health** automatic exhausting/dead, max values for every level
@@ -61,6 +60,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - Permission management for different clients with [GHS Server](https://github.com/Lurkars/ghs-server)
   - load custom JSON edition data for custom content!
   - edit Monster Attack Modifier and Monster Ability decks (support for Diviner class mechanics): reveal cards, remove cards, re-order cards
+  - FH Loot Deck support
   - [Monster data editor](https://gloomhaven-secretary.de/editor/monster)
   - includes Solo Scenarios for GH, FC and CS
   - includes [Blood and Sand](https://boardgamegeek.com/thread/2613617/blood-and-sand-gloomhaven-campaign-set-red-desert) campaign: can be enabled under *Data Management* (Big thanks to [/u/Calm_Construction131](https://www.reddit.com/user/Calm_Construction131) for contribution)
@@ -75,12 +75,10 @@ If you need help using the app take a look at the [help page](https://help.gloom
 ### Short term plans
 
 - validation of all existing data
-- FH style (WIP)
-- support for FH, CS AM decks and perks
+- support for Campaign Tracking, AM decks and perks for FH and CS
 
 ### Long term plans
 
-- support for Frosthaven features like Loot Deck
 - support for managing character ability cards
 
 ## Install
