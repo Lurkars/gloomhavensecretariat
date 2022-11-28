@@ -137,8 +137,12 @@ export class LootDeck {
                     this.cards.push(availableTypes[i]);
                 }
             }
-
         })
+        this.current = -1;
+        this.cards = this.cards
+            .map((value) => ({ value, sort: Math.random() }))
+            .sort((a, b) => a.sort - b.sort)
+            .map(({ value }) => value);
     }
 
 }

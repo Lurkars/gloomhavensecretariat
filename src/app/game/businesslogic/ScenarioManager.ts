@@ -121,7 +121,6 @@ export class ScnearioManager {
 
     if (scenarioData.lootDeckConfig) {
       this.game.lootDeck.apply(scenarioData.lootDeckConfig);
-      console.log(this.game.lootDeck, scenarioData.lootDeckConfig);
     }
   }
 
