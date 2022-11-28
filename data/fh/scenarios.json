@@ -7,7 +7,7 @@
       "hound-scenario-0"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 2,
       "metal": 2,
       "hide": 2
@@ -27,7 +27,7 @@
       "city-guard-scenario-1"
     ],
     "lootDeckConfig": {
-      "coin": 6,
+      "money": 6,
       "lumber": 5,
       "metal": 3,
       "hide": 3,
@@ -49,7 +49,7 @@
       "algox-priest"
     ],
     "lootDeckConfig": {
-      "coin": 4,
+      "money": 4,
       "lumber": 4,
       "metal": 4,
       "hide": 4,
@@ -73,7 +73,7 @@
       "hound"
     ],
     "lootDeckConfig": {
-      "coin": 4,
+      "money": 4,
       "lumber": 4,
       "metal": 4,
       "hide": 4,
@@ -98,7 +98,7 @@
       "algox-guard"
     ],
     "lootDeckConfig": {
-      "coin": 6,
+      "money": 6,
       "lumber": 3,
       "metal": 5,
       "hide": 2,
@@ -119,7 +119,7 @@
       "algox-scout"
     ],
     "lootDeckConfig": {
-      "coin": 6,
+      "money": 6,
       "lumber": 3,
       "metal": 5,
       "hide": 2,
@@ -137,7 +137,7 @@
       "ice-wraith"
     ],
     "lootDeckConfig": {
-      "coin": 6,
+      "money": 6,
       "lumber": 4,
       "metal": 3,
       "hide": 1,
@@ -154,7 +154,7 @@
       "snow-imp"
     ],
     "lootDeckConfig": {
-      "coin": 9,
+      "money": 9,
       "lumber": 4,
       "metal": 1,
       "hide": 1,
@@ -174,7 +174,7 @@
       "lurker-soldier"
     ],
     "lootDeckConfig": {
-      "coin": 6,
+      "money": 6,
       "lumber": 3,
       "metal": 3,
       "hide": 3,
@@ -192,7 +192,7 @@
       "snow-imp"
     ],
     "lootDeckConfig": {
-      "coin": 6,
+      "money": 6,
       "lumber": 5,
       "hide": 5,
       "rockroot": 1,
@@ -211,7 +211,7 @@
       "ooze-fh"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 5,
       "metal": 3,
       "rockroot": 2,
@@ -243,7 +243,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 4,
       "hide": 3,
       "axenut": 2,
@@ -261,7 +261,7 @@
       "wind-demon-fh"
     ],
     "lootDeckConfig": {
-      "coin": 6,
+      "money": 6,
       "lumber": 4,
       "metal": 3,
       "hide": 3,
@@ -280,7 +280,7 @@
       "steel-automaton"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 4,
       "metal": 4,
       "rockroot": 2,
@@ -305,7 +305,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 7,
+      "money": 7,
       "lumber": 5,
       "hide": 3,
       "flamefruit": 1,
@@ -324,7 +324,7 @@
       "piranha-pig"
     ],
     "lootDeckConfig": {
-      "coin": 7,
+      "money": 7,
       "lumber": 4,
       "metal": 2,
       "hide": 5,
@@ -341,7 +341,7 @@
       "ruined-machine"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 4,
       "metal": 5,
       "hide": 2,
@@ -360,7 +360,7 @@
       "ruined-machine"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 4,
       "metal": 5,
       "rockroot": 2,
@@ -391,7 +391,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 10,
+      "money": 10,
       "lumber": 5,
       "metal": 2,
       "corpsecap": 2,
@@ -411,7 +411,7 @@
       "algox-guard"
     ],
     "lootDeckConfig": {
-      "coin": 6,
+      "money": 6,
       "lumber": 3,
       "metal": 2,
       "hide": 5,
@@ -430,7 +430,7 @@
       "ice-wraith"
     ],
     "lootDeckConfig": {
-      "coin": 11,
+      "money": 11,
       "lumber": 2,
       "metal": 2,
       "hide": 2,
@@ -471,7 +471,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 10,
+      "money": 10,
       "lumber": 2,
       "metal": 5,
       "rockroot": 1,
@@ -490,7 +490,7 @@
       "snow-imp"
     ],
     "lootDeckConfig": {
-      "coin": 6,
+      "money": 6,
       "lumber": 4,
       "metal": 3,
       "hide": 3,
@@ -509,7 +509,7 @@
       "lurker-wavethrower"
     ],
     "lootDeckConfig": {
-      "coin": 10,
+      "money": 10,
       "lumber": 5,
       "hide": 2,
       "arrowvine": 2,
@@ -526,7 +526,7 @@
       "living-spirit-fh"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 4,
       "metal": 4,
       "flamefruit": 1,
@@ -544,7 +544,7 @@
       "wind-demon-fh"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 2,
       "metal": 2,
       "hide": 2,
@@ -563,7 +563,7 @@
       "ruined-machine"
     ],
     "lootDeckConfig": {
-      "coin": 10,
+      "money": 10,
       "lumber": 2,
       "metal": 4,
       "rockroot": 1,
@@ -580,7 +580,7 @@
       "steel-automaton"
     ],
     "lootDeckConfig": {
-      "coin": 10,
+      "money": 10,
       "lumber": 2,
       "metal": 4,
       "rockroot": 1,
@@ -597,7 +597,7 @@
       "ooze-fh"
     ],
     "lootDeckConfig": {
-      "coin": 13,
+      "money": 13,
       "lumber": 2,
       "metal": 2,
       "hide": 2,
@@ -629,7 +629,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 11,
+      "money": 11,
       "lumber": 2,
       "hide": 3,
       "rockroot": 2,
@@ -649,7 +649,7 @@
       "algox-scout"
     ],
     "lootDeckConfig": {
-      "coin": 12,
+      "money": 12,
       "lumber": 2,
       "hide": 2,
       "snowthistle": 2,
@@ -669,7 +669,7 @@
       "algox-snowspeaker"
     ],
     "lootDeckConfig": {
-      "coin": 12,
+      "money": 12,
       "lumber": 2,
       "hide": 2,
       "axenut": 1,
@@ -687,7 +687,7 @@
       "steel-automaton"
     ],
     "lootDeckConfig": {
-      "coin": 11,
+      "money": 11,
       "lumber": 2,
       "metal": 3,
       "rockroot": 2,
@@ -705,7 +705,7 @@
       "shrike-fiend"
     ],
     "lootDeckConfig": {
-      "coin": 7,
+      "money": 7,
       "lumber": 5,
       "hide": 3,
       "axenut": 2,
@@ -724,7 +724,7 @@
       "shrike-fiend"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 5,
       "hide": 3,
       "rockroot": 1,
@@ -758,7 +758,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 7,
+      "money": 7,
       "lumber": 5,
       "metal": 5,
       "hide": 2,
@@ -794,7 +794,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 9,
+      "money": 9,
       "lumber": 3,
       "metal": 5,
       "arrowvine": 2,
@@ -811,7 +811,7 @@
       "ruined-machine"
     ],
     "lootDeckConfig": {
-      "coin": 10,
+      "money": 10,
       "lumber": 3,
       "metal": 3,
       "rockroot": 1,
@@ -843,7 +843,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 5,
       "hide": 3,
       "axenut": 2,
@@ -863,7 +863,7 @@
       "frozen-corpse"
     ],
     "lootDeckConfig": {
-      "coin": 10,
+      "money": 10,
       "lumber": 4,
       "metal": 2,
       "hide": 3,
@@ -883,7 +883,7 @@
       "steel-automaton"
     ],
     "lootDeckConfig": {
-      "coin": 10,
+      "money": 10,
       "lumber": 3,
       "metal": 4,
       "hide": 2,
@@ -902,7 +902,7 @@
       "night-demon-fh"
     ],
     "lootDeckConfig": {
-      "coin": 9,
+      "money": 9,
       "lumber": 2,
       "metal": 2,
       "hide": 2,
@@ -921,7 +921,7 @@
       "ooze-fh"
     ],
     "lootDeckConfig": {
-      "coin": 12,
+      "money": 12,
       "lumber": 2,
       "metal": 3,
       "flamefruit": 1,
@@ -939,7 +939,7 @@
       "steel-automaton"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 2,
       "metal": 4,
       "rockroot": 1,
@@ -964,7 +964,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 2,
       "metal": 4,
       "rockroot": 1,
@@ -983,7 +983,7 @@
       "piranha-pig"
     ],
     "lootDeckConfig": {
-      "coin": 10,
+      "money": 10,
       "lumber": 3,
       "hide": 5,
       "rockroot": 1,
@@ -1000,7 +1000,7 @@
       "shrike-fiend"
     ],
     "lootDeckConfig": {
-      "coin": 9,
+      "money": 9,
       "lumber": 3,
       "metal": 3,
       "hide": 3,
@@ -1018,7 +1018,7 @@
       "shrike-fiend"
     ],
     "lootDeckConfig": {
-      "coin": 7,
+      "money": 7,
       "lumber": 5,
       "metal": 2,
       "hide": 2,
@@ -1036,7 +1036,7 @@
       "wind-demon-fh"
     ],
     "lootDeckConfig": {
-      "coin": 7,
+      "money": 7,
       "lumber": 2,
       "metal": 2,
       "hide": 5,
@@ -1054,7 +1054,7 @@
       "frost-demon-fh"
     ],
     "lootDeckConfig": {
-      "coin": 13,
+      "money": 13,
       "metal": 3,
       "hide": 2,
       "snowthistle": 2
@@ -1078,7 +1078,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 13,
+      "money": 13,
       "lumber": 2,
       "hide": 3,
       "arrowvine": 2
@@ -1095,7 +1095,7 @@
       "steel-automaton"
     ],
     "lootDeckConfig": {
-      "coin": 12,
+      "money": 12,
       "lumber": 2,
       "metal": 4,
       "flamefruit": 1,
@@ -1111,7 +1111,7 @@
       "snow-imp"
     ],
     "lootDeckConfig": {
-      "coin": 6,
+      "money": 6,
       "lumber": 2,
       "metal": 2,
       "hide": 5,
@@ -1131,7 +1131,7 @@
       "lurker-soldier"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 2,
       "metal": 2,
       "hide": 3,
@@ -1153,7 +1153,7 @@
       "lurker-wavethrower"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 2,
       "metal": 2,
       "hide": 3,
@@ -1174,7 +1174,7 @@
       "algox-priest"
     ],
     "lootDeckConfig": {
-      "coin": 3,
+      "money": 3,
       "lumber": 2,
       "metal": 4,
       "hide": 2,
@@ -1200,7 +1200,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 6,
+      "money": 6,
       "lumber": 5,
       "metal": 2,
       "hide": 2,
@@ -1234,7 +1234,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 6,
+      "money": 6,
       "lumber": 2,
       "metal": 4,
       "corpsecap": 1,
@@ -1261,7 +1261,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 11,
+      "money": 11,
       "metal": 4,
       "rockroot": 1,
       "snowthistle": 2,
@@ -1281,7 +1281,7 @@
       "lurker-wavethrower"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "arrowvine": 1,
       "axenut": 1,
       "corpsecap": 1,
@@ -1309,7 +1309,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 5,
+      "money": 5,
       "lumber": 4,
       "metal": 4,
       "hide": 4,
@@ -1336,7 +1336,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 5,
+      "money": 5,
       "lumber": 4,
       "metal": 4,
       "hide": 4,
@@ -1366,7 +1366,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 5,
+      "money": 5,
       "lumber": 4,
       "metal": 4,
       "hide": 4,
@@ -1447,7 +1447,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 5,
+      "money": 5,
       "lumber": 4,
       "metal": 4,
       "hide": 4,
@@ -1467,7 +1467,7 @@
       "snow-imp"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 2,
       "metal": 2,
       "hide": 4,
@@ -1488,7 +1488,7 @@
       "wind-demon-fh"
     ],
     "lootDeckConfig": {
-      "coin": 12,
+      "money": 12,
       "lumber": 2,
       "metal": 2,
       "hide": 2,
@@ -1540,7 +1540,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 3,
       "metal": 3,
       "hide": 3,
@@ -1578,7 +1578,7 @@
       "rending-drake-fh"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 5,
       "hide": 4,
       "axenut": 2,
@@ -1603,7 +1603,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 7,
+      "money": 7,
       "lumber": 5,
       "hide": 3,
       "axenut": 2,
@@ -1624,7 +1624,7 @@
       "piranha-pig"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 4,
       "metal": 4,
       "hide": 4
@@ -1641,7 +1641,7 @@
       "steel-automaton"
     ],
     "lootDeckConfig": {
-      "coin": 9,
+      "money": 9,
       "lumber": 3,
       "metal": 5,
       "corpsecap": 2,
@@ -1660,7 +1660,7 @@
       "piranha-pig"
     ],
     "lootDeckConfig": {
-      "coin": 9,
+      "money": 9,
       "lumber": 5,
       "hide": 3,
       "flamefruit": 1,
@@ -1686,7 +1686,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 4,
+      "money": 4,
       "lumber": 4,
       "metal": 4,
       "hide": 4,
@@ -1708,7 +1708,7 @@
       "piranha-pig"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "metal": 2,
       "hide": 5,
       "axenut": 1,
@@ -1729,7 +1729,7 @@
       "piranha-pig"
     ],
     "lootDeckConfig": {
-      "coin": 9,
+      "money": 9,
       "metal": 2,
       "hide": 5,
       "axenut": 1,
@@ -1749,7 +1749,7 @@
       "wind-demon-fh"
     ],
     "lootDeckConfig": {
-      "coin": 4,
+      "money": 4,
       "lumber": 2,
       "metal": 2,
       "hide": 2,
@@ -1771,7 +1771,7 @@
       "piranha-pig"
     ],
     "lootDeckConfig": {
-      "coin": 6,
+      "money": 6,
       "lumber": 3,
       "metal": 3,
       "hide": 4,
@@ -1790,7 +1790,7 @@
       "snow-imp"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 3,
       "metal": 5,
       "hide": 2,
@@ -1826,7 +1826,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 2,
       "metal": 3,
       "hide": 2,
@@ -1858,7 +1858,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 9,
+      "money": 9,
       "lumber": 2,
       "metal": 5,
       "hide": 2,
@@ -1875,7 +1875,7 @@
       "wind-demon-fh"
     ],
     "lootDeckConfig": {
-      "coin": 12,
+      "money": 12,
       "rockroot": 1,
       "arrowvine": 1,
       "snowthistle": 1,
@@ -1893,7 +1893,7 @@
       "piranha-pig"
     ],
     "lootDeckConfig": {
-      "coin": 7,
+      "money": 7,
       "lumber": 3,
       "metal": 3,
       "hide": 3,
@@ -1911,7 +1911,7 @@
       "ooze-fh"
     ],
     "lootDeckConfig": {
-      "coin": 15,
+      "money": 15,
       "lumber": 3,
       "metal": 3,
       "corpsecap": 2,
@@ -1929,7 +1929,7 @@
       "polar-bear"
     ],
     "lootDeckConfig": {
-      "coin": 7,
+      "money": 7,
       "lumber": 2,
       "metal": 3,
       "hide": 4,
@@ -1954,7 +1954,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 10,
+      "money": 10,
       "lumber": 4,
       "hide": 2,
       "axenut": 1,
@@ -1975,7 +1975,7 @@
       "steel-automaton"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 2,
       "metal": 4,
       "hide": 3,
@@ -1999,7 +1999,7 @@
       "wind-demon-fh"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 3,
       "metal": 4,
       "hide": 2,
@@ -2019,7 +2019,7 @@
       "algox-priest"
     ],
     "lootDeckConfig": {
-      "coin": 10,
+      "money": 10,
       "lumber": 2,
       "metal": 2,
       "hide": 2,
@@ -2039,7 +2039,7 @@
       "snow-imp"
     ],
     "lootDeckConfig": {
-      "coin": 5,
+      "money": 5,
       "lumber": 4,
       "hide": 4,
       "snowthistle": 2
@@ -2056,7 +2056,7 @@
       "lurker-wavethrower"
     ],
     "lootDeckConfig": {
-      "coin": 10,
+      "money": 10,
       "lumber": 4,
       "hide": 4,
       "flamefruit": 1,
@@ -2075,7 +2075,7 @@
       "lurker-wavethrower"
     ],
     "lootDeckConfig": {
-      "coin": 7,
+      "money": 7,
       "lumber": 4,
       "metal": 3,
       "hide": 2,
@@ -2099,7 +2099,7 @@
       "vermling-scout-fh"
     ],
     "lootDeckConfig": {
-      "coin": 9,
+      "money": 9,
       "lumber": 4,
       "metal": 2,
       "hide": 2,
@@ -2123,7 +2123,7 @@
       "vermling-scout-fh"
     ],
     "lootDeckConfig": {
-      "coin": 9,
+      "money": 9,
       "lumber": 4,
       "metal": 2,
       "hide": 2,
@@ -2144,7 +2144,7 @@
       "vermling-scout-fh"
     ],
     "lootDeckConfig": {
-      "coin": 9,
+      "money": 9,
       "lumber": 3,
       "metal": 5,
       "rockroot": 1,
@@ -2163,7 +2163,7 @@
       "living-spirit-fh"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 4,
       "metal": 2,
       "corpsecap": 2,
@@ -2180,7 +2180,7 @@
       "rending-drake-fh"
     ],
     "lootDeckConfig": {
-      "coin": 14,
+      "money": 14,
       "lumber": 1,
       "metal": 3,
       "axenut": 1,
@@ -2199,7 +2199,7 @@
       "steel-automaton"
     ],
     "lootDeckConfig": {
-      "coin": 10,
+      "money": 10,
       "lumber": 2,
       "metal": 4,
       "random_item": 1
@@ -2216,7 +2216,7 @@
       "spitting-drake-fh"
     ],
     "lootDeckConfig": {
-      "coin": 10,
+      "money": 10,
       "lumber": 1,
       "metal": 4,
       "hide": 3,
@@ -2233,7 +2233,7 @@
       "steel-automaton"
     ],
     "lootDeckConfig": {
-      "coin": 10,
+      "money": 10,
       "lumber": 2,
       "metal": 4,
       "hide": 2,
@@ -2251,7 +2251,7 @@
       "shrike-fiend"
     ],
     "lootDeckConfig": {
-      "coin": 15
+      "money": 15
     }
   },
   {
@@ -2264,7 +2264,7 @@
       "algox-priest"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 3,
       "metal": 3,
       "hide": 3,
@@ -2286,7 +2286,7 @@
       "wind-demon-fh"
     ],
     "lootDeckConfig": {
-      "coin": 15
+      "money": 15
     }
   },
   {
@@ -2326,7 +2326,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 15,
+      "money": 15,
       "random_item": 1
     }
   },
@@ -2342,7 +2342,7 @@
       "wind-demon-fh"
     ],
     "lootDeckConfig": {
-      "coin": 10,
+      "money": 10,
       "lumber": 3,
       "metal": 3,
       "hide": 2,
@@ -2362,7 +2362,7 @@
       "wind-demon-fh"
     ],
     "lootDeckConfig": {
-      "coin": 10,
+      "money": 10,
       "lumber": 3,
       "metal": 3,
       "hide": 2,
@@ -2382,7 +2382,7 @@
       "wind-demon-fh"
     ],
     "lootDeckConfig": {
-      "coin": 7,
+      "money": 7,
       "lumber": 2,
       "metal": 4,
       "hide": 2,
@@ -2405,7 +2405,7 @@
       "steel-automaton"
     ],
     "lootDeckConfig": {
-      "coin": 10,
+      "money": 10,
       "lumber": 3,
       "metal": 3,
       "flamefruit": 1,
@@ -2423,7 +2423,7 @@
       "snow-imp"
     ],
     "lootDeckConfig": {
-      "coin": 15,
+      "money": 15,
       "lumber": 2,
       "metal": 2,
       "hide": 2,
@@ -2443,7 +2443,7 @@
       "steel-automaton"
     ],
     "lootDeckConfig": {
-      "coin": 11,
+      "money": 11,
       "lumber": 2,
       "metal": 4,
       "rockroot": 2,
@@ -2461,7 +2461,7 @@
       "shrike-fiend"
     ],
     "lootDeckConfig": {
-      "coin": 6,
+      "money": 6,
       "lumber": 2,
       "metal": 3,
       "hide": 2,
@@ -2481,7 +2481,7 @@
       "wind-demon-fh"
     ],
     "lootDeckConfig": {
-      "coin": 10,
+      "money": 10,
       "lumber": 1,
       "metal": 3,
       "hide": 3,
@@ -2501,7 +2501,7 @@
       "hound-scenario-112"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 1,
       "metal": 3,
       "hide": 5,
@@ -2519,7 +2519,7 @@
       "polar-bear"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 4,
       "rockroot": 2,
       "arrowvine": 2,
@@ -2549,7 +2549,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 10,
+      "money": 10,
       "metal": 3,
       "hide": 4,
       "axenut": 1,
@@ -2603,7 +2603,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 3,
       "metal": 3,
       "hide": 3,
@@ -2655,7 +2655,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 5,
+      "money": 5,
       "lumber": 4,
       "metal": 4,
       "hide": 4,
@@ -2675,7 +2675,7 @@
       "vermling-scout-fh"
     ],
     "lootDeckConfig": {
-      "coin": 6,
+      "money": 6,
       "lumber": 4,
       "hide": 6,
       "axenut": 1,
@@ -2694,7 +2694,7 @@
       "lurker-soldier"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 3,
       "metal": 3,
       "hide": 3,
@@ -2735,7 +2735,7 @@
       "vermling-scout-fh"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 4,
       "metal": 4,
       "hide": 4
@@ -2752,7 +2752,7 @@
       "vermling-scout-fh"
     ],
     "lootDeckConfig": {
-      "coin": 9,
+      "money": 9,
       "lumber": 3,
       "metal": 3,
       "hide": 2,
@@ -2772,7 +2772,7 @@
       "snow-imp"
     ],
     "lootDeckConfig": {
-      "coin": 6,
+      "money": 6,
       "lumber": 3,
       "metal": 3,
       "hide": 4,
@@ -2791,7 +2791,7 @@
       "ice-wraith"
     ],
     "lootDeckConfig": {
-      "coin": 9,
+      "money": 9,
       "lumber": 2,
       "metal": 6,
       "flamefruit": 1,
@@ -2808,7 +2808,7 @@
       "living-spirit-fh"
     ],
     "lootDeckConfig": {
-      "coin": 10,
+      "money": 10,
       "lumber": 4,
       "metal": 2,
       "hide": 2,
@@ -2825,7 +2825,7 @@
       "ruined-machine"
     ],
     "lootDeckConfig": {
-      "coin": 9,
+      "money": 9,
       "lumber": 2,
       "metal": 4,
       "hide": 2,
@@ -2908,7 +2908,7 @@
       }
     ],
     "lootDeckConfig": {
-      "coin": 5,
+      "money": 5,
       "lumber": 3,
       "metal": 3,
       "hide": 2,
@@ -2926,7 +2926,7 @@
       "ice-wraith"
     ],
     "lootDeckConfig": {
-      "coin": 5,
+      "money": 5,
       "lumber": 6,
       "metal": 4,
       "hide": 4,
@@ -2945,7 +2945,7 @@
       "vermling-scout-fh"
     ],
     "lootDeckConfig": {
-      "coin": 2,
+      "money": 2,
       "lumber": 3,
       "metal": 1,
       "hide": 8,
@@ -2965,7 +2965,7 @@
       "city-guard-fh"
     ],
     "lootDeckConfig": {
-      "coin": 4,
+      "money": 4,
       "lumber": 4,
       "metal": 4,
       "hide": 4,
@@ -2984,7 +2984,7 @@
       "shrike-fiend"
     ],
     "lootDeckConfig": {
-      "coin": 6,
+      "money": 6,
       "lumber": 5,
       "metal": 2,
       "hide": 3,
@@ -3015,7 +3015,7 @@
       "snow-imp"
     ],
     "lootDeckConfig": {
-      "coin": 12,
+      "money": 12,
       "lumber": 2,
       "metal": 2,
       "hide": 2,
@@ -3034,7 +3034,7 @@
       "spitting-drake-fh"
     ],
     "lootDeckConfig": {
-      "coin": 7,
+      "money": 7,
       "lumber": 3,
       "metal": 3,
       "hide": 3,
@@ -3055,7 +3055,7 @@
       "steel-automaton-scenario-134"
     ],
     "lootDeckConfig": {
-      "coin": 10,
+      "money": 10,
       "lumber": 2,
       "metal": 4,
       "hide": 2,
@@ -3075,7 +3075,7 @@
       "sun-demon-fh"
     ],
     "lootDeckConfig": {
-      "coin": 7,
+      "money": 7,
       "lumber": 4,
       "metal": 4,
       "hide": 2,
@@ -3096,7 +3096,7 @@
       "piranha-pig"
     ],
     "lootDeckConfig": {
-      "coin": 8,
+      "money": 8,
       "lumber": 4,
       "hide": 4,
       "snowthistle": 1,
@@ -3116,7 +3116,7 @@
       "robotic-boltshooter"
     ],
     "lootDeckConfig": {
-      "coin": 12,
+      "money": 12,
       "lumber": 4,
       "metal": 4,
       "hide": 4,
