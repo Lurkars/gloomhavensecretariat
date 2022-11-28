@@ -91,6 +91,10 @@ export class SettingsMenuComponent {
     }
   }
 
+  setTheme(event: any) {
+    settingsManager.setTheme(event.target.value);
+  }
+
   fullscreen(): void {
     settingsManager.setFullscreen(!settingsManager.settings.fullscreen);
     if (settingsManager.settings.fullscreen) {

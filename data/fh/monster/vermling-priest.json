@@ -2,7 +2,7 @@
   "name": "vermling-priest",
   "edition": "fh",
   "deck": "priest",
-  "count": 10,
+  "count": 6,
   "baseStat": {
     "type": "normal",
     "movement": 3,

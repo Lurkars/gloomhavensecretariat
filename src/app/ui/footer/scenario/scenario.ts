@@ -66,9 +66,13 @@ export class ScenarioSummaryComponent {
       return char;
     })
 
-    gameManager.stateManager.before("finishScenario." + (success ? "success" : "failure"), ...gameManager.scenarioManager.scenarioUndoArgs());
-    gameManager.scenarioManager.finishScenario(success);
-    gameManager.stateManager.after(1000);
+    dialogRef.closed.subscribe({
+      next: () => {
+        gameManager.stateManager.before("finishScenario." + (success ? "success" : "failure"), ...gameManager.scenarioManager.scenarioUndoArgs());
+        gameManager.scenarioManager.finishScenario(success);
+        gameManager.stateManager.after(1000);
+      }
+    })
 
   }
 

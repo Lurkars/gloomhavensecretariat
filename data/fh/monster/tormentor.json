@@ -1,0 +1,117 @@
+{
+  "name": "tormentor",
+  "thumbnail": "fh-chaos-demon",
+  "edition": "fh",
+  "deck": "boss-fh",
+  "boss": true,
+  "hidden": true,
+  "count": 4,
+  "baseStat": {
+    "type": "boss",
+    "actions": [
+      {
+        "type": "condition",
+        "value": "muddle"
+      }
+    ],
+    "immunities": [],
+    "special": [
+      [
+        {
+          "type": "custom",
+          "value": "See scenario Special Rules"
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "See scenario Special Rules"
+        }
+      ]
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "10xCx3/2",
+      "movement": 4,
+      "attack": 3,
+      "immunities": [
+        "wound",
+        "stun"
+      ]
+    },
+    {
+      "level": 1,
+      "health": "12xCx3/2",
+      "movement": 4,
+      "attack": 4,
+      "immunities": [
+        "wound",
+        "stun"
+      ]
+    },
+    {
+      "level": 2,
+      "health": "14xCx3/2",
+      "movement": 4,
+      "attack": 5,
+      "immunities": [
+        "wound",
+        "stun"
+      ]
+    },
+    {
+      "level": 3,
+      "health": "18xCx3/2",
+      "movement": 5,
+      "attack": 5,
+      "immunities": [
+        "wound",
+        "stun"
+      ]
+    },
+    {
+      "level": 4,
+      "health": "21xCx3/2",
+      "movement": 5,
+      "attack": 6,
+      "immunities": [
+        "wound",
+        "stun"
+      ]
+    },
+    {
+      "level": 5,
+      "health": "26xCx3/2",
+      "movement": 5,
+      "attack": 6,
+      "immunities": [
+        "wound",
+        "stun"
+      ]
+    },
+    {
+      "level": 6,
+      "health": "33xCx3/2",
+      "movement": 5,
+      "attack": 8,
+      "immunities": [
+        "wound",
+        "stun",
+        "curse"
+      ]
+    },
+    {
+      "level": 7,
+      "health": "39xCx3/2",
+      "movement": 6,
+      "attack": 9,
+      "immunities": [
+        "wound",
+        "stun",
+        "curse"
+      ]
+    }
+  ]
+}

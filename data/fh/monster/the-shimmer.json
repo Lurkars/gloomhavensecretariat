@@ -1,0 +1,141 @@
+{
+  "name": "the-shimmer",
+  "thumbnail": "fh-savvas-icestorm",
+  "edition": "fh",
+  "deck": "savvas-icestorm-fh",
+  "boss": true,
+  "hidden": true,
+  "count": 4,
+  "baseStat": {
+    "type": "boss",
+    "actions": [],
+    "immunities": [],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "12xC",
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "pierce",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": "12xC",
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "pierce",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "15xC",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "pierce",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "17xC",
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "pierce",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "17xC",
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "pierce",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "20xC",
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "pierce",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "26xC",
+      "movement": 4,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "pierce",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "33xC",
+      "movement": 4,
+      "attack": 7,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "pierce",
+          "value": 3
+        }
+      ]
+    }
+  ]
+}

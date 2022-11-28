@@ -19,7 +19,7 @@
         right: 0;
         cursor: pointer;
         display: block;
-      }
+    }
 
     .draw {
         cursor: pointer;
@@ -52,22 +52,31 @@
             }
 
             .fullscreen {
-              width: calc(15% * var(--ghs-text-factor));
-              height: auto;
-              position: absolute;
-              left: 2.5%;
-              top: 2.5%;
-              filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
-              cursor: zoom-in;
-      
-              &:hover {
-                filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
-              }
+                width: calc(15% * var(--ghs-text-factor));
+                height: auto;
+                position: absolute;
+                left: 2.5%;
+                top: 2.5%;
+                filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+                cursor: zoom-in;
+
+                &:hover {
+                    filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+                }
             }
-      
-      
+
             &.open-dialog {
-              cursor: help;
+                cursor: help;
+            }
+        }
+
+        &.disabled {
+            cursor: not-allowed;
+
+            filter: grayscale(0.7);
+
+            .loot-card {
+                cursor: not-allowed;
             }
         }
     }
@@ -94,7 +103,7 @@
 
         35%,
         70% {
-            transform: scale(2) translate(-80%, -120%);
+            transform: scale(1.6) translate(-110%, -90%);
         }
 
         100% {
@@ -151,17 +160,17 @@
 
         .current {
             cursor: wait !important;
-            animation: loot-draw 1000ms ease-in-out;
+            animation: loot-draw 1800ms ease-in-out;
             animation-iteration-count: 1;
 
             &.bottom {
-                animation: loot-draw-bottom 1000ms ease-in-out;
+                animation: loot-draw-bottom 1800ms ease-in-out;
             }
         }
 
         .last {
             cursor: wait !important;
-            animation: loot-last 1000ms ease-in-out;
+            animation: loot-last 1800ms ease-in-out;
             animation-iteration-count: 1;
         }
     }

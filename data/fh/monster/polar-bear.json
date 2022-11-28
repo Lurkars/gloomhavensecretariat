@@ -1,14 +1,13 @@
 {
   "name": "polar-bear",
   "edition": "fh",
-  "count": 10,
+  "count": 4,
   "baseStat": {
     "type": "normal",
     "actions": [
       {
         "type": "condition",
-        "value": "wound",
-        "small": false
+        "value": "wound"
       }
     ],
     "immunities": [
@@ -56,8 +55,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "wound",
-          "small": false
+          "value": "wound"
         }
       ],
       "immunities": [
@@ -73,8 +71,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "wound",
-          "small": false
+          "value": "wound"
         }
       ],
       "immunities": [
@@ -90,8 +87,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "wound",
-          "small": false
+          "value": "wound"
         }
       ],
       "immunities": [
@@ -107,8 +103,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "wound",
-          "small": false
+          "value": "wound"
         }
       ],
       "immunities": [
@@ -124,8 +119,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "wound",
-          "small": false
+          "value": "wound"
         }
       ],
       "immunities": [

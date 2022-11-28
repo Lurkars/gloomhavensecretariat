@@ -2,7 +2,7 @@
   "name": "algox-scout",
   "edition": "fh",
   "deck": "scout",
-  "count": 10,
+  "count": 6,
   "baseStat": {
     "type": "normal",
     "immunities": [],

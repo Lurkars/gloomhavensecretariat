@@ -1,0 +1,18 @@
+{
+  "name": "city-guard-scenario-1",
+  "edition": "fh",
+  "abilities": [
+    {
+      "name": "Nothing",
+      "cardId": 752,
+      "initiative": 50,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "Does not Perform a Turn"
+        }
+      ]
+    }
+  ]
+}

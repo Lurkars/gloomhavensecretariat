@@ -1,0 +1,165 @@
+{
+  "name": "flaming-sword-of-justice",
+  "thumbnail": "fh-city-guard",
+  "edition": "fh",
+  "deck": "guard",
+  "boss": true,
+  "hidden": true,
+  "count": 6,
+  "baseStat": {
+    "type": "boss",
+    "actions": [],
+    "immunities": [],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 6,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": 6,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 9,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 9,
+      "movement": 2,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "retaliate",
+          "value": 1
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 10,
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "retaliate",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 13,
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "retaliate",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 15,
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        },
+        {
+          "type": "retaliate",
+          "value": 3
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 20,
+      "movement": 3,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        },
+        {
+          "type": "retaliate",
+          "value": 3
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    }
+  ]
+}

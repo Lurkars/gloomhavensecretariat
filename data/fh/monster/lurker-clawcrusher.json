@@ -1,7 +1,7 @@
 {
   "name": "lurker-clawcrusher",
   "edition": "fh",
-  "count": 10,
+  "count": 4,
   "baseStat": {
     "type": "normal",
     "immunities": [],

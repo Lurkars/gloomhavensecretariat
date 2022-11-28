@@ -1,0 +1,133 @@
+{
+  "name": "belara",
+  "thumbnail": "fh-savvas-lavaflow",
+  "edition": "fh",
+  "deck": "savvas-lavaflow",
+  "boss": true,
+  "hidden": true,
+  "count": 4,
+  "baseStat": {
+    "type": "boss",
+    "actions": [],
+    "immunities": [
+      "stun"
+    ],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "13xC/2",
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "level": 1,
+      "health": "15xC/2",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "18xC/2",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "21xC/2",
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "25xC/2",
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "30xC/2",
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "40xC/2",
+      "movement": 4,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "50xC/2",
+      "movement": 4,
+      "attack": 7,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    }
+  ]
+}

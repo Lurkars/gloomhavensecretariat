@@ -1,7 +1,7 @@
 {
   "name": "shrike-fiend",
   "edition": "fh",
-  "count": 10,
+  "count": 6,
   "baseStat": {
     "type": "normal",
     "health": 5,

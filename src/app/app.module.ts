@@ -78,6 +78,8 @@ import { LootDeckComponent } from './ui/footer/loot/loot-deck';
 import { LootDeckFullscreenComponent } from './ui/footer/loot/loot-deck-fullscreen';
 import { LootComponent } from './ui/footer/loot/loot';
 import { LootDeckDialogComponent } from './ui/footer/loot/loot-deck-dialog';
+import { LootDeckStandaloneComponent } from './ui/tools/standalone/loot-deck-standalone';
+import { AttackModifierStandaloneComponent } from './ui/tools/standalone/attackmodifier-standalone';
 
 @NgModule({
   declarations: [
@@ -87,8 +89,9 @@ import { LootDeckDialogComponent } from './ui/footer/loot/loot-deck-dialog';
     PartySheetComponent, PartySheetDialogComponent,
     MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent,
     FooterComponent,
-    LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent,
-    AttackModifierComponent, AttackModifierEffectsComponent, HintDialogComponent, ScenarioRulesComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent,
+    LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent,
+    HintDialogComponent, ScenarioRulesComponent,
+    AttackModifierComponent, AttackModifierEffectsComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent, AttackModifierStandaloneComponent,
     LevelComponent, LevelDialogComponent,
     ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent,
     ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,

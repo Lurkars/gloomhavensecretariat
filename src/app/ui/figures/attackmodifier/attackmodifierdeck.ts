@@ -39,6 +39,7 @@ export class AttackModifierDeckComponent implements OnInit {
   @ViewChild('menu') menuElement!: ElementRef;
   @Input('fullscreen') fullscreen: boolean = true;
   @Input('vertical') vertical: boolean = false;
+  @Input() standalone: boolean = false;
 
   gameManager: GameManager = gameManager;
   GameState = GameState;
@@ -86,17 +87,21 @@ export class AttackModifierDeckComponent implements OnInit {
       setTimeout(() => {
         this.element.nativeElement.getElementsByClassName('attack-modifiers')[0].classList.remove('drawing');
         this.drawing = false;
-      }, 1100);
+      }, 1850);
     }
   }
 
   draw(event: any) {
-    if (this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
-      this.openFullscreen(event);
-    } else if (!this.drawing && gameManager.game.state == GameState.next) {
-      this.before.emit(new AttackModiferDeckChange(this.deck, "draw"));
-      gameManager.attackModifierManager.drawModifier(this.deck);
-      this.after.emit(new AttackModiferDeckChange(this.deck, "draw"));
+    if (!this.drawing) {
+      if (this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
+        this.openFullscreen(event);
+      } else if (this.standalone || gameManager.game.state == GameState.next) {
+        this.before.emit(new AttackModiferDeckChange(this.deck, "draw"));
+        gameManager.attackModifierManager.drawModifier(this.deck);
+        this.after.emit(new AttackModiferDeckChange(this.deck, "draw"));
+      } else {
+        this.open(event);
+      }
     }
   }
 

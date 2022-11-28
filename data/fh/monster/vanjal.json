@@ -1,0 +1,120 @@
+{
+  "name": "vanjal",
+  "thumbnail": "fh-algox-icespeaker",
+  "edition": "fh",
+  "deck": "algox-icespeaker",
+  "boss": true,
+  "hidden": true,
+  "count": 4,
+  "baseStat": {
+    "type": "boss",
+    "actions": [],
+    "immunities": [],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "8xC",
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": "8xC",
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {}
+      ]
+    },
+    {
+      "level": 2,
+      "health": "10xC",
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {}
+      ]
+    },
+    {
+      "level": 3,
+      "health": "12xC",
+      "movement": 2,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {}
+      ]
+    },
+    {
+      "level": 4,
+      "health": "15xC",
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {}
+      ]
+    },
+    {
+      "level": 5,
+      "health": "18xC",
+      "movement": 4,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {}
+      ]
+    },
+    {
+      "level": 6,
+      "health": "26xC",
+      "movement": 4,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {}
+      ]
+    },
+    {
+      "level": 7,
+      "health": "35xC",
+      "movement": 4,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {}
+      ]
+    }
+  ]
+}

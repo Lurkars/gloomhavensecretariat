@@ -24,7 +24,7 @@ export class RoundManager {
     ));
   }
 
-  nextGameState() {
+  nextGameState(force: boolean = false) {
     this.working = true;
     this.game.totalSeconds += this.game.playSeconds;
     this.game.playSeconds = 0;
@@ -52,7 +52,7 @@ export class RoundManager {
 
       this.game.figures.forEach((figure) => figure.active = false);
 
-    } else if (this.nextAvailable()) {
+    } else if (this.nextAvailable() || force) {
       if (this.game.round == 0) {
         gameManager.attackModifierManager.draw();
         gameManager.lootManager.draw();

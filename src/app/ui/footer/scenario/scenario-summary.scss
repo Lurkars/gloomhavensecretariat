@@ -37,11 +37,18 @@
     color: var(--ghs-color-white);
     border-top: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid var(--ghs-color-white);
 
+    .name {
+      cursor: pointer;
+    }
+
+    .absent {
+      text-decoration: line-through;
+    }
+
     .gold,
     .xp {
       font-size: 1.3em;
       margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-      text-decoration: underline;
 
       &.gold {
         color: var(--ghs-color-yellow);

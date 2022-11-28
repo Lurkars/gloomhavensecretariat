@@ -1,0 +1,316 @@
+{
+  "name": "rimeheart",
+  "thumbnail": "fh-ice-wraith",
+  "edition": "fh",
+  "deck": "ice-wraith",
+  "boss": true,
+  "hidden": true,
+  "count": 6,
+  "baseStat": {
+    "type": "boss",
+    "immunities": [
+      "disarm",
+      "stun"
+    ],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "3+7x(C/2)",
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": "3+8x(C/2)",
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "3+10x(C/2)",
+      "movement": 3,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "3+10x(C/2)",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "curse"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "3+12x(C/2)",
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "curse"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "3+16x(C/2)",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "curse"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "3+21x(C/2)",
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "curse"
+        }
+      ],
+      "immunities": [
+        "curse",
+        "disarm",
+        "stun"
+      ]
+    },
+    {
+      "level": 7,
+      "health": "3+27x(C/2)",
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "curse"
+        }
+      ],
+      "immunities": [
+        "curse",
+        "disarm",
+        "stun"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": "3+7x(C/2)",
+      "movement": 4,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": "3+8x(C/2)",
+      "movement": 4,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": "3+10x(C/2)",
+      "movement": 5,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": "3+10x(C/2)",
+      "movement": 5,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": "3+12x(C/2)",
+      "movement": 5,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": "3+16x(C/2)",
+      "movement": 5,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": "3+21x(C/2)",
+      "movement": 5,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "immunities": [
+        "curse",
+        "disarm",
+        "stun"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": "3+27x(C/2)",
+      "movement": 5,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "immunities": [
+        "curse",
+        "disarm",
+        "stun"
+      ]
+    }
+  ]
+}

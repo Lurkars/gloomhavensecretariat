@@ -1,6 +1,4 @@
 
-export type AttackModifierFullscreenType = 'automatic' | 'on' | 'off';
-
 export class Settings {
   calculate: boolean = true;
   calculateStats: boolean = true;
@@ -24,6 +22,7 @@ export class Settings {
   alwaysLootDeck: boolean = false;
   fullscreen: boolean = false;
   fhStyle: boolean = false;
+  theme: string = "default";
   autoscroll: boolean = true;
   scenarioRules: boolean = true;
   scenarioNumberInput: boolean = false;

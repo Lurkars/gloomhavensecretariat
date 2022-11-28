@@ -1,7 +1,7 @@
 {
   "name": "night-demon",
   "edition": "fh",
-  "count": 10,
+  "count": 6,
   "baseStat": {
     "type": "normal",
     "actions": [

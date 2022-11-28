@@ -33,7 +33,7 @@ export class ScnearioManager {
 
   finishScenario(success: boolean = true) {
     this.game.figures.forEach((figure) => {
-      if (figure instanceof Character) {
+      if (figure instanceof Character && !figure.absent) {
         gameManager.characterManager.addXP(figure, (success ? gameManager.levelManager.experience() : 0) + figure.experience);
         figure.progress.gold += figure.loot * gameManager.levelManager.loot();
       }
@@ -111,7 +111,7 @@ export class ScnearioManager {
     }
 
     if (scenarioData.lootDeckConfig) {
-      this.game.lootDeck = new LootDeck(scenarioData.lootDeckConfig);
+      this.game.lootDeck.apply(scenarioData.lootDeckConfig);
     }
   }
 

@@ -1,0 +1,37 @@
+.loot-deck-standalone {
+
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+
+    ghs-header {
+        z-index: 2;
+    }
+
+    ghs-loot-deck {
+        margin-top: 100px;
+        display: flex;
+        width: 99vw;
+        max-width: 600px;
+        height: 100vw;
+        max-height: 420px;
+        z-index: 1;
+        margin-top: 2em;
+        margin-left: 1%;
+    }
+
+    &.vertical {
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        ghs-loot-deck {
+            width: 98vw;
+            margin-right: 1%;
+            height: 132vw;
+            max-height: 800px;
+            transform: none;
+        }
+    }
+
+}

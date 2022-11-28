@@ -124,7 +124,8 @@ export class LootDeck {
     cards: Loot[] = [];
     active: boolean = false;
 
-    constructor(config: LootDeckConfig = {}) {
+    apply(config: LootDeckConfig = {}) {
+        this.cards = [];
         let availableCards: Loot[] = JSON.parse(JSON.stringify(fullLootDeck));
         Object.values(LootType).forEach((type) => {
             if (config[type]) {

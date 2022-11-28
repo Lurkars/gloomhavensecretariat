@@ -2,7 +2,7 @@
   "name": "algox-archer",
   "edition": "fh",
   "deck": "archer",
-  "count": 10,
+  "count": 6,
   "baseStat": {
     "type": "normal",
     "movement": 2,

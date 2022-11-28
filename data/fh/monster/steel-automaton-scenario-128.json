@@ -1,0 +1,219 @@
+{
+  "name": "steel-automaton-scenario-128",
+  "thumbnail": "fh-steel-automaton",
+  "edition": "fh",
+  "deck": "imp-fh",
+  "hidden": true,
+  "count": 4,
+  "baseStat": {
+    "type": "normal",
+    "actions": [],
+    "immunities": [
+      "poison",
+      "disarm"
+    ],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 9,
+      "movement": 1,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": 9,
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 12,
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 14,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 18,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 21,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 22,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 27,
+      "movement": 4,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 10,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": 12,
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": 14,
+      "movement": 2,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": 17,
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": 22,
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": 25,
+      "movement": 3,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": 26,
+      "movement": 3,
+      "attack": 7,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": 36,
+      "movement": 4,
+      "attack": 7,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ]
+    }
+  ]
+}

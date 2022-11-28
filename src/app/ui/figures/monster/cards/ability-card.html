@@ -1,5 +1,5 @@
 <div class="container"
-  [ngClass]="{'flipped' : flipped(), 'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0, 'second-ability' : secondAbility, 'fh' : settingsManager.settings.fhStyle}">
+  [ngClass]="{'flipped' : flipped(), 'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0, 'second-ability' : secondAbility}">
   <div class="hover-effect initiative"></div>
   <div class="hover-effect title"></div>
   <ghs-ability (click)="click()" [ability]="ability" [monster]="monster" [flipped]="flipped()"

@@ -1,0 +1,145 @@
+{
+  "name": "coral-corpse",
+  "thumbnail": "fh-frozen-corpse",
+  "edition": "fh",
+  "deck": "frozen-corpse",
+  "boss": true,
+  "hidden": true,
+  "count": 6,
+  "baseStat": {
+    "type": "boss",
+    "actions": [
+      {
+        "type": "condition",
+        "value": "brittle"
+      }
+    ],
+    "immunities": [
+      "immobilize",
+      "disarm",
+      "stun"
+    ],
+    "special": []
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "10xC",
+      "movement": 2,
+      "attack": 2,
+      "actions": []
+    },
+    {
+      "level": 1,
+      "health": "10xC",
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "retaliate",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "11xC",
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "retaliate",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "14xC",
+      "movement": 2,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "retaliate",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "17xC",
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "retaliate",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "20xC",
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "retaliate",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "24xC",
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "retaliate",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "31xC",
+      "movement": 4,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "retaliate",
+          "value": 3
+        }
+      ]
+    }
+  ]
+}

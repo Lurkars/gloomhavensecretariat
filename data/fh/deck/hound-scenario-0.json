@@ -1,0 +1,22 @@
+{
+  "name": "hound-scenario-0",
+  "edition": "fh",
+  "abilities": [
+    {
+      "name": "Nothing Special",
+      "cardId": 846,
+      "initiative": 26,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": 2
+        }
+      ]
+    }
+  ]
+}

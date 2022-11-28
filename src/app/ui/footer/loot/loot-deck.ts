@@ -4,7 +4,7 @@ import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager
 import { LootManager } from "src/app/game/businesslogic/LootManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GameState } from "src/app/game/model/Game";
-import { LootType } from "src/app/game/model/Loot";
+import { LootDeck, LootType } from "src/app/game/model/Loot";
 import { LootDeckDialogComponent } from "./loot-deck-dialog";
 import { LootDeckFullscreenComponent } from "./loot-deck-fullscreen";
 
@@ -15,9 +15,11 @@ import { LootDeckFullscreenComponent } from "./loot-deck-fullscreen";
 })
 export class LootDeckComponent implements OnInit {
 
+    @Input('deck') deck!: LootDeck;
     @Input() bottom: boolean = false;
     @Input() fullscreen: boolean = true;
     @Input() vertical: boolean = false;
+    @Input() standalone: boolean = false;
     gameManager: GameManager = gameManager;
     lootManager: LootManager = gameManager.lootManager;
     current: number = -1;
@@ -26,7 +28,6 @@ export class LootDeckComponent implements OnInit {
     GameState = GameState;
 
     constructor(private element: ElementRef, private dialog: Dialog) {
-        this.current = gameManager.game.lootDeck.current;
         this.element.nativeElement.addEventListener('click', (event: any) => {
             let elements = document.elementsFromPoint(event.clientX, event.clientY);
             if (elements[0].classList.contains('deck') && elements.length > 2) {
@@ -36,6 +37,7 @@ export class LootDeckComponent implements OnInit {
     };
 
     ngOnInit(): void {
+        this.current = this.deck.current;
         gameManager.uiChange.subscribe({
             next: () => {
                 this.update();
@@ -44,26 +46,28 @@ export class LootDeckComponent implements OnInit {
     }
 
     update() {
-        if (this.current != gameManager.game.lootDeck.current) {
-            this.current = gameManager.game.lootDeck.current;
+        if (this.current != this.deck.current) {
+            this.current = this.deck.current;
             this.drawing = true;
             this.element.nativeElement.getElementsByClassName('deck')[0].classList.add('drawing');
             setTimeout(() => {
                 this.element.nativeElement.getElementsByClassName('deck')[0].classList.remove('drawing');
                 this.drawing = false;
-            }, 1100);
+            }, 1850);
         }
     }
 
     draw(event: any) {
-        if (gameManager.game.lootDeck.cards.length > 0 && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
-            this.openFullscreen(event);
-        } else if (gameManager.game.lootDeck.cards.length > 0 && !this.drawing && gameManager.game.state == GameState.next) {
-            gameManager.stateManager.before('lootDeckDraw')
-            this.lootManager.drawCard();
-            gameManager.stateManager.after();
-        } else {
-            this.open(event);
+        if (!this.drawing) {
+            if (this.deck.cards.length > 0 && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
+                this.openFullscreen(event);
+            } else if (this.deck.cards.length > 0 && (this.standalone || gameManager.game.state == GameState.next)) {
+                gameManager.stateManager.before('lootDeckDraw')
+                this.lootManager.drawCard(this.deck);
+                gameManager.stateManager.after();
+            } else {
+                this.open(event);
+            }
         }
     }
 
@@ -71,7 +75,8 @@ export class LootDeckComponent implements OnInit {
     openFullscreen(event: any) {
         if (this.fullscreen) {
             this.dialog.open(LootDeckFullscreenComponent, {
-                backdropClass: 'fullscreen-backdrop'
+                backdropClass: 'fullscreen-backdrop',
+                data: this.deck
             });
             event.preventDefault();
             event.stopPropagation();
@@ -79,11 +84,12 @@ export class LootDeckComponent implements OnInit {
     }
 
     open(event: any) {
-        if (gameManager.game.lootDeck.cards.length > 0 && gameManager.game.state == GameState.next && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
+        if (this.deck.cards.length > 0 && gameManager.game.state == GameState.next && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
             this.openFullscreen(event);
         } else {
             this.dialog.open(LootDeckDialogComponent, {
-                panelClass: 'dialog'
+                panelClass: 'dialog',
+                data: this.deck
             });
         }
         event.preventDefault();

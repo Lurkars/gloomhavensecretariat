@@ -20,35 +20,6 @@
     margin-left: 1%;
   }
 
-  .toggle-config {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    cursor: pointer;
-    z-index: 3;
-    font-size: 2em;
-    color: var(--ghs-color-black);
-
-    .ghs-svg {
-      height: 1em;
-      width: auto;
-      margin-left: 0.3em;
-      filter: var(--ghs-filter-shadow);
-    }
-
-    &:hover {
-      color: var(--ghs-color-gray);
-
-      .ghs-svg {
-        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
-      }
-    }
-  }
-
-  ghs-loot-deck-config {
-    z-index: 3;
-  }
-
   &.vertical {
     overflow-y: auto;
     overflow-x: hidden;

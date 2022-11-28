@@ -72,6 +72,7 @@ export class DeckEditorComponent implements OnInit {
     @Input() character: Character | undefined;
     @Input() monster: Monster | undefined;
     @Input() edition: string | undefined;
+    @Input() standalone: boolean = true;
 
     gameManager: GameManager = gameManager;
     ActionType = ActionType;
@@ -86,9 +87,11 @@ export class DeckEditorComponent implements OnInit {
     }
 
     async ngOnInit() {
-        if (!this.character && !this.monster) {
+        if (this.standalone) {
             await settingsManager.init();
-        } else if (this.character) {
+        }
+
+        if (this.character) {
             this.deckData.character = true;
         }
         this.deckDataToJson();

@@ -1,7 +1,6 @@
-import { DialogRef } from "@angular/cdk/dialog";
-import { Component, OnInit } from "@angular/core";
-import { gameManager } from "src/app/game/businesslogic/GameManager";
-import { fullLootDeck, LootDeck, LootDeckConfig, LootType } from "src/app/game/model/Loot";
+import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { Component, Inject, OnInit } from "@angular/core";
+import { LootDeck } from "src/app/game/model/Loot";
 
 @Component({
   selector: 'ghs-loot-deck-fullscreen',
@@ -10,13 +9,12 @@ import { fullLootDeck, LootDeck, LootDeckConfig, LootType } from "src/app/game/m
 })
 export class LootDeckFullscreenComponent implements OnInit {
 
-
   configuration: boolean = false;
 
-  constructor(public dialogRef: DialogRef) { };
+  constructor(@Inject(DIALOG_DATA) public deck: LootDeck, public dialogRef: DialogRef) { };
 
   ngOnInit(): void {
-    if (gameManager.game.lootDeck.cards.length == 0) {
+    if (this.deck.cards.length == 0) {
       this.configuration = true;
     }
   }

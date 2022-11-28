@@ -18,35 +18,46 @@
     <div class="row" *ngFor="let character of characters;">
       <span>
         <img class="icon" [src]="gameManager.characterManager.characterIcon(character)" />
-        {{character.title || ('data.character.' + character.name | ghsLabel)}}
-        <span *ngIf="character.title">&nbsp;({{('data.character.' + character.name | ghsLabel)}})</span>
+        <a class="name" (click)="character.absent = !character.absent" [ngClass]="{'absent' : character.absent}">
+          {{character.title || ('data.character.' + character.name | ghsLabel)}}
+          <span *ngIf="character.title">&nbsp;({{('data.character.' + character.name | ghsLabel)}})</span>
+        </a>
       </span>
 
       <span>
         {{character.loot | ghsValueSign}}
       </span>
 
-      <span>
+      <span *ngIf="!character.absent">
         <span class="gold">{{(character.loot * gameManager.levelManager.loot()) | ghsValueSign}}</span>
         ({{character.progress.gold + character.loot * gameManager.levelManager.loot()}})
       </span>
 
+      <span *ngIf="character.absent">
+        <span class="gold">/</span>
+        ({{character.progress.gold}})
+      </span>
 
       <span>
         {{character.experience | ghsValueSign}}
       </span>
 
       <span>
-        <span *ngIf="success">{{gameManager.levelManager.experience() | ghsValueSign}}</span>
-        <span *ngIf="!success">/</span>
+        <span *ngIf="success && !character.absent">{{gameManager.levelManager.experience() | ghsValueSign}}</span>
+        <span *ngIf="!success || character.absent">/</span>
       </span>
 
-      <span>
+      <span *ngIf="!character.absent">
         <span class="xp" *ngIf="success">{{(character.experience + gameManager.levelManager.experience()) |
           ghsValueSign}}</span>
         <span class="xp" *ngIf="!success">{{character.experience | ghsValueSign}}</span>
         ({{character.progress.experience + character.experience + (success ? gameManager.levelManager.experience() :
         0)}})
+      </span>
+
+      <span *ngIf="character.absent">
+        <span class="xp">/</span>
+        ({{character.progress.experience}})
       </span>
     </div>
   </div>

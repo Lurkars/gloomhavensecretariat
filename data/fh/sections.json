@@ -1,0 +1,425 @@
+[
+  {
+    "index": "2.3",
+    "name": "Overrun Barricade",
+    "parent": "43",
+    "edition": "fh"
+  },
+  {
+    "index": "6.1",
+    "name": "Algox Scouting",
+    "parent": "2",
+    "edition": "fh",
+    "objectives": [
+      {
+        "name": "Ice Sheet",
+        "health": "(L+2)xC"
+      }
+    ]
+  },
+  {
+    "index": "7.2",
+    "name": "Frozen Crypt",
+    "parent": "5",
+    "edition": "fh",
+    "objectives": [
+      {
+        "name": "Altar a",
+        "health": "(L+3)xC"
+      }
+    ]
+  },
+  {
+    "index": "8.1",
+    "name": "The Tempus Forge",
+    "parent": "106",
+    "edition": "fh",
+    "objectives": [
+      {
+        "name": "Altar 1",
+        "health": "(L+2)xC/2"
+      }
+    ]
+  },
+  {
+    "index": "14.3",
+    "name": "Temple of Liberation",
+    "parent": "20",
+    "edition": "fh",
+    "objectives": [
+      {
+        "name": "Glowing Orb",
+        "health": "(L+2)xC"
+      }
+    ]
+  },
+  {
+    "index": "17.1",
+    "name": "Unfettered Shard",
+    "parent": "41",
+    "edition": "fh"
+  },
+  {
+    "index": "21.1",
+    "name": "Crystal Trench",
+    "parent": "8",
+    "edition": "fh"
+  },
+  {
+    "index": "29.2",
+    "name": "Crystal Trench",
+    "parent": "8",
+    "edition": "fh",
+    "monsters": [
+      "blacksmith"
+    ]
+  },
+  {
+    "index": "36.1",
+    "name": "A Contained Fire",
+    "parent": "89",
+    "edition": "fh",
+    "objectives": [
+      {
+        "name": "Altar a",
+        "health": "(L+1)xC/2"
+      },
+      {
+        "name": "Altar b",
+        "health": "(L+1)xC/2"
+      }
+    ]
+  },
+  {
+    "index": "48.1",
+    "name": "realm of Endless Frost",
+    "parent": "21",
+    "edition": "fh",
+    "objectives": [
+      {
+        "name": "Crate 1",
+        "health": "L+2"
+      },
+      {
+        "name": "Crate 2",
+        "health": "L+2"
+      },
+      {
+        "name": "Crate 3",
+        "health": "L+2"
+      },
+      {
+        "name": "Bookshelf 1",
+        "health": "L+2"
+      },
+      {
+        "name": "Bookshelf 2",
+        "health": "L+2"
+      },
+      {
+        "name": "Bookshelf 3",
+        "health": "L+2"
+      }
+    ]
+  },
+  {
+    "index": "48.4",
+    "name": "Edge of the World",
+    "parent": "7",
+    "edition": "fh",
+    "monsters": [
+      "coral-corpse"
+    ]
+  },
+  {
+    "index": "51.1",
+    "name": "Realm of Endless Frost",
+    "parent": "21",
+    "edition": "fh",
+    "objectives": [
+      {
+        "name": "Glowing Orb",
+        "health": "(L+2)xC"
+      }
+    ]
+  },
+  {
+    "index": "55.3",
+    "name": "Spire Basement",
+    "parent": "23",
+    "edition": "fh",
+    "monsters": [
+      "hateful-corpse"
+    ]
+  },
+  {
+    "index": "58.2",
+    "name": "Rusted Tunnels",
+    "parent": "25",
+    "edition": "fh",
+    "objectives": [
+      {
+        "name": "Large Debris 1",
+        "health": "(L+2)xC"
+      }
+    ]
+  },
+  {
+    "index": "61.2",
+    "name": "Rusted Tunnels",
+    "parent": "25",
+    "edition": "fh",
+    "objectives": [
+      {
+        "name": "Large Debris 2",
+        "health": "(L+2)xC"
+      }
+    ]
+  },
+  {
+    "index": "65.2",
+    "name": "Unfettered Shard",
+    "parent": "41",
+    "edition": "fh"
+  },
+  {
+    "index": "66.1",
+    "name": "Ravens' Roost",
+    "parent": "32",
+    "edition": "fh",
+    "objectives": [
+      {
+        "name": "Raven Nest a",
+        "health": "(L+2)xCx3"
+      }
+    ]
+  },
+  {
+    "index": "73.1",
+    "name": "The Collection",
+    "parent": "87",
+    "edition": "fh",
+    "monsters": [
+      "brother"
+    ],
+    "allies": [
+      "brother"
+    ]
+  },
+  {
+    "index": "80.2",
+    "name": "Change of Heart",
+    "parent": "55",
+    "edition": "fh",
+    "objectives": [
+      {
+        "name": "Large Ice Crystal",
+        "health": "(L+2)xCx4"
+      }
+    ]
+  },
+  {
+    "index": "84.1",
+    "name": "To Bury the Dead",
+    "parent": "95",
+    "edition": "fh",
+    "monsters": [
+      "reluctant-ghost"
+    ]
+  },
+  {
+    "index": "85.2",
+    "name": "Living Glacier",
+    "parent": "45",
+    "edition": "fh",
+    "objectives": [
+      {
+        "name": "Ice Pillar",
+        "health": "(L+2)xCx2"
+      }
+    ]
+  },
+  {
+    "index": "89.1",
+    "name": "A Strong Foundation",
+    "parent": "65",
+    "edition": "fh",
+    "monsters": [
+      "rimeheart"
+    ],
+    "objectives": [
+      {
+        "name": "Elemental Anchor",
+        "escort": true,
+        "health": "(L+1)xCx2"
+      }
+    ]
+  },
+  {
+    "index": "98.1",
+    "name": "The Eternal Crave",
+    "parent": "122",
+    "edition": "fh",
+    "monsters": [
+      "hungry-maw"
+    ]
+  },
+  {
+    "index": "101.1",
+    "name": "Under the Influence",
+    "parent": "120",
+    "edition": "fh",
+    "objectives": [
+      {
+        "name": "Door 2",
+        "health": "(L+1)xC"
+      }
+    ]
+  },
+  {
+    "index": "106.2",
+    "name": "The True Oak",
+    "parent": "70",
+    "edition": "fh",
+    "monsters": [
+      "flaming-sword-of-justice"
+    ]
+  },
+  {
+    "index": "111.2",
+    "name": "Invasion of the Dock",
+    "parent": "71",
+    "edition": "fh",
+    "objectives": [
+      {
+        "name": "Artificer",
+        "escort": true,
+        "health": "(LxC)+2",
+        "initiative": 99
+      }
+    ]
+  },
+  {
+    "index": "115.2",
+    "name": "Black Memories",
+    "parent": "121",
+    "edition": "fh",
+    "monsters": [
+      "large-vermling-scout"
+    ]
+  },
+  {
+    "index": "119.2",
+    "name": "A Contained Fire",
+    "parent": "89",
+    "edition": "fh",
+    "objectives": [
+      {
+        "name": "Faye",
+        "escort": true,
+        "health": "(Lx3)+8",
+        "initiative": 11
+      }
+    ]
+  },
+  {
+    "index": "123.1",
+    "name": "Black Memories",
+    "parent": "121",
+    "edition": "fh",
+    "monsters": [
+      "large-vermling-scout",
+      "augmented-mindthief"
+    ]
+  },
+  {
+    "index": "128.4",
+    "name": "The Titan",
+    "parent": "123",
+    "edition": "fh",
+    "monsters": [
+      "power-core"
+    ]
+  },
+  {
+    "index": "137.1",
+    "name": "Orphan's Halls",
+    "parent": "51",
+    "edition": "fh",
+    "objectives": [
+      {
+        "name": "Door 2",
+        "health": "(L+2)xC"
+      }
+    ]
+  },
+  {
+    "index": "146.3",
+    "name": "A Contained Fire",
+    "parent": "89",
+    "edition": "fh",
+    "monsters": [
+      "vanjal"
+    ]
+  },
+  {
+    "index": "157.1",
+    "name": "Orphan's Halls",
+    "parent": "120",
+    "edition": "fh",
+    "objectives": [
+      {
+        "name": "Glowing Orb",
+        "health": "(Lx2)+3"
+      }
+    ]
+  },
+  {
+    "index": "174.3",
+    "name": "Ruinous Research Lab",
+    "parent": "81",
+    "edition": "fh",
+    "objectives": [
+      {
+        "name": "Barricade",
+        "health": "L+5"
+      }
+    ]
+  },
+  {
+    "index": "181.4",
+    "name": "The Lady in White",
+    "parent": "86",
+    "edition": "fh",
+    "monsters": [
+      "lady-in-white"
+    ]
+  },
+  {
+    "index": "182.2",
+    "name": "Ice Cave",
+    "parent": "111",
+    "edition": "fh",
+    "monsters": [
+      "the-shimmer"
+    ]
+  },
+  {
+    "index": "194.2",
+    "name": "The Dancing Iceberg",
+    "parent": "131",
+    "edition": "fh",
+    "monsters": [
+      "lurker-conductor"
+    ]
+  },
+  {
+    "index": "195.1",
+    "name": "Belara's Keep",
+    "parent": "135",
+    "edition": "fh",
+    "monsters": [
+      "belara"
+    ]
+  }
+]

@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { ConnectionPositionPair, Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager, SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
@@ -12,10 +12,11 @@ import { MainMenuComponent, SubMenu } from './menu/menu';
 @Component({
   selector: 'ghs-header',
   templateUrl: './header.html',
-  styleUrls: [ './header.scss' ]
+  styleUrls: ['./header.scss']
 })
 export class HeaderComponent implements OnInit {
 
+  @Input() standalone: boolean = false;
   @ViewChild('mainMenuButton') mainMenuButton!: ElementRef;
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -25,7 +26,7 @@ export class HeaderComponent implements OnInit {
   SubMenu = SubMenu;
   menuState: SubMenu = SubMenu.main;
 
-  elements: Element[] = [ Element.fire, Element.ice, Element.air, Element.earth, Element.light, Element.dark ];
+  elements: Element[] = [Element.fire, Element.ice, Element.air, Element.earth, Element.light, Element.dark];
 
   init: boolean = false;
   hintState: string = "";
@@ -75,13 +76,13 @@ export class HeaderComponent implements OnInit {
 
   openMenu(event: any, menu: SubMenu | undefined = undefined) {
     this.dialog.open(MainMenuComponent, {
-      panelClass: 'dialog', 
-      data: menu != undefined && menu | SubMenu.main,
+      panelClass: 'dialog',
+      data: { subMenu: menu != undefined && menu | SubMenu.main, standalone: this.standalone },
       maxWidth: '90vw',
       positionStrategy: this.overlay.position().flexibleConnectedTo(this.mainMenuButton).withPositions([
         new ConnectionPositionPair(
           { originX: 'end', originY: 'top' },
-          { overlayX: 'start', overlayY: 'top' }) ]).withDefaultOffsetX(10)
+          { overlayX: 'start', overlayY: 'top' })]).withDefaultOffsetX(10)
     });
   }
 

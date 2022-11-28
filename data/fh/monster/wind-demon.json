@@ -2,7 +2,7 @@
   "name": "wind-demon",
   "edition": "fh",
   "flying": true,
-  "count": 10,
+  "count": 6,
   "baseStat": {
     "type": "normal",
     "movement": 4,

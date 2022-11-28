@@ -625,6 +625,12 @@
     "randomStandees": "Zufällige Aufsteller",
     "scenarioNumberInput": "Numerische Szenario Eingabe",
     "scenarioRules": "Szenario Regeln einblenden",
+    "theme": {
+      ".": "Theme",
+      "default": "Standard",
+      "fh": "Frosthaven",
+      "modern": "Modern (%wip%)"
+    },
     "zoom": {
       ".": "Zoom",
       "in": "Reinzoomen",

@@ -30,6 +30,7 @@ export class MainMenuComponent implements OnInit {
   GameState = GameState
   SubMenu = SubMenu;
   active: SubMenu = SubMenu.main;
+  standalone: boolean = false;
   hasUpdate: boolean = false;
   hasSpoilers = ghsHasSpoilers;
   isSpoiled = ghsIsSpoiled;
@@ -43,9 +44,10 @@ export class MainMenuComponent implements OnInit {
   undoInfo: string[] = [];
   redoInfo: string[] = [];
 
-  constructor(@Inject(DIALOG_DATA) private data: SubMenu, private swUpdate: SwUpdate, private dialogRef: DialogRef, private dialog: Dialog) {
+  constructor(@Inject(DIALOG_DATA) private data: { subMenu: SubMenu, standalone: boolean }, private swUpdate: SwUpdate, private dialogRef: DialogRef, private dialog: Dialog) {
 
-    this.active = data;
+    this.active = data.subMenu;
+    this.standalone = data.standalone;
 
     this.swUpdate.versionUpdates.subscribe(evt => {
       if (evt.type == 'VERSION_READY') {
@@ -80,6 +82,10 @@ export class MainMenuComponent implements OnInit {
         this.updateUndoRedo();
       }
     })
+  }
+
+  close() {
+    this.dialogRef.close();
   }
 
   updateUndoRedo() {
@@ -264,7 +270,7 @@ export class MainMenuComponent implements OnInit {
     gameManager.stateManager.before("addChar", "data.character." + characterData.name);
     gameManager.characterManager.addCharacter(characterData, this.characterLevel);
     if (this.hasAllCharacter()) {
-      this.dialogRef.close();
+      this.close();
     }
     gameManager.stateManager.after();
   }
@@ -273,7 +279,7 @@ export class MainMenuComponent implements OnInit {
     gameManager.stateManager.before("removeChar", "data.character." + character.name);
     gameManager.characterManager.removeCharacter(character);
     if (this.characters().length == 0) {
-      this.dialogRef.close();
+      this.close();
     }
     gameManager.stateManager.after();
   }
@@ -281,21 +287,21 @@ export class MainMenuComponent implements OnInit {
   removeAllCharacters() {
     gameManager.stateManager.before("removeAllChars");
     gameManager.game.figures = gameManager.game.figures.filter((figure) => !(figure instanceof Character))
-    this.dialogRef.close();
+    this.close();
     gameManager.stateManager.after();
   }
 
   addObjective() {
     gameManager.stateManager.before("addObjective");
     gameManager.characterManager.addObjective();
-    this.dialogRef.close();
+    this.close();
     gameManager.stateManager.after();
   }
 
   addEscort() {
     gameManager.stateManager.before("addEscort");
     gameManager.characterManager.addObjective(new ObjectiveData("escort", 3, true));
-    this.dialogRef.close();
+    this.close();
     gameManager.stateManager.after();
   }
 
@@ -303,7 +309,7 @@ export class MainMenuComponent implements OnInit {
     gameManager.stateManager.before("removeObjective", objective.title || objective.name);
     gameManager.characterManager.removeObjective(objective);
     if (this.objectives().length == 0) {
-      this.dialogRef.close();
+      this.close();
     }
     gameManager.stateManager.after();
   }
@@ -311,7 +317,7 @@ export class MainMenuComponent implements OnInit {
   removeAllObjectives() {
     gameManager.stateManager.before("removeAllObjectives");
     gameManager.game.figures = gameManager.game.figures.filter((figure) => !(figure instanceof Objective))
-    this.dialogRef.close();
+    this.close();
     gameManager.stateManager.after();
   }
 
@@ -319,7 +325,7 @@ export class MainMenuComponent implements OnInit {
     gameManager.stateManager.before("addMonster", "data.monster." + monsterData.name);
     gameManager.monsterManager.addMonster(monsterData, gameManager.game.level);
     if (this.hasAllMonster()) {
-      this.dialogRef.close();
+      this.close();
     }
     gameManager.stateManager.after();
   }
@@ -328,7 +334,7 @@ export class MainMenuComponent implements OnInit {
     gameManager.stateManager.before("removeMonster", "data.monster." + monster.name);
     gameManager.monsterManager.removeMonster(monster);
     if (this.monsters().length == 0) {
-      this.dialogRef.close();
+      this.close();
     }
     gameManager.stateManager.after();
   }
@@ -338,7 +344,7 @@ export class MainMenuComponent implements OnInit {
     gameManager.game.figures = gameManager.game.figures.filter((figure) => {
       return !(figure instanceof Monster);
     })
-    this.dialogRef.close();
+    this.close();
     gameManager.scenarioManager.setScenario(undefined);
     gameManager.stateManager.after();
   }
@@ -395,6 +401,6 @@ export class MainMenuComponent implements OnInit {
     this.dialog.open(FeedbackDialogComponent, {
       panelClass: 'dialog'
     })
-    this.dialogRef.close();
+    this.close();
   }
 }

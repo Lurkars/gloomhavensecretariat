@@ -1,7 +1,7 @@
 {
   "name": "lurker-wavethrower",
   "edition": "fh",
-  "count": 10,
+  "count": 6,
   "baseStat": {
     "type": "normal",
     "immunities": [],
@@ -72,8 +72,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "immobilize",
-          "small": false
+          "value": "immobilize"
         }
       ]
     },
@@ -86,8 +85,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "immobilize",
-          "small": false
+          "value": "immobilize"
         }
       ]
     },
@@ -100,8 +98,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "immobilize",
-          "small": false
+          "value": "immobilize"
         }
       ]
     },
@@ -114,8 +111,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "immobilize",
-          "small": false
+          "value": "immobilize"
         }
       ]
     },
@@ -128,8 +124,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "immobilize",
-          "small": false
+          "value": "immobilize"
         }
       ]
     },
@@ -142,8 +137,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "immobilize",
-          "small": false
+          "value": "immobilize"
         }
       ]
     },
@@ -156,8 +150,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "immobilize",
-          "small": false
+          "value": "immobilize"
         }
       ]
     }

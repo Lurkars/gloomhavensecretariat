@@ -1,6 +1,5 @@
 import { Game } from "../model/Game";
-import { LootType } from "../model/Loot";
-import { gameManager } from "./GameManager";
+import { LootDeck } from "../model/Loot";
 
 export class LootManager {
   game: Game;
@@ -9,16 +8,16 @@ export class LootManager {
     this.game = game;
   }
 
-  drawCard() {
-    this.game.lootDeck.current++;
-    if (this.game.lootDeck.current >= this.game.lootDeck.cards.length) {
-      this.game.lootDeck.current = this.game.lootDeck.cards.length - 1;
+  drawCard(deck: LootDeck) {
+    deck.current++;
+    if (deck.current >= deck.cards.length) {
+      deck.current = deck.cards.length - 1;
     }
   }
 
-  shuffleDeck() {
-    this.game.lootDeck.current = -1;
-    this.game.lootDeck.cards = this.game.lootDeck.cards
+  shuffleDeck(deck: LootDeck) {
+    deck.current = -1;
+    deck.cards = deck.cards
       .map((value) => ({ value, sort: Math.random() }))
       .sort((a, b) => a.sort - b.sort)
       .map(({ value }) => value);
@@ -26,7 +25,7 @@ export class LootManager {
   }
 
   draw(): void {
-    this.shuffleDeck();
+    this.shuffleDeck(this.game.lootDeck);
   }
 
   next(): void {

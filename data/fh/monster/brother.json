@@ -1,0 +1,91 @@
+{
+  "name": "brother",
+  "thumbnail": "fh-city-guard",
+  "edition": "fh",
+  "deck": "boss",
+  "boss": true,
+  "hidden": true,
+  "count": 2,
+  "baseStat": {
+    "type": "boss",
+    "movement": 0,
+    "attack": 4,
+    "actions": [],
+    "immunities": [],
+    "special": [
+      [
+        {
+          "type": "custom",
+          "value": "One Brother performs:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 0,
+              "valueType": "plus"
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "Brother %game.mapMarker.b% performs:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "heal",
+              "value": 2,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "allies",
+                  "small": true
+                },
+                {
+                  "type": "range",
+                  "value": 2,
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    ]
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "2xC"
+    },
+    {
+      "level": 1,
+      "health": "3xC"
+    },
+    {
+      "level": 2,
+      "health": "4xC"
+    },
+    {
+      "level": 3,
+      "health": "5xC"
+    },
+    {
+      "level": 4,
+      "health": "6xC"
+    },
+    {
+      "level": 5,
+      "health": "7xC"
+    },
+    {
+      "level": 6,
+      "health": "8xC"
+    },
+    {
+      "level": 7,
+      "health": "9xC"
+    }
+  ]
+}

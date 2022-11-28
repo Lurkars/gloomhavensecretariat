@@ -1,5 +1,5 @@
 import { EditionData } from "../model/data/EditionData";
-import { AttackModifierFullscreenType, Settings } from "../model/Settings";
+import { Settings } from "../model/Settings";
 import { Spoilable } from "../model/Spoilable";
 import { gameManager } from "./GameManager";
 
@@ -180,8 +180,18 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setTheme(theme: string) {
+    this.settings.theme = theme;
+    this.storeSettings();
+  }
+
   setFhStyle(fhStyle: boolean) {
     this.settings.fhStyle = fhStyle;
+    if (this.settings.fhStyle && this.settings.theme == 'default') {
+      this.settings.theme = 'fh';
+    } else if (!this.settings.fhStyle && this.settings.theme == 'fh') {
+      this.settings.theme = 'default';
+    }
     this.storeSettings();
   }
 
@@ -344,7 +354,7 @@ export class SettingsManager {
           }
           return response.json();
         }).then((value: EditionData) => {
-          if (gameManager.editions().indexOf(value.edition) != -1) {
+          if (gameManager.editions(true).indexOf(value.edition) != -1) {
             console.warn("Edition already exists: " + value.edition);
             return false;
           }

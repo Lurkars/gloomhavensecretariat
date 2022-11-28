@@ -47,10 +47,15 @@ footer {
     a img {
       width: calc(var(--ghs-unit) *4* var(--ghs-text-factor) * var(--ghs-barsize));
       height: auto;
+      filter: brightness(1.2) grayscale(0.3) var(--ghs-filter-shadow);
 
       &.ghs-svg {
-        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+        filter: var(--ghs-filter-yellow) var(--ghs-filter-shadow);
       }
+    }
+
+    &.fh a img.ghs-svg {
+      filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
     }
   }
 

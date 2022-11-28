@@ -1,6 +1,6 @@
 <div class="loot-deck-dialog">
   <div class="menu" #menu>
-    <ng-container *ngIf="gameManager.game.lootDeck.cards.length > 0">
+    <ng-container *ngIf="deck.cards.length > 0">
       <a (click)="reveal = (reveal + 1) % 3">{{(reveal == 2 ? 'game.cards.coverAll' : (reveal == 0 ?
         'game.cards.revealAll' : 'game.cards.revealAllConfirm')) | ghsLabel}}</a>
       <a (click)="shuffle()">{{'game.cards.shuffle' | ghsLabel}}</a>
@@ -32,9 +32,9 @@
         </ng-container>
       </div>
       <div class="config-menu">
-        <a (click)="currentConfig()" *ngIf="gameManager.game.lootDeck.cards.length > 0">{{'game.loot.config.discard' |
+        <a (click)="currentConfig()" *ngIf="deck.cards.length > 0">{{'game.loot.config.discard' |
           ghsLabel}}</a>
-        <a (click)="applyConfig()">{{('game.loot.config.' + (gameManager.game.lootDeck.cards.length == 0 ? 'create':
+        <a (click)="applyConfig()">{{('game.loot.config.' + (deck.cards.length == 0 ? 'create':
           'apply')) | ghsLabel}}</a>
       </div>
     </div>
@@ -47,7 +47,7 @@
         <div class="loot-container" *ngFor="let loot of upcomingCards(); let index = index" cdkDrag>
           <ghs-loot class="drag-hidden" [loot]="loot" [reveal]="true" [flipped]="reveal == 2">
           </ghs-loot>
-          <a class="button-remove" *ngIf="edit" (click)="remove(index + gameManager.game.lootDeck.current + 1)">
+          <a class="button-remove" *ngIf="edit" (click)="remove(index + deck.current + 1)">
             <img class="ghs-svg" src="./assets/images/minus.svg"></a>
           <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
         </div>
@@ -60,7 +60,7 @@
 
         <div class="loot-container" *ngFor="let loot of disgardedCards(); let index = index" cdkDrag>
           <ghs-loot class="drag-hidden" [loot]="loot" [flipped]="true"></ghs-loot>
-          <a class="button-remove" *ngIf="edit" (click)="remove(gameManager.game.lootDeck.current - index)">
+          <a class="button-remove" *ngIf="edit" (click)="remove(deck.current - index)">
             <img class="ghs-svg" src="./assets/images/minus.svg"></a>
           <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
         </div>

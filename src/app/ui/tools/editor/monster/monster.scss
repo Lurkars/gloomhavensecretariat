@@ -1,3 +1,14 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  ghs-header {
+    z-index: 2;
+  }
+}
+
 .monster-editor {
   margin: calc(var(--ghs-unit) * 2);
 }

@@ -1,7 +1,7 @@
 {
   "name": "steel-automaton",
   "edition": "fh",
-  "count": 10,
+  "count": 4,
   "baseStat": {
     "type": "normal",
     "health": 5,

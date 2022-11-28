@@ -12,7 +12,7 @@
 
 <div class="character" [style.--ghs-character-color]="character.color"
   *ngIf="!character.absent || !settingsManager.settings.hideAbsent"
-  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.hasCharacterPermission(character), 'absent' : character.absent, 'dimmed' : character.attackModifierDeckVisible, 'fh' : settingsManager.settings.fhStyle}">
+  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.hasCharacterPermission(character), 'absent' : character.absent, 'dimmed' : character.attackModifierDeckVisible}">
 
   <ghs-character-image [character]="character"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">

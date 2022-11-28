@@ -1,0 +1,43 @@
+.attackmodifier-standalone {
+
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+
+    ghs-header {
+        z-index: 2;
+    }
+
+    ghs-attackmodifier-deck {
+        display: flex;
+        width: 99vw;
+        max-width: 800px;
+        height: 25.5vw;
+        max-height: 213px;
+        z-index: 1;
+        margin-top: 2em;
+        margin-left: 1%;
+    }
+
+    .next {
+        cursor: pointer;
+        font-family: var(--ghs-font-title);
+        font-size: 3em;
+        margin: 1em;
+    }
+
+    &.vertical {
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        ghs-attackmodifier-deck {
+            width: 98vw;
+            margin-right: 1%;
+            height: calc(100% - ((var(--ghs-unit) * 10 * var(--ghs-text-factor))));
+            max-height: initial;
+            transform: none;
+        }
+    }
+
+}

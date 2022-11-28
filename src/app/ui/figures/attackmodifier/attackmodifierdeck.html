@@ -3,9 +3,8 @@
 
   <div #drawCard class="am-container draw"
     title="{{(gameManager.game.state == GameState.next ? (deck.current == deck.cards.length -1 ? 'game.cards.shuffle' : 'game.cards.draw') : 'game.cards.openDialog') | ghsLabel}}"
-    (click)="gameManager.game.state == GameState.next ? draw($event) : open($event)"
-    [ngClass]="{'open-dialog' : gameManager.game.state == GameState.draw}" [style.z-index]="deck.cards.length + 1"
-    [style.fontSize]="drawCard.offsetWidth * 0.08 + 'px'">
+    (click)="draw($event)" [ngClass]="{'open-dialog' : gameManager.game.state == GameState.draw}"
+    [style.z-index]="deck.cards.length + 1" [style.fontSize]="drawCard.offsetWidth * 0.08 + 'px'">
     <div class="am">
       <span class="number" title="{{'game.cards.openDialog' | ghsLabel}}" (click)="open($event)"
         *ngIf="deck.current < deck.cards.length -1">{{
