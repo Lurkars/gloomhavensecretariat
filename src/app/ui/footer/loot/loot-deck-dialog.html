@@ -5,11 +5,14 @@
         'game.cards.revealAll' : 'game.cards.revealAllConfirm')) | ghsLabel}}</a>
       <a (click)="shuffle()">{{'game.cards.shuffle' | ghsLabel}}</a>
       <label><input type="checkbox" (click)="toggleEdit()" [checked]="edit">{{'game.cards.edit' | ghsLabel}}</label>
-      <a class="toggle-config" *ngIf="edit" (click)="configuration = !configuration"><img class="ghs-svg"
-          src="./assets/images/settings.svg">
+      <a class="toggle-config" *ngIf="edit" (click)="configuration = !configuration; enhancements = false"><img
+          class="ghs-svg" src="./assets/images/settings.svg">
         {{('game.loot.config.' + (configuration ? 'hide' :
         'show')) | ghsLabel}}</a>
     </ng-container>
+    <a class="toggle-enhancements" (click)="enhancements = !enhancements; configuration = false"><img class="ghs-svg"
+        [src]="'./assets/images/fh/loot/' + (enhancements ?  'money' : 'plus1') + '.svg'">
+      {{('game.loot.' + (enhancements ? 'deck' : 'enhancements')) | ghsLabel}}</a>
   </div>
   <div class="scroll-container">
     <div class="config" *ngIf="configuration">
@@ -39,7 +42,21 @@
       </div>
     </div>
 
-    <div class="loot-deck-container" *ngIf="!configuration" [style.maxHeight]="maxHeight">
+    <div class="enhancements" *ngIf="enhancements">
+      <div class="loot-container" *ngFor="let loot of enhancementDeck">
+        <ghs-loot class="drag-hidden" [loot]="loot" [flipped]="true">
+        </ghs-loot>
+        <a class="button-enhance" (click)="enhanceCard(loot)" [title]="'game.loot.enhancements.add' | ghsLabel">
+          <img class="ghs-svg" src="./assets/images/fh/loot/plus1.svg">
+        </a>
+        <div class="remove-enhancements" *ngIf="loot.enhancements > 0">
+          <img *ngFor="let i of [] | ghsRange:loot.enhancements" class="ghs-svg" (click)="unenhanceCard(loot)"
+            src="./assets/images/fh/loot/plus1.svg" [title]="'game.loot.enhancements.remove' | ghsLabel">
+        </div>
+      </div>
+    </div>
+
+    <div class="loot-deck-container" *ngIf="!configuration && !enhancements" [style.maxHeight]="maxHeight">
       <div class="upcoming drop-list" cdkDropList [cdkDropListDisabled]="!edit" #upcomingList="cdkDropList"
         [cdkDropListConnectedTo]="disgardedList" (cdkDropListDropped)="dropUpcoming($event)"
         [cdkDropListAutoScrollStep]="20">

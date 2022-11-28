@@ -120,7 +120,7 @@ export class ScnearioManager {
     }
 
     if (scenarioData.lootDeckConfig) {
-      this.game.lootDeck.apply(scenarioData.lootDeckConfig);
+      gameManager.lootManager.apply(this.game.lootDeck, scenarioData.lootDeckConfig);
     }
   }
 

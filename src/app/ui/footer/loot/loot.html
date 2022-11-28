@@ -10,6 +10,9 @@
                 *ngIf="loot.type != LootType.money && loot.type != LootType.special1 && loot.type != LootType.special2">
                 <span [i18n]="'' +loot.value"></span>&nbsp;{{'game.loot.' + loot.type | ghsLabel}}
             </span>
+            <span class="enhancements">
+                <img class="icon" src="./assets/images/fh/loot/plus1.svg" *ngFor="let i of [] | ghsRange:loot.enhancements">
+            </span>
             <span class="footer">
                 <span class="icon"
                     [style.background-image]="'url(./assets/images/fh/loot/' + (loot.type == LootType.special1 || loot.type == LootType.special2 ? LootType.money : loot.type) + '.svg)'"></span>

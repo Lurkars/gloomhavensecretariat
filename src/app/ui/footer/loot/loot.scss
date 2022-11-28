@@ -42,6 +42,25 @@
             background-color: var(--ghs-color-yellow-light);
         }
 
+        .enhancements {
+            position: absolute;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            top: 50%;
+            left: 50%;
+            height: 50%;
+            width: 100%;
+            transform: translate(-50%, -50%);
+
+            .icon {
+                width: 20%;
+                height: auto;
+                margin: 5%;
+            }
+        }
+
         .footer {
             position: absolute;
             display: flex;

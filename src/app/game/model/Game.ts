@@ -5,7 +5,7 @@ import { Character, GameCharacterModel } from "./Character";
 import { GameScenarioModel, ScenarioData, ScenarioRuleIdentifier } from "./data/ScenarioData";
 import { defeaultElementBoard, Element, ElementModel, ElementState } from "./Element";
 import { Figure } from "./Figure";
-import { LootDeck } from "./Loot";
+import { Loot, LootDeck } from "./Loot";
 import { GameMonsterModel, Monster } from "./Monster";
 import { GameObjectiveModel, Objective } from "./Objective";
 import { Party } from "./Party";
@@ -33,6 +33,7 @@ export class Game {
   party: Party;
   parties: Party[];
   lootDeck: LootDeck = new LootDeck();
+  lootDeckEnhancements: Loot[] = [];
 
   constructor() {
     this.elementBoard = JSON.parse(JSON.stringify(defeaultElementBoard));
@@ -41,7 +42,7 @@ export class Game {
   }
 
   toModel(): GameModel {
-    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario && gameManager.scenarioManager.toModel(this.scenario, this.scenario.custom, this.scenario.custom ? this.scenario.name : "") || undefined, this.sections.map((sectionData) => gameManager.scenarioManager.toModel(sectionData)), this.scenarioRules, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.round, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party, this.parties, this.lootDeck);
+    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario && gameManager.scenarioManager.toModel(this.scenario, this.scenario.custom, this.scenario.custom ? this.scenario.name : "") || undefined, this.sections.map((sectionData) => gameManager.scenarioManager.toModel(sectionData)), this.scenarioRules, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.round, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party, this.parties, this.lootDeck, this.lootDeckEnhancements);
   }
 
   fromModel(model: GameModel, server: boolean = false) {
@@ -204,6 +205,8 @@ export class Game {
 
 
     this.lootDeck = model.lootDeck ? Object.assign(new LootDeck(), model.lootDeck) : new LootDeck();
+
+    this.lootDeckEnhancements = model.lootDeckEnhancements || [];
   }
 }
 
@@ -243,6 +246,7 @@ export class GameModel {
   party: Party;
   parties: Party[];
   lootDeck: LootDeck;
+  lootDeckEnhancements: Loot[];
 
   constructor(edition: string | undefined = undefined,
     figures: string[] = [],
@@ -267,7 +271,8 @@ export class GameModel {
     solo: boolean = false,
     party: Party = new Party(),
     parties: Party[] = [],
-    lootDeck: LootDeck = new LootDeck()) {
+    lootDeck: LootDeck = new LootDeck(),
+    lootDeckEnhancements: Loot[] = []) {
     this.edition = edition;
     this.figures = figures;
     this.characters = characters;
@@ -292,6 +297,7 @@ export class GameModel {
     this.party = JSON.parse(JSON.stringify(party));
     this.parties = JSON.parse(JSON.stringify(parties));
     this.lootDeck = JSON.parse(JSON.stringify(lootDeck));
+    this.lootDeckEnhancements = JSON.parse(JSON.stringify(lootDeckEnhancements))
   }
 
 }

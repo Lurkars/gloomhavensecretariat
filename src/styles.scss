@@ -890,7 +890,7 @@ input[type="radio"] {
 .text-white {
   color: var(--ghs-color-white);
 
-  .ghs-svg {
+  .ghs-svg, .icon {
     filter: var(--ghs-filter-white);
   }
 }

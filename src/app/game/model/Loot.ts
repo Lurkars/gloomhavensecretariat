@@ -22,10 +22,13 @@ export enum LootType {
     special2 = "special2"
 }
 
+export const enhancableLootTypes: LootType[] = [LootType.lumber, LootType.metal, LootType.hide, LootType.arrowvine, LootType.axenut, LootType.corpsecap, LootType.flamefruit, LootType.rockroot, LootType.snowthistle];
+
 export class Loot {
 
     type: LootType;
     value: string;
+    enhancements: number = 0;
 
     constructor(type: LootType, value: string) {
         this.type = type;
@@ -123,26 +126,5 @@ export class LootDeck {
     current: number = -1;
     cards: Loot[] = [];
     active: boolean = false;
-
-    apply(config: LootDeckConfig = {}) {
-        this.cards = [];
-        let availableCards: Loot[] = JSON.parse(JSON.stringify(fullLootDeck));
-        Object.values(LootType).forEach((type) => {
-            if (config[type]) {
-                let availableTypes = availableCards.filter((loot) => loot.type == type).map((value) => ({ value, sort: Math.random() }))
-                    .sort((a, b) => a.sort - b.sort)
-                    .map(({ value }) => value);;
-                const count = Math.min(Math.max(config[type] || 0), availableTypes.length);
-                for (let i = 0; i < count; i++) {
-                    this.cards.push(availableTypes[i]);
-                }
-            }
-        })
-        this.current = -1;
-        this.cards = this.cards
-            .map((value) => ({ value, sort: Math.random() }))
-            .sort((a, b) => a.sort - b.sort)
-            .map(({ value }) => value);
-    }
 
 }

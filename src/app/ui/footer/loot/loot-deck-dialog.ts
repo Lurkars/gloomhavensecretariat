@@ -3,7 +3,7 @@ import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, ElementRef, Inject, OnInit, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { GameState } from "src/app/game/model/Game";
-import { fullLootDeck, Loot, LootDeck, LootDeckConfig, LootType } from "src/app/game/model/Loot";
+import { enhancableLootTypes, fullLootDeck, Loot, LootDeck, LootDeckConfig, LootType } from "src/app/game/model/Loot";
 
 @Component({
   selector: 'ghs-loot-deck-dialog',
@@ -27,6 +27,9 @@ export class LootDeckDialogComponent implements OnInit {
   current: number = -1;
   drawing: boolean = false;
   configuration: boolean = false;
+  enhancements: boolean = false;
+
+  enhancementDeck: Loot[] = [];
 
   constructor(@Inject(DIALOG_DATA) public deck: LootDeck, private dialogRef: DialogRef) { };
 
@@ -44,18 +47,37 @@ export class LootDeckDialogComponent implements OnInit {
       next: () => {
         const close = this.deck.cards.length == 0;
         let deck = new LootDeck();
-        deck.apply(this.lootDeckConfig);
+        gameManager.lootManager.apply(deck, this.lootDeckConfig);
         if (close && deck.cards.length > 0) {
-          this.deck.apply(this.lootDeckConfig);
+          gameManager.lootManager.apply(this.deck, this.lootDeckConfig);
         }
       }
     })
+
+    this.enhancementDeck = gameManager.lootManager.fullLootDeck().filter((loot) => enhancableLootTypes.indexOf(loot.type) != -1);
+  }
+
+  enhanceCard(loot: Loot) {
+    gameManager.stateManager.before('lootDeckAddEnhancement', loot.type, loot.value);
+    loot.enhancements++;
+    gameManager.game.lootDeckEnhancements = this.enhancementDeck.filter((loot) => loot.enhancements > 0);
+    gameManager.stateManager.after();
+  }
+
+  unenhanceCard(loot: Loot) {
+    if (loot.enhancements > 0) {
+      gameManager.stateManager.before('lootDeckRemoveEnhancement', loot.type, loot.value);
+      loot.enhancements--;
+      gameManager.game.lootDeckEnhancements = this.enhancementDeck.filter((loot) => loot.enhancements > 0);
+      gameManager.stateManager.after();
+    }
   }
 
   toggleEdit() {
     this.edit = !this.edit;
     if (!this.edit) {
       this.configuration = false;
+      this.enhancements = false;
     }
     setTimeout(() => {
       this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
@@ -63,7 +85,7 @@ export class LootDeckDialogComponent implements OnInit {
   }
 
   maxValue(type: LootType): number {
-    return fullLootDeck.filter((loot) => loot.type == type).length;
+    return gameManager.lootManager.fullLootDeck().filter((loot) => loot.type == type).length;
   }
 
   currentConfig() {
@@ -80,7 +102,7 @@ export class LootDeckDialogComponent implements OnInit {
   applyConfig() {
     gameManager.stateManager.before('lootDeckChangeConfig');
     const close = this.deck.cards.length == 0;
-    this.deck.apply(this.lootDeckConfig);
+    gameManager.lootManager.apply(this.deck, this.lootDeckConfig);
     gameManager.lootManager.shuffleDeck(this.deck);
     this.types.forEach((type) => {
       if (this.lootDeckConfig[type] == 0) {
