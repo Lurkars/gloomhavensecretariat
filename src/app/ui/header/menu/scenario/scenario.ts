@@ -84,6 +84,7 @@ export class ScenarioMenuComponent implements OnInit {
   resetScenario() {
     if (gameManager.game.scenario) {
       gameManager.stateManager.before("resetScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
+      gameManager.roundManager.resetScenario();
       gameManager.scenarioManager.setScenario(gameManager.game.scenario)
       gameManager.stateManager.after();
     }

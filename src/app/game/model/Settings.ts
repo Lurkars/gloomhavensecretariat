@@ -22,7 +22,7 @@ export class Settings {
   alwaysLootDeck: boolean = false;
   fullscreen: boolean = false;
   fhStyle: boolean = false;
-  theme: string = "default";
+  theme: string = "";
   autoscroll: boolean = true;
   scenarioRules: boolean = true;
   scenarioNumberInput: boolean = false;

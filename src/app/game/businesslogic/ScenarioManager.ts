@@ -19,13 +19,18 @@ export class ScnearioManager {
   setScenario(scenario: Scenario | undefined) {
     this.game.scenario = scenario ? new Scenario(scenario, scenario.custom) : undefined;
     if (scenario && !scenario.custom) {
+      const scnearioData = gameManager.scenarioData().find((scenarioData) => scenarioData.index == scenario.index && scenarioData.edition == scenario.edition && scenarioData.group == scenario.group);
+      if (!scnearioData) {
+        console.error("Could not find scenario data!");
+        return;
+      }
       const editionData: EditionData | undefined = gameManager.editionData.find((value) => value.edition == scenario.edition);
       if (!editionData) {
         console.error("Could not find edition data!");
         return;
       }
       gameManager.roundManager.resetScenario();
-      this.applyScenarioData(editionData, scenario);
+      this.applyScenarioData(editionData, scnearioData);
     } else if (!scenario) {
       gameManager.roundManager.resetScenario();
     }
@@ -112,6 +117,7 @@ export class ScnearioManager {
 
     if (scenarioData.lootDeckConfig) {
       this.game.lootDeck.apply(scenarioData.lootDeckConfig);
+      console.log(this.game.lootDeck, scenarioData.lootDeckConfig);
     }
   }
 

@@ -62,6 +62,14 @@ export class SettingsManager {
       }
     }
 
+    if (!settings.theme) {
+      if (settings.fhStyle) {
+        settings.theme = 'fh';
+      } else {
+        settings.theme = 'default';
+      }
+    }
+
     this.sortSpoilers();
   }
 

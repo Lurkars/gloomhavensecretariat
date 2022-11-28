@@ -39,6 +39,16 @@ export class ScenarioDialogComponent {
     })
   }
 
+  resetScenario() {
+    if (gameManager.game.scenario) {
+      this.dialogRef.close();
+      gameManager.stateManager.before("resetScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
+      gameManager.roundManager.resetScenario();
+      gameManager.scenarioManager.setScenario(gameManager.game.scenario)
+      gameManager.stateManager.after();
+    }
+  }
+
   cancelScenario() {
     this.dialogRef.close();
     gameManager.stateManager.before("cancelScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
