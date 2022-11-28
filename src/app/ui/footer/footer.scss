@@ -38,14 +38,14 @@ footer {
     position: absolute;
     right: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     z-index: 1;
-    width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    width: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor) * var(--ghs-barsize));
     height: calc(var(--ghs-unit) * 11 * var(--ghs-text-factor) * var(--ghs-barsize));
     display: flex;
     justify-content: center;
     align-items: center;
 
     a img {
-      width: calc(var(--ghs-unit) *4* var(--ghs-text-factor) * var(--ghs-barsize));
+      width: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor) * var(--ghs-barsize));
       height: auto;
       filter: brightness(1.2) grayscale(0.3) var(--ghs-filter-shadow);
 
@@ -162,5 +162,32 @@ footer {
       transform: translateX(-50%);
     }
 
+  }
+}
+
+
+@media (max-width: 500px) {
+
+  footer {
+
+    .attack-modifier-spacer {
+      display: none;
+    }
+
+    ghs-attackmodifier-deck.monster-deck {
+      top: calc(var(--ghs-unit) * -11 * var(--ghs-text-factor) * var(--ghs-barsize));
+    }
+
+    ghs-loot-deck.loot-deck {
+      top: calc(var(--ghs-unit) * -11 * var(--ghs-text-factor) * var(--ghs-barsize));
+    }
+
+    .loot-toggle {
+      right: 0;
+    }
+
+    ghs-attackmodifier-deck.ally-deck {
+      top: calc(var(--ghs-unit) * -22 * var(--ghs-text-factor) * var(--ghs-barsize));
+    }
   }
 }

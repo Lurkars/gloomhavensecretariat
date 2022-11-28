@@ -24,7 +24,7 @@
       <img *ngIf="gameManager.game.lootDeck.active" [src]="'./assets/images/attackmodifier/icon.png'"></a>
   </div>
 
-  <ghs-attackmodifier-deck *ngIf="hasAllyAttackModifierDeck" class="ally-deck"
+  <ghs-attackmodifier-deck *ngIf="hasAllyAttackModifierDeck && !gameManager.game.lootDeck.active" class="ally-deck"
     [deck]="gameManager.game.allyAttackModifierDeck" (before)="beforeAllyAttackModifierDeck($event)"
     (after)="afterAllyAttackModifierDeck($event)" numeration="A" [bottom]="true"></ghs-attackmodifier-deck>
 

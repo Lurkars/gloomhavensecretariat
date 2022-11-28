@@ -25,7 +25,10 @@ export class MainComponent implements OnInit {
 
   fullviewChar: Character | undefined;
 
+  hasAllyDeck : boolean = false;
+
   constructor(private element: ElementRef) {
+    this.hasAllyDeck = settingsManager.settings.allyAttackModifierDeck && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly);
     gameManager.uiChange.subscribe({
       next: () => {
         const figure = gameManager.game.figures.find((figure) => figure instanceof Character && figure.fullview);
@@ -35,6 +38,7 @@ export class MainComponent implements OnInit {
           this.fullviewChar = undefined;
           this.calcColumns();
         }
+        this.hasAllyDeck = settingsManager.settings.allyAttackModifierDeck && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly);
       }
     })
 
