@@ -2,6 +2,7 @@ header {
   height: calc(var(--ghs-unit) * 8 * var(--ghs-text-factor) * var(--ghs-barsize));
   display: flex;
   position: relative;
+  overflow: hidden;
 
   &::before {
     content: ' ';
@@ -74,6 +75,21 @@ header {
 
     &.disconnected {
       filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+    }
+
+    @keyframes spinning {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    &.syncing {
+      filter: var(--ghs-filter-white);
+      animation: spinning 1500ms linear infinite;
     }
   }
 

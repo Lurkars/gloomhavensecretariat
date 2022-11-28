@@ -196,6 +196,7 @@ export class StateManager {
       switch (message.type) {
         case "game":
           window.document.body.classList.add('working');
+          window.document.body.classList.add('server-sync');
           let gameModel: GameModel = message.payload as GameModel;
           const undoinfo = message.undoinfo;
           if (undoinfo) {
@@ -210,9 +211,11 @@ export class StateManager {
           gameManager.uiChange.emit();
           setTimeout(() => {
             window.document.body.classList.remove('working');
+            window.document.body.classList.remove('server-sync');
           }, 1);
           break;
         case "settings":
+          window.document.body.classList.add('server-sync');
           if (settingsManager.settings.serverSettings) {
             let settings: Settings = message.payload as Settings;
 
@@ -319,6 +322,7 @@ export class StateManager {
   after(timeout: number = 1) {
     this.saveLocal();
     if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword) {
+      window.document.body.classList.add('server-sync');
       let message = {
         "password": settingsManager.settings.serverPassword,
         "type": "game",
@@ -333,9 +337,11 @@ export class StateManager {
     if (timeout) {
       setTimeout(() => {
         window.document.body.classList.remove('working');
+        window.document.body.classList.remove('server-sync');
       }, timeout);
     } else {
       window.document.body.classList.remove('working');
+      window.document.body.classList.remove('server-sync');
     }
   }
 

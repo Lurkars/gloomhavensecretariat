@@ -51,7 +51,9 @@ export class HeaderComponent implements OnInit {
     })
   }
 
-
+  syncing(): boolean {
+    return window.document.body.classList.contains('server-sync');
+  }
 
   hintStateValue(): string {
     if (gameManager.game.figures.every((figure) => !(figure instanceof Character) && !(figure instanceof Monster))) {

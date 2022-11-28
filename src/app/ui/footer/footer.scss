@@ -2,6 +2,7 @@ footer {
   height: calc(var(--ghs-unit) * 11 * var(--ghs-text-factor) * var(--ghs-barsize));
   display: flex;
   overflow: unset;
+  overflow-x: clip;
   position: relative;
 
   .flex-shrink {

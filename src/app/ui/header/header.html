@@ -27,6 +27,7 @@
         <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection disconnected"
           [title]="'server.disconnected' | ghsLabel">
       </a>
+      <img src="./assets/images/shuffle.svg" class="server-connection syncing" *ngIf="syncing()">
     </ng-container>
     <div class="hints" *ngIf="settingsManager.settings.hints" [ngClass]="{'visible' : init}">
       <ng-container [ngSwitch]="hintState">

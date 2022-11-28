@@ -97,7 +97,11 @@ export class ScnearioManager {
     }
 
     if (scenarioData.solo) {
-      gameManager.game.figures = gameManager.game.figures.filter((figure) => !(figure instanceof Character) || figure.name == scenarioData.solo && figure.edition == scenarioData.edition);
+      gameManager.game.figures.forEach((figure) => {
+        if (figure instanceof Character && (figure.name != scenarioData.solo || figure.edition != scenarioData.edition)) {
+          figure.absent = true;
+        }
+      });
 
       if (!gameManager.game.figures.some((figure) => figure instanceof Character && figure.name == scenarioData.solo && figure.edition == scenarioData.edition)) {
         const characterData = gameManager.charactersData().find((characterData) => characterData.name == scenarioData.solo && characterData.edition == scenarioData.edition);

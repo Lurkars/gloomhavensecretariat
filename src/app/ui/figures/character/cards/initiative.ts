@@ -1,6 +1,6 @@
 import { Dialog, DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 import { Overlay } from "@angular/cdk/overlay";
-import { Component, ElementRef, Inject, Input, ViewChild } from "@angular/core";
+import { Component, ElementRef, HostListener, Inject, Input, ViewChild } from "@angular/core";
 import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -102,6 +102,13 @@ export class CharacterInitiativeDialogComponent {
         }
       }
     })
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  onKeyPress(event: KeyboardEvent) {
+    if (event.key in ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']) {
+      this.pickNumber(+event.key);
+    }
   }
 
   pickNumber(number: number) {
