@@ -39,7 +39,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - **Character Summons**
   - **Scenarios** and **Sections** with automatic level calculation, special rules reminder and scenario finish for applying character progress
   - **Party Sheet**
-  - **Campaign Management**
+  - **Campaign Management** (special Rules for CS and FH missing)
   - **Markers**
 - Eliminating the following physical components:
   - monster ability cards
@@ -51,7 +51,8 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - character HP/XP dials
   - character boards
   - character sheets
-  - character attack modifier deck (perks for CS missing)
+  - character attack modifier deck (perks for FH/CS missing)
+  - loot deck
   - party sheet
 - Other features:
   - i18n support (currently en, de and fr, more translations required. Big thanks to [@Boomchil](https://github.com/Boomchil) for french translations!)
@@ -60,7 +61,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - Permission management for different clients with [GHS Server](https://github.com/Lurkars/ghs-server)
   - load custom JSON edition data for custom content!
   - edit Monster Attack Modifier and Monster Ability decks (support for Diviner class mechanics): reveal cards, remove cards, re-order cards
-  - FH Loot Deck support
+  - FH Loot Deck support incl. Enhancements
   - [Monster data editor](https://gloomhaven-secretary.de/editor/monster)
   - includes Solo Scenarios for GH, FC and CS
   - includes [Blood and Sand](https://boardgamegeek.com/thread/2613617/blood-and-sand-gloomhaven-campaign-set-red-desert) campaign: can be enabled under *Data Management* (Big thanks to [/u/Calm_Construction131](https://www.reddit.com/user/Calm_Construction131) for contribution)
