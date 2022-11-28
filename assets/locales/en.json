@@ -734,6 +734,12 @@
     "randomStandees": "Random standees",
     "scenarioNumberInput": "Scenario Number Input",
     "scenarioRules": "Show Scenario Rules",
+    "theme": {
+      ".": "Theme",
+      "default": "Default",
+      "fh": "Frosthaven",
+      "modern": "Modern (%wip%)"
+    },
     "zoom": {
       ".": "Zoom",
       "in": "Zoom in",
