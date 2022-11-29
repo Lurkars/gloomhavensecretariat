@@ -1,2 +1,6 @@
-<span [innerHTML]="svg" (click)="toggleElement()" title="{{'game.element.' + element.type | ghsLabel}}" [class]="element.type"
-  [ngClass]="{'full' : element.state == ElementState.new || element.state == ElementState.strong, 'half' : element.state == ElementState.waning}"></span>
+<span class="element">
+  <span [innerHTML]="svg" title="{{'game.element.' + element.type | ghsLabel}}" [class]="element.type"
+    class="element-svg"
+    [ngClass]="{'full' : element.state == ElementState.new || element.state == ElementState.strong, 'half' : element.state == ElementState.waning}"></span>
+  <ghs-drag-click (singleClick)="toggleElement()" (doubleClick)="toggleElement(true)"></ghs-drag-click>
+</span>

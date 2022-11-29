@@ -1,14 +1,14 @@
-# Gloomhaven Secretary
+# Gloomhaven Secretariat
 
 [Latest Online Version](https://gloomhaven-secretary.de)
 
-*Gloomhaven Secretary* is a **Gloomhaven/Frosthaven companion app** and does bookkeeping of all entities values to gain more focus on gameplay. It is an open source web app made with [Angular](https://angular.io/).
+*Gloomhaven Secretariat* is a **Gloomhaven/Frosthaven companion app** and does bookkeeping of all entities values to gain more focus on gameplay. It is an open source web app made with [Angular](https://angular.io/).
 
 As GHS is a web application no installation is required and it runs in every modern browser even on mobile, still it can also be [installed](#install) for offline usage.
 
-For usage with multiple clients sharing the same game, the server component [Gloomhaven Secretary Server](https://github.com/Lurkars/ghs-server) is required. A public instance is available under `gloomhaven-secretary.de` port `8443` with `secure` option. (I also manage a public server list, so please contact me, if you're running a public instance yourself.)
+For usage with multiple clients sharing the same game, the server component [Gloomhaven Secretariat Server](https://github.com/Lurkars/ghs-server) is required. A public instance is available under `gloomhaven-secretary.de` port `8443` with `secure` option. (I also manage a public server list, so please contact me, if you're running a public instance yourself.)
 
-GHS is based on the look&feel of the original [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (by [Esoteric Software®](http://esotericsoftware.com)). Since GHH is discontinued and not available anymore, GHS should become a well maintained successor, implementing all functionality of GHH, many improvements and many more features. For a comparison of some popular apps, see [Comparison of Companion Apps](https://github.com/Lurkars/gloomhavensecretary/wiki/Comparison-of-Companion-Apps).
+GHS is based on the look&feel of the original [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (by [Esoteric Software®](http://esotericsoftware.com)). Since GHH is discontinued and not available anymore, GHS should become a well maintained successor, implementing all functionality of GHH, many improvements and many more features. For a comparison of some popular apps, see [Comparison of Companion Apps](https://github.com/Lurkars/gloomhavensecretariat/wiki/Comparison-of-Companion-Apps).
 
 As open source software this is meant for the community to actively [contribute](#contributing) with ideas, suggestions and of course feedback. As I am not capable of good design/UX also feel free to contribute better assets. 
 
@@ -86,18 +86,18 @@ If you need help using the app take a look at the [help page](https://help.gloom
 
 ### Progressive Web App
 
-You can always install any hosted version as PWA if your OS/Browser supports installation of PWA. For example here is the [Latest Online Version](https://gloomhaven-secretary.de) or latest version on [GitHub Pages](https://lurkars.github.io/gloomhavensecretary/).
+You can always install any hosted version as PWA if your OS/Browser supports installation of PWA. For example here is the [Latest Online Version](https://gloomhaven-secretary.de) or latest version on [GitHub Pages](https://lurkars.github.io/gloomhavensecretariat/).
 
 ### Standalone
 
 An Electron app is provided for Linux, Mac and Windows.
-Download the corresponding files from the [latest release](https://github.com/Lurkars/gloomhavensecretary/releases/latest) assets.
+Download the corresponding files from the [latest release](https://github.com/Lurkars/gloomhavensecretariat/releases/latest) assets.
 
 > only tested Linux AppImage for now
 
 ### Selfhost
 
-To selfhost *Gloomhaven Secretary* on your webserver, simple download the zip file from the [latest release](https://github.com/Lurkars/gloomhavensecretary/releases/latest) and unzip to your webserver.
+To selfhost *Gloomhaven Secretariat* on your webserver, simple download the zip file from the [latest release](https://github.com/Lurkars/gloomhavensecretariat/releases/latest) and unzip to your webserver.
 
 > The base url for this build is set to root. To use a different base url please [build your own package](#build-from-source).
 
@@ -106,15 +106,15 @@ To selfhost *Gloomhaven Secretary* on your webserver, simple download the zip fi
 If you want to use docker for running on port 80 execute following:
 
 ```shell
-docker build -t gloomhavensecretary .
-docker run --rm -p 80:80 gloomhavensecretary
+docker build -t gloomhavensecretariat .
+docker run --rm -p 80:80 gloomhavensecretariat
 ```
 
 For usage with docker compose, simple run `docker compose up -d`.
 
 ## Build from source
 
-If you want to create you own custom build (for example to [selfhost](#selfhost)), prepare a [development setup](#development). Afterwards run `npm run build` ([available options](https://angular.io/cli/build#options)) and access build under `./dist/gloomhavensecretary`.
+If you want to create you own custom build (for example to [selfhost](#selfhost)), prepare a [development setup](#development). Afterwards run `npm run build` ([available options](https://angular.io/cli/build#options)) and access build under `./dist/gloomhavensecretariat`.
 
 ## Development
 
@@ -122,7 +122,7 @@ Prerequisite:
 
 - up-to-date [Node.js](https://nodejs.org) and npm version
 
-Checkout the source code with `git clone https://github.com/Lurkars/gloomhavensecretary.git`.
+Checkout the source code with `git clone https://github.com/Lurkars/gloomhavensecretariat.git`.
 
 Install dependencies with `npm install`.
 
@@ -132,7 +132,7 @@ For development with docker, install docker compose and run `docker compose -f d
 
 ## Contributing
 
-Feel free to file a [new issue](https://github.com/Lurkars/gloomhavensecretary/issues/new/choose) for bugs, features, improvements, help or feedback.
+Feel free to file a [new issue](https://github.com/Lurkars/gloomhavensecretariat/issues/new/choose) for bugs, features, improvements, help or feedback.
 
 All game data is inside the [data](./data/) folder with subfolders for every edition. A review of all data by a third person would be awesome. As all files are JSON data it should be easily human readable. Every character, monster and monster deck has it's own file, so it should be easy to check.
 Every edition folder get concatenated to a single edition data file on build.
@@ -141,7 +141,7 @@ Also pull requests are welcome!
 
 ## Privacy
 
-This app does NOT collect ANY personal data. Everything runs and stays in your browser/local storage. For usage of the server component please go to [Gloomhaven Secretary Server#Privacy](https://github.com/Lurkars/ghs-server#privacy).
+This app does NOT collect ANY personal data. Everything runs and stays in your browser/local storage. For usage of the server component please go to [Gloomhaven Secretariat Server#Privacy](https://github.com/Lurkars/ghs-server#privacy).
 
 ## Copyright / License
 

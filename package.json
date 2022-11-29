@@ -1,16 +1,16 @@
 {
-  "name": "gloomhavensecretary",
-  "version": "0.28.7",
+  "name": "gloomhavensecretariat",
+  "version": "0.29.0",
   "license": "AGPL3",
-  "description": "Gloomhaven Secretary is a Gloomhaven Companion app.",
+  "description": "Gloomhaven Aecretariat is a Gloomhaven Companion app.",
   "homepage": "https://gloomhaven-secretary.de",
   "author": {
     "name": "Lurkars",
     "email": "ghs@champonthis.de",
     "url": "https://www.champonthis.de"
   },
-  "repository": "github:Lurkars/gloomhavensecretary",
-  "bugs": "https://github.com/Lurkars/gloomhavensecretary/issues",
+  "repository": "github:Lurkars/gloomhavensecretariat",
+  "bugs": "https://github.com/Lurkars/gloomhavensecretariat/issues",
   "funding": {
     "type": "ko-fi",
     "url": "https://ko-fi.com/lurkars"
@@ -28,7 +28,7 @@
     "test": "ng test"
   },
   "build": {
-    "appId": "gloomhavensecretary",
+    "appId": "gloomhavensecretariat",
     "linux": {
       "target": [
         "AppImage",
@@ -58,7 +58,7 @@
     },
     "files": [
       "main.js",
-      "dist/gloomhavensecretary"
+      "dist/gloomhavensecretariat"
     ]
   },
   "private": true,

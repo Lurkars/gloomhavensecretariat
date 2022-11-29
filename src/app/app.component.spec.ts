@@ -133,10 +133,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'gloomhavensecretary'`, () => {
+  it(`should have as title 'gloomhavensecretariat'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('gloomhavensecretary');
+    expect(app.title).toEqual('gloomhavensecretariat');
   });
 
   describe('onRightClick', () => {

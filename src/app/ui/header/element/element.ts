@@ -8,7 +8,7 @@ import { GameState } from "src/app/game/model/Game";
   selector: 'ghs-element-icon',
   templateUrl: './element.html',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: [ './element.scss' ]
+  styleUrls: ['./element.scss']
 })
 export class ElementIconComponent implements OnInit {
 
@@ -17,7 +17,6 @@ export class ElementIconComponent implements OnInit {
   GameState = GameState;
   ElementState = ElementState;
   svg: SafeHtml = "";
-  doubleClick: any = null;
 
   constructor(private sanitizer: DomSanitizer) { }
 
@@ -33,24 +32,11 @@ export class ElementIconComponent implements OnInit {
       })
   }
 
-  toggleElement(): void {
-    if (this.doubleClick) {
-      this.doubleClick = null;
-      const elementState = this.nextElementState(this.element, true);
-      gameManager.stateManager.before("updateElement", "game.element." + this.element.type, "game.element.state." + elementState);
-      this.element.state = elementState;
-      gameManager.stateManager.after();
-    } else {
-      this.doubleClick = setTimeout(() => {
-        if (this.doubleClick) {
-          const elementState = this.nextElementState(this.element, false);
-          gameManager.stateManager.before("updateElement", "game.element." + this.element.type, "game.element.state." + elementState);
-          this.element.state = elementState;
-          gameManager.stateManager.after();
-          this.doubleClick = null;
-        }
-      }, 200)
-    }
+  toggleElement(double: boolean = false): void {
+    const elementState = this.nextElementState(this.element, double);
+    gameManager.stateManager.before("updateElement", "game.element." + this.element.type, "game.element.state." + elementState);
+    this.element.state = elementState;
+    gameManager.stateManager.after();
   }
 
   nextElementState(element: ElementModel, double: boolean = false): ElementState {

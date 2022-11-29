@@ -8,7 +8,7 @@ import { settingsManager, SettingsManager } from './game/businesslogic/SettingsM
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'gloomhavensecretary';
+  title = 'gloomhavensecretariat';
 
   settingsManager: SettingsManager = settingsManager;
 

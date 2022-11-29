@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "gloomhavensecretary": {
+    "gloomhavensecretariat": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/gloomhavensecretary",
+            "outputPath": "dist/gloomhavensecretariat",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -82,10 +82,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "gloomhavensecretary:build:production"
+              "browserTarget": "gloomhavensecretariat:build:production"
             },
             "development": {
-              "browserTarget": "gloomhavensecretary:build:development"
+              "browserTarget": "gloomhavensecretariat:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -93,7 +93,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "gloomhavensecretary:build"
+            "browserTarget": "gloomhavensecretariat:build"
           }
         },
         "test": {

@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-  gloomhaven-secretary:
+  gloomhaven-secretariat:
     build:
       context: ./
       dockerfile: Dockerfile
