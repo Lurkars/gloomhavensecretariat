@@ -25,7 +25,9 @@ export class MainComponent implements OnInit {
 
   fullviewChar: Character | undefined;
 
-  hasAllyDeck : boolean = false;
+  hasAllyDeck: boolean = false;
+
+  scrollTimeout : any = null;
 
   constructor(private element: ElementRef) {
     this.hasAllyDeck = settingsManager.settings.allyAttackModifierDeck && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly);
@@ -91,6 +93,17 @@ export class MainComponent implements OnInit {
         gameManager.stateManager.redo();
       }
     })
+  }
+
+  scroll(event: any) {
+    window.document.body.classList.add('scrolling');
+    if (this.scrollTimeout) {
+      clearTimeout(this.scrollTimeout);
+    }
+    this.scrollTimeout = setTimeout(() => {
+      window.document.body.classList.remove('scrolling');
+      this.scrollTimeout = null;
+    }, 250)
   }
 
   calcColumns(scrollTo: HTMLElement | undefined = undefined): void {

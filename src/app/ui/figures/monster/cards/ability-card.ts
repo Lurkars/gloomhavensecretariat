@@ -32,8 +32,6 @@ export class MonsterAbilityCardComponent {
   maxHeight: string = "";
   lastReveal: number = 0;
 
-  doubleClick: any = null;
-
   constructor(private dialog: Dialog) { }
 
   flipped(): boolean {
@@ -183,21 +181,9 @@ export class MonsterAbilityCardComponent {
       this.dialog.open(AbilityDialogComponent, {
         data: { ability: second ? this.secondAbility : this.ability, monster: this.monster }
       });
+    } else {
+      this.openAbilities();
     }
   }
 
-  click(second: boolean = false): void {
-    if (this.doubleClick) {
-      clearTimeout(this.doubleClick);
-      this.doubleClick = null;
-      this.openAbility(second);
-    } else {
-      this.doubleClick = setTimeout(() => {
-        if (this.doubleClick) {
-          this.openAbilities();
-          this.doubleClick = null;
-        }
-      }, 200)
-    }
-  }
 }

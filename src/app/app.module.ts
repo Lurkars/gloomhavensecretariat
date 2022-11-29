@@ -45,7 +45,7 @@ import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-s
 import { ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent } from './ui/footer/scenario/scenario';
 import { PartySheetComponent } from './ui/header/party/party-sheet';
 import { PartySheetDialogComponent } from './ui/header/party/party-sheet-dialog';
-import { DragValueComponent, DragClickComponent } from './ui/helper/drag/drag';
+import { DragClickComponent } from './ui/helper/drag/drag';
 import { AutoscrollDirective, FigureAutoscrollDirective } from './ui/helper/autoscroll';
 import { AttackModifierDeckComponent } from './ui/figures/attackmodifier/attackmodifierdeck';
 import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodifier';
@@ -108,7 +108,7 @@ import { AttackModifierStandaloneComponent } from './ui/tools/standalone/attackm
     AbilityComponent, AbiltiesDialogComponent, AbilityDialogComponent,
     ActionsComponent, ActionComponent, ActionHexComponent, ActionSummonComponent,
     FigureErrorsComponent, FigureErrorsDialogComponent,
-    CardRevealDirective, EntityAnimationDirective, I18nDirective, ValueCalcDirective, DragValueComponent, DragClickComponent, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
+    CardRevealDirective, EntityAnimationDirective, I18nDirective, ValueCalcDirective, DragClickComponent, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
     GhsValueSignPipe, GhsLabelPipe, GhsRangePipe, GhsScenarioSearch,
     AttackModifierToolComponent, DecksToolComponent,
     EditionEditorComponent,

@@ -60,9 +60,9 @@
     }
   }
 
-  ghs-drag-value.drag-hp,
-  ghs-drag-value.drag-xp,
-  ghs-drag-value.drag-loot {
+  ghs-drag-click.drag-hp,
+  ghs-drag-click.drag-xp,
+  ghs-drag-click.drag-loot {
     position: absolute;
     bottom: calc(var(--ghs-unit) * 1.5);
     left: calc(var(--ghs-unit) * 22);

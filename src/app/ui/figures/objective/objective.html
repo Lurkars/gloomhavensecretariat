@@ -8,12 +8,12 @@
     <ghs-healthbar [entity]="objective"></ghs-healthbar>
   </a>
 
-  <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-initiative"
-    (dragMove)="dragInitiativeMove($event)" (dragEnd)="dragInitiativeEnd($event)">
-  </ghs-drag-value>
+  <ghs-drag-click *ngIf="settingsManager.settings.dragValues" class="drag-initiative"
+    (dragMove)="dragInitiativeMove($event)" (dragEnd)="dragInitiativeEnd($event)" (click)="openEntityMenu($event)">
+  </ghs-drag-click>
 
-  <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-hp" (dragMove)="dragHpMove($event)"
-  (dragEnd)="dragHpEnd($event)" [relative]="true"></ghs-drag-value>
+  <ghs-drag-click *ngIf="settingsManager.settings.dragValues" class="drag-hp" (dragMove)="dragHpMove($event)"
+    (dragEnd)="dragHpEnd($event)" [relative]="true" (click)="openEntityMenu($event)"></ghs-drag-click>
 
   <ghs-character-initiative [character]="objective"></ghs-character-initiative>
 

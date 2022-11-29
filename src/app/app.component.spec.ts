@@ -18,7 +18,7 @@ import { EditionMenuComponent } from './ui/header/menu/edition/edition';
 import { MainMenuComponent } from './ui/header/menu/menu';
 import { SettingsMenuComponent } from './ui/header/menu/settings/settings';
 import { CardRevealDirective } from './ui/helper/CardReveal';
-import { GhsLabelPipe, GhsRangePipe, GhsValueSignPipe } from './ui/helper/Pipes';
+import { GhsLabelPipe, GhsRangePipe, GhsScenarioSearch, GhsValueSignPipe } from './ui/helper/Pipes';
 import { MainComponent } from './ui/main';
 import { CharacterSummonDialog } from './ui/figures/character/dialogs/summondialog';
 import { SummonEntityComponent } from './ui/figures/character/summon/summon';
@@ -42,7 +42,7 @@ import { ValueCalcDirective } from './ui/helper/valueCalc';
 import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-sheet';
 import { PartySheetComponent } from './ui/header/party/party-sheet';
 import { PartySheetDialogComponent } from './ui/header/party/party-sheet-dialog';
-import { DragValueComponent } from './ui/helper/drag/drag';
+import { DragClickComponent } from './ui/helper/drag/drag';
 import { AttackModifierDeckComponent } from './ui/figures/attackmodifier/attackmodifierdeck';
 import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodifier';
 import { ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent } from './ui/footer/scenario/scenario';
@@ -71,6 +71,14 @@ import { ActionSummonComponent } from './ui/figures/actions/summon/action-summon
 import { DecksToolComponent } from './ui/tools/decks/decks-tool';
 import { EditionEditorComponent } from './ui/tools/editor/edition';
 import { DeckEditorComponent } from './ui/tools/editor/deck/deck';
+import { LootComponent } from './ui/footer/loot/loot';
+import { LootDeckComponent } from './ui/footer/loot/loot-deck';
+import { LootDeckFullscreenComponent } from './ui/footer/loot/loot-deck-fullscreen';
+import { LootDeckDialogComponent } from './ui/footer/loot/loot-deck-dialog';
+import { LootDeckStandaloneComponent } from './ui/tools/standalone/loot-deck-standalone';
+import { AttackModifierStandaloneComponent } from './ui/tools/standalone/attackmodifier-standalone';
+import { FeedbackDialogComponent } from './ui/tools/feedback/feedback-dialog';
+import { FeedbackToolComponent } from './ui/tools/feedback/feedback';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -82,7 +90,9 @@ describe('AppComponent', () => {
         PartySheetComponent, PartySheetDialogComponent,
         MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent,
         FooterComponent,
-        AttackModifierComponent, AttackModifierEffectsComponent, HintDialogComponent, ScenarioRulesComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent,
+        LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent,
+        HintDialogComponent, ScenarioRulesComponent,
+        AttackModifierComponent, AttackModifierEffectsComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent, AttackModifierStandaloneComponent,
         LevelComponent, LevelDialogComponent,
         ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent,
         ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
@@ -99,12 +109,13 @@ describe('AppComponent', () => {
         AbilityComponent, AbiltiesDialogComponent, AbilityDialogComponent,
         ActionsComponent, ActionComponent, ActionHexComponent, ActionSummonComponent,
         FigureErrorsComponent, FigureErrorsDialogComponent,
-        CardRevealDirective, EntityAnimationDirective, I18nDirective, ValueCalcDirective, DragValueComponent, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
-        GhsValueSignPipe, GhsLabelPipe, GhsRangePipe,
+        CardRevealDirective, EntityAnimationDirective, I18nDirective, ValueCalcDirective, DragClickComponent, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
+        GhsValueSignPipe, GhsLabelPipe, GhsRangePipe, GhsScenarioSearch,
         AttackModifierToolComponent, DecksToolComponent,
         EditionEditorComponent,
         EditorActionComponent, EditorActionDialogComponent,
-        DeckEditorComponent, CharacterEditorComponent, MonsterEditorComponent],
+        DeckEditorComponent, CharacterEditorComponent, MonsterEditorComponent,
+        FeedbackToolComponent, FeedbackDialogComponent],
       imports: [
         BrowserModule,
         AppRoutingModule,

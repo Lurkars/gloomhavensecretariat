@@ -1,8 +1,9 @@
 <div class="summon-border" [ngClass]="{'dead' : summon.dead, 'off' : character.off}" [entityAnimation]="summon.dead">
-  <div class="summon" title="{{'data.summon.' + summon.name | ghsLabel}}" (click)="open()">
+  <div class="summon" title="{{'data.summon.' + summon.name | ghsLabel}}">
     <div #standee class="standee">
 
-      <span class="image" [ngClass]="{'active' : summon.state == SummonState.true, 'new' : summon.state == SummonState.new, 'center' : (summon.entityConditions.length % 2) == 0}">
+      <span class="image"
+        [ngClass]="{'active' : summon.state == SummonState.true, 'new' : summon.state == SummonState.new, 'center' : (summon.entityConditions.length % 2) == 0}">
         <img src="./assets/images/summons/{{summon.color}}.png">
         <span class="summon-number">
           <span *ngIf="summon.number == 0">-</span>
@@ -34,6 +35,6 @@
     <ghs-healthbar [entity]="summon" [diff]="health"></ghs-healthbar>
   </div>
 
-  <ghs-drag-value *ngIf="settingsManager.settings.dragValues" class="drag-hp" (dragMove)="dragHpMove($event)"
-    (dragEnd)="dragHpEnd($event)" [relative]="true"></ghs-drag-value>
+  <ghs-drag-click *ngIf="settingsManager.settings.dragValues" class="drag-hp" (dragMove)="dragHpMove($event)"
+    (dragEnd)="dragHpEnd($event)" [relative]="true" (singleClick)="open()"></ghs-drag-click>
 </div>

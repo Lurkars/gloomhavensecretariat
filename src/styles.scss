@@ -245,6 +245,14 @@ body {
   }
 }
 
+.scrolling {
+  touch-action: none;
+
+  * {
+    touch-action: none;
+  }
+}
+
 .dragging {
 
   *:not(.drag-value-input) {

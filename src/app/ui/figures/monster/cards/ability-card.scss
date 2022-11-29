@@ -20,6 +20,15 @@
     z-index: 1;
   }
 
+  ghs-drag-click {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+  }
+
   &.flipped {
 
     ghs-ability {
@@ -32,28 +41,28 @@
       position: absolute;
       top: 0;
       left: 0;
-      z-index: 2;
-  
+      z-index: 4;
+
       &.initiative {
         width: calc(var(--ghs-unit) * 8.5);
         height: calc(var(--ghs-unit) * 5);
       }
-  
+
       &.title {
         width: 100%;
         height: calc(var(--ghs-unit) * 1.5);
       }
-  
+
       &:hover {
-  
+
         &.initiative {
           height: calc(var(--ghs-unit) * 9);
         }
-  
+
         &.title {
           height: calc(var(--ghs-unit) * 4);
         }
-  
+
         &~ghs-ability {
           top: 0;
         }
@@ -72,6 +81,19 @@
         left: 50%;
       }
     }
+
+    ghs-drag-click {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 50%;
+
+      &:nth-of-type(2) {
+        left: 50%;
+        right: 0;
+      }
+    }
   }
 
   &.bottom-actions {
@@ -85,7 +107,7 @@
     }
 
     &.second-ability {
-  
+
       ghs-ability {
         height: calc(var(--ghs-unit) * 27);
       }
