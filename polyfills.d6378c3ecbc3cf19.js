@@ -1,4 +1,4 @@
-"use strict";(self.webpackChunkgloomhavensecretary=self.webpackChunkgloomhavensecretary||[]).push([[429],{7435:(ie,Ee,de)=>{de(8583)},8583:()=>{
+"use strict";(self.webpackChunkgloomhavensecretariat=self.webpackChunkgloomhavensecretariat||[]).push([[429],{7435:(ie,Ee,de)=>{de(8583)},8583:()=>{
 /**
        * @license Angular v14.2.0-next.0
        * (c) 2010-2022 Google LLC. https://angular.io/
