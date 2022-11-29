@@ -127,4 +127,9 @@ export class LootDeck {
     cards: Loot[] = [];
     active: boolean = false;
 
+    fromModel(model: LootDeck) {
+        this.current = model.current;
+        this.cards = model.cards;
+        this.active = model.active;
+    }
 }

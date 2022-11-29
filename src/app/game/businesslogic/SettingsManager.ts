@@ -375,6 +375,8 @@ export class SettingsManager {
 
           if (settingsManager.settings.editions.indexOf(value.edition) != -1) {
             this.loadDataLabel(value);
+          } else {
+            this.loadEditionLabel(value);
           }
           return true;
         });
@@ -435,6 +437,26 @@ export class SettingsManager {
     }
     if (!this.label.data.summon) {
       this.label.data.summon = {};
+    }
+  }
+
+
+  loadEditionLabel(value: EditionData) {
+    if (!this.label.data) {
+      this.label.data = {};
+    }
+    
+    if (!this.label.data.edition) {
+      this.label.data.edition = {};
+    }
+
+    // default label
+    if (this.settings.locale != this.defaultLocale && value.label && value.label[this.defaultLocale] && value.label[this.defaultLocale].edition) {
+      this.label.data.edition = this.merge(this.label.data.edition, value.label[this.defaultLocale].edition);
+    }
+
+    if (value.label && value.label[this.settings.locale] && value.label[this.settings.locale].edition) {
+      this.label.data.edition = this.merge(this.label.data.edition, value.label[this.settings.locale].edition);
     }
   }
 

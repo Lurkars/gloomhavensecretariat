@@ -74,10 +74,10 @@ import { DeckEditorComponent } from './ui/tools/editor/deck/deck';
 import { ScenarioRulesComponent } from './ui/footer/scenario-rules/scenario-rules';
 import { FeedbackToolComponent } from './ui/tools/feedback/feedback';
 import { FeedbackDialogComponent } from './ui/tools/feedback/feedback-dialog';
-import { LootDeckComponent } from './ui/footer/loot/loot-deck';
-import { LootDeckFullscreenComponent } from './ui/footer/loot/loot-deck-fullscreen';
-import { LootComponent } from './ui/footer/loot/loot';
-import { LootDeckDialogComponent } from './ui/footer/loot/loot-deck-dialog';
+import { LootDeckComponent } from './ui/figures/loot/loot-deck';
+import { LootDeckFullscreenComponent } from './ui/figures/loot/loot-deck-fullscreen';
+import { LootComponent } from './ui/figures/loot/loot';
+import { LootDeckDialogComponent } from './ui/figures/loot/loot-deck-dialog';
 import { LootDeckStandaloneComponent } from './ui/tools/standalone/loot-deck-standalone';
 import { AttackModifierStandaloneComponent } from './ui/tools/standalone/attackmodifier-standalone';
 

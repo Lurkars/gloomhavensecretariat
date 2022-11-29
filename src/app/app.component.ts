@@ -19,6 +19,15 @@ export class AppComponent implements OnInit {
         this.applyFhStyle();
       }
     })
+
+
+    window.addEventListener('keydown', (event: KeyboardEvent) => {
+      if (event.ctrlKey && event.key.toLowerCase() === 'z' && !event.shiftKey) {
+        gameManager.stateManager.undo();
+      } else if (event.ctrlKey && event.key === 'y' || event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'z') {
+        gameManager.stateManager.redo();
+      }
+    })
   }
 
   applyFhStyle() {
@@ -29,7 +38,7 @@ export class AppComponent implements OnInit {
     }
   }
 
-  isAppDevMode() : boolean {
+  isAppDevMode(): boolean {
     return isDevMode();
   }
 

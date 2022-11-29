@@ -2,7 +2,7 @@ footer {
   height: calc(var(--ghs-unit) * 11 * var(--ghs-text-factor) * var(--ghs-barsize));
   display: flex;
   overflow: unset;
-  overflow-x: clip;
+  overflow-x: visible;
   position: relative;
 
   .flex-shrink {
@@ -14,6 +14,14 @@ footer {
     height: 100%;
     width: calc(var(--ghs-unit) * 38 * var(--ghs-text-factor) * var(--ghs-barsize));
     flex-shrink: 0;
+  }
+
+  .deck {
+    transition: transform 500ms ease-in-out;
+
+    &.hidden {
+      transform: translateX(100%);
+    }
   }
 
   ghs-attackmodifier-deck.monster-deck {

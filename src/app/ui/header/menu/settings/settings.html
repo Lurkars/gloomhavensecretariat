@@ -143,20 +143,20 @@
       {{'settings.alwaysLootDeck' | ghsLabel}}
     </label>
   </div>
-
-  <div class="line disabled">
-    <label>
-      <input type="checkbox" [checked]="settingsManager.settings.scenarioNumberInput"
-        (change)="settingsManager.setScenarioNumberInput(!settingsManager.settings.scenarioNumberInput)">
-      {{'settings.scenarioNumberInput' | ghsLabel}}
-    </label>
-  </div>
-
+  
   <div class="line">
     <label>
       <input type="checkbox" [checked]="settingsManager.settings.scenarioRules"
         (change)="settingsManager.setScenarioRules(!settingsManager.settings.scenarioRules)">
       {{'settings.scenarioRules' | ghsLabel}}
+    </label>
+  </div>
+
+  <div class="line">
+    <label>
+      <input type="checkbox" [checked]="settingsManager.settings.automaticAttackModifierFullscreen"
+        (change)="settingsManager.setAutomaticAttackModifierFullscreen(!settingsManager.settings.automaticAttackModifierFullscreen)">
+      {{'settings.automaticAttackModifierFullscreen' | ghsLabel}}
     </label>
   </div>
 
@@ -223,14 +223,6 @@
     <label (click)="resetBarsize($event)">{{'settings.barsize' | ghsLabel}}
       <input type="range" min="0.1" step="0.1" max="2" [value]="settingsManager.settings.barsize"
         (change)="setBarsize($event)" (input)="updateBarsize($event)" />
-    </label>
-  </div>
-
-  <div class="line">
-    <label>
-      <input type="checkbox" [checked]="settingsManager.settings.automaticAttackModifierFullscreen"
-        (change)="settingsManager.setAutomaticAttackModifierFullscreen(!settingsManager.settings.automaticAttackModifierFullscreen)">
-      {{'settings.automaticAttackModifierFullscreen' | ghsLabel}}
     </label>
   </div>
 

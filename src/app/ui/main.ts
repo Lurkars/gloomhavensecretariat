@@ -85,14 +85,6 @@ export class MainComponent implements OnInit {
         gameManager.stateManager.connect();
       }
     });
-
-    window.addEventListener('keydown', (event: KeyboardEvent) => {
-      if (event.ctrlKey && event.key.toLowerCase() === 'z' && !event.shiftKey) {
-        gameManager.stateManager.undo();
-      } else if (event.ctrlKey && event.key === 'y' || event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'z') {
-        gameManager.stateManager.redo();
-      }
-    })
   }
 
   scroll(event: any) {

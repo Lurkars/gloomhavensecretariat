@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GameState } from "src/app/game/model/Game";
+import { LootDeckChange } from "../../figures/loot/loot-deck";
 
 @Component({
     selector: 'ghs-loot-deck-standalone',
@@ -31,5 +32,14 @@ export class LootDeckStandaloneComponent implements OnInit {
         return window.innerWidth < 800;
     }
 
+
+    beforeLootDeck(change: LootDeckChange) {
+        gameManager.stateManager.before(change.type, ...change.values)
+    }
+
+    afterLootDeck(change: LootDeckChange) {
+        gameManager.game.lootDeck = change.deck;
+        gameManager.stateManager.after();
+    }
 }
 

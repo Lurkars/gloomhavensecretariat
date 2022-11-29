@@ -1,6 +1,5 @@
 <div class="attack-modifiers"
   [ngClass]="{'disabled' : gameManager.game.state == GameState.draw, 'vertical' : vertical, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers}">
-
   <div #drawCard class="am-container draw"
     title="{{(gameManager.game.state == GameState.next ? (deck.current == deck.cards.length -1 ? 'game.cards.shuffle' : 'game.cards.draw') : 'game.cards.openDialog') | ghsLabel}}"
     (click)="draw($event)" [ngClass]="{'open-dialog' : gameManager.game.state == GameState.draw}"
@@ -16,14 +15,14 @@
     </div>
   </div>
   <ng-container *ngFor="let attackModifier of deck.cards; let index = index;">
-    <div class="am-container" *ngIf="index <= deck.current + 1 && (rollingIndex(index) > 0 || index > deck.current - 3)"
-      [style.z-index]="index > deck.current ? deck.cards.length - index : deck.cards.length + index + 1"
-      [ngClass]="{'disgarded' : index < deck.current - 1, 'current' : index == deck.current, 'last' : index == deck.current - 1, 'bottom' : bottom, 'rolling' : attackModifier.rolling && index <= deck.current, 'open-dialog' : index <= deck.current}"
+    <div class="am-container" *ngIf="index <= current + 1 && (rollingIndex(index) > 0 || index > current - 3)"
+      [style.z-index]="index > current ? deck.cards.length - index : deck.cards.length + index + 1"
+      [ngClass]="{'disgarded' : index < current - 1, 'current' : index == current, 'last' : index == current - 1, 'bottom' : bottom, 'rolling' : attackModifier.rolling && index <= current, 'open-dialog' : index <= current}"
       [style.left]="attackModifier.rolling && !vertical && rollingIndex(index) ?  'calc(75% + ' + (rollingIndex(index) - 1) + ' * 25%)' : ''"
       [style.top]="attackModifier.rolling && vertical && rollingIndex(index) ?  'calc(' + (rollingIndex(index) - 1) * (drawCard.offsetHeight / 1.3) + 'px)' : ''"
-      title="{{'game.cards.openDialog' | ghsLabel}}" (click)="open($event)">
+      title="{{'game.cards.openDialog' | ghsLabel}}" (click)="clickCard(index, $event)">
       <ghs-attackmodifier class="am" [attackModifier]="attackModifier" [numeration]="numeration"
-        [characterIcon]="characterIcon" [flipped]="index <= deck.current">
+        [characterIcon]="characterIcon" [flipped]="index <= current">
       </ghs-attackmodifier>
     </div>
   </ng-container>

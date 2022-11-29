@@ -50,8 +50,11 @@ export class AttackModifierDeckComponent implements OnInit {
 
   AttackModifierType = AttackModifierType;
   type: AttackModifierType = AttackModifierType.minus1;
-  currentAttackModifier: number = -1;
+  current: number = -1;
   drawing: boolean = false;
+  drawTimeout: any = null;
+  queue: number = 0;
+  queueTimeout: any = null;
 
   @ViewChild('drawCard') drawCard!: ElementRef;
 
@@ -72,38 +75,61 @@ export class AttackModifierDeckComponent implements OnInit {
       this.characterIcon = gameManager.characterManager.characterIcon(this.character);
       this.update();
     }
+    this.current = this.deck.current;
     gameManager.uiChange.subscribe({
       next: () => {
-        this.update();
+        if (!this.queueTimeout || this.deck.current < this.current + this.queue) {
+          if (this.queueTimeout) {
+            clearTimeout(this.queueTimeout);
+            this.queueTimeout = null;
+          }
+          this.queue = 0;
+          this.drawing = false;
+          this.current = this.deck.current;
+        }
       }
     })
   }
 
   update() {
-    if (this.currentAttackModifier != this.deck.current) {
-      this.currentAttackModifier = this.deck.current;
-      this.drawing = true;
-      this.element.nativeElement.getElementsByClassName('attack-modifiers')[0].classList.add('drawing');
-      setTimeout(() => {
-        this.element.nativeElement.getElementsByClassName('attack-modifiers')[0].classList.remove('drawing');
-        this.drawing = false;
-      }, 1850);
-    }
+    this.drawing = true;
+    this.element.nativeElement.getElementsByClassName('attack-modifiers')[0].classList.add('drawing');
+    this.queueTimeout = setTimeout(() => {
+      this.element.nativeElement.getElementsByClassName('attack-modifiers')[0].classList.remove('drawing');
+      this.drawing = false;
+      this.queueTimeout = null;
+      if (this.queue > 0) {
+        this.queue--;
+        this.current++;
+        this.update();
+      }
+    }, 1850);
   }
 
   draw(event: any) {
-    if (!this.drawing) {
-      if (this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
-        this.openFullscreen(event);
-      } else if (this.standalone || gameManager.game.state == GameState.next) {
-        this.before.emit(new AttackModiferDeckChange(this.deck, "draw"));
-        gameManager.attackModifierManager.drawModifier(this.deck);
-        this.after.emit(new AttackModiferDeckChange(this.deck, "draw"));
-      } else {
-        this.open(event);
+    if (!this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
+      this.openFullscreen(event);
+    } else if (this.standalone || gameManager.game.state == GameState.next) {
+      if (!this.drawTimeout && this.deck.current + this.queue < this.deck.cards.length - 1) {
+        this.drawTimeout = setTimeout(() => {
+          this.before.emit(new AttackModiferDeckChange(this.deck, "draw"));
+          gameManager.attackModifierManager.drawModifier(this.deck);
+          this.after.emit(new AttackModiferDeckChange(this.deck, "draw"));
+          if (this.drawing) {
+            this.queue++;
+          }
+          if (!this.queueTimeout) {
+            this.update();
+          }
+          this.drawTimeout = null;
+        }, 150)
+
       }
+    } else if (!this.drawing) {
+      this.open(event);
     }
   }
+
 
   openFullscreen(event: any) {
     this.dialog.open(AttackModifierDeckFullscreenComponent, {
@@ -125,15 +151,21 @@ export class AttackModifierDeckComponent implements OnInit {
       return 0;
     }
 
-    if (index == this.currentAttackModifier - 2) {
+    if (index == this.current - 2) {
       return 2;
-    } else if (index < this.currentAttackModifier - 2 && this.deck.cards.slice(index, this.currentAttackModifier - 1).every((attackModifier) => attackModifier.rolling)) {
-      return this.currentAttackModifier - index;
+    } else if (index < this.current - 2 && this.deck.cards.slice(index, this.current - 1).every((attackModifier) => attackModifier.rolling)) {
+      return this.current - index;
     }
 
     return 0;
   }
 
+
+  clickCard(index: number, event: any) {
+    if (!this.drawing || index > this.current) {
+      this.open(event);
+    }
+  }
 
   open(event: any) {
     if (gameManager.game.state == GameState.next && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {

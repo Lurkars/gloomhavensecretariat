@@ -203,8 +203,15 @@ export class Game {
       })
     }
 
-
-    this.lootDeck = model.lootDeck ? Object.assign(new LootDeck(), model.lootDeck) : new LootDeck();
+    if (model.lootDeck) {
+      if (!this.lootDeck) {
+        this.lootDeck = model.lootDeck;
+      } else {
+        this.lootDeck.fromModel(model.lootDeck);
+      }
+    } else {
+      this.lootDeck = new LootDeck();
+    }
 
     this.lootDeckEnhancements = model.lootDeckEnhancements || [];
   }

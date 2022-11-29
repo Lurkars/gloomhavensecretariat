@@ -327,10 +327,10 @@ export class RoundManager {
     this.game.round = 0;
     this.game.state = GameState.draw;
     this.game.elementBoard.forEach((element) => element.state = ElementState.inert);
-    this.game.monsterAttackModifierDeck = new AttackModifierDeck();
-    this.game.allyAttackModifierDeck = new AttackModifierDeck();
+    this.game.monsterAttackModifierDeck.fromModel(new AttackModifierDeck().toModel());
+    this.game.allyAttackModifierDeck.fromModel(new AttackModifierDeck().toModel());
     this.game.figures = this.game.figures.filter((figure) => figure instanceof Character);
-    this.game.lootDeck = new LootDeck();
+    this.game.lootDeck.fromModel(new LootDeck());
 
     this.game.figures.forEach((figure) => {
       if (figure instanceof Character) {

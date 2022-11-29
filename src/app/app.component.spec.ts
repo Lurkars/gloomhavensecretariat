@@ -71,10 +71,10 @@ import { ActionSummonComponent } from './ui/figures/actions/summon/action-summon
 import { DecksToolComponent } from './ui/tools/decks/decks-tool';
 import { EditionEditorComponent } from './ui/tools/editor/edition';
 import { DeckEditorComponent } from './ui/tools/editor/deck/deck';
-import { LootComponent } from './ui/footer/loot/loot';
-import { LootDeckComponent } from './ui/footer/loot/loot-deck';
-import { LootDeckFullscreenComponent } from './ui/footer/loot/loot-deck-fullscreen';
-import { LootDeckDialogComponent } from './ui/footer/loot/loot-deck-dialog';
+import { LootComponent } from './ui/figures/loot/loot';
+import { LootDeckComponent } from './ui/figures/loot/loot-deck';
+import { LootDeckFullscreenComponent } from './ui/figures/loot/loot-deck-fullscreen';
+import { LootDeckDialogComponent } from './ui/figures/loot/loot-deck-dialog';
 import { LootDeckStandaloneComponent } from './ui/tools/standalone/loot-deck-standalone';
 import { AttackModifierStandaloneComponent } from './ui/tools/standalone/attackmodifier-standalone';
 import { FeedbackDialogComponent } from './ui/tools/feedback/feedback-dialog';

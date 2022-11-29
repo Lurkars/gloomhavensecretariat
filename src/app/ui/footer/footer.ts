@@ -5,9 +5,11 @@ import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
 import { GameState } from 'src/app/game/model/Game';
+import { LootDeck } from 'src/app/game/model/Loot';
 import { Monster } from 'src/app/game/model/Monster';
 import { AttackModiferDeckChange } from '../figures/attackmodifier/attackmodifierdeck';
 import { HintDialogComponent } from './hint-dialog/hint-dialog';
+import { LootDeckChange } from '../figures/loot/loot-deck';
 
 @Component({
   selector: 'ghs-footer',
@@ -108,6 +110,15 @@ export class FooterComponent implements OnInit {
 
   afterAllyAttackModifierDeck(change: AttackModiferDeckChange) {
     gameManager.game.allyAttackModifierDeck = change.deck;
+    gameManager.stateManager.after();
+  }
+
+  beforeLootDeck(change: LootDeckChange) {
+    gameManager.stateManager.before(change.type, ...change.values)
+  }
+
+  afterLootDeck(change: LootDeckChange) {
+    gameManager.game.lootDeck = change.deck;
     gameManager.stateManager.after();
   }
 

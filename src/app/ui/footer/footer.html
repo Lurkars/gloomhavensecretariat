@@ -24,15 +24,17 @@
       <img *ngIf="gameManager.game.lootDeck.active" [src]="'./assets/images/attackmodifier/icon.png'"></a>
   </div>
 
-  <ghs-attackmodifier-deck *ngIf="hasAllyAttackModifierDeck && !gameManager.game.lootDeck.active" class="ally-deck"
+  <ghs-attackmodifier-deck class="deck ally-deck"
+    [ngClass]="{'hidden' : !hasAllyAttackModifierDeck || gameManager.game.lootDeck.active}"
     [deck]="gameManager.game.allyAttackModifierDeck" (before)="beforeAllyAttackModifierDeck($event)"
     (after)="afterAllyAttackModifierDeck($event)" numeration="A" [bottom]="true"></ghs-attackmodifier-deck>
 
-  <ghs-attackmodifier-deck *ngIf="!gameManager.game.lootDeck.active" class="monster-deck"
+  <ghs-attackmodifier-deck class="deck monster-deck" [ngClass]="{'hidden' : gameManager.game.lootDeck.active}"
     [deck]="gameManager.game.monsterAttackModifierDeck" (before)="beforeMonsterAttackModifierDeck($event)"
     (after)="afterMonsterAttackModifierDeck($event)" numeration="m" [bottom]="true"></ghs-attackmodifier-deck>
 
-  <ghs-loot-deck *ngIf="gameManager.game.lootDeck.active" class="loot-deck" [deck]="gameManager.game.lootDeck"
+  <ghs-loot-deck class="deck loot-deck" [ngClass]="{'hidden' : !gameManager.game.lootDeck.active}"
+    [deck]="gameManager.game.lootDeck" (before)="beforeLootDeck($event)" (after)="afterLootDeck($event)"
     [bottom]="true"></ghs-loot-deck>
 
 </footer>
