@@ -1,5 +1,6 @@
 import { CdkDragDrop, CdkDragEnter, CdkDragExit, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { SwUpdate } from '@angular/service-worker';
 import { last } from 'rxjs';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GameState } from 'src/app/game/model/Game';
@@ -27,9 +28,9 @@ export class MainComponent implements OnInit {
 
   hasAllyDeck: boolean = false;
 
-  scrollTimeout : any = null;
+  scrollTimeout: any = null;
 
-  constructor(private element: ElementRef) {
+  constructor(private element: ElementRef, private swUpdate: SwUpdate) {
     this.hasAllyDeck = settingsManager.settings.allyAttackModifierDeck && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly);
     gameManager.uiChange.subscribe({
       next: () => {
@@ -49,6 +50,21 @@ export class MainComponent implements OnInit {
         this.calcColumns();
       }
     })
+
+    this.swUpdate.versionUpdates.subscribe(evt => {
+      if (evt.type == 'VERSION_READY') {
+        gameManager.stateManager.hasUpdate = true;
+      } else if (evt.type == 'VERSION_INSTALLATION_FAILED') {
+        console.error(`Failed to install version '${evt.version.hash}': ${evt.error}`);
+      }
+    })
+
+    if (this.swUpdate.isEnabled) {
+      // check for PWA update every 30s
+      setInterval(() => {
+        this.swUpdate.checkForUpdate();
+      }, 30000);
+    }
   }
 
   async ngOnInit() {
@@ -66,6 +82,14 @@ export class MainComponent implements OnInit {
     } else {
       this.fullviewChar = undefined;
       this.calcColumns();
+    }
+
+    if (this.swUpdate.isEnabled) {
+      document.body.addEventListener("click", (event) => {
+        if (settingsManager.settings.fullscreen && this.swUpdate.isEnabled) {
+          document.body.requestFullscreen();
+        }
+      });
     }
 
     window.addEventListener('resize', (event) => {

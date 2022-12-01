@@ -2,7 +2,7 @@
   "name": "algox-priest",
   "edition": "fh",
   "deck": "priest",
-  "count": 4,
+  "count": 6,
   "baseStat": {
     "type": "normal",
     "movement": 2,

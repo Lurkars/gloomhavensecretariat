@@ -7,12 +7,12 @@ import { CharacterData } from "src/app/game/model/data/CharacterData";
 import { MonsterData } from "src/app/game/model/data/MonsterData";
 import { GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
-import { SwUpdate } from '@angular/service-worker';
 import { ghsHasSpoilers, ghsIsSpoiled, ghsNotSpoiled } from "../../helper/Static";
 import { Objective } from "src/app/game/model/Objective";
 import { ObjectiveData } from "src/app/game/model/data/ObjectiveData";
 import { Dialog, DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 import { FeedbackDialogComponent } from "../../tools/feedback/feedback-dialog";
+import { SwUpdate } from "@angular/service-worker";
 
 export enum SubMenu {
   main, edition, scenario, section, monster_add, monster_remove, character_add, character_remove, objective_add, objective_remove, settings, debug, server, datamanagement, about
@@ -31,7 +31,6 @@ export class MainMenuComponent implements OnInit {
   SubMenu = SubMenu;
   active: SubMenu = SubMenu.main;
   standalone: boolean = false;
-  hasUpdate: boolean = false;
   hasSpoilers = ghsHasSpoilers;
   isSpoiled = ghsIsSpoiled;
   notSpoiled = ghsNotSpoiled;
@@ -44,37 +43,12 @@ export class MainMenuComponent implements OnInit {
   undoInfo: string[] = [];
   redoInfo: string[] = [];
 
-  constructor(@Inject(DIALOG_DATA) private data: { subMenu: SubMenu, standalone: boolean }, private swUpdate: SwUpdate, private dialogRef: DialogRef, private dialog: Dialog) {
-
+  constructor(@Inject(DIALOG_DATA) private data: { subMenu: SubMenu, standalone: boolean }, private dialogRef: DialogRef, private dialog: Dialog, private swUpdate: SwUpdate) {
     this.active = data.subMenu;
     this.standalone = data.standalone;
-
-    this.swUpdate.versionUpdates.subscribe(evt => {
-      if (evt.type == 'VERSION_READY') {
-        this.hasUpdate = true;
-      } else if (evt.type == 'VERSION_INSTALLATION_FAILED') {
-        console.error(`Failed to install version '${evt.version.hash}': ${evt.error}`);
-      }
-    })
-
-    if (this.swUpdate.isEnabled) {
-      // check for PWA update every 30s
-      setInterval(() => {
-        this.swUpdate.checkForUpdate();
-      }, 30000);
-    }
-
   }
 
   ngOnInit(): void {
-    if (this.swUpdate.isEnabled) {
-      document.body.addEventListener("click", (event) => {
-        if (settingsManager.settings.fullscreen && this.swUpdate.isEnabled) {
-          document.body.requestFullscreen();
-        }
-      });
-    }
-
     this.updateUndoRedo();
 
     gameManager.uiChange.subscribe({
@@ -370,11 +344,11 @@ export class MainMenuComponent implements OnInit {
   }
 
   isUpdateAvailable(): boolean {
-    return this.hasUpdate;
+    return gameManager.stateManager.hasUpdate;
   }
 
   update(force: boolean = false): void {
-    if (this.hasUpdate || force) {
+    if (this.isUpdateAvailable() || force) {
       if (this.swUpdate.isEnabled) {
         this.swUpdate.activateUpdate().then(() => {
           this.clearAndRefresh();

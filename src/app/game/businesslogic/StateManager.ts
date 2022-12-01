@@ -18,6 +18,8 @@ export class StateManager {
 
   lastSaveTimestamp: number;
 
+  hasUpdate: boolean = false;
+
   constructor(game: Game) {
     this.game = game;
     this.lastSaveTimestamp = new Date().getTime();
