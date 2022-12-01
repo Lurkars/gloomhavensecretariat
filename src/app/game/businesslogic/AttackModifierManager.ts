@@ -52,6 +52,7 @@ export class AttackModifierManager {
 
   next() {
     this.checkShuffle(this.game.monsterAttackModifierDeck);
+    this.checkShuffle(this.game.allyAttackModifierDeck);
     this.game.figures.forEach((figure) => {
       if (figure instanceof Character) {
         this.checkShuffle(figure.attackModifierDeck);

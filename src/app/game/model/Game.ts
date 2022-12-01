@@ -115,28 +115,6 @@ export class Game {
 
     this.scenarioRules = model.scenarioRules || [];
 
-    // migration
-    if (settingsManager.settings.levelCalculation != undefined) {
-      model.levelCalculation = settingsManager.settings.levelCalculation;
-      settingsManager.settings.levelCalculation = undefined;
-      settingsManager.storeSettings();
-    }
-    if (settingsManager.settings.levelAdjustment != undefined) {
-      model.levelAdjustment = settingsManager.settings.levelAdjustment;
-      settingsManager.settings.levelAdjustment = undefined;
-      settingsManager.storeSettings();
-    }
-    if (settingsManager.settings.bonusAdjustment != undefined) {
-      model.bonusAdjustment = settingsManager.settings.bonusAdjustment;
-      settingsManager.settings.bonusAdjustment = undefined;
-      settingsManager.storeSettings();
-    }
-    if (settingsManager.settings.ge5Player != undefined) {
-      model.ge5Player = settingsManager.settings.ge5Player;
-      settingsManager.settings.ge5Player = undefined;
-      settingsManager.storeSettings();
-    }
-
     this.levelCalculation = model.levelCalculation;
     this.levelAdjustment = model.levelAdjustment;
     this.bonusAdjustment = model.bonusAdjustment;
@@ -154,11 +132,6 @@ export class Game {
       this.monsterAttackModifierDeck.fromModel(model.monsterAttackModifierDeck);
     }
 
-    // Migration
-    if (model.attackModifier && model.attackModifiers) {
-      this.monsterAttackModifierDeck.fromModel(new GameAttackModifierDeckModel(model.attackModifier, model.attackModifiers))
-    }
-
     this.allyAttackModifierDeck = this.allyAttackModifierDeck || new AttackModifierDeck();
     if (model.allyAttackModifierDeck && model.allyAttackModifierDeck.cards && model.allyAttackModifierDeck.cards.length > 0) {
       this.allyAttackModifierDeck.fromModel(model.allyAttackModifierDeck);
@@ -169,28 +142,6 @@ export class Game {
     if (model.elementBoard) {
       model.elementBoard.forEach((element, index) => this.elementBoard[index].state = element.state);
     }
-
-    // migration
-    model.newElements.forEach((element) => {
-      const elementModel = this.elementBoard.find((elementModel) => elementModel.type == element);
-      if (elementModel) {
-        elementModel.state = ElementState.new;
-      }
-    })
-
-    model.strongElements.forEach((element) => {
-      const elementModel = this.elementBoard.find((elementModel) => elementModel.type == element);
-      if (elementModel) {
-        elementModel.state = ElementState.strong;
-      }
-    })
-
-    model.elements.forEach((element) => {
-      const elementModel = this.elementBoard.find((elementModel) => elementModel.type == element);
-      if (elementModel) {
-        elementModel.state = ElementState.waning;
-      }
-    })
 
     this.solo = model.solo;
     this.party = model.party ? Object.assign(new Party(), model.party) : new Party();
@@ -243,12 +194,7 @@ export class GameModel {
   totalSeconds: number;
   monsterAttackModifierDeck: GameAttackModifierDeckModel;
   allyAttackModifierDeck: GameAttackModifierDeckModel;
-  attackModifier: number | undefined;
-  attackModifiers: AttackModifierType[] | undefined;
   elementBoard: ElementModel[];
-  newElements: Element[] = [];
-  strongElements: Element[] = [];
-  elements: Element[] = [];
   solo: boolean;
   party: Party;
   parties: Party[];

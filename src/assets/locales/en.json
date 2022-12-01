@@ -565,7 +565,7 @@
     },
     "attackModifiers": {
       ".": "Attack Modifier Deck",
-      "hint": "Draw and edit Monster Attack Modifier Deck"
+      "hint": "Draw and edit Monster and Ally Attack Modifier Deck"
     },
     "characters": {
       ".": "All Characters",
@@ -584,6 +584,10 @@
     "level": {
       ".": "Level",
       "hint": "Change scenario level"
+    },
+    "lootDeck": {
+      ".": "Loot Deck",
+      "hint": "Draw and edit Loot Deck"
     },
     "monsters": {
       ".": "All Monsters",

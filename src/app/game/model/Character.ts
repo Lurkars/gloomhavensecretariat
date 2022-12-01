@@ -161,12 +161,6 @@ export class Character extends CharacterData implements Entity, Figure {
       this.progress = Object.assign(new CharacterProgress(), model.progress);
     }
 
-    // migration
-    if (this.progress.loot && !this.progress.gold) {
-      this.progress.gold = this.progress.loot;
-      this.progress.loot = 0;
-    }
-
     let attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this);
     if (model.attackModifierDeck) {
       attackModifierDeck.fromModel(model.attackModifierDeck);

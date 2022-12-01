@@ -13,10 +13,6 @@ export class Settings {
   activeStandees: boolean = true;
   allyAttackModifierDeck: boolean = true;
   initiativeRequired: boolean = true;
-  levelCalculation: boolean | undefined = undefined;
-  levelAdjustment: number | undefined = undefined;
-  bonusAdjustment: number | undefined = undefined;
-  ge5Player: boolean | undefined = undefined;
   disableStandees: boolean = false;
   abilityReveal: boolean = true;
   alwaysLootDeck: boolean = false;

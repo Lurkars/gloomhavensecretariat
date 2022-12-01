@@ -1,11 +1,12 @@
 :host {
-  position: relative;
   overflow: hidden;
 }
 
 ghs-header,
 ghs-footer {
+  width: 100%;
   z-index: 2;
+  flex-shrink: 0;
 }
 
 main {

@@ -18,7 +18,7 @@
   <div class="attack-modifier-spacer"></div>
 
   <div class="loot-toggle" [ngClass]="{'fh' : settingsManager.settings.fhStyle}"
-    *ngIf="lootDeck || settingsManager.settings.alwaysLootDeck">
+    *ngIf="lootDeck || settingsManager.settings.alwaysLootDeck || gameManager.game.lootDeck.active">
     <a (click)="toggleLootDeck()"><img *ngIf="!gameManager.game.lootDeck.active" class="ghs-svg"
         [src]=" './assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/loot.svg'">
       <img *ngIf="gameManager.game.lootDeck.active" [src]="'./assets/images/attackmodifier/icon.png'"></a>

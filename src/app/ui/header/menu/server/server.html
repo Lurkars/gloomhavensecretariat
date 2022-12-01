@@ -250,6 +250,20 @@
             </span>
           </div>
         </div>
+
+        <div class="line">
+          <div class="hint-container">
+            <label [ngClass]="{'disabled' : gameManager.stateManager.permissions}">
+              <input type="checkbox" [checked]="permissions.lootDeck"
+                (change)="permissions.lootDeck = !permissions.lootDeck">
+              {{'permissions.lootDeck' | ghsLabel}}
+            </label>
+            <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+            <span class="hint">
+              <span class="text">{{'permissions.lootDeck.hint' | ghsLabel}}</span>
+            </span>
+          </div>
+        </div>
       </ng-container>
 
       <ng-container *ngIf="!gameManager.stateManager.permissions">

@@ -450,7 +450,7 @@
     },
     "attackModifiers": {
       ".": "Angriffsmodifikatordeck",
-      "hint": "Ziehen und Editieren vom Angriffsmodifikatordeck"
+      "hint": "Ziehen und Editieren vom Monster und Verbündeten Angriffsmodifikatordeck"
     },
     "characters": {
       ".": "Alle Charaktere",
@@ -469,6 +469,10 @@
     "level": {
       ".": "Level",
       "hint": "Szenario Level festlegen"
+    },
+    "lootDeck": {
+      ".": "Beute Deck",
+      "hint": "Ziehen und Editieren vom Beute Deck"
     },
     "monsters": {
       ".": "Alle Monster",
