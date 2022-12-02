@@ -14,7 +14,7 @@ import { EntityMenuDialogComponent } from '../../entity-menu/entity-menu-dialog'
 @Component({
   selector: 'ghs-summon-entity',
   templateUrl: './summon.html',
-  styleUrls: [ './summon.scss' ]
+  styleUrls: ['./summon.scss']
 })
 export class SummonEntityComponent implements OnInit {
 
@@ -45,30 +45,26 @@ export class SummonEntityComponent implements OnInit {
   }
 
   dragHpMove(value: number) {
-    if (settingsManager.settings.dragValues) {
-      const dragFactor = 20 * this.element.nativeElement.offsetWidth / window.innerWidth;
-      this.health = Math.floor(value / dragFactor);
-      if (this.summon.health + this.health > this.summon.maxHealth) {
-        this.health = EntityValueFunction("" + this.summon.maxHealth) - this.summon.health;
-      } else if (this.summon.health + this.health < 0) {
-        this.health = - this.summon.health;
-      }
+    const dragFactor = 20 * this.element.nativeElement.offsetWidth / window.innerWidth;
+    this.health = Math.floor(value / dragFactor);
+    if (this.summon.health + this.health > this.summon.maxHealth) {
+      this.health = EntityValueFunction("" + this.summon.maxHealth) - this.summon.health;
+    } else if (this.summon.health + this.health < 0) {
+      this.health = - this.summon.health;
     }
   }
 
   dragHpEnd(value: number) {
-    if (settingsManager.settings.dragValues) {
-      if (this.health != 0) {
-        gameManager.stateManager.before("changeSummonHp", "data.character." + this.character.name, "data.summon." + this.summon.name, ghsValueSign(this.health));
-        gameManager.entityManager.changeHealth(this.summon, this.health);
-        if (this.summon.health <= 0 || this.summon.dead && this.health >= 0 && this.summon.health > 0) {
-          this.dead();
-        }
-        this.health = 0;
-        this.health = 0;
+    if (this.health != 0) {
+      gameManager.stateManager.before("changeSummonHp", "data.character." + this.character.name, "data.summon." + this.summon.name, ghsValueSign(this.health));
+      gameManager.entityManager.changeHealth(this.summon, this.health);
+      if (this.summon.health <= 0 || this.summon.dead && this.health >= 0 && this.summon.health > 0) {
+        this.dead();
       }
-      gameManager.stateManager.after();
+      this.health = 0;
+      this.health = 0;
     }
+    gameManager.stateManager.after();
   }
 
   dead() {

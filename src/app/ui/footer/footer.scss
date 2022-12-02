@@ -1,8 +1,6 @@
 footer {
   height: calc(var(--ghs-unit) * 11 * var(--ghs-text-factor) * var(--ghs-barsize));
   display: flex;
-  overflow: unset;
-  overflow-x: visible;
   position: relative;
 
   .flex-shrink {
@@ -16,31 +14,7 @@ footer {
     flex-shrink: 0;
   }
 
-  .deck {
-    transition: transform 500ms ease-in-out;
 
-    &.hidden {
-      transform: translateX(100%);
-    }
-  }
-
-  ghs-attackmodifier-deck.monster-deck {
-    position: absolute;
-    right: 0;
-    width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
-    height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor) * var(--ghs-barsize));
-    top: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor) * var(--ghs-barsize));
-    z-index: 2;
-  }
-
-  ghs-loot-deck.loot-deck {
-    position: absolute;
-    right: 0;
-    width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
-    height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor) * var(--ghs-barsize));
-    top: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor) * var(--ghs-barsize));
-    z-index: 2;
-  }
 
   .loot-toggle {
     cursor: pointer;
@@ -68,12 +42,38 @@ footer {
     }
   }
 
-  ghs-attackmodifier-deck.ally-deck {
-    position: absolute;
+  .deck {
+    transition: transform 500ms ease-in-out;
+
+    &.hidden {
+      transform: translateX(100%);
+    }
+  }
+
+  ghs-attackmodifier-deck.monster-deck {
+    position: fixed;
     right: 0;
     width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor) * var(--ghs-barsize));
-    top: calc(var(--ghs-unit) * -11 * var(--ghs-text-factor) * var(--ghs-barsize));
+    bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    z-index: 2;
+  }
+
+  ghs-loot-deck.loot-deck {
+    position: fixed;
+    right: 0;
+    width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor) * var(--ghs-barsize));
+    bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    z-index: 2;
+  }
+
+  ghs-attackmodifier-deck.ally-deck {
+    position: fixed;
+    right: 0;
+    width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor) * var(--ghs-barsize));
+    bottom: calc(var(--ghs-unit) * 11.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     z-index: 1;
   }
 
@@ -184,11 +184,11 @@ footer {
     }
 
     ghs-attackmodifier-deck.monster-deck {
-      top: calc(var(--ghs-unit) * -11 * var(--ghs-text-factor) * var(--ghs-barsize));
+      bottom: calc(var(--ghs-unit) * 11.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     }
 
     ghs-loot-deck.loot-deck {
-      top: calc(var(--ghs-unit) * -11 * var(--ghs-text-factor) * var(--ghs-barsize));
+      bottom: calc(var(--ghs-unit) * 11.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     }
 
     .loot-toggle {
@@ -196,7 +196,7 @@ footer {
     }
 
     ghs-attackmodifier-deck.ally-deck {
-      top: calc(var(--ghs-unit) * -22 * var(--ghs-text-factor) * var(--ghs-barsize));
+      bottom: calc(var(--ghs-unit) * 22.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     }
   }
 }

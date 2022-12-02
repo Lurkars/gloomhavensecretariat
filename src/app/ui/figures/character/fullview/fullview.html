@@ -17,7 +17,7 @@
       [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
     </ghs-character-image>
 
-    <ghs-drag-click *ngIf="settingsManager.settings.dragValues" class="drag-initiative"
+    <ghs-drag-click class="drag-initiative"
       (dragMove)="dragInitiativeMove($event)" (dragEnd)="dragInitiativeEnd($event)">
     </ghs-drag-click>
 

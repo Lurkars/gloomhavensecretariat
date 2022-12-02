@@ -1,4 +1,4 @@
-input {
+.drag-value-input {
   cursor: pointer;
   width: 100%;
   height: 100%;
@@ -9,3 +9,8 @@ input {
   }
 }
 
+.drag-value-click {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}

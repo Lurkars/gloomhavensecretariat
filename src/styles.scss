@@ -268,14 +268,12 @@ body {
   }
 }
 
-app-root,
-ghs-main {
-  width: 100vw;
-  max-width: 100vw;
-  height: 100vh;
-  max-height: 100vh;
-  display: flex;
-  flex-direction: column;
+app-root {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
 }
 
 ghs-main {
@@ -900,7 +898,8 @@ input[type="radio"] {
 .text-white {
   color: var(--ghs-color-white);
 
-  .ghs-svg, .icon {
+  .ghs-svg,
+  .icon {
     filter: var(--ghs-filter-white);
   }
 }

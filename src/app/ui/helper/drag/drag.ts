@@ -1,4 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, Output } from "@angular/core";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 export const doubleClickTreshhold: number = 250;
 export const longTouchTreshhold: number = 500;
@@ -31,6 +32,7 @@ export class DragClickComponent {
   relativeValue: number = -1;
   value: number = -1;
   inputEvent: boolean = false;
+  settingsManager: SettingsManager = settingsManager;
 
   constructor(private elementRef: ElementRef) {
     this.value = this.min - 1;
@@ -47,6 +49,7 @@ export class DragClickComponent {
           } else {
             this.doubleClick.emit(event);
           }
+          this.inputCount = 0;
         }
       } else {
         this.timeout = setTimeout(() => {
@@ -59,6 +62,7 @@ export class DragClickComponent {
                 this.singleClick.emit(event);
               }
             }
+            this.inputCount = 0;
           }
         }, doubleClickTreshhold);
       }
@@ -66,12 +70,13 @@ export class DragClickComponent {
     this.inputCount = 0;
     this.relativeValue = -1;
 
-    this.draggingTimeout = setTimeout(() => {
-      document.body.classList.remove('dragging');
-    }, 200);
-    this.elementRef.nativeElement.classList.remove('dragging');
-    this.elementRef.nativeElement.firstChild.classList.remove('dragging');
-
+    if (settingsManager.settings.dragValues) {
+      this.draggingTimeout = setTimeout(() => {
+        document.body.classList.remove('dragging');
+      }, 200);
+      this.elementRef.nativeElement.classList.remove('dragging');
+      this.elementRef.nativeElement.firstChild.classList.remove('dragging');
+    }
   }
 
   touchstart(event: TouchEvent) {
@@ -94,11 +99,12 @@ export class DragClickComponent {
         }
       }
       this.timeout = null;
+      this.inputCount = 0;
     }, longTouchTreshhold);
   }
 
   touchmove(event: any) {
-    if (!this.inputEvent) {
+    if (!this.inputEvent && settingsManager.settings.dragValues) {
       if (this.timeout) {
         clearTimeout(this.timeout);
         this.timeout = null;
@@ -118,6 +124,8 @@ export class DragClickComponent {
         }
         this.dragMoveCallback.emit(this.relative ? this.value - this.relativeValue : this.value);
       }
+    } else if (!this.inputEvent) {
+      this.inputCount += 0.2;
     }
   }
 
@@ -131,11 +139,25 @@ export class DragClickComponent {
     }
     this.touchX = 0;
     this.touchY = 0;
-    this.endDrag();
+    if (settingsManager.settings.dragValues) {
+      this.endDrag();
+    }
+
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+      this.timeout = null;
+    }
   }
 
   change(event: any) {
-    this.endDrag();
+    if (settingsManager.settings.dragValues) {
+      this.endDrag();
+    }
+
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+      this.timeout = null;
+    }
   }
 
   endDrag() {
@@ -146,35 +168,31 @@ export class DragClickComponent {
     this.relativeValue = -1;
     this.draggingTimeout = setTimeout(() => {
       document.body.classList.remove('dragging');
-      this.draggingTimeout = null;
+      this.elementRef.nativeElement.classList.remove('dragging');
+      this.elementRef.nativeElement.firstChild.classList.remove('dragging');
+      this.inputEvent = false;
       this.inputCount = 0;
+      this.draggingTimeout = null;
     }, 200);
-    this.elementRef.nativeElement.classList.remove('dragging');
-    this.elementRef.nativeElement.firstChild.classList.remove('dragging');
-    this.inputEvent = false;
-
-    if (this.timeout) {
-      clearTimeout(this.timeout);
-      this.timeout = null;
-    }
-
   }
 
   input(event: any) {
-    this.inputEvent = true;
-    this.value = event.target.value;
-    this.inputCount++;
-    if (this.inputCount == 2) {
-      document.body.classList.add('dragging');
-      this.elementRef.nativeElement.classList.add('dragging');
-      this.elementRef.nativeElement.firstChild.classList.add('dragging');
-    }
-
-    if (this.inputCount > 3) {
-      if (this.relative && this.relativeValue == -1) {
-        this.relativeValue = this.value;
+    if (settingsManager.settings.dragValues) {
+      this.inputEvent = true;
+      this.value = event.target.value;
+      this.inputCount++;
+      if (this.inputCount == 2) {
+        document.body.classList.add('dragging');
+        this.elementRef.nativeElement.classList.add('dragging');
+        this.elementRef.nativeElement.firstChild.classList.add('dragging');
       }
-      this.dragMoveCallback.emit(this.relative ? this.value - this.relativeValue : this.value);
+
+      if (this.inputCount > 3) {
+        if (this.relative && this.relativeValue == -1) {
+          this.relativeValue = this.value;
+        }
+        this.dragMoveCallback.emit(this.relative ? this.value - this.relativeValue : this.value);
+      }
     }
   }
 
@@ -187,6 +205,7 @@ export class DragClickComponent {
       this.timeout = setTimeout(() => {
         clearTimeout(this.timeout);
         this.timeout = null;
+        this.inputCount = 0;
       }, 100)
     }
   }

@@ -14,7 +14,7 @@ import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
 @Component({
   selector: 'ghs-objective',
   templateUrl: './objective.html',
-  styleUrls: [ './objective.scss' ]
+  styleUrls: ['./objective.scss']
 })
 export class ObjectiveComponent {
 
@@ -32,7 +32,7 @@ export class ObjectiveComponent {
   health: number = 0;
 
 
-  constructor(private element: ElementRef, private dialog: Dialog, private overlay : Overlay) { }
+  constructor(private element: ElementRef, private dialog: Dialog, private overlay: Overlay) { }
 
   exhausted() {
     gameManager.stateManager.before(this.objective.exhausted ? "unsetObjectiveExhausted" : "setObjectiveExhausted", this.objective.title || this.objective.name);
@@ -62,68 +62,59 @@ export class ObjectiveComponent {
   }
 
   dragInitiativeMove(value: number) {
-    if (settingsManager.settings.dragValues) {
-
-      if (value > 99) {
-        value = 99;
-      } else if (value < 0) {
-        value = 0;
-      }
-
-      if (value == 0 && settingsManager.settings.initiativeRequired) {
-        value = 1;
-      }
-
-      this.objective.initiative = value;
+    if (value > 99) {
+      value = 99;
+    } else if (value < 0) {
+      value = 0;
     }
+
+    if (value == 0 && settingsManager.settings.initiativeRequired) {
+      value = 1;
+    }
+
+    this.objective.initiative = value;
   }
 
   dragInitiativeEnd(value: number) {
-    if (settingsManager.settings.dragValues) {
-      if (value > 99) {
-        value = 99;
-      } else if (value < 0) {
-        value = 0;
-      }
-
-      if (value == 0 && settingsManager.settings.initiativeRequired) {
-        value = 1;
-      }
-
-      gameManager.stateManager.before("setObjectiveInitiative", this.objective.title || this.objective.name, "" + value);
-      this.objective.initiative = value;
-      gameManager.sortFigures();
-      gameManager.stateManager.after();
+    if (value > 99) {
+      value = 99;
+    } else if (value < 0) {
+      value = 0;
     }
+
+    if (value == 0 && settingsManager.settings.initiativeRequired) {
+      value = 1;
+    }
+
+    gameManager.stateManager.before("setObjectiveInitiative", this.objective.title || this.objective.name, "" + value);
+    this.objective.initiative = value;
+    gameManager.sortFigures();
+    gameManager.stateManager.after();
   }
 
   dragHpMove(value: number) {
-    if (settingsManager.settings.dragValues) {
-      const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
-      this.health = Math.floor(value / dragFactor);
-      if (this.objective.health + this.health > this.objective.maxHealth) {
-        this.health = EntityValueFunction("" + this.objective.maxHealth) - this.objective.health;
-      } else if (this.objective.health + this.health < 0) {
-        this.health = - this.objective.health;
-      }
+    const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
+    this.health = Math.floor(value / dragFactor);
+    if (this.objective.health + this.health > this.objective.maxHealth) {
+      this.health = EntityValueFunction("" + this.objective.maxHealth) - this.objective.health;
+    } else if (this.objective.health + this.health < 0) {
+      this.health = - this.objective.health;
     }
   }
 
   dragHpEnd(value: number) {
-    if (settingsManager.settings.dragValues) {
-      if (this.health != 0) {
-        gameManager.stateManager.before("changeObjectiveHP", this.objective.title || this.objective.name, ghsValueSign(this.health));
-        gameManager.entityManager.changeHealth(this.objective, this.health);
-        if (this.objective.health <= 0 || this.objective.exhausted && this.health >= 0 && this.objective.health > 0) {
-          this.exhausted();
-        }
-        this.health = 0;
+    if (this.health != 0) {
+      gameManager.stateManager.before("changeObjectiveHP", this.objective.title || this.objective.name, ghsValueSign(this.health));
+      gameManager.entityManager.changeHealth(this.objective, this.health);
+      if (this.objective.health <= 0 || this.objective.exhausted && this.health >= 0 && this.objective.health > 0) {
+        this.exhausted();
       }
-      gameManager.stateManager.after();
+      this.health = 0;
     }
+    gameManager.stateManager.after();
   }
 
-  openEntityMenu(event : any): void {
+  openEntityMenu(event: any): void {
     this.dialog.open(EntityMenuDialogComponent, {
       panelClass: 'dialog', data: {
         entity: this.objective,

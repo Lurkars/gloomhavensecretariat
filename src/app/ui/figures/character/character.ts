@@ -71,51 +71,49 @@ export class CharacterComponent {
   }
 
   dragInitiativeMove(value: number) {
-    if (settingsManager.settings.dragValues) {
 
-      if (value > 99) {
-        value = 99;
-      } else if (value < 0) {
-        value = 0;
-      }
-
-      if (gameManager.game.state == GameState.next && value == 0 && settingsManager.settings.initiativeRequired) {
-        value = 1;
-      }
-
-      if (this.initiative == -1) {
-        this.initiative = this.character.initiative;
-      }
-
-      this.character.initiative = value;
-      this.character.initiativeVisible = true;
+    if (value > 99) {
+      value = 99;
+    } else if (value < 0) {
+      value = 0;
     }
+
+    if (gameManager.game.state == GameState.next && value == 0 && settingsManager.settings.initiativeRequired) {
+      value = 1;
+    }
+
+    if (this.initiative == -1) {
+      this.initiative = this.character.initiative;
+    }
+
+    this.character.initiative = value;
+    this.character.initiativeVisible = true;
+
   }
 
   dragInitiativeEnd(value: number) {
-    if (settingsManager.settings.dragValues) {
-      if (value > 99) {
-        value = 99;
-      } else if (value < 0) {
-        value = 0;
-      }
-
-      if (gameManager.game.state == GameState.next && value == 0 && settingsManager.settings.initiativeRequired) {
-        value = 1;
-      }
-
-      this.character.initiative = this.initiative;
-      gameManager.stateManager.before("setInitiative", "data.character." + this.character.name, "" + value);
-      this.character.initiative = value;
-      this.initiative = -1;
-      if (this.character instanceof Character) {
-        this.character.initiativeVisible = true;
-      }
-      if (gameManager.game.state == GameState.next) {
-        gameManager.sortFigures();
-      }
-      gameManager.stateManager.after();
+    if (value > 99) {
+      value = 99;
+    } else if (value < 0) {
+      value = 0;
     }
+
+    if (gameManager.game.state == GameState.next && value == 0 && settingsManager.settings.initiativeRequired) {
+      value = 1;
+    }
+
+    this.character.initiative = this.initiative;
+    gameManager.stateManager.before("setInitiative", "data.character." + this.character.name, "" + value);
+    this.character.initiative = value;
+    this.initiative = -1;
+    if (this.character instanceof Character) {
+      this.character.initiativeVisible = true;
+    }
+    if (gameManager.game.state == GameState.next) {
+      gameManager.sortFigures();
+    }
+    gameManager.stateManager.after();
+
   }
 
   toggleFigure(event: any): void {
@@ -139,71 +137,59 @@ export class CharacterComponent {
   }
 
   dragHpMove(value: number) {
-    if (settingsManager.settings.dragValues) {
-      const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
-      this.health = Math.floor(value / dragFactor);
-      if (this.character.health + this.health > this.character.maxHealth) {
-        this.health = this.character.maxHealth - this.character.health;
-      } else if (this.character.health + this.health < 0) {
-        this.health = - this.character.health;
-      }
+    const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
+    this.health = Math.floor(value / dragFactor);
+    if (this.character.health + this.health > this.character.maxHealth) {
+      this.health = this.character.maxHealth - this.character.health;
+    } else if (this.character.health + this.health < 0) {
+      this.health = - this.character.health;
     }
   }
 
   dragHpEnd(value: number) {
-    if (settingsManager.settings.dragValues) {
-      if (this.health != 0) {
-        gameManager.stateManager.before("changeHP", "data.character." + this.character.name, ghsValueSign(this.health));
-        gameManager.entityManager.changeHealth(this.character, this.health);
-        if (this.character.health <= 0 || this.character.exhausted && this.health >= 0 && this.character.health > 0) {
-          this.exhausted();
-        }
-        this.health = 0;
+    if (this.health != 0) {
+      gameManager.stateManager.before("changeHP", "data.character." + this.character.name, ghsValueSign(this.health));
+      gameManager.entityManager.changeHealth(this.character, this.health);
+      if (this.character.health <= 0 || this.character.exhausted && this.health >= 0 && this.character.health > 0) {
+        this.exhausted();
       }
-      gameManager.stateManager.after();
+      this.health = 0;
     }
+    gameManager.stateManager.after();
   }
 
   dragXpMove(value: number) {
-    if (settingsManager.settings.dragValues) {
-      const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
-      this.experience = Math.floor(value / dragFactor);
-      if (this.character.experience + this.experience < 0) {
-        this.experience = - this.character.experience;
-      }
+    const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
+    this.experience = Math.floor(value / dragFactor);
+    if (this.character.experience + this.experience < 0) {
+      this.experience = - this.character.experience;
     }
   }
 
   dragXpEnd(value: number) {
-    if (settingsManager.settings.dragValues) {
-      if (this.experience != 0) {
-        gameManager.stateManager.before("changeXP", "data.character." + this.character.name, ghsValueSign(this.experience));
-        this.character.experience += this.experience;
-        this.experience = 0;
-      }
-      gameManager.stateManager.after();
+    if (this.experience != 0) {
+      gameManager.stateManager.before("changeXP", "data.character." + this.character.name, ghsValueSign(this.experience));
+      this.character.experience += this.experience;
+      this.experience = 0;
     }
+    gameManager.stateManager.after();
   }
 
   dragLootMove(value: number) {
-    if (settingsManager.settings.dragValues) {
-      const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
-      this.loot = Math.floor(value / dragFactor);
-      if (this.character.loot + this.loot < 0) {
-        this.loot = - this.character.loot;
-      }
+    const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
+    this.loot = Math.floor(value / dragFactor);
+    if (this.character.loot + this.loot < 0) {
+      this.loot = - this.character.loot;
     }
   }
 
   dragLootEnd(value: number) {
-    if (settingsManager.settings.dragValues) {
-      if (this.loot != 0) {
-        gameManager.stateManager.before("changeLoot", "data.character." + this.character.name, ghsValueSign(this.loot));
-        this.character.loot += this.loot;
-        this.loot = 0;
-      }
-      gameManager.stateManager.after();
+    if (this.loot != 0) {
+      gameManager.stateManager.before("changeLoot", "data.character." + this.character.name, ghsValueSign(this.loot));
+      this.character.loot += this.loot;
+      this.loot = 0;
     }
+    gameManager.stateManager.after();
   }
 
   openEntityMenu(event: any): void {

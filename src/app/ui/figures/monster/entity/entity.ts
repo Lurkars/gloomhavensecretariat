@@ -56,29 +56,25 @@ export class MonsterEntityComponent {
   }
 
   dragHpMove(value: number) {
-    if (settingsManager.settings.dragValues) {
-      const dragFactor = 20 * this.element.nativeElement.offsetWidth / window.innerWidth;
-      this.health = Math.floor(value / dragFactor);
-      if (this.entity.health + this.health > this.entity.maxHealth) {
-        this.health = EntityValueFunction("" + this.entity.maxHealth) - this.entity.health;
-      } else if (this.entity.health + this.health < 0) {
-        this.health = - this.entity.health;
-      }
+    const dragFactor = 20 * this.element.nativeElement.offsetWidth / window.innerWidth;
+    this.health = Math.floor(value / dragFactor);
+    if (this.entity.health + this.health > this.entity.maxHealth) {
+      this.health = EntityValueFunction("" + this.entity.maxHealth) - this.entity.health;
+    } else if (this.entity.health + this.health < 0) {
+      this.health = - this.entity.health;
     }
   }
 
   dragHpEnd(value: number) {
-    if (settingsManager.settings.dragValues) {
-      if (this.health != 0) {
-        gameManager.stateManager.before("changeEntityHp", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, "" + this.health);
-        gameManager.entityManager.changeHealth(this.entity, this.health);
-        if (this.entity.health <= 0 || this.entity.dead && this.health >= 0 && this.entity.health > 0) {
-          this.dead();
-        }
-        this.health = 0;
+    if (this.health != 0) {
+      gameManager.stateManager.before("changeEntityHp", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, "" + this.health);
+      gameManager.entityManager.changeHealth(this.entity, this.health);
+      if (this.entity.health <= 0 || this.entity.dead && this.health >= 0 && this.entity.health > 0) {
+        this.dead();
       }
-      gameManager.stateManager.after();
+      this.health = 0;
     }
+    gameManager.stateManager.after();
   }
 
   click(event: any): void {
