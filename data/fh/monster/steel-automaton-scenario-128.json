@@ -4,7 +4,7 @@
   "edition": "fh",
   "deck": "imp-fh",
   "hidden": true,
-  "count": 4,
+  "count": 6,
   "baseStat": {
     "type": "normal",
     "actions": [],

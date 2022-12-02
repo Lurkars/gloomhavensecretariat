@@ -1,77 +1,85 @@
-.element {
+ghs-element-icon {
+  .element {
 
-  display: block;
-  position: relative;
-  width: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor) * var(--ghs-barsize));
-  height: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor) * var(--ghs-barsize));
+    display: block;
+    position: relative;
+    width: calc(var(--ghs-unit) * 6.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    height: calc(var(--ghs-unit) * 6.5 * var(--ghs-text-factor) * var(--ghs-barsize));
 
-  margin-right: calc(var(--ghs-unit) * 0.5);
+    margin: 0 calc(var(--ghs-unit) * 0.75);
 
-  ghs-drag-click {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
+    &:hover {
+      width: calc(var(--ghs-unit) * 7.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      height: calc(var(--ghs-unit) * 7.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      margin: 0 calc(var(--ghs-unit) * 0.25);
+    }
 
-  .element-svg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    svg {
+    ghs-drag-click {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
     }
 
-    #outline {
-      display: none;
-    }
+    .element-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
 
-    #bg {
-      transition: clip-path 1s;
-      clip-path: inset(100% 0px 0px 0px);
-    }
-
-    #outline,
-    #symbol {
-      path {
-        fill: var(--ghs-color-gray) !important;
+      svg {
+        width: 100%;
+        height: 100%;
       }
-    }
 
-    &.dark {
+      #outline {
+        display: none;
+      }
+
       #bg {
-        filter: brightness(2);
+        transition: clip-path 1s;
+        clip-path: inset(100% 0px 0px 0px);
+      }
+
+      #outline,
+      #symbol {
+        path {
+          fill: var(--ghs-color-gray) !important;
+        }
+      }
+
+      &.dark {
+        #bg {
+          filter: brightness(2);
+        }
+      }
+
+      &.full {
+        #bg {
+          clip-path: inset(0% 0px 0px 0px);
+        }
+      }
+
+      &.half {
+        #bg {
+          clip-path: inset(50% 0px 0px 0px);
+        }
       }
     }
 
-    &.full {
-      #bg {
-        clip-path: inset(0% 0px 0px 0px);
-      }
-    }
+    &:hover .element-svg,
+    .element-svg.full,
+    .element-svg.half {
 
-    &.half {
-      #bg {
-        clip-path: inset(50% 0px 0px 0px);
-      }
-    }
-  }
+      #outline,
+      #symbol {
+        display: inherit;
 
-  &:hover .element-svg,
-  .element-svg.full,
-  .element-svg.half {
-
-    #outline,
-    #symbol {
-      display: inherit;
-
-      path {
-        fill: var(--ghs-color-white) !important;
+        path {
+          fill: var(--ghs-color-white) !important;
+        }
       }
     }
   }

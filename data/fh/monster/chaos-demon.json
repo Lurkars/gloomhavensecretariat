@@ -1,7 +1,7 @@
 {
   "name": "chaos-demon",
   "edition": "fh",
-  "count": 4,
+  "count": 6,
   "baseStat": {
     "type": "normal",
     "actions": [

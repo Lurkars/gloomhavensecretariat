@@ -4,7 +4,7 @@
   "edition": "fh",
   "deck": "steel-automaton",
   "hidden": true,
-  "count": 4,
+  "count": 6,
   "baseStat": {
     "type": "normal",
     "actions": [],

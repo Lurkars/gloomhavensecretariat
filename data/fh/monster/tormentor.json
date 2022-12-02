@@ -5,7 +5,7 @@
   "deck": "boss-fh",
   "boss": true,
   "hidden": true,
-  "count": 4,
+  "count": 6,
   "baseStat": {
     "type": "boss",
     "actions": [

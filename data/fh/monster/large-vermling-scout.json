@@ -4,7 +4,7 @@
   "edition": "fh",
   "deck": "scout",
   "hidden": true,
-  "count": 4,
+  "count": 10,
   "baseStat": {
     "type": "normal",
     "actions": [
