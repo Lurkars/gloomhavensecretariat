@@ -110,7 +110,7 @@ export class AttackModifierDeckComponent implements OnInit {
     if (!this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
       this.openFullscreen(event);
     } else if (this.standalone || gameManager.game.state == GameState.next) {
-      if (!this.drawTimeout && this.deck.current + this.queue < this.deck.cards.length - 1) {
+      if (!this.drawTimeout && this.deck.current + this.queue <= this.deck.cards.length - 1) {
         this.drawTimeout = setTimeout(() => {
           this.before.emit(new AttackModiferDeckChange(this.deck, "draw"));
           gameManager.attackModifierManager.drawModifier(this.deck);
@@ -123,7 +123,6 @@ export class AttackModifierDeckComponent implements OnInit {
           }
           this.drawTimeout = null;
         }, 150)
-
       }
     } else if (!this.drawing) {
       this.open(event);
