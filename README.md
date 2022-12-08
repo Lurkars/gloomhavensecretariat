@@ -107,11 +107,11 @@ To selfhost *Gloomhaven Secretariat* on your webserver, simple download the zip 
 
 [![Publish Docker Image](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/publish-docker-image.yml/badge.svg)](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/publish-docker-image.yml)
 
-If you want to use docker for running on port 8080 execute following:
+If you want to use docker for running on port 80 execute following:
 
 ```shell
-docker pull ghcr.io/lurkars/ghs
-docker run --rm -p 8080:8080 ghcr.io/lurkars/ghs
+docker pull gloomhavensecretariat/ghs
+docker run --rm -p 80:80 gloomhavensecretariat/ghs
 ```
 
 For usage with docker compose, simple run `docker compose up -d`.

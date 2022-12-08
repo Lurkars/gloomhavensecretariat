@@ -2,7 +2,7 @@ version: "3.8"
 services:
   ghs-server:
     container_name: ghs
-    image: ghcr.io/Lurkars/ghs
+    image: gloomhavensecretariat/ghs
 
     ports:
       - "80:80"
