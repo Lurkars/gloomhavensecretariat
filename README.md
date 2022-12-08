@@ -111,7 +111,7 @@ If you want to use docker for running on port 80 execute following:
 
 ```shell
 docker pull gloomhavensecretariat/ghs
-docker run --rm -p 80:80 gloomhavensecretariat/ghs
+docker run --rm -p 80:80 --name ghs gloomhavensecretariat/ghs
 ```
 
 For usage with docker compose, simple run `docker compose up -d`.
