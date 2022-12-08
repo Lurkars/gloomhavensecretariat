@@ -1,9 +1,11 @@
+name: Publish Latest Online Version
+
 on:
   workflow_dispatch:
   push:
     tags:
       - "v*"
-name: Publish Latest Online Version
+
 jobs:
   build:
     runs-on: ubuntu-latest

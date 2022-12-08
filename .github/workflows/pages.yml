@@ -1,9 +1,11 @@
+name: Release Page
+
 on:
   workflow_dispatch:
   push:
     tags:
       - "v*"
-name: Release Page
+
 jobs:
   build:
     runs-on: ubuntu-latest

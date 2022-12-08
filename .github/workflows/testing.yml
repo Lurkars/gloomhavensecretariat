@@ -1,10 +1,12 @@
+name: Testing
+
 on:  
   workflow_dispatch:
   push:
     branches:
       - '**'
   pull_request:
-name: Testing
+
 jobs:
   build:
     runs-on: ubuntu-latest
