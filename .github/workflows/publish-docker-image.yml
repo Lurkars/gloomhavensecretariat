@@ -1,9 +1,10 @@
 name: "Publish Docker Image"
 
 on:
+  workflow_dispatch:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 env:
   SLUG_DOCKERHUB: ${{ secrets.DOCKER_USERNAME }}/ghs

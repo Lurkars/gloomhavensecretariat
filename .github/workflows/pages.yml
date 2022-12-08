@@ -1,8 +1,8 @@
-on:  
+on:
   workflow_dispatch:
   push:
     tags:
-      - '*'
+      - "v*"
 name: Release Page
 jobs:
   build:
