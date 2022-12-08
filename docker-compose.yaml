@@ -1,8 +1,8 @@
 version: "3.8"
 services:
-  gloomhaven-secretariat:
-    build:
-      context: ./
-      dockerfile: Dockerfile
+  ghs-server:
+    container_name: ghs
+    image: ghcr.io/Lurkars/ghs
+
     ports:
       - "80:80"
