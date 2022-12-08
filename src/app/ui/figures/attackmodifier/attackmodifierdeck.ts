@@ -95,13 +95,14 @@ export class AttackModifierDeckComponent implements OnInit {
     this.drawing = true;
     this.element.nativeElement.getElementsByClassName('attack-modifiers')[0].classList.add('drawing');
     this.queueTimeout = setTimeout(() => {
-      this.element.nativeElement.getElementsByClassName('attack-modifiers')[0].classList.remove('drawing');
       this.drawing = false;
       this.queueTimeout = null;
       if (this.queue > 0) {
         this.queue--;
         this.current++;
         this.update();
+      } else {
+        this.element.nativeElement.getElementsByClassName('attack-modifiers')[0].classList.remove('drawing');
       }
     }, 1850);
   }
@@ -110,12 +111,12 @@ export class AttackModifierDeckComponent implements OnInit {
     if (!this.drawing && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
       this.openFullscreen(event);
     } else if (this.standalone || gameManager.game.state == GameState.next) {
-      if (!this.drawTimeout && this.deck.current + this.queue <= this.deck.cards.length - 1) {
+      if (!this.drawTimeout && this.deck.current < (this.deck.cards.length - (this.queue == 0 ? 0 : 1))) {
         this.drawTimeout = setTimeout(() => {
           this.before.emit(new AttackModiferDeckChange(this.deck, "draw"));
           gameManager.attackModifierManager.drawModifier(this.deck);
           this.after.emit(new AttackModiferDeckChange(this.deck, "draw"));
-          if (this.drawing) {
+          if (this.drawing && this.deck.current + this.queue < this.deck.cards.length) {
             this.queue++;
           }
           if (!this.queueTimeout) {
