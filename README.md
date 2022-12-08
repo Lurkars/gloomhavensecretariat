@@ -110,8 +110,8 @@ To selfhost *Gloomhaven Secretariat* on your webserver, simple download the zip 
 If you want to use docker for running on port 8080 execute following:
 
 ```shell
-docker pull ghcr.io/lurkars/ghs-server
-docker run --rm -p 8080:8080 ghcr.io/lurkars/ghs-server
+docker pull ghcr.io/lurkars/ghs
+docker run --rm -p 8080:8080 ghcr.io/lurkars/ghs
 ```
 
 For usage with docker compose, simple run `docker compose up -d`.
