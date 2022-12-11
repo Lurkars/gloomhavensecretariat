@@ -19,7 +19,8 @@
   "stats": [
     {
       "level": 0,
-      "health": "Cx14",
+      "health": "Cx13",
+      "movement": 3,
       "attack": "Cx2",
       "special": [
         [
@@ -79,6 +80,7 @@
     {
       "level": 1,
       "health": "Cx15",
+      "movement": 3,
       "attack": "Cx2",
       "special": [
         [
@@ -138,6 +140,7 @@
     {
       "level": 2,
       "health": "Cx16",
+      "movement": 3,
       "attack": "Cx3",
       "special": [
         [
@@ -197,6 +200,7 @@
     {
       "level": 3,
       "health": "Cx20",
+      "movement": 4,
       "attack": "Cx3",
       "special": [
         [
@@ -256,6 +260,7 @@
     {
       "level": 4,
       "health": "Cx22",
+      "movement": 4,
       "attack": "Cx4",
       "special": [
         [
@@ -315,6 +320,7 @@
     {
       "level": 5,
       "health": "Cx27",
+      "movement": 4,
       "attack": "Cx4",
       "special": [
         [
@@ -374,6 +380,7 @@
     {
       "level": 6,
       "health": "Cx36",
+      "movement": 4,
       "attack": "Cx5",
       "special": [
         [
@@ -433,6 +440,7 @@
     {
       "level": 7,
       "health": "Cx47",
+      "movement": 4,
       "attack": "Cx5",
       "special": [
         [
