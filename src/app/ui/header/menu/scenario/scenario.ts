@@ -66,11 +66,11 @@ export class ScenarioMenuComponent implements OnInit {
   }
 
   maxScenario(group: string | undefined) {
-    return Math.max(...this.scenarios(group).map((scnearioData) => scnearioData.index.length));
+    return Math.max(...this.scenarios(group).map((scenarioData) => scenarioData.index.length));
   }
 
-  hasScenario(scnearioData: ScenarioData): boolean {
-    return gameManager.game.scenario != undefined && gameManager.game.scenario.edition == scnearioData.edition && gameManager.game.scenario.index == scnearioData.index && gameManager.game.scenario.group == scnearioData.group && gameManager.game.scenario.solo == scnearioData.solo;
+  hasScenario(scenarioData: ScenarioData): boolean {
+    return gameManager.game.scenario != undefined && gameManager.game.scenario.edition == scenarioData.edition && gameManager.game.scenario.index == scenarioData.index && gameManager.game.scenario.group == scenarioData.group && gameManager.game.scenario.solo == scenarioData.solo;
   }
 
   setScenario(scenarioData: ScenarioData) {
