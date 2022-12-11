@@ -272,7 +272,7 @@ export class PartySheetDialogComponent {
   }
 
   maxScenario(scenarios: ScenarioData[]) {
-    return Math.max(...scenarios.map((scnearioData) => scnearioData.index.length));
+    return Math.max(...scenarios.map((scenarioData) => scenarioData.index.length));
   }
 
   changeEdition(event: any) {

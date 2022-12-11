@@ -1005,7 +1005,7 @@
           ".": "Additional Notes",
           "hint": "e.g. special scenario rules like monster level adjustments, round events or HP calculations..."
         },
-        "send": "Send Scneario"
+        "send": "Send Scenario"
       }
     }
   },

@@ -7,7 +7,7 @@ import { Scenario } from "../model/Scenario";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 
-export class ScnearioManager {
+export class ScenarioManager {
 
   game: Game;
 
@@ -19,8 +19,8 @@ export class ScnearioManager {
   setScenario(scenario: Scenario | undefined) {
     this.game.scenario = scenario ? new Scenario(scenario, scenario.custom) : undefined;
     if (scenario && !scenario.custom) {
-      const scnearioData = gameManager.scenarioData().find((scenarioData) => scenarioData.index == scenario.index && scenarioData.edition == scenario.edition && scenarioData.group == scenario.group);
-      if (!scnearioData) {
+      const scenarioData = gameManager.scenarioData().find((scenarioData) => scenarioData.index == scenario.index && scenarioData.edition == scenario.edition && scenarioData.group == scenario.group);
+      if (!scenarioData) {
         console.error("Could not find scenario data!");
         return;
       }
@@ -30,7 +30,7 @@ export class ScnearioManager {
         return;
       }
       gameManager.roundManager.resetScenario();
-      this.applyScenarioData(editionData, scnearioData);
+      this.applyScenarioData(editionData, scenarioData);
     } else if (!scenario) {
       gameManager.roundManager.resetScenario();
     }
@@ -108,7 +108,7 @@ export class ScnearioManager {
         if (characterData) {
           gameManager.characterManager.addCharacter(characterData, 1);
         } else {
-          console.error("Solo Scneario Character not found: '" + scenarioData.solo + "' (" + scenarioData.name + ")");
+          console.error("Solo Scenario Character not found: '" + scenarioData.solo + "' (" + scenarioData.name + ")");
         }
       }
     }

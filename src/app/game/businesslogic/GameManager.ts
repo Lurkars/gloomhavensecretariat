@@ -22,7 +22,7 @@ import { EntityManager } from "./EntityManager";
 import { EventEmitter } from "@angular/core";
 import { ItemData } from "../model/data/ItemData";
 import { LevelManager } from "./LevelManager";
-import { ScnearioManager } from "./ScenarioManager";
+import { ScenarioManager } from "./ScenarioManager";
 import { RoundManager } from "./RoundManager";
 import { Entity } from "../model/Entity";
 import { MonsterEntity } from "../model/MonsterEntity";
@@ -40,7 +40,7 @@ export class GameManager {
   monsterManager: MonsterManager;
   attackModifierManager: AttackModifierManager;
   levelManager: LevelManager;
-  scenarioManager: ScnearioManager;
+  scenarioManager: ScenarioManager;
   roundManager: RoundManager;
   lootManager: LootManager;
 
@@ -53,7 +53,7 @@ export class GameManager {
     this.monsterManager = new MonsterManager(this.game);
     this.attackModifierManager = new AttackModifierManager(this.game);
     this.levelManager = new LevelManager(this.game);
-    this.scenarioManager = new ScnearioManager(this.game);
+    this.scenarioManager = new ScenarioManager(this.game);
     this.roundManager = new RoundManager(this.game);
     this.lootManager = new LootManager(this.game);
     this.uiChange.subscribe({
