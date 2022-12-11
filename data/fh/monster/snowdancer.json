@@ -9,10 +9,11 @@
     "type": "boss",
     "movement": 3,
     "immunities": [
-      "disarm",
       "wound",
-      "muddle",
-      "stun"
+      "poison",
+      "disarm",
+      "stun",
+      "curse"
     ],
     "special": [
       [
