@@ -373,6 +373,43 @@ export class SettingsManager {
             return this.settings.editionDataUrls.indexOf(a.url) - this.settings.editionDataUrls.indexOf(b.url);
           });
 
+          // check for duplicates
+          gameManager.charactersData().forEach((characterData, index, self) => {
+            if (self.find((other) => !characterData.replace && !other.replace && self.indexOf(other) != self.indexOf(characterData) && characterData.name == other.name && characterData.edition == other.edition)) {
+              console.warn("Duplicate Character: " + characterData.name + " (Edition: " + characterData.edition + ")");
+            }
+          })
+
+          gameManager.monstersData().forEach((monsterData, index, self) => {
+            if (self.find((other) => !monsterData.replace && !other.replace && self.indexOf(other) != self.indexOf(monsterData) && monsterData.name == other.name && monsterData.edition == other.edition)) {
+              console.warn("Duplicate Monster: " + monsterData.name + " (Edition: " + monsterData.edition + ")");
+            }
+          })
+
+          gameManager.decksData().forEach((deckData, index, self) => {
+            if (self.find((other) => self.indexOf(other) != self.indexOf(deckData) && deckData.name == other.name && deckData.edition == other.edition)) {
+              console.warn("Duplicate Deck: " + deckData.name + " (Edition: " + deckData.edition + ")");
+            }
+          })
+
+          gameManager.scenarioData().forEach((scenarioData, index, self) => {
+            if (self.find((other) => self.indexOf(other) != self.indexOf(scenarioData) && scenarioData.index == other.index && scenarioData.edition == other.edition && scenarioData.group == other.group)) {
+              console.warn("Duplicate Scenario: " + scenarioData.index + " (Edition: " + scenarioData.edition + ")");
+            }
+          })
+
+          gameManager.sectionData().forEach((sectionData, index, self) => {
+            if (self.find((other) => self.indexOf(other) != self.indexOf(sectionData) && sectionData.index == other.index && sectionData.edition == other.edition && sectionData.group == other.group)) {
+              console.warn("Duplicate Section: " + sectionData.index + " (Edition: " + sectionData.edition + ")");
+            }
+          })
+
+          gameManager.itemData().forEach((itemData, index, self) => {
+            if (self.find((other) => self.indexOf(other) != self.indexOf(itemData) && itemData.id == other.id && itemData.edition == other.edition)) {
+              console.warn("Duplicate Item: " + itemData.id + " (Edition: " + itemData.edition + ")");
+            }
+          })
+
           if (settingsManager.settings.editions.indexOf(value.edition) != -1) {
             this.loadDataLabel(value);
           } else {
@@ -445,7 +482,7 @@ export class SettingsManager {
     if (!this.label.data) {
       this.label.data = {};
     }
-    
+
     if (!this.label.data.edition) {
       this.label.data.edition = {};
     }
