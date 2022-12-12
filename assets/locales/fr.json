@@ -562,6 +562,7 @@
       ".": "Paramètres de debug/instruments",
       "rightClick": "Toujour activer le clic droit"
     },
+    "disableAnimations": "Désactiver les animations",
     "disableColumns": "Désactiver affichage en colonnes",
     "disableStandees": "Désactiver les silhouettes",
     "dragValues": "Glisser pour modifier Initiative/HP/XP/Loot",

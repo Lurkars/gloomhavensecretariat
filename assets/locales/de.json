@@ -596,6 +596,7 @@
       ".": "Debug Einstellung/Werkzeuge",
       "rightClick": "Rechtsklick immer erlauben"
     },
+    "disableAnimations": "Animationen deaktivieren",
     "disableColumns": "Zweispaltiges Layout deaktivieren",
     "disableStandees": "Aufsteller deaktivieren",
     "dragValues": "Initiative/TP/XP/Beute ziehen",

@@ -711,6 +711,7 @@
       ".": "Debug Settings/Tools",
       "rightClick": "Always enable Right-Click"
     },
+    "disableAnimations": "Disable Animations",
     "disableColumns": "Disable column layout",
     "disableStandees": "Disable standees",
     "dragValues": "Drag Initiative/HP/XP/Loot",
