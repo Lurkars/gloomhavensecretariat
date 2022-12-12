@@ -13,10 +13,10 @@ export class AutoscrollDirective implements OnChanges {
   constructor(private el: ElementRef) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes[ 'active' ] && changes[ 'active' ].currentValue && changes[ 'active' ].currentValue != changes[ 'active' ].previousValue) {
+    if (changes['active'] && changes['active'].currentValue && changes['active'].currentValue != changes['active'].previousValue) {
       setTimeout(() => {
         this.el.nativeElement.scrollIntoView({
-          behavior: 'smooth',
+          behavior: settingsManager.settings.disableAnimations ? 'auto' : 'smooth',
           block: 'center',
           inline: 'center'
         });
@@ -42,13 +42,13 @@ export class FigureAutoscrollDirective {
         setTimeout(() => {
           if (settingsManager.settings.autoscroll && !this.active && this.figure.active) {
             this.el.nativeElement.scrollIntoView({
-              behavior: 'smooth',
+              behavior: settingsManager.settings.disableAnimations ? 'auto' : 'smooth',
               block: 'center',
               inline: 'center'
             });
           }
           this.active = this.figure.active;
-        }, 300);
+        }, settingsManager.settings.disableAnimations ? 5 : 300);
       }
     })
 

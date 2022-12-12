@@ -10,7 +10,7 @@ import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 @Component({
   selector: 'ghs-conditions',
   templateUrl: './conditions.html',
-  styleUrls: [ './conditions.scss' ]
+  styleUrls: ['./conditions.scss']
 })
 export class ConditionsComponent implements OnInit {
 
@@ -110,7 +110,7 @@ export class ConditionsComponent implements OnInit {
 @Component({
   selector: 'ghs-highlight-conditions',
   templateUrl: './highlight.html',
-  styleUrls: [ './highlight.scss' ]
+  styleUrls: ['./highlight.scss']
 })
 export class HighlightConditionsComponent {
 
@@ -167,7 +167,7 @@ export class ConditionHighlightAnimationDirective implements OnInit {
         this.condition.highlight = false;
         gameManager.stateManager.after();
       }
-    }, 1100);
+    }, settingsManager.settings.disableAnimations ? 0 : 1100);
   }
 
 }

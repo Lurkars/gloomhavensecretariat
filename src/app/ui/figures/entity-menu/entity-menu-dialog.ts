@@ -394,7 +394,7 @@ export class EntityMenuDialogComponent {
             gameManager.monsterManager.removeMonsterEntity(this.data.figure, this.data.entity);
             gameManager.stateManager.after();
           }
-        }, 1500);
+        }, settingsManager.settings.disableAnimations ? 0 : 1500);
       }
       ;
     } else if (this.data.figure instanceof Character && this.data.entity instanceof Summon) {
@@ -406,7 +406,7 @@ export class EntityMenuDialogComponent {
             gameManager.characterManager.removeSummon(this.data.figure, this.data.entity);
             gameManager.stateManager.after();
           }
-        }, 1500);
+        }, settingsManager.settings.disableAnimations ? 0 : 1500);
       }
     }
     this.dialogRef.close(true);

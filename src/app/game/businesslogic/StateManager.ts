@@ -336,7 +336,7 @@ export class StateManager {
 
     gameManager.uiChange.emit();
 
-    if (timeout) {
+    if (timeout && !settingsManager.settings.disableAnimations) {
       setTimeout(() => {
         window.document.body.classList.remove('working');
         window.document.body.classList.remove('server-sync');

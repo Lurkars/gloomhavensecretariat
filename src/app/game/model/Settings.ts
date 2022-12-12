@@ -23,6 +23,7 @@ export class Settings {
   scenarioRules: boolean = true;
   scenarioNumberInput: boolean = false;
   disableColumns: boolean = false;
+  disableAnimations: boolean = false;
   dragValues: boolean = true;
   hideAbsent: boolean = false;
   hints: boolean = true;

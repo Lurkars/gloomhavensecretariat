@@ -51,7 +51,7 @@ export class MonsterEntityComponent {
       setTimeout(() => {
         gameManager.monsterManager.removeMonsterEntity(this.monster, this.entity);
         gameManager.stateManager.after();
-      }, 1500);
+      }, settingsManager.settings.disableAnimations ? 0 : 1500);
     }
   }
 

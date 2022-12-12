@@ -73,7 +73,6 @@ export class AttackModifierDeckComponent implements OnInit {
       this.deck = this.character.attackModifierDeck;
       this.numeration = "" + this.character.number;
       this.characterIcon = gameManager.characterManager.characterIcon(this.character);
-      this.update();
     }
     this.current = this.deck.current;
     gameManager.uiChange.subscribe({
@@ -104,7 +103,7 @@ export class AttackModifierDeckComponent implements OnInit {
       } else {
         this.element.nativeElement.getElementsByClassName('attack-modifiers')[0].classList.remove('drawing');
       }
-    }, 1850);
+    }, settingsManager.settings.disableAnimations ? 0 : 1850);
   }
 
   draw(event: any) {
@@ -123,7 +122,7 @@ export class AttackModifierDeckComponent implements OnInit {
             this.update();
           }
           this.drawTimeout = null;
-        }, 150)
+        }, settingsManager.settings.disableAnimations ? 0 : 150)
       }
     } else if (!this.drawing) {
       this.open(event);

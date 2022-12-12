@@ -40,7 +40,7 @@ export class SummonEntityComponent implements OnInit {
     if (this.summon.init) {
       setTimeout(() => {
         this.open();
-      }, 500)
+      }, settingsManager.settings.disableAnimations ? 0 : 500)
     }
   }
 
@@ -75,7 +75,7 @@ export class SummonEntityComponent implements OnInit {
       setTimeout(() => {
         gameManager.characterManager.removeSummon(this.character, this.summon);
         gameManager.stateManager.after();
-      }, 1500);
+      }, settingsManager.settings.disableAnimations ? 0 : 1500);
     }
 
     gameManager.stateManager.after();

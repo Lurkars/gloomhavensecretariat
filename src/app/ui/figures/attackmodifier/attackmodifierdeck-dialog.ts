@@ -2,6 +2,7 @@ import { DIALOG_DATA } from "@angular/cdk/dialog";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, ElementRef, EventEmitter, Inject, OnInit, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from "src/app/game/model/AttackModifier";
 import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
@@ -10,7 +11,7 @@ import { AttackModiferDeckChange } from "./attackmodifierdeck";
 @Component({
   selector: 'ghs-attackmodifier-deck-dialog',
   templateUrl: './attackmodifierdeck-dialog.html',
-  styleUrls: [ './attackmodifierdeck-dialog.scss', ]
+  styleUrls: ['./attackmodifierdeck-dialog.scss',]
 })
 export class AttackModifierDeckDialogComponent implements OnInit {
 
@@ -50,7 +51,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     }
     setTimeout(() => {
       this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
-    }, 250);
+    }, settingsManager.settings.disableAnimations ? 0 : 250);
   }
 
   toggleEdit() {
@@ -121,7 +122,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
       this.deck.current = this.deck.current + 1;
       const offset = this.deck.current;
       moveItemInArray(this.deck.cards, event.previousIndex + offset, offset - event.currentIndex);
-      this.deck.cards[ offset - event.currentIndex ].revealed = true;
+      this.deck.cards[offset - event.currentIndex].revealed = true;
     }
     this.after.emit(new AttackModiferDeckChange(this.deck, "reorder"));
   }
@@ -222,9 +223,9 @@ export class AttackModifierDeckDialogComponent implements OnInit {
       index = 0;
     }
 
-    this.type = Object.values(AttackModifierType)[ index ];
+    this.type = Object.values(AttackModifierType)[index];
 
-    if ([ AttackModifierType.invalid, AttackModifierType.plus3, AttackModifierType.plus4 ].indexOf(this.type) != -1) {
+    if ([AttackModifierType.invalid, AttackModifierType.plus3, AttackModifierType.plus4].indexOf(this.type) != -1) {
       this.changeType(prev);
     }
   }

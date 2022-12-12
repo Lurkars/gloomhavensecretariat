@@ -143,7 +143,7 @@
       {{'settings.alwaysLootDeck' | ghsLabel}}
     </label>
   </div>
-  
+
   <div class="line">
     <label>
       <input type="checkbox" [checked]="settingsManager.settings.scenarioRules"
@@ -162,61 +162,73 @@
 
   <div class="separator"></div>
 
-  <div class="line ">
-    <a (click)="zoomOut()">
-      {{'settings.zoom.out' | ghsLabel}}
-    </a>
+  <div class="column">
+    <div class="line ">
+      <a (click)="zoomOut()">
+        {{'settings.zoom.out' | ghsLabel}}
+      </a>
+    </div>
+
+    <div class="line">
+      <a (click)="zoomIn()">
+        {{'settings.zoom.in' | ghsLabel}}
+      </a>
+    </div>
+
+    <div class="line">
+      <a (click)="resetZoom()">
+        {{'settings.zoom.reset' | ghsLabel}}
+      </a>
+    </div>
+
+    <div class="line">
+      <label>
+        <input type="checkbox" [checked]="settingsManager.settings.fullscreen" (change)="fullscreen()">
+        {{'settings.fullscreen' | ghsLabel}}
+      </label>
+    </div>
+
+    <div class="line">
+      <label>
+        <input type="checkbox" [checked]="settingsManager.settings.disableAnimations"
+          (change)="settingsManager.setDisableAnimations(!settingsManager.settings.disableAnimations)">
+        {{'settings.disableAnimations' | ghsLabel}}
+      </label>
+    </div>
   </div>
 
-  <div class="line">
-    <label>
-      <input type="checkbox" [checked]="settingsManager.settings.hints"
-        (change)="settingsManager.setHints(!settingsManager.settings.hints)">
-      {{'settings.hints' | ghsLabel}}
-    </label>
-  </div>
+  <div class="column">
+    <div class="line">
+      <label>
+        <input type="checkbox" [checked]="settingsManager.settings.hints"
+          (change)="settingsManager.setHints(!settingsManager.settings.hints)">
+        {{'settings.hints' | ghsLabel}}
+      </label>
+    </div>
 
-  <div class="line">
-    <a (click)="zoomIn()">
-      {{'settings.zoom.in' | ghsLabel}}
-    </a>
-  </div>
+    <div class="line">
+      <label>
+        <input type="checkbox" [checked]="settingsManager.settings.hideAbsent"
+          (change)="settingsManager.setHideAbsent(!settingsManager.settings.hideAbsent)">
+        {{'settings.hideAbsent' | ghsLabel}}
+      </label>
+    </div>
 
-  <div class="line">
-    <label>
-      <input type="checkbox" [checked]="settingsManager.settings.hideAbsent"
-        (change)="settingsManager.setHideAbsent(!settingsManager.settings.hideAbsent)">
-      {{'settings.hideAbsent' | ghsLabel}}
-    </label>
-  </div>
+    <div class="line">
+      <label>
+        <input type="checkbox" [checked]="settingsManager.settings.fhStyle"
+          (change)="settingsManager.setFhStyle(!settingsManager.settings.fhStyle)">
+        {{'settings.fhStyle' | ghsLabel}}
+      </label>
+    </div>
 
-  <div class="line">
-    <a (click)="resetZoom()">
-      {{'settings.zoom.reset' | ghsLabel}}
-    </a>
-  </div>
-
-  <div class="line">
-    <label>
-      <input type="checkbox" [checked]="settingsManager.settings.fhStyle"
-        (change)="settingsManager.setFhStyle(!settingsManager.settings.fhStyle)">
-      {{'settings.fhStyle' | ghsLabel}}
-    </label>
-  </div>
-
-  <div class="line">
-    <label>
-      <input type="checkbox" [checked]="settingsManager.settings.fullscreen" (change)="fullscreen()">
-      {{'settings.fullscreen' | ghsLabel}}
-    </label>
-  </div>
-
-  <div class="line">
-    <label>
-      <input type="checkbox" [checked]="settingsManager.settings.disableColumns"
-        (change)="settingsManager.setDisableColumns(!settingsManager.settings.disableColumns)">
-      {{'settings.disableColumns' | ghsLabel}}
-    </label>
+    <div class="line">
+      <label>
+        <input type="checkbox" [checked]="settingsManager.settings.disableColumns"
+          (change)="settingsManager.setDisableColumns(!settingsManager.settings.disableColumns)">
+        {{'settings.disableColumns' | ghsLabel}}
+      </label>
+    </div>
   </div>
 
   <div class="line ">

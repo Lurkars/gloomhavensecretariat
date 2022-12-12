@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
     gameManager.uiChange.subscribe({
       next: () => {
         this.applyFhStyle();
+        this.applyAnimations();
       }
     })
 
@@ -35,6 +36,14 @@ export class AppComponent implements OnInit {
       document.body.classList.add('fh');
     } else {
       document.body.classList.remove('fh');
+    }
+  }
+
+  applyAnimations() {
+    if (settingsManager.settings.disableAnimations) {
+      document.body.classList.add('no-animations');
+    } else {
+      document.body.classList.remove('no-animations');
     }
   }
 

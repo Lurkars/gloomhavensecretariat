@@ -2,6 +2,7 @@ import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, ElementRef, EventEmitter, Inject, OnInit, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GameState } from "src/app/game/model/Game";
 import { enhancableLootTypes, fullLootDeck, Loot, LootDeck, LootDeckConfig, LootType } from "src/app/game/model/Loot";
 import { LootDeckChange } from "./loot-deck";
@@ -46,7 +47,7 @@ export class LootDeckDialogComponent implements OnInit {
     this.currentConfig();
     setTimeout(() => {
       this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
-    }, 250);
+    }, settingsManager.settings.disableAnimations ? 0 : 250);
     if (this.deck.cards.length == 0) {
       this.edit = true;
       this.configuration = true;

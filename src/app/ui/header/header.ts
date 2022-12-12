@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.init = true;
-    }, 1500);
+    }, settingsManager.settings.disableAnimations ? 0 : 1500);
 
     gameManager.uiChange.subscribe({
       next: () => {
@@ -45,7 +45,7 @@ export class HeaderComponent implements OnInit {
           setTimeout(() => {
             this.hintState = this.hintStateValue();
             this.init = true;
-          }, 500);
+          }, settingsManager.settings.disableAnimations ? 0 : 500);
         }
       }
     })

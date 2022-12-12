@@ -85,7 +85,7 @@ export class LootDeckComponent implements OnInit {
             } else {
                 this.element.nativeElement.getElementsByClassName('deck')[0].classList.remove('drawing');
             }
-        }, 1850);
+        }, settingsManager.settings.disableAnimations ? 0 : 1850);
     }
 
     draw(event: any) {
@@ -104,7 +104,7 @@ export class LootDeckComponent implements OnInit {
                         this.update();
                     }
                     this.drawTimeout = null;
-                }, 150)
+                }, settingsManager.settings.disableAnimations ? 0 : 150)
             }
         } else if (!this.drawing) {
             this.open(event);

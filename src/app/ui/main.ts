@@ -119,7 +119,7 @@ export class MainComponent implements OnInit {
     this.scrollTimeout = setTimeout(() => {
       window.document.body.classList.remove('scrolling');
       this.scrollTimeout = null;
-    }, 250)
+    }, settingsManager.settings.disableAnimations ? 0 : 250)
   }
 
   calcColumns(scrollTo: HTMLElement | undefined = undefined): void {
@@ -248,11 +248,11 @@ export class MainComponent implements OnInit {
         if (scrollTo) {
           setTimeout(() => {
             scrollTo.scrollIntoView({
-              behavior: 'smooth',
+              behavior: settingsManager.settings.disableAnimations ? 'auto' : 'smooth',
               block: 'center',
               inline: 'center'
             });
-          }, 250);
+          }, settingsManager.settings.disableAnimations ? 0 : 250);
         }
       }
     }, 1);

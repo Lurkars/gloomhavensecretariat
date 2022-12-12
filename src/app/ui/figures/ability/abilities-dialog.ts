@@ -32,7 +32,7 @@ export class AbiltiesDialogComponent implements OnInit {
       if (this.menuElement) {
         this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';
       }
-    }, 250);
+    }, settingsManager.settings.disableAnimations ? 0 : 250);
 
     this.bottomActions = gameManager.abilities(this.monster).some((ability) => ability.bottomActions && ability.bottomActions.length > 0);
   }

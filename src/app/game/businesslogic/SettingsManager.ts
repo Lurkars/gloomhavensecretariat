@@ -208,6 +208,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setDisableAnimations(disableAnimations: boolean) {
+    this.settings.disableAnimations = disableAnimations;
+    this.storeSettings();
+  }
+
   setAutoscroll(autoscroll: boolean) {
     this.settings.autoscroll = autoscroll;
     this.storeSettings();

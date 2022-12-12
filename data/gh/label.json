@@ -628,7 +628,7 @@
           "1": "Alle angrenzenden Verbündeten und Gegner erleiden %game.damage:2%."
         },
         "ooze": {
-          "1": "%data.monster.ooze% erleidet %game.damage:1%.",
+          "1": "%data.monster.ooze% erleidet %game.damage:2%.",
           "2": "%game.action.summon% %data.monster.ooze% (%monster.normal%) mit einem TP Wert gleich dem beschwörenden %data.monster.ooze% (limitiert auf den maximalen TP Wert eines normalens %data.monster.ooze%)"
         },
         "savvas-lavaflow": {
