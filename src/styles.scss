@@ -599,14 +599,6 @@ a {
   background-color: var(--ghs-color-black);
   overflow: auto;
 
-  .ghs-svg {
-    color: var(--ghs-color-white);
-    filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
-    width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-    height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-    display: inline-block;
-  }
-
   &.dialog-invert {
     background-color: var(--ghs-color-white);
     background-image: none;

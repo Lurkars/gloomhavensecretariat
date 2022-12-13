@@ -97,7 +97,7 @@
                   <span class="name">{{item.name}}</span>
                   <a class="button loot" (click)="buyItem()"
                     [ngClass]="{'disabled' : !item || item.cost > character.progress.gold || !itemCanAdd}"><img
-                      src="./assets/images/loot.svg">{{item && (item.cost + priceModifier)}}</a>
+                      src="./assets/images/loot.svg">{{item && item.cost && (item.cost + priceModifier) || '?'}}</a>
                 </ng-container>
               </div>
             </div>
@@ -112,8 +112,8 @@
                 [ngClass]="{'checked' : character.progress.perks[i] && character.progress.perks[i] > count, 'disabled' : gameManager.game.state == GameState.next || character.progress.perks[i] <= count && availablePerks < count - character.progress.perks[i] + 1}"
                 (click)="addPerk(i, count+1)"></span>
               <span class="text capitalize">
-                <ng-container *ngIf="perk.custom">{{perk.custom | ghsLabel}} <ng-container
-                    *ngIf="perk.type != PerkType.custom">{{'and' | ghsLabel}}</ng-container>&nbsp;</ng-container>
+                <ng-container *ngIf="perk.custom"><span [i18n]="perk.custom"></span> <ng-container
+                    *ngIf="perk.type != PerkType.custom"> {{'and' | ghsLabel}} </ng-container>&nbsp;</ng-container>
                 <ng-container *ngIf="perk.type != PerkType.custom">
                   <span class="label" [i18n]="'character.progress.perks.type.' + perk.type"
                     [i18n-args]="perkLabel(perk)"></span>

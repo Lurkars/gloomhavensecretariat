@@ -30,6 +30,7 @@
     text-align: left;
     white-space: nowrap;
     overflow: auto;
+    z-index: 4;
 
     .edition {
       margin-left: calc(var(--ghs-unit) * 0.5);
@@ -50,6 +51,15 @@
     }
   }
 
+  .entity-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+  }
+
   .toggle-ally {
     position: absolute;
     top: calc(var(--ghs-unit) * 0.1);
@@ -60,6 +70,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 4;
 
     img {
       width: 100%;
@@ -87,6 +98,7 @@
     text-shadow: var(--ghs-outline);
     color: var(--ghs-color-gray);
     cursor: pointer;
+    z-index: 4;
 
     &:hover,
     &.active-button {

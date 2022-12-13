@@ -154,6 +154,7 @@ export class CharacterManager {
         figure.initiative = 0;
         figure.initiativeVisible = false;
         figure.off = false;
+        figure.attackModifierDeckVisible = false;
 
         figure.summons = figure.summons.filter((summon) => !summon.dead && summon.health > 0);
 

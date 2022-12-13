@@ -66,7 +66,7 @@
       "algox-archer",
       "algox-guard",
       "algox-priest",
-      "hound-fh"
+      "hound"
     ],
     "allies": [
       "algox-priest",
@@ -150,7 +150,7 @@
     "name": "Avalanche",
     "edition": "fh",
     "monsters": [
-      "frost-demon-fh",
+      "frost-demon",
       "snow-imp"
     ],
     "lootDeckConfig": {
@@ -168,7 +168,6 @@
     "name": "Edge of the World",
     "edition": "fh",
     "monsters": [
-      "frozen-corpse",
       "lurker-clawcrusher",
       "lurker-mindsnipper",
       "lurker-soldier"
@@ -187,7 +186,7 @@
     "name": "Crystal Trench",
     "edition": "fh",
     "monsters": [
-      "hound-fh",
+      "hound",
       "polar-bear",
       "snow-imp"
     ],
@@ -207,8 +206,8 @@
     "monsters": [
       "ice-wraith",
       "living-doom",
-      "living-spirit-fh",
-      "ooze-fh"
+      "living-spirit",
+      "ooze"
     ],
     "lootDeckConfig": {
       "money": 8,
@@ -257,8 +256,8 @@
     "edition": "fh",
     "monsters": [
       "algox-stormcaller",
-      "frost-demon-fh",
-      "wind-demon-fh"
+      "frost-demon",
+      "wind-demon"
     ],
     "lootDeckConfig": {
       "money": 6,
@@ -275,8 +274,8 @@
     "name": "Temple Entrance",
     "edition": "fh",
     "monsters": [
-      "ancient-artillery-fh",
-      "night-demon-fh",
+      "ancient-artillery",
+      "night-demon",
       "steel-automaton"
     ],
     "lootDeckConfig": {
@@ -295,7 +294,7 @@
     "monsters": [
       "shrike-fiend",
       "snow-imp",
-      "wind-demon-fh"
+      "wind-demon"
     ],
     "objectives": [
       {
@@ -355,7 +354,7 @@
     "name": "Derelict Elevator",
     "edition": "fh",
     "monsters": [
-      "ancient-artillery-fh",
+      "ancient-artillery",
       "flaming-bladespinner",
       "ruined-machine"
     ],
@@ -374,7 +373,7 @@
     "monsters": [
       "ice-wraith",
       "living-doom",
-      "living-spirit-fh"
+      "living-spirit"
     ],
     "objectives": [
       {
@@ -425,8 +424,8 @@
     "name": "Skyhall",
     "edition": "fh",
     "monsters": [
-      "earth-demon-fh",
-      "flame-demon-fh",
+      "earth-demon",
+      "flame-demon",
       "ice-wraith"
     ],
     "lootDeckConfig": {
@@ -484,9 +483,9 @@
     "edition": "fh",
     "monsters": [
       "prince-of-frost",
-      "frost-demon-fh",
-      "living-bones-fh",
-      "living-spirit-fh",
+      "frost-demon",
+      "living-bones",
+      "living-spirit",
       "snow-imp"
     ],
     "lootDeckConfig": {
@@ -521,9 +520,8 @@
     "name": "Spire Basement",
     "edition": "fh",
     "monsters": [
-      "living-bones-fh",
-      "living-doom",
-      "living-spirit-fh"
+      "living-bones",
+      "living-spirit"
     ],
     "lootDeckConfig": {
       "money": 8,
@@ -539,9 +537,9 @@
     "name": "Upper Spire",
     "edition": "fh",
     "monsters": [
-      "chaos-demon-fh",
-      "living-bones-fh",
-      "wind-demon-fh"
+      "chaos-demon",
+      "living-bones",
+      "wind-demon"
     ],
     "lootDeckConfig": {
       "money": 8,
@@ -575,7 +573,7 @@
     "name": "Quatryl Library",
     "edition": "fh",
     "monsters": [
-      "ancient-artillery-fh",
+      "ancient-artillery",
       "ruined-machine",
       "steel-automaton"
     ],
@@ -592,9 +590,9 @@
     "name": "Depths of Delirium",
     "edition": "fh",
     "monsters": [
-      "deep-terror-fh",
-      "living-bones-fh",
-      "ooze-fh"
+      "deep-terror",
+      "living-bones",
+      "ooze"
     ],
     "lootDeckConfig": {
       "money": 13,
@@ -701,7 +699,7 @@
     "edition": "fh",
     "monsters": [
       "frozen-corpse",
-      "harrower-infester-fh",
+      "harrower-infester",
       "shrike-fiend"
     ],
     "lootDeckConfig": {
@@ -718,9 +716,9 @@
     "name": "Thawed Wood",
     "edition": "fh",
     "monsters": [
-      "black-imp-fh",
-      "earth-demon-fh",
-      "flame-demon-fh",
+      "black-imp",
+      "earth-demon",
+      "flame-demon",
       "shrike-fiend"
     ],
     "lootDeckConfig": {
@@ -745,9 +743,9 @@
     "name": "Scrap Pit",
     "edition": "fh",
     "monsters": [
-      "living-bones-fh",
+      "living-bones",
       "ruined-machine",
-      "spitting-drake-fh"
+      "spitting-drake"
     ],
     "objectives": [
       {
@@ -806,8 +804,8 @@
     "name": "The Dead Mile",
     "edition": "fh",
     "monsters": [
-      "living-bones-fh",
-      "living-spirit-fh",
+      "living-bones",
+      "living-spirit",
       "ruined-machine"
     ],
     "lootDeckConfig": {
@@ -824,9 +822,9 @@
     "name": "The Way Forward",
     "edition": "fh",
     "monsters": [
-      "hound-fh",
+      "hound",
       "polar-bear",
-      "sun-demon-fh"
+      "sun-demon"
     ],
     "objectives": [
       {
@@ -858,8 +856,8 @@
     "monsters": [
       "algox-guard",
       "algox-scout",
-      "black-imp-fh",
-      "deep-terror-fh",
+      "black-imp",
+      "deep-terror",
       "frozen-corpse"
     ],
     "lootDeckConfig": {
@@ -896,10 +894,10 @@
     "name": "Unfettered Shard",
     "edition": "fh",
     "monsters": [
-      "deep-terror-fh",
+      "deep-terror",
       "living-doom",
-      "living-spirit-fh",
-      "night-demon-fh"
+      "living-spirit",
+      "night-demon"
     ],
     "lootDeckConfig": {
       "money": 9,
@@ -916,9 +914,9 @@
     "name": "Sunless Trench",
     "edition": "fh",
     "monsters": [
-      "deep-terror-fh",
-      "night-demon-fh",
-      "ooze-fh"
+      "deep-terror",
+      "night-demon",
+      "ooze"
     ],
     "lootDeckConfig": {
       "money": 12,
@@ -952,7 +950,7 @@
     "name": "Nerve Center",
     "edition": "fh",
     "monsters": [
-      "ancient-artillery-fh",
+      "ancient-artillery",
       "flaming-bladespinner",
       "ruined-machine",
       "steel-automaton"
@@ -1014,7 +1012,7 @@
     "edition": "fh",
     "monsters": [
       "algox-icespeaker",
-      "harrower-infester-fh",
+      "harrower-infester",
       "shrike-fiend"
     ],
     "lootDeckConfig": {
@@ -1032,8 +1030,8 @@
     "edition": "fh",
     "monsters": [
       "abael-scout",
-      "frost-demon-fh",
-      "wind-demon-fh"
+      "frost-demon",
+      "wind-demon"
     ],
     "lootDeckConfig": {
       "money": 7,
@@ -1049,9 +1047,9 @@
     "name": "Beneath Sea and Stone",
     "edition": "fh",
     "monsters": [
-      "black-imp-fh",
-      "deep-terror-fh",
-      "frost-demon-fh"
+      "black-imp",
+      "deep-terror",
+      "frost-demon"
     ],
     "lootDeckConfig": {
       "money": 13,
@@ -1089,7 +1087,7 @@
     "name": "Orphan's Halls",
     "edition": "fh",
     "monsters": [
-      "ancient-artillery-fh",
+      "ancient-artillery",
       "flaming-bladespinner",
       "ruined-machine",
       "steel-automaton"
@@ -1107,7 +1105,7 @@
     "name": "Fleeting Permanence",
     "edition": "fh",
     "monsters": [
-      "frost-demon-fh",
+      "frost-demon",
       "snow-imp"
     ],
     "lootDeckConfig": {
@@ -1189,8 +1187,8 @@
     "edition": "fh",
     "monsters": [
       "harbinger-of-shadow",
-      "black-imp-fh",
-      "harrower-infester-fh",
+      "black-imp",
+      "harrower-infester",
       "shrike-fiend"
     ],
     "objectives": [
@@ -1214,7 +1212,7 @@
     "edition": "fh",
     "monsters": [
       "render",
-      "wind-demon-fh"
+      "wind-demon"
     ]
   },
   {
@@ -1296,9 +1294,9 @@
     "name": "Life and Death",
     "edition": "fh",
     "monsters": [
-      "deep-terror-fh",
-      "earth-demon-fh",
-      "harrower-infester-fh"
+      "deep-terror",
+      "earth-demon",
+      "harrower-infester"
     ],
     "objectives": [
       {
@@ -1323,9 +1321,9 @@
     "name": "The Unfettered Seal",
     "edition": "fh",
     "monsters": [
-      "black-imp-fh",
-      "chaos-demon-fh",
-      "harrower-infester-fh"
+      "black-imp",
+      "chaos-demon",
+      "harrower-infester"
     ],
     "objectives": [
       {
@@ -1350,12 +1348,12 @@
     "name": "The Savvas Seal",
     "edition": "fh",
     "monsters": [
-      "earth-demon-fh",
-      "flame-demon-fh",
-      "frost-demon-fh",
-      "savvas-icestorm-fh",
-      "savvas-lavaflow-fh",
-      "wind-demon-fh"
+      "earth-demon",
+      "flame-demon",
+      "frost-demon",
+      "savvas-icestorm",
+      "savvas-lavaflow",
+      "wind-demon"
     ],
     "objectives": [
       {
@@ -1382,13 +1380,13 @@
     "monsters": [
       "vestige-of-the-imprisoned-god",
       "burrowing-blade",
-      "city-guard-fh",
+      "city-guard",
       "living-doom",
-      "living-spirit-fh",
+      "living-spirit",
       "shrike-fiend"
     ],
     "allies": [
-      "city-guard-fh"
+      "city-guard"
     ],
     "objectives": [
       {
@@ -1462,8 +1460,7 @@
     "edition": "fh",
     "monsters": [
       "frozen-corpse",
-      "ice-wraith",
-      "living-bones-fh",
+      "living-bones",
       "snow-imp"
     ],
     "lootDeckConfig": {
@@ -1480,12 +1477,12 @@
     "name": "Elemental Cores",
     "edition": "fh",
     "monsters": [
-      "earth-demon-fh",
-      "flame-demon-fh",
-      "frost-demon-fh",
-      "night-demon-fh",
-      "sun-demon-fh",
-      "wind-demon-fh"
+      "earth-demon",
+      "flame-demon",
+      "frost-demon",
+      "night-demon",
+      "sun-demon",
+      "wind-demon"
     ],
     "lootDeckConfig": {
       "money": 12,
@@ -1505,13 +1502,13 @@
     "name": "Core Attunement",
     "edition": "fh",
     "monsters": [
-      "chaos-demon-fh",
-      "earth-demon-fh",
-      "flame-demon-fh",
-      "frost-demon-fh",
-      "night-demon-fh",
-      "sun-demon-fh",
-      "wind-demon-fh"
+      "chaos-demon",
+      "earth-demon",
+      "flame-demon",
+      "frost-demon",
+      "night-demon",
+      "sun-demon",
+      "wind-demon"
     ],
     "objectives": [
       {
@@ -1553,13 +1550,13 @@
     "edition": "fh",
     "monsters": [
       "tormentor",
-      "chaos-demon-fh",
-      "earth-demon-fh",
-      "flame-demon-fh",
-      "frost-demon-fh",
-      "night-demon-fh",
-      "sun-demon-fh",
-      "wind-demon-fh"
+      "chaos-demon",
+      "earth-demon",
+      "flame-demon",
+      "frost-demon",
+      "night-demon",
+      "sun-demon",
+      "wind-demon"
     ],
     "lootDeckConfig": {
       "lumber": 5,
@@ -1573,9 +1570,9 @@
     "name": "Sacred Soil",
     "edition": "fh",
     "monsters": [
-      "earth-demon-fh",
-      "forest-imp-fh",
-      "rending-drake-fh"
+      "earth-demon",
+      "forest-imp",
+      "rending-drake"
     ],
     "lootDeckConfig": {
       "money": 8,
@@ -1590,9 +1587,9 @@
     "name": "The True Oak",
     "edition": "fh",
     "monsters": [
-      "city-guard-fh",
-      "hound-fh",
-      "sun-demon-fh"
+      "city-guard",
+      "hound",
+      "sun-demon"
     ],
     "objectives": [
       {
@@ -1637,7 +1634,7 @@
     "monsters": [
       "frozen-corpse",
       "ice-wraith",
-      "living-bones-fh",
+      "living-bones",
       "steel-automaton"
     ],
     "lootDeckConfig": {
@@ -1675,9 +1672,9 @@
       "algox-archer",
       "algox-guard",
       "algox-priest",
-      "forest-imp-fh",
+      "forest-imp",
       "piranha-pig",
-      "wind-demon-fh"
+      "wind-demon"
     ],
     "objectives": [
       {
@@ -1702,8 +1699,8 @@
     "monsters": [
       "abael-herder",
       "abael-scout",
-      "chaos-demon-fh",
-      "frost-demon-fh",
+      "chaos-demon",
+      "frost-demon",
       "lightning-eel",
       "piranha-pig"
     ],
@@ -1743,10 +1740,10 @@
     "edition": "fh",
     "monsters": [
       "fish-king",
-      "frost-demon-fh",
-      "night-demon-fh",
+      "frost-demon",
+      "night-demon",
       "piranha-pig",
-      "wind-demon-fh"
+      "wind-demon"
     ],
     "lootDeckConfig": {
       "money": 4,
@@ -1842,7 +1839,7 @@
     "monsters": [
       "aesther-ashblade",
       "aesther-scout",
-      "ancient-artillery-fh",
+      "ancient-artillery",
       "flaming-bladespinner",
       "ruined-machine",
       "steel-automaton"
@@ -1871,8 +1868,8 @@
     "name": "Expedition North",
     "edition": "fh",
     "monsters": [
-      "frost-demon-fh",
-      "wind-demon-fh"
+      "frost-demon",
+      "wind-demon"
     ],
     "lootDeckConfig": {
       "money": 12,
@@ -1888,7 +1885,7 @@
     "edition": "fh",
     "monsters": [
       "giant-piranha-pig",
-      "ancient-artillery-fh",
+      "ancient-artillery",
       "lurker-mindsnipper",
       "piranha-pig"
     ],
@@ -1908,7 +1905,7 @@
     "edition": "fh",
     "monsters": [
       "elder-ooze",
-      "ooze-fh"
+      "ooze"
     ],
     "lootDeckConfig": {
       "money": 15,
@@ -1923,7 +1920,7 @@
     "name": "Deadly Pastimes",
     "edition": "fh",
     "monsters": [
-      "black-imp-fh",
+      "black-imp",
       "burrowing-blade",
       "lightning-eel",
       "polar-bear"
@@ -1943,8 +1940,8 @@
     "name": "Lady in White",
     "edition": "fh",
     "monsters": [
-      "black-imp-fh",
-      "earth-demon-fh",
+      "black-imp",
+      "earth-demon",
       "ice-wraith"
     ],
     "objectives": [
@@ -1990,13 +1987,13 @@
     "edition": "fh",
     "monsters": [
       "the-collector",
-      "earth-demon-fh",
-      "flame-demon-fh",
-      "frost-demon-fh",
+      "earth-demon",
+      "flame-demon",
+      "frost-demon",
       "lurker-clawcrusher",
-      "savvas-icestorm-fh",
-      "savvas-lavaflow-fh",
-      "wind-demon-fh"
+      "savvas-icestorm",
+      "savvas-lavaflow",
+      "wind-demon"
     ],
     "lootDeckConfig": {
       "money": 8,
@@ -2015,7 +2012,6 @@
     "monsters": [
       "algox-archer",
       "algox-guard",
-      "algox-icespeaker",
       "algox-priest"
     ],
     "lootDeckConfig": {
@@ -2093,10 +2089,10 @@
       "algox-guard",
       "algox-scout",
       "yoglang",
-      "hound-fh",
+      "hound",
       "polar-bear",
       "scabwit",
-      "vermling-scout-fh"
+      "vermling-scout"
     ],
     "lootDeckConfig": {
       "money": 9,
@@ -2117,10 +2113,10 @@
       "algox-guard",
       "algox-scout",
       "yoglang",
-      "hound-fh",
+      "hound",
       "polar-bear",
       "scabwit",
-      "vermling-scout-fh"
+      "vermling-scout"
     ],
     "lootDeckConfig": {
       "money": 9,
@@ -2137,11 +2133,11 @@
     "name": "A Grand View",
     "edition": "fh",
     "monsters": [
-      "ancient-artillery-fh",
+      "ancient-artillery",
       "flaming-bladespinner",
       "ruined-machine",
       "steel-automaton",
-      "vermling-scout-fh"
+      "vermling-scout"
     ],
     "lootDeckConfig": {
       "money": 9,
@@ -2158,9 +2154,8 @@
     "edition": "fh",
     "monsters": [
       "ice-wraith",
-      "living-bones-fh",
-      "living-doom",
-      "living-spirit-fh"
+      "living-bones",
+      "living-doom"
     ],
     "lootDeckConfig": {
       "money": 8,
@@ -2175,9 +2170,9 @@
     "name": "Underground Station",
     "edition": "fh",
     "monsters": [
-      "ancient-artillery-fh",
-      "black-imp-fh",
-      "rending-drake-fh"
+      "ancient-artillery",
+      "black-imp",
+      "rending-drake"
     ],
     "lootDeckConfig": {
       "money": 14,
@@ -2210,10 +2205,10 @@
     "name": "Collapsing Vent",
     "edition": "fh",
     "monsters": [
-      "ancient-artillery-fh",
-      "black-imp-fh",
+      "ancient-artillery",
+      "black-imp",
       "burrowing-blade",
-      "spitting-drake-fh"
+      "spitting-drake"
     ],
     "lootDeckConfig": {
       "money": 10,
@@ -2246,7 +2241,7 @@
     "edition": "fh",
     "monsters": [
       "burrowing-blade",
-      "earth-demon-fh",
+      "earth-demon",
       "lurker-mindsnipper",
       "shrike-fiend"
     ],
@@ -2278,12 +2273,12 @@
     "name": "Into the Black",
     "edition": "fh",
     "monsters": [
-      "chaos-demon-fh",
-      "frost-demon-fh",
-      "living-spirit-fh",
-      "night-demon-fh",
-      "savvas-icestorm-fh",
-      "wind-demon-fh"
+      "chaos-demon",
+      "frost-demon",
+      "living-spirit",
+      "night-demon",
+      "savvas-icestorm",
+      "wind-demon"
     ],
     "lootDeckConfig": {
       "money": 15
@@ -2295,7 +2290,7 @@
     "edition": "fh",
     "monsters": [
       "living-doom",
-      "living-spirit-fh",
+      "living-spirit",
       "lurker-clawcrusher",
       "shrike-fiend"
     ],
@@ -2335,11 +2330,11 @@
     "name": "Ruins of the Solstice",
     "edition": "fh",
     "monsters": [
-      "earth-demon-fh",
-      "forest-imp-fh",
-      "frost-demon-fh",
-      "savvas-icestorm-fh",
-      "wind-demon-fh"
+      "earth-demon",
+      "forest-imp",
+      "frost-demon",
+      "savvas-icestorm",
+      "wind-demon"
     ],
     "lootDeckConfig": {
       "money": 10,
@@ -2355,11 +2350,11 @@
     "name": "Ruins of the Equinox",
     "edition": "fh",
     "monsters": [
-      "earth-demon-fh",
-      "flame-demon-fh",
-      "rending-drake-fh",
-      "savvas-lavaflow-fh",
-      "wind-demon-fh"
+      "earth-demon",
+      "flame-demon",
+      "rending-drake",
+      "savvas-lavaflow",
+      "wind-demon"
     ],
     "lootDeckConfig": {
       "money": 10,
@@ -2375,11 +2370,11 @@
     "name": "The Tempus Forge",
     "edition": "fh",
     "monsters": [
-      "city-guard-fh",
-      "earth-demon-fh",
-      "flame-demon-fh",
-      "frost-demon-fh",
-      "wind-demon-fh"
+      "city-guard",
+      "earth-demon",
+      "flame-demon",
+      "frost-demon",
+      "wind-demon"
     ],
     "lootDeckConfig": {
       "money": 7,
@@ -2397,9 +2392,9 @@
     "edition": "fh",
     "monsters": [
       "flaming-bladespinner",
-      "living-bones-fh",
+      "living-bones",
       "living-doom",
-      "living-spirit-fh",
+      "living-spirit",
       "robotic-boltshooter",
       "ruined-machine",
       "steel-automaton"
@@ -2437,7 +2432,7 @@
     "name": "Furious Factory",
     "edition": "fh",
     "monsters": [
-      "ancient-artillery-fh",
+      "ancient-artillery",
       "flaming-bladespinner",
       "ruined-machine",
       "steel-automaton"
@@ -2456,7 +2451,7 @@
     "edition": "fh",
     "monsters": [
       "living-doom",
-      "living-spirit-fh",
+      "living-spirit",
       "ruined-machine",
       "shrike-fiend"
     ],
@@ -2474,11 +2469,10 @@
     "name": "Ice Cave",
     "edition": "fh",
     "monsters": [
-      "frost-demon-fh",
-      "hound-fh",
-      "night-demon-fh",
-      "savvas-icestorm-fh",
-      "wind-demon-fh"
+      "frost-demon",
+      "hound",
+      "night-demon",
+      "wind-demon"
     ],
     "lootDeckConfig": {
       "money": 10,
@@ -2496,8 +2490,8 @@
     "edition": "fh",
     "monsters": [
       "burrowing-blade",
-      "chaos-demon-fh",
-      "earth-demon-fh",
+      "chaos-demon",
+      "earth-demon",
       "hound-scenario-112"
     ],
     "lootDeckConfig": {
@@ -2514,8 +2508,8 @@
     "name": "Lush Grotto",
     "edition": "fh",
     "monsters": [
-      "chaos-demon-fh",
-      "forest-imp-fh",
+      "chaos-demon",
+      "forest-imp",
       "polar-bear"
     ],
     "lootDeckConfig": {
@@ -2534,7 +2528,7 @@
     "name": "Work Freeze",
     "edition": "fh",
     "monsters": [
-      "hound-fh",
+      "hound",
       "polar-bear",
       "snow-imp"
     ],
@@ -2669,10 +2663,10 @@
     "name": "A Waiting Game",
     "edition": "fh",
     "monsters": [
-      "hound-fh",
+      "hound",
       "polar-bear",
       "vermling-priest",
-      "vermling-scout-fh"
+      "vermling-scout"
     ],
     "lootDeckConfig": {
       "money": 6,
@@ -2689,7 +2683,7 @@
     "edition": "fh",
     "monsters": [
       "frozen-corpse",
-      "living-bones-fh",
+      "living-bones",
       "lurker-mindsnipper",
       "lurker-soldier"
     ],
@@ -2709,9 +2703,9 @@
     "monsters": [
       "burrowing-blade",
       "polar-bear",
-      "rending-drake-fh",
+      "rending-drake",
       "shrike-fiend",
-      "spitting-drake-fh"
+      "spitting-drake"
     ],
     "objectives": [
       {
@@ -2727,12 +2721,12 @@
     "name": "Under the Influence",
     "edition": "fh",
     "monsters": [
-      "city-guard-fh",
-      "hound-fh",
+      "city-guard",
+      "hound",
       "robotic-boltshooter",
       "steel-automaton",
       "vermling-priest",
-      "vermling-scout-fh"
+      "vermling-scout"
     ],
     "lootDeckConfig": {
       "money": 8,
@@ -2746,10 +2740,8 @@
     "name": "Black Memories",
     "edition": "fh",
     "monsters": [
-      "polar-bear",
-      "steel-automaton",
       "vermling-priest",
-      "vermling-scout-fh"
+      "vermling-scout"
     ],
     "lootDeckConfig": {
       "money": 9,
@@ -2766,7 +2758,6 @@
     "name": "The Eternal Crave",
     "edition": "fh",
     "monsters": [
-      "frozen-corpse",
       "ice-wraith",
       "polar-bear",
       "snow-imp"
@@ -2787,8 +2778,7 @@
     "edition": "fh",
     "monsters": [
       "algox-snowspeaker",
-      "ancient-artillery-fh",
-      "ice-wraith"
+      "ancient-artillery"
     ],
     "lootDeckConfig": {
       "money": 9,
@@ -2804,8 +2794,8 @@
     "name": "A Growing Problem",
     "edition": "fh",
     "monsters": [
-      "living-bones-fh",
-      "living-spirit-fh"
+      "living-bones",
+      "living-spirit"
     ],
     "lootDeckConfig": {
       "money": 10,
@@ -2840,7 +2830,7 @@
     "edition": "fh",
     "monsters": [
       "ice-wraith",
-      "living-spirit-fh",
+      "living-spirit",
       "snow-imp"
     ],
     "objectives": [
@@ -2921,7 +2911,7 @@
     "name": "Derelict Freighter",
     "edition": "fh",
     "monsters": [
-      "ancient-artillery-fh",
+      "ancient-artillery",
       "frozen-corpse",
       "ice-wraith"
     ],
@@ -2942,7 +2932,7 @@
       "lurker-wavethrower-scenario-128",
       "snow-imp",
       "steel-automaton-scenario-128",
-      "vermling-scout-fh"
+      "vermling-scout"
     ],
     "lootDeckConfig": {
       "money": 2,
@@ -2962,7 +2952,7 @@
       "algox-guard",
       "algox-priest",
       "algox-scout",
-      "city-guard-fh"
+      "city-guard"
     ],
     "lootDeckConfig": {
       "money": 4,
@@ -2998,7 +2988,6 @@
     "name": "The Dancing Iceberg",
     "edition": "fh",
     "monsters": [
-      "lurker-clawcrusher",
       "lurker-mindsnipper",
       "lurker-soldier",
       "lurker-wavethrower-scenario-131"
@@ -3009,7 +2998,7 @@
     "name": "Temple of Feline Power",
     "edition": "fh",
     "monsters": [
-      "frost-demon-fh",
+      "frost-demon",
       "frozen-corpse",
       "ice-wraith",
       "snow-imp"
@@ -3028,10 +3017,10 @@
     "name": "Bolt",
     "edition": "fh",
     "monsters": [
-      "forest-imp-fh",
+      "forest-imp",
       "polar-bear",
-      "rending-drake-fh",
-      "spitting-drake-fh"
+      "rending-drake",
+      "spitting-drake"
     ],
     "lootDeckConfig": {
       "money": 7,
@@ -3068,11 +3057,10 @@
     "name": "Belara's Keep",
     "edition": "fh",
     "monsters": [
-      "earth-demon-fh",
-      "flame-demon-fh",
-      "rending-drake-fh",
-      "savvas-lavaflow-fh",
-      "sun-demon-fh"
+      "earth-demon",
+      "flame-demon",
+      "rending-drake",
+      "sun-demon"
     ],
     "lootDeckConfig": {
       "money": 7,
@@ -3090,8 +3078,8 @@
     "edition": "fh",
     "monsters": [
       "lightning-eel",
-      "living-bones-fh",
-      "living-spirit-fh",
+      "living-bones",
+      "living-spirit",
       "lurker-wavethrower",
       "piranha-pig"
     ],
@@ -3108,9 +3096,9 @@
     "name": "The Pirate Queen's Lair",
     "edition": "fh",
     "monsters": [
-      "ancient-artillery-fh",
+      "ancient-artillery",
       "flaming-bladespinner",
-      "forest-imp-fh",
+      "forest-imp",
       "piranha-pig",
       "polar-bear",
       "robotic-boltshooter"

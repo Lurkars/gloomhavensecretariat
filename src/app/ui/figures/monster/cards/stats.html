@@ -41,6 +41,10 @@
     </ng-container>
   </div>
 
+  <ghs-drag-click *ngIf="settingsManager.settings.disableStandees && gameManager.gameplayFigure(monster)"
+    class="entity-menu" (singleClick)="openEntityMenu($event)">
+  </ghs-drag-click>
+
   <div class="stats" *ngIf="!monster.boss"
     [ngClass]="{'range' : hideStats(MonsterType.normal) && hideStats(MonsterType.elite) || statsForType(MonsterType.normal).range || statsForType(MonsterType.elite).range}">
     <span class="stat normal bordered" [ngClass]="{'hidden' : hideStats(MonsterType.normal)}"

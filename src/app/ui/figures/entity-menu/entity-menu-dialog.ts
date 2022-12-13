@@ -47,7 +47,7 @@ export class EntityMenuDialogComponent {
   ConditionName = ConditionName;
   ConditionType = ConditionType;
 
-  constructor(@Inject(DIALOG_DATA) public data: { entity: Entity, figure: Figure }, private changeDetectorRef: ChangeDetectorRef, private dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) public data: { entity: Entity | undefined, figure: Figure }, private changeDetectorRef: ChangeDetectorRef, private dialogRef: DialogRef) {
     if (data.entity instanceof Character) {
       this.conditionType = 'character';
     } else if (data.entity instanceof Objective) {
@@ -73,12 +73,14 @@ export class EntityMenuDialogComponent {
 
   changeHealth(value: number) {
     this.health += value;
-    if (this.data.entity.health + this.health > this.data.entity.maxHealth) {
-      this.health = EntityValueFunction('' + this.data.entity.maxHealth) - this.data.entity.health;
-    } else if (this.data.entity.health + this.health < 0) {
-      this.health = - this.data.entity.health;
+    if (this.data.entity) {
+      if (this.data.entity.health + this.health > this.data.entity.maxHealth) {
+        this.health = EntityValueFunction('' + this.data.entity.maxHealth) - this.data.entity.health;
+      } else if (this.data.entity.health + this.health < 0) {
+        this.health = - this.data.entity.health;
+      }
+      gameManager.entityManager.changeHealthHighlightConditions(this.data.entity, this.health);
     }
-    gameManager.entityManager.changeHealthHighlightConditions(this.data.entity, this.health);
   }
 
   changeExperience(value: number) {
@@ -168,11 +170,13 @@ export class EntityMenuDialogComponent {
   }
 
   changeBless(value: number) {
-    if (this.data.entity instanceof Character || this.data.entity instanceof MonsterEntity) {
-      if (this.data.entity instanceof Character) {
-        gameManager.stateManager.before(value < 0 ? "removeBless" : "addBless", "data.character." + this.data.entity.name);
-      } else {
+    if (this.data.figure instanceof Character || this.data.figure instanceof Monster) {
+      if (this.data.figure instanceof Character) {
+        gameManager.stateManager.before(value < 0 ? "removeBless" : "addBless", "data.character." + this.data.figure.name);
+      } else if (this.data.entity instanceof MonsterEntity) {
         gameManager.stateManager.before(value < 0 ? "removeEntityBless" : "addEntityBless", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number);
+      } else {
+        gameManager.stateManager.before(value < 0 ? "removeBless" : "addBless", "data.monster." + this.data.figure.name);
       }
       this.changeAttackModifier(AttackModifierType.bless, value)
       gameManager.stateManager.after();
@@ -180,11 +184,13 @@ export class EntityMenuDialogComponent {
   }
 
   changeCurse(value: number) {
-    if (this.data.entity instanceof Character || this.data.entity instanceof MonsterEntity) {
-      if (this.data.entity instanceof Character) {
-        gameManager.stateManager.before(value < 0 ? "removeCurse" : "addCurse", "data.character." + this.data.entity.name);
-      } else {
+    if (this.data.figure instanceof Character || this.data.figure instanceof Monster) {
+      if (this.data.figure instanceof Character) {
+        gameManager.stateManager.before(value < 0 ? "removeCurse" : "addCurse", "data.character." + this.data.figure.name);
+      } else if (this.data.entity instanceof MonsterEntity) {
         gameManager.stateManager.before(value < 0 ? "removeEntityCurse" : "addEntityCurse", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number);
+      } else {
+        gameManager.stateManager.before(value < 0 ? "removeCurse" : "addCurse", "data.monster." + this.data.figure.name);
       }
       this.changeAttackModifier(AttackModifierType.curse, value)
       gameManager.stateManager.after();
@@ -217,8 +223,10 @@ export class EntityMenuDialogComponent {
 
   changeMaxHealth(value: number) {
     this.maxHp += value;
-    if (EntityValueFunction('' + this.data.entity.maxHealth) + this.maxHp <= 1) {
-      this.maxHp = -EntityValueFunction('' + this.data.entity.maxHealth) + 1;
+    if (this.data.entity) {
+      if (EntityValueFunction('' + this.data.entity.maxHealth) + this.maxHp <= 1) {
+        this.maxHp = -EntityValueFunction('' + this.data.entity.maxHealth) + 1;
+      }
     }
   }
 
@@ -320,11 +328,17 @@ export class EntityMenuDialogComponent {
   }
 
   markers(): string[] {
-    return [...gameManager.markers(), ...this.data.entity.markers].filter((marker, index, self) => index == self.indexOf(marker));
+    if (this.data.entity) {
+      return [...gameManager.markers(), ...this.data.entity.markers].filter((marker, index, self) => index == self.indexOf(marker));
+    }
+    return [];
   }
 
-  hasMarker(marker: string) {
-    return gameManager.entityManager.hasMarker(this.data.entity, marker);
+  hasMarker(marker: string): boolean {
+    if (this.data.entity) {
+      return gameManager.entityManager.hasMarker(this.data.entity, marker);
+    }
+    return false;
   }
 
   toggleCharacterMarker() {
@@ -336,19 +350,20 @@ export class EntityMenuDialogComponent {
   }
 
   toggleMarker(marker: string) {
-    if (this.data.entity instanceof MonsterEntity) {
-      gameManager.stateManager.before(this.hasMarker(marker) ? "removeEntityMarker" : "addEntityMarker", "data.monster." + this.data.figure.name, "" + this.data.entity.number, "data.character." + marker.split('-')[1]);
-    } else if (this.data.entity instanceof Character) {
-      gameManager.stateManager.before(this.hasMarker(marker) ? "removeMarker" : "addMarker", "data.character." + this.data.entity.name, "data.character." + marker.split('-')[1]);
-    } else if (this.data.entity instanceof Summon) {
-      gameManager.stateManager.before(this.hasMarker(marker) ? "removeSummonMarker" : "addSummonMarker", "data.character." + this.data.figure.name, "data.summon." + this.data.entity.name, "data.character." + marker.split('-')[1]);
-    } else if (this.data.entity instanceof Objective) {
-      gameManager.stateManager.before(this.hasMarker(marker) ? "removeObjectiveMarker" : "addObjectiveMarker", this.data.entity.title || this.data.entity.name, "data.character." + marker.split('-')[1]);
+    if (this.data.entity) {
+      if (this.data.entity instanceof MonsterEntity) {
+        gameManager.stateManager.before(this.hasMarker(marker) ? "removeEntityMarker" : "addEntityMarker", "data.monster." + this.data.figure.name, "" + this.data.entity.number, "data.character." + marker.split('-')[1]);
+      } else if (this.data.entity instanceof Character) {
+        gameManager.stateManager.before(this.hasMarker(marker) ? "removeMarker" : "addMarker", "data.character." + this.data.entity.name, "data.character." + marker.split('-')[1]);
+      } else if (this.data.entity instanceof Summon) {
+        gameManager.stateManager.before(this.hasMarker(marker) ? "removeSummonMarker" : "addSummonMarker", "data.character." + this.data.figure.name, "data.summon." + this.data.entity.name, "data.character." + marker.split('-')[1]);
+      } else if (this.data.entity instanceof Objective) {
+        gameManager.stateManager.before(this.hasMarker(marker) ? "removeObjectiveMarker" : "addObjectiveMarker", this.data.entity.title || this.data.entity.name, "data.character." + marker.split('-')[1]);
+      }
+
+      gameManager.entityManager.toggleMarker(this.data.entity, marker);
+      gameManager.stateManager.after();
     }
-
-    gameManager.entityManager.toggleMarker(this.data.entity, marker);
-    gameManager.stateManager.after();
-
   }
 
   toggleSummon() {

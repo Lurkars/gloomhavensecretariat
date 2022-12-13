@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
+import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from "@angular/core";
 
 import { Action, ActionType } from "src/app/game/model/Action";
 import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType } from "src/app/game/model/AttackModifier";
@@ -9,7 +9,7 @@ import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackM
   styleUrls: ['./attackmodifier.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AttackModifierComponent implements OnInit {
+export class AttackModifierComponent implements OnInit, OnChanges {
 
   @Input() attackModifier!: AttackModifier;
   @Input() characterIcon!: string;
@@ -21,6 +21,7 @@ export class AttackModifierComponent implements OnInit {
   AttackModifierType = AttackModifierType;
   AttackModifierEffectType = AttackModifierEffectType;
   defaultType: boolean = true;
+  animate: boolean = false;
 
   ngOnInit(): void {
     if (this.attackModifier) {
@@ -42,6 +43,13 @@ export class AttackModifierComponent implements OnInit {
 
   onChange(revealed: boolean) {
     this.attackModifier.revealed = revealed;
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const flipped = changes['flipped'];
+    if (flipped && !flipped.firstChange && flipped.currentValue != flipped.previousValue) {
+      this.animate = true;
+    }
   }
 
   getTarget(effect: AttackModifierEffect): string {

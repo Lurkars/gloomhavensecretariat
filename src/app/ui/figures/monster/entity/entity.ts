@@ -77,10 +77,6 @@ export class MonsterEntityComponent {
     gameManager.stateManager.after();
   }
 
-  click(event: any): void {
-    this.openEntityMenu(event);
-  }
-
   doubleClick(event: any): void {
     if (settingsManager.settings.activeStandees) {
       gameManager.stateManager.before(this.entity.active ? "unsetEntityActive" : "setEntityActive", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number);

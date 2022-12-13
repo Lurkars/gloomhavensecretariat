@@ -48,6 +48,8 @@
       border: none !important;
 
       .ghs-svg {
+        width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
         filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
       }
 

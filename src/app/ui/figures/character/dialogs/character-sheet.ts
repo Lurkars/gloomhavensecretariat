@@ -83,7 +83,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
 
     this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.retirements;
 
-    this.perksWip = this.character.perks.length == 0 || this.character.perks.map((perk) => perk.count).reduce((a, b) => a + b) != 15;
+    this.perksWip = this.character.perks.length == 0 || this.character.perks.map((perk) => perk.count).reduce((a, b) => a + b) != (this.character.edition == 'fh' ? 18 : 15);
 
     this.updateItems();
     this.itemChange();
@@ -371,7 +371,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     let html = "";
     attackModifier = new AttackModifier(attackModifier.type, attackModifier.id, attackModifier.effects, attackModifier.rolling);
 
-    if (attackModifier.rolling) {
+    if (!settingsManager.settings.fhStyle && attackModifier.rolling) {
       html += '<span class="attack-modifier-effect rolling">&zwj;<img class="action-icon sw" src="./assets/images/attackmodifier/rolling.svg"></span>';
     }
 
@@ -392,6 +392,10 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
       attackModifier.effects.forEach((effect) => {
         html += this.attackModifierEffectHtml(effect);
       })
+    }
+
+    if (settingsManager.settings.fhStyle && attackModifier.rolling) {
+      html += '<span class="attack-modifier-effect rolling">&zwj;<img class="action-icon sw" src="./assets/images/attackmodifier/rolling.svg"></span>';
     }
 
     return html;
@@ -477,7 +481,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
         html += '"';
         return html;
       default:
-        html += '<span class="placeholder attack-modifier-effect default ' + effect.type + '">' + settingsManager.getLabel('game.action.' + effect.type) + '<img  class="action-icon" src="./assets/images/action/' + effect.type + '.svg"><span class="value">' + effect.value + '</span></span>';
+        html += '<span class="placeholder attack-modifier-effect default ' + effect.type + '">' + (settingsManager.settings.fhStyle ? '' : settingsManager.getLabel('game.action.' + effect.type)) + '<img  class="action-icon" src="./assets/images/action/' + effect.type + '.svg"><span class="value">' + effect.value + '</span></span>';
         break;
     }
 

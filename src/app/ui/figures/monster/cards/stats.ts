@@ -1,7 +1,7 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { gameManager } from 'src/app/game/businesslogic/GameManager';
+import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ActionType } from 'src/app/game/model/Action';
 import { FigureError, FigureErrorType } from 'src/app/game/model/FigureError';
@@ -9,6 +9,7 @@ import { Monster } from 'src/app/game/model/Monster';
 import { MonsterStat } from 'src/app/game/model/MonsterStat';
 import { MonsterType } from 'src/app/game/model/MonsterType';
 import { ghsDefaultDialogPositions } from 'src/app/ui/helper/Static';
+import { EntityMenuDialogComponent } from '../../entity-menu/entity-menu-dialog';
 import { MonsterLevelDialogComponent } from '../dialogs/level-dialog';
 
 @Component({
@@ -23,6 +24,7 @@ export class MonsterStatsComponent implements OnInit {
   @Input() forceStats: boolean = false;
   @Input() relative: boolean = false;
   MonsterType = MonsterType;
+  gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
   stats: MonsterStat | undefined = undefined;
@@ -32,7 +34,7 @@ export class MonsterStatsComponent implements OnInit {
 
   @ViewChild('levelButton', { read: ElementRef }) levelButton!: ElementRef;
 
-  constructor(private dialog: Dialog, private overlay: Overlay) { }
+  constructor(private dialog: Dialog, private overlay: Overlay, private element: ElementRef) { }
 
 
   ngOnInit(): void {
@@ -97,4 +99,14 @@ export class MonsterStatsComponent implements OnInit {
     })
   }
 
+  openEntityMenu(event: any): void {
+    const dialogRef = this.dialog.open(EntityMenuDialogComponent, {
+      panelClass: 'dialog',
+      data: {
+        entity: undefined,
+        figure: this.monster
+      },
+      positionStrategy: this.overlay.position().flexibleConnectedTo(this.element).withPositions(ghsDefaultDialogPositions())
+    });
+  }
 }
