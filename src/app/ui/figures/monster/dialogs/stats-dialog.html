@@ -1,5 +1,5 @@
 <div class="stats-dialog">
-  <span class="name">{{'data.monster.' + monster.name | ghsLabel}} <span class="edition"
+  <span class="name">{{'data.monster.' + monster.name | ghsLabel}}  <span *ngIf="monster.isAlly">({{'game.ally' | ghsLabel}})</span> <span class="edition"
       *ngIf="getEdition()">[{{'data.edition.' + getEdition()| ghsLabel}}]</span>
   </span>
   <div class="stats-container">

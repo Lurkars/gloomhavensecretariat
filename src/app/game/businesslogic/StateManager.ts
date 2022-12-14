@@ -182,6 +182,7 @@ export class StateManager {
       this.ws = new WebSocket(this.buildWsUrl(protocol, settingsManager.settings.serverUrl, settingsManager.settings.serverPort));
       this.ws.onmessage = this.onMessage;
       this.ws.onopen = this.onOpen;
+      this.ws.onclose = this.onClose;
     }
   }
 
@@ -274,6 +275,10 @@ export class StateManager {
         ws.send(JSON.stringify(message));
       }
     }
+  }
+
+  onClose(ev: Event) {
+    gameManager.game.server = false;
   }
 
   requestSettings() {

@@ -22,7 +22,8 @@
     </ng-container>
     <ng-container *ngIf="gameManager.isMonster(data.figure) ">
       <img class="standee" [src]="gameManager.monsterManager.monsterThumbnail(gameManager.toMonster(data.figure))" />
-      {{'data.monster.' + data.figure.name | ghsLabel}}&nbsp;
+      {{'data.monster.' + data.figure.name | ghsLabel}}&nbsp;<span
+        *ngIf="gameManager.toMonster(data.figure).isAlly">({{'game.ally' | ghsLabel}})&nbsp;</span>
       <span class="standee-number" *ngIf="data.entity && gameManager.isMonsterEntity(data.entity)"
         [ngClass]="gameManager.toMonsterEntity(data.entity).type">#{{gameManager.toMonsterEntity(data.entity).number}}</span>
     </ng-container>

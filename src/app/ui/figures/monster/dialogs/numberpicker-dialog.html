@@ -3,7 +3,7 @@
     {{'data.monster.' + monster.name | ghsLabel}}
   </span>
   <span [ngClass]="{'elite' : type == MonsterType.elite, 'boss' : type == MonsterType.boss }">
-    {{'monster.addEntity.' + type | ghsLabel}}
+    {{(monster.isAlly ? 'game.ally.addEntity.': 'monster.addEntity.') + type | ghsLabel}}
   </span>
 </div>
 

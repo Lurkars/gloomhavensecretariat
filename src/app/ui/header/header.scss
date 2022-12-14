@@ -50,6 +50,15 @@ header {
     cursor: pointer;
   }
 
+  .game-server {
+    color: var(--ghs-color-white);
+    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    align-self: center;
+    margin-top: calc(var(--ghs-unit) * -0.75 * var(--ghs-text-factor) * var(--ghs-barsize));
+    margin-left: calc(var(--ghs-unit) * -1.2 * var(--ghs-text-factor) * var(--ghs-barsize));
+    margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+  }
+
   .server-connection {
 
     width: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor) * var(--ghs-barsize));

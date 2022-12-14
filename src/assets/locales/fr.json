@@ -166,7 +166,14 @@
       "trigger": "Déclenchement"
     },
     "affect": "Affecte",
-    "ally": "Allié",
+    "ally": {
+      ".": "Allié",
+      "addEntity": {
+        "boss": "Générer un Boss",
+        "elite": "Générer un allié d'élite",
+        "normal": "Générer un allié normal"
+      }
+    },
     "attackModifiers": {
       ".": "Paquet de Modificateur d'Attaque",
       "effects": {

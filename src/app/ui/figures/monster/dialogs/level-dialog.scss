@@ -71,5 +71,33 @@
     .max-health {
       right: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
     }
+
+    .toggle-ally {
+      position: relative;
+      width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+      height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 4;
+
+      img {
+        width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+        height: auto;
+      }
+
+      &.ally::after {
+        content: ' ';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+        transform: translate(-50%, -50%);
+        background-color: var(--ghs-color-red);
+        clip-path: polygon(10% 0, 0 10%, 40% 50%, 0 90%, 10% 100%, 50% 60%, 90% 100%, 100% 90%, 60% 50%, 100% 10%, 90% 0, 50% 40%);
+      }
+    }
   }
 }

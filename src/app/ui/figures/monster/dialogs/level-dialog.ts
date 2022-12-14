@@ -6,11 +6,11 @@ import { Monster } from 'src/app/game/model/Monster';
 @Component({
   selector: 'ghs-monster-level-dialog',
   templateUrl: './level-dialog.html',
-  styleUrls: [ './level-dialog.scss' ]
+  styleUrls: ['./level-dialog.scss']
 })
 export class MonsterLevelDialogComponent {
 
-  levels: number[] = [ 0, 1, 2, 3, 4, 5, 6, 7 ];
+  levels: number[] = [0, 1, 2, 3, 4, 5, 6, 7];
   gameManager: GameManager = gameManager;
 
   constructor(@Inject(DIALOG_DATA) public monster: Monster, private dialogRef: DialogRef<number>) { }
@@ -23,5 +23,10 @@ export class MonsterLevelDialogComponent {
     return gameManager.getEdition(this.monster);
   }
 
+  toggleAlly() {
+    gameManager.stateManager.before(this.monster.isAlly ? "unsetAlly" : "setAlly", "data.monster." + this.monster.name);
+    this.monster.isAlly = !this.monster.isAlly;
+    gameManager.stateManager.after();
+  }
 
 }

@@ -176,7 +176,7 @@
           <ng-container *ngFor="let monster of monsters()">
             <label [ngClass]="{'disabled' : gameManager.stateManager.permissions}">
               <input type="checkbox" [checked]="hasMonster(monster)" (change)="toggleMonster(monster)">
-              {{'data.monster.' + monster.name | ghsLabel}}<span class="edition"
+              {{'data.monster.' + monster.name | ghsLabel}}  <span *ngIf="monster.isAlly">({{'game.ally' | ghsLabel}})</span> <span class="edition"
                 *ngIf="gameManager.getEdition(monster)">&nbsp;[{{'data.edition.' + gameManager.getEdition(monster) |
                 ghsLabel}}]</span>
             </label>

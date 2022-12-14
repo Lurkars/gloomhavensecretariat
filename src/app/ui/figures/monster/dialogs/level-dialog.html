@@ -1,7 +1,8 @@
 <div class="level-dialog">
   <span class="title">
-    <span class="name">{{'data.monster.' + monster.name | ghsLabel}} <span class="edition"
-        *ngIf="getEdition()">[{{'data.edition.' + getEdition()| ghsLabel}}]</span>
+    <span class="name">{{'data.monster.' + monster.name | ghsLabel}} <span *ngIf="monster.isAlly">({{'game.ally' |
+        ghsLabel}})</span> <span class="edition" *ngIf="getEdition()">[{{'data.edition.' + getEdition()|
+        ghsLabel}}]</span>
     </span>
     {{'game.level' | ghsLabel}}
   </span>
@@ -10,5 +11,7 @@
     <span *ngFor="let level of levels;"><a class="level"
         [ngClass]="{'current' : level == gameManager.game.level,  'active' : level == monster.level}"
         (click)="setLevel(level)">{{level}}</a></span>
+    <span class="toggle-ally" [ngClass]="{'ally' : monster.isAlly}" (click)="toggleAlly()"><img
+        src="./assets/images/monster/enemy.png" /></span>
   </div>
 </div>

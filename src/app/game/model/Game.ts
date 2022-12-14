@@ -34,6 +34,7 @@ export class Game {
   parties: Party[];
   lootDeck: LootDeck = new LootDeck();
   lootDeckEnhancements: Loot[] = [];
+  server: boolean = false;
 
   constructor() {
     this.elementBoard = JSON.parse(JSON.stringify(defeaultElementBoard));
@@ -42,7 +43,7 @@ export class Game {
   }
 
   toModel(): GameModel {
-    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario && gameManager.scenarioManager.toModel(this.scenario, this.scenario.custom, this.scenario.custom ? this.scenario.name : "") || undefined, this.sections.map((sectionData) => gameManager.scenarioManager.toModel(sectionData)), this.scenarioRules, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.round, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party, this.parties, this.lootDeck, this.lootDeckEnhancements);
+    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario && gameManager.scenarioManager.toModel(this.scenario, this.scenario.custom, this.scenario.custom ? this.scenario.name : "") || undefined, this.sections.map((sectionData) => gameManager.scenarioManager.toModel(sectionData)), this.scenarioRules, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.round, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party, this.parties, this.lootDeck, this.lootDeckEnhancements, this.server);
   }
 
   fromModel(model: GameModel, server: boolean = false) {
@@ -165,6 +166,8 @@ export class Game {
     }
 
     this.lootDeckEnhancements = model.lootDeckEnhancements || [];
+
+    this.server = model.server;
   }
 }
 
@@ -200,6 +203,7 @@ export class GameModel {
   parties: Party[];
   lootDeck: LootDeck;
   lootDeckEnhancements: Loot[];
+  server: boolean;
 
   constructor(edition: string | undefined = undefined,
     figures: string[] = [],
@@ -225,7 +229,8 @@ export class GameModel {
     party: Party = new Party(),
     parties: Party[] = [],
     lootDeck: LootDeck = new LootDeck(),
-    lootDeckEnhancements: Loot[] = []) {
+    lootDeckEnhancements: Loot[] = [],
+    server: boolean = false) {
     this.edition = edition;
     this.figures = figures;
     this.characters = characters;
@@ -250,7 +255,8 @@ export class GameModel {
     this.party = JSON.parse(JSON.stringify(party));
     this.parties = JSON.parse(JSON.stringify(parties));
     this.lootDeck = JSON.parse(JSON.stringify(lootDeck));
-    this.lootDeckEnhancements = JSON.parse(JSON.stringify(lootDeckEnhancements))
+    this.lootDeckEnhancements = JSON.parse(JSON.stringify(lootDeckEnhancements));
+    this.server = server;
   }
 
 }

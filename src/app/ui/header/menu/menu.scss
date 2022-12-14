@@ -91,6 +91,12 @@
       }
     }
 
+    .ghs-svg {
+      width: 1em;
+      height: auto;
+      filter: var(--ghs-filter-white);
+    }
+
     a,
     label {
       cursor: pointer;

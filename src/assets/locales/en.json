@@ -273,7 +273,14 @@
       "trigger": "Trigger"
     },
     "affect": "Affect",
-    "ally": "Ally",
+    "ally": {
+      ".": "Ally",
+      "addEntity": {
+        "boss": "Spawn Boss Ally",
+        "elite": "Spawn Elite Ally",
+        "normal": "Spawn Normal Ally"
+      }
+    },
     "attackModifiers": {
       ".": "Attack Modifier Deck",
       "effects": {
