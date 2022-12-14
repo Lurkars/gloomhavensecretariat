@@ -166,7 +166,14 @@
       "trigger": "Auslöser"
     },
     "affect": "Visiere",
-    "ally": "Verbündeter",
+    "ally": {
+      ".": "Verbündeter",
+      "addEntity": {
+        "boss": "Boss Verbündeten platzieren",
+        "elite": "Elite Verbündeten platzieren",
+        "normal": "Normalen Verbündeten platzieren"
+      }
+    },
     "attackModifiers": {
       ".": "Angriffsmodifikatordeck",
       "effects": {
