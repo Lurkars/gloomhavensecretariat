@@ -79,7 +79,6 @@ export class EntityMenuDialogComponent {
       } else if (this.data.entity.health + this.health < 0) {
         this.health = - this.data.entity.health;
       }
-      gameManager.entityManager.changeHealthHighlightConditions(this.data.entity, this.health);
     }
   }
 

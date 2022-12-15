@@ -169,7 +169,7 @@
     }
 
     ghs-highlight-conditions {
-      z-index: 3;
+      z-index: 5;
       position: absolute;
       bottom: 0;
       width: calc(var(--ghs-unit) * 8 * var(--ghs-text-factor));
