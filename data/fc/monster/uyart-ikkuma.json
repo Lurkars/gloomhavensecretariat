@@ -26,10 +26,6 @@
         "value": "wound"
       }
     ],
-    "immunities": [
-      "stun",
-      "poison"
-    ],
     "special": []
   },
   "stats": [

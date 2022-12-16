@@ -7,10 +7,6 @@
   "count": 6,
   "baseStat": {
     "type": "boss",
-    "immunities": [
-      "stun",
-      "wound"
-    ],
     "special": []
   },
   "stats": [

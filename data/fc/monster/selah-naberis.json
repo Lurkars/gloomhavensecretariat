@@ -16,10 +16,6 @@
         "value": "C"
       }
     ],
-    "immunities": [
-      "stun",
-      "disarm"
-    ],
     "special": []
   },
   "stats": [
