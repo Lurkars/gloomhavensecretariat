@@ -152,6 +152,34 @@
     }
   }
 
+  @keyframes attackmodifier-active {
+    0% {
+      transform: translateX(-61.85%) rotate(-25deg);
+    }
+
+    70% {
+      transform: translateX(-61.85%) rotate(-25deg);
+    }
+
+    100% {
+      transform: rotate(-25deg);
+    }
+  }
+
+  @keyframes attackmodifier-active-reverse {
+    0% {
+      transform: translateX(61.85%) rotate(-25deg);
+    }
+
+    70% {
+      transform: translateX(61.85%) rotate(-25deg);
+    }
+
+    100% {
+      transform: rotate(-25deg);
+    }
+  }
+
   .current {
     position: absolute;
     top: 0;
@@ -221,9 +249,21 @@
       animation-iteration-count: 1;
     }
 
-    .disgarded.rolling {
+    .animate.rolling {
       cursor: wait !important;
       animation: attackmodifier-rolling 1800ms ease-in-out;
+      animation-iteration-count: 1;
+    }
+
+    .animate.active {
+      cursor: wait !important;
+      animation: attackmodifier-active 1800ms ease-in-out;
+      animation-iteration-count: 1;
+    }
+
+    .animate-reverse.active {
+      cursor: wait !important;
+      animation: attackmodifier-active-reverse 1800ms ease-in-out;
       animation-iteration-count: 1;
     }
   }

@@ -145,24 +145,24 @@ export class AttackModifierDeckComponent implements OnInit {
     event.stopPropagation();
   }
 
-  rollingIndex(index: number): number {
+  rollingIndex(index: number, current: number): number {
     const am: AttackModifier = this.deck.cards[index];
     if (!am.rolling || am.active && this.deck.disgarded.indexOf(index) != -1) {
       return 0;
     }
 
-    if (index == this.current - 2) {
+    if (index == current - 2) {
       return 2;
-    } else if (index < this.current - 2 && !am.active && this.deck.cards.slice(index, this.current - 1).every((attackModifier) => attackModifier.rolling)) {
-      return this.current - index;
-    } else if (index < this.current && am.active) {
+    } else if (index < current - 2 && !am.active && this.deck.cards.slice(index, current - 1).every((attackModifier) => attackModifier.rolling)) {
+      return current - index;
+    } else if (index < current && am.active) {
       let rolling = 0;
-      let rollingIndex = this.current - 2;
-      while (this.deck.cards[rollingIndex].rolling && !this.deck.cards[rollingIndex].active) {
+      let rollingIndex = current - 2;
+      while (rollingIndex > -1 && this.deck.cards[rollingIndex].rolling && !this.deck.cards[rollingIndex].active) {
         rollingIndex--;
         rolling++;
       }
-      return 1 + this.deck.cards.slice(index, this.current - 1).filter((attackModifier) => attackModifier.active && this.deck.disgarded.indexOf(this.deck.cards.indexOf(attackModifier)) == -1).length + rolling;
+      return 1 + this.deck.cards.slice(index, current - 1).filter((attackModifier) => attackModifier.active && this.deck.disgarded.indexOf(this.deck.cards.indexOf(attackModifier)) == -1).length + rolling;
     }
 
     return 0;

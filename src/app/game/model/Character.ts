@@ -183,7 +183,7 @@ export class Character extends CharacterData implements Entity, Figure {
       changed = true;
     }
 
-    if (!this.attackModifierDeck.disgarded.every((value, index) => attackModifierDeck.disgarded.indexOf(value) == index)) {
+    if (attackModifierDeck.disgarded.length != this.attackModifierDeck.disgarded.length || !attackModifierDeck.disgarded.every((value, index) => this.attackModifierDeck.disgarded.indexOf(value) == index)) {
       this.attackModifierDeck.disgarded = attackModifierDeck.disgarded;
       changed = true;
     }
