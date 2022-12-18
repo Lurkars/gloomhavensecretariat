@@ -63,6 +63,10 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       } else if (type == "attackmodifier" && split.length == 3) {
         image = '<img  src="./assets/images/attackmodifier/icons/' + split[2] + '.png" class="icon">';
         replace = '<span class="placeholder-attackmodifier">' + image + '</span>';
+      } else if (type == "characterIcon" && split.length == 3) {
+        let characterName = split[2];
+        image = '<img src="' + gameManager.characterManager.characterIcon(characterName) + '">';
+        replace = '<span class="placeholder-character-icon">' + image + '</span>';
       } else if (type == "characterToken" && split.length == 3) {
         let characterName = split[2];
         image = '<img src="' + gameManager.characterManager.characterIcon(characterName) + '">';
@@ -133,7 +137,7 @@ export const applyFhPlaceholder = function (value: string, placeholder: string[]
         image = '<img class="ghs-svg" src="./assets/images/initiative.svg"></span>'
         replace = '<span class="placeholder-initiative">' + split[2] + image + '</span>';
       } else if (type == "action" && split.length == 4) {
-        image = '<img  src="./assets/images/fh/action/' + split[2] + '/' + split[3] + '.svg" class="icon ghs-svg">';
+        image = '<img  src="./assets/images/action/' + split[2] + '/' + split[3] + '.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-perk">' + image + '</span>';
       } else if (type == "card" && split.length == 3) {
         let card = split[2]
@@ -148,6 +152,10 @@ export const applyFhPlaceholder = function (value: string, placeholder: string[]
       } else if (type == "attackmodifier" && split.length == 3) {
         image = '<img  src="./assets/images/attackmodifier/icons/' + split[2] + '.png" class="icon">';
         replace = '<span class="placeholder-attackmodifier">' + image + '</span>';
+      } else if (type == "characterIcon" && split.length == 3) {
+        let characterName = split[2];
+        image = '<img src="' + gameManager.characterManager.characterIcon(characterName) + '">';
+        replace = '<span class="placeholder-character-icon">' + image + '</span>';
       } else if (type == "characterToken" && split.length == 3) {
         let characterName = split[2];
         image = '<img src="' + gameManager.characterManager.characterIcon(characterName) + '">';

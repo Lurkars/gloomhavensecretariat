@@ -247,7 +247,8 @@
     {
       "type": "custom",
       "custom": "Once each scenario, during your turn, gain %game.action.shield% 2 for the round",
-      "count": 2
+      "count": 2,
+      "combined": true
     }
   ]
 }

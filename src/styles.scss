@@ -534,9 +534,15 @@ a {
 }
 
 .immunity {
+  position: relative;
+
   img {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
+    z-index: 1;
   }
 
   &::before {
@@ -549,6 +555,7 @@ a {
     height: 100%;
     background-image: url('~src/assets/images/condition/immunity.svg');
     background-size: cover;
+    z-index: 2;
   }
 }
 
@@ -794,6 +801,23 @@ input[type="radio"] {
       margin: 0;
     }
 
+  }
+
+  .placeholder-character-icon {
+    position: relative;
+    top: 0.1em;
+    display: inline-flex;
+    height: 1em;
+    width: 1em;
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 190%;
+      height: auto;
+      filter: brightness(0);
+    }
   }
 
   .placeholder-character-token {

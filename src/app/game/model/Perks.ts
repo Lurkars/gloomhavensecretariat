@@ -4,6 +4,7 @@ export class Perk {
 
   type: PerkType = PerkType.custom;
   count: number = 0;
+  combined: boolean = false;
   custom: string = "";
   cards: PerkCard[] = [];
 }

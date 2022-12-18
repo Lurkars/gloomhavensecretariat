@@ -88,5 +88,121 @@
       "movement": 3
     }
   ],
-  "perks": []
+  "perks": [
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "curse"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "poison"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "Kill the attack summon to instead add %game.attackmodifier.plus4%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "heal",
+                "value": 1,
+                "effects": [
+                  {
+                    "type": "custom",
+                    "value": "%game.action.target% %data.characterIcon.boneshaper%"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
 }

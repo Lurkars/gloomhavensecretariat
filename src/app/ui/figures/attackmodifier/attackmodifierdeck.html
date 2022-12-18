@@ -15,9 +15,10 @@
     </div>
   </div>
   <ng-container *ngFor="let attackModifier of deck.cards; let index = index;">
-    <div class="am-container" *ngIf="index <= current + 1 && (rollingIndex(index) > 0 || index > current - 3)"
+    <div class="am-container"
+      *ngIf="index <= current + 1 && (rollingIndex(index) > 0 || index > current - 3 || index >= current && attackModifier.active && deck.disgarded.indexOf(index) == -1)"
       [style.z-index]="index > current ? deck.cards.length - index : deck.cards.length + index + 1"
-      [ngClass]="{'disgarded' : index < current - 1, 'current' : index == current, 'last' : index == current - 1, 'bottom' : bottom, 'rolling' : attackModifier.rolling && index <= current, 'open-dialog' : index <= current}"
+      [ngClass]="{'disgarded' : index < current - 1, 'current' : index == current, 'last' : index == current - 1, 'bottom' : bottom, 'rolling' : attackModifier.rolling && index <= current, 'active' : attackModifier.active && index <= current, 'disgard-active': deck.disgarded.indexOf(index) != -1}"
       [style.left]="attackModifier.rolling && !vertical && rollingIndex(index) ?  'calc(75% + ' + (rollingIndex(index) - 1) + ' * 25%)' : ''"
       [style.top]="attackModifier.rolling && vertical && rollingIndex(index) ?  'calc(' + (rollingIndex(index) - 1) * (drawCard.offsetHeight / 1.3) + 'px)' : ''"
       title="{{'game.cards.openDialog' | ghsLabel}}" (click)="clickCard(index, $event)">

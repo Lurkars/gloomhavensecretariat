@@ -56,8 +56,8 @@ export class FooterComponent implements OnInit {
       }
       this.currentTime += (this.currentTime && seconds < 10 ? '0' : '') + Math.floor(seconds) + "s";
 
-      // store every 5 seconds
-      if ((new Date().getTime() / 1000 - gameManager.stateManager.lastSaveTimestamp / 1000) > 5) {
+      // store every 30 (5 on server) seconds
+      if ((new Date().getTime() / 1000 - gameManager.stateManager.lastSaveTimestamp / 1000) >  (gameManager.game.server ? 5 : 30)) {
         if (gameManager.game.server) {
           gameManager.stateManager.after();
         } else {

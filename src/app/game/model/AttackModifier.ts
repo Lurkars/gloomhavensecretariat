@@ -31,14 +31,16 @@ export class AttackModifier {
   shuffle: boolean = false;
   effects: AttackModifierEffect[];
   rolling: boolean;
+  active: boolean;
   revealed: boolean = false;
   character: boolean = false;
 
-  constructor(type: AttackModifierType, id: string | undefined = undefined, effects: AttackModifierEffect[] = [], rolling: boolean = false) {
+  constructor(type: AttackModifierType, id: string | undefined = undefined, effects: AttackModifierEffect[] = [], rolling: boolean = false, active: boolean = false) {
     this.type = type;
     this.id = id || type;
     this.effects = effects;
     this.rolling = rolling;
+    this.active = active;
     switch (type) {
       case AttackModifierType.plus0:
         this.value = 0;
@@ -153,6 +155,7 @@ export class AttackModifierDeck {
   attackModifiers: AttackModifier[];
   current: number;
   cards: AttackModifier[];
+  disgarded: number[] = [];
 
   constructor() {
     this.attackModifiers = JSON.parse(JSON.stringify(defaultAttackModifier));
@@ -169,7 +172,7 @@ export class AttackModifierDeck {
   }
 
   toModel(): GameAttackModifierDeckModel {
-    return new GameAttackModifierDeckModel(this.current, this.cards.map((attackModifier) => attackModifier && attackModifier.id || ""));
+    return new GameAttackModifierDeckModel(this.current, this.cards.map((attackModifier) => attackModifier && attackModifier.id || ""), this.disgarded || []);
   }
 
   fromModel(model: GameAttackModifierDeckModel) {
@@ -178,16 +181,21 @@ export class AttackModifierDeck {
     }
 
     this.cards = model.cards.map((id) => this.cardById(id) || new AttackModifier(AttackModifierType.invalid));
+    console.log(model.disgarded);
+    this.disgarded = model.disgarded || [];
   }
 }
 
 export class GameAttackModifierDeckModel {
   current: number;
   cards: string[];
+  disgarded: number[];
 
   constructor(current: number,
-    cards: string[]) {
+    cards: string[],
+    disgarded: number[]) {
     this.current = current;
     this.cards = cards;
+    this.disgarded = JSON.parse(JSON.stringify(disgarded));
   }
 }

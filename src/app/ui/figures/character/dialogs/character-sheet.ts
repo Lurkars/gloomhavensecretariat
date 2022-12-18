@@ -406,7 +406,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
 
     switch (effect.type) {
       case AttackModifierEffectType.condition:
-        html += '<span class="attack-modifier-effect condition">' + settingsManager.getLabel('game.condition.' + effect.value) + '<img class="action-icon sw" src="./assets/images/condition/' + effect.value + '.svg"></span>';
+        html += '<span class="attack-modifier-effect condition">' + (settingsManager.settings.fhStyle ? '' : settingsManager.getLabel('game.condition.' + effect.value)) + '<img class="action-icon sw" src="./assets/images/condition/' + effect.value + '.svg"></span>';
         break;
       case AttackModifierEffectType.element:
         html += '<span class="attack-modifier-effect element"><img class="action-icon sw" src="./assets/images/element/' + effect.value + '.svg"></span>';

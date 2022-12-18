@@ -171,6 +171,14 @@
     &.rolling:hover {
       z-index: 100 !important;
     }
+
+    &.active:not(.last) {
+      transform: rotate(-25deg);
+    }
+  }
+
+  .disgard-active {
+    filter: grayscale(0.3);
   }
 
   &.open-dialog {
