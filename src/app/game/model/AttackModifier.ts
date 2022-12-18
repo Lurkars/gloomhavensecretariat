@@ -181,7 +181,6 @@ export class AttackModifierDeck {
     }
 
     this.cards = model.cards.map((id) => this.cardById(id) || new AttackModifier(AttackModifierType.invalid));
-    console.log(model.disgarded);
     this.disgarded = model.disgarded || [];
   }
 }
