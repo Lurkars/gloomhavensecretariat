@@ -816,7 +816,16 @@ input[type="radio"] {
     img {
       width: 190%;
       height: auto;
-      filter: brightness(0);
+      filter: brightness(0) var(--ghs-filter-shadow);
+    }
+  }
+
+  &.text-white {
+
+    .placeholder-character-icon {
+      img {
+        filter: brightness(99) var(--ghs-filter-shadow);
+      }
     }
   }
 

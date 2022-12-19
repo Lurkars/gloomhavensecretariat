@@ -229,6 +229,16 @@
           top: 20%;
         }
 
+
+        &.new-style {
+          .type {
+            display: none;
+          }
+
+          .custom-value-container {
+            top: 0;
+          }
+        }
       }
 
       .value {
@@ -273,11 +283,6 @@
           }
         }
       }
-    }
-
-    .sub-effects {
-      position: absolute;
-      bottom: 0;
     }
   }
 }

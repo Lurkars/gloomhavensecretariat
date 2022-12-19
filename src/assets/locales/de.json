@@ -744,7 +744,7 @@
     },
     "scenarioRules": {
       ".": "Szenario Regeln einblenden",
-      "hint": ""
+      "hint": "Zeigt Popup-Fenster mit speziellen Szenario Regeln an"
     },
     "theme": {
       ".": "Theme",

@@ -24,7 +24,11 @@ export class AttackModifierEffectsComponent {
     if (effect.effects) {
       const specialTarget = effect.effects.find((subEffect) => subEffect.type == AttackModifierEffectType.specialTarget);
       if (specialTarget) {
-        return "" + specialTarget.value;
+        return 'game.specialTarget.' + specialTarget.value;
+      }
+      const customValue = effect.effects.find((subEffect) => subEffect.type == AttackModifierEffectType.custom)
+      if (customValue) {
+        return customValue.value;
       }
     }
     return "";

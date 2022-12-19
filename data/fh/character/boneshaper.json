@@ -172,7 +172,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Kill the attack summon to instead add %game.attackmodifier.plus4%"
+                "value": "Kill the attacking summon to instead add %game.attackmodifier.plus4%"
               }
             ]
           }
@@ -200,6 +200,37 @@
                 ]
               }
             ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "elementHalf",
+                "value": "earth|dark"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus1"
           }
         }
       ]

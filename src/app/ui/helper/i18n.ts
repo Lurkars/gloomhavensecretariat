@@ -6,9 +6,9 @@ import { EntityValueFunction, EntityValueRegex } from "src/app/game/model/Entity
 
 export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\%)+)\%/;
 
-export const applyPlaceholder = function (value: string, placeholder: string[] = [], relative: boolean = false): string {
+export const applyPlaceholder = function (value: string, placeholder: string[] = [], relative: boolean = false, forceFh: boolean = false): string {
 
-  if (settingsManager.settings.fhStyle) {
+  if (settingsManager.settings.fhStyle || forceFh) {
     return applyFhPlaceholder(value, placeholder, relative);
   }
 
@@ -150,7 +150,7 @@ export const applyFhPlaceholder = function (value: string, placeholder: string[]
         let cardOverlay = '<img class="card-overlay" src="./assets/images/action/card/overlay/' + card + '.svg">';
         replace = '<span class="placeholder-effect placeholder-card">' + image + cardOverlay + cardValue + '</span>';
       } else if (type == "attackmodifier" && split.length == 3) {
-        image = '<img  src="./assets/images/attackmodifier/icons/' + split[2] + '.png" class="icon">';
+        image = '<img src="./assets/images/attackmodifier/icons/' + split[2] + '.png" class="icon">';
         replace = '<span class="placeholder-attackmodifier">' + image + '</span>';
       } else if (type == "characterIcon" && split.length == 3) {
         let characterName = split[2];
@@ -222,6 +222,7 @@ export class I18nDirective implements OnInit, OnChanges {
   @Input('i18n-args') args: string[] = [];
   @Input('i18n-arg-label') argLabel: boolean = true;
   @Input('relative') relative: boolean = false;
+  @Input('fh-style') fhStyle : boolean = false;
 
   private C: number;
   private L: number;
@@ -255,7 +256,7 @@ export class I18nDirective implements OnInit, OnChanges {
   }
 
   apply(): void {
-    this.el.nativeElement.innerHTML = this.value && applyPlaceholder(settingsManager.getLabel(this.value, this.args, this.argLabel), this.args, this.relative) || "";
+    this.el.nativeElement.innerHTML = this.value && applyPlaceholder(settingsManager.getLabel(this.value, this.args, this.argLabel), this.args, this.relative, this.fhStyle) || "";
   }
 
 
