@@ -9,8 +9,7 @@
 
     <div class="curse-bless" *ngIf="!edit">
       <span class="item">
-        <a class="button"
-          [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.bless) == 0}"
+        <a class="button" [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.bless) == 0}"
           (click)="changeBless(-1)">
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </a>
@@ -27,8 +26,7 @@
       </span>
 
       <span class="item">
-        <a class="button"
-          [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.curse) == 0}"
+        <a class="button" [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.curse) == 0}"
           (click)="changeCurse(-1)">
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </a>
@@ -80,7 +78,8 @@
         <div class="attack-modifier-container" *ngFor="let attackModifier of upcomingCards(); let index = index"
           cdkDrag>
           <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
-            [reveal]="true" [flipped]="reveal == 2 || attackModifier.revealed" [characterIcon]="characterIcon">
+            [reveal]="true" [flipped]="reveal == 2 || attackModifier.revealed" [newStyle]="newStyle"
+            [characterIcon]="characterIcon">
           </ghs-attackmodifier>
           <a class="button-remove" *ngIf="edit" (click)="remove(index + deck.current + 1)">
             <img class="ghs-svg" src="./assets/images/minus.svg"></a>
@@ -96,7 +95,7 @@
         <div class="attack-modifier-container" *ngFor="let attackModifier of disgardedCards(); let index = index"
           cdkDrag>
           <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
-            [flipped]="true" [characterIcon]="characterIcon"></ghs-attackmodifier>
+            [flipped]="true" [newStyle]="newStyle" [characterIcon]="characterIcon"></ghs-attackmodifier>
           <a class="button-remove" *ngIf="edit" (click)="remove(deck.current - index)">
             <img class="ghs-svg" src="./assets/images/minus.svg"></a>
           <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>

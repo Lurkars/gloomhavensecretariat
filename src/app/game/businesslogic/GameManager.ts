@@ -82,6 +82,15 @@ export class GameManager {
     return editionData && editionData.extensions || [];
   }
 
+  newAmStyle(edition: string): boolean {
+    const editionData = this.editionData.find((editionData) => editionData.edition == edition);
+    if (editionData && (editionData.newAmStyle || editionData.extensions && editionData.extensions.some((edition) => this.newAmStyle(edition)))) {
+      return true;
+    }
+
+    return false;
+  }
+
   charactersData(edition: string | undefined = undefined): CharacterData[] {
     return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(edition).indexOf(edition) != -1).map((editionData) => editionData.characters).flat().filter((characterData, index, characters) => characterData.replace || !characterData.replace && !characters.find((characterDataReplacement) => characterDataReplacement.replace && characterDataReplacement.name == characterData.name && characterDataReplacement.edition == characterData.edition));;
   }

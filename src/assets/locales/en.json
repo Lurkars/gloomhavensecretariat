@@ -250,6 +250,7 @@
       "element": "Element",
       "elementHalf": "Element Half",
       "fly": "Fly",
+      "grant": "Grant",
       "grid": "[Grid]",
       "heal": "Heal",
       "jump": "Jump",
@@ -695,67 +696,175 @@
   },
   "settings": {
     ".": "Settings",
-    "abilityNumbers": "Show ability numbers",
-    "abilityReveal": "Reveal abilities directly",
-    "activeApplyConditions": "Confirm applicable conditions",
-    "activeStandees": "Active standees",
-    "allyAttackModifierDeck": "Attack Modifier Deck for allies",
-    "alwaysLootDeck": "Always use Loot Deck",
-    "applyConditions": "Automatic apply conditions",
-    "autoscroll": "Autoscroll",
-    "automaticAttackModifierFullscreen": "Autom. fullscreen AM Deck",
+    "abilityNumbers": {
+      ".": "Show ability numbers",
+      "hint": "Show the card number on ability cards"
+    },
+    "abilityReveal": {
+      ".": "Reveal abilities directly",
+      "hint": "If unchecked, monster abilities are not revealed until turn"
+    },
+    "activeApplyConditions": {
+      ".": "Confirm applicable conditions",
+      "hint": "Certain conditions need confirmation to be applied, for example when decreasing HP with Poison confirm to loose 1 extra HP "
+    },
+    "activeStandees": {
+      ".": "Active standees",
+      "hint": "On monsters turn, every standee has an active state, double click on standee to mark as done"
+    },
+    "allyAttackModifierDeck": {
+      ".": "Attack Modifier Deck for allies",
+      "hint": "Frosthaven rule that allies uses their own Attack Modifier Deck instead of Monster's one"
+    },
+    "alwaysLootDeck": {
+      ".": "Always use Loot Deck",
+      "hint": "Show Loot Deck for every scenario"
+    },
+    "applyConditions": {
+      ".": "Automatic apply conditions",
+      "hint": "Corresponding conditions are automatically applied before and after turn, for example when entity has Wound it will loose 1 HP on start of it's round"
+    },
+    "autoscroll": {
+      ".": "Autoscroll",
+      "hint": "Automatic scroll to next active figure"
+    },
+    "automaticAttackModifierFullscreen": {
+      ".": "Autom. fullscreen AM Deck",
+      "hint": "Open Attack Modifier Deck (and also Loot Deck) in fullscreen mode when on small devices."
+    },
     "barsize": {
       ".": "Barsize",
       "dec": "Decrease barsize",
+      "hint": "Set size of header and footer",
       "inc": "Increase barsize",
       "reset": "Reset barsize"
     },
-    "bonusAdjustment": "Level bonuses adjustment",
-    "browserNavigation": "Undo/Redo with navigation",
-    "calc": "Show calculated stats",
-    "calcStats": "Add stats values to abilities",
+    "bonusAdjustment": {
+      ".": "Level bonuses adjustment",
+      "hint": ""
+    },
+    "browserNavigation": {
+      ".": "Undo/Redo with navigation",
+      "hint": ""
+    },
+    "calc": {
+      ".": "Show calculated stats",
+      "hint": "Ability values are calculated with stats, so instead of Attack +1 Attack 4 is shown for an Attack value of 3 in the stats "
+    },
+    "calcStats": {
+      ".": "Add stats values to abilities",
+      "hint": "Default stats values are added to the ability value, for example a Range value is automatically added to the Attack ability"
+    },
     "debug": {
       ".": "Debug Settings/Tools",
       "rightClick": "Always enable Right-Click"
     },
-    "disableAnimations": "Disable Animations",
-    "disableColumns": "Disable column layout",
-    "disableStandees": "Disable standees",
-    "dragValues": "Drag Initiative/HP/XP/Loot",
-    "eliteFirst": "Elite standees first",
-    "expireConditions": "Automatic expire conditions",
-    "feedback": "Disable Feedback Button",
-    "fhStyle": "Frosthaven Style",
+    "disableAnimations": {
+      ".": "Disable Animations",
+      "hint": "Disable all animations to increase perfomance"
+    },
+    "disableColumns": {
+      ".": "Disable column layout",
+      "hint": "Completely disable two-column layout regardless of zoom and space"
+    },
+    "disableStandees": {
+      ".": "Disable standees",
+      "hint": "Do not display standees (when Hide stats is set, add normal and elite monster separate) "
+    },
+    "dragValues": {
+      ".": "Drag Initiative/HP/XP/Loot",
+      "hint": "Drag support for changing values. To change initiative drag over the character portrait. For hit points, experience and loot drag over the values"
+    },
+    "eliteFirst": {
+      ".": "Elite standees first",
+      "hint": "Show elite standees first when ordering standees"
+    },
+    "expireConditions": {
+      ".": "Automatic expire conditions",
+      "hint": "Corresponding conditions will automatically removed after the figures turn, for example Strenghen will be removed after turn"
+    },
+    "feedback": {
+      ".": "Disable Feedback Button",
+      "hint": ""
+    },
+    "fhStyle": {
+      ".": "Frosthaven Style",
+      "hint": "Switch to new Frosthaven Style"
+    },
     "fontsize": {
       ".": "Ability fontsize",
       "dec": "Decrease ability fontsize",
+      "hint": "Set font size of ability and stats cards",
       "inc": "Increase ability fontsize",
       "reset": "Reset ability fontsize"
     },
-    "fullscreen": "Fullscreen",
-    "ge5Player": "≥ 5 player rules",
-    "helperDefaults": "Apply default Helper settings",
-    "hideAbsent": "Hide absent figures",
-    "hideStats": "Hide stats",
-    "hints": "Show hints",
-    "initiativeRequired": "Initiative is required",
-    "levelAdjustment": "Scenario level adjustment",
-    "levelCalculation": "Automatic scenario level",
+    "fullscreen": {
+      ".": "Fullscreen",
+      "hint": "Switch to fullscreen"
+    },
+    "ge5Player": {
+      ".": "≥ 5 player rules",
+      "hint": ""
+    },
+    "helperDefaults": {
+      ".": "Apply default Helper settings",
+      "hint": ""
+    },
+    "hideAbsent": {
+      ".": "Hide absent figures",
+      "hint": "Absent figures are not shown in list"
+    },
+    "hideStats": {
+      ".": "Hide stats",
+      "hint": "Hide stats of not spawned monster"
+    },
+    "hints": {
+      ".": "Show hints",
+      "hint": "Show shortscuts and hints next to the main menu"
+    },
+    "initiativeRequired": {
+      ".": "Initiative is required",
+      "hint": "If unchecked, the order of the entities must be set manually with drag&drop "
+    },
+    "levelAdjustment": {
+      ".": "Scenario level adjustment",
+      "hint": ""
+    },
+    "levelCalculation": {
+      ".": "Automatic scenario level",
+      "hint": ""
+    },
     "locale": {
       ".": "Language",
       "de": "German (Deutsch)",
       "en": "English",
       "fr": "French (Français)"
     },
-    "maxUndo": "Max. number of undos",
-    "moveElements": "Automatic update element state",
-    "randomStandees": "Random standees",
-    "scenarioNumberInput": "Scenario Number Input",
-    "scenarioRules": "Show Scenario Rules",
+    "maxUndo": {
+      ".": "Max. number of undos",
+      "hint": ""
+    },
+    "moveElements": {
+      ".": "Automatic update element state",
+      "hint": "The element state is automatically changed before each round "
+    },
+    "randomStandees": {
+      ".": "Random standees",
+      "hint": "Add standees with an unused random number"
+    },
+    "scenarioNumberInput": {
+      ".": "Scenario Number Input",
+      "hint": ""
+    },
+    "scenarioRules": {
+      ".": "Show Scenario Rules",
+      "hint": "Show popup windows about special scenario rules"
+    },
     "theme": {
       ".": "Theme",
       "default": "Default",
       "fh": "Frosthaven",
+      "hint": "Choose a theme for background, bars and fonts.",
       "modern": "Modern (%wip%)"
     },
     "zoom": {

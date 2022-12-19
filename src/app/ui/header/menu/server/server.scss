@@ -12,39 +12,6 @@
       margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
     }
 
-    .hint-container {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-
-      .hint-trigger {
-        cursor: help;
-        height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-        width: auto;
-        margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
-        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
-
-        &:hover {
-          &~.hint .text {
-            display: inline-block !important;
-          }
-        }
-      }
-
-      .hint {
-        display: flex;
-        flex-basis: 100%;
-        flex-shrink: 0;
-        font-family: var(--ghs-font-text);
-        font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-        color: var(--ghs-color-gray);
-
-        .text {
-          display: none;
-        }
-      }
-    }
-
     .password-container {
       display: flex;
     }

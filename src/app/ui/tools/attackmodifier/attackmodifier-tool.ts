@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { gameManager } from "src/app/game/businesslogic/GameManager";
-import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { ActivatedRoute, Router } from "@angular/router";
+import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { AttackModifier, defaultAttackModifier } from "src/app/game/model/AttackModifier";
 import { Character } from "src/app/game/model/Character";
 import { PerkType } from "src/app/game/model/Perks";
@@ -8,16 +9,39 @@ import { PerkType } from "src/app/game/model/Perks";
 @Component({
   selector: 'ghs-attackmodifier-tool',
   templateUrl: './attackmodifier-tool.html',
-  styleUrls: [ './attackmodifier-tool.scss' ]
+  styleUrls: ['./attackmodifier-tool.scss']
 })
 export class AttackModifierToolComponent implements OnInit {
 
+  gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
   characters: Character[] = [];
+  edition: string | undefined;
+
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   async ngOnInit() {
     await settingsManager.init();
     gameManager.stateManager.init();
-    gameManager.charactersData().forEach((characterData) => {
+    this.edition = gameManager.editions(true)[0];
+    this.update();
+
+    this.route.queryParams.subscribe({
+      next: (queryParams) => {
+        if (queryParams['edition']) {
+          this.edition = queryParams['edition'];
+          if (this.edition && gameManager.editions(true).indexOf(this.edition) == -1) {
+            this.edition == undefined;
+          }
+          this.update();
+        }
+      }
+    })
+  }
+
+  update() {
+    this.characters = [];
+    gameManager.charactersData(this.edition).forEach((characterData) => {
       let character = new Character(characterData, 0);
 
       character.attackModifierDeck.cards = [];
@@ -56,6 +80,16 @@ export class AttackModifierToolComponent implements OnInit {
         return aName < bName ? -1 : 1;
       }
     })
+  }
+
+  updateQueryParams() {
+    this.router.navigate(
+      [],
+      {
+        relativeTo: this.route,
+        queryParams: { edition: this.edition || undefined },
+        queryParamsHandling: 'merge'
+      });
   }
 
 }

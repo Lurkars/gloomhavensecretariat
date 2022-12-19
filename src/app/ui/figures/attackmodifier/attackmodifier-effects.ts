@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType } from "src/app/game/model/AttackModifier";
 
 @Component({
@@ -11,6 +12,9 @@ export class AttackModifierEffectsComponent {
   @Input() offsetWidth!: number;
   @Input() attackModifier!: AttackModifier;
   @Input() effects!: AttackModifierEffect[];
+  @Input() newStyle: boolean = false;
+
+  settingsManager: SettingsManager = settingsManager;
 
   AttackModifierType = AttackModifierType;
   AttackModifierEffectType = AttackModifierEffectType;

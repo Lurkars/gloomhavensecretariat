@@ -1,13 +1,24 @@
 <div class="container">
   <ghs-header [standalone]="true"></ghs-header>
 
+  <div class="menu">
+    <label>
+      {{'settings.edition' | ghsLabel}}
+      <select [(ngModel)]="edition" (change)="update(); updateQueryParams()">
+        <option *ngFor="let edition of gameManager.editions(true)" [value]="edition">{{'data.edition.' + edition |
+          ghsLabel}}</option>
+      </select>
+    </label>
+  </div>
+
   <div class="characters">
     <ng-container *ngFor="let character of characters">
       <div class="character" *ngIf="character.attackModifierDeck.cards.length > 0">
         <h1>{{'data.character.' + character.name | ghsLabel}} [{{character.attackModifierDeck.cards.length}}]</h1>
         <ghs-attackmodifier [attackModifier]="attackModifier" [flipped]="true"
           [characterIcon]="'./assets/images/character/icons/' + character.edition + '-' + character.name + '.svg'"
-          *ngFor="let attackModifier of character.attackModifierDeck.cards"></ghs-attackmodifier>
+          *ngFor="let attackModifier of character.attackModifierDeck.cards"
+          [newStyle]="settingsManager.settings.fhStyle || gameManager.newAmStyle(character.edition)"></ghs-attackmodifier>
       </div>
     </ng-container>
   </div>

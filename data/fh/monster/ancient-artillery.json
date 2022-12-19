@@ -65,7 +65,7 @@
     {
       "type": "elite",
       "level": 2,
-      "health": 11,
+      "health": 12,
       "attack": 3
     },
     {
@@ -78,8 +78,7 @@
       "type": "elite",
       "level": 4,
       "health": 16,
-      "attack": 5,
-      "range": 15
+      "attack": 5
     },
     {
       "type": "elite",

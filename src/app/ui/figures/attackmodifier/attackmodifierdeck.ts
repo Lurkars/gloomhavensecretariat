@@ -40,6 +40,7 @@ export class AttackModifierDeckComponent implements OnInit {
   @Input('fullscreen') fullscreen: boolean = true;
   @Input('vertical') vertical: boolean = false;
   @Input() standalone: boolean = false;
+  @Input() edition!: string;
 
   gameManager: GameManager = gameManager;
   GameState = GameState;
@@ -55,6 +56,7 @@ export class AttackModifierDeckComponent implements OnInit {
   drawTimeout: any = null;
   queue: number = 0;
   queueTimeout: any = null;
+  newStyle: boolean = false;
 
   @ViewChild('drawCard') drawCard!: ElementRef;
 
@@ -71,6 +73,7 @@ export class AttackModifierDeckComponent implements OnInit {
   ngOnInit(): void {
     if (this.character) {
       this.deck = this.character.attackModifierDeck;
+      this.edition = this.character.edition;
       this.numeration = "" + this.character.number;
       this.characterIcon = gameManager.characterManager.characterIcon(this.character);
     }
@@ -86,8 +89,20 @@ export class AttackModifierDeckComponent implements OnInit {
           this.drawing = false;
           this.current = this.deck.current;
         }
+
+        if (settingsManager.settings.fhStyle) {
+          this.newStyle = true;
+        }
       }
     })
+
+    if (this.edition && !this.newStyle) {
+      this.newStyle = gameManager.newAmStyle(this.edition);
+    }
+
+    if (settingsManager.settings.fhStyle) {
+      this.newStyle = true;
+    }
   }
 
   update() {
@@ -137,6 +152,7 @@ export class AttackModifierDeckComponent implements OnInit {
         deck: this.deck,
         character: this.character,
         numeration: this.numeration,
+        newStyle: this.newStyle,
         before: this.before,
         after: this.after
       }
@@ -191,6 +207,7 @@ export class AttackModifierDeckComponent implements OnInit {
           deck: this.deck,
           character: this.character,
           numeration: this.numeration,
+          newStyle: this.newStyle,
           before: this.before,
           after: this.after
         }

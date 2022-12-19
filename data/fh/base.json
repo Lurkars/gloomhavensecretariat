@@ -15,5 +15,6 @@
     "impair"
   ],
   "edition": "fh",
-  "hazardousTerrain": true
+  "hazardousTerrain": true,
+  "newAmStyle": true
 }

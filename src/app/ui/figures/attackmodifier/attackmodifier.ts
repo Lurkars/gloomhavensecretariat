@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from "@angular/core";
+import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 import { Action, ActionType } from "src/app/game/model/Action";
 import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType } from "src/app/game/model/AttackModifier";
@@ -17,6 +18,7 @@ export class AttackModifierComponent implements OnInit, OnChanges {
   @Input() number: number = 0;
   @Input() reveal: boolean = false;
   @Input() flipped: boolean = false;
+  @Input() newStyle: boolean = false;
   effectClasses: string = "";
   AttackModifierType = AttackModifierType;
   AttackModifierEffectType = AttackModifierEffectType;

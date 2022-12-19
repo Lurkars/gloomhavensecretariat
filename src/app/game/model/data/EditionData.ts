@@ -21,6 +21,7 @@ export class EditionData implements Editional {
   url: string = "";
   extensions: string[] = [];
   hazardousTerrain: boolean = false;
+  newAmStyle: boolean = false;
 
   constructor(edition: string, characters: CharacterData[],
     monsters: MonsterData[],

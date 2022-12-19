@@ -99,7 +99,6 @@ export class EditorActionComponent implements OnInit {
   }
 
   changeType() {
-    this.action.value = "";
     this.action.valueType = ActionValueType.fixed;
     if (this.action.type == ActionType.area) {
       this.hexAction.value = "(0,0,invisible)";

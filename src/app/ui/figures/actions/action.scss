@@ -100,6 +100,7 @@
   .value,
   .condition-value,
   .custom-value,
+  .grant-value,
   .special-target-value,
   .monster-type,
   .summon-value {
@@ -117,6 +118,7 @@
     .value,
     .condition-value,
     .custom-value,
+    .grant-value,
     .special-target-value,
     .monster-type,
     .summon-value {
@@ -135,6 +137,7 @@
 
   .action-default,
   .action-custom,
+  .action-grant,
   .action-summon,
   .action-trigger,
   .action-specialTarget,
@@ -149,6 +152,7 @@
 
   .action-default,
   .action-custom,
+  .action-grant,
   .action-trigger,
   .action-specialTarget,
   .action-condition {
@@ -183,13 +187,15 @@
   }
 
   .custom-value,
+  .grant-value,
   ghs-action-summon {
     padding: 0 0.2em;
   }
 
   .action-trigger {
 
-    .custom-value {
+    .custom-value,
+    .grant-value {
       position: relative;
       font-size: 82%;
       padding: 0 0.5em;
@@ -503,7 +509,8 @@
     }
   }
 
-  .custom-subactions {
+  .custom-subactions,
+  .grant-subactions {
     width: 100%;
   }
 
@@ -597,6 +604,7 @@
 
     .action-default,
     .action-custom,
+    .action-grant,
     .action-summon,
     .action-trigger,
     .action-specialTarget,
@@ -611,6 +619,7 @@
     .value,
     .condition-value,
     .custom-value,
+    .grant-value,
     .special-target-value,
     .monster-type,
     .summon-value {
@@ -625,6 +634,7 @@
     }
 
     .custom-value,
+    .grant-value,
     ghs-action-summon {
       text-align: left;
       padding: 0 !important;
@@ -651,6 +661,7 @@
     }
 
     .action-custom,
+    .action-grant,
     .action-summon {
       align-items: flex-start;
       flex-wrap: wrap;
@@ -674,6 +685,7 @@
 
     .action-default,
     .action-custom,
+    .action-grant,
     .action-trigger,
     .action-specialTarget,
     .action-condition,
@@ -693,6 +705,7 @@
     &.inline {
 
       .custom-value,
+      .grant-value,
       ghs-action-summon {
         text-align: right;
       }
@@ -727,6 +740,7 @@
 
     .action-default,
     .action-custom,
+    .action-grant,
     .action-summon,
     .action-trigger,
     .action-specialTarget,
@@ -737,6 +751,7 @@
     }
 
     .custom-value,
+    .grant-value,
     .special-target-value {
       font-family: var(--ghs-font-text);
     }
@@ -803,6 +818,7 @@
     .condition-subactions,
     .monster-type-subactions,
     .subaction-custom .custom-subactions,
+    .subaction-grant .grant-subactions,
     .subaction-specialTarget .special-target-subactions {
       position: relative;
       display: flex;
@@ -899,7 +915,8 @@
       .element-subactions {
         margin-left: -0.2em;
 
-        .custom-value {
+        .custom-value,
+        .grant-value {
           padding: 0;
         }
 
@@ -907,6 +924,7 @@
         .condition-subactions,
         .monster-type-subactions,
         .custom-subactions,
+        .grant-subactions,
         .special-target-subactions {
           margin-left: 0.1em;
         }

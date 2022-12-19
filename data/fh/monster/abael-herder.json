@@ -4,13 +4,6 @@
   "count": 6,
   "baseStat": {
     "type": "normal",
-    "actions": [
-      {
-        "type": "condition",
-        "value": "muddle",
-        "small": false
-      }
-    ],
     "immunities": [],
     "special": []
   },
@@ -59,8 +52,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "muddle",
-          "small": false
+          "value": "muddle"
         }
       ]
     },
@@ -72,8 +64,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "muddle",
-          "small": false
+          "value": "muddle"
         }
       ]
     },
@@ -82,56 +73,104 @@
       "level": 0,
       "health": 6,
       "movement": 3,
-      "attack": 3
+      "attack": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     },
     {
       "type": "elite",
       "level": 1,
       "health": 9,
       "movement": 3,
-      "attack": 3
+      "attack": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     },
     {
       "type": "elite",
       "level": 2,
       "health": 11,
       "movement": 4,
-      "attack": 3
+      "attack": 3,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     },
     {
       "type": "elite",
       "level": 3,
       "health": 13,
       "movement": 4,
-      "attack": 4
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     },
     {
       "type": "elite",
       "level": 4,
       "health": 17,
       "movement": 4,
-      "attack": 4
+      "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     },
     {
       "type": "elite",
       "level": 5,
       "health": 20,
       "movement": 4,
-      "attack": 5
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     },
     {
       "type": "elite",
       "level": 6,
       "health": 28,
       "movement": 5,
-      "attack": 5
+      "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     },
     {
       "type": "elite",
       "level": 7,
       "health": 36,
       "movement": 5,
-      "attack": 6
+      "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "muddle"
+        }
+      ]
     }
   ]
 }

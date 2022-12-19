@@ -23,7 +23,7 @@
       [style.top]="attackModifier.rolling && vertical && rollingIndex(index, current) ?  'calc(' + (rollingIndex(index, current) - 1) * (drawCard.offsetHeight / 1.3) + 'px)' : ''"
       title="{{'game.cards.openDialog' | ghsLabel}}" (click)="clickCard(index, $event)">
       <ghs-attackmodifier class="am" [attackModifier]="attackModifier" [numeration]="numeration"
-        [characterIcon]="characterIcon" [flipped]="index <= current">
+        [characterIcon]="characterIcon" [flipped]="index <= current" [newStyle]="newStyle">
       </ghs-attackmodifier>
     </div>
   </ng-container>

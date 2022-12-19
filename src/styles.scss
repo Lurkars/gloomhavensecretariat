@@ -924,13 +924,10 @@ input[type="radio"] {
 .text-white {
   color: var(--ghs-color-white);
 
-  .ghs-svg,
-  .icon {
-    filter: var(--ghs-filter-white);
+  .ghs-svg {
+    filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
   }
 }
-
-
 
 .fh {
   .element {

@@ -112,6 +112,18 @@
     </div>
   </span>
 
+  <span class="action-grant" *ngSwitchCase="ActionType.grant">
+    <span class="grant-value" [i18n]="action.value + ''" [relative]="relative"
+      [ngClass]="{'small' : action.small,'text-white' : !right}"></span>
+    <div class="grant-subactions" *ngIf="subActions && subActions.length > 0">
+      <ghs-action [ngClass]="'subaction-' + subAction.type"
+        *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0)" [action]="subAction" [monster]="monster"
+        [inline]="inline" [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
+        [relative]="true" [statsCalculation]="false">
+      </ghs-action>
+    </div>
+  </span>
+
   <span class="action-summon" *ngSwitchCase="ActionType.summon" [ngClass]="{'small' : action.small}">
     <ghs-action-summon [action]="action" [right]="right"></ghs-action-summon>
     <ng-container *ngIf="subActions && subActions.length > 0">

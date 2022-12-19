@@ -17,6 +17,7 @@
     "wound_x"
   ],
   "edition": "cs",
+  "newAmStyle": true,
   "extensions": [
     "gh"
   ]

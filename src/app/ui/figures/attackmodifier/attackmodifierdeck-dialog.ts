@@ -28,6 +28,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   edit: boolean = false;
   maxHeight: string = "";
   characterIcon: string = "";
+  newStyle: boolean = false;
 
   AttackModifierType = AttackModifierType;
   type: AttackModifierType = AttackModifierType.minus1;
@@ -35,10 +36,11 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   drawing: boolean = false;
 
 
-  constructor(@Inject(DIALOG_DATA) private data: { deck: AttackModifierDeck, character: Character, numeration: string, before: EventEmitter<AttackModiferDeckChange>, after: EventEmitter<AttackModiferDeckChange> }) {
+  constructor(@Inject(DIALOG_DATA) private data: { deck: AttackModifierDeck, character: Character, numeration: string, newStyle: boolean, before: EventEmitter<AttackModiferDeckChange>, after: EventEmitter<AttackModiferDeckChange> }) {
     this.deck = data.deck;
     this.character = data.character;
     this.numeration = data.numeration;
+    this.newStyle = data.newStyle;
     this.before = data.before;
     this.after = data.after;
   };
@@ -177,9 +179,9 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   }
 
 
-  changeAttackModifier(type: AttackModifierType, value: number) {
+  changeAttackModifier(type: AttackModifierType, value: number, limit: number = 10) {
     if (value > 0) {
-      if (this.countUpcomingAttackModifier(type) == 10) {
+      if (limit != -1 && this.countUpcomingAttackModifier(type) == limit) {
         return;
       }
       gameManager.attackModifierManager.addModifier(this.deck, new AttackModifier(type));
@@ -207,7 +209,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
 
   changeMinus1(value: number) {
     this.before.emit(new AttackModiferDeckChange(this.deck, value < 0 ? "removeMinus1" : "addMinus1"));
-    this.changeAttackModifier(AttackModifierType.minus1, value);
+    this.changeAttackModifier(AttackModifierType.minus1, value, -1);
     this.after.emit(new AttackModiferDeckChange(this.deck, value < 0 ? "removeMinus1" : "addMinus1"));
   }
 

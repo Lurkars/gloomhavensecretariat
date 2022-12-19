@@ -32,15 +32,18 @@
         display: inline-block;
         filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
       }
+    }
 
-      &:hover {
+    &:hover {
+
+      span {
         color: var(--ghs-color-white);
 
         .ghs-svg {
           filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
         }
-
       }
     }
+
   }
 }

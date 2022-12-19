@@ -28,6 +28,7 @@ export enum ActionType {
   elementHalf = "elementHalf",
   fly = "fly",
   heal = "heal",
+  grant = "grant",
   jump = "jump",
   loot = "loot",
   monsterType = "monsterType",
