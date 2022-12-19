@@ -1,85 +1,127 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
 <svg
-   viewBox="0 0 11.77 14"
+   width="83.284103mm"
+   height="81.550583mm"
+   viewBox="0 0 83.284106 81.550582"
    version="1.1"
-   id="svg25"
+   id="svg5"
    sodipodi:docname="shield.svg"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
-     id="namedview27"
+     id="namedview30"
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="55.857143"
-     inkscape:cx="5.8810742"
-     inkscape:cy="6.9910486"
+     inkscape:zoom="2.5371268"
+     inkscape:cx="157.46158"
+     inkscape:cy="153.91426"
      inkscape:window-width="1846"
-     inkscape:window-height="1016"
+     inkscape:window-height="1136"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg25" />
+     inkscape:current-layer="svg5" />
   <defs
-     id="defs17">
-    <style
-       id="style2">.cls-1{clip-path:url(#clip-path);}.cls-2{fill:none;}.cls-3{mask:url(#mask);}.cls-4{clip-path:url(#clip-path-2);}.cls-5{fill:#fff;}</style>
+     id="defs2">
     <clipPath
-       id="clip-path">
-      <rect
-         class="cls-2"
-         x="-1.8"
-         y="-1.8"
-         width="19.08"
-         height="21.24"
-         id="rect4" />
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1104">
+      <path
+         d="M 0,600 H 600 V 0 H 0 Z"
+         id="path1102" />
     </clipPath>
-    <mask
-       id="mask"
-       x="-2.64"
-       y="-2.64"
-       width="19.08"
-       height="21.24"
-       maskUnits="userSpaceOnUse">
-      <g
-         transform="translate(-0.84 -0.84)"
-         id="g11">
-        <g
-           class="cls-1"
-           clip-path="url(#clip-path)"
-           id="g9">
-          <image
-             width="53"
-             height="59"
-             transform="translate(-1.8 -1.8) scale(0.36)"
-             xlink:href="data:image/png;base64,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"
-             id="image7" />
-        </g>
-      </g>
-    </mask>
     <clipPath
-       id="clip-path-2"
-       transform="translate(-0.84 -0.84)">
-      <rect
-         class="cls-2"
-         x="0.84"
-         y="0.84"
-         width="11.77"
-         height="14"
-         id="rect14" />
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1286">
+      <path
+         d="M 0,600 H 600 V 0 H 0 Z"
+         id="path1284" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1470">
+      <path
+         d="M 0,600 H 600 V 0 H 0 Z"
+         id="path1468" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1656">
+      <path
+         d="M 0,600 H 600 V 0 H 0 Z"
+         id="path1654" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1844">
+      <path
+         d="M 0,600 H 600 V 0 H 0 Z"
+         id="path1842" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2265">
+      <path
+         d="M 0,600 H 600 V 0 H 0 Z"
+         id="path2263" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2512">
+      <path
+         d="M 0,600 H 600 V 0 H 0 Z"
+         id="path2510" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2740">
+      <path
+         d="M 0,300 H 300 V 0 H 0 Z"
+         id="path2738" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2946">
+      <path
+         d="M 0,300 H 300 V 0 H 0 Z"
+         id="path2944" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3139">
+      <path
+         d="M 0,300 H 300 V 0 H 0 Z"
+         id="path3137" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3322">
+      <path
+         d="M 0,300 H 300 V 0 H 0 Z"
+         id="path3320" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3754">
+      <path
+         d="M 0,300 H 300 V 0 H 0 Z"
+         id="path3752" />
     </clipPath>
   </defs>
   <path
      class="cls-5"
-     d="M 10.43,2.66 A 2.54,2.54 0 0 1 9.67,1.16 6.89,6.89 0 0 1 7.47,0.83 6.83,6.83 0 0 1 5.88,0 6.88,6.88 0 0 1 4.3,0.84 6.89,6.89 0 0 1 2.1,1.16 2.6,2.6 0 0 1 1.33,2.66 8.72,8.72 0 0 1 0,3.76 c 0,0 0.26,5.29 2,7.32 A 11.51,11.51 0 0 0 5.9,14 11.51,11.51 0 0 0 9.8,11.08 c 1.72,-2 2,-7.32 2,-7.32 a 9,9 0 0 1 -1.34,-1.1"
+     d="M 68.460889,15.612808 A 14.751579,14.751579 0 0 1 64.047038,6.9012444 40.015109,40.015109 0 0 1 51.270064,4.9847555 39.666646,39.666646 0 0 1 42.035819,0.16436119 39.957033,39.957033 0 0 1 32.859632,5.0428362 40.015109,40.015109 0 0 1 20.082682,6.9013761 15.100042,15.100042 0 0 1 15.61075,15.612939 50.643215,50.643215 0 0 1 7.8864943,22.001404 c 0,0 1.509967,30.722782 11.6154237,42.512426 A 66.846723,66.846723 0 0 0 42.151981,81.472353 66.846723,66.846723 0 0 0 64.802043,64.51383 C 74.791295,52.898428 76.417446,22.001404 76.417446,22.001404 a 52.269376,52.269376 0 0 1 -7.782314,-6.388596"
      id="path19"
-     style="fill:#000000" />
+     style="fill:#000000;stroke-width:5.80771" />
 </svg>

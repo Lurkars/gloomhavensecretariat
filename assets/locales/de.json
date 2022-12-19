@@ -143,6 +143,7 @@
       "element": "Element",
       "elementHalf": "Element Hälfte",
       "fly": "Fliegen",
+      "grant": "Gewähre",
       "grid": "[Raster]",
       "heal": "Heilen",
       "jump": "Springen",
@@ -580,67 +581,176 @@
   },
   "settings": {
     ".": "Einstellungen",
-    "abilityNumbers": "Zeige Fertigkeitsnummern an",
-    "abilityReveal": "Fertigkeitskarten direkt aufdecken",
-    "activeApplyConditions": "Bestätige anwendbare Zustände",
-    "activeStandees": "Aktive Aufsteller",
-    "allyAttackModifierDeck": "Angriffsmodifikatordeck für Verbündete",
-    "alwaysLootDeck": "Immer Beute Deck verwenden",
-    "applyConditions": "Zustände automatisch anweden",
-    "autoscroll": "Automatisch Scrollen",
-    "automaticAttackModifierFullscreen": "Autom. Vollbild AM-Deck",
+    "abilityNumbers": {
+      ".": "Zeige Fertigkeitsnummern an",
+      "hint": "Fertigkeitsnummern auf den Fertigkeitskarten anzeigen"
+    },
+    "abilityReveal": {
+      ".": "Fertigkeitskarten direkt aufdecken",
+      "hint": "Falls nicht ausgewählt, werden Fertigkeiten erst während des Zuges aufgedeckt"
+    },
+    "activeApplyConditions": {
+      ".": "Bestätige anwendbare Zustände",
+      "hint": "Einige Zustände benötigen eine Bestätigung um angewendet zu werden, z.B. wenn der TP Wert bei Gift gesenkt wird, kann durch Bestätigung 1 extra TP vom Gift abgezogen werden"
+    },
+    "activeStandees": {
+      ".": "Aktive Aufsteller",
+      "hint": "Während des Zuges ist jeder Monster Aufsteller als aktiv markiert, durch Doppelklick kann der Zug des einzelnen Aufstellers beendet werden"
+    },
+    "allyAttackModifierDeck": {
+      ".": "Angriffsmodifikatordeck für Verbündete",
+      "hint": "Frosthaven Regel, dass Verbündete ein eigenes Angriffsmodifikatordeck verwenden anstelle des Monsterdecks"
+    },
+    "alwaysLootDeck": {
+      ".": "Immer Beute Deck verwenden",
+      "hint": "Beute Deck für jeden Szenario aktivieren"
+    },
+    "applyConditions": {
+      ".": "Zustände automatisch anweden",
+      "hint": "Entsprechende Zustände werden automatisch vor und nach einem Zug angewendet, bei Wunde z.B. wird zu Beginn des Zuges automaitsch 1 TP abgezogen"
+    },
+    "autoscroll": {
+      ".": "Automatisch Scrollen",
+      "hint": "Automatisch zur nächsten aktiven Figur scrollen"
+    },
+    "automaticAttackModifierFullscreen": {
+      ".": "Autom. Vollbild AM-Deck",
+      "hint": "Angrifssmodifikatordeck (und Beute Deck) auf kleinen Bildschirmen automatisch in Vollansicht öffnen"
+    },
     "barsize": {
       ".": "Leistengröße",
       "dec": "Leistengröße verringern",
+      "hint": "Größe von Kopf- und Fußleiste einstellen",
       "inc": "Leistengröße erhöhen",
       "reset": "Leistengröße zurücksetzen"
     },
-    "bonusAdjustment": "Anpassung Boni Szenariostufe",
-    "browserNavigation": "Rückgängig/Wiederherstellen über Navigation",
-    "calc": "Zeige berechnete Werte an",
-    "calcStats": "Füge Monsterwerte zu Fähigkeiten zu",
+    "bonusAdjustment": {
+      ".": "Anpassung Boni Szenariostufe",
+      "hint": ""
+    },
+    "browserNavigation": {
+      ".": "Rückgängig/Wiederherstellen über Navigation",
+      "hint": ""
+    },
+    "calc": {
+      ".": "Zeige berechnete Werte an",
+      "hint": "Fähigkeitswerte werden mit den Basiswerten zusammengerechnet, statt Angriff +1 wird z.B. Angriff 4 angezeigt bei einem Basis Angriffswert von 3"
+    },
+    "calcStats": {
+      ".": "Füge Monsterwerte zu Fähigkeiten zu",
+      "hint": "Basiswerte werden zu Fähigkeiten hinzugefügt, z.B. wird die Reichweite automatisch bei einer Angriffsfertigkeit angezeigt"
+    },
     "debug": {
       ".": "Debug Einstellung/Werkzeuge",
+      "hint": "",
       "rightClick": "Rechtsklick immer erlauben"
     },
-    "disableAnimations": "Animationen deaktivieren",
-    "disableColumns": "Zweispaltiges Layout deaktivieren",
-    "disableStandees": "Aufsteller deaktivieren",
-    "dragValues": "Initiative/TP/XP/Beute ziehen",
-    "eliteFirst": "Elite Aufsteller zuerst",
-    "expireConditions": "Automatisch Zustände löschen",
-    "feedback": "Feedback Button deaktivieren",
-    "fhStyle": "Frosthaven Stil",
+    "disableAnimations": {
+      ".": "Animationen deaktivieren",
+      "hint": "Alle Animationen deaktivieren um die Performance zu erhöhen"
+    },
+    "disableColumns": {
+      ".": "Zweispaltiges Layout deaktivieren",
+      "hint": "Deaktivere das zweispaltige Layout unabhängig von Zoom und Platz"
+    },
+    "disableStandees": {
+      ".": "Aufsteller deaktivieren",
+      "hint": "Blende alle Aufsteller aus (falls Werte ausblenden aktiviert ist, müssen normale und elite Monster separat hinzugefügt werden)"
+    },
+    "dragValues": {
+      ".": "Initiative/TP/XP/Beute ziehen",
+      "hint": "Cursor Ziehen(Wischen) um Werte zu ändern. Um die Initiative zu ändern, ziehe über das Charakter Portrait. Für Trefferpunkte, Efarhung und Beute über die entsprechenden Werte"
+    },
+    "eliteFirst": {
+      ".": "Elite Aufsteller zuerst",
+      "hint": "Zeige Elite Aufsteller zuerst an bei der Sortierung der Aufsteller"
+    },
+    "expireConditions": {
+      ".": "Automatisch Zustände löschen",
+      "hint": "Entsprechende Zustände werden automatisch nach dem Zug der Figur entfernt, z.B. Stärke wird nach dem Zug entfernt."
+    },
+    "feedback": {
+      ".": "Feedback Button deaktivieren",
+      "hint": ""
+    },
+    "fhStyle": {
+      ".": "Frosthaven Stil",
+      "hint": "Frosthaven Stil einschalten"
+    },
     "fontsize": {
       ".": "Fertigkeit Schriftgröße",
       "dec": "Fertigkeit Schriftgröße verringern",
+      "hint": "Schriftgröße von Fertigkeiten und Werten einstellen",
       "inc": "Fertigkeit Schriftgröße erhöhen",
       "reset": "Fertigkeit Schriftgröße zurücksetzen"
     },
-    "fullscreen": "Vollbild",
-    "ge5Player": "≥ 5 Spieler Regeln",
-    "helperDefaults": "Orig. Helper Einstellungen anwenden",
-    "hideAbsent": "Abwesende Figuren ausblenden",
-    "hideStats": "Werte ausblenden",
-    "hints": "Hinweise anzeigen",
-    "initiativeRequired": "Initiative muss gesetzt werden",
-    "levelAdjustment": "Anpassung Szenariostufe",
-    "levelCalculation": "Szenariostufe automatisch berechnen",
+    "fullscreen": {
+      ".": "Vollbild",
+      "hint": "In den Vollboldmodus wechseln"
+    },
+    "ge5Player": {
+      ".": "≥ 5 Spieler Regeln",
+      "hint": ""
+    },
+    "helperDefaults": {
+      ".": "Orig. Helper Einstellungen anwenden",
+      "hint": ""
+    },
+    "hideAbsent": {
+      ".": "Abwesende Figuren ausblenden",
+      "hint": "Abwesende Figuren werden in der Liste nicht angezeigt"
+    },
+    "hideStats": {
+      ".": "Werte ausblenden",
+      "hint": "Werte von Monstern ohne Aufsteller ausblenden"
+    },
+    "hints": {
+      ".": "Hinweise anzeigen",
+      "hint": "Zeige Kürzel und Hinweise neben dem Hauptmenu"
+    },
+    "initiativeRequired": {
+      ".": "Initiative muss gesetzt werden",
+      "hint": "Wenn nicht ausgewählt muss die Reihenfolge der Figuren manuell über drag&drop festgelegt werden"
+    },
+    "levelAdjustment": {
+      ".": "Anpassung Szenariostufe",
+      "hint": ""
+    },
+    "levelCalculation": {
+      ".": "Szenariostufe automatisch berechnen",
+      "hint": ""
+    },
     "locale": {
       ".": "Sprache",
       "de": "Deutsch",
       "en": "Englisch (English)",
       "fr": "Französisch (Français)"
     },
-    "maxUndo": "Max. Anzahl Rückgängigvorgänge",
-    "moveElements": "Automatisch Elementen Status ändern",
-    "randomStandees": "Zufällige Aufsteller",
-    "scenarioNumberInput": "Numerische Szenario Eingabe",
-    "scenarioRules": "Szenario Regeln einblenden",
+    "maxUndo": {
+      ".": "Max. Anzahl Rückgängigvorgänge",
+      "hint": ""
+    },
+    "moveElements": {
+      ".": "Automatisch Elementen Status ändern",
+      "hint": "Der Status der Elemente wird automatisch vor jeder Runde angepasst"
+    },
+    "randomStandees": {
+      ".": "Zufällige Aufsteller",
+      "hint": "Aufsteller mit zufälliger, nicht vergebener Nummer setzen"
+    },
+    "scenarioNumberInput": {
+      ".": "Numerische Szenario Eingabe",
+      "hint": ""
+    },
+    "scenarioRules": {
+      ".": "Szenario Regeln einblenden",
+      "hint": ""
+    },
     "theme": {
       ".": "Theme",
       "default": "Standard",
       "fh": "Frosthaven",
+      "hint": "",
       "modern": "Modern (%wip%)"
     },
     "zoom": {
