@@ -167,6 +167,29 @@ export class Game {
 
     this.lootDeckEnhancements = model.lootDeckEnhancements || [];
 
+    // migration 
+    this.lootDeckEnhancements.forEach((loot) => {
+      if (loot.value) {
+        if (!isNaN(+loot.value)) {
+          loot.value4P = +loot.value;
+          loot.value3P = +loot.value;
+          loot.value2P = +loot.value;
+        } else if (loot.value == "%game.loot.player.3-4% +1/%game.loot.player.2% +2") {
+          loot.value4P = 1;
+          loot.value3P = 1;
+          loot.value2P = 2;
+        } else if (loot.value == "%game.loot.player.4% +1/%game.loot.player.2-3% +2") {
+          loot.value4P = 1;
+          loot.value3P = 2;
+          loot.value2P = 2;
+        } else {
+          console.warn("Cannot migrate loot: " + loot.value);
+        }
+
+        loot.value = undefined;
+      }
+    })
+
     this.server = model.server;
   }
 }

@@ -68,18 +68,18 @@ export class LootDeckDialogComponent implements OnInit {
   }
 
   enhanceCard(loot: Loot) {
-    this.before.emit(new LootDeckChange(this.deck, 'lootDeckAddEnhancement', loot.type, loot.value));
+    this.before.emit(new LootDeckChange(this.deck, 'lootDeckAddEnhancement', loot.type, gameManager.lootManager.valueLabel(loot)));
     loot.enhancements++;
     gameManager.game.lootDeckEnhancements = this.enhancementDeck.filter((loot) => loot.enhancements > 0);
-    this.after.emit(new LootDeckChange(this.deck, 'lootDeckAddEnhancement', loot.type, loot.value));
+    this.after.emit(new LootDeckChange(this.deck, 'lootDeckAddEnhancement', loot.type, gameManager.lootManager.valueLabel(loot)));
   }
 
   unenhanceCard(loot: Loot) {
     if (loot.enhancements > 0) {
-      this.before.emit(new LootDeckChange(this.deck, 'lootDeckRemoveEnhancement', loot.type, loot.value));
+      this.before.emit(new LootDeckChange(this.deck, 'lootDeckRemoveEnhancement', loot.type, gameManager.lootManager.valueLabel(loot)));
       loot.enhancements--;
       gameManager.game.lootDeckEnhancements = this.enhancementDeck.filter((loot) => loot.enhancements > 0);
-      this.after.emit(new LootDeckChange(this.deck, 'lootDeckRemoveEnhancement', loot.type, loot.value));
+      this.after.emit(new LootDeckChange(this.deck, 'lootDeckRemoveEnhancement', loot.type, gameManager.lootManager.valueLabel(loot)));
     }
   }
 

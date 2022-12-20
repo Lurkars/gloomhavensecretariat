@@ -107,24 +107,26 @@
         <div class="column column-right">
           <div class="row perks">
             <label class="headline">{{'character.progress.perks' | ghsLabel}}</label>
-            <div class="perk" *ngFor="let perk of character.perks; let i = index;">
-              <span class="checkbox" *ngFor="let count of []|ghsRange:perk.count"
-                [ngClass]="{'checked' : character.progress.perks[i] && character.progress.perks[i] > count, 'disabled' : gameManager.game.state == GameState.next || character.progress.perks[i] <= count && availablePerks < count - character.progress.perks[i] + 1}"
-                (click)="addPerk(i, count+1)"></span>
-              <span class="text capitalize">
-                <ng-container *ngIf="perk.custom"><span [i18n]="perk.custom"></span> <ng-container
-                    *ngIf="perk.type != PerkType.custom"> {{'and' | ghsLabel}} </ng-container>&nbsp;</ng-container>
-                <ng-container *ngIf="perk.type != PerkType.custom">
-                  <span class="label" [i18n]="'character.progress.perks.type.' + perk.type"
-                    [i18n-args]="perkLabel(perk)"></span>
-                </ng-container>
-              </span>
-            </div>
-            <div *ngIf="perksWip" class="wip" title="{{'wip' | ghsLabel}}">
-              <img class="ghs-svg" src="./assets/images/warning.svg"> {{'character.progress.perks.wip' | ghsLabel}}
+            <div class="list">
+              <div class="perk" *ngFor="let perk of character.perks; let i = index;">
+                <span class="checkbox" *ngFor="let count of []|ghsRange:perk.count"
+                  [ngClass]="{'checked' : character.progress.perks[i] && character.progress.perks[i] > count, 'disabled' : gameManager.game.state == GameState.next || character.progress.perks[i] <= count && availablePerks < count - character.progress.perks[i] + 1}"
+                  (click)="addPerk(i, count+1)"></span>
+                <span class="text capitalize">
+                  <ng-container *ngIf="perk.custom"><span [i18n]="perk.custom"></span> <ng-container
+                      *ngIf="perk.type != PerkType.custom"> {{'and' | ghsLabel}} </ng-container>&nbsp;</ng-container>
+                  <ng-container *ngIf="perk.type != PerkType.custom">
+                    <span class="label" [i18n]="'character.progress.perks.type.' + perk.type"
+                      [i18n-args]="perkLabel(perk)"></span>
+                  </ng-container>
+                </span>
+              </div>
             </div>
             <div class="warning" title="{{'character.progress.perks.warning' | ghsLabel}}" *ngIf="availablePerks < 0">
               <img class="ghs-svg" src="./assets/images/warning.svg"> {{'character.progress.perks.warning' | ghsLabel}}
+            </div>
+            <div *ngIf="perksWip" class="wip" title="{{'wip' | ghsLabel}}">
+              <img class="ghs-svg" src="./assets/images/warning.svg"> {{'character.progress.perks.wip' | ghsLabel}}
             </div>
           </div>
           <div class="row battlegoals">

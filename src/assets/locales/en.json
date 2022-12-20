@@ -422,8 +422,10 @@
     },
     "loot": {
       ".": "Loot",
+      "apply": "Add to selected character",
       "arrowvine": "Arrowvine",
       "axenut": "Axenut",
+      "chooseCharacter": "Select Character for +{0} {1}",
       "config": {
         ".": "Loot Table",
         "apply": "Apply Loot Table",
@@ -716,6 +718,10 @@
       ".": "Attack Modifier Deck for allies",
       "hint": "Frosthaven rule that allies uses their own Attack Modifier Deck instead of Monster's one"
     },
+    "alwaysLootApplyDialog": {
+      ".": "Always show Loot Apply Dialog",
+      "hint": "Always show dialog to select character on Loot Card drawn instead of using active character"
+    },
     "alwaysLootDeck": {
       ".": "Always use Loot Deck",
       "hint": "Show Loot Deck for every scenario"
@@ -723,6 +729,10 @@
     "applyConditions": {
       ".": "Automatic apply conditions",
       "hint": "Corresponding conditions are automatically applied before and after turn, for example when entity has Wound it will loose 1 HP on start of it's round"
+    },
+    "applyLoot": {
+      ".": "Apply Loot to Character",
+      "hint": "Automatically add Loot after card drawn to active/choosen character"
     },
     "autoscroll": {
       ".": "Autoscroll",

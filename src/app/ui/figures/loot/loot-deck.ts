@@ -3,8 +3,10 @@ import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from "@ang
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { LootManager } from "src/app/game/businesslogic/LootManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
-import { LootDeck, LootType } from "src/app/game/model/Loot";
+import { appliableLootTypes, LootDeck, LootType } from "src/app/game/model/Loot";
+import { LootApplyDialogComponent } from "./loot-apply-dialog";
 import { LootDeckDialogComponent } from "./loot-deck-dialog";
 import { LootDeckFullscreenComponent } from "./loot-deck-fullscreen";
 
@@ -84,6 +86,25 @@ export class LootDeckComponent implements OnInit {
                 this.update();
             } else {
                 this.element.nativeElement.getElementsByClassName('deck')[0].classList.remove('drawing');
+            }
+
+            const loot = this.deck.cards[this.deck.current];
+            if (loot && appliableLootTypes.indexOf(loot.type) != null && settingsManager.settings.applyLoot && (!gameManager.game.figures.find((figure) => figure instanceof Character && figure.active) || settingsManager.settings.alwaysLootApplyDialog)) {
+                const dialog = this.dialog.open(LootApplyDialogComponent, {
+                    panelClass: 'dialog',
+                    data: loot
+                });
+
+                dialog.closed.subscribe({
+                    next: (name) => {
+                        if (name) {
+                            const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == name);
+                            if (character) {
+                                gameManager.lootManager.updateCharacterLoot(character as Character, loot);
+                            }
+                        }
+                    }
+                })
             }
         }, settingsManager.settings.disableAnimations ? 0 : 1850);
     }

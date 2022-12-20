@@ -5,10 +5,11 @@
             <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
         </div>
         <div class="card-front front"
-            [style.background-image]="'url(./assets/images/fh/loot/loot-' + loot.type +  (loot.type == LootType.money ? loot.value : '') + '.png)'">
+            [style.background-image]="'url(./assets/images/fh/loot/loot-' + loot.type +  (loot.type == LootType.money ? gameManager.lootManager.valueLabel(loot) : '') + '.png)'">
             <span class="header"
                 *ngIf="loot.type != LootType.money && loot.type != LootType.special1 && loot.type != LootType.special2">
-                <span [i18n]="'' +loot.value"></span>&nbsp;{{'game.loot.' + loot.type | ghsLabel}}
+                <span [i18n]="gameManager.lootManager.valueLabel(loot)"></span>&nbsp;{{'game.loot.' + loot.type |
+                ghsLabel}}
             </span>
             <span class="enhancements">
                 <img class="icon" src="./assets/images/fh/loot/plus1.svg"

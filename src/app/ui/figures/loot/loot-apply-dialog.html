@@ -1,0 +1,12 @@
+<p>{{'game.loot.chooseCharacter' | ghsLabel:['' +gameManager.lootManager.getValue(loot), 'game.loot.' + loot.type]}}</p>
+<div class="characters">
+    <div class="character" *ngFor="let character of characters" (click)="toggleSelect(character.name)"
+        [ngClass]="{'selected' : character.name == selected}">
+        <img class="icon" [src]="gameManager.characterManager.characterIcon(character)" />
+        {{character.title || ('data.character.' + character.name | ghsLabel)}}
+    </div>
+</div>
+
+<div class="menu">
+    <a (click)="close()" [ngClass]="{'disabled' : !selected}">{{'game.loot.apply' | ghsLabel}}</a>
+</div>

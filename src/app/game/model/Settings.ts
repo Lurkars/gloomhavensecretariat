@@ -15,6 +15,8 @@ export class Settings {
   initiativeRequired: boolean = true;
   disableStandees: boolean = false;
   abilityReveal: boolean = true;
+  applyLoot: boolean = true;
+  alwaysLootApplyDialog= false;
   alwaysLootDeck: boolean = false;
   fullscreen: boolean = false;
   fhStyle: boolean = false;

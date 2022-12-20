@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from "@angular/core";
+import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { Loot, LootType } from "src/app/game/model/Loot";
 
 @Component({
@@ -12,6 +13,7 @@ export class LootComponent implements OnChanges {
     @Input() flipped: boolean = false;
     @Input() reveal: boolean = false;
 
+    gameManager: GameManager = gameManager;
     LootType = LootType;
 
     revealed: boolean = false;

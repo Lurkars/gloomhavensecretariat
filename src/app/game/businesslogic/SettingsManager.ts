@@ -178,6 +178,16 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setApplyLoot(applyLoot: boolean) {
+    this.settings.applyLoot = applyLoot;
+    this.storeSettings();
+  }
+
+  setAlwaysLootApplyDialog(alwaysLootApplyDialog: boolean) {
+    this.settings.alwaysLootApplyDialog = alwaysLootApplyDialog;
+    this.storeSettings();
+  }
+
   setAlwaysLootDeck(alwaysLootDeck: boolean) {
     this.settings.alwaysLootDeck = alwaysLootDeck;
     this.storeSettings();
