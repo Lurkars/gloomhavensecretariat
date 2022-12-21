@@ -199,7 +199,7 @@ export class DragClickComponent {
   emitClickBehind(x: number, y: number) {
     if (!this.timeout) {
       let elements = document.elementsFromPoint(x, y);
-      if (elements.length > 2 && elements[0].classList.contains('drag-value-input')) {
+      if (elements.length > 2 && (elements[0].classList.contains('drag-value-input') || elements[0].classList.contains('drag-value-click'))) {
         (elements[2] as HTMLElement).click();
       }
       this.timeout = setTimeout(() => {

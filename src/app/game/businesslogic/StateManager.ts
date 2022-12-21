@@ -242,6 +242,9 @@ export class StateManager {
         case "permissions":
           gameManager.stateManager.permissions = message.payload as Permissions || undefined;
           break;
+        case "requestUpdate":
+          gameManager.stateManager.after();
+          break;
         case "error":
           console.warn("[GHS] Error: " + message.message);
           if (message.message == "Permission(s) missing") {

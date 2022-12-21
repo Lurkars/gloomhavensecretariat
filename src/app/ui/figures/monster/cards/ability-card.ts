@@ -63,7 +63,7 @@ export class MonsterAbilityCardComponent {
 
     return flipped && reveal;
   }
-
+  
   toggleEdit() {
     this.edit = !this.edit;
     setTimeout(() => {

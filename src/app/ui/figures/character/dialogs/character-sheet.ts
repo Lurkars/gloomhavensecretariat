@@ -413,7 +413,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
         break;
       case AttackModifierEffectType.elementHalf:
         const elements = effect.value.split('|');
-        html += '<span class="attack-modifier-effect element-half"><span class="element"><img class="action-icon sw" src="./assets/images/element/' + elements[0] + '.svg"></span><span class="element"><img class="action-icon sw" src="./assets/images/element/' + elements[1] + '.svg"></span></span>';
+        html += '<span class="attack-modifier-effect element-half-placeholder' + (settingsManager.settings.fhStyle ? ' fh' : '') + '"><span class="element-half-container"><span class="element-half"><img src="./assets/images/element/' + elements[0] + '.svg"></span><span class="element-half"><img src="./assets/images/element/' + elements[1] + '.svg"></span></span></span>';
         break;
       case AttackModifierEffectType.elementConsume:
         html += '<span class="attack-modifier-effect element consume"><img class="action-icon sw" src="./assets/images/element/' + effect.value + '.svg"></span>';

@@ -253,8 +253,16 @@ export class ActionComponent implements OnInit {
             this.additionalSubActions.splice(0, 0, subAction);
             this.hasAOE = true;
           } else {
-            subAction.small = true;
-            this.additionalSubActions.push(subAction);
+            if (subAction.type == ActionType.card && this.subActions.find((subAction) => subAction.type == ActionType.pierce)) {
+              const pieceAction = this.subActions.find((subAction) => subAction.type == ActionType.pierce);
+              if (pieceAction) {
+                pieceAction.value = +pieceAction.value
+                  + +subAction.value
+              }
+            } else {
+              subAction.small = true;
+              this.additionalSubActions.push(subAction);
+            }
           }
         }
       })

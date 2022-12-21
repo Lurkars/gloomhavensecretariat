@@ -92,6 +92,34 @@
       }
     }
   ],
-  "perks": [],
-  "replace": false
+  "perks": [
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "curse"
+              },
+              {
+                "type": "condition",
+                "value": "curse"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
 }

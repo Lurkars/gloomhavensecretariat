@@ -19,8 +19,11 @@
     }
 
     img {
-      width: 100%;
-      height: auto;
+
+      &.full {
+        width: 100%;
+        height: auto;
+      }
 
       &.ghs-svg {
         filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
@@ -136,14 +139,19 @@
 
     .card-action {
       position: relative;
+      width: 80%;
 
       img {
         position: relative;
         top: 0;
         left: 0;
+        width: 100%;
+        height: auto;
 
         &.overlay {
           position: absolute;
+          width: 100%;
+          height: auto;
         }
       }
     }

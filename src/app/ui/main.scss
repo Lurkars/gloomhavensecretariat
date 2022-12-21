@@ -151,6 +151,11 @@ main {
 
   &.monster {
     height: calc(var(--ghs-unit) * 21.5);
+
+    &.right {
+      top: calc(var(--ghs-unit) * 5);
+      height: calc(var(--ghs-unit) * 11.5);
+    }
   }
 
   &.right {

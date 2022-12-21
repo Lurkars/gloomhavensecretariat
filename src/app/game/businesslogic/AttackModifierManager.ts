@@ -1,7 +1,7 @@
 import { AttackModifier, AttackModifierDeck, AttackModifierType, defaultAttackModifier } from "../model/AttackModifier";
 import { Character } from "../model/Character";
 import { Game } from "../model/Game";
-import { PerkCard, PerkType } from "../model/Perks";
+import { Perk, PerkCard, PerkType } from "../model/Perks";
 
 export class AttackModifierManager {
   game: Game;
@@ -107,33 +107,43 @@ export class AttackModifierManager {
 
     if (character.progress && character.progress.perks) {
       character.progress.perks.forEach((checked, index) => {
-        for (let check = 0; check < checked; check++) {
-          const perk = character.perks[ index ];
-          if (!perk) {
-            // error
+        const perk = character.perks[index];
+        if (!perk) {
+          // error
+          return;
+        }
+        if (perk.combined) {
+          if (checked == perk.count) {
+            this.addPerkCard(perk, attackModifierDeck);
           }
-
-          perk.cards = perk.cards || [];
-
-          perk.cards.forEach((card, index) => {
-            if (!this.findByAttackModifier(defaultAttackModifier, card.attackModifier) || perk.type == PerkType.add || perk.type == PerkType.replace && index > 0) {
-              card.attackModifier.character = true;
-            }
-          })
-
-          if (perk.type == PerkType.add) {
-            this.addCards(attackModifierDeck, perk.cards);
-          } else if (perk.type == PerkType.remove) {
-            this.removeCards(attackModifierDeck, perk.cards);
-          } else if (perk.type == PerkType.replace) {
-            this.removeCards(attackModifierDeck, [ perk.cards[ 0 ] ]);
-            this.addCards(attackModifierDeck, perk.cards.slice(1, perk.cards.length));
+        } else {
+          for (let check = 0; check < checked; check++) {
+            this.addPerkCard(perk, attackModifierDeck);
           }
         }
       })
     }
 
     return attackModifierDeck;
+  }
+
+  addPerkCard(perk: Perk, attackModifierDeck: AttackModifierDeck) {
+    perk.cards = perk.cards || [];
+
+    perk.cards.forEach((card, index) => {
+      if (!this.findByAttackModifier(defaultAttackModifier, card.attackModifier) || perk.type == PerkType.add || perk.type == PerkType.replace && index > 0) {
+        card.attackModifier.character = true;
+      }
+    })
+
+    if (perk.type == PerkType.add) {
+      this.addCards(attackModifierDeck, perk.cards);
+    } else if (perk.type == PerkType.remove) {
+      this.removeCards(attackModifierDeck, perk.cards);
+    } else if (perk.type == PerkType.replace) {
+      this.removeCards(attackModifierDeck, [perk.cards[0]]);
+      this.addCards(attackModifierDeck, perk.cards.slice(1, perk.cards.length));
+    }
   }
 
   findByAttackModifier(attackModifiers: AttackModifier[], attackModifier: AttackModifier): AttackModifier | undefined {

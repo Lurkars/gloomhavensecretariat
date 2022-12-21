@@ -122,10 +122,10 @@ export class Game {
     this.ge5Player = model.ge5Player;
 
     this.round = model.round;
-    if (server || model.playSeconds > this.playSeconds) {
+    if (server && !model.server || model.playSeconds > this.playSeconds) {
       this.playSeconds = model.playSeconds;
     }
-    if (server || model.totalSeconds > this.totalSeconds) {
+    if (server && !model.server || model.totalSeconds > this.totalSeconds) {
       this.totalSeconds = model.totalSeconds;
     }
     this.monsterAttackModifierDeck = this.monsterAttackModifierDeck || new AttackModifierDeck();
