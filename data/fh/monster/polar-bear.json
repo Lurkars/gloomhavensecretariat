@@ -4,12 +4,6 @@
   "count": 4,
   "baseStat": {
     "type": "normal",
-    "actions": [
-      {
-        "type": "condition",
-        "value": "wound"
-      }
-    ],
     "immunities": [
       "immobilize",
       "stun"
@@ -134,6 +128,12 @@
       "health": 10,
       "movement": 2,
       "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
       "immunities": [
         "immobilize",
         "stun"
@@ -145,6 +145,12 @@
       "health": 12,
       "movement": 2,
       "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
       "immunities": [
         "immobilize",
         "stun"
@@ -156,6 +162,12 @@
       "health": 14,
       "movement": 3,
       "attack": 4,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
       "immunities": [
         "immobilize",
         "stun"
@@ -167,6 +179,12 @@
       "health": 16,
       "movement": 3,
       "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
       "immunities": [
         "immobilize",
         "stun"
@@ -178,6 +196,12 @@
       "health": 20,
       "movement": 4,
       "attack": 5,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
       "immunities": [
         "immobilize",
         "stun"
@@ -189,6 +213,12 @@
       "health": 24,
       "movement": 4,
       "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
       "immunities": [
         "immobilize",
         "stun"
@@ -200,6 +230,12 @@
       "health": 36,
       "movement": 4,
       "attack": 6,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
       "immunities": [
         "immobilize",
         "disarm",
@@ -212,6 +248,12 @@
       "health": 44,
       "movement": 4,
       "attack": 7,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
       "immunities": [
         "immobilize",
         "disarm",
