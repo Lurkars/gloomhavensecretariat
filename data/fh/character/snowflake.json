@@ -243,7 +243,7 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "Whenever you long rest, you may %game.action.elementHalf:ice|air%"
+      "custom": "Whenever you long rest, you may %game.elementHalf:ice|air%"
     },
     {
       "type": "custom",

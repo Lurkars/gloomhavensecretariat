@@ -4,7 +4,7 @@ import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { EntityValueFunction, EntityValueRegex } from "src/app/game/model/Entity";
 
-export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\%)+)\%/;
+export const ghsLabelRegex = /\%((\w+)(\.(\w+))*)(\:([\+\-]?\w+|\w+[\|]?\w+))?\%/;
 
 export const applyPlaceholder = function (value: string, placeholder: string[] = [], relative: boolean = false, forceFh: boolean = false): string {
 
@@ -17,6 +17,11 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       const label: string = args[0];
       const split: string[] = label.split('.');
       const type = split[1];
+      let value = "";
+
+      if (args.length >= 6) {
+        value = args[5];
+      }
 
       let quotes: boolean = false;
 
@@ -33,7 +38,7 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       } else if (type == "action" && split.length == 3 && !split[2].startsWith('specialTarget') && !split[2].startsWith('summon')) {
         split.splice(0, 1);
         image = '<img  src="./assets/images/' + split.join('/') + '.svg" class="icon ghs-svg">';
-        replace = '<span class="placeholder-action">' + settingsManager.getLabel(label) + image + '</span>';
+        replace = '<span class="placeholder-action">' + settingsManager.getLabel(label) + image + value + '</span>';
       } else if (type == "element") {
         let element = split[2];
         if (element == "consume") {
@@ -44,6 +49,9 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         }
         image += '<img src="./assets/images/element/' + element + '.svg"></span>';
         replace = image;
+      } else if (type == "elementHalf") {
+        const elements = value.split('|');
+        replace = '<span class="attack-modifier-effect element-half-placeholder"><span class="element-half-container"><span class="element-half"><img src="./assets/images/element/' + elements[0] + '.svg"></span><span class="element-half"><img src="./assets/images/element/' + elements[1] + '.svg"></span></span></span>';
       } else if (type == "initiative" && split.length == 3) {
         image = '<img class="ghs-svg" src="./assets/images/initiative.svg"></span>'
         replace = '<span class="placeholder-initiative">' + split[2] + image + '</span>';
@@ -75,11 +83,7 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         replace = '<span class="map-marker">' + split[2] + '</span>';
       } else if (type == "objectiveMarker" && split.length == 3) {
         replace = '<span class="objective-marker">' + split[2] + '</span>';
-      } else if (type && type.startsWith("damage")) {
-        let value = '';
-        if (type.split(':').length > 1) {
-          value = type.split(':')[1];
-        }
+      } else if (type == "damage") {
         replace = '<span class="damage">' + settingsManager.getLabel('game.damage', [value]) + '</span>';
       } else if (type == "loot" && split.length == 4) {
         image = '<img  src="./assets/images/' + split[3] + '-player.svg" class="icon">';
@@ -106,6 +110,11 @@ export const applyFhPlaceholder = function (value: string, placeholder: string[]
       const label: string = args[0];
       const split: string[] = label.split('.');
       const type = split[1];
+      let value = "";
+
+      if (args.length >= 6) {
+        value = args[5];
+      }
 
       let quotes: boolean = false;
 
@@ -133,6 +142,9 @@ export const applyFhPlaceholder = function (value: string, placeholder: string[]
         }
         image += '<img src="./assets/images/fh/element/' + element + '.svg"></span>';
         replace = image;
+      } else if (type == "elementHalf") {
+        const elements = value.split('|');
+        replace = '<span class="attack-modifier-effect element-half-placeholder fh"><span class="element-half-container"><span class="element-half"><img src="./assets/images/fh/element/' + elements[0] + '.svg"></span><span class="element-half"><img src="./assets/images/fh/element/' + elements[1] + '.svg"></span></span></span>';
       } else if (type == "initiative" && split.length == 3) {
         image = '<img class="ghs-svg" src="./assets/images/initiative.svg"></span>'
         replace = '<span class="placeholder-initiative">' + split[2] + image + '</span>';
@@ -167,11 +179,7 @@ export const applyFhPlaceholder = function (value: string, placeholder: string[]
       } else if (type == "target" && split.length == 2) {
         image = '<img  src="./assets/images/fh/action/target.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-action">' + image + '</span>';
-      } else if (type && type.startsWith("damage")) {
-        let value = '';
-        if (type.split(':').length > 1) {
-          value = type.split(':')[1];
-        }
+      } else if (type == "damage") {
         image = '<img  src="./assets/images/fh/action/damage.svg" class="icon ghs-svg">';
         replace = '<span class="damage">' + image + value + '</span>';
       } else if (type == "loot" && split.length == 4) {
@@ -222,7 +230,7 @@ export class I18nDirective implements OnInit, OnChanges {
   @Input('i18n-args') args: string[] = [];
   @Input('i18n-arg-label') argLabel: boolean = true;
   @Input('relative') relative: boolean = false;
-  @Input('fh-style') fhStyle : boolean = false;
+  @Input('fh-style') fhStyle: boolean = false;
 
   private C: number;
   private L: number;

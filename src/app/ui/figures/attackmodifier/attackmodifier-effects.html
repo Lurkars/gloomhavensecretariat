@@ -1,6 +1,6 @@
 <span class="effects" *ngIf="effects">
   <span *ngFor="let effect of effects; let index = index;" class="effect {{effect.type}}"
-    [ngClass]="{'center' : (attackModifier.type == AttackModifierType.plus0 || newStyle), 'new-style' : newStyle}">
+    [ngClass]="{'center' : (attackModifier.type == AttackModifierType.plus0 || newStyle), 'new-style' : newStyle, 'multiple' : effects.length > 1}">
 
     <ng-container [ngSwitch]="effect.type">
 

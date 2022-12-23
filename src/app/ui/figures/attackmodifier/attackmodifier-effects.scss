@@ -206,6 +206,24 @@
       height: 52%;
       transform: translate(-50%, -50%);
 
+      &.multiple {
+        &:nth-child(1) {
+          transform: translate(-70%, -70%) scale(0.5);
+        }
+
+        &:nth-child(2) {
+          transform: translate(-30%, -30%) scale(0.5);
+        }
+
+        &:nth-child(3) {
+          transform: translate(-30%, -70%) scale(0.5);
+        }
+
+        &:nth-child(4) {
+          transform: translate(-70%, -30%) scale(0.5);
+        }
+      }
+
       &.heal,
       &.shield {
         width: 46%;
