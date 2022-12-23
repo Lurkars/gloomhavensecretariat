@@ -20,7 +20,7 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       let value = "";
 
       if (args.length >= 6) {
-        value = args[5];
+        value = args[5] || "";
       }
 
       let quotes: boolean = false;
@@ -113,7 +113,7 @@ export const applyFhPlaceholder = function (value: string, placeholder: string[]
       let value = "";
 
       if (args.length >= 6) {
-        value = args[5];
+        value = args[5] || "";
       }
 
       let quotes: boolean = false;
@@ -131,7 +131,7 @@ export const applyFhPlaceholder = function (value: string, placeholder: string[]
       } else if (type == "action" && split.length == 3 && !split[2].startsWith('specialTarget') && !split[2].startsWith('summon')) {
         split.splice(0, 1);
         image = '<img  src="./assets/images/fh/' + split.join('/') + '.svg" class="icon ghs-svg">';
-        replace = '<span class="placeholder-action">' + image + '</span>';
+        replace = '<span class="placeholder-action">' + image + value + '</span>';
       } else if (type == "element") {
         let element = split[2];
         if (element == "consume") {
