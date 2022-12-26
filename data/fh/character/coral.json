@@ -132,7 +132,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "If you performed a PLACEHOLDER action this round, %game.attackmodifier.plus2% instead"
+                "value": "If you performed a %data.action.custom.fh-tides% action this round, %game.attackmodifier.plus2% instead"
               }
             ]
           }

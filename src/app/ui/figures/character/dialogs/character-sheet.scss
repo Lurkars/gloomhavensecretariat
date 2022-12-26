@@ -386,30 +386,36 @@
           margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
           display: flex;
 
-          .checkbox {
-            margin-top: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor));
-            margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-            min-width: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
+          .checkboxes {
+            display: flex;
 
-            &.disabled {
-              pointer-events: initial;
-              cursor: not-allowed;
-            }
-          }
-
-          &.combined {
             .checkbox {
-              border-left-style: dashed;
-              border-right-style: dashed;
-              margin-right: 0;
+              margin-top: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor));
+              margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+              min-width: calc(var(--ghs-unit) * 1.6 * var(--ghs-dialog-factor));
 
-              &:nth-child(1) {
-                border-left-style: solid;
+              &.disabled {
+                pointer-events: initial;
+                cursor: not-allowed;
               }
+            }
 
-              &:nth-last-child(2) {
-                border-right-style: solid;
-                margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+            &.combined {
+              flex-direction: column;
+              margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+              .checkbox {
+                border-top-style: dashed;
+                border-bottom-style: dashed;
+                margin: 0;
+
+                &:nth-child(1) {
+                  border-top-style: solid;
+                }
+
+                &:nth-last-child(1) {
+                  border-bottom-style: solid;
+                }
               }
             }
           }

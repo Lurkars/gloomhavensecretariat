@@ -52,7 +52,7 @@ ghs-element-icon {
 
       &.dark {
         #bg {
-          filter: brightness(3);
+          filter: invert(16%) sepia(92%) saturate(1541%) hue-rotate(215deg) brightness(50%) contrast(97%);
         }
       }
 

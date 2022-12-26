@@ -108,11 +108,12 @@
           <div class="row perks">
             <label class="headline">{{'character.progress.perks' | ghsLabel}}</label>
             <div class="list">
-              <div class="perk" *ngFor="let perk of character.perks; let i = index;"
-                [ngClass]="{'combined' : perk.combined}">
-                <span class="checkbox" *ngFor="let count of []|ghsRange:perk.count"
-                  [ngClass]="{'checked' : character.progress.perks[i] && character.progress.perks[i] > count, 'disabled' : gameManager.game.state == GameState.next || character.progress.perks[i] <= count && availablePerks < count - character.progress.perks[i] + 1}"
-                  (click)="addPerk(i, count+1)"></span>
+              <div class="perk" *ngFor="let perk of character.perks; let i = index;">
+                <div class="checkboxes" [ngClass]="{'combined' : perk.combined}">
+                  <span class="checkbox" *ngFor="let count of []|ghsRange:perk.count"
+                    [ngClass]="{'checked' : character.progress.perks[i] && character.progress.perks[i] > count, 'disabled' : gameManager.game.state == GameState.next || character.progress.perks[i] <= count && availablePerks < count - character.progress.perks[i] + 1}"
+                    (click)="addPerk(i, count+1)"></span>
+                </div>
                 <span class="text capitalize">
                   <ng-container *ngIf="perk.custom"><span [i18n]="perk.custom"></span> <ng-container
                       *ngIf="perk.type != PerkType.custom"> {{'and' | ghsLabel}} </ng-container>&nbsp;</ng-container>
