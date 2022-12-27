@@ -4,7 +4,7 @@ import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { EntityValueFunction, EntityValueRegex } from "src/app/game/model/Entity";
 
-export const ghsLabelRegex = /\%((\w+[\-]*\w*)(\.(\w+[\-]*\w*))*)(\:([\+\-]?\w+|\w+[\|]?\w+))?\%/;
+export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\%|\+|\|)+)\%/;
 
 export const applyPlaceholder = function (value: string, placeholder: string[] = [], relative: boolean = false, forceFh: boolean = false): string {
 
@@ -17,10 +17,16 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       const label: string = args[0];
       const split: string[] = label.split('.');
       const type = split[1];
-      let value = "";
+      let value = label[label.length-1];
 
-      if (args.length >= 6) {
-        value = args[5] || "";
+      if (value.indexOf(':') != 0) {
+        value = value.split(':')[1];
+      } else {
+        value = "";
+      }
+
+      if (!value) {
+        value = "";
       }
 
       let quotes: boolean = false;
