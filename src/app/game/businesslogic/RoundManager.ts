@@ -95,7 +95,9 @@ export class RoundManager {
     } else if (figure.active && !figure.off) {
       this.afterTurn(figure)
     } else if (!figures.some((other, otherIndex) => otherIndex < index && other.active)) {
-      figure.active = true;
+      if (gameManager.gameplayFigure(figure)) {
+        figure.active = true;
+      }
     } else {
       this.beforeTurn(figure);
     }

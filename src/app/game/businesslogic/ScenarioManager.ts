@@ -219,9 +219,12 @@ export class ScenarioManager {
     while (round.indexOf('C') != -1) {
       round = round.replace('C', '' + this.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length);
     }
-
-    if (eval(round) && (this.game.state == GameState.next && !rule.start || this.game.state == GameState.draw && rule.start)) {
-      this.game.scenarioRules.push({ "edition": scenarioData.edition, "scenario": scenarioData.index, "group": scenarioData.group, "index": index + 1, "section": section });
+    try {
+      if (eval(round) && (this.game.state == GameState.next && !rule.start || this.game.state == GameState.draw && rule.start)) {
+        this.game.scenarioRules.push({ "edition": scenarioData.edition, "scenario": scenarioData.index, "group": scenarioData.group, "index": index + 1, "section": section });
+      }
+    } catch (error) {
+      console.warn("Cannot apply scenario rule: '" + rule.round + "'", "index: " + index, error);
     }
   }
 
