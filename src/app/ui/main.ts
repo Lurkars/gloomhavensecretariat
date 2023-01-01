@@ -31,7 +31,7 @@ export class MainComponent implements OnInit {
   scrollTimeout: any = null;
 
   constructor(private element: ElementRef, private swUpdate: SwUpdate) {
-    this.hasAllyDeck = settingsManager.settings.allyAttackModifierDeck && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly);
+    this.hasAllyDeck = settingsManager.settings.allyAttackModifierDeck && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly) || gameManager.game.scenario && gameManager.game.scenario.allyDeck || false;
     gameManager.uiChange.subscribe({
       next: () => {
         const figure = gameManager.game.figures.find((figure) => figure instanceof Character && figure.fullview);
@@ -41,7 +41,7 @@ export class MainComponent implements OnInit {
           this.fullviewChar = undefined;
           this.calcColumns();
         }
-        this.hasAllyDeck = settingsManager.settings.allyAttackModifierDeck && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly);
+        this.hasAllyDeck = settingsManager.settings.allyAttackModifierDeck && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly) || gameManager.game.scenario && gameManager.game.scenario.allyDeck || false;
       }
     })
 

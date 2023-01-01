@@ -18,6 +18,7 @@ export class ScenarioData implements Editional, Spoilable {
   objectives: ObjectiveData[];
   rules: ScenarioRule[];
   initial: boolean = false;
+  allyDeck: boolean = false;
   solo: string | undefined;
   lootDeckConfig: LootDeckConfig = {};
   rooms: RoomData[] = [];
@@ -29,7 +30,7 @@ export class ScenarioData implements Editional, Spoilable {
   spoiler: boolean;
 
   constructor(name: string, index: string, unlocks: string[], blocks: string[], requires: string[][], links: string[], monsters: string[], allies: string[], objectives: ObjectiveData[], rules: ScenarioRule[], edition: string, group: string | undefined = undefined,
-    spoiler: boolean = false) {
+    spoiler: boolean = false, allyDeck : boolean = false) {
     this.name = name;
     this.index = index;
     this.unlocks = unlocks;
@@ -43,6 +44,7 @@ export class ScenarioData implements Editional, Spoilable {
     this.rules = rules;
     this.group = group;
     this.spoiler = spoiler;
+    this.allyDeck = allyDeck;
   }
 }
 

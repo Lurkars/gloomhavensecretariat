@@ -11,6 +11,7 @@ import { Figure } from "src/app/game/model/Figure";
 import { GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
+import { MonsterType } from "src/app/game/model/MonsterType";
 import { Objective } from "src/app/game/model/Objective";
 import { Summon, SummonState } from "src/app/game/model/Summon";
 import { ghsValueSign } from "../../helper/Static";
@@ -46,6 +47,7 @@ export class EntityMenuDialogComponent {
   SummonState = SummonState;
   ConditionName = ConditionName;
   ConditionType = ConditionType;
+  MonsterType = MonsterType;
 
   constructor(@Inject(DIALOG_DATA) public data: { entity: Entity | undefined, figure: Figure }, private changeDetectorRef: ChangeDetectorRef, private dialogRef: DialogRef) {
     if (data.entity instanceof Character) {
@@ -379,6 +381,19 @@ export class EntityMenuDialogComponent {
       gameManager.stateManager.after();
     }
   }
+
+  toggleMonsterType() {
+    if (this.data.entity instanceof MonsterEntity && this.data.entity.type == MonsterType.normal) {
+      gameManager.stateManager.before("changeMonsterType", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, MonsterType.elite);
+      this.data.entity.type = MonsterType.elite;
+      gameManager.stateManager.after();
+    } else if (this.data.entity instanceof MonsterEntity && this.data.entity.type == MonsterType.elite) {
+      gameManager.stateManager.before("changeMonsterType", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, MonsterType.normal);
+      this.data.entity.type = MonsterType.normal;
+      gameManager.stateManager.after();
+    }
+  }
+
 
   toggleDead() {
     if (this.data.entity instanceof MonsterEntity) {

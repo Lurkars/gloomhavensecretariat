@@ -5,6 +5,7 @@ import { settingsManager, SettingsManager } from "src/app/game/businesslogic/Set
 import { EditionData } from "src/app/game/model/data/EditionData";
 import { GameModel } from "src/app/game/model/Game";
 import { Settings } from "src/app/game/model/Settings";
+import { ghsInputFullScreenCheck } from "src/app/ui/helper/Static";
 
 
 @Component({
@@ -19,6 +20,7 @@ export class DatamanagementMenuComponent {
 
   settingsManager: SettingsManager = settingsManager;
   gameManager: GameManager = gameManager;
+  ghsInputFullScreenCheck = ghsInputFullScreenCheck;
 
   async addEditionDataUrl() {
     if (this.editionDataUrlElement.nativeElement.value) {
@@ -96,7 +98,10 @@ export class DatamanagementMenuComponent {
         gameManager.stateManager.after();
       });
 
-      reader.readAsText(event.target.files[0]);
+      if (event.target.files.length > 0) {
+        reader.readAsText(event.target.files[0]);
+        event.target.value = "";
+      }
     } catch (e: any) {
       console.warn(e);
       event.target.parentElement.classList.add("error");

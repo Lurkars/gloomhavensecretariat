@@ -76,7 +76,7 @@
               <label (click)="exportParty()" title="{{'party.export' |
           ghsLabel}}"><img src="./assets/images/export.svg"><span>{{'party.export' |
                   ghsLabel}}</span></label>
-              <label title="{{'party.import' | ghsLabel}}">
+              <label title="{{'party.import' | ghsLabel}}" (click)="ghsInputFullScreenCheck()">
                 <input type="file" accept="application/json" (change)="importParty($event)" /><img
                   src="./assets/images/import.svg"><span>{{'party.import' | ghsLabel}}</span></label>
             </div>
@@ -173,7 +173,8 @@
                 (click)="addTreasure(treasureIndex.value, treasureEdition.value)"><img
                   src="./assets/images/plus.svg"></a>
               <select #treasureEdition [disabled]="party.edition">
-                <option *ngFor="let edition of gameManager.editions()" [value]="edition" [selected]="edition == party.edition">{{'data.edition.' + edition |
+                <option *ngFor="let edition of gameManager.editions()" [value]="edition"
+                  [selected]="edition == party.edition">{{'data.edition.' + edition |
                   ghsLabel}}</option>
               </select>
             </div>

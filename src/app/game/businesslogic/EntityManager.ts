@@ -20,8 +20,9 @@ export class EntityManager {
   changeHealth(entity: Entity, value: number) {
     this.changeHealthHighlightConditions(entity, value);
     entity.health += value;
-    if (entity.health > entity.maxHealth) {
-      entity.health = EntityValueFunction("" + entity.maxHealth);
+    const maxHealth = EntityValueFunction("" + entity.maxHealth);
+    if (entity.health > maxHealth) {
+      entity.health = maxHealth;
     } else if (entity.health < 0) {
       entity.health = 0;
     }
@@ -135,8 +136,9 @@ export class EntityManager {
 
       if (condition.name == ConditionName.ward) {
         entity.health += Math.floor((condition.value - 1) / 2);
-        if (entity.health > EntityValueFunction("" + entity.maxHealth)) {
-          entity.health = EntityValueFunction("" + entity.maxHealth);
+        const maxHealth = EntityValueFunction("" + entity.maxHealth);
+        if (entity.health > maxHealth) {
+          entity.health = maxHealth;
         }
 
         if (entity.health > 0 && (entity instanceof MonsterEntity || entity instanceof Summon) && entity.dead) {
@@ -232,15 +234,16 @@ export class EntityManager {
     const regenerateCondition = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state == EntityConditionState.normal && entityCondition.name == ConditionName.regenerate);
 
     if (regenerateCondition) {
-      const heal = entity.entityConditions.every((entityCondition) => entityCondition.expired || entityCondition.types.indexOf(ConditionType.preventHeal) == -1) && entity.health < entity.maxHealth;
+      const maxHealth = EntityValueFunction("" + entity.maxHealth);
+      const heal = entity.entityConditions.every((entityCondition) => entityCondition.expired || entityCondition.types.indexOf(ConditionType.preventHeal) == -1) && entity.health < maxHealth;
 
       entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.clearHeal) != -1).forEach((entityCondition) => entityCondition.expired = true);
 
       if (heal) {
         regenerateCondition.state = EntityConditionState.expire;
         entity.health += regenerateCondition.value;
-        if (entity.health > EntityValueFunction("" + entity.maxHealth)) {
-          entity.health = EntityValueFunction("" + entity.maxHealth);
+        if (entity.health > maxHealth) {
+          entity.health = maxHealth;
         }
       }
 
@@ -285,8 +288,9 @@ export class EntityManager {
         if (entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x) {
 
           entity.health = entity.health + entityCondition.value;
-          if (entity.health > EntityValueFunction("" + entity.maxHealth)) {
-            entity.health = EntityValueFunction("" + entity.maxHealth);
+          const maxHealth = EntityValueFunction("" + entity.maxHealth);
+          if (entity.health > maxHealth) {
+            entity.health = maxHealth;
           }
 
           if (entity.health > 0 && (entity instanceof MonsterEntity || entity instanceof Summon) && entity.dead) {
@@ -343,8 +347,9 @@ export class EntityManager {
     if (baneCondition) {
 
       entity.health = entity.health + 10;
-      if (entity.health > EntityValueFunction("" + entity.maxHealth)) {
-        entity.health = EntityValueFunction("" + entity.maxHealth);
+      const maxHealth = EntityValueFunction("" + entity.maxHealth);
+      if (entity.health > maxHealth) {
+        entity.health = maxHealth;
       }
 
       if (entity.health > 0 && (entity instanceof MonsterEntity || entity instanceof Summon) && entity.dead) {

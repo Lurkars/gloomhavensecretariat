@@ -170,7 +170,7 @@
               <label (click)="exportCharacter()" title="{{'character.progress.export' |
         ghsLabel}}"><img src="./assets/images/export.svg">{{'character.progress.export' |
                 ghsLabel}}</label>
-              <label title="{{'character.progress.import' | ghsLabel}}">
+              <label title="{{'character.progress.import' | ghsLabel}}" (click)="ghsInputFullScreenCheck()">
                 <input type="file" accept="application/json" (change)="importCharacter($event)" /><img
                   src="./assets/images/import.svg">{{'character.progress.import' | ghsLabel}}</label>
             </div>

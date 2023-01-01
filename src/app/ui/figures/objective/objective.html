@@ -1,19 +1,19 @@
 <div class="objective"
   [ngClass]="{'off' : objective.off || objective.exhausted || (objective.health <= 0), 'escort' : objective.escort, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
-  <a class="image-container" (click)="toggleFigure()"
-    [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round }">
+  <a class="image-container">
     <span class="objective-marker" [ngClass]="{'active-border' : objective.active}">
       {{objective.id + 1}}
     </span>
     <ghs-healthbar [entity]="objective"></ghs-healthbar>
   </a>
 
-  <ghs-drag-click class="drag-initiative"
-    (dragMove)="dragInitiativeMove($event)" (dragEnd)="dragInitiativeEnd($event)" (click)="openEntityMenu($event)">
+  <ghs-drag-click class="drag-initiative" (dragMove)="dragInitiativeMove($event)" (dragEnd)="dragInitiativeEnd($event)"
+    (singleClick)="toggleFigure()"
+    [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round }">
   </ghs-drag-click>
 
-  <ghs-drag-click class="drag-hp" (dragMove)="dragHpMove($event)"
-    (dragEnd)="dragHpEnd($event)" [relative]="true" (click)="openEntityMenu($event)"></ghs-drag-click>
+  <ghs-drag-click class="drag-hp" (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" [relative]="true"
+    (click)="openEntityMenu($event)"></ghs-drag-click>
 
   <ghs-character-initiative [character]="objective"></ghs-character-initiative>
 

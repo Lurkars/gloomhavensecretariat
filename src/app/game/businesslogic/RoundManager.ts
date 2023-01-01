@@ -242,9 +242,6 @@ export class RoundManager {
         }
       }
     }
-    if (figure instanceof Objective) {
-      this.toggleFigure(figure);
-    }
   }
 
   afterTurn(figure: Figure) {

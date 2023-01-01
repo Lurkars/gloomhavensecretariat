@@ -9,14 +9,14 @@
   </div>
 
   <div class="line">
-    <label class="input-file">
+    <label class="input-file" (click)="ghsInputFullScreenCheck()">
       <input type="file" accept="application/json" (change)="importGame($event)" />
       {{'datamanagement.importGame' | ghsLabel}}
     </label>
   </div>
 
   <div class="line">
-    <label class="input-file">
+    <label class="input-file" (click)="ghsInputFullScreenCheck()">
       {{'datamanagement.importSettings' | ghsLabel}}
       <input type="file" accept="application/json" (change)="importSettings($event)" />
     </label>

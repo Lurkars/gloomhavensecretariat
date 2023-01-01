@@ -8,6 +8,7 @@ import { Identifier } from "src/app/game/model/Identifier";
 
 import { Party } from "src/app/game/model/Party";
 import { Scenario } from "src/app/game/model/Scenario";
+import { ghsInputFullScreenCheck } from "../../helper/Static";
 
 @Component({
   selector: 'ghs-party-sheet-dialog',
@@ -17,6 +18,7 @@ import { Scenario } from "src/app/game/model/Scenario";
 export class PartySheetDialogComponent {
 
   gameManager: GameManager = gameManager;
+  ghsInputFullScreenCheck = ghsInputFullScreenCheck;
   party: Party;
   prosperitySteps = [3, 8, 14, 21, 29, 38, 49, 63];
   priceModifier: number = 0;
@@ -28,7 +30,7 @@ export class PartySheetDialogComponent {
 
   @ViewChild('treasureIndex') treasureIndex!: ElementRef;
 
-  constructor(private dialogRef : DialogRef) {
+  constructor(private dialogRef: DialogRef) {
     this.party = gameManager.game.party;
     this.update();
     gameManager.uiChange.subscribe({

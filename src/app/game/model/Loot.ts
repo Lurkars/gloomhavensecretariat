@@ -68,13 +68,13 @@ export const fullLootDeck: Loot[] = [
     // 6x Money 2
     new Loot(LootType.money, 2),
     new Loot(LootType.money, 2),
-    new Loot(LootType.money, 3),
-    new Loot(LootType.money, 3),
-    new Loot(LootType.money, 3),
-    new Loot(LootType.money, 3),
+    new Loot(LootType.money, 2),
+    new Loot(LootType.money, 2),
+    new Loot(LootType.money, 2),
+    new Loot(LootType.money, 2),
     // 2x Money 3
-    new Loot(LootType.money, 4),
-    new Loot(LootType.money, 4),
+    new Loot(LootType.money, 3),
+    new Loot(LootType.money, 3),
     // herbs
     new Loot(LootType.arrowvine, 1),
     new Loot(LootType.arrowvine, 1),

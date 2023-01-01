@@ -626,6 +626,7 @@
         "initiative": 99
       }
     ],
+    "allyDeck": true,
     "lootDeckConfig": {
       "money": 11,
       "lumber": 2,
@@ -776,19 +777,19 @@
     "objectives": [
       {
         "name": "Door a",
-        "health": "(C-1)/2x(L+3)"
+        "health": "((C-1)/2)x(L+3)"
       },
       {
         "name": "Door b",
-        "health": "(C-1)/2x(L+3)"
+        "health": "((C-1)/2)x(L+3)"
       },
       {
         "name": "Door c",
-        "health": "(C-1)/2x(L+3)"
+        "health": "((C-1)/2)x(L+3)"
       },
       {
         "name": "Door d",
-        "health": "(C-1)/2x(L+3)"
+        "health": "((C-1)/2)x(L+3)"
       }
     ],
     "lootDeckConfig": {

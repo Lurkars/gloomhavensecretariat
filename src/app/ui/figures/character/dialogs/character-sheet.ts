@@ -12,7 +12,7 @@ import { ItemData } from "src/app/game/model/data/ItemData";
 import { GameState } from "src/app/game/model/Game";
 import { Identifier } from "src/app/game/model/Identifier";
 import { Perk, PerkType } from "src/app/game/model/Perks";
-import { ghsValueSign } from "src/app/ui/helper/Static";
+import { ghsInputFullScreenCheck, ghsValueSign } from "src/app/ui/helper/Static";
 
 
 @Component({
@@ -28,6 +28,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
   @ViewChild('itemEdition', { static: false }) itemEdition!: ElementRef;
 
   gameManager: GameManager = gameManager;
+  ghsInputFullScreenCheck = ghsInputFullScreenCheck;
   GameState = GameState;
   characterManager: CharacterManager = gameManager.characterManager;
   PerkType = PerkType;
