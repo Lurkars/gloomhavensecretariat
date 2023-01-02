@@ -849,7 +849,8 @@
       ".": "Language",
       "de": "German (Deutsch)",
       "en": "English",
-      "fr": "French (Français)"
+      "fr": "French (Français)",
+      "ko": "Korean (한국어)"
     },
     "maxUndo": {
       ".": "Max. number of undos",

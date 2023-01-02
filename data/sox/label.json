@@ -38,5 +38,15 @@
       "Flooded Crypt": "Crypte Inondée",
       "Crypt of the Ancients": "Crypte des Anciens"
     }
+  },
+  "ko": {
+    "edition": {
+      "sox": "소른의 탐구자"
+    },
+    "monster": {
+      "night-demon-sox": "%data.monster.night-demon% (%data.edition.sox%)",
+      "tormented-soul": "고통받는 영혼",
+      "water-eel": "민물 장어"
+    }
   }
 }

@@ -153,5 +153,55 @@
         }
       }
     }
+  },
+  "ko": {
+    "edition": {
+      "solo": "1인용 시나리오 (모든 에디션)"
+    },
+    "monster": {
+      "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.music-note% %solo%)",
+      "bandit-guard-music-note-solo": "%data.monster.bandit-guard% (%data.character.music-note% %solo%)",
+      "cave-bear-circles-solo": "%data.monster.cave-bear% (%data.character.circles% %solo%)",
+      "city-guard-saw-solo": "%data.monster.city-guard% (%data.character.saw% %solo%)",
+      "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.scoundrel% %solo%)",
+      "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.sun% %solo%)",
+      "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.tinkerer% %solo%)",
+      "deep-earth": "Deep Earth",
+      "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.diviner% %solo%)",
+      "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.mindthief% %solo%)",
+      "ghost-wolf": "Ghost Wolf",
+      "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.angry-face% %solo%)",
+      "high-flame": "High Flame",
+      "inox-necromancer": "Inox Necromancer",
+      "lieutenant": "Lieutenant",
+      "song-of-the-deep": "Song of the Deep",
+      "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.scoundrel% %solo%)",
+      "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.mindthief% %solo%)"
+    },
+    "scenario": {
+      "group": {
+        "solo": "1인용 시나리오"
+      },
+      "rules": {
+        "gh": {
+          "solo-2": {
+            "1": "Spawn four normal Vermling Scouts at %game.mapMarker.a%"
+          }
+        }
+      }
+    },
+    "custom": {
+      "solo": {
+        "char-am-deck": "캐릭터 공격 보정 덱 사용"
+      },
+      "gh": {
+        "city-guard-saw-solo": {
+          "1": "Suffer %game.damage:1% at end of round until fully healed"
+        },
+        "ghost-wolf": {
+          "1": "At start of each round:"
+        }
+      }
+    }
   }
 }

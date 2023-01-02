@@ -595,7 +595,8 @@
       ".": "Langue",
       "de": "Allemand (Deutsch)",
       "en": "Anglais (English)",
-      "fr": "Français"
+      "fr": "Français",
+      "ko": "Coréen (한국어)"
     },
     "maxUndo": "Nombre max d'actions à défaire",
     "moveElements": "Mettre à jour les éléments automatiquement",

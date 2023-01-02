@@ -732,7 +732,8 @@
       ".": "Sprache",
       "de": "Deutsch",
       "en": "Englisch (English)",
-      "fr": "Französisch (Français)"
+      "fr": "Französisch (Français)",
+      "ko": "Koreanisch (한국어)"
     },
     "maxUndo": {
       ".": "Max. Anzahl Rückgängigvorgänge",
