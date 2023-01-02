@@ -2,6 +2,7 @@
   "name": "ooze",
   "edition": "fh",
   "count": 10,
+  "catching" : true,
   "baseStat": {
     "type": "normal",
     "immunities": [],

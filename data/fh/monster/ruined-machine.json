@@ -2,6 +2,7 @@
   "name": "ruined-machine",
   "edition": "fh",
   "count": 10,
+  "catching" : true,
   "baseStat": {
     "type": "normal",
     "health": 5,

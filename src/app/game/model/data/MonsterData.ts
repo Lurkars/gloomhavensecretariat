@@ -16,6 +16,8 @@ export class MonsterData implements Editional, Spoilable {
   thumbnail: string | undefined;
   thumbnailUrl: string | undefined;
 
+  catching: boolean = false;
+
   // from Editional
   edition: string;
 
@@ -26,11 +28,11 @@ export class MonsterData implements Editional, Spoilable {
   errors: FigureError[] | undefined = [];
 
   hidden: boolean = false;
-  
+
   replace: boolean = false;
 
   constructor(name: string, count: number, baseStat: MonsterStat, stats: MonsterStat[], edition: string, deck: string | undefined = undefined, boss: boolean = false, flying: boolean = false, thumbnail: string | undefined = undefined, thumbnailUrl: string | undefined = undefined,
-    spoiler: boolean = false) {
+    spoiler: boolean = false, catching: boolean = false) {
     this.errors = [];
     this.name = name;
     this.count = count;
@@ -45,7 +47,8 @@ export class MonsterData implements Editional, Spoilable {
     this.flying = flying;
     this.thumbnail = thumbnail;
     this.thumbnailUrl = thumbnailUrl;
-    this.spoiler = true;
+    this.spoiler = spoiler;
+    this.catching = catching;
   }
 
 }

@@ -27,7 +27,7 @@ export class Monster extends MonsterData implements Figure {
   isAlly: boolean = false;
 
   constructor(monsterData: MonsterData, level: number = 1) {
-    super(monsterData.name, monsterData.count, monsterData.baseStat, monsterData.stats, monsterData.edition, monsterData.deck, monsterData.boss, monsterData.flying, monsterData.thumbnail, monsterData.thumbnailUrl, monsterData.spoiler);
+    super(monsterData.name, monsterData.count, monsterData.baseStat, monsterData.stats, monsterData.edition, monsterData.deck, monsterData.boss, monsterData.flying, monsterData.thumbnail, monsterData.thumbnailUrl, monsterData.spoiler, monsterData.catching);
     this.errors = monsterData.errors;
     this.level = level;
     if (monsterData.baseStat) {

@@ -2,6 +2,7 @@
   "name": "hound",
   "edition": "fh",
   "count": 6,
+  "catching" : true,
   "baseStat": {
     "type": "normal",
     "immunities": [],

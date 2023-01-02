@@ -3,6 +3,7 @@
   "edition": "fh",
   "deck": "imp",
   "count": 10,
+  "catching" : true,
   "baseStat": {
     "type": "normal",
     "movement": 1,
