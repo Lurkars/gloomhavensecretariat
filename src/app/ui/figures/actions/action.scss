@@ -871,6 +871,10 @@
       .minus {
         margin-left: 0.15em;
       }
+
+      .element:not(:first-child) {
+        margin-left: 0.3em;
+      }
     }
 
     .element-subactions {

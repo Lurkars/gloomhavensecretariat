@@ -102,31 +102,7 @@
         },
         {
           "type": "element",
-          "value": "light",
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "summon",
-              "value": "lurker-wavethrower",
-              "small": true
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "any",
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "summon",
-              "value": "lurker-wavethrower",
-              "small": true
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "any",
+          "value": "light:any:any",
           "valueType": "minus",
           "subActions": [
             {
