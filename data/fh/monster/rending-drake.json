@@ -161,7 +161,7 @@
       "type": "elite",
       "level": 5,
       "health": 15,
-      "movement": 5,
+      "movement": 6,
       "attack": 6,
       "actions": [
         {

@@ -163,7 +163,7 @@
     {
       "type": "elite",
       "level": 4,
-      "health": 13,
+      "health": 12,
       "movement": 2,
       "attack": 4,
       "actions": [
@@ -203,7 +203,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2
+          "value": 1
         },
         {
           "type": "condition",

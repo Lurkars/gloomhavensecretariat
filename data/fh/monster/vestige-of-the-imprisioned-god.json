@@ -13,7 +13,6 @@
       {
         "type": "retaliate",
         "value": 1,
-        "small": false,
         "subActions": [
           {
             "type": "range",
@@ -48,13 +47,11 @@
       [
         {
           "type": "shield",
-          "value": 3,
-          "small": false
+          "value": 3
         },
         {
           "type": "custom",
-          "value": "Modify terrain.",
-          "small": false
+          "value": "Modify terrain."
         },
         {
           "type": "push",
@@ -70,13 +67,11 @@
               "value": 3,
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "custom",
-          "value": "All characters who did not attack suffer trap damage at end of round.",
-          "small": false
+          "value": "All characters who did not attack suffer trap damage at end of round."
         }
       ]
     ]
@@ -100,27 +95,92 @@
     {
       "level": 3,
       "health": "Cx30",
-      "attack": 5
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
     },
     {
       "level": 4,
       "health": "Cx37",
-      "attack": 5
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
     },
     {
       "level": 5,
       "health": "Cx44",
-      "attack": 6
+      "attack": 6,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
     },
     {
       "level": 6,
       "health": "Cx60",
-      "attack": 7
+      "attack": 7,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
     },
     {
       "level": 7,
       "health": "Cx80",
-      "attack": 8
+      "attack": 8,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            }
+          ]
+        }
+      ]
     }
   ]
 }

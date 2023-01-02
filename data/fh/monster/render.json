@@ -13,8 +13,7 @@
     "actions": [
       {
         "type": "condition",
-        "value": "wound",
-        "small": false
+        "value": "wound"
       }
     ],
     "immunities": [
@@ -29,12 +28,10 @@
         {
           "type": "grid",
           "value": "",
-          "small": false,
           "subActions": [
             {
               "type": "teleport",
-              "value": "",
-              "small": false
+              "value": ""
             },
             {
               "type": "custom",
@@ -58,8 +55,7 @@
               "value": 2,
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
       ],
       [
@@ -82,8 +78,7 @@
               "value": 5,
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "attack",
@@ -95,8 +90,7 @@
               "value": "enemiesAdjacent",
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "heal",
@@ -107,8 +101,7 @@
               "value": "self",
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
       ]
     ]
@@ -123,7 +116,7 @@
     {
       "level": 1,
       "health": "Cx16",
-      "movement": 3,
+      "movement": 4,
       "attack": "C+2"
     },
     {

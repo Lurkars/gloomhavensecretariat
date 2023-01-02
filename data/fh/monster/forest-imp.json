@@ -218,7 +218,6 @@
       "health": 10,
       "movement": 4,
       "attack": 4,
-      "range": -2,
       "actions": [
         {
           "type": "shield",

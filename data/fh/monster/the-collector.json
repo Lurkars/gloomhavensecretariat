@@ -22,8 +22,7 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
@@ -40,8 +39,7 @@
                   "value": "wound",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             },
             {
               "type": "element",
@@ -53,8 +51,7 @@
                   "value": "disarm",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             },
             {
               "type": "element",
@@ -67,11 +64,9 @@
                   "valueType": "add",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "element",
@@ -92,11 +87,9 @@
                   "value": 1,
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "concatenation",
@@ -104,34 +97,28 @@
           "subActions": [
             {
               "type": "element",
-              "value": "fire",
-              "small": false
+              "value": "fire"
             },
             {
               "type": "element",
-              "value": "air",
-              "small": false
+              "value": "air"
             },
             {
               "type": "element",
-              "value": "earth",
-              "small": false
+              "value": "earth"
             },
             {
               "type": "element",
-              "value": "light",
-              "small": false
+              "value": "light"
             }
-          ],
-          "small": false
+          ]
         }
       ],
       [
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
@@ -148,8 +135,7 @@
                   "value": "wound",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             },
             {
               "type": "element",
@@ -162,11 +148,9 @@
                   "valueType": "add",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "element",
@@ -182,11 +166,9 @@
                   "value": "self",
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "element",
@@ -194,11 +176,9 @@
           "subActions": [
             {
               "type": "shield",
-              "value": 1,
-              "small": false
+              "value": 1
             }
           ],
-          "small": false,
           "valueType": "minus"
         },
         {
@@ -207,26 +187,21 @@
           "subActions": [
             {
               "type": "element",
-              "value": "fire",
-              "small": false
+              "value": "fire"
             },
             {
               "type": "element",
-              "value": "ice",
-              "small": false
+              "value": "ice"
             },
             {
               "type": "element",
-              "value": "air",
-              "small": false
+              "value": "air"
             },
             {
               "type": "element",
-              "value": "dark",
-              "small": false
+              "value": "dark"
             }
-          ],
-          "small": false
+          ]
         }
       ]
     ]
@@ -272,13 +247,389 @@
       "level": 6,
       "health": "Cx54",
       "movement": 5,
-      "attack": 6
+      "attack": 6,
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "element",
+                "value": "fire",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "condition",
+                    "value": "wound",
+                    "small": true
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "value": "ice",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "condition",
+                    "value": "disarm",
+                    "small": true
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "value": "air",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "target",
+                    "value": 1,
+                    "valueType": "add",
+                    "small": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "dark",
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "condition",
+                "value": "curse",
+                "subActions": [
+                  {
+                    "type": "target",
+                    "value": "%game.target.all%",
+                    "small": true
+                  },
+                  {
+                    "type": "range",
+                    "value": 1,
+                    "small": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "concatenation",
+            "value": "",
+            "subActions": [
+              {
+                "type": "element",
+                "value": "fire"
+              },
+              {
+                "type": "element",
+                "value": "air"
+              },
+              {
+                "type": "element",
+                "value": "earth"
+              },
+              {
+                "type": "element",
+                "value": "light"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "element",
+                "value": "fire",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "condition",
+                    "value": "wound",
+                    "small": true
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "value": "air",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "target",
+                    "value": 1,
+                    "valueType": "add",
+                    "small": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "earth",
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "heal",
+                "value": "[C]",
+                "subActions": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self",
+                    "small": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "light",
+            "subActions": [
+              {
+                "type": "shield",
+                "value": 2
+              }
+            ],
+            "valueType": "minus"
+          },
+          {
+            "type": "concatenation",
+            "value": "",
+            "subActions": [
+              {
+                "type": "element",
+                "value": "fire"
+              },
+              {
+                "type": "element",
+                "value": "ice"
+              },
+              {
+                "type": "element",
+                "value": "air"
+              },
+              {
+                "type": "element",
+                "value": "dark"
+              }
+            ]
+          }
+        ]
+      ]
     },
     {
       "level": 7,
       "health": "Cx68",
       "movement": 5,
-      "attack": 7
+      "attack": 7,
+      "special": [
+        [
+          {
+            "type": "move",
+            "value": 0,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 1,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "element",
+                "value": "fire",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "condition",
+                    "value": "wound",
+                    "small": true
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "value": "ice",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "condition",
+                    "value": "disarm",
+                    "small": true
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "value": "air",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "target",
+                    "value": 1,
+                    "valueType": "add",
+                    "small": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "dark",
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "condition",
+                "value": "curse",
+                "subActions": [
+                  {
+                    "type": "target",
+                    "value": "%game.target.all%",
+                    "small": true
+                  },
+                  {
+                    "type": "range",
+                    "value": 1,
+                    "small": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "concatenation",
+            "value": "",
+            "subActions": [
+              {
+                "type": "element",
+                "value": "fire"
+              },
+              {
+                "type": "element",
+                "value": "air"
+              },
+              {
+                "type": "element",
+                "value": "earth"
+              },
+              {
+                "type": "element",
+                "value": "light"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "type": "move",
+            "value": 1,
+            "valueType": "plus"
+          },
+          {
+            "type": "attack",
+            "value": 0,
+            "valueType": "plus",
+            "subActions": [
+              {
+                "type": "element",
+                "value": "fire",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "condition",
+                    "value": "wound",
+                    "small": true
+                  }
+                ]
+              },
+              {
+                "type": "element",
+                "value": "air",
+                "valueType": "minus",
+                "subActions": [
+                  {
+                    "type": "target",
+                    "value": 1,
+                    "valueType": "add",
+                    "small": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "earth",
+            "valueType": "minus",
+            "subActions": [
+              {
+                "type": "heal",
+                "value": "[C]",
+                "subActions": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self",
+                    "small": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "light",
+            "subActions": [
+              {
+                "type": "shield",
+                "value": 2
+              }
+            ],
+            "valueType": "minus"
+          },
+          {
+            "type": "concatenation",
+            "value": "",
+            "subActions": [
+              {
+                "type": "element",
+                "value": "fire"
+              },
+              {
+                "type": "element",
+                "value": "ice"
+              },
+              {
+                "type": "element",
+                "value": "air"
+              },
+              {
+                "type": "element",
+                "value": "dark"
+              }
+            ]
+          }
+        ]
+      ]
     }
   ]
 }

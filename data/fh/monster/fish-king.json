@@ -22,8 +22,7 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
@@ -40,13 +39,11 @@
               "value": 2,
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "summon",
-          "value": "piranha-pig",
-          "small": false
+          "value": "piranha-pig"
         }
       ],
       [
@@ -74,8 +71,7 @@
                   "value": 4,
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ],
           "small": true

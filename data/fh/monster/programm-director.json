@@ -23,12 +23,10 @@
             {
               "type": "grid",
               "value": "",
-              "small": false,
               "subActions": [
                 {
                   "type": "teleport",
-                  "value": "",
-                  "small": false
+                  "value": ""
                 },
                 {
                   "type": "custom",
@@ -50,8 +48,7 @@
               "value": 2,
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
       ],
       [
@@ -63,12 +60,10 @@
         {
           "type": "grid",
           "value": "",
-          "small": false,
           "subActions": [
             {
               "type": "teleport",
-              "value": "",
-              "small": false
+              "value": ""
             },
             {
               "type": "custom",
@@ -87,8 +82,7 @@
               "value": "enemiesAdjacent",
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
       ]
     ]

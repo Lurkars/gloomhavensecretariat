@@ -16,7 +16,7 @@
     },
     {
       "level": 1,
-      "health": 7,
+      "health": 9,
       "movement": 3,
       "attack": 2,
       "actions": [

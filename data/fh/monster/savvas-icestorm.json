@@ -48,7 +48,7 @@
       "level": 3,
       "health": 12,
       "movement": 3,
-      "attack": 3,
+      "attack": 2,
       "actions": [
         {
           "type": "shield",

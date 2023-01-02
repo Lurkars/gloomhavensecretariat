@@ -73,8 +73,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "impair",
-          "small": false
+          "value": "impair"
         }
       ]
     },
@@ -87,8 +86,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "impair",
-          "small": false
+          "value": "impair"
         }
       ]
     },
@@ -101,8 +99,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "impair",
-          "small": false
+          "value": "impair"
         }
       ]
     },
@@ -115,8 +112,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "impair",
-          "small": false
+          "value": "impair"
         }
       ]
     },
@@ -129,8 +125,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "impair",
-          "small": false
+          "value": "impair"
         }
       ]
     },
@@ -143,8 +138,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "impair",
-          "small": false
+          "value": "impair"
         }
       ]
     },
@@ -157,8 +151,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "impair",
-          "small": false
+          "value": "impair"
         }
       ]
     }

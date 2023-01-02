@@ -8,7 +8,6 @@
   "baseStat": {
     "type": "boss",
     "health": "7xC",
-    "movement": 2,
     "attack": 3,
     "immunities": [
       "wound",
@@ -43,19 +42,18 @@
               "value": "immobilize",
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
       ],
       [
         {
           "type": "custom",
-          "value": "Spawn [C/2{%math.floor}] sparks.",
+          "value": "Spawn [C/2{%math.ceil}] sparks.",
           "small": true
         },
         {
           "type": "custom",
-          "value": "Force all enemies to move one hex toward the closes unocuupied corridor hex.",
+          "value": "Force all enemies to move one hex toward the closest unocuupied corridor hex.",
           "small": true
         }
       ]
@@ -90,7 +88,6 @@
     {
       "level": 5,
       "health": "Cx60",
-      "movement": 2,
       "attack": 6
     },
     {

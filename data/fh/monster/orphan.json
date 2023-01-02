@@ -19,7 +19,7 @@
       [
         {
           "type": "heal",
-          "value": "[Cx3/2{%math.ceil}]",
+          "value": "[Cx(3/2+Lx0.5){%math.ceil}]",
           "subActions": [
             {
               "type": "custom",
@@ -66,7 +66,7 @@
     {
       "level": 0,
       "health": "Cx7",
-      "movement": 2,
+      "movement": 3,
       "attack": "C"
     },
     {

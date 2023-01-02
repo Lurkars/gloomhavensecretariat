@@ -18,8 +18,7 @@
       "actions": [
         {
           "type": "target",
-          "value": 2,
-          "small": false
+          "value": 2
         }
       ]
     },
@@ -31,8 +30,7 @@
       "actions": [
         {
           "type": "target",
-          "value": 2,
-          "small": false
+          "value": 2
         }
       ]
     },
@@ -44,8 +42,7 @@
       "actions": [
         {
           "type": "target",
-          "value": 2,
-          "small": false
+          "value": 2
         }
       ]
     },
@@ -57,8 +54,7 @@
       "actions": [
         {
           "type": "target",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ]
     },
@@ -70,8 +66,7 @@
       "actions": [
         {
           "type": "target",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ]
     },
@@ -83,8 +78,7 @@
       "actions": [
         {
           "type": "target",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ]
     },
@@ -96,8 +90,7 @@
       "actions": [
         {
           "type": "target",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ]
     },
@@ -109,8 +102,7 @@
       "actions": [
         {
           "type": "target",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ],
       "immunities": [
@@ -127,8 +119,7 @@
       "actions": [
         {
           "type": "target",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ],
       "immunities": [
@@ -144,8 +135,7 @@
       "actions": [
         {
           "type": "target",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ],
       "immunities": [
@@ -161,8 +151,7 @@
       "actions": [
         {
           "type": "target",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ],
       "immunities": [
@@ -178,8 +167,7 @@
       "actions": [
         {
           "type": "target",
-          "value": 4,
-          "small": false
+          "value": 4
         }
       ],
       "immunities": [
@@ -195,8 +183,7 @@
       "actions": [
         {
           "type": "target",
-          "value": 4,
-          "small": false
+          "value": 4
         }
       ],
       "immunities": [
@@ -212,8 +199,7 @@
       "actions": [
         {
           "type": "target",
-          "value": 4,
-          "small": false
+          "value": 4
         }
       ],
       "immunities": [
@@ -229,8 +215,7 @@
       "actions": [
         {
           "type": "target",
-          "value": 4,
-          "small": false
+          "value": 4
         }
       ],
       "immunities": [
@@ -247,8 +232,7 @@
       "actions": [
         {
           "type": "target",
-          "value": 4,
-          "small": false
+          "value": 4
         }
       ],
       "immunities": [

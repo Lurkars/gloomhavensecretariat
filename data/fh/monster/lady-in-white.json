@@ -21,8 +21,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 1,
-          "small": false
+          "value": 1
         }
       ]
     },
@@ -62,8 +61,7 @@
         },
         {
           "type": "condition",
-          "value": "curse",
-          "small": false
+          "value": "curse"
         }
       ]
     },
@@ -79,8 +77,7 @@
         },
         {
           "type": "condition",
-          "value": "curse",
-          "small": false
+          "value": "curse"
         }
       ]
     },
@@ -96,8 +93,7 @@
         },
         {
           "type": "condition",
-          "value": "curse",
-          "small": false
+          "value": "curse"
         }
       ]
     },
@@ -113,8 +109,7 @@
         },
         {
           "type": "condition",
-          "value": "curse",
-          "small": false
+          "value": "curse"
         }
       ],
       "immunities": [
@@ -133,8 +128,7 @@
         },
         {
           "type": "condition",
-          "value": "curse",
-          "small": false
+          "value": "curse"
         }
       ],
       "immunities": [
@@ -206,8 +200,7 @@
         },
         {
           "type": "condition",
-          "value": "wound",
-          "small": false
+          "value": "wound"
         }
       ]
     },
@@ -230,8 +223,7 @@
         },
         {
           "type": "condition",
-          "value": "wound",
-          "small": false
+          "value": "wound"
         }
       ]
     },

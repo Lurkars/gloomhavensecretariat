@@ -96,6 +96,9 @@
           "type": "retaliate",
           "value": 4
         }
+      ],
+      "immunities": [
+        "poison"
       ]
     },
     {
@@ -173,7 +176,7 @@
     {
       "type": "elite",
       "level": 6,
-      "health": 22,
+      "health": 27,
       "movement": 3,
       "attack": 6,
       "actions": [

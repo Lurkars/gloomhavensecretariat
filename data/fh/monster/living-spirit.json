@@ -36,8 +36,8 @@
     {
       "level": 2,
       "health": 2,
-      "movement": 1,
-      "attack": 2,
+      "movement": 2,
+      "attack": 3,
       "actions": [
         {
           "type": "shield",
@@ -135,7 +135,7 @@
       "type": "elite",
       "level": 2,
       "health": 3,
-      "movement": 2,
+      "movement": 3,
       "attack": 4,
       "actions": [
         {

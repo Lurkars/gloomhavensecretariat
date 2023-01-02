@@ -72,11 +72,9 @@
               "subActions": [
                 {
                   "type": "condition",
-                  "value": "immobilize",
-                  "small": false
+                  "value": "immobilize"
                 }
-              ],
-              "small": false
+              ]
             }
           ]
         }

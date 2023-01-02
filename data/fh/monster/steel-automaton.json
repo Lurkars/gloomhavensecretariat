@@ -28,8 +28,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 1,
-          "small": false
+          "value": 1
         }
       ]
     },
@@ -41,8 +40,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         }
       ]
     },
@@ -54,8 +52,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         }
       ]
     },
@@ -67,8 +64,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         }
       ]
     },
@@ -80,8 +76,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         }
       ]
     },
@@ -93,8 +88,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         }
       ]
     },
@@ -106,8 +100,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ]
     },
@@ -119,8 +112,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ]
     },
@@ -133,8 +125,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         }
       ]
     },
@@ -147,8 +138,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ]
     },
@@ -161,8 +151,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ]
     },
@@ -175,8 +164,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ]
     },
@@ -189,8 +177,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ]
     },
@@ -203,8 +190,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ]
     },
@@ -217,8 +203,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 4,
-          "small": false
+          "value": 4
         }
       ]
     },
@@ -231,8 +216,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 4,
-          "small": false
+          "value": 4
         }
       ]
     }

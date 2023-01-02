@@ -23,8 +23,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison",
-          "small": false
+          "value": "poison"
         }
       ]
     },
@@ -36,8 +35,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison",
-          "small": false
+          "value": "poison"
         }
       ]
     },
@@ -49,8 +47,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison",
-          "small": false
+          "value": "poison"
         }
       ]
     },
@@ -62,8 +59,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison",
-          "small": false
+          "value": "poison"
         }
       ]
     },
@@ -75,8 +71,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison",
-          "small": false
+          "value": "poison"
         }
       ]
     },
@@ -88,8 +83,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison",
-          "small": false
+          "value": "poison"
         }
       ]
     },
@@ -101,8 +95,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison",
-          "small": false
+          "value": "poison"
         }
       ]
     },
@@ -122,8 +115,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison",
-          "small": false
+          "value": "poison"
         }
       ]
     },
@@ -136,8 +128,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison",
-          "small": false
+          "value": "poison"
         }
       ]
     },
@@ -150,8 +141,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison",
-          "small": false
+          "value": "poison"
         }
       ]
     },
@@ -164,8 +154,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison",
-          "small": false
+          "value": "poison"
         }
       ]
     },
@@ -178,8 +167,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison",
-          "small": false
+          "value": "poison"
         }
       ]
     },
@@ -192,8 +180,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison",
-          "small": false
+          "value": "poison"
         }
       ]
     },
@@ -206,8 +193,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "poison",
-          "small": false
+          "value": "poison"
         }
       ]
     }

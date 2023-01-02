@@ -210,7 +210,7 @@
         },
         {
           "type": "retaliate",
-          "value": 3,
+          "value": 2,
           "subActions": [
             {
               "type": "range",
@@ -234,7 +234,7 @@
         },
         {
           "type": "retaliate",
-          "value": 3,
+          "value": 2,
           "subActions": [
             {
               "type": "range",

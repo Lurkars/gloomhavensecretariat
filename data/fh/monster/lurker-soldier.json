@@ -64,7 +64,7 @@
         },
         {
           "type": "pierce",
-          "value": 2
+          "value": 1
         }
       ]
     },
@@ -189,7 +189,7 @@
     {
       "type": "elite",
       "level": 2,
-      "health": 12,
+      "health": 11,
       "movement": 3,
       "attack": 3,
       "actions": [
@@ -210,7 +210,7 @@
     {
       "type": "elite",
       "level": 3,
-      "health": 14,
+      "health": 13,
       "movement": 3,
       "attack": 4,
       "actions": [

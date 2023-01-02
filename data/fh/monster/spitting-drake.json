@@ -23,8 +23,7 @@
       "actions": [
         {
           "type": "condition",
-          "value": "muddle",
-          "small": false
+          "value": "muddle"
         }
       ]
     },

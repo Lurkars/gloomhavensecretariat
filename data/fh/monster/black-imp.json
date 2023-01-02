@@ -121,7 +121,6 @@
       "level": 2,
       "health": 7,
       "attack": 2,
-      "range": -4,
       "actions": [
         {
           "type": "condition",

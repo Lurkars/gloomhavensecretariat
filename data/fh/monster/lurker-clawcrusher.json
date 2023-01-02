@@ -27,6 +27,10 @@
       "attack": 2,
       "actions": [
         {
+          "type": "shield",
+          "value": 1
+        },
+        {
           "type": "target",
           "value": 2
         }
@@ -40,8 +44,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 1,
-          "small": false
+          "value": 1
         },
         {
           "type": "target",

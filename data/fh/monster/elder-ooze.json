@@ -21,8 +21,7 @@
         {
           "type": "move",
           "value": 1,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
@@ -34,8 +33,7 @@
               "value": "The target loses one item.",
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "custom",
@@ -58,8 +56,7 @@
                   "value": 8,
                   "small": true
                 }
-              ],
-              "small": false
+              ]
             }
           ],
           "small": true
@@ -78,8 +75,7 @@
               "value": 1,
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
       ]
     ]

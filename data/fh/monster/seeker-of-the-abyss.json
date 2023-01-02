@@ -10,8 +10,7 @@
     "actions": [
       {
         "type": "target",
-        "value": 2,
-        "small": false
+        "value": 2
       }
     ],
     "immunities": [
@@ -26,8 +25,7 @@
         {
           "type": "move",
           "value": 0,
-          "valueType": "plus",
-          "small": false
+          "valueType": "plus"
         },
         {
           "type": "attack",
@@ -36,11 +34,10 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "The target lose one card.",
+              "value": "The targets lose one card.",
               "small": true
             }
-          ],
-          "small": false
+          ]
         }
       ],
       [

@@ -48,7 +48,7 @@
         },
         {
           "type": "pierce",
-          "value": 1
+          "value": 2
         }
       ]
     },
@@ -64,7 +64,7 @@
         },
         {
           "type": "pierce",
-          "value": 2
+          "value": 3
         }
       ]
     },
@@ -148,8 +148,8 @@
     {
       "type": "elite",
       "level": 1,
-      "health": 9,
-      "movement": 2,
+      "health": 7,
+      "movement": 3,
       "attack": 3,
       "actions": [
         {
@@ -158,13 +158,11 @@
         },
         {
           "type": "pierce",
-          "value": 3,
-          "small": false
+          "value": 3
         },
         {
           "type": "condition",
-          "value": "muddle",
-          "small": false
+          "value": "muddle"
         }
       ]
     },
@@ -185,8 +183,7 @@
         },
         {
           "type": "condition",
-          "value": "muddle",
-          "small": false
+          "value": "muddle"
         }
       ]
     },
@@ -228,8 +225,7 @@
         },
         {
           "type": "condition",
-          "value": "muddle",
-          "small": false
+          "value": "muddle"
         }
       ]
     },
@@ -250,8 +246,7 @@
         },
         {
           "type": "condition",
-          "value": "muddle",
-          "small": false
+          "value": "muddle"
         }
       ]
     },
@@ -272,8 +267,7 @@
         },
         {
           "type": "condition",
-          "value": "muddle",
-          "small": false
+          "value": "muddle"
         }
       ]
     },
@@ -294,8 +288,7 @@
         },
         {
           "type": "condition",
-          "value": "muddle",
-          "small": false
+          "value": "muddle"
         }
       ]
     }

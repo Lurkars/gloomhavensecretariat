@@ -16,8 +16,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 1,
-          "small": false
+          "value": 1
         }
       ]
     },
@@ -29,8 +28,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 1,
-          "small": false
+          "value": 1
         }
       ]
     },
@@ -42,8 +40,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 1,
-          "small": false
+          "value": 1
         }
       ]
     },
@@ -55,8 +52,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 1,
-          "small": false
+          "value": 1
         }
       ]
     },
@@ -68,8 +64,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 1,
-          "small": false
+          "value": 1
         }
       ]
     },
@@ -81,8 +76,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         }
       ]
     },
@@ -94,8 +88,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         }
       ]
     },
@@ -107,9 +100,11 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         }
+      ],
+      "immunities": [
+        "brittle"
       ]
     },
     {
@@ -121,8 +116,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         }
       ]
     },
@@ -135,13 +129,11 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         },
         {
           "type": "condition",
-          "value": "brittle",
-          "small": false
+          "value": "brittle"
         }
       ]
     },
@@ -154,13 +146,11 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         },
         {
           "type": "condition",
-          "value": "brittle",
-          "small": false
+          "value": "brittle"
         }
       ]
     },
@@ -173,13 +163,11 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         },
         {
           "type": "condition",
-          "value": "brittle",
-          "small": false
+          "value": "brittle"
         }
       ]
     },
@@ -192,13 +180,11 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         },
         {
           "type": "condition",
-          "value": "brittle",
-          "small": false
+          "value": "brittle"
         }
       ]
     },
@@ -211,13 +197,11 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         },
         {
           "type": "condition",
-          "value": "brittle",
-          "small": false
+          "value": "brittle"
         }
       ]
     },
@@ -230,13 +214,11 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         },
         {
           "type": "condition",
-          "value": "brittle",
-          "small": false
+          "value": "brittle"
         }
       ],
       "immunities": [
@@ -252,13 +234,11 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         },
         {
           "type": "condition",
-          "value": "brittle",
-          "small": false
+          "value": "brittle"
         }
       ],
       "immunities": [

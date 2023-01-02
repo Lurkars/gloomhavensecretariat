@@ -10,13 +10,7 @@
     "health": "Cx20",
     "movement": 2,
     "attack": 3,
-    "actions": [
-      {
-        "type": "shield",
-        "value": 1,
-        "small": false
-      }
-    ],
+    "actions": [],
     "immunities": [
       "immobilize",
       "disarm",
@@ -45,8 +39,7 @@
               "value": 2,
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "summon",
@@ -83,8 +76,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 1,
-          "small": false
+          "value": 1
         }
       ]
     },
@@ -96,8 +88,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 1,
-          "small": false
+          "value": 1
         }
       ]
     },
@@ -109,8 +100,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 1,
-          "small": false
+          "value": 1
         }
       ]
     },
@@ -122,8 +112,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 1,
-          "small": false
+          "value": 1
         }
       ]
     },
@@ -135,8 +124,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         }
       ]
     },
@@ -148,8 +136,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         }
       ]
     },
@@ -161,8 +148,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ]
     }

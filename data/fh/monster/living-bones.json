@@ -120,7 +120,7 @@
       "level": 7,
       "health": 15,
       "movement": 4,
-      "attack": 5,
+      "attack": 4,
       "actions": [
         {
           "type": "shield",
@@ -222,7 +222,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2
+          "value": 1
         },
         {
           "type": "target",
@@ -239,7 +239,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2
+          "value": 1
         },
         {
           "type": "target",
@@ -256,7 +256,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2
+          "value": 1
         },
         {
           "type": "target",

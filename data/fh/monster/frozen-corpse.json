@@ -114,8 +114,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 1,
-          "small": false
+          "value": 1
         },
         {
           "type": "retaliate",
@@ -132,8 +131,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 1,
-          "small": false
+          "value": 1
         },
         {
           "type": "retaliate",
@@ -150,8 +148,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 1,
-          "small": false
+          "value": 1
         },
         {
           "type": "retaliate",
@@ -168,8 +165,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 1,
-          "small": false
+          "value": 1
         },
         {
           "type": "retaliate",
@@ -186,8 +182,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 1,
-          "small": false
+          "value": 1
         },
         {
           "type": "retaliate",
@@ -204,8 +199,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         },
         {
           "type": "retaliate",
@@ -222,8 +216,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         },
         {
           "type": "retaliate",

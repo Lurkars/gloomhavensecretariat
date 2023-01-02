@@ -14,7 +14,6 @@
       {
         "type": "retaliate",
         "value": 2,
-        "small": false,
         "subActions": [
           {
             "type": "range",
@@ -25,8 +24,7 @@
       },
       {
         "type": "condition",
-        "value": "brittle",
-        "small": false
+        "value": "brittle"
       }
     ],
     "immunities": [
@@ -44,7 +42,7 @@
         },
         {
           "type": "heal",
-          "value": 2,
+          "value": "[L/2+2{%math.ceil}]",
           "subActions": [
             {
               "type": "target",
@@ -56,8 +54,7 @@
               "value": 5,
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "summon",
@@ -90,13 +87,11 @@
               "value": "brittle",
               "small": true
             }
-          ],
-          "small": false
+          ]
         },
         {
           "type": "summon",
-          "value": "snow-imp",
-          "small": false
+          "value": "snow-imp"
         }
       ]
     ]
@@ -110,8 +105,7 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": 2,
-          "small": false,
+          "value": 1,
           "subActions": [
             {
               "type": "range",
@@ -122,8 +116,7 @@
         },
         {
           "type": "condition",
-          "value": "brittle",
-          "small": false
+          "value": "brittle"
         }
       ]
     },
@@ -135,8 +128,7 @@
       "actions": [
         {
           "type": "retaliate",
-          "value": 2,
-          "small": false,
+          "value": 1,
           "subActions": [
             {
               "type": "range",
@@ -147,8 +139,7 @@
         },
         {
           "type": "condition",
-          "value": "brittle",
-          "small": false
+          "value": "brittle"
         }
       ]
     },
@@ -161,7 +152,6 @@
         {
           "type": "retaliate",
           "value": 2,
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -172,8 +162,7 @@
         },
         {
           "type": "condition",
-          "value": "brittle",
-          "small": false
+          "value": "brittle"
         }
       ]
     },
@@ -186,7 +175,6 @@
         {
           "type": "retaliate",
           "value": 2,
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -197,8 +185,7 @@
         },
         {
           "type": "condition",
-          "value": "brittle",
-          "small": false
+          "value": "brittle"
         }
       ]
     },
@@ -211,7 +198,6 @@
         {
           "type": "retaliate",
           "value": 2,
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -222,8 +208,7 @@
         },
         {
           "type": "condition",
-          "value": "brittle",
-          "small": false
+          "value": "brittle"
         }
       ]
     },
@@ -236,7 +221,6 @@
         {
           "type": "retaliate",
           "value": 3,
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -247,8 +231,7 @@
         },
         {
           "type": "condition",
-          "value": "brittle",
-          "small": false
+          "value": "brittle"
         }
       ]
     },
@@ -261,7 +244,6 @@
         {
           "type": "retaliate",
           "value": 3,
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -272,8 +254,7 @@
         },
         {
           "type": "condition",
-          "value": "brittle",
-          "small": false
+          "value": "brittle"
         }
       ]
     },
@@ -286,7 +267,6 @@
         {
           "type": "retaliate",
           "value": 4,
-          "small": false,
           "subActions": [
             {
               "type": "range",
@@ -297,8 +277,7 @@
         },
         {
           "type": "condition",
-          "value": "brittle",
-          "small": false
+          "value": "brittle"
         }
       ]
     }

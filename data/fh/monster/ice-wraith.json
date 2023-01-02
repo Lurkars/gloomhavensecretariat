@@ -65,7 +65,7 @@
       "level": 4,
       "health": 12,
       "movement": 3,
-      "attack": 4,
+      "attack": 3,
       "actions": [
         {
           "type": "shield",
@@ -205,7 +205,7 @@
       "level": 4,
       "health": 12,
       "movement": 5,
-      "attack": 5,
+      "attack": 4,
       "actions": [
         {
           "type": "retaliate",
@@ -285,7 +285,7 @@
           "subActions": [
             {
               "type": "range",
-              "value": 4
+              "value": 3
             }
           ]
         },

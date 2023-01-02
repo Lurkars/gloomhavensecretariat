@@ -18,8 +18,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         }
       ]
     },
@@ -31,8 +30,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ]
     },
@@ -44,8 +42,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ]
     },
@@ -57,8 +54,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ]
     },
@@ -70,13 +66,11 @@
       "actions": [
         {
           "type": "shield",
-          "value": 3,
-          "small": false
+          "value": 3
         },
         {
           "type": "condition",
-          "value": "muddle",
-          "small": false
+          "value": "muddle"
         }
       ]
     },
@@ -88,13 +82,11 @@
       "actions": [
         {
           "type": "shield",
-          "value": 3,
-          "small": false
+          "value": 3
         },
         {
           "type": "condition",
-          "value": "muddle",
-          "small": false
+          "value": "muddle"
         }
       ]
     },
@@ -106,13 +98,11 @@
       "actions": [
         {
           "type": "shield",
-          "value": 3,
-          "small": false
+          "value": 3
         },
         {
           "type": "condition",
-          "value": "muddle",
-          "small": false
+          "value": "muddle"
         }
       ]
     },
@@ -124,13 +114,11 @@
       "actions": [
         {
           "type": "shield",
-          "value": 3,
-          "small": false
+          "value": 3
         },
         {
           "type": "condition",
-          "value": "muddle",
-          "small": false
+          "value": "muddle"
         }
       ]
     },
@@ -142,8 +130,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 2,
-          "small": false
+          "value": 2
         }
       ]
     },
@@ -155,8 +142,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ]
     },
@@ -168,8 +154,7 @@
       "actions": [
         {
           "type": "shield",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ]
     },
@@ -181,26 +166,23 @@
       "actions": [
         {
           "type": "shield",
-          "value": 3,
-          "small": false
+          "value": 3
         }
       ]
     },
     {
       "type": "elite",
       "level": 4,
-      "health": 4,
+      "health": 5,
       "attack": 3,
       "actions": [
         {
           "type": "shield",
-          "value": 4,
-          "small": false
+          "value": 4
         },
         {
           "type": "condition",
-          "value": "muddle",
-          "small": false
+          "value": "muddle"
         }
       ]
     },
@@ -212,13 +194,11 @@
       "actions": [
         {
           "type": "shield",
-          "value": 4,
-          "small": false
+          "value": 4
         },
         {
           "type": "condition",
-          "value": "muddle",
-          "small": false
+          "value": "muddle"
         }
       ]
     },
@@ -230,13 +210,11 @@
       "actions": [
         {
           "type": "shield",
-          "value": 4,
-          "small": false
+          "value": 4
         },
         {
           "type": "condition",
-          "value": "muddle",
-          "small": false
+          "value": "muddle"
         }
       ]
     },
@@ -248,13 +226,11 @@
       "actions": [
         {
           "type": "shield",
-          "value": 4,
-          "small": false
+          "value": 4
         },
         {
           "type": "condition",
-          "value": "muddle",
-          "small": false
+          "value": "muddle"
         }
       ]
     }
