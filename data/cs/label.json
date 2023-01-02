@@ -169,7 +169,7 @@
           "4": "All adjacent enemies suffer %game.damage:1%.",
           "5": "Target all adjacent %data.monster.blood-ooze%s",
           "6": "Add +2 %game.action.attack% if the target is adjacent to at least two %data.monster.blood-ooze%s",
-          "7": "Target one enemy at exactly %game.action.range% 2",
+          "7": "Target one enemy at exactly %game.action.range:2%",
           "8": "If at least one money token was looted:",
           "9": "%data.monster.blood-ooze% suffers %game.damage:2%."
         },
@@ -212,11 +212,11 @@
         },
         "hail-demon": {
           "1": "%game.specialTarget.enemiesRange:3% with %game.condition.chill%",
-          "2": "Target one enemy with no %game.condition.chill% tokens within %game.action.range% 3",
+          "2": "Target one enemy with no %game.condition.chill% tokens within %game.action.range:3%",
           "3": "Create a %game.condition.chill% trap in an adjacent empty hex closest to an enemy."
         },
         "harrower-aegis": {
-          "1": "Affect one ally within %game.action.range% 3",
+          "1": "Affect one ally within %game.action.range:3%",
           "2": "The affected ally gains \"%game.action.retaliate% 1\".",
           "3": "All targets suffer %game.damage:1%.",
           "4": "Remove %game.condition.poison% from self.",
@@ -225,7 +225,7 @@
         "harrower-icecrawlers": {
           "1": "If any enemy suffers %game.action.retaliate% %game.damage% from attacking an Icecrawler this round, this enemy gains %game.condition.chill%.",
           "2": "All enemies adjacent to the target suffer %game.damage:1%",
-          "3": "Gain %game.action.range% 3 on all %game.action.retaliate% abilities."
+          "3": "Gain %game.action.range:3% on all %game.action.retaliate% abilities."
         },
         "land-leviathan": {
           "1": "Increase the %data.monster.land-leviathan%'s maximum hit point value by 2."
@@ -239,7 +239,7 @@
           "3": "At %game.initiative.60% perform the following abilities",
           "4": "At %game.initiative.90% perform the following abilities",
           "5": "where X is the %game.damage% dealt by the attack ability.",
-          "6": "Target all enemies at exactly %game.action.range% 2 or 3",
+          "6": "Target all enemies at exactly %game.action.range:2% or 3",
           "7": "This movement may move through all figures.",
           "8": "where X is this figure's %game.action.attack% value.",
           "9": "All ranged attacks targeting this figure gain Disadvantage.",
@@ -248,7 +248,7 @@
         },
         "rogue-hollowpact": {
           "1": "where X is equal to the number of Void Pit obstacles",
-          "2": "Jump to an empty hex adjacent to a Void Pit obstacle furthest away from a character within %game.action.range% 4.",
+          "2": "Jump to an empty hex adjacent to a Void Pit obstacle furthest away from a character within %game.action.range:4%.",
           "3": "All enemies adjacent to a Void Pit obstacle suffer %game.damage:2%."
         },
         "terrible-two-archer": {
@@ -273,10 +273,10 @@
         "water-spirit": {
           "1": "Shield only applies before its turn.",
           "2": "Add +2 %game.action.attack% if the target is occupying a water tile",
-          "3": "where X is equal to the number of water tiles within %game.action.range% 1.",
+          "3": "where X is equal to the number of water tiles within %game.action.range:1%.",
           "4": "All enemies occupying a water tile suffer %game.damage:1%.",
           "5": "Create a water tile in all hexes occupied by a target containing no overlay tiles.",
-          "6": "Where X is equal to the number of water tiles within %game.action.range% 1, up to 3.",
+          "6": "Where X is equal to the number of water tiles within %game.action.range:1%, up to 3.",
           "7": "Create a water tile in an unoccupied adjacent hex closest to an enemy containing no overlay tile."
         },
         "your-shadow": {
@@ -287,7 +287,7 @@
       },
       "perks": {
         "beetle": {
-          "1": "Place one Colony %data.action.custom.cs-colony% token of your choice on any empty hex within %game.action.range% 2",
+          "1": "Place one Colony %data.action.custom.cs-colony% token of your choice on any empty hex within %game.action.range:2%",
           "2": "where X is the number of active Cultivate %data.action.custom.cs-cultivate% actions"
         },
         "target": {

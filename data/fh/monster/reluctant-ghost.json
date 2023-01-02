@@ -8,7 +8,7 @@
   "count": 10,
   "baseStat": {
     "movement": 2,
-    "type": "normal",
+    "type": "boss",
     "note": "Focus on moving torward the closest starting hex",
     "immunities": [],
     "special": []

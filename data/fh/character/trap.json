@@ -169,7 +169,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Add %game.damage:2% or %game.action.heal% 2 to a trap within %game.action.range% 2 of you"
+                "value": "Add %game.damage:2% or %game.action.heal% 2 to a trap within %game.action.range:2% of you"
               }
             ]
           }

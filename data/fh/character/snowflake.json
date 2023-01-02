@@ -247,7 +247,7 @@
     },
     {
       "type": "custom",
-      "custom": "Whenever you short rest, you may %game.element.consume.ice% to perform %game.condition.disarm%, %game.action.range% 3 and %game.element.consume.air% to perform %game.condition.ward%, %game.action.range% 3",
+      "custom": "Whenever you short rest, you may %game.element.consume.ice% to perform %game.condition.disarm%, %game.action.range:3% and %game.element.consume.air% to perform %game.condition.ward%, %game.action.range:3%",
       "count": 2,
       "combined": true
     },

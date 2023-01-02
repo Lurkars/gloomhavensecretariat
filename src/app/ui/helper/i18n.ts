@@ -14,13 +14,15 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
 
   while (value.match(ghsLabelRegex)) {
     value = value.replace(ghsLabelRegex, (match, ...args) => {
-      const label: string = args[0];
+      let label: string = args[0];
       const split: string[] = label.split('.');
       const type = split[1];
-      let value = label[label.length-1];
+      let value = split[split.length - 1];
 
       if (value.indexOf(':') != 0) {
+        split[split.length - 1] = value.split(':')[0];
         value = value.split(':')[1];
+        label = split.join('.');
       } else {
         value = "";
       }
@@ -63,7 +65,10 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         replace = '<span class="placeholder-initiative">' + split[2] + image + '</span>';
       } else if (type == "action" && split.length == 4) {
         image = '<img  src="./assets/images/action/' + split[2] + '/' + split[3] + '.svg" class="icon ghs-svg">';
-        replace = '<span class="placeholder-perk">' + image + '</span>';
+        replace = '<span class="placeholder-perk">' + image + value + '</span>';
+      } else if (type == "items" && split.length == 4) {
+        image = '<img  src="./assets/images/items/' + split[2] + '/' + split[3] + '.svg" class="icon ghs-svg">';
+        replace = '<span class="placeholder-item-slot">' + image + value + '</span>';
       } else if (type == "card" && split.length == 3) {
         let card = split[2]
         let cardValue = "";
@@ -113,15 +118,23 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
 export const applyFhPlaceholder = function (value: string, placeholder: string[] = [], relative: boolean = false): string {
   while (value.match(ghsLabelRegex)) {
     value = value.replace(ghsLabelRegex, (match, ...args) => {
-      const label: string = args[0];
-      const split: string[] = label.split('.');
-      const type = split[1];
-      let value = "";
+      let label: string = args[0];
+      let split: string[] = label.split('.');
+      let value = split[split.length - 1];
 
-      if (args.length >= 6) {
-        value = args[5] || "";
+      if (value.indexOf(':') != 0) {
+        split[split.length - 1] = value.split(':')[0];
+        value = value.split(':')[1];
+        label = split.join('.');
+      } else {
+        value = "";
       }
 
+      if (!value) {
+        value = "";
+      }
+
+      let type = split[1];
       let quotes: boolean = false;
 
       if (match.startsWith("\"") && match.endsWith("\"")) {
@@ -156,7 +169,10 @@ export const applyFhPlaceholder = function (value: string, placeholder: string[]
         replace = '<span class="placeholder-initiative">' + split[2] + image + '</span>';
       } else if (type == "action" && split.length == 4) {
         image = '<img  src="./assets/images/action/' + split[2] + '/' + split[3] + '.svg" class="icon ghs-svg">';
-        replace = '<span class="placeholder-perk">' + image + '</span>';
+        replace = '<span class="placeholder-perk">' + image + value + '</span>';
+      } else if (type == "items" && split.length == 4) {
+        image = '<img  src="./assets/images/items/' + split[2] + '/' + split[3] + '.svg" class="icon ghs-svg">';
+        replace = '<span class="placeholder-item-slot">' + image + value + '</span>';
       } else if (type == "card" && split.length == 3) {
         let card = split[2]
         let cardValue = "";

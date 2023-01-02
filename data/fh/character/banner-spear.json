@@ -223,7 +223,7 @@
     },
     {
       "type": "remove",
-      "custom": "%game.custom.perks.ignoreNegativeItem%",
+      "custom": "%game.custom.perks.ignoreNegativeItemFh%",
       "count": 1,
       "cards": [
         {
@@ -236,7 +236,7 @@
     },
     {
       "type": "custom",
-      "custom": "At the end of each of your long rests, grant one ally within %game.action.range% 3: %game.action.move% 2",
+      "custom": "At the end of each of your long rests, grant one ally within %game.action.range:3%: %game.action.move% 2",
       "count": 1
     },
     {

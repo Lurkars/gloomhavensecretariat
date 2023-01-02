@@ -378,15 +378,13 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
 
 
     if (!attackModifier.rolling || attackModifier.value != 0) {
-
-      let valueSign = "+";
       if (attackModifier.valueType == AttackModifierValueType.minus) {
-        valueSign = "-";
+        html += '<span class="attack-modifier-icon">-' + attackModifier.value + '</span>';
       } else if (attackModifier.valueType == AttackModifierValueType.multiply) {
-        valueSign = "x";
+        html += '<span class="attack-modifier-icon">' + attackModifier.value + 'x</span>';
+      } else {
+        html += '<span class="attack-modifier-icon">+' + attackModifier.value + '</span>';
       }
-
-      html += '<span class="attack-modifier-icon">' + valueSign + attackModifier.value + '</span>';
     }
 
     if (attackModifier.effects) {
@@ -407,17 +405,17 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
 
     switch (effect.type) {
       case AttackModifierEffectType.condition:
-        html += '<span class="attack-modifier-effect condition">' + (settingsManager.settings.fhStyle ? '' : settingsManager.getLabel('game.condition.' + effect.value)) + '<img class="action-icon sw" src="./assets/images/condition/' + effect.value + '.svg"></span>';
+        html += '<span class="attack-modifier-effect condition">' + (settingsManager.settings.fhStyle ? '' : settingsManager.getLabel('game.condition.' + effect.value)) + '<img class="action-icon sw" src="./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'condition/' + effect.value + '.svg"></span>';
         break;
       case AttackModifierEffectType.element:
-        html += '<span class="attack-modifier-effect element"><img class="action-icon sw" src="./assets/images/element/' + effect.value + '.svg"></span>';
+        html += '<span class="attack-modifier-effect element"><img class="action-icon sw" src="./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + effect.value + '.svg"></span>';
         break;
       case AttackModifierEffectType.elementHalf:
         const elements = effect.value.split('|');
-        html += '<span class="attack-modifier-effect element-half-placeholder' + (settingsManager.settings.fhStyle ? ' fh' : '') + '"><span class="element-half-container"><span class="element-half"><img src="./assets/images/element/' + elements[0] + '.svg"></span><span class="element-half"><img src="./assets/images/element/' + elements[1] + '.svg"></span></span></span>';
+        html += '<span class="attack-modifier-effect element-half-placeholder' + (settingsManager.settings.fhStyle ? ' fh' : '') + '"><span class="element-half-container"><span class="element-half"><img src="./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + elements[0] + '.svg"></span><span class="element-half"><img src="./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + elements[1] + '.svg"></span></span></span>';
         break;
       case AttackModifierEffectType.elementConsume:
-        html += '<span class="attack-modifier-effect element consume"><img class="action-icon sw" src="./assets/images/element/' + effect.value + '.svg"></span>';
+        html += '<span class="attack-modifier-effect element consume"><img class="action-icon sw" src="./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + effect.value + '.svg"></span>';
         if (effect.effects) {
           html += ':';
           effect.effects.forEach((subEffect) => {
@@ -482,7 +480,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
         html += '"';
         return html;
       default:
-        html += '<span class="placeholder attack-modifier-effect default ' + effect.type + '">' + (settingsManager.settings.fhStyle ? '' : settingsManager.getLabel('game.action.' + effect.type)) + '<img  class="action-icon" src="./assets/images/action/' + effect.type + '.svg"><span class="value">' + effect.value + '</span></span>';
+        html += '<span class="placeholder attack-modifier-effect default ' + effect.type + '">' + (settingsManager.settings.fhStyle ? '' : settingsManager.getLabel('game.action.' + effect.type)) + '<img  class="action-icon" src="./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/' + effect.type + '.svg"><span class="value">' + effect.value + '</span></span>';
         break;
     }
 

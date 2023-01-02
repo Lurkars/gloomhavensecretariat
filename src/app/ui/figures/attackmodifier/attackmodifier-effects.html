@@ -20,6 +20,17 @@
         </span>
       </span>
 
+      <ng-container *ngSwitchCase="AttackModifierEffectType.elementConsume">
+        <span class="element consume">
+          <img
+            [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + effect.value + '.svg'">
+        </span>:
+        <div class="sub-effects" *ngIf="effect.effects">
+          <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="effect.effects"
+            [offsetWidth]="offsetWidth"></ghs-attackmodifier-effects>
+        </div>
+      </ng-container>
+
       <div class="effect-container heal-container" *ngSwitchCase="AttackModifierEffectType.heal"
         [style.border-width]="offsetWidth * ( attackModifier.type == AttackModifierType.plus0 && index == 0 ? 0.020 : 0.010)  + 'px'"
         [ngClass]="{'target' : getTarget(effect)}">

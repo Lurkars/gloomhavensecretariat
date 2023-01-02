@@ -1,5 +1,3 @@
-import { Action } from "./Action";
-
 export enum AttackModifierType {
   plus0 = "plus0",
   plus1 = "plus1",

@@ -234,6 +234,22 @@
           }
         }
       ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "Immediatley before each of your rests, you may kill one of your summons to perform %game.condition.bless%, self"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "Once each scenario, when any character ally would become exhauseted by suffering %game.damage%, you may suffer %game.damage:2% to reduce their hit point value to 1 instead"
+    },
+    {
+      "type": "custom",
+      "count": 2,
+      "custom": "At the start of each scenario, you may play a level 1 card from your hand to perfom a summon action of the card",
+      "combined": true
     }
   ]
 }

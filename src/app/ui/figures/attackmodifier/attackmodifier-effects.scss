@@ -177,6 +177,24 @@
       }
     }
 
+    &.elementConsume {
+
+      .element.consume {
+        width: 35%;
+        height: auto;
+      }
+
+      .sub-effects {
+        width: 100%;
+
+        ghs-attackmodifier-effects {
+          position: relative;
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+
     .effect-icon {
       img {
         filter: var(--ghs-filter-white) var(--ghs-filter-shadow);

@@ -14,7 +14,7 @@
         },
         {
           "type": "grant",
-          "value": "Grant the closest Piranha Pigs<br>within %game.action.range% 4:",
+          "value": "Grant the closest Piranha Pigs<br>within %game.action.range:4%:",
           "small": true,
           "subActions": [
             {
@@ -43,7 +43,7 @@
         },
         {
           "type": "grant",
-          "value": "Grant all Piranha Pigs withing %game.action.range% 3:",
+          "value": "Grant all Piranha Pigs withing %game.action.range:3%:",
           "small": true,
           "subActions": [
             {
@@ -118,7 +118,7 @@
       "actions": [
         {
           "type": "grant",
-          "value": "Grant the closest<br>Piranha Pig within %game.action.range% 4:",
+          "value": "Grant the closest<br>Piranha Pig within %game.action.range:4%:",
           "small": true,
           "subActions": [
             {

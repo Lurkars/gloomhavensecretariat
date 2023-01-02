@@ -104,7 +104,7 @@
         },
         {
           "type": "custom",
-          "value": "Grant all allies within %game.action.range% 3 and self:",
+          "value": "Grant all allies within %game.action.range:3% and self:",
           "small": true,
           "subActions": [
             {

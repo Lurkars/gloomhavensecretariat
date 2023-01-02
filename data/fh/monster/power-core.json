@@ -7,7 +7,7 @@
   "hidden": true,
   "count": 6,
   "baseStat": {
-    "type": "normal",
+    "type": "boss",
     "immunities": [],
     "special": []
   },

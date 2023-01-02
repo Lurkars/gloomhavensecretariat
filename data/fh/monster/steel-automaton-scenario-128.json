@@ -2,7 +2,7 @@
   "name": "steel-automaton-scenario-128",
   "thumbnail": "fh-steel-automaton",
   "edition": "fh",
-  "deck": "imp-fh",
+  "deck": "imp",
   "hidden": true,
   "count": 6,
   "baseStat": {

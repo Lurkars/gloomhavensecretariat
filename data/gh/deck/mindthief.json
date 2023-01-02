@@ -28,7 +28,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Force one enemy within %game.action.range% 5 to perform",
+          "value": "Force one enemy within %game.action.range:5% to perform",
           "small": true,
           "subActions": [
             {
@@ -367,7 +367,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Force one enemy within %game.action.range% 4 to perform",
+          "value": "Force one enemy within %game.action.range:4% to perform",
           "small": true,
           "subActions": [
             {
@@ -623,7 +623,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "One ally within %game.action.range% 3 may perform",
+          "value": "One ally within %game.action.range:3% may perform",
           "small": true,
           "subActions": [
             {
@@ -781,7 +781,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Force one normal or elite enemy within %game.action.range% 3 to perform its turn this round as if its allies were enemies and its enemies were allies.",
+          "value": "Force one normal or elite enemy within %game.action.range:3% to perform its turn this round as if its allies were enemies and its enemies were allies.",
           "small": true
         },
         {
@@ -1014,7 +1014,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Kill one normal enemy withing %game.action.range% 4.",
+          "value": "Kill one normal enemy withing %game.action.range:4%.",
           "small": true
         },
         {
@@ -1166,7 +1166,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Force on enemy within %game.action.range% 5 to perform",
+          "value": "Force on enemy within %game.action.range:5% to perform",
           "small": true,
           "subActions": [
             {
@@ -1591,7 +1591,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "Force one normal or elite enemy within %game.action.range% 5 to perfom its turn this round as if its allies were enemies and its enemies were allies, with you controlling the actions.<br><br>To signify this, place one of your character tokens on this enemy for the round.",
+          "value": "Force one normal or elite enemy within %game.action.range:5% to perfom its turn this round as if its allies were enemies and its enemies were allies, with you controlling the actions.<br><br>To signify this, place one of your character tokens on this enemy for the round.",
           "small": true
         },
         {
@@ -1641,7 +1641,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "All allies withing %game.action.range% 2 add +X %game.action.attack% to all their attacks this round, where X is the number of your allies within %game.action.range% 2 of you.",
+          "value": "All allies withing %game.action.range:2% add +X %game.action.attack% to all their attacks this round, where X is the number of your allies within %game.action.range:2% of you.",
           "small": true
         },
         {

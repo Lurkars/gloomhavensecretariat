@@ -364,6 +364,7 @@
         "addTarget": "Add target",
         "addTargets": "Add {0} targets",
         "ignoreNegativeItem": "Ignore negative item effects",
+        "ignoreNegativeItemFh": "Ignore item %game.card.minus1% effects",
         "ignoreNegativeScenario": "Ignore negative scenario effects"
       },
       "scenarioBook": "Reference the scenario book"

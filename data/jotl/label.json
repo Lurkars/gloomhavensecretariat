@@ -43,7 +43,7 @@
         "jotl": {
           "15": {
             "1": "Spawn Black Imps adjacent to revealed tables.",
-            "2": "Each Zealot kills one Black Imp within %game.action.range% 3 and gains %game.condition.stun%. Spwan elite Blood Imps."
+            "2": "Each Zealot kills one Black Imp within %game.action.range:3% and gains %game.condition.stun%. Spwan elite Blood Imps."
           },
           "16": {
             "1" : "Spawn Rat Monstrosities"
@@ -94,9 +94,9 @@
           "1": "On death, all adjacent figures suffer %game.damage:1%"
         },
         "first-of-the-order": {
-          "1": "All enemies within %game.action.range% 2 suffer %game.damage:2%",
+          "1": "All enemies within %game.action.range:2% suffer %game.damage:2%",
           "2": "Spawn [C/2{math.ceil}] %data.monster.black-imp%",
-          "3": "within %game.action.range% 2 of target"
+          "3": "within %game.action.range:2% of target"
         },
         "rat-monstrosity": {
           "1": "On death, all adjacent figures suffer %game.damage:1%",
@@ -248,9 +248,9 @@
           "1": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:1%."
         },
         "first-of-the-order": {
-          "1": "Alle Gegner in %game.action.range% 2 erleiden %game.damage:2%.",
+          "1": "Alle Gegner in %game.action.range:2% erleiden %game.damage:2%.",
           "2": "Beschwöre [C/2{math.ceil}] %data.monster.black-imp%",
-          "3": "innerhalb von %game.action.range% 2 vom Ziel"
+          "3": "innerhalb von %game.action.range:2% vom Ziel"
         },
         "rat-monstrosity": {
           "1": "Bei Tod: alle angrenzenden Figuren erleiden %game.damage:1%.",
@@ -450,9 +450,9 @@
           "1": "À sa mort, tous les personnages adjacents subissent 1 dégât."
         },
         "first-of-the-order": {
-          "1": "Tous les adversaires à %game.action.range% 2 subissent %game.damage:2%.",
+          "1": "Tous les adversaires à %game.action.range:2% subissent %game.damage:2%.",
           "2": "Générez [C/2{math.ceil}] %data.monster.black-imp%",
-          "3": "à %game.action.range% 2 de la cible."
+          "3": "à %game.action.range:2% de la cible."
         },
         "rat-monstrosity": {
           "1": "À sa mort, tous les personnages adjacents subissent 1 dégât.",

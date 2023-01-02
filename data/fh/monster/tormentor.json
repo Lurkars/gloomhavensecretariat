@@ -2,7 +2,7 @@
   "name": "tormentor",
   "thumbnail": "fh-chaos-demon",
   "edition": "fh",
-  "deck": "boss-fh",
+  "deck": "boss",
   "boss": true,
   "hidden": true,
   "count": 6,

@@ -153,7 +153,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "All enemies within<br>%game.action.range% 3 suffer %game.damage:2%",
+          "value": "All enemies within<br>%game.action.range:3% suffer %game.damage:2%",
           "small": true
         },
         {
