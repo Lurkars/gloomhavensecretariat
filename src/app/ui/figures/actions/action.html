@@ -31,9 +31,10 @@
     <ng-container *ngIf="action.type == ActionType.element">
       <span class="elements">
         <span class="element" (click)="elementAction($event, action, '' + action.value)"
-          [ngClass]="{'consume' : action.valueType == ActionValueType.minus, 'highlight' : highlightElement('' + action.value, action.valueType == ActionValueType.minus)}">
+          *ngFor="let element of getValues(action)"
+          [ngClass]="{'consume' : action.valueType == ActionValueType.minus, 'highlight' : highlightElement('' + element, action.valueType == ActionValueType.minus)}">
           <img
-            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/' + action.value + '.svg'" />
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/' + element + '.svg'" />
         </span>
         <span class="minus" *ngIf="action.valueType == ActionValueType.minus">:</span>
       </span>
@@ -118,8 +119,8 @@
     <div class="grant-subactions" *ngIf="subActions && subActions.length > 0">
       <ghs-action [ngClass]="'subaction-' + subAction.type"
         *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0)" [action]="subAction" [monster]="monster"
-        [inline]="inline" [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
-        [relative]="true" [statsCalculation]="false">
+        [inline]="inline" [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements" [relative]="true"
+        [statsCalculation]="false">
       </ghs-action>
     </div>
   </span>

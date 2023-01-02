@@ -37,7 +37,7 @@
         },
         {
           "type": "element",
-          "value": "ice",
+          "value": "ice:any:any",
           "valueType": "minus",
           "subActions": [
             {
@@ -49,55 +49,7 @@
         },
         {
           "type": "element",
-          "value": "any",
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "summon",
-              "value": "lurker-clawcrusher",
-              "small": true
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "any",
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "summon",
-              "value": "lurker-clawcrusher",
-              "small": true
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "dark",
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "summon",
-              "value": "lurker-mindsnipper",
-              "small": true
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "any",
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "summon",
-              "value": "lurker-mindsnipper",
-              "small": true
-            }
-          ]
-        },
-        {
-          "type": "element",
-          "value": "any",
+          "value": "dark:any:any",
           "valueType": "minus",
           "subActions": [
             {
