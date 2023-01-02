@@ -472,5 +472,150 @@
         }
       }
     }
+  },
+  "ko": {
+    "character": {
+      "diviner": "점술가"
+    },
+    "edition": {
+      "fc": "잊힌 비술"
+    },
+    "monster": {
+      "aesther-ashblade": "에스더 잿빛칼날",
+      "aesther-scout": "에스더 정찰병",
+      "avatar-of-ashtar": "Avatar of Ashtar",
+      "avatar-of-thelija": "Avatar of Thelija",
+      "bear-drake-abomination": "Bear-Drake Abomination",
+      "elham": "Elham",
+      "human-commander": "Human Commander",
+      "icestorm-guardian-of-the-firmament": "Icestorm Guardian of the Firmament",
+      "lavaflow-guardian-of-the-firmament": "Lavaflow Guardian of the Firmament",
+      "manifestation-of-corruption": "Manifestation Of Corruption",
+      "naaret": "Naaret",
+      "selah-naberis": "Selah Naberis",
+      "sraka-the-wise": "Sraka The Wise",
+      "the-husk": "The Husk",
+      "the-steel-lion": "The Steel Lion",
+      "uyart-ikkuma": "Uyart Ikkuma",
+      "valrath-commander": "Valrath Commander",
+      "valrath-savage": "Valrath Savage",
+      "valrath-tracker": "Valrath Tracker",
+      "wolf-viper-abomination": "Wolf-Viper Abomination"
+    },
+    "deck": {
+      "ashblade": "잿빛칼날",
+      "savage": "Savage",
+      "tracker": "Tracker"
+    },
+    "ability": {},
+    "scenario": {
+      "rules": {
+        "fc": {
+          "96": {
+            "1": "Spawn Frost Demon at %game.mapMarker.a%",
+            "2": "Spawn Flame Demon at %game.mapMarker.b%",
+            "3": "Spawn Earth Demon at %game.mapMarker.c%"
+          },
+          "98": {
+            "1": "Place 1 damage token to both ships %game.mapMarker.a% and %game.mapMarker.b%."
+          },
+          "101": {
+            "1": "Both Spitting Drakes gain %game.condition.immobilize%",
+            "2": "Spawn Rending Drake at %game.mapMarker.a% and %game.mapMarker.b%, if adjacent Spitting Drake is alive and without %game.condition.stun%."
+          },
+          "104": {
+            "1": "Spawn Lurker at portal %game.mapMarker.1%",
+            "2": "Spawn Sun Demon at portal %game.mapMarker.2%",
+            "3": "Spawn Spitting Drake at portal %game.mapMarker.3%",
+            "4": "Spawn Harrower Infester at portal %game.mapMarker.4%"
+          },
+          "111": {
+            "1": "Husk gain %game.condition.invisible%"
+          },
+          "115": {
+            "1": "Remove one damage token from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{%math.floor}] hit points for each damage token removed.",
+            "2": "Remove two damage tokens from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{%math.floor}] hit points for each damage token removed.",
+            "3": "Spawn Valrath Savage and Tracker at %game.mapMarker.c% if alter %game.mapMarker.a% has no damage token on it, and three Black Imps at %game.mapMarker.d% if altar %game.mapMarker.b% has no damage tokens.",
+            "4": "Scenario lost!"
+          }
+        }
+      }
+    },
+    "section": {
+      "rules": {
+        "fc": {
+          "41": {
+            "1": "Dark strong",
+            "2": "Spawn Night Demon at altar %game.mapMarker.j%"
+          },
+          "72": {
+            "1": "Dark waning",
+            "2": "Spawn Night Demon adjacent and to the right of any door %game.mapMarker.3%"
+          },
+          "123": {
+            "1": "Dark strong",
+            "2": "Spawn Night Demon adjacent and to the right of any door %game.mapMarker.4%"
+          }
+        }
+      }
+    },
+    "summon": {
+      "ghost-falcon": "Ghost Falcon",
+      "twilight-archon": "Twilight Archon"
+    },
+    "custom": {
+      "fc": {
+        "ashblade": {
+          "1": "Focus on the enemy with the highest initiative.",
+          "2": "%game.action.teleport% to the closest unoccupied hex adjacent to the focus."
+        },
+        "manifestation-of-corruption": {
+          "1": "Play top two cards, using the first card as initiative. Perform the bottom action of the first card, then the top action of the second card",
+          "2": "Perform this action immediately when revealed, not in normal initiative order.",
+          "3": "The character with the highest initiative is forced to act as if their enemies were allies and their allies were enemies this round. On their turn, they will perform \"%game.action.move%2\" and then the top action of their leading initiative card. Afterwards, they discard both played cards, regardless of wherever the cards would normally be lost.",
+          "4": "All attackers targeting you gain %game.condition.curse% this round.",
+          "5": "Summon one %data.monster.flame-demon%: normal for two or three characters, elite for four characters.<br>Summon one %data.monster.night-demon%: normal for two characters, elite for three or four characters.",
+          "7": "Summon one additional %data.monster.night-demon%",
+          "8": "Summon one additional %data.monster.flame-demon%",
+          "9": "Summon one %data.monster.valrath-tracker%: normal for two characters, elite for three or four characters.",
+          "10": "Summon two %data.monster.black-imp%s: both normal for two characters; one normal, one elite for three chararcers; both elite for four characters.",
+          "11": "Summon one additional elite %data.monster.black-imp%",
+          "12": "Target all enemies within %game.action.range%4",
+          "13": "All adjacent enemies suffer %game.damage:3%.",
+          "14": "On the next three sources of damage from attacks targeting you, gain %game.action.shield% 3.",
+          "15": "Create one %game.condition.disarm% and %game.condition.poison% trap in each adjacent empty hex.",
+          "16": "%game.action.teleport% to the hex occupied by the farthest enemy within %game.action.range%+1 and simultaneously %game.action.teleport% that enemy to the hex you occupy.",
+          "17": "Summon one normal %data.monster.valrath-savage% adjacent to each enemy character within %game.action.range%5.",
+          "18": "All attackers targeting you gain %game.condition.curse%.",
+          "19": "All attackers targeting you gain Disadvantage for the attack.",
+          "20": "%game.action.attack%-1 on a new enemy within %game.action.range%4 of the first target, then %game.action.attack%-2 on a third enemy within %game.action.range%3 of the second target.",
+          "21": "Summon one %game.monster.aesther-scout%: normal for two or three characters, elite for four characters.",
+          "22": "On the next three sources of damage to you, suffer no damage instead."
+        },
+        "savage": {
+          "1": "%data.deck.savage% suffers %game.damage:2%."
+        },
+        "sraka-the-wise": {
+          "1": "Double all Heal values. Heals target The Steel Lion if able",
+          "2": "If you apply %game.condition.curse% or %game.condition.bless%, apply a second %game.condition.curse% or %game.condition.bless%"
+        },
+        "the-steel-lion": {
+          "1": "Attacks targeting adjacent allies, target you instead",
+          "2": "The first [C] times you suffer 6 or more damage, suffer no damage instead"
+        },
+        "tracker": {
+          "1": "Create one %game.condition.disarm% trap in any adjacent empty hex closest to an enemy.",
+          "2": "Focus on the enemy with the lowest current hit point value."
+        },
+        "uyart-ikkuma": {
+          "1": "All its summons are elite for three or four characters",
+          "2": "It may consume %game.element.consume.fire% / %game.element.consume.earth% as if the element is currently strong when a %data.monster.flame-demon% / %data.monster.earth-demon% is present on the map"
+        },
+        "valrath-savage": {
+          "1": "All adjacent allies add +1 %game.action.attack% to all attacks",
+          "2": "All adjacent allies add +2 %game.action.attack% to all attacks"
+        }
+      }
+    }
   }
 }

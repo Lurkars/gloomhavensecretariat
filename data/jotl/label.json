@@ -473,5 +473,145 @@
         }
       }
     }
+  },
+  "ko": {
+    "character": {
+      "demolitionist": "철거전문가",
+      "hatchet": "도끼투척수",
+      "red-guard": "적위병",
+      "voidwarden": "공허감시자"
+    },
+    "edition": {
+      "jotl": "사자의 턱"
+    },
+    "monster": {
+      "basic-giant-viper": "기본판 거대 독사",
+      "basic-vermling-raider": "Basic Vermling Raider",
+      "basic-zealot": "Basic Zealot",
+      "black-imp": "검은 임프",
+      "black-sludge": "Black Sludge",
+      "blood-horror": "Blood Horror",
+      "blood-imp": "Blood Imp",
+      "blood-monstrosity": "Blood Monstrosity",
+      "blood-tumor": "Blood Tumor",
+      "chaos-demon": "Chaos Demon",
+      "common-vermling-raider": "Common Vermling Raider",
+      "first-of-the-order": "First of the Order",
+      "giant-viper": "거대 독사",
+      "living-corpse": "살아있는 시체",
+      "living-spirit": "살아있는 영혼",
+      "monstrosity": "Monstrosity",
+      "rat-monstrosity": "Rat Monstrosity",
+      "stone-golem": "돌 골렘",
+      "vermling-raider": "Vermling Raider",
+      "vermling-scout": "버믈링 정찰병",
+      "zealot": "Zealot"
+    },
+    "deck": {
+      "boss": "보스",
+      "monstrosity": "Monstrosity",
+      "imp": "임프"
+    },
+    "ability": {},
+    "scenario": {
+      "rules": {
+        "jotl": {
+          "15": {
+            "1": "Spawn Black Imps adjacent to revealed tables.",
+            "2": "Each Zealot kills one Black Imp within %game.action.range:3% and gains %game.condition.stun%. Spwan elite Blood Imps."
+          },
+          "16": {
+            "1" : "Spawn Rat Monstrosities"
+          }
+        }
+      }
+    },
+    "custom": {
+      "jotl": {
+        "giant-viper": {
+          "1": "All attacks targeting %data.monster.giant-viper% gain Disadvantage this round.",
+          "2": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.giant-viper%'s allies."
+        },
+        "black-sludge": {
+          "1": "The closest enemy in line-of-sight, regardless of range, suffer [1+L/2{%math.ceil}] %game.damage%"
+        },
+        "chaos-demon": {
+          "1": "Any time a figure attacks the %data.monster.chaos-demon% this round, that figure suffer %game.damage:2%",
+          "2": "All enemies adjacent to the target suffer %game.damage:1%"
+        },
+        "living-corpse": {
+          "1": "The target also suffers %game.damage:2%.",
+          "2": "If this movement is performed, the %data.monster.living-corpse% suffers %game.damage:1%.",
+          "3": "If this attack is performed, the %data.monster.living-corpse% suffers %game.damage:1%."
+        },
+        "monstrosity": {
+          "1": "If this attack is performed, the %data.monster.monstrosity% suffers %game.damage:1%.",
+          "2": "Add +1 %game.action.attack% if the target is adjacent to any of the %data.monster.monstrosity%'s allies.",
+          "3": "Any time a figure attacks the %data.monster.monstrosity% this round, that figure suffers %game.damage:2%.",
+          "4": "%data.monster.monstrosity% suffers %game.damage:1%"
+        },
+        "stone-golem": {
+          "1": "Any time a figure attacks the %data.monster.stone-golem% this round, that figure suffers %game.damage:3%.",
+          "2": "If the Move ability was performed, the %data.monster.stone-golem% suffers %game.damage:1%.",
+          "3": "If this attack is performed, the %data.monster.stone-golem% suffers %game.damage:2%."
+        },
+        "vermling-raider": {
+          "1": "Create one 3-%game.damage% trap in an adjacent empty hex closest to an enemy."
+        },
+        "zealot": {
+          "1": "X is %game.damage% suffered by target of attack"
+        },
+        "blood-horror": {
+          "1": "Jump to farthest dead %data.monster.zealot% and revive or jump to farthest character and %game.action.attack%+0",
+          "2": "Revive all dead %data.monster.zealot% in room"
+        },
+        "blood-monstrosity": {
+          "1": "On death, all adjacent figures suffer %game.damage:1%"
+        },
+        "first-of-the-order": {
+          "1": "All enemies within %game.action.range:2% suffer %game.damage:2%",
+          "2": "Spawn [C/2{math.ceil}] %data.monster.black-imp%",
+          "3": "within %game.action.range:2% of target"
+        },
+        "rat-monstrosity": {
+          "1": "On death, all adjacent figures suffer %game.damage:1%",
+          "2": "On death, all adjacent figures suffer %game.damage:2%",
+          "3": "On death, all adjacent figures suffer %game.damage:3%",
+          "4": "On death, all adjacent figures suffer %game.damage:4%"
+        },
+        "basic-vermling-raider": {
+          "1": "Shuffle this deck at the end of the round.",
+          "2": "They will move to avoid being adjacent to their focus.",
+          "3": "They are not moving this round.",
+          "4": "This is exactly how they acted last scenario."
+        }
+      },
+      "perks": {
+        "demolitionist": {
+          "1": "All adjacent enemies suffer %game.damage:1%"
+        }
+      }
+    },
+    "treasures": {
+      "jotl": {
+        "1": "경험치 10 획득",
+        "2": "'31번 아이템' 획득",
+        "3": "경험치 15 획득",
+        "4": "금화 5개 획득",
+        "5": "✔ 1개 획득",
+        "6": "금화 10개 획득",
+        "7": "금화 5개 획득",
+        "8": "피해 %game.damage:3%점 입고 {POISON} 상태가 됨",
+        "9": "금화 5개 획득",
+        "10": "'27번 아이템' 획득",
+        "11": "'30번 아이템' 획득",
+        "12": "금화 5개 획득",
+        "13": "금화 5개 획득",
+        "14": "돈 토큰 3개 획득",
+        "15": "✔ 1개 획득",
+        "16": "'14번 아이템' 획득",
+        "X": "'32번 아이템' 획득"
+      }
+    }
   }
 }

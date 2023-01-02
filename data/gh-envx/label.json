@@ -13,5 +13,10 @@
     "edition": {
       "gh-envx": "Gloomhaven Enveloppe X"
     }
+  },
+  "ko": {
+    "edition": {
+      "gh-envx": "글룸헤이븐 봉투 X"
+    }
   }
 }

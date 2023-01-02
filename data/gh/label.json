@@ -960,5 +960,379 @@
         }
       }
     }
+  },
+  "ko": {
+    "character": {
+      "brute": "야만인",
+      "cragheart": "바위심장",
+      "mindthief": "정신도둑",
+      "scoundrel": "무법자",
+      "spellweaver": "주문직인",
+      "tinkerer": "땜장이"
+    },
+    "edition": {
+      "gh": "글룸헤이븐"
+    },
+    "monster": {
+      "ancient-artillery": "고대 대포",
+      "arcane-golem": "Arcane Golem",
+      "bandit-archer": "강도 궁수",
+      "bandit-commander": "강도 두목",
+      "bandit-guard": "강도 경비병",
+      "black-imp": "검은 임프",
+      "bloated-regent": "Bloated Regent",
+      "captain-of-the-guard": "경비대장",
+      "cave-bear": "동굴 곰",
+      "city-archer": "도시 궁수",
+      "city-guard": "도시 경비병",
+      "cultist": "광신도",
+      "dark-rider": "어둠의 기수",
+      "deep-terror": "심연의 공포",
+      "earth-demon": "대지 악마",
+      "elder-drake": "장로 드레이크",
+      "flame-demon": "화염 악마",
+      "forest-imp": "서리 임프",
+      "frost-demon": "서리 악마",
+      "giant-ooze": "거대 점액",
+      "giant-viper": "거대 독사",
+      "harrower-infester": "해로어 확산자",
+      "hound": "사냥개",
+      "hungry-soul": "Hungry Soul",
+      "infiltrator": "Infiltrator",
+      "inox-archer": "이녹스 궁수",
+      "inox-bodyguard": "이녹스 경호원",
+      "inox-guard": "이녹스 경비병",
+      "inox-shaman": "이녹스 주술사",
+      "jekserah": "젝세라",
+      "living-bones": "살아있는 뼈",
+      "living-corpse": "살아있는 시체",
+      "living-spirit": "살아있는 영혼",
+      "lurker": "잠복자",
+      "lurker-king": "잠복자 왕",
+      "merciless-overseer": "무자비한 감독관",
+      "night-demon": "밤 악마",
+      "ooze": "점액",
+      "prime-demon": "악마 군주",
+      "prime-lieutenant": "Prime Lieutenant",
+      "rending-drake": "발톱 드레이크",
+      "savvas-icestorm": "사바스 얼음폭풍",
+      "savvas-lavaflow": "사바스 용암류",
+      "siege-cannon": "Siege Cannon",
+      "spitting-drake": "분비액 드레이크",
+      "stone-golem": "돌 골렘",
+      "sun-demon": "태양 악마",
+      "the-betrayer": "변절자",
+      "the-colorless": "색이 없는 자",
+      "the-gloom": "암영의 존재",
+      "the-harvester": "The Harvester",
+      "the-sightless-eye": "보이지 않는 눈",
+      "vermling-scout": "버믈링 정찰병",
+      "vermling-shaman": "버믈링 주술사",
+      "wind-demon": "바람 악마",
+      "winged-horror": "날개 달린 공포"
+    },
+    "deck": {
+      "archer": "궁수",
+      "boss": "보스",
+      "guard": "경비병",
+      "imp": "임프",
+      "scout": "정찰병",
+      "shaman": "주술사"
+    },
+    "ability": {},
+    "scenario": {
+      "rules": {
+        "gh": {
+          "27": {
+            "1": "Spawn Night Demon at %game.mapMarker.a%",
+            "2": "Spawn Wind Demon at %game.mapMarker.c%",
+            "3": "Spawn Frost Demon at %game.mapMarker.d% and Sun Demon at %game.mapMarker.e%",
+            "4": "Spawn Earth Demon at %game.mapMarker.b% and Flame Demon at %game.mapMarker.c%",
+            "5": "Spawn Night Demon at %game.mapMarker.d% and Wind Demon at %game.mapMarker.e%",
+            "6": "Scenario lost!"
+          },
+          "31": {
+            "1": "Dark strong, Light inert"
+          },
+          "36": {
+            "1": "Spawn Flame Demon at %game.mapMarker.a%",
+            "2": "Spawn Earth Demon at %game.mapMarker.b%",
+            "3": "Spawn Frost Demon at %game.mapMarker.c%",
+            "4": "Spawn Wind Demon at %game.mapMarker.d%"
+          },
+          "39": {
+            "1": "Ice strong, Fire inert"
+          },
+          "53": {
+            "1": "Open doors %game.mapMarker.a%",
+            "2": "Open doors %game.mapMarker.b%",
+            "3": "Open doors %game.mapMarker.c%",
+            "4": "Open doors %game.mapMarker.d%",
+            "5": "Scenario won!"
+          },
+          "60": {
+            "1": "All figures suffer %game.damage:2%.",
+            "2": "Scenario lost!"
+          },
+          "61": {
+            "1": "Oozes and Giant Vipers are active.",
+            "2": "Flame Demons and Frost Demons are active."
+          },
+          "62": {
+            "1": "Spawn Living Bones at %game.mapMarker.a% and %game.mapMarker.b%"
+          },
+          "70": {
+            "1": "Spawn Living Spirits at %game.mapMarker.a%",
+            "2": "Spawn Living Spirits at %game.mapMarker.b%",
+            "3": "Spawn Living Spirits at %game.mapMarker.a% and %game.mapMarker.b%"
+          },
+          "71": {
+            ".": "Windswept Highlands",
+            "1": "Move left",
+            "2": "Move up",
+            "3": "Move right",
+            "4": "Move down"
+          },
+          "72": {
+            "1": "Spawn Ooze at tree %game.mapMarker.a%",
+            "2": "Spawn Ooze at tree %game.mapMarker.b%",
+            "3": "Spawn Ooze at tree %game.mapMarker.c%"
+          },
+          "73": {
+            "1": "Roll boulders down."
+          },
+          "74": {
+            "1": "Add water tile.",
+            "2": "Open door %game.mapMarker.1%",
+            "3": "Open door %game.mapMarker.2%"
+          },
+          "81": {
+            "1": "Light and Dark strong, Fire, Ice, Wind and Earth inert"
+          }
+        }
+      }
+    },
+    "summon": {
+      "angry-wasps": "Angry Wasps",
+      "bat-swarm": "Bat Swarm",
+      "battle-boar": "Battle Boar",
+      "battle-bot": "Battle Bot",
+      "black-unicorn": "Black Unicorn",
+      "bloat-maggot": "Bloat Maggot",
+      "burning-avatar": "Burning Avatar",
+      "creeping-beetles": "Creeping Beetles",
+      "decoy": "Decoy",
+      "doppelganger": "Doppelganger",
+      "giant-toad": "Giant Toad",
+      "green-adder": "Green Adder",
+      "healing-sprite": "Healing Sprite",
+      "iron-beast": "Iron Beast",
+      "kill-bot": "Kill Bot",
+      "lava-golem": "Lava Golem",
+      "lightning-moth": "Lightning Moth",
+      "living-bomb": "Living Bomb",
+      "mana-sphere": "Mana Sphere",
+      "monolith": "Monolith",
+      "monstrous-rat": "Monstrous Rat",
+      "mystic-ally": "Mystic Ally",
+      "nail-sphere": "Nail Sphere",
+      "rage-hornets": "Rage Hornets",
+      "rat-king": "Rat King",
+      "rat-swarm": "Rat Swarm",
+      "red-falcon": "Red Falcon",
+      "rock-colossus": "Rock Colossus",
+      "rust-vermin": "Rust Vermin",
+      "shadow-wolf": "Shadow wolf",
+      "slime-spirit": "Slime Spirit",
+      "soul-leeches": "Soul Leeches",
+      "spirit-banner": "Spirit Banner",
+      "spitting-cobra": "Spitting Cobra",
+      "steel-scarabs": "Steel Scarabs",
+      "swamp-alligator": "Swamp Alligator",
+      "tattered-wolf": "Tattered Wolf",
+      "thorn-shooter": "Thorn Shooter",
+      "two-mini": "Bear",
+      "vicious-jackal": "Vicious Jackal",
+      "void-eater": "Void Eater",
+      "war-hawk": "War Hawk",
+      "wind-totem": "Wind Totem"
+    },
+    "custom": {
+      "gh": {
+        "ancient-artillery": {
+          "1": "인접한 모든 적이 피해 %game.damage:2%점을 입는다."
+        },
+        "archer": {
+          "1": "인접한 빈칸 중 적과 가장 가까운 칸 하나에 피해 %game.damage:3%점짜리 함정을 생성한다."
+        },
+        "cultist": {
+          "1": "%data.monster.cultist%가 스스로 피해 %game.damage:2%점을 입는다."
+        },
+        "deep-terror": {
+          "1": "대상의 인접한 칸 하나에 %monster.normal% %data.monster.deep-terror% %game.action.summon%"
+        },
+        "flame-demon": {
+          "1": "%data.monster.flame-demon%가 스스로 피해 %game.damage:1%점을 입는다.",
+          "2": "인접한 모든 적이 피해 %game.damage:2%점을 입는다.",
+          "3": "인접한 빈칸 중 적과 가장 가까운 칸에 피해 %game.damage:4%점짜리 함정을 생성한다."
+        },
+        "frost-demon": {
+          "1": "%data.monster.frost-demon%가 스스로 피해 %game.damage:1%점을 입는다."
+        },
+        "giant-viper": {
+          "1": "대상이 %data.monster.giant-viper%의 아군에 인접해 있다면 +2 %game.action.attack% 추가",
+          "2": "이번 라운드 중 %data.monster.giant-viper%를 대상으로 하는 모든 공격이 불이익을 받는다."
+        },
+        "harrower-infester": {
+          "1": "피해를 입은 대상 하나당 \"%game.action.heal% 2, %game.specialTarget.self%\" 수행"
+        },
+        "hound": {
+          "1": "대상이 %data.monster.hound%의 아군에 인접해 있다면 +2 %game.action.attack% 추가."
+        },
+        "living-corpse": {
+          "1": "%data.monster.living-corpse%가 스스로 피해 %game.damage:1%점을 입는다."
+        },
+        "mindthief": {
+          "augment": "증강 %game.characterToken.mindthief%",
+          "augments": "증강 %game.characterToken.mindthief%"
+        },
+        "night-demon": {
+          "1": "인접한 모든 적과 아군이 피해 %game.damage:1%점을 입는다."
+        },
+        "ooze": {
+          "1": "점액이 스스로 피해 %game.damage:2%점을 입는다.",
+          "2": "%data.monster.ooze%의 현재 체력과 동일한 체력을 가진 %monster.normal% %data.monster.ooze% %game.action.summon% (단, 일반 %data.monster.ooze%의 정해진 최대 체력은 초과 불가)"
+        },
+        "savvas-lavaflow": {
+          "1": "대상에 인접한 모든 아군과 적이 피해 %game.damage:2%점을 입는다.",
+          "2": "모든 적이 피해 %game.damage:2%점을 입는다."
+        },
+        "stone-golem": {
+          "1": "%data.monster.stone-golem%이 스스로 피해 %game.damage:1%점을 입는다.",
+          "2": "%data.monster.stone-golem%이 스스로 피해 %game.damage:2%점을 입는다."
+        },
+        "bandit-commander": {
+          "1": "다음 문 위로 이동해서 문과 연결된 방을 공개"
+        },
+        "captain-of-the-guard": {
+          "1": "모든 아군이 이번 라운드 중 모든 공격에 +1 %game.action.attack% 추가"
+        },
+        "merciless-overseer": {
+          "1": "모든 버믈링 정찰병이 즉시 추가 차례를 진행",
+          "2": "V = 버믈링 정찰병의 수"
+        },
+        "prime-demon": {
+          "1": "제단 이동"
+        },
+        "winged-horror": {
+          "1": "알 부화",
+          "2": "알 %game.action.summon% [C]"
+        },
+        "dark-rider": {
+          "1": "X = 이동한 칸 수"
+        },
+        "the-betrayer": {
+          "1": "정신 지배"
+        }
+      }
+    },
+    "treasures": {
+      "gh": {
+        "1": "무작위 아이템 도안",
+        "2": "'32번 아이템' 획득",
+        "3": "'44번 아이템' 획득",
+        "4": "금화 15개 획득",
+        "5": "'23번 아이템' 획득",
+        "6": "'39번 아이템' 획득",
+        "7": "무작위 부가 시나리오",
+        "8": "✔ 1개 획득",
+        "9": "'111번 아이템' 획득",
+        "10": "경험치 10 획득",
+        "11": "무작위 아이템 도안",
+        "12": "'99번 아이템' 획득",
+        "13": "피해 %game.damage:5%점을 입고 %game.condition.poison% 및 %game.condition.wound%",
+        "14": "경험치 10 획득",
+        "15": "'45번 아이템' 획득",
+        "16": "금화 10개 획득",
+        "17": "금화 20개 획득",
+        "18": "금화 15개 획득",
+        "19": "무작위 아이템 도안",
+        "20": "무작위 아이템 도안",
+        "21": "피해 %game.damage:5%점 입음",
+        "22": "무작위 아이템 도안",
+        "23": "'103번 아이템' 획득",
+        "24": "피해 %game.damage:5%점 입음",
+        "25": "금화 25개 획득",
+        "26": "금화 20개 획득",
+        "27": "'122번 아이템' 획득",
+        "28": "금화 15개 획득",
+        "29": "'97번 아이템' 획득",
+        "30": "✔ 1개 획득",
+        "31": "무작위 아이템 도안",
+        "32": "무작위 아이템 도안",
+        "33": "'19번 아이템' 획득",
+        "34": "'24번 아이템' 획득",
+        "35": "'98번 아이템' 획득",
+        "36": "'Rocket Boots' design (Item 096)",
+        "37": "✔ 1개 획득",
+        "38": "'Ring of Skulls' design (Item 123)",
+        "39": "피해 %game.damage:5%점 입음",
+        "40": "무작위 아이템 도안",
+        "41": "'53번 아이템' 획득",
+        "42": "무작위 아이템 도안",
+        "43": "피해 %game.damage:5%점 입고 %game.condition.poison% 및 %game.condition.wound%",
+        "44": "무작위 부가 시나리오",
+        "45": "무작위 아이템 도안",
+        "46": "피해 %game.damage:3%점 입고 %game.condition.poison% 상태가 됨",
+        "47": "'104번 아이템' 획득",
+        "48": "금화 30개 획득",
+        "49": "시나리오 해제: ‘잊힌 섬(K-17)’",
+        "50": "'101번 아이템' 획득",
+        "51": "무작위 부가 시나리오",
+        "52": "'131번 아이템' 획득",
+        "53": "무작위 아이템 도안",
+        "54": "'124번 아이템' 획득",
+        "55": "✔ 1개 획득",
+        "56": "'69번 아이템' 획득",
+        "57": "금화 15개 획득",
+        "58": "'108번 아이템' 획득",
+        "59": "무작위 아이템 도안",
+        "60": "'113번 아이템' 획득",
+        "61": "'40번 아이템' 획득",
+        "62": "'110번 및 115번 아이템' 획득",
+        "63": "무작위 아이템 도안",
+        "64": "금화 30개 획득",
+        "65": "'107번 아이템' 도안",
+        "66": "'33번 아이템' 획득",
+        "67": "금화 10개 획득",
+        "68": "'130번 아이템' 획득",
+        "69": "'100번 아이템' 획득",
+        "70": "무작위 부가 시나리오",
+        "71": "무작위 부가 시나리오",
+        "72": "'116번 아이템' 도안",
+        "73": "무작위 아이템 도안",
+        "74": "무작위 아이템 도안",
+        "75": "암호문 발견 (시나리오 책자 121쪽 참고)",
+        "76": "피해 %game.damage:3%점 입고 {WOUND} 및 금화 10개 획득",
+        "77": "'90번 아이템' 획득",
+        "78": "'157번 아이템' 획득",
+        "79": "'157번 아이템' 획득",
+        "80": "✔ 1개 획득 및 여로 이벤트 19번 추가",
+        "81": "'159번 아이템' 획득 및 금화 10개 획득",
+        "82": "'158번 아이템' 획득",
+        "83": "'41번 아이템' 획득",
+        "84": "'66번 아이템' 획득",
+        "85": "피해 %game.damage:3%점 입고 %game.condition.poison% 및 금화 10개 획득",
+        "86": "점술가 {DR} 단독 시나리오 해제: '피할 수 없는 예측'",
+        "87": "피해 %game.damage:2%점 입고 {CURSE} 및 금화 15개 획득",
+        "88": "'70번 아이템' 획득",
+        "90": "각각 금화 10개 획득 및 49쪽의 75번 섹션을 읽으십시오.",
+        "91": "금화 30개 획득, '기회주의자' 파티 업적 획득 및 도시 이벤트 84번 추가",
+        "93": "'159번 아이템' 획득",
+        "94": "✔ 1개 획득 및 여로 이벤트 20번 추가",
+        "95": "금화 25개 획득, '금고' 파티 업적 획득 및 도시 이벤트 85번 추가",
+        "96": "다양한 이국적인 기계의 기술 도면과 설계도가 가득한 오래된 책을 발견합니다. 표지 안 쪽에 이상한 손글씨 메모가 있습니다: {NOTE_115}"
+      }
+    }
   }
 }
