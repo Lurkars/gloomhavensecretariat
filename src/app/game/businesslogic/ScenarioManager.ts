@@ -1,6 +1,7 @@
 import { Character } from "../model/Character";
 import { EditionData } from "../model/data/EditionData";
 import { GameScenarioModel, ScenarioData, ScenarioRule } from "../model/data/ScenarioData";
+import { EntityValueFunction } from "../model/Entity";
 import { Game, GameState } from "../model/Game";
 import { LootDeck } from "../model/Loot";
 import { Scenario } from "../model/Scenario";
@@ -52,6 +53,12 @@ export class ScenarioManager {
     this.game.scenario = undefined;
     this.game.sections = [];
     gameManager.roundManager.resetScenario();
+
+    this.game.figures.forEach((figure) => {
+      if (figure instanceof Character) {
+        figure.absent = false;
+      }
+    });
   }
 
 
@@ -115,7 +122,14 @@ export class ScenarioManager {
 
     if (scenarioData.objectives) {
       scenarioData.objectives.forEach((objectiveData) => {
-        gameManager.characterManager.addObjective(objectiveData)
+        const count = EntityValueFunction(objectiveData.count || 1);
+        if (count > 1) {
+          for (let i = 0; i < count; i++) {
+            gameManager.characterManager.addObjective(objectiveData, objectiveData.name + " " + (i + 1));
+          }
+        } else {
+          gameManager.characterManager.addObjective(objectiveData);
+        }
       })
     }
 

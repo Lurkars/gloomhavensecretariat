@@ -103,7 +103,7 @@
       "metal": 5,
       "hide": 2,
       "rockroot": 2,
-      "corpsecap": 2,
+      "corpsecap": 1,
       "random_item": 1
     }
   },
@@ -124,7 +124,7 @@
       "metal": 5,
       "hide": 2,
       "rockroot": 2,
-      "corpsecap": 2,
+      "corpsecap": 1,
       "random_item": 1
     }
   },
@@ -194,7 +194,7 @@
       "money": 6,
       "lumber": 5,
       "hide": 5,
-      "rockroot": 1,
+      "axenut": 1,
       "arrowvine": 1,
       "snowthistle": 1
     }
@@ -230,15 +230,15 @@
     "objectives": [
       {
         "name": "Ice Pillar 1",
-        "health": "(2+L)xC/2"
+        "health": "[(2+L)xC/2{%math.floor}]"
       },
       {
         "name": "Ice Pillar 2",
-        "health": "(2+L)xC/2"
+        "health": "[(2+L)xC/2{%math.floor}]"
       },
       {
         "name": "Ice Pillar 3",
-        "health": "(2+L)xC/2"
+        "health": "[(2+L)xC/2{%math.floor}]"
       }
     ],
     "lootDeckConfig": {
@@ -544,7 +544,7 @@
     "lootDeckConfig": {
       "money": 8,
       "lumber": 2,
-      "metal": 2,
+      "metal": 4,
       "hide": 2,
       "axenut": 2,
       "flamefruit": 1,
@@ -582,7 +582,7 @@
       "lumber": 2,
       "metal": 4,
       "rockroot": 1,
-      "arrowvine": 2
+      "arrowvine": 1
     }
   },
   {
@@ -727,7 +727,7 @@
       "lumber": 5,
       "hide": 3,
       "rockroot": 1,
-      "flamefruit": 2,
+      "flamefruit": 1,
       "axenut": 2
     }
   },
@@ -777,19 +777,19 @@
     "objectives": [
       {
         "name": "Door a",
-        "health": "((C-1)/2)x(L+3)"
+        "health": "[((C-1)/2)x(L+3){%math.floor}]"
       },
       {
         "name": "Door b",
-        "health": "((C-1)/2)x(L+3)"
+        "health": "[((C-1)/2)x(L+3){%math.floor}]"
       },
       {
         "name": "Door c",
-        "health": "((C-1)/2)x(L+3)"
+        "health": "[((C-1)/2)x(L+3){%math.floor}]"
       },
       {
         "name": "Door d",
-        "health": "((C-1)/2)x(L+3)"
+        "health": "[((C-1)/2)x(L+3){%math.floor}]"
       }
     ],
     "lootDeckConfig": {
@@ -1397,52 +1397,11 @@
         "initiative": 1
       },
       {
-        "name": "Militia 1",
+        "name": "Militia",
         "escort": true,
         "health": "L/2+2",
-        "initiative": 51
-      },
-      {
-        "name": "Militia 2",
-        "escort": true,
-        "health": "L/2+2",
-        "initiative": 51
-      },
-      {
-        "name": "Militia 3",
-        "escort": true,
-        "health": "L/2+2",
-        "initiative": 51
-      },
-      {
-        "name": "Militia 4",
-        "escort": true,
-        "health": "L/2+2",
-        "initiative": 51
-      },
-      {
-        "name": "Militia 5",
-        "escort": true,
-        "health": "L/2+2",
-        "initiative": 51
-      },
-      {
-        "name": "Militia 6",
-        "escort": true,
-        "health": "L/2+2",
-        "initiative": 51
-      },
-      {
-        "name": "Militia 7",
-        "escort": true,
-        "health": "L/2+2",
-        "initiative": 51
-      },
-      {
-        "name": "Militia 8",
-        "escort": true,
-        "health": "L/2+2",
-        "initiative": 51
+        "initiative": 51,
+        "count": "Cx2"
       }
     ],
     "lootDeckConfig": {
@@ -1684,13 +1643,12 @@
       }
     ],
     "lootDeckConfig": {
-      "money": 4,
-      "lumber": 4,
-      "metal": 4,
-      "hide": 4,
-      "rockroot": 1,
+      "money": 7,
+      "lumber": 5,
+      "metal": 2,
+      "hide": 3,
       "arrowvine": 2,
-      "random_item": 1
+      "flamefruit": 1
     }
   },
   {
@@ -1876,7 +1834,7 @@
       "money": 12,
       "rockroot": 1,
       "arrowvine": 1,
-      "snowthistle": 1,
+      "snowthistle": 2,
       "random_item": 1
     }
   },
@@ -1932,7 +1890,7 @@
       "metal": 3,
       "hide": 4,
       "rockroot": 2,
-      "snowthistle": 2,
+      "snowthistle": 1,
       "random_item": 1
     }
   },
@@ -2481,8 +2439,7 @@
       "metal": 3,
       "hide": 3,
       "corpse": 1,
-      "arrowvine": 2,
-      "random_item": 1
+      "arrowvine": 2
     }
   },
   {
@@ -2500,8 +2457,8 @@
       "lumber": 1,
       "metal": 3,
       "hide": 5,
-      "rockroot": 1,
-      "axenut": 2
+      "rockroot": 2,
+      "axenut": 1
     }
   },
   {
@@ -2768,7 +2725,7 @@
       "lumber": 3,
       "metal": 3,
       "hide": 4,
-      "rockroot": 1,
+      "rockroot": 2,
       "axenut": 1,
       "random_item": 1
     }
@@ -2956,13 +2913,12 @@
       "city-guard"
     ],
     "lootDeckConfig": {
-      "money": 4,
+      "money": 10,
       "lumber": 4,
-      "metal": 4,
-      "hide": 4,
-      "rockroot": 1,
-      "arrowvine": 2,
-      "random_item": 1
+      "metal": 2,
+      "hide": 2,
+      "axenut": 1,
+      "snowthistle": 1
     }
   },
   {
@@ -2980,7 +2936,7 @@
       "metal": 2,
       "hide": 3,
       "flamefruit": 1,
-      "arrowvine": 1,
+      "arrowvine": 2,
       "random_item": 1
     }
   },

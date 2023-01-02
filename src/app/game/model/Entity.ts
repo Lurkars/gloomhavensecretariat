@@ -28,13 +28,13 @@ export function EntityValueFunction(value: string | number, L: number | undefine
 
   const match = value.match(EntityValueRegex);
 
-  if (match && match[ 0 ].length == value.length) {
-    expression = match[ 1 ];
-    func = match[ 3 ];
+  if (match && match[0].length == value.length) {
+    expression = match[1];
+    func = match[3];
   }
 
 
-  let C = gameManager.game.figures.filter((figure) => figure instanceof Character).length;
+  let C = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length;
   if (C < 1) {
     C = 1;
   }

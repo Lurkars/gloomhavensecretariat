@@ -116,7 +116,7 @@ export class CharacterManager {
   }
 
 
-  addObjective(objectiveData: ObjectiveData | undefined = undefined) {
+  addObjective(objectiveData: ObjectiveData | undefined = undefined, name : string | undefined = undefined) {
     const objectiveCount = gameManager.game.figures.filter((figure) => figure instanceof Objective).length;
     let id = objectiveCount % 12;
     if (objectiveCount < 12) {
@@ -129,6 +129,9 @@ export class CharacterManager {
 
     if (objectiveData) {
       objective.name = objectiveData.name;
+      if (name) {
+        objective.name = name;
+      }
       objective.maxHealth = objectiveData.health;
       objective.health = EntityValueFunction("" + objectiveData.health);
       objective.escort = objectiveData.escort;
