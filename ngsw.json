@@ -1,8 +1,8 @@
 {
   "configVersion": 1,
-  "timestamp": 1672679722394,
+  "timestamp": 1672683999430,
   "appData": {
-    "version": "0.37.0"
+    "version": "0.37.1"
   },
   "index": "gloomhavensecretariat/index.html",
   "assetGroups": [
@@ -16,7 +16,7 @@
       "urls": [
         "gloomhavensecretariat/favicon.ico",
         "gloomhavensecretariat/index.html",
-        "gloomhavensecretariat/main.ad6d9c9594793ae0.js",
+        "gloomhavensecretariat/main.0e7ebb6fd600f76b.js",
         "gloomhavensecretariat/manifest.webmanifest",
         "gloomhavensecretariat/polyfills.6706310edc95f6c0.js",
         "gloomhavensecretariat/runtime.3f906f644b28d401.js",
@@ -581,7 +581,7 @@
         "gloomhavensecretariat/assets/images/monster/thumbnail/fh-the-relic.png",
         "gloomhavensecretariat/assets/images/monster/thumbnail/fh-vermling-priest.png",
         "gloomhavensecretariat/assets/images/monster/thumbnail/fh-vermling-scout.png",
-        "gloomhavensecretariat/assets/images/monster/thumbnail/fh-vestige-of-the-imprisioned-god.png",
+        "gloomhavensecretariat/assets/images/monster/thumbnail/fh-vestige-of-the-imprisoned-god.png",
         "gloomhavensecretariat/assets/images/monster/thumbnail/fh-wind-demon.png",
         "gloomhavensecretariat/assets/images/monster/thumbnail/gh-ancient-artillery.png",
         "gloomhavensecretariat/assets/images/monster/thumbnail/gh-bandit-archer.png",
@@ -768,7 +768,7 @@
     "gloomhavensecretariat/assets/data/bas.json": "4f1ed467dc73e2298bf70d9f65bc69cf4d84ca36",
     "gloomhavensecretariat/assets/data/cs.json": "08ccf543e05f9c7175901d731f5c69ea58d8fa6e",
     "gloomhavensecretariat/assets/data/fc.json": "7d017cd06335801ea329d24335ffbd5e6a9509c6",
-    "gloomhavensecretariat/assets/data/fh.json": "c290963c0ae83aa8ccee74226ac5d5df0821031b",
+    "gloomhavensecretariat/assets/data/fh.json": "f77e6a7d5b2a110a59da733a7f96472116d8f02f",
     "gloomhavensecretariat/assets/data/gh-envx.json": "6eaf85f16e4fd8570861badee9a50691c5216c99",
     "gloomhavensecretariat/assets/data/gh.json": "a439ff8a6ea824693c00fcfc1032a3f315f807a9",
     "gloomhavensecretariat/assets/data/jotl.json": "8efdd33d78628676fd3ad14ebf0965dbe7b49229",
@@ -1305,7 +1305,7 @@
     "gloomhavensecretariat/assets/images/monster/thumbnail/fh-the-relic.png": "4bfde4b827f31e31c4bbddfca5529dd8f6c7a246",
     "gloomhavensecretariat/assets/images/monster/thumbnail/fh-vermling-priest.png": "467d7129b0aa96a2e08f1c0213001cf26a143920",
     "gloomhavensecretariat/assets/images/monster/thumbnail/fh-vermling-scout.png": "1daf807e5ade9b690ecce128c286b9aa958e7faf",
-    "gloomhavensecretariat/assets/images/monster/thumbnail/fh-vestige-of-the-imprisioned-god.png": "fe024a6a1b15934073d3674449ddb7512ec6ace7",
+    "gloomhavensecretariat/assets/images/monster/thumbnail/fh-vestige-of-the-imprisoned-god.png": "fe024a6a1b15934073d3674449ddb7512ec6ace7",
     "gloomhavensecretariat/assets/images/monster/thumbnail/fh-wind-demon.png": "a2ffd621ed4afea655975209e67f4816e9e8d2de",
     "gloomhavensecretariat/assets/images/monster/thumbnail/gh-ancient-artillery.png": "c06d23607d0a5257e0120024ee176f46a14087e3",
     "gloomhavensecretariat/assets/images/monster/thumbnail/gh-bandit-archer.png": "b9c4650e44611dc734f29db89245834ef1aeb786",
@@ -1436,11 +1436,11 @@
     "gloomhavensecretariat/health.8d6a842a197d29d3.svg": "05afb6de2ed74490df7d750cc939124afb1c5457",
     "gloomhavensecretariat/immune.3638b2264dfc0cf4.svg": "683fda2b898292506e4a8f0984c5057c0e877509",
     "gloomhavensecretariat/immunity.5d026de2db8a1d8f.svg": "ad20fc18e93269c79312170674c6008615438f9b",
-    "gloomhavensecretariat/index.html": "c2ca563cc1a55c61f548df7d453edfe1deecf93c",
+    "gloomhavensecretariat/index.html": "c11dc0d30354354a0ca32d6e6c6f75c723ca906f",
     "gloomhavensecretariat/initiative.a7663b57012bb669.svg": "85c1e0fe11ba2111c2dc55370ff84796c86eb556",
     "gloomhavensecretariat/level.38e1f58a07dc5898.svg": "004f02ea9f24d4ecbfef70b7d0c9cbd5e731827e",
     "gloomhavensecretariat/loot-back.e4cdf7df7a07e23d.png": "15d19a2865d142dd90e08461eb57c30062f44897",
-    "gloomhavensecretariat/main.ad6d9c9594793ae0.js": "eb8e723ded7f9d5fca90254a093a3de8f0325136",
+    "gloomhavensecretariat/main.0e7ebb6fd600f76b.js": "08cba6286e8f04174c6b7b520ceef4ee035907c7",
     "gloomhavensecretariat/majallab.00c7b4c865792c45.ttf": "cd2e9e61aca39d2b987b66e4c2a0a3ea13c3be48",
     "gloomhavensecretariat/majallab.3bc19f63b5b1d474.svg": "68458a0f79e0e45258f0948d48f2a65c125b4322",
     "gloomhavensecretariat/majallab.4ef31693f35ab4df.woff": "5f4a605494c5e4adbe49e3b23bfdcf1f7f8a92b6",
