@@ -1381,13 +1381,13 @@
     "monsters": [
       "vestige-of-the-imprisoned-god",
       "burrowing-blade",
-      "city-guard",
+      "guard-captain",
       "living-doom",
       "living-spirit",
       "shrike-fiend"
     ],
     "allies": [
-      "city-guard"
+      "guard-captain"
     ],
     "objectives": [
       {
