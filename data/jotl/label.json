@@ -566,24 +566,24 @@
           "2": "같은 방에 죽은 모든 %data.monster.zealot%들을 부활 "
         },
         "blood-monstrosity": {
-          "1": "On death, all adjacent figures suffer %game.damage:1%"
+          "1": "죽을때, 인접한 모든 피규어에 %game.damage:1%점"
         },
         "first-of-the-order": {
-          "1": "All enemies within %game.action.range:2% suffer %game.damage:2%",
-          "2": "Spawn [C/2{math.ceil}] %data.monster.black-imp%",
-          "3": "within %game.action.range:2% of target"
+          "1": "%game.action.range:2%내 모든 적이 %game.damage:2%점을 입음",
+          "2": "%data.monster.blood-imp% [C/2{math.ceil}]마리 출현",
+          "3": "대상의 %game.action.range:2% 내에서"
         },
         "rat-monstrosity": {
-          "1": "On death, all adjacent figures suffer %game.damage:1%",
-          "2": "On death, all adjacent figures suffer %game.damage:2%",
-          "3": "On death, all adjacent figures suffer %game.damage:3%",
-          "4": "On death, all adjacent figures suffer %game.damage:4%"
+          "1": "사망 시, 인접한 모든 피규어가 %game.damage:1%점 입음",
+          "2": "사망 시, 인접한 모든 피규어가 %game.damage:2%점 입음",
+          "3": "사망 시, 인접한 모든 피규어가 %game.damage:3%점 입음",
+          "4": "사망 시, 인접한 모든 피규어가 %game.damage:4%점 입음"
         },
         "basic-vermling-raider": {
-          "1": "Shuffle this deck at the end of the round.",
-          "2": "They will move to avoid being adjacent to their focus.",
-          "3": "They are not moving this round.",
-          "4": "This is exactly how they acted last scenario."
+          "1": "라운드 종료 시 이 덱을 섞습니다.",
+          "2": "버믈링 강습병은 주목한 적에게 인접하지 않을 때까지 이동합니다.",
+          "3": "이번 라운드에 버믈링 강습병은 이동하지 않습니다.",
+          "4": "이 행동은 지난 시나리오에 버믈링 강습병이 행동했던 방식과 같습니다."
         }
       },
       "perks": {
