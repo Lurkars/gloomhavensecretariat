@@ -485,31 +485,31 @@
       "jotl": "사자의 턱"
     },
     "monster": {
-      "basic-giant-viper": "기본판 거대 독사",
-      "basic-vermling-raider": "Basic Vermling Raider",
-      "basic-zealot": "Basic Zealot",
+      "basic-giant-viper": "초보자용 거대 독사",
+      "basic-vermling-raider": "초보자용 버믈링 강습병",
+      "basic-zealot": "초보자용 추종자",
       "black-imp": "검은 임프",
-      "black-sludge": "Black Sludge",
-      "blood-horror": "Blood Horror",
-      "blood-imp": "Blood Imp",
-      "blood-monstrosity": "Blood Monstrosity",
-      "blood-tumor": "Blood Tumor",
-      "chaos-demon": "Chaos Demon",
-      "common-vermling-raider": "Common Vermling Raider",
-      "first-of-the-order": "First of the Order",
+      "black-sludge": "검은 찌꺼기",
+      "blood-horror": "핏빛 공포",
+      "blood-imp": "핏빛 임프",
+      "blood-monstrosity": "핏빛 변이체",
+      "blood-tumor": "핏빛 종양",
+      "chaos-demon": "혼돈 악마",
+      "common-vermling-raider": "버믈링 강습병",
+      "first-of-the-order": "교단의 수장",
       "giant-viper": "거대 독사",
       "living-corpse": "살아있는 시체",
       "living-spirit": "살아있는 영혼",
-      "monstrosity": "Monstrosity",
-      "rat-monstrosity": "Rat Monstrosity",
+      "monstrosity": "변이체",
+      "rat-monstrosity": "쥐 변이체",
       "stone-golem": "돌 골렘",
-      "vermling-raider": "Vermling Raider",
+      "vermling-raider": "버믈링 강습병",
       "vermling-scout": "버믈링 정찰병",
-      "zealot": "Zealot"
+      "zealot": "추종자"
     },
     "deck": {
       "boss": "보스",
-      "monstrosity": "Monstrosity",
+      "monstrosity": "변이체",
       "imp": "임프"
     },
     "ability": {},
@@ -529,61 +529,61 @@
     "custom": {
       "jotl": {
         "giant-viper": {
-          "1": "All attacks targeting %data.monster.giant-viper% gain Disadvantage this round.",
-          "2": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.giant-viper%'s allies."
+          "1": "이번 라운드 중 %data.monster.giant-viper%를 대상으로 하는 모든 공격이 불이익",
+          "2": "대상이 %data.monster.giant-viper%의 아군에게 인접해 있다면 +2 %game.action.attack%추가."
         },
         "black-sludge": {
-          "1": "The closest enemy in line-of-sight, regardless of range, suffer [1+L/2{%math.ceil}] %game.damage%"
+          "1": "사정거리에 관계없이 시야 내에 있는 가장 가까운 적이 [1+L/2{%math.ceil}] %game.damage%"
         },
         "chaos-demon": {
-          "1": "Any time a figure attacks the %data.monster.chaos-demon% this round, that figure suffer %game.damage:2%",
-          "2": "All enemies adjacent to the target suffer %game.damage:1%"
+          "1": "이번 라운드 중 피규어가 %data.monster.chaos-demon%를 공격할 때마다, 해당 피규어가 %game.damage:2%점을 입음.",
+          "2": "대상에게 인접한 모든 적이 %game.damage:1%점을 입음."
         },
         "living-corpse": {
-          "1": "The target also suffers %game.damage:2%.",
-          "2": "If this movement is performed, the %data.monster.living-corpse% suffers %game.damage:1%.",
-          "3": "If this attack is performed, the %data.monster.living-corpse% suffers %game.damage:1%."
+          "1": "대상이 %game.damage:2%점도 입음.",
+          "2": "이 이동이 수행되면, %data.monster.living-corpse%가 스스로 %game.damage:1%점을 입음.",
+          "3": "이 공격이 수행되면, %data.monster.living-corpse%가 스스로 %game.damage:1%점을 입음."
         },
         "monstrosity": {
-          "1": "If this attack is performed, the %data.monster.monstrosity% suffers %game.damage:1%.",
-          "2": "Add +1 %game.action.attack% if the target is adjacent to any of the %data.monster.monstrosity%'s allies.",
-          "3": "Any time a figure attacks the %data.monster.monstrosity% this round, that figure suffers %game.damage:2%.",
-          "4": "%data.monster.monstrosity% suffers %game.damage:1%"
+          "1": "이 공격이 수행되면, %data.monster.monstrosity%가 스스로 %game.damage:1%점을 입음.",
+          "2": "대상이 %data.monster.monstrosity%의 아군에게 인접해 있다면 +1 %game.action.attack% 추가.",
+          "3": "이번 라운드 중 피규어가 %data.monster.monstrosity%를 공격할 때마다, 해당 피규어가 %game.damage:2%점을 입음.",
+          "4": "%data.monster.monstrosity%가 스스로 %game.damage:1%점을 입음"
         },
         "stone-golem": {
-          "1": "Any time a figure attacks the %data.monster.stone-golem% this round, that figure suffers %game.damage:3%.",
-          "2": "If the Move ability was performed, the %data.monster.stone-golem% suffers %game.damage:1%.",
-          "3": "If this attack is performed, the %data.monster.stone-golem% suffers %game.damage:2%."
+          "1": "이번 라운드 중 피규어가 %data.monster.stone-golem%을 공격할 때마다, 해당 피규어가 %game.damage:3%점을 입음.",
+          "2": "이동 능력이 수행되었다면, %data.monster.stone-golem%이 스스로 %game.damage:1%점을 입음.",
+          "3": "이 공격이 수행되면, the %data.monster.stone-golem%이 스스로 %game.damage:2%점을 입음."
         },
         "vermling-raider": {
-          "1": "Create one 3-%game.damage% trap in an adjacent empty hex closest to an enemy."
+          "1": "인접한 빈칸 중 적과 가장 가까운 칸 하나에 3-%game.damage% 함정을 생성한다."
         },
         "zealot": {
-          "1": "X is %game.damage% suffered by target of attack"
+          "1": "여기에서 X는 공격의 대상이 공격을 통해 입은 %game.damage%"
         },
         "blood-horror": {
-          "1": "Jump to farthest dead %data.monster.zealot% and revive or jump to farthest character and %game.action.attack%+0",
-          "2": "Revive all dead %data.monster.zealot% in room"
+          "1": "가장 멀리 있는 죽은 %data.monster.zealot%에게 도약 또는, 가장 멀리 있는 적에게 도약 후 %game.action.attack%+0",
+          "2": "같은 방에 죽은 모든 %data.monster.zealot%들을 부활 "
         },
         "blood-monstrosity": {
-          "1": "On death, all adjacent figures suffer %game.damage:1%"
+          "1": "죽을때, 인접한 모든 피규어에 %game.damage:1%점"
         },
         "first-of-the-order": {
-          "1": "All enemies within %game.action.range:2% suffer %game.damage:2%",
-          "2": "Spawn [C/2{math.ceil}] %data.monster.black-imp%",
-          "3": "within %game.action.range:2% of target"
+          "1": "%game.action.range:2%내 모든 적이 %game.damage:2%점을 입음",
+          "2": "%data.monster.blood-imp% [C/2{math.ceil}]마리 출현",
+          "3": "대상의 %game.action.range:2% 내에서"
         },
         "rat-monstrosity": {
-          "1": "On death, all adjacent figures suffer %game.damage:1%",
-          "2": "On death, all adjacent figures suffer %game.damage:2%",
-          "3": "On death, all adjacent figures suffer %game.damage:3%",
-          "4": "On death, all adjacent figures suffer %game.damage:4%"
+          "1": "사망 시, 인접한 모든 피규어가 %game.damage:1%점 입음",
+          "2": "사망 시, 인접한 모든 피규어가 %game.damage:2%점 입음",
+          "3": "사망 시, 인접한 모든 피규어가 %game.damage:3%점 입음",
+          "4": "사망 시, 인접한 모든 피규어가 %game.damage:4%점 입음"
         },
         "basic-vermling-raider": {
-          "1": "Shuffle this deck at the end of the round.",
-          "2": "They will move to avoid being adjacent to their focus.",
-          "3": "They are not moving this round.",
-          "4": "This is exactly how they acted last scenario."
+          "1": "라운드 종료 시 이 덱을 섞습니다.",
+          "2": "버믈링 강습병은 주목한 적에게 인접하지 않을 때까지 이동합니다.",
+          "3": "이번 라운드에 버믈링 강습병은 이동하지 않습니다.",
+          "4": "이 행동은 지난 시나리오에 버믈링 강습병이 행동했던 방식과 같습니다."
         }
       },
       "perks": {
