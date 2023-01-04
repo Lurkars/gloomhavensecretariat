@@ -1,1 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 8.73 6.24"><defs><style>.cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}</style><clipPath id="clip-path" transform="translate(-0.38 -0.08)"><rect class="cls-1" width="9.43" height="6.36"/></clipPath></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g class="cls-2"><path d="M8.85,5.07A1.9,1.9,0,0,1,7.19,6.33L.94,4.05C.73,4,0,3.29.63,1.7,1.16.34,1.92,0,2.39.1S4.58,1.23,5.67,1.5A2.92,2.92,0,0,0,7.16.62a.68.68,0,0,1,.78.48c-.05.27-.46.92-.42,1.07s1.23.45,1.28.5a2.64,2.64,0,0,1,0,2.4" transform="translate(-0.38 -0.08)"/></g></g></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 10.000001 10"
+   version="1.1"
+   id="svg15"
+   sodipodi:docname="lumber.svg"
+   width="10"
+   height="10"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview17"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     width="8.1px"
+     inkscape:zoom="48.826753"
+     inkscape:cx="1.0342691"
+     inkscape:cy="1.3824389"
+     inkscape:window-width="1846"
+     inkscape:window-height="1136"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg15" />
+  <defs
+     id="defs7">
+    <style
+       id="style2">.cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}</style>
+    <clipPath
+       id="clip-path"
+       transform="translate(-0.38 -0.08)">
+      <rect
+         class="cls-1"
+         width="9.4300003"
+         height="6.3600001"
+         id="rect4"
+         x="0"
+         y="0" />
+    </clipPath>
+  </defs>
+  <g
+     id="Layer_2"
+     data-name="Layer 2"
+     transform="translate(0.70385978,2.0875787)">
+    <g
+       id="Layer_1-2"
+       data-name="Layer 1">
+      <g
+         class="cls-2"
+         clip-path="url(#clip-path)"
+         id="g11">
+        <path
+           d="M 8.85,5.07 A 1.9,1.9 0 0 1 7.19,6.33 L 0.94,4.05 C 0.73,4 0,3.29 0.63,1.7 1.16,0.34 1.92,0 2.39,0.1 2.86,0.2 4.58,1.23 5.67,1.5 A 2.92,2.92 0 0 0 7.16,0.62 0.68,0.68 0 0 1 7.94,1.1 C 7.89,1.37 7.48,2.02 7.52,2.17 7.56,2.32 8.75,2.62 8.8,2.67 a 2.64,2.64 0 0 1 0,2.4"
+           transform="translate(-0.38,-0.08)"
+           id="path9" />
+      </g>
+    </g>
+  </g>
+</svg>

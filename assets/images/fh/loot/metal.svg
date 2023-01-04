@@ -1,1 +1,66 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 9.82 4.76"><defs><style>.cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}</style><clipPath id="clip-path" transform="translate(-0.09 0)"><rect class="cls-1" width="9.92" height="4.76"/></clipPath></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g class="cls-2"><path d="M9.85,0H3.94a.52.52,0,0,1-.47.36A22.38,22.38,0,0,1,.15.27s0,0,0,0A1.91,1.91,0,0,0,2,2.21c1.46.18,2.49.12,2.52.69s-1,.76-1.25.77a.07.07,0,0,0-.05,0l-.25,1A.05.05,0,0,0,3,4.76H8.23a.05.05,0,0,0,0-.07L8,3.71s0,0,0,0c-.22,0-1.4-.07-1.31-.91S7.28,1.45,9.18,1.2A.7.7,0,0,0,9.73.74c.08-.27.15-.54.18-.67A.06.06,0,0,0,9.85,0" transform="translate(-0.09 0)"/></g></g></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 10 9.9999995"
+   version="1.1"
+   id="svg15"
+   sodipodi:docname="metal.svg"
+   width="10"
+   height="10"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview17"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="34.79244"
+     inkscape:cx="8.3495151"
+     inkscape:cy="3.952008"
+     inkscape:window-width="1846"
+     inkscape:window-height="1136"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg15" />
+  <defs
+     id="defs7">
+    <style
+       id="style2">.cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}</style>
+    <clipPath
+       id="clip-path"
+       transform="translate(-0.09 0)">
+      <rect
+         class="cls-1"
+         width="9.9200001"
+         height="4.7600002"
+         id="rect4"
+         x="0"
+         y="0" />
+    </clipPath>
+  </defs>
+  <g
+     id="Layer_2"
+     data-name="Layer 2"
+     transform="translate(0.05770828,2.4648405)">
+    <g
+       id="Layer_1-2"
+       data-name="Layer 1">
+      <g
+         class="cls-2"
+         clip-path="url(#clip-path)"
+         id="g11">
+        <path
+           d="M 9.85,0 H 3.94 A 0.52,0.52 0 0 1 3.47,0.36 22.38,22.38 0 0 1 0.15,0.27 c 0,0 0,0 0,0 A 1.91,1.91 0 0 0 2,2.21 c 1.46,0.18 2.49,0.12 2.52,0.69 0.03,0.57 -1,0.76 -1.25,0.77 a 0.07,0.07 0 0 0 -0.05,0 l -0.25,1 A 0.05,0.05 0 0 0 3,4.76 h 5.23 a 0.05,0.05 0 0 0 0,-0.07 L 8,3.71 c 0,0 0,0 0,0 C 7.78,3.71 6.6,3.64 6.69,2.8 6.78,1.96 7.28,1.45 9.18,1.2 A 0.7,0.7 0 0 0 9.73,0.74 C 9.81,0.47 9.88,0.2 9.91,0.07 A 0.06,0.06 0 0 0 9.85,0"
+           transform="translate(-0.09)"
+           id="path9" />
+      </g>
+    </g>
+  </g>
+</svg>

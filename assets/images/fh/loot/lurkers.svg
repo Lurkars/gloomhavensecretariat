@@ -1,11 +1,43 @@
-<?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-10 0 912 1000">
-  <g transform="matrix(1 0 0 -1 0 800)">
-   <path fill="currentColor"
-d="M852 445q2 -38 -44 -75l2 -34q1 -2 -1 -4t-5 -1l-35 10q-48 -36 -60 -68q-20 -55 -53 -73q-2 -1 -3.5 -0.5t-2.5 2.5q-2 13 -7 25.5t-15.5 28.5t-29.5 28t-44 16q44 -46 40 -137q-5 -96 -47.5 -165t-113.5 -103q-46 -22 -88 -26t-67 7.5t-25 34.5q48 5 90 37.5t67 101.5
-q16 50 12.5 83.5t-2.5 70.5t16 61q-6 -7 -12 -12t-13 -8t-11 -5.5t-11.5 -3t-10.5 -1t-11.5 0.5t-10 1t-12 2t-11.5 3q1 -21 -14.5 -41t-44.5 -25q1 -26 -18.5 -52.5t-44.5 -30.5q4 -36 -10.5 -59t-52.5 -37q9 -32 -0.5 -65.5t-31.5 -45.5q-30 24 -46.5 55t-18.5 66.5
-t1 62.5t11 62q14 60 55.5 137.5t98.5 138.5q47 49 93.5 81.5t101.5 42.5q66 11 111 -24q-3 16 -18 32q-1 2 -0.5 3.5t1.5 1.5q15 5 41 16l5 47q0 3 3 4t6 -1l36 -30q18 5 41 11q32 7 66 7q8 13 22 34q2 3 5 2.5t4 -3.5l13 -39q48 -13 74.5 -52t29.5 -96z" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   viewBox="-10 0 10 10"
+   id="svg6"
+   sodipodi:docname="lurkers.svg"
+   width="10"
+   height="10"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     width="10px"
+     inkscape:zoom="60.721966"
+     inkscape:cx="3.2360612"
+     inkscape:cy="6.3980142"
+     inkscape:window-width="1846"
+     inkscape:window-height="1136"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg6" />
+  <g
+     transform="matrix(0.01,0,0,-0.01,-9.5871035,7.5177943)"
+     id="g4">
+    <path
+       fill="currentColor"
+       d="m 852,445 q 2,-38 -44,-75 l 2,-34 q 1,-2 -1,-4 -2,-2 -5,-1 l -35,10 q -48,-36 -60,-68 -20,-55 -53,-73 -2,-1 -3.5,-0.5 -1.5,0.5 -2.5,2.5 -2,13 -7,25.5 Q 638,240 627.5,256 617,272 598,284 579,296 554,300 598,254 594,163 589,67 546.5,-2 504,-71 433,-105 q -46,-22 -88,-26 -42,-4 -67,7.5 -25,11.5 -25,34.5 48,5 90,37.5 42,32.5 67,101.5 16,50 12.5,83.5 -3.5,33.5 -2.5,70.5 1,37 16,61 -6,-7 -12,-12 -6,-5 -13,-8 -7,-3 -11,-5.5 -4,-2.5 -11.5,-3 -7.5,-0.5 -10.5,-1 -3,-0.5 -11.5,0.5 -8.5,1 -10,1 -1.5,0 -12,2 -10.5,2 -11.5,3 1,-21 -14.5,-41 Q 303,181 274,176 275,150 255.5,123.5 236,97 211,93 215,57 200.5,34 186,11 148,-3 157,-35 147.5,-68.5 138,-102 116,-114 86,-90 69.5,-59 53,-28 51,7.5 49,43 52,70 55,97 63,132 77,192 118.5,269.5 160,347 217,408 264,457 310.5,489.5 357,522 412,532 q 66,11 111,-24 -3,16 -18,32 -1,2 -0.5,3.5 0.5,1.5 1.5,1.5 15,5 41,16 l 5,47 q 0,3 3,4 3,1 6,-1 l 36,-30 q 18,5 41,11 32,7 66,7 8,13 22,34 2,3 5,2.5 3,-0.5 4,-3.5 l 13,-39 q 48,-13 74.5,-52 26.5,-39 29.5,-96 z"
+       id="path2" />
   </g>
-
 </svg>
