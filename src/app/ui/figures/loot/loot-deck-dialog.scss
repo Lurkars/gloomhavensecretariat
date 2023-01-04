@@ -23,13 +23,6 @@
         color: var(--ghs-color-white);
       }
 
-      .ghs-svg {
-        height: 1em;
-        width: auto;
-        margin: 0 0.3em;
-        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
-      }
-
       &:hover {
         .ghs-svg {
           filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
@@ -74,6 +67,13 @@
       }
     }
 
+  }
+
+  .ghs-svg {
+    height: 1em;
+    width: auto;
+    margin: 0 0.3em;
+    filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
   }
 
   .config {

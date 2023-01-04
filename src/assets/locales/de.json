@@ -56,6 +56,7 @@
       "donate": "Spende",
       "donations": "Spenden an den Tempel der Großen Eiche",
       "export": "Exportieren",
+      "gold": "Gold",
       "gold-notes": "Gold Notizen",
       "import": "Importieren",
       "items": {
@@ -63,6 +64,7 @@
         "wip": "%wip%! Gegenstände sind noch nicht vollständig."
       },
       "level": "Level",
+      "masteries": "Errungenschaften",
       "name": "Name",
       "notes": "Notizen",
       "perks": {
@@ -92,6 +94,7 @@
         "wip": "%wip%! Verbesserungen sind noch nicht vollständig."
       },
       "personalQuest": "Persönliche Quest",
+      "resources": "Ressourcen",
       "retired": "Ruhestand",
       "retirements": "Ruhestände",
       "title": "{1} {0}",

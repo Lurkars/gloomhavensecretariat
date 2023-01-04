@@ -225,5 +225,9 @@
       "count": 1,
       "custom": "Whenever you would gain %game.condition.immobilize%, prevent the condition"
     }
+  ],
+  "masteries": [
+    "Declare Fast for seven consecutive rounds",
+    "Never be targeted by an attack"
   ]
 }

@@ -51,6 +51,8 @@ export enum ActionType {
   box = "box",
 }
 
+export const ActionTypesIcons: ActionType[] = [ActionType.attack, ActionType.fly, ActionType.heal, ActionType.jump, ActionType.loot, ActionType.move, ActionType.range, ActionType.retaliate, ActionType.shield, ActionType.target, ActionType.teleport]
+
 export enum ActionValueType {
   plus = "plus",
   minus = "minus",

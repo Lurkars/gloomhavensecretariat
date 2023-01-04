@@ -241,5 +241,8 @@
       "custom": "At the start of each scenario, you may create one %game.damage:2% trap in an adjacent empty hex"
     }
   ],
-  "replace": false
+  "masteries": [
+    "Have one %game.action.heal% trap on the map with a value of at least 20",
+    "Move enemies through seven or more traps with one ability"
+  ]
 }

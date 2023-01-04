@@ -251,5 +251,9 @@
       "custom": "At the start of each scenario, you may play a level 1 card from your hand to perfom a summon action of the card",
       "combined": true
     }
+  ],
+  "masteries": [
+    "Kill at least fifteen of your summons",
+    "Play a summon action on your first turn, have the summon kill at least six enenmies, and keep it alive for the entire scenario"
   ]
 }

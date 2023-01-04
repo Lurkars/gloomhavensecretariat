@@ -13,6 +13,7 @@ export class CharacterProgress {
   retired: boolean = false;
   retirements: number = 0;
   perks: number[] = [];
+  masteries: number[] = [];
   donations: number = 0;
 
 }

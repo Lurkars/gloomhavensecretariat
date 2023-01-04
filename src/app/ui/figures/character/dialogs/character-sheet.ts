@@ -11,6 +11,7 @@ import { CharacterProgress } from "src/app/game/model/CharacterProgress";
 import { ItemData } from "src/app/game/model/data/ItemData";
 import { GameState } from "src/app/game/model/Game";
 import { Identifier } from "src/app/game/model/Identifier";
+import { Loot, LootType } from "src/app/game/model/Loot";
 import { Perk, PerkType } from "src/app/game/model/Perks";
 import { ghsInputFullScreenCheck, ghsValueSign } from "src/app/ui/helper/Static";
 
@@ -32,6 +33,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
   GameState = GameState;
   characterManager: CharacterManager = gameManager.characterManager;
   PerkType = PerkType;
+  LootType = LootType;
   availablePerks: number = 0;
   perksWip: boolean = true;
   items: ItemData[] = [];
@@ -42,6 +44,8 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
 
   goldTimeout: any = null;
   xpTimeout: any = null;
+
+  fhSheet: boolean = false;
 
   constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef) {
     this.dialogRef.closed.subscribe({
@@ -60,7 +64,9 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
           }
         }
 
-        this.itemEdition.nativeElement.value = this.character.edition;
+        if (this.itemEdition) {
+          this.itemEdition.nativeElement.value = this.character.edition;
+        }
       }
     });
   }
@@ -72,9 +78,18 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
 
     this.character.progress.perks = this.character.progress.perks || [];
 
+    this.fhSheet = this.character.masteries && this.character.masteries.length > 0 || this.character.edition == 'fh' || gameManager.fhRules();
+
     for (let i = 0; i < 15; i++) {
       if (!this.character.progress.perks[i]) {
         this.character.progress.perks[i] = 0;
+      }
+    }
+
+    if (this.fhSheet) {
+      for (let value in LootType) {
+        const lootType: LootType = value as LootType;
+        this.character.progress.loot[lootType] = this.character.progress.loot[lootType] || 0;
       }
     }
 
@@ -82,7 +97,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
       this.character.progress.experience = this.characterManager.xpMap[this.character.level - 1];
     }
 
-    this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.retirements;
+    this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.retirements + this.character.progress.masteries.length;
 
     this.perksWip = this.character.perks.length == 0 || this.character.perks.map((perk) => perk.count).reduce((a, b) => a + b) != (this.character.edition == 'fh' ? 18 : 15);
 
@@ -91,7 +106,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
 
     gameManager.uiChange.subscribe({
       next: () => {
-        this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.retirements;
+        this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.retirements + this.character.progress.masteries.length;
 
         for (let i = 0; i < 15; i++) {
           if (!this.character.progress.perks[i]) {
@@ -106,8 +121,12 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.titleInput.nativeElement.value = this.character.title || settingsManager.getLabel('data.character.' + this.character.name.toLowerCase());
-    this.itemEdition.nativeElement.value = this.character.edition;
-    this.itemName.nativeElement.value = "1";
+    if (this.itemEdition) {
+      this.itemEdition.nativeElement.value = this.character.edition;
+    }
+    if (this.itemName) {
+      this.itemName.nativeElement.value = "1";
+    }
   }
 
   close() {
@@ -186,6 +205,10 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
         this.goldTimeout = null;
       }, 500);
     }
+  }
+
+  setResource(type: LootType, event: any) {
+    this.character.progress.loot[type] = +event.target.value;
   }
 
   donate() {
@@ -302,7 +325,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
 
   sellItem(itemData: ItemData) {
     const item = this.character.progress.items.find((item) => item.name == "" + itemData.id && item.edition == itemData.edition);
-    if (item) {
+    if (item && itemData.cost) {
       const index = this.character.progress.items.indexOf(item)
       gameManager.stateManager.before("sellItem", "data.character." + this.character.name, this.character.progress.items[index].name, this.character.progress.items[index].edition);
       this.character.progress.gold += Math.ceil(itemData.cost / 2);
@@ -311,6 +334,21 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
       gameManager.stateManager.after();
       this.itemChange();
     }
+  }
+
+  toggleMastery(index: number) {
+    if (!this.character.progress.masteries) {
+      this.character.progress.masteries = [];
+    }
+
+    if (this.character.progress.masteries.indexOf(index) == -1) {
+      gameManager.stateManager.before("addMastery", "data.character." + this.character.name, "" + index);
+      this.character.progress.masteries.push(index);
+    } else {
+      gameManager.stateManager.before("removeMastery", "data.character." + this.character.name, "" + index);
+      this.character.progress.masteries.splice(this.character.progress.masteries.indexOf(index), 1);
+    }
+    gameManager.stateManager.after();
   }
 
   addPerk(index: number, value: number) {

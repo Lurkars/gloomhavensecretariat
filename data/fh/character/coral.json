@@ -217,5 +217,8 @@
       "custom": "Gain advantage on all your attacks performed while occupying or targeting enemies occupying water hexes"
     }
   ],
-  "replace": false
+  "masteries": [
+    "Never suffer damage from attacks, and be targeted by at least five attacks",
+    "At the start of each of your rests, have more active %game.action.custom.fh-tides% than cards in your discard pile"
+  ]
 }

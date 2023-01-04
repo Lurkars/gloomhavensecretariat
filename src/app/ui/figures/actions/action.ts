@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Action, ActionType, ActionValueType } from 'src/app/game/model/Action';
+import { Action, ActionType, ActionTypesIcons, ActionValueType } from 'src/app/game/model/Action';
 import { ElementState } from 'src/app/game/model/Element';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Monster } from 'src/app/game/model/Monster';
@@ -35,8 +35,6 @@ export class ActionComponent implements OnInit {
 
   ActionType = ActionType;
   ActionValueType = ActionValueType;
-
-  invertIcons: ActionType[] = [ActionType.attack, ActionType.fly, ActionType.heal, ActionType.jump, ActionType.loot, ActionType.move, ActionType.range, ActionType.retaliate, ActionType.shield, ActionType.target, ActionType.teleport];
 
   hasAOE: boolean = false;
 
@@ -280,7 +278,7 @@ export class ActionComponent implements OnInit {
   }
 
   isGhsSvg(type: ActionType) {
-    return this.invertIcons.indexOf(type) != -1;
+    return ActionTypesIcons.indexOf(type) != -1;
   }
 
   highlightElement(elementType: string, consume: boolean): boolean {

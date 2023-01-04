@@ -1,1 +1,67 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 6.83 8.88"><defs><style>.cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}</style><clipPath id="clip-path" transform="translate(-0.43 -0.15)"><rect class="cls-1" width="7.26" height="9.02"/></clipPath></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g class="cls-2"><path d="M.62,9A2.17,2.17,0,0,1,1,6.67c.89-1.12.14-2.44,1.47-2.86-.3.8.32,1.22.84.48S3,2.67,4.23,2c-.08.68.48.84.84.45C5.75,1.71,5.62,0,7.26.16A1.12,1.12,0,0,0,6.78,1.3a2.74,2.74,0,0,1-.43,2.12c-.67.66-.07,1,.37.76C6.56,5.16,6,5.37,4.91,5.6S4,6.94,4.83,6.66C4,8.59,2.33,6.36.62,9" transform="translate(-0.43 -0.15)"/></g></g></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 10 9.9999999"
+   version="1.1"
+   id="svg15"
+   sodipodi:docname="snowthistle.svg"
+   width="10"
+   height="10"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview17"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     width="10px"
+     inkscape:zoom="28.675495"
+     inkscape:cx="-1.9005774"
+     inkscape:cy="4.9345268"
+     inkscape:window-width="1846"
+     inkscape:window-height="1136"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg15" />
+  <defs
+     id="defs7">
+    <style
+       id="style2">.cls-1{fill:none;}.cls-2{clip-path:url(#clip-path);}</style>
+    <clipPath
+       id="clip-path"
+       transform="translate(-0.43 -0.15)">
+      <rect
+         class="cls-1"
+         width="7.2600002"
+         height="9.0200005"
+         id="rect4"
+         x="0"
+         y="0" />
+    </clipPath>
+  </defs>
+  <g
+     id="Layer_2"
+     data-name="Layer 2"
+     transform="translate(1.8001814,0.68506336)">
+    <g
+       id="Layer_1-2"
+       data-name="Layer 1">
+      <g
+         class="cls-2"
+         clip-path="url(#clip-path)"
+         id="g11">
+        <path
+           d="M 0.62,9 A 2.17,2.17 0 0 1 1,6.67 C 1.89,5.55 1.14,4.23 2.47,3.81 2.17,4.61 2.79,5.03 3.31,4.29 3.83,3.55 3,2.67 4.23,2 4.15,2.68 4.71,2.84 5.07,2.45 5.75,1.71 5.62,0 7.26,0.16 A 1.12,1.12 0 0 0 6.78,1.3 2.74,2.74 0 0 1 6.35,3.42 C 5.68,4.08 6.28,4.42 6.72,4.18 6.56,5.16 6,5.37 4.91,5.6 3.82,5.83 4,6.94 4.83,6.66 4,8.59 2.33,6.36 0.62,9"
+           transform="translate(-0.43,-0.15)"
+           id="path9" />
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,450 @@
+{
+  "name": "circles",
+  "characterClass": "aesther",
+  "gender": "f",
+  "edition": "fh-crossover",
+  "color": "#e570b3",
+  "spoiler": true,
+  "stats": [
+    {
+      "level": 1,
+      "health": 8
+    },
+    {
+      "level": 2,
+      "health": 9
+    },
+    {
+      "level": 3,
+      "health": 11
+    },
+    {
+      "level": 4,
+      "health": 12
+    },
+    {
+      "level": 5,
+      "health": 14
+    },
+    {
+      "level": 6,
+      "health": 15
+    },
+    {
+      "level": 7,
+      "health": 17
+    },
+    {
+      "level": 8,
+      "health": 18
+    },
+    {
+      "level": 9,
+      "health": 20
+    }
+  ],
+  "availableSummons": [
+    {
+      "name": "lava-golem",
+      "level": 1,
+      "health": 7,
+      "attack": 3,
+      "movement": 2,
+      "action": {
+        "type": "retaliate",
+        "value": 2,
+        "subActions": [
+          {
+            "type": "range",
+            "value": 2,
+            "small": true
+          }
+        ]
+      },
+      "additionalAction": {
+        "type": "condition",
+        "value": "wound"
+      }
+    },
+    {
+      "name": "shadow-wolf",
+      "level": 1,
+      "health": 3,
+      "attack": 2,
+      "movement": 3,
+      "count": 2,
+      "action": {
+        "type": "pierce",
+        "value": 2
+      }
+    },
+    {
+      "name": "iron-beast",
+      "level": 1,
+      "health": 5,
+      "attack": 1,
+      "movement": 2,
+      "action": {
+        "type": "retaliate",
+        "value": 1
+      },
+      "additionalAction": {
+        "type": "shield",
+        "value": 1
+      }
+    },
+    {
+      "name": "thorn-shooter",
+      "level": 1,
+      "health": 2,
+      "attack": 2,
+      "range": 4,
+      "movement": 1,
+      "action": {
+        "type": "condition",
+        "value": "poison"
+      }
+    },
+    {
+      "name": "living-bomb",
+      "level": 1,
+      "health": 1,
+      "attack": 2,
+      "movement": 3,
+      "action": {
+        "type": "grid",
+        "value": "1",
+        "subActions": [
+          {
+            "type": "custom",
+            "value": "%game.custom.ondeath%",
+            "small": true
+          },
+          {
+            "type": "attack",
+            "value": 3,
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "enemiesRange:2",
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "element",
+            "value": "fire",
+            "small": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "bat-swarm",
+      "level": 1,
+      "health": 4,
+      "attack": 2,
+      "movement": 2,
+      "action": {
+        "type": "fly",
+        "value": ""
+      }
+    },
+    {
+      "name": "slime-spirit",
+      "level": 3,
+      "health": 4,
+      "attack": 1,
+      "movement": 3,
+      "action": {
+        "type": "shield",
+        "value": 2
+      },
+      "additionalAction": {
+        "type": "condition",
+        "value": "muddle"
+      }
+    },
+    {
+      "name": "rock-colossus",
+      "level": 4,
+      "health": 7,
+      "attack": 3,
+      "movement": 1
+    },
+    {
+      "name": "healing-sprite",
+      "level": 5,
+      "health": 2,
+      "attack": 1,
+      "range": 3,
+      "movement": 2,
+      "action": {
+        "type": "grid",
+        "value": "1",
+        "subActions": [
+          {
+            "type": "custom",
+            "value": "Performs",
+            "small": true
+          },
+          {
+            "type": "heal",
+            "value": 2,
+            "subActions": [
+              {
+                "type": "range",
+                "value": 2,
+                "small": true
+              }
+            ]
+          },
+          {
+            "type": "custom",
+            "value": "at end of turn",
+            "small": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "nail-sphere",
+      "level": 6,
+      "health": 4,
+      "movement": 2,
+      "action": {
+        "type": "retaliate",
+        "value": 2
+      },
+      "additionalAction": {
+        "type": "shield",
+        "value": 1
+      }
+    },
+    {
+      "name": "void-eater",
+      "level": 7,
+      "health": 5,
+      "attack": 2,
+      "range": 2,
+      "movement": 3,
+      "action": {
+        "type": "condition",
+        "value": "curse"
+      }
+    },
+    {
+      "name": "black-unicorn",
+      "level": 9,
+      "health": 6,
+      "attack": 4,
+      "movement": 4,
+      "action": {
+        "type": "pierce",
+        "value": 3
+      }
+    }
+  ],
+  "perks": [
+    {
+      "type": "remove",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 3,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2"
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "wound"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "poison"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 3,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "heal",
+                "value": 1,
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "element",
+                "value": "fire"
+              }
+            ]
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "element",
+                "value": "air"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "element",
+                "value": "dark"
+              }
+            ]
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "element",
+                "value": "earth"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        }
+      ]
+    }
+  ]
+}

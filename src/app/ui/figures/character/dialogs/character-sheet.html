@@ -1,4 +1,4 @@
-<div class="light character-sheet-dialog">
+<div class="light character-sheet-dialog" [ngClass]="{'fh-sheet' : fhSheet}">
   <a class="close" (click)="close()" [title]="'close' | ghsLabel"><img src="./assets/images/close.svg"></a>
   <div class="scroll-container">
     <div class="container">
@@ -44,26 +44,91 @@
               </div>
             </div>
           </div>
-          <div class="row xp-notes">
-            <label>{{'character.progress.xp' | ghsLabel}} <img src="./assets/images/experience.svg">
-              {{'character.progress.notes' | ghsLabel}}:</label>
-            <input [value]="character.progress.experience" type="number" min="0" (change)="setXP($event)">
+          <div class="xp-gold-container">
+            <div class="row xp-notes">
+              <label>{{'character.progress.xp' | ghsLabel}} <img src="./assets/images/experience.svg">
+                <span *ngIf="!fhSheet">{{'character.progress.notes' | ghsLabel}}</span>:</label>
+              <input [value]="character.progress.experience" type="number" min="0" (change)="setXP($event)">
+            </div>
+            <div class="row gold-notes">
+              <label *ngIf="!fhSheet">{{'character.progress.gold-notes' | ghsLabel}}:</label>
+              <label *ngIf="fhSheet">{{'character.progress.gold' | ghsLabel}} <img
+                  src="./assets/images/fh/loot.svg">:</label>
+              <input [value]="character.progress.gold" type="number" min="0" (change)="setGold($event)">
+              <span class="donations">
+                {{'character.progress.donations' | ghsLabel}}: {{character.progress.donations}}</span>
+              <span class="donate">
+                {{'character.progress.donate'
+                | ghsLabel}}:
+                <a (click)="donate()"
+                  [ngClass]="{'disabled' : character.progress.gold < 10 || gameManager.game.round > 0}"><span
+                    class="price"><img src="./assets/images/loot.svg">10</span></a>
+              </span>
+            </div>
           </div>
-          <div class="row gold-notes">
-            <label>{{'character.progress.gold-notes' | ghsLabel}}:</label>
-            <input [value]="character.progress.gold" type="number" min="0" (change)="setGold($event)">
-            <span class="donations">
-              {{'character.progress.donations' | ghsLabel}}: {{character.progress.donations}}</span>
-            <span class="donate">
-              {{'character.progress.donate'
-              | ghsLabel}}:
-              <a (click)="donate()"
-                [ngClass]="{'disabled' : character.progress.gold < 10 || gameManager.game.round > 0}"><span
-                  class="price"><img src="./assets/images/loot.svg">10</span></a>
-            </span>
+
+
+          <div class="row resources" *ngIf="fhSheet">
+            <label>{{'character.progress.resources' | ghsLabel}}:</label>
+
+            <div class="resource-table">
+              <div class="materials">
+                <div class="resource lumber">
+                  <img src="./assets/images/fh/loot/lumber.svg">
+                  <input [value]="character.progress.loot.lumber" type="number" min="0"
+                    (change)="setResource(LootType.lumber, $event)">
+                </div>
+                <div class="resource metal">
+                  <img src="./assets/images/fh/loot/metal.svg">
+                  <input [value]="character.progress.loot.metal" type="number" min="0"
+                    (change)="setResource(LootType.metal, $event)">
+                </div>
+                <div class="resource hide">
+                  <img src="./assets/images/fh/loot/hide.svg">
+                  <input [value]="character.progress.loot.hide" type="number" min="0"
+                    (change)="setResource(LootType.hide, $event)">
+                </div>
+              </div>
+
+              <div class="herbs">
+                <div class="resource arrowvine">
+                  <img src="./assets/images/fh/loot/arrowvine.svg">
+                  <input [value]="character.progress.loot.arrowvine" type="number" min="0"
+                    (change)="setResource(LootType.arrowvine, $event)">
+                </div>
+                <div class="resource axenut">
+                  <img src="./assets/images/fh/loot/axenut.svg">
+                  <input [value]="character.progress.loot.axenut" type="number" min="0"
+                    (change)="setResource(LootType.axenut, $event)">
+                </div>
+                <div class="resource corpsecap">
+                  <img src="./assets/images/fh/loot/corpsecap.svg">
+                  <input [value]="character.progress.loot.corpsecap" type="number" min="0"
+                    (change)="setResource(LootType.corpsecap, $event)">
+                </div>
+                <div class="resource flamefruit">
+                  <img src="./assets/images/fh/loot/flamefruit.svg">
+                  <input [value]="character.progress.loot.flamefruit" type="number" min="0"
+                    (change)="setResource(LootType.flamefruit, $event)">
+                </div>
+                <div class="resource rockroot">
+                  <img src="./assets/images/fh/loot/rockroot.svg">
+                  <input [value]="character.progress.loot.rockroot" type="number" min="0"
+                    (change)="setResource(LootType.rockroot, $event)">
+                </div>
+                <div class="resource snowthistle">
+                  <img src="./assets/images/fh/loot/snowthistle.svg">
+                  <input [value]="character.progress.loot.snowthistle" type="number" min="0"
+                    (change)="setResource(LootType.snowthistle, $event)">
+                </div>
+              </div>
+            </div>
+
           </div>
+
           <div class="row items">
-            <label>{{'character.progress.items' | ghsLabel}}:</label>
+            <label *ngIf="!fhSheet">{{'character.progress.items' | ghsLabel}}:</label>
+            <label *ngIf="fhSheet">{{'character.progress.notes' | ghsLabel}}:</label>
             <div class="item-list">
               <div class="item-entry" *ngFor="let item of items; let index = index;">
                 <span class="icon"><img [src]="'./assets/images/items/slots/' + item.slot +'.svg'"></span>
@@ -73,8 +138,9 @@
                     ghsLabel}})</ng-container>
                 </span>
                 <span class="spacer"></span>
-                <a class="button loot" (click)="sellItem(item)"><img src="./assets/images/loot.svg">{{item.cost /
-                  2}}</a>
+                <a class="button loot" (click)="sellItem(item)"><img src="./assets/images/loot.svg">
+                  {{item.cost && (item.cost / 2) || '?'}}
+                </a>
                 <a class="button remove" (click)="removeItem(item)"><img src="./assets/images/close.svg"></a>
               </div>
               <span class="spacer"></span>
@@ -102,11 +168,24 @@
               </div>
             </div>
           </div>
+          <div class="row masteries" *ngIf="fhSheet">
+            <label>{{'character.progress.masteries' | ghsLabel}}:</label>
+            <div class="masteries-list">
+              <div class="mastery" *ngFor="let mastery of character.masteries; let i = index">
+                <span class="checkmark">
+                  <img src="./assets/images/check.svg">:</span>
+                <span class="mastery-check checkbox"
+                  [ngClass]="{'checked' : character.progress.masteries.indexOf(i) != -1}"
+                  (click)="toggleMastery(i)"></span>
+                <span class="placeholder text" [i18n]="mastery"></span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="column column-right">
           <div class="row perks">
-            <label class="headline">{{'character.progress.perks' | ghsLabel}}</label>
+            <label *ngIf="!fhSheet" class="headline">{{'character.progress.perks' | ghsLabel}}</label>
             <div class="list">
               <div class="perk" *ngFor="let perk of character.perks; let i = index;">
                 <div class="checkboxes" [ngClass]="{'combined' : perk.combined}">
@@ -132,7 +211,8 @@
             </div>
           </div>
           <div class="row battlegoals">
-            <label class="headline">{{'character.progress.battlegoals' | ghsLabel}}</label>
+            <label *ngIf="!fhSheet" class="headline">{{'character.progress.battlegoals' | ghsLabel}}</label>
+            <label *ngIf="fhSheet" class="headline">{{'character.progress.perks' | ghsLabel}}</label>
             <div class="battlegoals-grid">
               <ng-container *ngFor="let item of [] | ghsRange:18">
                 <span class="checkmark" *ngIf="item % 3 == 0">

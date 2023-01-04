@@ -1,0 +1,10 @@
+{
+  "conditions": [],
+  "edition": "fh-crossover",
+  "extensions": [
+    "gh",
+    "fc",
+    "jotl",
+    "fh"
+  ]
+}

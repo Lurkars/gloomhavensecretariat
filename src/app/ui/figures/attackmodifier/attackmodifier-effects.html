@@ -38,7 +38,7 @@
         <span class="value" *ngIf="effect.value">{{+effect.value | ghsValueSign}}</span>
         <span class="target-value-container" *ngIf="getTarget(effect)">
           <span class="target-value" text-shrink><span class="text-white" [i18n]="getTarget(effect)"
-              [fh-style]="newStyle"></span></span>
+              [fh-force]="newStyle"></span></span>
         </span>
         <div class="sub-effects" *ngIf="effect.effects && !getTarget(effect)">
           <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="effect.effects"

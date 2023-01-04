@@ -250,5 +250,9 @@
       "count": 1,
       "custom": "At the end of each scenario you may discard up to two loot cards, except Random Item, to draw that many new loot cards"
     }
+  ],
+  "masteries": [
+    "End a scenario with your character tokens on the last slots of four persistent abilities",
+    "Never perform a move ability or attack with a value less then 4, and perform at least one move or attack ability each round"
   ]
 }

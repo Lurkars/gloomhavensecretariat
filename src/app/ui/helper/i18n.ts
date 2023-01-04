@@ -1,6 +1,7 @@
 import { Directive, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { ActionType, ActionTypesIcons } from "src/app/game/model/Action";
 import { Character } from "src/app/game/model/Character";
 import { EntityValueFunction, EntityValueRegex } from "src/app/game/model/Entity";
 
@@ -41,7 +42,8 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         replace = '<span class="placeholder-condition">' + (fh ? '' : settingsManager.getLabel(label)) + image + '</span>';
       } else if (type == "action" && split.length == 3 && !split[2].startsWith('specialTarget') && !split[2].startsWith('summon')) {
         split.splice(0, 1);
-        image = '<img  src="./assets/images/' + (fh ? 'fh/' : '') + split.join('/') + '.svg" class="icon ghs-svg">';
+        const ghsSvg = ActionTypesIcons.indexOf(split[split.length - 1] as ActionType) != -1;
+        image = '<img  src="./assets/images/' + (fh ? 'fh/' : '') + split.join('/') + '.svg" class="icon' + (ghsSvg ? ' ghs-svg' : '') + '">';
         replace = '<span class="placeholder-action">' + (fh ? '' : settingsManager.getLabel(label)) + image + value + '</span>';
       } else if (type == "element") {
         let element = split[2];
@@ -54,8 +56,12 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         image += '<img src="./assets/images/' + (fh ? 'fh/' : '') + 'element/' + element + '.svg"></span>';
         replace = image;
       } else if (type == "elementHalf") {
+        let consume: boolean = false;
+        if (split[2] && split[2].startsWith("consume")) {
+          consume = true;
+        }
         const elements = value.split('|');
-        replace = '<span class="attack-modifier-effect element-half-placeholder ' + (fh ? 'fh' : '') + '"><span class="element-half-container"><span class="element-half"><img src="./assets/images/' + (fh ? 'fh/' : '') + 'element/' + elements[0] + '.svg"></span><span class="element-half"><img src="./assets/images/' + (fh ? 'fh/' : '') + 'element/' + elements[1] + '.svg"></span></span></span>';
+        replace = '<span class="attack-modifier-effect element-half-placeholder' + (fh ? ' fh' : '') + '"><span class="element-half-container' + (consume ? ' consume' : '') + '"><span class="element-half"><img src="./assets/images/' + (fh ? 'fh/' : '') + 'element/' + elements[0] + '.svg"></span><span class="element-half"><img src="./assets/images/' + (fh ? 'fh/' : '') + 'element/' + elements[1] + '.svg"></span></span></span>';
       } else if (type == "initiative" && split.length == 3) {
         image = '<img class="ghs-svg" src="./assets/images/initiative.svg"></span>'
         replace = '<span class="placeholder-initiative">' + split[2] + image + '</span>';
@@ -147,7 +153,8 @@ export class I18nDirective implements OnInit, OnChanges {
   @Input('i18n-args') args: string[] = [];
   @Input('i18n-arg-label') argLabel: boolean = true;
   @Input('relative') relative: boolean = false;
-  @Input('fh-style') fhStyle: boolean = false;
+  @Input('fh-force') fhForce: boolean = false;
+  fhStyle: boolean = false;
 
   private C: number;
   private L: number;
@@ -158,12 +165,14 @@ export class I18nDirective implements OnInit, OnChanges {
     this.C = gameManager.game.figures.filter((figure) => figure instanceof Character).length;
     this.L = gameManager.game.level;
     this.locale = settingsManager.settings.locale;
+    this.fhStyle = settingsManager.settings.fhStyle || this.fhForce;
     gameManager.uiChange.subscribe({
       next: () => {
-        if (this.locale != settingsManager.settings.locale || this.C != gameManager.game.figures.filter((figure) => figure instanceof Character).length || this.L != gameManager.game.level) {
+        if (this.locale != settingsManager.settings.locale || this.C != gameManager.game.figures.filter((figure) => figure instanceof Character).length || this.L != gameManager.game.level || (!this.fhForce && this.fhStyle != settingsManager.settings.fhStyle)) {
           this.C = gameManager.game.figures.filter((figure) => figure instanceof Character).length;
           this.L = gameManager.game.level;
           this.locale = settingsManager.settings.locale;
+          this.fhStyle = settingsManager.settings.fhStyle || this.fhForce;
           this.apply();
         }
       }

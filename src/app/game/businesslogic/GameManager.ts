@@ -336,6 +336,10 @@ export class GameManager {
     return monsterData;
   }
 
+  fhRules(): boolean {
+    return this.game.edition && (this.game.edition == 'fh' || gameManager.editionExtensions(this.game.edition).indexOf('fh') != -1) || this.game.scenario && (this.game.scenario.edition == 'fh' || gameManager.editionExtensions(this.game.scenario.edition).indexOf('fh') != -1) || this.game.lootDeck.cards.length > 0 || false;
+  }
+
 }
 
 export const gameManager: GameManager = new GameManager();

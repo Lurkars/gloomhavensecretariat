@@ -252,5 +252,9 @@
       "combined": true,
       "custom": "Whenever you perform an action with a lost icon, you may discard one card to %game.card.recover% one card from your discard pile of equal or lower level"
     }
+  ],
+  "masteries": [
+    "Switch forms each round",
+    "Lose at least one ability card each round"
   ]
 }

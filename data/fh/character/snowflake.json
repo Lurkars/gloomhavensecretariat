@@ -257,7 +257,9 @@
       "count": 2,
       "combined": true
     }
-
   ],
-  "replace": false
+  "masteries": [
+    "Cause at least one ally or enemy to move each round",
+    "Ensure the first ally to suffer %game.damage% each round, directly before suffering the %game.damage%, has at least one condition you applied"
+  ]
 }

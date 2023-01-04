@@ -46,6 +46,8 @@ export class CharacterData implements Editional, Spoilable {
 
   perks: Perk[] = [];
 
+  masteries: string[] = [];
+
   // from Editional
   edition: string = "";
   // from Spoilable
@@ -75,6 +77,7 @@ export class CharacterData implements Editional, Spoilable {
         this.deck = character.deck;
       }
       this.perks = character.perks || [];
+      this.masteries = character.masteries || [];
     }
   }
 

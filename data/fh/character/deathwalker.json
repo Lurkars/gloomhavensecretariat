@@ -225,5 +225,9 @@
       "count": 1,
       "custom": "While you are occupying a hex with a %data.action.custom.fh-shadow%, all attacks targeting you gain disadvantage"
     }
+  ],
+  "masteries": [
+    "Remove seven %data.action.custom.fh-shadow% in one round",
+    "Place or remove at least one %data.action.custom.fh-shadow% each round"
   ]
 }
