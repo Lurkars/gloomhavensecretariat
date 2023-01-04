@@ -35,7 +35,7 @@
             },
             {
               "type": "custom",
-              "value": "to farthest totem and destroy it.",
+              "value": "to farthest carving and destroy it.",
               "small": true
             }
           ]
@@ -61,7 +61,7 @@
       [
         {
           "type": "custom",
-          "value": "Destroy all adjacent totems.",
+          "value": "Destroy all adjacent carvings.",
           "small": true
         },
         {
