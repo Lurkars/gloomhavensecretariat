@@ -29,8 +29,8 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - **health** automatic exhausting/dead, max values for every level
   - **conditions** automatic expire + automatic apply (wound, wound_x, regenerate, bane, poison, poison_x, ward, brittle)
   - **level**, **loot**, **experience** of Characters
-  - **Character Progress** level, loot, experience, items, battlegoals, perks
-  - **Character Attack Modifier Deck** including perks (for GH, FC & JOTL)
+  - **Character Progress** level, loot, experience, items, battlegoals, perks, masteries
+  - **Character Attack Modifier Deck** including perks (currently missing for CS)
   - **Elements** automatic update state
   - **Monster Stats**
   - **Monster Standees**
@@ -55,7 +55,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - loot deck
   - party sheet
 - Other features:
-  - i18n support (currently en, de and fr, more translations required. Big thanks to [@Boomchil](https://github.com/Boomchil) for french translations!)
+  - i18n support (currently en, de, fr, and ko more translations required. Big thanks to contributers of french and korean)
   - PWA for installation on all devices!
   - Synchronize state (+ settings) with [GHS Server](https://github.com/Lurkars/ghs-server)
   - Permission management for different clients with [GHS Server](https://github.com/Lurkars/ghs-server)
