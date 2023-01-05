@@ -111,11 +111,19 @@ export class MonsterManager {
     }
     monster.entities.push(monsterEntity);
 
-    if (this.game.state == GameState.next && monster.ability == -1) {
-      if (!this.applySameDeck(monster)) {
-        monster.ability = 0;
-      } else if (monster.ability == -1) {
-        monster.ability = 0;
+    if (this.game.state == GameState.next) {
+      if (monster.ability == -1) {
+        if (!this.applySameDeck(monster)) {
+          monster.ability = 0;
+        } else if (monster.ability == -1) {
+          monster.ability = 0;
+        }
+      } else if (monster.entities.length == 1 && !this.applySameDeck(monster)) {
+        monster.ability = monster.ability + 1 + this.game.figures.filter((f) => f instanceof Monster && (f.name != monster.name || f.edition != monster.edition) && gameManager.deckData(f).name == gameManager.deckData(monster).name && gameManager.deckData(f).edition == gameManager.deckData(monster).edition && f.drawExtra && f.ability > -1).length;
+
+        if (monster.ability >= monster.abilities.length) {
+          this.shuffleAbilities(monster);
+        }
       }
     }
 
@@ -227,7 +235,7 @@ export class MonsterManager {
   applySameDeck(monster: Monster): boolean {
     const sameDeckMonster = this.getSameDeckMonster(monster);
 
-    if (sameDeckMonster) {
+    if (sameDeckMonster && gameManager.gameplayFigure(sameDeckMonster)) {
       monster.abilities = JSON.parse(JSON.stringify(sameDeckMonster.abilities));
       monster.ability = sameDeckMonster.ability;
 
