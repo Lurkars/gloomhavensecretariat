@@ -116,14 +116,11 @@ export class GameManager {
   }
 
   item(id: number, edition: string): ItemData | undefined {
-    return this.itemData().find((itemData) => itemData && itemData.id == id && itemData.edition == edition);
+    return this.itemData().find((itemData) => itemData && itemData.id == id && (itemData.edition == edition || this.editionExtensions(edition).indexOf(itemData.edition) != -1));
   }
 
-  hazardousTerrain(): boolean {
-    if (this.game.edition) {
-      return this.editionData.some((editionData) => editionData.edition == this.game.edition && editionData.hazardousTerrain);
-    }
-    return false;
+  maxItemIndex(edition: string): number {
+    return Math.max(...this.itemData().filter((itemData) => itemData.edition == edition || this.editionExtensions(edition).indexOf(itemData.edition) != -1).map((itemData) => itemData.id));
   }
 
   conditions(edition: string | undefined = undefined): Condition[] {

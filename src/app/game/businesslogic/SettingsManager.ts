@@ -148,8 +148,13 @@ export class SettingsManager {
     this.storeSettings();
   }
 
-  setAllyAttackModifierDeck(allyAttackModifierDeck: boolean) {
-    this.settings.allyAttackModifierDeck = allyAttackModifierDeck;
+  setAlwaysAllyAttackModifierDeck(alwaysAllyAttackModifierDeck: boolean) {
+    this.settings.alwaysAllyAttackModifierDeck = alwaysAllyAttackModifierDeck;
+    this.storeSettings();
+  }
+
+  setAlwaysHazardousTerrain(alwaysHazardousTerrain: boolean) {
+    this.settings.alwaysHazardousTerrain = alwaysHazardousTerrain;
     this.storeSettings();
   }
 

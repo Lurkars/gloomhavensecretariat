@@ -290,8 +290,56 @@
           "1": "Place one Colony %data.action.custom.cs-colony% token of your choice on any empty hex within %game.action.range:2%",
           "2": "where X is the number of active Cultivate %data.action.custom.cs-cultivate% actions"
         },
+        "bleeding-claw": {
+          "1": "Addc %game.attackmodifier.plus3% instead if the target has %game.condition.rupture% or %game.condition.wound%",
+          "2": "Once each scenario, become %game.action.custom.cs-sated% after collecting your fifth loot token",
+          "3": "Become %game.action.custom.cs-sated% each time you lose a card to negate suffering damage",
+          "4": "Whenever one of your abilities causes at least one enemy to gain %game.condition.rupture%, immediately after that ability perform \"%game.action.move:1%\""
+        },
+        "chain-helmet": {
+          "1": "Shackle %data.characterIcon.chain-helmet%",
+          "2": "%game.attackmodifier.plus2% if the target is Shackled %data.characterIcon.chain-helmet%",
+          "3": "%game.condition.disarm% if the target is Shackled %data.characterIcon.chain-helmet%",
+          "4": "Create a %game.damage:2% trap in an empty hex within %game.action.range:2%"
+        },
+        "crescent-sun": {
+          "1": "Perform one Glow %data.characterIcon.crescent-sun% ability",
+          "2": "Target all enemies in the depicted '%game.action.area:(0,1,active)|(1,0,target)|(1,2,target)|(1,1,target)%'"
+        },
+        "galaxy": {
+          "1": "%game.attackmodifier.plus3% if you are at full health",
+          "2": "Force the target to perform ´%game.action.move:1%´"
+        },
+        "ladder-axe": {
+          "1": "%game.attackmodifier.plus2% if you are on Ladder %game.action.custom.cs-ladder%"
+        },
+        "leaf": {
+          "1": "Give one ally a `Prayer´ ability",
+          "2": "At the start of your first turn each scenario, gain %game.condition.bless%"
+        },
+        "skull": {
+          "1": "%game.attackmodifier.plus2% if a Spirit %game.action.custom.cs-spirit% performed the attack"
+        },
+        "sprig": {
+          "1": "where X is the poison value of the target",
+          "2": "Create difficult terrain in the hex occupied by the target",
+          "3": "%game.attackmodifier.plus1% if the target occupy difficult terrain",
+          "4": "Self, if you occupy difficult terrain",
+          "5": "Gain \"Poison Dagger\" (Item 011). You may carry one additional %game.items.slots.onehand% item with \"Dagger\" in its name",
+          "6": "Ignore damage, and negative conditions and modifiers from Events,"
+        },
         "target": {
           "1": "if projectile %data.action.custom.cs-projectile%"
+        },
+        "tusks": {
+          "1": "Affect all summoned allies owned",
+          "2": "where X is the number of summoned allies you own",
+          "3": "%game.attackmodifier.plus1% if summon is attacking",
+          "4": "ignore %game.action.retaliate% on the target"
+        },
+        "vortex": {
+          "1": "Voidsight %data.action.custom.cs-voidsight%",
+          "2": "Create a Void pit in an empty hex within %game.action.range:2%"
         }
       }
     },

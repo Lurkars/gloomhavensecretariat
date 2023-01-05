@@ -118,7 +118,6 @@ export class SettingsMenuComponent {
     settingsManager.settings.activeApplyConditions = false;
     settingsManager.settings.autoscroll = false;
     settingsManager.settings.abilityNumbers = false;
-    settingsManager.settings.allyAttackModifierDeck = false;
     settingsManager.settings.moveElements = true;
     settingsManager.settings.initiativeRequired = true;
     settingsManager.storeSettings();

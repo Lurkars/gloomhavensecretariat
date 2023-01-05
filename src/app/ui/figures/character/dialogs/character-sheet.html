@@ -1,4 +1,4 @@
-<div class="light character-sheet-dialog" [ngClass]="{'fh-sheet' : fhSheet}">
+<div class="light character-sheet-dialog" [ngClass]="{'cs-sheet' : csSheet, 'fh-sheet' : fhSheet}">
   <a class="close" (click)="close()" [title]="'close' | ghsLabel"><img src="./assets/images/close.svg"></a>
   <div class="scroll-container">
     <div class="container">
@@ -145,10 +145,9 @@
               </div>
               <span class="spacer"></span>
               <div class="item-form">
-                <span class="prev" [ngClass]="{'disabled' : itemName.value == '1'}"
-                  (click)="itemName.value = (+itemName.value - 1) + '';itemChange()"><img
-                    src="./assets/images/left.svg"></span>
-                <input type="number" (change)="itemChange()" #itemName min="1" value="1"
+                <span class="prev" [ngClass]="{'disabled' : itemIndex == 1}"
+                  (click)="itemChange(-1)"><img src="./assets/images/left.svg"></span>
+                <input type="number" (change)="itemChange()" [(ngModel)]="itemIndex" min="1" value="1"
                   [ngClass]="{'warn' : !itemCanAdd, 'error': !item}">
                 <select #itemEdition (change)="itemChange()" [ngClass]="{'warn' : !itemCanAdd, 'error': !item}">
                   <option *ngFor="let edition of gameManager.editions()" [value]="edition">{{'data.edition.' + edition |
@@ -156,7 +155,7 @@
                 </select>
                 <a class="button add" (click)="addItem()" [ngClass]="{'disabled': !item || !itemCanAdd}"><img
                     src="./assets/images/plus.svg" [ngClass]="{'warn' : !itemCanAdd}"></a>
-                <span class="next" (click)="itemName.value = (+itemName.value + 1) + '';itemChange()"> <img
+                <span class="next" (click)="itemChange(+1)"> <img
                     src="./assets/images/right.svg"></span>
                 <ng-container *ngIf="item">
                   <span class="icon"><img [src]="'./assets/images/items/slots/' + item.slot +'.svg'"></span>
@@ -211,7 +210,7 @@
             </div>
           </div>
           <div class="row battlegoals">
-            <label *ngIf="!fhSheet" class="headline">{{'character.progress.battlegoals' | ghsLabel}}</label>
+            <label *ngIf="!fhSheet && !csSheet" class="headline">{{'character.progress.battlegoals' | ghsLabel}}</label>
             <label *ngIf="fhSheet" class="headline">{{'character.progress.perks' | ghsLabel}}</label>
             <div class="battlegoals-grid">
               <ng-container *ngFor="let item of [] | ghsRange:18">

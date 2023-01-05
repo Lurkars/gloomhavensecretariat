@@ -851,16 +851,38 @@ input[type="radio"] {
     position: relative;
     top: 0.1em;
     display: inline-flex;
-    height: 1em;
-    width: 1em;
+    height: 1.3em;
+    width: 1.3em;
     border-radius: 100%;
     justify-content: center;
     align-items: center;
+    vertical-align: sub;
 
     img {
       width: 190%;
       height: auto;
-      filter: brightness(0) var(--ghs-filter-shadow);
+      filter: brightness(0);
+    }
+  }
+
+  .placeholder-area {
+    display: inline-grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: 0.4em;
+    filter: var(--ghs-filter-shadow-thin);
+
+    .hex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: calc(0.4em * 2);
+      height: calc(0.4em * 1.7);
+
+      img {
+        width: 100%;
+        height: auto;
+      }
     }
   }
 
@@ -868,7 +890,7 @@ input[type="radio"] {
 
     .placeholder-character-icon {
       img {
-        filter: brightness(99) var(--ghs-filter-shadow);
+        filter: brightness(99);
       }
     }
   }

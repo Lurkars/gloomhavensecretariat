@@ -56,8 +56,7 @@
     </div>
     <div class="terrain">
       <span class="icon"><img class="ghs-svg" src="./assets/images/terrain.svg">:</span>
-      <span class="value" *ngIf="gameManager.hazardousTerrain()">{{hazardousTerrain}}</span>
-      <span class="value" *ngIf="!gameManager.hazardousTerrain()">{{terrain}}</span>
+      <span class="value">{{hazardousTerrain}}</span>
       <span class="hint">{{'game.level.hazardousTerrain' | ghsLabel}}</span>
     </div>
   </div>

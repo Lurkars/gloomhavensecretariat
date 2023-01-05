@@ -370,6 +370,7 @@
       "selfAlliesAdjacentAffect": "%game.target% dich selbst und alle angrenzenden Verbündeten an",
       "selfAlliesAffect": "%game.target% dich selbst und alle Verbündeten an",
       "selfAlliesRange": "%game.target% dich selbst und alle Verbündeten in %game.action.range% {0} an",
+      "selfOrAlly": "Selbst oder Verbündeter",
       "targets": "Alle Ziele"
     },
     "target": {
@@ -537,6 +538,11 @@
       "index": "Szenarionummern, kommasepariert"
     },
     "reset": "Szenario neustarten",
+    "section": {
+      "add": "Sektion #{0}{1} öffnen?",
+      "cancel": "Abbrechen",
+      "confirm": "Bestätigen"
+    },
     "summary": {
       ".": "Szenario Zusammenfassung",
       "gold": "Gold",
@@ -600,9 +606,13 @@
       ".": "Aktive Aufsteller",
       "hint": "Während des Zuges ist jeder Monster Aufsteller als aktiv markiert, durch Doppelklick kann der Zug des einzelnen Aufstellers beendet werden"
     },
-    "allyAttackModifierDeck": {
-      ".": "Angriffsmodifikatordeck für Verbündete",
-      "hint": "Frosthaven Regel, dass Verbündete ein eigenes Angriffsmodifikatordeck verwenden anstelle des Monsterdecks"
+    "alwaysAllyAttackModifierDeck": {
+      ".": "Immer Angriffsmodifikatordeck für Verbündete",
+      "hint": "Immer Frosthaven Regel anwenden, dass Verbündete ein eigenes Angriffsmodifikatordeck verwenden anstelle des Monsterdecks"
+    },
+    "alwaysHazardousTerrain": {
+      ".": "Immer Gefährliches Gelände",
+      "hint": "Immer Frosthaven Regel für Gefährliches Gelände Berechnung anwenden"
     },
     "alwaysLootApplyDialog": {
       ".": "Beute zuweisen Dialog immer anzeigen",
@@ -684,6 +694,7 @@
       ".": "Feedback Button deaktivieren",
       "hint": ""
     },
+    "fhRules": "Frosthaven Regeln immer anwenden",
     "fhStyle": {
       ".": "Frosthaven Stil",
       "hint": "Frosthaven Stil einschalten"

@@ -40,6 +40,12 @@
       color: var(--ghs-color-white);
     }
 
+    &.condition {
+      .value {
+        top: 55%;
+      }
+    }
+
     .effect-container {
       width: 100%;
       height: 100%;
@@ -287,6 +293,12 @@
 
       .value {
         font-size: 1em;
+      }
+
+      &.condition {
+        .value {
+          font-size: 1.3em;
+        }
       }
 
       .effect-container {

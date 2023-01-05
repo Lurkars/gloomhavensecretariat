@@ -9,7 +9,10 @@
 
   <div class="sections" *ngIf="gameManager.game.sections && gameManager.game.sections.length > 0">
     <ng-container *ngFor="let section of gameManager.game.sections; let index = index;">
-      <span class="section">#{{section.index}} {{'data.section.' + section.name | ghsLabel}}</span>
+      <span class="section">#{{section.index}}
+        <span *ngIf="!gameManager.game.scenario || section.name != gameManager.game.scenario.name">{{'data.section.' +
+          section.name | ghsLabel}}</span>
+      </span>
     </ng-container>
   </div>
 

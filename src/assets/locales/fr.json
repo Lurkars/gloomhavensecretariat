@@ -552,7 +552,7 @@
     "abilityReveal": "Révéler les capacités directement",
     "activeApplyConditions": "Confirmer les conditions applicables",
     "activeStandees": "Standees actifs",
-    "allyAttackModifierDeck": "Paquet de modificateurs d'attaque pour les alliés",
+    "alwaysAllyAttackModifierDeck": "Paquet de modificateurs d'attaque pour les alliés",
     "applyConditions": "Application automatique des conditions",
     "autoscroll": "Défilement automatique",
     "barsize": {

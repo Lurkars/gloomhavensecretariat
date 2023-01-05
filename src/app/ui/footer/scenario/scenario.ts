@@ -2,6 +2,7 @@ import { Dialog, DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 import { Component, Inject } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { Character } from 'src/app/game/model/Character';
+import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 
 @Component({
   selector: 'ghs-scenario',
@@ -16,6 +17,21 @@ export class ScenarioComponent {
 
   open(event: any) {
     this.dialog.open(ScenarioDialogComponent, { panelClass: 'dialog' });
+  }
+
+  availableSections(): ScenarioData[] {
+    if (!gameManager.game.scenario) {
+      return [];
+    }
+    return gameManager.sectionData(gameManager.game.scenario.edition).filter((sectionData) => sectionData.edition == gameManager.game.scenario?.edition && sectionData.parent == gameManager.game.scenario.index && !gameManager.game.sections.find((active) => active.edition == sectionData.edition && active.index == sectionData.index));
+  }
+
+  addSection(sectionData: ScenarioData) {
+    this.dialog.open(SectionDialogComponent,
+      {
+        panelClass: 'dialog',
+        data: sectionData
+      });
   }
 
 }
@@ -57,6 +73,30 @@ export class ScenarioDialogComponent {
   }
 }
 
+
+
+@Component({
+  selector: 'ghs-section-dialog',
+  templateUrl: './section-dialog.html',
+  styleUrls: ['./section-dialog.scss']
+})
+export class SectionDialogComponent {
+
+  gameManager: GameManager = gameManager;
+
+  constructor(@Inject(DIALOG_DATA) public sectionData: ScenarioData, private dialogRef: DialogRef) { }
+
+  addSection() {
+    gameManager.stateManager.before("addSection", this.sectionData.index, "data.scenario." + this.sectionData.name, "data.edition." + this.sectionData.edition);
+    gameManager.scenarioManager.addSection(this.sectionData);
+    gameManager.stateManager.after();
+    this.dialogRef.close();
+  }
+
+  cancel() {
+    this.dialogRef.close();
+  }
+}
 
 @Component({
   selector: 'ghs-scenario-summary',

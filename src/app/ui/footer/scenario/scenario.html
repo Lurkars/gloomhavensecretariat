@@ -1,12 +1,20 @@
-<div (click)="open($event)" class="button">
-  <span *ngIf="gameManager.game.scenario && gameManager.game.scenario.index"
-    class="index">#{{gameManager.game.scenario.index}}</span>
-  <span *ngIf="gameManager.game.scenario" class="name">{{(gameManager.game.scenario.name ? 'data.scenario.' +
-    gameManager.game.scenario.name : (gameManager.game.scenario.custom ? 'scenario.custom' : 'scenario')) |
-    ghsLabel}}</span>
-  <div class="sections" *ngIf="gameManager.game.sections && gameManager.game.sections.length > 0">
-    <ng-container *ngFor="let section of gameManager.game.sections; let index = index;">
-      <span class="section">#{{section.index}} {{'data.section.' + section.name | ghsLabel}}</span>
-    </ng-container>
+<div class="scenario-container">
+  <div (click)="open($event)" class="button">
+    <div class="scenario">
+      <span *ngIf="gameManager.game.scenario && gameManager.game.scenario.index"
+        class="index">#{{gameManager.game.scenario.index}}</span>
+      <span *ngIf="gameManager.game.scenario" class="name">{{(gameManager.game.scenario.name ? 'data.scenario.' +
+        gameManager.game.scenario.name : (gameManager.game.scenario.custom ? 'scenario.custom' : 'scenario')) |
+        ghsLabel}}</span>
+    </div>
+  </div>
+  <div class="sections">
+    <span *ngFor="let section of gameManager.game.sections;" class="section">
+      #{{section.index}}
+      <span *ngIf="!gameManager.game.scenario || section.name != gameManager.game.scenario.name">{{'data.section.' +
+        section.name | ghsLabel}}</span>
+    </span>
+    <span *ngFor="let section of availableSections();" class="section available" (click)="addSection(section)">+
+      #{{section.index}}</span>
   </div>
 </div>

@@ -13,7 +13,9 @@
 
 .sections {
   display: grid !important;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+  row-gap: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 
   .section {
     cursor: pointer;
@@ -30,6 +32,15 @@
     &:hover {
       border: calc(var(--ghs-unit) / 5) var(--ghs-color-white) solid;
       color: var(--ghs-color-white);
+    }
+
+    &.available {
+      border: calc(var(--ghs-unit) / 5) var(--ghs-color-darkgray) solid;
+    }
+
+    &.active {
+      pointer-events: none;
+      border: calc(var(--ghs-unit) / 5) var(--ghs-color-white) solid;
     }
 
     &.disabled {

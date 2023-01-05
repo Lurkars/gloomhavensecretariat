@@ -11,7 +11,8 @@ export class Settings {
   hideStats: boolean = true;
   randomStandees: boolean = false;
   activeStandees: boolean = true;
-  allyAttackModifierDeck: boolean = true;
+  alwaysAllyAttackModifierDeck: boolean = false;
+  alwaysHazardousTerrain: boolean = false;
   initiativeRequired: boolean = true;
   disableStandees: boolean = false;
   abilityReveal: boolean = true;

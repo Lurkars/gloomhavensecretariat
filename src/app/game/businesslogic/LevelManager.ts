@@ -2,6 +2,7 @@ import { Character } from "../model/Character";
 import { Game } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { gameManager } from "./GameManager";
+import { settingsManager } from "./SettingsManager";
 
 export class LevelManager {
 
@@ -50,6 +51,9 @@ export class LevelManager {
   }
 
   terrain(): number {
+    if (settingsManager.settings.alwaysHazardousTerrain || gameManager.fhRules()) {
+      return Math.floor(this.trap() / 2);
+    }
     return 1 + Math.ceil(this.game.level / 3);
   }
 

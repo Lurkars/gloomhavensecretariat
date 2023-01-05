@@ -42,7 +42,7 @@ import { EntityAnimationDirective } from './ui/helper/EntityAnimation';
 import { I18nDirective } from './ui/helper/i18n';
 import { ValueCalcDirective } from './ui/helper/valueCalc';
 import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-sheet';
-import { ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent } from './ui/footer/scenario/scenario';
+import { ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent, SectionDialogComponent } from './ui/footer/scenario/scenario';
 import { PartySheetComponent } from './ui/header/party/party-sheet';
 import { PartySheetDialogComponent } from './ui/header/party/party-sheet-dialog';
 import { DragClickComponent } from './ui/helper/drag/drag';
@@ -94,7 +94,7 @@ import { LootApplyDialogComponent } from './ui/figures/loot/loot-apply-dialog';
     HintDialogComponent, ScenarioRulesComponent,
     AttackModifierComponent, AttackModifierEffectsComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent, AttackModifierStandaloneComponent,
     LevelComponent, LevelDialogComponent,
-    ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent,
+    ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent,
     ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
     EntityMenuDialogComponent,
     CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetDialog, CharacterFullViewComponent,

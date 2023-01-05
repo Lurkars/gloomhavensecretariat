@@ -769,6 +769,24 @@
 
   }
 
+  &.cs-sheet {
+    .container {
+      background-image: url('~/src/assets/images/cs/character/character-sheet.svg');
+    }
+
+    .columns .column.column-right {
+
+      .perks {
+        margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 70 * var(--ghs-dialog-factor));
+
+        .list {
+          height: calc(var(--ghs-unit) * 69.5 * var(--ghs-dialog-factor));
+        }
+      }
+    }
+  }
+
   &.fh-sheet {
     .container {
       background-image: url('~/src/assets/images/fh/character/character-sheet.svg');

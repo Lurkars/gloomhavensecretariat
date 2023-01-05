@@ -14,8 +14,6 @@ footer {
     flex-shrink: 0;
   }
 
-
-
   .loot-toggle {
     cursor: pointer;
     position: absolute;
@@ -159,6 +157,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
 
     ghs-level {
       margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor) * var(--ghs-barsize));

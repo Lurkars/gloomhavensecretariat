@@ -1,0 +1,285 @@
+[
+  {
+    "id": 281,
+    "name": "Runic Visard",
+    "cost": 20,
+    "count": 1,
+    "edition": "toa",
+    "slot": "head"
+  },
+  {
+    "id": 282,
+    "name": "Shoes of Ataraxy",
+    "cost": 35,
+    "count": 2,
+    "edition": "toa",
+    "slot": "legs",
+    "spent": true
+  },
+  {
+    "id": 283,
+    "name": "Magnetic Relocator",
+    "cost": 30,
+    "count": 1,
+    "edition": "toa",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 284,
+    "name": "Shepherd's Flute",
+    "cost": 50,
+    "count": 1,
+    "edition": "toa",
+    "slot": "head",
+    "spent": true,
+    "summon": {
+      "health": 3,
+      "attack": 2,
+      "movement": 3,
+      "range": 0
+    }
+  },
+  {
+    "id": 285,
+    "name": "Tyrannical Staff",
+    "cost": 40,
+    "count": 1,
+    "edition": "toa",
+    "slot": "twohand",
+    "spent": true
+  },
+  {
+    "id": 286,
+    "name": "Crushing Mace",
+    "cost": 45,
+    "count": 2,
+    "edition": "toa",
+    "slot": "twohand",
+    "spent": true,
+    "minusOne": 1
+  },
+  {
+    "id": 287,
+    "name": "Chief's Garb",
+    "cost": 30,
+    "count": 1,
+    "edition": "toa",
+    "slot": "body"
+  },
+  {
+    "id": 288,
+    "name": "Iridescent Bracer",
+    "cost": 30,
+    "count": 1,
+    "edition": "toa",
+    "slot": "onehand",
+    "spent": true,
+    "minusOne": 1
+  },
+  {
+    "id": 289,
+    "name": "Talo's Staff",
+    "cost": 30,
+    "count": 1,
+    "edition": "toa",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 290,
+    "name": "Mask of Cruelty",
+    "cost": 35,
+    "count": 1,
+    "edition": "toa",
+    "slot": "head",
+    "minusOne": 1
+  },
+  {
+    "id": 291,
+    "name": "Staff of Equilibrium",
+    "cost": 30,
+    "count": 1,
+    "edition": "toa",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 292,
+    "name": "Voyager's Blade",
+    "cost": 40,
+    "count": 1,
+    "edition": "toa",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 293,
+    "name": "Looking Glass",
+    "cost": 30,
+    "count": 1,
+    "edition": "toa",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 294,
+    "name": "Runic Boots of Travel",
+    "cost": 34,
+    "count": 1,
+    "edition": "toa",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 295,
+    "name": "Battle Standard",
+    "cost": 45,
+    "count": 1,
+    "edition": "toa",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 296,
+    "name": "Matriarch's Warhorn",
+    "cost": 50,
+    "count": 1,
+    "edition": "toa",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 297,
+    "name": "Dawnbloom Nectar",
+    "cost": 15,
+    "count": 2,
+    "edition": "toa",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 298,
+    "name": "Graveweed Extract",
+    "cost": 15,
+    "count": 2,
+    "edition": "toa",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 299,
+    "name": "Thrice-Souled Warsword",
+    "cost": 50,
+    "count": 1,
+    "edition": "toa",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 300,
+    "name": "Rekindled Core",
+    "cost": 50,
+    "count": 1,
+    "edition": "toa",
+    "slot": "onehand"
+  },
+  {
+    "id": 301,
+    "name": "Crystal Catalyst",
+    "cost": 50,
+    "count": 1,
+    "edition": "toa",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 302,
+    "name": "Crystal Spike",
+    "cost": 50,
+    "count": 1,
+    "edition": "toa",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 303,
+    "name": "Arclight Cladding",
+    "cost": 50,
+    "count": 1,
+    "edition": "toa",
+    "slot": "body",
+    "spent": true
+  },
+  {
+    "id": 304,
+    "name": "Arcbolt Lance",
+    "cost": 40,
+    "count": 1,
+    "edition": "toa",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 305,
+    "name": "Scroll of Evasion",
+    "cost": 40,
+    "count": 1,
+    "edition": "toa",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 306,
+    "name": "Arcstone Greaves",
+    "cost": 50,
+    "count": 1,
+    "edition": "toa",
+    "slot": "legs",
+    "spent": true
+  },
+  {
+    "id": 307,
+    "name": "Arclight Hood",
+    "cost": 50,
+    "count": 1,
+    "edition": "toa",
+    "slot": "head",
+    "spent": true
+  },
+  {
+    "id": 308,
+    "name": "Barbed Whip",
+    "cost": 50,
+    "count": 1,
+    "edition": "toa",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 309,
+    "name": "Talo's Rosary",
+    "cost": 30,
+    "count": 2,
+    "edition": "toa",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 310,
+    "name": "Dynamic Sickle",
+    "cost": 35,
+    "count": 1,
+    "edition": "toa",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 311,
+    "name": "Predator's Wristblade",
+    "cost": 50,
+    "count": 1,
+    "edition": "toa",
+    "slot": "onehand"
+  }
+]

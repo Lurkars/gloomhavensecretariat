@@ -1,11 +1,11 @@
 import { Directive, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { ActionType, ActionTypesIcons } from "src/app/game/model/Action";
+import { ActionHex, ActionType, ActionTypesIcons } from "src/app/game/model/Action";
 import { Character } from "src/app/game/model/Character";
 import { EntityValueFunction, EntityValueRegex } from "src/app/game/model/Entity";
 
-export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\%|\+|\|)+)\%/;
+export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\,|\%|\+|\(|\)|\||\_)+)\%/;
 
 export const applyPlaceholder = function (value: string, placeholder: string[] = [], relative: boolean = false, forceFh: boolean = false): string {
   const fh = settingsManager.settings.fhStyle || forceFh;
@@ -37,10 +37,12 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       let replace: string = match;
       let image: string = '';
       if (type == "condition") {
-        split.splice(0, 1);
-        image = '<img  src="./assets/images/' + (fh ? 'fh/' : '') + split.join('/') + '.svg" class="icon">';
-        replace = '<span class="placeholder-condition">' + (fh ? '' : settingsManager.getLabel(label)) + image + '</span>';
-      } else if (type == "action" && split.length == 3 && !split[2].startsWith('specialTarget') && !split[2].startsWith('summon')) {
+        image = '<img  src="./assets/images/' + (fh ? 'fh/' : '') + 'condition/' + split[2] + '.svg" class="icon">';
+        if (value) {
+          image += '<span class="value">' + value + '</span>';
+        }
+        replace = '<span class="placeholder-condition">' + (fh ? '' : settingsManager.getLabel(label, [''])) + image + '</span>';
+      } else if (type == "action" && split.length == 3 && !split[2].startsWith('specialTarget') && !split[2].startsWith('summon') && !split[2].startsWith('area')) {
         split.splice(0, 1);
         const ghsSvg = ActionTypesIcons.indexOf(split[split.length - 1] as ActionType) != -1;
         image = '<img  src="./assets/images/' + (fh ? 'fh/' : '') + split.join('/') + '.svg" class="icon' + (ghsSvg ? ' ghs-svg' : '') + '">';
@@ -62,6 +64,15 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         }
         const elements = value.split('|');
         replace = '<span class="attack-modifier-effect element-half-placeholder' + (fh ? ' fh' : '') + '"><span class="element-half-container' + (consume ? ' consume' : '') + '"><span class="element-half"><img src="./assets/images/' + (fh ? 'fh/' : '') + 'element/' + elements[0] + '.svg"></span><span class="element-half"><img src="./assets/images/' + (fh ? 'fh/' : '') + 'element/' + elements[1] + '.svg"></span></span></span>';
+      } else if (type == "action" && split[2].startsWith('area')) {
+        replace = '<span class="placeholder-area">'
+        value.split('|').forEach((hexValue) => {
+          const hex: ActionHex | null = ActionHex.fromString(hexValue);
+          if (hex != null) {
+            replace += '<span class="hex" style="grid-column-start : ' + (hex.x * 2 + 1 + (hex.y % 2)) + ';grid-column-end:' + (hex.x * 2 + 3 + (hex.y % 2)) + ';grid-row-start:' + (hex.y + 1) + ';grid-row-end:' + (hex.y + 1) + '"><img src="./assets/images/action/hex/' + hex.type + '.svg"></span>';
+          }
+        })
+        replace += '</span>'
       } else if (type == "initiative" && split.length == 3) {
         image = '<img class="ghs-svg" src="./assets/images/initiative.svg"></span>'
         replace = '<span class="placeholder-initiative">' + split[2] + image + '</span>';

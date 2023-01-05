@@ -125,6 +125,10 @@
           height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
           color: var(--ghs-filter-white) var(--ghs-filter-shadow);
 
+          .ghs-svg {
+            filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+          }
+
           &:hover .ghs-svg {
             filter: var(--ghs-filter-red) var(--ghs-filter-shadow);
           }

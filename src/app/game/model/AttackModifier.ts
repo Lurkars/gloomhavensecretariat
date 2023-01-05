@@ -86,6 +86,7 @@ export class AttackModifier {
 }
 
 export enum AttackModifierEffectType {
+  area = "area",
   changeType = "changeType",
   condition = "condition",
   custom = "custom",

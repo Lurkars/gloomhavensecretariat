@@ -51,5 +51,262 @@
       "movement": 3
     }
   ],
-  "perks": []
+  "perks": [
+    {
+      "type": "remove",
+      "count": 1,
+      "cards": [
+        {
+          "count": 4,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "element",
+                "value": "ice"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "element",
+                "value": "fire"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "element",
+                "value": "light"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "element",
+                "value": "dark"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.perks.crescent-sun.1%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "element",
+                "value": "any"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus1",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "heal",
+                "value": 1,
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "self"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "poison",
+                "effects": [
+                  {
+                    "type": "custom",
+                    "value": "%data.custom.perks.crescent-sun.2%"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "remove",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreNegativeItem%",
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "elementConsume",
+                "value": "any",
+                "effects": [
+                  {
+                    "type": "element",
+                    "value": "any"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
 }

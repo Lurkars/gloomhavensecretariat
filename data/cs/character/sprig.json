@@ -56,5 +56,208 @@
       "attack": 1
     }
   ],
-  "perks": []
+  "perks": [
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plusX",
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.perks.sprig.1%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        },
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus2"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.perks.sprig.2%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "wound_x:2"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 4,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "custom",
+                "value": "%data.custom.perks.sprig.3%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "invisible",
+                "effects": [
+                  {
+                    "type": "specialTarget",
+                    "value": "%data.custom.perks.sprig.4%"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%data.custom.perks.sprig.5%"
+    },
+    {
+      "type": "remove",
+      "count": 1,
+      "custom": "%data.custom.perks.sprig.6%",
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "remove",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        }
+      ]
+    }
+  ]
 }

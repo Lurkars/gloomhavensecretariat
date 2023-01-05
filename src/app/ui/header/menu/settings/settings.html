@@ -31,20 +31,6 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.eliteFirst"
-            (change)="settingsManager.setEliteFirst(!settingsManager.settings.eliteFirst)">{{'settings.eliteFirst' |
-          ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.eliteFirst.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label>
           <input type="checkbox" [checked]="settingsManager.settings.hideStats"
             (change)="settingsManager.setHideStats(!settingsManager.settings.hideStats)">{{'settings.hideStats' |
           ghsLabel}}
@@ -201,6 +187,20 @@
     <div class="line">
       <div class="hint-container">
         <label>
+          <input type="checkbox" [checked]="settingsManager.settings.eliteFirst"
+            (change)="settingsManager.setEliteFirst(!settingsManager.settings.eliteFirst)">{{'settings.eliteFirst' |
+          ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.eliteFirst.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="line">
+      <div class="hint-container">
+        <label>
           <input type="checkbox" [checked]="settingsManager.settings.activeStandees"
             (change)="settingsManager.setActiveStandees(!settingsManager.settings.activeStandees)">
           {{'settings.activeStandees' | ghsLabel}}
@@ -211,21 +211,6 @@
         </span>
       </div>
     </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.allyAttackModifierDeck"
-            (change)="settingsManager.setAllyAttackModifierDeck(!settingsManager.settings.allyAttackModifierDeck)">
-          {{'settings.allyAttackModifierDeck' | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.allyAttackModifierDeck.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-
     <div class="line">
       <div class="hint-container">
         <label>
@@ -253,6 +238,46 @@
         </span>
       </div>
     </div>
+  </div>
+
+  <div class="separator"></div>
+
+  <div class="line title span">
+    <label>{{'settings.fhRules' | ghsLabel}}</label>
+  </div>
+
+  <div class="column">
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.alwaysAllyAttackModifierDeck"
+            (change)="settingsManager.setAlwaysAllyAttackModifierDeck(!settingsManager.settings.alwaysAllyAttackModifierDeck)">
+          {{'settings.alwaysAllyAttackModifierDeck' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.alwaysAllyAttackModifierDeck.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.alwaysHazardousTerrain"
+            (change)="settingsManager.setAlwaysHazardousTerrain(!settingsManager.settings.alwaysHazardousTerrain)">
+          {{'settings.alwaysHazardousTerrain' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.alwaysHazardousTerrain.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+
 
     <div class="line">
       <div class="hint-container">
@@ -296,6 +321,7 @@
       </div>
     </div>
   </div>
+
 
   <div class="separator"></div>
 

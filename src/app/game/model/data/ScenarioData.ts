@@ -22,6 +22,7 @@ export class ScenarioData implements Editional, Spoilable {
   solo: string | undefined;
   lootDeckConfig: LootDeckConfig = {};
   rooms: RoomData[] = [];
+  parent: string | undefined;
 
   // from Editional
   edition: string;
@@ -30,7 +31,7 @@ export class ScenarioData implements Editional, Spoilable {
   spoiler: boolean;
 
   constructor(name: string, index: string, unlocks: string[], blocks: string[], requires: string[][], links: string[], monsters: string[], allies: string[], objectives: ObjectiveData[], rules: ScenarioRule[], edition: string, group: string | undefined = undefined,
-    spoiler: boolean = false, allyDeck : boolean = false) {
+    spoiler: boolean = false, allyDeck: boolean = false) {
     this.name = name;
     this.index = index;
     this.unlocks = unlocks;

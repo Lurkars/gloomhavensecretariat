@@ -4,7 +4,7 @@ import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Action, ActionType } from "src/app/game/model/Action";
-import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierValueType } from "src/app/game/model/AttackModifier";
+import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType, AttackModifierValueType } from "src/app/game/model/AttackModifier";
 
 import { Character, GameCharacterModel } from "src/app/game/model/Character";
 import { CharacterProgress } from "src/app/game/model/CharacterProgress";
@@ -25,7 +25,6 @@ import { ghsInputFullScreenCheck, ghsValueSign } from "src/app/ui/helper/Static"
 export class CharacterSheetDialog implements OnInit, AfterViewInit {
 
   @ViewChild('charactertitle', { static: false }) titleInput!: ElementRef;
-  @ViewChild('itemName', { static: false }) itemName!: ElementRef;
   @ViewChild('itemEdition', { static: false }) itemEdition!: ElementRef;
 
   gameManager: GameManager = gameManager;
@@ -41,11 +40,13 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
   itemCanAdd: boolean = false;
   doubleClickPerk: any = null;
   priceModifier: number = 0;
+  itemIndex: number = 1;
 
   goldTimeout: any = null;
   xpTimeout: any = null;
 
   fhSheet: boolean = false;
+  csSheet: boolean = false;
 
   constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef) {
     this.dialogRef.closed.subscribe({
@@ -79,6 +80,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     this.character.progress.perks = this.character.progress.perks || [];
 
     this.fhSheet = this.character.masteries && this.character.masteries.length > 0 || this.character.edition == 'fh' || gameManager.fhRules();
+    this.csSheet = !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).indexOf('cs') != -1);
 
     for (let i = 0; i < 15; i++) {
       if (!this.character.progress.perks[i]) {
@@ -124,9 +126,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     if (this.itemEdition) {
       this.itemEdition.nativeElement.value = this.character.edition;
     }
-    if (this.itemName) {
-      this.itemName.nativeElement.value = "1";
-    }
+    this.itemIndex = 1;
   }
 
   close() {
@@ -268,10 +268,20 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     this.gameManager.stateManager.after();
   }
 
-  itemChange() {
-    this.itemCanAdd = false;
-    this.item = gameManager.item(this.itemName && +this.itemName.nativeElement.value || 1, this.itemEdition && this.itemEdition.nativeElement.value || this.character.edition);
+  itemChange(itemIndexChange: number = 0) {
 
+    if (itemIndexChange != 0) {
+      this.itemIndex += itemIndexChange;
+      this.item = gameManager.item(this.itemIndex, this.itemEdition && this.itemEdition.nativeElement.value || this.character.edition);
+      while (!this.item && this.itemIndex > 0 && this.itemIndex < gameManager.maxItemIndex(this.itemEdition && this.itemEdition.nativeElement.value || this.character.edition)) {
+        this.itemIndex += itemIndexChange;
+        this.item = gameManager.item(this.itemIndex, this.itemEdition && this.itemEdition.nativeElement.value || this.character.edition);
+      }
+    } else {
+      this.item = gameManager.item(this.itemIndex, this.itemEdition && this.itemEdition.nativeElement.value || this.character.edition);
+    }
+
+    this.itemCanAdd = false;
     if (this.item) {
       const soldItems = gameManager.game.figures.filter((figure) => figure instanceof Character && figure.progress && figure.progress.items).map((figure) => figure as Character).map((figure) => figure.progress && figure.progress.items).reduce((pre, cur): Identifier[] => {
         return pre && cur && pre.concat(cur);
@@ -287,11 +297,11 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
   addItem() {
     this.itemChange();
     if (this.item && this.itemCanAdd) {
-      gameManager.stateManager.before("addItem", "data.character." + this.character.name, this.itemName.nativeElement.value, this.itemEdition.nativeElement.value);
-      this.character.progress.items.push(new Identifier(this.itemName.nativeElement.value, this.itemEdition.nativeElement.value));
+      gameManager.stateManager.before("addItem", "data.character." + this.character.name, this.itemIndex + "", this.itemEdition.nativeElement.value);
+      this.character.progress.items.push(new Identifier(this.itemIndex + "", this.itemEdition.nativeElement.value));
       this.items.push(this.item);
       this.items.sort((a, b) => a.id - b.id);
-      this.itemName.nativeElement.value = 1;
+      this.itemIndex = 1;
       gameManager.stateManager.after();
       this.itemChange();
     }
@@ -300,12 +310,12 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
   buyItem() {
     this.itemChange();
     if (this.item && this.item.cost <= this.character.progress.gold) {
-      gameManager.stateManager.before("buyItem", "data.character." + this.character.name, this.itemName.nativeElement.value, this.itemEdition.nativeElement.value);
+      gameManager.stateManager.before("buyItem", "data.character." + this.character.name, this.itemIndex + "", this.itemEdition.nativeElement.value);
       this.character.progress.gold -= this.item.cost;
-      this.character.progress.items.push(new Identifier(this.itemName.nativeElement.value, this.itemEdition.nativeElement.value));
+      this.character.progress.items.push(new Identifier(this.itemIndex + "", this.itemEdition.nativeElement.value));
       this.items.push(this.item);
       this.items.sort((a, b) => a.id - b.id);
-      this.itemName.nativeElement.value = 1;
+      this.itemIndex = 1;
       gameManager.stateManager.after();
       this.itemChange();
     }
@@ -420,15 +430,26 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
         html += '<span class="attack-modifier-icon">-' + attackModifier.value + '</span>';
       } else if (attackModifier.valueType == AttackModifierValueType.multiply) {
         html += '<span class="attack-modifier-icon">' + attackModifier.value + 'x</span>';
+      } else if (attackModifier.type == AttackModifierType.plusX) {
+        html += '<span class="attack-modifier-icon">+X</span>';
       } else {
         html += '<span class="attack-modifier-icon">+' + attackModifier.value + '</span>';
       }
     }
 
     if (attackModifier.effects) {
-      attackModifier.effects.forEach((effect) => {
-        html += this.attackModifierEffectHtml(effect);
+      if (attackModifier.effects.length > 1) {
+        html += '"';
+      }
+      attackModifier.effects.forEach((effect, index) => {
+        if (index > 0) {
+          html += ',';
+        }
+        html += this.attackModifierEffectHtml(effect, attackModifier.effects.length > 1);
       })
+      if (attackModifier.effects.length > 1) {
+        html += '"';
+      }
     }
 
     if (settingsManager.settings.fhStyle && attackModifier.rolling) {
@@ -438,12 +459,20 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     return html;
   }
 
-  attackModifierEffectHtml(effect: AttackModifierEffect): string {
+  attackModifierEffectHtml(effect: AttackModifierEffect, noQuotes: boolean = false): string {
     let html = "";
+
+    let quotes: boolean = false;
 
     switch (effect.type) {
       case AttackModifierEffectType.condition:
-        html += '<span class="attack-modifier-effect condition">' + (settingsManager.settings.fhStyle ? '' : settingsManager.getLabel('game.condition.' + effect.value)) + '<img class="action-icon sw" src="./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'condition/' + effect.value + '.svg"></span>';
+        let condition = effect.value.split(':')[0];
+        condition = condition.replace('_x', '');
+        html += '<span class="attack-modifier-effect condition">' + (settingsManager.settings.fhStyle ? '' : settingsManager.getLabel('game.condition.' + condition)) + '<img class="action-icon sw" src="./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'condition/' + condition + '.svg">';
+        if (effect.value.split(':').length > 1) {
+          html += effect.value.split(':')[1];
+        }
+        html += '</span>';
         break;
       case AttackModifierEffectType.element:
         html += '<span class="attack-modifier-effect element"><img class="action-icon sw" src="./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + effect.value + '.svg"></span>';
@@ -457,10 +486,14 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
         if (effect.effects) {
           html += ':';
           effect.effects.forEach((subEffect) => {
-            html += this.attackModifierEffectHtml(subEffect);
+            html += this.attackModifierEffectHtml(subEffect, true);
           })
         }
-        return html;
+        if (!noQuotes) {
+          return '"' + html + '"';
+        } else {
+          return html;
+        }
       case AttackModifierEffectType.target:
         html += '<span class="placeholder attack-modifier-effect target">' + settingsManager.getLabel((+effect.value) <= 1 ? 'game.custom.perks.addTarget' : 'game.custom.perks.addTargets', [effect.value + ""]) + '<img class="action-icon" src="./assets/images/attackmodifier/target.svg"></span>';
         break;
@@ -486,21 +519,23 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
         } else {
           html += '<span class="placeholder attack-modifier-effect custom">' + settingsManager.getLabel('' + effect.value) + '</span>';
         }
+        quotes = true;
         break;
       case AttackModifierEffectType.or:
-        html += ' "';
         if (effect.effects) {
           effect.effects.forEach((subEffect, index) => {
-            html += this.attackModifierEffectHtml(subEffect);
+            html += this.attackModifierEffectHtml(subEffect, true);
             if (index < effect.effects.length - 1) {
               html += ' ' + settingsManager.getLabel('or') + ' ';
             }
           })
         }
-        html += '"';
-        return html;
+        if (!noQuotes) {
+          return '"' + html + '"';
+        } else {
+          return html;
+        }
       case AttackModifierEffectType.changeType:
-        html += '"';
         if (effect.value.startsWith('plus')) {
           html += '<span class="attack-modifier-icon">+' + effect.value.replace('plus', '') + '</span>';
         } else if (effect.value.startsWith('minus')) {
@@ -514,18 +549,24 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
             html += this.attackModifierEffectHtml(subEffect);
           })
         }
-
-        html += '"';
         return html;
       default:
         html += '<span class="placeholder attack-modifier-effect default ' + effect.type + '">' + (settingsManager.settings.fhStyle ? '' : settingsManager.getLabel('game.action.' + effect.type)) + '<img  class="action-icon" src="./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/' + effect.type + '.svg"><span class="value">' + effect.value + '</span></span>';
+        if ([AttackModifierEffectType.pull, AttackModifierEffectType.push, AttackModifierEffectType.swing, AttackModifierEffectType.pierce].indexOf(effect.type) == -1) {
+          quotes = true;
+        }
         break;
     }
 
     if (effect.effects) {
+      quotes = true;
       effect.effects.forEach((subEffect) => {
-        html += "," + this.attackModifierEffectHtml(subEffect);
+        html += "," + this.attackModifierEffectHtml(subEffect, true);
       })
+    }
+
+    if (quotes && !noQuotes) {
+      html = '"' + html + '"';
     }
 
     return html;

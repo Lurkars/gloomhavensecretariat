@@ -1,0 +1,11 @@
+<div class="section-popup">
+
+    <p>{{'scenario.section.add' | ghsLabel:[sectionData.index, !gameManager.game.scenario ||
+        gameManager.game.scenario.name != sectionData.name ? ' ' + sectionData.name : '']}}</p>
+
+    <div class="buttons">
+        <a class="cancel" (click)="cancel()">{{'scenario.section.cancel' | ghsLabel}}</a>
+        <span class="spacer"></span>
+        <a  class="add" (click)="addSection()">{{'scenario.section.confirm' | ghsLabel}}</a>
+    </div>
+</div>

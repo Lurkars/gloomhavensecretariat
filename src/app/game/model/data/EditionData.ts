@@ -20,7 +20,6 @@ export class EditionData implements Editional {
   labelSpoiler: any = {};
   url: string = "";
   extensions: string[] = [];
-  hazardousTerrain: boolean = false;
   newAmStyle: boolean = false;
 
   constructor(edition: string, characters: CharacterData[],
@@ -30,8 +29,7 @@ export class EditionData implements Editional {
     sections: ScenarioData[],
     items: ItemData[],
     conditions: string[] | undefined = undefined,
-    extensions: string[] = [],
-    hazardousTerrain: boolean = false) {
+    extensions: string[] = []) {
     this.edition = edition;
     this.characters = characters;
     this.monsters = monsters;
@@ -43,7 +41,6 @@ export class EditionData implements Editional {
       this.conditions = conditions;
     }
     this.extensions = extensions;
-    this.hazardousTerrain = hazardousTerrain;
   }
 
 }

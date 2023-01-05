@@ -262,7 +262,7 @@ export class ScenarioManager {
       return undefined;
     }
 
-    return new ScenarioData(scenarioData.name, scenarioData.index, scenarioData.unlocks, scenarioData.blocks, scenarioData.requires, scenarioData.links, scenarioData.monsters, scenarioData.allies, scenarioData.objectives, scenarioData.rules, scenarioData.edition, scenarioData.group, scenarioData.spoiler, scenarioData.allyDeck);
+    return JSON.parse(JSON.stringify(scenarioData));
   }
 
   sectionDataForModel(model: GameScenarioModel): ScenarioData | undefined {
@@ -272,8 +272,7 @@ export class ScenarioManager {
       return undefined;
     }
 
-    return new ScenarioData(sectionData.name, sectionData.index, sectionData.unlocks, sectionData.blocks, sectionData.requires, sectionData.links, sectionData.monsters, sectionData.allies, sectionData.objectives, sectionData.rules, sectionData.edition, sectionData.group, sectionData.spoiler, sectionData.allyDeck);
-
+    return JSON.parse(JSON.stringify(sectionData));
   }
 
   toModel(scenarioData: ScenarioData, custom: boolean = false, customName: string = ""): GameScenarioModel {

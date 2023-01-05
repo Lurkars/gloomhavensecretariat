@@ -1,28 +1,20 @@
-.sections {
+.scenario-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  flex-basis: 100%;
-  flex-shrink: 0;
-  font-size: calc(var(--ghs-unit) * 2 * var(--ghs-barsize));
-
-  .section {
-    padding: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-barsize));
-
-    &:not(:first-child) {
-      border-left: calc(var(--ghs-unit) * 0.1 * var(--ghs-barsize)) solid var(--ghs-color-gray);
-    }
-  }
+  margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-barsize));
+  margin-bottom: calc(var(--ghs-unit) * -1 * var(--ghs-barsize));
 }
 
 .button {
   cursor: pointer;
+  display: flex;
   font-family: var(--ghs-font-normal);
-  font-size: calc(var(--ghs-unit) * 2.8 * var(--ghs-barsize));
+  font-size: calc(var(--ghs-unit) * 2.8 * var(--ghs-barsize)* var(--ghs-text-factor));
+  line-height: calc(var(--ghs-unit) * 2.3 * var(--ghs-barsize)* var(--ghs-text-factor));
   text-shadow: var(--ghs-outline-thin);
   color: var(--ghs-color-gray);
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
 
   .index {
     margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-barsize));
@@ -30,11 +22,34 @@
 
   &:hover {
     color: var(--ghs-color-white);
+  }
+}
 
-    .sections {
-      .section {
-        border-color: var(--ghs-color-white);
-      }
+.scenario {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.sections {
+  display: flex;
+  justify-content: center;
+  font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-barsize) * var(--ghs-text-factor));
+  line-height: calc(var(--ghs-unit) * 2.2 * var(--ghs-barsize)* var(--ghs-text-factor));
+  color: var(--ghs-color-gray);
+  text-shadow: var(--ghs-outline-thin);
+
+  .section {
+    padding: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-barsize));
+
+    &:not(:first-child) {
+      border-left: calc(var(--ghs-unit) * 0.1 * var(--ghs-barsize)) solid var(--ghs-color-gray);
+    }
+
+    &.available:hover {
+      cursor: pointer;
+      color: var(--ghs-color-white);
+      text-shadow: var(--ghs-outline-thin);
     }
   }
 }

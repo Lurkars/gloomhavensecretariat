@@ -4,8 +4,12 @@
 
     <ng-container [ngSwitch]="effect.type">
 
-      <img class="full" *ngSwitchCase="AttackModifierEffectType.condition"
-        [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '')  + 'condition/' + effect.value + '.svg'" />
+      <ng-container *ngSwitchCase="AttackModifierEffectType.condition">
+        <img class="full"
+          [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '')  + 'condition/' + effect.value.split(':')[0] + '.svg'" />
+        <span *ngIf="effect.value.split(':').length > 1" class="value">{{effect.value.split(':')[1]}}</span>
+      </ng-container>
+
       <img class="full" *ngSwitchCase="AttackModifierEffectType.element"
         [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + effect.value + '.svg'" />
 
@@ -64,6 +68,15 @@
 
       <ng-container *ngSwitchCase="AttackModifierEffectType.target">
         <img class="full" [src]="'./assets/images/attackmodifier/target.svg'" />
+
+        <div class="sub-effects" *ngIf="effect.effects">
+          <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="effect.effects"
+            [offsetWidth]="offsetWidth"></ghs-attackmodifier-effects>
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="AttackModifierEffectType.area">
+        <ghs-action-hex [value]="effect.value"></ghs-action-hex>
 
         <div class="sub-effects" *ngIf="effect.effects">
           <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="effect.effects"
