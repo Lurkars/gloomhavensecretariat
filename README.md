@@ -30,7 +30,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - **conditions** automatic expire + automatic apply (wound, wound_x, regenerate, bane, poison, poison_x, ward, brittle)
   - **level**, **loot**, **experience** of Characters
   - **Character Progress** level, loot, experience, items, battlegoals, perks, masteries
-  - **Character Attack Modifier Deck** including perks (currently missing for CS)
+  - **Character Attack Modifier Deck** including perks
   - **Elements** automatic update state
   - **Monster Stats**
   - **Monster Standees**
@@ -51,11 +51,11 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - character HP/XP dials
   - character boards
   - character sheets
-  - character attack modifier deck (perks for FH/CS missing)
+  - character attack modifier deck
   - loot deck
   - party sheet
 - Other features:
-  - i18n support (currently en, de, fr, and ko more translations required. Big thanks to contributers of french and korean)
+  - i18n support (currently en, de, fr and ko, more translations required. Big thanks to contributers of french and korean)
   - PWA for installation on all devices!
   - Synchronize state (+ settings) with [GHS Server](https://github.com/Lurkars/ghs-server)
   - Permission management for different clients with [GHS Server](https://github.com/Lurkars/ghs-server)
@@ -76,7 +76,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
 ### Short term plans
 
 - validation of all existing data
-- support for Campaign Tracking, AM decks and perks for FH and CS
+- automatic add standees, more section/room separation and automation
 
 ### Long term plans
 
