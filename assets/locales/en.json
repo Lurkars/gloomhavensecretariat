@@ -488,6 +488,7 @@
       "selfAlliesAdjacentAffect": "%game.affect%ect self and all adjacent allies",
       "selfAlliesAffect": "%game.affect% self and all allies",
       "selfAlliesRange": "%game.target% self and all allies within %game.action.range% {0}",
+      "selfOrAlly": "Self or ally",
       "targets": "All targets"
     },
     "target": {
@@ -655,6 +656,11 @@
       "index": "Scenario number, commaseparated"
     },
     "reset": "Restart Scenario",
+    "section": {
+      "add": "Open Section #{0}{1}?",
+      "cancel": "Cancel",
+      "confirm": "Confirm"
+    },
     "summary": {
       ".": "Scenario Summary",
       "gold": "Gold",
@@ -718,9 +724,13 @@
       ".": "Active standees",
       "hint": "On monsters turn, every standee has an active state, double click on standee to mark as done"
     },
-    "allyAttackModifierDeck": {
-      ".": "Attack Modifier Deck for allies",
-      "hint": "Frosthaven rule that allies uses their own Attack Modifier Deck instead of Monster's one"
+    "alwaysAllyAttackModifierDeck": {
+      ".": "Always Attack Modifier Deck for allies",
+      "hint": "Always apply Frosthaven rule that allies uses their own Attack Modifier Deck instead of Monster's one"
+    },
+    "alwaysHazardousTerrain": {
+      ".": "Always Hazardous Terrain",
+      "hint": "Always apply Frosthaven rules for Hazardous Terrain calculation"
     },
     "alwaysLootApplyDialog": {
       ".": "Always show Loot Apply Dialog",
@@ -801,6 +811,7 @@
       ".": "Disable Feedback Button",
       "hint": ""
     },
+    "fhRules": "Always apply Frosthaven Rules",
     "fhStyle": {
       ".": "Frosthaven Style",
       "hint": "Switch to new Frosthaven Style"
