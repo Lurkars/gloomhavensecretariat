@@ -588,7 +588,7 @@
       },
       "perks": {
         "demolitionist": {
-          "1": "All adjacent enemies suffer %game.damage:1%"
+          "1": "인접한 모든 적이 피해 %game.damage:1%점을 입는다."
         }
       }
     },
