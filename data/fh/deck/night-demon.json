@@ -24,9 +24,9 @@
       ]
     },
     {
-      "name": "Ino Darkness",
+      "name": "Into Darkness",
       "cardId": 579,
-      "initiative": 7,
+      "initiative": 37,
       "actions": [
         {
           "type": "move",
