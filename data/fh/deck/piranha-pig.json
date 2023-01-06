@@ -62,7 +62,7 @@
     {
       "name": "Easy Prey",
       "cardId": 716,
-      "initiative": 58,
+      "initiative": 54,
       "actions": [
         {
           "type": "move",
@@ -80,7 +80,7 @@
             },
             {
               "type": "custom",
-              "value": "Add +1 %game.action.attack% if the target is occupying<br>a water hex.",
+              "value": "Add +1 %game.action.attack% if the target is occupying<br>a water tile.",
               "small": true
             }
           ]
@@ -115,7 +115,7 @@
             },
             {
               "type": "custom",
-              "value": "where X is the amount of<br>damage done by the<br>target of the attack ability.",
+              "value": "where X is the amount of<br>damage suffered by the<br>target of the attack ability.",
               "small": true
             }
           ]
