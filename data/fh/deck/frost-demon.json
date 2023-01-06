@@ -218,13 +218,13 @@
       "initiative": 18,
       "actions": [
         {
-          "type": "shield",
-          "value": 2
-        },
-        {
           "type": "move",
           "value": 1,
           "valueType": "plus"
+        },
+        {
+          "type": "shield",
+          "value": 2
         },
         {
           "type": "element",
