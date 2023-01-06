@@ -106,6 +106,52 @@ export class ScenarioDialogComponent {
     gameManager.scenarioManager.setScenario(undefined);
     gameManager.stateManager.after(1000);
   }
+  
+  openRooms(initial: boolean = false): RoomData[] {
+    if (!gameManager.game.scenario) {
+      return [];
+    }
+
+    return gameManager.game.scenario.rooms.filter((roomData) => gameManager.game.scenario && gameManager.game.scenario.revealedRooms.indexOf(roomData.roomNumber) != -1 && (initial || !roomData.initial));
+  }
+
+  closedRooms(): RoomData[] {
+    if (!gameManager.game.scenario) {
+      return [];
+    }
+
+    return gameManager.game.scenario.rooms.filter((roomData) => gameManager.game.scenario && gameManager.game.scenario.revealedRooms.indexOf(roomData.roomNumber) == -1 && this.openRooms(true).some((openRoomData) => openRoomData.doors.indexOf(roomData.roomNumber) != -1));
+  }
+
+  openRoom(roomData: RoomData) {
+    const scenario = gameManager.game.scenario;
+    if (scenario) {
+      const editionData: EditionData | undefined = gameManager.editionData.find((value) => gameManager.game.scenario && value.edition == gameManager.game.scenario.edition);
+
+      if (!editionData) {
+        console.error("Could not find edition data!");
+        return;
+      }
+      gameManager.stateManager.before(roomData.marker ? "openDoorMarker" : "openDoor", scenario.index, "data.scenario." + scenario.name, '' + roomData.ref, roomData.marker || '');
+      gameManager.scenarioManager.openDoor(roomData, editionData, scenario);
+      gameManager.stateManager.after();
+    }
+  }
+
+  availableSections(): ScenarioData[] {
+    if (!gameManager.game.scenario) {
+      return [];
+    }
+    return gameManager.sectionData(gameManager.game.scenario.edition).filter((sectionData) => sectionData.edition == gameManager.game.scenario?.edition && sectionData.parent == gameManager.game.scenario.index && !gameManager.game.sections.find((active) => active.edition == sectionData.edition && active.index == sectionData.index));
+  }
+
+  addSection(sectionData: ScenarioData) {
+    this.dialog.open(SectionDialogComponent,
+      {
+        panelClass: 'dialog',
+        data: sectionData
+      });
+  }
 }
 
 

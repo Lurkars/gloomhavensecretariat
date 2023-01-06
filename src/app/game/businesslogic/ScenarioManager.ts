@@ -77,10 +77,12 @@ export class ScenarioManager {
   }
 
   applyScenarioData(editionData: EditionData, scenarioData: ScenarioData) {
-    if ((settingsManager.settings.disableStandees || !settingsManager.settings.scenarioRooms || !scenarioData.rooms || scenarioData.rooms.length == 0) && scenarioData.monsters) {
-      scenarioData.monsters.forEach((name) => {
-        gameManager.monsterManager.addMonsterByName(name, scenarioData.allies && scenarioData.allies.indexOf(name) != -1, editionData);
-      });
+    if (settingsManager.settings.disableStandees || !settingsManager.settings.scenarioRooms || !scenarioData.rooms || scenarioData.rooms.length == 0) {
+      if (scenarioData.monsters) {
+        scenarioData.monsters.forEach((name) => {
+          gameManager.monsterManager.addMonsterByName(name, scenarioData.allies && scenarioData.allies.indexOf(name) != -1, editionData);
+        });
+      }
     } else {
       scenarioData.rooms.filter((roomData) => roomData.initial).forEach((roomData) => {
         this.openDoor(roomData, editionData, scenarioData);

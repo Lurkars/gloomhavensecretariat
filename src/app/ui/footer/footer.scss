@@ -197,5 +197,16 @@ footer {
     ghs-attackmodifier-deck.ally-deck {
       bottom: calc(var(--ghs-unit) * 22.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     }
+
+
+    .level-container {
+      flex-direction: row;
+      --ghs-text-factor: 1.6;
+      max-width: 70%;
+    }
+
+    .flex-shrink {
+      flex-basis: 0;
+    }
   }
 }

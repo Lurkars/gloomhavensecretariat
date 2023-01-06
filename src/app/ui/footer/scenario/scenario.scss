@@ -35,6 +35,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-barsize) * var(--ghs-text-factor));
   line-height: calc(var(--ghs-unit) * 2.2 * var(--ghs-barsize)* var(--ghs-text-factor));
   color: var(--ghs-color-gray);
