@@ -175,7 +175,7 @@ export class ActionComponent implements OnInit {
     }
 
     this.additionalSubActions = JSON.parse(JSON.stringify(this.subActions));
-    this.hasAOE = this.additionalSubActions.some((subAction, index) => index == 0 && subAction.type == ActionType.area);
+    this.hasAOE = this.additionalSubActions.some((subAction, index) => index == 0 && subAction.type == ActionType.area) && (this.action.type != ActionType.element || this.action.valueType != ActionValueType.minus);
     if (this.monster && settingsManager.settings.calculateStats && !this.relative) {
       let newSubActions: Action[] = [];
       const stat = gameManager.monsterManager.getStat(this.monster, this.monster.boss ? MonsterType.boss : MonsterType.normal);

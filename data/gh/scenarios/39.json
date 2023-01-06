@@ -1,0 +1,112 @@
+{
+  "index": "39",
+  "name": "Treacherous Divide",
+  "edition": "gh",
+  "monsters": [
+    "cave-bear",
+    "cultist",
+    "frost-demon",
+    "living-bones",
+    "spitting-drake"
+  ],
+  "objectives": [
+    {
+      "name": "Altar",
+      "health": "6+(CxL)"
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true
+    }
+  ],
+  "unlocks": [
+    "15",
+    "46"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "l2a",
+      "initial": true,
+      "doors": [
+        2
+      ],
+      "treasures": [
+        73
+      ],
+      "monster": [
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player4": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "type": "elite"
+        },
+        {
+          "name": "cave-bear",
+          "player4": "normal"
+        },
+        {
+          "name": "cave-bear",
+          "type": "normal"
+        },
+        {
+          "name": "cave-bear",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "marker": "1",
+      "ref": "d2b",
+      "monster": [
+        {
+          "name": "frost-demon",
+          "type": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

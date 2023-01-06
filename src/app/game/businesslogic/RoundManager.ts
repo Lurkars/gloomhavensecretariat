@@ -322,6 +322,9 @@ export class RoundManager {
   resetScenario() {
     this.game.playSeconds = 0;
     this.game.sections = [];
+    if (this.game.scenario) {
+      this.game.scenario.revealedRooms = [];
+    }
     this.game.scenarioRules = [];
     this.game.round = 0;
     this.game.state = GameState.draw;

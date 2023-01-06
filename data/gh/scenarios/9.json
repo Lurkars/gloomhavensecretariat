@@ -1,0 +1,108 @@
+{
+  "index": "9",
+  "name": "Diamond Mine",
+  "edition": "gh",
+  "monsters": [
+    "hound",
+    "merciless-overseer",
+    "vermling-scout"
+  ],
+  "unlocks": [
+    "11",
+    "12"
+  ],
+  "blocks": [
+    "8"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "i2a",
+      "initial": true,
+      "doors": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "hound",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "marker": "1",
+      "ref": "n1a",
+      "treasures": [
+        -1
+      ],
+      "monster": [
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "elite"
+        },
+        {
+          "name": "merciless-overseer",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

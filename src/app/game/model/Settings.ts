@@ -17,13 +17,15 @@ export class Settings {
   disableStandees: boolean = false;
   abilityReveal: boolean = true;
   applyLoot: boolean = true;
-  alwaysLootApplyDialog= false;
+  alwaysLootApplyDialog = false;
   alwaysLootDeck: boolean = false;
   fullscreen: boolean = false;
   fhStyle: boolean = false;
   theme: string = "";
   autoscroll: boolean = true;
   scenarioRules: boolean = true;
+  scenarioRooms: boolean = true;
+  automaticStandees: boolean = true;
   scenarioNumberInput: boolean = false;
   disableColumns: boolean = false;
   disableAnimations: boolean = false;

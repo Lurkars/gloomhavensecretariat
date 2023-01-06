@@ -1,0 +1,89 @@
+{
+  "index": "115",
+  "name": "Future Uncertain",
+  "edition": "fc",
+  "monsters": [
+    "aesther-ashblade",
+    "aesther-scout",
+    "black-imp",
+    "manifestation-of-corruption",
+    "naaret",
+    "valrath-savage",
+    "valrath-tracker"
+  ],
+  "rules": [
+    {
+      "round": "R < 10",
+      "start": true
+    },
+    {
+      "round": "R > 9",
+      "start": true
+    },
+    {
+      "round": "R == 5 || R == 10"
+    },
+    {
+      "round": "R == 15"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "d2b",
+      "initial": true,
+      "treasures": [
+        96
+      ],
+      "monster": [
+        {
+          "name": "valrath-savage",
+          "type": "normal"
+        },
+        {
+          "name": "valrath-savage",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "type": "normal"
+        },
+        {
+          "name": "aesther-ashblade",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "aesther-scout",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "aesther-scout",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "manifestation-of-corruption",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

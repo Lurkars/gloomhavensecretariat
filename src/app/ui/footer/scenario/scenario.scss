@@ -34,22 +34,45 @@
 .sections {
   display: flex;
   justify-content: center;
+  align-items: center;
   font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-barsize) * var(--ghs-text-factor));
   line-height: calc(var(--ghs-unit) * 2.2 * var(--ghs-barsize)* var(--ghs-text-factor));
   color: var(--ghs-color-gray);
   text-shadow: var(--ghs-outline-thin);
 
   .section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-barsize));
 
     &:not(:first-child) {
       border-left: calc(var(--ghs-unit) * 0.1 * var(--ghs-barsize)) solid var(--ghs-color-gray);
     }
 
+    .ghs-svg {
+      height: 1em;
+      width: auto;
+      filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+    }    
+    
+    &:not(.available) .marker {
+      filter: grayscale(0.9);
+      opacity: 0.8;
+    }
+
     &.available:hover {
       cursor: pointer;
       color: var(--ghs-color-white);
       text-shadow: var(--ghs-outline-thin);
+
+      .ghs-svg {
+        filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+      }
+
+      .marker {
+        filter: grayscale(0.3);
+      }
     }
   }
 }

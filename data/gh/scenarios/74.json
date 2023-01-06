@@ -1,0 +1,130 @@
+{
+  "index": "74",
+  "name": "Merchant Ship",
+  "edition": "gh",
+  "monsters": [
+    "bandit-archer",
+    "bandit-guard",
+    "deep-terror",
+    "lurker"
+  ],
+  "rules": [
+    {
+      "round": "R % 2 == 0 || C > 2"
+    },
+    {
+      "round": "R == 3"
+    },
+    {
+      "round": "R == 6"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "b1a",
+      "initial": true,
+      "doors": [
+        2,
+        3
+      ],
+      "monster": [
+        {
+          "name": "lurker",
+          "type": "elite"
+        },
+        {
+          "name": "lurker",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player4": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "marker": "2",
+      "ref": "i1a",
+      "treasures": [
+        20
+      ],
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker",
+          "player2": "normal",
+          "player3": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "marker": "1",
+      "ref": "i2b",
+      "monster": [
+        {
+          "name": "lurker",
+          "type": "normal"
+        },
+        {
+          "name": "lurker",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

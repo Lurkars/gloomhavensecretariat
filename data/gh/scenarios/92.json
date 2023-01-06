@@ -1,0 +1,115 @@
+{
+  "index": "92",
+  "name": "Back Alley Brawl",
+  "edition": "gh",
+  "monsters": [
+    "bandit-archer",
+    "bandit-guard",
+    "city-archer",
+    "city-guard",
+    "earth-demon",
+    "flame-demon",
+    "inox-guard",
+    "savvas-lavaflow"
+  ],
+  "requires": [
+    []
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "h3b",
+      "initial": true,
+      "doors": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "inox-guard",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "marker": "1",
+      "ref": "f1a",
+      "monster": [
+        {
+          "name": "inox-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "elite"
+        },
+        {
+          "name": "savvas-lavaflow",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

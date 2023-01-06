@@ -1,13 +1,13 @@
-import { Dialog, DialogRef } from "@angular/cdk/dialog";
+import { DialogRef } from "@angular/cdk/dialog";
 import { Component, ElementRef, ViewChild } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
-import { GameScenarioModel, ScenarioData } from "src/app/game/model/data/ScenarioData";
+import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { Identifier } from "src/app/game/model/Identifier";
 
 import { Party } from "src/app/game/model/Party";
-import { Scenario } from "src/app/game/model/Scenario";
+import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
 import { ghsInputFullScreenCheck } from "../../helper/Static";
 
 @Component({
@@ -247,7 +247,7 @@ export class PartySheetDialogComponent {
 
   addSuccessIntern(scenarioData: ScenarioData) {
     gameManager.stateManager.before("finishScenario.success", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
-    this.party.scenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group));
+    this.party.scenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group, false, "", []));
     gameManager.stateManager.after();
 
     this.update();

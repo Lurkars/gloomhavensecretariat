@@ -1,0 +1,40 @@
+{
+  "index": "103",
+  "name": "Where It Is Needed",
+  "edition": "fc",
+  "monsters": [],
+  "objectives": [
+    {
+      "name": "Orchid caravan",
+      "escort": true,
+      "health": "2x(C+L)+3"
+    }
+  ],
+  "unlocks": [
+    "110"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "l1b",
+      "initial": true,
+      "doors": [
+        2
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "c2a",
+      "doors": [
+        3
+      ],
+      "treasures": [
+        81
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "m1b"
+    }
+  ]
+}

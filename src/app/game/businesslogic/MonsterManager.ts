@@ -13,6 +13,7 @@ import { ConditionType, EntityConditionState } from "../model/Condition";
 import { Scenario } from "../model/Scenario";
 import { ScenarioData } from "../model/data/ScenarioData";
 import { EntityValueFunction } from "../model/Entity";
+import { EditionData } from "../model/data/EditionData";
 
 export class MonsterManager {
 
@@ -48,10 +49,36 @@ export class MonsterManager {
     return stat;
   }
 
+  addMonsterByName(name: string, ally: boolean, editionData: EditionData): Monster | undefined {
+    let level = gameManager.game.level;
+    if (name.indexOf(':') != -1) {
+      level = eval(gameManager.game.level + name.split(':')[1]);
+      name = name.split(':')[0]
+    }
+
+    let monsterData = gameManager.monstersData().find((monsterData) => monsterData.name == name && (monsterData.edition == editionData.edition || editionData.extensions && editionData.extensions.indexOf(monsterData.edition) != -1));
+
+    if (!monsterData) {
+      console.warn("Monster not found: '" + name + "' for edition :" + editionData.edition);
+      monsterData = gameManager.monstersData().find((monsterData) => monsterData.name == name);
+    }
+
+    if (monsterData) {
+      let monster = this.addMonster(monsterData, level);
+      if (ally) {
+        monster.isAlly = true;
+      }
+      return monster;
+    } else {
+      console.error("Monster not found: '" + name + "'");
+      return undefined;
+    }
+  }
+
   addMonster(monsterData: MonsterData, level: number): Monster {
 
     if (!this.game.scenario) {
-      gameManager.scenarioManager.setScenario(new Scenario(new ScenarioData("", "", [], [], [], [], [], [], [], [], ""), true));
+      gameManager.scenarioManager.setScenario(new Scenario(new ScenarioData("", "", [], [], [], [], [], [], [], [], "", [], ""), [], true));
     }
 
     let monster: Monster | undefined = this.game.figures.find((figure) =>
@@ -72,7 +99,9 @@ export class MonsterManager {
         gameManager.sortFigures();
       }
 
+      gameManager.uiChange.emit();
     }
+
 
     return monster;
   }
@@ -90,6 +119,10 @@ export class MonsterManager {
         }
       })
     }
+  }
+
+  monsterEntityCount(monster: Monster): number {
+    return monster.entities.filter((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0).length;
   }
 
   addMonsterEntity(monster: Monster, number: number, type: MonsterType, summon: boolean = false) {
@@ -127,7 +160,7 @@ export class MonsterManager {
       }
     }
 
-    if (this.game.state == GameState.next && monster.entities.filter((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0).length == 1) {
+    if (this.game.state == GameState.next && this.monsterEntityCount(monster) == 1) {
       let monsterIndex = gameManager.game.figures.indexOf(monster);
       const sameDeckMonster = this.getSameDeckMonster(monster);
 

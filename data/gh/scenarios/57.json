@@ -1,0 +1,150 @@
+{
+  "index": "57",
+  "name": "Investigation",
+  "edition": "gh",
+  "monsters": [
+    "city-archer",
+    "city-guard",
+    "hound",
+    "infiltrator:+1"
+  ],
+  "unlocks": [
+    "58"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "f1b",
+      "initial": true,
+      "doors": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "marker": "1",
+      "ref": "c1a",
+      "monster": [
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "elite",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "marker": "3",
+      "ref": "c2b",
+      "monster": [
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "a1a",
+      "treasures": [
+        22,
+        3
+      ]
+    },
+    {
+      "roomNumber": 5,
+      "marker": "2",
+      "ref": "i1b",
+      "monster": [
+        {
+          "name": "city-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

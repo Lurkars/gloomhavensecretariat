@@ -1,0 +1,120 @@
+{
+  "index": "72",
+  "name": "Oozing Grove",
+  "edition": "gh",
+  "monsters": [
+    "forest-imp",
+    "giant-viper",
+    "ooze"
+  ],
+  "objectives": [
+    {
+      "name": "Tree A",
+      "health": "Cx(3+L)"
+    },
+    {
+      "name": "Tree B",
+      "health": "Cx(3+L)"
+    },
+    {
+      "name": "Tree C",
+      "health": "Cx(3+L)"
+    }
+  ],
+  "rules": [
+    {
+      "round": "R % 3 == 1"
+    },
+    {
+      "round": "R % 3 == 2"
+    },
+    {
+      "round": "R % 3 == 0"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "m1b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "forest-imp",
+          "type": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "type": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "player3": "elite"
+        },
+        {
+          "name": "ooze",
+          "player2": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player3": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

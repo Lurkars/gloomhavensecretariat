@@ -16,12 +16,13 @@ export class ScenarioData implements Editional, Spoilable {
   monsters: string[];
   allies: string[];
   objectives: ObjectiveData[];
+  rooms: RoomData[] = [];
+  marker: string = "";
   rules: ScenarioRule[];
   initial: boolean = false;
   allyDeck: boolean = false;
   solo: string | undefined;
   lootDeckConfig: LootDeckConfig = {};
-  rooms: RoomData[] = [];
   parent: string | undefined;
 
   // from Editional
@@ -30,7 +31,7 @@ export class ScenarioData implements Editional, Spoilable {
   // from Spoilable
   spoiler: boolean;
 
-  constructor(name: string, index: string, unlocks: string[], blocks: string[], requires: string[][], links: string[], monsters: string[], allies: string[], objectives: ObjectiveData[], rules: ScenarioRule[], edition: string, group: string | undefined = undefined,
+  constructor(name: string, index: string, unlocks: string[], blocks: string[], requires: string[][], links: string[], monsters: string[], allies: string[], objectives: ObjectiveData[], rooms: RoomData[], marker: string, rules: ScenarioRule[], edition: string, group: string | undefined = undefined,
     spoiler: boolean = false, allyDeck: boolean = false) {
     this.name = name;
     this.index = index;
@@ -42,6 +43,8 @@ export class ScenarioData implements Editional, Spoilable {
     this.allies = allies;
     this.edition = edition;
     this.objectives = objectives;
+    this.rooms = rooms || [];
+    this.marker = marker || "";
     this.rules = rules;
     this.group = group;
     this.spoiler = spoiler;
@@ -59,25 +62,3 @@ export class ScenarioRule {
 }
 
 export type ScenarioRuleIdentifier = { "edition": string, "scenario": string, "group": string | undefined, "index": number, "section": boolean };
-
-export class GameScenarioModel {
-
-  index: string;
-  edition: string;
-  group: string | undefined;
-  isCustom: boolean;
-  custom: string;
-
-  constructor(index: string,
-    edition: string,
-    group: string | undefined,
-    isCustom: boolean = false,
-    custom: string = "") {
-    this.index = index;
-    this.edition = edition;
-    this.group = group;
-    this.isCustom = isCustom;
-    this.custom = custom;
-  }
-
-}

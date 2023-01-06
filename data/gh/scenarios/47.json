@@ -1,0 +1,98 @@
+{
+  "index": "47",
+  "name": "Lair of the Unseeing Eye",
+  "edition": "gh",
+  "monsters": [
+    "deep-terror",
+    "harrower-infester",
+    "lurker",
+    "the-sightless-eye"
+  ],
+  "unlocks": [
+    "51"
+  ],
+  "requires": [
+    [
+      "37"
+    ]
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "j1a",
+      "initial": true,
+      "doors": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "lurker",
+          "type": "elite"
+        },
+        {
+          "name": "lurker",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker",
+          "type": "normal"
+        },
+        {
+          "name": "lurker",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "marker": "1",
+      "ref": "m1a",
+      "treasures": [
+        18,
+        57
+      ],
+      "monster": [
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "the-sightless-eye",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

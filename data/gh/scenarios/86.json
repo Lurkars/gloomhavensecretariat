@@ -1,0 +1,104 @@
+{
+  "index": "86",
+  "name": "Harried Village",
+  "edition": "gh",
+  "monsters": [
+    "cave-bear",
+    "lurker",
+    "vermling-scout",
+    "vermling-shaman"
+  ],
+  "unlocks": [
+    "87"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "a4a",
+      "initial": true,
+      "monster": [
+        {
+          "name": "vermling-shaman",
+          "type": "elite"
+        },
+        {
+          "name": "cave-bear",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker",
+          "type": "elite"
+        },
+        {
+          "name": "lurker",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-shaman",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "normal"
+        }
+      ],
+      "doors": [
+        2,
+        3
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "b2a",
+      "monster": [
+        {
+          "name": "vermling-shaman",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "b3a",
+      "monster": [
+        {
+          "name": "vermling-shaman",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+{
+  "index": "45",
+  "name": "Rebel Swamp",
+  "edition": "gh",
+  "monsters": [
+    "city-archer",
+    "city-guard",
+    "hound"
+  ],
+  "objectives": [
+    {
+      "name": "Totem 1",
+      "health": "1+C+L"
+    },
+    {
+      "name": "Totem 2",
+      "health": "1+C+L"
+    },
+    {
+      "name": "Totem 3",
+      "health": "1+C+L"
+    },
+    {
+      "name": "Totem 4",
+      "health": "1+C+L"
+    },
+    {
+      "name": "Totem 5",
+      "health": "1+C+L"
+    },
+    {
+      "name": "Totem 6",
+      "health": "1+C+L"
+    }
+  ],
+  "unlocks": [
+    "49",
+    "50"
+  ],
+  "requires": [
+    [
+      "35"
+    ]
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "g1a",
+      "initial": true,
+      "doors": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player2": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "m1b",
+      "doors": [
+        3,
+        4
+      ],
+      "monster": [
+        {
+          "name": "city-guard",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "d1b",
+      "monster": [
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "f1b",
+      "treasures": [
+        74
+      ],
+      "monster": [
+        {
+          "name": "city-archer",
+          "type": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

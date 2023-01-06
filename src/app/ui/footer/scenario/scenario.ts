@@ -1,7 +1,10 @@
 import { Dialog, DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 import { Component, Inject } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
+import { settingsManager, SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
+import { EditionData } from 'src/app/game/model/data/EditionData';
+import { RoomData } from 'src/app/game/model/data/RoomData';
 import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 
 @Component({
@@ -12,11 +15,43 @@ import { ScenarioData } from 'src/app/game/model/data/ScenarioData';
 export class ScenarioComponent {
 
   gameManager: GameManager = gameManager;
+  settingsManager: SettingsManager = settingsManager;
 
   constructor(private dialog: Dialog) { }
 
   open(event: any) {
     this.dialog.open(ScenarioDialogComponent, { panelClass: 'dialog' });
+  }
+
+  openRooms(initial: boolean = false): RoomData[] {
+    if (!gameManager.game.scenario) {
+      return [];
+    }
+
+    return gameManager.game.scenario.rooms.filter((roomData) => gameManager.game.scenario && gameManager.game.scenario.revealedRooms.indexOf(roomData.roomNumber) != -1 && (initial || !roomData.initial));
+  }
+
+  closedRooms(): RoomData[] {
+    if (!gameManager.game.scenario) {
+      return [];
+    }
+
+    return gameManager.game.scenario.rooms.filter((roomData) => gameManager.game.scenario && gameManager.game.scenario.revealedRooms.indexOf(roomData.roomNumber) == -1 && this.openRooms(true).some((openRoomData) => openRoomData.doors.indexOf(roomData.roomNumber) != -1));
+  }
+
+  openRoom(roomData: RoomData) {
+    const scenario = gameManager.game.scenario;
+    if (scenario) {
+      const editionData: EditionData | undefined = gameManager.editionData.find((value) => gameManager.game.scenario && value.edition == gameManager.game.scenario.edition);
+
+      if (!editionData) {
+        console.error("Could not find edition data!");
+        return;
+      }
+      gameManager.stateManager.before(roomData.marker ? "openDoorMarker" : "openDoor", scenario.index, "data.scenario." + scenario.name, '' + roomData.ref, roomData.marker || '');
+      gameManager.scenarioManager.openDoor(roomData, editionData, scenario);
+      gameManager.stateManager.after();
+    }
   }
 
   availableSections(): ScenarioData[] {

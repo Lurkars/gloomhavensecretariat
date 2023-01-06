@@ -10,7 +10,7 @@
     <div *ngIf="group" class="line title"><label>{{group}}</label></div>
     <div class="line sections">
       <span *ngFor="let section of sections(group)" class="section"
-        [ngClass]="{'disabled' : hasSection(section), 'active': gameManager.game.sections.indexOf(section) != -1, 'available': section.parent && gameManager.game.scenario &&  section.parent == gameManager.game.scenario.index}"
+        [ngClass]="{'disabled' : hasSection(section), 'available': section.parent && gameManager.game.scenario &&  section.parent == gameManager.game.scenario.index}"
         (click)="addSection(section)">
         <span *ngIf="maxSection() > 2 && section.index.length < 3">0</span>
         <span *ngIf="maxSection() > 1 && section.index.length < 2">0</span>

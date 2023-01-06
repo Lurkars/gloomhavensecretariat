@@ -33,7 +33,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - **Character Attack Modifier Deck** including perks
   - **Elements** automatic update state
   - **Monster Stats**
-  - **Monster Standees**
+  - **Monster Standees** automatic add standees for scenario rooms/sections (this is WIP)
   - **Monster Modifier Deck** addition of **Blesses** and **Curses**, auto-shuffling
   - **Monster Ability Cards** auto-shuffling, calculated values (separated for normal and elite)
   - **Character Summons**
@@ -76,7 +76,8 @@ If you need help using the app take a look at the [help page](https://help.gloom
 ### Short term plans
 
 - validation of all existing data
-- automatic add standees, more section/room separation and automation
+- room/section/standee data for all scenarios!
+- add Trail Of Ashes edition data
 
 ### Long term plans
 

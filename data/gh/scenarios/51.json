@@ -1,0 +1,27 @@
+{
+  "index": "51",
+  "name": "The Void",
+  "edition": "gh",
+  "monsters": [
+    "the-gloom"
+  ],
+  "requires": [
+    []
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "m1a",
+      "initial": true,
+      "treasures": [
+        56
+      ],
+      "monster": [
+        {
+          "name": "the-gloom",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

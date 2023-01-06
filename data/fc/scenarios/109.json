@@ -1,0 +1,132 @@
+{
+  "index": "109",
+  "name": "Epilogue of a War",
+  "edition": "fc",
+  "monsters": [
+    "city-archer",
+    "city-guard",
+    "valrath-savage",
+    "valrath-tracker"
+  ],
+  "unlocks": [
+    "113"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "m1b",
+      "initial": true,
+      "treasures": [
+        94,
+        80
+      ],
+      "monster": [
+        {
+          "name": "valrath-tracker",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "type": "elite"
+        },
+        {
+          "name": "valrath-tracker",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-savage",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "valrath-savage",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player3": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-savage",
+          "type": "elite"
+        },
+        {
+          "name": "valrath-savage",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-savage",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

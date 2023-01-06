@@ -10,7 +10,7 @@
         {
           "type": "attack",
           "value": 1,
-          "valueType": "minus"
+          "valueType": "minus",
           "subActions": [
             {
               "type": "range",

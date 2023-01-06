@@ -1,9 +1,10 @@
 import { Dialog, DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 import { Overlay } from "@angular/cdk/overlay";
-import { Component, ElementRef, Inject, Input, OnInit, ViewChild } from "@angular/core";
+import { Component, ElementRef, Inject, Input, OnInit } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Monster } from "src/app/game/model/Monster";
+import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { MonsterType } from "src/app/game/model/MonsterType";
 import { ghsDefaultDialogPositions } from "src/app/ui/helper/Static";
 
@@ -11,7 +12,7 @@ import { ghsDefaultDialogPositions } from "src/app/ui/helper/Static";
 @Component({
   selector: 'ghs-monster-numberpicker',
   templateUrl: 'numberpicker.html',
-  styleUrls: [ './numberpicker.scss' ]
+  styleUrls: ['./numberpicker.scss']
 })
 export class MonsterNumberPicker {
 
@@ -40,7 +41,7 @@ export class MonsterNumberPicker {
     })
   }
 
-  open(event: any): void {
+  open(): void {
     if (this.nonDead() >= this.max) {
       return;
     }
@@ -122,7 +123,7 @@ export class MonsterNumberPicker {
 @Component({
   selector: 'ghs-monster-numberpicker-dialog',
   templateUrl: 'numberpicker-dialog.html',
-  styleUrls: [ './numberpicker-dialog.scss' ]
+  styleUrls: ['./numberpicker-dialog.scss']
 })
 export class MonsterNumberPickerDialog implements OnInit {
 
@@ -133,14 +134,16 @@ export class MonsterNumberPickerDialog implements OnInit {
   range: number[];
   summon: boolean = false;
   MonsterType = MonsterType;
+  entity: MonsterEntity | undefined;
   settingsManager: SettingsManager = settingsManager;
 
-  constructor(@Inject(DIALOG_DATA) private data: { monster: Monster, type: MonsterType, min: number, max: number, range: number[] }, private dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) private data: { monster: Monster, type: MonsterType, min: number, max: number, range: number[], entity: MonsterEntity | undefined }, private dialogRef: DialogRef) {
     this.monster = data.monster;
     this.type = data.type;
     this.min = data.min;
     this.max = data.max;
     this.range = data.range;
+    this.entity = data.entity;
   }
 
   ngOnInit(): void {
@@ -190,9 +193,13 @@ export class MonsterNumberPickerDialog implements OnInit {
       if (dead) {
         gameManager.monsterManager.removeMonsterEntity(this.monster, dead);
       }
-      gameManager.monsterManager.addMonsterEntity(this.monster, number, this.type, this.summon);
+      if (this.entity) {
+        this.entity.number = number;
+      } else {
+        gameManager.monsterManager.addMonsterEntity(this.monster, number, this.type, this.summon);
+      }
       gameManager.stateManager.after();
-      if (this.monster.entities.length == this.monster.count) {
+      if (this.monster.entities.length == this.monster.count || this.entity) {
         this.dialogRef.close();
       }
     }

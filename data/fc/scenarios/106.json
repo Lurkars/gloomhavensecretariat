@@ -1,0 +1,111 @@
+{
+  "index": "106",
+  "name": "Intricate Work",
+  "edition": "fc",
+  "monsters": [
+    "aesther-scout"
+  ],
+  "unlocks": [
+    "112"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "m1a",
+      "initial": true,
+      "doors": [
+        2,
+        3
+      ],
+      "monster": [
+        {
+          "name": "aesther-scout",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "aesther-scout",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "aesther-scout",
+          "player4": "normal"
+        },
+        {
+          "name": "aesther-scout",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "d1a",
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "savvas-lavaflow",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "d2a",
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "savvas-icestorm",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

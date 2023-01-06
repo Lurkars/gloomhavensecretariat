@@ -1,0 +1,161 @@
+{
+  "index": "22",
+  "name": "Temple of the Elements",
+  "edition": "gh",
+  "monsters": [
+    "cultist",
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "living-bones",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Altar 1",
+      "health": "4+(CxL)"
+    },
+    {
+      "name": "Altar 2",
+      "health": "4+(CxL)"
+    },
+    {
+      "name": "Altar 3",
+      "health": "4+(CxL)"
+    },
+    {
+      "name": "Altar 4",
+      "health": "4+(CxL)"
+    }
+  ],
+  "unlocks": [
+    "31",
+    "35",
+    "36"
+  ],
+  "requires": [
+    [
+      "10"
+    ],
+    [
+      "26"
+    ]
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "b2b",
+      "initial": true,
+      "doors": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "cultist",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "marker": "1",
+      "ref": "m1a",
+      "doors": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "treasures": [
+        21
+      ],
+      "monster": [
+        {
+          "name": "cultist",
+          "type": "elite"
+        },
+        {
+          "name": "cultist",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "cultist",
+          "player2": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "d2a",
+      "monster": [
+        {
+          "name": "earth-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "d1a",
+      "monster": [
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 5,
+      "ref": "c1a",
+      "monster": [
+        {
+          "name": "frost-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 6,
+      "ref": "c2b",
+      "monster": [
+        {
+          "name": "wind-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

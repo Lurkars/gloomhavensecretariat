@@ -238,6 +238,16 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setScenarioRooms(scenarioRooms: boolean) {
+    this.settings.scenarioRooms = scenarioRooms;
+    this.storeSettings();
+  }
+
+  setAutomaticStandees(automaticStandees: boolean) {
+    this.settings.automaticStandees = automaticStandees;
+    this.storeSettings();
+  }
+
   setScenarioNumberInput(scenarioNumberInput: boolean) {
     this.settings.scenarioNumberInput = scenarioNumberInput;
     this.storeSettings();

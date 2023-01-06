@@ -1,6 +1,6 @@
 import { GameCharacterModel } from "./Character";
-import { GameScenarioModel } from "./data/ScenarioData";
 import { Identifier } from "./Identifier";
+import { GameScenarioModel } from "./Scenario";
 
 export class Party {
 

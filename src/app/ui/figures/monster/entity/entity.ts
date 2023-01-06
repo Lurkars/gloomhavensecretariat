@@ -12,6 +12,7 @@ import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { SummonState } from 'src/app/game/model/Summon';
 import { ghsDefaultDialogPositions } from 'src/app/ui/helper/Static';
 import { EntityMenuDialogComponent } from '../../entity-menu/entity-menu-dialog';
+import { MonsterNumberPickerDialog } from '../dialogs/numberpicker';
 
 @Component({
   selector: 'ghs-monster-entity',
@@ -86,22 +87,45 @@ export class MonsterEntityComponent {
   }
 
   openEntityMenu(event: any): void {
-    const dialogRef = this.dialog.open(EntityMenuDialogComponent, {
-      panelClass: 'dialog',
-      data: {
-        entity: this.entity,
-        figure: this.monster
-      },
-      positionStrategy: this.overlay.position().flexibleConnectedTo(this.standee).withPositions(ghsDefaultDialogPositions())
-    });
-
-    dialogRef.closed.subscribe({
-      next: () => {
-        if (this.entity.dead) {
-          this.element.nativeElement.classList.add('dead');
+    if (this.entity.number < 0) {
+      if (settingsManager.settings.randomStandees) {
+        let number = Math.floor(Math.random() * this.monster.count) + 1;
+        while (this.monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
+          number = Math.floor(Math.random() * this.monster.count) + 1;
         }
+        this.entity.number = number;
+      } else {
+        const dialogRef = this.dialog.open(MonsterNumberPickerDialog, {
+          panelClass: 'dialog',
+          data: {
+            monster: this.monster,
+            type: this.entity.type,
+            min: 1,
+            max: this.monster.count,
+            range: [],
+            entity: this.entity
+          },
+          positionStrategy: this.overlay.position().flexibleConnectedTo(this.standee).withPositions(ghsDefaultDialogPositions())
+        })
       }
-    })
+    } else {
+      const dialogRef = this.dialog.open(EntityMenuDialogComponent, {
+        panelClass: 'dialog',
+        data: {
+          entity: this.entity,
+          figure: this.monster
+        },
+        positionStrategy: this.overlay.position().flexibleConnectedTo(this.standee).withPositions(ghsDefaultDialogPositions())
+      });
+
+      dialogRef.closed.subscribe({
+        next: () => {
+          if (this.entity.dead) {
+            this.element.nativeElement.classList.add('dead');
+          }
+        }
+      })
+    }
   }
 
 

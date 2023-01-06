@@ -184,7 +184,7 @@
       </div>
     </div>
 
-    <div class="line">
+    <div class="line" [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
       <div class="hint-container">
         <label>
           <input type="checkbox" [checked]="settingsManager.settings.eliteFirst"
@@ -198,7 +198,7 @@
       </div>
     </div>
 
-    <div class="line">
+    <div class="line" [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
       <div class="hint-container">
         <label>
           <input type="checkbox" [checked]="settingsManager.settings.activeStandees"
@@ -211,7 +211,7 @@
         </span>
       </div>
     </div>
-    <div class="line">
+    <div class="line" [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
       <div class="hint-container">
         <label>
           <input type="checkbox" [checked]="settingsManager.settings.randomStandees"
@@ -221,6 +221,35 @@
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
           <span class="text">{{'settings.randomStandees.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="line" [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.scenarioRooms"
+            (change)="settingsManager.setScenarioRooms(!settingsManager.settings.scenarioRooms)">
+          {{'settings.scenarioRooms' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.scenarioRooms.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="line"
+      [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || settingsManager.settings.disableStandees}">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.automaticStandees"
+            (change)="settingsManager.setAutomaticStandees(!settingsManager.settings.automaticStandees)">
+          {{'settings.automaticStandees' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.automaticStandees.hint' | ghsLabel}}</span>
         </span>
       </div>
     </div>
@@ -277,8 +306,6 @@
   </div>
 
   <div class="column">
-
-
     <div class="line">
       <div class="hint-container">
         <label>

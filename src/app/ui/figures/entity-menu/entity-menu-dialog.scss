@@ -181,7 +181,6 @@
     }
   }
 
-
   .badge {
     position: absolute;
     right: 0;
@@ -190,6 +189,14 @@
     font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
     text-shadow: var(--ghs-outline);
     text-align: center;
+  }
+
+  input.badge {
+    right: calc(var(--ghs-unit) * -1.5 * var(--ghs-dialog-factor));
+    min-width: 0;
+    border: none;
+    width: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
+    background: transparent;
   }
 
 

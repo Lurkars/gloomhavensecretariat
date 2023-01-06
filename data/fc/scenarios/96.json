@@ -1,0 +1,81 @@
+{
+  "index": "96",
+  "name": "Unexpected Visitors",
+  "edition": "fc",
+  "initial": true,
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "wind-demon"
+  ],
+  "rules": [
+    {
+      "round": "R > 3 && R % 3 == 1"
+    },
+    {
+      "round": "R > 4 && R % 3 == 2"
+    },
+    {
+      "round": "R > 5 && R % 3 == 0"
+    }
+  ],
+  "unlocks": [
+    "97"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "i2b",
+      "initial": true,
+      "treasures": [
+        91
+      ],
+      "monster": [
+        {
+          "name": "flame-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player2": "elite",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player3": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

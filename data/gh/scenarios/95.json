@@ -1,0 +1,79 @@
+{
+  "index": "95",
+  "name": "Payment Due",
+  "edition": "gh",
+  "monsters": [
+    "deep-terror",
+    "earth-demon",
+    "flame-demon",
+    "prime-lieutenant"
+  ],
+  "requires": [
+    [
+      "94"
+    ]
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "g1b",
+      "initial": true,
+      "doors": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "d1a"
+    },
+    {
+      "roomNumber": 3,
+      "ref": "k2b",
+      "monster": [
+        {
+          "name": "deep-terror",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "marker": "1",
+      "ref": "e1a",
+      "monster": [
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "savvas-lavaflow",
+          "type": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

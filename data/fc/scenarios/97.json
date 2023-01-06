@@ -1,0 +1,72 @@
+{
+  "index": "97",
+  "name": "Lore Untold",
+  "edition": "fc",
+  "monsters": [
+    "black-imp",
+    "living-bones",
+    "living-corpse"
+  ],
+  "unlocks": [
+    "100",
+    "101",
+    "98",
+    "99"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "n1b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

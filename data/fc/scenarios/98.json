@@ -1,0 +1,82 @@
+{
+  "index": "98",
+  "name": "Past In Flames",
+  "edition": "fc",
+  "monsters": [
+    "ancient-artillery",
+    "bandit-archer",
+    "bandit-guard",
+    "spitting-drake"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true
+    }
+  ],
+  "unlocks": [
+    "102",
+    "103"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "h3b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "bandit-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player4": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

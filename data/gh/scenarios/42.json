@@ -1,0 +1,108 @@
+{
+  "index": "42",
+  "name": "Realm of the Voice",
+  "edition": "gh",
+  "monsters": [
+    "living-spirit",
+    "night-demon",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Vocal Cord 1",
+      "health": "2+(LxC/2)"
+    },
+    {
+      "name": "Vocal Cord 2",
+      "health": "2+(LxC/2)"
+    },
+    {
+      "name": "Vocal Cord 3",
+      "health": "2+(LxC/2)"
+    },
+    {
+      "name": "Vocal Cord 4",
+      "health": "2+(LxC/2)"
+    },
+    {
+      "name": "Vocal Cord 5",
+      "health": "2+(LxC/2)"
+    },
+    {
+      "name": "Vocal Cord 6",
+      "health": "2+(LxC/2)"
+    }
+  ],
+  "requires": [
+    [
+      "30"
+    ]
+  ],
+  "blocks": [
+    "30",
+    "32",
+    "33",
+    "40",
+    "41"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "l2a",
+      "initial": true,
+      "treasures": [
+        55,
+        30
+      ],
+      "monster": [
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

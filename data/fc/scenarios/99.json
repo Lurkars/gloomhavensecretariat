@@ -1,0 +1,103 @@
+{
+  "index": "99",
+  "name": "Aftershocks",
+  "edition": "fc",
+  "monsters": [
+    "black-imp",
+    "cultist",
+    "deep-terror"
+  ],
+  "objectives": [
+    {
+      "name": "Civilian 1",
+      "escort": true,
+      "health": "2x(L+C)",
+      "initiative": 50
+    },
+    {
+      "name": "Civilian 2",
+      "escort": true,
+      "health": "2x(L+C)",
+      "initiative": 50
+    },
+    {
+      "name": "Civilian 3",
+      "escort": true,
+      "health": "2x(L+C)",
+      "initiative": 50
+    }
+  ],
+  "unlocks": [
+    "104",
+    "105"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "n1b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "cultist",
+          "player2": "elite",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "cultist",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "cultist",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

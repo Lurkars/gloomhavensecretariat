@@ -1,22 +1,21 @@
 import { gameManager } from "../businesslogic/GameManager";
-import { settingsManager } from "../businesslogic/SettingsManager";
-import { AttackModifierDeck, AttackModifierType, defaultAttackModifierCards, GameAttackModifierDeckModel } from "./AttackModifier";
+import { AttackModifierDeck, defaultAttackModifierCards, GameAttackModifierDeckModel } from "./AttackModifier";
 import { Character, GameCharacterModel } from "./Character";
-import { GameScenarioModel, ScenarioData, ScenarioRuleIdentifier } from "./data/ScenarioData";
-import { defeaultElementBoard, Element, ElementModel, ElementState } from "./Element";
+import { ScenarioData, ScenarioRuleIdentifier } from "./data/ScenarioData";
+import { defeaultElementBoard, ElementModel, } from "./Element";
 import { Figure } from "./Figure";
 import { Loot, LootDeck } from "./Loot";
 import { GameMonsterModel, Monster } from "./Monster";
 import { GameObjectiveModel, Objective } from "./Objective";
 import { Party } from "./Party";
-import { Scenario } from "./Scenario";
+import { GameScenarioModel, Scenario } from "./Scenario";
 
 export class Game {
   edition: string | undefined = undefined;
   figures: Figure[] = [];
   state: GameState = GameState.draw;
   scenario: Scenario | undefined = undefined;
-  sections: ScenarioData[] = [];
+  sections: Scenario[] = [];
   scenarioRules: ScenarioRuleIdentifier[] = [];
   level: number = 1;
   levelCalculation: boolean = true;
@@ -43,7 +42,7 @@ export class Game {
   }
 
   toModel(): GameModel {
-    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario && gameManager.scenarioManager.toModel(this.scenario, this.scenario.custom, this.scenario.custom ? this.scenario.name : "") || undefined, this.sections.map((sectionData) => gameManager.scenarioManager.toModel(sectionData)), this.scenarioRules, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.round, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party, this.parties, this.lootDeck, this.lootDeckEnhancements, this.server);
+    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario && gameManager.scenarioManager.toModel(this.scenario, this.scenario.revealedRooms, this.scenario.custom, this.scenario.custom ? this.scenario.name : "") || undefined, this.sections.map((section) => gameManager.scenarioManager.toModel(section, section.revealedRooms)), this.scenarioRules, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.round, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party, this.parties, this.lootDeck, this.lootDeckEnhancements, this.server);
   }
 
   fromModel(model: GameModel, server: boolean = false) {
@@ -97,7 +96,7 @@ export class Game {
     if (model.scenario) {
       const scenarioData = gameManager.scenarioManager.scenarioDataForModel(model.scenario);
       if (scenarioData) {
-        this.scenario = new Scenario(scenarioData, model.scenario.isCustom);
+        this.scenario = new Scenario(scenarioData, model.scenario.revealedRooms || [], model.scenario.isCustom);
       } else {
         this.scenario = undefined;
       }
@@ -109,7 +108,7 @@ export class Game {
     model.sections.forEach((value) => {
       const sectionModelData = gameManager.scenarioManager.sectionDataForModel(value);
       if (sectionModelData) {
-        this.sections.push(sectionModelData);
+        this.sections.push(new Scenario(sectionModelData, value.revealedRooms || []));
       }
     })
     this.level = model.level;

@@ -1,0 +1,174 @@
+{
+  "index": "56",
+  "name": "Bandit's Wood",
+  "edition": "gh",
+  "monsters": [
+    "bandit-archer",
+    "bandit-guard",
+    "hound",
+    "rending-drake"
+  ],
+  "objectives": [
+    {
+      "name": "Captive Orchid 1",
+      "escort": true,
+      "health": "4+(2xL)",
+      "initiative": 50
+    },
+    {
+      "name": "Captive Orchid 2",
+      "escort": true,
+      "health": "4+(2xL)",
+      "initiative": 50
+    },
+    {
+      "name": "Captive Orchid 3",
+      "escort": true,
+      "health": "4+(2xL)",
+      "initiative": 50
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "l3a",
+      "initial": true,
+      "doors": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "c2a",
+      "doors": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "rending-drake",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "a4a",
+      "doors": [
+        4
+      ],
+      "monster": [
+        {
+          "name": "bandit-guard",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "marker": "1",
+      "ref": "m1b",
+      "treasures": [
+        45
+      ],
+      "monster": [
+        {
+          "name": "bandit-guard",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

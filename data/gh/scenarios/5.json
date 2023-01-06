@@ -1,0 +1,117 @@
+{
+  "index": "5",
+  "name": "Ruinous Crypt",
+  "edition": "gh",
+  "monsters": [
+    "cultist",
+    "flame-demon",
+    "frost-demon",
+    "living-bones",
+    "night-demon"
+  ],
+  "unlocks": [
+    "10",
+    "14",
+    "19"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "m1a",
+      "initial": true,
+      "doors": [
+        2,
+        3
+      ],
+      "monster": [
+        {
+          "name": "cultist",
+          "type": "normal"
+        },
+        {
+          "name": "cultist",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "k1a",
+      "treasures": [
+        28
+      ],
+      "monster": [
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "k2b",
+      "treasures": [
+        4
+      ],
+      "monster": [
+        {
+          "name": "frost-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

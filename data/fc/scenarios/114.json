@@ -1,0 +1,115 @@
+{
+  "index": "114",
+  "name": "Ink Not Yet Dry",
+  "edition": "fc",
+  "monsters": [
+    "aesther-ashblade",
+    "aesther-scout",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Hail",
+      "escort": true,
+      "health": "4+2xL"
+    }
+  ],
+  "unlocks": [
+    "115"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "i2b",
+      "initial": true,
+      "doors": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "wind-demon",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "aesther-scout",
+          "player2": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "aesther-scout",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "aesther-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "aesther-ashblade",
+          "player2": "elite"
+        },
+        {
+          "name": "aesther-ashblade",
+          "player4": "elite"
+        },
+        {
+          "name": "aesther-ashblade",
+          "player3": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "aesther-scout",
+          "player3": "normal"
+        },
+        {
+          "name": "aesther-ashblade",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "a1b",
+      "monster": [
+        {
+          "name": "wind-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "aesther-ashblade",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "aesther-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "aesther-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

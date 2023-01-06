@@ -1,0 +1,138 @@
+{
+  "index": "81",
+  "name": "Temple of the Eclipse",
+  "edition": "gh",
+  "monsters": [
+    "ancient-artillery",
+    "night-demon",
+    "stone-golem",
+    "sun-demon",
+    "the-colorless"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "j2a",
+      "initial": true,
+      "doors": [
+        2
+      ],
+      "treasures": [
+        null
+      ],
+      "monster": [
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player3": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "player3": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player2": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "j1a",
+      "doors": [
+        3
+      ],
+      "treasures": [
+        null
+      ],
+      "monster": [
+        {
+          "name": "stone-golem",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "stone-golem",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "stone-golem",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player3": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "marker": "1",
+      "ref": "d1a",
+      "treasures": [
+        68
+      ],
+      "monster": [
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "the-colorless",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

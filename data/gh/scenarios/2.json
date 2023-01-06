@@ -1,0 +1,150 @@
+{
+  "index": "2",
+  "name": "Barrow Lair",
+  "edition": "gh",
+  "monsters": [
+    "bandit-archer",
+    "bandit-commander",
+    "living-bones",
+    "living-corpse"
+  ],
+  "unlocks": [
+    "3",
+    "4"
+  ],
+  "requires": [
+    [
+      "1"
+    ]
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "b3b",
+      "initial": true,
+      "doors": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "marker": "1",
+      "ref": "m1a",
+      "doors": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-commander",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "marker": "a",
+      "ref": "a3b",
+      "monster": [
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "marker": "b",
+      "ref": "a4b",
+      "treasures": [
+        67
+      ],
+      "monster": [
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 5,
+      "marker": "c",
+      "ref": "a2a",
+      "monster": [
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 6,
+      "marker": "d",
+      "ref": "a1a",
+      "monster": [
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

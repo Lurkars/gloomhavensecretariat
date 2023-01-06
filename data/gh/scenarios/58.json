@@ -1,0 +1,149 @@
+{
+  "index": "58",
+  "name": "Bloody Shack",
+  "edition": "gh",
+  "monsters": [
+    "black-imp",
+    "earth-demon",
+    "harrower-infester",
+    "the-harvester:+1"
+  ],
+  "objectives": [
+    {
+      "name": "Bone Pile 1",
+      "health": "L+(2xC)"
+    },
+    {
+      "name": "Bone Pile 2",
+      "health": "L+(2xC)"
+    },
+    {
+      "name": "Bone Pile 3",
+      "health": "L+(2xC)"
+    },
+    {
+      "name": "Bone Pile 4",
+      "health": "L+(2xC)"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "c2a",
+      "initial": true,
+      "doors": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "d1b",
+      "initial": true,
+      "doors": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "marker": "1",
+      "ref": "g2b",
+      "doors": [
+        4
+      ],
+      "treasures": [
+        null
+      ],
+      "monster": [
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "marker": "2",
+      "ref": "b1a",
+      "monster": [
+        {
+          "name": "city-guard",
+          "type": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

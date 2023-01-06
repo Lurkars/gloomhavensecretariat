@@ -1,0 +1,35 @@
+{
+    "index": "112",
+    "name": "Access Hall",
+    "edition": "fc",
+    "parent": "97",
+    "marker": "c",
+    "monsters": [
+        "aesther-scout"
+    ],
+    "rooms": [
+        {
+            "roomNumber": 4,
+            "ref": "l1a",
+            "marker": "f",
+            "initial": true,
+            "monster": [
+                {
+                    "name": "aesther-scout",
+                    "player3": "normal",
+                    "player4": "normal"
+                },
+                {
+                    "name": "aesther-scout",
+                    "player2": "elite",
+                    "player4": "elite"
+                },
+                {
+                    "name": "aesther-scout",
+                    "player3": "elite",
+                    "player4": "normal"
+                }
+            ]
+        }
+    ]
+}

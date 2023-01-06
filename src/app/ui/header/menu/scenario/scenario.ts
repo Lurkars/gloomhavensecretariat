@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { GameScenarioModel, ScenarioData } from "src/app/game/model/data/ScenarioData";
+import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { GameState } from "src/app/game/model/Game";
-import { Scenario } from "src/app/game/model/Scenario";
+import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
 import { Spoilable, SpoilableMock } from "src/app/game/model/Spoilable";
 
 @Component({
@@ -93,7 +93,7 @@ export class ScenarioMenuComponent implements OnInit {
   customScenario() {
     if (!gameManager.game.scenario || !gameManager.game.scenario.custom) {
       gameManager.stateManager.before("setCustomScenario");
-      gameManager.scenarioManager.setScenario(new Scenario(new ScenarioData("", "", [], [], [], [], [], [], [], [], ""), true));
+      gameManager.scenarioManager.setScenario(new Scenario(new ScenarioData("", "", [], [], [], [], [], [], [], [], "", [], ""), [], true));
       gameManager.stateManager.after();
     } else {
       gameManager.stateManager.before("unsetCustomScenario");
@@ -122,7 +122,7 @@ export class ScenarioMenuComponent implements OnInit {
         if (scenarioData) {
           if (this.scenarios(group).indexOf(scenarioData) == -1) {
             gameManager.stateManager.before("addManualScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
-            gameManager.game.party.manualScenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group));
+            gameManager.game.party.manualScenarios.push(new GameScenarioModel(scenarioData.index, scenarioData.edition, scenarioData.group, false, "", []));
             gameManager.stateManager.after();
           }
           numbers = numbers.filter((value) => value.trim() != number);

@@ -67,7 +67,43 @@ for (edition_path of edition_dirs) {
   edition_data['monsters'] = load_subfolder(edition_path, 'monster', []);
   edition_data['decks'] = load_subfolder(edition_path, 'deck', []);
   edition_data['scenarios'] = load_file(edition_path, 'scenarios.json', []);
+
+  const scenariosFolder = path.join(edition_path, 'scenarios');
+  if (fs.existsSync(scenariosFolder) && fs.lstatSync(scenariosFolder).isDirectory()) {
+    for (let scenarioFile of fs.readdirSync(scenariosFolder)) {
+      const inputFile = path.join(scenariosFolder, scenarioFile);
+      if (fs.lstatSync(inputFile).isFile()) {
+        const f = fs.readFileSync(inputFile, 'utf8');
+        const scenario = JSON.parse(f);
+        const existing = edition_data['scenarios'].find((scenarioData) => scenarioData.index == scenario.index && scenarioData.edition == scenario.edition);
+        if (existing) {
+          edition_data['scenarios'].splice(edition_data['scenarios'].indexOf(existing), 1, scenario);
+        } else {
+          edition_data['scenarios'].push(scenario);
+        }
+      }
+    }
+  }
+
   edition_data['sections'] = load_file(edition_path, 'sections.json', []);
+
+  const sectionsFolder = path.join(edition_path, 'sections');
+  if (fs.existsSync(sectionsFolder) && fs.lstatSync(sectionsFolder).isDirectory()) {
+    for (let sectionFile of fs.readdirSync(sectionsFolder)) {
+      const inputFile = path.join(sectionsFolder, sectionFile);
+      if (fs.lstatSync(inputFile).isFile()) {
+        const f = fs.readFileSync(inputFile, 'utf8');
+        const section = JSON.parse(f);
+        const existing = edition_data['sections'].find((sectionData) => sectionData.index == section.index && sectionData.edition == section.edition);
+        if (existing) {
+          edition_data['sections'].splice(edition_data['sections'].indexOf(existing), 1, section);
+        } else {
+          edition_data['sections'].push(section);
+        }
+      }
+    }
+  }
+
   edition_data['items'] = load_file(edition_path, 'items.json', []);
   edition_data['label'] = load_file(edition_path, 'label.json', {});
   edition_data['labelSpoiler'] = load_file(edition_path, 'label-spoiler.json', {});

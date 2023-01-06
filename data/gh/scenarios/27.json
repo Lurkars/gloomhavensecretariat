@@ -1,0 +1,58 @@
+{
+  "index": "27",
+  "name": "Ruinous Rift",
+  "edition": "gh",
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "night-demon",
+    "sun-demon",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Hail",
+      "escort": true,
+      "health": "4+(2xL)"
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 1"
+    },
+    {
+      "round": "R == 2"
+    },
+    {
+      "round": "R == 3 || R == 6 || R == 9"
+    },
+    {
+      "round": "R == 4 || R == 7"
+    },
+    {
+      "round": "R == 5 || R == 8"
+    },
+    {
+      "round": "R >= 10"
+    }
+  ],
+  "requires": [
+    [
+      "19"
+    ]
+  ],
+  "blocks": [
+    "10",
+    "21",
+    "35",
+    "36"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "m1a",
+      "initial": true
+    }
+  ]
+}

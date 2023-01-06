@@ -1,0 +1,110 @@
+{
+  "index": "33",
+  "name": "Savvas Armory",
+  "edition": "gh",
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "savvas-icestorm",
+    "savvas-lavaflow",
+    "wind-demon"
+  ],
+  "requires": [
+    [
+      "24"
+    ],
+    [
+      "25"
+    ]
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "a3b",
+      "initial": true,
+      "doors": [
+        2
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "marker": "b",
+      "ref": "c2b",
+      "doors": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "savvas-lavaflow",
+          "type": "normal"
+        },
+        {
+          "name": "savvas-lavaflow",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "savvas-icestorm",
+          "type": "normal"
+        },
+        {
+          "name": "savvas-icestorm",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "i1b",
+      "doors": [
+        4
+      ],
+      "monster": [
+        {
+          "name": "savvas-lavaflow",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "savvas-lavaflow",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "savvas-icestorm",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "marker": "1",
+      "ref": "m1a",
+      "treasures": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "monster": [
+        {
+          "name": "savvas-icestorm",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

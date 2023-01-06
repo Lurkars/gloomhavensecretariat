@@ -1,0 +1,202 @@
+{
+  "index": "105",
+  "name": "Monstrosities of a Cult",
+  "edition": "fc",
+  "monsters": [
+    "bandit-guard",
+    "valrath-tracker"
+  ],
+  "unlocks": [
+    "111"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "l3a",
+      "initial": true,
+      "doors": [
+        2,
+        3
+      ],
+      "monster": [
+        {
+          "name": "bandit-guard",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player3": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player2": "elite"
+        },
+        {
+          "name": "valrath-tracker",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player2": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "valrath-tracker",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player2": "elite"
+        },
+        {
+          "name": "valrath-tracker",
+          "player2": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "valrath-tracker",
+          "player3": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "i2b",
+      "treasures": [
+        88
+      ],
+      "monster": [
+        {
+          "name": "bandit-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player2": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player4": "elite"
+        },
+        {
+          "name": "valrath-tracker",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player2": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal"
+        },
+        {
+          "name": "hound",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player3": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "b3a",
+      "treasures": [
+        83
+      ],
+      "monster": [
+        {
+          "name": "bandit-guard",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player2": "normal",
+          "player3": "elite"
+        },
+        {
+          "name": "valrath-tracker",
+          "player4": "normal"
+        },
+        {
+          "name": "cave-bear",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "index": "36",
+  "name": "Gloomhaven Battlements B",
+  "edition": "gh",
+  "monsters": [
+    "city-archer",
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "prime-demon",
+    "wind-demon"
+  ],
+  "allies": [
+    "city-archer"
+  ],
+  "objectives": [
+    {
+      "name": "Door",
+      "health": "10+(2xL)"
+    }
+  ],
+  "rules": [
+    {
+      "round": "R % 4 == 1"
+    },
+    {
+      "round": "R % 4 == 2"
+    },
+    {
+      "round": "R % 4 == 3"
+    },
+    {
+      "round": "R % 4 == 0"
+    }
+  ],
+  "requires": [
+    [
+      "10"
+    ]
+  ],
+  "blocks": [
+    "10",
+    "21",
+    "35"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "l3a",
+      "initial": true,
+      "monster": [
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "elite"
+        }
+      ],
+      "doors": [
+        2
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "marker": "1",
+      "ref": "i1b",
+      "treasures": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "city-archer",
+          "type": "elite"
+        },
+        {
+          "name": "city-archer",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

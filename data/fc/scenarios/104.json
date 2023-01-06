@@ -1,0 +1,102 @@
+{
+  "index": "104",
+  "name": "A Gaping Wound",
+  "edition": "fc",
+  "monsters": [
+    "harrower-infester",
+    "lurker",
+    "spitting-drake"
+  ],
+  "objectives": [
+    {
+      "name": "Hail",
+      "escort": true,
+      "health": "6+2xL"
+    }
+  ],
+  "rules": [
+    {
+      "round": "R % 8 == 2"
+    },
+    {
+      "round": "R % 8 == 4"
+    },
+    {
+      "round": "R % 8 == 6"
+    },
+    {
+      "round": "R % 8 == 0"
+    }
+  ],
+  "unlocks": [
+    "111"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "d2b",
+      "initial": true,
+      "treasures": [
+        87
+      ],
+      "monster": [
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player2": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "player2": "elite"
+        },
+        {
+          "name": "lurker",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker",
+          "player2": "normal"
+        },
+        {
+          "name": "lurker",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

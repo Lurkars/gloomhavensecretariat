@@ -1,0 +1,158 @@
+{
+  "index": "71",
+  "name": "Windswept Highlands",
+  "edition": "gh",
+  "monsters": [
+    "spitting-drake",
+    "sun-demon",
+    "wind-demon"
+  ],
+  "rules": [
+    {
+      "round": "R % 4 == 1"
+    },
+    {
+      "round": "R % 4 == 2"
+    },
+    {
+      "round": "R % 4 == 3"
+    },
+    {
+      "round": "R % 4 == 0"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "h2b",
+      "initial": true,
+      "doors": [
+        2,
+        3,
+        4
+      ],
+      "treasures": [
+        null,
+        null,
+        null
+      ],
+      "monster": [
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "type": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "type": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "marker": "b",
+      "ref": "a2b",
+      "monster": [
+        {
+          "name": "wind-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "marker": "d",
+      "ref": "g2a",
+      "monster": [
+        {
+          "name": "wind-demon",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player2": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "marker": "c",
+      "ref": "a3a",
+      "monster": [
+        {
+          "name": "sun-demon",
+          "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "player2": "elite",
+          "player3": "elite"
+        }
+      ]
+    }
+  ]
+}

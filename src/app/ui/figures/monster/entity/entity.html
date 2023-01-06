@@ -5,13 +5,13 @@
     <div #standee class="standee">
       <div class="background-image"
         [style.background-image]="'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'"></div>
-      <span class="number">{{entity.number}}</span>
-      <span class="health" title="{{'game.health' | ghsLabel}}">{{entity.health + health}}
-        <span class="value-overlay" [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}"
-          *ngIf="health"><span class="value">{{health |
-            ghsValueSign}}</span>
-        </span>
-      </span>
+      <span class="number">{{entity.number < 0 ? '?' : entity.number}}</span>
+          <span class="health" title="{{'game.health' | ghsLabel}}">{{entity.health + health}}
+            <span class="value-overlay" [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}"
+              *ngIf="health"><span class="value">{{health |
+                ghsValueSign}}</span>
+            </span>
+          </span>
     </div>
 
     <div class="markers">
@@ -38,7 +38,7 @@
     <ghs-healthbar [entity]="entity" [diff]="health"></ghs-healthbar>
   </div>
 
-  <ghs-drag-click class="drag-hp" (dragMove)="dragHpMove($event)"
-    (dragEnd)="dragHpEnd($event)" (singleClick)="openEntityMenu($event)" (doubleClick)="doubleClick($event)" [relative]="true">
+  <ghs-drag-click class="drag-hp" (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)"
+    (singleClick)="openEntityMenu($event)" (doubleClick)="doubleClick($event)" [relative]="true">
   </ghs-drag-click>
 </div>

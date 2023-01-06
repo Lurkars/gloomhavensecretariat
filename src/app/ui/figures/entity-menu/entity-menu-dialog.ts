@@ -49,7 +49,10 @@ export class EntityMenuDialogComponent {
   ConditionType = ConditionType;
   MonsterType = MonsterType;
 
-  constructor(@Inject(DIALOG_DATA) public data: { entity: Entity | undefined, figure: Figure }, private changeDetectorRef: ChangeDetectorRef, private dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) public data: { entity: Entity | undefined, figure: Figure, entities: Entity[] }, private changeDetectorRef: ChangeDetectorRef, private dialogRef: DialogRef) {
+    if (!data.entities) {
+      data.entities = [];
+    }
     if (data.entity instanceof Character) {
       this.conditionType = 'character';
     } else if (data.entity instanceof Objective) {
@@ -71,7 +74,6 @@ export class EntityMenuDialogComponent {
       }
     })
   }
-
 
   changeHealth(value: number) {
     this.health += value;

@@ -1,0 +1,115 @@
+{
+  "index": "21",
+  "name": "Infernal Throne",
+  "edition": "gh",
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "night-demon",
+    "prime-demon",
+    "sun-demon",
+    "wind-demon"
+  ],
+  "blocks": [
+    "10",
+    "35",
+    "36"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "e1a",
+      "initial": true,
+      "doors": [
+        2,
+        3
+      ],
+      "monster": [
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "j1a",
+      "monster": [
+        {
+          "name": "night-demon",
+          "type": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "j2a",
+      "doors": [
+        4
+      ],
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "d2a",
+      "doors": [
+        5
+      ],
+      "treasures": [
+        15
+      ]
+    },
+    {
+      "roomNumber": 5,
+      "marker": "1",
+      "ref": "d1a",
+      "monster": [
+        {
+          "name": "prime-demon",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

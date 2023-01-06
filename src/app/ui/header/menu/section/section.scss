@@ -38,11 +38,6 @@
       border: calc(var(--ghs-unit) / 5) var(--ghs-color-darkgray) solid;
     }
 
-    &.active {
-      pointer-events: none;
-      border: calc(var(--ghs-unit) / 5) var(--ghs-color-white) solid;
-    }
-
     &.disabled {
       pointer-events: none;
       border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;

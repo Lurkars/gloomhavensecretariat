@@ -1,0 +1,137 @@
+{
+  "index": "70",
+  "name": "Chained Isle",
+  "edition": "gh",
+  "monsters": [
+    "living-spirit",
+    "night-demon",
+    "wind-demon"
+  ],
+  "rules": [
+    {
+      "round": "R % 2 == 1 && C <= 3"
+    },
+    {
+      "round": "R % 2 == 0 && C < 3"
+    },
+    {
+      "round": "R % 2 == 1 && C > 3 || R % 2 == 0 && C >= 3"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "l3a",
+      "initial": true,
+      "doors": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "night-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "a3a",
+      "doors": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "d2b",
+      "doors": [
+        4
+      ],
+      "monster": [
+        {
+          "name": "night-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "a2b",
+      "doors": [
+        5
+      ]
+    },
+    {
+      "roomNumber": 5,
+      "marker": "1",
+      "ref": "e1b",
+      "treasures": [
+        6
+      ],
+      "monster": [
+        {
+          "name": "night-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "type": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

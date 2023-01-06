@@ -1,16 +1,19 @@
 import { Dialog } from '@angular/cdk/dialog';
-import { Component, Input } from '@angular/core';
+import { Overlay } from '@angular/cdk/overlay';
+import { Component, ElementRef, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { MonsterType } from 'src/app/game/model/MonsterType';
+import { ghsDefaultDialogPositions } from '../../helper/Static';
+import { MonsterNumberPickerDialog } from './dialogs/numberpicker';
 import { MonsterStatsDialogComponent } from './dialogs/stats-dialog';
 
 @Component({
   selector: 'ghs-monster',
   templateUrl: './monster.html',
-  styleUrls: [ './monster.scss' ]
+  styleUrls: ['./monster.scss']
 })
 export class MonsterComponent {
 
@@ -20,6 +23,37 @@ export class MonsterComponent {
   settingsManager: SettingsManager = settingsManager;
 
   constructor(private dialog: Dialog) { }
+
+  addMissingStandees() {
+    const missingStandees = this.monster.entities.filter((monsterEntity) => monsterEntity.number < 0).sort((a, b) => {
+      if (settingsManager.settings.eliteFirst && a.type != b.type) {
+        return a.type == MonsterType.elite ? -1 : 1;
+      }
+      return 0;
+    });
+    this.addMissingStandee(0, missingStandees);
+  }
+
+  addMissingStandee(index: number, entites: MonsterEntity[]) {
+    if (index < entites.length) {
+      const monsterEntity = entites[index];
+      const dialogRef = this.dialog.open(MonsterNumberPickerDialog, {
+        panelClass: 'dialog',
+        data: {
+          monster: this.monster,
+          type: monsterEntity.type,
+          min: 1,
+          max: this.monster.count,
+          range: [],
+          entity: monsterEntity
+        }
+      })
+
+      dialogRef.closed.subscribe(() => {
+        this.addMissingStandee(index + 1, entites);
+      })
+    }
+  }
 
   emptyEntities(): boolean {
     return this.monster.entities.length == 0 || this.monster.entities.every((monsterEntity) => monsterEntity.dead);
@@ -37,6 +71,11 @@ export class MonsterComponent {
         } else if (a.type == MonsterType.normal && b.type == MonsterType.elite) {
           return 1;
         }
+      }
+      if (a.number < 0 && b.number >= 0) {
+        return 1;
+      } else if (b.number < 0 && a.number >= 0) {
+        return -1;
       }
       return a.number < b.number ? -1 : 1;
     })
