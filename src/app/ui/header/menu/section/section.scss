@@ -45,3 +45,14 @@
     }
   }
 }
+
+@media (max-width: 500px) {
+
+  .editions {
+    grid-template-columns: 1fr;
+  }
+
+  .sections {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

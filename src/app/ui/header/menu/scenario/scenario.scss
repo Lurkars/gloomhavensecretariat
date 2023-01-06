@@ -83,3 +83,14 @@
 .input-button {
   margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 }
+
+@media (max-width: 500px) {
+
+  .editions {
+    grid-template-columns: 1fr;
+  }
+
+  .scenarios {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
