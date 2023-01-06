@@ -27,7 +27,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "All adjaent enemies suffer %game.damage:2%",
+          "value": "All adjacent enemies suffer %game.damage:1%",
           "small": true
         },
         {
@@ -37,7 +37,7 @@
         },
         {
           "type": "custom",
-          "value": "All adjaent enemies suffer<br>hazardous terrain damage.",
+          "value": "All adjacent enemies suffer<br>hazardous terrain damage.",
           "small": true
         }
       ]
