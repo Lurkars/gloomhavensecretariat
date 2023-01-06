@@ -43,7 +43,7 @@
         },
         {
           "type": "grant",
-          "value": "Grant all Piranha Pigs withing %game.action.range:3%:",
+          "value": "Grant all Piranha Pigs within %game.action.range:3%:",
           "small": true,
           "subActions": [
             {

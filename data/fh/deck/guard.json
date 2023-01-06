@@ -60,7 +60,7 @@
       ]
     },
     {
-      "name": "Venom Shic",
+      "name": "Venom Shiv",
       "cardId": 749,
       "initiative": 15,
       "actions": [
@@ -162,7 +162,5 @@
         }
       ]
     }
-  ],
-  "initiative": 15,
-  "shuffle": true
+  ]
 }

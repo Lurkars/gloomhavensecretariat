@@ -90,8 +90,8 @@
         },
         {
           "type": "attack",
-          "value": 0,
-          "valueType": "plus",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "range",
@@ -151,8 +151,9 @@
           "subActions": [
             {
               "type": "target",
-              "value": "%game.target.all%",
-              "small": true
+              "value": 2,
+              "small": true,
+              "valueType": "add"
             },
             {
               "type": "range",

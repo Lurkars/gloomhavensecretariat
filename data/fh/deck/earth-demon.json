@@ -3,14 +3,14 @@
   "edition": "fh",
   "abilities": [
     {
-      "name": "Strong Groth",
+      "name": "Strong Growth",
       "cardId": 570,
       "initiative": 40,
       "shuffle": true,
       "actions": [
         {
           "type": "heal",
-          "value": 3,
+          "value": 4,
           "subActions": [
             {
               "type": "specialTarget",

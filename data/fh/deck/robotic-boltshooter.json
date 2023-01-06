@@ -173,8 +173,8 @@
         },
         {
           "type": "attack",
-          "value": 0,
-          "valueType": "plus",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "specialTarget",
