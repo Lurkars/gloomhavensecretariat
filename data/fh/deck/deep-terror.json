@@ -9,8 +9,8 @@
       "actions": [
         {
           "type": "attack",
-          "value": 0,
-          "valueType": "plus",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "range",
@@ -98,8 +98,8 @@
         },
         {
           "type": "attack",
-          "value": 0,
-          "valueType": "plus",
+          "value": 1,
+          "valueType": "minus",
           "subActions": [
             {
               "type": "range",
@@ -144,7 +144,7 @@
             },
             {
               "type": "range",
-              "value": 5,
+              "value": 3,
               "small": true
             },
             {
