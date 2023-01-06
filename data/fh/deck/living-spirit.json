@@ -40,8 +40,8 @@
       "actions": [
         {
           "type": "move",
-          "value": 0,
-          "valueType": "plus"
+          "value": 1,
+          "valueType": "minus"
         },
         {
           "type": "attack",
@@ -50,7 +50,7 @@
           "subActions": [
             {
               "type": "target",
-              "value": "%game.target.all%",
+              "value": 3,
               "small": true
             },
             {
@@ -127,7 +127,7 @@
             },
             {
               "type": "range",
-              "value": 2,
+              "value": 3,
               "small": true
             }
           ]
@@ -206,7 +206,7 @@
       ]
     },
     {
-      "name": "Ice Glare",
+      "name": "Icy Glare",
       "cardId": 665,
       "initiative": 67,
       "actions": [
