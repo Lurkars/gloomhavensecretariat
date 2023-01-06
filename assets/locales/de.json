@@ -537,9 +537,11 @@
       "add": "Szenarien freischalten",
       "index": "Szenarionummern, kommasepariert"
     },
+    "openDoor": "Tür für Kachel '{0}' öffnen",
+    "openDoorMarker": "Tür %game.mapMarker.{1}% für Kachel '{0}' öffnen",
     "reset": "Szenario neustarten",
     "section": {
-      "add": "Sektion #{0}{1} öffnen?",
+      "add": "Sektion {1}#{0} öffnen?",
       "cancel": "Abbrechen",
       "confirm": "Bestätigen"
     },
@@ -638,6 +640,10 @@
       ".": "Autom. Vollbild AM-Deck",
       "hint": "Angrifssmodifikatordeck (und Beute Deck) auf kleinen Bildschirmen automatisch in Vollansicht öffnen"
     },
+    "automaticStandees": {
+      ".": "Automatische Aufsteller (%wip%)",
+      "hint": "Automatisches Hinzufügen von Aufstellern. (Automatische Aufsteller ist %wip% und steht bislang nicht in allen Edition zur Verfügung.)"
+    },
     "barsize": {
       ".": "Leistengröße",
       "dec": "Leistengröße verringern",
@@ -676,7 +682,7 @@
     },
     "disableStandees": {
       ".": "Aufsteller deaktivieren",
-      "hint": "Blende alle Aufsteller aus (falls Werte ausblenden aktiviert ist, müssen normale und elite Monster separat hinzugefügt werden)"
+      "hint": "Blende alle Aufsteller aus (falls Werte ausblenden aktiviert ist, müssen normale und elite Monster separat hinzugefügt werden). Dies deaktiviert auch das freischalten von Räumen und das automatische Hinzufügen von Aufstellern."
     },
     "dragValues": {
       ".": "Initiative/TP/XP/Beute ziehen",
@@ -764,6 +770,10 @@
     "scenarioNumberInput": {
       ".": "Numerische Szenario Eingabe",
       "hint": ""
+    },
+    "scenarioRooms": {
+      ".": "Szenario Räume (%wip%)",
+      "hint": "Freischalten einzelner Räume in einem Szenario. Wenn nicht ausgewählt, ist auch das automatische Hinzufügen von Aufstellern deaktiviert. (Räume freischalten ist %wip% und steht bislang nicht in allen Edition zur Verfügung.)"
     },
     "scenarioRules": {
       ".": "Szenario Regeln einblenden",
@@ -873,6 +883,8 @@
       "monsterConsumeElement": "{0} verbraucht {1}",
       "monsterInfuseElement": "{0} reichert {1} an",
       "nextRound": "Nächste Runde",
+      "openDoor": "Öffne Tür für Kachel '{2}' in #{0} {1}",
+      "openDoorMarker": "Öffne Tür %game.mapMarker.{3}% für Kachel '{2}' in #{0} {1}",
       "removeAbility": "Fertigkeit {1} von {0} entfernen",
       "removeAllChars": "Alle Charaktere entfernen",
       "removeAllMonster": "Alle Monster entfernen",

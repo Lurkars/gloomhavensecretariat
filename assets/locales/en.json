@@ -655,9 +655,11 @@
       "add": "Unlock Scenarios",
       "index": "Scenario number, commaseparated"
     },
+    "openDoor": "Open door for tile '{0}'",
+    "openDoorMarker": "Open door %game.mapMarker.{1}% for tile '{0}'",
     "reset": "Restart Scenario",
     "section": {
-      "add": "Open Section #{0}{1}?",
+      "add": "Open Section {1}#{0}?",
       "cancel": "Cancel",
       "confirm": "Confirm"
     },
@@ -756,6 +758,10 @@
       ".": "Autom. fullscreen AM Deck",
       "hint": "Open Attack Modifier Deck (and also Loot Deck) in fullscreen mode when on small devices."
     },
+    "automaticStandees": {
+      ".": "Automatic Standees (%wip%)",
+      "hint": "Automatic addition of standees. (Automatic standees is %wip% and not available for all editions yet.)"
+    },
     "barsize": {
       ".": "Barsize",
       "dec": "Decrease barsize",
@@ -793,7 +799,7 @@
     },
     "disableStandees": {
       ".": "Disable standees",
-      "hint": "Do not display standees (when Hide stats is set, add normal and elite monster separate) "
+      "hint": "Do not display standees (when Hide stats is set, add normal and elite monster separate). This also disables unlocking rooms and automatic standees."
     },
     "dragValues": {
       ".": "Drag Initiative/HP/XP/Loot",
@@ -881,6 +887,10 @@
     "scenarioNumberInput": {
       ".": "Scenario Number Input",
       "hint": ""
+    },
+    "scenarioRooms": {
+      ".": "Scenario Rooms (%wip%)",
+      "hint": "Unlocking of seperate rooms in a scenario. If not set, also disables automatic adding of standees. (Unlocking rooms is %wip% and not available for all editions yet.)"
     },
     "scenarioRules": {
       ".": "Show Scenario Rules",
@@ -992,6 +1002,8 @@
       "monsterConsumeElement": "{0} consume {1}",
       "monsterInfuseElement": "{0} infuse {1}",
       "nextRound": "Next Round",
+      "openDoor": "Open door for tile '{2}' in #{0} {1}",
+      "openDoorMarker": "Open door %game.mapMarker.{3}% for tile '{2}' in #{0} {1}",
       "removeAbility": "Remove ability {1} from {0}",
       "removeAllChars": "Remove all chars",
       "removeAllMonster": "Remove all monster",
