@@ -24,7 +24,8 @@
       <img class="standee" [src]="gameManager.monsterManager.monsterThumbnail(gameManager.toMonster(data.figure))" />
       {{'data.monster.' + data.figure.name | ghsLabel}}&nbsp;<span
         *ngIf="gameManager.toMonster(data.figure).isAlly">({{'game.ally' | ghsLabel}})&nbsp;</span>
-      <span class="standee-number" *ngIf="data.entity && gameManager.isMonsterEntity(data.entity)" (click)="toggleMonsterType()"
+      <span class="standee-number" *ngIf="data.entity && gameManager.isMonsterEntity(data.entity)"
+        (click)="toggleMonsterType()"
         [ngClass]="gameManager.toMonsterEntity(data.entity).type">#{{gameManager.toMonsterEntity(data.entity).number}}</span>
     </ng-container>
 
@@ -52,14 +53,14 @@
   <div *ngIf="!levelDialog" class="status-container">
     <div class="entity-container">
 
-      <div class="shield-action" *ngIf="gameManager.isMonster(data.figure) && +shieldAction().value > 0u">
+      <div class="shield-action" *ngIf="gameManager.isMonster(data.figure) && +shieldAction().value > 0">
         <ghs-action [action]="shieldAction()" [highlight]="true"></ghs-action>
       </div>
 
-      <div class="retaliate-action" *ngIf="gameManager.isMonster(data.figure) && +retaliateAction().value > 0u">
+      <div class="retaliate-action" *ngIf="gameManager.isMonster(data.figure) && +retaliateAction().value > 0">
         <ghs-action [action]="retaliateAction()" [highlight]="true"></ghs-action>
       </div>
-      <ng-container *ngIf="data.entity">
+      <ng-container *ngIf="data.entity && data.entity.maxHealth > 0">
         <span class="item">
           <a class="button" [ngClass]="{'disabled' : data.entity.health + health == 0}" (click)="changeHealth(-1)">
             <img class="ghs-svg" src="./assets/images/minus.svg">
@@ -113,7 +114,8 @@
         </ng-container>
       </ng-container>
 
-      <ng-container *ngIf="gameManager.isCharacter(data.figure) || gameManager.isMonster(data.figure)">
+      <ng-container
+        *ngIf="(gameManager.isCharacter(data.figure) || gameManager.isMonster(data.figure)) && (!data.entity || data.entity.maxHealth > 0)">
 
         <span class="item">
           <a class="button"
@@ -203,7 +205,7 @@
       </ng-container>
 
       <div class="marker-container">
-        <a class="summon" *ngIf="data.entity && gameManager.isMonsterEntity(data.entity)"
+        <a class="summon" *ngIf="data.entity && data.entity.maxHealth > 0 && gameManager.isMonsterEntity(data.entity)"
           [ngClass]="{'active' : gameManager.toMonsterEntity(data.entity).summon == SummonState.true, 'new' : gameManager.toMonsterEntity(data.entity).summon == SummonState.new }"
           (click)="toggleSummon()">
           <img src="./assets/images/summons/{{gameManager.toMonster(data.figure).summonColor}}.png">
@@ -272,7 +274,7 @@
             <img src="./assets/images/status/dead.svg" />
           </a>
         </span>
-        <span class="item max-health-container">
+        <span class="item max-health-container" *ngIf="data.entity.maxHealth > 0">
           <a class="button" (click)="changeMaxHealth(-1)">
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </a>
@@ -288,7 +290,7 @@
     </div>
 
     <ng-container
-      *ngIf="data.entity && (!gameManager.isObjective(data.entity) || gameManager.toObjective(data.entity).escort)">
+      *ngIf="data.entity && data.entity.maxHealth > 0 && (!gameManager.isObjective(data.entity) || gameManager.toObjective(data.entity).escort)">
       <ghs-conditions [entity]="data.entity" [figure]="data.figure" [type]="conditionType"></ghs-conditions>
     </ng-container>
   </div>

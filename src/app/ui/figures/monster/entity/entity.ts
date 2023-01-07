@@ -67,15 +67,15 @@ export class MonsterEntityComponent {
   }
 
   dragHpEnd(value: number) {
-    if (this.health != 0) {
+    if (this.health != 0 && this.entity.maxHealth > 0) {
       gameManager.stateManager.before("changeEntityHp", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + this.entity.number, "" + this.health);
       gameManager.entityManager.changeHealth(this.entity, this.health);
       if (this.entity.health <= 0 || this.entity.dead && this.health >= 0 && this.entity.health > 0) {
         this.dead();
       }
-      this.health = 0;
+      gameManager.stateManager.after();
     }
-    gameManager.stateManager.after();
+    this.health = 0;
   }
 
   doubleClick(event: any): void {

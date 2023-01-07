@@ -144,19 +144,20 @@ export class MonsterManager {
     }
     monster.entities.push(monsterEntity);
 
-    if (this.game.state == GameState.next) {
-      if (monster.ability == -1) {
-        if (!this.applySameDeck(monster)) {
-          monster.ability = 0;
-        } else if (monster.ability == -1) {
-          monster.ability = 0;
-        }
-      } else if (monster.entities.length == 1 && !this.applySameDeck(monster)) {
-        monster.ability = monster.ability + 1 + this.game.figures.filter((f) => f instanceof Monster && (f.name != monster.name || f.edition != monster.edition) && gameManager.deckData(f).name == gameManager.deckData(monster).name && gameManager.deckData(f).edition == gameManager.deckData(monster).edition && f.drawExtra && f.ability > -1).length;
+    if (this.game.state == GameState.next && monster.ability == -1) {
+      if (!this.applySameDeck(monster)) {
+        monster.ability = 0;
+        monster.lastDraw = this.game.round;
+      } else if (monster.ability == -1) {
+        monster.ability = 0;
+        monster.lastDraw = this.game.round;
+      }
+    } else if (monster.entities.length == 1 && !this.applySameDeck(monster) && monster.lastDraw < this.game.round) {
+      monster.ability = monster.ability + 1 + this.game.figures.filter((f) => f instanceof Monster && (f.name != monster.name || f.edition != monster.edition) && gameManager.deckData(f).name == gameManager.deckData(monster).name && gameManager.deckData(f).edition == gameManager.deckData(monster).edition && f.drawExtra && f.ability > -1).length;
+      monster.lastDraw = this.game.round;
 
-        if (monster.ability >= monster.abilities.length) {
-          this.shuffleAbilities(monster);
-        }
+      if (monster.ability >= monster.abilities.length) {
+        this.shuffleAbilities(monster);
       }
     }
 
@@ -271,6 +272,7 @@ export class MonsterManager {
     if (sameDeckMonster && gameManager.gameplayFigure(sameDeckMonster)) {
       monster.abilities = JSON.parse(JSON.stringify(sameDeckMonster.abilities));
       monster.ability = sameDeckMonster.ability;
+      monster.lastDraw = this.game.round;
 
       if (monster.drawExtra) {
         this.drawExtra(monster);
@@ -296,6 +298,7 @@ export class MonsterManager {
       if (monster.ability >= monster.abilities.length) {
         this.shuffleAbilities(monster);
       }
+      monster.lastDraw = this.game.round;
     } else {
       this.applySameDeck(monster);
     }
@@ -335,6 +338,7 @@ export class MonsterManager {
       if (figure instanceof Monster) {
         if (gameManager.gameplayFigure(figure)) {
           figure.ability = figure.ability + 1 + this.game.figures.filter((f) => f instanceof Monster && (f.name != figure.name || f.edition != figure.edition) && gameManager.deckData(f).name == gameManager.deckData(figure).name && gameManager.deckData(f).edition == gameManager.deckData(figure).edition && f.drawExtra && f.ability > -1).length;
+          figure.lastDraw = this.game.round;
 
           if (figure.ability >= figure.abilities.length) {
             this.shuffleAbilities(figure);

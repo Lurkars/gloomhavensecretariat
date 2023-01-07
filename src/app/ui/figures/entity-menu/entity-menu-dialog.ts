@@ -606,7 +606,7 @@ export class EntityMenuDialogComponent {
         this.maxHp = 0;
       }
 
-      if (this.data.entity.health <= 0 || this.data.entity.dead) {
+      if (this.data.entity.maxHealth > 0 && this.data.entity.health <= 0 || this.data.entity.dead) {
         this.dead();
       }
     }

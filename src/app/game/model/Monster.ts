@@ -14,6 +14,7 @@ export class Monster extends MonsterData implements Figure {
   off: boolean = false;
   active: boolean = false;
   drawExtra: boolean = false;
+  lastDraw: number = 0;
 
   getInitiative(): number {
     const ability: Ability | undefined = gameManager.monsterManager.getAbility(this);
@@ -69,7 +70,7 @@ export class Monster extends MonsterData implements Figure {
   }
 
   toModel(): GameMonsterModel {
-    return new GameMonsterModel(this.name, this.edition, this.level, this.off, this.active, this.drawExtra, this.ability, this.abilities, this.entities.map((value) => value.toModel()), this.isAlly)
+    return new GameMonsterModel(this.name, this.edition, this.level, this.off, this.active, this.drawExtra, this.lastDraw, this.ability, this.abilities, this.entities.map((value) => value.toModel()), this.isAlly)
   }
 
 
@@ -87,6 +88,7 @@ export class Monster extends MonsterData implements Figure {
     this.off = model.off;
     this.active = model.active;
     this.drawExtra = model.drawExtra;
+    this.lastDraw = model.lastDraw;
     this.abilities = model.abilities && model.abilities.length > 0 && model.abilities || gameManager.abilities(this) && gameManager.abilities(this).map((ability, index) => index) || [];
     this.ability = model.ability;
     this.entities = this.entities.filter((monsterEntity) => model.entities.map((gmem) => gmem.number).indexOf(monsterEntity.number) != -1);
@@ -109,6 +111,7 @@ export class GameMonsterModel {
   off: boolean;
   active: boolean;
   drawExtra: boolean;
+  lastDraw: number;
   ability: number;
   abilities: number[];
   entities: GameMonsterEntityModel[];
@@ -120,6 +123,7 @@ export class GameMonsterModel {
     off: boolean,
     active: boolean,
     drawExtra: boolean,
+    lastDraw: number,
     ability: number,
     abilities: number[],
     entities: GameMonsterEntityModel[],
@@ -130,6 +134,7 @@ export class GameMonsterModel {
     this.off = off;
     this.active = active;
     this.drawExtra = drawExtra;
+    this.lastDraw = lastDraw;
     this.ability = ability;
     this.abilities = abilities;
     this.entities = entities;

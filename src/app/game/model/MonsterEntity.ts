@@ -44,6 +44,9 @@ export class MonsterEntity implements Entity {
 
     this.maxHealth = EntityValueFunction(this.stat.health, monster.level);
     this.health = this.maxHealth;
+    if (this.health == 0) {
+      this.health = 1;
+    }
     this.level = monster.level;
   }
 
