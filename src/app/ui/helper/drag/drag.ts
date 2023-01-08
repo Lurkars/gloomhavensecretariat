@@ -30,7 +30,6 @@ export class DragClickComponent {
   }
 
   tap(event: any) {
-    console.log(event);
     if (this.clickBehind) {
       this.emitClickBehind(event.center.x, event.center.y);
     } else if (event.pointerType == "touch") {
