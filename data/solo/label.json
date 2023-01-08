@@ -156,7 +156,7 @@
   },
   "ko": {
     "edition": {
-      "solo": "1인용 시나리오 (모든 에디션)"
+      "solo": "1인용 시나리오"
     },
     "monster": {
       "bandit-archer-music-note-solo": "%data.monster.bandit-archer% (%data.character.music-note% %solo%)",
@@ -166,15 +166,15 @@
       "city-guard-scoundrel-solo": "%data.monster.city-guard% (%data.character.scoundrel% %solo%)",
       "city-guard-sun-solo": "%data.monster.city-guard% (%data.character.sun% %solo%)",
       "city-guard-tinkerer-solo": "%data.monster.city-guard% (%data.character.tinkerer% %solo%)",
-      "deep-earth": "Deep Earth",
+      "deep-earth": "깊은 대지",
       "earth-demon-diviner-solo": "%data.monster.earth-demon% (%data.character.diviner% %solo%)",
       "earth-demon-mindthief-solo": "%data.monster.earth-demon% (%data.character.mindthief% %solo%)",
-      "ghost-wolf": "Ghost Wolf",
+      "ghost-wolf": "유령 늑대",
       "giant-viper-angry-face-solo": "%data.monster.giant-viper% (%data.character.angry-face% %solo%)",
-      "high-flame": "High Flame",
-      "inox-necromancer": "Inox Necromancer",
-      "lieutenant": "Lieutenant",
-      "song-of-the-deep": "Song of the Deep",
+      "high-flame": "높은 화염",
+      "inox-necromancer": "이녹스 강령술사",
+      "lieutenant": "장교",
+      "song-of-the-deep": "심연의 노래",
       "stone-golem-scoundrel-solo": "%data.monster.stone-golem% (%data.character.scoundrel% %solo%)",
       "vermling-scout-mindthief-solo": "%data.monster.vermling-scout% (%data.character.mindthief% %solo%)"
     },
@@ -182,6 +182,25 @@
       "group": {
         "solo": "1인용 시나리오"
       },
+      "Return to the Black Barrow": "검은 무덤",
+      "An Unfortunate Intrusion": "유감스러운 침입",
+      "Corrupted Laboratory": "타락한 실험실",
+      "Armory Heist": "무기고 털이",
+      "Stone Defense": "바위 수호",
+      "Rodent Liberation": "설치류 해방",
+      "Caravan Escort": "상단 호위",
+      "Storage Fees": "보관료",
+      "Plane of Wild Beasts": "야생동물의 차원",
+      "Harvesting the Night": "어둠 수확",
+      "Plagued Crypt": "병든 묘지",
+      "Unnatural Insults": "자연을 거스르는 모욕",
+      "Battle of the Bards": "음유시인 대결",
+      "Corrupted Hunt": "타락자 사냥",
+      "Aftermath": "재앙의 여파",
+      "Elemental Secrets": "원소의 비밀",
+      "The Caged Bear": "우리에 갇힌 곰",
+      "The Sands of Time": "시간의 모래",
+      "Forecast of the Inevitable": "피할 수 없는 예측",
       "rules": {
         "gh": {
           "solo-2": {
