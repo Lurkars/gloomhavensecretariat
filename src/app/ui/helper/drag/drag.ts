@@ -32,7 +32,9 @@ export class DragClickComponent {
     if (this.clickBehind) {
       this.emitClickBehind(event.center.x, event.center.y);
     } else if (event.pointerType == "touch") {
-      this.singleClick.emit(event);
+      setTimeout(()=> {
+        this.singleClick.emit(event);
+      }, doubleClickTreshhold);
     } else {
       if (this.timeout) {
         clearTimeout(this.timeout);
