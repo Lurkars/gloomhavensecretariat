@@ -49,7 +49,10 @@ export class AbiltiesDialogComponent implements OnInit {
   }
 
   disgardedCards(): Ability[] {
-    return this.monster.abilities.filter((value, index) => index <= this.monster.ability).map((value) => gameManager.abilities(this.monster)[value]).reverse();
+    return [
+      ...this.monster.abilities.filter((value, index) => index <= this.monster.ability).map((value) => gameManager.abilities(this.monster)[value]).reverse(),
+      ...this.monster.abilities.filter((value, index) => index > this.monster.ability && index < gameManager.monsterManager.drawnAbilities(this.monster)).map((value) => gameManager.abilities(this.monster)[value])
+    ];
   }
 
   abilityIndex(ability: Ability) {

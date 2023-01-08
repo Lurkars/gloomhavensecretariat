@@ -23,22 +23,6 @@ export class ScenarioComponent {
     this.dialog.open(ScenarioDialogComponent, { panelClass: 'dialog' });
   }
 
-  openRooms(initial: boolean = false): RoomData[] {
-    if (!gameManager.game.scenario) {
-      return [];
-    }
-
-    return gameManager.game.scenario.rooms.filter((roomData) => gameManager.game.scenario && gameManager.game.scenario.revealedRooms.indexOf(roomData.roomNumber) != -1 && (initial || !roomData.initial));
-  }
-
-  closedRooms(): RoomData[] {
-    if (!gameManager.game.scenario) {
-      return [];
-    }
-
-    return gameManager.game.scenario.rooms.filter((roomData) => gameManager.game.scenario && gameManager.game.scenario.revealedRooms.indexOf(roomData.roomNumber) == -1 && this.openRooms(true).some((openRoomData) => openRoomData.doors.indexOf(roomData.roomNumber) != -1));
-  }
-
   openRoom(roomData: RoomData) {
     const scenario = gameManager.game.scenario;
     if (scenario) {
@@ -52,13 +36,6 @@ export class ScenarioComponent {
       gameManager.scenarioManager.openDoor(roomData, editionData, scenario);
       gameManager.stateManager.after();
     }
-  }
-
-  availableSections(): ScenarioData[] {
-    if (!gameManager.game.scenario) {
-      return [];
-    }
-    return gameManager.sectionData(gameManager.game.scenario.edition).filter((sectionData) => sectionData.edition == gameManager.game.scenario?.edition && sectionData.parent == gameManager.game.scenario.index && !gameManager.game.sections.find((active) => active.edition == sectionData.edition && active.index == sectionData.index));
   }
 
   addSection(sectionData: ScenarioData) {
@@ -106,22 +83,6 @@ export class ScenarioDialogComponent {
     gameManager.scenarioManager.setScenario(undefined);
     gameManager.stateManager.after(1000);
   }
-  
-  openRooms(initial: boolean = false): RoomData[] {
-    if (!gameManager.game.scenario) {
-      return [];
-    }
-
-    return gameManager.game.scenario.rooms.filter((roomData) => gameManager.game.scenario && gameManager.game.scenario.revealedRooms.indexOf(roomData.roomNumber) != -1 && (initial || !roomData.initial));
-  }
-
-  closedRooms(): RoomData[] {
-    if (!gameManager.game.scenario) {
-      return [];
-    }
-
-    return gameManager.game.scenario.rooms.filter((roomData) => gameManager.game.scenario && gameManager.game.scenario.revealedRooms.indexOf(roomData.roomNumber) == -1 && this.openRooms(true).some((openRoomData) => openRoomData.doors.indexOf(roomData.roomNumber) != -1));
-  }
 
   openRoom(roomData: RoomData) {
     const scenario = gameManager.game.scenario;
@@ -138,18 +99,17 @@ export class ScenarioDialogComponent {
     }
   }
 
-  availableSections(): ScenarioData[] {
-    if (!gameManager.game.scenario) {
-      return [];
-    }
-    return gameManager.sectionData(gameManager.game.scenario.edition).filter((sectionData) => sectionData.edition == gameManager.game.scenario?.edition && sectionData.parent == gameManager.game.scenario.index && !gameManager.game.sections.find((active) => active.edition == sectionData.edition && active.index == sectionData.index));
-  }
-
   addSection(sectionData: ScenarioData) {
     this.dialog.open(SectionDialogComponent,
       {
         panelClass: 'dialog',
         data: sectionData
+      }).closed.subscribe({
+        next: (added) => {
+          if (added) {
+            this.dialogRef.close();
+          }
+        }
       });
   }
 }
@@ -171,11 +131,11 @@ export class SectionDialogComponent {
     gameManager.stateManager.before("addSection", this.sectionData.index, "data.scenario." + this.sectionData.name, "data.edition." + this.sectionData.edition);
     gameManager.scenarioManager.addSection(this.sectionData);
     gameManager.stateManager.after();
-    this.dialogRef.close();
+    this.dialogRef.close(true);
   }
 
   cancel() {
-    this.dialogRef.close();
+    this.dialogRef.close(false);
   }
 }
 

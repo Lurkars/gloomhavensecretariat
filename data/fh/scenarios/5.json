@@ -1,0 +1,50 @@
+{
+  "index": "5",
+  "name": "Frozen Crypt",
+  "edition": "fh",
+  "monsters": [
+    "frozen-corpse",
+    "ice-wraith"
+  ],
+  "lootDeckConfig": {
+    "money": 6,
+    "lumber": 4,
+    "metal": 3,
+    "hide": 1,
+    "rockroot": 2,
+    "corpsecap": 2
+  },
+  "unlocks": [
+    "9",
+    "10"
+  ],
+  "blocks": [
+    "6"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "07-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "ice-wraith",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ice-wraith",
+          "type": "elite"
+        },
+        {
+          "name": "ice-wraith",
+          "player4": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

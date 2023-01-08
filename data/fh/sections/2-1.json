@@ -1,0 +1,43 @@
+{
+  "index": "2.1",
+  "name": "Howling in the Snow",
+  "edition": "fh",
+  "parent": "0",
+  "marker": "1",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "16-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "hound-scenario-0",
+          "player4": "elite"
+        },
+        {
+          "name": "hound-scenario-0",
+          "type": "normal"
+        },
+        {
+          "name": "hound-scenario-0",
+          "type": "normal"
+        },
+        {
+          "name": "hound-scenario-0",
+          "player4": "elite"
+        },
+        {
+          "name": "hound-scenario-0",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "hound-scenario-0",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

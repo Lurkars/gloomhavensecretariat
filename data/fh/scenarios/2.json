@@ -1,0 +1,63 @@
+{
+  "index": "2",
+  "name": "Algox Scouting",
+  "edition": "fh",
+  "monsters": [
+    "algox-archer",
+    "algox-guard",
+    "algox-priest",
+    "algox-scout"
+  ],
+  "allies": [
+    "algox-priest"
+  ],
+  "lootDeckConfig": {
+    "money": 4,
+    "lumber": 4,
+    "metal": 4,
+    "hide": 4,
+    "rockroot": 1,
+    "arrowvine": 2,
+    "random_item": 1
+  },
+  "unlocks": [
+    "4B"
+  ],
+  "blocks": [
+    "3",
+    "4A"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "11-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-guard",
+          "type": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-archer",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

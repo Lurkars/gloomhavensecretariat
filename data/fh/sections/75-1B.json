@@ -1,0 +1,30 @@
+{
+  "index": "75.1B",
+  "name": "Heart of Ice B",
+  "edition": "fh",
+  "parent": "4B",
+  "marker": "1",
+  "drawExtra": [
+    "snowdancer"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "15-A",
+      "initial": true,
+      "treasures": [
+        70
+      ],
+      "monster": [
+        {
+          "name": "frozen-fist",
+          "type": "boss"
+        },
+        {
+          "name": "snowdancer",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

@@ -63,7 +63,7 @@ export class MonsterAbilityCardComponent {
 
     return flipped && reveal;
   }
-  
+
   toggleEdit() {
     this.edit = !this.edit;
     setTimeout(() => {
@@ -94,7 +94,6 @@ export class MonsterAbilityCardComponent {
     gameManager.monsterManager.drawAbility(this.monster);
     gameManager.stateManager.after();
   }
-
 
   toggleDrawExtra() {
     if (this.monster.drawExtra) {

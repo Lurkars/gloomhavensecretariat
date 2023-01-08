@@ -1,0 +1,37 @@
+{
+    "index": "50",
+    "name": "Slow Turn",
+    "edition": "fc",
+    "parentSection": "14",
+    "marker": "b",
+    "monsters": [
+        "living-spirit"
+    ],
+    "rooms": [
+        {
+            "roomNumber": 2,
+            "ref": "b2b",
+            "initial": true,
+            "treasures": [
+                76,
+                85
+            ],
+            "monster": [
+                {
+                    "name": "living-spirit",
+                    "player2": "normal",
+                    "player3": "elite",
+                    "player4": "normal"
+                },
+                {
+                    "name": "living-spirit",
+                    "type": "normal"
+                },
+                {
+                    "name": "living-spirit",
+                    "player4": "elite"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+  "index": "6",
+  "name": "Avalanche",
+  "edition": "fh",
+  "monsters": [
+    "frost-demon",
+    "snow-imp"
+  ],
+  "lootDeckConfig": {
+    "money": 9,
+    "lumber": 4,
+    "metal": 1,
+    "hide": 1,
+    "snowthistle": 2,
+    "arrowvine": 2,
+    "axenut": 1
+  },
+  "unlocks": [
+    "11",
+    "12"
+  ],
+  "blocks": [
+    "5"
+  ]
+}

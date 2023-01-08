@@ -1,0 +1,69 @@
+{
+  "index": "5.3",
+  "name": "A Town in Flames",
+  "edition": "fh",
+  "parent": "1",
+  "marker": "1",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "13-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-archer",
+          "type": "elite"
+        },
+        {
+          "name": "algox-priest",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-priest",
+          "type": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard-scenario-1",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard-scenario-1",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard-scenario-1",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard-scenario-1",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "index": "30.2",
+  "name": "Algox Offensive",
+  "edition": "fh",
+  "parent": "3",
+  "marker": "1",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "04-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

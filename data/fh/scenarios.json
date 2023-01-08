@@ -3,6 +3,7 @@
     "index": "0",
     "name": "Howling in the Snow",
     "edition": "fh",
+    "initial": true,
     "monsters": [
       "hound-scenario-0"
     ],
@@ -17,6 +18,7 @@
     "index": "1",
     "name": "A Town in Flames",
     "edition": "fh",
+    "initial": true,
     "monsters": [
       "algox-archer",
       "algox-guard",

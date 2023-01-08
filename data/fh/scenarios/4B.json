@@ -1,0 +1,63 @@
+{
+  "index": "4B",
+  "name": "Heart of Ice B",
+  "edition": "fh",
+  "monsters": [
+    "frozen-fist",
+    "snowdancer",
+    "algox-archer",
+    "algox-guard"
+  ],
+  "drawExtra": [
+    "snowdancer"
+  ],
+  "lootDeckConfig": {
+    "money": 6,
+    "lumber": 3,
+    "metal": 5,
+    "hide": 2,
+    "rockroot": 2,
+    "corpsecap": 1,
+    "random_item": 1
+  },
+  "unlocks": [
+    "5",
+    "6",
+    "7",
+    "8"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "16-B",
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-archer",
+          "type": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

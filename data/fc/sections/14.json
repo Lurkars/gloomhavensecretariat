@@ -1,0 +1,39 @@
+{
+    "index": "14",
+    "name": "The Floor Moves",
+    "edition": "fc",
+    "parent": "100",
+    "marker": "b",
+    "monsters": [
+        "living-spirit",
+        "stone-golem"
+    ],
+    "rooms": [
+        {
+            "roomNumber": 2,
+            "ref": "d1a",
+            "initial": true,
+            "treasures": [
+                76,
+                85
+            ],
+            "monster": [
+                {
+                    "name": "stone-golem",
+                    "player2": "normal",
+                    "player3": "elite",
+                    "player4": "elite"
+                },
+                {
+                    "name": "living-spirit",
+                    "type": "normal"
+                },
+                {
+                    "name": "living-spirit",
+                    "player2": "normal",
+                    "player4": "normal"
+                }
+            ]
+        }
+    ]
+}

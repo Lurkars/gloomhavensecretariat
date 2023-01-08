@@ -1,0 +1,43 @@
+{
+  "index": "27.1",
+  "name": "Algox Scouting",
+  "edition": "fh",
+  "parent": "2",
+  "marker": "1",
+  "allies": [
+    "algox-priest"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "11-C",
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-priest",
+          "type": "normal"
+        },
+        {
+          "name": "algox-scout",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-archer",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

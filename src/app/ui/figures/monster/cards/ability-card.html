@@ -12,5 +12,6 @@
     <ghs-drag-click (singleClick)="openAbilities()" (doubleClick)="openAbility(true)" #dragClickSecond></ghs-drag-click>
   </ng-container>
 </div>
-<span class="left-abilities">{{monster.abilities.length - ( monster.ability >= 0 ? monster.ability + 1 :
-  0)}}</span>
+<span class="left-abilities">
+  {{this.monster.abilities.length - gameManager.monsterManager.drawnAbilities(this.monster)}}
+</span>

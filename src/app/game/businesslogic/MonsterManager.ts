@@ -49,7 +49,7 @@ export class MonsterManager {
     return stat;
   }
 
-  addMonsterByName(name: string, ally: boolean, editionData: EditionData): Monster | undefined {
+  addMonsterByName(name: string, editionData: EditionData): Monster | undefined {
     let level = gameManager.game.level;
     if (name.indexOf(':') != -1) {
       level = eval(gameManager.game.level + name.split(':')[1]);
@@ -65,9 +65,6 @@ export class MonsterManager {
 
     if (monsterData) {
       let monster = this.addMonster(monsterData, level);
-      if (ally) {
-        monster.isAlly = true;
-      }
       return monster;
     } else {
       console.error("Monster not found: '" + name + "'");
@@ -78,7 +75,7 @@ export class MonsterManager {
   addMonster(monsterData: MonsterData, level: number): Monster {
 
     if (!this.game.scenario) {
-      gameManager.scenarioManager.setScenario(new Scenario(new ScenarioData("", "", [], [], [], [], [], [], [], [], "", [], ""), [], true));
+      gameManager.scenarioManager.setScenario(new Scenario(new ScenarioData("", "", [], [], [], [], [], [], [], [], [], "", [], ""), [], true));
     }
 
     let monster: Monster | undefined = this.game.figures.find((figure) =>
@@ -144,20 +141,22 @@ export class MonsterManager {
     }
     monster.entities.push(monsterEntity);
 
-    if (this.game.state == GameState.next && monster.ability == -1) {
-      if (!this.applySameDeck(monster)) {
-        monster.ability = 0;
+    if (this.game.state == GameState.next) {
+      if (monster.ability == -1) {
+        if (!this.applySameDeck(monster)) {
+          monster.ability = 0;
+          monster.lastDraw = this.game.round;
+        } else if (monster.ability == -1) {
+          monster.ability = 0;
+          monster.lastDraw = this.game.round;
+        }
+      } else if (monster.entities.length == 1 && !this.applySameDeck(monster) && monster.lastDraw < this.game.round) {
+        monster.ability = monster.ability + 1 + this.game.figures.filter((f) => f instanceof Monster && (f.name != monster.name || f.edition != monster.edition) && gameManager.deckData(f).name == gameManager.deckData(monster).name && gameManager.deckData(f).edition == gameManager.deckData(monster).edition && f.drawExtra && f.ability > -1).length;
         monster.lastDraw = this.game.round;
-      } else if (monster.ability == -1) {
-        monster.ability = 0;
-        monster.lastDraw = this.game.round;
-      }
-    } else if (monster.entities.length == 1 && !this.applySameDeck(monster) && monster.lastDraw < this.game.round) {
-      monster.ability = monster.ability + 1 + this.game.figures.filter((f) => f instanceof Monster && (f.name != monster.name || f.edition != monster.edition) && gameManager.deckData(f).name == gameManager.deckData(monster).name && gameManager.deckData(f).edition == gameManager.deckData(monster).edition && f.drawExtra && f.ability > -1).length;
-      monster.lastDraw = this.game.round;
 
-      if (monster.ability >= monster.abilities.length) {
-        this.shuffleAbilities(monster);
+        if (monster.ability >= monster.abilities.length) {
+          this.shuffleAbilities(monster);
+        }
       }
     }
 
@@ -420,6 +419,20 @@ export class MonsterManager {
         }
       }
     })
+  }
+
+  drawnAbilities(monster: Monster): number {
+    let drawn = 0;
+    if (monster.ability >= 0) {
+      drawn = monster.ability + 1;
+    }
+    let other = gameManager.game.figures.find((figure) => figure instanceof Monster && (figure.name != monster.name || figure.edition != monster.edition) && gameManager.deckData(figure).name == gameManager.deckData(monster).name && gameManager.deckData(figure).edition == gameManager.deckData(monster).edition && figure.ability >= drawn);
+    while (other instanceof Monster) {
+      drawn = other.ability + 1;
+      other = gameManager.game.figures.find((figure) => figure instanceof Monster && (figure.name != monster.name || figure.edition != monster.edition) && gameManager.deckData(figure).name == gameManager.deckData(monster).name && gameManager.deckData(figure).edition == gameManager.deckData(monster).edition && figure.ability >= drawn);
+    }
+
+    return drawn;
   }
 
   getAbility(monster: Monster): Ability | undefined {

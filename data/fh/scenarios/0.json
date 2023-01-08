@@ -1,0 +1,43 @@
+{
+  "index": "0",
+  "name": "Howling in the Snow",
+  "edition": "fh",
+  "initial": true,
+  "monsters": [
+    "hound-scenario-0"
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 2,
+    "metal": 2,
+    "hide": 2
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "13-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "hound-scenario-0",
+          "player4": "normal"
+        },
+        {
+          "name": "hound-scenario-0",
+          "type": "normal"
+        },
+        {
+          "name": "hound-scenario-0",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "hound-scenario-0",
+          "player3": "elite",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

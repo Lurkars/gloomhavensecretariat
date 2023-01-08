@@ -1,0 +1,52 @@
+{
+  "index": "6.1",
+  "name": "Algox Scouting",
+  "edition": "fh",
+  "parent": "2",
+  "parentSection": "27.1",
+  "marker": "2",
+  "objectives": [
+    {
+      "name": "Ice Sheet",
+      "health": "(L+2)xC"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "14-B",
+      "initial": true,
+      "treasures": [
+        32
+      ],
+      "monster": [
+        {
+          "name": "algox-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-scout",
+          "type": "elite"
+        },
+        {
+          "name": "algox-scout",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

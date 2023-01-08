@@ -1,0 +1,58 @@
+{
+  "index": "1",
+  "name": "A Town in Flames",
+  "edition": "fh",
+  "initial": true,
+  "monsters": [
+    "algox-archer",
+    "algox-guard",
+    "algox-priest",
+    "city-guard-scenario-1"
+  ],
+  "allies": [
+    "city-guard-scenario-1"
+  ],
+  "lootDeckConfig": {
+    "money": 6,
+    "lumber": 5,
+    "metal": 3,
+    "hide": 3,
+    "rockroot": 1,
+    "snowthistle": 2
+  },
+  "unlocks": [
+    "2",
+    "3"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "09-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "algox-priest",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard-scenario-1",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

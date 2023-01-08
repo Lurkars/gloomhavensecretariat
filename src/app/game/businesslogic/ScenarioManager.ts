@@ -80,7 +80,13 @@ export class ScenarioManager {
     if (settingsManager.settings.disableStandees || !settingsManager.settings.scenarioRooms || !scenarioData.rooms || scenarioData.rooms.length == 0) {
       if (scenarioData.monsters) {
         scenarioData.monsters.forEach((name) => {
-          gameManager.monsterManager.addMonsterByName(name, scenarioData.allies && scenarioData.allies.indexOf(name) != -1, editionData);
+          let monster = gameManager.monsterManager.addMonsterByName(name, editionData);
+          if (monster && scenarioData.allies && scenarioData.allies.indexOf(name) != -1) {
+            monster.isAlly = true;
+          }
+          if (monster && scenarioData.drawExtra && scenarioData.drawExtra.indexOf(name) != -1) {
+            monster.drawExtra = true;
+          }
         });
       }
     } else {
@@ -148,22 +154,29 @@ export class ScenarioManager {
         }
 
         if (type) {
-          const monster = gameManager.monsterManager.addMonsterByName(monsterStandeeData.name, scenarioData.allies && scenarioData.allies.indexOf(monsterStandeeData.name) != -1, editionData);
+          let monster = gameManager.monsterManager.addMonsterByName(monsterStandeeData.name, editionData);
+          if (monster) {
+            if (scenarioData.allies && scenarioData.allies.indexOf(monster.name) != -1) {
+              monster.isAlly = true;
+            }
+            if (scenarioData.drawExtra && scenarioData.drawExtra.indexOf(monster.name) != -1) {
+              monster.drawExtra = true;
+            }
+            if (settingsManager.settings.automaticStandees && gameManager.monsterManager.monsterEntityCount(monster) < monster.count) {
+              let number = (monster.entities.length + 1) * -1;
 
-          if (monster && settingsManager.settings.automaticStandees && gameManager.monsterManager.monsterEntityCount(monster) < monster.count) {
-            let number = (monster.entities.length + 1) * -1;
-
-            if (settingsManager.settings.randomStandees) {
-              number = Math.floor(Math.random() * monster.count) + 1;
-              while (monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
+              if (settingsManager.settings.randomStandees) {
                 number = Math.floor(Math.random() * monster.count) + 1;
+                while (monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
+                  number = Math.floor(Math.random() * monster.count) + 1;
+                }
               }
-            }
-            if (monster.boss) {
-              type = MonsterType.boss;
-            }
+              if (monster.boss) {
+                type = MonsterType.boss;
+              }
 
-            gameManager.monsterManager.addMonsterEntity(monster, number, type);
+              gameManager.monsterManager.addMonsterEntity(monster, number, type);
+            }
           }
         }
       })
@@ -274,6 +287,30 @@ export class ScenarioManager {
     }
   }
 
+  availableSections(): ScenarioData[] {
+    if (!this.game.scenario) {
+      return [];
+    }
+
+    return gameManager.sectionData(this.game.scenario.edition).filter((sectionData) => (this.game.scenario && sectionData.edition == this.game.scenario.edition && sectionData.parent == this.game.scenario.index && !sectionData.parentSection || this.game.sections.find((active) => active.edition == sectionData.edition && active.index == sectionData.parentSection)) && !this.game.sections.find((active) => active.edition == sectionData.edition && active.index == sectionData.index));
+  }
+
+  openRooms(initial: boolean = false): RoomData[] {
+    if (!this.game.scenario) {
+      return [];
+    }
+
+    return this.game.scenario.rooms.filter((roomData) => this.game.scenario && this.game.scenario.revealedRooms.indexOf(roomData.roomNumber) != -1 && (initial || !roomData.initial));
+  }
+
+  closedRooms(): RoomData[] {
+    if (!this.game.scenario) {
+      return [];
+    }
+
+    return this.game.scenario.rooms.filter((roomData) => this.game.scenario && this.game.scenario.revealedRooms.indexOf(roomData.roomNumber) == -1 && this.openRooms(true).some((openRoomData) => openRoomData.doors.indexOf(roomData.roomNumber) != -1));
+  }
+
   scenarioUndoArgs(scenario: Scenario | undefined = undefined): string[] {
     scenario = scenario || gameManager.game.scenario;
     if (!scenario) {
@@ -285,7 +322,7 @@ export class ScenarioManager {
 
   scenarioDataForModel(model: GameScenarioModel): ScenarioData | undefined {
     if (model.isCustom) {
-      return new ScenarioData(model.custom, "", [], [], [], [], [], [], [], [], "", [], "");
+      return new ScenarioData(model.custom, "", [], [], [], [], [], [], [], [], [], "", [], "");
     }
 
     const scenarioData = gameManager.scenarioData().find((scenarioData) => scenarioData.index == model.index && scenarioData.edition == model.edition && scenarioData.group == model.group);
