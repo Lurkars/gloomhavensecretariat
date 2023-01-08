@@ -1,8 +1,2 @@
-<input class="drag-value-input" type="range" [min]="min" [max]="max" [step]="step" (click)="click($event)"
-  (touchstart)="touchstart($event)" (touchmove)="touchmove($event)" (touchend)="touchend($event)"
-  (touchcancel)="touchend($event)" (change)="change($event)" (input)="input($event)"
-  *ngIf="settingsManager.settings.dragValues">
-
-<div class="drag-value-click" *ngIf="!settingsManager.settings.dragValues" (click)="click($event)"
-  (touchstart)="touchstart($event)" (touchmove)="touchmove($event)" (touchend)="touchend($event)"
-  (touchcancel)="touchend($event)"></div>
+<div class="drag-value" (tap)="tap($event)" (press)="press($event)" (panstart)="panstart($event)"
+  (panmove)="panmove($event)" (panend)="panend($event)" (pancancel)="panend($event)"></div>

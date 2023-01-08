@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerGestureConfig, HammerModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DEFAULT_DIALOG_CONFIG, DialogModule } from '@angular/cdk/dialog';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -81,6 +81,7 @@ import { LootDeckDialogComponent } from './ui/figures/loot/loot-deck-dialog';
 import { LootDeckStandaloneComponent } from './ui/tools/standalone/loot-deck-standalone';
 import { AttackModifierStandaloneComponent } from './ui/tools/standalone/attackmodifier-standalone';
 import { LootApplyDialogComponent } from './ui/figures/loot/loot-apply-dialog';
+import 'hammerjs'
 
 @NgModule({
   declarations: [
@@ -122,6 +123,7 @@ import { LootApplyDialogComponent } from './ui/figures/loot/loot-apply-dialog';
     FormsModule,
     DragDropModule,
     DialogModule,
+    HammerModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: true, registrationStrategy: 'registerImmediately' })
   ],
   providers: [{ provide: DEFAULT_DIALOG_CONFIG, useValue: { autoFocus: 'dialog', hasBackdrop: true } }],

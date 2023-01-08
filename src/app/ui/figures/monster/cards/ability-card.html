@@ -3,11 +3,11 @@
   <div class="hover-effect initiative"></div>
   <div class="hover-effect title"></div>
   <ghs-ability [ability]="ability" [monster]="monster" [flipped]="flipped()" [highlightElements]="true"
-    (click)="dragClick.click($event)"></ghs-ability>
+    (click)="dragClick.tap($event)" (press)="dragClick.press($event)"></ghs-ability>
   <ghs-drag-click (singleClick)="openAbilities()" (doubleClick)="openAbility()" #dragClick></ghs-drag-click>
   <ng-container *ngIf="secondAbility">
     <ghs-ability [ability]="secondAbility" [monster]="monster" [flipped]="flipped()" [highlightElements]="true"
-      (click)="dragClickSecond.click($event)">
+      (click)="dragClickSecond.tap($event)" (press)="dragClickSecond.press($event)">
     </ghs-ability>
     <ghs-drag-click (singleClick)="openAbilities()" (doubleClick)="openAbility(true)" #dragClickSecond></ghs-drag-click>
   </ng-container>
