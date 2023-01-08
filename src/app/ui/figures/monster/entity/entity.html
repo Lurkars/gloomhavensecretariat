@@ -6,7 +6,8 @@
       <div class="background-image"
         [style.background-image]="'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'"></div>
       <span class="number">{{entity.number < 0 ? '?' : entity.number}}</span>
-          <span class="health" title="{{'game.health' | ghsLabel}}">{{entity.maxHealth > 0 ? (entity.health + health) : '-'}}
+          <span class="health" title="{{'game.health' | ghsLabel}}">{{entity.maxHealth > 0 ? (entity.health + health) :
+            '-'}}
             <span class="value-overlay" [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}"
               *ngIf="health"><span class="value">{{health |
                 ghsValueSign}}</span>
@@ -39,6 +40,6 @@
   </div>
 
   <ghs-drag-click class="drag-hp" (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)"
-    (singleClick)="openEntityMenu($event)" (doubleClick)="doubleClick($event)" [relative]="true">
+    (singleClick)="openEntityMenu($event)" (doubleClick)="doubleClick($event)" [relative]="true" [screenWidth]="true">
   </ghs-drag-click>
 </div>

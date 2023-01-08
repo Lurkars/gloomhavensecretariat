@@ -35,6 +35,6 @@
     <ghs-healthbar [entity]="summon" [diff]="health"></ghs-healthbar>
   </div>
 
-  <ghs-drag-click class="drag-hp" (dragMove)="dragHpMove($event)"
-    (dragEnd)="dragHpEnd($event)" [relative]="true" (singleClick)="open()"></ghs-drag-click>
+  <ghs-drag-click class="drag-hp" (singleClick)="open()" (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)"
+    [relative]="true" [screenWidth]="true"></ghs-drag-click>
 </div>

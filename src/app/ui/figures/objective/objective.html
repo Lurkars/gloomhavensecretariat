@@ -12,8 +12,8 @@
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round }">
   </ghs-drag-click>
 
-  <ghs-drag-click class="drag-hp" (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" [relative]="true"
-    (click)="openEntityMenu($event)"></ghs-drag-click>
+  <ghs-drag-click class="drag-hp" (click)="openEntityMenu($event)" (dragMove)="dragHpMove($event)"
+    (dragEnd)="dragHpEnd($event)" [relative]="true" [screenWidth]="true"></ghs-drag-click>
 
   <ghs-character-initiative [character]="objective"></ghs-character-initiative>
 

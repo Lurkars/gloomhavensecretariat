@@ -275,13 +275,5 @@
     width: calc(var(--ghs-unit) * 9 * var(--ghs-text-factor));
     height: 100%;
     z-index: 4;
-
-    &.dragging {
-      left: 50%;
-      bottom: 0;
-      height: 100%;
-      width: 100vw;
-      transform: translateX(-50%);
-    }
   }
 }

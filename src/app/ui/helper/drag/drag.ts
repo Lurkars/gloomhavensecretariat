@@ -12,6 +12,7 @@ export class DragClickComponent {
 
   @Input() clickBehind: boolean = false;
   @Input() relative: boolean = false;
+  @Input() screenWidth: boolean = false;
   @Input() min: number = 0;
   @Input() max: number = 99;
   @Output('dragMove') dragMove = new EventEmitter<number>();
@@ -32,9 +33,7 @@ export class DragClickComponent {
     if (this.clickBehind) {
       this.emitClickBehind(event.center.x, event.center.y);
     } else if (event.pointerType == "touch") {
-      setTimeout(()=> {
-        this.singleClick.emit(event);
-      }, doubleClickTreshhold);
+      this.singleClick.emit(event);
     } else {
       if (this.timeout) {
         clearTimeout(this.timeout);
@@ -49,13 +48,19 @@ export class DragClickComponent {
         }, doubleClickTreshhold);
       }
     }
+    if (event.srcEvent) {
+      event.srcEvent.preventDefault();
+      event.srcEvent.stopPropagation();
+    }
   }
 
   press(event: any) {
-    if (this.clickBehind) {
-      this.emitClickBehind(event.center.x, event.center.y);
-    } else {
+    if (event.pointerType == "touch") {
       this.doubleClick.emit(event);
+    }
+    if (event.srcEvent) {
+      event.srcEvent.preventDefault();
+      event.srcEvent.stopPropagation();
     }
   }
 
@@ -65,16 +70,28 @@ export class DragClickComponent {
       this.elementRef.nativeElement.classList.add('dragging');
       this.elementRef.nativeElement.firstChild.classList.add('dragging');
     }
+    if (event.srcEvent) {
+      event.srcEvent.preventDefault();
+      event.srcEvent.stopPropagation();
+    }
   }
 
   panmove(event: any) {
     if (settingsManager.settings.dragValues) {
       const rect = this.elementRef.nativeElement.getBoundingClientRect();
-      this.value = Math.min(99, Math.max(0, Math.floor((event.center.x - rect.left) / rect.width * 100)));
+      if (this.screenWidth) {
+        this.value = Math.min(99, Math.max(0, Math.floor(event.center.x / document.body.clientWidth * 100)));
+      } else {
+        this.value = Math.min(99, Math.max(0, Math.floor((event.center.x - rect.left) / rect.width * 100)));
+      }
       if (this.relative && this.relativeValue == -1) {
         this.relativeValue = this.value;
       }
       this.dragMove.emit(this.relative ? this.value - this.relativeValue : this.value);
+    }
+    if (event.srcEvent) {
+      event.srcEvent.preventDefault();
+      event.srcEvent.stopPropagation();
     }
   }
 
@@ -86,6 +103,10 @@ export class DragClickComponent {
       document.body.classList.remove('dragging');
       this.elementRef.nativeElement.classList.remove('dragging');
       this.elementRef.nativeElement.firstChild.classList.remove('dragging');
+    }
+    if (event.srcEvent) {
+      event.srcEvent.preventDefault();
+      event.srcEvent.stopPropagation();
     }
   }
 

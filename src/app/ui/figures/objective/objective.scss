@@ -70,15 +70,6 @@
     width: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor));
     height: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
     z-index: 4;
-
-
-    &.dragging {
-      left: 50%;
-      bottom: 0;
-      height: 100%;
-      width: 100vw;
-      transform: translateX(-50%);
-    }
   }
 
   .stats {

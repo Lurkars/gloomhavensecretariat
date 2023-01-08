@@ -81,14 +81,6 @@
       left: calc(var(--ghs-unit) * 73);
       width: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor));
     }
-
-    &.dragging {
-      left: 50%;
-      bottom: 0;
-      height: 100%;
-      width: 100vw;
-      transform: translateX(-50%);
-    }
   }
 
   ghs-highlight-conditions {

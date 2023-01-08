@@ -19,22 +19,21 @@
   </ghs-character-image>
 
   <ng-container *ngIf="!character.absent">
-    <ghs-drag-click *ngIf="!character.attackModifierDeckVisible"
-      class="drag-initiative" (dragMove)="dragInitiativeMove($event)" (dragEnd)="dragInitiativeEnd($event)"
-      (singleClick)="toggleFigure($event)" (doubleClick)="openInitiativeDialog($event)">
+    <ghs-drag-click *ngIf="!character.attackModifierDeckVisible" class="drag-initiative"
+      (dragMove)="dragInitiativeMove($event)" (dragEnd)="dragInitiativeEnd($event)" (singleClick)="toggleFigure($event)"
+      (doubleClick)="openInitiativeDialog($event)">
     </ghs-drag-click>
 
-    <ghs-drag-click *ngIf="!character.attackModifierDeckVisible" class="drag-hp"
-      (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" [relative]="true"
+    <ghs-drag-click *ngIf="!character.attackModifierDeckVisible" class="drag-hp" (dragMove)="dragHpMove($event)"
+      (dragEnd)="dragHpEnd($event)" [relative]="true" [screenWidth]="true"
       (singleClick)="openEntityMenu($event)"></ghs-drag-click>
 
-    <ghs-drag-click *ngIf="!character.attackModifierDeckVisible" class="drag-xp"
-      (dragMove)="dragXpMove($event)" (dragEnd)="dragXpEnd($event)" [relative]="true"
+    <ghs-drag-click *ngIf="!character.attackModifierDeckVisible" class="drag-xp" (dragMove)="dragXpMove($event)"
+      (dragEnd)="dragXpEnd($event)" [relative]="true" [screenWidth]="true"
       (singleClick)="openEntityMenu($event)"></ghs-drag-click>
 
-    <ghs-drag-click *ngIf="!character.attackModifierDeckVisible"
-      class="drag-loot" (dragMove)="dragLootMove($event)" (dragEnd)="dragLootEnd($event)" [relative]="true"
-      (singleClick)="openEntityMenu($event)">
+    <ghs-drag-click *ngIf="!character.attackModifierDeckVisible" class="drag-loot" (dragMove)="dragLootMove($event)"
+      (dragEnd)="dragLootEnd($event)" [relative]="true" [screenWidth]="true" (singleClick)="openEntityMenu($event)">
     </ghs-drag-click>
 
     <ghs-character-initiative [character]="character"></ghs-character-initiative>
