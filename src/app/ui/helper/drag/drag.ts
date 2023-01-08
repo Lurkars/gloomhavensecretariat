@@ -30,10 +30,13 @@ export class DragClickComponent {
   }
 
   tap(event: any) {
+    console.log(event);
     if (this.clickBehind) {
       this.emitClickBehind(event.center.x, event.center.y);
     } else if (event.pointerType == "touch") {
-      this.singleClick.emit(event);
+      setTimeout(() => {
+        this.singleClick.emit(event);
+      }, doubleClickTreshhold);
     } else {
       if (this.timeout) {
         clearTimeout(this.timeout);
@@ -48,6 +51,8 @@ export class DragClickComponent {
         }, doubleClickTreshhold);
       }
     }
+
+    event.preventDefault();
     if (event.srcEvent) {
       event.srcEvent.preventDefault();
       event.srcEvent.stopPropagation();
@@ -70,6 +75,7 @@ export class DragClickComponent {
       this.elementRef.nativeElement.classList.add('dragging');
       this.elementRef.nativeElement.firstChild.classList.add('dragging');
     }
+    event.preventDefault();
     if (event.srcEvent) {
       event.srcEvent.preventDefault();
       event.srcEvent.stopPropagation();
@@ -89,6 +95,7 @@ export class DragClickComponent {
       }
       this.dragMove.emit(this.relative ? this.value - this.relativeValue : this.value);
     }
+    event.preventDefault();
     if (event.srcEvent) {
       event.srcEvent.preventDefault();
       event.srcEvent.stopPropagation();
@@ -104,6 +111,7 @@ export class DragClickComponent {
       this.elementRef.nativeElement.classList.remove('dragging');
       this.elementRef.nativeElement.firstChild.classList.remove('dragging');
     }
+    event.preventDefault();
     if (event.srcEvent) {
       event.srcEvent.preventDefault();
       event.srcEvent.stopPropagation();
