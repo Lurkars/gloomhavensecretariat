@@ -537,8 +537,30 @@
       "add": "Szenarien freischalten",
       "index": "Szenarionummern, kommasepariert"
     },
-    "openDoor": "Tür für Kachel '{0}' öffnen",
-    "openDoorMarker": "Tür %game.mapMarker.{1}% für Kachel '{0}' öffnen",
+    "openRoom": "Raum für Kachel '{0}' öffnen",
+    "openRoomMarker": "Raum %game.mapMarker.{1}% für Kachel '{0}' öffnen",
+    "rules": {
+      "addSection": "Sektion #{0} {1} öffnen",
+      "addSectionMarker": "Sektion %game.mapMarker.{2}% #{0} {1} öffnen",
+      "apply": "Anwenden",
+      "dismiss": "Schließen",
+      "figures": {
+        "all": "Alle Figuren",
+        "damage": "{0} erleiden %game.damage:{1}%",
+        "gainCondition": "{0} erlangt %game.condition.{1}%",
+        "hp": "{0} TP auf {1}",
+        "looseCondition": "{0} loose %game.condition.{1}%",
+        "toggleOff": "{0} inaktiv setzen",
+        "toggleOn": "{0} aktiv setzen",
+        "transfer": "{0} wird zu %data.monster.{1}%"
+      },
+      "lost": "Szenario verloren!",
+      "openRoom": "Raum öffnen",
+      "openRoomMarker": "Raum %game.mapMarker.{0}% öffnen",
+      "spawn": "Füge {2}%data.monster.{0}% (%game.monsterType.{1}%) hinzu",
+      "spawnMarker": "Füge {2}%data.monster.{0}% (%game.monsterType.{1}%) an %game.mapMarker.{3}% hinzu",
+      "won": "Szenario erfolgreich!"
+    },
     "reset": "Szenario neustarten",
     "section": {
       "add": "Sektion {1}#{0} öffnen?",
@@ -777,7 +799,7 @@
     },
     "scenarioRules": {
       ".": "Szenario Regeln einblenden",
-      "hint": "Zeigt Popup-Fenster mit speziellen Szenario Regeln an"
+      "hint": "Zeigt Popup-Fenster mit speziellen Szenario Regeln an und wendet diese optional an"
     },
     "theme": {
       ".": "Theme",
@@ -829,6 +851,7 @@
         "objective": "{1} anwenden auf {0}",
         "summon": "{2} anwenden auf '{1}' von {0}"
       },
+      "applyScenarioRule": "Szenario Regel anwenden",
       "buyItem": "Gegenstand {1} (%data.edition.{2}%) für {0} kaufen",
       "cancelScenario": "Szenario #{0} {1} ({2}) abbrechen",
       "changeCustomScenario": "Namen '{0}' fpr benutzerdefiniertes Szenario",
@@ -883,8 +906,8 @@
       "monsterConsumeElement": "{0} verbraucht {1}",
       "monsterInfuseElement": "{0} reichert {1} an",
       "nextRound": "Nächste Runde",
-      "openDoor": "Öffne Tür für Kachel '{2}' in #{0} {1}",
-      "openDoorMarker": "Öffne Tür %game.mapMarker.{3}% für Kachel '{2}' in #{0} {1}",
+      "openRoom": "Öffne Raum für Kachel '{2}' in #{0} {1}",
+      "openRoomMarker": "Öffne Raum %game.mapMarker.{3}% für Kachel '{2}' in #{0} {1}",
       "removeAbility": "Fertigkeit {1} von {0} entfernen",
       "removeAllChars": "Alle Charaktere entfernen",
       "removeAllMonster": "Alle Monster entfernen",

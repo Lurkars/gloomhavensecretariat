@@ -655,9 +655,31 @@
       "add": "Unlock Scenarios",
       "index": "Scenario number, commaseparated"
     },
-    "openDoor": "Open door for tile '{0}'",
-    "openDoorMarker": "Open door %game.mapMarker.{1}% for tile '{0}'",
+    "openRoom": "Open door for tile '{0}'",
+    "openRoomMarker": "Open door %game.mapMarker.{1}% for tile '{0}'",
     "reset": "Restart Scenario",
+    "rules": {
+      "addSection": "Open Section #{0} {1}",
+      "addSectionMarker": "Open Section %game.mapMarker.{2}% #{0} {1}",
+      "apply": "Apply",
+      "dismiss": "Dismiss",
+      "figures": {
+        "all": "All figures",
+        "damage": "{0} suffer %game.damage:{1}%",
+        "gainCondition": "{0} gain %game.condition.{1}%",
+        "hp": "{0} HP to {1}",
+        "looseCondition": "{0} loose %game.condition.{1}%",
+        "toggleOff": "{0} to inactive",
+        "toggleOn": "{0} to active",
+        "transfer": "{0} become %data.monster.{1}%"
+      },
+      "lost": "Scenario lost!",
+      "openRoom": "Open door",
+      "openRoomMarker": "Open door %game.mapMarker.{0}%",
+      "spawn": "Spawn {2}%game.monsterType.{1}% %data.monster.{0}%",
+      "spawnMarker": "Spawn {2}%game.monsterType.{1}% %data.monster.{0}% at %game.mapMarker.{3}%",
+      "won": "Scenario won!"
+    },
     "section": {
       "add": "Open Section {1}#{0}?",
       "cancel": "Cancel",
@@ -894,7 +916,7 @@
     },
     "scenarioRules": {
       ".": "Show Scenario Rules",
-      "hint": "Show popup windows about special scenario rules"
+      "hint": "Show popup windows about special scenario rules and optional apply them"
     },
     "theme": {
       ".": "Theme",
@@ -946,6 +968,7 @@
         "objective": "Apply {1} to {0}",
         "summon": "Apply {2} to '{1}' of {0}"
       },
+      "applyScenarioRule": "Apply scenario rule",
       "buyItem": "Buy Item {1} (%data.edition.{2}%) for {0}",
       "cancelScenario": "Cancel Scenario #{0} {1} ({2})",
       "changeCustomScenario": "Name '{0}' for custom scenario",
@@ -1002,8 +1025,8 @@
       "monsterConsumeElement": "{0} consume {1}",
       "monsterInfuseElement": "{0} infuse {1}",
       "nextRound": "Next Round",
-      "openDoor": "Open door for tile '{2}' in #{0} {1}",
-      "openDoorMarker": "Open door %game.mapMarker.{3}% for tile '{2}' in #{0} {1}",
+      "openRoom": "Open door for tile '{2}' in #{0} {1}",
+      "openRoomMarker": "Open door %game.mapMarker.{3}% for tile '{2}' in #{0} {1}",
       "removeAbility": "Remove ability {1} from {0}",
       "removeAllChars": "Remove all chars",
       "removeAllMonster": "Remove all monster",
