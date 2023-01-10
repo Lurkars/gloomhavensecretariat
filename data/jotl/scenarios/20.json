@@ -1,0 +1,11 @@
+{
+  "index": "20",
+  "name": "Misplaced Goods",
+  "edition": "jotl",
+  "monsters": [
+    "black-sludge",
+    "chaos-demon",
+    "giant-viper",
+    "rat-monstrosity"
+  ]
+}

@@ -21,16 +21,60 @@
   ],
   "rules": [
     {
-      "round": "R % 4 == 1"
+      "round": "R % 4 == 1",
+      "spawns": [
+        {
+          "monster": {
+            "name": "flame-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
     },
     {
-      "round": "R % 4 == 2"
+      "round": "R % 4 == 2",
+      "spawns": [
+        {
+          "monster": {
+            "name": "earth-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
     },
     {
-      "round": "R % 4 == 3"
+      "round": "R % 4 == 3",
+      "spawns": [
+        {
+          "monster": {
+            "name": "frost-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
     },
     {
-      "round": "R % 4 == 0"
+      "round": "R % 4 == 0",
+      "spawns": [
+        {
+          "monster": {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "d"
+        }
+      ]
     }
   ],
   "requires": [
@@ -81,7 +125,7 @@
           "type": "elite"
         }
       ],
-      "doors": [
+      "rooms": [
         2
       ]
     },

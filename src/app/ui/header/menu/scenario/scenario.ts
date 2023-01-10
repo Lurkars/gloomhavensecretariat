@@ -26,7 +26,7 @@ export class ScenarioMenuComponent implements OnInit {
       // edition of last scenario
       !gameManager.game.edition && (!gameManager.game.scenario || !gameManager.game.scenario.custom) && gameManager.game.party.scenarios.length > 0 && gameManager.game.party.scenarios[gameManager.game.party.scenarios.length - 1].edition ||
       // set edition or first
-      (gameManager.game.edition || gameManager.editions()[0]);
+      gameManager.currentEdition();;
   }
 
   editions(): string[] {

@@ -1,0 +1,41 @@
+{
+    "index": "106",
+    "name": "Strangler’s Park",
+    "edition": "fc",
+    "parent": "111",
+    "parentSections": [
+        "67",
+        "132"
+    ],
+    "marker": "3",
+    "rooms": [
+        {
+            "roomNumber": 5,
+            "ref": "h2b",
+            "initial": true,
+            "treasures": [
+                92
+            ],
+            "monster": [
+                {
+                    "name": "vermling-shaman",
+                    "player2": "normal",
+                    "player3": "normal",
+                    "player4": "elite"
+                },
+                {
+                    "name": "harrower-infester",
+                    "player2": "normal",
+                    "player3": "elite",
+                    "player4": "elite"
+                },
+                {
+                    "name": "harrower-infester",
+                    "player2": "normal",
+                    "player3": "normal",
+                    "player4": "elite"
+                }
+            ]
+        }
+    ]
+}

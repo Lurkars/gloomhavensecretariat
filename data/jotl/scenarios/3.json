@@ -1,0 +1,12 @@
+{
+  "index": "3",
+  "name": "The Black Ship",
+  "edition": "jotl",
+  "monsters": [
+    "basic-giant-viper",
+    "basic-zealot"
+  ],
+  "unlocks": [
+    "4"
+  ]
+}

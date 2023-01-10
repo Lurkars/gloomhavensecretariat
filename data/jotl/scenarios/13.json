@@ -1,0 +1,13 @@
+{
+  "index": "13",
+  "name": "Vile Harvest",
+  "edition": "jotl",
+  "monsters": [
+    "black-sludge",
+    "blood-imp",
+    "zealot"
+  ],
+  "unlocks": [
+    "15"
+  ]
+}

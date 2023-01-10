@@ -1,0 +1,13 @@
+{
+  "index": "14",
+  "name": "Toxic Harvest",
+  "edition": "jotl",
+  "monsters": [
+    "blood-imp",
+    "giant-viper",
+    "zealot"
+  ],
+  "unlocks": [
+    "15"
+  ]
+}

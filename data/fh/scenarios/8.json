@@ -1,0 +1,59 @@
+{
+  "index": "8",
+  "name": "Crystal Trench",
+  "edition": "fh",
+  "monsters": [
+    "hound",
+    "polar-bear",
+    "snow-imp"
+  ],
+  "lootDeckConfig": {
+    "money": 6,
+    "lumber": 5,
+    "hide": 5,
+    "axenut": 1,
+    "arrowvine": 1,
+    "snowthistle": 1
+  },
+  "unlocks": [
+    "13",
+    "14"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "11-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "snow-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "type": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "type": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "type": "normal"
+        },
+        {
+          "name": "polar-bear",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

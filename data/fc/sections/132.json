@@ -1,0 +1,41 @@
+{
+    "index": "132",
+    "name": "Near the Gates",
+    "edition": "fc",
+    "parent": "111",
+    "parentSections": [
+        "81", "106"
+    ],
+    "marker": "4",
+    "rooms": [
+        {
+            "roomNumber": 6,
+            "ref": "a3b",
+            "initial": true,
+            "monster": [
+                {
+                    "name": "black-imp",
+                    "player2": "normal",
+                    "player3": "elite",
+                    "player4": "normal"
+                },
+                {
+                    "name": "black-imp",
+                    "player2": "normal",
+                    "player4": "normal"
+                },
+                {
+                    "name": "night-demon",
+                    "player3": "normal",
+                    "player4": "normal"
+                },
+                {
+                    "name": "aesther-scout",
+                    "player2": "normal",
+                    "player3": "normal",
+                    "player4": "elite"
+                }
+            ]
+        }
+    ]
+}

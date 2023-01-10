@@ -33,11 +33,11 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - **Character Attack Modifier Deck** including perks
   - **Elements** automatic update state
   - **Monster Stats**
-  - **Monster Standees** automatic add standees for scenario rooms/sections (this is WIP)
+  - **Monster Standees** automatic add standees for scenario rooms/sections and special rules (rooms/sections data WIP)
   - **Monster Modifier Deck** addition of **Blesses** and **Curses**, auto-shuffling
   - **Monster Ability Cards** auto-shuffling, calculated values (separated for normal and elite)
   - **Character Summons**
-  - **Scenarios** and **Sections** with automatic level calculation, special rules reminder and scenario finish for applying character progress
+  - **Scenarios** and **Sections** with automatic level calculation, remind and apply special rules and scenario finish for applying character progress
   - **Party Sheet**
   - **Campaign Management** (special Rules for CS and FH missing)
   - **Markers**

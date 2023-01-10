@@ -1,8 +1,61 @@
 <div class="rules-dialog">
-  <div class="rule dialog" #ruleElement *ngFor="let rule of gameManager.game.scenarioRules; let index = index;"
-    (click)="close(ruleElement, index)">
-    <p
-      [i18n]="'data.' + (rule.section ? 'section' : 'scenario') + '.rules.' + rule.edition + '.' + (rule.group ? rule.group + '-' : '') +  rule.scenario + '.' + rule.index">
-    </p>
-  </div>
+  <ng-container *ngFor="let ruleModel of gameManager.game.scenarioRules; let index = index;">
+    <div class="rule dialog" #ruleElement>
+      <div class="spawns" *ngIf="spawns(ruleModel.rule).length > 0">
+        <ng-container *ngFor="let spawn of spawns(ruleModel.rule); let i = index">
+          <span class="and" *ngIf="i > 0" [i18n]="'and'"></span>
+          <span class="text-white text" [i18n]="spawn.marker ? 'scenario.rules.spawnMarker' : 'scenario.rules.spawn'"
+            [i18n-args]="[spawn.monster.name, spawnType(spawn.monster) || '', spawn.count ? spawn.count + ' ' : '', spawn.marker]"></span>
+          <input type="number" *ngIf="spawn.manual" [(ngModel)]="spawn.count" min="0" [value]="spawn.count || 1">
+        </ng-container>
+      </div>
+      <div class="elements" *ngIf="ruleModel.rule.elements && ruleModel.rule.elements.length > 0">
+        <ng-container *ngFor="let element of ruleModel.rule.elements; let i = index">
+          <span class="and" *ngIf="i > 0">,</span>
+          <span class="element">
+            <ghs-element-icon [element]="element"></ghs-element-icon>
+            <span>{{'game.element.' + element.type | ghsLabel}}</span>
+            <span>{{'game.element.state.' + element.state | ghsLabel}}</span>
+          </span>
+        </ng-container>
+      </div>
+      <div class="sections rooms" *ngIf="rooms(index).length > 0">
+        <ng-container *ngFor="let roomData of rooms(index); let i = index">
+          <span class="and" *ngIf="i > 0">,</span>
+          <span class="section room">
+            <img class="ghs-svg" src="./assets/images/door.svg">
+            <span class="text-white"
+              [i18n]="roomData.marker ? 'scenario.rules.openRoomMarker' : 'scenario.rules.openRoom'"
+              [i18n-args]="[roomData.marker || '']"></span>
+          </span>
+        </ng-container>
+      </div>
+      <div class="sections" *ngIf="sections(index).length > 0">
+        <ng-container *ngFor="let sectionData of sections(index); let i = index">
+          <span class="and" *ngIf="i > 0">,</span>
+          <span class="section">
+            <img class="ghs-svg" src="./assets/images/lock.svg">
+            <span class="text-white"
+              [i18n]="sectionData.marker ? 'scenario.rules.addSectionMarker' : 'scenario.rules.addSection'"
+              [i18n-args]="[sectionData.index, 'data.section.' + sectionData.name, sectionData.marker || '']"></span>
+          </span>
+        </ng-container>
+      </div>
+      <p *ngIf="ruleModel.rule.note" class="text-white" [i18n]="ruleModel.rule.note"></p>
+      <div class="figures" *ngIf="figureRules(ruleModel.rule).length > 0">
+        <ng-container *ngFor="let figureRule of figureRules(ruleModel.rule);">
+          <span class="text-white" [i18n]="'scenario.rules.figures.' + figureRule.type"
+            [i18n-args]="[figureNames(figureRule.identifier), figureRule.value || '']"></span>
+        </ng-container>
+      </div>
+      <p *ngIf="ruleModel.rule.finish" class="text-white" [i18n]="'scenario.rules.' + ruleModel.rule.finish"></p>
+      <div class="menu" *ngIf="apply(ruleModel.rule)">
+        <a class="apply" (click)="applyRule(ruleElement, index)">
+          {{'scenario.rules.apply' | ghsLabel}}
+          <img src="./assets/images/check.svg">
+        </a>
+      </div>
+      <div class="close" (click)="close(ruleElement, index)" [title]="'scenario.rules.dismiss' | ghsLabel"></div>
+    </div>
+  </ng-container>
 </div>

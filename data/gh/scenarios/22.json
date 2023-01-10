@@ -46,7 +46,7 @@
       "roomNumber": 1,
       "ref": "b2b",
       "initial": true,
-      "doors": [
+      "rooms": [
         2
       ],
       "monster": [
@@ -68,7 +68,7 @@
       "roomNumber": 2,
       "marker": "1",
       "ref": "m1a",
-      "doors": [
+      "rooms": [
         3,
         4,
         5,

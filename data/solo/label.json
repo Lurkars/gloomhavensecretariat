@@ -26,13 +26,6 @@
     "scenario": {
       "group": {
         "solo": "Solo Scenarios"
-      },
-      "rules": {
-        "gh": {
-          "solo-2": {
-            "1": "Spawn four normal Vermling Scouts at %game.mapMarker.a%"
-          }
-        }
       }
     },
     "custom": {
@@ -200,14 +193,7 @@
       "Elemental Secrets": "원소의 비밀",
       "The Caged Bear": "우리에 갇힌 곰",
       "The Sands of Time": "시간의 모래",
-      "Forecast of the Inevitable": "피할 수 없는 예측",
-      "rules": {
-        "gh": {
-          "solo-2": {
-            "1": "Spawn four normal Vermling Scouts at %game.mapMarker.a%"
-          }
-        }
-      }
+      "Forecast of the Inevitable": "피할 수 없는 예측"
     },
     "custom": {
       "solo": {

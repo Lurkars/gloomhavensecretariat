@@ -59,7 +59,7 @@
           "player4": "normal"
         }
       ],
-      "doors": [
+      "rooms": [
         2,
         3
       ]

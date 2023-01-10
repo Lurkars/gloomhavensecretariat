@@ -3,7 +3,9 @@
   "name": "Algox Offensive",
   "edition": "fh",
   "parent": "3",
-  "parentSection": "30.2",
+  "parentSections": [
+    "30.2"
+  ],
   "marker": "2",
   "rooms": [
     {

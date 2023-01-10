@@ -12,7 +12,29 @@
   "rules": [
     {
       "round": "true",
-      "start": true
+      "start": true,
+      "elements": [
+        {
+          "type": "light",
+          "state": "strong"
+        },
+        {
+          "type": "dark",
+          "state": "strong"
+        },
+        {
+          "type": "fire",
+          "state": "inert"
+        },
+        {
+          "type": "ice",
+          "state": "inert"
+        },
+        {
+          "type": "earth",
+          "state": "inert"
+        }
+      ]
     }
   ],
   "rooms": [
@@ -20,7 +42,7 @@
       "roomNumber": 1,
       "ref": "j2a",
       "initial": true,
-      "doors": [
+      "rooms": [
         2
       ],
       "treasures": [
@@ -70,7 +92,7 @@
     {
       "roomNumber": 2,
       "ref": "j1a",
-      "doors": [
+      "rooms": [
         3
       ],
       "treasures": [

@@ -1,0 +1,14 @@
+{
+  "index": "10",
+  "name": "The Gauntlet",
+  "edition": "jotl",
+  "monsters": [
+    "black-sludge",
+    "chaos-demon",
+    "stone-golem"
+  ],
+  "unlocks": [
+    "11",
+    "12"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "index": "11",
+  "name": "Defiled Sewers",
+  "edition": "jotl",
+  "monsters": [
+    "black-sludge",
+    "giant-viper",
+    "vermling-scout"
+  ],
+  "unlocks": [
+    "13",
+    "19"
+  ],
+  "blocks": [
+    "12"
+  ]
+}

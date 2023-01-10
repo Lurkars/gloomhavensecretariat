@@ -48,7 +48,7 @@ export class ObjectiveComponent {
   }
 
   maxHealth(): number {
-    return EntityValueFunction(this.objective.maxHealth + "");
+    return EntityValueFunction(this.objective.maxHealth);
   }
 
   toggleFigure(): void {
@@ -96,7 +96,7 @@ export class ObjectiveComponent {
     const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
     this.health = Math.floor(value / dragFactor);
     if (this.objective.health + this.health > this.objective.maxHealth) {
-      this.health = EntityValueFunction("" + this.objective.maxHealth) - this.objective.health;
+      this.health = EntityValueFunction(this.objective.maxHealth) - this.objective.health;
     } else if (this.objective.health + this.health < 0) {
       this.health = - this.objective.health;
     }

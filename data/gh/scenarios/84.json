@@ -22,7 +22,7 @@
       "roomNumber": 1,
       "ref": "l2a",
       "initial": true,
-      "doors": [
+      "rooms": [
         2,
         3,
         4

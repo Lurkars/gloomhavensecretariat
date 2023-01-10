@@ -23,7 +23,7 @@
       "roomNumber": 1,
       "ref": "m1a",
       "initial": true,
-      "doors": [
+      "rooms": [
         2,
         5
       ],
@@ -62,7 +62,7 @@
     {
       "roomNumber": 2,
       "ref": "d2a",
-      "doors": [
+      "rooms": [
         3
       ],
       "monster": [
@@ -83,7 +83,7 @@
     {
       "roomNumber": 3,
       "ref": "d1a",
-      "doors": [
+      "rooms": [
         4
       ],
       "monster": [
@@ -117,7 +117,7 @@
     {
       "roomNumber": 5,
       "ref": "k2b",
-      "doors": [
+      "rooms": [
         6
       ],
       "monster": [
@@ -158,7 +158,7 @@
     {
       "roomNumber": 6,
       "ref": "c1a",
-      "doors": [
+      "rooms": [
         7
       ],
       "monster": [

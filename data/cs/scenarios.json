@@ -185,7 +185,24 @@
     ],
     "rules": [
       {
-        "round": "R == 1"
+        "round": "R == 1",
+        "note": "%data.scenario.rules.cs.11.1%",
+        "spawns": [
+          {
+            "count": "[C]",
+            "monster": {
+              "name": "inox-guard",
+              "type": "normal"
+            }
+          },
+          {
+            "count": "[C]",
+            "monster": {
+              "name": "inox-archer",
+              "type": "elite"
+            }
+          }
+        ]
       }
     ],
     "unlocks": [
@@ -239,34 +256,197 @@
     ],
     "rules": [
       {
-        "round": "R == 1"
+        "round": "R == 1",
+        "spawns": [
+          {
+            "monster": {
+              "name": "hound",
+              "player2": "normal",
+              "player3": "elite",
+              "plaxer4": "elite"
+            },
+            "marker": "a"
+          }
+        ]
       },
       {
-        "round": "R == 2"
+        "round": "R == 2",
+        "spawns": [
+          {
+            "monster": {
+              "name": "cave-bear",
+              "player2": "normal",
+              "player3": "normal",
+              "plaxer4": "elite"
+            },
+            "marker": "c"
+          }
+        ]
       },
       {
-        "round": "R == 3"
+        "round": "R == 3",
+        "spawns": [
+          {
+            "monster": {
+              "name": "giant-viper",
+              "player2": "normal",
+              "player3": "elite",
+              "plaxer4": "elite"
+            },
+            "marker": "b"
+          },
+          {
+            "monster": {
+              "name": "rending-drake",
+              "player2": "normal",
+              "player3": "normal",
+              "plaxer4": "elite"
+            },
+            "marker": "d"
+          }
+        ]
       },
       {
-        "round": "R == 4"
+        "round": "R == 4",
+        "spawns": [
+          {
+            "monster": {
+              "name": "lurker",
+              "player2": "normal",
+              "player3": "elite",
+              "plaxer4": "elite"
+            },
+            "marker": "a"
+          },
+          {
+            "monster": {
+              "name": "hound",
+              "player2": "normal",
+              "player3": "elite",
+              "plaxer4": "elite"
+            },
+            "marker": "c"
+          }
+        ]
       },
       {
-        "round": "R == 5"
+        "round": "R == 5",
+        "spawns": [
+          {
+            "monster": {
+              "name": "cave-bear",
+              "player2": "normal",
+              "player3": "normal",
+              "plaxer4": "elite"
+            },
+            "marker": "b"
+          },
+          {
+            "monster": {
+              "name": "giant-viper",
+              "player2": "normal",
+              "player3": "elite",
+              "plaxer4": "elite"
+            },
+            "marker": "d"
+          }
+        ]
       },
       {
-        "round": "R == 6"
+        "round": "R == 6",
+        "spawns": [
+          {
+            "monster": {
+              "name": "rending-drake",
+              "player2": "normal",
+              "player3": "normal",
+              "plaxer4": "elite"
+            },
+            "marker": "a"
+          },
+          {
+            "monster": {
+              "name": "lurker",
+              "player2": "normal",
+              "player3": "elite",
+              "plaxer4": "elite"
+            },
+            "marker": "c"
+          }
+        ]
       },
       {
-        "round": "R == 7"
+        "round": "R == 7",
+        "spawns": [
+          {
+            "monster": {
+              "name": "hound",
+              "player2": "normal",
+              "player3": "elite",
+              "plaxer4": "elite"
+            },
+            "marker": "b"
+          },
+          {
+            "monster": {
+              "name": "cave-bear",
+              "player2": "normal",
+              "player3": "normal",
+              "plaxer4": "elite"
+            },
+            "marker": "d"
+          }
+        ]
       },
       {
-        "round": "R == 8"
+        "round": "R == 8",
+        "spawns": [
+          {
+            "monster": {
+              "name": "giant-viper",
+              "player2": "normal",
+              "player3": "elite",
+              "plaxer4": "elite"
+            },
+            "marker": "a"
+          },
+          {
+            "monster": {
+              "name": "rending-drake",
+              "player2": "normal",
+              "player3": "normal",
+              "plaxer4": "elite"
+            },
+            "marker": "c"
+          }
+        ]
       },
       {
-        "round": "R == 9"
+        "round": "R == 9",
+        "spawns": [
+          {
+            "monster": {
+              "name": "lurker",
+              "player2": "normal",
+              "player3": "elite",
+              "plaxer4": "elite"
+            },
+            "marker": "b"
+          },
+          {
+            "monster": {
+              "name": "hound",
+              "player2": "normal",
+              "player3": "elite",
+              "plaxer4": "elite"
+            },
+            "marker": "d"
+          }
+        ]
       },
       {
-        "round": "R == 10"
+        "round": "R == 10",
+        "finish": "won"
       }
     ],
     "unlocks": [
@@ -814,7 +994,32 @@
     ],
     "rules": [
       {
-        "round": "R % 2 == 0"
+        "round": "R % 4 == 2",
+        "spawns": [
+          {
+            "monster": {
+              "name": "spitting-drake",
+              "player2": "normal",
+              "player3": "normal",
+              "plaxer4": "elite"
+            },
+            "marker": "c"
+          }
+        ]
+      },
+      {
+        "round": "R % 4 == 0",
+        "spawns": [
+          {
+            "monster": {
+              "name": "spitting-drake",
+              "player2": "normal",
+              "player3": "elite",
+              "plaxer4": "elite"
+            },
+            "marker": "c"
+          }
+        ]
       }
     ]
   },
@@ -1001,23 +1206,68 @@
     "rules": [
       {
         "round": "R == 2 || R == 6",
-        "start": true
+        "start": true,
+        "spawns": [
+          {
+            "count": "[C]",
+            "monster": {
+              "name": "bandit-guard",
+              "type": "normal"
+            }
+          }
+        ]
       },
       {
         "round": "R == 3 || R == 7",
-        "start": true
+        "start": true,
+        "spawns": [
+          {
+            "count": "[C]",
+            "monster": {
+              "name": "bandit-archer",
+              "type": "normal"
+            }
+          }
+        ]
       },
       {
         "round": "R == 4 || R == 8",
-        "start": true
+        "start": true,
+        "spawns": [
+          {
+            "count": "[C]",
+            "monster": {
+              "name": "hound",
+              "type": "normal"
+            }
+          }
+        ]
       },
       {
         "round": "R == 5",
-        "start": true
+        "start": true,
+        "spawns": [
+          {
+            "count": "[C]",
+            "monster": {
+              "name": "wind-demon",
+              "type": "normal"
+            }
+          }
+        ]
       },
       {
         "round": "R == 9",
-        "start": true
+        "start": true,
+        "spawns": [
+          {
+            "count": "[C]",
+            "monster": {
+              "name": "frost-demon",
+              "type": "normal"
+            }
+          }
+        ]
       }
     ],
     "unlocks": [
@@ -1070,19 +1320,57 @@
     "rules": [
       {
         "round": "R == 2 || R == 6",
-        "start": true
+        "start": true,
+        "spawns": [
+          {
+            "monster": {
+              "name": "flame-demon",
+              "type": "normal"
+            },
+            "marker": "c"
+          }
+        ]
       },
       {
         "round": "R == 3 || R == 7",
-        "start": true
+        "start": true,
+        "spawns": [
+          {
+            "count": 2,
+            "monster": {
+              "name": "sun-demon",
+              "type": "normal"
+            },
+            "marker": "d"
+          }
+        ]
       },
       {
         "round": "R == 4 || R == 8",
-        "start": true
+        "start": true,
+        "spawns": [
+          {
+            "monster": {
+              "name": "night-demon",
+              "type": "normal"
+            },
+            "marker": "b"
+          }
+        ]
       },
       {
         "round": "R == 5 || R == 9",
-        "start": true
+        "start": true,
+        "spawns": [
+          {
+            "count": 2,
+            "monster": {
+              "name": "wind-demon",
+              "type": "normal"
+            },
+            "marker": "e"
+          }
+        ]
       }
     ],
     "unlocks": [

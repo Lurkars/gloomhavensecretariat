@@ -4,12 +4,33 @@
   "edition": "gh",
   "monsters": [
     "hungry-soul",
+    "living-bones",
     "living-spirit"
   ],
   "rules": [
     {
       "round": "true",
-      "start": true
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-bones",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "living-bones",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
     }
   ],
   "rooms": [

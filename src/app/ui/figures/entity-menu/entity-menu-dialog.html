@@ -60,7 +60,7 @@
       <div class="retaliate-action" *ngIf="gameManager.isMonster(data.figure) && +retaliateAction().value > 0">
         <ghs-action [action]="retaliateAction()" [highlight]="true"></ghs-action>
       </div>
-      <ng-container *ngIf="data.entity && data.entity.maxHealth > 0">
+      <ng-container *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0">
         <span class="item">
           <a class="button" [ngClass]="{'disabled' : data.entity.health + health == 0}" (click)="changeHealth(-1)">
             <img class="ghs-svg" src="./assets/images/minus.svg">
@@ -72,7 +72,7 @@
             [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">{{health | ghsValueSign}}</span>
         </span>
         <span class="item">
-          <a class="button" [ngClass]="{'disabled' : data.entity.health + health == data.entity.maxHealth}"
+          <a class="button" [ngClass]="{'disabled' : data.entity.health + health == EntityValueFunction(data.entity.maxHealth)}"
             (click)="changeHealth(1)">
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </a>
@@ -115,7 +115,7 @@
       </ng-container>
 
       <ng-container
-        *ngIf="(gameManager.isCharacter(data.figure) || gameManager.isMonster(data.figure)) && (!data.entity || data.entity.maxHealth > 0)">
+        *ngIf="(gameManager.isCharacter(data.figure) || gameManager.isMonster(data.figure)) && (!data.entity || EntityValueFunction(data.entity.maxHealth) > 0)">
 
         <span class="item">
           <a class="button"
@@ -205,7 +205,7 @@
       </ng-container>
 
       <div class="marker-container">
-        <a class="summon" *ngIf="data.entity && data.entity.maxHealth > 0 && gameManager.isMonsterEntity(data.entity)"
+        <a class="summon" *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && gameManager.isMonsterEntity(data.entity)"
           [ngClass]="{'active' : gameManager.toMonsterEntity(data.entity).summon == SummonState.true, 'new' : gameManager.toMonsterEntity(data.entity).summon == SummonState.new }"
           (click)="toggleSummon()">
           <img src="./assets/images/summons/{{gameManager.toMonster(data.figure).summonColor}}.png">
@@ -274,14 +274,14 @@
             <img src="./assets/images/status/dead.svg" />
           </a>
         </span>
-        <span class="item max-health-container" *ngIf="data.entity.maxHealth > 0">
+        <span class="item max-health-container" *ngIf="EntityValueFunction(data.entity.maxHealth) > 0">
           <a class="button" (click)="changeMaxHealth(-1)">
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </a>
           <img src="./assets/images/status/health.svg" title="{{'game.maxHealth' | ghsLabel}}" />
-          <span class="badge max-health">{{((+data.entity.maxHealth) + maxHp < (+data.entity.maxHealth) ||
-              data.entity.health==(+data.entity.maxHealth) ? (+data.entity.maxHealth) + maxHp :
-              data.entity.health)}}/{{(+data.entity.maxHealth) + maxHp}}</span>
+          <span class="badge max-health">{{(EntityValueFunction(data.entity.maxHealth) + maxHp < EntityValueFunction(data.entity.maxHealth) ||
+              data.entity.health==(+data.entity.maxHealth) ? EntityValueFunction(data.entity.maxHealth) + maxHp :
+              data.entity.health)}}/{{EntityValueFunction(data.entity.maxHealth) + maxHp}}</span>
               <a class="button" (click)="changeMaxHealth(1)">
                 <img class="ghs-svg" src="./assets/images/plus.svg">
               </a>
@@ -290,7 +290,7 @@
     </div>
 
     <ng-container
-      *ngIf="data.entity && data.entity.maxHealth > 0 && (!gameManager.isObjective(data.entity) || gameManager.toObjective(data.entity).escort)">
+      *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && (!gameManager.isObjective(data.entity) || gameManager.toObjective(data.entity).escort)">
       <ghs-conditions [entity]="data.entity" [figure]="data.figure" [type]="conditionType"></ghs-conditions>
     </ng-container>
   </div>
@@ -304,9 +304,9 @@
         </a>
         <span class="item">
           <img src="./assets/images/status/health.svg" />
-          <span class="badge max-health">{{((+data.entity.maxHealth) + maxHp < (+data.entity.maxHealth) ||
-              data.entity.health==(+data.entity.maxHealth) ? (+data.entity.maxHealth) + maxHp :
-              data.entity.health)}}/{{(+data.entity.maxHealth) + maxHp}}</span>
+          <span class="badge max-health">{{(EntityValueFunction(data.entity.maxHealth) + maxHp < EntityValueFunction(data.entity.maxHealth) ||
+              data.entity.health==EntityValueFunction(data.entity.maxHealth) ? EntityValueFunction(data.entity.maxHealth) + maxHp :
+              data.entity.health)}}/{{EntityValueFunction(data.entity.maxHealth) + maxHp}}</span>
           </span>
           <a class="button" (click)="changeMaxHealth(1)">
             <img class="ghs-svg" src="./assets/images/plus.svg">
@@ -330,9 +330,9 @@
         </a>
         <span class="item" title="{{'game.maxHealth' | ghsLabel}}">
           <img src="./assets/images/status/health.svg" />
-          <span class="badge max-health">{{((+data.entity.maxHealth) + maxHp < (+data.entity.maxHealth) ||
-              data.entity.health==(+data.entity.maxHealth) ? (+data.entity.maxHealth) + maxHp :
-              data.entity.health)}}/{{(+data.entity.maxHealth) + maxHp}}</span>
+          <span class="badge max-health">{{(EntityValueFunction(data.entity.maxHealth) + maxHp < EntityValueFunction(data.entity.maxHealth) ||
+              data.entity.health==EntityValueFunction(data.entity.maxHealth) ? EntityValueFunction(data.entity.maxHealth) + maxHp :
+              data.entity.health)}}/{{EntityValueFunction(data.entity.maxHealth) + maxHp}}</span>
           </span>
           <a class="button" (click)="changeMaxHealth(1)">
             <img class="ghs-svg" src="./assets/images/plus.svg">
@@ -346,9 +346,9 @@
         </a>
         <span class="item">
           <img src="./assets/images/status/health.svg" />
-          <span class="badge max-health">{{((+data.entity.maxHealth) + maxHp < (+data.entity.maxHealth) ||
-              data.entity.health==(+data.entity.maxHealth) ? (+data.entity.maxHealth) + maxHp :
-              data.entity.health)}}/{{(+data.entity.maxHealth) + maxHp}}</span>
+          <span class="badge max-health">{{(EntityValueFunction(data.entity.maxHealth) + maxHp < EntityValueFunction(data.entity.maxHealth) ||
+              data.entity.health==EntityValueFunction(data.entity.maxHealth) ? EntityValueFunction(data.entity.maxHealth) + maxHp :
+              data.entity.health)}}/{{EntityValueFunction(data.entity.maxHealth) + maxHp}}</span>
           </span>
           <a class="button" (click)="changeMaxHealth(1)">
             <img class="ghs-svg" src="./assets/images/plus.svg">

@@ -18,14 +18,14 @@
       "roomNumber": 1,
       "ref": "l1b",
       "initial": true,
-      "doors": [
+      "rooms": [
         2
       ]
     },
     {
       "roomNumber": 2,
       "ref": "c2a",
-      "doors": [
+      "rooms": [
         3
       ],
       "treasures": [

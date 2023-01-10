@@ -16,7 +16,17 @@
   "rules": [
     {
       "round": "true",
-      "start": true
+      "start": true,
+      "elements": [
+        {
+          "type": "dark",
+          "state": "strong"
+        },
+        {
+          "type": "light",
+          "state": "inert"
+        }
+      ]
     }
   ],
   "unlocks": [
@@ -40,7 +50,7 @@
       "roomNumber": 1,
       "ref": "g2a",
       "initial": true,
-      "doors": [
+      "rooms": [
         2
       ],
       "monster": [
@@ -76,7 +86,7 @@
     {
       "roomNumber": 2,
       "ref": "j1b",
-      "doors": [
+      "rooms": [
         3
       ],
       "monster": [

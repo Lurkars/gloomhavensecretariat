@@ -103,6 +103,9 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         let characterName = split[2];
         image = '<img src="' + gameManager.characterManager.characterIcon(characterName) + '">';
         replace = '<span class="placeholder-character-token" style="background-color:' + gameManager.characterManager.characterColor(characterName) + '">' + image + '</span>';
+      } else if (type == "monsterType" && split.length == 3) {
+        let monsterType = split[2];
+        replace = '<span class="placeholder-monster-type ' + monsterType + '">' + settingsManager.getLabel('game.monster.' + monsterType) + '</span>';
       } else if (type == "mapMarker" && split.length == 3) {
         replace = '<span class="map-marker">' + split[2] + '</span>';
       } else if (type == "objectiveMarker" && split.length == 3) {

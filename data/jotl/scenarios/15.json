@@ -1,0 +1,22 @@
+{
+  "index": "15",
+  "name": "Tainted Blood",
+  "edition": "jotl",
+  "monsters": [
+    "black-imp",
+    "blood-imp",
+    "zealot"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true
+    },
+    {
+      "round": "true"
+    }
+  ],
+  "unlocks": [
+    "16"
+  ]
+}

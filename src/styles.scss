@@ -894,6 +894,20 @@ input[type="radio"] {
     }
   }
 
+  .placeholder-monster-type {
+    &.normal {
+      color: var(--ghs-color-white);
+    }
+
+    &.elite {
+      color: var(--ghs-color-yellow);
+    }
+
+    &.boss {
+      color: var(--ghs-color-darkred);
+    }
+  }
+
   .placeholder-character-token {
     position: relative;
     top: 0.1em;

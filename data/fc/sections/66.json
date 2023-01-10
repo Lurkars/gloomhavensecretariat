@@ -1,0 +1,65 @@
+{
+  "index": "66",
+  "name": "Sardonic Smile",
+  "edition": "fc",
+  "parent": "111",
+  "monsters": [
+    "the-husk-66"
+  ],
+  "rules": [
+    {
+      "round": "once",
+      "note": "%data.section.rules.fc.66.1%",
+      "sections": [
+        "67"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fc",
+            "name": "the-husk"
+          },
+          "type": "looseCondition",
+          "value": "wound"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fc",
+            "name": "the-husk"
+          },
+          "type": "looseCondition",
+          "value": "muddle"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fc",
+            "name": "the-husk"
+          },
+          "type": "looseCondition",
+          "value": "poison"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fc",
+            "name": "the-husk"
+          },
+          "type": "hp",
+          "value": "50%"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fc",
+            "name": "the-husk"
+          },
+          "type": "transfer",
+          "value": "the-husk-66"
+        }
+      ]
+    }
+  ]
+}

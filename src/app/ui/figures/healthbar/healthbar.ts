@@ -12,7 +12,7 @@ export class HealthbarComponent {
   @Input() diff: number = 0;
 
   maxHealth(): number {
-    return EntityValueFunction("" + this.entity.maxHealth);
+    return EntityValueFunction(this.entity.maxHealth);
   }
 
 }

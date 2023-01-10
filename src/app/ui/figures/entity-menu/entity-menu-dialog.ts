@@ -48,6 +48,7 @@ export class EntityMenuDialogComponent {
   ConditionName = ConditionName;
   ConditionType = ConditionType;
   MonsterType = MonsterType;
+  EntityValueFunction = EntityValueFunction;
 
   constructor(@Inject(DIALOG_DATA) public data: { entity: Entity | undefined, figure: Figure, entities: Entity[] }, private changeDetectorRef: ChangeDetectorRef, private dialogRef: DialogRef) {
     if (!data.entities) {
@@ -79,7 +80,7 @@ export class EntityMenuDialogComponent {
     this.health += value;
     if (this.data.entity) {
       if (this.data.entity.health + this.health > this.data.entity.maxHealth) {
-        this.health = EntityValueFunction('' + this.data.entity.maxHealth) - this.data.entity.health;
+        this.health = EntityValueFunction(this.data.entity.maxHealth) - this.data.entity.health;
       } else if (this.data.entity.health + this.health < 0) {
         this.health = - this.data.entity.health;
       }
@@ -227,8 +228,8 @@ export class EntityMenuDialogComponent {
   changeMaxHealth(value: number) {
     this.maxHp += value;
     if (this.data.entity) {
-      if (EntityValueFunction('' + this.data.entity.maxHealth) + this.maxHp <= 1) {
-        this.maxHp = -EntityValueFunction('' + this.data.entity.maxHealth) + 1;
+      if (EntityValueFunction(this.data.entity.maxHealth) + this.maxHp <= 1) {
+        this.maxHp = -EntityValueFunction(this.data.entity.maxHealth) + 1;
       }
     }
   }

@@ -1,4 +1,5 @@
-ghs-element-icon {
+ghs-element {
+
   .element {
 
     display: block;
@@ -22,25 +23,18 @@ ghs-element-icon {
       height: 100%;
     }
 
-    .element-svg {
+    ghs-element-icon {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
+    }
 
-      svg {
-        width: 100%;
-        height: 100%;
-      }
+    .element-svg {
 
       #outline {
         display: none;
-      }
-
-      #bg {
-        transition: clip-path 1s;
-        clip-path: inset(100% 0px 0px 0px);
       }
 
       #outline,
@@ -49,25 +43,14 @@ ghs-element-icon {
           fill: var(--ghs-color-gray) !important;
         }
       }
+    }
 
-      &.dark {
-        #bg {
-          filter: invert(16%) sepia(92%) saturate(1541%) hue-rotate(215deg) brightness(50%) contrast(97%);
-        }
-      }
-
-      &.full {
-        #bg {
-          clip-path: inset(0% 0px 0px 0px);
-        }
-      }
-
-      &.half {
-        #bg {
-          clip-path: inset(50% 0px 0px 0px);
-        }
+    .element-svg.dark {
+      #bg {
+        fill: #203184 !important;
       }
     }
+
 
     &:hover .element-svg,
     .element-svg.full,

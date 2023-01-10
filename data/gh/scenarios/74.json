@@ -10,13 +10,20 @@
   ],
   "rules": [
     {
-      "round": "R % 2 == 0 || C > 2"
+      "round": "R % 2 == 0 || C > 2",
+      "note": "%data.scenario.rules.gh.74.1%"
     },
     {
-      "round": "R == 3"
+      "round": "R == 3",
+      "rooms": [
+        2
+      ]
     },
     {
-      "round": "R == 6"
+      "round": "R == 6",
+      "rooms": [
+        3
+      ]
     }
   ],
   "rooms": [
@@ -24,7 +31,7 @@
       "roomNumber": 1,
       "ref": "b1a",
       "initial": true,
-      "doors": [
+      "rooms": [
         2,
         3
       ],
@@ -72,6 +79,29 @@
     },
     {
       "roomNumber": 2,
+      "marker": "1",
+      "ref": "i2b",
+      "monster": [
+        {
+          "name": "lurker",
+          "type": "normal"
+        },
+        {
+          "name": "lurker",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
       "marker": "2",
       "ref": "i1a",
       "treasures": [
@@ -100,29 +130,6 @@
           "name": "lurker",
           "player2": "normal",
           "player3": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "marker": "1",
-      "ref": "i2b",
-      "monster": [
-        {
-          "name": "lurker",
-          "type": "normal"
-        },
-        {
-          "name": "lurker",
-          "player4": "normal"
-        },
-        {
-          "name": "bandit-archer",
-          "type": "normal"
-        },
-        {
-          "name": "bandit-guard",
-          "type": "normal"
         }
       ]
     }

@@ -13,7 +13,7 @@
       "roomNumber": 1,
       "ref": "g2a",
       "initial": true,
-      "doors": [
+      "rooms": [
         2
       ],
       "monster": [

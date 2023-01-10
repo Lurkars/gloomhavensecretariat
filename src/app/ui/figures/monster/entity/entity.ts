@@ -60,7 +60,7 @@ export class MonsterEntityComponent {
     const dragFactor = 20 * this.element.nativeElement.offsetWidth / window.innerWidth;
     this.health = Math.floor(value / dragFactor);
     if (this.entity.health + this.health > this.entity.maxHealth) {
-      this.health = EntityValueFunction("" + this.entity.maxHealth) - this.entity.health;
+      this.health = EntityValueFunction(this.entity.maxHealth) - this.entity.health;
     } else if (this.entity.health + this.health < 0) {
       this.health = - this.entity.health;
     }

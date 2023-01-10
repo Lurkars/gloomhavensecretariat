@@ -11,7 +11,7 @@
       "roomNumber": 1,
       "ref": "n1b",
       "initial": true,
-      "doors": [
+      "rooms": [
         2,
         3,
         6
@@ -50,7 +50,7 @@
     {
       "roomNumber": 3,
       "ref": "l1a",
-      "doors": [
+      "rooms": [
         4,
         5
       ],
@@ -150,7 +150,7 @@
     {
       "roomNumber": 6,
       "ref": "l2b",
-      "doors": [
+      "rooms": [
         7,
         8
       ],

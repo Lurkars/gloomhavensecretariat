@@ -18,7 +18,7 @@
       "roomNumber": 1,
       "ref": "d2b",
       "initial": true,
-      "doors": [
+      "rooms": [
         2
       ],
       "monster": [

@@ -149,6 +149,13 @@ export class FooterComponent implements OnInit {
     return gameManager.game.figures.length == 0;
   }
 
+  round(): number {
+    if (gameManager.game.roundResets.length == 0) {
+      return gameManager.game.round
+    }
+    return gameManager.game.round + gameManager.game.roundResets.reduce((a, b) => (a ? a - 1 : 0) + (b ? b - 1 : 0));
+  }
+
   missingInitiative(): boolean {
     return gameManager.game.figures.some((figure) => figure instanceof Character && settingsManager.settings.initiativeRequired && figure.initiative < 1 && !figure.exhausted && !figure.absent);
   }

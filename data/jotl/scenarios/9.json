@@ -1,0 +1,13 @@
+{
+  "index": "9",
+  "name": "Explosive Evolution",
+  "edition": "jotl",
+  "monsters": [
+    "blood-horror",
+    "living-corpse",
+    "zealot"
+  ],
+  "unlocks": [
+    "10"
+  ]
+}

@@ -5,9 +5,8 @@ export class RoomData {
     roomNumber: number = 0;
     ref: string = "";
     initial: boolean = false;
-    section: boolean = false;
     marker: string = "";
-    doors: number[] = [];
+    rooms: number[] = [];
     treasures: number[] = [];
     monster: MonsterStandeeData[] = [];
     allies: string[] = [];

@@ -1,7 +1,7 @@
 import { gameManager } from "../businesslogic/GameManager";
 import { AttackModifierDeck, defaultAttackModifierCards, GameAttackModifierDeckModel } from "./AttackModifier";
 import { Character, GameCharacterModel } from "./Character";
-import { ScenarioData, ScenarioRuleIdentifier } from "./data/ScenarioData";
+import { ScenarioRule, ScenarioRuleIdentifier } from "./data/ScenarioRule";
 import { defeaultElementBoard, ElementModel, } from "./Element";
 import { Figure } from "./Figure";
 import { Loot, LootDeck } from "./Loot";
@@ -16,13 +16,15 @@ export class Game {
   state: GameState = GameState.draw;
   scenario: Scenario | undefined = undefined;
   sections: Scenario[] = [];
-  scenarioRules: ScenarioRuleIdentifier[] = [];
+  scenarioRules: { identifier: ScenarioRuleIdentifier, rule: ScenarioRule }[] = [];
+  disgardedScenarioRules: ScenarioRuleIdentifier[] = [];
   level: number = 1;
   levelCalculation: boolean = true;
   levelAdjustment: number = 0;
   bonusAdjustment: number = 0;
   ge5Player: boolean = true;
   round: number = 0;
+  roundResets: number[] = [];
   playSeconds: number = 0;
   totalSeconds: number = 0;
   monsterAttackModifierDeck: AttackModifierDeck = new AttackModifierDeck();
@@ -42,7 +44,7 @@ export class Game {
   }
 
   toModel(): GameModel {
-    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario && gameManager.scenarioManager.toModel(this.scenario, this.scenario.revealedRooms, this.scenario.custom, this.scenario.custom ? this.scenario.name : "") || undefined, this.sections.map((section) => gameManager.scenarioManager.toModel(section, section.revealedRooms)), this.scenarioRules, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.round, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party, this.parties, this.lootDeck, this.lootDeckEnhancements, this.server);
+    return new GameModel(this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario && gameManager.scenarioManager.toModel(this.scenario, this.scenario.revealedRooms, this.scenario.custom, this.scenario.custom ? this.scenario.name : "") || undefined, this.sections.map((section) => gameManager.scenarioManager.toModel(section, section.revealedRooms)), this.scenarioRules.map((value) => value.identifier), this.disgardedScenarioRules, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.round, this.roundResets, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party, this.parties, this.lootDeck, this.lootDeckEnhancements, this.server);
   }
 
   fromModel(model: GameModel, server: boolean = false) {
@@ -113,7 +115,21 @@ export class Game {
     })
     this.level = model.level;
 
-    this.scenarioRules = model.scenarioRules || [];
+    this.scenarioRules = [];
+
+    if (model.scenarioRules) {
+      model.scenarioRules.forEach((identifier) => {
+        const scenario = gameManager.scenarioManager.getScenarioForRule((identifier));
+        if (scenario && scenario.rules && scenario.rules.length > identifier.index) {
+          if (scenario.rules[identifier.index].spawns) {
+            scenario.rules[identifier.index].spawns.forEach((spawn) => { if (spawn.manual && !spawn.count) { spawn.count = "1"; } });
+          }
+          this.scenarioRules.push({ identifier: identifier, rule: scenario.rules[identifier.index] });
+        }
+      })
+    }
+
+    this.disgardedScenarioRules = model.disgardedScenarioRules;
 
     this.levelCalculation = model.levelCalculation;
     this.levelAdjustment = model.levelAdjustment;
@@ -121,6 +137,7 @@ export class Game {
     this.ge5Player = model.ge5Player;
 
     this.round = model.round;
+    this.roundResets = model.roundResets || [];
     if (server && !model.server || model.playSeconds > this.playSeconds) {
       this.playSeconds = model.playSeconds;
     }
@@ -209,12 +226,14 @@ export class GameModel {
   scenario: GameScenarioModel | undefined;
   sections: GameScenarioModel[];
   scenarioRules: ScenarioRuleIdentifier[];
+  disgardedScenarioRules: ScenarioRuleIdentifier[];
   level: number;
   levelCalculation: boolean;
   levelAdjustment: number;
   bonusAdjustment: number;
   ge5Player: boolean;
   round: number;
+  roundResets: number[];
   playSeconds: number;
   totalSeconds: number;
   monsterAttackModifierDeck: GameAttackModifierDeckModel;
@@ -236,12 +255,14 @@ export class GameModel {
     scenario: GameScenarioModel | undefined = undefined,
     sections: GameScenarioModel[] = [],
     scenarioRules: ScenarioRuleIdentifier[] = [],
+    disgardedScenarioRules: ScenarioRuleIdentifier[] = [],
     level: number = 0,
     levelCalculation: boolean = true,
     levelAdjustment: number = 0,
     bonusAdjustment: number = 0,
     ge5Player: boolean = true,
     round: number = 0,
+    roundResets: number[] = [],
     playSeconds: number = 0,
     totalSeconds: number = 0,
     monsterAttackModifierDeck: GameAttackModifierDeckModel = new GameAttackModifierDeckModel(-1, defaultAttackModifierCards, []),
@@ -262,12 +283,14 @@ export class GameModel {
     this.scenario = scenario;
     this.sections = sections;
     this.scenarioRules = JSON.parse(JSON.stringify(scenarioRules));
+    this.disgardedScenarioRules = JSON.parse(JSON.stringify(disgardedScenarioRules));
     this.level = level;
     this.levelCalculation = levelCalculation;
     this.levelAdjustment = levelAdjustment;
     this.bonusAdjustment = bonusAdjustment;
     this.ge5Player = ge5Player;
     this.round = round;
+    this.roundResets = JSON.parse(JSON.stringify(roundResets));
     this.playSeconds = playSeconds;
     this.totalSeconds = totalSeconds;
     this.monsterAttackModifierDeck = monsterAttackModifierDeck;

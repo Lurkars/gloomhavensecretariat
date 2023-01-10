@@ -461,18 +461,18 @@ export class SettingsManager {
 
     // default label
     if (this.settings.locale != this.defaultLocale && value.label && value.label[this.defaultLocale]) {
-      this.label.data = this.merge(this.label.data, value.label[this.defaultLocale]);
+      this.label.data = this.merge(this.label.data, false, value.label[this.defaultLocale]);
       if (value.labelSpoiler && value.labelSpoiler[this.defaultLocale]) {
-        this.label.data = this.merge(this.label.data, value.labelSpoiler[this.defaultLocale]);
+        this.label.data = this.merge(this.label.data, false, value.labelSpoiler[this.defaultLocale]);
       }
     }
 
     if (value.label && value.label[this.settings.locale]) {
-      this.label.data = this.merge(this.label.data, value.label[this.settings.locale]);
+      this.label.data = this.merge(this.label.data, true, value.label[this.settings.locale]);
     }
 
     if (value.labelSpoiler && value.labelSpoiler[this.settings.locale]) {
-      this.label.data = this.merge(this.label.data, value.labelSpoiler[this.settings.locale]);
+      this.label.data = this.merge(this.label.data, true, value.labelSpoiler[this.settings.locale]);
     }
 
     if (!this.label.data.edition) {
@@ -519,11 +519,11 @@ export class SettingsManager {
 
     // default label
     if (this.settings.locale != this.defaultLocale && value.label && value.label[this.defaultLocale] && value.label[this.defaultLocale].edition) {
-      this.label.data.edition = this.merge(this.label.data.edition, value.label[this.defaultLocale].edition);
+      this.label.data.edition = this.merge(this.label.data.edition, false, value.label[this.defaultLocale].edition);
     }
 
     if (value.label && value.label[this.settings.locale] && value.label[this.settings.locale].edition) {
-      this.label.data.edition = this.merge(this.label.data.edition, value.label[this.settings.locale].edition);
+      this.label.data.edition = this.merge(this.label.data.edition, true, value.label[this.settings.locale].edition);
     }
   }
 
@@ -531,7 +531,7 @@ export class SettingsManager {
     return (item && typeof item === 'object' && !Array.isArray(item));
   }
 
-  merge(target: any, ...sources: any): any {
+  merge(target: any, overwrite: boolean, ...sources: any): any {
     if (!sources.length) {
       return target;
     }
@@ -551,11 +551,11 @@ export class SettingsManager {
                 if (!result[key] || !this.isObject(result[key])) {
                   result[key] = {};
                 }
-                this.merge(result[key], elm[key]);
+                this.merge(result[key], overwrite, elm[key]);
               } else {
                 if (Array.isArray(result[key]) && Array.isArray(elm[key])) {
                   result[key] = Array.from(new Set(result[key].concat(elm[key])));
-                } else {
+                } else if (overwrite || !result[key]) {
                   result[key] = elm[key];
                 }
               }
@@ -641,7 +641,7 @@ export class SettingsManager {
         .then(response => {
           return response.json();
         }).then(data => {
-          this.label = this.merge(this.label, data);
+          this.label = this.merge(this.label, false, data);
         })
         .catch((error: Error) => {
           console.error("Invalid locale: " + locale, error);
@@ -653,7 +653,7 @@ export class SettingsManager {
       .then(response => {
         return response.json();
       }).then(data => {
-        this.label = this.merge(this.label, data);
+        this.label = this.merge(this.label, true, data);
       })
       .catch((error: Error) => {
         console.error("Invalid locale: " + locale, error);
@@ -667,8 +667,8 @@ export class SettingsManager {
   }
 
   async setLocale(locale: string) {
-    this.updateLocale(locale);
     this.settings.locale = locale;
+    await this.updateLocale(locale);
     this.storeSettings();
   }
 

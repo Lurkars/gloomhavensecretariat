@@ -1,0 +1,68 @@
+{
+  "index": "128",
+  "name": "Cracked Facade",
+  "edition": "fc",
+  "parent": "111",
+  "parentSections": [
+    "66"
+  ],
+  "monsters": [
+    "the-husk-128"
+  ],
+  "rules": [
+    {
+      "round": "once",
+      "note": "%data.section.rules.fc.128.1%",
+      "sections": [
+        "81"
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fc",
+            "name": "the-husk-66"
+          },
+          "type": "looseCondition",
+          "value": "wound"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fc",
+            "name": "the-husk-66"
+          },
+          "type": "looseCondition",
+          "value": "muddle"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fc",
+            "name": "the-husk-66"
+          },
+          "type": "looseCondition",
+          "value": "poison"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fc",
+            "name": "the-husk-66"
+          },
+          "type": "hp",
+          "value": "25%"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fc",
+            "name": "the-husk-66"
+          },
+          "type": "transfer",
+          "value": "the-husk-128"
+        }
+      ]
+    }
+  ]
+}

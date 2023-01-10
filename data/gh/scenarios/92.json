@@ -20,7 +20,7 @@
       "roomNumber": 1,
       "ref": "h3b",
       "initial": true,
-      "doors": [
+      "rooms": [
         2
       ],
       "monster": [

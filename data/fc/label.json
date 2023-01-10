@@ -21,6 +21,8 @@
       "selah-naberis": "Selah Naberis",
       "sraka-the-wise": "Sraka The Wise",
       "the-husk": "The Husk",
+      "the-husk-66": "The Husk #66",
+      "the-husk-128": "The Husk #128",
       "the-steel-lion": "The Steel Lion",
       "uyart-ikkuma": "Uyart Ikkuma",
       "valrath-commander": "Valrath Commander",
@@ -37,32 +39,17 @@
     "scenario": {
       "rules": {
         "fc": {
-          "96": {
-            "1": "Spawn Frost Demon at %game.mapMarker.a%",
-            "2": "Spawn Flame Demon at %game.mapMarker.b%",
-            "3": "Spawn Earth Demon at %game.mapMarker.c%"
-          },
           "98": {
             "1": "Place 1 damage token to both ships %game.mapMarker.a% and %game.mapMarker.b%."
           },
           "101": {
-            "1": "Both Spitting Drakes gain %game.condition.immobilize%",
-            "2": "Spawn Rending Drake at %game.mapMarker.a% and %game.mapMarker.b%, if adjacent Spitting Drake is alive and without %game.condition.stun%."
-          },
-          "104": {
-            "1": "Spawn Lurker at portal %game.mapMarker.1%",
-            "2": "Spawn Sun Demon at portal %game.mapMarker.2%",
-            "3": "Spawn Spitting Drake at portal %game.mapMarker.3%",
-            "4": "Spawn Harrower Infester at portal %game.mapMarker.4%"
-          },
-          "111": {
-            "1": "Husk gain %game.condition.invisible%"
+            "1": "if adjacent Spitting Drake is alive and without %game.condition.stun%."
           },
           "115": {
             "1": "Remove one damage token from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{%math.floor}] hit points for each damage token removed.",
             "2": "Remove two damage tokens from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{%math.floor}] hit points for each damage token removed.",
-            "3": "Spawn Valrath Savage and Tracker at %game.mapMarker.c% if alter %game.mapMarker.a% has no damage token on it, and three Black Imps at %game.mapMarker.d% if altar %game.mapMarker.b% has no damage tokens.",
-            "4": "Scenario lost!"
+            "3": "at %game.mapMarker.c% if alter %game.mapMarker.a% has no damage token on it",
+            "4": "at %game.mapMarker.d% if altar %game.mapMarker.b% has no damage tokens."
           }
         }
       }
@@ -70,17 +57,17 @@
     "section": {
       "rules": {
         "fc": {
-          "41": {
-            "1": "Dark strong",
-            "2": "Spawn Night Demon at altar %game.mapMarker.j%"
+          "66": {
+            "1": "%game.action.teleport% %data.monster.the-husk% to %game.mapMarker.b%"
           },
           "72": {
-            "1": "Dark waning",
-            "2": "Spawn Night Demon adjacent and to the right of any door %game.mapMarker.3%"
+            "1": "adjacent and to the right of any door %game.mapMarker.3%"
           },
           "123": {
-            "1": "Dark strong",
-            "2": "Spawn Night Demon adjacent and to the right of any door %game.mapMarker.4%"
+            "1": "adjacent and to the right of any door %game.mapMarker.4%"
+          },
+          "128": {
+            "1": "%game.action.teleport% %data.monster.the-husk-66% to %game.mapMarker.c% and remove wall section %game.mapMarker.d%"
           }
         }
       }
@@ -165,7 +152,9 @@
       "naaret": "Naaret",
       "selah-naberis": "Selah Naberis",
       "sraka-the-wise": "Die Weise Sraka",
-      "the-husk": "The Husk",
+      "the-husk": "Die Hülle",
+      "the-husk-66": "Die Hülle #66",
+      "the-husk-128": "Die Hülle #128",
       "the-steel-lion": "Der Stählernde Löwe",
       "uyart-ikkuma": "Uyart Ikkuma",
       "valrath-commander": "Valrath Kommandant",
@@ -303,6 +292,8 @@
       "selah-naberis": "Selah Naberis",
       "sraka-the-wise": "Sraka la Sage",
       "the-husk": "Le Karkass",
+      "the-husk-66": "Le Karkass #66",
+      "the-husk-128": "Le Karkass #128",
       "the-steel-lion": "Le Lion d'Acier",
       "uyart-ikkuma": "Uyart Ikkuma",
       "valrath-commander": "Commandant Valrath",
@@ -495,6 +486,8 @@
       "selah-naberis": "Selah Naberis",
       "sraka-the-wise": "Sraka The Wise",
       "the-husk": "The Husk",
+      "the-husk-66": "The Husk #66",
+      "the-husk-128": "The Husk #128",
       "the-steel-lion": "The Steel Lion",
       "uyart-ikkuma": "Uyart Ikkuma",
       "valrath-commander": "Valrath Commander",
@@ -511,23 +504,12 @@
     "scenario": {
       "rules": {
         "fc": {
-          "96": {
-            "1": "Spawn Frost Demon at %game.mapMarker.a%",
-            "2": "Spawn Flame Demon at %game.mapMarker.b%",
-            "3": "Spawn Earth Demon at %game.mapMarker.c%"
-          },
           "98": {
             "1": "Place 1 damage token to both ships %game.mapMarker.a% and %game.mapMarker.b%."
           },
           "101": {
             "1": "Both Spitting Drakes gain %game.condition.immobilize%",
-            "2": "Spawn Rending Drake at %game.mapMarker.a% and %game.mapMarker.b%, if adjacent Spitting Drake is alive and without %game.condition.stun%."
-          },
-          "104": {
-            "1": "Spawn Lurker at portal %game.mapMarker.1%",
-            "2": "Spawn Sun Demon at portal %game.mapMarker.2%",
-            "3": "Spawn Spitting Drake at portal %game.mapMarker.3%",
-            "4": "Spawn Harrower Infester at portal %game.mapMarker.4%"
+            "2": "if adjacent Spitting Drake is alive and without %game.condition.stun%."
           },
           "111": {
             "1": "Husk gain %game.condition.invisible%"
@@ -535,8 +517,8 @@
           "115": {
             "1": "Remove one damage token from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{%math.floor}] hit points for each damage token removed.",
             "2": "Remove two damage tokens from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{%math.floor}] hit points for each damage token removed.",
-            "3": "Spawn Valrath Savage and Tracker at %game.mapMarker.c% if alter %game.mapMarker.a% has no damage token on it, and three Black Imps at %game.mapMarker.d% if altar %game.mapMarker.b% has no damage tokens.",
-            "4": "Scenario lost!"
+            "3": "at %game.mapMarker.c% if alter %game.mapMarker.a% has no damage token on it",
+            "4": "at %game.mapMarker.d% if altar %game.mapMarker.b% has no damage tokens."
           }
         }
       }
@@ -544,17 +526,17 @@
     "section": {
       "rules": {
         "fc": {
-          "41": {
-            "1": "Dark strong",
-            "2": "Spawn Night Demon at altar %game.mapMarker.j%"
+          "66": {
+            "1": "%game.action.teleport% %data.monster.the-husk% to %game.mapMarker.b%"
           },
           "72": {
-            "1": "Dark waning",
-            "2": "Spawn Night Demon adjacent and to the right of any door %game.mapMarker.3%"
+            "1": "adjacent and to the right of any door %game.mapMarker.3%"
           },
           "123": {
-            "1": "Dark strong",
-            "2": "Spawn Night Demon adjacent and to the right of any door %game.mapMarker.4%"
+            "1": "adjacent and to the right of any door %game.mapMarker.4%"
+          },
+          "128": {
+            "1": "%game.action.teleport% %data.monster.the-husk-66% to %game.mapMarker.c% and remove wall section %game.mapMarker.d%"
           }
         }
       }

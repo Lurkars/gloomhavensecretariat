@@ -1,0 +1,10 @@
+{
+  "index": "19",
+  "name": "Den of Thieves",
+  "edition": "jotl",
+  "monsters": [
+    "rat-monstrosity",
+    "vermling-raider",
+    "vermling-scout"
+  ]
+}

@@ -31,7 +31,7 @@
       "roomNumber": 1,
       "ref": "c2a",
       "initial": true,
-      "doors": [
+      "rooms": [
         3
       ],
       "monster": [
@@ -56,7 +56,7 @@
       "roomNumber": 2,
       "ref": "d1b",
       "initial": true,
-      "doors": [
+      "rooms": [
         3
       ],
       "monster": [
@@ -78,7 +78,7 @@
       "roomNumber": 3,
       "marker": "1",
       "ref": "g2b",
-      "doors": [
+      "rooms": [
         4
       ],
       "treasures": [

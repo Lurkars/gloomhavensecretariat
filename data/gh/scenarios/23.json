@@ -16,7 +16,7 @@
       "roomNumber": 1,
       "ref": "i1b",
       "initial": true,
-      "doors": [
+      "rooms": [
         2
       ],
       "treasures": [
@@ -52,7 +52,7 @@
       "roomNumber": 2,
       "marker": "1",
       "ref": "k2b",
-      "doors": [
+      "rooms": [
         3,
         4
       ],

@@ -28,6 +28,7 @@ import { Entity } from "../model/Entity";
 import { MonsterEntity } from "../model/MonsterEntity";
 import { Summon } from "../model/Summon";
 import { LootManager } from "./LootManager";
+import { FigureIdentifier } from "../model/data/ScenarioRule";
 
 
 export class GameManager {
@@ -75,6 +76,24 @@ export class GameManager {
     }
 
     return [this.game.edition, ...this.editionExtensions(this.game.edition)];
+  }
+
+  currentEdition(): string {
+    if (this.game.edition) {
+      return this.game.edition;
+    }
+
+    if (this.game.scenario) {
+      return this.game.scenario.edition;
+    }
+
+    const charEditions = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => figure.edition);
+
+    if (charEditions.length > 0 && charEditions.every((edition, index, self) => index == 0 || self[index - 1] == edition)) {
+      return charEditions[0];
+    }
+
+    return this.editions()[0];
   }
 
   editionExtensions(edition: string): string[] {
@@ -210,7 +229,10 @@ export class GameManager {
       return 1;
     } else if (a instanceof Monster && b instanceof Monster) {
       return 0;
+    } else if (a instanceof Objective && b instanceof Objective && a.name == b.name) {
+      return a.id - b.id;
     }
+
     return aName < bName ? -1 : 1;
   }
 
@@ -311,6 +333,29 @@ export class GameManager {
 
   gameplayFigure(figure: Figure) {
     return figure instanceof Monster && figure.entities.length > 0 && figure.entities.some((entity) => !entity.dead && entity.health > 0) || figure instanceof Character && !figure.absent || (figure instanceof Character || figure instanceof Objective) && !figure.exhausted && figure.health > 0;
+  }
+
+  figuresByString(identifier: FigureIdentifier): Figure[] {
+    if (identifier && identifier.type) {
+      const type = identifier.type;
+      if (type == "all") {
+        return this.game.figures;
+      }
+      if (identifier.edition && identifier.name) {
+        const edition = identifier.edition;
+        const name = new RegExp('^' + identifier.name + '$');
+        switch (type) {
+          case "monster":
+            return this.game.figures.filter((figure) => figure instanceof Monster && figure.edition == edition && figure.name.match(name));
+          case "character":
+            return this.game.figures.filter((figure) => figure instanceof Character && figure.edition == edition && figure.name.match(name));
+          case "objective":
+            return this.game.figures.filter((figure) => figure instanceof Objective && figure.name.match(name) && (edition != "escort" || figure.escort));
+        }
+      }
+    }
+
+    return [];
   }
 
   getMonsterData(name: string, edition: string): MonsterData {

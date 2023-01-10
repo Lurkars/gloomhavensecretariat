@@ -18,7 +18,17 @@
   "rules": [
     {
       "round": "true",
-      "start": true
+      "start": true,
+      "elements": [
+        {
+          "type": "ice",
+          "state": "strong"
+        },
+        {
+          "type": "fire",
+          "state": "inert"
+        }
+      ]
     }
   ],
   "unlocks": [
@@ -30,7 +40,7 @@
       "roomNumber": 1,
       "ref": "l2a",
       "initial": true,
-      "doors": [
+      "rooms": [
         2
       ],
       "treasures": [

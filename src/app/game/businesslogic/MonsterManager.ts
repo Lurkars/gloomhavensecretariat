@@ -13,7 +13,6 @@ import { ConditionType, EntityConditionState } from "../model/Condition";
 import { Scenario } from "../model/Scenario";
 import { ScenarioData } from "../model/data/ScenarioData";
 import { EntityValueFunction } from "../model/Entity";
-import { EditionData } from "../model/data/EditionData";
 
 export class MonsterManager {
 
@@ -49,17 +48,17 @@ export class MonsterManager {
     return stat;
   }
 
-  addMonsterByName(name: string, editionData: EditionData): Monster | undefined {
+  addMonsterByName(name: string, edition: string): Monster | undefined {
     let level = gameManager.game.level;
     if (name.indexOf(':') != -1) {
       level = eval(gameManager.game.level + name.split(':')[1]);
       name = name.split(':')[0]
     }
 
-    let monsterData = gameManager.monstersData().find((monsterData) => monsterData.name == name && (monsterData.edition == editionData.edition || editionData.extensions && editionData.extensions.indexOf(monsterData.edition) != -1));
+    let monsterData = gameManager.monstersData().find((monsterData) => monsterData.name == name && (monsterData.edition == edition || gameManager.editionExtensions(edition).indexOf(monsterData.edition) != -1));
 
     if (!monsterData) {
-      console.warn("Monster not found: '" + name + "' for edition :" + editionData.edition);
+      console.warn("Monster not found: '" + name + "' for edition :" + edition);
       monsterData = gameManager.monstersData().find((monsterData) => monsterData.name == name);
     }
 
@@ -122,7 +121,7 @@ export class MonsterManager {
     return monster.entities.filter((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0).length;
   }
 
-  addMonsterEntity(monster: Monster, number: number, type: MonsterType, summon: boolean = false) {
+  addMonsterEntity(monster: Monster, number: number, type: MonsterType, summon: boolean = false): MonsterEntity | undefined {
     if (!monster.stats.some((monsterStat) => {
       return monsterStat.type == type;
     })) {
@@ -131,7 +130,7 @@ export class MonsterManager {
         console.error("Missing type '" + type + "' for " + monster.name);
         monster.errors.push(new FigureError(FigureErrorType.monsterType, "monster", monster.name, monster.edition, type));
       }
-      return;
+      return undefined;
     }
 
     let monsterEntity: MonsterEntity = new MonsterEntity(number, type, monster);
@@ -178,15 +177,47 @@ export class MonsterManager {
 
     if (monster.off) {
       monster.off = false;
-      if (this.game.state == GameState.next) {
-        monster.active = !gameManager.game.figures.some((figure) => figure.active);
-      }
     }
 
     if (this.game.state == GameState.next) {
-      monsterEntity.active = monsterEntity.active || gameManager.game.figures.some((figure) => figure.active && figure.getInitiative() > monster.getInitiative());
-      monsterEntity.off = false;
+      monsterEntity.active = monster.active || gameManager.game.figures.some((figure, index, self) => figure.active && index > self.indexOf(monster));
     }
+
+    return monsterEntity;
+  }
+
+  spawnMonsterEntity(name: string, type: MonsterType, scenarioData: ScenarioData) : MonsterEntity | undefined {
+    let monster = gameManager.monsterManager.addMonsterByName(name, scenarioData.edition);
+    if (monster) {
+      if (scenarioData.allies && scenarioData.allies.indexOf(monster.name) != -1) {
+        monster.isAlly = true;
+      }
+      if (scenarioData.drawExtra && scenarioData.drawExtra.indexOf(monster.name) != -1) {
+        monster.drawExtra = true;
+      }
+      if (settingsManager.settings.automaticStandees && gameManager.monsterManager.monsterEntityCount(monster) < monster.count) {
+        let number = (monster.entities.length + 1) * -1;
+
+        if (settingsManager.settings.randomStandees) {
+          number = Math.floor(Math.random() * monster.count) + 1;
+          while (monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
+            number = Math.floor(Math.random() * monster.count) + 1;
+          }
+        } else if (this.monsterEntityCount(monster) == monster.count - 1) {
+          number = 1;
+          while (monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
+            number++;
+          }
+        }
+
+        if (monster.boss) {
+          type = MonsterType.boss;
+        }
+
+        return gameManager.monsterManager.addMonsterEntity(monster, number, type);
+      }
+    }
+    return undefined;
   }
 
   removeMonsterEntity(monster: Monster, monsterEntity: MonsterEntity) {

@@ -1,0 +1,59 @@
+{
+  "index": "22.2",
+  "name": "Avalanche",
+  "edition": "fh",
+  "parent": "6",
+  "parentSections": ["12.2"],
+  "marker": "2",
+  "objectives": [
+    {
+      "name": "Snowdrift",
+      "health": "L+C",
+      "count": 6
+    },
+    {
+      "name": "Snow Rock",
+      "health": "L+C",
+      "count": 2
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "13-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "snow-imp",
+          "type": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "type": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

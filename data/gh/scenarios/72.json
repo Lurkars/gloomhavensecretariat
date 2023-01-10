@@ -23,13 +23,148 @@
   ],
   "rules": [
     {
-      "round": "R % 3 == 1"
+      "round": "R % 6 == 1",
+      "spawns": [
+        {
+          "monster": {
+            "name": "ooze",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Tree A"
+          },
+          "type": "present"
+        }
+      ]
     },
     {
-      "round": "R % 3 == 2"
+      "round": "R % 6 == 2",
+      "spawns": [
+        {
+          "monster": {
+            "name": "ooze",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Tree B"
+          },
+          "type": "present"
+        }
+      ]
     },
     {
-      "round": "R % 3 == 0"
+      "round": "R % 6 == 3",
+      "spawns": [
+        {
+          "monster": {
+            "name": "ooze",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Tree C"
+          },
+          "type": "present"
+        }
+      ]
+    },
+    {
+      "round": "R % 6 == 4",
+      "spawns": [
+        {
+          "monster": {
+            "name": "ooze",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Tree A"
+          },
+          "type": "present"
+        }
+      ]
+    },
+    {
+      "round": "R % 6 == 5",
+      "spawns": [
+        {
+          "monster": {
+            "name": "ooze",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Tree B"
+          },
+          "type": "present"
+        }
+      ]
+    },
+    {
+      "round": "R % 6 == 0",
+      "spawns": [
+        {
+          "monster": {
+            "name": "ooze",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Tree C"
+          },
+          "type": "present"
+        }
+      ]
     }
   ],
   "rooms": [

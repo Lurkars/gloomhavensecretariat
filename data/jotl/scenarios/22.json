@@ -1,0 +1,10 @@
+{
+  "index": "22",
+  "name": "Unfriendly Message",
+  "edition": "jotl",
+  "monsters": [
+    "giant-viper",
+    "stone-golem",
+    "vermling-raider"
+  ]
+}

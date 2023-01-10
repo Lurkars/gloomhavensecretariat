@@ -314,7 +314,17 @@
     ],
     "rules": [
       {
-        "round": "R % 2 == 0"
+        "round": "R % 2 == 0",
+        "spawns": [
+          {
+            "count": 4,
+            "monster": {
+              "name": "vermling-scout",
+              "type": "normal"
+            },
+            "marker": "a"
+          }
+        ]
       }
     ]
   },

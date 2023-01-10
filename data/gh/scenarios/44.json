@@ -26,7 +26,7 @@
       "roomNumber": 1,
       "ref": "b1b",
       "initial": true,
-      "doors": [
+      "rooms": [
         2,
         3
       ],
@@ -91,7 +91,7 @@
     {
       "roomNumber": 3,
       "ref": "l1b",
-      "doors": [
+      "rooms": [
         4
       ],
       "monster": [

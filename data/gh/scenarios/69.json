@@ -14,7 +14,7 @@
       "roomNumber": 1,
       "ref": "l3a",
       "initial": true,
-      "doors": [
+      "rooms": [
         2,
         3
       ],
@@ -110,7 +110,7 @@
       "roomNumber": 3,
       "marker": "1",
       "ref": "j1a",
-      "doors": [
+      "rooms": [
         4
       ],
       "monster": [

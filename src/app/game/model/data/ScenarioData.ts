@@ -1,8 +1,9 @@
 import { Editional } from "../Editional";
-import { LootDeckConfig, LootType } from "../Loot";
+import { LootDeckConfig } from "../Loot";
 import { Spoilable } from "../Spoilable";
 import { ObjectiveData } from "./ObjectiveData";
 import { RoomData } from "./RoomData";
+import { ScenarioRule } from "./ScenarioRule";
 
 export class ScenarioData implements Editional, Spoilable {
 
@@ -25,7 +26,8 @@ export class ScenarioData implements Editional, Spoilable {
   solo: string | undefined;
   lootDeckConfig: LootDeckConfig = {};
   parent: string | undefined;
-  parentSection: string | undefined;
+  parentSections: string[] = [];
+  resetRound: boolean = false;
 
   // from Editional
   edition: string;
@@ -54,14 +56,3 @@ export class ScenarioData implements Editional, Spoilable {
     this.allyDeck = allyDeck;
   }
 }
-
-export class ScenarioRule {
-  round: string;
-  start: boolean = false;
-
-  constructor(round: string) {
-    this.round = round;
-  }
-}
-
-export type ScenarioRuleIdentifier = { "edition": string, "scenario": string, "group": string | undefined, "index": number, "section": boolean };

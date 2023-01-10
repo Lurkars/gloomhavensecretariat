@@ -3,7 +3,9 @@
   "name": "Algox Scouting",
   "edition": "fh",
   "parent": "2",
-  "parentSection": "27.1",
+  "parentSections": [
+    "27.1"
+  ],
   "marker": "2",
   "objectives": [
     {

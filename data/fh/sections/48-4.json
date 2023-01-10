@@ -1,0 +1,29 @@
+{
+  "index": "48.4",
+  "name": "Edge of the World",
+  "edition": "fh",
+  "parent": "7",
+  "parentSection": [
+    "42.1"
+  ],
+  "marker": "2",
+  "monsters": [
+    "coral-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "ref": "04-A",
+      "initial": true,
+      "treasures": [
+        44
+      ],
+      "monster": [
+        {
+          "name": "coral-corpse",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

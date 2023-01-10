@@ -19,7 +19,7 @@
       "roomNumber": 1,
       "ref": "m1a",
       "initial": true,
-      "doors": [
+      "rooms": [
         2,
         3
       ],

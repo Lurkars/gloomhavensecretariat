@@ -11,7 +11,8 @@
   ],
   "rules": [
     {
-      "round": "true"
+      "round": "true",
+      "note": "%data.scenario.rules.gh.73.1%"
     }
   ],
   "rooms": [
@@ -19,7 +20,7 @@
       "roomNumber": 1,
       "ref": "l3a",
       "initial": true,
-      "doors": [
+      "rooms": [
         2
       ],
       "monster": [

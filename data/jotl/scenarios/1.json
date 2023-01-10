@@ -1,0 +1,12 @@
+{
+  "index": "1",
+  "name": "Roadside Ambush",
+  "edition": "jotl",
+  "initial": true,
+  "monsters": [
+    "common-vermling-raider"
+  ],
+  "unlocks": [
+    "2"
+  ]
+}

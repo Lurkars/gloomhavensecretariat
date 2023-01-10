@@ -16,7 +16,7 @@
       "roomNumber": 1,
       "ref": "f1b",
       "initial": true,
-      "doors": [
+      "rooms": [
         2,
         3,
         4,

@@ -23,7 +23,9 @@ export class ScenarioComponent {
     this.dialog.open(ScenarioDialogComponent, { panelClass: 'dialog' });
   }
 
-  openRoom(roomData: RoomData) {
+  openRoom(roomData: RoomData, event: any) {
+    event.preventDefault();
+    event.stopPropagation();
     const scenario = gameManager.game.scenario;
     if (scenario) {
       const editionData: EditionData | undefined = gameManager.editionData.find((value) => gameManager.game.scenario && value.edition == gameManager.game.scenario.edition);
@@ -32,13 +34,15 @@ export class ScenarioComponent {
         console.error("Could not find edition data!");
         return;
       }
-      gameManager.stateManager.before(roomData.marker ? "openDoorMarker" : "openDoor", scenario.index, "data.scenario." + scenario.name, '' + roomData.ref, roomData.marker || '');
-      gameManager.scenarioManager.openDoor(roomData, editionData, scenario);
+      gameManager.stateManager.before(roomData.marker ? "openRoomMarker" : "openRoom", scenario.index, "data.scenario." + scenario.name, '' + roomData.ref, roomData.marker || '');
+      gameManager.scenarioManager.openRoom(roomData, scenario);
       gameManager.stateManager.after();
     }
   }
 
-  addSection(sectionData: ScenarioData) {
+  addSection(sectionData: ScenarioData, event: any) {
+    event.preventDefault();
+    event.stopPropagation();
     this.dialog.open(SectionDialogComponent,
       {
         panelClass: 'dialog',
@@ -93,8 +97,8 @@ export class ScenarioDialogComponent {
         console.error("Could not find edition data!");
         return;
       }
-      gameManager.stateManager.before(roomData.marker ? "openDoorMarker" : "openDoor", scenario.index, "data.scenario." + scenario.name, '' + roomData.ref, roomData.marker || '');
-      gameManager.scenarioManager.openDoor(roomData, editionData, scenario);
+      gameManager.stateManager.before(roomData.marker ? "openRoomMarker" : "openRoom", scenario.index, "data.scenario." + scenario.name, '' + roomData.ref, roomData.marker || '');
+      gameManager.scenarioManager.openRoom(roomData, scenario);
       gameManager.stateManager.after();
     }
   }
@@ -128,7 +132,7 @@ export class SectionDialogComponent {
   constructor(@Inject(DIALOG_DATA) public sectionData: ScenarioData, private dialogRef: DialogRef) { }
 
   addSection() {
-    gameManager.stateManager.before("addSection", this.sectionData.index, "data.scenario." + this.sectionData.name, "data.edition." + this.sectionData.edition);
+    gameManager.stateManager.before("addSection", this.sectionData.index, "data.section." + this.sectionData.name, "data.edition." + this.sectionData.edition);
     gameManager.scenarioManager.addSection(this.sectionData);
     gameManager.stateManager.after();
     this.dialogRef.close(true);

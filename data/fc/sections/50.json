@@ -2,7 +2,7 @@
     "index": "50",
     "name": "Slow Turn",
     "edition": "fc",
-    "parentSection": "14",
+    "parentSections": ["14"],
     "marker": "b",
     "monsters": [
         "living-spirit"

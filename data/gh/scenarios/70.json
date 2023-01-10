@@ -9,13 +9,47 @@
   ],
   "rules": [
     {
-      "round": "R % 2 == 1 && C <= 3"
+      "round": "R % 2 == 1",
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-spirit",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "living-spirit",
+            "player4": "normal"
+          },
+          "marker": "b"
+        }
+      ]
     },
     {
-      "round": "R % 2 == 0 && C < 3"
-    },
-    {
-      "round": "R % 2 == 1 && C > 3 || R % 2 == 0 && C >= 3"
+      "round": "R % 2 == 0",
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-spirit",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "living-spirit",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "b"
+        }
+      ]
     }
   ],
   "rooms": [
@@ -23,7 +57,7 @@
       "roomNumber": 1,
       "ref": "l3a",
       "initial": true,
-      "doors": [
+      "rooms": [
         2
       ],
       "monster": [
@@ -58,7 +92,7 @@
     {
       "roomNumber": 2,
       "ref": "a3a",
-      "doors": [
+      "rooms": [
         3
       ],
       "monster": [
@@ -75,7 +109,7 @@
     {
       "roomNumber": 3,
       "ref": "d2b",
-      "doors": [
+      "rooms": [
         4
       ],
       "monster": [
@@ -101,7 +135,7 @@
     {
       "roomNumber": 4,
       "ref": "a2b",
-      "doors": [
+      "rooms": [
         5
       ]
     },

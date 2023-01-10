@@ -1,0 +1,75 @@
+{
+  "index": "21.1",
+  "name": "Crystal Trench",
+  "edition": "fh",
+  "parent": "8",
+  "marker": "1",
+  "rules": [
+    {
+      "round": "R % 2 == 1",
+      "start": true,
+      "note": "%data.section.rules.fh.21-1.1%",
+      "spawns": [
+        {
+          "manual": true,
+          "monster": {
+            "name": "hound",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 0",
+      "start": true,
+      "note": "%data.section.rules.fh.21-1.1%",
+      "spawns": [
+        {
+          "manual": true,
+          "monster": {
+            "name": "hound",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          }
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "ref": "07-B",
+      "initial": true,
+      "monster": [
+        {
+          "name": "snow-imp",
+          "type": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "polar-bear",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "polar-bear",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

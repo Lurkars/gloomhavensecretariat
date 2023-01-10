@@ -12,7 +12,7 @@
       "roomNumber": 1,
       "ref": "h1a",
       "initial": true,
-      "doors": [
+      "rooms": [
         2,
         3,
         4
@@ -88,7 +88,7 @@
     {
       "roomNumber": 4,
       "ref": "h2a",
-      "doors": [
+      "rooms": [
         5,
         6,
         7

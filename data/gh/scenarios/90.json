@@ -13,7 +13,7 @@
       "roomNumber": 1,
       "ref": "m1b",
       "initial": true,
-      "doors": [
+      "rooms": [
         2
       ],
       "monster": [

@@ -81,71 +81,17 @@
     "scenario": {
       "rules": {
         "gh": {
-          "27": {
-            "1": "Spawn Night Demon at %game.mapMarker.a%",
-            "2": "Spawn Wind Demon at %game.mapMarker.c%",
-            "3": "Spawn Frost Demon at %game.mapMarker.d% and Sun Demon at %game.mapMarker.e%",
-            "4": "Spawn Earth Demon at %game.mapMarker.b% and Flame Demon at %game.mapMarker.c%",
-            "5": "Spawn Night Demon at %game.mapMarker.d% and Wind Demon at %game.mapMarker.e%",
-            "6": "Scenario lost!"
-          },
-          "31": {
-            "1": "Dark strong, Light inert"
-          },
-          "36": {
-            "1": "Spawn Flame Demon at %game.mapMarker.a%",
-            "2": "Spawn Earth Demon at %game.mapMarker.b%",
-            "3": "Spawn Frost Demon at %game.mapMarker.c%",
-            "4": "Spawn Wind Demon at %game.mapMarker.d%"
-          },
-          "39": {
-            "1": "Ice strong, Fire inert"
-          },
-          "53": {
-            "1": "Open doors %game.mapMarker.a%",
-            "2": "Open doors %game.mapMarker.b%",
-            "3": "Open doors %game.mapMarker.c%",
-            "4": "Open doors %game.mapMarker.d%",
-            "5": "Scenario won!"
-          },
-          "60": {
-            "1": "All figures suffer %game.damage:2%.",
-            "2": "Scenario lost!"
-          },
-          "61": {
-            "1": "Oozes and Giant Vipers are active.",
-            "2": "Flame Demons and Frost Demons are active."
-          },
-          "62": {
-            "1": "Spawn Living Bones at %game.mapMarker.a% and %game.mapMarker.b%"
-          },
-          "70": {
-            "1": "Spawn Living Spirits at %game.mapMarker.a%",
-            "2": "Spawn Living Spirits at %game.mapMarker.b%",
-            "3": "Spawn Living Spirits at %game.mapMarker.a% and %game.mapMarker.b%"
-          },
           "71": {
-            ".": "Windswept Highlands",
             "1": "Move left",
             "2": "Move up",
             "3": "Move right",
             "4": "Move down"
           },
-          "72": {
-            "1": "Spawn Ooze at tree %game.mapMarker.a%",
-            "2": "Spawn Ooze at tree %game.mapMarker.b%",
-            "3": "Spawn Ooze at tree %game.mapMarker.c%"
-          },
           "73": {
             "1": "Roll boulders down."
           },
           "74": {
-            "1": "Add water tile.",
-            "2": "Open door %game.mapMarker.1%",
-            "3": "Open door %game.mapMarker.2%"
-          },
-          "81": {
-            "1": "Light and Dark strong, Fire, Ice, Wind and Earth inert"
+            "1": "Add water tile."
           }
         }
       }
@@ -1138,71 +1084,17 @@
       "Payment Due": "상환일",
       "rules": {
         "gh": {
-          "27": {
-            "1": "Spawn Night Demon at %game.mapMarker.a%",
-            "2": "Spawn Wind Demon at %game.mapMarker.c%",
-            "3": "Spawn Frost Demon at %game.mapMarker.d% and Sun Demon at %game.mapMarker.e%",
-            "4": "Spawn Earth Demon at %game.mapMarker.b% and Flame Demon at %game.mapMarker.c%",
-            "5": "Spawn Night Demon at %game.mapMarker.d% and Wind Demon at %game.mapMarker.e%",
-            "6": "Scenario lost!"
-          },
-          "31": {
-            "1": "Dark strong, Light inert"
-          },
-          "36": {
-            "1": "Spawn Flame Demon at %game.mapMarker.a%",
-            "2": "Spawn Earth Demon at %game.mapMarker.b%",
-            "3": "Spawn Frost Demon at %game.mapMarker.c%",
-            "4": "Spawn Wind Demon at %game.mapMarker.d%"
-          },
-          "39": {
-            "1": "Ice strong, Fire inert"
-          },
-          "53": {
-            "1": "Open doors %game.mapMarker.a%",
-            "2": "Open doors %game.mapMarker.b%",
-            "3": "Open doors %game.mapMarker.c%",
-            "4": "Open doors %game.mapMarker.d%",
-            "5": "Scenario won!"
-          },
-          "60": {
-            "1": "All figures suffer %game.damage:2%.",
-            "2": "Scenario lost!"
-          },
-          "61": {
-            "1": "Oozes and Giant Vipers are active.",
-            "2": "Flame Demons and Frost Demons are active."
-          },
-          "62": {
-            "1": "Spawn Living Bones at %game.mapMarker.a% and %game.mapMarker.b%"
-          },
-          "70": {
-            "1": "Spawn Living Spirits at %game.mapMarker.a%",
-            "2": "Spawn Living Spirits at %game.mapMarker.b%",
-            "3": "Spawn Living Spirits at %game.mapMarker.a% and %game.mapMarker.b%"
-          },
           "71": {
-            ".": "Windswept Highlands",
             "1": "Move left",
             "2": "Move up",
             "3": "Move right",
             "4": "Move down"
           },
-          "72": {
-            "1": "Spawn Ooze at tree %game.mapMarker.a%",
-            "2": "Spawn Ooze at tree %game.mapMarker.b%",
-            "3": "Spawn Ooze at tree %game.mapMarker.c%"
-          },
           "73": {
             "1": "Roll boulders down."
           },
           "74": {
-            "1": "Add water tile.",
-            "2": "Open door %game.mapMarker.1%",
-            "3": "Open door %game.mapMarker.2%"
-          },
-          "81": {
-            "1": "Light and Dark strong, Fire, Ice, Wind and Earth inert"
+            "1": "Add water tile."
           }
         }
       }

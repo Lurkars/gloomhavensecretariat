@@ -9,16 +9,20 @@
   ],
   "rules": [
     {
-      "round": "R % 4 == 1"
+      "round": "R % 4 == 1",
+      "note": "%data.scenario.rules.gh.71.1%"
     },
     {
-      "round": "R % 4 == 2"
+      "round": "R % 4 == 2",
+      "note": "%data.scenario.rules.gh.71.2%"
     },
     {
-      "round": "R % 4 == 3"
+      "round": "R % 4 == 3",
+      "note": "%data.scenario.rules.gh.71.3%"
     },
     {
-      "round": "R % 4 == 0"
+      "round": "R % 4 == 0",
+      "note": "%data.scenario.rules.gh.71.4%"
     }
   ],
   "rooms": [
@@ -26,7 +30,7 @@
       "roomNumber": 1,
       "ref": "h2b",
       "initial": true,
-      "doors": [
+      "rooms": [
         2,
         3,
         4

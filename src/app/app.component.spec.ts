@@ -12,7 +12,8 @@ import { MonsterEntityComponent } from './ui/figures/monster/entity/entity';
 import { MonsterComponent } from './ui/figures/monster/monster';
 import { FooterComponent } from './ui/footer/footer';
 import { LevelComponent, LevelDialogComponent } from './ui/footer/level/level';
-import { ElementIconComponent } from './ui/header/element/element';
+import { ElementIconComponent } from './ui/header/element/element-icon';
+import { ElementComponent } from './ui/header/element/element';
 import { HeaderComponent } from './ui/header/header';
 import { EditionMenuComponent } from './ui/header/menu/edition/edition';
 import { MainMenuComponent } from './ui/header/menu/menu';
@@ -45,7 +46,7 @@ import { PartySheetDialogComponent } from './ui/header/party/party-sheet-dialog'
 import { DragClickComponent } from './ui/helper/drag/drag';
 import { AttackModifierDeckComponent } from './ui/figures/attackmodifier/attackmodifierdeck';
 import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodifier';
-import { ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent } from './ui/footer/scenario/scenario';
+import { ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent, SectionDialogComponent } from './ui/footer/scenario/scenario';
 import { EntityMenuDialogComponent } from './ui/figures/entity-menu/entity-menu-dialog';
 import { MonsterLevelDialogComponent } from './ui/figures/monster/dialogs/level-dialog';
 import { MonsterStatsDialogComponent } from './ui/figures/monster/dialogs/stats-dialog';
@@ -79,6 +80,7 @@ import { LootDeckStandaloneComponent } from './ui/tools/standalone/loot-deck-sta
 import { AttackModifierStandaloneComponent } from './ui/tools/standalone/attackmodifier-standalone';
 import { FeedbackDialogComponent } from './ui/tools/feedback/feedback-dialog';
 import { FeedbackToolComponent } from './ui/tools/feedback/feedback';
+import { LootApplyDialogComponent } from './ui/figures/loot/loot-apply-dialog';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -86,15 +88,15 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         MainComponent,
-        HeaderComponent, ElementIconComponent,
+        HeaderComponent, ElementIconComponent, ElementComponent,
         PartySheetComponent, PartySheetDialogComponent,
         MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent,
         FooterComponent,
-        LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent,
+        LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,
         HintDialogComponent, ScenarioRulesComponent,
         AttackModifierComponent, AttackModifierEffectsComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent, AttackModifierStandaloneComponent,
         LevelComponent, LevelDialogComponent,
-        ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent,
+        ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent,
         ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
         EntityMenuDialogComponent,
         CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetDialog, CharacterFullViewComponent,

@@ -11,7 +11,8 @@
   "rules": [
     {
       "round": "true",
-      "start": true
+      "start": true,
+      "note": "%data.scenario.rules.fc.98.1%"
     }
   ],
   "unlocks": [

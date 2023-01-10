@@ -20,7 +20,7 @@
       "roomNumber": 1,
       "ref": "c2a",
       "initial": true,
-      "doors": [
+      "rooms": [
         2
       ],
       "monster": [

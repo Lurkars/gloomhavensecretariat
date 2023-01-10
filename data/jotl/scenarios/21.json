@@ -1,0 +1,9 @@
+{
+  "index": "21",
+  "name": "Agents of Chaos",
+  "edition": "jotl",
+  "monsters": [
+    "chaos-demon",
+    "giant-viper"
+  ]
+}

@@ -23,7 +23,7 @@
       "roomNumber": 1,
       "ref": "a3b",
       "initial": true,
-      "doors": [
+      "rooms": [
         2
       ]
     },
@@ -31,7 +31,7 @@
       "roomNumber": 2,
       "marker": "b",
       "ref": "c2b",
-      "doors": [
+      "rooms": [
         3
       ],
       "monster": [
@@ -57,7 +57,7 @@
     {
       "roomNumber": 3,
       "ref": "i1b",
-      "doors": [
+      "rooms": [
         4
       ],
       "monster": [

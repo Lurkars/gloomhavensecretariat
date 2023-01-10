@@ -1,0 +1,43 @@
+{
+  "index": "42.1",
+  "name": "Edge of the World",
+  "edition": "fh",
+  "parent": "7",
+  "marker": "1",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "ref": "11-B",
+      "initial": true,
+      "monster": [
+        {
+          "name": "lurker-soldier",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker-soldier",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-soldier",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "type": "elite"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

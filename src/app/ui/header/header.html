@@ -51,7 +51,7 @@
     <span class="spacer"></span>
     <div class="elements"
       [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.elements}">
-      <ghs-element-icon *ngFor="let element of gameManager.game.elementBoard" [element]="element"></ghs-element-icon>
+      <ghs-element *ngFor="let element of gameManager.game.elementBoard" [element]="element"></ghs-element>
     </div>
   </ng-container>
 </header>

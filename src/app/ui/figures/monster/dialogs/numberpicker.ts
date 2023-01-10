@@ -3,6 +3,7 @@ import { Overlay } from "@angular/cdk/overlay";
 import { Component, ElementRef, Inject, Input, OnInit } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { MonsterType } from "src/app/game/model/MonsterType";
@@ -28,7 +29,7 @@ export class MonsterNumberPicker {
   constructor(private elementRef: ElementRef, private dialog: Dialog, private overlay: Overlay) { }
 
   nonDead(): number {
-    return this.monster.entities.filter((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0).length;
+    return gameManager.monsterManager.monsterEntityCount(this.monster);
   }
 
   hasEntity(): boolean {
@@ -112,7 +113,15 @@ export class MonsterNumberPicker {
       if (dead) {
         gameManager.monsterManager.removeMonsterEntity(this.monster, dead);
       }
-      gameManager.monsterManager.addMonsterEntity(this.monster, number, this.type, false);
+      const entity = gameManager.monsterManager.addMonsterEntity(this.monster, number, this.type, false);
+
+      if (gameManager.game.state == GameState.next && entity) {
+        this.monster.active = !gameManager.game.figures.some((figure) => figure.active);
+        if (this.monster.active) {
+          gameManager.sortFigures();
+          entity.active = true;
+        }
+      }
       gameManager.stateManager.after();
     }
   }
@@ -196,7 +205,15 @@ export class MonsterNumberPickerDialog implements OnInit {
       if (this.entity) {
         this.entity.number = number;
       } else {
-        gameManager.monsterManager.addMonsterEntity(this.monster, number, this.type, this.summon);
+        const entity = gameManager.monsterManager.addMonsterEntity(this.monster, number, this.type, this.summon);
+
+        if (gameManager.game.state == GameState.next && entity) {
+          this.monster.active = !gameManager.game.figures.some((figure) => figure.active);
+          if (this.monster.active) {
+            gameManager.sortFigures();
+            entity.active = true;
+          }
+        }
       }
       gameManager.stateManager.after();
       if (this.monster.entities.length == this.monster.count || this.entity) {

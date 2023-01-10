@@ -168,6 +168,7 @@ footer {
       left: 50%;
       bottom: calc(var(--ghs-unit) * 11.5 * var(--ghs-text-factor) * var(--ghs-barsize));
       transform: translateX(-50%);
+      min-width: 100%;
     }
 
   }
@@ -202,7 +203,11 @@ footer {
     .level-container {
       flex-direction: row;
       --ghs-text-factor: 1.6;
-      max-width: 70%;
+      max-width: calc(100% - (var(--ghs-unit) * 15 * var(--ghs-text-factor) * var(--ghs-barsize)) - (var(--ghs-unit) * 7 * var(--ghs-text-factor) * var(--ghs-barsize)));
+
+      &.no-toggle {
+        max-width: calc(100% - (var(--ghs-unit) * 15 * var(--ghs-text-factor) * var(--ghs-barsize)));
+      }
     }
 
     .flex-shrink {

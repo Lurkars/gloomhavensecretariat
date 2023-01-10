@@ -1,0 +1,16 @@
+{
+  "index": "8",
+  "name": "Hidden Tumor",
+  "edition": "jotl",
+  "monsters": [
+    "blood-tumor",
+    "chaos-demon",
+    "zealot"
+  ],
+  "unlocks": [
+    "9"
+  ],
+  "blocks": [
+    "7"
+  ]
+}

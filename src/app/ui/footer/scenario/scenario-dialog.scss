@@ -20,6 +20,10 @@
     justify-content: center;
     align-items: center;
 
+    .marker {
+      display: inline-flex;
+    }
+
     .ghs-svg {
       height: 1em;
       width: auto;
@@ -39,6 +43,10 @@
 
       &:not(:first-child) {
         border-left: calc(var(--ghs-unit) * 0.1 * var(--ghs-barsize)) solid var(--ghs-color-white);
+      }
+
+      span {
+        margin: 0 0.2em;
       }
     }
   }
@@ -66,7 +74,9 @@
 
   .menu {
 
+    border-top: calc(var(--ghs-unit) * 0.2 * var(--ghs-barsize)) solid var(--ghs-color-white);
     margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    padding-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
     font-family: var(--ghs-font-title);
     font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
 

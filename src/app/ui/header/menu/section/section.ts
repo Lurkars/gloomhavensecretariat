@@ -14,13 +14,11 @@ export class SectionMenuComponent {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
-  edition: string = (gameManager.game.edition || this.editions()[0]);
-
+  edition: string = gameManager.currentEdition();
 
   editions(): string[] {
     return gameManager.editionData.filter((editionData) => editionData.sections && editionData.sections.length > 0).map((editionData) => editionData.edition);
   }
-
 
   groups(): (string | undefined)[] {
     if (!this.edition) {

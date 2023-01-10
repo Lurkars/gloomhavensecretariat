@@ -16,16 +16,60 @@
   ],
   "rules": [
     {
-      "round": "R % 8 == 2"
+      "round": "R % 8 == 2",
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "1"
+        }
+      ]
     },
     {
-      "round": "R % 8 == 4"
+      "round": "R % 8 == 4",
+      "spawns": [
+        {
+          "monster": {
+            "name": "sun-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "2"
+        }
+      ]
     },
     {
-      "round": "R % 8 == 6"
+      "round": "R % 8 == 6",
+      "spawns": [
+        {
+          "monster": {
+            "name": "spitting-drake",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "3"
+        }
+      ]
     },
     {
-      "round": "R % 8 == 0"
+      "round": "R % 8 == 0",
+      "spawns": [
+        {
+          "monster": {
+            "name": "harrower-infester",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "4"
+        }
+      ]
     }
   ],
   "unlocks": [

@@ -1,0 +1,61 @@
+{
+    "index": "67",
+    "name": "Branching Alleyway",
+    "edition": "fc",
+    "parent": "111",
+    "marker": "1",
+    "rooms": [
+        {
+            "roomNumber": 3,
+            "ref": "h3b",
+            "initial": true,
+            "treasures": [
+                82
+            ],
+            "monster": [
+                {
+                    "name": "black-imp",
+                    "player3": "normal",
+                    "player4": "elite"
+                },
+                {
+                    "name": "black-imp",
+                    "type": "normal"
+                },
+                {
+                    "name": "night-demon",
+                    "player2": "normal"
+                },
+                {
+                    "name": "aesther-scout",
+                    "player3": "normal",
+                    "player4": "normal"
+                },
+                {
+                    "name": "black-imp",
+                    "player2": "normal",
+                    "player3": "normal",
+                    "player4": "elite"
+                },
+                {
+                    "name": "black-imp",
+                    "player3": "normal"
+                },
+                {
+                    "name": "aesther-scout",
+                    "player3": "normal",
+                    "player4": "normal"
+                },
+                {
+                    "name": "night-demon",
+                    "player2": "normal"
+                },
+                {
+                    "name": "night-demon",
+                    "player3": "normal",
+                    "player4": "normal"
+                }
+            ]
+        }
+    ]
+}

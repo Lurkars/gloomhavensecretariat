@@ -11,13 +11,46 @@
   ],
   "rules": [
     {
-      "round": "R > 3 && R % 3 == 1"
+      "round": "R > 3 && R % 3 == 1",
+      "spawns": [
+        {
+          "monster": {
+            "name": "frost-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
+        }
+      ]
     },
     {
-      "round": "R > 4 && R % 3 == 2"
+      "round": "R > 4 && R % 3 == 2",
+      "spawns": [
+        {
+          "monster": {
+            "name": "flame-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
     },
     {
-      "round": "R > 5 && R % 3 == 0"
+      "round": "R > 5 && R % 3 == 0",
+      "spawns": [
+        {
+          "monster": {
+            "name": "earth-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "normal"
+          },
+          "marker": "c"
+        }
+      ]
     }
   ],
   "unlocks": [

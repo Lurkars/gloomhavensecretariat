@@ -1,0 +1,31 @@
+.element-svg {
+  width: 100%;
+  height: 100%;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  #bg {
+    transition: clip-path 1s;
+  }
+
+  &.inert {
+    #bg {
+      clip-path: inset(100% 0px 0px 0px);
+    }
+  }
+
+  &.full {
+    #bg {
+      clip-path: inset(0% 0px 0px 0px);
+    }
+  }
+
+  &.half {
+    #bg {
+      clip-path: inset(50% 0px 0px 0px);
+    }
+  }
+}

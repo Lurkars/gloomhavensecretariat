@@ -22,7 +22,7 @@
       "roomNumber": 1,
       "ref": "j1b",
       "initial": true,
-      "doors": [
+      "rooms": [
         2
       ],
       "treasures": [
@@ -49,7 +49,7 @@
     {
       "roomNumber": 2,
       "ref": "k2a",
-      "doors": [
+      "rooms": [
         3
       ],
       "monster": [

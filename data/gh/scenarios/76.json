@@ -13,14 +13,14 @@
       "roomNumber": 1,
       "ref": "b1b",
       "initial": true,
-      "doors": [
+      "rooms": [
         2
       ]
     },
     {
       "roomNumber": 2,
       "ref": "h2a",
-      "doors": [
+      "rooms": [
         3,
         4
       ],
@@ -93,7 +93,7 @@
     {
       "roomNumber": 4,
       "ref": "b4b",
-      "doors": [
+      "rooms": [
         5,
         6
       ],
@@ -157,7 +157,7 @@
     {
       "roomNumber": 6,
       "ref": "a2b",
-      "doors": [
+      "rooms": [
         7
       ],
       "monster": [

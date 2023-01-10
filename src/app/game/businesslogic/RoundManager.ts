@@ -29,7 +29,7 @@ export class RoundManager {
     this.game.totalSeconds += this.game.playSeconds;
     this.game.playSeconds = 0;
 
-    gameManager.scenarioManager.applyScenarioRules();
+    gameManager.scenarioManager.addScenarioRules();
 
     if (this.game.state == GameState.next) {
       this.game.state = GameState.draw;
@@ -206,11 +206,11 @@ export class RoundManager {
     figure.active = true;
 
     if (figure instanceof Monster) {
-      if (figure.entities.every((monsterEntity) => !monsterEntity.off)) {
-        figure.entities.forEach((monsterEntity) => {
+      figure.entities.forEach((monsterEntity) => {
+        if (!monsterEntity.off) {
           monsterEntity.active = true;
-        });
-      }
+        }
+      });
     }
 
     this.game.elementBoard.forEach((element) => {
@@ -326,7 +326,9 @@ export class RoundManager {
       this.game.scenario.revealedRooms = [];
     }
     this.game.scenarioRules = [];
+    this.game.disgardedScenarioRules = [];
     this.game.round = 0;
+    this.game.roundResets = [];
     this.game.state = GameState.draw;
     this.game.elementBoard.forEach((element) => element.state = ElementState.inert);
     this.game.monsterAttackModifierDeck.fromModel(new AttackModifierDeck().toModel());

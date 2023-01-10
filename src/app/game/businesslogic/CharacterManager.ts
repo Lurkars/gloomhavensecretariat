@@ -116,7 +116,7 @@ export class CharacterManager {
   }
 
 
-  addObjective(objectiveData: ObjectiveData | undefined = undefined, name : string | undefined = undefined) {
+  addObjective(objectiveData: ObjectiveData | undefined = undefined, name: string | undefined = undefined): Objective {
     const objectiveCount = gameManager.game.figures.filter((figure) => figure instanceof Objective).length;
     let id = objectiveCount % 12;
     if (objectiveCount < 12) {
@@ -142,6 +142,7 @@ export class CharacterManager {
 
     this.game.figures.push(objective);
     gameManager.sortFigures();
+    return objective;
   }
 
   removeObjective(objective: Objective) {

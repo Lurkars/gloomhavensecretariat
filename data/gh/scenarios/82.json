@@ -12,7 +12,7 @@
       "roomNumber": 1,
       "ref": "k1a",
       "initial": true,
-      "doors": [
+      "rooms": [
         2,
         5
       ],
@@ -49,7 +49,7 @@
       "roomNumber": 2,
       "marker": "a",
       "ref": "c1a",
-      "doors": [
+      "rooms": [
         3,
         4
       ],

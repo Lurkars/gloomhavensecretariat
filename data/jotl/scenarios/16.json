@@ -1,0 +1,19 @@
+{
+  "index": "16",
+  "name": "Mixed Results",
+  "edition": "jotl",
+  "monsters": [
+    "black-imp",
+    "blood-imp",
+    "rat-monstrosity"
+  ],
+  "rules": [
+    {
+      "round": "R == 2",
+      "start": true
+    }
+  ],
+  "unlocks": [
+    "17"
+  ]
+}

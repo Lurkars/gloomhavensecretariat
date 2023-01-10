@@ -17,10 +17,20 @@ export class EntityManager {
     this.game = game;
   }
 
+  entities(figure: Figure): Entity[] {
+    let entities: Entity[] = [];
+    if (figure instanceof Character || figure instanceof Objective) {
+      entities.push(figure);
+    } else if (figure instanceof Monster) {
+      entities = figure.entities.filter((entity) => !entity.dead && entity.health > 0);
+    }
+    return entities;
+  }
+
   changeHealth(entity: Entity, value: number) {
     this.changeHealthHighlightConditions(entity, value);
     entity.health += value;
-    const maxHealth = EntityValueFunction("" + entity.maxHealth);
+    const maxHealth = EntityValueFunction(entity.maxHealth);
     if (entity.health > maxHealth) {
       entity.health = maxHealth;
     } else if (entity.health < 0) {
@@ -136,7 +146,7 @@ export class EntityManager {
 
       if (condition.name == ConditionName.ward) {
         entity.health += Math.floor((condition.value - 1) / 2);
-        const maxHealth = EntityValueFunction("" + entity.maxHealth);
+        const maxHealth = EntityValueFunction(entity.maxHealth);
         if (entity.health > maxHealth) {
           entity.health = maxHealth;
         }
@@ -234,7 +244,7 @@ export class EntityManager {
     const regenerateCondition = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state == EntityConditionState.normal && entityCondition.name == ConditionName.regenerate);
 
     if (regenerateCondition) {
-      const maxHealth = EntityValueFunction("" + entity.maxHealth);
+      const maxHealth = EntityValueFunction(entity.maxHealth);
       const heal = entity.entityConditions.every((entityCondition) => entityCondition.expired || entityCondition.types.indexOf(ConditionType.preventHeal) == -1) && entity.health < maxHealth;
 
       entity.entityConditions.filter((entityCondition) => !entityCondition.expired && entityCondition.types.indexOf(ConditionType.clearHeal) != -1).forEach((entityCondition) => entityCondition.expired = true);
@@ -288,7 +298,7 @@ export class EntityManager {
         if (entityCondition.name == ConditionName.wound || entityCondition.name == ConditionName.wound_x) {
 
           entity.health = entity.health + entityCondition.value;
-          const maxHealth = EntityValueFunction("" + entity.maxHealth);
+          const maxHealth = EntityValueFunction(entity.maxHealth);
           if (entity.health > maxHealth) {
             entity.health = maxHealth;
           }
@@ -347,7 +357,7 @@ export class EntityManager {
     if (baneCondition) {
 
       entity.health = entity.health + 10;
-      const maxHealth = EntityValueFunction("" + entity.maxHealth);
+      const maxHealth = EntityValueFunction(entity.maxHealth);
       if (entity.health > maxHealth) {
         entity.health = maxHealth;
       }

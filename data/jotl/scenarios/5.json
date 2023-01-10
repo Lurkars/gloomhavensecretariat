@@ -1,0 +1,13 @@
+{
+  "index": "5",
+  "name": "A Deeper Understanding",
+  "edition": "jotl",
+  "monsters": [
+    "blood-tumor",
+    "chaos-demon",
+    "zealot"
+  ],
+  "unlocks": [
+    "6"
+  ]
+}

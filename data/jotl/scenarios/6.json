@@ -1,0 +1,13 @@
+{
+  "index": "6",
+  "name": "Corrupted Research",
+  "edition": "jotl",
+  "monsters": [
+    "black-sludge",
+    "rat-monstrosity"
+  ],
+  "unlocks": [
+    "7",
+    "8"
+  ]
+}

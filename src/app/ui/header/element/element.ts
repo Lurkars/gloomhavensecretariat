@@ -5,32 +5,17 @@ import { ElementModel, ElementState } from "src/app/game/model/Element";
 import { GameState } from "src/app/game/model/Game";
 
 @Component({
-  selector: 'ghs-element-icon',
+  selector: 'ghs-element',
   templateUrl: './element.html',
   encapsulation: ViewEncapsulation.None,
   styleUrls: ['./element.scss']
 })
-export class ElementIconComponent implements OnInit {
+export class ElementComponent  {
 
   @Input() element!: ElementModel;
   gameManager: GameManager = gameManager;
   GameState = GameState;
   ElementState = ElementState;
-  svg: SafeHtml = "";
-
-  constructor(private sanitizer: DomSanitizer) { }
-
-  ngOnInit(): void {
-    fetch('./assets/images/element/' + this.element.type + '.svg')
-      .then(response => {
-        return response.text();
-      }).then(data => {
-        this.svg = this.sanitizer.bypassSecurityTrustHtml(data);
-      })
-      .catch((error: Error) => {
-        console.error("Invalid src: " + './assets/images/element/' + this.element.type + '.svg');
-      })
-  }
 
   toggleElement(double: boolean = false): void {
     const elementState = this.nextElementState(this.element, double);

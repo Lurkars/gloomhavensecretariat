@@ -19,7 +19,8 @@ import { MonsterEntityComponent } from './ui/figures/monster/entity/entity';
 import { MonsterComponent } from './ui/figures/monster/monster';
 import { FooterComponent } from './ui/footer/footer';
 import { LevelComponent, LevelDialogComponent } from './ui/footer/level/level';
-import { ElementIconComponent } from './ui/header/element/element';
+import { ElementIconComponent } from './ui/header/element/element-icon';
+import { ElementComponent } from './ui/header/element/element';
 import { HeaderComponent } from './ui/header/header';
 import { EditionMenuComponent } from './ui/header/menu/edition/edition';
 import { MainMenuComponent } from './ui/header/menu/menu';
@@ -87,7 +88,7 @@ import 'hammerjs'
   declarations: [
     AppComponent,
     MainComponent,
-    HeaderComponent, ElementIconComponent,
+    HeaderComponent, ElementIconComponent, ElementComponent,
     PartySheetComponent, PartySheetDialogComponent,
     MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent,
     FooterComponent,

@@ -24,7 +24,7 @@ const load_subfolder = function (edition_path, folder, default_value) {
     }
     return result;
   }
-  console.warn("\nCould not load subfolder: '" + dir + "'");
+  // console.warn("\nCould not load subfolder: '" + dir + "'");
   return default_value;
 }
 
@@ -39,7 +39,7 @@ const load_file = function (edition_path, file, default_value) {
       console.error(file, e);
     }
   }
-  console.warn("\nCould not load file: '" + file_path + "'");
+  // console.warn("\nCould not load file: '" + file_path + "'");
   return default_value;
 }
 

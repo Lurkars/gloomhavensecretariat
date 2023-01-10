@@ -4,10 +4,43 @@
   "edition": "fh",
   "parent": "5",
   "marker": 1,
+  "resetRound": true,
   "objectives": [
     {
       "name": "Altar a",
       "health": "(L+3)xC"
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 3",
+      "start": true,
+      "spawns": [
+        {
+          "marker": "b",
+          "monster": {
+            "name": "frozen-corpse",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          }
+        }
+      ]
+    },
+    {
+      "round": "R == 5",
+      "start": true,
+      "spawns": [
+        {
+          "marker": "c",
+          "monster": {
+            "name": "frozen-corpse",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        }
+      ]
     }
   ],
   "rooms": [

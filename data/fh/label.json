@@ -110,6 +110,15 @@
     "deck": {},
     "ability": {},
     "scenario": {},
+    "section": {
+      "rules" : {
+        "fh": {
+          "21-1" : {
+            "1": "one for every empty starting Hex."
+          } 
+        }
+      }
+    },
     "summon": {
       "animated-claymore": "Animated Claymore",
       "arcing-generator": "Arcing Generator",

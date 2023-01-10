@@ -220,10 +220,27 @@
     "rules": [
       {
         "round": "true",
-        "start": true
+        "start": true,
+        "elements": [
+          {
+            "type": "dark",
+            "state": "strong"
+          }
+        ]
       },
       {
-        "round": "true"
+        "round": "true",
+        "spawns": [
+          {
+            "monster": {
+              "name": "night-demon",
+              "player2": "normal",
+              "player3": "elite",
+              "player4": "elite"
+            },
+            "marker": "j"
+          }
+        ]
       }
     ]
   },
@@ -308,11 +325,28 @@
     ],
     "rules": [
       {
-        "round": "R % 2 == 2",
-        "start": true
+        "round": "R % 2 == 0",
+        "start": true,
+        "elements": [
+          {
+            "type": "dark",
+            "state": "waning"
+          }
+        ]
       },
       {
-        "round": "R % 2 == 1"
+        "round": "R % 2 == 1",
+        "note": "%data.section.rules.fc.72.1%",
+        "spawns": [
+          {
+            "monster": {
+              "name": "night-demon",
+              "player2": "normal",
+              "player3": "normal",
+              "player4": "elite"
+            }
+          }
+        ]
       }
     ]
   },
@@ -501,11 +535,28 @@
     ],
     "rules": [
       {
-        "round": "R % 2 == 2",
-        "start": true
+        "round": "R % 2 == 0",
+        "start": true,
+        "elements": [
+          {
+            "type": "dark",
+            "state": "strong"
+          }
+        ]
       },
       {
-        "round": "R % 2 == 1"
+        "round": "R % 2 == 1",
+        "note": "%data.section.rules.fc.123.1%",
+        "spawns": [
+          {
+            "monster": {
+              "name": "night-demon",
+              "player2": "normal",
+              "player3": "elite",
+              "player4": "elite"
+            }
+          }
+        ]
       }
     ]
   },

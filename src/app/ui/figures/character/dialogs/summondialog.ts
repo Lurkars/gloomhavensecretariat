@@ -4,7 +4,6 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 
 import { Character } from "src/app/game/model/Character";
 import { SummonData } from "src/app/game/model/data/SummonData";
-import { EntityValueFunction } from "src/app/game/model/Entity";
 import { Summon, SummonColor, SummonState } from "src/app/game/model/Summon";
 
 @Component({

@@ -1,0 +1,16 @@
+{
+  "index": "7",
+  "name": "Sunken Tumor",
+  "edition": "jotl",
+  "monsters": [
+    "blood-tumor",
+    "vermling-scout",
+    "zealot"
+  ],
+  "unlocks": [
+    "9"
+  ],
+  "blocks": [
+    "8"
+  ]
+}
