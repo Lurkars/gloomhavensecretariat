@@ -471,8 +471,8 @@
       "allyShort": "아군",
       "enemies": "%game.target% 모든 적 대상",
       "enemiesAdjacent": "%game.target% 인접한 모든 적 대상",
-      "enemiesMovedThrough": "%game.target% all enemies moved through",
-      "enemiesMovedThroughAdjacent": "%game.target% all enemies occupying or adjecent to<br>hexes entered during the move ability",
+      "enemiesMovedThrough": "%game.target% 이동 경로에 있는 모든 적 대상",
+      "enemiesMovedThroughAdjacent": "%game.target% 이동 능력 동안 들어간 칸을 점유하거나 인접하고 있는 모든 적 대상",
       "enemiesRange": "%game.target% 사정거리 %game.action.range% {0} 내 모든 적 대상",
       "enemiesRangeAffect": "%game.affect% 사정거리 %game.action.range% {0} 내 모든 적에게 영향",
       "enemy": "%game.target% 적 하나 대상",
@@ -484,10 +484,11 @@
       "figuresRange": "%game.target% 사정거리 %game.action.range% {0} 내의 모든 피규어 대상",
       "focusEnemyFarthest": "가장 <br>먼 적에게 주목한다.",
       "self": "자신",
-      "selfAllies": " 자신 및 모든 아군",
+      "selfAllies": "자신 및 모든 아군",
       "selfAlliesAdjacentAffect": "%game.affect% 자신 및 인접한 모든 아군에게 영향",
       "selfAlliesAffect": "%game.affect% 자신 및 모든 아군에게 영향",
       "selfAlliesRange": "%game.target% 자신 및 사정거리 %game.action.range% {0} 내에 있는 모든 아군에게 영향",
+      "selfOrAlly": "자신 또는 아군",
       "targets": "모든 대상"
     },
     "target": {
@@ -654,7 +655,36 @@
       "add": "시나리오 해금하기",
       "index": "쉼표로 구분하여 번호 입력"
     },
+    "openRoom": "'{0}' 타일 문 열기",
+    "openRoomMarker": "%game.mapMarker.{1}% 위치의 '{0}' 타일 문 열기",
     "reset": "시나리오 재시작하기",
+    "rules": {
+      "addSection": "#{0} {1}: 섹션 열기",
+      "addSectionMarker": "#{0} {1}: %game.mapMarker.{2}% 위치의 섹션 열기",
+      "apply": "적용하기",
+      "dismiss": "취소하기",
+      "figures": {
+        "all": "모든 피규어",
+        "damage": "{0}에게 피해 %game.damage:{1}%점",
+        "gainCondition": "{0}에게 %game.condition.{1}% 상태 추가",
+        "hp": "{0} 체력을 {1}",
+        "looseCondition": "{0}의 %game.condition.{1}% 상태 해제",
+        "toggleOff": "{0} 비활성화",
+        "toggleOn": "{0} 활성화",
+        "transfer": "{0} %data.monster.{1}% 전환"
+      },
+      "lost": "시나리오 패배!",
+      "openRoom": "문 열기",
+      "openRoomMarker": "%game.mapMarker.{0}% 위치의 문 열기",
+      "spawn": "{2}%game.monsterType.{1}% %data.monster.{0}% 출현",
+      "spawnMarker": "%game.mapMarker.{3}% 위치에 {2}%game.monsterType.{1}% %data.monster.{0}% 출현",
+      "won": "시나리오 승리!"
+    },
+    "section": {
+      "add": "{1} #{0} 섹션을 열까요?",
+      "cancel": "취소",
+      "confirm": "확인"
+    },
     "summary": {
       ".": "시나리오 요약",
       "gold": "금화",
@@ -718,13 +748,17 @@
       ".": "몬스터 말 활성화",
       "hint": "몬스터의 차례에, 각 몬스터 말은 활성화 상태를 가집니다. 몬스터 말을 두 번 클릭하여 완료한 것으로 표시합니다."
     },
-    "allyAttackModifierDeck": {
-      ".": "아군 공격 보정 덱",
-      "hint": "프로스트헤이븐 규칙: 몬스터의 공격 보정 덱 대신 아군이 자신의 공격 보정 덱을 사용하도록 합니다."
-    },
     "alwaysAllyAttackModifierDeck": {
-      ".": "항상 노획 적용 대화 상자를 표시",
-      "hint": "활성화된 캐릭터를 사용하는 대신 뽑은 노획 카드에서 캐릭터를 선택하는 대화 상자를 항상 표시합니다."
+      ".": "항상 아군의 공격 보정 덱 사용",
+      "hint": "프로스트헤이븐의 몬스터의 공격 보정 덱 대신 아군이 자신의 공격 보정 덱을 사용하도록 하는 규칙을 항상 적용합니다."
+    },
+    "alwaysHazardousTerrain": {
+      ".": "항상 위험 지형 계산 내용 표시",
+      "hint": "프로스트헤이븐의 위험 지형 계산 규칙을 활성화시켜 해당 내용을 항상 표시합니다."
+    },
+    "alwaysLootApplyDialog": {
+      ".": "항상 노획 대화 상자를 표시",
+      "hint": "활성 캐릭터를 사용하는 대신 뽑은 노획 카드에서 캐릭터를 선택하는 대화 상자를 항상 표시합니다."
     },
     "alwaysLootDeck": {
       ".": "항상 노획 덱을 사용",
@@ -745,6 +779,10 @@
     "automaticAttackModifierFullscreen": {
       ".": "전체 화면으로 공격 보정 덱 자동 전환",
       "hint": "작은 장치에서 공격 보정 덱과 노획 덱을 전체 화면으로 자동 전환됩니다."
+    },
+    "automaticStandees": {
+      ".": "자동 몬스터 말 (%wip%)",
+      "hint": "자동으로 몬스터 말을 추가합니다."
     },
     "barsize": {
       ".": "막대 크기",
@@ -801,6 +839,7 @@
       ".": "피드백 버튼 비활성화",
       "hint": ""
     },
+    "fhRules": "항상 프로스트헤이븐 규칙을 적용",
     "fhStyle": {
       ".": "프로스트헤이븐 스타일",
       "hint": "프로스트헤이븐 스타일로 변경합니다."
@@ -871,6 +910,10 @@
       ".": "시나리오 번호 입력",
       "hint": ""
     },
+    "scenarioRooms": {
+      ".": "방 별 잠금 해제 (%wip%)",
+      "hint": "시나리오에서 별도로 방을 잠금 해제합니다. 비활성화 시, 자동 몬스터 말 추가 기능 또한 비활성화됩니다."
+    },
     "scenarioRules": {
       ".": "시나리오 규칙 보기",
       "hint": "시나리오 특별 규칙을 팝업창으로 보여줍니다."
@@ -925,6 +968,7 @@
         "objective": "{0}에게 {1} 적용",
         "summon": "{0}의 {1}에게 {2} 적용"
       },
+      "applyScenarioRule": "시나리오 규칙 적용",
       "buyItem": "{0}의 아이템 구매: {1} (%data.edition.{2}%)",
       "cancelScenario": "시나리오 취소 #{0} {1} ({2})",
       "changeCustomScenario": "커스텀 시나리오 이름 변경: '{0}'",
@@ -981,6 +1025,8 @@
       "monsterConsumeElement": "{0}의 {1} 사용",
       "monsterInfuseElement": "{0} infuse {1}",
       "nextRound": "다음 라운드",
+      "openRoom": "#{0} {1}: '{2}' 타일 문 열기",
+      "openRoomMarker": "#{0} {1}:  %game.mapMarker.{3}% 위치의 '{2}' 타일 문 열기",
       "removeAbility": "{0}의 {1} 능력 카드 제거",
       "removeAllChars": "모든 캐릭터 제거",
       "removeAllMonster": "모든 몬스터 제거",
