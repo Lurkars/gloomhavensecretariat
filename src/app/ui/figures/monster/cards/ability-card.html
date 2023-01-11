@@ -2,14 +2,12 @@
   [ngClass]="{'flipped' : flipped(), 'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0, 'second-ability' : secondAbility}">
   <div class="hover-effect initiative"></div>
   <div class="hover-effect title"></div>
-  <ghs-ability [ability]="ability" [monster]="monster" [flipped]="flipped()" [highlightElements]="true"
-    (click)="dragClick.tap($event)" (press)="dragClick.press($event)"></ghs-ability>
-  <ghs-drag-click (singleClick)="openAbilities()" (doubleClick)="openAbility()" #dragClick></ghs-drag-click>
+  <ghs-ability [ability]="ability" [monster]="monster" [flipped]="flipped()" [highlightElements]="true" ghs-drag-click
+    (singleClick)="openAbilities($event)" (doubleClick)="openAbility($event)"></ghs-ability>
   <ng-container *ngIf="secondAbility">
     <ghs-ability [ability]="secondAbility" [monster]="monster" [flipped]="flipped()" [highlightElements]="true"
-      (click)="dragClickSecond.tap($event)" (press)="dragClickSecond.press($event)">
+      ghs-drag-click (singleClick)="openAbilities($event)" (doubleClick)="openAbility($event,true)">
     </ghs-ability>
-    <ghs-drag-click (singleClick)="openAbilities()" (doubleClick)="openAbility(true)" #dragClickSecond></ghs-drag-click>
   </ng-container>
 </div>
 <span class="left-abilities">

@@ -42,6 +42,8 @@ export class EntityMenuDialogComponent {
   attack: number = 0;
   movement: number = 0;
   range: number = 0;
+  bless: number = 0;
+  curse: number = 0;
 
   AttackModifierType = AttackModifierType;
   SummonState = SummonState;
@@ -159,45 +161,51 @@ export class EntityMenuDialogComponent {
 
   changeAttackModifier(type: AttackModifierType, value: number) {
     if (value > 0) {
-      if (this.countAllUpcomingAttackModifier(type) == 10) {
+      const existing = this.countAllUpcomingAttackModifier(type);
+      if (existing == 10) {
         return;
       }
-      gameManager.attackModifierManager.addModifier(this.attackModifierDeck(), new AttackModifier(type));
+      if (value + existing >= 10) {
+        value = 10 - existing;
+      }
+      for (let i = 0; i < value; i++) {
+        gameManager.attackModifierManager.addModifier(this.attackModifierDeck(), new AttackModifier(type));
+      }
     } else if (value < 0) {
-      const card = this.attackModifierDeck().cards.find((attackModifier, index) => {
+      let card = this.attackModifierDeck().cards.find((attackModifier, index) => {
         return attackModifier.type == type && index > this.attackModifierDeck().current;
       });
-      if (card) {
+      while (card && value < 0) {
         this.attackModifierDeck().cards.splice(this.attackModifierDeck().cards.indexOf(card), 1);
+        card = this.attackModifierDeck().cards.find((attackModifier, index) => {
+          return attackModifier.type == type && index > this.attackModifierDeck().current;
+        });
+        value++;
       }
     }
   }
 
   changeBless(value: number) {
     if (this.data.figure instanceof Character || this.data.figure instanceof Monster) {
-      if (this.data.figure instanceof Character) {
-        gameManager.stateManager.before(value < 0 ? "removeBless" : "addBless", "data.character." + this.data.figure.name);
-      } else if (this.data.entity instanceof MonsterEntity) {
-        gameManager.stateManager.before(value < 0 ? "removeEntityBless" : "addEntityBless", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number);
-      } else {
-        gameManager.stateManager.before(value < 0 ? "removeBless" : "addBless", "data.monster." + this.data.figure.name);
+      this.bless += value;
+      const existing = this.countAllUpcomingAttackModifier(AttackModifierType.bless);
+      if (this.bless + existing >= 10) {
+        this.bless = 10 - existing;
+      } else if (this.bless + existing < 0) {
+        this.bless = -existing;
       }
-      this.changeAttackModifier(AttackModifierType.bless, value)
-      gameManager.stateManager.after();
     }
   }
 
   changeCurse(value: number) {
     if (this.data.figure instanceof Character || this.data.figure instanceof Monster) {
-      if (this.data.figure instanceof Character) {
-        gameManager.stateManager.before(value < 0 ? "removeCurse" : "addCurse", "data.character." + this.data.figure.name);
-      } else if (this.data.entity instanceof MonsterEntity) {
-        gameManager.stateManager.before(value < 0 ? "removeEntityCurse" : "addEntityCurse", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number);
-      } else {
-        gameManager.stateManager.before(value < 0 ? "removeCurse" : "addCurse", "data.monster." + this.data.figure.name);
+      this.curse += value;
+      const existing = this.countAllUpcomingAttackModifier(AttackModifierType.curse);
+      if (this.curse + existing >= 10) {
+        this.curse = 10 - existing;
+      } else if (this.curse + existing < 0) {
+        this.curse = -existing;
       }
-      this.changeAttackModifier(AttackModifierType.curse, value)
-      gameManager.stateManager.after();
     }
   }
 
@@ -563,6 +571,20 @@ export class EntityMenuDialogComponent {
         gameManager.stateManager.after();
       }
 
+      if (this.bless != 0) {
+        gameManager.stateManager.before(this.bless < 0 ? "removeBless" + (this.bless < -1 ? 'es' : '') : "addBless" + (this.bless > 1 ? 'es' : ''), "data.character." + this.data.figure.name, '' + (this.bless > 0 ? this.bless : this.bless * -1));
+        this.changeAttackModifier(AttackModifierType.bless, this.bless);
+        gameManager.stateManager.after();
+        this.bless = 0;
+      }
+
+      if (this.curse != 0) {
+        gameManager.stateManager.before(this.curse < 0 ? "removeCurse" + (this.curse < -1 ? 's' : '') : "addCurse" + (this.curse > 1 ? 's' : ''), "data.character." + this.data.figure.name, '' + (this.curse > 0 ? this.curse : this.curse * -1));
+        this.changeAttackModifier(AttackModifierType.curse, this.curse);
+        gameManager.stateManager.after();
+        this.curse = 0;
+      }
+
       if (this.maxHp) {
         gameManager.stateManager.before("changeMaxHP", "data.character." + this.data.entity.name, ghsValueSign(this.maxHp));
         if (this.data.entity.maxHealth + this.maxHp < this.data.entity.maxHealth || this.data.entity.health == this.data.entity.maxHealth) {
@@ -590,25 +612,49 @@ export class EntityMenuDialogComponent {
   }
 
   closeMonster() {
-    if (this.data.figure instanceof Monster && this.data.entity instanceof MonsterEntity) {
-      if (this.health != 0) {
-        gameManager.stateManager.before("changeEntityHp", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, ghsValueSign(this.health));
-        gameManager.entityManager.changeHealth(this.data.entity, this.health);
-        gameManager.stateManager.after();
-        this.health = 0;
-      }
-      if (this.maxHp) {
-        gameManager.stateManager.before("changeEntityMaxHp", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, ghsValueSign(this.maxHp));
-        if (this.data.entity.maxHealth + this.maxHp < this.data.entity.maxHealth || this.data.entity.health == this.data.entity.maxHealth) {
-          this.data.entity.health = this.data.entity.maxHealth + this.maxHp;
+    if (this.data.figure instanceof Monster) {
+      if (this.bless != 0) {
+        if (this.data.entity instanceof MonsterEntity) {
+          gameManager.stateManager.before(this.bless < 0 ? "removeEntityBless" + (this.bless < -1 ? 'es' : '') : "addEntityBless" + (this.bless > 1 ? 'es' : ''), "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, '' + (this.bless > 0 ? this.bless : this.bless * -1));
+        } else {
+          gameManager.stateManager.before(this.bless < 0 ? "removeBless" + (this.bless < -1 ? 'es' : '') : "addBless" + (this.bless > 1 ? 'es' : ''), "data.monster." + this.data.figure.name, '' + (this.bless > 0 ? this.bless : this.bless * -1));
         }
-        this.data.entity.maxHealth += this.maxHp;
+        this.changeAttackModifier(AttackModifierType.bless, this.bless);
         gameManager.stateManager.after();
-        this.maxHp = 0;
+        this.bless = 0;
       }
 
-      if (this.data.entity.maxHealth > 0 && this.data.entity.health <= 0 || this.data.entity.dead) {
-        this.dead();
+      if (this.curse != 0) {
+        if (this.data.entity instanceof MonsterEntity) {
+          gameManager.stateManager.before(this.curse < 0 ? "removeEntityCurse" + (this.curse < -1 ? 's' : '') : "addEntityCurse" + (this.curse > 1 ? 's' : ''), "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, '' + (this.curse > 0 ? this.curse : this.curse * -1));
+        } else {
+          gameManager.stateManager.before(this.curse < 0 ? "removeCurse" + (this.curse < -1 ? 's' : '') : "addCurse" + (this.curse > 1 ? 's' : ''), "data.monster." + this.data.figure.name, '' + (this.curse > 0 ? this.curse : this.curse * -1));
+        }
+        this.changeAttackModifier(AttackModifierType.curse, this.curse);
+        gameManager.stateManager.after();
+        this.curse = 0;
+      }
+
+      if (this.data.entity instanceof MonsterEntity) {
+        if (this.health != 0) {
+          gameManager.stateManager.before("changeEntityHp", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, ghsValueSign(this.health));
+          gameManager.entityManager.changeHealth(this.data.entity, this.health);
+          gameManager.stateManager.after();
+          this.health = 0;
+        }
+        if (this.maxHp) {
+          gameManager.stateManager.before("changeEntityMaxHp", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, ghsValueSign(this.maxHp));
+          if (this.data.entity.maxHealth + this.maxHp < this.data.entity.maxHealth || this.data.entity.health == this.data.entity.maxHealth) {
+            this.data.entity.health = this.data.entity.maxHealth + this.maxHp;
+          }
+          this.data.entity.maxHealth += this.maxHp;
+          gameManager.stateManager.after();
+          this.maxHp = 0;
+        }
+
+        if (this.data.entity.maxHealth > 0 && this.data.entity.health <= 0 || this.data.entity.dead) {
+          this.dead();
+        }
       }
     }
   }

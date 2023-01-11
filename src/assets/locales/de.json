@@ -823,6 +823,7 @@
   "state": {
     "info": {
       "addBless": "Segen {0}",
+      "addBlesses": "{1} Segen {0}",
       "addChar": "Character {0} hinzufügen",
       "addCondition": {
         "char": "{1} {0}",
@@ -831,8 +832,11 @@
         "summon": "{2} '{1}' of {0}"
       },
       "addCurse": "Fluch {0}",
+      "addCurses": "{1} Flüche {0}",
       "addEntityBless": "Segen {0} Aufsteller {2}",
-      "addEntityCurse": "FLuch {0} Aufsteller {2}",
+      "addEntityBlesses": "{1} Segen {0} Aufsteller {2}",
+      "addEntityCurse": "Fluch {0} Aufsteller {2}",
+      "addEntityCurses": "{1} Flüche {0} Aufsteller {2}",
       "addEntityMarker": "{2} Markierung von {0} Aufsteller {1}",
       "addItem": "Gegenstand {1} (%data.edition.{2}%) für {0}",
       "addManualScenario": "Szenario #{0} {1} ({2}) freischalten",
@@ -913,6 +917,7 @@
       "removeAllMonster": "Alle Monster entfernen",
       "removeAllObjectives": "Alle Ziele entfernen",
       "removeBless": "Segen von {0} entfernen",
+      "removeBlesses": "{1} Segen von {0} entfernen",
       "removeChar": "Charakter {0} entfernen",
       "removeCondition": {
         "char": "{1} von {0} entfernen",
@@ -920,9 +925,12 @@
         "objective": "{1} von {0} entfernen",
         "summon": "{2} von {1} von {0} entfernen"
       },
-      "removeCurse": "Fluch von {0} entfernen",
+      "removeCurse": "Fluch von {0} entfernen ({1})",
+      "removeCurses": "{1} Flüche von {0} entfernen ({1})",
       "removeEntityBless": "Segen von {0} Aufsteller {2} entfernen",
-      "removeEntityCurse": "Segen von {0} Aufsteller {2} entfernen",
+      "removeEntityBlesses": "{1} Segen von {0} Aufsteller {2} entfernen",
+      "removeEntityCurse": "Fluch von {0} Aufsteller {2} entfernen",
+      "removeEntityCurses": "{1} Flüche von {0} Aufsteller {2} entfernen",
       "removeEntityMarker": "Markierung {2} von {0} Aufsteller {1} entfernen",
       "removeItem": "Gegenstand {1} (%data.edition.{2}%) von {0} entfernen",
       "removeManualScenario": "Szenario #{0} {1} ({2}) von Freigeschaltenen entfernen",

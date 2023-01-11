@@ -30,7 +30,7 @@
     *ngSwitchCase="[ActionType.element, ActionType.elementHalf].includes(action.type) ? action.type : ''">
     <ng-container *ngIf="action.type == ActionType.element">
       <span class="elements">
-        <span class="element" (click)="elementAction($event, action, '' + action.value)"
+        <span class="element" (tap)="elementAction($event, action, '' + action.value)"
           *ngFor="let element of getValues(action)"
           [ngClass]="{'consume' : action.valueType == ActionValueType.minus, 'highlight' : highlightElement('' + element, action.valueType == ActionValueType.minus)}">
           <img
@@ -43,13 +43,13 @@
     <span *ngIf="action.type == ActionType.elementHalf && getValues(action).length == 2" class="elements">
       <span class="element element-half"
         [ngClass]="{'consume' : action.valueType == ActionValueType.minus, 'highlight' : highlightElement(getValues(action)[0], action.valueType == ActionValueType.minus)}"
-        (click)="elementAction($event, action, getValues(action)[0])">
+        (tap)="elementAction($event, action, getValues(action)[0])">
         <img
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/' + getValues(action)[0] + '.svg'" />
       </span>
       <span class="element element-half"
         [ngClass]="{'consume' : action.valueType == ActionValueType.minus, 'highlight' : highlightElement(getValues(action)[1], action.valueType == ActionValueType.minus)}"
-        (click)="elementAction($event, action, getValues(action)[1])">
+        (tap)="elementAction($event, action, getValues(action)[1])">
         <img
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/element/' + getValues(action)[1] + '.svg'" />
       </span>

@@ -1,18 +1,18 @@
-import { Component, ElementRef, EventEmitter, Input, Output } from "@angular/core";
+import { Component, Directive, ElementRef, EventEmitter, HostListener, Input, Output } from "@angular/core";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 export const doubleClickTreshhold: number = 250;
+export const repeatInterval: number = 100;
 
-@Component({
-  selector: 'ghs-drag-click',
-  templateUrl: './drag.html',
-  styleUrls: ['./drag.scss']
+@Directive({
+  selector: 'ghs-drag-click, [ghs-drag-click]'
 })
-export class DragClickComponent {
+export class DragClickDirective {
 
   @Input() clickBehind: boolean = false;
   @Input() relative: boolean = false;
   @Input() screenWidth: boolean = false;
+  @Input() repeat: boolean = false;
   @Input() min: number = 0;
   @Input() max: number = 99;
   @Output('dragMove') dragMove = new EventEmitter<number>();
@@ -24,11 +24,13 @@ export class DragClickComponent {
   timeout: any = null;
   relativeValue: number = -1;
   value: number = -1;
+  repeats: number = -1;
 
   constructor(private elementRef: ElementRef) {
     this.value = this.min - 1;
   }
 
+  @HostListener('tap', ['$event'])
   tap(event: any) {
     if (this.clickBehind) {
       this.emitClickBehind(event.center.x, event.center.y);
@@ -36,7 +38,7 @@ export class DragClickComponent {
       setTimeout(() => {
         this.singleClick.emit(event);
       }, doubleClickTreshhold);
-    } else {
+    } else if (!this.repeat || this.doubleClick.observed) {
       if (this.timeout) {
         clearTimeout(this.timeout);
         this.timeout = null;
@@ -49,18 +51,21 @@ export class DragClickComponent {
           }
         }, doubleClickTreshhold);
       }
+    } else {
+      this.singleClick.emit(event);
     }
 
-    event.preventDefault();
-    if (event.srcEvent) {
-      event.srcEvent.preventDefault();
-      event.srcEvent.stopPropagation();
+    if (event.srcEvent.defaultPrevented) {
+      event.preventDefault();
     }
   }
 
+  @HostListener('press', ['$event'])
   press(event: any) {
     if (event.pointerType == "touch") {
       this.doubleClick.emit(event);
+    } else if (this.repeat) {
+      this.repeatTimeout(event);
     }
     if (event.srcEvent) {
       event.srcEvent.preventDefault();
@@ -68,11 +73,37 @@ export class DragClickComponent {
     }
   }
 
+  repeatTimeout(event: any) {
+    this.singleClick.emit(event);
+    if (this.repeats == -1) {
+      this.repeats = 500;
+    } else {
+      this.repeats -= 25;
+      if (this.repeats < 25) {
+        this.repeats = 25;
+      }
+    }
+    this.timeout = setTimeout(() => {
+      this.repeatTimeout(event);
+    }, this.repeats);
+  }
+
+  @HostListener('pressup', ['$event'])
+  pressup(event: any) {
+    if (this.repeat && this.timeout) {
+      clearTimeout(this.timeout);
+    }
+    if (event.srcEvent) {
+      event.srcEvent.preventDefault();
+      event.srcEvent.stopPropagation();
+    }
+  }
+
+  @HostListener('panstart', ['$event'])
   panstart(event: any) {
     if (settingsManager.settings.dragValues) {
       document.body.classList.add('dragging');
       this.elementRef.nativeElement.classList.add('dragging');
-      this.elementRef.nativeElement.firstChild.classList.add('dragging');
     }
     event.preventDefault();
     if (event.srcEvent) {
@@ -81,6 +112,7 @@ export class DragClickComponent {
     }
   }
 
+  @HostListener('panmove', ['$event'])
   panmove(event: any) {
     if (settingsManager.settings.dragValues) {
       const rect = this.elementRef.nativeElement.getBoundingClientRect();
@@ -101,6 +133,7 @@ export class DragClickComponent {
     }
   }
 
+  @HostListener('panend', ['$event'])
   panend(event: any) {
     if (settingsManager.settings.dragValues) {
       if (this.value >= this.min) {
@@ -108,7 +141,6 @@ export class DragClickComponent {
       }
       document.body.classList.remove('dragging');
       this.elementRef.nativeElement.classList.remove('dragging');
-      this.elementRef.nativeElement.firstChild.classList.remove('dragging');
     }
     event.preventDefault();
     if (event.srcEvent) {

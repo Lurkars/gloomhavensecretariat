@@ -598,6 +598,14 @@ a {
   }
 }
 
+ghs-drag-click {
+  cursor: pointer;
+
+  &.dragging {
+    cursor: ew-resize;
+  }
+}
+
 .cdk-drag-preview {
   cursor: grabbing;
 

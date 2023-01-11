@@ -116,6 +116,10 @@
         width: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
         margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
         height: auto;
+
+        &.spoiler {
+          filter: brightness(0) var(--ghs-filter-gray);
+        }
       }
 
       &.disabled {

@@ -137,7 +137,8 @@
     width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
   }
 
-  a {
+  a,
+  ghs-drag-click {
     cursor: pointer;
     font-size: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
     color: var(--ghs-color-white);

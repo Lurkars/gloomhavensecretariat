@@ -940,6 +940,7 @@
   "state": {
     "info": {
       "addBless": "Bless {0}",
+      "addBlesses": "{1} Bless' {0}",
       "addChar": "Add character {0}",
       "addCondition": {
         "char": "{1} {0}",
@@ -948,8 +949,11 @@
         "summon": "{2} '{1}' of {0}"
       },
       "addCurse": "Curse {0}",
+      "addCurses": "{1} Curses {0}",
       "addEntityBless": "Bless {0} standee {2}",
+      "addEntityBlesses": "{3} Bless' {0} standee {2}",
       "addEntityCurse": "Curse {0} standee {2}",
+      "addEntityCurses": "{3} Curses {0} standee {2}",
       "addEntityMarker": "{2} marker to {0} standee {1}",
       "addItem": "Add Item {1} (%data.edition.{2}%) to {0}",
       "addManualScenario": "Unlock scenario #{0} {1} ({2})",
@@ -1040,8 +1044,11 @@
         "summon": "Remove {2} from '{1}' of {0}"
       },
       "removeCurse": "Remove Curse from {0}",
+      "removeCurses": "Remove {1} Curses from {0}",
       "removeEntityBless": "Remove Bless from {0} standee {2}",
+      "removeEntityBlesses": "Remove {3} Bless' from {0} standee {2}",
       "removeEntityCurse": "Remove Curse from {0} standee {2}",
+      "removeEntityCurses": "Remove {3} Curses from {0} standee {2}",
       "removeEntityMarker": "Remove {2} marker from {0} standee {1}",
       "removeItem": "Remove Item {1} (%data.edition.{2}%) from {0}",
       "removeManualScenario": "Remove scenario #{0} {1} ({2}) from unlocked",

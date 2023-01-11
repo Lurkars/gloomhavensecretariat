@@ -51,7 +51,7 @@
         border-left: calc(var(--ghs-unit) * 0.1 * var(--ghs-barsize)) solid var(--ghs-color-gray);
       }
 
-      @media (max-width: 500px) {
+      @media (max-width: 791px) {
         .name {
           display: none;
         }

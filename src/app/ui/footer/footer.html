@@ -11,10 +11,10 @@
   <div class="flex-shrink"></div>
   <div class="level-container"
     [ngClass]="{'no-toggle' : !lootDeck && !settingsManager.settings.alwaysLootDeck && !gameManager.game.lootDeck.active}">
-    <ghs-scenario-rules *ngIf="settingsManager.settings.scenarioRules"></ghs-scenario-rules>
     <ghs-scenario></ghs-scenario>
     <ghs-level></ghs-level>
   </div>
+  <ghs-scenario-rules *ngIf="settingsManager.settings.scenarioRules"></ghs-scenario-rules>
   <div class="flex-shrink"></div>
   <div class="attack-modifier-spacer"></div>
 

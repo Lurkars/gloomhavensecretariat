@@ -164,19 +164,21 @@ export class MonsterAbilityCardComponent {
     this.monster.abilities = this.monster.abilities.sort((a, b) => a - b);
   }
 
-  openAbilities(): void {
-    this.dialog.open(AbiltiesDialogComponent, {
-      panelClass: 'dialog', data: this.monster
-    });
+  openAbilities(event: any): void {
+    if (!event.srcEvent || !event.srcEvent.defaultPrevented) {
+      this.dialog.open(AbiltiesDialogComponent, {
+        panelClass: 'dialog', data: this.monster
+      });
+    }
   }
 
-  openAbility(second: boolean = false): void {
+  openAbility(event: any, second: boolean = false): void {
     if (this.flipped()) {
       this.dialog.open(AbilityDialogComponent, {
         data: { ability: second ? this.secondAbility : this.ability, monster: this.monster }
       });
     } else {
-      this.openAbilities();
+      this.openAbilities(event);
     }
   }
 

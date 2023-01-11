@@ -305,7 +305,6 @@ export class ActionComponent implements OnInit {
         })
       }
       event.preventDefault();
-      event.stopPropagation();
     }
   }
 }

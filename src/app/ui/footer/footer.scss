@@ -151,6 +151,14 @@ footer {
 
   }
 
+  ghs-scenario-rules {
+    position: absolute;
+    left: 50%;
+    bottom: calc(var(--ghs-unit) * 11 * var(--ghs-text-factor) * var(--ghs-barsize));
+    transform: translateX(-50%);
+    z-index: 3;
+  }
+
   .level-container {
     position: relative;
     display: flex;
@@ -158,17 +166,10 @@ footer {
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
+    max-width: calc(100% - (var(--ghs-unit) * 15 * var(--ghs-text-factor) * var(--ghs-barsize)) - (var(--ghs-unit) * 38 * var(--ghs-text-factor) * var(--ghs-barsize)));
 
     ghs-level {
       margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor) * var(--ghs-barsize));
-    }
-
-    ghs-scenario-rules {
-      position: absolute;
-      left: 50%;
-      bottom: calc(var(--ghs-unit) * 11.5 * var(--ghs-text-factor) * var(--ghs-barsize));
-      transform: translateX(-50%);
-      min-width: 100%;
     }
 
   }
@@ -199,6 +200,9 @@ footer {
       bottom: calc(var(--ghs-unit) * 22.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     }
 
+    ghs-scenario-rules {
+      width: 100%;
+    }
 
     .level-container {
       flex-direction: row;

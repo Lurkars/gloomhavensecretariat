@@ -139,7 +139,7 @@
               + characterData.name | ghsLabel}}
             </a>
             <a (click)="settingsManager.addSpoiler(characterData.name);" *ngIf="!isSpoiled(characterData)">
-              <img class="icon" [src]="gameManager.characterManager.characterIcon(characterData)" />
+              <img class="icon spoiler" [src]="gameManager.characterManager.characterIcon(characterData)" />
               <span class="name">
                 {{'spoiler.placeholder' | ghsLabel}}</span>
               <span class="add">{{'spoiler.add' | ghsLabel}}</span>

@@ -62,9 +62,10 @@
       </div>
       <ng-container *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0">
         <span class="item">
-          <a class="button" [ngClass]="{'disabled' : data.entity.health + health == 0}" (click)="changeHealth(-1)">
+          <ghs-drag-click class="button" [ngClass]="{'disabled' : data.entity.health + health == 0}"
+            (singleClick)="changeHealth(-1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/minus.svg">
-          </a>
+          </ghs-drag-click>
         </span>
         <span class="item" title="{{'game.health' | ghsLabel}}">
           <img src="./assets/images/status/health.svg" />
@@ -72,44 +73,46 @@
             [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">{{health | ghsValueSign}}</span>
         </span>
         <span class="item">
-          <a class="button" [ngClass]="{'disabled' : data.entity.health + health == EntityValueFunction(data.entity.maxHealth)}"
-            (click)="changeHealth(1)">
+          <ghs-drag-click class="button"
+            [ngClass]="{'disabled' : data.entity.health + health == EntityValueFunction(data.entity.maxHealth)}"
+            (singleClick)="changeHealth(1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/plus.svg">
-          </a>
+          </ghs-drag-click>
         </span>
 
         <ng-container *ngIf="gameManager.isCharacter(data.entity)">
           <span class="item">
-            <a class="button"
+            <ghs-drag-click class="button"
               [ngClass]="{'disabled' : gameManager.toCharacter(data.entity).experience + experience == 0}"
-              (click)="changeExperience(-1)">
+              (singleClick)="changeExperience(-1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/minus.svg">
-            </a>
+            </ghs-drag-click>
           </span>
           <span class="item" title="{{'game.experience' | ghsLabel}}">
             <img src="./assets/images/status/experience.svg" />
             <span class="badge">{{experience | ghsValueSign}}</span>
           </span>
           <span class="item">
-            <a class="button" (click)="changeExperience(1)">
+            <ghs-drag-click class="button" (singleClick)="changeExperience(1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/plus.svg">
-            </a>
+            </ghs-drag-click>
           </span>
 
           <span class="item">
-            <a class="button" [ngClass]="{'disabled' : gameManager.toCharacter(data.entity).loot + loot == 0}"
-              (click)="changeLoot(-1)">
+            <ghs-drag-click class="button"
+              [ngClass]="{'disabled' : gameManager.toCharacter(data.entity).loot + loot == 0}"
+              (singleClick)="changeLoot(-1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/minus.svg">
-            </a>
+            </ghs-drag-click>
           </span>
           <span class="item" title="{{'game.loot' | ghsLabel}}">
             <img src="./assets/images/status/loot.svg" />
             <span class="badge">{{loot | ghsValueSign}}</span>
           </span>
           <span class="item">
-            <a class="button" (click)="changeLoot(1)">
+            <ghs-drag-click class="button" (singleClick)="changeLoot(1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/plus.svg">
-            </a>
+            </ghs-drag-click>
           </span>
         </ng-container>
       </ng-container>
@@ -118,45 +121,45 @@
         *ngIf="(gameManager.isCharacter(data.figure) || gameManager.isMonster(data.figure)) && (!data.entity || EntityValueFunction(data.entity.maxHealth) > 0)">
 
         <span class="item">
-          <a class="button"
-            [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.bless) == 0 || isImmune(ConditionName.bless)}"
-            (click)="changeBless(-1)">
+          <ghs-drag-click class="button"
+            [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.bless) + this.bless == 0 || isImmune(ConditionName.bless)}"
+            (singleClick)="changeBless(-1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/minus.svg">
-          </a>
+          </ghs-drag-click>
         </span>
         <span class="item" title="{{'game.condition.bless' | ghsLabel}}">
           <span class="condition" [ngClass]="{'immunity disabled' : isImmune(ConditionName.bless)}">
             <img src="./assets/images/status/bless.svg" />
           </span>
-          <span class="badge bless-count">{{countUpcomingAttackModifier(AttackModifierType.bless)}}</span>
+          <span class="badge bless-count">{{countUpcomingAttackModifier(AttackModifierType.bless) + this.bless}}</span>
         </span>
         <span class="item">
-          <a class="button"
-            [ngClass]="{'disabled' : countAllUpcomingAttackModifier(AttackModifierType.bless) >= 10 || isImmune(ConditionName.bless)}"
-            (click)="changeBless(1)">
+          <ghs-drag-click class="button"
+            [ngClass]="{'disabled' : countAllUpcomingAttackModifier(AttackModifierType.bless) + this.bless >= 10 || isImmune(ConditionName.bless)}"
+            (singleClick)="changeBless(1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/plus.svg">
-          </a>
+          </ghs-drag-click>
         </span>
 
         <span class="item">
-          <a class="button"
-            [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.curse) == 0 || isImmune(ConditionName.curse)}"
-            (click)="changeCurse(-1)">
+          <ghs-drag-click class="button"
+            [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.curse) + this.curse == 0 || isImmune(ConditionName.curse)}"
+            (singleClick)="changeCurse(-1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/minus.svg">
-          </a>
+          </ghs-drag-click>
         </span>
         <span class="item" title="{{'game.condition.curse' | ghsLabel}}">
           <span class="condition" [ngClass]="{'immunity disabled' : isImmune(ConditionName.curse)}">
             <img src="./assets/images/status/curse.svg" />
           </span>
-          <span class="badge curse-count">{{countUpcomingAttackModifier(AttackModifierType.curse)}}</span>
+          <span class="badge curse-count">{{countUpcomingAttackModifier(AttackModifierType.curse) + this.curse}}</span>
         </span>
         <span class="item">
-          <a class="button"
-            [ngClass]="{'disabled' : countAllUpcomingAttackModifier(AttackModifierType.curse) >= 10 || isImmune(ConditionName.curse)}"
-            (click)="changeCurse(1)">
+          <ghs-drag-click class="button"
+            [ngClass]="{'disabled' : countAllUpcomingAttackModifier(AttackModifierType.curse) + this.curse >= 10 || isImmune(ConditionName.curse)}"
+            (singleClick)="changeCurse(1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/plus.svg">
-          </a>
+          </ghs-drag-click>
         </span>
       </ng-container>
 
@@ -205,7 +208,8 @@
       </ng-container>
 
       <div class="marker-container">
-        <a class="summon" *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && gameManager.isMonsterEntity(data.entity)"
+        <a class="summon"
+          *ngIf="data.entity && EntityValueFunction(data.entity.maxHealth) > 0 && gameManager.isMonsterEntity(data.entity)"
           [ngClass]="{'active' : gameManager.toMonsterEntity(data.entity).summon == SummonState.true, 'new' : gameManager.toMonsterEntity(data.entity).summon == SummonState.new }"
           (click)="toggleSummon()">
           <img src="./assets/images/summons/{{gameManager.toMonster(data.figure).summonColor}}.png">
@@ -275,16 +279,17 @@
           </a>
         </span>
         <span class="item max-health-container" *ngIf="EntityValueFunction(data.entity.maxHealth) > 0">
-          <a class="button" (click)="changeMaxHealth(-1)">
+          <ghs-drag-click class="button" (singleClick)="changeMaxHealth(-1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/minus.svg">
-          </a>
+          </ghs-drag-click>
           <img src="./assets/images/status/health.svg" title="{{'game.maxHealth' | ghsLabel}}" />
-          <span class="badge max-health">{{(EntityValueFunction(data.entity.maxHealth) + maxHp < EntityValueFunction(data.entity.maxHealth) ||
-              data.entity.health==(+data.entity.maxHealth) ? EntityValueFunction(data.entity.maxHealth) + maxHp :
+          <span class="badge max-health">{{(EntityValueFunction(data.entity.maxHealth) + maxHp <
+              EntityValueFunction(data.entity.maxHealth) || data.entity.health==(+data.entity.maxHealth) ?
+              EntityValueFunction(data.entity.maxHealth) + maxHp :
               data.entity.health)}}/{{EntityValueFunction(data.entity.maxHealth) + maxHp}}</span>
-              <a class="button" (click)="changeMaxHealth(1)">
+              <ghs-drag-click class="button" (singleClick)="changeMaxHealth(1)" [repeat]="true">
                 <img class="ghs-svg" src="./assets/images/plus.svg">
-              </a>
+              </ghs-drag-click>
           </span>
       </ng-container>
     </div>
@@ -304,8 +309,10 @@
         </a>
         <span class="item">
           <img src="./assets/images/status/health.svg" />
-          <span class="badge max-health">{{(EntityValueFunction(data.entity.maxHealth) + maxHp < EntityValueFunction(data.entity.maxHealth) ||
-              data.entity.health==EntityValueFunction(data.entity.maxHealth) ? EntityValueFunction(data.entity.maxHealth) + maxHp :
+          <span class="badge max-health">{{(EntityValueFunction(data.entity.maxHealth) + maxHp <
+              EntityValueFunction(data.entity.maxHealth) ||
+              data.entity.health==EntityValueFunction(data.entity.maxHealth) ?
+              EntityValueFunction(data.entity.maxHealth) + maxHp :
               data.entity.health)}}/{{EntityValueFunction(data.entity.maxHealth) + maxHp}}</span>
           </span>
           <a class="button" (click)="changeMaxHealth(1)">
@@ -330,8 +337,10 @@
         </a>
         <span class="item" title="{{'game.maxHealth' | ghsLabel}}">
           <img src="./assets/images/status/health.svg" />
-          <span class="badge max-health">{{(EntityValueFunction(data.entity.maxHealth) + maxHp < EntityValueFunction(data.entity.maxHealth) ||
-              data.entity.health==EntityValueFunction(data.entity.maxHealth) ? EntityValueFunction(data.entity.maxHealth) + maxHp :
+          <span class="badge max-health">{{(EntityValueFunction(data.entity.maxHealth) + maxHp <
+              EntityValueFunction(data.entity.maxHealth) ||
+              data.entity.health==EntityValueFunction(data.entity.maxHealth) ?
+              EntityValueFunction(data.entity.maxHealth) + maxHp :
               data.entity.health)}}/{{EntityValueFunction(data.entity.maxHealth) + maxHp}}</span>
           </span>
           <a class="button" (click)="changeMaxHealth(1)">
@@ -346,8 +355,10 @@
         </a>
         <span class="item">
           <img src="./assets/images/status/health.svg" />
-          <span class="badge max-health">{{(EntityValueFunction(data.entity.maxHealth) + maxHp < EntityValueFunction(data.entity.maxHealth) ||
-              data.entity.health==EntityValueFunction(data.entity.maxHealth) ? EntityValueFunction(data.entity.maxHealth) + maxHp :
+          <span class="badge max-health">{{(EntityValueFunction(data.entity.maxHealth) + maxHp <
+              EntityValueFunction(data.entity.maxHealth) ||
+              data.entity.health==EntityValueFunction(data.entity.maxHealth) ?
+              EntityValueFunction(data.entity.maxHealth) + maxHp :
               data.entity.health)}}/{{EntityValueFunction(data.entity.maxHealth) + maxHp}}</span>
           </span>
           <a class="button" (click)="changeMaxHealth(1)">
