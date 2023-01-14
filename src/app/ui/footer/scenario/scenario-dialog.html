@@ -11,13 +11,15 @@
     <span *ngFor="let roomData of gameManager.scenarioManager.openRooms();" class="section room">
       <img class="ghs-svg" src="./assets/images/door-open.svg">
       {{roomData.ref}}
+      <span class="marker" *ngIf="roomData.marker" [i18n]="'%game.mapMarker.' + roomData.marker +'%'"></span>
     </span>
 
     <span class="section" *ngFor="let section of gameManager.game.sections;">
-      <span class="marker" *ngIf="section.marker" [i18n]="'%game.mapMarker.' + section.marker +'%'"></span>
       #{{section.index}}
-      <span *ngIf="!gameManager.game.scenario || section.name != gameManager.game.scenario.name">{{'data.section.' +
-        section.name | ghsLabel}}</span>
+      <span *ngIf="!gameManager.game.scenario || section.name != gameManager.game.scenario.name">
+        &nbsp;{{'data.section.' + section.name | ghsLabel}}
+      </span>
+      <span class="marker" *ngIf="section.marker" [i18n]="'%game.mapMarker.' + section.marker +'%'"></span>
     </span>
   </div>
 
@@ -30,9 +32,10 @@
     </span>
     <span *ngFor="let section of gameManager.scenarioManager.availableSections();" class="section available"
       (click)="addSection(section)">
-      <span class="marker" *ngIf="section.marker" [i18n]="'%game.mapMarker.' + section.marker +'%'"></span>
       <img class="ghs-svg" src="./assets/images/lock.svg">
-      #{{section.index}}</span>
+      #{{section.index}}
+      <span class="marker" *ngIf="section.marker" [i18n]="'%game.mapMarker.' + section.marker +'%'"></span>
+    </span>
   </div>
 
   <div class="menu">

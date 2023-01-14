@@ -28,7 +28,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "h2b",
+      "ref": "a4a",
       "initial": true,
       "rooms": [
         2,
@@ -36,9 +36,9 @@
         4
       ],
       "treasures": [
-        null,
-        null,
-        null
+        "G",
+        "G",
+        "G"
       ],
       "monster": [
         {
@@ -47,22 +47,19 @@
         },
         {
           "name": "spitting-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "sun-demon",
-          "player4": "normal"
-        },
-        {
-          "name": "sun-demon",
-          "type": "normal"
-        },
-        {
-          "name": "sun-demon",
+          "name": "spitting-drake",
+          "player2": "normal",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "elite"
         },
         {
           "name": "spitting-drake",
@@ -71,11 +68,13 @@
           "player4": "elite"
         },
         {
-          "name": "wind-demon",
-          "player4": "normal"
+          "name": "spitting-drake",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         },
         {
-          "name": "wind-demon",
+          "name": "sun-demon",
           "type": "normal"
         },
         {
@@ -88,43 +87,57 @@
           "player4": "normal"
         },
         {
+          "name": "sun-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "player4": "normal"
+        },
+        {
           "name": "wind-demon",
           "type": "normal"
         },
         {
-          "name": "spitting-drake",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 2,
-      "marker": "b",
-      "ref": "a2b",
+      "ref": "a3a",
+      "marker": "c",
       "monster": [
         {
-          "name": "wind-demon",
+          "name": "sun-demon",
+          "player2": "elite",
+          "player3": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "wind-demon",
-          "player2": "normal",
-          "player3": "elite",
+          "name": "sun-demon",
           "player4": "elite"
         }
       ]
     },
     {
       "roomNumber": 3,
-      "marker": "d",
       "ref": "g2a",
+      "marker": "d",
       "monster": [
         {
           "name": "wind-demon",
-          "player3": "elite",
-          "player4": "elite"
+          "player2": "elite"
         },
         {
           "name": "wind-demon",
@@ -133,28 +146,25 @@
         },
         {
           "name": "wind-demon",
-          "player2": "elite"
+          "player3": "elite",
+          "player4": "elite"
         }
       ]
     },
     {
       "roomNumber": 4,
-      "marker": "c",
-      "ref": "a3a",
+      "ref": "a2b",
+      "marker": "b",
       "monster": [
         {
-          "name": "sun-demon",
+          "name": "wind-demon",
+          "player2": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "sun-demon",
-          "player3": "normal",
+          "name": "wind-demon",
           "player4": "normal"
-        },
-        {
-          "name": "sun-demon",
-          "player2": "elite",
-          "player3": "elite"
         }
       ]
     }

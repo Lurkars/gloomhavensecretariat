@@ -2,7 +2,6 @@
   "index": "102",
   "name": "Bazaar of Knowledge",
   "edition": "fc",
-  "monsters": [],
   "unlocks": [
     "110"
   ],
@@ -21,29 +20,34 @@
     },
     {
       "roomNumber": 2,
+      "ref": "b1a",
+      "marker": "1"
+    },
+    {
+      "roomNumber": 3,
+      "ref": "i2b",
+      "marker": "2"
+    },
+    {
+      "roomNumber": 4,
+      "ref": "g2b",
+      "marker": "3",
+      "treasures": [
+        86
+      ]
+    },
+    {
+      "roomNumber": 5,
       "ref": "b2a",
+      "marker": "4",
       "treasures": [
         77
       ]
     },
     {
-      "roomNumber": 3,
-      "ref": "b3a"
-    },
-    {
-      "roomNumber": 4,
-      "ref": "b1a"
-    },
-    {
-      "roomNumber": 5,
-      "ref": "i2b"
-    },
-    {
       "roomNumber": 6,
-      "ref": "g2b",
-      "treasures": [
-        86
-      ]
+      "ref": "b3a",
+      "marker": "5"
     }
   ]
 }

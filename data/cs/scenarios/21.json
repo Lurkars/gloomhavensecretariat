@@ -1,0 +1,12 @@
+{
+  "index": "21",
+  "name": "A Fiery Death",
+  "edition": "cs",
+  "unlocks": [
+    "27"
+  ],
+  "monsters": [
+    "earth-demon",
+    "flame-demon"
+  ]
+}

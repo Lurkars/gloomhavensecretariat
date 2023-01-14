@@ -6,38 +6,26 @@
     "edition": "fh"
   },
   {
-    "index": "6.1",
-    "name": "Algox Scouting",
-    "parent": "2",
-    "edition": "fh",
-    "objectives": [
-      {
-        "name": "Ice Sheet",
-        "health": "(L+2)xC"
-      }
-    ]
-  },
-  {
-    "index": "7.2",
-    "name": "Frozen Crypt",
-    "parent": "5",
-    "edition": "fh",
-    "objectives": [
-      {
-        "name": "Altar a",
-        "health": "(L+3)xC"
-      }
-    ]
-  },
-  {
     "index": "8.1",
     "name": "The Tempus Forge",
     "parent": "106",
     "edition": "fh",
     "objectives": [
       {
-        "name": "Altar 1",
+        "name": "Altar",
         "health": "(L+2)xC/2"
+      }
+    ]
+  },
+  {
+    "index": "11.7",
+    "name": "The Lead Door",
+    "parent": "103",
+    "edition": "fh",
+    "objectives": [
+      {
+        "name": "Ice Pillar",
+        "health": "(2xL)+4"
       }
     ]
   },
@@ -60,18 +48,24 @@
     "edition": "fh"
   },
   {
-    "index": "21.1",
-    "name": "Crystal Trench",
-    "parent": "8",
-    "edition": "fh"
-  },
-  {
     "index": "29.2",
     "name": "Crystal Trench",
     "parent": "8",
     "edition": "fh",
     "monsters": [
       "blacksmith"
+    ]
+  },
+  {
+    "index": "30.4",
+    "name": "The Lead Door",
+    "parent": "103",
+    "edition": "fh",
+    "objectives": [
+      {
+        "name": "Ice Pillar",
+        "health": "(2xL)+4"
+      }
     ]
   },
   {
@@ -120,15 +114,6 @@
         "name": "Bookshelf 3",
         "health": "L+2"
       }
-    ]
-  },
-  {
-    "index": "48.4",
-    "name": "Edge of the World",
-    "parent": "7",
-    "edition": "fh",
-    "monsters": [
-      "coral-corpse"
     ]
   },
   {

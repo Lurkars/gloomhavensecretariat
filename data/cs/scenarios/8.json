@@ -1,0 +1,13 @@
+{
+  "index": "8",
+  "name": "Shattered Fortress",
+  "edition": "cs",
+  "unlocks": [
+    "9"
+  ],
+  "monsters": [
+    "ancient-artillery",
+    "living-spirit",
+    "stone-golem"
+  ]
+}

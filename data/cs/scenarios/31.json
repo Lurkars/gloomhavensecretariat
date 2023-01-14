@@ -1,0 +1,11 @@
+{
+  "index": "31",
+  "name": "Eternal Portals",
+  "edition": "cs",
+  "monsters": [
+    "harrower-infester",
+    "living-spirit",
+    "rending-drake",
+    "spitting-drake"
+  ]
+}

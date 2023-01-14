@@ -25,42 +25,42 @@
         },
         {
           "name": "forest-imp",
-          "player4": "normal"
-        },
-        {
-          "name": "forest-imp",
-          "player4": "normal"
-        },
-        {
-          "name": "forest-imp",
           "type": "normal"
         },
         {
-          "name": "vermling-scout",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "vermling-scout",
-          "type": "elite"
-        },
-        {
-          "name": "vermling-scout",
-          "type": "elite"
-        },
-        {
-          "name": "vermling-scout",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "vermling-shaman",
-          "player3": "normal",
+          "name": "forest-imp",
           "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "vermling-shaman",
           "player2": "normal"
+        },
+        {
+          "name": "vermling-shaman",
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "vermling-shaman",
@@ -108,8 +108,8 @@
     },
     {
       "roomNumber": 3,
-      "marker": "1",
       "ref": "j1a",
+      "marker": "1",
       "rooms": [
         4
       ],
@@ -120,24 +120,24 @@
         },
         {
           "name": "forest-imp",
-          "player4": "normal"
-        },
-        {
-          "name": "forest-imp",
-          "player4": "normal"
-        },
-        {
-          "name": "forest-imp",
           "type": "elite"
         },
         {
-          "name": "stone-golem",
-          "player3": "normal",
+          "name": "forest-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
           "player4": "normal"
         },
         {
           "name": "stone-golem",
           "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "stone-golem",
+          "player3": "normal",
           "player4": "normal"
         },
         {

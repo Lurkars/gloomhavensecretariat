@@ -1,0 +1,10 @@
+{
+  "index": "36",
+  "name": "Hunters Bounty",
+  "edition": "cs",
+  "monsters": [
+    "bandit-archer",
+    "bandit-guard",
+    "hound"
+  ]
+}

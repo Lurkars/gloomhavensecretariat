@@ -55,7 +55,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "l3a",
+      "ref": "l1b",
       "initial": true,
       "rooms": [
         2
@@ -63,10 +63,19 @@
       "monster": [
         {
           "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
           "player4": "normal"
         },
         {
           "name": "night-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
           "type": "normal"
         },
         {
@@ -77,15 +86,6 @@
           "name": "wind-demon",
           "player3": "normal",
           "player4": "normal"
-        },
-        {
-          "name": "night-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "wind-demon",
-          "type": "normal"
         }
       ]
     },
@@ -115,20 +115,20 @@
       "monster": [
         {
           "name": "night-demon",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "night-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
           "type": "normal"
         },
         {
           "name": "wind-demon",
           "player3": "normal",
           "player4": "normal"
-        },
-        {
-          "name": "wind-demon",
-          "type": "normal"
         }
       ]
     },
@@ -141,21 +141,21 @@
     },
     {
       "roomNumber": 5,
-      "marker": "1",
       "ref": "e1b",
+      "marker": "1",
       "treasures": [
         6
       ],
       "monster": [
         {
           "name": "night-demon",
-          "player4": "normal"
-        },
-        {
-          "name": "night-demon",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player4": "normal"
         },
         {
           "name": "wind-demon",

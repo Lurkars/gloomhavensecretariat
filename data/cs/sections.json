@@ -29,12 +29,10 @@
     "edition": "cs",
     "objectives": [
       {
-        "name": "Hot thermal stone 1",
-        "health": "C+3"
-      },
-      {
-        "name": "Hot thermal stone 2",
-        "health": "C+3"
+        "name": "Hot thermal stone",
+        "health": "C+3",
+        "marker": "b",
+        "count": 2
       }
     ]
   },
@@ -45,7 +43,8 @@
     "objectives": [
       {
         "name": "Icy Flame thermal stone",
-        "health": "C+6"
+        "health": "C+6",
+        "marker": "c"
       }
     ]
   },
@@ -64,7 +63,8 @@
     "objectives": [
       {
         "name": "Fountain of Bones",
-        "health": "Cx(L+8)"
+        "health": "Cx(L+8)",
+        "marker": "a"
       }
     ]
   },
@@ -98,16 +98,10 @@
     "edition": "cs",
     "objectives": [
       {
-        "name": "Holy Monk 1",
-        "health": "C+L+2"
-      },
-      {
-        "name": "Holy Monk 2",
-        "health": "C+L+2"
-      },
-      {
-        "name": "Holy Monk 3",
-        "health": "C+L+2"
+        "name": "Holy Monk",
+        "health": "C+L+2",
+        "marker": "b",
+        "count": 3
       }
     ]
   },
@@ -117,12 +111,10 @@
     "edition": "cs",
     "objectives": [
       {
-        "name": "Revered Monk 1",
-        "health": "C+L+2"
-      },
-      {
-        "name": "Revered Monk 2",
-        "health": "C+L+2"
+        "name": "Revered Monk",
+        "health": "C+L+2",
+        "marker": "c",
+        "count": 2
       }
     ]
   },
@@ -133,7 +125,8 @@
     "objectives": [
       {
         "name": "Ordained Monk",
-        "health": "C+L+2"
+        "health": "C+L+2",
+        "marker": "d"
       }
     ]
   },
@@ -160,7 +153,8 @@
     "objectives": [
       {
         "name": "Altar of Mystification",
-        "health": "Cx(L+3)"
+        "health": "Cx(L+3)",
+        "marker": "a"
       }
     ]
   },
@@ -171,7 +165,8 @@
     "objectives": [
       {
         "name": "Altar of Disorientation",
-        "health": "Cx(L+4)"
+        "health": "Cx(L+4)",
+        "marker": "b"
       }
     ]
   },
@@ -182,7 +177,8 @@
     "objectives": [
       {
         "name": "Altar of Perplexity",
-        "health": "Cx(L+3)"
+        "health": "Cx(L+3)",
+        "marker": "c"
       }
     ]
   },
@@ -211,28 +207,9 @@
     ],
     "objectives": [
       {
-        "name": "Void Pit 1",
-        "health": "C+L"
-      },
-      {
-        "name": "Void Pit 2",
-        "health": "C+L"
-      },
-      {
-        "name": "Void Pit 3",
-        "health": "C+L"
-      },
-      {
-        "name": "Void Pit 4",
-        "health": "C+L"
-      },
-      {
-        "name": "Void Pit 5",
-        "health": "C+L"
-      },
-      {
-        "name": "Void Pit 6",
-        "health": "C+L"
+        "name": "Void Pit",
+        "health": "C+L",
+        "count": 6
       }
     ]
   },
@@ -259,7 +236,8 @@
     "objectives": [
       {
         "name": "Tree of Death",
-        "health": "Cx(L+5)"
+        "health": "Cx(L+5)",
+        "marker": "c"
       }
     ]
   },
@@ -311,12 +289,10 @@
     "edition": "cs",
     "objectives": [
       {
-        "name": "Vile Spirit 1",
-        "health": 4
-      },
-      {
-        "name": "Vile Spirit 2",
-        "health": 4
+        "name": "Vile Spirit",
+        "health": 4,
+        "marker": "b",
+        "count": 2
       }
     ]
   },
@@ -326,9 +302,10 @@
     "edition": "cs",
     "objectives": [
       {
-        "name": "Haunted Ghoul Spirit 1",
+        "name": "Haunted Ghoul Spirit",
         "health": 10,
-        "initiative": 50
+        "initiative": 50,
+        "marker": "c"
       }
     ]
   },
@@ -339,8 +316,7 @@
     "edition": "cs",
     "monsters": [
       "the-gilded-one:+1"
-    ],
-    "objectives": []
+    ]
   },
   {
     "index": "2",
@@ -403,12 +379,10 @@
     "edition": "cs",
     "objectives": [
       {
-        "name": "Stalagmite 1",
-        "health": "C+L"
-      },
-      {
-        "name": "Stalagmite 2",
-        "health": "C+L"
+        "name": "Stalagmite",
+        "health": "C+L",
+        "marker": "2",
+        "count": 2
       }
     ]
   },
@@ -446,22 +420,11 @@
     "edition": "cs",
     "objectives": [
       {
-        "name": "Vermling 1",
+        "name": "Vermling",
         "escort": true,
         "health": "C+L",
-        "initiative": 35
-      },
-      {
-        "name": "Vermling 2",
-        "escort": true,
-        "health": "C+L",
-        "initiative": 35
-      },
-      {
-        "name": "Vermling 3",
-        "escort": true,
-        "health": "C+L",
-        "initiative": 35
+        "initiative": 35,
+        "count": 3
       }
     ]
   },

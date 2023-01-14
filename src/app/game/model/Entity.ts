@@ -10,8 +10,8 @@ export interface Entity {
   markers: string[];
 }
 
-export const EntityExpressionRegex = /^([xCL0-9\+\/\-\*\(\)]+)$/;
-export const EntityValueRegex = /\[([xCL0-9\.\+\/\-\*\(\)]+)(\{(.*)\})?\]/;
+export const EntityExpressionRegex = /^([xCL0-9\.\+\/\-\*\(\)\=\?\:\|\s\>\<]+)$/;
+export const EntityValueRegex = /\[([xCL0-9\.\+\/\-\*\(\)\=\?\:\|\s\>\<]+)(\{(.*)\})?\]/;
 
 export function EntityValueFunction(value: string | number, L: number | undefined = undefined): number {
 

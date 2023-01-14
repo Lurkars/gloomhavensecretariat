@@ -2,6 +2,12 @@
   "index": "4A",
   "name": "Heart of Ice A",
   "edition": "fh",
+  "unlocks": [
+    "5",
+    "6",
+    "7",
+    "8"
+  ],
   "monsters": [
     "frozen-fist",
     "snowdancer",
@@ -23,12 +29,6 @@
     "corpsecap": 1,
     "random_item": 1
   },
-  "unlocks": [
-    "5",
-    "6",
-    "7",
-    "8"
-  ],
   "rooms": [
     {
       "roomNumber": 1,

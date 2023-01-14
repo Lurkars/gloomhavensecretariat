@@ -2,13 +2,6 @@
   "index": "46",
   "name": "Nightmare Peak",
   "edition": "gh",
-  "monsters": [
-    "frost-demon",
-    "night-demon",
-    "savvas-icestorm",
-    "wind-demon",
-    "winged-horror"
-  ],
   "unlocks": [
     "51"
   ],
@@ -16,6 +9,13 @@
     [
       "39"
     ]
+  ],
+  "monsters": [
+    "frost-demon",
+    "night-demon",
+    "savvas-icestorm",
+    "wind-demon",
+    "winged-horror"
   ],
   "rooms": [
     {
@@ -30,10 +30,8 @@
       ],
       "monster": [
         {
-          "name": "savvas-icestorm",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
+          "name": "night-demon",
+          "type": "normal"
         },
         {
           "name": "night-demon",
@@ -41,8 +39,10 @@
           "player4": "normal"
         },
         {
-          "name": "night-demon",
-          "type": "normal"
+          "name": "savvas-icestorm",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         }
       ]
     },
@@ -55,42 +55,42 @@
       "monster": [
         {
           "name": "frost-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "frost-demon",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
+          "name": "wind-demon",
+          "type": "normal"
         },
         {
           "name": "wind-demon",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
-        },
-        {
-          "name": "wind-demon",
-          "type": "normal"
         }
       ]
     },
     {
       "roomNumber": 3,
-      "marker": "1",
       "ref": "i2a",
+      "marker": "1",
       "monster": [
         {
           "name": "savvas-icestorm",
           "player2": "normal",
-          "player3": "elite",
+          "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "savvas-icestorm",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {

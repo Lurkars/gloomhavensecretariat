@@ -2,6 +2,10 @@
   "index": "8",
   "name": "Crystal Trench",
   "edition": "fh",
+  "unlocks": [
+    "13",
+    "14"
+  ],
   "monsters": [
     "hound",
     "polar-bear",
@@ -15,10 +19,6 @@
     "arrowvine": 1,
     "snowthistle": 1
   },
-  "unlocks": [
-    "13",
-    "14"
-  ],
   "rooms": [
     {
       "roomNumber": 1,

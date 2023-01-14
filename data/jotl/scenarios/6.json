@@ -2,12 +2,94 @@
   "index": "6",
   "name": "Corrupted Research",
   "edition": "jotl",
+  "unlocks": [
+    "7",
+    "8"
+  ],
   "monsters": [
     "black-sludge",
     "rat-monstrosity"
   ],
-  "unlocks": [
-    "7",
-    "8"
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "jotl06-1",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "black-sludge",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-sludge",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "rat-monstrosity",
+          "type": "normal"
+        },
+        {
+          "name": "rat-monstrosity",
+          "type": "normal"
+        },
+        {
+          "name": "rat-monstrosity",
+          "type": "elite"
+        },
+        {
+          "name": "rat-monstrosity",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "rat-monstrosity",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "jotl06-2",
+      "monster": [
+        {
+          "name": "black-sludge",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-sludge",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "rat-monstrosity",
+          "type": "elite"
+        },
+        {
+          "name": "rat-monstrosity",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "rat-monstrosity",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "rat-monstrosity",
+          "player4": "normal"
+        }
+      ]
+    }
   ]
 }

@@ -1,6 +1,7 @@
 import { AttackModifierDeck } from "../model/AttackModifier";
 import { Character } from "../model/Character";
 import { ElementState } from "../model/Element";
+import { EntityValueFunction } from "../model/Entity";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
 import { LootDeck } from "../model/Loot";
@@ -316,7 +317,7 @@ export class RoundManager {
   }
 
   permanentDead(figure: Figure): boolean {
-    return ((figure instanceof Character || figure instanceof Objective) && (figure.exhausted || figure.health <= 0)) || (figure instanceof Monster && figure.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.health <= 0));
+    return ((figure instanceof Character || figure instanceof Objective) && (figure.exhausted || figure.health <= 0 && EntityValueFunction(figure.maxHealth) > 0)) || (figure instanceof Monster && figure.entities.every((monsterEntity) => monsterEntity.dead || monsterEntity.health <= 0));
   }
 
   resetScenario() {

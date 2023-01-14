@@ -1,41 +1,45 @@
 {
-    "index": "1",
-    "name": "Volcanic Wasteland",
-    "edition": "fc",
-    "parent": "96",
-    "marker": "b",
-    "monsters": [
-        "flame-demon"
-    ],
-    "objectives": [
+  "index": "1",
+  "name": "Volcanic Wasteland",
+  "edition": "fc",
+  "parent": "96",
+  "marker": "b",
+  "monsters": [
+    "flame-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Altar of Wildfire",
+      "health": "C+L+1",
+      "marker": "d"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "ref": "c1a",
+      "initial": true,
+      "monster": [
         {
-            "name": "Altar of Wildfire",
-            "health": "C+L+1"
-        }
-    ],
-    "rooms": [
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
         {
-            "roomNumber": 4,
-            "ref": "c1a",
-            "initial": true,
-            "monster": [
-                {
-                    "name": "flame-demon",
-                    "player3": "normal",
-                    "player4": "elite"
-                },
-                {
-                    "name": "flame-demon",
-                    "player2": "elite",
-                    "player3": "normal",
-                    "player4": "normal"
-                },
-                {
-                    "name": "flame-demon",
-                    "player3": "normal",
-                    "player4": "normal"
-                }
-            ]
+          "name": "flame-demon",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "normal"
         }
-    ]
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
 }

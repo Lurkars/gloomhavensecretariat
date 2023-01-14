@@ -1,0 +1,12 @@
+{
+  "index": "48",
+  "name": "Forest Fire",
+  "edition": "cs",
+  "monsters": [
+    "giant-viper",
+    "inox-archer",
+    "inox-guard",
+    "inox-shaman",
+    "spitting-drake"
+  ]
+}

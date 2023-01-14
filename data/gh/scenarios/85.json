@@ -11,12 +11,27 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "c2b",
+      "ref": "c1a",
       "initial": true,
       "rooms": [
+        2,
         3
       ],
       "monster": [
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
         {
           "name": "black-imp",
           "player3": "elite",
@@ -24,11 +39,17 @@
         },
         {
           "name": "black-imp",
-          "type": "elite"
+          "player4": "normal"
         },
         {
           "name": "hound",
           "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "hound",
@@ -39,70 +60,34 @@
     },
     {
       "roomNumber": 2,
-      "ref": "c1a",
-      "initial": true,
+      "ref": "i1b",
       "rooms": [
         4
       ],
       "monster": [
         {
-          "name": "black-imp",
-          "player2": "normal",
+          "name": "night-demon",
+          "type": "elite"
+        },
+        {
+          "name": "night-demon",
           "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "black-imp",
-          "type": "normal"
-        },
-        {
-          "name": "black-imp",
           "player4": "normal"
         },
         {
-          "name": "hound",
-          "player2": "normal",
+          "name": "night-demon",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 3,
-      "ref": "i1b",
-      "rooms": [
-        5
-      ],
-      "monster": [
-        {
-          "name": "night-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "night-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "night-demon",
-          "type": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 4,
       "ref": "f1a",
       "rooms": [
-        5
+        4
       ],
       "monster": [
-        {
-          "name": "night-demon",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
         {
           "name": "black-imp",
           "player2": "elite",
@@ -115,46 +100,28 @@
         {
           "name": "black-imp",
           "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         }
       ]
     },
     {
-      "roomNumber": 5,
+      "roomNumber": 4,
+      "ref": "d1a",
       "marker": "1",
-      "ref": "d2a",
       "monster": [
-        {
-          "name": "sun-demon",
-          "type": "elite"
-        },
-        {
-          "name": "sun-demon",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "sun-demon",
-          "player4": "normal"
-        },
         {
           "name": "night-demon",
           "type": "normal"
         },
         {
           "name": "night-demon",
-          "player4": "normal"
-        },
-        {
-          "name": "night-demon",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "sun-demon",
-          "player2": "normal",
-          "player3": "normal",
           "player4": "elite"
         },
         {
@@ -163,8 +130,19 @@
         },
         {
           "name": "sun-demon",
+          "type": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player2": "normal",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         },
         {
           "name": "sun-demon",
@@ -173,6 +151,7 @@
         },
         {
           "name": "sun-demon",
+          "player3": "normal",
           "player4": "normal"
         }
       ]

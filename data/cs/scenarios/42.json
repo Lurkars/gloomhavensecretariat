@@ -1,0 +1,10 @@
+{
+  "index": "42",
+  "name": "Unnatural Beasts",
+  "edition": "cs",
+  "monsters": [
+    "cave-bear",
+    "giant-viper",
+    "hound"
+  ]
+}

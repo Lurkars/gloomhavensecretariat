@@ -2,15 +2,123 @@
   "index": "7",
   "name": "Sunken Tumor",
   "edition": "jotl",
-  "monsters": [
-    "blood-tumor",
-    "vermling-scout",
-    "zealot"
-  ],
   "unlocks": [
     "9"
   ],
   "blocks": [
     "8"
+  ],
+  "monsters": [
+    "blood-tumor",
+    "vermling-scout",
+    "zealot"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "jotl07-1",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "normal"
+        },
+        {
+          "name": "zealot",
+          "type": "elite"
+        },
+        {
+          "name": "zealot",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "jotl07-2",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "normal"
+        },
+        {
+          "name": "zealot",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "zealot",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "jotl07-3",
+      "monster": [
+        {
+          "name": "blood-tumor",
+          "type": "normal"
+        },
+        {
+          "name": "zealot",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "zealot",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
   ]
 }

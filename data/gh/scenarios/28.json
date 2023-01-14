@@ -2,13 +2,6 @@
   "index": "28",
   "name": "Outer Ritual Chamber",
   "edition": "gh",
-  "monsters": [
-    "cultist",
-    "living-bones",
-    "living-corpse:+2",
-    "night-demon",
-    "sun-demon"
-  ],
   "unlocks": [
     "29"
   ],
@@ -16,6 +9,13 @@
     [
       "6"
     ]
+  ],
+  "monsters": [
+    "cultist",
+    "living-bones",
+    "living-corpse:+2",
+    "night-demon",
+    "sun-demon"
   ],
   "rooms": [
     {
@@ -28,9 +28,38 @@
       ],
       "monster": [
         {
-          "name": "living-corpse",
+          "name": "cultist",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "player2": "elite",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "living-corpse",
@@ -42,38 +71,9 @@
           "player4": "normal"
         },
         {
-          "name": "cultist",
+          "name": "living-corpse",
           "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "cultist",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "cultist",
-          "player2": "elite",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "cultist",
-          "player2": "elite",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "cultist",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "cultist",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
+          "player4": "normal"
         }
       ]
     },
@@ -86,21 +86,21 @@
       "monster": [
         {
           "name": "night-demon",
+          "type": "elite"
+        },
+        {
+          "name": "night-demon",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "night-demon",
-          "type": "elite"
-        },
-        {
-          "name": "night-demon",
+          "player3": "normal",
           "player4": "normal"
         },
         {
           "name": "night-demon",
-          "player3": "normal",
           "player4": "normal"
         }
       ]
@@ -111,21 +111,21 @@
       "monster": [
         {
           "name": "sun-demon",
+          "type": "elite"
+        },
+        {
+          "name": "sun-demon",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
         },
         {
           "name": "sun-demon",
-          "type": "elite"
-        },
-        {
-          "name": "sun-demon",
+          "player3": "normal",
           "player4": "normal"
         },
         {
           "name": "sun-demon",
-          "player3": "normal",
           "player4": "normal"
         }
       ]

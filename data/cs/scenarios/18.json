@@ -1,0 +1,15 @@
+{
+  "index": "18",
+  "name": "Grab and Go",
+  "edition": "cs",
+  "unlocks": [
+    "20",
+    "21"
+  ],
+  "monsters": [
+    "black-imp",
+    "deep-terror",
+    "harrower-infester",
+    "night-demon"
+  ]
+}

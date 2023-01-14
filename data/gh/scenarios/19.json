@@ -2,6 +2,14 @@
   "index": "19",
   "name": "Forgotten Crypt",
   "edition": "gh",
+  "unlocks": [
+    "27"
+  ],
+  "requires": [
+    [
+      "14"
+    ]
+  ],
   "monsters": [
     "cultist",
     "living-bones",
@@ -12,16 +20,83 @@
     {
       "name": "Hail",
       "escort": true,
-      "health": "4+(2xL)"
+      "health": "4+(2xL)",
+      "marker": "a"
     }
   ],
-  "unlocks": [
-    "27"
-  ],
-  "requires": [
-    [
-      "14"
-    ]
+  "rules": [
+    {
+      "round": "once",
+      "spawns": [
+        {
+          "monster": {
+            "name": "cultist",
+            "player2": "normal"
+          },
+          "marker": "c"
+        },
+        {
+          "count": 2,
+          "monster": {
+            "name": "cultist",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "c"
+        }
+      ],
+      "requiredRooms": [
+        3
+      ]
+    },
+    {
+      "round": "once",
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-spirit",
+            "player2": "normal",
+            "player3": "normal"
+          },
+          "marker": "d"
+        },
+        {
+          "count": 2,
+          "monster": {
+            "name": "living-spirit",
+            "player4": "normal"
+          },
+          "marker": "d"
+        }
+      ],
+      "requiredRooms": [
+        4
+      ]
+    },
+    {
+      "round": "once",
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-bones",
+            "player2": "normal"
+          },
+          "marker": "e"
+        },
+        {
+          "count": 2,
+          "monster": {
+            "name": "living-bones",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "e"
+        }
+      ],
+      "requiredRooms": [
+        5
+      ]
+    }
   ],
   "rooms": [
     {
@@ -45,6 +120,9 @@
           "player3": "normal",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     },
     {
@@ -56,12 +134,12 @@
       "monster": [
         {
           "name": "living-bones",
-          "player3": "normal",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "living-bones",
-          "type": "normal"
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "living-spirit",
@@ -79,12 +157,16 @@
     },
     {
       "roomNumber": 3,
-      "marker": "1",
       "ref": "c2b",
+      "marker": "1",
       "rooms": [
         4
       ],
       "monster": [
+        {
+          "name": "cultist",
+          "type": "elite"
+        },
         {
           "name": "living-bones",
           "type": "normal"
@@ -102,17 +184,13 @@
         {
           "name": "living-bones",
           "player4": "normal"
-        },
-        {
-          "name": "cultist",
-          "type": "elite"
         }
       ]
     },
     {
       "roomNumber": 4,
-      "marker": "2",
       "ref": "c1a",
+      "marker": "2",
       "rooms": [
         5
       ],
@@ -134,35 +212,35 @@
     },
     {
       "roomNumber": 5,
-      "marker": "3",
       "ref": "i1b",
+      "marker": "3",
       "treasures": [
         17
       ],
       "monster": [
         {
+          "name": "cultist",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
           "name": "living-corpse",
           "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "cultist",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "cultist",
-          "player2": "normal",
-          "player3": "normal",
           "player4": "elite"
         }
       ]

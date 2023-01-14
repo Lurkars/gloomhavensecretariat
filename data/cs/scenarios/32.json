@@ -1,0 +1,13 @@
+{
+  "index": "32",
+  "name": "Confronting the Past",
+  "edition": "cs",
+  "monsters": [
+    "ancient-artillery",
+    "inox-archer",
+    "inox-bodyguard",
+    "inox-guard",
+    "jekserah",
+    "living-bones"
+  ]
+}

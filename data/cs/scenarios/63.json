@@ -1,0 +1,13 @@
+{
+  "index": "63",
+  "name": "A Cornered Viper",
+  "edition": "cs",
+  "monsters": [
+    "cave-bear",
+    "giant-viper",
+    "inox-archer",
+    "living-corpse",
+    "living-spirit",
+    "stone-golem"
+  ]
+}

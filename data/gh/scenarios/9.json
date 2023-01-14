@@ -2,17 +2,17 @@
   "index": "9",
   "name": "Diamond Mine",
   "edition": "gh",
-  "monsters": [
-    "hound",
-    "merciless-overseer",
-    "vermling-scout"
-  ],
   "unlocks": [
     "11",
     "12"
   ],
   "blocks": [
     "8"
+  ],
+  "monsters": [
+    "hound",
+    "merciless-overseer",
+    "vermling-scout"
   ],
   "rooms": [
     {
@@ -25,14 +25,18 @@
       "monster": [
         {
           "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
           "type": "elite"
         },
         {
           "name": "hound",
-          "type": "normal"
-        },
-        {
-          "name": "hound",
           "player3": "normal",
           "player4": "elite"
         },
@@ -40,21 +44,37 @@
           "name": "hound",
           "player3": "normal",
           "player4": "elite"
-        },
-        {
-          "name": "hound",
-          "type": "normal"
         }
       ]
     },
     {
       "roomNumber": 2,
-      "marker": "1",
       "ref": "n1a",
+      "marker": "1",
       "treasures": [
-        -1
+        "G"
       ],
       "monster": [
+        {
+          "name": "merciless-overseer",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
         {
           "name": "vermling-scout",
           "type": "elite"
@@ -66,7 +86,8 @@
         },
         {
           "name": "vermling-scout",
-          "type": "normal"
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "vermling-scout",
@@ -79,28 +100,7 @@
         },
         {
           "name": "vermling-scout",
-          "type": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "player3": "normal",
           "player4": "elite"
-        },
-        {
-          "name": "vermling-scout",
-          "type": "elite"
-        },
-        {
-          "name": "vermling-scout",
-          "type": "elite"
-        },
-        {
-          "name": "vermling-scout",
-          "player4": "elite"
-        },
-        {
-          "name": "merciless-overseer",
-          "type": "normal"
         }
       ]
     }

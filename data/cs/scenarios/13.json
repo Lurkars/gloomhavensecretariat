@@ -1,0 +1,10 @@
+{
+  "index": "13",
+  "name": "Corpse Cavern",
+  "edition": "cs",
+  "monsters": [
+    "living-corpse",
+    "lurker",
+    "ooze"
+  ]
+}

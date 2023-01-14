@@ -1,0 +1,17 @@
+{
+  "index": "50",
+  "name": "Oak Invasion B",
+  "edition": "cs",
+  "monsters": [
+    "captain-of-the-guard",
+    "cave-bear",
+    "city-archer",
+    "city-guard",
+    "inox-archer:-1",
+    "inox-guard:-1"
+  ],
+  "allies": [
+    "inox-archer",
+    "inox-guard"
+  ]
+}

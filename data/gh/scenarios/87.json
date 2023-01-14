@@ -2,17 +2,17 @@
   "index": "87",
   "name": "Corrupted Cove",
   "edition": "gh",
+  "requires": [
+    [
+      "86"
+    ]
+  ],
   "monsters": [
     "black-imp",
     "deep-terror",
     "giant-ooze",
     "lurker",
     "ooze"
-  ],
-  "requires": [
-    [
-      "86"
-    ]
   ],
   "rooms": [
     {
@@ -25,13 +25,13 @@
       "monster": [
         {
           "name": "lurker",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
+          "type": "elite"
         },
         {
           "name": "lurker",
-          "type": "elite"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "lurker",
@@ -42,34 +42,45 @@
     },
     {
       "roomNumber": 2,
-      "marker": "1",
       "ref": "l2a",
+      "marker": "1",
       "treasures": [
         40
       ],
       "monster": [
         {
-          "name": "ooze",
-          "type": "normal"
-        },
-        {
-          "name": "ooze",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "ooze",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
           "name": "black-imp",
           "type": "elite"
         },
         {
           "name": "black-imp",
+          "player2": "normal",
           "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
@@ -78,13 +89,7 @@
         },
         {
           "name": "ooze",
-          "player4": "normal"
-        },
-        {
-          "name": "ooze",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
+          "type": "normal"
         },
         {
           "name": "ooze",
@@ -97,30 +102,25 @@
           "player4": "elite"
         },
         {
-          "name": "black-imp",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "black-imp",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "black-imp",
-          "player4": "normal"
-        },
-        {
-          "name": "deep-terror",
+          "name": "ooze",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "deep-terror",
-          "type": "normal"
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "player4": "normal"
         }
       ]
     }

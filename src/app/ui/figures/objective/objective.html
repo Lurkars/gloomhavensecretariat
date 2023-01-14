@@ -1,8 +1,11 @@
 <div class="objective"
-  [ngClass]="{'off' : objective.off || objective.exhausted || (objective.health <= 0), 'escort' : objective.escort, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
+  [ngClass]="{'off' : objective.off || objective.exhausted || (objective.health <= 0 && this.maxHealth() > 0), 'escort' : objective.escort, 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters}">
   <a class="image-container">
     <span class="objective-marker" [ngClass]="{'active-border' : objective.active}">
       {{objective.id + 1}}
+    </span>
+    <span *ngIf="objective.marker" class="map-marker" [ngClass]="{'active-border' : objective.active}">
+      {{objective.marker}}
     </span>
     <ghs-healthbar [entity]="objective"></ghs-healthbar>
   </a>
@@ -12,8 +15,9 @@
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round }">
   </ghs-drag-click>
 
-  <ghs-drag-click class="drag-hp" (click)="openEntityMenu($event)" (dragMove)="dragHpMove($event)"
-    (dragEnd)="dragHpEnd($event)" [relative]="true" [screenWidth]="true"></ghs-drag-click>
+  <ghs-drag-click *ngIf="maxHealth() >= 0" class="drag-hp" (click)="openEntityMenu($event)"
+    (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" [relative]="true"
+    [screenWidth]="true"></ghs-drag-click>
 
   <ghs-character-initiative [character]="objective"></ghs-character-initiative>
 
@@ -37,11 +41,14 @@
       <div class="status-bar">
         <div class="health">
           <img src="./assets/images/status/health.svg" />
-          {{objective.health}}/{{maxHealth()}} <span class="value-overlay "
-            [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}" *ngIf="health">
-            <span class="value">{{health |
-              ghsValueSign}}</span>
+          <span *ngIf="maxHealth() > 0">
+            {{objective.health}}/{{maxHealth()}} <span class="value-overlay "
+              [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}" *ngIf="health">
+              <span class="value">{{health |
+                ghsValueSign}}</span>
+            </span>
           </span>
+          <span *ngIf="maxHealth() == 0">-</span>
         </div>
         <div class="conditions">
           <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.activeConditions(objective)">

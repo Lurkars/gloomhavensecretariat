@@ -1,0 +1,10 @@
+{
+  "index": "14",
+  "name": "Cultist Cave",
+  "edition": "cs",
+  "monsters": [
+    "cultist_lc",
+    "deep-terror",
+    "living-corpse"
+  ]
+}

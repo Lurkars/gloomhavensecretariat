@@ -4,5 +4,34 @@
   "edition": "jotl",
   "monsters": [
     "stone-golem"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "jotl18-1",
+      "initial": true,
+      "rooms": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "jotl18-2"
+    },
+    {
+      "roomNumber": 3,
+      "ref": "jotl18-3"
+    },
+    {
+      "roomNumber": 4,
+      "ref": "jotl18-4"
+    },
+    {
+      "roomNumber": 5,
+      "ref": "jotl18-5"
+    }
   ]
 }

@@ -2,6 +2,13 @@
   "index": "5",
   "name": "Frozen Crypt",
   "edition": "fh",
+  "unlocks": [
+    "9",
+    "10"
+  ],
+  "blocks": [
+    "6"
+  ],
   "monsters": [
     "frozen-corpse",
     "ice-wraith"
@@ -14,13 +21,6 @@
     "rockroot": 2,
     "corpsecap": 2
   },
-  "unlocks": [
-    "9",
-    "10"
-  ],
-  "blocks": [
-    "6"
-  ],
   "rooms": [
     {
       "roomNumber": 1,

@@ -1,0 +1,13 @@
+{
+  "index": "28",
+  "name": "Fountain of Bones",
+  "edition": "cs",
+  "unlocks": [
+    "29"
+  ],
+  "monsters": [
+    "cultist",
+    "living-bones",
+    "ooze"
+  ]
+}

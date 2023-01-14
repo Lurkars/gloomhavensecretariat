@@ -2,6 +2,9 @@
   "index": "104",
   "name": "A Gaping Wound",
   "edition": "fc",
+  "unlocks": [
+    "111"
+  ],
   "monsters": [
     "harrower-infester",
     "lurker",
@@ -11,7 +14,8 @@
     {
       "name": "Hail",
       "escort": true,
-      "health": "6+2xL"
+      "health": "6+2xL",
+      "marker": "a"
     }
   ],
   "rules": [
@@ -71,9 +75,6 @@
         }
       ]
     }
-  ],
-  "unlocks": [
-    "111"
   ],
   "rooms": [
     {
@@ -140,6 +141,9 @@
           "player3": "normal",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

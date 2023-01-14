@@ -1,123 +1,108 @@
 {
-    "index": "100",
-    "name": "Sekhem Fountain",
-    "edition": "fc",
-    "parent": "99",
-    "marker": "1",
-    "monsters": [
-        "black-imp",
-        "cultist",
-        "deep-terror"
-    ],
-    "objectives": [
+  "index": "100",
+  "name": "Sekhem Fountain",
+  "edition": "fc",
+  "parent": "99",
+  "marker": "1",
+  "monsters": [
+    "black-imp",
+    "cultist",
+    "deep-terror"
+  ],
+  "objectives": [
+    {
+      "name": "Civilian",
+      "escort": true,
+      "health": "2x(L+C)",
+      "initiative": 50,
+      "marker": "a",
+      "count": 5
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "ref": "l2b",
+      "initial": true,
+      "treasures": [
+        95
+      ],
+      "monster": [
         {
-            "name": "Civilian 4",
-            "escort": true,
-            "health": "2x(L+C)",
-            "initiative": 50
+          "name": "cultist",
+          "player4": "normal"
         },
         {
-            "name": "Civilian 5",
-            "escort": true,
-            "health": "2x(L+C)",
-            "initiative": 50
+          "name": "cultist",
+          "player3": "elite",
+          "player4": "elite"
         },
         {
-            "name": "Civilian 6",
-            "escort": true,
-            "health": "2x(L+C)",
-            "initiative": 50
+          "name": "cultist",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         },
         {
-            "name": "Civilian 7",
-            "escort": true,
-            "health": "2x(L+C)",
-            "initiative": 50
+          "name": "cultist",
+          "player4": "normal"
         },
         {
-            "name": "Civilian 8",
-            "escort": true,
-            "health": "2x(L+C)",
-            "initiative": 50
+          "name": "black-imp",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "cultist",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "normal",
+          "player4": "elite"
         }
-    ],
-    "rooms": [
-        {
-            "roomNumber": 2,
-            "ref": "l2b",
-            "initial": true,
-            "monster": [
-                {
-                    "name": "cultist",
-                    "player4": "normal"
-                },
-                {
-                    "name": "cultist",
-                    "player3": "elite",
-                    "player4": "elite"
-                },
-                {
-                    "name": "cultist",
-                    "player2": "normal",
-                    "player3": "elite",
-                    "player4": "elite"
-                },
-                {
-                    "name": "cultist",
-                    "player4": "normal"
-                },
-                {
-                    "name": "black-imp",
-                    "player2": "normal",
-                    "player4": "normal"
-                },
-                {
-                    "name": "black-imp",
-                    "player2": "normal",
-                    "player3": "elite",
-                    "player4": "normal"
-                },
-                {
-                    "name": "black-imp",
-                    "player2": "normal",
-                    "player3": "elite",
-                    "player4": "normal"
-                },
-                {
-                    "name": "deep-terror",
-                    "player2": "normal",
-                    "player3": "normal",
-                    "player4": "elite"
-                },
-                {
-                    "name": "deep-terror",
-                    "type": "normal"
-                },
-                {
-                    "name": "cultist",
-                    "player2": "elite",
-                    "player3": "normal",
-                    "player4": "normal"
-                },
-                {
-                    "name": "black-imp",
-                    "player3": "normal",
-                    "player4": "elite"
-                },
-                {
-                    "name": "black-imp",
-                    "player3": "normal",
-                    "player4": "elite"
-                },
-                {
-                    "name": "deep-terror",
-                    "player3": "normal",
-                    "player4": "elite"
-                }
-            ],
-            "treasures": [
-                95
-            ]
-        }
-    ]
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  ]
 }

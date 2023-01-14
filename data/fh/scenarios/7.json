@@ -2,6 +2,10 @@
   "index": "7",
   "name": "Edge of the World",
   "edition": "fh",
+  "unlocks": [
+    "13",
+    "14"
+  ],
   "monsters": [
     "lurker-clawcrusher",
     "lurker-mindsnipper",
@@ -15,10 +19,6 @@
     "axenut": 1,
     "snowthistle": 2
   },
-  "unlocks": [
-    "13",
-    "14"
-  ],
   "rooms": [
     {
       "roomNumber": 1,

@@ -1,0 +1,13 @@
+{
+  "index": "66",
+  "name": "Otherworldly Strangers",
+  "edition": "cs",
+  "monsters": [
+    "city-archer",
+    "city-guard",
+    "earth-demon",
+    "harrower-infester",
+    "night-demon",
+    "sun-demon"
+  ]
+}

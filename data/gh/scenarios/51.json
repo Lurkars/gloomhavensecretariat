@@ -5,13 +5,10 @@
   "monsters": [
     "the-gloom"
   ],
-  "requires": [
-    []
-  ],
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "m1a",
+      "ref": "d1a",
       "initial": true,
       "treasures": [
         56

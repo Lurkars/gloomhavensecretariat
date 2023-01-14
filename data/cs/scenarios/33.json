@@ -1,0 +1,14 @@
+{
+  "index": "33",
+  "name": "Siege Tower",
+  "edition": "cs",
+  "unlocks": [
+    "34"
+  ],
+  "monsters": [
+    "inox-archer",
+    "inox-bodyguard",
+    "inox-guard",
+    "inox-shaman"
+  ]
+}

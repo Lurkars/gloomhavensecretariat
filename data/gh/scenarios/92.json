@@ -12,9 +12,6 @@
     "inox-guard",
     "savvas-lavaflow"
   ],
-  "requires": [
-    []
-  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -25,15 +22,6 @@
       ],
       "monster": [
         {
-          "name": "inox-guard",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "inox-guard",
-          "type": "elite"
-        },
-        {
           "name": "bandit-archer",
           "type": "normal"
         },
@@ -52,31 +40,34 @@
         },
         {
           "name": "bandit-guard",
+          "player3": "normal",
           "player4": "normal"
         },
         {
           "name": "bandit-guard",
-          "player3": "normal",
           "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player3": "normal",
+          "player4": "elite"
         }
       ]
     },
     {
       "roomNumber": 2,
-      "marker": "1",
       "ref": "f1a",
+      "marker": "1",
       "monster": [
         {
-          "name": "inox-guard",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "type": "elite"
-        },
-        {
-          "name": "savvas-lavaflow",
-          "type": "elite"
+          "name": "bandit-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "bandit-archer",
@@ -90,12 +81,6 @@
           "player4": "normal"
         },
         {
-          "name": "bandit-archer",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
           "name": "bandit-guard",
           "player3": "normal",
           "player4": "normal"
@@ -108,6 +93,18 @@
         {
           "name": "bandit-guard",
           "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "savvas-lavaflow",
+          "type": "elite"
         }
       ]
     }

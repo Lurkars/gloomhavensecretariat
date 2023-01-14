@@ -1,0 +1,16 @@
+{
+  "index": "9",
+  "name": "Rescue Mission",
+  "edition": "cs",
+  "unlocks": [
+    "11",
+    "13",
+    "14"
+  ],
+  "monsters": [
+    "ancient-artillery",
+    "cave-bear",
+    "city-archer",
+    "city-guard"
+  ]
+}

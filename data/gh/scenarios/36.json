@@ -2,12 +2,22 @@
   "index": "36",
   "name": "Gloomhaven Battlements B",
   "edition": "gh",
+  "requires": [
+    [
+      "10"
+    ]
+  ],
+  "blocks": [
+    "10",
+    "21",
+    "35"
+  ],
   "monsters": [
     "city-archer",
     "earth-demon",
     "flame-demon",
     "frost-demon",
-    "prime-demon",
+    "prime-demon-36",
     "wind-demon"
   ],
   "allies": [
@@ -16,7 +26,8 @@
   "objectives": [
     {
       "name": "Door",
-      "health": "10+(2xL)"
+      "health": "10+(2xL)",
+      "marker": "1"
     }
   ],
   "rules": [
@@ -75,64 +86,62 @@
           "marker": "d"
         }
       ]
+    },
+    {
+      "round": "true",
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Door",
+            "marker": "1"
+          }
+        },
+        {
+          "type": "damage",
+          "value": "(2xC)+L-2",
+          "identifier": {
+            "type": "monster",
+            "edition": "fc",
+            "name": "prime-demon-36"
+          }
+        }
+      ]
+    },
+    {
+      "round": "once",
+      "spawns": [
+        {
+          "monster": {
+            "name": "prime-demon-36",
+            "type": "boss"
+          },
+          "marker": "e"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Door",
+            "marker": "1"
+          },
+          "type": "dead"
+        }
+      ]
     }
-  ],
-  "requires": [
-    [
-      "10"
-    ]
-  ],
-  "blocks": [
-    "10",
-    "21",
-    "35"
   ],
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "l3a",
+      "ref": "b2b",
       "initial": true,
-      "monster": [
-        {
-          "name": "frost-demon",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "wind-demon",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "frost-demon",
-          "player4": "normal"
-        },
-        {
-          "name": "earth-demon",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "flame-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "flame-demon",
-          "type": "elite"
-        }
-      ],
       "rooms": [
         2
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "marker": "1",
-      "ref": "i1b",
+      ],
       "treasures": [
         2
       ],
@@ -144,7 +153,41 @@
         {
           "name": "city-archer",
           "type": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "type": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

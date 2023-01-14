@@ -5,6 +5,33 @@
   font-family: var(--ghs-font-text);
   text-align: center;
 
+  .hide {
+    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+    color: var(--ghs-color-darkgray);
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 1;
+    margin-bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+
+    img {
+      height: 1em;
+      width: auto;
+      margin: 0 0.2em;
+      filter: var(--ghs-filter-darkgray);
+    }
+
+    &:hover {
+
+      color: var(--ghs-color-gray);
+
+      img {
+        filter: var(--ghs-filter-gray);
+      }
+    }
+  }
+
   .rule {
     position: relative;
     display: flex;

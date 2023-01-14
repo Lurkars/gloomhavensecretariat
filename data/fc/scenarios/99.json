@@ -2,6 +2,10 @@
   "index": "99",
   "name": "Aftershocks",
   "edition": "fc",
+  "unlocks": [
+    "104",
+    "105"
+  ],
   "monsters": [
     "black-imp",
     "cultist",
@@ -9,27 +13,13 @@
   ],
   "objectives": [
     {
-      "name": "Civilian 1",
+      "name": "Civilian",
       "escort": true,
       "health": "2x(L+C)",
-      "initiative": 50
-    },
-    {
-      "name": "Civilian 2",
-      "escort": true,
-      "health": "2x(L+C)",
-      "initiative": 50
-    },
-    {
-      "name": "Civilian 3",
-      "escort": true,
-      "health": "2x(L+C)",
-      "initiative": 50
+      "initiative": 50,
+      "marker": "a",
+      "count": 3
     }
-  ],
-  "unlocks": [
-    "104",
-    "105"
   ],
   "rooms": [
     {
@@ -97,6 +87,11 @@
           "player3": "normal",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1
       ]
     }
   ]

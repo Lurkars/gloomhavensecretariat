@@ -46,16 +46,11 @@
         2
       ],
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
         {
           "name": "night-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "night-demon",
           "player2": "normal",
           "player4": "normal"
         },
@@ -63,6 +58,11 @@
           "name": "night-demon",
           "player2": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "night-demon",
@@ -75,10 +75,6 @@
         },
         {
           "name": "sun-demon",
-          "player3": "elite"
-        },
-        {
-          "name": "sun-demon",
           "player2": "normal",
           "player4": "elite"
         },
@@ -86,6 +82,10 @@
           "name": "sun-demon",
           "player3": "normal",
           "player4": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "player3": "elite"
         }
       ]
     },
@@ -96,24 +96,9 @@
         3
       ],
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
-        {
-          "name": "stone-golem",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "stone-golem",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "stone-golem",
-          "type": "normal"
-        },
         {
           "name": "ancient-artillery",
           "player2": "normal",
@@ -129,20 +114,37 @@
         {
           "name": "ancient-artillery",
           "player3": "normal"
+        },
+        {
+          "name": "stone-golem",
+          "type": "normal"
+        },
+        {
+          "name": "stone-golem",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "stone-golem",
+          "player3": "normal",
+          "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 3,
-      "marker": "1",
       "ref": "d1a",
+      "marker": "1",
       "treasures": [
         68
       ],
       "monster": [
         {
           "name": "night-demon",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "sun-demon",

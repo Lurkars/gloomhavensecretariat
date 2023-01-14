@@ -2,12 +2,6 @@
   "index": "7",
   "name": "Vibrant Grotto",
   "edition": "gh",
-  "monsters": [
-    "cave-bear",
-    "earth-demon",
-    "forest-imp",
-    "inox-shaman"
-  ],
   "unlocks": [
     "20"
   ],
@@ -17,6 +11,12 @@
       "8"
     ]
   ],
+  "monsters": [
+    "cave-bear",
+    "earth-demon",
+    "forest-imp",
+    "inox-shaman"
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -24,10 +24,10 @@
       "initial": true,
       "rooms": [
         2,
-        3
+        6
       ],
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
         {
@@ -36,87 +36,57 @@
         },
         {
           "name": "cave-bear",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "cave-bear",
           "type": "normal"
         },
         {
-          "name": "forest-imp",
+          "name": "cave-bear",
           "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "forest-imp",
           "type": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "normal",
+          "player4": "elite"
         }
       ]
     },
     {
       "roomNumber": 2,
-      "ref": "d2b",
+      "ref": "c2a",
+      "rooms": [
+        3
+      ],
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
         {
-          "name": "forest-imp",
-          "player4": "normal"
-        },
-        {
-          "name": "forest-imp",
-          "type": "elite"
+          "name": "earth-demon",
+          "type": "normal"
         },
         {
           "name": "forest-imp",
           "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
           "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 3,
-      "ref": "c2a",
-      "rooms": [
-        4
-      ],
-      "treasures": [
-        null
-      ],
-      "monster": [
-        {
-          "name": "forest-imp",
-          "player4": "normal"
-        },
-        {
-          "name": "forest-imp",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "earth-demon",
-          "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 4,
       "ref": "g2a",
       "rooms": [
-        5,
-        6
+        4,
+        5
       ],
       "monster": [
-        {
-          "name": "forest-imp",
-          "player4": "normal"
-        },
-        {
-          "name": "forest-imp",
-          "player4": "normal"
-        },
         {
           "name": "forest-imp",
           "type": "normal"
@@ -124,6 +94,14 @@
         {
           "name": "forest-imp",
           "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
           "player4": "normal"
         },
         {
@@ -133,12 +111,41 @@
       ]
     },
     {
-      "roomNumber": 5,
-      "ref": "f1b",
+      "roomNumber": 4,
+      "ref": "b4b",
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
+        {
+          "name": "cave-bear",
+          "type": "normal"
+        },
+        {
+          "name": "cave-bear",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "cave-bear",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 5,
+      "ref": "f1b",
+      "rooms": [
+        6
+      ],
+      "treasures": [
+        "G"
+      ],
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "normal"
+        },
         {
           "name": "earth-demon",
           "type": "normal"
@@ -147,31 +154,27 @@
           "name": "earth-demon",
           "player3": "normal",
           "player4": "elite"
-        },
-        {
-          "name": "earth-demon",
-          "type": "normal"
         }
       ]
     },
     {
       "roomNumber": 6,
-      "ref": "b4b",
+      "ref": "d2b",
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
         {
-          "name": "cave-bear",
+          "name": "forest-imp",
+          "type": "elite"
+        },
+        {
+          "name": "forest-imp",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "cave-bear",
-          "type": "normal"
-        },
-        {
-          "name": "cave-bear",
+          "name": "forest-imp",
           "player4": "normal"
         }
       ]

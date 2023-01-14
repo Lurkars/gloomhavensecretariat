@@ -2,6 +2,13 @@
   "index": "6",
   "name": "Avalanche",
   "edition": "fh",
+  "unlocks": [
+    "11",
+    "12"
+  ],
+  "blocks": [
+    "5"
+  ],
   "monsters": [
     "frost-demon",
     "snow-imp"
@@ -22,13 +29,6 @@
     "arrowvine": 2,
     "axenut": 1
   },
-  "unlocks": [
-    "11",
-    "12"
-  ],
-  "blocks": [
-    "5"
-  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -61,6 +61,14 @@
           "name": "snow-imp",
           "type": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
       ]
     }
   ]

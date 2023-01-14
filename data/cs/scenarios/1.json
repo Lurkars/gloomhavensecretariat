@@ -1,0 +1,14 @@
+{
+  "index": "1",
+  "name": "The Dark Lake",
+  "edition": "cs",
+  "initial": true,
+  "unlocks": [
+    "2"
+  ],
+  "monsters": [
+    "spitting-drake",
+    "vermling-scout",
+    "water-spirit"
+  ]
+}

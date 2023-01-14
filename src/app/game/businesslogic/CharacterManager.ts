@@ -128,6 +128,10 @@ export class CharacterManager {
     let objective = new Objective(id);
 
     if (objectiveData) {
+      if (objectiveData.id && objectiveData.id != -1) {
+        objective.id = objectiveData.id;
+      }
+      objective.marker = objectiveData.marker;
       objective.name = objectiveData.name;
       if (name) {
         objective.name = name;

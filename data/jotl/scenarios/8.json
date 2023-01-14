@@ -2,15 +2,87 @@
   "index": "8",
   "name": "Hidden Tumor",
   "edition": "jotl",
-  "monsters": [
-    "blood-tumor",
-    "chaos-demon",
-    "zealot"
-  ],
   "unlocks": [
     "9"
   ],
   "blocks": [
     "7"
+  ],
+  "monsters": [
+    "blood-tumor",
+    "chaos-demon",
+    "zealot"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "jotl08-1",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "type": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "type": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "zealot",
+          "type": "elite"
+        },
+        {
+          "name": "zealot",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "zealot",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "zealot",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "jotl08-2",
+      "monster": [
+        {
+          "name": "blood-tumor",
+          "type": "normal"
+        },
+        {
+          "name": "zealot",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "zealot",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
   ]
 }

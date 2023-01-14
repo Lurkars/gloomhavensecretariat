@@ -7,8 +7,9 @@
   "resetRound": true,
   "objectives": [
     {
-      "name": "Altar a",
-      "health": "(L+3)xC"
+      "name": "Altar",
+      "health": "(L+3)xC",
+      "marker": "a"
     }
   ],
   "rules": [
@@ -73,6 +74,9 @@
           "player3": "normal",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

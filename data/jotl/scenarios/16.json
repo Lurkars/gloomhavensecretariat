@@ -2,6 +2,9 @@
   "index": "16",
   "name": "Mixed Results",
   "edition": "jotl",
+  "unlocks": [
+    "17"
+  ],
   "monsters": [
     "black-imp",
     "blood-imp",
@@ -12,8 +15,5 @@
       "round": "R == 2",
       "start": true
     }
-  ],
-  "unlocks": [
-    "17"
   ]
 }

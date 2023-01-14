@@ -2,14 +2,14 @@
   "index": "10",
   "name": "Plane of Elemental Power",
   "edition": "gh",
+  "unlocks": [
+    "21",
+    "22"
+  ],
   "monsters": [
     "earth-demon",
     "flame-demon",
     "sun-demon"
-  ],
-  "unlocks": [
-    "21",
-    "22"
   ],
   "rooms": [
     {
@@ -21,17 +21,17 @@
       ],
       "monster": [
         {
-          "name": "flame-demon",
-          "type": "normal"
-        },
-        {
-          "name": "flame-demon",
-          "type": "normal"
-        },
-        {
           "name": "earth-demon",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "normal"
         }
       ]
     },
@@ -43,6 +43,17 @@
       ],
       "monster": [
         {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
           "name": "flame-demon",
           "type": "normal"
         },
@@ -52,23 +63,12 @@
           "player4": "normal"
         },
         {
-          "name": "earth-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "earth-demon",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "sun-demon",
-          "player4": "normal"
-        },
-        {
           "name": "sun-demon",
           "type": "elite"
+        },
+        {
+          "name": "sun-demon",
+          "player4": "normal"
         }
       ]
     },
@@ -80,18 +80,8 @@
       ],
       "monster": [
         {
-          "name": "sun-demon",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "flame-demon",
-          "type": "normal"
-        },
-        {
-          "name": "flame-demon",
-          "player4": "normal"
+          "name": "earth-demon",
+          "type": "elite"
         },
         {
           "name": "earth-demon",
@@ -99,12 +89,27 @@
           "player4": "normal"
         },
         {
-          "name": "earth-demon",
-          "type": "elite"
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player4": "normal"
         },
         {
           "name": "sun-demon",
+          "player2": "normal",
           "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "sun-demon",
           "player4": "normal"
         }
       ]

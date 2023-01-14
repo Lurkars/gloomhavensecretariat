@@ -2,12 +2,6 @@
   "index": "49",
   "name": "Rebel's Stand",
   "edition": "gh",
-  "monsters": [
-    "city-archer",
-    "city-guard",
-    "giant-viper",
-    "siege-cannon"
-  ],
   "requires": [
     [
       "35"
@@ -15,6 +9,12 @@
   ],
   "blocks": [
     "50"
+  ],
+  "monsters": [
+    "city-archer",
+    "city-guard",
+    "giant-viper",
+    "siege-cannon"
   ],
   "rooms": [
     {
@@ -26,21 +26,10 @@
       ],
       "monster": [
         {
-          "name": "giant-viper",
-          "type": "elite"
-        },
-        {
-          "name": "giant-viper",
+          "name": "city-archer",
+          "player2": "normal",
           "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "type": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "type": "elite"
+          "player4": "elite"
         },
         {
           "name": "city-archer",
@@ -54,70 +43,56 @@
           "player4": "elite"
         },
         {
-          "name": "city-archer",
-          "player2": "normal",
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "type": "elite"
+        },
+        {
+          "name": "giant-viper",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 2,
-      "marker": "1",
       "ref": "l1b",
+      "marker": "1",
       "treasures": [
         44
       ],
       "monster": [
         {
-          "name": "city-archer",
-          "player4": "elite"
-        },
-        {
-          "name": "city-archer",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "city-archer",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "city-archer",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
           "name": "ancient-artillery",
           "type": "elite"
         },
         {
-          "name": "giant-viper",
+          "name": "city-archer",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "giant-viper",
+          "name": "city-archer",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "city-guard",
-          "type": "elite"
-        },
-        {
-          "name": "city-guard",
-          "type": "elite"
-        },
-        {
-          "name": "city-guard",
+          "name": "city-archer",
           "player3": "normal",
           "player4": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player4": "elite"
         },
         {
           "name": "city-guard",
@@ -125,8 +100,33 @@
         },
         {
           "name": "city-guard",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard",
           "player3": "normal",
           "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         }
       ]
     }

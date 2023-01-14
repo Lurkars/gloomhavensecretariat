@@ -3,7 +3,9 @@
   "name": "Avalanche",
   "edition": "fh",
   "parent": "6",
-  "parentSections": ["12.2"],
+  "parentSections": [
+    "12.2"
+  ],
   "marker": "2",
   "objectives": [
     {
@@ -53,6 +55,16 @@
           "player3": "normal",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
       ]
     }
   ]

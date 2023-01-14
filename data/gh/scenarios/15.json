@@ -19,8 +19,8 @@
       ],
       "monster": [
         {
-          "name": "stone-golem",
-          "player4": "normal"
+          "name": "savvas-icestorm",
+          "type": "elite"
         },
         {
           "name": "stone-golem",
@@ -28,8 +28,8 @@
           "player4": "normal"
         },
         {
-          "name": "savvas-icestorm",
-          "type": "elite"
+          "name": "stone-golem",
+          "player4": "normal"
         }
       ]
     },
@@ -51,67 +51,67 @@
           "type": "normal"
         },
         {
-          "name": "wind-demon",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "wind-demon",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
           "name": "savvas-icestorm",
           "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "elite"
         }
       ]
     },
     {
       "roomNumber": 3,
-      "marker": "a",
       "ref": "h3b",
+      "marker": "a",
       "monster": [
+        {
+          "name": "harrower-infester",
+          "type": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "normal"
+        },
         {
           "name": "stone-golem",
           "player3": "normal",
           "player4": "normal"
-        },
-        {
-          "name": "harrower-infester",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "harrower-infester",
-          "type": "elite"
         }
       ]
     },
     {
       "roomNumber": 4,
-      "marker": "a",
       "ref": "h1b",
+      "marker": "a",
       "monster": [
-        {
-          "name": "stone-golem",
-          "player4": "normal"
-        },
-        {
-          "name": "harrower-infester",
-          "player4": "normal"
-        },
         {
           "name": "harrower-infester",
           "type": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player4": "normal"
+        },
+        {
+          "name": "stone-golem",
+          "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 5,
-      "marker": "b",
       "ref": "c1a",
+      "marker": "b",
       "treasures": [
-        -1
+        "G"
       ],
       "monster": [
         {

@@ -2,6 +2,17 @@
   "index": "27",
   "name": "Ruinous Rift",
   "edition": "gh",
+  "requires": [
+    [
+      "19"
+    ]
+  ],
+  "blocks": [
+    "10",
+    "21",
+    "35",
+    "36"
+  ],
   "monsters": [
     "earth-demon",
     "flame-demon",
@@ -14,7 +25,8 @@
     {
       "name": "Hail",
       "escort": true,
-      "health": "4+(2xL)"
+      "health": "4+(2xL)",
+      "marker": "a"
     }
   ],
   "rules": [
@@ -120,22 +132,14 @@
       "finish": "lost"
     }
   ],
-  "requires": [
-    [
-      "19"
-    ]
-  ],
-  "blocks": [
-    "10",
-    "21",
-    "35",
-    "36"
-  ],
   "rooms": [
     {
       "roomNumber": 1,
       "ref": "m1a",
-      "initial": true
+      "initial": true,
+      "objectives": [
+        1
+      ]
     }
   ]
 }

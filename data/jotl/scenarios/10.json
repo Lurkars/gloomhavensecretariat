@@ -2,13 +2,114 @@
   "index": "10",
   "name": "The Gauntlet",
   "edition": "jotl",
+  "unlocks": [
+    "11",
+    "12"
+  ],
   "monsters": [
     "black-sludge",
     "chaos-demon",
     "stone-golem"
   ],
-  "unlocks": [
-    "11",
-    "12"
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "jotl10-1",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "black-sludge",
+          "type": "normal"
+        },
+        {
+          "name": "black-sludge",
+          "type": "elite"
+        },
+        {
+          "name": "black-sludge",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-sludge",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-sludge",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "black-sludge",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "jotl10-2",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "stone-golem",
+          "type": "elite"
+        },
+        {
+          "name": "stone-golem",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "stone-golem",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "stone-golem",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "jotl10-3",
+      "monster": [
+        {
+          "name": "black-sludge",
+          "type": "elite"
+        },
+        {
+          "name": "black-sludge",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "chaos-demon",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
   ]
 }

@@ -1,0 +1,11 @@
+{
+  "index": "16",
+  "name": "Preto Krisanta",
+  "edition": "cs",
+  "monsters": [
+    "black-imp",
+    "flame-demon",
+    "night-demon",
+    "sun-demon"
+  ]
+}

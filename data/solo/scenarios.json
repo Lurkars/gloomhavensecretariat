@@ -102,8 +102,7 @@
       "cave-bear",
       "forest-imp",
       "vermling-shaman"
-    ],
-    "objectives": []
+    ]
   },
   {
     "index": "8",
@@ -423,8 +422,7 @@
     ],
     "allies": [
       "city-guard-sun-solo"
-    ],
-    "objectives": []
+    ]
   },
   {
     "index": "8",
@@ -546,8 +544,7 @@
     "allies": [
       "bandit-guard-music-note-solo",
       "bandit-archer-music-note-solo"
-    ],
-    "objectives": []
+    ]
   },
   {
     "index": "14",

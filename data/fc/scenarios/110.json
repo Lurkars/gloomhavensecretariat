@@ -2,6 +2,9 @@
   "index": "110",
   "name": "A Circular Solution",
   "edition": "fc",
+  "unlocks": [
+    "114"
+  ],
   "monsters": [
     "earth-demon",
     "flame-demon",
@@ -9,9 +12,6 @@
     "sraka-the-wise",
     "the-steel-lion",
     "uyart-ikkuma"
-  ],
-  "unlocks": [
-    "114"
   ],
   "rooms": [
     {

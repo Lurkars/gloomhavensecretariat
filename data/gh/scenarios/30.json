@@ -2,11 +2,6 @@
   "index": "30",
   "name": "Shrine of the Depths",
   "edition": "gh",
-  "monsters": [
-    "deep-terror",
-    "lurker",
-    "ooze"
-  ],
   "unlocks": [
     "42"
   ],
@@ -14,6 +9,11 @@
     [
       "24"
     ]
+  ],
+  "monsters": [
+    "deep-terror",
+    "lurker",
+    "ooze"
   ],
   "rooms": [
     {
@@ -26,16 +26,6 @@
       "monster": [
         {
           "name": "ooze",
-          "player4": "normal"
-        },
-        {
-          "name": "ooze",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "ooze",
           "type": "elite"
         },
         {
@@ -43,6 +33,16 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player4": "normal"
         },
         {
           "name": "ooze",
@@ -54,14 +54,38 @@
       "roomNumber": 2,
       "ref": "l1a",
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
         {
-          "name": "lurker",
-          "player2": "normal",
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker",
+          "type": "normal"
+        },
+        {
+          "name": "lurker",
+          "type": "normal"
         },
         {
           "name": "lurker",
@@ -69,33 +93,9 @@
         },
         {
           "name": "lurker",
-          "type": "normal"
-        },
-        {
-          "name": "deep-terror",
+          "player2": "normal",
           "player3": "normal",
           "player4": "elite"
-        },
-        {
-          "name": "deep-terror",
-          "type": "normal"
-        },
-        {
-          "name": "deep-terror",
-          "player4": "elite"
-        },
-        {
-          "name": "deep-terror",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "deep-terror",
-          "type": "normal"
-        },
-        {
-          "name": "lurker",
-          "type": "normal"
         },
         {
           "name": "lurker",

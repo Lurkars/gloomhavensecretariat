@@ -2,19 +2,19 @@
   "index": "3",
   "name": "Inox Encampment",
   "edition": "gh",
+  "unlocks": [
+    "8",
+    "9"
+  ],
   "monsters": [
     "inox-archer",
     "inox-guard",
     "inox-shaman"
   ],
-  "unlocks": [
-    "8",
-    "9"
-  ],
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "l3a",
+      "ref": "l1b",
       "initial": true,
       "rooms": [
         2,
@@ -26,15 +26,6 @@
       "monster": [
         {
           "name": "inox-archer",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-archer",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-archer",
           "player2": "normal"
         },
         {
@@ -44,58 +35,99 @@
         },
         {
           "name": "inox-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
           "player4": "normal"
         },
         {
           "name": "inox-shaman",
           "type": "elite"
-        },
-        {
-          "name": "inox-guard",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "player2": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "player2": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "player2": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 2,
-      "marker": "1",
+      "ref": "b4a",
+      "monster": [
+        {
+          "name": "inox-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "b2a",
+      "monster": [
+        {
+          "name": "inox-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
       "ref": "b3a",
+      "marker": "1",
       "monster": [
         {
           "name": "inox-guard",
@@ -114,23 +146,23 @@
       ]
     },
     {
-      "roomNumber": 3,
+      "roomNumber": 5,
       "ref": "b1a",
       "monster": [
         {
-          "name": "inox-archer",
+          "name": "inox-shaman",
+          "player2": "normal",
+          "player3": "elite",
           "player4": "normal"
         },
         {
-          "name": "inox-archer",
-          "player2": "normal",
-          "player3": "elite",
+          "name": "inox-shaman",
           "player4": "normal"
         }
       ]
     },
     {
-      "roomNumber": 4,
+      "roomNumber": 6,
       "ref": "e1b",
       "treasures": [
         65
@@ -138,47 +170,15 @@
       "monster": [
         {
           "name": "inox-archer",
-          "player4": "normal"
+          "type": "elite"
         },
         {
           "name": "inox-archer",
-          "type": "elite"
+          "player4": "normal"
         },
         {
           "name": "inox-shaman",
           "player3": "normal",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 5,
-      "ref": "b4a",
-      "monster": [
-        {
-          "name": "inox-guard",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "inox-archer",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 6,
-      "ref": "b2a",
-      "monster": [
-        {
-          "name": "inox-guard",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "inox-archer",
           "player4": "normal"
         }
       ]

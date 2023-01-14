@@ -2,15 +2,15 @@
   "index": "43",
   "name": "Drake Nest",
   "edition": "gh",
-  "monsters": [
-    "flame-demon",
-    "rending-drake",
-    "spitting-drake"
-  ],
   "requires": [
     [
       "14"
     ]
+  ],
+  "monsters": [
+    "flame-demon",
+    "rending-drake",
+    "spitting-drake"
   ],
   "rooms": [
     {
@@ -43,11 +43,20 @@
       ],
       "monster": [
         {
+          "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
           "name": "rending-drake",
           "type": "normal"
         },
         {
-          "name": "spitting-drake",
+          "name": "rending-drake",
           "type": "normal"
         },
         {
@@ -56,21 +65,12 @@
           "player4": "elite"
         },
         {
-          "name": "flame-demon",
+          "name": "spitting-drake",
           "type": "normal"
-        },
-        {
-          "name": "flame-demon",
-          "player3": "normal",
-          "player4": "normal"
         },
         {
           "name": "spitting-drake",
           "player4": "normal"
-        },
-        {
-          "name": "rending-drake",
-          "type": "normal"
         }
       ]
     },
@@ -79,15 +79,7 @@
       "ref": "g2a",
       "monster": [
         {
-          "name": "spitting-drake",
-          "player4": "normal"
-        },
-        {
           "name": "rending-drake",
-          "type": "normal"
-        },
-        {
-          "name": "spitting-drake",
           "type": "normal"
         },
         {
@@ -97,6 +89,14 @@
         {
           "name": "rending-drake",
           "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
           "player4": "normal"
         },
         {
@@ -107,44 +107,15 @@
     },
     {
       "roomNumber": 4,
-      "ref": "e1b",
-      "treasures": [
-        35
-      ],
-      "monster": [
-        {
-          "name": "rending-drake",
-          "type": "normal"
-        },
-        {
-          "name": "spitting-drake",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "flame-demon",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "spitting-drake",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "rending-drake",
-          "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 5,
       "ref": "a2b",
       "monster": [
         {
-          "name": "spitting-drake",
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "player3": "normal",
           "player4": "normal"
         },
         {
@@ -152,11 +123,29 @@
           "type": "normal"
         },
         {
+          "name": "spitting-drake",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 5,
+      "ref": "a3a",
+      "monster": [
+        {
           "name": "rending-drake",
           "type": "normal"
         },
         {
           "name": "rending-drake",
+          "player4": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
           "player3": "normal",
           "player4": "normal"
         }
@@ -164,24 +153,35 @@
     },
     {
       "roomNumber": 6,
-      "ref": "a3a",
+      "ref": "e1b",
+      "treasures": [
+        35
+      ],
       "monster": [
+        {
+          "name": "flame-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
         {
           "name": "spitting-drake",
           "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "spitting-drake",
-          "type": "normal"
-        },
-        {
-          "name": "rending-drake",
-          "type": "normal"
-        },
-        {
-          "name": "rending-drake",
-          "player4": "normal"
+          "player4": "elite"
         }
       ]
     }

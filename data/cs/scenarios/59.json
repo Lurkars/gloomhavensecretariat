@@ -1,0 +1,12 @@
+{
+  "index": "59",
+  "name": "Forest Invaders",
+  "edition": "cs",
+  "monsters": [
+    "cave-bear",
+    "giant-viper",
+    "hound",
+    "vermling-scout",
+    "vermling-shaman"
+  ]
+}

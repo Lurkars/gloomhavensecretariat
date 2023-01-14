@@ -12,9 +12,9 @@ import { GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { MonsterType } from "src/app/game/model/MonsterType";
-import { Objective } from "src/app/game/model/Objective";
+import { Objective, OBJECTIV_MARKERS } from "src/app/game/model/Objective";
 import { Summon, SummonState } from "src/app/game/model/Summon";
-import { ghsValueSign } from "../../helper/Static";
+import { ghsModulo, ghsValueSign } from "../../helper/Static";
 import { AttackModiferDeckChange } from "../attackmodifier/attackmodifierdeck";
 
 @Component({
@@ -44,13 +44,17 @@ export class EntityMenuDialogComponent {
   range: number = 0;
   bless: number = 0;
   curse: number = 0;
+  marker: number = 0;
+  id: number = 0;
 
   AttackModifierType = AttackModifierType;
   SummonState = SummonState;
   ConditionName = ConditionName;
   ConditionType = ConditionType;
   MonsterType = MonsterType;
+  OBJECTIV_MARKERS = OBJECTIV_MARKERS;
   EntityValueFunction = EntityValueFunction;
+  ghsModulo = ghsModulo;
 
   constructor(@Inject(DIALOG_DATA) public data: { entity: Entity | undefined, figure: Figure, entities: Entity[] }, private changeDetectorRef: ChangeDetectorRef, private dialogRef: DialogRef) {
     if (!data.entities) {
@@ -491,31 +495,21 @@ export class EntityMenuDialogComponent {
     }
   }
 
-
-
   changeId(value: number) {
     if (this.data.entity instanceof Objective) {
-      let id = this.data.entity.id + value;
-      if (id < 0) {
-        id = 11;
-      } else if (id > 11) {
-        id = 0;
-      }
+      this.id = ghsModulo(this.id + value, 12);
 
       if (gameManager.game.figures.filter((figure) => figure instanceof Objective).length < 12) {
-        while (gameManager.game.figures.some((figure) => figure instanceof Objective && figure.id == id)) {
-          id = id + value;
-          if (id < 0) {
-            id = 11;
-          } else if (id > 11) {
-            id = 0;
-          }
+        while (gameManager.game.figures.some((figure) => figure instanceof Objective && figure.id == this.id)) {
+          this.id = ghsModulo(this.id + value, 12);
         }
       }
+    }
+  }
 
-      gameManager.stateManager.before("changeObjectiveId", this.data.entity.title || this.data.entity.name, "" + (id + 1));
-      this.data.entity.id = id;
-      gameManager.stateManager.after();
+  changeMarker(value: number) {
+    if (this.data.entity instanceof Objective) {
+      this.marker = ghsModulo(this.marker + value, OBJECTIV_MARKERS.length);
     }
   }
 
@@ -724,7 +718,7 @@ export class EntityMenuDialogComponent {
 
   showMaxHealth(): boolean {
     if (this.data.entity instanceof Objective) {
-      return !isNaN(+this.data.entity.maxHealth);
+      return !isNaN(+this.data.entity.maxHealth) && EntityValueFunction(this.data.entity.maxHealth) > 0;
     }
     return false;
   }
@@ -732,7 +726,7 @@ export class EntityMenuDialogComponent {
   closeObjective() {
     if (this.data.entity instanceof Objective) {
       if (this.health != 0) {
-        gameManager.stateManager.before("changeHP", this.data.entity.title || this.data.entity.name, ghsValueSign(this.health));
+        gameManager.stateManager.before("changeHP", this.data.entity.title || this.data.entity.name || this.data.entity.escort ? 'escort' : 'objective', ghsValueSign(this.health));
         const old = this.data.entity.health;
         gameManager.entityManager.changeHealth(this.data.entity, this.health);
         if (this.data.entity.health <= 0 || this.data.entity.exhausted && this.health >= 0 && this.data.entity.health > 0) {
@@ -742,13 +736,35 @@ export class EntityMenuDialogComponent {
         this.health = 0;
       }
       if (this.maxHp) {
-        gameManager.stateManager.before("changeObjectiveMaxHp", this.data.entity.title || this.data.entity.name, ghsValueSign(this.maxHp));
+        gameManager.stateManager.before("changeObjectiveMaxHp", this.data.entity.title || this.data.entity.name || this.data.entity.escort ? 'escort' : 'objective', ghsValueSign(this.maxHp));
         if (+this.data.entity.maxHealth + this.maxHp < this.data.entity.maxHealth || this.data.entity.health == this.data.entity.maxHealth) {
           this.data.entity.health = +this.data.entity.maxHealth + this.maxHp;
         }
         this.data.entity.maxHealth = +this.data.entity.maxHealth + this.maxHp;
         gameManager.stateManager.after();
       }
+
+      const newId = ghsModulo(this.id + this.data.entity.id, 12);
+      if (newId != this.data.entity.id) {
+        gameManager.stateManager.before("changeObjectiveId", this.data.entity.title || this.data.entity.name || this.data.entity.escort ? 'escort' : 'objective', "" + (newId + 1));
+        this.data.entity.id = newId;
+        gameManager.stateManager.after();
+      }
+      this.id = 0;
+
+      if (!this.data.entity.marker) {
+        this.data.entity.marker = "";
+      }
+
+      const newMarker = OBJECTIV_MARKERS[ghsModulo(this.marker + OBJECTIV_MARKERS.indexOf(this.data.entity.marker), OBJECTIV_MARKERS.length)];
+
+      if (newMarker != this.data.entity.marker) {
+        gameManager.stateManager.before("changeObjectiveMarker", this.data.entity.title || this.data.entity.name || this.data.entity.escort ? 'escort' : 'objective', newMarker);
+        this.data.entity.marker = newMarker;
+        gameManager.stateManager.after();
+      }
+      this.marker = 0;
+
       if (this.objectiveTitleInput) {
         if (this.objectiveTitleInput.nativeElement.value && this.objectiveTitleInput.nativeElement.value != new Objective(0).name) {
           if (this.data.entity.title != this.objectiveTitleInput.nativeElement.value) {
@@ -757,7 +773,7 @@ export class EntityMenuDialogComponent {
             gameManager.stateManager.after();
           }
         } else if (this.data.entity.title != "") {
-          gameManager.stateManager.before("unsetTitle", this.data.entity.name, this.data.entity.title);
+          gameManager.stateManager.before("unsetTitle", this.data.entity.name || this.data.entity.escort ? 'escort' : 'objective', this.data.entity.title);
           this.data.entity.title = "";
           gameManager.stateManager.after();
         }

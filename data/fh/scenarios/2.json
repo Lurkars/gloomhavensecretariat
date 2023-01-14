@@ -2,6 +2,13 @@
   "index": "2",
   "name": "Algox Scouting",
   "edition": "fh",
+  "unlocks": [
+    "4B"
+  ],
+  "blocks": [
+    "3",
+    "4A"
+  ],
   "monsters": [
     "algox-archer",
     "algox-guard",
@@ -20,13 +27,6 @@
     "arrowvine": 2,
     "random_item": 1
   },
-  "unlocks": [
-    "4B"
-  ],
-  "blocks": [
-    "3",
-    "4A"
-  ],
   "rooms": [
     {
       "roomNumber": 1,

@@ -24,7 +24,7 @@ import { ItemData } from "../model/data/ItemData";
 import { LevelManager } from "./LevelManager";
 import { ScenarioManager } from "./ScenarioManager";
 import { RoundManager } from "./RoundManager";
-import { Entity } from "../model/Entity";
+import { Entity, EntityValueFunction } from "../model/Entity";
 import { MonsterEntity } from "../model/MonsterEntity";
 import { Summon } from "../model/Summon";
 import { LootManager } from "./LootManager";
@@ -47,6 +47,8 @@ export class GameManager {
 
   uiChange = new EventEmitter();
 
+  gameplayFigures: number = 0;
+
   constructor() {
     this.stateManager = new StateManager(this.game);
     this.entityManager = new EntityManager(this.game);
@@ -61,6 +63,15 @@ export class GameManager {
       next: () => {
         if (this.game.levelCalculation) {
           this.levelManager.calculateScenarioLevel();
+        }
+        if (settingsManager.settings.scenarioRules) {
+          const gameplayFigures = this.game.figures.filter((figure) => this.gameplayFigure(figure)).length;
+          if (this.gameplayFigures != gameplayFigures) {
+            if (this.game.round > 0) {
+              this.scenarioManager.addScnearioRulesFigures()
+            };
+            this.gameplayFigures = gameplayFigures;
+          }
         }
       }
     })
@@ -332,7 +343,7 @@ export class GameManager {
   }
 
   gameplayFigure(figure: Figure) {
-    return figure instanceof Monster && figure.entities.length > 0 && figure.entities.some((entity) => !entity.dead && entity.health > 0) || figure instanceof Character && !figure.absent || (figure instanceof Character || figure instanceof Objective) && !figure.exhausted && figure.health > 0;
+    return figure instanceof Monster && figure.entities.length > 0 && figure.entities.some((entity) => !entity.dead && entity.health > 0) || figure instanceof Character && !figure.absent || (figure instanceof Character || figure instanceof Objective) && !figure.exhausted && (figure.health > 0 || EntityValueFunction(figure.maxHealth) == 0);
   }
 
   figuresByString(identifier: FigureIdentifier): Figure[] {
@@ -344,13 +355,14 @@ export class GameManager {
       if (identifier.edition && identifier.name) {
         const edition = identifier.edition;
         const name = new RegExp('^' + identifier.name + '$');
+        const marker = identifier.marker;
         switch (type) {
           case "monster":
             return this.game.figures.filter((figure) => figure instanceof Monster && figure.edition == edition && figure.name.match(name));
           case "character":
             return this.game.figures.filter((figure) => figure instanceof Character && figure.edition == edition && figure.name.match(name));
           case "objective":
-            return this.game.figures.filter((figure) => figure instanceof Objective && figure.name.match(name) && (edition != "escort" || figure.escort));
+            return this.game.figures.filter((figure) => figure instanceof Objective && figure.name.match(name) && (edition != "escort" || figure.escort) && (!marker || figure.marker == marker));
         }
       }
     }

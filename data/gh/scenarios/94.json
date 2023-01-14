@@ -2,14 +2,14 @@
   "index": "94",
   "name": "Vermling Nest",
   "edition": "gh",
+  "unlocks": [
+    "95"
+  ],
   "monsters": [
     "cave-bear",
     "hound",
     "vermling-scout",
     "vermling-shaman"
-  ],
-  "unlocks": [
-    "95"
   ],
   "rooms": [
     {
@@ -21,15 +21,20 @@
       ],
       "monster": [
         {
-          "name": "vermling-scout",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "vermling-scout",
+          "name": "hound",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
         },
         {
           "name": "vermling-scout",
@@ -37,28 +42,23 @@
         },
         {
           "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
         },
         {
           "name": "vermling-scout",
-          "type": "elite"
-        },
-        {
-          "name": "hound",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "hound",
-          "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "hound",
           "player4": "normal"
         }
       ]
@@ -67,7 +67,8 @@
       "roomNumber": 2,
       "ref": "m1b",
       "rooms": [
-        3
+        3,
+        4
       ],
       "monster": [
         {
@@ -78,17 +79,7 @@
         },
         {
           "name": "vermling-scout",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "vermling-scout",
           "type": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "player3": "normal",
-          "player4": "normal"
         },
         {
           "name": "vermling-scout",
@@ -101,6 +92,20 @@
           "player4": "elite"
         },
         {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "normal"
+        },
+        {
           "name": "vermling-shaman",
           "player2": "normal",
           "player3": "normal",
@@ -109,10 +114,6 @@
         {
           "name": "vermling-shaman",
           "player4": "normal"
-        },
-        {
-          "name": "vermling-shaman",
-          "type": "normal"
         }
       ]
     },
@@ -124,30 +125,46 @@
       ],
       "monster": [
         {
-          "name": "vermling-scout",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
           "name": "hound",
           "type": "elite"
         },
         {
           "name": "hound",
           "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "elite",
           "player4": "elite"
         }
       ]
     },
     {
       "roomNumber": 4,
-      "marker": "1",
       "ref": "d1b",
+      "marker": "1",
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
+        {
+          "name": "cave-bear",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
         {
           "name": "vermling-scout",
           "player2": "normal",
@@ -156,23 +173,6 @@
         },
         {
           "name": "vermling-scout",
-          "type": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "type": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "type": "normal"
-        },
-        {
-          "name": "vermling-shaman",
           "player3": "normal",
           "player4": "normal"
         },
@@ -181,7 +181,8 @@
           "type": "elite"
         },
         {
-          "name": "cave-bear",
+          "name": "vermling-shaman",
+          "player3": "normal",
           "player4": "normal"
         }
       ]

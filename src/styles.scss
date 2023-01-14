@@ -961,12 +961,17 @@ input[type="radio"] {
       z-index: 3;
     }
   }
+
+  .map-marker {
+    margin: 0 0.2em;
+  }
 }
 
 .map-marker {
   display: inline-flex;
   justify-content: center;
   align-items: flex-start;
+  vertical-align: middle;
   width: 1.2em;
   height: 1.2em;
   overflow: hidden;

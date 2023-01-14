@@ -34,6 +34,7 @@
     }
 
     .standee-number {
+      cursor: w-resize;
       font-family: var(--ghs-font-normal);
       font-size: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
       margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
@@ -328,6 +329,14 @@
 
   .objective-marker {
     font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+  }
+
+  .map-marker {
+    font-size: calc(var(--ghs-unit) * 4.7 * var(--ghs-dialog-factor));
+
+    &.empty {
+      filter: grayscale(0.7);
+    }
   }
 
   .objective-container {

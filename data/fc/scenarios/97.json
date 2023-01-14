@@ -2,16 +2,16 @@
   "index": "97",
   "name": "Lore Untold",
   "edition": "fc",
-  "monsters": [
-    "black-imp",
-    "living-bones",
-    "living-corpse"
-  ],
   "unlocks": [
     "100",
     "101",
     "98",
     "99"
+  ],
+  "monsters": [
+    "black-imp",
+    "living-bones",
+    "living-corpse"
   ],
   "rooms": [
     {

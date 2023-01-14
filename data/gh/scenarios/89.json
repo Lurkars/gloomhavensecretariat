@@ -8,9 +8,6 @@
     "cultist",
     "giant-viper"
   ],
-  "requires": [
-    []
-  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -24,6 +21,10 @@
       "monster": [
         {
           "name": "bandit-archer",
+          "type": "elite"
+        },
+        {
+          "name": "bandit-archer",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
@@ -38,10 +39,6 @@
           "name": "bandit-archer",
           "player3": "normal",
           "player4": "normal"
-        },
-        {
-          "name": "bandit-archer",
-          "type": "elite"
         },
         {
           "name": "bandit-archer",
@@ -52,6 +49,48 @@
     },
     {
       "roomNumber": 2,
+      "ref": "b2a",
+      "treasures": [
+        43
+      ],
+      "monster": [
+        {
+          "name": "cultist",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "player4": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
       "ref": "b1a",
       "treasures": [
         13
@@ -86,48 +125,6 @@
       ]
     },
     {
-      "roomNumber": 3,
-      "ref": "b2a",
-      "treasures": [
-        43
-      ],
-      "monster": [
-        {
-          "name": "giant-viper",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "type": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "type": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "type": "normal"
-        },
-        {
-          "name": "cultist",
-          "player4": "normal"
-        },
-        {
-          "name": "cultist",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "cultist",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
       "roomNumber": 4,
       "ref": "i2b",
       "rooms": [
@@ -140,10 +137,6 @@
         },
         {
           "name": "bandit-guard",
-          "player4": "normal"
-        },
-        {
-          "name": "bandit-guard",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
@@ -155,13 +148,17 @@
           "player4": "elite"
         },
         {
+          "name": "bandit-guard",
+          "player4": "normal"
+        },
+        {
           "name": "giant-viper",
           "type": "elite"
         },
         {
           "name": "giant-viper",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "giant-viper",
@@ -183,17 +180,17 @@
         },
         {
           "name": "giant-viper",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "giant-viper",
           "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "player3": "normal",
-          "player4": "normal"
         }
       ]
     }

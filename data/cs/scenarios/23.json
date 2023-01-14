@@ -1,0 +1,13 @@
+{
+  "index": "23",
+  "name": "Icicle Chambers",
+  "edition": "cs",
+  "unlocks": [
+    "26"
+  ],
+  "monsters": [
+    "frozen-cadaver",
+    "hail-demon",
+    "harrower-icecrawlers"
+  ]
+}

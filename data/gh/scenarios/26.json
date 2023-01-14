@@ -2,12 +2,6 @@
   "index": "26",
   "name": "Ancient Cistern",
   "edition": "gh",
-  "monsters": [
-    "black-imp",
-    "living-corpse",
-    "night-demon",
-    "ooze"
-  ],
   "unlocks": [
     "22"
   ],
@@ -18,6 +12,12 @@
     [
       "43"
     ]
+  ],
+  "monsters": [
+    "black-imp",
+    "living-corpse",
+    "night-demon",
+    "ooze"
   ],
   "rooms": [
     {
@@ -35,16 +35,12 @@
         {
           "name": "living-corpse",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "living-corpse",
           "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "ooze",
-          "player4": "normal"
+          "player4": "elite"
         },
         {
           "name": "ooze",
@@ -53,6 +49,10 @@
         {
           "name": "ooze",
           "type": "normal"
+        },
+        {
+          "name": "ooze",
+          "player4": "normal"
         }
       ]
     },
@@ -67,39 +67,39 @@
       ],
       "monster": [
         {
+          "name": "night-demon",
+          "type": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "type": "elite"
+        },
+        {
           "name": "ooze",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
-        },
-        {
-          "name": "ooze",
-          "type": "elite"
-        },
-        {
-          "name": "night-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "night-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "night-demon",
-          "type": "elite"
-        },
-        {
-          "name": "night-demon",
-          "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 3,
-      "marker": "1",
       "ref": "c1a",
+      "marker": "1",
       "monster": [
         {
           "name": "black-imp",
@@ -111,12 +111,11 @@
           "player4": "elite"
         },
         {
-          "name": "night-demon",
-          "player3": "normal",
-          "player4": "normal"
+          "name": "living-corpse",
+          "type": "normal"
         },
         {
-          "name": "night-demon",
+          "name": "living-corpse",
           "player4": "normal"
         },
         {
@@ -124,12 +123,12 @@
           "type": "elite"
         },
         {
-          "name": "living-corpse",
-          "type": "normal"
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
         },
         {
-          "name": "living-corpse",
-          "player3": "normal",
+          "name": "night-demon",
           "player4": "normal"
         }
       ]

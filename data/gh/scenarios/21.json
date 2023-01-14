@@ -2,6 +2,11 @@
   "index": "21",
   "name": "Infernal Throne",
   "edition": "gh",
+  "blocks": [
+    "10",
+    "35",
+    "36"
+  ],
   "monsters": [
     "earth-demon",
     "flame-demon",
@@ -10,11 +15,6 @@
     "prime-demon",
     "sun-demon",
     "wind-demon"
-  ],
-  "blocks": [
-    "10",
-    "35",
-    "36"
   ],
   "rooms": [
     {
@@ -42,32 +42,9 @@
     },
     {
       "roomNumber": 2,
-      "ref": "j1a",
-      "monster": [
-        {
-          "name": "night-demon",
-          "type": "elite"
-        },
-        {
-          "name": "night-demon",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "wind-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "wind-demon",
-          "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
       "ref": "j2a",
       "rooms": [
+        3,
         4
       ],
       "monster": [
@@ -82,11 +59,38 @@
         },
         {
           "name": "flame-demon",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "flame-demon",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "j1a",
+      "rooms": [
+        5
+      ],
+      "monster": [
+        {
+          "name": "night-demon",
+          "type": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
           "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "normal"
         }
       ]
     },
@@ -102,8 +106,8 @@
     },
     {
       "roomNumber": 5,
-      "marker": "1",
       "ref": "d1a",
+      "marker": "1",
       "monster": [
         {
           "name": "prime-demon",

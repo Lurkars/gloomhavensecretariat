@@ -1,0 +1,13 @@
+{
+  "index": "29",
+  "name": "Burial Chamber",
+  "edition": "cs",
+  "unlocks": [
+    "30"
+  ],
+  "monsters": [
+    "living-bones",
+    "living-corpse",
+    "living-spirit"
+  ]
+}

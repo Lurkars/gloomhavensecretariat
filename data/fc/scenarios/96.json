@@ -3,6 +3,9 @@
   "name": "Unexpected Visitors",
   "edition": "fc",
   "initial": true,
+  "unlocks": [
+    "97"
+  ],
   "monsters": [
     "earth-demon",
     "flame-demon",
@@ -52,9 +55,6 @@
         }
       ]
     }
-  ],
-  "unlocks": [
-    "97"
   ],
   "rooms": [
     {

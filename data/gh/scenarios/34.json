@@ -2,11 +2,6 @@
   "index": "34",
   "name": "Scorched Summit",
   "edition": "gh",
-  "monsters": [
-    "elder-drake",
-    "rending-drake",
-    "spitting-drake"
-  ],
   "requires": [
     [
       "25"
@@ -14,6 +9,11 @@
   ],
   "blocks": [
     "33"
+  ],
+  "monsters": [
+    "elder-drake",
+    "rending-drake",
+    "spitting-drake"
   ],
   "rooms": [
     {
@@ -25,6 +25,14 @@
       ],
       "monster": [
         {
+          "name": "elder-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "type": "elite"
+        },
+        {
           "name": "rending-drake",
           "player3": "normal",
           "player4": "elite"
@@ -32,14 +40,6 @@
         {
           "name": "spitting-drake",
           "type": "normal"
-        },
-        {
-          "name": "elder-drake",
-          "type": "normal"
-        },
-        {
-          "name": "rending-drake",
-          "type": "elite"
         },
         {
           "name": "spitting-drake",

@@ -48,6 +48,10 @@ export function ghsInputFullScreenCheckListener(event: any) {
   })
 }
 
+export function ghsModulo(n: number, m: number): number {
+  return ((n % m) + m) % m;
+}
+
 export function ghsDefaultDialogPositions(defaultDirection: 'right' | 'left' | 'center' = 'right'): ConnectionPositionPair[] {
   const factor_x = 1.5;
   const factor_y = 3;

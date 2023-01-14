@@ -1,0 +1,23 @@
+{
+  "index": "35",
+  "name": "Prison Riot",
+  "edition": "cs",
+  "unlocks": [
+    "36"
+  ],
+  "monsters": [
+    "bandit-archer",
+    "bandit-guard",
+    "night-demon",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Chainguard",
+      "escort": true,
+      "health": "6+(3xL)",
+      "initiative": 50,
+      "marker": "a"
+    }
+  ]
+}

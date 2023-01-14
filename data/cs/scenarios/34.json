@@ -1,0 +1,20 @@
+{
+  "index": "34",
+  "name": "Great Oak Rescue",
+  "edition": "cs",
+  "monsters": [
+    "hound",
+    "inox-archer",
+    "inox-guard",
+    "inox-shaman"
+  ],
+  "objectives": [
+    {
+      "name": "Sacred Monk",
+      "escort": true,
+      "health": "C+L+2",
+      "marker": "a",
+      "count": 4
+    }
+  ]
+}

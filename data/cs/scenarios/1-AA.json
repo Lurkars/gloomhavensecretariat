@@ -1,0 +1,85 @@
+{
+  "index": "1",
+  "group": "AA",
+  "name": "The Riches of the Steelsilk",
+  "edition": "cs",
+  "initial": true,
+  "unlocks": [
+    "2"
+  ],
+  "monsters": [
+    "bandit-archer",
+    "bandit-guard",
+    "frost-demon",
+    "harrower-aegis",
+    "hound",
+    "wind-demon"
+  ],
+  "rules": [
+    {
+      "round": "R == 2 || R == 6",
+      "start": true,
+      "spawns": [
+        {
+          "count": "[C]",
+          "monster": {
+            "name": "bandit-guard",
+            "type": "normal"
+          }
+        }
+      ]
+    },
+    {
+      "round": "R == 3 || R == 7",
+      "start": true,
+      "spawns": [
+        {
+          "count": "[C]",
+          "monster": {
+            "name": "bandit-archer",
+            "type": "normal"
+          }
+        }
+      ]
+    },
+    {
+      "round": "R == 4 || R == 8",
+      "start": true,
+      "spawns": [
+        {
+          "count": "[C]",
+          "monster": {
+            "name": "hound",
+            "type": "normal"
+          }
+        }
+      ]
+    },
+    {
+      "round": "R == 5",
+      "start": true,
+      "spawns": [
+        {
+          "count": "[C]",
+          "monster": {
+            "name": "wind-demon",
+            "type": "normal"
+          }
+        }
+      ]
+    },
+    {
+      "round": "R == 9",
+      "start": true,
+      "spawns": [
+        {
+          "count": "[C]",
+          "monster": {
+            "name": "frost-demon",
+            "type": "normal"
+          }
+        }
+      ]
+    }
+  ]
+}

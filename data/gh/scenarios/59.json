@@ -2,13 +2,13 @@
   "index": "59",
   "name": "Forgotten Grove",
   "edition": "gh",
+  "unlocks": [
+    "60"
+  ],
   "monsters": [
     "cave-bear",
     "forest-imp",
     "hound"
-  ],
-  "unlocks": [
-    "60"
   ],
   "rooms": [
     {
@@ -20,7 +20,13 @@
       ],
       "monster": [
         {
-          "name": "forest-imp",
+          "name": "cave-bear",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "cave-bear",
           "player4": "normal"
         },
         {
@@ -34,13 +40,7 @@
           "player4": "elite"
         },
         {
-          "name": "cave-bear",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "cave-bear",
+          "name": "forest-imp",
           "player4": "normal"
         },
         {
@@ -51,11 +51,17 @@
     },
     {
       "roomNumber": 2,
-      "ref": "d1b",
+      "ref": "a4a",
       "rooms": [
         3
       ],
       "monster": [
+        {
+          "name": "cave-bear",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
         {
           "name": "forest-imp",
           "type": "normal"
@@ -70,7 +76,7 @@
           "player4": "normal"
         },
         {
-          "name": "cave-bear",
+          "name": "hound",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
@@ -79,12 +85,6 @@
           "name": "hound",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "hound",
-          "player2": "normal",
-          "player3": "normal",
           "player4": "elite"
         },
         {
@@ -98,14 +98,22 @@
       "roomNumber": 3,
       "ref": "l3a",
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
         {
+          "name": "cave-bear",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "cave-bear",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
           "name": "forest-imp",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
+          "type": "normal"
         },
         {
           "name": "forest-imp",
@@ -117,23 +125,15 @@
         },
         {
           "name": "forest-imp",
-          "type": "normal"
-        },
-        {
-          "name": "forest-imp",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "cave-bear",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "cave-bear",
-          "player3": "normal",
-          "player4": "normal"
+          "name": "forest-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         },
         {
           "name": "hound",

@@ -2,14 +2,14 @@
   "index": "24",
   "name": "Echo Chamber",
   "edition": "gh",
+  "unlocks": [
+    "30",
+    "32"
+  ],
   "monsters": [
     "living-spirit",
     "ooze",
     "rending-drake"
-  ],
-  "unlocks": [
-    "30",
-    "32"
   ],
   "rooms": [
     {
@@ -22,7 +22,7 @@
       "monster": [
         {
           "name": "ooze",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "ooze",
@@ -34,18 +34,18 @@
         },
         {
           "name": "ooze",
-          "type": "normal"
-        },
-        {
-          "name": "rending-drake",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "rending-drake",
           "player2": "normal",
           "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "player2": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
@@ -60,7 +60,8 @@
       "roomNumber": 2,
       "ref": "a2b",
       "rooms": [
-        3
+        3,
+        4
       ],
       "monster": [
         {
@@ -69,19 +70,19 @@
         },
         {
           "name": "living-spirit",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-spirit",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-spirit",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
         }
       ]
     },
@@ -94,16 +95,16 @@
       "monster": [
         {
           "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
           "player3": "normal",
           "player4": "normal"
-        },
-        {
-          "name": "rending-drake",
-          "type": "normal"
-        },
-        {
-          "name": "rending-drake",
-          "type": "normal"
         },
         {
           "name": "rending-drake",
@@ -115,24 +116,16 @@
       "roomNumber": 4,
       "ref": "j1b",
       "rooms": [
-        5
+        5,
+        6
       ],
       "treasures": [
         70
       ],
       "monster": [
         {
-          "name": "rending-drake",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "rending-drake",
-          "type": "normal"
-        },
-        {
           "name": "living-spirit",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "living-spirit",
@@ -142,16 +135,11 @@
         },
         {
           "name": "living-spirit",
-          "type": "normal"
+          "player4": "normal"
         },
         {
           "name": "ooze",
           "type": "normal"
-        },
-        {
-          "name": "ooze",
-          "player3": "normal",
-          "player4": "elite"
         },
         {
           "name": "ooze",
@@ -159,6 +147,20 @@
         },
         {
           "name": "ooze",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
           "player3": "normal",
           "player4": "normal"
         }
@@ -173,10 +175,6 @@
       "monster": [
         {
           "name": "ooze",
-          "player4": "elite"
-        },
-        {
-          "name": "ooze",
           "type": "elite"
         },
         {
@@ -186,6 +184,10 @@
         {
           "name": "ooze",
           "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
           "player4": "elite"
         }
       ]

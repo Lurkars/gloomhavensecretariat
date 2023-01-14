@@ -3,6 +3,10 @@
   "name": "A Town in Flames",
   "edition": "fh",
   "initial": true,
+  "unlocks": [
+    "2",
+    "3"
+  ],
   "monsters": [
     "algox-archer",
     "algox-guard",
@@ -20,10 +24,6 @@
     "rockroot": 1,
     "snowthistle": 2
   },
-  "unlocks": [
-    "2",
-    "3"
-  ],
   "rooms": [
     {
       "roomNumber": 1,

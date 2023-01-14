@@ -2,6 +2,10 @@
   "index": "38",
   "name": "Slave Pens",
   "edition": "gh",
+  "unlocks": [
+    "44",
+    "48"
+  ],
   "monsters": [
     "inox-archer",
     "inox-guard",
@@ -12,12 +16,9 @@
     {
       "name": "Orchid",
       "escort": true,
-      "health": "6+(3xL)"
+      "health": "6+(3xL)",
+      "marker": "a"
     }
-  ],
-  "unlocks": [
-    "44",
-    "48"
   ],
   "rooms": [
     {
@@ -31,15 +32,18 @@
         {
           "name": "inox-guard",
           "player2": "normal",
-          "player3": "elite",
+          "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "inox-guard",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     },
     {
@@ -78,15 +82,15 @@
       "monster": [
         {
           "name": "inox-guard",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-guard",
           "type": "normal"
         },
         {
           "name": "inox-guard",
           "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
           "player4": "normal"
         },
         {
@@ -95,12 +99,12 @@
         },
         {
           "name": "stone-golem",
-          "player3": "normal",
-          "player4": "elite"
+          "type": "elite"
         },
         {
           "name": "stone-golem",
-          "type": "elite"
+          "player3": "normal",
+          "player4": "elite"
         }
       ]
     },
@@ -115,7 +119,8 @@
       ],
       "monster": [
         {
-          "name": "inox-guard",
+          "name": "inox-archer",
+          "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
@@ -124,8 +129,7 @@
           "type": "elite"
         },
         {
-          "name": "inox-archer",
-          "player2": "normal",
+          "name": "inox-guard",
           "player3": "normal",
           "player4": "elite"
         }
@@ -136,10 +140,8 @@
       "ref": "d1b",
       "monster": [
         {
-          "name": "inox-guard",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
+          "name": "inox-archer",
+          "type": "normal"
         },
         {
           "name": "inox-archer",
@@ -147,8 +149,10 @@
           "player4": "normal"
         },
         {
-          "name": "inox-archer",
-          "type": "normal"
+          "name": "inox-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         },
         {
           "name": "inox-shaman",

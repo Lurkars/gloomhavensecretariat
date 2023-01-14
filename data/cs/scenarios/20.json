@@ -1,0 +1,31 @@
+{
+  "index": "20",
+  "name": "Midnight Ritual",
+  "edition": "cs",
+  "unlocks": [
+    "22"
+  ],
+  "monsters": [
+    "deep-terror",
+    "living-bones",
+    "living-spirit",
+    "the-cultist"
+  ],
+  "objectives": [
+    {
+      "name": "Altar",
+      "health": "3x(C+L)",
+      "marker": "a"
+    },
+    {
+      "name": "Altar",
+      "health": "3x(C+L)",
+      "marker": "b"
+    },
+    {
+      "name": "Altar",
+      "health": "3x(C+L)",
+      "marker": "c"
+    }
+  ]
+}

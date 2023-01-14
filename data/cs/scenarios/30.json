@@ -1,0 +1,13 @@
+{
+  "index": "30",
+  "name": "Undead Terrors",
+  "edition": "cs",
+  "unlocks": [
+    "32"
+  ],
+  "monsters": [
+    "black-imp",
+    "living-corpse",
+    "stone-golem"
+  ]
+}

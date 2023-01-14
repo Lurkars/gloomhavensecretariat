@@ -2,14 +2,14 @@
   "index": "109",
   "name": "Epilogue of a War",
   "edition": "fc",
+  "unlocks": [
+    "113"
+  ],
   "monsters": [
     "city-archer",
     "city-guard",
     "valrath-savage",
     "valrath-tracker"
-  ],
-  "unlocks": [
-    "113"
   ],
   "rooms": [
     {

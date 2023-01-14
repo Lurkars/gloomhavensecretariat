@@ -17,9 +17,18 @@
       ],
       "monster": [
         {
-          "name": "forest-imp",
+          "name": "cave-bear",
+          "type": "normal"
+        },
+        {
+          "name": "cave-bear",
+          "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
         },
         {
           "name": "forest-imp",
@@ -31,63 +40,54 @@
         },
         {
           "name": "forest-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
           "player4": "normal"
         },
         {
           "name": "forest-imp",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "forest-imp",
-          "player4": "elite"
-        },
-        {
-          "name": "forest-imp",
-          "type": "normal"
-        },
-        {
-          "name": "forest-imp",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "cave-bear",
-          "type": "normal"
-        },
-        {
-          "name": "cave-bear",
-          "player2": "normal",
-          "player3": "elite",
           "player4": "elite"
         }
       ]
     },
     {
       "roomNumber": 2,
+      "ref": "a2a",
       "marker": "1",
-      "ref": "g1b",
       "rooms": [
         3
       ]
     },
     {
       "roomNumber": 3,
-      "marker": "2",
       "ref": "m1a",
+      "marker": "2",
       "treasures": [
         14
       ],
       "monster": [
         {
           "name": "forest-imp",
+          "player3": "normal",
           "player4": "normal"
         },
         {
           "name": "forest-imp",
-          "player3": "normal",
           "player4": "normal"
         },
         {

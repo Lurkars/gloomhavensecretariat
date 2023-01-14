@@ -2,15 +2,15 @@
   "index": "12",
   "name": "Beguiling Sewers",
   "edition": "jotl",
-  "monsters": [
-    "living-corpse",
-    "living-spirit"
-  ],
   "unlocks": [
     "14",
     "18"
   ],
   "blocks": [
     "11"
+  ],
+  "monsters": [
+    "living-corpse",
+    "living-spirit"
   ]
 }

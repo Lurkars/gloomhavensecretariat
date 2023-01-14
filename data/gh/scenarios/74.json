@@ -37,15 +37,21 @@
       ],
       "monster": [
         {
-          "name": "lurker",
-          "type": "elite"
+          "name": "bandit-guard",
+          "type": "normal"
         },
         {
-          "name": "lurker",
-          "player4": "elite"
+          "name": "bandit-guard",
+          "type": "normal"
         },
         {
-          "name": "deep-terror",
+          "name": "bandit-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "normal",
           "player4": "normal"
         },
         {
@@ -58,38 +64,24 @@
           "player4": "normal"
         },
         {
-          "name": "bandit-guard",
-          "type": "normal"
-        },
-        {
-          "name": "bandit-guard",
-          "player3": "normal",
+          "name": "deep-terror",
           "player4": "normal"
         },
         {
-          "name": "bandit-guard",
-          "player3": "normal",
-          "player4": "normal"
+          "name": "lurker",
+          "type": "elite"
         },
         {
-          "name": "bandit-guard",
-          "type": "normal"
+          "name": "lurker",
+          "player4": "elite"
         }
       ]
     },
     {
       "roomNumber": 2,
-      "marker": "1",
       "ref": "i2b",
+      "marker": "1",
       "monster": [
-        {
-          "name": "lurker",
-          "type": "normal"
-        },
-        {
-          "name": "lurker",
-          "player4": "normal"
-        },
         {
           "name": "bandit-archer",
           "type": "normal"
@@ -97,24 +89,32 @@
         {
           "name": "bandit-guard",
           "type": "normal"
+        },
+        {
+          "name": "lurker",
+          "type": "normal"
+        },
+        {
+          "name": "lurker",
+          "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 3,
-      "marker": "2",
       "ref": "i1a",
+      "marker": "2",
       "treasures": [
         20
       ],
       "monster": [
         {
           "name": "bandit-archer",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "bandit-archer",
-          "type": "normal"
+          "player4": "normal"
         },
         {
           "name": "bandit-guard",
@@ -123,13 +123,13 @@
         },
         {
           "name": "lurker",
-          "player3": "normal",
-          "player4": "elite"
+          "player2": "normal",
+          "player3": "normal"
         },
         {
           "name": "lurker",
-          "player2": "normal",
-          "player3": "normal"
+          "player3": "normal",
+          "player4": "elite"
         }
       ]
     }

@@ -2,10 +2,10 @@
   "index": "2",
   "name": "A Hole in the Wall",
   "edition": "jotl",
-  "monsters": [
-    "basic-vermling-raider"
-  ],
   "unlocks": [
     "3"
+  ],
+  "monsters": [
+    "basic-vermling-raider"
   ]
 }

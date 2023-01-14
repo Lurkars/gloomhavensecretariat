@@ -14,21 +14,12 @@
       "initial": true,
       "rooms": [
         2,
-        5
+        3
       ],
       "monster": [
         {
-          "name": "flame-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "flame-demon",
+          "name": "earth-demon",
           "type": "elite"
-        },
-        {
-          "name": "flame-demon",
-          "player4": "normal"
         },
         {
           "name": "earth-demon",
@@ -37,92 +28,108 @@
         },
         {
           "name": "earth-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
           "type": "elite"
         },
         {
-          "name": "earth-demon",
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
           "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 2,
-      "marker": "a",
       "ref": "c1a",
+      "marker": "a",
       "rooms": [
-        3,
-        4
+        4,
+        5
       ],
       "monster": [
         {
           "name": "stone-golem",
+          "type": "elite"
+        },
+        {
+          "name": "stone-golem",
+          "player3": "normal",
           "player4": "normal"
         },
         {
           "name": "stone-golem",
-          "type": "elite"
+          "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 3,
-      "ref": "empty"
+      "ref": "d1a",
+      "marker": "b",
+      "rooms": [
+        4,
+        5
+      ],
+      "monster": [
+        {
+          "name": "stone-golem",
+          "type": "elite"
+        },
+        {
+          "name": "stone-golem",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "stone-golem",
+          "player4": "normal"
+        }
+      ]
     },
     {
       "roomNumber": 4,
-      "ref": "i1b",
-      "monster": [
-        {
-          "name": "flame-demon",
-          "type": "elite"
-        },
-        {
-          "name": "flame-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "flame-demon",
-          "player4": "normal"
-        },
-        {
-          "name": "earth-demon",
-          "type": "elite"
-        },
-        {
-          "name": "earth-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "earth-demon",
-          "player3": "normal",
-          "player4": "normal"
-        }
-      ],
+      "ref": "b2b",
       "treasures": [
         62
+      ],
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "type": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player4": "normal"
+        }
       ]
     },
     {
-      "roomNumber": 5,
-      "marker": "b",
-      "ref": "d1a",
-      "monster": [
-        {
-          "name": "stone-golem",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "stone-golem",
-          "player4": "normal"
-        },
-        {
-          "name": "stone-golem",
-          "type": "elite"
-        }
-      ]
+      "roomNumber": 5
     }
   ]
 }

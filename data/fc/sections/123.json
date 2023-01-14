@@ -1,0 +1,80 @@
+{
+  "index": "123",
+  "name": "Lingering Darkness",
+  "edition": "fc",
+  "parent": "101",
+  "parentSections": [
+    "72"
+  ],
+  "marker": "2",
+  "monsters": [
+    "living-spirit",
+    "night-demon"
+  ],
+  "rules": [
+    {
+      "round": "always",
+      "disableRules": [
+        {
+          "edition": "fc",
+          "scenario": "72",
+          "index": 0,
+          "section": true
+        },
+        {
+          "edition": "fc",
+          "scenario": "72",
+          "index": 1,
+          "section": true
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 0",
+      "start": true,
+      "elements": [
+        {
+          "type": "dark",
+          "state": "strong"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 1",
+      "note": "%data.section.rules.fc.123.1%",
+      "spawns": [
+        {
+          "monster": {
+            "name": "night-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          }
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "ref": "j1b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal"
+        }
+      ]
+    }
+  ]
+}

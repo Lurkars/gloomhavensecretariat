@@ -1,7 +1,8 @@
 <div class="section-popup">
 
-    <p [i18n]="'scenario.section.add'"
-        [i18n-args]="[sectionData.index, sectionData.marker ? '%game.mapMarker.' + sectionData.marker + '% ': '']"></p>
+    <p [i18n]="sectionData.marker ? 'scenario.section.addMarker' : 'scenario.section.add'"
+        [i18n-args]="[sectionData.index,  sectionData.marker || '']">
+    </p>
 
     <div class="buttons">
         <a class="cancel" (click)="cancel()">{{'scenario.section.cancel' | ghsLabel}}</a>

@@ -18,7 +18,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "l3a",
+      "ref": "m1b",
       "initial": true,
       "rooms": [
         2
@@ -26,8 +26,7 @@
       "monster": [
         {
           "name": "ancient-artillery",
-          "player3": "normal",
-          "player4": "elite"
+          "type": "elite"
         },
         {
           "name": "ancient-artillery",
@@ -40,15 +39,14 @@
         },
         {
           "name": "ancient-artillery",
-          "type": "elite"
+          "player3": "normal",
+          "player4": "elite"
         },
         {
-          "name": "inox-archer",
-          "type": "normal"
-        },
-        {
-          "name": "inox-archer",
-          "type": "normal"
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         },
         {
           "name": "hound",
@@ -62,34 +60,36 @@
         },
         {
           "name": "hound",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
-          "name": "hound",
-          "player4": "normal"
+          "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "type": "normal"
         }
       ]
     },
     {
       "roomNumber": 2,
-      "marker": "1",
       "ref": "e1b",
+      "marker": "1",
       "treasures": [
-        null,
-        null,
-        null
+        "G",
+        "G",
+        "G"
       ],
       "monster": [
         {
           "name": "inox-archer",
-          "player3": "normal",
+          "player2": "normal",
           "player4": "normal"
         },
         {
           "name": "inox-archer",
-          "player2": "normal",
+          "player3": "normal",
           "player4": "normal"
         },
         {
@@ -108,14 +108,14 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
-        },
-        {
-          "name": "inox-shaman",
-          "player4": "normal"
         },
         {
           "name": "inox-shaman",
           "type": "elite"
+        },
+        {
+          "name": "inox-shaman",
+          "player4": "normal"
         },
         {
           "name": "inox-shaman",

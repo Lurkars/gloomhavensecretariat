@@ -2,6 +2,10 @@
   "index": "98",
   "name": "Past In Flames",
   "edition": "fc",
+  "unlocks": [
+    "102",
+    "103"
+  ],
   "monsters": [
     "ancient-artillery",
     "bandit-archer",
@@ -14,10 +18,6 @@
       "start": true,
       "note": "%data.scenario.rules.fc.98.1%"
     }
-  ],
-  "unlocks": [
-    "102",
-    "103"
   ],
   "rooms": [
     {

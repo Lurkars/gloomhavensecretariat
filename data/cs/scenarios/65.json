@@ -1,0 +1,18 @@
+{
+  "index": "65",
+  "name": "Beyond the Grave",
+  "edition": "cs",
+  "monsters": [
+    "vermling-shaman"
+  ],
+  "objectives": [
+    {
+      "name": "Angry Spirit",
+      "health": "6",
+      "escort": true,
+      "initiative": 25,
+      "marker": "a",
+      "count": 2
+    }
+  ]
+}

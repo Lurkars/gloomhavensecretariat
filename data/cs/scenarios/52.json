@@ -1,0 +1,41 @@
+{
+  "index": "52",
+  "name": "Wishing Well",
+  "edition": "cs",
+  "monsters": [
+    "black-imp",
+    "living-corpse",
+    "ooze",
+    "spitting-drake"
+  ],
+  "rules": [
+    {
+      "round": "R % 4 == 2",
+      "spawns": [
+        {
+          "monster": {
+            "name": "spitting-drake",
+            "player2": "normal",
+            "player3": "normal",
+            "plaxer4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R % 4 == 0",
+      "spawns": [
+        {
+          "monster": {
+            "name": "spitting-drake",
+            "player2": "normal",
+            "player3": "elite",
+            "plaxer4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "index": "57",
+  "name": "Elemental Converter",
+  "edition": "cs",
+  "monsters": [
+    "black-imp",
+    "deep-terror",
+    "hound",
+    "lurker",
+    "rending-drake",
+    "spitting-drake"
+  ]
+}

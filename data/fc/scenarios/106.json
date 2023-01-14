@@ -2,11 +2,11 @@
   "index": "106",
   "name": "Intricate Work",
   "edition": "fc",
-  "monsters": [
-    "aesther-scout"
-  ],
   "unlocks": [
     "112"
+  ],
+  "monsters": [
+    "aesther-scout"
   ],
   "rooms": [
     {

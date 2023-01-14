@@ -2,12 +2,12 @@
   "index": "105",
   "name": "Monstrosities of a Cult",
   "edition": "fc",
+  "unlocks": [
+    "111"
+  ],
   "monsters": [
     "bandit-guard",
     "valrath-tracker"
-  ],
-  "unlocks": [
-    "111"
   ],
   "rooms": [
     {

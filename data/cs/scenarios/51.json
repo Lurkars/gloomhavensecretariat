@@ -1,0 +1,11 @@
+{
+  "index": "51",
+  "name": "Rodent Warehouse",
+  "edition": "cs",
+  "monsters": [
+    "flame-demon",
+    "sun-demon",
+    "vermling-scout",
+    "vermling-shaman"
+  ]
+}

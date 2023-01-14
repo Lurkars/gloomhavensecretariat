@@ -1,207 +1,5 @@
 [
   {
-    "index": "0",
-    "name": "Howling in the Snow",
-    "edition": "fh",
-    "initial": true,
-    "monsters": [
-      "hound-scenario-0"
-    ],
-    "lootDeckConfig": {
-      "money": 8,
-      "lumber": 2,
-      "metal": 2,
-      "hide": 2
-    }
-  },
-  {
-    "index": "1",
-    "name": "A Town in Flames",
-    "edition": "fh",
-    "initial": true,
-    "monsters": [
-      "algox-archer",
-      "algox-guard",
-      "algox-priest",
-      "city-guard-scenario-1"
-    ],
-    "allies": [
-      "city-guard-scenario-1"
-    ],
-    "lootDeckConfig": {
-      "money": 6,
-      "lumber": 5,
-      "metal": 3,
-      "hide": 3,
-      "rockroot": 1,
-      "snowthistle": 2
-    }
-  },
-  {
-    "index": "2",
-    "name": "Algox Scouting",
-    "edition": "fh",
-    "monsters": [
-      "algox-archer",
-      "algox-guard",
-      "algox-priest",
-      "algox-scout"
-    ],
-    "allies": [
-      "algox-priest"
-    ],
-    "lootDeckConfig": {
-      "money": 4,
-      "lumber": 4,
-      "metal": 4,
-      "hide": 4,
-      "rockroot": 1,
-      "arrowvine": 2,
-      "random_item": 1
-    }
-  },
-  {
-    "index": "3",
-    "name": "Algox Offensive",
-    "edition": "fh",
-    "monsters": [
-      "algox-archer",
-      "algox-guard",
-      "algox-priest",
-      "hound"
-    ],
-    "allies": [
-      "algox-priest",
-      "hound"
-    ],
-    "lootDeckConfig": {
-      "money": 4,
-      "lumber": 4,
-      "metal": 4,
-      "hide": 4,
-      "rockroot": 1,
-      "arrowvine": 2,
-      "random_item": 1
-    }
-  },
-  {
-    "index": "4A",
-    "name": "Heart of Ice A",
-    "edition": "fh",
-    "monsters": [
-      "frozen-fist",
-      "snowdancer",
-      "algox-archer",
-      "algox-guard",
-      "algox-scout"
-    ],
-    "allies": [
-      "algox-archer",
-      "algox-guard"
-    ],
-    "lootDeckConfig": {
-      "money": 6,
-      "lumber": 3,
-      "metal": 5,
-      "hide": 2,
-      "rockroot": 2,
-      "corpsecap": 1,
-      "random_item": 1
-    }
-  },
-  {
-    "index": "4B",
-    "name": "Heart of Ice B",
-    "edition": "fh",
-    "monsters": [
-      "frozen-fist",
-      "snowdancer",
-      "algox-archer",
-      "algox-guard",
-      "algox-scout"
-    ],
-    "lootDeckConfig": {
-      "money": 6,
-      "lumber": 3,
-      "metal": 5,
-      "hide": 2,
-      "rockroot": 2,
-      "corpsecap": 1,
-      "random_item": 1
-    }
-  },
-  {
-    "index": "5",
-    "name": "Frozen Crypt",
-    "edition": "fh",
-    "monsters": [
-      "frozen-corpse",
-      "ice-wraith"
-    ],
-    "lootDeckConfig": {
-      "money": 6,
-      "lumber": 4,
-      "metal": 3,
-      "hide": 1,
-      "rockroot": 2,
-      "corpsecap": 2
-    }
-  },
-  {
-    "index": "6",
-    "name": "Avalanche",
-    "edition": "fh",
-    "monsters": [
-      "frost-demon",
-      "snow-imp"
-    ],
-    "lootDeckConfig": {
-      "money": 9,
-      "lumber": 4,
-      "metal": 1,
-      "hide": 1,
-      "snowthistle": 2,
-      "arrowvine": 2,
-      "axenut": 1
-    }
-  },
-  {
-    "index": "7",
-    "name": "Edge of the World",
-    "edition": "fh",
-    "monsters": [
-      "lurker-clawcrusher",
-      "lurker-mindsnipper",
-      "lurker-soldier"
-    ],
-    "lootDeckConfig": {
-      "money": 6,
-      "lumber": 3,
-      "metal": 3,
-      "hide": 3,
-      "axenut": 1,
-      "snowthistle": 2
-    }
-  },
-  {
-    "index": "8",
-    "name": "Crystal Trench",
-    "edition": "fh",
-    "monsters": [
-      "hound",
-      "polar-bear",
-      "snow-imp"
-    ],
-    "lootDeckConfig": {
-      "money": 6,
-      "lumber": 5,
-      "hide": 5,
-      "axenut": 1,
-      "arrowvine": 1,
-      "snowthistle": 1
-    }
-  },
-  {
     "index": "9",
     "name": "Glowing Catacombs",
     "edition": "fh",
@@ -231,16 +29,9 @@
     ],
     "objectives": [
       {
-        "name": "Ice Pillar 1",
-        "health": "[(2+L)xC/2{%math.floor}]"
-      },
-      {
-        "name": "Ice Pillar 2",
-        "health": "[(2+L)xC/2{%math.floor}]"
-      },
-      {
-        "name": "Ice Pillar 3",
-        "health": "[(2+L)xC/2{%math.floor}]"
+        "name": "Ice Pillar",
+        "health": "[(2+L)xC/2{%math.floor}]",
+        "count": 3
       }
     ],
     "lootDeckConfig": {
@@ -379,16 +170,11 @@
     ],
     "objectives": [
       {
-        "name": "Spectral Helper 1",
+        "name": "Spectral Helper",
         "escort": true,
-        "health": "2",
-        "initiative": 50
-      },
-      {
-        "name": "Spectral Helper 2",
-        "escort": true,
-        "health": "2",
-        "initiative": 50
+        "health": 0,
+        "initiative": 50,
+        "count": "4-C"
       }
     ],
     "lootDeckConfig": {
@@ -451,24 +237,10 @@
     ],
     "objectives": [
       {
-        "name": "Cabinet 1",
+        "name": "Cabinet",
         "health": "Cx(L+2)",
-        "initiative": 1
-      },
-      {
-        "name": "Cabinet 2",
-        "health": "Cx(L+2)",
-        "initiative": 1
-      },
-      {
-        "name": "Cabinet 3",
-        "health": "Cx(L+2)",
-        "initiative": 1
-      },
-      {
-        "name": "Cabinet 4",
-        "health": "Cx(L+2)",
-        "initiative": 1
+        "initiative": 1,
+        "count": 4
       }
     ],
     "lootDeckConfig": {
@@ -616,16 +388,12 @@
     ],
     "objectives": [
       {
-        "name": "Emissary 1",
+        "name": "Emissary",
         "escort": true,
         "health": "2x(L+2)",
-        "initiative": 99
-      },
-      {
-        "name": "Emissary 2",
-        "escort": true,
-        "health": "2x(L+2)",
-        "initiative": 99
+        "initiative": 99,
+        "marker": "a",
+        "count": 2
       }
     ],
     "allyDeck": true,
@@ -755,7 +523,8 @@
         "name": "Crain",
         "escort": true,
         "health": "Cx(L+3)/2",
-        "initiative": 50
+        "initiative": 50,
+        "marker": "a"
       }
     ],
     "lootDeckConfig": {
@@ -778,20 +547,24 @@
     ],
     "objectives": [
       {
-        "name": "Door a",
-        "health": "[((C-1)/2)x(L+3){%math.floor}]"
+        "name": "Door",
+        "health": "[((C-1)/2)x(L+3){%math.floor}]",
+        "marker": "a"
       },
       {
-        "name": "Door b",
-        "health": "[((C-1)/2)x(L+3){%math.floor}]"
+        "name": "Door",
+        "health": "[((C-1)/2)x(L+3){%math.floor}]",
+        "marker": "b"
       },
       {
-        "name": "Door c",
-        "health": "[((C-1)/2)x(L+3){%math.floor}]"
+        "name": "Door",
+        "health": "[((C-1)/2)x(L+3){%math.floor}]",
+        "marker": "c"
       },
       {
-        "name": "Door d",
-        "health": "[((C-1)/2)x(L+3){%math.floor}]"
+        "name": "Door",
+        "health": "[((C-1)/2)x(L+3){%math.floor}]",
+        "marker": "d"
       }
     ],
     "lootDeckConfig": {
@@ -831,16 +604,18 @@
     ],
     "objectives": [
       {
-        "name": "Emissary a",
+        "name": "Emissary",
         "escort": true,
         "health": "3x(L+2)",
-        "initiative": 99
+        "initiative": 99,
+        "marker": "a"
       },
       {
-        "name": "Emissary b",
+        "name": "Emissary",
         "escort": true,
         "health": "3x(L+2)",
-        "initiative": 99
+        "initiative": 99,
+        "marker": "b"
       }
     ],
     "lootDeckConfig": {
@@ -960,7 +735,7 @@
     ],
     "objectives": [
       {
-        "name": "Metal Cabinet 1",
+        "name": "Metal Cabinet",
         "health": "Cx(L+3)/2"
       }
     ],
@@ -1196,7 +971,7 @@
     ],
     "objectives": [
       {
-        "name": "Altar 1",
+        "name": "Altar",
         "health": "(L+1)xC"
       }
     ],
@@ -1258,7 +1033,8 @@
         "name": "Orphan",
         "escort": true,
         "health": "(L+C)x2",
-        "initiative": 1
+        "initiative": 1,
+        "marker": "a"
       }
     ],
     "lootDeckConfig": {
@@ -1306,7 +1082,8 @@
         "name": "Moonshard",
         "escort": true,
         "health": "(L+Cx2)x2",
-        "initiative": 50
+        "initiative": 50,
+        "marker": "a"
       }
     ],
     "lootDeckConfig": {
@@ -1333,7 +1110,8 @@
         "name": "Crain",
         "escort": true,
         "health": "(L+C)x2+2",
-        "initiative": 99
+        "initiative": 99,
+        "marker": "a"
       }
     ],
     "lootDeckConfig": {
@@ -1363,7 +1141,8 @@
         "name": "Crain",
         "escort": true,
         "health": "(L+C)x2+2",
-        "initiative": 99
+        "initiative": 99,
+        "marker": "a"
       }
     ],
     "lootDeckConfig": {
@@ -1474,28 +1253,12 @@
     ],
     "objectives": [
       {
-        "name": "Elemental Core 1",
+        "name": "Elemental Core",
         "escort": true,
         "health": "4x(L+1)",
-        "initiative": 1
-      },
-      {
-        "name": "Elemental Core 2",
-        "escort": true,
-        "health": "4x(L+1)",
-        "initiative": 1
-      },
-      {
-        "name": "Elemental Core 3",
-        "escort": true,
-        "health": "4x(L+1)",
-        "initiative": 1
-      },
-      {
-        "name": "Elemental Core 4",
-        "escort": true,
-        "health": "4x(L+1)",
-        "initiative": 1
+        "initiative": 1,
+        "marker": "a",
+        "count": 4
       }
     ],
     "lootDeckConfig": {
@@ -1640,7 +1403,7 @@
     ],
     "objectives": [
       {
-        "name": "Small Tree 1",
+        "name": "Small Tree",
         "health": "CxL/2"
       }
     ],
@@ -1767,20 +1530,24 @@
     ],
     "objectives": [
       {
-        "name": "Metal Cabinet a",
-        "health": "(2+L)xC/2"
+        "name": "Metal Cabinet",
+        "health": "(2+L)xC/2",
+        "marker": 2
       },
       {
-        "name": "Metal Cabinet b",
-        "health": "(2+L)xC/2"
+        "name": "Metal Cabinet",
+        "health": "(2+L)xC/2",
+        "marker": "b"
       },
       {
-        "name": "Metal Cabinet c",
-        "health": "(2+L)xC/2"
+        "name": "Metal Cabinet",
+        "health": "(2+L)xC/2",
+        "marker": "c"
       },
       {
-        "name": "Metal Cabinet d",
-        "health": "(2+L)xC/2"
+        "name": "Metal Cabinet",
+        "health": "(2+L)xC/2",
+        "marker": "d"
       }
     ],
     "lootDeckConfig": {
@@ -1807,12 +1574,14 @@
     ],
     "objectives": [
       {
-        "name": "Door 1",
-        "health": "(1+L)x2"
+        "name": "Door",
+        "health": "(1+L)x2",
+        "marker": "1"
       },
       {
-        "name": "Door 2",
-        "health": "(1+L)x2"
+        "name": "Door",
+        "health": "(1+L)x2",
+        "marker": "2"
       }
     ],
     "lootDeckConfig": {
@@ -1907,7 +1676,7 @@
     ],
     "objectives": [
       {
-        "name": "Tree 1",
+        "name": "Tree",
         "health": "(2+L)xC"
       }
     ],
@@ -2257,28 +2026,9 @@
     ],
     "objectives": [
       {
-        "name": "Ice Pillar 1",
-        "health": "(2xL)+4"
-      },
-      {
-        "name": "Ice Pillar 2",
-        "health": "(2xL)+4"
-      },
-      {
-        "name": "Ice Pillar 3",
-        "health": "(2xL)+4"
-      },
-      {
-        "name": "Ice Pillar 4",
-        "health": "(2xL)+4"
-      },
-      {
-        "name": "Ice Pillar 5",
-        "health": "(2xL)+4"
-      },
-      {
-        "name": "Ice Pillar 6",
-        "health": "(2xL)+4"
+        "name": "Ice Pillar",
+        "health": "(2xL)+4",
+        "count": 4
       }
     ],
     "lootDeckConfig": {
@@ -2494,12 +2244,9 @@
     ],
     "objectives": [
       {
-        "name": "Ice Pillar 1",
-        "health": "(2xL)+2"
-      },
-      {
-        "name": "Ice Pillar 2",
-        "health": "(2xL)+2"
+        "name": "Ice Pillar",
+        "health": "(2xL)+2",
+        "count": 2
       }
     ],
     "lootDeckConfig": {
@@ -2521,39 +2268,10 @@
     ],
     "objectives": [
       {
-        "name": "Ice Pillar 1",
+        "name": "Ice Pillar",
         "escort": true,
-        "health": "L+3"
-      },
-      {
-        "name": "Ice Pillar 2",
-        "escort": true,
-        "health": "L+3"
-      },
-      {
-        "name": "Ice Pillar 3",
-        "escort": true,
-        "health": "L+3"
-      },
-      {
-        "name": "Ice Pillar 4",
-        "escort": true,
-        "health": "L+3"
-      },
-      {
-        "name": "Ice Pillar 5",
-        "escort": true,
-        "health": "L+3"
-      },
-      {
-        "name": "Ice Pillar 6",
-        "escort": true,
-        "health": "L+3"
-      },
-      {
-        "name": "Ice Pillar 7",
-        "escort": true,
-        "health": "L+3"
+        "health": "L+3",
+        "count": 7
       }
     ],
     "lootDeckConfig": {
@@ -2578,34 +2296,12 @@
     ],
     "objectives": [
       {
-        "name": "Caravan Wagon 1",
+        "name": "Caravan Wagon",
         "escort": true,
         "health": "Cx2+L",
-        "initiative": 50
-      },
-      {
-        "name": "Caravan Wagon 2",
-        "escort": true,
-        "health": "Cx2+L",
-        "initiative": 50
-      },
-      {
-        "name": "Caravan Wagon 3",
-        "escort": true,
-        "health": "Cx2+L",
-        "initiative": 50
-      },
-      {
-        "name": "Caravan Wagon 4",
-        "escort": true,
-        "health": "Cx2+L",
-        "initiative": 50
-      },
-      {
-        "name": "Caravan Wagon 5",
-        "escort": true,
-        "health": "Cx2+L",
-        "initiative": 50
+        "initiative": 50,
+        "marker": "a",
+        "count": 5
       }
     ],
     "lootDeckConfig": {
@@ -2672,7 +2368,8 @@
         "name": "Infuser",
         "escort": true,
         "health": "3xL+5",
-        "initiative": 99
+        "initiative": 99,
+        "marker": "a"
       }
     ]
   },
@@ -2795,66 +2492,38 @@
     ],
     "objectives": [
       {
-        "name": "Helper 1",
+        "name": "Helper",
         "escort": true,
         "health": "2xL+3",
-        "initiative": 50
+        "initiative": 50,
+        "marker": "f",
+        "count": 5
       },
       {
-        "name": "Helper 2",
+        "name": "Helper",
         "escort": true,
         "health": "2xL+3",
-        "initiative": 50
+        "initiative": 50,
+        "marker": "g",
+        "count": "C > 2 ? 1 : 0"
       },
       {
-        "name": "Helper 3",
+        "name": "Helper",
         "escort": true,
         "health": "2xL+3",
-        "initiative": 50
+        "initiative": 50,
+        "marker": "h",
+        "count": "C > 3 ? 1 : 0"
       },
       {
-        "name": "Helper 4",
-        "escort": true,
-        "health": "2xL+3",
-        "initiative": 50
+        "name": "Crate",
+        "health": "L+1",
+        "count": 2
       },
       {
-        "name": "Helper 5",
-        "escort": true,
-        "health": "2xL+3",
-        "initiative": 50
-      },
-      {
-        "name": "Helper 6",
-        "escort": true,
-        "health": "2xL+3",
-        "initiative": 50
-      },
-      {
-        "name": "Helper 7",
-        "escort": true,
-        "health": "2xL+3",
-        "initiative": 50
-      },
-      {
-        "name": "Crate 1",
-        "health": "L+1"
-      },
-      {
-        "name": "Crate 2",
-        "health": "L+1"
-      },
-      {
-        "name": "Barrel 1",
-        "health": "L+1"
-      },
-      {
-        "name": "Barrel 2",
-        "health": "L+1"
-      },
-      {
-        "name": "Barrel 3",
-        "health": "L+1"
+        "name": "Barrel",
+        "health": "L+1",
+        "count": 3
       }
     ],
     "lootDeckConfig": {

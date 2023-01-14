@@ -57,6 +57,9 @@
     "section": {
       "rules": {
         "fc": {
+          "64": {
+            "1": "Both barrels move two hexes along the water tiles towards water tile %game.mapMarker.9%"
+          },
           "66": {
             "1": "%game.action.teleport% %data.monster.the-husk% to %game.mapMarker.b%"
           },

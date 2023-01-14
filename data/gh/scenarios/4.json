@@ -2,16 +2,16 @@
   "index": "4",
   "name": "Crypt of the Damned",
   "edition": "gh",
+  "unlocks": [
+    "5",
+    "6"
+  ],
   "monsters": [
     "bandit-archer",
     "cultist",
     "earth-demon",
     "living-bones",
     "wind-demon"
-  ],
-  "unlocks": [
-    "5",
-    "6"
   ],
   "rooms": [
     {
@@ -23,9 +23,12 @@
       ],
       "monster": [
         {
-          "name": "living-bones",
-          "player2": "normal",
-          "player3": "elite",
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
           "player4": "elite"
         },
         {
@@ -34,16 +37,13 @@
         },
         {
           "name": "living-bones",
-          "player4": "normal"
-        },
-        {
-          "name": "bandit-archer",
-          "player3": "normal",
+          "player2": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "bandit-archer",
-          "type": "normal"
+          "name": "living-bones",
+          "player4": "normal"
         }
       ]
     },
@@ -56,13 +56,17 @@
       ],
       "monster": [
         {
-          "name": "cultist",
-          "player4": "normal"
+          "name": "bandit-archer",
+          "type": "normal"
         },
         {
-          "name": "cultist",
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "elite"
         },
         {
           "name": "cultist",
@@ -75,6 +79,7 @@
         },
         {
           "name": "cultist",
+          "player3": "normal",
           "player4": "normal"
         },
         {
@@ -83,36 +88,31 @@
           "player4": "normal"
         },
         {
-          "name": "bandit-archer",
-          "type": "normal"
+          "name": "cultist",
+          "player4": "normal"
         },
         {
-          "name": "bandit-archer",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "bandit-archer",
-          "type": "normal"
+          "name": "cultist",
+          "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 3,
-      "marker": "1",
       "ref": "c1a",
+      "marker": "1",
       "treasures": [
         46
       ],
       "monster": [
         {
           "name": "earth-demon",
-          "player3": "normal",
-          "player4": "elite"
+          "type": "elite"
         },
         {
           "name": "earth-demon",
-          "type": "elite"
+          "player3": "normal",
+          "player4": "elite"
         }
       ]
     },
@@ -135,13 +135,13 @@
         {
           "name": "wind-demon",
           "player2": "normal",
-          "player3": "elite",
+          "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "wind-demon",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         }
       ]

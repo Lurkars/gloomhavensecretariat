@@ -1,0 +1,37 @@
+{
+  "index": "11",
+  "name": "Voyage Abound",
+  "edition": "cs",
+  "unlocks": [
+    "12"
+  ],
+  "monsters": [
+    "flame-demon",
+    "inox-archer",
+    "inox-guard",
+    "inox-shaman",
+    "night-demon"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "note": "%data.scenario.rules.cs.11.1%",
+      "spawns": [
+        {
+          "count": "[C]",
+          "monster": {
+            "name": "inox-guard",
+            "type": "normal"
+          }
+        },
+        {
+          "count": "[C]",
+          "monster": {
+            "name": "inox-archer",
+            "type": "elite"
+          }
+        }
+      ]
+    }
+  ]
+}

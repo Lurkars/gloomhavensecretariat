@@ -2,11 +2,11 @@
   "index": "4",
   "name": "A Ritual in Stone",
   "edition": "jotl",
+  "unlocks": [
+    "5"
+  ],
   "monsters": [
     "stone-golem",
     "zealot"
-  ],
-  "unlocks": [
-    "5"
   ]
 }

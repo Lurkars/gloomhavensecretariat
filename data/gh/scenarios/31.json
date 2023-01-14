@@ -2,33 +2,6 @@
   "index": "31",
   "name": "Plane of the Night",
   "edition": "gh",
-  "monsters": [
-    "black-imp",
-    "deep-terror",
-    "night-demon"
-  ],
-  "objectives": [
-    {
-      "name": "Rock Column",
-      "health": "(8+L)xC"
-    }
-  ],
-  "rules": [
-    {
-      "round": "true",
-      "start": true,
-      "elements": [
-        {
-          "type": "dark",
-          "state": "strong"
-        },
-        {
-          "type": "light",
-          "state": "inert"
-        }
-      ]
-    }
-  ],
   "unlocks": [
     "37",
     "38",
@@ -45,6 +18,70 @@
       "22"
     ]
   ],
+  "monsters": [
+    "black-imp",
+    "deep-terror",
+    "night-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Rock Column",
+      "health": "(8+L)xC",
+      "marker": "a"
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "elements": [
+        {
+          "type": "dark",
+          "state": "strong"
+        },
+        {
+          "type": "light",
+          "state": "inert"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "night-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ],
+      "requiredRooms": [
+        3
+      ]
+    },
+    {
+      "round": "R % 2 == 0",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "night-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ],
+      "requiredRooms": [
+        3
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -55,9 +92,20 @@
       ],
       "monster": [
         {
-          "name": "night-demon",
+          "name": "deep-terror",
           "player2": "normal",
-          "player3": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "normal",
           "player4": "elite"
         },
         {
@@ -65,20 +113,9 @@
           "type": "normal"
         },
         {
-          "name": "deep-terror",
+          "name": "night-demon",
           "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "deep-terror",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "deep-terror",
-          "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         }
       ]
@@ -91,21 +128,8 @@
       ],
       "monster": [
         {
-          "name": "night-demon",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
           "name": "black-imp",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "black-imp",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
+          "type": "normal"
         },
         {
           "name": "black-imp",
@@ -113,7 +137,21 @@
         },
         {
           "name": "black-imp",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "black-imp",
@@ -128,45 +166,30 @@
         },
         {
           "name": "black-imp",
+          "player3": "normal",
           "player4": "normal"
         },
         {
           "name": "black-imp",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
-          "name": "black-imp",
+          "name": "night-demon",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         }
       ]
     },
     {
       "roomNumber": 3,
-      "marker": "1",
       "ref": "l2a",
+      "marker": "1",
       "treasures": [
         69
       ],
       "monster": [
         {
-          "name": "night-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "night-demon",
-          "player4": "normal"
-        },
-        {
-          "name": "night-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
           "name": "deep-terror",
           "player2": "normal",
           "player3": "normal",
@@ -177,7 +200,24 @@
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player3": "normal",
+          "player4": "normal"
         }
+      ],
+      "objectives": [
+        1
       ]
     }
   ]

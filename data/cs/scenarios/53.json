@@ -1,0 +1,10 @@
+{
+  "index": "53",
+  "name": "Cave of Currents",
+  "edition": "cs",
+  "monsters": [
+    "lurker",
+    "spitting-drake",
+    "water-spirit"
+  ]
+}

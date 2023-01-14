@@ -130,7 +130,7 @@ export class ScenarioRulesComponent {
                     return figure.title || settingsManager.getLabel('data.character.' + figure.name);
                 }
                 if (figure instanceof Objective) {
-                    return figure.title || settingsManager.getLabel('data.objective.' + figure.name);
+                    return (figure.title || settingsManager.getLabel('data.objective.' + figure.name)) + (figure.marker ? ' %game.mapMarker.' + figure.marker + '%' : '');
                 }
                 if (figure instanceof Monster) {
                     return settingsManager.getLabel('data.monster.' + figure.name);
@@ -140,6 +140,16 @@ export class ScenarioRulesComponent {
             }).join(', ');
         }
         return "";
+    }
+
+    visible(index: number): boolean {
+        if (gameManager.game.scenarioRules[index]) {
+            const rule = gameManager.game.scenarioRules[index].rule;
+            if (this.spawns(rule).length > 0 || rule.elements && rule.elements.length > 0 || this.sections(index).length > 0 || this.rooms(index).length > 0 || this.figureRules(rule).length > 0 || rule.note || rule.finish) {
+                return true;
+            }
+        }
+        return false;
     }
 
     apply(rule: ScenarioRule) {
@@ -216,14 +226,14 @@ export class ScenarioRulesComponent {
                                         }
                                         break;
                                     case "damage":
-                                        gameManager.entityManager.changeHealth(entity, -figureRule.value);
+                                        gameManager.entityManager.changeHealth(entity, -EntityValueFunction(figureRule.value));
                                         break;
                                     case "hp":
                                         let hp = 0;
                                         if (isNaN(+figureRule.value) && figureRule.value.endsWith('%')) {
                                             hp = Math.ceil(EntityValueFunction(entity.maxHealth) * (+figureRule.value.replace('%', '')) / 100);
                                         } else {
-                                            hp = +figureRule.value;
+                                            hp = +EntityValueFunction(figureRule.value);
                                         }
                                         if (hp < 0) {
                                             hp = 0;
@@ -288,6 +298,17 @@ export class ScenarioRulesComponent {
             if (ruleModel.rule.round == "once") {
                 gameManager.game.disgardedScenarioRules.push(ruleModel.identifier);
             }
+            gameManager.stateManager.after();
+        }, settingsManager.settings.disableAnimations ? 0 : 100)
+    }
+
+
+    hideRule(element: HTMLElement, index: number) {
+        element.classList.add('closed');
+        setTimeout(() => {
+            gameManager.stateManager.before("hideScenarioRule");
+            const ruleModel = gameManager.game.scenarioRules.splice(index, 1)[0];
+            gameManager.game.disgardedScenarioRules.push(ruleModel.identifier);
             gameManager.stateManager.after();
         }, settingsManager.settings.disableAnimations ? 0 : 100)
     }

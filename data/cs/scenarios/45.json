@@ -1,0 +1,10 @@
+{
+  "index": "45",
+  "name": "Defend the Swamp",
+  "edition": "cs",
+  "monsters": [
+    "black-imp",
+    "forest-imp",
+    "land-leviathan:+1"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "index": "61",
+  "name": "Archaic Preservation",
+  "edition": "cs",
+  "monsters": [
+    "ancient-artillery",
+    "black-imp",
+    "lurker",
+    "rending-drake",
+    "stone-golem"
+  ]
+}

@@ -143,28 +143,9 @@
     ],
     "objectives": [
       {
-        "name": "Supply Crate 1",
-        "health": "2x(C+L+1)"
-      },
-      {
-        "name": "Supply Crate 2",
-        "health": "2x(C+L+1)"
-      },
-      {
-        "name": "Supply Crate 3",
-        "health": "2x(C+L+1)"
-      },
-      {
-        "name": "Supply Crate 4",
-        "health": "2x(C+L+1)"
-      },
-      {
-        "name": "Supply Crate 5",
-        "health": "2x(C+L+1)"
-      },
-      {
-        "name": "Supply Crate 6",
-        "health": "2x(C+L+1)"
+        "name": "Supply Crate",
+        "health": "2x(C+L+1)",
+        "count": 6
       }
     ],
     "unlocks": [
@@ -182,6 +163,9 @@
       "inox-guard",
       "inox-shaman",
       "night-demon"
+    ],
+    "unlocks": [
+      "12"
     ],
     "rules": [
       {
@@ -204,9 +188,6 @@
           }
         ]
       }
-    ],
-    "unlocks": [
-      "12"
     ]
   },
   {
@@ -253,6 +234,9 @@
       "hound",
       "lurker",
       "rending-drake"
+    ],
+    "unlocks": [
+      "16"
     ],
     "rules": [
       {
@@ -448,9 +432,6 @@
         "round": "R == 10",
         "finish": "won"
       }
-    ],
-    "unlocks": [
-      "16"
     ]
   },
   {
@@ -525,16 +506,19 @@
     ],
     "objectives": [
       {
-        "name": "Altar A",
-        "health": "3x(C+L)"
+        "name": "Altar",
+        "health": "3x(C+L)",
+        "marker": "a"
       },
       {
-        "name": "Altar B",
-        "health": "3x(C+L)"
+        "name": "Altar",
+        "health": "3x(C+L)",
+        "marker": "b"
       },
       {
-        "name": "Altar C",
-        "health": "3x(C+L)"
+        "name": "Altar",
+        "health": "3x(C+L)",
+        "marker": "c"
       }
     ],
     "unlocks": [
@@ -605,7 +589,8 @@
         "name": "Brightspark",
         "escort": true,
         "health": "C+(Lx3)",
-        "initiative": 50
+        "initiative": 50,
+        "marker": "a"
       }
     ],
     "unlocks": [
@@ -623,12 +608,10 @@
     ],
     "objectives": [
       {
-        "name": "Cold thermal stone 1",
-        "health": "C+3"
-      },
-      {
-        "name": "Cold thermal stone 2",
-        "health": "C+3"
+        "name": "Cold thermal stone",
+        "health": "C+3",
+        "marker": "a",
+        "count": 2
       }
     ],
     "requires": [
@@ -739,24 +722,11 @@
     ],
     "objectives": [
       {
-        "name": "Sacred Monk 1",
+        "name": "Sacred Monk",
         "escort": true,
-        "health": "C+L+2"
-      },
-      {
-        "name": "Sacred Monk 2",
-        "escort": true,
-        "health": "C+L+2"
-      },
-      {
-        "name": "Sacred Monk 3",
-        "escort": true,
-        "health": "C+L+2"
-      },
-      {
-        "name": "Sacred Monk 4",
-        "escort": true,
-        "health": "C+L+2"
+        "health": "C+L+2",
+        "marker": "a",
+        "count": 4
       }
     ]
   },
@@ -775,7 +745,8 @@
         "name": "Chainguard",
         "escort": true,
         "health": "6+(3xL)",
-        "initiative": 50
+        "initiative": 50,
+        "marker": "a"
       }
     ],
     "unlocks": [
@@ -806,11 +777,13 @@
     "objectives": [
       {
         "name": "Radiant Stone",
-        "health": "L+C+2"
+        "health": "L+C+2",
+        "marker": "a"
       },
       {
         "name": "Flaming Stone",
-        "health": "L+C+2"
+        "health": "L+C+2",
+        "marker": "b"
       }
     ],
     "unlocks": [
@@ -893,8 +866,7 @@
       "black-imp",
       "forest-imp",
       "land-leviathan:+1"
-    ],
-    "objectives": []
+    ]
   },
   {
     "index": "46",
@@ -944,10 +916,6 @@
     "allies": [
       "city-archer",
       "city-guard"
-    ],
-    "objectives": [],
-    "requires": [
-      []
     ]
   },
   {
@@ -965,10 +933,6 @@
     "allies": [
       "inox-archer",
       "inox-guard"
-    ],
-    "objectives": [],
-    "requires": [
-      []
     ]
   },
   {
@@ -1163,16 +1127,12 @@
     ],
     "objectives": [
       {
-        "name": "Angry Spirit 1",
+        "name": "Angry Spirit",
         "health": "6",
         "escort": true,
-        "initiative": 25
-      },
-      {
-        "name": "Angry Spirit 2",
-        "health": "6",
-        "escort": true,
-        "initiative": 25
+        "initiative": 25,
+        "marker": "a",
+        "count": 2
       }
     ]
   },
@@ -1202,6 +1162,9 @@
       "harrower-aegis",
       "hound",
       "wind-demon"
+    ],
+    "unlocks": [
+      "2"
     ],
     "rules": [
       {
@@ -1269,9 +1232,6 @@
           }
         ]
       }
-    ],
-    "unlocks": [
-      "2"
     ]
   },
   {
@@ -1305,17 +1265,17 @@
     ],
     "objectives": [
       {
-        "name": "Soul Leech Egg 1",
+        "name": "Soul Leech Egg",
         "health": "3+L",
         "escort": true,
-        "initiative": 25
-      },
-      {
-        "name": "Soul Leech Egg 2",
-        "health": "3+L",
-        "escort": true,
-        "initiative": 25
+        "initiative": 25,
+        "marker": "a",
+        "count": 2
       }
+    ],
+    "unlocks": [
+      "4",
+      "7"
     ],
     "rules": [
       {
@@ -1372,10 +1332,6 @@
           }
         ]
       }
-    ],
-    "unlocks": [
-      "4",
-      "7"
     ]
   },
   {
@@ -1517,7 +1473,8 @@
       {
         "name": "The Choosen",
         "health": "6+L",
-        "escort": true
+        "escort": true,
+        "marker": "a"
       }
     ],
     "requires": [

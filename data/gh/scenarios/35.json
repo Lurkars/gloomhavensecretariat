@@ -2,6 +2,17 @@
   "index": "35",
   "name": "Gloomhaven Battlements A",
   "edition": "gh",
+  "unlocks": [
+    "45"
+  ],
+  "requires": [
+    [
+      "10"
+    ]
+  ],
+  "blocks": [
+    "36"
+  ],
   "monsters": [
     "captain-of-the-guard",
     "city-archer",
@@ -20,30 +31,19 @@
   "objectives": [
     {
       "name": "Door",
-      "health": "(7+L)xC"
+      "health": "(7+L)xC",
+      "marker": "1"
     }
-  ],
-  "unlocks": [
-    "45"
-  ],
-  "requires": [
-    [
-      "10"
-    ]
-  ],
-  "blocks": [
-    "36"
   ],
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "l3a",
+      "ref": "l1b",
       "initial": true,
+      "rooms": [
+        2
+      ],
       "monster": [
-        {
-          "name": "frost-demon",
-          "type": "normal"
-        },
         {
           "name": "city-guard",
           "player2": "normal",
@@ -51,14 +51,10 @@
           "player4": "elite"
         },
         {
-          "name": "wind-demon",
+          "name": "city-guard",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
-        },
-        {
-          "name": "frost-demon",
-          "player4": "normal"
         },
         {
           "name": "earth-demon",
@@ -68,97 +64,105 @@
         },
         {
           "name": "flame-demon",
+          "type": "normal"
+        },
+        {
+          "name": "flame-demon",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "flame-demon",
+          "name": "frost-demon",
           "type": "normal"
         },
         {
-          "name": "city-guard",
+          "name": "frost-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
           "player2": "normal",
-          "player3": "elite",
+          "player3": "normal",
           "player4": "elite"
         }
       ],
-      "rooms": [
-        2
+      "objectives": [
+        1
       ]
     },
     {
       "roomNumber": 2,
-      "marker": "1",
       "ref": "i1b",
+      "marker": "1",
       "treasures": [
         61
       ],
       "monster": [
         {
-          "name": "city-archer",
-          "type": "elite"
-        },
-        {
-          "name": "city-archer",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "city-guard",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "city-guard",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "city-archer",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "city-archer",
-          "type": "elite"
-        },
-        {
-          "name": "city-archer",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "city-archer",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "city-archer",
-          "type": "elite"
-        },
-        {
-          "name": "city-archer",
-          "type": "elite"
-        },
-        {
-          "name": "city-guard",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "city-guard",
-          "type": "elite"
-        },
-        {
-          "name": "city-guard",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
           "name": "captain-of-the-guard",
           "type": "normal"
+        },
+        {
+          "name": "city-archer",
+          "type": "elite"
+        },
+        {
+          "name": "city-archer",
+          "type": "elite"
+        },
+        {
+          "name": "city-archer",
+          "type": "elite"
+        },
+        {
+          "name": "city-archer",
+          "type": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player3": "normal",
+          "player4": "normal"
         }
       ]
     }

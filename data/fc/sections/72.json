@@ -1,0 +1,64 @@
+{
+  "index": "72",
+  "name": "Clinging Fog",
+  "edition": "fc",
+  "parent": "101",
+  "parentSections": [
+    "64"
+  ],
+  "marker": "2",
+  "monsters": [
+    "living-spirit",
+    "night-demon"
+  ],
+  "rules": [
+    {
+      "round": "R % 2 == 0",
+      "start": true,
+      "elements": [
+        {
+          "type": "dark",
+          "state": "waning"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 1",
+      "note": "%data.section.rules.fc.72.1%",
+      "spawns": [
+        {
+          "monster": {
+            "name": "night-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "ref": "j1b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "night-demon",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "normal"
+        }
+      ]
+    }
+  ]
+}

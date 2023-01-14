@@ -2,6 +2,10 @@
   "index": "101",
   "name": "Shrouded Crypt",
   "edition": "fc",
+  "unlocks": [
+    "108",
+    "109"
+  ],
   "monsters": [
     "rending-drake",
     "spitting-drake"
@@ -39,7 +43,7 @@
     },
     {
       "round": "R % 2 == 0",
-      "note": "%data.scenario.rules.fc.101.2%",
+      "note": "%data.scenario.rules.fc.101.1%",
       "spawns": [
         {
           "monster": {
@@ -53,18 +57,11 @@
       ]
     }
   ],
-  "unlocks": [
-    "108",
-    "109"
-  ],
   "rooms": [
     {
       "roomNumber": 1,
       "ref": "d1b",
       "initial": true,
-      "rooms": [
-        2
-      ],
       "monster": [
         {
           "name": "rending-drake",
@@ -75,9 +72,7 @@
     {
       "roomNumber": 2,
       "ref": "h3b",
-      "rooms": [
-        3
-      ],
+      "initial": true,
       "monster": [
         {
           "name": "spitting-drake",
@@ -99,104 +94,6 @@
         {
           "name": "rending-drake",
           "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "j2b",
-      "rooms": [
-        4
-      ],
-      "treasures": [
-        93
-      ],
-      "monster": [
-        {
-          "name": "living-corpse",
-          "player2": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "living-corpse",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "living-bones",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-bones",
-          "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 4,
-      "ref": "j1bb",
-      "rooms": [
-        5
-      ],
-      "monster": [
-        {
-          "name": "night-demon",
-          "player4": "elite"
-        },
-        {
-          "name": "living-spirit",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "living-spirit",
-          "player2": "normal",
-          "player3": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 5,
-      "ref": "j1ba",
-      "rooms": [
-        6
-      ],
-      "monster": [
-        {
-          "name": "night-demon",
-          "player2": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-spirit",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-spirit",
-          "player3": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 6,
-      "ref": "j1b",
-      "monster": [
-        {
-          "name": "night-demon",
-          "type": "elite"
-        },
-        {
-          "name": "living-spirit",
-          "player3": "normal",
-          "player4": "elite"
         }
       ]
     }

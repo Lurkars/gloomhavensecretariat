@@ -31,7 +31,7 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "i2b",
+      "ref": "g2b",
       "initial": true,
       "rooms": [
         2,
@@ -44,9 +44,19 @@
       "roomNumber": 2,
       "ref": "b4a",
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
+        {
+          "name": "hound",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
         {
           "name": "hound",
           "player2": "normal",
@@ -57,16 +67,6 @@
           "name": "hound",
           "player3": "normal",
           "player4": "normal"
-        },
-        {
-          "name": "hound",
-          "type": "elite"
-        },
-        {
-          "name": "hound",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
         },
         {
           "name": "hound",
@@ -79,17 +79,17 @@
       "roomNumber": 3,
       "ref": "b3a",
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
         {
           "name": "rending-drake",
-          "player3": "normal",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "rending-drake",
-          "type": "normal"
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "spitting-drake",
@@ -101,89 +101,89 @@
     },
     {
       "roomNumber": 4,
-      "ref": "b2a",
+      "ref": "b1a",
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
         {
-          "name": "ooze",
-          "player3": "normal",
-          "player4": "normal"
+          "name": "giant-viper",
+          "type": "normal"
         },
         {
-          "name": "ooze",
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
           "type": "elite"
         },
         {
-          "name": "ooze",
+          "name": "giant-viper",
+          "type": "elite"
+        },
+        {
+          "name": "giant-viper",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "ooze",
+          "name": "giant-viper",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
           "player4": "normal"
         },
         {
-          "name": "ooze",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
+          "name": "giant-viper",
+          "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 5,
-      "ref": "b1a",
+      "ref": "b2a",
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
         {
-          "name": "giant-viper",
-          "type": "normal"
+          "name": "ooze",
+          "type": "elite"
         },
         {
-          "name": "giant-viper",
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "giant-viper",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "type": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "type": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "type": "elite"
-        },
-        {
-          "name": "giant-viper",
+          "name": "ooze",
           "player4": "normal"
         }
       ]

@@ -1,0 +1,9 @@
+{
+  "index": "54",
+  "name": "Lair of Horrors",
+  "edition": "cs",
+  "monsters": [
+    "dark-lurker",
+    "hanging-snake"
+  ]
+}

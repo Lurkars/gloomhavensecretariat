@@ -1,0 +1,10 @@
+{
+  "index": "44",
+  "name": "Haunted Manor",
+  "edition": "cs",
+  "monsters": [
+    "harrower-infester",
+    "living-spirit",
+    "night-demon"
+  ]
+}

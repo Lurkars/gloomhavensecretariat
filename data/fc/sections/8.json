@@ -1,23 +1,23 @@
 {
-    "index": "8",
-    "name": "A Life Taken, a Life Given",
-    "edition": "fc",
-    "parent": "99",
-    "marker": "a",
-    "monsters": [
-        "valrath-savage"
-    ],
-    "rooms": [
+  "index": "8",
+  "name": "A Life Taken, a Life Given",
+  "edition": "fc",
+  "parent": "99",
+  "marker": "a",
+  "monsters": [
+    "valrath-savage"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 0,
+      "ref": "",
+      "initial": true,
+      "monster": [
         {
-            "roomNumber": 0,
-            "ref": "",
-            "initial": true,
-            "monster": [
-                {
-                    "name": "valrath-savage",
-                    "type": "elite"
-                }
-            ]
+          "name": "valrath-savage",
+          "type": "elite"
         }
-    ]
+      ]
+    }
+  ]
 }

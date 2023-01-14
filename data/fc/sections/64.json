@@ -1,0 +1,53 @@
+{
+  "index": "64",
+  "name": "Flooded Catacombs",
+  "edition": "fc",
+  "parent": "101",
+  "resetRound": true,
+  "monsters": [
+    "living-bones",
+    "living-corpse"
+  ],
+  "rules": [
+    {
+      "round": "R > 1",
+      "note": "%data.section.rules.fc.64.1%"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "ref": "j2b",
+      "initial": true,
+      "treasures": [
+        93
+      ],
+      "monster": [
+        {
+          "name": "living-corpse",
+          "player2": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

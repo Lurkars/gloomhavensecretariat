@@ -1,46 +1,46 @@
 {
-    "index": "4",
-    "name": "Barge Ablaze",
-    "edition": "fc",
-    "parent": "98",
-    "marker": "a",
-    "monsters": [
-        "bandit-archer",
-        "bandit-guard",
-        "spitting-drake"
-    ],
-    "rooms": [
+  "index": "4",
+  "name": "Barge Ablaze",
+  "edition": "fc",
+  "parent": "98",
+  "marker": "a",
+  "monsters": [
+    "bandit-archer",
+    "bandit-guard",
+    "spitting-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "ref": "b1a",
+      "initial": true,
+      "monster": [
         {
-            "roomNumber": 2,
-            "ref": "b1a",
-            "initial": true,
-            "monster": [
-                {
-                    "name": "bandit-archer",
-                    "player3": "normal",
-                    "player4": "elite"
-                },
-                {
-                    "name": "bandit-archer",
-                    "type": "normal"
-                },
-                {
-                    "name": "spitting-drake",
-                    "player2": "normal",
-                    "player3": "normal",
-                    "player4": "elite"
-                },
-                {
-                    "name": "bandit-guard",
-                    "player2": "elite",
-                    "player3": "elite",
-                    "player4": "normal"
-                },
-                {
-                    "name": "bandit-guard",
-                    "player4": "normal"
-                }
-            ]
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player2": "elite",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player4": "normal"
         }
-    ]
+      ]
+    }
+  ]
 }

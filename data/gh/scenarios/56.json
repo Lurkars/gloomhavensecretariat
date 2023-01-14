@@ -13,19 +13,9 @@
       "name": "Captive Orchid 1",
       "escort": true,
       "health": "4+(2xL)",
-      "initiative": 50
-    },
-    {
-      "name": "Captive Orchid 2",
-      "escort": true,
-      "health": "4+(2xL)",
-      "initiative": 50
-    },
-    {
-      "name": "Captive Orchid 3",
-      "escort": true,
-      "health": "4+(2xL)",
-      "initiative": 50
+      "initiative": 50,
+      "marker": "a",
+      "count": 3
     }
   ],
   "rooms": [
@@ -39,13 +29,13 @@
       "monster": [
         {
           "name": "bandit-archer",
-          "player2": "elite",
+          "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "bandit-archer",
-          "player2": "normal",
+          "player2": "elite",
           "player3": "normal",
           "player4": "elite"
         },
@@ -66,11 +56,11 @@
         },
         {
           "name": "hound",
+          "player3": "normal",
           "player4": "normal"
         },
         {
           "name": "hound",
-          "player3": "normal",
           "player4": "normal"
         }
       ]
@@ -84,16 +74,16 @@
       "monster": [
         {
           "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
           "player3": "normal",
           "player4": "elite"
-        },
-        {
-          "name": "rending-drake",
-          "type": "normal"
-        },
-        {
-          "name": "rending-drake",
-          "type": "normal"
         }
       ]
     },
@@ -123,12 +113,37 @@
     },
     {
       "roomNumber": 4,
-      "marker": "1",
       "ref": "m1b",
+      "marker": "1",
       "treasures": [
         45
       ],
       "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player4": "normal"
+        },
         {
           "name": "bandit-guard",
           "type": "elite"
@@ -142,32 +157,12 @@
         {
           "name": "hound",
           "type": "normal"
-        },
-        {
-          "name": "bandit-archer",
-          "player4": "normal"
-        },
-        {
-          "name": "bandit-archer",
-          "player3": "normal"
-        },
-        {
-          "name": "bandit-archer",
-          "type": "normal"
-        },
-        {
-          "name": "bandit-archer",
-          "type": "normal"
-        },
-        {
-          "name": "bandit-archer",
-          "player4": "normal"
-        },
-        {
-          "name": "bandit-archer",
-          "player3": "normal",
-          "player4": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1
       ]
     }
   ]

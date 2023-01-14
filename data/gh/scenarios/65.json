@@ -15,120 +15,100 @@
       "rooms": [
         2,
         3,
-        4
+        7
       ],
       "monster": [
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
         {
           "name": "vermling-scout",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
-        },
-        {
-          "name": "vermling-scout",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "hound",
-          "type": "normal"
-        },
-        {
-          "name": "hound",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "hound",
-          "type": "normal"
         }
       ]
     },
     {
       "roomNumber": 2,
-      "ref": "b1a",
-      "treasures": [
-        null
-      ],
-      "monster": [
-        {
-          "name": "vermling-scout",
-          "player2": "elite",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "hound",
-          "player3": "normal",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "b2a",
-      "treasures": [
-        null
-      ],
-      "monster": [
-        {
-          "name": "vermling-scout",
-          "player2": "elite",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "hound",
-          "player3": "normal",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 4,
       "ref": "h2a",
       "rooms": [
+        4,
         5,
-        6,
-        7
+        6
       ],
       "monster": [
         {
-          "name": "vermling-scout",
-          "player3": "normal"
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
         },
         {
           "name": "vermling-scout",
           "type": "elite"
         },
         {
-          "name": "hound",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "hound",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "hound",
-          "player4": "normal"
-        },
-        {
-          "name": "hound",
-          "player4": "normal"
+          "name": "vermling-scout",
+          "player3": "normal"
         }
       ]
     },
     {
-      "roomNumber": 5,
+      "roomNumber": 3,
+      "ref": "b1a",
+      "treasures": [
+        "G"
+      ],
+      "monster": [
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
       "ref": "b3a",
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
         {
@@ -136,6 +116,47 @@
           "player2": "elite",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 5,
+      "ref": "i2b",
+      "treasures": [
+        "G"
+      ],
+      "monster": [
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-shaman",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "vermling-scout",
@@ -148,7 +169,7 @@
       "roomNumber": 6,
       "ref": "b4a",
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
         {
@@ -166,42 +187,21 @@
     },
     {
       "roomNumber": 7,
-      "ref": "i2b",
+      "ref": "b2a",
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
         {
-          "name": "inox-shaman",
-          "type": "elite"
-        },
-        {
-          "name": "vermling-scout",
+          "name": "hound",
           "player3": "normal",
           "player4": "normal"
         },
         {
           "name": "vermling-scout",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "hound",
+          "player2": "elite",
           "player3": "normal",
           "player4": "elite"
-        },
-        {
-          "name": "hound",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "hound",
-          "type": "normal"
-        },
-        {
-          "name": "hound",
-          "type": "normal"
         }
       ]
     }

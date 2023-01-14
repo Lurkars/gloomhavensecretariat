@@ -2,6 +2,9 @@
   "index": "111",
   "name": "The Shackles Loosen",
   "edition": "fc",
+  "unlocks": [
+    "114"
+  ],
   "monsters": [
     "aesther-scout",
     "black-imp",
@@ -23,9 +26,6 @@
         }
       ]
     }
-  ],
-  "unlocks": [
-    "114"
   ],
   "rooms": [
     {

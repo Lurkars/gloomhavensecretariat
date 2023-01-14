@@ -2,6 +2,11 @@
   "index": "44",
   "name": "Tribal Assault",
   "edition": "gh",
+  "requires": [
+    [
+      "38"
+    ]
+  ],
   "monsters": [
     "hound",
     "inox-archer",
@@ -13,100 +18,112 @@
       "name": "Redthorn",
       "escort": true,
       "health": "6+(3xL)",
-      "initiative": 1
+      "initiative": 1,
+      "marker": "b"
+    },
+    {
+      "name": "Orchid",
+      "escort": true,
+      "health": "4+(2xL)",
+      "marker": "a",
+      "count": 9
     }
-  ],
-  "requires": [
-    [
-      "38"
-    ]
   ],
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "b1b",
+      "ref": "m1b",
       "initial": true,
       "rooms": [
         2,
-        3
-      ],
-      "monster": [
-        {
-          "name": "inox-guard",
-          "type": "elite"
-        },
-        {
-          "name": "inox-guard",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "type": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "type": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-archer",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "hound",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "hound",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "b3a",
-      "monster": [
-        {
-          "name": "inox-archer",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "hound",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "l1b",
-      "rooms": [
         4
       ],
       "monster": [
         {
-          "name": "inox-shaman",
+          "name": "hound",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player4": "normal"
+        }
+      ],
+      "objectives": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "l1b",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
           "type": "elite"
         },
         {
           "name": "inox-archer",
           "player3": "normal",
           "player4": "elite"
-        },
-        {
-          "name": "inox-archer",
-          "type": "elite"
         },
         {
           "name": "inox-archer",
@@ -122,46 +139,60 @@
           "player4": "normal"
         },
         {
-          "name": "hound",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "hound",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "hound",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
+          "name": "inox-shaman",
+          "type": "elite"
         }
+      ],
+      "objectives": [
+        2
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "b4a",
+      "monster": [
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-shaman",
+          "type": "elite"
+        }
+      ],
+      "objectives": [
+        2,
+        2
       ]
     },
     {
       "roomNumber": 4,
-      "ref": "b4a",
+      "ref": "b3a",
       "monster": [
         {
-          "name": "inox-shaman",
-          "type": "elite"
-        },
-        {
-          "name": "inox-guard",
+          "name": "hound",
+          "player2": "normal",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "elite"
         },
         {
-          "name": "inox-guard",
-          "player4": "normal"
-        },
-        {
-          "name": "inox-guard",
-          "type": "normal"
+          "name": "inox-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         }
+      ],
+      "objectives": [
+        2
       ]
     }
   ]

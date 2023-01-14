@@ -1,0 +1,11 @@
+{
+  "index": "62",
+  "name": "Hallow Redemption",
+  "edition": "cs",
+  "monsters": [
+    "aesther-ashblade:-1",
+    "cave-bear",
+    "forest-imp",
+    "vermling-shaman"
+  ]
+}

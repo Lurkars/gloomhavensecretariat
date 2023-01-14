@@ -1,0 +1,14 @@
+{
+  "index": "5",
+  "name": "Blood of the Oozes",
+  "edition": "cs",
+  "unlocks": [
+    "6"
+  ],
+  "monsters": [
+    "blood-ooze",
+    "earth-demon",
+    "flaming-drake",
+    "toxic-imp"
+  ]
+}

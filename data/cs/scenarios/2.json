@@ -1,0 +1,14 @@
+{
+  "index": "2",
+  "name": "Underground Channels",
+  "edition": "cs",
+  "unlocks": [
+    "3"
+  ],
+  "monsters": [
+    "deep-terror",
+    "inox-archer",
+    "inox-guard",
+    "water-spirit"
+  ]
+}

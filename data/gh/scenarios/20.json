@@ -2,13 +2,6 @@
   "index": "20",
   "name": "Necromancer's Sanctum",
   "edition": "gh",
-  "monsters": [
-    "cultist",
-    "jekserah",
-    "living-bones",
-    "living-corpse",
-    "night-demon"
-  ],
   "unlocks": [
     "16",
     "18",
@@ -19,6 +12,13 @@
       "8"
     ]
   ],
+  "monsters": [
+    "cultist",
+    "jekserah",
+    "living-bones",
+    "living-corpse",
+    "night-demon"
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -28,19 +28,6 @@
         2
       ],
       "monster": [
-        {
-          "name": "living-bones",
-          "type": "normal"
-        },
-        {
-          "name": "living-bones",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "living-bones",
-          "type": "normal"
-        },
         {
           "name": "cultist",
           "type": "elite"
@@ -53,6 +40,19 @@
         {
           "name": "cultist",
           "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "elite"
         }
       ]
     },
@@ -65,6 +65,19 @@
       ],
       "monster": [
         {
+          "name": "cultist",
+          "type": "normal"
+        },
+        {
+          "name": "cultist",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
           "name": "night-demon",
           "player2": "normal",
           "player3": "normal",
@@ -72,21 +85,8 @@
         },
         {
           "name": "night-demon",
-          "type": "normal"
-        },
-        {
-          "name": "night-demon",
           "player3": "normal",
           "player4": "normal"
-        },
-        {
-          "name": "cultist",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "cultist",
-          "type": "normal"
         }
       ]
     },
@@ -99,20 +99,24 @@
       "monster": [
         {
           "name": "living-corpse",
-          "player3": "normal",
-          "player4": "elite"
+          "type": "elite"
         },
         {
           "name": "living-corpse",
-          "type": "elite"
+          "player3": "normal",
+          "player4": "elite"
         }
       ]
     },
     {
       "roomNumber": 4,
-      "marker": "1",
       "ref": "d1a",
+      "marker": "1",
       "monster": [
+        {
+          "name": "jekserah",
+          "type": "normal"
+        },
         {
           "name": "living-bones",
           "player3": "normal",
@@ -134,10 +138,6 @@
         {
           "name": "living-corpse",
           "player4": "elite"
-        },
-        {
-          "name": "jekserah",
-          "type": "normal"
         }
       ]
     }

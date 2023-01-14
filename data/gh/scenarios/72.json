@@ -9,16 +9,19 @@
   ],
   "objectives": [
     {
-      "name": "Tree A",
-      "health": "Cx(3+L)"
+      "name": "Tree",
+      "health": "Cx(3+L)",
+      "marker": "a"
     },
     {
-      "name": "Tree B",
-      "health": "Cx(3+L)"
+      "name": "Tree",
+      "health": "Cx(3+L)",
+      "marker": "b"
     },
     {
-      "name": "Tree C",
-      "health": "Cx(3+L)"
+      "name": "Tree",
+      "health": "Cx(3+L)",
+      "marker": "c"
     }
   ],
   "rules": [
@@ -40,7 +43,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Tree A"
+            "name": "Tree",
+            "marker": "a"
           },
           "type": "present"
         }
@@ -64,7 +68,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Tree B"
+            "name": "Tree",
+            "marker": "b"
           },
           "type": "present"
         }
@@ -88,7 +93,8 @@
           "identifier": {
             "type": "objective",
             "edition": "objective",
-            "name": "Tree C"
+            "name": "Tree",
+            "marker": "c"
           },
           "type": "present"
         }
@@ -170,40 +176,16 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "m1b",
+      "ref": "l1b",
       "initial": true,
       "monster": [
         {
           "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
           "type": "elite"
-        },
-        {
-          "name": "forest-imp",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "type": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "ooze",
-          "player4": "elite"
-        },
-        {
-          "name": "forest-imp",
-          "type": "normal"
-        },
-        {
-          "name": "forest-imp",
-          "player3": "normal",
-          "player4": "normal"
         },
         {
           "name": "forest-imp",
@@ -212,28 +194,45 @@
           "player4": "elite"
         },
         {
+          "name": "forest-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
           "name": "giant-viper",
           "type": "elite"
         },
         {
           "name": "giant-viper",
-          "player4": "normal"
-        },
-        {
-          "name": "ooze",
+          "player2": "normal",
+          "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "forest-imp",
+          "name": "giant-viper",
+          "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "forest-imp",
+          "name": "giant-viper",
           "player4": "normal"
-        },
-        {
-          "name": "ooze",
-          "player3": "elite"
         },
         {
           "name": "ooze",
@@ -245,10 +244,22 @@
           "player3": "elite"
         },
         {
-          "name": "giant-viper",
-          "player3": "normal",
-          "player4": "normal"
+          "name": "ooze",
+          "player3": "elite"
+        },
+        {
+          "name": "ooze",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player4": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        2,
+        3
       ]
     }
   ]

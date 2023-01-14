@@ -1,0 +1,10 @@
+{
+  "index": "43",
+  "name": "Mansion Maze",
+  "edition": "cs",
+  "monsters": [
+    "ancient-artillery",
+    "city-guard",
+    "stone-golem"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "index": "56",
+  "name": "Disarm the Machine",
+  "edition": "cs",
+  "monsters": [
+    "ancient-artillery",
+    "stone-golem"
+  ]
+}

@@ -2,6 +2,9 @@
   "index": "15",
   "name": "Tainted Blood",
   "edition": "jotl",
+  "unlocks": [
+    "16"
+  ],
   "monsters": [
     "black-imp",
     "blood-imp",
@@ -16,7 +19,67 @@
       "round": "true"
     }
   ],
-  "unlocks": [
-    "16"
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "jotl15-1",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "zealot",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "jotl15-2",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "zealot",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "zealot",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "zealot",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "jotl15-6",
+      "monster": [
+        {
+          "name": "zealot",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "zealot",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
   ]
 }

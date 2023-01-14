@@ -2,6 +2,9 @@
   "index": "53",
   "name": "Crypt Basement",
   "edition": "gh",
+  "unlocks": [
+    "54"
+  ],
   "monsters": [
     "giant-viper",
     "living-bones",
@@ -43,9 +46,6 @@
       "finish": "won"
     }
   ],
-  "unlocks": [
-    "54"
-  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -59,21 +59,25 @@
       ],
       "monster": [
         {
+          "name": "giant-viper",
+          "type": "elite"
+        },
+        {
           "name": "living-bones",
           "type": "normal"
         },
         {
           "name": "living-bones",
-          "player4": "normal"
-        },
-        {
-          "name": "living-bones",
           "player3": "normal",
           "player4": "normal"
         },
         {
           "name": "living-bones",
           "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
           "player4": "normal"
         },
         {
@@ -81,33 +85,20 @@
           "player4": "normal"
         },
         {
-          "name": "ooze",
+          "name": "living-spirit",
           "type": "normal"
         },
         {
-          "name": "giant-viper",
-          "type": "elite"
-        },
-        {
-          "name": "living-spirit",
+          "name": "ooze",
           "type": "normal"
         }
       ]
     },
     {
       "roomNumber": 2,
-      "marker": "a",
       "ref": "j1a",
+      "marker": "a",
       "monster": [
-        {
-          "name": "living-corpse",
-          "player4": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "player3": "normal",
-          "player4": "normal"
-        },
         {
           "name": "giant-viper",
           "player2": "normal",
@@ -120,78 +111,34 @@
           "player4": "elite"
         },
         {
-          "name": "ooze",
-          "type": "normal"
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "normal"
         },
         {
           "name": "living-spirit",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "type": "normal"
         }
       ]
     },
     {
       "roomNumber": 3,
-      "marker": "b",
-      "ref": "j2a",
-      "monster": [
-        {
-          "name": "living-bones",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "player4": "elite"
-        },
-        {
-          "name": "ooze",
-          "player2": "normal",
-          "player3": "normal"
-        },
-        {
-          "name": "ooze",
-          "type": "normal"
-        },
-        {
-          "name": "ooze",
-          "type": "normal"
-        },
-        {
-          "name": "living-spirit",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "living-spirit",
-          "type": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 4,
-      "marker": "c",
       "ref": "d2a",
+      "marker": "c",
       "monster": [
         {
-          "name": "living-bones",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "living-spirit",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
           "name": "giant-viper",
-          "player4": "normal"
+          "type": "elite"
         },
         {
           "name": "giant-viper",
@@ -200,7 +147,22 @@
         },
         {
           "name": "giant-viper",
-          "type": "elite"
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "ooze",
@@ -215,13 +177,60 @@
       ]
     },
     {
+      "roomNumber": 4,
+      "ref": "j2a",
+      "marker": "b",
+      "monster": [
+        {
+          "name": "giant-viper",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "type": "normal"
+        },
+        {
+          "name": "ooze",
+          "type": "normal"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "normal"
+        }
+      ]
+    },
+    {
       "roomNumber": 5,
-      "marker": "d",
       "ref": "d1a",
+      "marker": "d",
       "treasures": [
         31
       ],
       "monster": [
+        {
+          "name": "giant-viper",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "elite"
+        },
         {
           "name": "living-corpse",
           "type": "elite"
@@ -239,15 +248,6 @@
         {
           "name": "ooze",
           "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "living-bones",
-          "type": "elite"
-        },
-        {
-          "name": "giant-viper",
           "player3": "normal",
           "player4": "elite"
         }

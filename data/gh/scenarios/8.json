@@ -2,11 +2,6 @@
   "index": "8",
   "name": "Gloomhaven Warehouse",
   "edition": "gh",
-  "monsters": [
-    "inox-bodyguard",
-    "living-bones",
-    "living-corpse"
-  ],
   "unlocks": [
     "13",
     "14",
@@ -24,6 +19,11 @@
     "3",
     "9"
   ],
+  "monsters": [
+    "inox-bodyguard",
+    "living-bones",
+    "living-corpse"
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -35,6 +35,14 @@
       "monster": [
         {
           "name": "living-bones",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
           "player3": "normal",
           "player4": "normal"
         },
@@ -46,14 +54,6 @@
         {
           "name": "living-bones",
           "player4": "normal"
-        },
-        {
-          "name": "living-bones",
-          "type": "elite"
-        },
-        {
-          "name": "living-bones",
-          "type": "elite"
         },
         {
           "name": "living-bones",
@@ -77,32 +77,32 @@
         },
         {
           "name": "living-corpse",
-          "player4": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "player4": "normal"
-        },
-        {
-          "name": "living-corpse",
           "type": "elite"
         },
         {
           "name": "living-corpse",
           "player3": "normal",
           "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 3,
-      "marker": "1",
       "ref": "g2b",
+      "marker": "1",
       "monster": [
         {
           "name": "inox-bodyguard",

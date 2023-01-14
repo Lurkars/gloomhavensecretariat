@@ -3,10 +3,10 @@
   "name": "Roadside Ambush",
   "edition": "jotl",
   "initial": true,
-  "monsters": [
-    "common-vermling-raider"
-  ],
   "unlocks": [
     "2"
+  ],
+  "monsters": [
+    "common-vermling-raider"
   ]
 }

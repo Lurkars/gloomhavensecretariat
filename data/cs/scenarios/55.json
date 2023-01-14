@@ -1,0 +1,13 @@
+{
+  "index": "55",
+  "name": "Catacomb Plunder",
+  "edition": "cs",
+  "monsters": [
+    "bandit-archer",
+    "earth-demon",
+    "harrower-infester",
+    "living-bones",
+    "living-corpse",
+    "stone-golem"
+  ]
+}

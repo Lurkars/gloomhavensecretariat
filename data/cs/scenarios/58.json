@@ -1,0 +1,9 @@
+{
+  "index": "58",
+  "name": "Penitentiary Lockdown",
+  "edition": "cs",
+  "monsters": [
+    "bandit-archer",
+    "bandit-guard"
+  ]
+}

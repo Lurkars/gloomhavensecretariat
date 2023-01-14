@@ -2,16 +2,16 @@
   "index": "18",
   "name": "Abandoned Sewers",
   "edition": "gh",
-  "monsters": [
-    "giant-viper",
-    "ooze",
-    "vermling-scout"
-  ],
   "unlocks": [
     "14",
     "23",
     "26",
     "43"
+  ],
+  "monsters": [
+    "giant-viper",
+    "ooze",
+    "vermling-scout"
   ],
   "rooms": [
     {
@@ -24,8 +24,7 @@
       "monster": [
         {
           "name": "giant-viper",
-          "player3": "normal",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "giant-viper",
@@ -33,38 +32,39 @@
         },
         {
           "name": "giant-viper",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "player3": "normal",
-          "player4": "elite"
+          "type": "elite"
         },
         {
           "name": "giant-viper",
           "type": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "giant-viper",
           "player4": "normal"
         },
         {
-          "name": "giant-viper",
+          "name": "ooze",
           "type": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "type": "normal"
         },
         {
           "name": "ooze",
           "player3": "normal",
           "player4": "elite"
-        },
-        {
-          "name": "ooze",
-          "type": "elite"
         }
       ]
     },
@@ -113,12 +113,7 @@
         },
         {
           "name": "vermling-scout",
-          "player4": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "player3": "normal",
-          "player4": "normal"
+          "type": "elite"
         },
         {
           "name": "vermling-scout",
@@ -128,49 +123,32 @@
         },
         {
           "name": "vermling-scout",
-          "type": "elite"
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 3,
-      "marker": "1",
       "ref": "m1a",
+      "marker": "1",
       "treasures": [
         63
       ],
       "monster": [
         {
-          "name": "vermling-scout",
-          "player4": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "vermling-scout",
+          "name": "ooze",
           "type": "elite"
         },
         {
-          "name": "vermling-scout",
-          "type": "normal"
-        },
-        {
           "name": "ooze",
-          "player4": "normal"
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "ooze",
@@ -180,17 +158,39 @@
         },
         {
           "name": "ooze",
-          "type": "elite"
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "ooze",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "ooze",
+          "name": "vermling-scout",
           "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
           "player4": "normal"
         }
       ]

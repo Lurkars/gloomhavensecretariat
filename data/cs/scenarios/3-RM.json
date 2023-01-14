@@ -1,0 +1,17 @@
+{
+  "index": "3",
+  "group": "RM",
+  "name": "Ruined Colony",
+  "edition": "cs",
+  "unlocks": [
+    "4",
+    "7"
+  ],
+  "monsters": [
+    "cave-bear",
+    "giant-viper",
+    "gnashing-drake",
+    "hound",
+    "ooze"
+  ]
+}

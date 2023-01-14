@@ -1,0 +1,11 @@
+{
+  "index": "46",
+  "name": "Vermling Gardens",
+  "edition": "cs",
+  "monsters": [
+    "cave-bear",
+    "hound",
+    "vermling-scout",
+    "vermling-shaman"
+  ]
+}

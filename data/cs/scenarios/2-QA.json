@@ -1,0 +1,16 @@
+{
+  "index": "2",
+  "group": "QA",
+  "name": "Mother Lode",
+  "edition": "cs",
+  "unlocks": [
+    "3"
+  ],
+  "monsters": [
+    "giant-viper",
+    "living-bones",
+    "living-corpse",
+    "living-spirit",
+    "ooze"
+  ]
+}

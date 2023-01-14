@@ -1,0 +1,92 @@
+{
+  "index": "93",
+  "name": "Lingering Darkness",
+  "edition": "fc",
+  "parent": "101",
+  "parentSections": [
+    "123",
+    "41"
+  ],
+  "marker": "i",
+  "monsters": [
+    "living-spirit",
+    "night-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Altar",
+      "health": "5+L+(2xC)",
+      "marker": "j"
+    }
+  ],
+  "rules": [
+    {
+      "round": "always",
+      "start": true,
+      "disableRules": [
+        {
+          "edition": "fc",
+          "scenario": "72",
+          "index": 0,
+          "section": true
+        },
+        {
+          "edition": "fc",
+          "scenario": "72",
+          "index": 1,
+          "section": true
+        },
+        {
+          "edition": "fc",
+          "scenario": "123",
+          "index": 1,
+          "section": true
+        },
+        {
+          "edition": "fc",
+          "scenario": "123",
+          "index": 2,
+          "section": true
+        },
+        {
+          "edition": "fc",
+          "scenario": "41",
+          "index": 0,
+          "section": true
+        },
+        {
+          "edition": "fc",
+          "scenario": "41",
+          "index": 1,
+          "section": true
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 5,
+      "ref": "j1b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

@@ -2,12 +2,83 @@
   "index": "5",
   "name": "A Deeper Understanding",
   "edition": "jotl",
+  "unlocks": [
+    "6"
+  ],
   "monsters": [
     "blood-tumor",
     "chaos-demon",
     "zealot"
   ],
-  "unlocks": [
-    "6"
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "jotl05-1",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "type": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "type": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "jotl05-2",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "chaos-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "zealot",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "jotl05-3",
+      "monster": [
+        {
+          "name": "blood-tumor",
+          "type": "elite"
+        },
+        {
+          "name": "zealot",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "zealot",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
   ]
 }

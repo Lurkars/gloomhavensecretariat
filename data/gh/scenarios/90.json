@@ -19,14 +19,6 @@
       "monster": [
         {
           "name": "earth-demon",
-          "player4": "normal"
-        },
-        {
-          "name": "earth-demon",
-          "player4": "normal"
-        },
-        {
-          "name": "earth-demon",
           "type": "normal"
         },
         {
@@ -34,39 +26,39 @@
           "type": "normal"
         },
         {
-          "name": "wind-demon",
-          "player3": "normal",
+          "name": "earth-demon",
           "player4": "normal"
         },
         {
-          "name": "wind-demon",
-          "player3": "normal",
+          "name": "earth-demon",
           "player4": "normal"
         },
         {
           "name": "wind-demon",
           "type": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 2,
-      "ref": "d1b",
+      "ref": "c2a",
       "treasures": [
         19
       ],
       "monster": [
         {
-          "name": "wind-demon",
+          "name": "night-demon",
           "type": "normal"
-        },
-        {
-          "name": "wind-demon",
-          "player4": "normal"
-        },
-        {
-          "name": "wind-demon",
-          "player4": "normal"
         },
         {
           "name": "night-demon",
@@ -75,8 +67,16 @@
           "player4": "elite"
         },
         {
-          "name": "night-demon",
+          "name": "wind-demon",
           "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "normal"
         }
       ]
     }

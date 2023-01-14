@@ -1,0 +1,9 @@
+{
+  "index": "40",
+  "name": "Smugglers Hideout",
+  "edition": "cs",
+  "monsters": [
+    "rending-drake",
+    "spitting-drake"
+  ]
+}

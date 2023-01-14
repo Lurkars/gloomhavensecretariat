@@ -17,11 +17,8 @@
       ],
       "monster": [
         {
-          "name": "vermling-shaman",
-          "type": "elite"
-        },
-        {
-          "name": "vermling-shaman",
+          "name": "cave-bear",
+          "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
@@ -44,16 +41,19 @@
         },
         {
           "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "vermling-scout",
+          "name": "vermling-shaman",
           "type": "elite"
         },
         {
-          "name": "cave-bear",
-          "player2": "normal",
+          "name": "vermling-shaman",
           "player3": "normal",
           "player4": "elite"
         }
@@ -61,17 +61,12 @@
     },
     {
       "roomNumber": 2,
-      "marker": "1",
       "ref": "b3a",
+      "marker": "1",
       "rooms": [
         3
       ],
       "monster": [
-        {
-          "name": "vermling-scout",
-          "player3": "elite",
-          "player4": "elite"
-        },
         {
           "name": "vermling-scout",
           "type": "normal"
@@ -86,10 +81,6 @@
         },
         {
           "name": "vermling-scout",
-          "player4": "normal"
-        },
-        {
-          "name": "vermling-scout",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
@@ -97,6 +88,15 @@
         {
           "name": "vermling-scout",
           "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
           "player4": "normal"
         }
       ]
@@ -110,29 +110,29 @@
       "monster": [
         {
           "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
           "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "vermling-scout",
-          "type": "elite"
-        },
-        {
-          "name": "vermling-scout",
-          "type": "normal"
-        },
-        {
-          "name": "vermling-scout",
           "player4": "normal"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "elite"
         },
         {
           "name": "vermling-shaman",
           "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "vermling-shaman",
-          "type": "elite"
+          "player4": "elite"
         }
       ]
     },
@@ -143,6 +143,12 @@
         71
       ],
       "monster": [
+        {
+          "name": "cave-bear",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
         {
           "name": "vermling-scout",
           "type": "normal"
@@ -156,12 +162,6 @@
           "name": "vermling-shaman",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "cave-bear",
-          "player2": "normal",
-          "player3": "normal",
           "player4": "elite"
         }
       ]

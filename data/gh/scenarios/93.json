@@ -7,9 +7,6 @@
     "living-spirit",
     "lurker"
   ],
-  "requires": [
-    []
-  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -21,12 +18,7 @@
       "monster": [
         {
           "name": "lurker",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "lurker",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "lurker",
@@ -34,7 +26,12 @@
         },
         {
           "name": "lurker",
-          "type": "normal"
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker",
+          "player4": "normal"
         },
         {
           "name": "lurker",
@@ -50,6 +47,12 @@
       ],
       "monster": [
         {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
           "name": "lurker",
           "player2": "normal",
           "player3": "normal",
@@ -57,12 +60,6 @@
         },
         {
           "name": "lurker",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "frost-demon",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
@@ -77,28 +74,28 @@
       ],
       "monster": [
         {
-          "name": "living-spirit",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-spirit",
-          "type": "normal"
-        },
-        {
-          "name": "living-spirit",
-          "type": "normal"
-        },
-        {
-          "name": "living-spirit",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
           "name": "frost-demon",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
         }
       ]
     },
@@ -111,12 +108,12 @@
       "monster": [
         {
           "name": "living-spirit",
-          "player3": "normal",
-          "player4": "normal"
+          "type": "elite"
         },
         {
           "name": "living-spirit",
-          "type": "elite"
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "living-spirit",

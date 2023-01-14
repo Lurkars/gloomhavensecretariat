@@ -2,6 +2,9 @@
   "index": "114",
   "name": "Ink Not Yet Dry",
   "edition": "fc",
+  "unlocks": [
+    "115"
+  ],
   "monsters": [
     "aesther-ashblade",
     "aesther-scout",
@@ -11,11 +14,9 @@
     {
       "name": "Hail",
       "escort": true,
-      "health": "4+2xL"
+      "health": "4+2xL",
+      "marker": "a"
     }
-  ],
-  "unlocks": [
-    "115"
   ],
   "rooms": [
     {
@@ -81,6 +82,9 @@
           "name": "aesther-ashblade",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        1
       ]
     },
     {

@@ -2,6 +2,13 @@
   "index": "3",
   "name": "Algox Offensive",
   "edition": "fh",
+  "unlocks": [
+    "4A"
+  ],
+  "blocks": [
+    "2",
+    "4B"
+  ],
   "monsters": [
     "algox-archer",
     "algox-guard",
@@ -21,12 +28,6 @@
     "arrowvine": 2,
     "random_item": 1
   },
-  "unlocks": [
-    "4A"
-  ],
-  "blocks": [
-    "2", "4B"
-  ],
   "rooms": [
     {
       "roomNumber": 1,

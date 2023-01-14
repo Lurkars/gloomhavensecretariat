@@ -1,49 +1,49 @@
 {
-    "index": "32",
-    "name": "Flaming Caravel",
-    "edition": "fc",
-    "parent": "98",
-    "marker": "b",
-    "monsters": [
-        "bandit-archer",
-        "bandit-guard",
-        "spitting-drake"
-    ],
-    "rooms": [
+  "index": "32",
+  "name": "Flaming Caravel",
+  "edition": "fc",
+  "parent": "98",
+  "marker": "b",
+  "monsters": [
+    "bandit-archer",
+    "bandit-guard",
+    "spitting-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "ref": "b3a",
+      "initial": true,
+      "monster": [
         {
-            "roomNumber": 3,
-            "ref": "b3a",
-            "initial": true,
-            "monster": [
-                {
-                    "name": "bandit-archer",
-                    "player2": "elite",
-                    "player3": "elite",
-                    "player4": "normal"
-                },
-                {
-                    "name": "spitting-drake",
-                    "type": "normal"
-                },
-                {
-                    "name": "bandit-guard",
-                    "player3": "normal",
-                    "player4": "elite"
-                },
-                {
-                    "name": "bandit-guard",
-                    "player2": "normal",
-                    "player3": "normal",
-                    "player4": "elite"
-                },
-                {
-                    "name": "spitting-drake",
-                    "player4": "normal"
-                }
-            ],
-            "treasures": [
-                79
-            ]
+          "name": "bandit-archer",
+          "player2": "elite",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "player4": "normal"
         }
-    ]
+      ],
+      "treasures": [
+        79
+      ]
+    }
+  ]
 }

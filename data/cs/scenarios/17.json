@@ -1,0 +1,15 @@
+{
+  "index": "17",
+  "name": "Orb Extraction",
+  "edition": "cs",
+  "unlocks": [
+    "18"
+  ],
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "savvas-icestorm",
+    "wind-demon"
+  ]
+}

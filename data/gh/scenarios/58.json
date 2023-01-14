@@ -10,20 +10,10 @@
   ],
   "objectives": [
     {
-      "name": "Bone Pile 1",
-      "health": "L+(2xC)"
-    },
-    {
-      "name": "Bone Pile 2",
-      "health": "L+(2xC)"
-    },
-    {
-      "name": "Bone Pile 3",
-      "health": "L+(2xC)"
-    },
-    {
-      "name": "Bone Pile 4",
-      "health": "L+(2xC)"
+      "name": "Bone Pile",
+      "health": "L+(2xC)",
+      "marker": "a",
+      "count": 4
     }
   ],
   "rooms": [
@@ -32,13 +22,14 @@
       "ref": "c2a",
       "initial": true,
       "rooms": [
-        3
+        2
       ],
       "monster": [
         {
-          "name": "harrower-infester",
+          "name": "black-imp",
+          "player2": "normal",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "elite"
         },
         {
           "name": "black-imp",
@@ -49,70 +40,44 @@
         {
           "name": "earth-demon",
           "type": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 2,
-      "ref": "d1b",
-      "initial": true,
+      "ref": "g2b",
+      "marker": "1",
       "rooms": [
         3
       ],
-      "monster": [
-        {
-          "name": "black-imp",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "harrower-infester",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "marker": "1",
-      "ref": "g2b",
-      "rooms": [
-        4
-      ],
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
-        {
-          "name": "harrower-infester",
-          "player2": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "harrower-infester",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "harrower-infester",
-          "player3": "normal",
-          "player4": "normal"
-        },
         {
           "name": "black-imp",
           "type": "elite"
         },
         {
           "name": "black-imp",
-          "player3": "elite",
-          "player4": "elite"
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "black-imp",
-          "player3": "normal",
-          "player4": "normal"
+          "player3": "elite",
+          "player4": "elite"
         },
         {
           "name": "earth-demon",
@@ -121,13 +86,28 @@
         {
           "name": "earth-demon",
           "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player3": "elite",
+          "player4": "normal"
         }
       ]
     },
     {
-      "roomNumber": 4,
-      "marker": "2",
+      "roomNumber": 3,
       "ref": "b1a",
+      "marker": "2",
       "monster": [
         {
           "name": "city-guard",
@@ -143,6 +123,12 @@
           "name": "harrower-infester",
           "type": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        1
       ]
     }
   ]

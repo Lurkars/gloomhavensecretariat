@@ -1,0 +1,11 @@
+{
+  "index": "60",
+  "name": "Through the Fire and the Flames",
+  "edition": "cs",
+  "monsters": [
+    "flame-demon",
+    "rending-drake-cs",
+    "savvas-lavaflow",
+    "spitting-drake"
+  ]
+}

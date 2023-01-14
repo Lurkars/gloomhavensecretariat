@@ -14,18 +14,28 @@
       "health": "6+2xL"
     }
   ],
-  "requires": [
-    []
-  ],
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "d2a",
+      "ref": "k1a",
       "initial": true,
+      "rooms": [
+        2
+      ],
       "monster": [
         {
           "name": "stone-golem",
           "type": "elite"
+        },
+        {
+          "name": "stone-golem",
+          "type": "elite"
+        },
+        {
+          "name": "stone-golem",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         },
         {
           "name": "stone-golem",
@@ -35,35 +45,23 @@
         {
           "name": "stone-golem",
           "player4": "normal"
-        },
-        {
-          "name": "stone-golem",
-          "type": "elite"
-        },
-        {
-          "name": "stone-golem",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
         }
       ],
-      "rooms": [
-        2
+      "objectives": [
+        1
       ]
     },
     {
       "roomNumber": 2,
+      "ref": "c2b",
       "marker": "1",
-      "ref": "m1a",
       "treasures": [
         52
       ],
       "monster": [
         {
           "name": "the-betrayer",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
+          "type": "normal"
         }
       ]
     }

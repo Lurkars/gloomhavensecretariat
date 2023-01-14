@@ -1,0 +1,20 @@
+{
+  "index": "10",
+  "name": "Den of Monstrosity",
+  "edition": "cs",
+  "unlocks": [
+    "17",
+    "19"
+  ],
+  "monsters": [
+    "black-imp",
+    "lurker"
+  ],
+  "objectives": [
+    {
+      "name": "Supply Crate",
+      "health": "2x(C+L+1)",
+      "count": 6
+    }
+  ]
+}

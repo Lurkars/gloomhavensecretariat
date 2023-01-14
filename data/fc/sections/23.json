@@ -1,45 +1,45 @@
 {
-    "index": "23",
-    "name": "Narrow Vault",
-    "edition": "fc",
-    "parent": "97",
-    "marker": "a",
-    "monsters": [
-        "living-bones",
-        "living-corpse"
-    ],
-    "rooms": [
+  "index": "23",
+  "name": "Narrow Vault",
+  "edition": "fc",
+  "parent": "97",
+  "marker": "a",
+  "monsters": [
+    "living-bones",
+    "living-corpse"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "ref": "a1a",
+      "marker": "e",
+      "initial": true,
+      "treasures": [
+        null
+      ],
+      "monster": [
         {
-            "roomNumber": 2,
-            "ref": "a1a",
-            "marker": "e",
-            "initial": true,
-            "treasures": [
-                null
-            ],
-            "monster": [
-                {
-                    "name": "living-corpse",
-                    "player2": "elite",
-                    "player3": "normal",
-                    "player4": "elite"
-                },
-                {
-                    "name": "living-bones",
-                    "player3": "elite",
-                    "player4": "elite"
-                },
-                {
-                    "name": "living-bones",
-                    "player3": "normal",
-                    "player4": "normal"
-                },
-                {
-                    "name": "living-bones",
-                    "player2": "normal",
-                    "player4": "normal"
-                }
-            ]
+          "name": "living-corpse",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player4": "normal"
         }
-    ]
+      ]
+    }
+  ]
 }

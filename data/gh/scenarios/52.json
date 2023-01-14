@@ -2,15 +2,15 @@
   "index": "52",
   "name": "Noxious Cellar",
   "edition": "gh",
+  "unlocks": [
+    "53"
+  ],
   "monsters": [
     "living-corpse",
     "ooze",
     "spitting-drake",
     "vermling-scout",
     "vermling-shaman"
-  ],
-  "unlocks": [
-    "53"
   ],
   "rooms": [
     {
@@ -25,20 +25,42 @@
       ],
       "monster": [
         {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "normal"
+        },
+        {
           "name": "spitting-drake",
           "player4": "normal"
         },
         {
           "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
           "type": "elite"
-        },
-        {
-          "name": "vermling-scout",
-          "type": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "type": "normal"
         },
         {
           "name": "vermling-scout",
@@ -47,84 +69,12 @@
         },
         {
           "name": "vermling-shaman",
-          "type": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "player4": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-corpse",
           "type": "normal"
         }
       ]
     },
     {
       "roomNumber": 2,
-      "ref": "j2a",
-      "treasures": [
-        null
-      ],
-      "monster": [
-        {
-          "name": "spitting-drake",
-          "type": "normal"
-        },
-        {
-          "name": "vermling-shaman",
-          "type": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "type": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "type": "elite"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "k1a",
-      "treasures": [
-        null
-      ],
-      "monster": [
-        {
-          "name": "ooze",
-          "player4": "normal"
-        },
-        {
-          "name": "ooze",
-          "player4": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "player4": "elite"
-        },
-        {
-          "name": "vermling-shaman",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 4,
       "ref": "j1a",
       "treasures": [
         null
@@ -148,12 +98,16 @@
       ]
     },
     {
-      "roomNumber": 5,
+      "roomNumber": 3,
       "ref": "k2b",
       "treasures": [
         null
       ],
       "monster": [
+        {
+          "name": "ooze",
+          "type": "elite"
+        },
         {
           "name": "vermling-scout",
           "type": "elite"
@@ -161,10 +115,56 @@
         {
           "name": "vermling-shaman",
           "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "j2a",
+      "treasures": [
+        null
+      ],
+      "monster": [
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 5,
+      "ref": "k1a",
+      "treasures": [
+        null
+      ],
+      "monster": [
+        {
+          "name": "ooze",
+          "player4": "normal"
         },
         {
           "name": "ooze",
-          "type": "elite"
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "player4": "normal"
         }
       ]
     }

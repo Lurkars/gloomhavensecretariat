@@ -1,6 +1,9 @@
 <div class="rules-dialog">
   <ng-container *ngFor="let ruleModel of gameManager.game.scenarioRules; let index = index;">
-    <div class="rule dialog" #ruleElement>
+    <div class="rule dialog" #ruleElement *ngIf="visible(index)">
+      <div class="hide" (click)="hideRule(ruleElement, index)">{{'scenario.rules.hide' | ghsLabel}}
+        <img src="./assets/images/close.svg">
+      </div>
       <div class="spawns" *ngIf="spawns(ruleModel.rule).length > 0">
         <ng-container *ngFor="let spawn of spawns(ruleModel.rule); let i = index">
           <span class="and" *ngIf="i > 0" [i18n]="'and'"></span>

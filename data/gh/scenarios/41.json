@@ -2,12 +2,6 @@
   "index": "41",
   "name": "Timeworn Tomb",
   "edition": "gh",
-  "monsters": [
-    "ancient-artillery",
-    "living-corpse",
-    "living-spirit",
-    "stone-golem"
-  ],
   "requires": [
     [
       "24"
@@ -15,6 +9,12 @@
   ],
   "blocks": [
     "42"
+  ],
+  "monsters": [
+    "ancient-artillery",
+    "living-corpse",
+    "living-spirit",
+    "stone-golem"
   ],
   "rooms": [
     {
@@ -35,6 +35,14 @@
         },
         {
           "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
           "player3": "normal",
           "player4": "elite"
         },
@@ -42,33 +50,25 @@
           "name": "ancient-artillery",
           "player3": "normal",
           "player4": "elite"
-        },
-        {
-          "name": "ancient-artillery",
-          "type": "normal"
-        },
-        {
-          "name": "ancient-artillery",
-          "type": "normal"
         }
       ]
     },
     {
       "roomNumber": 2,
-      "marker": "1",
       "ref": "l1a",
+      "marker": "1",
       "rooms": [
         3
       ],
       "monster": [
         {
           "name": "living-corpse",
-          "player3": "normal",
-          "player4": "normal"
+          "type": "elite"
         },
         {
           "name": "living-corpse",
-          "type": "elite"
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "living-corpse",
@@ -91,8 +91,8 @@
     },
     {
       "roomNumber": 3,
-      "marker": "2",
       "ref": "e1a",
+      "marker": "2",
       "treasures": [
         24
       ],

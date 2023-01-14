@@ -2,6 +2,9 @@
   "index": "113",
   "name": "The Lost Thread",
   "edition": "fc",
+  "unlocks": [
+    "114"
+  ],
   "monsters": [
     "stone-golem"
   ],
@@ -10,11 +13,9 @@
       "name": "Naaret",
       "escort": true,
       "health": "4+2xL",
-      "initiative": 50
+      "initiative": 50,
+      "marker": "b"
     }
-  ],
-  "unlocks": [
-    "114"
   ],
   "rooms": [
     {
@@ -31,6 +32,9 @@
           "player3": "normal",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     },
     {

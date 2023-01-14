@@ -18,7 +18,12 @@
       ],
       "monster": [
         {
-          "name": "inox-guard",
+          "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player3": "normal",
           "player4": "normal"
         },
         {
@@ -30,18 +35,16 @@
           "player4": "normal"
         },
         {
-          "name": "inox-archer",
-          "player3": "normal",
+          "name": "inox-guard",
           "player4": "normal"
         },
         {
-          "name": "inox-archer",
+          "name": "vermling-scout",
           "type": "normal"
         },
         {
           "name": "vermling-scout",
-          "player3": "normal",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "vermling-scout",
@@ -57,11 +60,8 @@
         },
         {
           "name": "vermling-scout",
-          "type": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "type": "normal"
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "vermling-scout",
@@ -77,34 +77,34 @@
       ],
       "monster": [
         {
-          "name": "inox-guard",
+          "name": "flame-demon",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "inox-guard",
-          "type": "elite"
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "inox-archer",
           "type": "normal"
         },
         {
-          "name": "flame-demon",
+          "name": "inox-guard",
+          "type": "elite"
+        },
+        {
+          "name": "inox-guard",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
-        },
-        {
-          "name": "flame-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "flame-demon",
-          "player3": "normal",
-          "player4": "normal"
         }
       ]
     },
@@ -116,10 +116,17 @@
       ],
       "monster": [
         {
-          "name": "inox-guard",
-          "player2": "normal",
+          "name": "flame-demon",
+          "type": "elite"
+        },
+        {
+          "name": "flame-demon",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "type": "normal"
         },
         {
           "name": "inox-archer",
@@ -127,17 +134,10 @@
           "player4": "normal"
         },
         {
-          "name": "inox-archer",
-          "type": "normal"
-        },
-        {
-          "name": "flame-demon",
+          "name": "inox-guard",
+          "player2": "normal",
           "player3": "normal",
           "player4": "elite"
-        },
-        {
-          "name": "flame-demon",
-          "type": "elite"
         }
       ]
     }

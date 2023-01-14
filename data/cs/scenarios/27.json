@@ -1,0 +1,13 @@
+{
+  "index": "27",
+  "name": "Frostbite Cavern",
+  "edition": "cs",
+  "unlocks": [
+    "28"
+  ],
+  "monsters": [
+    "frost-demon",
+    "stone-golem",
+    "wind-demon"
+  ]
+}

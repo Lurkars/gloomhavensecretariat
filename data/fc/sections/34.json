@@ -1,40 +1,44 @@
 {
-    "index": "34",
-    "name": "Frozen Cave",
-    "edition": "fc",
-    "parent": "96",
-    "marker": "a",
-    "monsters": [
-        "frost-demon"
-    ],
-    "objectives": [
+  "index": "34",
+  "name": "Frozen Cave",
+  "edition": "fc",
+  "parent": "96",
+  "marker": "a",
+  "monsters": [
+    "frost-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Altar of Blizzards",
+      "health": "Cx2+L",
+      "marker": "f"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "ref": "b4b",
+      "initial": true,
+      "monster": [
         {
-            "name": "Altar of Blizzards",
-            "health": "Cx2+L"
-        }
-    ],
-    "rooms": [
+          "name": "frost-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
         {
-            "roomNumber": 2,
-            "ref": "b4b",
-            "initial": true,
-            "monster": [
-                {
-                    "name": "frost-demon",
-                    "player3": "normal",
-                    "player4": "normal"
-                },
-                {
-                    "name": "frost-demon",
-                    "type": "normal"
-                },
-                {
-                    "name": "frost-demon",
-                    "player2": "normal",
-                    "player3": "normal",
-                    "player4": "elite"
-                }
-            ]
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         }
-    ]
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
 }

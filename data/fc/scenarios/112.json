@@ -2,13 +2,13 @@
   "index": "112",
   "name": "The Bottom of It",
   "edition": "fc",
+  "unlocks": [
+    "114"
+  ],
   "monsters": [
     "ancient-artillery",
     "living-bones",
     "stone-golem"
-  ],
-  "unlocks": [
-    "114"
   ],
   "rooms": [
     {

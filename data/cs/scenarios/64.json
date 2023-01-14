@@ -1,0 +1,9 @@
+{
+  "index": "64",
+  "name": "Glowing Crystals",
+  "edition": "cs",
+  "monsters": [
+    "deep-terror",
+    "lurker"
+  ]
+}

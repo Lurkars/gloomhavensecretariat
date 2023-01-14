@@ -1,0 +1,16 @@
+{
+  "index": "6",
+  "name": "Poisoned Water",
+  "edition": "cs",
+  "requires": [
+    [
+      "5"
+    ]
+  ],
+  "monsters": [
+    "blood-ooze",
+    "flaming-drake",
+    "toxic-imp",
+    "water-spirit"
+  ]
+}

@@ -2,14 +2,6 @@
   "index": "33",
   "name": "Savvas Armory",
   "edition": "gh",
-  "monsters": [
-    "earth-demon",
-    "flame-demon",
-    "frost-demon",
-    "savvas-icestorm",
-    "savvas-lavaflow",
-    "wind-demon"
-  ],
   "requires": [
     [
       "24"
@@ -18,6 +10,40 @@
       "25"
     ]
   ],
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "savvas-icestorm",
+    "savvas-lavaflow",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Door",
+      "health": "4+L",
+      "marker": "b"
+    }
+  ],
+  "rules": [
+    {
+      "round": "once",
+      "rooms": [
+        2
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Door",
+            "marker": "b"
+          },
+          "type": "dead"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -25,16 +51,27 @@
       "initial": true,
       "rooms": [
         2
+      ],
+      "objectives": [
+        1
       ]
     },
     {
       "roomNumber": 2,
-      "marker": "b",
       "ref": "c2b",
+      "marker": "b",
       "rooms": [
         3
       ],
       "monster": [
+        {
+          "name": "savvas-icestorm",
+          "type": "normal"
+        },
+        {
+          "name": "savvas-icestorm",
+          "player4": "normal"
+        },
         {
           "name": "savvas-lavaflow",
           "type": "normal"
@@ -42,14 +79,6 @@
         {
           "name": "savvas-lavaflow",
           "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "savvas-icestorm",
-          "type": "normal"
-        },
-        {
-          "name": "savvas-icestorm",
           "player4": "normal"
         }
       ]
@@ -62,40 +91,34 @@
       ],
       "monster": [
         {
-          "name": "savvas-lavaflow",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "savvas-lavaflow",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
           "name": "savvas-icestorm",
           "player2": "elite",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "savvas-lavaflow",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "savvas-lavaflow",
+          "player3": "normal",
+          "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 4,
-      "marker": "1",
       "ref": "m1a",
+      "marker": "1",
       "treasures": [
-        null,
-        null,
-        null,
-        null
+        "G",
+        "G",
+        "G",
+        "G"
       ],
       "monster": [
-        {
-          "name": "savvas-icestorm",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
         {
           "name": "flame-demon",
           "player4": "normal"
@@ -103,6 +126,12 @@
         {
           "name": "frost-demon",
           "player4": "normal"
+        },
+        {
+          "name": "savvas-icestorm",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         }
       ]
     }

@@ -11,16 +11,16 @@
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "a1a",
+      "ref": "h1b",
       "initial": true,
       "rooms": [
         2
       ],
       "monster": [
         {
-          "name": "city-archer",
+          "name": "ancient-artillery",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
@@ -30,9 +30,10 @@
           "player4": "elite"
         },
         {
-          "name": "city-guard",
+          "name": "city-archer",
+          "player2": "normal",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "elite"
         },
         {
           "name": "city-guard",
@@ -44,10 +45,9 @@
           "player4": "normal"
         },
         {
-          "name": "ancient-artillery",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
+          "name": "city-guard",
+          "player3": "normal",
+          "player4": "normal"
         }
       ]
     },
@@ -58,20 +58,20 @@
         3
       ],
       "treasures": [
-        null,
-        null,
-        null,
-        null
+        "G",
+        "G",
+        "G",
+        "G"
       ],
       "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "elite"
+        },
         {
           "name": "city-guard",
           "player3": "elite",
           "player4": "elite"
-        },
-        {
-          "name": "ancient-artillery",
-          "type": "elite"
         },
         {
           "name": "hound",
@@ -89,15 +89,26 @@
     },
     {
       "roomNumber": 3,
-      "marker": "1",
       "ref": "j1a",
+      "marker": "1",
       "rooms": [
         4
       ],
       "monster": [
         {
-          "name": "city-guard",
-          "player4": "normal"
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "type": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "city-guard",
@@ -109,19 +120,8 @@
           "player4": "normal"
         },
         {
-          "name": "city-archer",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "city-archer",
-          "type": "elite"
-        },
-        {
-          "name": "ancient-artillery",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
+          "name": "city-guard",
+          "player4": "normal"
         }
       ]
     },
@@ -138,7 +138,7 @@
         },
         {
           "name": "hound",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "hound",
@@ -147,7 +147,7 @@
         },
         {
           "name": "hound",
-          "type": "normal"
+          "player4": "normal"
         }
       ]
     },

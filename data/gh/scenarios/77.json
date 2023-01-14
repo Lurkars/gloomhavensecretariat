@@ -18,23 +18,23 @@
       ],
       "monster": [
         {
-          "name": "city-guard",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "city-guard",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
           "name": "city-archer",
           "type": "elite"
         },
         {
           "name": "city-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
@@ -48,24 +48,20 @@
     },
     {
       "roomNumber": 2,
-      "marker": "1",
       "ref": "n1b",
+      "marker": "1",
       "rooms": [
         3,
         4
       ],
       "monster": [
         {
-          "name": "city-guard",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
+          "name": "city-archer",
+          "type": "normal"
         },
         {
-          "name": "city-guard",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
+          "name": "city-archer",
+          "type": "normal"
         },
         {
           "name": "city-archer",
@@ -76,15 +72,13 @@
           "player4": "normal"
         },
         {
-          "name": "city-archer",
-          "type": "normal"
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         },
         {
-          "name": "city-archer",
-          "type": "normal"
-        },
-        {
-          "name": "hound",
+          "name": "city-guard",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
@@ -92,6 +86,12 @@
         {
           "name": "hound",
           "type": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         },
         {
           "name": "hound",
@@ -103,17 +103,17 @@
       "roomNumber": 3,
       "ref": "b2b",
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
         {
           "name": "stone-golem",
-          "player3": "normal",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "stone-golem",
-          "type": "normal"
+          "player3": "normal",
+          "player4": "normal"
         }
       ]
     },
@@ -121,16 +121,16 @@
       "roomNumber": 4,
       "ref": "b3b",
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
         {
           "name": "stone-golem",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "stone-golem",
-          "type": "normal"
+          "player4": "normal"
         }
       ]
     }

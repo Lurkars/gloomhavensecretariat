@@ -2,37 +2,6 @@
   "index": "45",
   "name": "Rebel Swamp",
   "edition": "gh",
-  "monsters": [
-    "city-archer",
-    "city-guard",
-    "hound"
-  ],
-  "objectives": [
-    {
-      "name": "Totem 1",
-      "health": "1+C+L"
-    },
-    {
-      "name": "Totem 2",
-      "health": "1+C+L"
-    },
-    {
-      "name": "Totem 3",
-      "health": "1+C+L"
-    },
-    {
-      "name": "Totem 4",
-      "health": "1+C+L"
-    },
-    {
-      "name": "Totem 5",
-      "health": "1+C+L"
-    },
-    {
-      "name": "Totem 6",
-      "health": "1+C+L"
-    }
-  ],
   "unlocks": [
     "49",
     "50"
@@ -41,6 +10,19 @@
     [
       "35"
     ]
+  ],
+  "monsters": [
+    "city-archer",
+    "city-guard",
+    "hound"
+  ],
+  "objectives": [
+    {
+      "name": "Totem",
+      "health": "1+C+L",
+      "marker": "a",
+      "count": 6
+    }
   ],
   "rooms": [
     {
@@ -52,24 +34,6 @@
       ],
       "monster": [
         {
-          "name": "city-guard",
-          "type": "normal"
-        },
-        {
-          "name": "city-guard",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "city-guard",
-          "type": "normal"
-        },
-        {
-          "name": "city-archer",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
           "name": "city-archer",
           "player2": "elite",
           "player4": "normal"
@@ -78,7 +42,28 @@
           "name": "city-archer",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player3": "elite",
+          "player4": "elite"
         }
+      ],
+      "objectives": [
+        1
       ]
     },
     {
@@ -100,12 +85,13 @@
         },
         {
           "name": "hound",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "hound",
+          "player2": "normal",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "elite"
         },
         {
           "name": "hound",
@@ -115,14 +101,17 @@
         },
         {
           "name": "hound",
-          "player2": "normal",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "hound",
-          "type": "normal"
+          "player4": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        1
       ]
     },
     {
@@ -130,15 +119,15 @@
       "ref": "d1b",
       "monster": [
         {
-          "name": "city-guard",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
           "name": "city-archer",
           "player2": "normal",
           "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
@@ -146,6 +135,9 @@
           "player3": "normal",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        1
       ]
     },
     {
@@ -165,19 +157,23 @@
         },
         {
           "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
           "player3": "normal",
           "player4": "normal"
         },
         {
           "name": "hound",
           "player4": "normal"
-        },
-        {
-          "name": "hound",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        1
       ]
     }
   ]

@@ -1,0 +1,13 @@
+{
+  "index": "24",
+  "name": "Eerie Grotto",
+  "edition": "cs",
+  "unlocks": [
+    "26"
+  ],
+  "monsters": [
+    "frozen-cadaver",
+    "hail-demon",
+    "harrower-icecrawlers"
+  ]
+}

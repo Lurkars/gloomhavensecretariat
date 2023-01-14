@@ -2,6 +2,11 @@
   "index": "29",
   "name": "Sanctuary of Gloom",
   "edition": "gh",
+  "requires": [
+    [
+      "28"
+    ]
+  ],
   "monsters": [
     "black-imp",
     "living-bones",
@@ -10,22 +15,11 @@
   ],
   "objectives": [
     {
-      "name": "Door 1",
-      "health": "4+L"
-    },
-    {
-      "name": "Door 2",
-      "health": "4+L"
-    },
-    {
-      "name": "Door 3",
-      "health": "4+L"
+      "name": "Door",
+      "health": "4+L",
+      "marker": "a",
+      "count": 3
     }
-  ],
-  "requires": [
-    [
-      "28"
-    ]
   ],
   "rooms": [
     {
@@ -36,54 +30,29 @@
         2,
         3,
         4
+      ],
+      "objectives": [
+        1,
+        1,
+        1
       ]
     },
     {
       "roomNumber": 2,
-      "marker": "a",
       "ref": "d1a",
+      "marker": "a",
       "monster": [
         {
-          "name": "living-corpse",
-          "player3": "normal",
-          "player4": "normal"
+          "name": "black-imp",
+          "type": "normal"
         },
         {
-          "name": "living-corpse",
-          "player3": "normal",
-          "player4": "normal"
+          "name": "black-imp",
+          "type": "normal"
         },
         {
-          "name": "living-corpse",
+          "name": "black-imp",
           "type": "elite"
-        },
-        {
-          "name": "living-corpse",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "living-corpse",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "black-imp",
-          "player4": "normal"
-        },
-        {
-          "name": "black-imp",
-          "type": "normal"
-        },
-        {
-          "name": "black-imp",
-          "player4": "normal"
-        },
-        {
-          "name": "black-imp",
-          "type": "normal"
         },
         {
           "name": "black-imp",
@@ -92,37 +61,83 @@
         },
         {
           "name": "black-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
           "type": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 3,
+      "ref": "j1a",
       "marker": "a",
-      "ref": "d2a",
-      "treasures": [
-        41
-      ],
       "monster": [
         {
-          "name": "living-bones",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "living-bones",
+          "name": "black-imp",
           "type": "elite"
         },
         {
+          "name": "black-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
           "name": "living-bones",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
           "name": "living-bones",
-          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
           "player4": "normal"
         },
         {
@@ -130,70 +145,50 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
-        },
-        {
-          "name": "living-spirit",
-          "player4": "normal"
-        },
-        {
-          "name": "black-imp",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "black-imp",
-          "type": "elite"
-        },
-        {
-          "name": "black-imp",
-          "player3": "normal",
-          "player4": "normal"
         }
       ]
     },
     {
       "roomNumber": 4,
+      "ref": "d2a",
       "marker": "a",
-      "ref": "j1a",
+      "treasures": [
+        41
+      ],
       "monster": [
-        {
-          "name": "living-bones",
-          "player4": "normal"
-        },
-        {
-          "name": "living-bones",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "living-bones",
-          "type": "normal"
-        },
-        {
-          "name": "black-imp",
-          "player4": "normal"
-        },
         {
           "name": "black-imp",
           "type": "elite"
         },
         {
           "name": "black-imp",
+          "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "living-corpse",
-          "type": "normal"
+          "name": "black-imp",
+          "player3": "normal",
+          "player4": "normal"
         },
         {
-          "name": "living-corpse",
+          "name": "living-bones",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
           "player2": "normal",
-          "player3": "elite",
+          "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "living-corpse",
+          "name": "living-bones",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
           "player4": "normal"
         },
         {
@@ -201,6 +196,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "normal"
         }
       ]
     }

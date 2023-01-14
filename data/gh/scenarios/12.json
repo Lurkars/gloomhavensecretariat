@@ -2,6 +2,14 @@
   "index": "12",
   "name": "Gloomhaven Square B",
   "edition": "gh",
+  "unlocks": [
+    "16",
+    "18",
+    "28"
+  ],
+  "blocks": [
+    "11"
+  ],
   "monsters": [
     "city-archer",
     "city-guard",
@@ -14,14 +22,6 @@
     "city-archer",
     "city-guard"
   ],
-  "unlocks": [
-    "16",
-    "18",
-    "28"
-  ],
-  "blocks": [
-    "11"
-  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -33,20 +33,20 @@
       "monster": [
         {
           "name": "city-archer",
-          "player2": "normal"
+          "type": "normal"
         },
         {
           "name": "city-archer",
+          "player2": "normal"
+        },
+        {
+          "name": "city-guard",
           "type": "normal"
         },
         {
           "name": "city-guard",
           "player2": "normal",
           "player3": "normal"
-        },
-        {
-          "name": "city-guard",
-          "type": "normal"
         },
         {
           "name": "city-guard",
@@ -76,6 +76,27 @@
       ],
       "monster": [
         {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player2": "normal",
+          "player3": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player2": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "elite"
+        },
+        {
           "name": "city-guard",
           "type": "elite"
         },
@@ -85,87 +106,66 @@
           "player3": "normal"
         },
         {
-          "name": "city-archer",
-          "player2": "normal",
-          "player3": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "type": "elite"
-        },
-        {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "living-bones",
-          "type": "elite"
-        },
-        {
-          "name": "living-bones",
-          "type": "elite"
-        },
-        {
-          "name": "city-archer",
-          "player2": "normal"
-        },
-        {
-          "name": "city-archer",
-          "type": "normal"
-        },
-        {
-          "name": "city-archer",
-          "type": "normal"
-        },
-        {
-          "name": "city-guard",
-          "type": "elite"
-        },
-        {
-          "name": "living-bones",
-          "type": "normal"
-        },
-        {
-          "name": "living-bones",
-          "player4": "normal"
-        },
-        {
-          "name": "living-bones",
-          "type": "normal"
-        },
-        {
-          "name": "living-bones",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-bones",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-bones",
-          "player4": "normal"
-        },
-        {
           "name": "cultist",
           "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "elite"
         }
       ]
     },
@@ -177,18 +177,6 @@
       ],
       "monster": [
         {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
           "name": "city-archer",
           "player2": "elite",
           "player3": "normal",
@@ -200,7 +188,12 @@
         },
         {
           "name": "city-guard",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "normal"
+        },
+        {
+          "name": "cultist",
+          "type": "elite"
         },
         {
           "name": "cultist",
@@ -212,44 +205,52 @@
           "player4": "elite"
         },
         {
-          "name": "cultist",
-          "type": "elite"
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
         }
       ]
     },
     {
       "roomNumber": 4,
-      "marker": "1",
       "ref": "d1a",
+      "marker": "1",
       "treasures": [
         34
       ],
       "monster": [
         {
-          "name": "living-bones",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-bones",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "player4": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
           "name": "jekserah",
           "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "normal"
         }
       ]
     }

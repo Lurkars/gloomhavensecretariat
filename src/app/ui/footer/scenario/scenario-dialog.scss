@@ -20,10 +20,6 @@
     justify-content: center;
     align-items: center;
 
-    .marker {
-      display: inline-flex;
-    }
-
     .ghs-svg {
       height: 1em;
       width: auto;
@@ -43,10 +39,6 @@
 
       &:not(:first-child) {
         border-left: calc(var(--ghs-unit) * 0.1 * var(--ghs-barsize)) solid var(--ghs-color-white);
-      }
-
-      span {
-        margin: 0 0.2em;
       }
     }
   }

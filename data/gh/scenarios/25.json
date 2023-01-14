@@ -2,14 +2,14 @@
   "index": "25",
   "name": "Icecrag Ascent",
   "edition": "gh",
+  "unlocks": [
+    "33",
+    "34"
+  ],
   "monsters": [
     "hound",
     "rending-drake",
     "spitting-drake"
-  ],
-  "unlocks": [
-    "33",
-    "34"
   ],
   "rooms": [
     {
@@ -22,12 +22,15 @@
       "monster": [
         {
           "name": "hound",
-          "player3": "normal",
-          "player4": "elite"
+          "type": "normal"
         },
         {
           "name": "hound",
           "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "elite"
         },
         {
           "name": "hound",
@@ -37,11 +40,8 @@
         },
         {
           "name": "hound",
-          "type": "elite"
-        },
-        {
-          "name": "hound",
-          "type": "normal"
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "hound",
@@ -52,8 +52,8 @@
     },
     {
       "roomNumber": 2,
-      "marker": "1",
       "ref": "n1a",
+      "marker": "1",
       "rooms": [
         3
       ],
@@ -63,7 +63,7 @@
       "monster": [
         {
           "name": "rending-drake",
-          "player4": "normal"
+          "type": "elite"
         },
         {
           "name": "rending-drake",
@@ -72,7 +72,11 @@
         },
         {
           "name": "rending-drake",
-          "type": "elite"
+          "player4": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal"
         },
         {
           "name": "spitting-drake",
@@ -82,10 +86,6 @@
           "name": "spitting-drake",
           "player3": "normal",
           "player4": "elite"
-        },
-        {
-          "name": "spitting-drake",
-          "type": "normal"
         }
       ]
     },

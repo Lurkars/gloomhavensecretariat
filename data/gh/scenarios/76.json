@@ -14,15 +14,57 @@
       "ref": "b1b",
       "initial": true,
       "rooms": [
-        2
+        2,
+        3
       ]
     },
     {
       "roomNumber": 2,
+      "ref": "e1b",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player4": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
       "ref": "h2a",
       "rooms": [
-        3,
-        4
+        4,
+        5
       ],
       "monster": [
         {
@@ -43,58 +85,59 @@
         },
         {
           "name": "living-bones",
-          "player3": "elite",
-          "player4": "elite"
+          "type": "elite"
         },
         {
           "name": "living-bones",
-          "type": "elite"
+          "player3": "elite",
+          "player4": "elite"
         }
       ]
     },
     {
-      "roomNumber": 3,
-      "ref": "e1b",
+      "roomNumber": 4,
+      "ref": "g2a",
+      "rooms": [
+        5
+      ],
       "monster": [
         {
           "name": "harrower-infester",
-          "player4": "normal"
-        },
-        {
-          "name": "harrower-infester",
-          "player4": "normal"
-        },
-        {
-          "name": "harrower-infester",
           "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
           "player3": "normal"
         },
         {
-          "name": "night-demon",
+          "name": "harrower-infester",
           "player4": "normal"
         },
         {
-          "name": "night-demon",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
+          "name": "living-bones",
           "type": "normal"
         },
         {
-          "name": "giant-viper",
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
           "player3": "normal",
           "player4": "normal"
         }
       ]
     },
     {
-      "roomNumber": 4,
+      "roomNumber": 5,
       "ref": "b4b",
       "rooms": [
-        5,
         6
       ],
       "monster": [
@@ -118,43 +161,6 @@
       ]
     },
     {
-      "roomNumber": 5,
-      "ref": "g2a",
-      "monster": [
-        {
-          "name": "living-bones",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "living-bones",
-          "type": "normal"
-        },
-        {
-          "name": "night-demon",
-          "type": "normal"
-        },
-        {
-          "name": "night-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "harrower-infester",
-          "player2": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "harrower-infester",
-          "player3": "normal"
-        },
-        {
-          "name": "harrower-infester",
-          "4player": "normal"
-        }
-      ]
-    },
-    {
       "roomNumber": 6,
       "ref": "a2b",
       "rooms": [
@@ -163,12 +169,12 @@
       "monster": [
         {
           "name": "harrower-infester",
-          "player3": "normal",
-          "player4": "elite"
+          "player2": "elite"
         },
         {
           "name": "harrower-infester",
-          "player2": "elite"
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "harrower-infester",

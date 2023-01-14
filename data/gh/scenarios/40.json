@@ -2,13 +2,6 @@
   "index": "40",
   "name": "Ancient Defense Network",
   "edition": "gh",
-  "monsters": [
-    "cave-bear",
-    "flame-demon",
-    "forest-imp",
-    "living-corpse",
-    "stone-golem"
-  ],
   "unlocks": [
     "41"
   ],
@@ -17,6 +10,13 @@
       "24",
       "33"
     ]
+  ],
+  "monsters": [
+    "cave-bear",
+    "flame-demon",
+    "forest-imp",
+    "living-corpse",
+    "stone-golem"
   ],
   "rooms": [
     {
@@ -30,32 +30,32 @@
       "monster": [
         {
           "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
-        },
-        {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "player4": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "type": "normal"
         },
         {
           "name": "living-corpse",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "normal"
         }
       ]
     },
@@ -68,11 +68,11 @@
       "monster": [
         {
           "name": "cave-bear",
-          "player4": "normal"
+          "type": "elite"
         },
         {
           "name": "cave-bear",
-          "type": "elite"
+          "player4": "normal"
         },
         {
           "name": "cave-bear",
@@ -89,11 +89,11 @@
       "monster": [
         {
           "name": "flame-demon",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "flame-demon",
-          "type": "normal"
+          "player4": "normal"
         },
         {
           "name": "flame-demon",
@@ -129,6 +129,16 @@
         },
         {
           "name": "forest-imp",
+          "type": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
@@ -137,16 +147,6 @@
           "name": "forest-imp",
           "player3": "normal",
           "player4": "normal"
-        },
-        {
-          "name": "forest-imp",
-          "type": "elite"
-        },
-        {
-          "name": "forest-imp",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
         },
         {
           "name": "forest-imp",
@@ -164,8 +164,7 @@
       "monster": [
         {
           "name": "living-corpse",
-          "player3": "normal",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "living-corpse",
@@ -175,7 +174,8 @@
         },
         {
           "name": "living-corpse",
-          "type": "normal"
+          "player3": "normal",
+          "player4": "normal"
         }
       ]
     },

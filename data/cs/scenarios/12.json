@@ -1,0 +1,14 @@
+{
+  "index": "12",
+  "name": "Uncovering the Source",
+  "edition": "cs",
+  "unlocks": [
+    "15"
+  ],
+  "monsters": [
+    "flame-demon",
+    "giant-viper",
+    "rending-drake",
+    "spitting-drake"
+  ]
+}

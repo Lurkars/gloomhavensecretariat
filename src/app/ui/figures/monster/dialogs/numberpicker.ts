@@ -61,7 +61,7 @@ export class MonsterNumberPicker {
       return;
     }
 
-    if (this.nonDead() == this.max - 1) {
+    if (this.nonDead() == this.max - 1 && this.monster.entities.every((me) => me.number > 0)) {
       for (let i = 0; i < this.max; i++) {
         if (!this.monster.entities.some((me) => !me.dead && me.number == i + 1)) {
           this.pickNumber(i + 1);

@@ -1,0 +1,16 @@
+{
+  "index": "2",
+  "group": "AA",
+  "name": "Malign Echoes",
+  "edition": "cs",
+  "unlocks": [
+    "3"
+  ],
+  "monsters": [
+    "black-imp",
+    "giant-viper",
+    "harrower-aegis",
+    "harrower-infester",
+    "ravenous-gharial"
+  ]
+}

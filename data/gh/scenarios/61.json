@@ -2,6 +2,9 @@
   "index": "61",
   "name": "Fading Lighthouse",
   "edition": "gh",
+  "unlocks": [
+    "62"
+  ],
   "monsters": [
     "flame-demon",
     "frost-demon",
@@ -86,9 +89,6 @@
       ]
     }
   ],
-  "unlocks": [
-    "62"
-  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -99,29 +99,30 @@
       ],
       "monster": [
         {
-          "name": "ooze",
+          "name": "flame-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "flame-demon",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "ooze",
+          "name": "frost-demon",
           "type": "elite"
         },
         {
-          "name": "ooze",
-          "type": "normal"
-        },
-        {
-          "name": "ooze",
+          "name": "frost-demon",
           "player4": "normal"
         },
         {
-          "name": "flame-demon",
-          "player3": "normal",
-          "player4": "normal"
+          "name": "giant-viper",
+          "type": "elite"
         },
         {
-          "name": "flame-demon",
+          "name": "giant-viper",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
@@ -137,21 +138,20 @@
           "player4": "elite"
         },
         {
-          "name": "giant-viper",
-          "player2": "normal",
+          "name": "ooze",
+          "type": "normal"
+        },
+        {
+          "name": "ooze",
+          "type": "elite"
+        },
+        {
+          "name": "ooze",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
-          "name": "giant-viper",
-          "type": "elite"
-        },
-        {
-          "name": "frost-demon",
-          "type": "elite"
-        },
-        {
-          "name": "frost-demon",
+          "name": "ooze",
           "player4": "normal"
         }
       ]
@@ -163,51 +163,32 @@
         3
       ],
       "treasures": [
-        null
+        "G"
       ]
     },
     {
       "roomNumber": 3,
-      "marker": "1",
       "ref": "d1a",
+      "marker": "1",
       "rooms": [
         4
       ],
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
         {
-          "name": "ooze",
-          "player3": "normal",
-          "player4": "normal"
+          "name": "flame-demon",
+          "type": "normal"
         },
         {
-          "name": "ooze",
-          "type": "normal"
+          "name": "flame-demon",
+          "player4": "normal"
         },
         {
           "name": "frost-demon",
           "player2": "normal",
           "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "flame-demon",
-          "type": "normal"
-        },
-        {
-          "name": "flame-demon",
-          "player4": "normal"
-        },
-        {
-          "name": "giant-viper",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
           "player4": "elite"
         },
         {
@@ -217,8 +198,27 @@
         {
           "name": "giant-viper",
           "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "type": "normal"
+        },
+        {
+          "name": "ooze",
+          "player3": "normal",
+          "player4": "normal"
         }
       ]
     },
@@ -229,22 +229,16 @@
         5
       ],
       "treasures": [
-        null
+        "G"
       ]
     },
     {
       "roomNumber": 5,
       "ref": "c1a",
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
-        {
-          "name": "ooze",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
         {
           "name": "flame-demon",
           "player2": "normal",
@@ -253,12 +247,18 @@
         },
         {
           "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "giant-viper",
-          "type": "normal"
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         }
       ]
     }

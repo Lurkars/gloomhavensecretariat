@@ -1,0 +1,68 @@
+{
+  "index": "41",
+  "name": "A Sphere of Nightmares",
+  "edition": "fc",
+  "parent": "101",
+  "parentSections": [
+    "123"
+  ],
+  "marker": "4",
+  "monsters": [
+    "living-spirit",
+    "night-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Altar",
+      "health": "20+L+(2xC)",
+      "marker": "j"
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "elements": [
+        {
+          "type": "dark",
+          "state": "strong"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "spawns": [
+        {
+          "monster": {
+            "name": "night-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "j"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 6,
+      "ref": "j1b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "night-demon",
+          "type": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

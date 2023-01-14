@@ -1,0 +1,24 @@
+{
+  "index": "25",
+  "name": "Brightspark, Behold!",
+  "edition": "cs",
+  "unlocks": [
+    "31"
+  ],
+  "monsters": [
+    "forest-imp",
+    "giant-viper",
+    "lurker",
+    "spitting-drake",
+    "sun-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Brightspark",
+      "escort": true,
+      "health": "C+(Lx3)",
+      "initiative": 50,
+      "marker": "a"
+    }
+  ]
+}

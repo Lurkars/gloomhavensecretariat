@@ -6,5 +6,64 @@
     "blood-imp",
     "blood-monstrosity",
     "first-of-the-order"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "jotl17-2",
+      "initial": true,
+      "monster": [
+        {
+          "name": "blood-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "blood-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "blood-monstrosity",
+          "type": "elite"
+        },
+        {
+          "name": "blood-monstrosity",
+          "type": "elite"
+        },
+        {
+          "name": "blood-monstrosity",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "blood-monstrosity",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "blood-monstrosity",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "blood-monstrosity",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "blood-monstrosity",
+          "player4": "normal"
+        },
+        {
+          "name": "first-of-the-order",
+          "type": "elite"
+        }
+      ]
+    }
   ]
 }

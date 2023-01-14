@@ -5,6 +5,7 @@ import { EntityCondition, GameEntityConditionModel } from "./Condition";
 export class Objective implements Entity, Figure {
 
   id: number;
+  marker: string = "";
   title: string = "";
   exhausted: boolean = false;
   escort: boolean = false;
@@ -33,11 +34,12 @@ export class Objective implements Entity, Figure {
   }
 
   toModel(): GameObjectiveModel {
-    return new GameObjectiveModel(this.id, this.title, this.name, this.escort, this.level, this.exhausted, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.initiative);
+    return new GameObjectiveModel(this.id, this.marker, this.title, this.name, this.escort, this.level, this.exhausted, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.initiative);
   }
 
   fromModel(model: GameObjectiveModel) {
     this.id = model.id;
+    this.marker = model.marker;
     this.title = model.title;
     this.name = model.name;
     this.escort = model.escort;
@@ -64,6 +66,7 @@ export class Objective implements Entity, Figure {
 export class GameObjectiveModel {
 
   id: number;
+  marker: string;
   title: string;
   name: string;
   escort: boolean;
@@ -79,6 +82,7 @@ export class GameObjectiveModel {
 
   constructor(
     id: number,
+    marker: string,
     title: string,
     name: string,
     escort: boolean,
@@ -92,6 +96,7 @@ export class GameObjectiveModel {
     markers: string[],
     initiative: number) {
     this.id = id;
+    this.marker = marker;
     this.title = title;
     this.name = name;
     this.escort = escort;
@@ -106,3 +111,6 @@ export class GameObjectiveModel {
     this.initiative = initiative;
   }
 }
+
+
+export const OBJECTIV_MARKERS: string[] = ["", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"];

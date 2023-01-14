@@ -2,11 +2,6 @@
   "index": "37",
   "name": "Doom Trench",
   "edition": "gh",
-  "monsters": [
-    "deep-terror",
-    "harrower-infester",
-    "lurker"
-  ],
   "unlocks": [
     "47"
   ],
@@ -14,6 +9,11 @@
     [
       "43"
     ]
+  ],
+  "monsters": [
+    "deep-terror",
+    "harrower-infester",
+    "lurker"
   ],
   "rooms": [
     {
@@ -24,19 +24,6 @@
         2
       ],
       "monster": [
-        {
-          "name": "lurker",
-          "type": "normal"
-        },
-        {
-          "name": "lurker",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "lurker",
-          "type": "normal"
-        },
         {
           "name": "deep-terror",
           "type": "elite"
@@ -49,6 +36,19 @@
         {
           "name": "deep-terror",
           "player4": "normal"
+        },
+        {
+          "name": "lurker",
+          "type": "normal"
+        },
+        {
+          "name": "lurker",
+          "type": "normal"
+        },
+        {
+          "name": "lurker",
+          "player3": "normal",
+          "player4": "elite"
         }
       ]
     },
@@ -63,13 +63,14 @@
       ],
       "monster": [
         {
-          "name": "lurker",
-          "type": "normal"
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "lurker",
-          "player3": "normal",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "lurker",
@@ -78,10 +79,9 @@
           "player4": "elite"
         },
         {
-          "name": "harrower-infester",
-          "player2": "normal",
+          "name": "lurker",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
         }
       ]
     },
@@ -91,7 +91,7 @@
       "monster": [
         {
           "name": "deep-terror",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "deep-terror",
@@ -111,11 +111,11 @@
         },
         {
           "name": "deep-terror",
-          "type": "normal"
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "deep-terror",
-          "player3": "normal",
           "player4": "normal"
         },
         {

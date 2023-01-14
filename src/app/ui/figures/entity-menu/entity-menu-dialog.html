@@ -24,8 +24,13 @@
       <img class="standee" [src]="gameManager.monsterManager.monsterThumbnail(gameManager.toMonster(data.figure))" />
       {{'data.monster.' + data.figure.name | ghsLabel}}&nbsp;<span
         *ngIf="gameManager.toMonster(data.figure).isAlly">({{'game.ally' | ghsLabel}})&nbsp;</span>
-      <span class="standee-number" *ngIf="data.entity && gameManager.isMonsterEntity(data.entity)"
+      <a [title]="'monster.toggleType' | ghsLabel:[(gameManager.toMonsterEntity(data.entity).type == MonsterType.normal ? gameManager.toMonsterEntity(data.entity).type  :  MonsterType.elite),(gameManager.toMonsterEntity(data.entity).type == MonsterType.elite ?  MonsterType.normal: gameManager.toMonsterEntity(data.entity).type )]"
+        class="standee-number"
+        *ngIf="data.entity && gameManager.isMonsterEntity(data.entity) && (gameManager.toMonsterEntity(data.entity).type == MonsterType.normal  || gameManager.toMonsterEntity(data.entity).type == MonsterType.elite)"
         (click)="toggleMonsterType()"
+        [ngClass]="gameManager.toMonsterEntity(data.entity).type">#{{gameManager.toMonsterEntity(data.entity).number}}</a>
+      <span class="standee-number"
+        *ngIf="data.entity && gameManager.isMonsterEntity(data.entity) && gameManager.toMonsterEntity(data.entity).type == MonsterType.boss"
         [ngClass]="gameManager.toMonsterEntity(data.entity).type">#{{gameManager.toMonsterEntity(data.entity).number}}</span>
     </ng-container>
 
@@ -163,20 +168,36 @@
         </span>
       </ng-container>
 
-
       <ng-container *ngIf="data.entity && gameManager.isObjective(data.entity)">
         <span class="item">
-          <a class="button" (click)="changeId(-1)">
+          <ghs-drag-click class="button" (singleClick)="changeId(-1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/left.svg">
-          </a>
+          </ghs-drag-click>
         </span>
         <span class="item">
-          <span class="objective-marker">{{gameManager.toObjective(data.entity).id + 1}}</span>
+          <span class="objective-marker">{{((gameManager.toObjective(data.entity).id + this.id) % 12) + 1}}</span>
         </span>
         <span class="item">
-          <a class="button" (click)="changeId(1)">
+          <ghs-drag-click class="button" (singleClick)="changeId(1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/right.svg">
-          </a>
+          </ghs-drag-click>
+        </span>
+
+        <span class="item">
+          <ghs-drag-click class="button" (singleClick)="changeMarker(-1)" [repeat]="true">
+            <img class="ghs-svg" src="./assets/images/left.svg">
+          </ghs-drag-click>
+        </span>
+        <span class="item">
+          <span class="map-marker"
+            [ngClass]="{'empty' : !OBJECTIV_MARKERS[(marker +
+          OBJECTIV_MARKERS.indexOf(gameManager.toObjective(data.entity).marker)) % OBJECTIV_MARKERS.length]}">{{OBJECTIV_MARKERS[(marker +
+            OBJECTIV_MARKERS.indexOf(gameManager.toObjective(data.entity).marker)) % OBJECTIV_MARKERS.length]}}</span>
+        </span>
+        <span class="item">
+          <ghs-drag-click class="button" (singleClick)="changeMarker(1)" [repeat]="true">
+            <img class="ghs-svg" src="./assets/images/right.svg">
+          </ghs-drag-click>
         </span>
       </ng-container>
 

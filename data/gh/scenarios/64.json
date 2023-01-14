@@ -2,15 +2,15 @@
   "index": "64",
   "name": "Underwater Lagoon",
   "edition": "gh",
-  "monsters": [
-    "forest-imp",
-    "ooze",
-    "rending-drake"
-  ],
   "requires": [
     [
       "43"
     ]
+  ],
+  "monsters": [
+    "forest-imp",
+    "ooze",
+    "rending-drake"
   ],
   "rooms": [
     {
@@ -21,19 +21,6 @@
         2
       ],
       "monster": [
-        {
-          "name": "ooze",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "ooze",
-          "type": "normal"
-        },
-        {
-          "name": "ooze",
-          "type": "normal"
-        },
         {
           "name": "forest-imp",
           "type": "elite"
@@ -52,6 +39,19 @@
         },
         {
           "name": "forest-imp",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "type": "normal"
+        },
+        {
+          "name": "ooze",
+          "type": "normal"
+        },
+        {
+          "name": "ooze",
           "player3": "normal",
           "player4": "elite"
         }
@@ -67,18 +67,13 @@
         {
           "name": "forest-imp",
           "player2": "normal",
-          "player3": "elite",
+          "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "forest-imp",
           "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "ooze",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         },
         {
@@ -87,20 +82,25 @@
         },
         {
           "name": "ooze",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "ooze",
           "type": "normal"
-        },
-        {
-          "name": "ooze",
-          "player4": "normal"
         },
         {
           "name": "ooze",
           "type": "elite"
+        },
+        {
+          "name": "ooze",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player4": "normal"
         }
       ]
     },
@@ -117,10 +117,6 @@
         },
         {
           "name": "forest-imp",
-          "player4": "normal"
-        },
-        {
-          "name": "forest-imp",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
@@ -128,6 +124,14 @@
         {
           "name": "forest-imp",
           "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "type": "normal"
         },
         {
           "name": "rending-drake",
@@ -140,10 +144,6 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
-        },
-        {
-          "name": "rending-drake",
-          "type": "normal"
         },
         {
           "name": "rending-drake",

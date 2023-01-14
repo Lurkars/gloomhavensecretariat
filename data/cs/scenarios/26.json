@@ -1,0 +1,23 @@
+{
+  "index": "26",
+  "name": "Thermal Stone Peak",
+  "edition": "cs",
+  "requires": [
+    [
+      "23"
+    ]
+  ],
+  "monsters": [
+    "frozen-cadaver",
+    "hail-demon",
+    "harrower-icecrawlers"
+  ],
+  "objectives": [
+    {
+      "name": "Cold thermal stone",
+      "health": "C+3",
+      "marker": "a",
+      "count": 2
+    }
+  ]
+}
