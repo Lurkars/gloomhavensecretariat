@@ -85,9 +85,15 @@ If you need help using the app take a look at the [help page](https://help.gloom
 
 ## Install
 
-### Progressive Web App
+### Install as App
 
-You can always install any hosted version as PWA if your OS/Browser supports installation of PWA. For example here is the [Latest Online Version](https://gloomhaven-secretary.de) or latest version on [GitHub Pages](https://lurkars.github.io/gloomhavensecretariat/).
+You can always install any hosted version as App (PWA) if your OS/Browser supports installation of PWA. For example here is the [Latest Online Version](https://gloomhaven-secretary.de).
+
+Instructions for various devices/browser:
+- [Chrome/Android](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Installing#google_chrome_for_android)
+- [Safari/iOS](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Installing#safari_for_ios_iphoneos_ipados)
+- [Firefox/Android](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Installing#firefox_for_android)
+- others: search for "install PWA" 
 
 ### Standalone
 
