@@ -404,6 +404,7 @@
       "normal": "Normales Monster platzieren"
     },
     "boss": "Boss",
+    "changeType": "Ändere Typ von %monster.{0}% zu %monster.{1}%",
     "elite": "Elite",
     "normal": "Normal",
     "remove": "Monster entfernen",
@@ -541,7 +542,7 @@
     "openRoomMarker": "Raum %game.mapMarker.{1}% für Kachel '{0}' öffnen",
     "rules": {
       "addSection": "Sektion #{0} {1} öffnen",
-      "addSectionMarker": "Sektion %game.mapMarker.{2}% #{0} {1} öffnen",
+      "addSectionMarker": "Sektion #{0} {1} %game.mapMarker.{2}% öffnen",
       "apply": "Anwenden",
       "dismiss": "Schließen",
       "figures": {
@@ -554,6 +555,7 @@
         "toggleOn": "{0} aktiv setzen",
         "transfer": "{0} wird zu %data.monster.{1}%"
       },
+      "hide": "Nicht mehr anzeigen",
       "lost": "Szenario verloren!",
       "openRoom": "Raum öffnen",
       "openRoomMarker": "Raum %game.mapMarker.{0}% öffnen",
@@ -564,6 +566,7 @@
     "reset": "Szenario neustarten",
     "section": {
       "add": "Sektion {1}#{0} öffnen?",
+      "addMarker": "Sektion #{0} %game.mapMarker.{1}% öffnen?",
       "cancel": "Abbrechen",
       "confirm": "Bestätigen"
     },
@@ -864,6 +867,7 @@
       "changeHP": "TP {1} für {0}",
       "changeLoot": "Beute {1} für {0}",
       "changeMaxHP": "Max. TP {1} für {0}",
+      "changeMonsterType": "Ändere Typ von {0} Aufsteller {2} {1} auf %monster.{3}%",
       "changeObjectiveHP": "TP {1} für Ziel {0}",
       "changeObjectiveId": "ID '{1}' für {0} ",
       "changeObjectiveMaxHP": "Max. TP {1} für Ziel {0}",
@@ -898,6 +902,7 @@
         "remove": "Entferne Szenario #{0} {1} ({2}) von Erfolgreichen",
         "success": "Szenario #{0} {1} ({2}) erfolgreich"
       },
+      "hideScenarioRule": "Szenario Regel nicht mehr anzeigen",
       "importParty": "Gruppe von Datei importieren",
       "loadGameFromFile": "Spiel von Datei importieren",
       "lootDeckChangeConfig": "Beute Tabelle ändern",

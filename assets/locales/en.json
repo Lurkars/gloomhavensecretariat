@@ -522,6 +522,7 @@
       "normal": "Spawn Normal Monster"
     },
     "boss": "Boss",
+    "changeType": "Change type from %monster.{0}% to %monster.{1}%",
     "elite": "Elite",
     "normal": "Normal",
     "remove": "Remove Monster",
@@ -660,7 +661,7 @@
     "reset": "Restart Scenario",
     "rules": {
       "addSection": "Open Section #{0} {1}",
-      "addSectionMarker": "Open Section %game.mapMarker.{2}% #{0} {1}",
+      "addSectionMarker": "Open Section #{0} {1} %game.mapMarker.{2}%",
       "apply": "Apply",
       "dismiss": "Dismiss",
       "figures": {
@@ -673,6 +674,7 @@
         "toggleOn": "{0} to active",
         "transfer": "{0} become %data.monster.{1}%"
       },
+      "hide": "Don't show again",
       "lost": "Scenario lost!",
       "openRoom": "Open door",
       "openRoomMarker": "Open door %game.mapMarker.{0}%",
@@ -681,7 +683,8 @@
       "won": "Scenario won!"
     },
     "section": {
-      "add": "Open Section {1}#{0}?",
+      "add": "Open Section #{0}?",
+      "addMarker": "Open Section #{0} %game.mapMarker.{1}%?",
       "cancel": "Cancel",
       "confirm": "Confirm"
     },
@@ -981,6 +984,7 @@
       "changeHP": "HP {1} for {0}",
       "changeLoot": "Loot {1} for {0}",
       "changeMaxHP": "Max. HP {1} for {0}",
+      "changeMonsterType": "Change type from {0} standee {2} from {1} to %monster.{3}%",
       "changeObjectiveHP": "HP {1} for objective {0}",
       "changeObjectiveId": "ID '{1}' for {0}",
       "changeObjectiveMaxHP": "Max. HP {1} for objective {0}",
@@ -1015,6 +1019,7 @@
         "remove": "Remove scenario #{0} {1} ({2}) success",
         "success": "Scenario #{0} {1} ({2}) successful"
       },
+      "hideScenarioRule": "Don't show scenario rule again",
       "importParty": "Import party from file",
       "loadGameFromFile": "Load game state from file",
       "lootDeckAddEnhancement": "Enhance Loot Card '{1} %game.loot.{0}%'",
