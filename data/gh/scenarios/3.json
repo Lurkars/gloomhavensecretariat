@@ -127,7 +127,6 @@
     {
       "roomNumber": 4,
       "ref": "b3a",
-      "marker": "1",
       "monster": [
         {
           "name": "inox-guard",
@@ -164,6 +163,7 @@
     {
       "roomNumber": 6,
       "ref": "e1b",
+      "marker": "1",
       "treasures": [
         65
       ],
