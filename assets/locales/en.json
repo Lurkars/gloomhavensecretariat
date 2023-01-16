@@ -491,6 +491,13 @@
       "selfOrAlly": "Self or ally",
       "targets": "All targets"
     },
+    "summon": {
+      "spawn": "{1} %data.monster.{0}%",
+      "spawnType": "{2} %game.monsterType.{1}% %data.monster.{0}%",
+      "playerAll": "%game.monsterType.{0}% for all characters",
+      "player2-3": "%game.monsterType.{0}% for two or three characters or %game.monsterType.{1}% for four characters",
+      "player3-4": "%game.monsterType.{0}% for two or %game.monsterType.{1}% for three or four characters"
+    },
     "target": {
       ".": "Target",
       "all": "all"
@@ -666,10 +673,13 @@
       "dismiss": "Dismiss",
       "figures": {
         "all": "All figures",
-        "damage": "{0} suffer %game.damage:{1}%",
+        "amAdd": "{0} add %character.progress.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% to Attack Modifier Deck",
+        "amRemove": "{0} remove %character.progress.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% from Attack Modifier deck",
+        "damage": "{0} suffer %game.damage:{2}%",
         "gainCondition": "{0} gain %game.condition.{1}%",
-        "hp": "{0} HP to {1}",
+        "hp": "{0} HP to {2}",
         "looseCondition": "{0} loose %game.condition.{1}%",
+        "scenarioEffect": "as scenario effect",
         "toggleOff": "{0} to inactive",
         "toggleOn": "{0} to active",
         "transfer": "{0} become %data.monster.{1}%"
@@ -1160,7 +1170,8 @@
       "githubIssue": "File a GitHub Issue",
       "reportIssue": {
         ".": "Report an Issue",
-        "send": "Send Issue",
+        "download": "Download all data",
+        "send": "Send Issue (Email)",
         "specify": "Please specify in text.",
         "text": "Text",
         "type": {
