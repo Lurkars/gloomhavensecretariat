@@ -9,14 +9,12 @@
   "baseStat": {
     "type": "boss",
     "movement": 3,
-    "actions": [],
     "immunities": [
       "stun",
       "disarm",
       "poison",
       "immobilize"
-    ],
-    "special": []
+    ]
   },
   "stats": [
     {

@@ -9,6 +9,36 @@
     "vermling-scout",
     "vermling-shaman"
   ],
+  "rules": [
+    {
+      "round": "once",
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "count": 2,
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "vermling-shaman",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ],
+      "requiredRooms": [
+        3
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

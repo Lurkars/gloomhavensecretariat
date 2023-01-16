@@ -19,6 +19,116 @@
     "night-demon",
     "ooze"
   ],
+  "objectives": [
+    {
+      "name": "Water Pump",
+      "health": 0,
+      "marker": "a",
+      "count": 2
+    },
+    {
+      "name": "Water Pump",
+      "health": 0,
+      "marker": "b",
+      "count": "C > 2 ? 1 : 0"
+    },
+    {
+      "name": "Water Pump",
+      "health": 0,
+      "marker": "c",
+      "count": "C > 3 ? 1 : 0"
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "edition": "gh",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:3",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "spawns": [
+        {
+          "monster": {
+            "name": "black-imp",
+            "type": "normal"
+          },
+          "marker": "a",
+          "count": "F"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Water Pump",
+            "marker": "a"
+          },
+          "type": "present"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "spawns": [
+        {
+          "monster": {
+            "name": "black-imp",
+            "type": "normal"
+          },
+          "marker": "b",
+          "count": "F"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Water Pump",
+            "marker": "b"
+          },
+          "type": "present"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "spawns": [
+        {
+          "monster": {
+            "name": "black-imp",
+            "type": "normal"
+          },
+          "marker": "c",
+          "count": "F"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Water Pump",
+            "marker": "c"
+          },
+          "type": "present"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -131,6 +241,12 @@
           "name": "night-demon",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        "2:C > 2 ? 1 : 0",
+        "3:C > 3 ? 1 : 0"
       ]
     }
   ]

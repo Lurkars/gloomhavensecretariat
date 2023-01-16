@@ -3,9 +3,10 @@ import { MonsterStandeeData } from "./RoomData";
 
 export class ScenarioRule {
   round: string;
+  always: boolean = false;
   note: string = "";
   start: boolean = false;
-  spawns: ScenarioRuleSpawnData[] = [];
+  spawns: MonsterSpawnData[] = [];
   elements: ElementModel[] = [];
   rooms: number[] = [];
   sections: string[] = [];
@@ -21,10 +22,10 @@ export class ScenarioRule {
   }
 }
 
-export class ScenarioRuleSpawnData {
+export class MonsterSpawnData {
 
   monster: MonsterStandeeData;
-  count: string = "";
+  count: string | number = "";
   marker: string = "";
   manual: boolean = false;
 
@@ -37,8 +38,9 @@ export class ScenarioRuleSpawnData {
 export class ScenarioRuleFigures {
 
   identifier: FigureIdentifier = undefined;
-  type: "present" | "dead" | "gainCondition" | "looseCondition" | "damage" | "hp" | "toggleOff" | "toggleOn" | "transfer" = "present";
+  type: "present" | "dead" | "gainCondition" | "looseCondition" | "damage" | "hp" | "toggleOff" | "toggleOn" | "transfer" | "amAdd" | "amRemove" = "present";
   value: string = "";
+  scenarioEffect: boolean = false;
 
 }
 

@@ -10,7 +10,6 @@
   "baseStat": {
     "type": "boss",
     "health": "6xC",
-    "actions": [],
     "immunities": [
       "immobilize",
       "muddle",
@@ -21,8 +20,7 @@
       "poison",
       "bane",
       "brittle"
-    ],
-    "special": []
+    ]
   },
   "stats": [
     {

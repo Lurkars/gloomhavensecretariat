@@ -10,8 +10,7 @@
     "attack": 2,
     "immunities": [
       "poison"
-    ],
-    "special": []
+    ]
   },
   "stats": [
     {

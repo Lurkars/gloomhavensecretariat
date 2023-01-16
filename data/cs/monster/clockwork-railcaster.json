@@ -7,12 +7,10 @@
   "count": 6,
   "baseStat": {
     "type": "normal",
-    "actions": [],
     "immunities": [
       "wound",
       "poison"
-    ],
-    "special": []
+    ]
   },
   "stats": [
     {
@@ -20,24 +18,21 @@
       "health": 4,
       "movement": 1,
       "attack": 2,
-      "range": 3,
-      "actions": []
+      "range": 3
     },
     {
       "level": 1,
       "health": 5,
       "movement": 1,
       "attack": 2,
-      "range": 4,
-      "actions": []
+      "range": 4
     },
     {
       "level": 2,
       "health": 6,
       "movement": 1,
       "attack": 3,
-      "range": 4,
-      "actions": []
+      "range": 4
     },
     {
       "level": 3,
@@ -110,8 +105,7 @@
       "health": 6,
       "movement": 1,
       "attack": 3,
-      "range": 4,
-      "actions": []
+      "range": 4
     },
     {
       "type": "elite",

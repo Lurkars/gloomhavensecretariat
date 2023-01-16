@@ -12,9 +12,7 @@
         "type": "condition",
         "value": "poison"
       }
-    ],
-    "immunities": [],
-    "special": []
+    ]
   },
   "stats": [
     {

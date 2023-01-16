@@ -547,10 +547,13 @@
       "dismiss": "Schließen",
       "figures": {
         "all": "Alle Figuren",
-        "damage": "{0} erleiden %game.damage:{1}%",
+        "amAdd": "{0} fügen %character.progress.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% zum Angriffsmodifikatordeck hinzu",
+        "amRemove": "{0} entfernen %character.progress.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% vom Angriffsmodifikatordeck",
+        "damage": "{0} erleiden %game.damage:{2}%",
         "gainCondition": "{0} erlangt %game.condition.{1}%",
-        "hp": "{0} TP auf {1}",
+        "hp": "{0} TP auf {2}",
         "looseCondition": "{0} loose %game.condition.{1}%",
+        "scenarioEffect": "als Szenarioeffekt",
         "toggleOff": "{0} inaktiv setzen",
         "toggleOn": "{0} aktiv setzen",
         "transfer": "{0} wird zu %data.monster.{1}%"

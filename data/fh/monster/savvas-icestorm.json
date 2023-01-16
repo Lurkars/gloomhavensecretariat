@@ -3,9 +3,7 @@
   "edition": "fh",
   "count": 4,
   "baseStat": {
-    "type": "normal",
-    "immunities": [],
-    "special": []
+    "type": "normal"
   },
   "stats": [
     {

@@ -6,7 +6,6 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [
       "disarm",
       "wound",
@@ -17,7 +16,29 @@
       [
         {
           "type": "summon",
-          "value": "living-bones"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "living-bones",
+                "player3": "normal"
+              }
+            },
+            {
+              "monster": {
+                "name": "living-bones",
+                "player3": "elite"
+              }
+            },
+            {
+              "monster": {
+                "name": "living-bones",
+                "player2": "normal",
+                "player4": "elite"
+              },
+              "count": 2
+            }
+          ]
         },
         {
           "type": "attack",
@@ -35,7 +56,29 @@
       [
         {
           "type": "summon",
-          "value": "living-corpse"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "living-corpse",
+                "player3": "normal"
+              }
+            },
+            {
+              "monster": {
+                "name": "living-corpse",
+                "player3": "elite"
+              }
+            },
+            {
+              "monster": {
+                "name": "living-corpse",
+                "player2": "normal",
+                "player4": "elite"
+              },
+              "count": 2
+            }
+          ]
         },
         {
           "type": "move",

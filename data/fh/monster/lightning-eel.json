@@ -10,9 +10,7 @@
         "type": "custom",
         "value": "Treats water hexes as corridors and non-water hexes as obstacles"
       }
-    ],
-    "immunities": [],
-    "special": []
+    ]
   },
   "stats": [
     {

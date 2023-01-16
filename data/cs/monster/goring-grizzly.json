@@ -8,11 +8,9 @@
   "count": 4,
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [
       "poison"
-    ],
-    "special": []
+    ]
   },
   "stats": [
     {

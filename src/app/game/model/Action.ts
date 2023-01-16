@@ -1,6 +1,7 @@
 export class Action {
   type: ActionType;
   value: number | string;
+  valueObject: object | undefined;
   valueType: ActionValueType;
   subActions: Action[];
   small: boolean;

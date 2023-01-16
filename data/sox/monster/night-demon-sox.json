@@ -13,9 +13,7 @@
         "value": "%game.custom.disadvantage%",
         "small": true
       }
-    ],
-    "immunities": [],
-    "special": []
+    ]
   },
   "stats": [
     {

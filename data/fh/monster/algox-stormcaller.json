@@ -10,7 +10,6 @@
     "health": "Cx20",
     "movement": 2,
     "attack": 3,
-    "actions": [],
     "immunities": [
       "immobilize",
       "disarm",
@@ -43,8 +42,17 @@
         },
         {
           "type": "summon",
-          "value": "wind-demon",
-          "small": true
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "wind-demon",
+                "player2": "normal",
+                "player3": "normal",
+                "player4": "elite"
+              }
+            }
+          ]
         }
       ],
       [
@@ -55,8 +63,17 @@
         },
         {
           "type": "summon",
-          "value": "frost-demon",
-          "small": true
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "frost-demon",
+                "player2": "normal",
+                "player3": "elite",
+                "player4": "elite"
+              }
+            }
+          ]
         }
       ]
     ]

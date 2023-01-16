@@ -104,32 +104,9 @@
           "value": "(2xC)+L-2",
           "identifier": {
             "type": "monster",
-            "edition": "fc",
+            "edition": "gh",
             "name": "prime-demon-36"
           }
-        }
-      ]
-    },
-    {
-      "round": "once",
-      "spawns": [
-        {
-          "monster": {
-            "name": "prime-demon-36",
-            "type": "boss"
-          },
-          "marker": "e"
-        }
-      ],
-      "figures": [
-        {
-          "identifier": {
-            "type": "objective",
-            "edition": "objective",
-            "name": "Door",
-            "marker": "1"
-          },
-          "type": "dead"
         }
       ]
     }
@@ -178,6 +155,10 @@
         {
           "name": "frost-demon",
           "player4": "normal"
+        },
+        {
+          "name": "prime-demon-36",
+          "type": "boss"
         },
         {
           "name": "wind-demon",

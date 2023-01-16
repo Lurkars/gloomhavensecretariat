@@ -10,7 +10,6 @@
     "type": "boss",
     "note": "%game.custom.scenarioBook%",
     "movement": 3,
-    "actions": [],
     "immunities": [
       "immobilize",
       "muddle",
@@ -23,8 +22,7 @@
       "brittle",
       "push",
       "pull"
-    ],
-    "special": []
+    ]
   },
   "stats": [
     {

@@ -11,6 +11,54 @@
     "inox-guard",
     "inox-shaman"
   ],
+  "rules": [
+    {
+      "round": "R % 2 == 1",
+      "spawns": [
+        {
+          "monster": {
+            "name": "inox-guard",
+            "player2": "normal"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "spawns": [
+        {
+          "monster": {
+            "name": "inox-guard",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "a"
+        }
+      ]
+    },
+    {
+      "round": "always",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "gh",
+          "scenario": "3",
+          "index": 0,
+          "section": false
+        },
+        {
+          "edition": "gh",
+          "scenario": "3",
+          "index": 1,
+          "section": false
+        }
+      ],
+      "requiredRooms": [
+        6
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

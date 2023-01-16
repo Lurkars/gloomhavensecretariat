@@ -7,7 +7,6 @@
   "baseStat": {
     "type": "boss",
     "range": 3,
-    "actions": [],
     "immunities": [
       "stun",
       "disarm",

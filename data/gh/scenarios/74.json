@@ -24,6 +24,50 @@
       "rooms": [
         3
       ]
+    },
+    {
+      "round": "once",
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "deep-terror",
+            "player2": "normal",
+            "player3": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "deep-terror",
+            "player4": "normal"
+          },
+          "marker": "b",
+          "count": 2
+        }
+      ],
+      "requiredRooms": [
+        2
+      ]
+    },
+    {
+      "round": "once",
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "deep-terror",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c",
+          "count": 2
+        }
+      ],
+      "requiredRooms": [
+        3
+      ]
     }
   ],
   "rooms": [

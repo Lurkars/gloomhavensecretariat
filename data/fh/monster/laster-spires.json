@@ -7,8 +7,6 @@
     "baseStat": {
         "type": "boss",
         "health": 0,
-        "actions": [],
-        "immunities": [],
         "special": [
             [
                 {

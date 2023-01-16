@@ -138,7 +138,17 @@
       "actions": [
         {
           "type": "summon",
-          "value": "living-spirit"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "living-spirit",
+                "player2": "normal",
+                "player3": "normal",
+                "player4": "elite"
+              }
+            }
+          ]
         },
         {
           "type": "custom",
@@ -154,7 +164,17 @@
       "actions": [
         {
           "type": "summon",
-          "value": "living-spirit"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "living-spirit",
+                "player2": "normal",
+                "player3": "elite",
+                "player4": "elite"
+              }
+            }
+          ]
         },
         {
           "type": "custom",

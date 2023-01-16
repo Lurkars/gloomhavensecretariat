@@ -18,6 +18,22 @@
   ],
   "rules": [
     {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "edition": "gh",
+            "name": ".*"
+          },
+          "type": "condition",
+          "value": "poison",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
       "round": "true",
       "figures": [
         {

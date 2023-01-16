@@ -14,6 +14,7 @@
   "rules": [
     {
       "round": "always",
+      "always": true,
       "disableRules": [
         {
           "edition": "fc",

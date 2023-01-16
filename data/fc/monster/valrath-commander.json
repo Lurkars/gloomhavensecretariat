@@ -24,7 +24,66 @@
       "curse",
       "stun"
     ],
-    "special": []
+    "special": [
+      [
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "valrath-tracker",
+                "player2": "normal",
+                "player3": "elite",
+                "player4": "elite"
+              }
+            }
+          ]
+        },
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "heal",
+          "value": "[0.35*L+1.65{%math.ceil}]",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "alliesAdjacentAffect",
+              "small": true
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "summon",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "valrath-savage",
+                "player2": "normal",
+                "player3": "normal",
+                "player4": "elite"
+              }
+            }
+          ]
+        }
+      ]
+    ]
   },
   "stats": [
     {
@@ -38,46 +97,6 @@
           "type": "condition",
           "value": "wound"
         }
-      ],
-      "special": [
-        [
-          {
-            "type": "summon",
-            "value": "valrath-tracker"
-          },
-          {
-            "type": "move",
-            "value": 1,
-            "valueType": "minus"
-          },
-          {
-            "type": "heal",
-            "value": 2,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "alliesAdjacentAffect",
-                "small": true
-              }
-            ]
-          }
-        ],
-        [
-          {
-            "type": "move",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "attack",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "summon",
-            "value": "valrath-savage"
-          }
-        ]
       ]
     },
     {
@@ -91,46 +110,6 @@
           "type": "condition",
           "value": "wound"
         }
-      ],
-      "special": [
-        [
-          {
-            "type": "summon",
-            "value": "valrath-tracker"
-          },
-          {
-            "type": "move",
-            "value": 1,
-            "valueType": "minus"
-          },
-          {
-            "type": "heal",
-            "value": 2,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "alliesAdjacentAffect",
-                "small": true
-              }
-            ]
-          }
-        ],
-        [
-          {
-            "type": "move",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "attack",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "summon",
-            "value": "valrath-savage"
-          }
-        ]
       ]
     },
     {
@@ -144,46 +123,6 @@
           "type": "condition",
           "value": "wound"
         }
-      ],
-      "special": [
-        [
-          {
-            "type": "summon",
-            "value": "valrath-tracker"
-          },
-          {
-            "type": "move",
-            "value": 1,
-            "valueType": "minus"
-          },
-          {
-            "type": "heal",
-            "value": 3,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "alliesAdjacentAffect",
-                "small": true
-              }
-            ]
-          }
-        ],
-        [
-          {
-            "type": "move",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "attack",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "summon",
-            "value": "valrath-savage"
-          }
-        ]
       ]
     },
     {
@@ -192,46 +131,6 @@
       "movement": 3,
       "attack": 5,
       "range": 3,
-      "special": [
-        [
-          {
-            "type": "summon",
-            "value": "valrath-tracker"
-          },
-          {
-            "type": "move",
-            "value": 1,
-            "valueType": "minus"
-          },
-          {
-            "type": "heal",
-            "value": 3,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "alliesAdjacentAffect",
-                "small": true
-              }
-            ]
-          }
-        ],
-        [
-          {
-            "type": "move",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "attack",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "summon",
-            "value": "valrath-savage"
-          }
-        ]
-      ],
       "actions": [
         {
           "type": "condition",
@@ -249,46 +148,6 @@
       "movement": 3,
       "attack": 5,
       "range": 4,
-      "special": [
-        [
-          {
-            "type": "summon",
-            "value": "valrath-tracker"
-          },
-          {
-            "type": "move",
-            "value": 1,
-            "valueType": "minus"
-          },
-          {
-            "type": "heal",
-            "value": 4,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "alliesAdjacentAffect",
-                "small": true
-              }
-            ]
-          }
-        ],
-        [
-          {
-            "type": "move",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "attack",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "summon",
-            "value": "valrath-savage"
-          }
-        ]
-      ],
       "actions": [
         {
           "type": "condition",
@@ -306,46 +165,6 @@
       "movement": 3,
       "attack": 6,
       "range": 4,
-      "special": [
-        [
-          {
-            "type": "summon",
-            "value": "valrath-tracker"
-          },
-          {
-            "type": "move",
-            "value": 1,
-            "valueType": "minus"
-          },
-          {
-            "type": "heal",
-            "value": 4,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "alliesAdjacentAffect",
-                "small": true
-              }
-            ]
-          }
-        ],
-        [
-          {
-            "type": "move",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "attack",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "summon",
-            "value": "valrath-savage"
-          }
-        ]
-      ],
       "actions": [
         {
           "type": "condition",
@@ -363,46 +182,6 @@
       "movement": 4,
       "attack": 6,
       "range": 4,
-      "special": [
-        [
-          {
-            "type": "summon",
-            "value": "valrath-tracker"
-          },
-          {
-            "type": "move",
-            "value": 1,
-            "valueType": "minus"
-          },
-          {
-            "type": "heal",
-            "value": 4,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "alliesAdjacentAffect",
-                "small": true
-              }
-            ]
-          }
-        ],
-        [
-          {
-            "type": "move",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "attack",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "summon",
-            "value": "valrath-savage"
-          }
-        ]
-      ],
       "actions": [
         {
           "type": "condition",
@@ -420,46 +199,6 @@
       "movement": 4,
       "attack": 7,
       "range": 5,
-      "special": [
-        [
-          {
-            "type": "summon",
-            "value": "valrath-tracker"
-          },
-          {
-            "type": "move",
-            "value": 1,
-            "valueType": "minus"
-          },
-          {
-            "type": "heal",
-            "value": 5,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "alliesAdjacentAffect",
-                "small": true
-              }
-            ]
-          }
-        ],
-        [
-          {
-            "type": "move",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "attack",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "summon",
-            "value": "valrath-savage"
-          }
-        ]
-      ],
       "actions": [
         {
           "type": "condition",

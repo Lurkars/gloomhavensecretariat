@@ -10,8 +10,6 @@
     "type": "boss",
     "movement": 0,
     "attack": 4,
-    "actions": [],
-    "immunities": [],
     "special": [
       [
         {

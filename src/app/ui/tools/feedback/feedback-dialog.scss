@@ -67,5 +67,16 @@
                 opacity: 0.8;
             }
         }
+
+        .buttons {
+            display: flex;
+            justify-content: flex-end;
+            grid-column: span 2;
+            place-self: end;
+
+            .button {
+                margin: 0 0.5em
+            }
+        }
     }
 }

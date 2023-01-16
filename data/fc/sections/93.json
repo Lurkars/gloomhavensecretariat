@@ -22,7 +22,7 @@
   "rules": [
     {
       "round": "always",
-      "start": true,
+      "always": true,
       "disableRules": [
         {
           "edition": "fc",

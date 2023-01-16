@@ -34,13 +34,33 @@
         },
         {
           "type": "summon",
-          "value": "city-guard"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "city-guard",
+                "player2": "normal",
+                "player3": "elite",
+                "player4": "elite"
+              }
+            }
+          ]
         }
       ],
       [
         {
           "type": "summon",
-          "value": "city-guard"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "city-guard",
+                "player2": "normal",
+                "player3": "normal",
+                "player4": "elite"
+              }
+            }
+          ]
         },
         {
           "type": "move",
@@ -49,7 +69,7 @@
         },
         {
           "type": "shield",
-          "value": 1,
+          "value": "[1+(L+1)/4{%math.floor}]",
           "subActions": [
             {
               "type": "specialTarget",
@@ -72,46 +92,6 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "special": [
-        [
-          {
-            "type": "move",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "attack",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "summon",
-            "value": "city-guard"
-          }
-        ],
-        [
-          {
-            "type": "summon",
-            "value": "city-guard"
-          },
-          {
-            "type": "move",
-            "value": 1,
-            "valueType": "minus"
-          },
-          {
-            "type": "shield",
-            "value": 1,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "alliesAdjacentAffect",
-                "small": true
-              }
-            ]
-          }
-        ]
       ]
     },
     {
@@ -124,46 +104,6 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "special": [
-        [
-          {
-            "type": "move",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "attack",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "summon",
-            "value": "city-guard"
-          }
-        ],
-        [
-          {
-            "type": "summon",
-            "value": "city-guard"
-          },
-          {
-            "type": "move",
-            "value": 1,
-            "valueType": "minus"
-          },
-          {
-            "type": "shield",
-            "value": 1,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "alliesAdjacentAffect",
-                "small": true
-              }
-            ]
-          }
-        ]
       ]
     },
     {
@@ -176,46 +116,6 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "special": [
-        [
-          {
-            "type": "move",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "attack",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "summon",
-            "value": "city-guard"
-          }
-        ],
-        [
-          {
-            "type": "summon",
-            "value": "city-guard"
-          },
-          {
-            "type": "move",
-            "value": 1,
-            "valueType": "minus"
-          },
-          {
-            "type": "shield",
-            "value": 1,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "alliesAdjacentAffect",
-                "small": true
-              }
-            ]
-          }
-        ]
       ]
     },
     {
@@ -228,46 +128,6 @@
           "type": "shield",
           "value": 3
         }
-      ],
-      "special": [
-        [
-          {
-            "type": "move",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "attack",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "summon",
-            "value": "city-guard"
-          }
-        ],
-        [
-          {
-            "type": "summon",
-            "value": "city-guard"
-          },
-          {
-            "type": "move",
-            "value": 1,
-            "valueType": "minus"
-          },
-          {
-            "type": "shield",
-            "value": 2,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "alliesAdjacentAffect",
-                "small": true
-              }
-            ]
-          }
-        ]
       ]
     },
     {
@@ -280,46 +140,6 @@
           "type": "shield",
           "value": 3
         }
-      ],
-      "special": [
-        [
-          {
-            "type": "move",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "attack",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "summon",
-            "value": "city-guard"
-          }
-        ],
-        [
-          {
-            "type": "summon",
-            "value": "city-guard"
-          },
-          {
-            "type": "move",
-            "value": 1,
-            "valueType": "minus"
-          },
-          {
-            "type": "shield",
-            "value": 2,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "alliesAdjacentAffect",
-                "small": true
-              }
-            ]
-          }
-        ]
       ]
     },
     {
@@ -332,46 +152,6 @@
           "type": "shield",
           "value": 4
         }
-      ],
-      "special": [
-        [
-          {
-            "type": "move",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "attack",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "summon",
-            "value": "city-guard"
-          }
-        ],
-        [
-          {
-            "type": "summon",
-            "value": "city-guard"
-          },
-          {
-            "type": "move",
-            "value": 1,
-            "valueType": "minus"
-          },
-          {
-            "type": "shield",
-            "value": 2,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "alliesAdjacentAffect",
-                "small": true
-              }
-            ]
-          }
-        ]
       ]
     },
     {
@@ -384,46 +164,6 @@
           "type": "shield",
           "value": 4
         }
-      ],
-      "special": [
-        [
-          {
-            "type": "move",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "attack",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "summon",
-            "value": "city-guard"
-          }
-        ],
-        [
-          {
-            "type": "summon",
-            "value": "city-guard"
-          },
-          {
-            "type": "move",
-            "value": 1,
-            "valueType": "minus"
-          },
-          {
-            "type": "shield",
-            "value": 2,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "alliesAdjacentAffect",
-                "small": true
-              }
-            ]
-          }
-        ]
       ]
     },
     {
@@ -436,46 +176,6 @@
           "type": "shield",
           "value": 4
         }
-      ],
-      "special": [
-        [
-          {
-            "type": "move",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "attack",
-            "value": 0,
-            "valueType": "plus"
-          },
-          {
-            "type": "summon",
-            "value": "city-guard"
-          }
-        ],
-        [
-          {
-            "type": "summon",
-            "value": "city-guard"
-          },
-          {
-            "type": "move",
-            "value": 1,
-            "valueType": "minus"
-          },
-          {
-            "type": "shield",
-            "value": 3,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "alliesAdjacentAffect",
-                "small": true
-              }
-            ]
-          }
-        ]
       ]
     }
   ]

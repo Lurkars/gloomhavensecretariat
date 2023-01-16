@@ -11,6 +11,63 @@
     "vermling-scout",
     "vermling-shaman"
   ],
+  "objectives": [
+    {
+      "name": "Villager",
+      "escort": true,
+      "health": "3+L",
+      "marker": "a",
+      "count": 11
+    }
+  ],
+  "rules": [
+    {
+      "round": "R % 2 == 1",
+      "spawns": [
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        },
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 0",
+      "spawns": [
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "e"
+        },
+        {
+          "monster": {
+            "name": "vermling-scout",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "f"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -62,6 +119,13 @@
           "name": "vermling-shaman",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        1,
+        1
       ]
     },
     {
@@ -79,6 +143,11 @@
           "player3": "normal",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1
       ]
     },
     {
@@ -98,6 +167,11 @@
           "name": "vermling-shaman",
           "type": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1
       ]
     }
   ]

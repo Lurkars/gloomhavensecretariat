@@ -110,8 +110,8 @@
       "marker": "2",
       "monster": [
         {
-          "name": "city-guard",
-          "type": "elite"
+          "name": "the-harvester:+1",
+          "type": "boss"
         },
         {
           "name": "earth-demon",

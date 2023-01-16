@@ -126,7 +126,7 @@
   </span>
 
   <span class="action-summon" *ngSwitchCase="ActionType.summon" [ngClass]="{'small' : action.small}">
-    <ghs-action-summon [action]="action" [right]="right"></ghs-action-summon>
+    <ghs-action-summon [action]="action" [right]="right" [monster]="monster"></ghs-action-summon>
     <ng-container *ngIf="subActions && subActions.length > 0">
       <ghs-action [ngClass]="'subaction-' + subAction.type"
         *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0)" [action]="subAction" [monster]="monster"

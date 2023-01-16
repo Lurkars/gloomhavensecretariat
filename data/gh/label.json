@@ -21,9 +21,12 @@
       "bloated-regent": "Bloated Regent",
       "captain-of-the-guard": "Captain of the Guard",
       "cave-bear": "Cave Bear",
+      "cave-bear-54": "Cave Bear #54",
       "city-archer": "City Archer",
       "city-guard": "City Guard",
       "cultist": "Cultist",
+      "cultist-78": "Cultist #78",
+      "cultist-89": "Cultist #89",
       "dark-rider": "Dark Rider",
       "deep-terror": "Deep Terror",
       "earth-demon": "Earth Demon",
@@ -82,6 +85,14 @@
     "scenario": {
       "rules": {
         "gh": {
+          "42": {
+            "1": "All monsters add +1 %game.action.attack% to all their attacks",
+            "2": "All monsters gain Advantage on all their attacks",
+            "3": "All monsters heal 1 hit point at the start of each of their turns",
+            "4": "All characters and character summons suffer 1 damage at the start of each of their turns.",
+            "5": "All characters and character summons gain Disadvantage on all their attacks.",
+            "6": "All characters and character summons deduct -1 Attack from all their attacks."
+          },
           "71": {
             "1": "Move left",
             "2": "Move up",
@@ -340,9 +351,12 @@
       "black-imp": "Schwarzwicht",
       "captain-of-the-guard": "Hauptmann der Wache",
       "cave-bear": "Höhlenbär",
+      "cave-bear-54": "Höhlenbär #54",
       "city-archer": "Stadtschütze",
       "city-guard": "Stadtwache",
       "cultist": "Kultist",
+      "cultist-78": "Kultist #78",
+      "cultist-89": "Kultist #89",
       "dark-rider": "Der Dunkle Reiter",
       "deep-terror": "Tiefenschreck",
       "earth-demon": "Erddämon",
@@ -632,9 +646,12 @@
       "black-imp": "Diablotin Noir",
       "captain-of-the-guard": "Capitaine de la Garde",
       "cave-bear": "Ours des Cavernes",
+      "cave-bear-54": "Ours des Cavernes #54",
       "city-archer": "Archer de la Cité",
       "city-guard": "Garde de la Cité",
       "cultist": "Cultiste",
+      "cultist-78": "Cultiste #78",
+      "cultist-89": "Cultiste #89",
       "dark-rider": "Cavalier Sombre",
       "deep-terror": "Terreur des Profondeurs",
       "earth-demon": "Démon de Terre",

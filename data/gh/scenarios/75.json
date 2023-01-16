@@ -5,7 +5,110 @@
   "monsters": [
     "bloated-regent",
     "living-bones",
+    "living-corpse",
     "living-spirit"
+  ],
+  "objectives": [
+    {
+      "name": "Grave",
+      "health": "1+C",
+      "marker": "a",
+      "count": 4
+    },
+    {
+      "name": "Grave",
+      "health": "1+C",
+      "marker": "b",
+      "count": 4
+    },
+    {
+      "name": "Grave",
+      "health": "1+C",
+      "marker": "c"
+    }
+  ],
+  "rules": [
+    {
+      "round": "once",
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-corpse",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a",
+          "count": "F"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Grave",
+            "marker": "a"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "once",
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-corpse",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b",
+          "count": "F"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Grave",
+            "marker": "b"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "once",
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "bloated-regent",
+            "type": "boss"
+          },
+          "marker": "c"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Grave",
+            "marker": "c"
+          },
+          "type": "dead"
+        }
+      ],
+      "requiredRooms": [
+        3
+      ]
+    }
   ],
   "rooms": [
     {
@@ -28,6 +131,10 @@
           "player3": "elite",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        2
       ]
     },
     {
@@ -65,6 +172,14 @@
           "name": "living-spirit",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
       ]
     },
     {
@@ -85,6 +200,9 @@
           "name": "living-spirit",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        3
       ]
     }
   ]

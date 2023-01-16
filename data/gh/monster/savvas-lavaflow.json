@@ -3,10 +3,7 @@
   "edition": "gh",
   "count": 4,
   "baseStat": {
-    "type": "normal",
-    "actions": [],
-    "immunities": [],
-    "special": []
+    "type": "normal"
   },
   "stats": [
     {

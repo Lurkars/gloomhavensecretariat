@@ -8,7 +8,6 @@
   "count": 4,
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [
       "immobilize",
       "disarm",

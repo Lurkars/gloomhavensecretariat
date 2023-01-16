@@ -7,12 +7,10 @@
   "count": 6,
   "baseStat": {
     "type": "normal",
-    "actions": [],
     "immunities": [
       "wound",
       "poison"
-    ],
-    "special": []
+    ]
   },
   "stats": [
     {

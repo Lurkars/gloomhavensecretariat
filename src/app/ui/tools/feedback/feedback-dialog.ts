@@ -41,4 +41,32 @@ export class FeedbackDialogComponent {
 
         return mailto;
     }
+
+    downloadGameData() {
+        this.downloadDataHelper('ghs-game');
+        this.downloadDataHelper('ghs-settings');
+        this.downloadDataHelper('ghs-undo', true);
+        this.downloadDataHelper('ghs-undo-infos', true);
+        this.downloadDataHelper('ghs-redo', true);
+    }
+
+    downloadDataHelper(name: string, multiple: boolean = false): boolean {
+        const data = localStorage.getItem(name);
+        if (data) {
+            let downloadButton = document.createElement('a');
+            downloadButton.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(data));
+            downloadButton.setAttribute('download', name + ".json");
+            document.body.appendChild(downloadButton);
+            downloadButton.click();
+            document.body.removeChild(downloadButton);
+            if (multiple) {
+                let count = 1;
+                while (this.downloadDataHelper(name + "-" + count)) {
+                    count++;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
 }

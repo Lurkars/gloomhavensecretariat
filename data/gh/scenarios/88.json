@@ -80,8 +80,8 @@
           "type": "normal"
         },
         {
-          "name": "lurker",
-          "type": "elite"
+          "name": "lurker-king",
+          "type": "boss"
         },
         {
           "name": "lurker",

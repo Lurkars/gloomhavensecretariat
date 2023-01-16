@@ -8,14 +8,12 @@
   "count": 10,
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [
       "wound",
       "poison",
       "disarm",
       "stun"
-    ],
-    "special": []
+    ]
   },
   "stats": [
     {

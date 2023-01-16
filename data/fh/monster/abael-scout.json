@@ -4,9 +4,7 @@
   "deck": "scout",
   "count": 6,
   "baseStat": {
-    "type": "normal",
-    "immunities": [],
-    "special": []
+    "type": "normal"
   },
   "stats": [
     {

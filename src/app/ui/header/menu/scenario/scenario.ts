@@ -57,6 +57,13 @@ export class ScenarioMenuComponent implements OnInit {
         return +a.index - +b.index;
       }
 
+      const aMatch = a.index.match(/(\d+)/);
+      const bMatch = b.index.match(/(\d+)/);
+
+      if (aMatch && bMatch) {
+        return +(aMatch[0]) - +(bMatch[0]);
+      }
+
       return a.index.toLowerCase() < b.index.toLowerCase() ? -1 : 1
     });
   }

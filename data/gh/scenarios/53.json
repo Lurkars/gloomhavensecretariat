@@ -14,6 +14,22 @@
   ],
   "rules": [
     {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "edition": "gh",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:3",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
       "round": "R == 2",
       "start": true,
       "rooms": [

@@ -31,7 +31,17 @@
         },
         {
           "type": "summon",
-          "value": "rending-drake"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "rending-drake",
+                "player2": "normal",
+                "player3": "elite",
+                "player4": "elite"
+              }
+            }
+          ]
         }
       ],
       [
@@ -41,7 +51,17 @@
         },
         {
           "type": "summon",
-          "value": "spitting-drake"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "spitting-drake",
+                "player2": "normal",
+                "player3": "normal",
+                "player4": "elite"
+              }
+            }
+          ]
         }
       ]
     ]

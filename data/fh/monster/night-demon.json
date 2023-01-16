@@ -9,9 +9,7 @@
         "type": "custom",
         "value": "%game.custom.disadvantage%"
       }
-    ],
-    "immunities": [],
-    "special": []
+    ]
   },
   "stats": [
     {

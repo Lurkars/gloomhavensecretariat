@@ -112,13 +112,7 @@ export class EntityMenuDialogComponent {
   }
 
   attackModifierDeck(): AttackModifierDeck {
-    if (this.data.figure instanceof Character) {
-      return this.data.figure.attackModifierDeck;
-    } else if (this.data.figure instanceof Monster) {
-      return (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules()) && this.data.figure.isAlly ? gameManager.game.allyAttackModifierDeck : gameManager.game.monsterAttackModifierDeck;
-    }
-
-    return new AttackModifierDeck();
+    return gameManager.attackModifierManager.byFigure(this.data.figure);
   }
 
   beforeAttackModifierDeck(change: AttackModiferDeckChange) {

@@ -1,5 +1,5 @@
 <span class="feedback-dialog">
-
+    <!--
     <a *ngIf="form != 'issue'" (click)="form = 'scenario'"
         [ngClass]="{'active' : form == 'scenario'}">{{'tools.feedback.submitScenario' |
         ghsLabel}}</a>
@@ -20,6 +20,7 @@
             [href]="scenarioMail(scenarioName.value, scenarioIndex.value, scenarioNotes.value)">{{'tools.feedback.submitScenario.send'
             | ghsLabel}}</a>
     </div>
+-->
 
     <a (click)="form = 'issue'" [ngClass]="{'active' : form == 'issue'}">{{'tools.feedback.reportIssue' | ghsLabel}}</a>
 
@@ -39,12 +40,18 @@
         <label>{{'tools.feedback.reportIssue.text' | ghsLabel}}</label>
         <textarea #issuerText></textarea>
 
-        <a class="button" [ngClass]="{'disabled' : !issuerText.value}"
-            [href]="issueMail(issueType.value, issuerText.value)">{{'tools.feedback.reportIssue.send'
-            | ghsLabel}}</a>
+        <div class="buttons">
+            <a class="button" (click)="downloadGameData()">{{'tools.feedback.reportIssue.download' | ghsLabel}}</a>
+
+            <a class="button" [ngClass]="{'disabled' : !issuerText.value}"
+                [href]="issueMail(issueType.value, issuerText.value)">{{'tools.feedback.reportIssue.send' |
+                ghsLabel}}</a>
+        </div>
     </div>
 
+    <!--
     <a *ngIf="form == 'issue'" (click)="form = 'scenario'">{{'tools.feedback.submitScenario' | ghsLabel}}</a>
+    -->
 
     <a href="https://github.com/Lurkars/gloomhavensecretariat/issues/new/choose"
         target="_blank">{{'tools.feedback.githubIssue' | ghsLabel}}</a>

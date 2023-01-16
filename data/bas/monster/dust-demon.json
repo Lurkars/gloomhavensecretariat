@@ -4,8 +4,7 @@
   "flying": true,
   "count": 6,
   "baseStat": {
-    "immunities": [],
-    "special": [],
+    
     "type": "normal"
   },
   "stats": [

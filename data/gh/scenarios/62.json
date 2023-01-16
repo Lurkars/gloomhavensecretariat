@@ -38,6 +38,9 @@
       "roomNumber": 1,
       "ref": "b2b",
       "initial": true,
+      "rooms": [
+        2
+      ],
       "treasures": [
         59
       ],
@@ -70,6 +73,17 @@
         {
           "name": "living-spirit",
           "player3": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "",
+      "marker": "1",
+      "monster": [
+        {
+          "name": "hungry-soul",
+          "type": "boss"
         }
       ]
     }

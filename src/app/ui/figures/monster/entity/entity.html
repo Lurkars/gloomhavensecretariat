@@ -16,6 +16,7 @@
     </div>
 
     <div class="markers">
+      <span class="map-marker" *ngIf="entity.marker">{{entity.marker}}</span>
       <span class="marker" *ngFor="let marker of entity.markers;">
         <img src="./assets/images/character/icons/{{marker}}.svg" />
       </span>

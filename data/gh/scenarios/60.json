@@ -11,13 +11,14 @@
   ],
   "rules": [
     {
-      "round": "R > 6 && R < 13",
+      "round": "R > 6",
       "start": true,
       "figures": [
         {
           "identifier": {
             "type": "all"
           },
+          "scenarioEffect": true,
           "type": "damage",
           "value": "2"
         }

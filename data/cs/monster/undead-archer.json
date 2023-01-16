@@ -6,10 +6,7 @@
   "count": 10,
   "baseStat": {
     "type": "normal",
-    "range": 3,
-    "actions": [],
-    "immunities": [],
-    "special": []
+    "range": 3
   },
   "stats": [
     {

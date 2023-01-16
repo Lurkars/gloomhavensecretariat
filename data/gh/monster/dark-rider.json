@@ -7,7 +7,6 @@
   "baseStat": {
     "type": "boss",
     "note": "%data.custom.gh.dark-rider.1%",
-    "actions": [],
     "immunities": [
       "immobilize",
       "poison",
@@ -35,7 +34,23 @@
         },
         {
           "type": "summon",
-          "value": "forest-imp"
+          "value": "forest-imp",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "forest-imp",
+                "player2": "normal"
+              }
+            },
+            {
+              "monster": {
+                "name": "forest-imp",
+                "player3": "normal",
+                "player4": "normal"
+              },
+              "count": 2
+            }
+          ]
         },
         {
           "type": "attack",

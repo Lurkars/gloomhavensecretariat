@@ -11,272 +11,75 @@
       "muddle",
       "stun"
     ],
-    "special": []
+    "special": [
+      [
+        {
+          "type": "heal",
+          "value": "[C+L/2{%math.floor}]",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ],
+      [
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "allies",
+              "small": true
+            }
+          ]
+        }
+      ]
+    ]
   },
   "stats": [
     {
       "level": 0,
       "health": "7xC",
-      "attack": "C-1",
-      "special": [
-        [
-          {
-            "type": "heal",
-            "value": "C",
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "self",
-                "small": true
-              }
-            ]
-          }
-        ],
-        [
-          {
-            "type": "heal",
-            "value": 2,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "allies",
-                "small": true
-              }
-            ]
-          }
-        ]
-      ]
+      "attack": "C-1"
     },
     {
       "level": 1,
       "health": "10xC",
-      "attack": "C",
-      "special": [
-        [
-          {
-            "type": "heal",
-            "value": "C",
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "self",
-                "small": true
-              }
-            ]
-          }
-        ],
-        [
-          {
-            "type": "heal",
-            "value": 2,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "allies",
-                "small": true
-              }
-            ]
-          }
-        ]
-      ]
+      "attack": "C"
     },
     {
       "level": 2,
       "health": "12xC",
-      "attack": "C",
-      "special": [
-        [
-          {
-            "type": "heal",
-            "value": "C+1",
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "self",
-                "small": true
-              }
-            ]
-          }
-        ],
-        [
-          {
-            "type": "heal",
-            "value": 3,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "allies",
-                "small": true
-              }
-            ]
-          }
-        ]
-      ]
+      "attack": "C"
     },
     {
       "level": 3,
       "health": "15xC",
-      "attack": "C+1",
-      "special": [
-        [
-          {
-            "type": "heal",
-            "value": "C+1",
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "self",
-                "small": true
-              }
-            ]
-          }
-        ],
-        [
-          {
-            "type": "heal",
-            "value": 3,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "allies",
-                "small": true
-              }
-            ]
-          }
-        ]
-      ]
+      "attack": "C+1"
     },
     {
       "level": 4,
       "health": "17xC",
-      "attack": "C+1",
-      "special": [
-        [
-          {
-            "type": "heal",
-            "value": "C+2",
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "self",
-                "small": true
-              }
-            ]
-          }
-        ],
-        [
-          {
-            "type": "heal",
-            "value": 4,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "allies",
-                "small": true
-              }
-            ]
-          }
-        ]
-      ]
+      "attack": "C+1"
     },
     {
       "level": 5,
       "health": "20xC",
-      "attack": "C+2",
-      "special": [
-        [
-          {
-            "type": "heal",
-            "value": "C+2",
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "self",
-                "small": true
-              }
-            ]
-          }
-        ],
-        [
-          {
-            "type": "heal",
-            "value": 4,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "allies",
-                "small": true
-              }
-            ]
-          }
-        ]
-      ]
+      "attack": "C+2"
     },
     {
       "level": 6,
       "health": "23xC",
-      "attack": "C+2",
-      "special": [
-        [
-          {
-            "type": "heal",
-            "value": "C+3",
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "self",
-                "small": true
-              }
-            ]
-          }
-        ],
-        [
-          {
-            "type": "heal",
-            "value": 5,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "allies",
-                "small": true
-              }
-            ]
-          }
-        ]
-      ]
+      "attack": "C+2"
     },
     {
       "level": 7,
       "health": "28xC",
-      "attack": "C+3",
-      "special": [
-        [
-          {
-            "type": "heal",
-            "value": "C+3",
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "self",
-                "small": true
-              }
-            ]
-          }
-        ],
-        [
-          {
-            "type": "heal",
-            "value": 5,
-            "subActions": [
-              {
-                "type": "specialTarget",
-                "value": "allies",
-                "small": true
-              }
-            ]
-          }
-        ]
-      ]
+      "attack": "C+3"
     }
   ]
 }

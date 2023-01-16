@@ -101,11 +101,9 @@ export class MonsterEditorComponent implements OnInit {
 
     let compactData: any = JSON.parse(JSON.stringify(this.monsterData));
 
-
-
-    compactData.baseStat.actions = compactData.baseStat.actions || [];
-    compactData.baseStat.immunities = compactData.baseStat.immunities || [];
-    compactData.baseStat.special = compactData.baseStat.special || [];
+    compactData.baseStat.actions = compactData.baseStat.actions || undefined;
+    compactData.baseStat.immunities = compactData.baseStat.immunities || undefined;
+    compactData.baseStat.special = compactData.baseStat.special || undefined;
 
     Object.keys(compactData.stats[0]).forEach((key) => {
       if (compactData.stats.every((stat: any) => JSON.stringify(stat[key]) == JSON.stringify(compactData.stats[0][key]))) {

@@ -8,10 +8,7 @@
   "count": 6,
   "baseStat": {
     "type": "boss",
-    "movement": 3,
-    "actions": [],
-    "immunities": [],
-    "special": []
+    "movement": 3
   },
   "stats": [
     {

@@ -47,8 +47,6 @@ export class GameManager {
 
   uiChange = new EventEmitter();
 
-  gameplayFigures: number = 0;
-
   constructor() {
     this.stateManager = new StateManager(this.game);
     this.entityManager = new EntityManager(this.game);
@@ -65,13 +63,9 @@ export class GameManager {
           this.levelManager.calculateScenarioLevel();
         }
         if (settingsManager.settings.scenarioRules) {
-          const gameplayFigures = this.game.figures.filter((figure) => this.gameplayFigure(figure)).length;
-          if (this.gameplayFigures != gameplayFigures) {
-            if (this.game.round > 0) {
-              this.scenarioManager.addScnearioRulesFigures()
-            };
-            this.gameplayFigures = gameplayFigures;
-          }
+          if (this.game.round > 0) {
+            this.scenarioManager.addScenarioRulesAlways();
+          };
         }
       }
     })
@@ -346,11 +340,22 @@ export class GameManager {
     return figure instanceof Monster && figure.entities.length > 0 && figure.entities.some((entity) => !entity.dead && entity.health > 0) || figure instanceof Character && !figure.absent || (figure instanceof Character || figure instanceof Objective) && !figure.exhausted && (figure.health > 0 || EntityValueFunction(figure.maxHealth) == 0);
   }
 
-  figuresByString(identifier: FigureIdentifier): Figure[] {
+  figuresByIdentifier(identifier: FigureIdentifier, scenarioEffect: boolean): Figure[] {
     if (identifier && identifier.type) {
       const type = identifier.type;
       if (type == "all") {
-        return this.game.figures;
+        return scenarioEffect ? this.game.figures.filter((figure) => {
+          if (!(figure instanceof Character)) {
+            return true
+          }
+          const perk = figure.perks.find((perk) => perk.custom == '%game.custom.perks.ignoreNegativeScenario%');
+          if (!perk) {
+            return true;
+          } else {
+            const perkIndex = figure.perks.indexOf(perk);
+            return !figure.progress.perks[perkIndex] || perk.combined ? (figure.progress.perks[perkIndex] != perk.count) : figure.progress.perks[perkIndex] < 1;
+          }
+        }) : this.game.figures;
       }
       if (identifier.edition && identifier.name) {
         const edition = identifier.edition;
@@ -358,9 +363,25 @@ export class GameManager {
         const marker = identifier.marker;
         switch (type) {
           case "monster":
-            return this.game.figures.filter((figure) => figure instanceof Monster && figure.edition == edition && figure.name.match(name));
+            return this.game.figures.filter((figure) => figure instanceof Monster && figure.edition == edition && figure.name.match(name) && (!identifier.marker || figure.entities.some((entity) => entity.marker == identifier.marker)));
           case "character":
-            return this.game.figures.filter((figure) => figure instanceof Character && figure.edition == edition && figure.name.match(name));
+            return this.game.figures.filter((figure) => {
+              if (figure instanceof Character && figure.edition == edition && figure.name.match(name)) {
+                if (scenarioEffect) {
+                  const perk = figure.perks.find((perk) => perk.custom == '%game.custom.perks.ignoreNegativeScenario%');
+                  if (!perk) {
+                    return true;
+                  } else {
+                    const perkIndex = figure.perks.indexOf(perk);
+                    return !figure.progress.perks[perkIndex] || perk.combined ? (figure.progress.perks[perkIndex] != perk.count) : figure.progress.perks[perkIndex] < 1;
+                  }
+                } else {
+                  return true;
+                }
+              } else {
+                return false;
+              }
+            });
           case "objective":
             return this.game.figures.filter((figure) => figure instanceof Objective && figure.name.match(name) && (edition != "escort" || figure.escort) && (!marker || figure.marker == marker));
         }

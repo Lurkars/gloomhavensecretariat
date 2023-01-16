@@ -1,7 +1,13 @@
 import { Component, Input, OnChanges } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Action } from "src/app/game/model/Action";
+import { Character } from "src/app/game/model/Character";
+import { MonsterStandeeData } from "src/app/game/model/data/RoomData";
+import { MonsterSpawnData } from "src/app/game/model/data/ScenarioRule";
 import { SummonData } from "src/app/game/model/data/SummonData";
+import { EntityValueFunction } from "src/app/game/model/Entity";
+import { Monster } from "src/app/game/model/Monster";
 import { MonsterType } from "src/app/game/model/MonsterType";
 
 @Component({
@@ -11,13 +17,17 @@ import { MonsterType } from "src/app/game/model/MonsterType";
 })
 export class ActionSummonComponent implements OnChanges {
 
+  @Input() monster: Monster | undefined;
   @Input() action!: Action;
   @Input() right: boolean = false;
   @Input() additional: boolean = false;
-  monsters: string[] = [];
+  monsters: MonsterSpawnData[] = [];
   type: MonsterType | undefined;
   summon: SummonData | undefined;
   count: number | undefined;
+  spawns: number[] = [];
+
+  settingsManager: SettingsManager = settingsManager;
 
   constructor() {
     gameManager.uiChange.subscribe({
@@ -36,33 +46,86 @@ export class ActionSummonComponent implements OnChanges {
     this.monsters = [];
     this.count = undefined;
     this.type = undefined;
-    if (this.action.value) {
-      try {
-        let value = JSON.parse('' + this.action.value);
-        if (typeof value != 'string') {
-          this.summon = new SummonData(value.name, value.health, value.attack, value.movement, value.range, value.action, value.additionalAction);
-        } else {
-          throw Error("fallback");
+    if (this.action.value == 'summonData') {
+      this.summon = this.action.valueObject as SummonData;
+      console.log(this.summon);
+    } if (this.action.value == 'monsterStandee') {
+      this.monsters = JSON.parse(JSON.stringify(this.action.valueObject)) as MonsterSpawnData[];
+      const charCount = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length;
+      this.monsters = this.monsters.filter((spawn) => {
+        if (spawn.monster.type) {
+          return true;
+        } else if (charCount < 3 && spawn.monster.player2) {
+          return true;
+        } else if (charCount == 3 && spawn.monster.player3) {
+          return true;
+        } else if (charCount > 3 && spawn.monster.player4) {
+          return true;
         }
-      } catch (e) {
-        this.summon = undefined;
-        const summonValue = ('' + this.action.value).split(':');
-        this.monsters = summonValue[0].split('|');
+
+        return !settingsManager.settings.calculate;
+      })
+      this.monsters.forEach((spawn) => {
+        if (!spawn.monster.type) {
+          if (charCount < 3 && spawn.monster.player2) {
+            spawn.monster.type = spawn.monster.player2;
+          } else if (charCount == 3 && spawn.monster.player3) {
+            spawn.monster.type = spawn.monster.player3;
+          } else if (charCount > 3 && spawn.monster.player4) {
+            spawn.monster.type = spawn.monster.player4;
+          }
+        }
+      })
+    } else {
+      ('' + this.action.value).split('|').forEach((value) => {
+        const summonValue = value.split(':');
+        let monsterStandee = new MonsterStandeeData(summonValue[0]);
+        monsterStandee.type = MonsterType.normal;
+        let monsterSpawn = new MonsterSpawnData(monsterStandee);
+
         if (summonValue.length > 1) {
           if (!isNaN(+summonValue[1])) {
-            this.count = +summonValue[1];
+            monsterSpawn.count = +summonValue[1];
           } else {
-            this.type = summonValue[1] as unknown as MonsterType;
+            monsterStandee.type = summonValue[1] as unknown as MonsterType;
           }
         }
 
         if (summonValue.length > 2) {
           if (!isNaN(+summonValue[2])) {
-            this.count = +summonValue[2];
+            monsterSpawn.count = +summonValue[2];
           }
         }
-      }
+
+        this.monsters.push(monsterSpawn);
+      });
     }
   }
 
+  getSummonLabel(monsterSpawnData: MonsterSpawnData): string {
+    if (monsterSpawnData.monster.player2 == monsterSpawnData.monster.player3 && monsterSpawnData.monster.player3 == monsterSpawnData.monster.player4) {
+      return settingsManager.getLabel('game.summon.playerAll', ['' + monsterSpawnData.monster.type]);
+    } else if (monsterSpawnData.monster.player2 == monsterSpawnData.monster.player3) {
+      return settingsManager.getLabel('game.summon.player2-3', ['' + monsterSpawnData.monster.player2, '' + monsterSpawnData.monster.player4]);
+    } else if (monsterSpawnData.monster.player3 == monsterSpawnData.monster.player4) {
+      return settingsManager.getLabel('game.summon.player3-4', ['' + monsterSpawnData.monster.player2, '' + monsterSpawnData.monster.player4]);
+    } else {
+      console.warn('Incorrect summon data', monsterSpawnData);
+    }
+    return "";
+  }
+
+
+  spawnSummons(event: any, spawn: MonsterSpawnData, index: number) {
+    if (spawn.monster && spawn.monster.type && gameManager.game.scenario) {
+      const count = EntityValueFunction(spawn.count || 1);
+      gameManager.stateManager.before("summonAction", "data.monster." + spawn.monster.name, "game.monsterType." + spawn.monster.type, '' + count);
+      for (let i = 0; i < count; i++) {
+        gameManager.monsterManager.spawnMonsterEntity(spawn.monster.name, spawn.monster.type, gameManager.game.scenario);
+      }
+      this.spawns.push(index);
+      gameManager.stateManager.after();
+    }
+    event.preventDefault();
+  }
 }

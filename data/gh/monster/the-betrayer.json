@@ -6,7 +6,6 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [
       "wound",
       "poison",
@@ -18,14 +17,35 @@
       [
         {
           "type": "summon",
-          "value": "giant-viper|fear"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "giant-viper",
+                "player2": "normal",
+                "player3": "normal"
+              }
+            },
+            {
+              "monster": {
+                "name": "giant-viper",
+                "player3": "elite"
+              }
+            },
+            {
+              "monster": {
+                "name": "giant-viper",
+                "player4": "elite"
+              },
+              "count": 2
+            }
+          ]
         }
       ],
       [
         {
           "type": "custom",
-          "value": "%data.custom.gh.the-betrayer.1%",
-          "small": true
+          "value": "%data.custom.gh.the-betrayer.1%"
         }
       ]
     ]

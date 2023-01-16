@@ -62,16 +62,16 @@
           "player4": "elite"
         },
         {
-          "name": "living-corpse",
+          "name": "living-corpse:+2",
           "type": "elite"
         },
         {
-          "name": "living-corpse",
+          "name": "living-corpse:+2",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "living-corpse",
+          "name": "living-corpse:+2",
           "player3": "normal",
           "player4": "normal"
         }

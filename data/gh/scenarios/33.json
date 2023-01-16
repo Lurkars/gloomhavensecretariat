@@ -28,6 +28,7 @@
   "rules": [
     {
       "round": "once",
+      "always": true,
       "rooms": [
         2
       ],
@@ -41,6 +42,23 @@
           },
           "type": "dead"
         }
+      ]
+    },
+    {
+      "round": "once",
+      "spawns": [
+        {
+          "monster": {
+            "name": "savvas-lavaflow",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "d"
+        }
+      ],
+      "requiredRooms": [
+        4
       ]
     }
   ],

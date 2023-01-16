@@ -127,6 +127,14 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
+
+      .figure {
+        display: flex;
+
+        span {
+          margin: 0 0.2em;
+        }
+      }
     }
 
     p {

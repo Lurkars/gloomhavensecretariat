@@ -86,6 +86,22 @@ for (edition_path of edition_dirs) {
     }
   }
 
+  edition_data['scenarios'] = edition_data['scenarios'].sort((a, b) => {
+    if (!a.group && b.group) {
+      return -1;
+    } else if (a.group && !b.group) {
+      return 1;
+    } else if (a.group && b.group && a.group != b.group) {
+      return a.group.toLowerCase < b.group.toLowerCase() ? -1 : 1;
+    }
+
+    if (a.index.match(/(\d+)/) && b.index.match(/(\d+)/)) {
+      return +(a.index.match(/(\d+)/)[0]) - +(b.index.match(/(\d+)/)[0])
+    }
+
+    return a.index.toLowerCase < b.index.toLowerCase() ? -1 : 1;
+  })
+
   edition_data['sections'] = load_file(edition_path, 'sections.json', []);
 
   const sectionsFolder = path.join(edition_path, 'sections');
@@ -105,6 +121,22 @@ for (edition_path of edition_dirs) {
       }
     }
   }
+
+  edition_data['sections'] = edition_data['sections'].sort((a, b) => {
+    if (!a.group && b.group) {
+      return -1;
+    } else if (a.group && !b.group) {
+      return 1;
+    } else if (a.group && b.group && a.group != b.group) {
+      return a.group.toLowerCase < b.group.toLowerCase() ? -1 : 1;
+    }
+
+    if (a.index.match(/(\d+)/) && b.index.match(/(\d+)/)) {
+      return +(a.index.match(/(\d+)/)[0]) - +(b.index.match(/(\d+)/)[0])
+    }
+
+    return a.index.toLowerCase < b.index.toLowerCase() ? -1 : 1;
+  })
 
   edition_data['items'] = load_file(edition_path, 'items.json', []);
   edition_data['label'] = load_file(edition_path, 'label.json', {});

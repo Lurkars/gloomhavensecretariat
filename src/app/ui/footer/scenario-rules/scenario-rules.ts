@@ -1,10 +1,10 @@
 import { Dialog } from "@angular/cdk/dialog";
 import { Component } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
-import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { MonsterStandeeData, RoomData } from "src/app/game/model/data/RoomData";
-import { FigureIdentifier, ScenarioRule, ScenarioRuleFigures, ScenarioRuleSpawnData } from "src/app/game/model/data/ScenarioRule";
+import { ScenarioRule, ScenarioRuleFigures, MonsterSpawnData } from "src/app/game/model/data/ScenarioRule";
 import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterType } from "src/app/game/model/MonsterType";
@@ -13,6 +13,7 @@ import { Condition, ConditionName } from "src/app/game/model/Condition";
 import { ScenarioSummaryComponent } from "src/app/ui/footer/scenario/scenario";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { GameState } from "src/app/game/model/Game";
+import { AttackModifier, AttackModifierType } from "src/app/game/model/AttackModifier";
 
 @Component({
     selector: 'ghs-scenario-rules',
@@ -22,10 +23,12 @@ import { GameState } from "src/app/game/model/Game";
 export class ScenarioRulesComponent {
 
     gameManager: GameManager = gameManager;
+    settingsManager: SettingsManager = settingsManager;
+    EntityValueFunction = EntityValueFunction;
 
     constructor(private dialog: Dialog) { }
 
-    spawns(rule: ScenarioRule): ScenarioRuleSpawnData[] {
+    spawns(rule: ScenarioRule): MonsterSpawnData[] {
         return rule.spawns && rule.spawns.filter((spawn) => this.spawnType(spawn.monster)) || [];
     }
 
@@ -44,6 +47,24 @@ export class ScenarioRulesComponent {
         }
 
         return type;
+    }
+
+    spawnCount(rule: ScenarioRule, spawn: MonsterSpawnData): number {
+
+        let count = spawn.count;
+        let F = 0;
+        if (count && rule.figures) {
+            const figureRule = rule.figures.find((figureRule) => figureRule.type == "present" || figureRule.type == "dead");
+            if (figureRule) {
+                F = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect).filter((figure) => figureRule.type == "present" ? gameManager.gameplayFigure(figure) : !gameManager.gameplayFigure(figure)).length;
+            }
+        }
+
+        while (typeof count == 'string' && count.indexOf('F') != -1) {
+            count = count.replace('F', '' + F);
+        }
+
+        return EntityValueFunction(count || (spawn.manual ? 0 : 1));
     }
 
     prevent(event: any) {
@@ -89,7 +110,7 @@ export class ScenarioRulesComponent {
                 return false;
             }
 
-            const figures = gameManager.figuresByString(figureRule.identifier);
+            const figures = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
             if (figures.length == 0) {
                 return false;
             }
@@ -120,12 +141,12 @@ export class ScenarioRulesComponent {
         }) || [];
     }
 
-    figureNames(identifier: FigureIdentifier): string {
-        if (identifier) {
-            if (identifier.type == "all") {
+    figureNames(figureRule: ScenarioRuleFigures): string {
+        if (figureRule.identifier) {
+            if (figureRule.identifier.type == "all") {
                 return settingsManager.getLabel('scenario.rules.figures.all');
             }
-            return gameManager.figuresByString(identifier).map((figure) => {
+            return gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect).map((figure) => {
                 if (figure instanceof Character) {
                     return figure.title || settingsManager.getLabel('data.character.' + figure.name);
                 }
@@ -153,7 +174,7 @@ export class ScenarioRulesComponent {
     }
 
     apply(rule: ScenarioRule) {
-        return rule.spawns && gameManager.game.scenario || rule.elements && rule.elements.length > 0 || rule.finish || settingsManager.settings.scenarioRooms && rule.rooms && rule.rooms.length > 0 || rule.sections && rule.sections.length > 0 || rule.figures && rule.figures.length > 0;
+        return rule.spawns && gameManager.game.scenario || rule.elements && rule.elements.length > 0 || rule.finish || settingsManager.settings.scenarioRooms && rule.rooms && rule.rooms.length > 0 || rule.sections && rule.sections.length > 0 || rule.figures && rule.figures.length > 0 && rule.figures.some((figureRule) => figureRule.type != "present" && figureRule.type != "dead");
     }
 
     applyRule(element: HTMLElement, index: number) {
@@ -166,9 +187,9 @@ export class ScenarioRulesComponent {
                     let checkActive: string[] = [];
                     rule.spawns.forEach((spawn) => {
                         const type = this.spawnType(spawn.monster);
-                        const count = EntityValueFunction((spawn.count || (spawn.manual ? 0 : 1)));
+
                         if (type && gameManager.game.scenario) {
-                            for (let i = 0; i < count; i++) {
+                            for (let i = 0; i < this.spawnCount(rule, spawn); i++) {
                                 gameManager.monsterManager.spawnMonsterEntity(spawn.monster.name, type, scenario);
                                 checkActive.push(spawn.monster.name);
                             }
@@ -208,7 +229,7 @@ export class ScenarioRulesComponent {
 
                 if (rule.figures) {
                     rule.figures.filter((figureRule) => figureRule.type == "gainCondition" || figureRule.type == "looseCondition" || figureRule.type == "damage" || figureRule.type == "hp").forEach((figureRule) => {
-                        const figures = gameManager.figuresByString(figureRule.identifier);
+                        let figures = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
                         figures.forEach((figure) => {
                             let entities: Entity[] = gameManager.entityManager.entities(figure);
                             entities.forEach((entity) => {
@@ -249,14 +270,14 @@ export class ScenarioRulesComponent {
                     })
 
                     rule.figures.filter((figureRule) => figureRule.type == "toggleOff" || figureRule.type == "toggleOn").forEach((figureRule) => {
-                        const figures = gameManager.figuresByString(figureRule.identifier);
+                        const figures = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
                         figures.forEach((figure) => {
                             figure.off = figureRule.type == "toggleOff";
                         })
                     })
 
                     rule.figures.filter((figureRule) => figureRule.type == "transfer").forEach((figureRule) => {
-                        const figures = gameManager.figuresByString(figureRule.identifier);
+                        const figures = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
                         if (figures.length == 1 && figures[0] instanceof Monster) {
                             const figure = figures[0];
                             const monster = gameManager.monsterManager.addMonsterByName(figureRule.value, scenario.edition);
@@ -281,6 +302,45 @@ export class ScenarioRulesComponent {
                             }
                         }
                     })
+
+                    rule.figures.filter((figureRule) => figureRule.type == "amAdd" || figureRule.type == "amRemove").forEach((figureRule) => {
+                        const figures = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
+                        figures.forEach((figure) => {
+                            const deck = gameManager.attackModifierManager.byFigure(figure);
+                            const type: AttackModifierType = figureRule.value.split(':')[0] as AttackModifierType;
+                            let value = +(figureRule.value.split(':')[1]);
+                            if (figureRule.type == "amAdd") {
+                                for (let i = 0; i < value; i++) {
+                                    gameManager.attackModifierManager.addModifier(deck, new AttackModifier(type));
+                                }
+                            } else {
+                                let card = deck.cards.find((attackModifier, index) => {
+                                    return attackModifier.type == type && index > deck.current;
+                                });
+                                while (card && value > 0) {
+                                    deck.cards.splice(deck.cards.indexOf(card), 1);
+                                    card = deck.cards.find((attackModifier, index) => {
+                                        return attackModifier.type == type && index > deck.current;
+                                    });
+                                    value--;
+                                }
+                                if (value > 0) {
+                                    let card = deck.cards.find((attackModifier) => {
+                                        return attackModifier.type == type;
+                                    });
+                                    while (card && value < 0) {
+                                        deck.cards.splice(deck.cards.indexOf(card), 1);
+                                        card = deck.cards.find((attackModifier) => {
+                                            return attackModifier.type == type;
+                                        });
+                                        value--;
+                                    }
+                                }
+                            }
+
+                        })
+                    })
+
                 }
 
                 if (rule.finish) {

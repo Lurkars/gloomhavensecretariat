@@ -45,6 +45,24 @@
       ],
       "monster": [
         {
+          "name": "city-archer",
+          "type": "elite"
+        },
+        {
+          "name": "city-archer",
+          "type": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
           "name": "city-guard",
           "player2": "normal",
           "player3": "normal",
@@ -109,24 +127,6 @@
         {
           "name": "city-archer",
           "type": "elite"
-        },
-        {
-          "name": "city-archer",
-          "type": "elite"
-        },
-        {
-          "name": "city-archer",
-          "type": "elite"
-        },
-        {
-          "name": "city-archer",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "city-archer",
-          "player3": "normal",
-          "player4": "elite"
         },
         {
           "name": "city-archer",

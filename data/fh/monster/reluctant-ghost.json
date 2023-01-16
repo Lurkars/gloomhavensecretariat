@@ -9,9 +9,7 @@
   "baseStat": {
     "movement": 2,
     "type": "boss",
-    "note": "Focus on moving torward the closest starting hex",
-    "immunities": [],
-    "special": []
+    "note": "Focus on moving torward the closest starting hex"
   },
   "stats": [
     {

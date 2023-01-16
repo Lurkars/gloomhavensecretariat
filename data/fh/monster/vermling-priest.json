@@ -5,9 +5,7 @@
   "count": 6,
   "baseStat": {
     "type": "normal",
-    "movement": 3,
-    "immunities": [],
-    "special": []
+    "movement": 3
   },
   "stats": [
     {

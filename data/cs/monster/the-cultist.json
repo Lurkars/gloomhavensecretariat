@@ -7,14 +7,11 @@
   "count": 6,
   "baseStat": {
     "type": "boss",
-    "note": "%data.custom.cs.the-cultist.2%",
-    "actions": [],
     "immunities": [
       "immobilize",
       "disarm",
       "stun"
-    ],
-    "special": []
+    ]
   },
   "stats": [
     {

@@ -234,8 +234,7 @@
           "2": "destroy the occupied obstacle"
         },
         "the-cultist": {
-          "1": "%data.monster.the-cultist% suffers %game.damage:2%.",
-          "2": "For three or more characters, every other %data.monster.living-spirit% summoned is elite."
+          "1": "%data.monster.the-cultist% suffers %game.damage:2%."
         },
         "toxic-imp": {
           "1": "Add +1 %game.action.attack% if the target has %game.condition.infect%",

@@ -3,10 +3,7 @@
   "edition": "jotl",
   "count": 6,
   "baseStat": {
-    "type": "normal",
-    "actions": [],
-    "immunities": [],
-    "special": []
+    "type": "normal"
   },
   "stats": [
     {

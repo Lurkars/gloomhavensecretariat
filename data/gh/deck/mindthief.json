@@ -208,7 +208,17 @@
       "actions": [
         {
           "type": "summon",
-          "value": "{\"name\":\"Rat Swarm\",\"health\":6,\"movement\":1,\"attack\":2,\"action\":{\"type\":\"condition\",\"value\":\"poison\"}}",
+          "value": "summonData",
+          "valueObject": {
+            "name": "Rat Swarm",
+            "health": 6,
+            "movement": 1,
+            "attack": 2,
+            "action": {
+              "type": "condition",
+              "value": "poison"
+            }
+          },
           "small": true
         },
         {
@@ -700,7 +710,14 @@
       "actions": [
         {
           "type": "summon",
-          "value": "{\"name\":\"Monstrous Rat\",\"health\":\"4\",\"attack\":\"3\",\"movement\":\"3\",\"count\":1}",
+          "value": "summonData",
+          "valueObject": {
+            "name": "Monstrous Rat",
+            "health": "4",
+            "attack": "3",
+            "movement": "3",
+            "count": 1
+          },
           "small": true
         },
         {
@@ -1619,7 +1636,19 @@
       "actions": [
         {
           "type": "summon",
-          "value": "{\"name\":\"Rat King\",\"health\":\"9\",\"attack\":\"X\",\"movement\":\"2\",\"action\":{\"type\":\"custom\",\"value\":\"X is half the rat's current hit point value (rounded up).\",\"small\":true},\"count\":1}",
+          "value": "summonData",
+          "valueObject": {
+            "name": "Rat King",
+            "health": "9",
+            "attack": "X",
+            "movement": "2",
+            "action": {
+              "type": "custom",
+              "value": "X is half the rat's current hit point value (rounded up).",
+              "small": true
+            },
+            "count": 1
+          },
           "small": true
         },
         {

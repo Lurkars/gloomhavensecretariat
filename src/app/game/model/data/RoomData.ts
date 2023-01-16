@@ -10,13 +10,18 @@ export class RoomData {
     treasures: (string | number)[] = [];
     monster: MonsterStandeeData[] = [];
     allies: string[] = [];
-    objectives: number[] = [];
+    objectives: (string | number)[] = [];
 }
 
 export class MonsterStandeeData {
     name: string = "";
+    marker: string = "";
     type: MonsterType | undefined;
     player2: MonsterType | undefined;
     player3: MonsterType | undefined;
     player4: MonsterType | undefined;
+
+    constructor(name: string) {
+        this.name = name;
+    }
 }

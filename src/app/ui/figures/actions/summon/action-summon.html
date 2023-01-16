@@ -1,12 +1,18 @@
 <span *ngIf="!summon" class="summon-value" [ngClass]="{'text-white' : !right, 'small' : action.small}">
-  <span class="summon-label">{{'game.action.summon' |
-    ghsLabel}}</span>
-  <span *ngIf="count">&nbsp;{{count}}</span>
-  <span *ngFor="let monster of monsters; let i = index;">
-    &nbsp;{{'data.monster.' + monster | ghsLabel}}
-    <span *ngIf="i < monsters.length - 1 && monsters.length > 1">&nbsp;{{'and' | ghsLabel}}&nbsp;</span>
-  </span>
-  <span *ngIf="type">&nbsp;({{'monster.' + type | ghsLabel}})</span>
+  <span class="summon-label">{{'game.action.summon' | ghsLabel}}&nbsp;</span>
+  <ng-container *ngFor="let spawn of monsters; let i = index;">
+    <span [ngClass]="{'spawn' : spawns.indexOf(i) == -1}"
+      *ngIf="spawn.monster.type && settingsManager.settings.calculate" (tap)="spawnSummons($event,spawn, i)">
+      <span [i18n]="'game.summon.spawnType'"
+        [i18n-args]="[spawn.monster.name, spawn.monster.type, spawn.count ? '' + spawn.count : '']"></span>
+      <span *ngIf="i < monsters.length - 1 && monsters.length > 1">&nbsp;{{'and' | ghsLabel}}&nbsp;</span>
+    </span>
+    <span *ngIf="!settingsManager.settings.calculate">
+      <span [i18n]="'game.summon.spawn'"
+        [i18n-args]="[spawn.monster.name,spawn.count ? '' + spawn.count : '']"></span>&nbsp;
+      <span [i18n]="getSummonLabel(spawn)"></span>
+    </span>
+  </ng-container>
 </span>
 
 <div class="summon-container" *ngIf="summon" [ngClass]="{'additional' : summon.additionalAction || additional}">

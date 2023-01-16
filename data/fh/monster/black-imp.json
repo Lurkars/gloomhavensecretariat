@@ -6,9 +6,7 @@
   "catching" : true,
   "baseStat": {
     "type": "normal",
-    "movement": 1,
-    "immunities": [],
-    "special": []
+    "movement": 1
   },
   "stats": [
     {

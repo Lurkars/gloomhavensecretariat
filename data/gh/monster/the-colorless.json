@@ -22,7 +22,17 @@
           "subActions": [
             {
               "type": "summon",
-              "value": "night-demon",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "night-demon",
+                    "player2": "normal",
+                    "player3": "normal",
+                    "player4": "elite"
+                  }
+                }
+              ],
               "small": true
             }
           ]
@@ -47,7 +57,17 @@
           "subActions": [
             {
               "type": "summon",
-              "value": "sun-demon",
+              "value": "monsterStandee",
+              "valueObject": [
+                {
+                  "monster": {
+                    "name": "sun-demon",
+                    "player2": "normal",
+                    "player3": "elite",
+                    "player4": "elite"
+                  }
+                }
+              ],
               "small": true
             }
           ]

@@ -11,6 +11,70 @@
     "hound",
     "infiltrator:+1"
   ],
+  "rules": [
+    {
+      "round": "once",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "city-guard",
+            "marker": "2"
+          },
+          "type": "dead"
+        }
+      ],
+      "spawns": [
+        {
+          "monster": {
+            "name": "infiltrator:+1",
+            "type": "boss"
+          }
+        }
+      ]
+    },
+    {
+      "round": "once",
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "city-guard",
+            "player2": "normal"
+          },
+          "count": 2,
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "city-guard",
+            "player3": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "city-guard",
+            "player3": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "city-guard",
+            "player4": "elite"
+          },
+          "count": 2,
+          "marker": "a"
+        }
+      ],
+      "requiredRooms": [
+        5
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -82,7 +146,8 @@
         },
         {
           "name": "city-guard",
-          "type": "elite"
+          "type": "elite",
+          "marker": "2"
         },
         {
           "name": "city-guard",

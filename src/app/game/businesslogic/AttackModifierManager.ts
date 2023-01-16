@@ -1,13 +1,27 @@
 import { AttackModifier, AttackModifierDeck, AttackModifierType, defaultAttackModifier } from "../model/AttackModifier";
 import { Character } from "../model/Character";
+import { Figure } from "../model/Figure";
 import { Game } from "../model/Game";
+import { Monster } from "../model/Monster";
 import { Perk, PerkCard, PerkType } from "../model/Perks";
+import { gameManager } from "./GameManager";
+import { settingsManager } from "./SettingsManager";
 
 export class AttackModifierManager {
   game: Game;
 
   constructor(game: Game) {
     this.game = game;
+  }
+
+  byFigure(figure: Figure): AttackModifierDeck {
+    if (figure instanceof Character) {
+      return figure.attackModifierDeck;
+    } else if (figure instanceof Monster) {
+      return (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules()) && figure.isAlly ? this.game.allyAttackModifierDeck : this.game.monsterAttackModifierDeck;
+    }
+
+    return new AttackModifierDeck();
   }
 
   addModifier(attackModifierDeck: AttackModifierDeck, attackModifier: AttackModifier, index: number = -1) {

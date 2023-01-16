@@ -9,6 +9,14 @@
     &.small span {
         filter: var(--ghs-filter-shadow-thin);
     }
+
+    .spawn {
+        cursor: pointer;
+    }
+
+    .placeholder {
+        vertical-align: initial;
+    }
 }
 
 .summon-container {

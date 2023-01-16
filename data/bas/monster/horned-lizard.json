@@ -3,8 +3,7 @@
   "edition": "bas",
   "count": 6,
   "baseStat": {
-    "immunities": [],
-    "special": [],
+    
     "movement": 4,
     "type": "normal"
   },

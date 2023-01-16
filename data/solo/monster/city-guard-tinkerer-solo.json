@@ -7,9 +7,6 @@
   "count": 6,
   "baseStat": {
     "type": "normal",
-    "actions": [],
-    "immunities": [],
-    "special": [],
     "note" : "%data.custom.solo.char-am-deck%"
   },
   "stats": [

@@ -6,7 +6,6 @@
   "count": 1,
   "baseStat": {
     "type": "boss",
-    "actions": [],
     "immunities": [
       "stun",
       "immobilize",
@@ -23,7 +22,17 @@
       [
         {
           "type": "summon",
-          "value": "living-bones"
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "living-bones",
+                "player2": "normal",
+                "player3": "elite",
+                "player4": "elite"
+              }
+            }
+          ]
         }
       ]
     ]

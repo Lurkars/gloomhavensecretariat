@@ -70,10 +70,6 @@
       ],
       "monster": [
         {
-          "name": "ancient-artillery",
-          "type": "elite"
-        },
-        {
           "name": "city-archer",
           "player2": "normal",
           "player3": "elite",
@@ -127,6 +123,10 @@
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "siege-cannon",
+          "type": "boss"
         }
       ]
     }

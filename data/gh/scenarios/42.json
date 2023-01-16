@@ -22,33 +22,131 @@
   "objectives": [
     {
       "name": "Vocal Cord",
-      "health": "2+(LxC/2)",
+      "health": "[2+(LxC/2){%math.floor}]",
       "marker": "1"
     },
     {
       "name": "Vocal Cord",
-      "health": "2+(LxC/2)",
+      "health": "[2+(LxC/2){%math.floor}]",
       "marker": "2"
     },
     {
       "name": "Vocal Cord",
-      "health": "2+(LxC/2)",
+      "health": "[2+(LxC/2){%math.floor}]",
       "marker": "3"
     },
     {
       "name": "Vocal Cord",
-      "health": "2+(LxC/2)",
+      "health": "[2+(LxC/2){%math.floor}]",
       "marker": "4"
     },
     {
       "name": "Vocal Cord",
-      "health": "2+(LxC/2)",
+      "health": "[2+(LxC/2){%math.floor}]",
       "marker": "5"
     },
     {
       "name": "Vocal Cord",
-      "health": "2+(LxC/2)",
+      "health": "[2+(LxC/2){%math.floor}]",
       "marker": "6"
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "note": "%data.scenario.rules.gh.42.1%",
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Vocal Cord",
+            "marker":  "1"
+          }
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "note": "%data.scenario.rules.gh.42.2%",
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Vocal Cord",
+            "marker":  "2"
+          }
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "note": "%data.scenario.rules.gh.42.3%",
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Vocal Cord",
+            "marker":  "3"
+          }
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "note": "%data.scenario.rules.gh.42.4%",
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Vocal Cord",
+            "marker":  "4"
+          }
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "note": "%data.scenario.rules.gh.42.5%",
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Vocal Cord",
+            "marker":  "5"
+          }
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "note": "%data.scenario.rules.gh.42.6%",
+      "figures": [
+        {
+          "type": "present",
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Vocal Cord",
+            "marker":  "6"
+          }
+        }
+      ]
     }
   ],
   "rooms": [

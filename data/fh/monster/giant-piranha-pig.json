@@ -9,8 +9,6 @@
   "baseStat": {
     "type": "boss",
     "movement": 1,
-    "actions": [],
-    "immunities": [],
     "special": [
       [
         {

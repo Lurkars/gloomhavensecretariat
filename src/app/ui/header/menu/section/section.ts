@@ -32,14 +32,19 @@ export class SectionMenuComponent {
     if (!this.edition) {
       return [];
     }
-    return gameManager.sectionData().filter((sectionData) => sectionData.edition == this.edition && sectionData.group == group).sort((sA, sB) => {
-      const a = sA.index;
-      const b = sB.index;
-      if (!isNaN(+a) && !isNaN(+b)) {
-        return +a - +b;
+    return gameManager.sectionData().filter((sectionData) => sectionData.edition == this.edition && sectionData.group == group).sort((a, b) => {
+      if (!isNaN(+a.index) && !isNaN(+b.index)) {
+        return +a.index - +b.index;
       }
 
-      return a.toLowerCase() < b.toLowerCase() ? -1 : 1
+      const aMatch = a.index.match(/(\d+)/);
+      const bMatch = b.index.match(/(\d+)/);
+
+      if (aMatch && bMatch) {
+        return +(aMatch[0]) - +(bMatch[0]);
+      }
+
+      return a.index.toLowerCase() < b.index.toLowerCase() ? -1 : 1
     });
   }
 
