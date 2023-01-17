@@ -14,8 +14,10 @@
     "absent": "Abwesend",
     "add": "Charakter hinzufügen",
     "class": {
+      "algox": "Algox",
       "aesther": "Aesther",
       "f": {
+        "algox": "Algox",
         "aesther": "Aesther",
         "harrower": "Schwarmling",
         "human": "Menschliche",
@@ -24,6 +26,7 @@
         "orchid": "Antriden",
         "quatryl": "Quatryl",
         "savvas": "Savvas",
+        "unfettered": "Entfesselte",
         "valrath": "Valrath",
         "vermling": "Ratzen"
       },
@@ -32,6 +35,7 @@
       "inox": "Inox",
       "lurker": "Pirscher",
       "m": {
+        "algox": "Algox",
         "aesther": "Aesther",
         "harrower": "Schwarmling",
         "human": "Menschlicher",
@@ -40,12 +44,14 @@
         "orchid": "Antriden",
         "quatryl": "Quatryl",
         "savvas": "Savvas",
+        "unfettered": "Entfesselter",
         "valrath": "Valrath",
         "vermling": "Ratzen"
       },
       "orchid": "Antriden",
       "quatryl": "Quatryl",
       "savvas": "Savvas",
+      "unfettered": "Entfesselten",
       "valrath": "Valrath",
       "vermling": "Ratzen"
     },
@@ -540,6 +546,7 @@
     },
     "openRoom": "Raum für Kachel '{0}' öffnen",
     "openRoomMarker": "Raum %game.mapMarker.{1}% für Kachel '{0}' öffnen",
+    "reset": "Szenario neustarten",
     "rules": {
       "addSection": "Sektion #{0} {1} öffnen",
       "addSectionMarker": "Sektion #{0} {1} %game.mapMarker.{2}% öffnen",
@@ -566,7 +573,6 @@
       "spawnMarker": "Füge {2}%data.monster.{0}% (%game.monsterType.{1}%) an %game.mapMarker.{3}% hinzu",
       "won": "Szenario erfolgreich!"
     },
-    "reset": "Szenario neustarten",
     "section": {
       "add": "Sektion {1}#{0} öffnen?",
       "addMarker": "Sektion #{0} %game.mapMarker.{1}% öffnen?",
@@ -833,6 +839,7 @@
       "addChar": "Character {0} hinzufügen",
       "addCondition": {
         "char": "{1} {0}",
+        "monsterEntities": "{1} alle {2}{0}",
         "monster": "{2} '{1}' of {0}",
         "objective": "{1} {0}",
         "summon": "{2} '{1}' of {0}"
@@ -857,6 +864,7 @@
       "addTreasure": "Schatz {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%) hinzufügen",
       "applyCondition": {
         "char": "{1} anwenden auf {0}",
+        "monsterEntities": "{1} anwenden auf alle {2}{0}",
         "monster": "{2} anwenden auf '{1}' von {0}",
         "objective": "{1} anwenden auf {0}",
         "summon": "{2} anwenden auf '{1}' von {0}"
@@ -870,6 +878,7 @@
       "changeHP": "TP {1} für {0}",
       "changeLoot": "Beute {1} für {0}",
       "changeMaxHP": "Max. TP {1} für {0}",
+      "changeMonsterHP": "TP {1} für alle {2}{0}",
       "changeMonsterType": "Ändere Typ von {0} Aufsteller {2} {1} auf %monster.{3}%",
       "changeObjectiveHP": "TP {1} für Ziel {0}",
       "changeObjectiveId": "ID '{1}' für {0} ",
@@ -883,6 +892,7 @@
       "changeXP": "EP {1} für {0}",
       "declineApplyCondition": {
         "char": "Anwenden von {1} auf {0} abgelehnt",
+        "monsterEntities": "Anwenden von {1} auf alle {2}{0} abgelehnt",
         "monster": "Anwenden von {2} auf {1} von {0} abgelehnt",
         "objective": "Anwenden von {1} auf {0} abgelehnt",
         "summon": "Anwenden von {2} auf {1} von {0} abgelehnt"
@@ -908,14 +918,17 @@
       "hideScenarioRule": "Szenario Regel nicht mehr anzeigen",
       "importParty": "Gruppe von Datei importieren",
       "loadGameFromFile": "Spiel von Datei importieren",
+      "lootDeckAddEnhancement": "Beute Karte '{1} %game.loot.{0}%' verzaubern",
       "lootDeckChangeConfig": "Beute Tabelle ändern",
       "lootDeckDraw": "Beute Karte ziehen",
       "lootDeckHide": "Beute Karten ausblenden",
       "lootDeckRemoveCard": "Karte {0} von Beute Karten entfernen",
+      "lootDeckRemoveEnhancement": "Verzauberung von Beute Karte '{1} %game.loot.{0}%' entfernen",
       "lootDeckReorder": "Beute Karten neu anordnen",
       "lootDeckShow": "Beute Karten einblenden",
       "lootDeckShuffle": "Beute Karten mischen",
       "monsterConsumeElement": "{0} verbraucht {1}",
+      "monsterDead": "Töte alle {1}{0}",
       "monsterInfuseElement": "{0} reichert {1} an",
       "nextRound": "Nächste Runde",
       "openRoom": "Öffne Raum für Kachel '{2}' in #{0} {1}",
@@ -929,6 +942,7 @@
       "removeChar": "Charakter {0} entfernen",
       "removeCondition": {
         "char": "{1} von {0} entfernen",
+        "monsterEntities": "{1} von allen {2}{0} entfernen",
         "monster": "{2} von {1} von {0} entfernen",
         "objective": "{1} von {0} entfernen",
         "summon": "{2} von {1} von {0} entfernen"
@@ -959,6 +973,7 @@
       "setBG": "Kampfziele {1} für {0}",
       "setConditionValue": {
         "char": "{1} auf {2} für {0}",
+        "monsterEntities": "{1} auf {2} für alle {3}{0}",
         "monster": "{2} auf {3} für '{1}' von {0}",
         "objective": "{1} auf {2} für {0}",
         "summon": "{2} auf {3} für '{1}' von {0}"
@@ -1036,11 +1051,16 @@
     }
   },
   "tools": {
+    ".": "Tools",
+    "attackModifier": "Attack Modifier",
+    "backToGhs": "Zurück zu GHS",
+    "decks": "Fertigkeitskarten",
     "feedback": {
       ".": "Feedback",
       "githubIssue": "GitHub Issue erstellen",
       "reportIssue": {
         ".": "Ein Problem melden",
+        "download": "Alle Daten herunterladen",
         "send": "Problem senden",
         "specify": "Bitte Details im Text angeben.",
         "text": "Text",
