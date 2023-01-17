@@ -9,6 +9,7 @@ import { SummonData } from "src/app/game/model/data/SummonData";
 import { EntityValueFunction } from "src/app/game/model/Entity";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterType } from "src/app/game/model/MonsterType";
+import { SummonState } from "src/app/game/model/Summon";
 
 @Component({
   selector: 'ghs-action-summon',
@@ -25,7 +26,7 @@ export class ActionSummonComponent implements OnChanges {
   type: MonsterType | undefined;
   summon: SummonData | undefined;
   count: number | undefined;
-  spawns: number[] = [];
+  tags: string[] = [];
 
   settingsManager: SettingsManager = settingsManager;
 
@@ -44,11 +45,11 @@ export class ActionSummonComponent implements OnChanges {
   update() {
     this.summon = undefined;
     this.monsters = [];
+    this.tags = [];
     this.count = undefined;
     this.type = undefined;
     if (this.action.value == 'summonData') {
       this.summon = this.action.valueObject as SummonData;
-      console.log(this.summon);
     } if (this.action.value == 'monsterStandee') {
       this.monsters = JSON.parse(JSON.stringify(this.action.valueObject)) as MonsterSpawnData[];
       const charCount = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length;
@@ -100,6 +101,22 @@ export class ActionSummonComponent implements OnChanges {
         this.monsters.push(monsterSpawn);
       });
     }
+
+    if (this.monster) {
+      gameManager.game.figures.forEach((figure) => {
+        if (figure instanceof Monster) {
+          figure.entities.forEach((entity) => {
+            if (this.monster && entity.tags) {
+              entity.tags.forEach((tag) => {
+                if (this.monster && tag.startsWith("summon-" + this.monster.name + "-" + this.getSpawnId())) {
+                  this.tags.push(tag);
+                }
+              })
+            }
+          })
+        }
+      })
+    }
   }
 
   getSummonLabel(monsterSpawnData: MonsterSpawnData): string {
@@ -115,15 +132,41 @@ export class ActionSummonComponent implements OnChanges {
     return "";
   }
 
+  getSpawnId(): number {
+    if (this.monster) {
+      const ability = gameManager.monsterManager.getAbility(this.monster);
+      if (ability) {
+        return ability.cardId || gameManager.deckData(this.monster).abilities.indexOf(ability);
+      }
+    }
+    return -1;
+  }
+
+  getTag(index: number): string {
+    if (this.monster) {
+      return "summon-" + this.monster.name + "-" + this.getSpawnId() + "-" + index;
+    }
+    return "";
+  }
+
+  spawnHightlight(spawn: MonsterSpawnData, index: number): boolean {
+    const entities = this.monster && gameManager.monsterManager.monsterEntityCount(this.monster) || 0;
+    return entities > 0 && this.monster && this.monster.active && this.tags.filter((tag) => tag == this.getTag(index)).length < entities || false;
+  }
 
   spawnSummons(event: any, spawn: MonsterSpawnData, index: number) {
-    if (spawn.monster && spawn.monster.type && gameManager.game.scenario) {
+    if (this.monster && spawn.monster && spawn.monster.type && gameManager.game.scenario) {
       const count = EntityValueFunction(spawn.count || 1);
       gameManager.stateManager.before("summonAction", "data.monster." + spawn.monster.name, "game.monsterType." + spawn.monster.type, '' + count);
       for (let i = 0; i < count; i++) {
-        gameManager.monsterManager.spawnMonsterEntity(spawn.monster.name, spawn.monster.type, gameManager.game.scenario);
+        const entity = gameManager.monsterManager.spawnMonsterEntity(spawn.monster.name, spawn.monster.type, gameManager.game.scenario, true);
+        if (entity) {
+          const tag = this.getTag(index);
+          entity.tags = entity.tags || [];
+          entity.tags.push(tag);
+          this.tags.push(tag);
+        }
       }
-      this.spawns.push(index);
       gameManager.stateManager.after();
     }
     event.preventDefault();

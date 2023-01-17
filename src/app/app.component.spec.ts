@@ -81,6 +81,7 @@ import { AttackModifierStandaloneComponent } from './ui/tools/standalone/attackm
 import { FeedbackDialogComponent } from './ui/tools/feedback/feedback-dialog';
 import { FeedbackToolComponent } from './ui/tools/feedback/feedback';
 import { LootApplyDialogComponent } from './ui/figures/loot/loot-apply-dialog';
+import { EntitiesMenuDialogComponent } from './ui/figures/entities-menu/entities-menu-dialog';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -98,7 +99,7 @@ describe('AppComponent', () => {
         LevelComponent, LevelDialogComponent,
         ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent,
         ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
-        EntityMenuDialogComponent,
+        EntityMenuDialogComponent, EntitiesMenuDialogComponent,
         CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetDialog, CharacterFullViewComponent,
         ObjectiveComponent,
         SummonEntityComponent,

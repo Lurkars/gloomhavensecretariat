@@ -387,7 +387,7 @@ export class EntityManager {
     }
   }
 
-  undoInfos(entity: Entity, figure: Figure, prefix: string): string[] {
+  undoInfos(entity: Entity | undefined, figure: Figure, prefix: string): string[] {
     let infos: string[] = [];
     if (entity instanceof Character && figure instanceof Character) {
       infos.push(prefix + ".char", "data.character." + entity.name)
@@ -397,6 +397,8 @@ export class EntityManager {
       infos.push(prefix + ".objective", entity.title || entity.name)
     } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
       infos.push(prefix + ".monster", "data.monster." + figure.name, "" + entity.number)
+    }else if (figure instanceof Monster) {
+      infos.push(prefix + ".monsterEntities", "data.monster." + figure.name,)
     }
 
     return infos;

@@ -6,6 +6,18 @@ export function ghsUnit(): number {
   return +window.getComputedStyle(document.body).getPropertyValue('--ghs-width').replace(/[^\d\+]/g, '') / +window.getComputedStyle(document.body).getPropertyValue('--ghs-factor');
 }
 
+export function ghsShuffleArray(array: any[]): any[] {
+  let i = array.length, r;
+  while (i != 0) {
+    r = Math.floor(Math.random() * i);
+    i--;
+    [array[i], array[r]] = [
+      array[r], array[i]];
+  }
+
+  return array;
+}
+
 export function ghsHasSpoilers(items: Spoilable[]): boolean {
   return items.some((spoilable) => spoilable.spoiler && settingsManager.settings.spoilers.indexOf(spoilable.name) == -1);
 }

@@ -264,6 +264,11 @@ export class CharacterManager {
       if (figure instanceof Character) {
         figure.initiativeVisible = true;
         this.applyDonations(figure);
+        for (let summon of figure.summons) {
+          if (summon.state == SummonState.new) {
+            summon.state = SummonState.true;
+          }
+        }
       }
 
       if (figure instanceof Character || figure instanceof Objective) {

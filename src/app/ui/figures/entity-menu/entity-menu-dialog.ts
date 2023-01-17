@@ -56,10 +56,7 @@ export class EntityMenuDialogComponent {
   EntityValueFunction = EntityValueFunction;
   ghsModulo = ghsModulo;
 
-  constructor(@Inject(DIALOG_DATA) public data: { entity: Entity | undefined, figure: Figure, entities: Entity[] }, private changeDetectorRef: ChangeDetectorRef, private dialogRef: DialogRef) {
-    if (!data.entities) {
-      data.entities = [];
-    }
+  constructor(@Inject(DIALOG_DATA) public data: { entity: Entity | undefined, figure: Figure }, private changeDetectorRef: ChangeDetectorRef, private dialogRef: DialogRef) {
     if (data.entity instanceof Character) {
       this.conditionType = 'character';
     } else if (data.entity instanceof Objective) {

@@ -1,0 +1,36 @@
+<div class="entity-menu-dialog">
+
+  <div class="name">
+    <img class="standee" [src]="gameManager.monsterManager.monsterThumbnail(data.monster)" />
+    {{'data.monster.' + data.monster.name | ghsLabel}}&nbsp;<span *ngIf="data.monster.isAlly">({{'game.ally' |
+      ghsLabel}})&nbsp;</span>
+    <span class="monster-type" *ngIf="data.type" [i18n]="'(%game.monsterType.' +  data.type + '%)'"></span>
+  </div>
+
+  <div class="entity-container">
+    <span class="item">
+      <ghs-drag-click class="button" (singleClick)="changeHealth(-1)" [repeat]="true">
+        <img class="ghs-svg" src="./assets/images/minus.svg">
+      </ghs-drag-click>
+    </span>
+    <span class="item" title="{{'game.health' | ghsLabel}}">
+      <img src="./assets/images/status/health.svg" />
+      <span class="badge health-count"
+        [ngClass]="{'negative-value' : minHealth() < 0, 'positive-value' : maxHealth() > 0}">{{(minHealth() < 0 ?
+          minHealth() : maxHealth()) | ghsValueSign}}</span>
+      </span>
+      <span class="item">
+        <ghs-drag-click class="button" (singleClick)="changeHealth(1)" [repeat]="true">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </ghs-drag-click>
+      </span>
+
+      <ghs-conditions [entities]="entities" [figure]="data.monster" [type]="'monster'"></ghs-conditions>
+
+      <span class="item" title="{{'game.dead' | ghsLabel}}">
+        <a class="button" (click)="toggleDead()">
+          <img src="./assets/images/status/dead.svg" />
+        </a>
+      </span>
+  </div>
+</div>

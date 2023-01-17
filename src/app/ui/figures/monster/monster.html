@@ -32,7 +32,23 @@
 
 <div class="entities-container" [ngClass]="{'empty' : emptyEntities() }"
   *ngIf="!settingsManager.settings.disableStandees">
-  <div class="spacer"></div>
+  <div class="spacer" [ngClass]="{'disabled' : nonDead() < 2}">
+    <a class="entities-menu all" (click)="entitiesMenu($event)">
+      <img src="./assets/images/right.svg">
+    </a>
+    <a class="entities-menu boss" *ngIf="entityTypeCount(MonsterType.boss)"
+      (click)="entitiesMenu($event, MonsterType.boss)">
+      <img src="./assets/images/right.svg">
+    </a>
+    <a class="entities-menu elite" *ngIf="entityTypeCount(MonsterType.elite)"
+      (click)="entitiesMenu($event, MonsterType.elite)">
+      <img src="./assets/images/right.svg">
+    </a>
+    <a class="entities-menu normal" *ngIf="entityTypeCount(MonsterType.normal)"
+      (click)="entitiesMenu($event, MonsterType.normal)">
+      <img src="./assets/images/right.svg">
+    </a>
+  </div>
   <div class="entities">
     <ghs-monster-entity *ngFor="let entity of sortedEntites()" [monster]="monster" [entity]="entity">
     </ghs-monster-entity>

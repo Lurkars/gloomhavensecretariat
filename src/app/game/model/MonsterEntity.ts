@@ -10,6 +10,7 @@ import { SummonState } from "./Summon";
 export class MonsterEntity implements Entity {
   number: number;
   marker: string = "";
+  tags: string[] = [];
   type: MonsterType;
   stat: MonsterStat;
   dead: boolean = false;
@@ -24,7 +25,7 @@ export class MonsterEntity implements Entity {
   entityConditions: EntityCondition[] = [];
   markers: string[] = [];
 
-  constructor(number: number,  type: MonsterType, monster: Monster) {
+  constructor(number: number, type: MonsterType, monster: Monster) {
     this.number = number;
     this.type = type;
 
@@ -52,11 +53,12 @@ export class MonsterEntity implements Entity {
   }
 
   toModel(): GameMonsterEntityModel {
-    return new GameMonsterEntityModel(this.number, this.marker, this.type, this.dead, this.summon, this.active, this.off, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers);
+    return new GameMonsterEntityModel(this.number, this.marker, this.tags, this.type, this.dead, this.summon, this.active, this.off, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers);
   }
 
   fromModel(model: GameMonsterEntityModel) {
     this.marker = model.marker;
+    this.tags = model.tags || [];
     this.dead = model.dead;
     this.summon = model.summon;
     this.active = model.active;
@@ -80,6 +82,7 @@ export class MonsterEntity implements Entity {
 export class GameMonsterEntityModel {
   number: number;
   marker: string;
+  tags: string[];
   type: MonsterType;
   dead: boolean;
   summon: SummonState;
@@ -92,6 +95,7 @@ export class GameMonsterEntityModel {
 
   constructor(number: number,
     marker: string,
+    tags: string[],
     type: MonsterType,
     dead: boolean,
     summon: SummonState,
@@ -103,6 +107,7 @@ export class GameMonsterEntityModel {
     markers: string[]) {
     this.number = number;
     this.marker = marker;
+    this.tags = JSON.parse(JSON.stringify(tags));
     this.type = type;
     this.dead = dead;
     this.summon = summon;

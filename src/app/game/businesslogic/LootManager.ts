@@ -1,3 +1,4 @@
+import { ghsShuffleArray } from "src/app/ui/helper/Static";
 import { Character } from "../model/Character";
 import { Game } from "../model/Game";
 import { appliableLootTypes, fullLootDeck, Loot, LootDeck, LootDeckConfig, LootType } from "../model/Loot";
@@ -27,10 +28,7 @@ export class LootManager {
 
   shuffleDeck(deck: LootDeck) {
     deck.current = -1;
-    deck.cards = deck.cards
-      .map((value) => ({ value, sort: Math.random() }))
-      .sort((a, b) => a.sort - b.sort)
-      .map(({ value }) => value);
+    ghsShuffleArray(deck.cards);
   }
 
   updateCharacterLoot(character: Character, loot: Loot) {
@@ -88,9 +86,7 @@ export class LootManager {
     deck.cards = [];
     Object.values(LootType).forEach((type) => {
       if (config[type]) {
-        let availableTypes = this.fullLootDeck().filter((loot) => loot.type == type).map((value) => ({ value, sort: Math.random() }))
-          .sort((a, b) => a.sort - b.sort)
-          .map(({ value }) => value);;
+        let availableTypes = ghsShuffleArray(this.fullLootDeck().filter((loot) => loot.type == type));
         const count = Math.min(Math.max(config[type] || 0), availableTypes.length);
         for (let i = 0; i < count; i++) {
           deck.cards.push(availableTypes[i]);

@@ -82,6 +82,8 @@ import { LootDeckDialogComponent } from './ui/figures/loot/loot-deck-dialog';
 import { LootDeckStandaloneComponent } from './ui/tools/standalone/loot-deck-standalone';
 import { AttackModifierStandaloneComponent } from './ui/tools/standalone/attackmodifier-standalone';
 import { LootApplyDialogComponent } from './ui/figures/loot/loot-apply-dialog';
+import { EntitiesMenuDialogComponent } from './ui/figures/entities-menu/entities-menu-dialog';
+
 import 'hammerjs'
 
 @NgModule({
@@ -98,7 +100,7 @@ import 'hammerjs'
     LevelComponent, LevelDialogComponent,
     ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent,
     ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
-    EntityMenuDialogComponent,
+    EntityMenuDialogComponent, EntitiesMenuDialogComponent,
     CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetDialog, CharacterFullViewComponent,
     ObjectiveComponent,
     SummonEntityComponent,

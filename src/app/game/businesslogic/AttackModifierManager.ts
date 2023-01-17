@@ -1,3 +1,4 @@
+import { ghsShuffleArray } from "src/app/ui/helper/Static";
 import { AttackModifier, AttackModifierDeck, AttackModifierType, defaultAttackModifier } from "../model/AttackModifier";
 import { Character } from "../model/Character";
 import { Figure } from "../model/Figure";
@@ -47,10 +48,7 @@ export class AttackModifierManager {
     );
 
     attackModifierDeck.current = -1;
-    attackModifierDeck.cards = attackModifierDeck.cards
-      .map((value) => ({ value, sort: Math.random() }))
-      .sort((a, b) => a.sort - b.sort)
-      .map(({ value }) => value);
+    ghsShuffleArray(attackModifierDeck.cards);
   }
 
   removeDrawnDiscards(attackModifierDeck: AttackModifierDeck) {

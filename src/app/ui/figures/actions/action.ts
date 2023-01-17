@@ -187,7 +187,7 @@ export class ActionComponent implements OnInit {
           this.additionalSubActions.splice(this.hasAOE ? 1 : 0, 0, newSubAction);
         }
 
-        if (stat.actions) {
+        if (stat.actions && this.monster.entities.some((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && monsterEntity.type == MonsterType.normal)) {
           let normalActions: Action | undefined = undefined;
           stat.actions.filter((statAction) => this.additionAttackSubActionTypes.indexOf(statAction.type) != -1).forEach((statAction) => {
             const newStatAction = new Action(statAction.type, statAction.value, statAction.valueType, statAction.subActions);
@@ -198,10 +198,9 @@ export class ActionComponent implements OnInit {
                   newSubActions.push(newStatAction);
                 } else if (eliteStat && (!eliteStat.actions || !this.subActionExists(eliteStat.actions, newStatAction))) {
                   if (!normalActions && !this.subActionExists(this.subActions, newStatAction) && !this.subActionExists(newSubActions, newStatAction)) {
-                    normalActions = new Action(ActionType.monsterType, MonsterType.normal, ActionValueType.fixed, [newStatAction])
+                    normalActions = new Action(ActionType.monsterType, MonsterType.normal, ActionValueType.fixed, [newStatAction]);
                     newSubActions.push(normalActions);
                   } else if (normalActions && !this.subActionExists(this.subActions, newStatAction) && !this.subActionExists(newSubActions, newStatAction) && !this.subActionExists(normalActions.subActions, newStatAction)) {
-                    newStatAction.small = true;
                     normalActions.subActions.push(newStatAction);
                   }
                 }
@@ -217,10 +216,8 @@ export class ActionComponent implements OnInit {
             if (!stat.actions || !this.subActionExists(stat.actions, newEliteAction)) {
               if (!eliteActions && !this.subActionExists(this.subActions, newEliteAction) && !this.subActionExists(newSubActions, newEliteAction)) {
                 eliteActions = new Action(ActionType.monsterType, MonsterType.elite, ActionValueType.fixed, [newEliteAction]);
-                newEliteAction.small = true;
                 newSubActions.push(eliteActions);
               } else if (eliteActions && !this.subActionExists(this.subActions, newEliteAction) && !this.subActionExists(newSubActions, newEliteAction) && !this.subActionExists(eliteActions.subActions, newEliteAction)) {
-                newEliteAction.small = true;
                 eliteActions.subActions.push(newEliteAction);
               }
             }

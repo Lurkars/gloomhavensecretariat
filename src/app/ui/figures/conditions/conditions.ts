@@ -6,6 +6,7 @@ import { Entity } from "src/app/game/model/Entity";
 import { Figure } from "src/app/game/model/Figure";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
+import { MonsterType } from "src/app/game/model/MonsterType";
 
 @Component({
   selector: 'ghs-conditions',
@@ -15,6 +16,7 @@ import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 export class ConditionsComponent implements OnInit {
 
   @Input() entity!: Entity;
+  @Input() entities!: Entity[];
   @Input() figure!: Figure;
   @Input() type!: string;
   @Input() columns: number = 3;
@@ -29,6 +31,8 @@ export class ConditionsComponent implements OnInit {
   upgradePositive: Condition[] = [];
   stackPositive: Condition[] = [];
 
+  monsterType: MonsterType | boolean = false;
+
   constructor() {
     gameManager.uiChange.subscribe({
       next: () => {
@@ -39,6 +43,12 @@ export class ConditionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeConditions();
+    if (this.entities) {
+      const types = this.entities.map((entity) => entity instanceof MonsterEntity && entity.type).filter((type, index, self) => type && self.indexOf(type) == index);
+      if (types.length == 1) {
+        this.monsterType = types[0];
+      }
+    }
   }
 
   initializeConditions() {
@@ -50,8 +60,12 @@ export class ConditionsComponent implements OnInit {
     this.stackPositive = gameManager.conditionsForTypes('stack', 'positive', this.type);
   }
 
-  hasCondition(condition: Condition) {
-    return gameManager.entityManager.hasCondition(this.entity, condition);
+  hasCondition(condition: Condition): boolean {
+    if (this.entity) {
+      return gameManager.entityManager.hasCondition(this.entity, condition);
+    } else {
+      return this.entities.every((entity) => gameManager.entityManager.hasCondition(entity, condition));
+    }
   }
 
   isImmune(conditionName: ConditionName) {
@@ -61,7 +75,7 @@ export class ConditionsComponent implements OnInit {
     }
 
     if (!(this.entity instanceof MonsterEntity)) {
-      return false;
+      return this.entities.every((entity) => this.figure instanceof Monster && entity instanceof MonsterEntity && gameManager.entityManager.isImmune(this.figure, entity, conditionName));;
     }
 
     return gameManager.entityManager.isImmune(this.figure, this.entity, conditionName);
@@ -81,28 +95,44 @@ export class ConditionsComponent implements OnInit {
   }
 
   getValue(condition: Condition): number {
-    const entityCondition = this.entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
-
-    if (entityCondition) {
-      return entityCondition.value;
+    const entity = this.entity || this.entities[0];
+    if (entity) {
+      const entityCondition = entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
+      if (entityCondition) {
+        return entityCondition.value;
+      }
+      return condition.value;
     }
-
-    return condition.value;
+    return 1;
   }
 
   checkUpdate(condition: Condition) {
-    const entityCondition = this.entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
-    if (entityCondition) {
-      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "setConditionValue"), "game.condition." + condition.name, "" + condition.value);
-      entityCondition.value = condition.value;
-      gameManager.stateManager.after();
+    const entity = this.entity || this.entities[0];
+    if (entity) {
+      const entityCondition = entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
+      if (entityCondition) {
+        gameManager.stateManager.before(...gameManager.entityManager.undoInfos(entity, this.figure, "setConditionValue"), "game.condition." + condition.name, "" + condition.value, this.monsterType ? 'monster.' + this.monsterType + ' ' : '');
+        entityCondition.value = condition.value;
+        gameManager.stateManager.after();
+      }
     }
   }
 
   toggleCondition(condition: Condition) {
-    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, this.hasCondition(condition) ? "removeCondition" : "addCondition"), "game.condition." + condition.name);
-    gameManager.entityManager.toggleCondition(this.entity, condition, this.figure.active, this.figure.off);
-    gameManager.stateManager.after();
+    if (this.entity) {
+      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, this.hasCondition(condition) ? "removeCondition" : "addCondition"), "game.condition." + condition.name, this.monsterType ? 'monster.' + this.monsterType + ' ' : '');
+      gameManager.entityManager.toggleCondition(this.entity, condition, this.figure.active, this.figure.off);
+      gameManager.stateManager.after();
+    } else {
+      const onlyOn = !this.hasCondition(condition) && !this.entities.every((entity) => !gameManager.entityManager.hasCondition(entity, condition));
+      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.figure, this.hasCondition(condition) ? "removeCondition" : "addCondition"), "game.condition." + condition.name, this.monsterType ? 'monster.' + this.monsterType + ' ' : '');
+      this.entities.forEach((entity) => {
+        if (!onlyOn || onlyOn && !gameManager.entityManager.hasCondition(entity, condition)) {
+          gameManager.entityManager.toggleCondition(entity, condition, this.figure.active, this.figure.off);
+        }
+      })
+      gameManager.stateManager.after();
+    }
   }
 }
 

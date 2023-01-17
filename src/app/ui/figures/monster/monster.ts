@@ -7,6 +7,7 @@ import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { MonsterType } from 'src/app/game/model/MonsterType';
 import { ghsDefaultDialogPositions } from '../../helper/Static';
+import { EntitiesMenuDialogComponent } from '../entities-menu/entities-menu-dialog';
 import { MonsterNumberPickerDialog } from './dialogs/numberpicker';
 import { MonsterStatsDialogComponent } from './dialogs/stats-dialog';
 
@@ -22,7 +23,7 @@ export class MonsterComponent {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
-  constructor(private dialog: Dialog) { }
+  constructor(private dialog: Dialog, private overlay: Overlay) { }
 
   addMissingStandees() {
     const missingStandees = this.monster.entities.filter((monsterEntity) => monsterEntity.number < 0).sort((a, b) => {
@@ -101,5 +102,21 @@ export class MonsterComponent {
 
   openStatsPopup() {
     this.dialog.open(MonsterStatsDialogComponent, { panelClass: 'dialog', data: this.monster });
+  }
+
+  entityTypeCount(type: MonsterType): boolean {
+    const count = this.monster.entities.filter((entity) => entity.type == type).length;
+    return count > 1 && count < this.nonDead();
+  }
+
+  entitiesMenu(event: any, type: MonsterType | undefined = undefined) {
+    this.dialog.open(EntitiesMenuDialogComponent, {
+      panelClass: 'dialog',
+      data: {
+        monster: this.monster,
+        type: type
+      },
+      positionStrategy: this.overlay.position().flexibleConnectedTo(event.target).withPositions(ghsDefaultDialogPositions())
+    });
   }
 }

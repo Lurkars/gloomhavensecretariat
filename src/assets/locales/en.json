@@ -957,6 +957,7 @@
       "addChar": "Add character {0}",
       "addCondition": {
         "char": "{1} {0}",
+        "monsterEntities": "{1} all {2}{0}",
         "monster": "{2} '{1}' of {0}",
         "objective": "{1} {0}",
         "summon": "{2} '{1}' of {0}"
@@ -981,6 +982,7 @@
       "addTreasure": "Add treasure {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
       "applyCondition": {
         "char": "Apply {1} to {0}",
+        "monsterEntities": "Apply {1} to all {2}{0}",
         "monster": "Apply {2} to '{1}' of {0}",
         "objective": "Apply {1} to {0}",
         "summon": "Apply {2} to '{1}' of {0}"
@@ -994,6 +996,7 @@
       "changeHP": "HP {1} for {0}",
       "changeLoot": "Loot {1} for {0}",
       "changeMaxHP": "Max. HP {1} for {0}",
+      "changeMonsterHP": "HP {1} for all {2}{0}",
       "changeMonsterType": "Change type from {0} standee {2} from {1} to %monster.{3}%",
       "changeObjectiveHP": "HP {1} for objective {0}",
       "changeObjectiveId": "ID '{1}' for {0}",
@@ -1007,6 +1010,7 @@
       "changeXP": "XP {1} for {0}",
       "declineApplyCondition": {
         "char": "Decline apply {1} to {0}",
+        "monsterEntities": "Decline apply {1} to all {2}{0}",
         "monster": "Decline apply {2} to '{1}' of {0}",
         "objective": "Decline apply {1} to {0}",
         "summon": "Decline apply {2} to '{1}' of {0}"
@@ -1042,6 +1046,7 @@
       "lootDeckShow": "Show Loot deck",
       "lootDeckShuffle": "Shuffle Loot deck",
       "monsterConsumeElement": "{0} consume {1}",
+      "monsterDead": "Kill all {1}{0}",
       "monsterInfuseElement": "{0} infuse {1}",
       "nextRound": "Next Round",
       "openRoom": "Open door for tile '{2}' in #{0} {1}",
@@ -1051,9 +1056,11 @@
       "removeAllMonster": "Remove all monster",
       "removeAllObjectives": "Remove all objectives",
       "removeBless": "Remove Bless from {0}",
+      "removeBlesses": "Remove {1} Bless' from {0}",
       "removeChar": "Remove character {0}",
       "removeCondition": {
         "char": "Remove {1} from {0}",
+        "monsterEntities": "Remove {1} from all {2}{0}",
         "monster": "Remove {2} from '{1}' of {0}",
         "objective": "Remove {1} from {0}",
         "summon": "Remove {2} from '{1}' of {0}"
@@ -1084,6 +1091,7 @@
       "setBG": "Set Battle Goals of {0} to {1}",
       "setConditionValue": {
         "char": "{1} to {2} for {0}",
+        "monsterEntities": "{1} to {2} for all {3}{0}",
         "monster": "{2} to {3} for '{1}' of {0}",
         "objective": "{1} to {2} for {0}",
         "summon": "{2} to {3} for '{1}' of {0}"

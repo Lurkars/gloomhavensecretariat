@@ -51,7 +51,9 @@ export class RoundManager {
 
       gameManager.sortFigures();
 
-      this.game.figures.forEach((figure) => figure.active = false);
+      this.game.figures.forEach((figure) => {
+        figure.active = false;
+      });
 
     } else if (this.nextAvailable() || force) {
       if (this.game.round == 0) {
@@ -208,7 +210,7 @@ export class RoundManager {
 
     if (figure instanceof Monster) {
       figure.entities.forEach((monsterEntity) => {
-        if (!monsterEntity.off) {
+        if (!monsterEntity.off && monsterEntity.summon != SummonState.new) {
           monsterEntity.active = true;
         }
       });
@@ -298,20 +300,6 @@ export class RoundManager {
             gameManager.entityManager.applyConditionsAfter(monsterEntity);
           });
         }
-      }
-
-      if (figure instanceof Character) {
-        for (let summon of figure.summons) {
-          if (summon.state == SummonState.new) {
-            summon.state = SummonState.true;
-          }
-        }
-      } else if (figure instanceof Monster) {
-        figure.entities.forEach((monsterEntity) => {
-          if (monsterEntity.summon == SummonState.new) {
-            monsterEntity.summon = SummonState.true;
-          }
-        })
       }
     }
   }
