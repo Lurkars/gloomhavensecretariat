@@ -3,6 +3,7 @@
   "thumbnail": "gh-cave-bear",
   "edition": "gh",
   "deck": "cave-bear",
+  "hidden": true,
   "count": 4,
   "baseStat": {
     "type": "normal",

@@ -3,6 +3,7 @@
   "thumbnail": "gh-cultist",
   "deck": "cultist",
   "edition": "gh",
+  "hidden": true,
   "count": 6,
   "baseStat": {
     "type": "normal",

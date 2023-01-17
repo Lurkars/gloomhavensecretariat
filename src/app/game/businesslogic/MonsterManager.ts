@@ -301,7 +301,7 @@ export class MonsterManager {
   applySameDeck(monster: Monster): boolean {
     const sameDeckMonster = this.getSameDeckMonster(monster);
 
-    if (sameDeckMonster && gameManager.gameplayFigure(sameDeckMonster)) {
+    if (sameDeckMonster) {
       monster.abilities = JSON.parse(JSON.stringify(sameDeckMonster.abilities));
       monster.ability = sameDeckMonster.ability;
       monster.lastDraw = this.game.round;
