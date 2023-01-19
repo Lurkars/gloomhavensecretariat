@@ -309,9 +309,9 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
 
   buyItem() {
     this.itemChange();
-    if (this.item && this.item.cost <= this.character.progress.gold) {
+    if (this.item && (this.item.cost + this.priceModifier) <= this.character.progress.gold) {
       gameManager.stateManager.before("buyItem", "data.character." + this.character.name, this.itemIndex + "", this.itemEdition.nativeElement.value);
-      this.character.progress.gold -= this.item.cost;
+      this.character.progress.gold -= (this.item.cost + this.priceModifier);
       this.character.progress.items.push(new Identifier(this.itemIndex + "", this.itemEdition.nativeElement.value));
       this.items.push(this.item);
       this.items.sort((a, b) => a.id - b.id);

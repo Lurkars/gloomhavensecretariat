@@ -12,5 +12,280 @@
   "monsters": [
     "living-corpse",
     "living-spirit"
+  ],
+  "objectives": [
+    {
+      "name": "Pillar left",
+      "health": "(1+L)xC",
+      "marker": "A"
+    },
+    {
+      "name": "Pillar right",
+      "health": "(1+L)xC",
+      "marker": "A"
+    },
+    {
+      "name": "Pillar left",
+      "health": "(1+L)xC",
+      "marker": "B"
+    },
+    {
+      "name": "Pillar right",
+      "health": "(1+L)xC",
+      "marker": "B"
+    },
+    {
+      "name": "Pillar left",
+      "health": "(3+L)xC",
+      "marker": "C"
+    },
+    {
+      "name": "Pillar right",
+      "health": "(3+L)xC",
+      "marker": "C"
+    }
+  ],
+  "rules": [
+    {
+      "round": "once",
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-corpse",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "A"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Pillar left",
+            "marker": "A"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "once",
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-corpse",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "A"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Pillar right",
+            "marker": "A"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "once",
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-corpse",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "B"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Pillar left",
+            "marker": "B"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "once",
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-corpse",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "B"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Pillar right",
+            "marker": "B"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "once",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Pillar left",
+            "marker": "A"
+          },
+          "type": "dead"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Pillar right",
+            "marker": "A"
+          },
+          "type": "dead"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Pillar left",
+            "marker": "B"
+          },
+          "type": "dead"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Pillar right",
+            "marker": "B"
+          },
+          "type": "dead"
+        }
+      ],
+      "rooms": [
+        2
+      ]
+    },
+    {
+      "round": "once",
+      "finish": "won",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Pillar left",
+            "marker": "C"
+          },
+          "type": "dead"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Pillar right",
+            "marker": "C"
+          },
+          "type": "dead"
+        }
+      ],
+      "requiredRooms": [
+        2
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "jotl12-1",
+      "initial": true,
+      "objectives": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "jotl12-2",
+      "marker": "1",
+      "monster": [
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        5,
+        6
+      ]
+    }
   ]
 }

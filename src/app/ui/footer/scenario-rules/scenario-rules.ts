@@ -4,7 +4,7 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { MonsterStandeeData, RoomData } from "src/app/game/model/data/RoomData";
-import { ScenarioRule, ScenarioRuleFigures, MonsterSpawnData } from "src/app/game/model/data/ScenarioRule";
+import { ScenarioRule, ScenarioFigureRule, MonsterSpawnData } from "src/app/game/model/data/ScenarioRule";
 import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterType } from "src/app/game/model/MonsterType";
@@ -14,6 +14,7 @@ import { ScenarioSummaryComponent } from "src/app/ui/footer/scenario/scenario";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { GameState } from "src/app/game/model/Game";
 import { AttackModifier, AttackModifierType } from "src/app/game/model/AttackModifier";
+import { Figure } from "src/app/game/model/Figure";
 
 @Component({
     selector: 'ghs-scenario-rules',
@@ -50,13 +51,14 @@ export class ScenarioRulesComponent {
     }
 
     spawnCount(rule: ScenarioRule, spawn: MonsterSpawnData): number {
-
         let count = spawn.count;
         let F = 0;
         if (count && rule.figures) {
             const figureRule = rule.figures.find((figureRule) => figureRule.type == "present" || figureRule.type == "dead");
             if (figureRule) {
-                F = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect).filter((figure) => figureRule.type == "present" ? gameManager.gameplayFigure(figure) : !gameManager.gameplayFigure(figure)).length;
+                const gameplayFigures: Figure[] = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect).filter((figure) => gameManager.gameplayFigure(figure) && (!(figure instanceof Monster) || !(figureRule.identifier?.marker) || (figure instanceof Monster && figure.entities.some((entity) => entity.marker == figureRule.identifier?.marker && !entity.dead && entity.health >= 1))));
+                const max: number = figureRule.value && figureRule.value.split(':').length > 1 ? EntityValueFunction(figureRule.value.split(':')[1]) : 0;
+                F = figureRule.type == "present" ? gameplayFigures.length : Math.max(0, max - gameplayFigures.length);
             }
         }
 
@@ -104,7 +106,7 @@ export class ScenarioRulesComponent {
         return rooms;
     }
 
-    figureRules(rule: ScenarioRule): ScenarioRuleFigures[] {
+    figureRules(rule: ScenarioRule): ScenarioFigureRule[] {
         return rule.figures && rule.figures.filter((figureRule) => {
             if (figureRule.type == "present" || figureRule.type == "dead") {
                 return false;
@@ -141,7 +143,7 @@ export class ScenarioRulesComponent {
         }) || [];
     }
 
-    figureNames(figureRule: ScenarioRuleFigures): string {
+    figureNames(figureRule: ScenarioFigureRule): string {
         if (figureRule.identifier) {
             if (figureRule.identifier.type == "all") {
                 return settingsManager.getLabel('scenario.rules.figures.all');

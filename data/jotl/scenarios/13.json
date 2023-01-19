@@ -10,6 +10,34 @@
     "blood-imp",
     "zealot"
   ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "blood-imp",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "A"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": "black-sludge",
+            "marker": "A"
+          },
+          "type": "present"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -55,6 +83,9 @@
       "ref": "jotl13-2",
       "rooms": [
         3
+      ],
+      "treasures": [
+        5
       ],
       "monster": [
         {
@@ -103,10 +134,12 @@
     {
       "roomNumber": 3,
       "ref": "jotl13-3",
+      "marker": "1",
       "monster": [
         {
           "name": "black-sludge",
-          "type": "elite"
+          "type": "elite",
+          "marker": "A"
         },
         {
           "name": "black-sludge",

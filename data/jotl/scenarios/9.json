@@ -21,7 +21,7 @@
       "monster": [
         {
           "name": "blood-horror",
-          "type": "elite"
+          "type": "boss"
         },
         {
           "name": "zealot",
@@ -80,6 +80,9 @@
     {
       "roomNumber": 4,
       "ref": "jotl09-4",
+      "treasures": [
+        1
+      ],
       "monster": [
         {
           "name": "zealot",

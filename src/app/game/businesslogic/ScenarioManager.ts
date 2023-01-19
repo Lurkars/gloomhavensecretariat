@@ -3,6 +3,7 @@ import { RoomData } from "../model/data/RoomData";
 import { ScenarioData } from "../model/data/ScenarioData";
 import { ScenarioRule, ScenarioRuleIdentifier } from "../model/data/ScenarioRule";
 import { EntityValueFunction } from "../model/Entity";
+import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
@@ -204,6 +205,7 @@ export class ScenarioManager {
     }
 
     this.addScenarioRulesRooms();
+    this.addScenarioRulesAlways();
   }
 
   scenarioData(edition: string | undefined): ScenarioData[] {
@@ -367,13 +369,9 @@ export class ScenarioManager {
     if (add) {
       if (rule.figures && rule.figures.filter((figureRule) => figureRule.type == "present" || figureRule.type == "dead").length > 0) {
         rule.figures.filter((figureRule) => figureRule.type == "present" || figureRule.type == "dead").forEach((figureRule) => {
-          const figures = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
-          add = add &&
-            (figureRule.type == "present") ?
-
-            figures.length > 0 && figures.some((figure) => gameManager.gameplayFigure(figure) && !(figure instanceof Monster || !(figureRule.identifier?.marker) || (figure instanceof Monster && figure.entities.some((entity) => entity.marker == figureRule.identifier?.marker && !entity.dead && entity.health >= 1)))) :
-
-            figures.length == 0 || figures.every((figure) => !gameManager.gameplayFigure(figure) && (!(figure instanceof Monster) || !(figureRule.identifier?.marker) || (figure instanceof Monster && figure.entities.every((entity) => entity.marker != figureRule.identifier?.marker || entity.dead || entity.health < 1))));
+          const gameplayFigures: Figure[] = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect).filter((figure) => gameManager.gameplayFigure(figure) && (!(figure instanceof Monster) || !(figureRule.identifier?.marker) || (figure instanceof Monster && figure.entities.some((entity) => entity.marker == figureRule.identifier?.marker && !entity.dead && entity.health >= 1))));
+          const tolerance: number = figureRule.value ? EntityValueFunction(figureRule.value.split(':')[0]) : 0;
+          add = add && (figureRule.type == "present" ? gameplayFigures.length > tolerance : gameplayFigures.length <= tolerance);
         })
       }
 

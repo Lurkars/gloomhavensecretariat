@@ -74,7 +74,7 @@ export class Game {
     });
 
     model.objectives.forEach((value) => {
-      let objective = this.figures.find((figure) => figure instanceof Objective && figure.id == value.id) as Objective;
+      let objective = this.figures.find((figure) => figure instanceof Objective && figure.id == value.id && figure.name == value.name && figure.marker == value.marker) as Objective;
       if (!objective) {
         if (!value.id) {
           value.id = 0;

@@ -112,5 +112,4 @@ export class GameObjectiveModel {
   }
 }
 
-
-export const OBJECTIV_MARKERS: string[] = ["", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"];
+export const OBJECTIV_MARKERS: string[] = ["", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"];

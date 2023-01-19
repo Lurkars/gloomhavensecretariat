@@ -14,6 +14,53 @@
     "giant-viper",
     "vermling-scout"
   ],
+  "rules": [
+    {
+      "round": "once",
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "giant-viper",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "B"
+        },
+        {
+          "monster": {
+            "name": "giant-viper",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "B"
+        },
+        {
+          "monster": {
+            "name": "giant-viper",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "C"
+        },
+        {
+          "monster": {
+            "name": "giant-viper",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "C"
+        }
+      ],
+      "revealedRooms": [
+        4
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -110,6 +157,7 @@
     {
       "roomNumber": 3,
       "ref": "jotl11-3",
+      "marker": "1",
       "rooms": [
         4
       ],
@@ -152,32 +200,7 @@
     },
     {
       "roomNumber": 4,
-      "monster": [
-        {
-          "name": "giant-viper",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "giant-viper",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        }
-      ]
+      "marker": "2"
     }
   ]
 }

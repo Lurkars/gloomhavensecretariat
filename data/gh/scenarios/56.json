@@ -10,12 +10,33 @@
   ],
   "objectives": [
     {
-      "name": "Captive Orchid 1",
+      "name": "Captive Orchid",
       "escort": true,
       "health": "4+(2xL)",
       "initiative": 50,
       "marker": "a",
       "count": 3
+    }
+  ],
+  "rules": [
+    {
+      "round": "once",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "escort",
+            "name": "Captive Orchid",
+            "marker": "a"
+          },
+          "type": "dead"
+        }
+      ],
+      "finish": "lost",
+      "requiredRooms": [
+        4
+      ]
     }
   ],
   "rooms": [

@@ -13,6 +13,31 @@
     "vermling-scout",
     "zealot"
   ],
+  "rules": [
+    {
+      "round": "once",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": "blood-tumor"
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": "blood-tumor"
+          },
+          "type": "damage",
+          "value": "Cx2"
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -60,6 +85,9 @@
       "rooms": [
         3
       ],
+      "treasures": [
+        12
+      ],
       "monster": [
         {
           "name": "vermling-scout",
@@ -101,10 +129,11 @@
     {
       "roomNumber": 3,
       "ref": "jotl07-3",
+      "marker": 1,
       "monster": [
         {
           "name": "blood-tumor",
-          "type": "normal"
+          "type": "boss"
         },
         {
           "name": "zealot",

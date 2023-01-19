@@ -8,5 +8,162 @@
   "monsters": [
     "stone-golem",
     "zealot"
+  ],
+  "objectives": [
+    {
+      "name": "Summoning Stone",
+      "health": "C+1",
+      "count": 4
+    }
+  ],
+  "rules": [
+    {
+      "round": "once",
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "zealot",
+            "type": "normal"
+          },
+          "marker": "B"
+        },
+        {
+          "monster": {
+            "name": "zealot",
+            "type": "elite"
+          },
+          "marker": "B"
+        },
+        {
+          "monster": {
+            "name": "zealot",
+            "player3": "normal"
+          },
+          "marker": "C",
+          "count": 2
+        },
+        {
+          "monster": {
+            "name": "zealot",
+            "player4": "normal"
+          },
+          "marker": "C"
+        },
+        {
+          "monster": {
+            "name": "zealot",
+            "player4": "elite"
+          },
+          "marker": "C"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Summoning Stone"
+          },
+          "type": "dead",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "round": "once",
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "stone-golem",
+            "type": "normal"
+          },
+          "marker": "A"
+        },
+        {
+          "monster": {
+            "name": "zealot",
+            "type": "normal"
+          },
+          "marker": "A",
+          "count": 2
+        },
+        {
+          "monster": {
+            "name": "stone-golem",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "B"
+        },
+        {
+          "monster": {
+            "name": "zealot",
+            "player4": "elite"
+          },
+          "marker": "C"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Summoning Stone"
+          },
+          "type": "dead"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "jotl04-1",
+      "initial": true,
+      "treasures": [
+        16
+      ],
+      "monster": [
+        {
+          "name": "stone-golem",
+          "type": "normal"
+        },
+        {
+          "name": "stone-golem",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "zealot",
+          "type": "normal"
+        },
+        {
+          "name": "zealot",
+          "type": "elite"
+        },
+        {
+          "name": "zealot",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "zealot",
+          "player4": "elite"
+        },
+        {
+          "name": "zealot",
+          "player4": "normal"
+        }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
   ]
 }

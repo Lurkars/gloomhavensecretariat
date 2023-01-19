@@ -42,7 +42,8 @@
         {
           "monster": {
             "name": "city-guard",
-            "player2": "normal"
+            "player2": "normal",
+            "player4": "elite"
           },
           "count": 2,
           "marker": "a"
@@ -59,14 +60,6 @@
             "name": "city-guard",
             "player3": "elite"
           },
-          "marker": "a"
-        },
-        {
-          "monster": {
-            "name": "city-guard",
-            "player4": "elite"
-          },
-          "count": 2,
           "marker": "a"
         }
       ],

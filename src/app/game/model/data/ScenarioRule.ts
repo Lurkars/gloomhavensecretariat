@@ -12,7 +12,7 @@ export class ScenarioRule {
   sections: string[] = [];
   disableRules: ScenarioRuleIdentifier[] = [];
   finish: "won" | "lost" | undefined = undefined;
-  figures: ScenarioRuleFigures[] = [];
+  figures: ScenarioFigureRule[] = [];
   requiredRooms: number[] = [];
 
   constructor(round: string, note: string = "", start: boolean = false) {
@@ -35,7 +35,7 @@ export class MonsterSpawnData {
 
 }
 
-export class ScenarioRuleFigures {
+export class ScenarioFigureRule {
 
   identifier: FigureIdentifier = undefined;
   type: "present" | "dead" | "gainCondition" | "looseCondition" | "damage" | "hp" | "toggleOff" | "toggleOn" | "transfer" | "amAdd" | "amRemove" = "present";

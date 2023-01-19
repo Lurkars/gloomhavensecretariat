@@ -10,6 +10,13 @@
     "black-sludge",
     "rat-monstrosity"
   ],
+  "objectives": [
+    {
+      "name": "Growth",
+      "health": "(1+L)xC",
+      "count": 7
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -52,6 +59,12 @@
           "name": "rat-monstrosity",
           "player4": "elite"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        1
       ]
     },
     {
@@ -89,6 +102,11 @@
           "name": "rat-monstrosity",
           "player4": "normal"
         }
+      ],
+      "objectives": [
+        1,
+        1,
+        1
       ]
     }
   ]

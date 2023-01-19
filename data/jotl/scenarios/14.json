@@ -10,6 +10,21 @@
     "giant-viper",
     "zealot"
   ],
+  "rules": [
+    {
+      "round": "R > 1",
+      "note": "%data.scenario.rules.jotl.14.1%",
+      "spawns": [
+        {
+          "monster": {
+            "name": "blood-imp",
+            "type": "elite"
+          },
+          "manual": true
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
@@ -53,6 +68,9 @@
     {
       "roomNumber": 2,
       "ref": "jotl14-2",
+      "treasures": [
+        15
+      ],
       "monster": [
         {
           "name": "giant-viper",

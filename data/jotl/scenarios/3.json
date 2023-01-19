@@ -8,5 +8,83 @@
   "monsters": [
     "basic-giant-viper",
     "basic-zealot"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "jotl03-1",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "basic-zealot",
+          "type": "normal"
+        },
+        {
+          "name": "basic-zealot",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "jotl03-2",
+      "initial": true,
+      "marker": "1",
+      "rooms": [
+        3
+      ],
+      "treasures": [
+        10
+      ],
+      "monster": [
+        {
+          "name": "basic-giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "basic-giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "basic-zealot",
+          "type": "normal"
+        },
+        {
+          "name": "basic-zealot",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "basic-zealot",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "jotl03-3",
+      "initial": true,
+      "marker": "2",
+      "monster": [
+        {
+          "name": "basic-giant-viper",
+          "type": "elite"
+        },
+        {
+          "name": "basic-zealot",
+          "type": "normal"
+        },
+        {
+          "name": "basic-zealot",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
   ]
 }

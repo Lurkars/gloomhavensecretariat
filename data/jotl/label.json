@@ -41,12 +41,19 @@
     "scenario": {
       "rules": {
         "jotl": {
+          "10": {
+            "1": "Move traps in %game.mapMarker.1% one hex downward",
+            "2": "Move traps in %game.mapMarker.2% one hex closer to nearest character"
+          },
+          "14": {
+            "1": "one for every normal Giant Viper and two for every elite Giant Viper adjacent to a Zealot, the Giant Viper dies"
+          },
           "15": {
             "1": "Spawn Black Imps adjacent to revealed tables.",
             "2": "Each Zealot kills one Black Imp within %game.action.range:3% and gains %game.condition.stun%. Spwan elite Blood Imps."
           },
           "16": {
-            "1" : "Spawn Rat Monstrosities"
+            "1": "Spawn Rat Monstrosities"
           }
         }
       }
@@ -546,7 +553,7 @@
             "2": "Each Zealot kills one Black Imp within %game.action.range:3% and gains %game.condition.stun%. Spwan elite Blood Imps."
           },
           "16": {
-            "1" : "Spawn Rat Monstrosities"
+            "1": "Spawn Rat Monstrosities"
           }
         }
       }
