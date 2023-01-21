@@ -150,6 +150,12 @@ Every edition folder get concatenated to a single edition data file on build.
 
 Also pull requests are welcome!
 
+Many thanks to all already contributing, you're awesome:
+
+<a href="https://github.com/Lurkars/gloomhavensecretariat/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Lurkars/gloomhavensecretariat" />
+</a>
+
 ## Privacy
 
 This app does NOT collect ANY personal data. Everything runs and stays in your browser/local storage. For usage of the server component please go to [Gloomhaven Secretariat Server#Privacy](https://github.com/Lurkars/ghs-server#privacy).
