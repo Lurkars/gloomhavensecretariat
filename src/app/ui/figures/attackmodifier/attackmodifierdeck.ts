@@ -79,32 +79,35 @@ export class AttackModifierDeckComponent implements OnInit {
       this.characterIcon = gameManager.characterManager.characterIcon(this.character);
     }
     this.current = this.deck.current;
+    this.internalDraw = -99;
     gameManager.uiChange.subscribe({
       next: () => {
         if (this.internalDraw == -99 && this.current < this.deck.current) {
           this.current = this.deck.current;
           this.internalDraw = this.deck.current;
-        } else if (this.internalDraw < this.deck.current) {
-          if (!this.queueTimeout) {
-            this.current++;
-            this.update();
-          } else {
-            this.queue = this.queue + Math.max(0, this.deck.current - this.internalDraw);
+        } else if (this.internalDraw != -99) {
+          if (this.internalDraw < this.deck.current) {
+            if (!this.queueTimeout) {
+              this.current++;
+              this.update();
+            } else {
+              this.queue = this.queue + Math.max(0, this.deck.current - this.internalDraw);
+            }
+            this.internalDraw = this.deck.current;
+          } else if (!this.queueTimeout || this.deck.current < this.current + this.queue) {
+            if (this.queueTimeout) {
+              clearTimeout(this.queueTimeout);
+              this.queueTimeout = null;
+            }
+            this.queue = 0;
+            this.drawing = false;
+            this.current = this.deck.current;
+            this.internalDraw = this.deck.current;
           }
-          this.internalDraw = this.deck.current;
-        } else if (!this.queueTimeout || this.deck.current < this.current + this.queue) {
-          if (this.queueTimeout) {
-            clearTimeout(this.queueTimeout);
-            this.queueTimeout = null;
-          }
-          this.queue = 0;
-          this.drawing = false;
-          this.current = this.deck.current;
-          this.internalDraw = this.deck.current;
-        }
 
-        if (settingsManager.settings.fhStyle) {
-          this.newStyle = true;
+          if (settingsManager.settings.fhStyle) {
+            this.newStyle = true;
+          }
         }
       }
     })
