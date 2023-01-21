@@ -10,6 +10,7 @@ import { Monster } from 'src/app/game/model/Monster';
 import { AttackModiferDeckChange } from '../figures/attackmodifier/attackmodifierdeck';
 import { HintDialogComponent } from './hint-dialog/hint-dialog';
 import { LootDeckChange } from '../figures/loot/loot-deck';
+import { Objective } from 'src/app/game/model/Objective';
 
 @Component({
   selector: 'ghs-footer',
@@ -30,13 +31,13 @@ export class FooterComponent implements OnInit {
   constructor(private dialog: Dialog, private overlay: Overlay) { }
 
   ngOnInit(): void {
-    this.hasAllyAttackModifierDeck = (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules()) && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly) || gameManager.game.scenario && gameManager.game.scenario.allyDeck || false;
+    this.hasAllyAttackModifierDeck = (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules()) && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly || figure instanceof Objective && figure.objectiveId && gameManager.objectiveDataByScenarioObjectiveIdentifier(figure.objectiveId)?.allyDeck) || gameManager.game.scenario && gameManager.game.scenario.allyDeck || false;
 
     this.lootDeck = Object.keys(gameManager.game.lootDeck.cards).length > 0;
 
     gameManager.uiChange.subscribe({
       next: () => {
-        this.hasAllyAttackModifierDeck = (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules()) && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly) || gameManager.game.scenario && gameManager.game.scenario.allyDeck || false;
+        this.hasAllyAttackModifierDeck = (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules()) && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly || figure instanceof Objective && figure.objectiveId && gameManager.objectiveDataByScenarioObjectiveIdentifier(figure.objectiveId)?.allyDeck) || gameManager.game.scenario && gameManager.game.scenario.allyDeck || false;
         this.lootDeck = Object.keys(gameManager.game.lootDeck.cards).length > 0;
       }
     })

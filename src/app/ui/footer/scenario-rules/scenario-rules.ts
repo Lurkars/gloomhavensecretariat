@@ -192,8 +192,16 @@ export class ScenarioRulesComponent {
 
                         if (type && gameManager.game.scenario) {
                             for (let i = 0; i < this.spawnCount(rule, spawn); i++) {
-                                gameManager.monsterManager.spawnMonsterEntity(spawn.monster.name, type, scenario);
-                                checkActive.push(spawn.monster.name);
+                                let entity = gameManager.monsterManager.spawnMonsterEntity(spawn.monster.name, type, scenario, spawn.summon);
+                                if (entity) {
+                                    if (spawn.monster.marker) {
+                                        entity.marker = spawn.monster.marker;
+                                    }
+                                    if (spawn.monster.tags) {
+                                        entity.tags = spawn.monster.tags;
+                                    }
+                                    checkActive.push(spawn.monster.name);
+                                }
                             }
                         }
                     })
@@ -219,7 +227,7 @@ export class ScenarioRulesComponent {
 
                 if (rule.rooms) {
                     this.rooms(index).forEach((roomData) => {
-                        gameManager.scenarioManager.openRoom(roomData, scenario);
+                        gameManager.scenarioManager.openRoom(roomData, scenario, gameManager.game.scenarioRules[index].identifier.section);
                     })
                 }
 
@@ -357,7 +365,7 @@ export class ScenarioRulesComponent {
         element.classList.add('closed');
         setTimeout(() => {
             const ruleModel = gameManager.game.scenarioRules.splice(index, 1)[0];
-            if (ruleModel.rule.round == "once") {
+            if (ruleModel.rule.once) {
                 gameManager.game.disgardedScenarioRules.push(ruleModel.identifier);
             }
             gameManager.stateManager.after();
@@ -380,7 +388,7 @@ export class ScenarioRulesComponent {
         setTimeout(() => {
             gameManager.stateManager.before("removeScenarioRule");
             const ruleModel = gameManager.game.scenarioRules.splice(index, 1)[0];
-            if (ruleModel.rule.round == "once") {
+            if (ruleModel.rule.once) {
                 gameManager.game.disgardedScenarioRules.push(ruleModel.identifier);
             }
             gameManager.stateManager.after();

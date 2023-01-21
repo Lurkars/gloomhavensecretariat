@@ -21,6 +21,7 @@ export class ActionSummonComponent implements OnChanges {
   @Input() monster: Monster | undefined;
   @Input() action!: Action;
   @Input() right: boolean = false;
+  @Input() spawn: boolean = false;
   @Input() additional: boolean = false;
   monsters: MonsterSpawnData[] = [];
   type: MonsterType | undefined;
@@ -159,7 +160,7 @@ export class ActionSummonComponent implements OnChanges {
       const count = EntityValueFunction(spawn.count || 1);
       gameManager.stateManager.before("summonAction", "data.monster." + spawn.monster.name, "game.monsterType." + spawn.monster.type, '' + count);
       for (let i = 0; i < count; i++) {
-        const entity = gameManager.monsterManager.spawnMonsterEntity(spawn.monster.name, spawn.monster.type, gameManager.game.scenario, true);
+        const entity = gameManager.monsterManager.spawnMonsterEntity(spawn.monster.name, spawn.monster.type, gameManager.game.scenario, !this.spawn);
         if (entity) {
           const tag = this.getTag(index);
           entity.tags = entity.tags || [];

@@ -8,12 +8,209 @@
   "monsters": [
     "black-imp",
     "blood-imp",
-    "rat-monstrosity"
+    "rat-monstrosity",
+    "rat-monstrosity-16-1"
   ],
   "rules": [
     {
       "round": "R == 2",
-      "start": true
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "rat-monstrosity",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "A",
+          "count": 3
+        },
+        {
+          "monster": {
+            "name": "rat-monstrosity",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "normal"
+          },
+          "marker": "B",
+          "count": 4
+        },
+        {
+          "monster": {
+            "name": "rat-monstrosity",
+            "player2": "elite",
+            "player4": "elite"
+          },
+          "marker": "C",
+          "count": 2
+        },
+        {
+          "monster": {
+            "name": "rat-monstrosity",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "D",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "round": "R > 2",
+      "once": true,
+      "start": true,
+      "rooms": [
+        2
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": ".+"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "once": true,
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "rat-monstrosity-16-1",
+            "player3": "elite",
+            "player4": "normal"
+          },
+          "marker": "A",
+          "count": 3
+        },
+        {
+          "monster": {
+            "name": "rat-monstrosity-16-1",
+            "player2": "normal",
+            "player4": "elite"
+          },
+          "marker": "B",
+          "count": 4
+        },
+        {
+          "monster": {
+            "name": "rat-monstrosity-16-1",
+            "player3": "normal"
+          },
+          "marker": "C",
+          "count": 2
+        },
+        {
+          "monster": {
+            "name": "rat-monstrosity-16-1",
+            "player2": "elite",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "D",
+          "count": 1
+        }
+      ],
+      "requiredRooms": [
+        2
+      ]
+    },
+    {
+      "round": "true",
+      "once": true,
+      "start": true,
+      "rooms": [
+        3
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": ".+"
+          },
+          "type": "dead"
+        }
+      ],
+      "requiredRooms": [
+        2
+      ]
+    },
+    {
+      "round": "true",
+      "once": true,
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "rat-monstrosity-16-2",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "A",
+          "count": 3
+        },
+        {
+          "monster": {
+            "name": "rat-monstrosity-16-2",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "B",
+          "count": 4
+        },
+        {
+          "monster": {
+            "name": "rat-monstrosity-16-2",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "C",
+          "count": 2
+        },
+        {
+          "monster": {
+            "name": "rat-monstrosity-16-2",
+            "player2": "elite",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "D",
+          "count": 1
+        }
+      ],
+      "requiredRooms": [
+        3
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "jotl16-1",
+      "initial": true,
+      "rooms": [
+        2
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "jotl16-1",
+      "marker": "1",
+      "rooms": [
+        3
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "jotl16-1",
+      "marker": "2"
     }
   ]
 }

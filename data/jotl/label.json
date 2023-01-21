@@ -23,12 +23,17 @@
       "common-vermling-raider": "Common Vermling Raider",
       "first-of-the-order": "First of the Order",
       "giant-viper": "Giant Viper",
+      "giant-viper-21": "Giant Viper #21",
       "living-corpse": "Living Corpse",
       "living-spirit": "Living Spirit",
       "monstrosity": "Monstrosity",
       "rat-monstrosity": "Rat Monstrosity",
+      "rat-monstrosity-16-1": "Rat Monstrosity #16-1",
+      "rat-monstrosity-16-2": "Rat Monstrosity #16-2",
       "stone-golem": "Stone Golem",
+      "stone-golem-22": "Stone Golem #22",
       "vermling-raider": "Vermling Raider",
+      "vermling-raider-22": "Vermling Raider #22",
       "vermling-scout": "Vermling Scout",
       "zealot": "Zealot"
     },
@@ -49,11 +54,19 @@
             "1": "one for every normal Giant Viper and two for every elite Giant Viper adjacent to a Zealot, the Giant Viper dies"
           },
           "15": {
-            "1": "Spawn Black Imps adjacent to revealed tables.",
-            "2": "Each Zealot kills one Black Imp within %game.action.range:3% and gains %game.condition.stun%. Spwan elite Blood Imps."
+            "1": "one for every Black Imp within Range 3 of a Zealot which then gain %game.condition.stun%"
           },
           "16": {
             "1": "Spawn Rat Monstrosities"
+          },
+          "20": {
+            "1": "Loot is represented with Objectives, after looting exhaust corresponding Objective to find good",
+            "2": "Find 1 good",
+            "3": "Find Ring of Restoration (Item 32)"
+          },
+          "21": {
+            "1": "in any hex the last objective was destroyed",
+            "2": "Characters suffer %game.damage:[L/2{$math.floor}]% for each hex they enter in room of Chaos Demon %game.mapMarker.A%"
           }
         }
       }
@@ -64,8 +77,11 @@
           "1": "All attacks targeting %data.monster.giant-viper% gain Disadvantage this round.",
           "2": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.giant-viper%'s allies."
         },
+        "giant-viper-21": {
+          "1": "Each time after any figure attacks a Giant Viper, that figure suffers %game.damage:L%"
+        },
         "black-sludge": {
-          "1": "The closest enemy in line-of-sight, regardless of range, suffer [1+L/2{%math.ceil}] %game.damage%"
+          "1": "The closest enemy in line-of-sight, regardless of range, suffer [1+L/2{$math.ceil}] %game.damage%"
         },
         "chaos-demon": {
           "1": "Any time a figure attacks the %data.monster.chaos-demon% this round, that figure suffer %game.damage:2%",
@@ -106,10 +122,10 @@
           "3": "within %game.action.range:2% of target"
         },
         "rat-monstrosity": {
-          "1": "On death, all adjacent figures suffer %game.damage:1%",
-          "2": "On death, all adjacent figures suffer %game.damage:2%",
-          "3": "On death, all adjacent figures suffer %game.damage:3%",
-          "4": "On death, all adjacent figures suffer %game.damage:4%"
+          "1": "all adjacent figures suffer %game.damage:1%",
+          "2": "all adjacent figures suffer %game.damage:2%",
+          "3": "all adjacent figures suffer %game.damage:3%",
+          "4": "all adjacent figures suffer %game.damage:4%"
         },
         "basic-vermling-raider": {
           "1": "Shuffle this deck at the end of the round.",
@@ -219,7 +235,7 @@
           "2": "Füge +2 %game.action.attack% wenn das Ziel an einer %data.monster.giant-viper%'s Verbündeten angrenzt."
         },
         "black-sludge": {
-          "1": "Der nächste Gegner in Sichtline, ungachtet der Reichweite, erleidet %game.damage:[1+L/2{%math.ceil}]%."
+          "1": "Der nächste Gegner in Sichtline, ungachtet der Reichweite, erleidet %game.damage:[1+L/2{$math.ceil}]%."
         },
         "chaos-demon": {
           "1": "Jedesmal wenn eine Figur den %data.monster.chaos-demon% in dieser Runde angreift, erleidet die Figur %game.damage:2%.",
@@ -421,7 +437,7 @@
           "2": "Ajoute +2 %game.action.attack% si la cible est adjacente à un allié de la Vipère Géante."
         },
         "black-sludge": {
-          "1": "L'adversaire en ligne de vue le plus proche, sans considération de portée, subit %game.damage:[1+L/2{%math.ceil}]%."
+          "1": "L'adversaire en ligne de vue le plus proche, sans considération de portée, subit %game.damage:[1+L/2{$math.ceil}]%."
         },
         "chaos-demon": {
           "1": "Chaque fois qu'un personnage attaque le %data.monster.chaos-demon%, ce personnage subit %game.damage:2%.",
@@ -565,7 +581,7 @@
           "2": "대상이 %data.monster.giant-viper%의 아군에게 인접해 있다면 +2 %game.action.attack%추가."
         },
         "black-sludge": {
-          "1": "사정거리에 관계없이 시야 내에 있는 가장 가까운 적이 [1+L/2{%math.ceil}] %game.damage%"
+          "1": "사정거리에 관계없이 시야 내에 있는 가장 가까운 적이 [1+L/2{$math.ceil}] %game.damage%"
         },
         "chaos-demon": {
           "1": "이번 라운드 중 피규어가 %data.monster.chaos-demon%를 공격할 때마다, 해당 피규어가 %game.damage:2%점을 입음.",

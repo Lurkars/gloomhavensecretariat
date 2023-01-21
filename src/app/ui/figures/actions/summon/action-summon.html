@@ -1,7 +1,7 @@
 <span *ngIf="!summon" class="summon-value" [ngClass]="{'text-white' : !right, 'small' : action.small}">
-  <span class="summon-label">{{'game.action.summon' | ghsLabel}}&nbsp;</span>
+  <span class="summon-label">{{(spawn ? 'game.action.spawn' : 'game.action.summon') | ghsLabel}}&nbsp;</span>
   <ng-container *ngFor="let spawn of monsters; let i = index;">
-    <span [ngClass]="{'spawn-highlight' : spawnHightlight(spawn,i)}"
+    <span [ngClass]="{'spawn-highlight' : spawnHightlight(spawn,i) && !settingsManager.settings.disableAnimations}"
       *ngIf="spawn.monster.type && settingsManager.settings.calculate" (tap)="spawnSummons($event,spawn, i)">
       <span [i18n]="'game.summon.spawnType'"
         [i18n-args]="[spawn.monster.name, spawn.monster.type, spawn.count ? '' + spawn.count : '']"></span>

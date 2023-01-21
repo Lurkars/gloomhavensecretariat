@@ -5,7 +5,7 @@ import { ActionHex, ActionType, ActionTypesIcons } from "src/app/game/model/Acti
 import { Character } from "src/app/game/model/Character";
 import { EntityValueFunction, EntityValueRegex } from "src/app/game/model/Entity";
 
-export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\,|\%|\+|\(|\)|\||\_)+)\%/;
+export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\,|\%|\+|\(|\)|\||\_|\[|\]|\||\{|\}|\$|\\|\/)+)\%/;
 
 export const applyPlaceholder = function (value: string, placeholder: string[] = [], relative: boolean = false, forceFh: boolean = false): string {
   const fh = settingsManager.settings.fhStyle || forceFh;
@@ -14,7 +14,6 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       let label: string = args[0];
       let split: string[] = label.split('.');
       let value = split[split.length - 1];
-
       if (value.indexOf(':') != 0) {
         split[split.length - 1] = value.split(':')[0];
         value = value.split(':')[1];
@@ -114,10 +113,10 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         image = '<img  src="./assets/images/fh/action/target.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-action">' + image + '</span>';
       } else if (!fh && type == "damage") {
-        replace = '<span class="damage">' + settingsManager.getLabel('game.damage', [value]) + '</span>';
+        replace = '<span class="damage">' + settingsManager.getLabel('game.damage', [settingsManager.settings.calculate ? '' + EntityValueFunction(value) : value]) + '</span>';
       } else if (fh && type == "damage") {
         image = '<img  src="./assets/images/fh/action/damage.svg" class="icon ghs-svg">';
-        replace = '<span class="damage">' + image + value + '</span>';
+        replace = '<span class="damage">' + image + (settingsManager.settings.calculate ? EntityValueFunction(value) : value) + '</span>';
       } else if (type == "loot" && split.length == 4) {
         image = '<img  src="./assets/images/' + split[3] + '-player.svg" class="icon">';
         replace = '<span class="placeholder-player">' + image + '</span>';
@@ -169,6 +168,7 @@ export class I18nDirective implements OnInit, OnChanges {
   @Input('relative') relative: boolean = false;
   @Input('fh-force') fhForce: boolean = false;
   fhStyle: boolean = false;
+  calc: boolean = false;
 
   private C: number;
   private L: number;
@@ -180,13 +180,15 @@ export class I18nDirective implements OnInit, OnChanges {
     this.L = gameManager.game.level;
     this.locale = settingsManager.settings.locale;
     this.fhStyle = settingsManager.settings.fhStyle || this.fhForce;
+    this.calc = settingsManager.settings.calculate;
     gameManager.uiChange.subscribe({
       next: () => {
-        if (this.locale != settingsManager.settings.locale || this.C != gameManager.game.figures.filter((figure) => figure instanceof Character).length || this.L != gameManager.game.level || (!this.fhForce && this.fhStyle != settingsManager.settings.fhStyle)) {
+        if (this.locale != settingsManager.settings.locale || this.C != gameManager.game.figures.filter((figure) => figure instanceof Character).length || this.L != gameManager.game.level || (!this.fhForce && this.fhStyle != settingsManager.settings.fhStyle) || this.calc != settingsManager.settings.calculate) {
           this.C = gameManager.game.figures.filter((figure) => figure instanceof Character).length;
           this.L = gameManager.game.level;
           this.locale = settingsManager.settings.locale;
           this.fhStyle = settingsManager.settings.fhStyle || this.fhForce;
+          this.calc = settingsManager.settings.calculate;
           this.apply();
         }
       }
@@ -206,7 +208,4 @@ export class I18nDirective implements OnInit, OnChanges {
   apply(): void {
     this.el.nativeElement.innerHTML = this.value && applyPlaceholder(settingsManager.getLabel(this.value, this.args, this.argLabel), this.args, this.relative, this.fhStyle) || "";
   }
-
-
-
 }

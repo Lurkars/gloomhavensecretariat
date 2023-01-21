@@ -4,6 +4,185 @@
   "edition": "jotl",
   "monsters": [
     "chaos-demon",
-    "giant-viper"
+    "giant-viper",
+    "giant-viper-21"
+  ],
+  "objectives": [
+    {
+      "name": "Table",
+      "health": "(2xC)-1",
+      "count": 5
+    }
+  ],
+  "rules": [
+    {
+      "round": "always",
+      "once": true,
+      "always": true,
+      "note": "%data.scenario.rules.jotl.21.1%",
+      "spawns": [
+        {
+          "monster": {
+            "name": "chaos-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          }
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Table"
+          },
+          "type": "dead"
+        }
+      ],
+      "requiredRooms": [
+        2
+      ]
+    },
+    {
+      "round": "always",
+      "once": true,
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": "chaos-demon",
+            "marker": "3"
+          },
+          "type": "dead"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": "giant-viper-21"
+          },
+          "type": "transfer",
+          "value": "giant-viper"
+        }
+      ],
+      "requiredRooms": [
+        4
+      ]
+    },
+    {
+      "round": "true",
+      "start": true,
+      "note": "%data.scenario.rules.jotl.21.2%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": "chaos-demon",
+            "marker": "A"
+          },
+          "type": "present"
+        }
+      ],
+      "requiredRooms": [
+        5
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "jotl21-1",
+      "initial": true,
+      "rooms": [
+        2,
+        3,
+        4
+      ],
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "jotl21-2",
+      "marker": "1",
+      "objectives": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "jotl21-3",
+      "marker": "2",
+      "rooms": [
+        5
+      ],
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "jotl21-4",
+      "marker": "3",
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite",
+          "marker": "3"
+        },
+        {
+          "name": "giant-viper-21",
+          "type": "elite"
+        },
+        {
+          "name": "giant-viper-21",
+          "type": "elite"
+        },
+        {
+          "name": "giant-viper-21",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper-21",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 5,
+      "ref": "jotl21-5",
+      "treasures": [
+        11
+      ],
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite",
+          "marker": "A"
+        }
+      ]
+    }
   ]
 }

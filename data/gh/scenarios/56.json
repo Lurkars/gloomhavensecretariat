@@ -15,12 +15,24 @@
       "health": "4+(2xL)",
       "initiative": 50,
       "marker": "a",
-      "count": 3
+      "count": 3,
+      "actions": [
+        {
+          "type": "move",
+          "value": 3
+        },
+        {
+          "type": "attack",
+          "value": 3
+        }
+      ],
+      "allyDeck": true
     }
   ],
   "rules": [
     {
-      "round": "once",
+      "round": "true",
+      "once": true,
       "always": true,
       "figures": [
         {

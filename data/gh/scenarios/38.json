@@ -17,7 +17,20 @@
       "name": "Orchid",
       "escort": true,
       "health": "6+(3xL)",
-      "marker": "a"
+      "marker": "a",
+      "actions": [
+        {
+          "type": "move",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.scenario.rules.gh.38.1%",
+              "small": true
+            }
+          ]
+        }
+      ]
     }
   ],
   "rooms": [

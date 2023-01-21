@@ -60,6 +60,10 @@
       </div>
     </div>
 
+    <div class="actions" *ngIf="objectiveData && objectiveData.actions" (click)="openEntityMenu($event)">
+      <ghs-action *ngFor="let action of objectiveData.actions" [action]="action"></ghs-action>
+    </div>
+
     <span class="spacer" (click)="openEntityMenu($event)"></span>
 
     <div class="icon-container" (click)="openEntityMenu($event)">

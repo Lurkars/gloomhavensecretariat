@@ -1,4 +1,5 @@
 import { Character } from "../model/Character";
+import { ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
 import { RoomData } from "../model/data/RoomData";
 import { ScenarioData } from "../model/data/ScenarioData";
 import { ScenarioRule, ScenarioRuleIdentifier } from "../model/data/ScenarioRule";
@@ -30,7 +31,7 @@ export class ScenarioManager {
         return;
       }
       gameManager.roundManager.resetScenario();
-      this.applyScenarioData(scenario.edition, scenarioData);
+      this.applyScenarioData(scenarioData);
     } else if (!scenario) {
       gameManager.roundManager.resetScenario();
     }
@@ -64,7 +65,7 @@ export class ScenarioManager {
   addSection(section: ScenarioData) {
     if (!this.game.sections.some((value) => value.edition == section.edition && value.index == section.index && value.group == section.group)) {
       this.game.sections.push(new Scenario(section, []));
-      this.applyScenarioData(section.edition, section);
+      this.applyScenarioData(section), true;
       if (section.rules) {
         section.rules.forEach((rule, index) => {
           this.addScenarioRule(section, rule, index, true);
@@ -75,11 +76,11 @@ export class ScenarioManager {
     }
   }
 
-  applyScenarioData(edition: string, scenarioData: ScenarioData) {
+  applyScenarioData(scenarioData: ScenarioData, section: boolean = false) {
     if (settingsManager.settings.disableStandees || !settingsManager.settings.scenarioRooms || !scenarioData.rooms || scenarioData.rooms.length == 0) {
       if (scenarioData.monsters) {
         scenarioData.monsters.forEach((name) => {
-          let monster = gameManager.monsterManager.addMonsterByName(name, edition);
+          let monster = gameManager.monsterManager.addMonsterByName(name, scenarioData.edition);
           if (monster && scenarioData.allies && scenarioData.allies.indexOf(name) != -1) {
             monster.isAlly = true;
           }
@@ -90,24 +91,25 @@ export class ScenarioManager {
       }
 
       if (scenarioData.objectives) {
-        scenarioData.objectives.forEach((objectiveData) => {
+        scenarioData.objectives.forEach((objectiveData, index) => {
+          const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenarioData.edition, "scenario": scenarioData.index, "group": scenarioData.group, "section": section, "index": index };
           if (objectiveData.count) {
             const count = EntityValueFunction(objectiveData.count);
             if (typeof count == 'number') {
               for (let i = 0; i < count; i++) {
-                gameManager.characterManager.addObjective(objectiveData);
+                gameManager.characterManager.addObjective(objectiveData, undefined, objectiveIdentifier);
               }
             } else {
-              gameManager.characterManager.addObjective(objectiveData);
+              gameManager.characterManager.addObjective(objectiveData, undefined, objectiveIdentifier);
             }
           } else {
-            gameManager.characterManager.addObjective(objectiveData);
+            gameManager.characterManager.addObjective(objectiveData, undefined, objectiveIdentifier);
           }
         })
       }
     } else {
       scenarioData.rooms.filter((roomData) => roomData.initial).forEach((roomData) => {
-        this.openRoom(roomData, scenarioData);
+        this.openRoom(roomData, scenarioData, section);
       })
     }
 
@@ -138,7 +140,7 @@ export class ScenarioManager {
     }
   }
 
-  openRoom(roomData: RoomData, scenarioData: ScenarioData) {
+  openRoom(roomData: RoomData, scenarioData: ScenarioData, section: boolean) {
     if (this.game.scenario) {
       this.game.scenario.revealedRooms = this.game.scenario.revealedRooms || [];
       this.game.scenario.revealedRooms.push(roomData.roomNumber);
@@ -166,6 +168,9 @@ export class ScenarioManager {
             if (monsterStandeeData.marker) {
               entity.marker = monsterStandeeData.marker;
             }
+            if (monsterStandeeData.tags) {
+              entity.tags = monsterStandeeData.tags;
+            }
             entities.push(entity);
           }
         }
@@ -190,14 +195,16 @@ export class ScenarioManager {
     if (roomData.objectives) {
       roomData.objectives.forEach((index) => {
         if (typeof index == 'number' && index > 0 && index <= scenarioData.objectives.length) {
-          gameManager.characterManager.addObjective(scenarioData.objectives[index - 1]);
+          const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenarioData.edition, "scenario": scenarioData.index, "group": scenarioData.group, "section": section, "index": index - 1 };
+          gameManager.characterManager.addObjective(scenarioData.objectives[index - 1], undefined, objectiveIdentifier);
         } else if (typeof index == 'string' && index.indexOf(':') != -1) {
           let split = index.split(':');
           const id = +(split.splice(0, 1));
           const count = EntityValueFunction(split.join(':'));
           if (id > 0 && id <= scenarioData.objectives.length && count > 0) {
             for (let i = 0; i < count; i++) {
-              gameManager.characterManager.addObjective(scenarioData.objectives[id - 1]);
+              const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenarioData.edition, "scenario": scenarioData.index, "group": scenarioData.group, "section": section, "index": id - 1 };
+              gameManager.characterManager.addObjective(scenarioData.objectives[id - 1], undefined, objectiveIdentifier);
             }
           }
         }
@@ -208,14 +215,14 @@ export class ScenarioManager {
     this.addScenarioRulesAlways();
   }
 
-  scenarioData(edition: string | undefined): ScenarioData[] {
+  scenarioData(edition: string | undefined, all: boolean = false): ScenarioData[] {
     const scenarios = gameManager.editionData.filter((editionData) => settingsManager.settings.editions.indexOf(editionData.edition) != -1).map((editionData) => editionData.scenarios).flat();
 
     if (!edition) {
       return scenarios;
     }
 
-    if (!this.game.party.campaignMode || !scenarios.some((scenarioData) => scenarioData.initial)) {
+    if (all || !this.game.party.campaignMode || !scenarios.some((scenarioData) => scenarioData.initial)) {
       return scenarios.filter((scenarioData) => scenarioData.edition == edition);
     }
 
@@ -355,7 +362,7 @@ export class ScenarioManager {
       round = round.replace('C', '' + this.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length);
     }
 
-    if (round == "always" || round == "once") {
+    if (round == "always") {
       add = true
     } else {
       try {
@@ -375,9 +382,16 @@ export class ScenarioManager {
         })
       }
 
+
       if (rule.requiredRooms && rule.requiredRooms.length > 0) {
         rule.requiredRooms.forEach((room) => {
           add = add && gameManager.game.scenario != undefined && gameManager.game.scenario.revealedRooms.indexOf(room) != -1;
+        })
+      }
+
+      if (rule.requiredRules && rule.requiredRules.length > 0) {
+        rule.requiredRules.forEach((other) => {
+          add = add && this.game.disgardedScenarioRules.some((identifier) => other.edition == identifier.edition && other.scenario == identifier.scenario && other.group == identifier.group && other.index == identifier.index && other.section == identifier.section);
         })
       }
     }

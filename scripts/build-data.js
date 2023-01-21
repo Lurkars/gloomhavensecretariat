@@ -74,13 +74,17 @@ for (edition_path of edition_dirs) {
       const inputFile = path.join(scenariosFolder, scenarioFile);
       if (fs.lstatSync(inputFile).isFile()) {
         const f = fs.readFileSync(inputFile, 'utf8');
-        const scenario = JSON.parse(f);
-        const existing = edition_data['scenarios'].find((scenarioData) => scenarioData.index == scenario.index && scenarioData.edition == scenario.edition && scenarioData.group == scenario.group);
-        if (existing) {
-          edition_data['scenarios'].splice(edition_data['scenarios'].indexOf(existing), 1, scenario);
-          console.debug(scenario.edition + " Scenario #" + scenario.index + (scenario.group ? ' [' + scenario.group + ']' : '') + " replaced with new format.");
-        } else {
-          edition_data['scenarios'].push(scenario);
+        try {
+          const scenario = JSON.parse(f);
+          const existing = edition_data['scenarios'].find((scenarioData) => scenarioData.index == scenario.index && scenarioData.edition == scenario.edition && scenarioData.group == scenario.group);
+          if (existing) {
+            edition_data['scenarios'].splice(edition_data['scenarios'].indexOf(existing), 1, scenario);
+            console.debug(scenario.edition + " Scenario #" + scenario.index + (scenario.group ? ' [' + scenario.group + ']' : '') + " replaced with new format.");
+          } else {
+            edition_data['scenarios'].push(scenario);
+          }
+        } catch (e) {
+          console.error(inputFile, e);
         }
       }
     }
@@ -110,13 +114,17 @@ for (edition_path of edition_dirs) {
       const inputFile = path.join(sectionsFolder, sectionFile);
       if (fs.lstatSync(inputFile).isFile()) {
         const f = fs.readFileSync(inputFile, 'utf8');
-        const section = JSON.parse(f);
-        const existing = edition_data['sections'].find((sectionData) => sectionData.index == section.index && sectionData.edition == section.edition && sectionData.group == section.group);
-        if (existing) {
-          edition_data['sections'].splice(edition_data['sections'].indexOf(existing), 1, section);
-          console.log(section.edition + " Section #" + section.index + (section.group ? ' [' + section.group + ']' : '') + " replaced with new format.");
-        } else {
-          edition_data['sections'].push(section);
+        try {
+          const section = JSON.parse(f);
+          const existing = edition_data['sections'].find((sectionData) => sectionData.index == section.index && sectionData.edition == section.edition && sectionData.group == section.group);
+          if (existing) {
+            edition_data['sections'].splice(edition_data['sections'].indexOf(existing), 1, section);
+            console.log(section.edition + " Section #" + section.index + (section.group ? ' [' + section.group + ']' : '') + " replaced with new format.");
+          } else {
+            edition_data['sections'].push(section);
+          }
+        } catch (e) {
+          console.error(inputFile, e);
         }
       }
     }

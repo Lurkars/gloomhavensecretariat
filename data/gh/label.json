@@ -85,6 +85,12 @@
     "scenario": {
       "rules": {
         "gh": {
+          "19": {
+            "1": "towards the altar %game.mapMarker.b%"
+          },
+          "38": {
+            "1": "towards the shaman on the D tile"
+          },
           "42": {
             "1": "All monsters add +1 %game.action.attack% to all their attacks",
             "2": "All monsters gain Advantage on all their attacks",
@@ -104,6 +110,12 @@
           },
           "74": {
             "1": "Add water tile."
+          },
+          "79": {
+            "1": "Move to starting location, if moved off, then perform"
+          },
+          "86": {
+            "1": "towards the end of the docks %game.mapMarker.b%"
           }
         }
       }

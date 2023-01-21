@@ -69,7 +69,7 @@
         },
         {
           "type": "shield",
-          "value": "[1+(L+1)/4{%math.floor}]",
+          "value": "[1+(L+1)/4{$math.floor}]",
           "subActions": [
             {
               "type": "specialTarget",

@@ -8,7 +8,8 @@
   ],
   "rules": [
     {
-      "round": "once",
+      "round": "true",
+      "once": true,
       "note": "%data.section.rules.fc.66.1%",
       "sections": [
         "67"

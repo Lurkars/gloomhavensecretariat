@@ -3,7 +3,7 @@ import { Character } from "../model/Character";
 import { CharacterStat } from "../model/CharacterStat";
 import { ConditionType, EntityConditionState } from "../model/Condition";
 import { CharacterData } from "../model/data/CharacterData";
-import { ObjectiveData } from "../model/data/ObjectiveData";
+import { ObjectiveData, ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
 import { SummonData } from "../model/data/SummonData";
 import { EntityValueFunction } from "../model/Entity";
 import { FigureError, FigureErrorType } from "../model/FigureError";
@@ -116,7 +116,7 @@ export class CharacterManager {
   }
 
 
-  addObjective(objectiveData: ObjectiveData | undefined = undefined, name: string | undefined = undefined): Objective {
+  addObjective(objectiveData: ObjectiveData | undefined = undefined, name: string | undefined = undefined, objectiveId: ScenarioObjectiveIdentifier | undefined = undefined): Objective {
     const objectiveCount = gameManager.game.figures.filter((figure) => figure instanceof Objective).length;
     let id = objectiveCount % 12;
     if (objectiveCount < 12) {
@@ -125,7 +125,7 @@ export class CharacterManager {
       }
     }
 
-    let objective = new Objective(id);
+    let objective = new Objective(id, objectiveId);
 
     if (objectiveData) {
       if (objectiveData.id && objectiveData.id != -1) {

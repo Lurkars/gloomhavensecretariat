@@ -257,7 +257,6 @@ export class EntityMenuDialogComponent {
     let shieldAction = new Action(ActionType.shield, 0, ActionValueType.fixed, []);
     if (this.data.figure instanceof Monster && this.data.entity instanceof MonsterEntity) {
       const stat = gameManager.monsterManager.getStat(this.data.figure, this.data.entity.type);
-      let shieldValue = 0;
       const statAction = stat.actions.find((action) => action.type == ActionType.shield);
       if (statAction) {
         shieldAction.value = +shieldAction.value + +statAction.value;
@@ -289,7 +288,6 @@ export class EntityMenuDialogComponent {
           })
         }
       }
-
     }
     return shieldAction;
   }

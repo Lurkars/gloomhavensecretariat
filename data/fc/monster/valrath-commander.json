@@ -47,7 +47,7 @@
         },
         {
           "type": "heal",
-          "value": "[0.35*L+1.65{%math.ceil}]",
+          "value": "[0.35*L+1.65{$math.ceil}]",
           "subActions": [
             {
               "type": "specialTarget",

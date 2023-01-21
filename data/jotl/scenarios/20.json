@@ -7,5 +7,503 @@
     "chaos-demon",
     "giant-viper",
     "rat-monstrosity"
+  ],
+  "objectives": [
+    {
+      "name": "Loot",
+      "health": 1,
+      "marker": "A"
+    },
+    {
+      "name": "Loot",
+      "health": 1,
+      "marker": "B"
+    },
+    {
+      "name": "Loot",
+      "health": 1,
+      "marker": "C"
+    },
+    {
+      "name": "Loot",
+      "health": 1,
+      "marker": "D"
+    },
+    {
+      "name": "Loot",
+      "health": 1,
+      "marker": "E"
+    },
+    {
+      "name": "Loot",
+      "health": 1,
+      "marker": "F"
+    },
+    {
+      "name": "Loot",
+      "health": 1,
+      "marker": "G"
+    },
+    {
+      "name": "Loot",
+      "health": 1,
+      "marker": "H"
+    },
+    {
+      "name": "Loot",
+      "health": 1,
+      "marker": "J"
+    },
+    {
+      "name": "Loot",
+      "health": 1,
+      "marker": "K"
+    },
+    {
+      "name": "Loot",
+      "health": 1,
+      "marker": "L"
+    },
+    {
+      "name": "Loot",
+      "health": 1,
+      "marker": "M"
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "once": true,
+      "start": true,
+      "note": "%data.scenario.rules.jotl.20.1%"
+    },
+    {
+      "round": "always",
+      "once": true,
+      "always": true,
+      "note": "%data.scenario.rules.jotl.20.2%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Loot",
+            "marker": "A"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "always",
+      "once": true,
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "rat-monstrosity",
+            "player2": "normal",
+            "player4": "elite"
+          },
+          "marker": "B",
+          "count": 2
+        },
+        {
+          "monster": {
+            "name": "rat-monstrosity",
+            "player3": "normal"
+          },
+          "marker": "B"
+        },
+        {
+          "monster": {
+            "name": "rat-monstrosity",
+            "player3": "elite"
+          },
+          "marker": "B"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Loot",
+            "marker": "B"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "always",
+      "once": true,
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "black-sludge",
+            "player2": "normal",
+            "player4": "elite"
+          },
+          "marker": "C",
+          "count": 2
+        },
+        {
+          "monster": {
+            "name": "black-sludge",
+            "player3": "normal"
+          },
+          "marker": "C"
+        },
+        {
+          "monster": {
+            "name": "black-sludge",
+            "player3": "elite"
+          },
+          "marker": "C"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Loot",
+            "marker": "C"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "always",
+      "once": true,
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "giant-viper",
+            "player2": "normal",
+            "player4": "elite"
+          },
+          "marker": "D",
+          "count": 3
+        },
+        {
+          "monster": {
+            "name": "giant-viper",
+            "player3": "normal"
+          },
+          "marker": "D"
+        },
+        {
+          "monster": {
+            "name": "giant-viper",
+            "player3": "elite"
+          },
+          "marker": "D",
+          "count": 2
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Loot",
+            "marker": "D"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "always",
+      "once": true,
+      "always": true,
+      "note": "%data.scenario.rules.jotl.20.2%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Loot",
+            "marker": "E"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "always",
+      "once": true,
+      "always": true,
+      "note": "%data.scenario.rules.jotl.20.3%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Loot",
+            "marker": "F"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "always",
+      "once": true,
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "rat-monstrosity",
+            "player2": "normal",
+            "player4": "elite"
+          },
+          "marker": "G",
+          "count": 2
+        },
+        {
+          "monster": {
+            "name": "rat-monstrosity",
+            "player3": "normal"
+          },
+          "marker": "G"
+        },
+        {
+          "monster": {
+            "name": "rat-monstrosity",
+            "player3": "elite"
+          },
+          "marker": "G"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Loot",
+            "marker": "G"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "always",
+      "once": true,
+      "always": true,
+      "note": "%data.scenario.rules.jotl.20.2%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Loot",
+            "marker": "H"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "always",
+      "once": true,
+      "always": true,
+      "note": "%data.scenario.rules.jotl.20.2%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Loot",
+            "marker": "J"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "always",
+      "once": true,
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "black-sludge",
+            "player2": "normal",
+            "player4": "elite"
+          },
+          "marker": "K",
+          "count": 2
+        },
+        {
+          "monster": {
+            "name": "black-sludge",
+            "player3": "normal"
+          },
+          "marker": "K"
+        },
+        {
+          "monster": {
+            "name": "black-sludge",
+            "player3": "elite"
+          },
+          "marker": "K"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Loot",
+            "marker": "K"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "always",
+      "once": true,
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "chaos-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "L"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Loot",
+            "marker": "L"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "always",
+      "once": true,
+      "always": true,
+      "note": "%data.scenario.rules.jotl.20.2%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Loot",
+            "marker": "M"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "always",
+      "once": true,
+      "always": true,
+      "finish": "won",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Loot",
+            "marker": "A"
+          },
+          "type": "dead"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Loot",
+            "marker": "E"
+          },
+          "type": "dead"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Loot",
+            "marker": "H"
+          },
+          "type": "dead"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Loot",
+            "marker": "J"
+          },
+          "type": "dead"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Loot",
+            "marker": "M"
+          },
+          "type": "dead"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "jotl19-1",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "type": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "chaos-demon",
+          "player4": "normal"
+        }
+      ],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    }
   ]
 }

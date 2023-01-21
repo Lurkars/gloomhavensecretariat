@@ -41,7 +41,7 @@
       [
         {
           "type": "shield",
-          "value": "[(3+L)/2{%math.ceil}]"
+          "value": "[(3+L)/2{$math.ceil}]"
         },
         {
           "type": "move",

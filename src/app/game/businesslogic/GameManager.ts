@@ -29,6 +29,7 @@ import { MonsterEntity } from "../model/MonsterEntity";
 import { Summon } from "../model/Summon";
 import { LootManager } from "./LootManager";
 import { FigureIdentifier } from "../model/data/ScenarioRule";
+import { ObjectiveData, ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
 
 
 export class GameManager {
@@ -159,6 +160,16 @@ export class GameManager {
         return new Condition(value as ConditionName);
       }
     })
+  }
+
+  objectiveDataByScenarioObjectiveIdentifier(objectiveIdentifier: ScenarioObjectiveIdentifier): ObjectiveData | undefined {
+    const scenarioData = (objectiveIdentifier.section ? this.sectionData(objectiveIdentifier.edition).find((sectionData) => sectionData.index == objectiveIdentifier.scenario && sectionData.group == objectiveIdentifier.group) : this.scenarioData(objectiveIdentifier.edition).find((scenarioData) => scenarioData.index == objectiveIdentifier.scenario && scenarioData.group == objectiveIdentifier.group));
+
+    if (scenarioData && scenarioData.objectives.length > objectiveIdentifier.index) {
+      return scenarioData.objectives[objectiveIdentifier.index];
+    }
+
+    return undefined;
   }
 
   conditionsForTypes(...types: string[]): Condition[] {
@@ -337,7 +348,7 @@ export class GameManager {
   }
 
   gameplayFigure(figure: Figure) {
-    return figure instanceof Monster && figure.entities.length > 0 && figure.entities.some((entity) => !entity.dead && entity.health > 0) || figure instanceof Character && !figure.absent || (figure instanceof Character || figure instanceof Objective) && !figure.exhausted && (figure.health > 0 || EntityValueFunction(figure.maxHealth) == 0);
+    return figure instanceof Monster && figure.entities.length > 0 && figure.entities.some((entity) => !entity.dead && entity.health > 0) || figure instanceof Character && !figure.absent && !figure.exhausted && (figure.health > 0 || EntityValueFunction(figure.maxHealth) == 0) || figure instanceof Objective && !figure.exhausted && (figure.health > 0 || EntityValueFunction(figure.maxHealth) == 0);
   }
 
   figuresByIdentifier(identifier: FigureIdentifier, scenarioEffect: boolean): Figure[] {

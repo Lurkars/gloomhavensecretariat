@@ -47,12 +47,12 @@ export class ScenarioMenuComponent implements OnInit {
     return groups;
   }
 
-  scenarios(group: string | undefined = undefined, includeSpoiler: boolean = false): ScenarioData[] {
+  scenarios(group: string | undefined = undefined, includeSpoiler: boolean = false, all : boolean = false): ScenarioData[] {
     if (!this.edition) {
       return [];
     }
 
-    return gameManager.scenarioManager.scenarioData(this.edition).filter((scenarioData) => scenarioData.group == group && (includeSpoiler || (!scenarioData.spoiler || settingsManager.settings.spoilers.indexOf(scenarioData.name) != -1 || scenarioData.solo && settingsManager.settings.spoilers.indexOf(scenarioData.solo) != -1))).sort((a, b) => {
+    return gameManager.scenarioManager.scenarioData(this.edition, all).filter((scenarioData) => scenarioData.group == group && (includeSpoiler || (!scenarioData.spoiler || settingsManager.settings.spoilers.indexOf(scenarioData.name) != -1 || scenarioData.solo && settingsManager.settings.spoilers.indexOf(scenarioData.solo) != -1))).sort((a, b) => {
       if (!isNaN(+a.index) && !isNaN(+b.index)) {
         return +a.index - +b.index;
       }

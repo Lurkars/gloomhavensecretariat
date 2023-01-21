@@ -46,8 +46,8 @@
             "1": "if adjacent Spitting Drake is alive and without %game.condition.stun%."
           },
           "115": {
-            "1": "Remove one damage token from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{%math.floor}] hit points for each damage token removed.",
-            "2": "Remove two damage tokens from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{%math.floor}] hit points for each damage token removed.",
+            "1": "Remove one damage token from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{$math.floor}] hit points for each damage token removed.",
+            "2": "Remove two damage tokens from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{$math.floor}] hit points for each damage token removed.",
             "3": "at %game.mapMarker.c% if alter %game.mapMarker.a% has no damage token on it",
             "4": "at %game.mapMarker.d% if altar %game.mapMarker.b% has no damage tokens."
           }
@@ -518,8 +518,8 @@
             "1": "Husk gain %game.condition.invisible%"
           },
           "115": {
-            "1": "Remove one damage token from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{%math.floor}] hit points for each damage token removed.",
-            "2": "Remove two damage tokens from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{%math.floor}] hit points for each damage token removed.",
+            "1": "Remove one damage token from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{$math.floor}] hit points for each damage token removed.",
+            "2": "Remove two damage tokens from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{$math.floor}] hit points for each damage token removed.",
             "3": "at %game.mapMarker.c% if alter %game.mapMarker.a% has no damage token on it",
             "4": "at %game.mapMarker.d% if altar %game.mapMarker.b% has no damage tokens."
           }

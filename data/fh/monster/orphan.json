@@ -19,7 +19,7 @@
       [
         {
           "type": "heal",
-          "value": "[Cx(3/2+Lx0.5){%math.ceil}]",
+          "value": "[Cx(3/2+Lx0.5){$math.ceil}]",
           "subActions": [
             {
               "type": "custom",

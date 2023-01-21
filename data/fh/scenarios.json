@@ -30,7 +30,7 @@
     "objectives": [
       {
         "name": "Ice Pillar",
-        "health": "[(2+L)xC/2{%math.floor}]",
+        "health": "[(2+L)xC/2{$math.floor}]",
         "count": 3
       }
     ],
@@ -548,22 +548,22 @@
     "objectives": [
       {
         "name": "Door",
-        "health": "[((C-1)/2)x(L+3){%math.floor}]",
+        "health": "[((C-1)/2)x(L+3){$math.floor}]",
         "marker": "a"
       },
       {
         "name": "Door",
-        "health": "[((C-1)/2)x(L+3){%math.floor}]",
+        "health": "[((C-1)/2)x(L+3){$math.floor}]",
         "marker": "b"
       },
       {
         "name": "Door",
-        "health": "[((C-1)/2)x(L+3){%math.floor}]",
+        "health": "[((C-1)/2)x(L+3){$math.floor}]",
         "marker": "c"
       },
       {
         "name": "Door",
-        "health": "[((C-1)/2)x(L+3){%math.floor}]",
+        "health": "[((C-1)/2)x(L+3){$math.floor}]",
         "marker": "d"
       }
     ],

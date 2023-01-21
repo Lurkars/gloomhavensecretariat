@@ -426,7 +426,7 @@ export class SettingsManager {
             if (self.find((other) => self.indexOf(other) != self.indexOf(scenarioData) && scenarioData.index == other.index && scenarioData.edition == other.edition && scenarioData.group == other.group)) {
               console.warn("Duplicate Scenario: " + scenarioData.index + " (Edition: " + scenarioData.edition + ")");
             }
-            
+
             if (scenarioData.edition == value.edition && value.edition == 'gh') {
               if (scenarioData.monsters) {
                 scenarioData.monsters.forEach((name) => {

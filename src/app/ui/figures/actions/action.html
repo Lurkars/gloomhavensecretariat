@@ -136,6 +136,17 @@
     </ng-container>
   </span>
 
+  <span class="action-summon" *ngSwitchCase="ActionType.spawn" [ngClass]="{'small' : action.small}">
+    <ghs-action-summon [action]="action" [right]="right" [monster]="monster" [spawn]="true"></ghs-action-summon>
+    <ng-container *ngIf="subActions && subActions.length > 0">
+      <ghs-action [ngClass]="'subaction-' + subAction.type"
+        *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0)" [action]="subAction" [monster]="monster"
+        [inline]="inline" [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
+        [relative]="relative" [statsCalculation]="statsCalculation">
+      </ghs-action>
+    </ng-container>
+  </span>
+
   <span class="action-trigger" *ngSwitchCase="ActionType.trigger">
     <span class="custom-value" [i18n]="action.value + ''" [relative]="relative"
       [ngClass]="{'small' : action.small,'text-white' : !right}"></span>
@@ -238,15 +249,33 @@
 
         <span class="value">
           <span *ngIf="!relative">
-            <span [value-calc]="getNormalValue()" [level]="monster && monster.level"></span>
-            <span *ngIf="getEliteValue() && getNormalValue() != getEliteValue()">/</span>
-            <span *ngIf="getEliteValue() && getNormalValue() != getEliteValue()" class="elite"
-              [value-calc]="getEliteValue()" [level]="monster && monster.level"></span>
+            <ng-container *ngIf="hasEntities(MonsterType.normal) || !monster">
+              <span [value-calc]="getNormalValue()" [level]="monster && monster.level"></span>
+            </ng-container>
+            <ng-container
+              *ngIf="hasEntities(MonsterType.normal) && hasEntities(MonsterType.elite) && getNormalValue() != getEliteValue()">
+              <span>/</span>
+            </ng-container>
+            <ng-container
+              *ngIf="hasEntities(MonsterType.elite) && (getNormalValue() != getEliteValue() || !hasEntities(MonsterType.normal))">
+              <span [ngClass]="{'elite' : hasEntities(MonsterType.normal)}" [value-calc]="getEliteValue()"
+                [level]="monster && monster.level"></span>
+            </ng-container>
           </span>
-          <span *ngIf="relative" [i18n]="getNormalValue() + ''" [relative]="relative"><span
-              *ngIf="getNormalValue() != getEliteValue()">/<span class="elite" [i18n]="getEliteValue() + ''"
+          <span *ngIf="relative">
+            <ng-container *ngIf="hasEntities(MonsterType.normal) || !monster">
+              <span [i18n]="getNormalValue()+ ''" [relative]="relative"></span>
+            </ng-container>
+            <ng-container
+              *ngIf="hasEntities(MonsterType.normal) && hasEntities(MonsterType.elite) && getNormalValue() != getEliteValue()">
+              <span>/</span>
+            </ng-container>
+            <ng-container
+              *ngIf="hasEntities(MonsterType.elite) && (getNormalValue() != getEliteValue() || !hasEntities(MonsterType.normal))">
+              <span [ngClass]="{'elite' : hasEntities(MonsterType.normal)}" [i18n]="getEliteValue() + ''"
                 [relative]="relative"></span>
-            </span><span *ngIf="!settingsManager.settings.fhStyle">&nbsp;</span>
+            </ng-container>
+            <span *ngIf="!settingsManager.settings.fhStyle">&nbsp;</span>
           </span>
         </span>
       </ng-container>

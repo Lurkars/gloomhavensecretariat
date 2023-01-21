@@ -7,11 +7,83 @@
     "blood-monstrosity",
     "first-of-the-order"
   ],
+  "rules": [
+    {
+      "round": "R % 2 == 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "blood-monstrosity",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "C"
+        }
+      ],
+      "requiredRooms": [
+        3
+      ]
+    },
+    {
+      "round": "R % 2 == 0",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "blood-monstrosity",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "C"
+        }
+      ],
+      "requiredRooms": [
+        3
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
-      "ref": "jotl17-2",
+      "ref": "jotl17-1",
       "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "blood-monstrosity",
+          "type": "elite"
+        },
+        {
+          "name": "blood-monstrosity",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "blood-monstrosity",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "blood-monstrosity",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "jotl17-2",
+      "marker": "A",
+      "rooms": [
+        3
+      ],
       "monster": [
         {
           "name": "blood-imp",
@@ -31,37 +103,26 @@
         },
         {
           "name": "blood-monstrosity",
-          "type": "elite"
-        },
-        {
-          "name": "blood-monstrosity",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "blood-monstrosity",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "blood-monstrosity",
           "player3": "normal",
           "player4": "normal"
         },
         {
           "name": "blood-monstrosity",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "blood-monstrosity",
           "player4": "normal"
-        },
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "jotl17-3",
+      "marker": "1",
+      "treasures": [
+        3
+      ],
+      "monster": [
         {
           "name": "first-of-the-order",
-          "type": "elite"
+          "type": "boss"
         }
       ]
     }

@@ -1,5 +1,4 @@
 import { MonsterType } from "../MonsterType";
-import { ObjectiveData } from "./ObjectiveData";
 
 export class RoomData {
     roomNumber: number = 0;
@@ -16,6 +15,7 @@ export class RoomData {
 export class MonsterStandeeData {
     name: string = "";
     marker: string = "";
+    tags: string[] = [];
     type: MonsterType | undefined;
     player2: MonsterType | undefined;
     player3: MonsterType | undefined;

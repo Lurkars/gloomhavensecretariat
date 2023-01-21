@@ -19,7 +19,7 @@
       [
         {
           "type": "custom",
-          "value": "Spawn [C/2{%math.floor}] sparks.",
+          "value": "Spawn [C/2{$math.floor}] sparks.",
           "small": true
         },
         {
@@ -48,7 +48,7 @@
       [
         {
           "type": "custom",
-          "value": "Spawn [C/2{%math.ceil}] sparks.",
+          "value": "Spawn [C/2{$math.ceil}] sparks.",
           "small": true
         },
         {

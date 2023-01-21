@@ -1,10 +1,11 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ConditionType } from 'src/app/game/model/Condition';
+import { ObjectiveData } from 'src/app/game/model/data/ObjectiveData';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Objective } from 'src/app/game/model/Objective';
@@ -16,7 +17,7 @@ import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
   templateUrl: './objective.html',
   styleUrls: ['./objective.scss']
 })
-export class ObjectiveComponent {
+export class ObjectiveComponent implements OnInit {
 
   @Input() objective!: Objective;
 
@@ -30,9 +31,16 @@ export class ObjectiveComponent {
   GameState = GameState;
   ConditionType = ConditionType;
   health: number = 0;
+  objectiveData: ObjectiveData | undefined;
 
 
   constructor(private element: ElementRef, private dialog: Dialog, private overlay: Overlay) { }
+
+  ngOnInit(): void {
+    if (this.objective && this.objective.objectiveId) {
+      this.objectiveData = gameManager.objectiveDataByScenarioObjectiveIdentifier(this.objective.objectiveId);
+    }
+  }
 
   exhausted() {
     gameManager.stateManager.before(this.objective.exhausted ? "unsetObjectiveExhausted" : "setObjectiveExhausted", this.objective.title || this.objective.name);

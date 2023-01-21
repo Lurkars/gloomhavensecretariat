@@ -6,5 +6,194 @@
     "rat-monstrosity",
     "vermling-raider",
     "vermling-scout"
+  ],
+  "objectives": [
+    {
+      "name": "Nest",
+      "health": "(1+L)xC",
+      "count": 4
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "jotl19-1",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "vermling-raider",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "jotl19-2",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "rat-monstrosity",
+          "type": "elite"
+        },
+        {
+          "name": "rat-monstrosity",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "rat-monstrosity",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "rat-monstrosity",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-raider",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        1,
+        1
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "jotl19-3",
+      "rooms": [
+        4
+      ],
+      "monster": [
+        {
+          "name": "rat-monstrosity",
+          "type": "elite"
+        },
+        {
+          "name": "rat-monstrosity",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "rat-monstrosity",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "rat-monstrosity",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-raider",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "jotl19-4",
+      "rooms": [
+        4
+      ],
+      "monster": [
+        {
+          "name": "rat-monstrosity",
+          "type": "elite"
+        },
+        {
+          "name": "rat-monstrosity",
+          "type": "elite"
+        },
+        {
+          "name": "rat-monstrosity",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "rat-monstrosity",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "rat-monstrosity",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "rat-monstrosity",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
   ]
 }

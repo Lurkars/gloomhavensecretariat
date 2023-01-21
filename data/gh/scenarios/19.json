@@ -21,7 +21,20 @@
       "name": "Hail",
       "escort": true,
       "health": "4+(2xL)",
-      "marker": "a"
+      "marker": "a",
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.scenario.rules.gh.19.1%",
+              "small": true
+            }
+          ]
+        }
+      ]
     }
   ],
   "rules": [
@@ -42,7 +55,8 @@
       ]
     },
     {
-      "round": "once",
+      "round": "true",
+      "once": true,
       "spawns": [
         {
           "monster": {
@@ -66,7 +80,8 @@
       ]
     },
     {
-      "round": "once",
+      "round": "true",
+      "once": true,
       "spawns": [
         {
           "monster": {
@@ -90,7 +105,8 @@
       ]
     },
     {
-      "round": "once",
+      "round": "true",
+      "once": true,
       "spawns": [
         {
           "monster": {

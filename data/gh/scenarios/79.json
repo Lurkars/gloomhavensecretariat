@@ -11,12 +11,34 @@
     {
       "name": "Fish",
       "escort": true,
-      "health": "6+2xL"
+      "health": "6+2xL",
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%data.scenario.rules.gh.79.1%",
+          "small": true,
+          "subActions": [
+            {
+              "type": "attack",
+              "value": 3,
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "enemiesAdjacent",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "allyDeck": true
     }
   ],
   "rules": [
     {
-      "round": "once",
+      "round": "true",
+      "once": true,
       "always": true,
       "rooms": [
         2

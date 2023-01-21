@@ -1,0 +1,110 @@
+{
+  "name": "stone-golem-22",
+  "thumbnail": "jotl-stone-golem",
+  "edition": "jotl",
+  "deck": "stone-golem",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": "10xC",
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "health": "11xC",
+      "movement": 2,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": "13xC",
+      "movement": 2,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": "14xC",
+      "movement": 2,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": "16xC",
+      "movement": 2,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": "18xC",
+      "movement": 3,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": "20xC",
+      "movement": 3,
+      "attack": 7,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": "21xC",
+      "movement": 3,
+      "attack": 7,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 4
+        }
+      ]
+    }
+  ]
+}

@@ -35,7 +35,7 @@ export class ScenarioComponent {
         return;
       }
       gameManager.stateManager.before(roomData.marker ? "openRoomMarker" : "openRoom", scenario.index, "data.scenario." + scenario.name, '' + roomData.ref, roomData.marker || '');
-      gameManager.scenarioManager.openRoom(roomData, scenario);
+      gameManager.scenarioManager.openRoom(roomData, scenario, false);
       gameManager.stateManager.after();
     }
   }
@@ -98,7 +98,7 @@ export class ScenarioDialogComponent {
         return;
       }
       gameManager.stateManager.before(roomData.marker ? "openRoomMarker" : "openRoom", scenario.index, "data.scenario." + scenario.name, '' + roomData.ref, roomData.marker || '');
-      gameManager.scenarioManager.openRoom(roomData, scenario);
+      gameManager.scenarioManager.openRoom(roomData, scenario, false);
       gameManager.stateManager.after();
     }
   }

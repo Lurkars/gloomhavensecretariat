@@ -3,6 +3,7 @@ import { MonsterStandeeData } from "./RoomData";
 
 export class ScenarioRule {
   round: string;
+  once: boolean = false;
   always: boolean = false;
   note: string = "";
   start: boolean = false;
@@ -14,6 +15,7 @@ export class ScenarioRule {
   finish: "won" | "lost" | undefined = undefined;
   figures: ScenarioFigureRule[] = [];
   requiredRooms: number[] = [];
+  requiredRules: ScenarioRuleIdentifier[] = [];
 
   constructor(round: string, note: string = "", start: boolean = false) {
     this.round = round;
@@ -27,6 +29,7 @@ export class MonsterSpawnData {
   monster: MonsterStandeeData;
   count: string | number = "";
   marker: string = "";
+  summon: boolean = false;
   manual: boolean = false;
 
   constructor(monster: MonsterStandeeData) {

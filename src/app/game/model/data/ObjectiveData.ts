@@ -1,3 +1,5 @@
+import { Action } from "../Action";
+
 export class ObjectiveData {
 
   id: number;
@@ -7,6 +9,8 @@ export class ObjectiveData {
   escort: boolean;
   initiative: number | undefined;
   count: number | string;
+  actions: Action[] = [];
+  allyDeck: boolean = false;
 
   constructor(name: string, health: number | string, escort: boolean = false, id: number = -1, marker: string = "", initiative: number | undefined = undefined, count: number | string = 1) {
     this.name = name;
@@ -19,3 +23,5 @@ export class ObjectiveData {
   }
 
 }
+
+export type ScenarioObjectiveIdentifier = { "edition": string, "scenario": string, "group": string | undefined, "section": boolean, "index": number };

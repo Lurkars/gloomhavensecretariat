@@ -45,15 +45,15 @@
         },
         {
           "type": "shield",
-          "value": "[L/2{%math.ceil}]"
+          "value": "[L/2{$math.ceil}]"
         },
         {
           "type": "retaliate",
-          "value": "[L/2{%math.ceil}]"
+          "value": "[L/2{$math.ceil}]"
         },
         {
           "type": "heal",
-          "value": "[L/2{%math.ceil}]"
+          "value": "[L/2{$math.ceil}]"
         },
         {
           "type": "custom",

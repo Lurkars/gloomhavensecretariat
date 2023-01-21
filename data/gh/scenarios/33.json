@@ -27,7 +27,8 @@
   ],
   "rules": [
     {
-      "round": "once",
+      "round": "true",
+      "once": true,
       "always": true,
       "rooms": [
         2
@@ -45,7 +46,8 @@
       ]
     },
     {
-      "round": "once",
+      "round": "true",
+      "once": true,
       "spawns": [
         {
           "monster": {

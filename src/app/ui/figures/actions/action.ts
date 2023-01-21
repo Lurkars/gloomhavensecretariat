@@ -35,8 +35,16 @@ export class ActionComponent implements OnInit {
 
   ActionType = ActionType;
   ActionValueType = ActionValueType;
+  MonsterType = MonsterType;
 
   hasAOE: boolean = false;
+
+  hasEntities(type: MonsterType): boolean {
+    if (type == MonsterType.normal && this.monster && this.monster.boss) {
+      return this.hasEntities(MonsterType.boss);
+    }
+    return this.monster && this.monster.entities.some((monsterEntity) => monsterEntity.type == type && !monsterEntity.dead && monsterEntity.health > 0) || false;
+  }
 
   getNormalValue(): number | string {
     if (this.monster && this.monster.boss) {
@@ -46,7 +54,7 @@ export class ActionComponent implements OnInit {
   }
 
   getEliteValue(): number | string {
-    if (this.monster && !this.monster.entities.some((monsterEntity) => monsterEntity.type == MonsterType.elite && !monsterEntity.dead)) {
+    if (!this.hasEntities(MonsterType.elite)) {
       return this.getNormalValue();
     }
 

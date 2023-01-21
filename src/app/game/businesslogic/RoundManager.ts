@@ -76,7 +76,15 @@ export class RoundManager {
       gameManager.sortFigures();
 
       if (this.game.figures.length > 0) {
-        this.toggleFigure(this.game.figures[0]);
+        let i = 0;
+        let firstFigure = this.game.figures.find((figure, index) => index == i && gameManager.gameplayFigure(figure));
+        while (!firstFigure && i < this.game.figures.length - 1) {
+          i++;
+          firstFigure = this.game.figures.find((figure, index) => index == i && gameManager.gameplayFigure(figure));
+        }
+        if (firstFigure) {
+          this.toggleFigure(firstFigure);
+        }
       }
 
     }

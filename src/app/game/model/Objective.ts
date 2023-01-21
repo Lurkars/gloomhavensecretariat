@@ -1,6 +1,7 @@
 import { Figure } from "./Figure";
 import { Entity } from "./Entity";
 import { EntityCondition, GameEntityConditionModel } from "./Condition";
+import { ScenarioObjectiveIdentifier } from "./data/ObjectiveData";
 
 export class Objective implements Entity, Figure {
 
@@ -25,8 +26,11 @@ export class Objective implements Entity, Figure {
 
   initiative: number = 99;
 
-  constructor(id: number) {
+  objectiveId: ScenarioObjectiveIdentifier | undefined;
+
+  constructor(id: number, objectiveId: ScenarioObjectiveIdentifier | undefined = undefined) {
     this.id = id;
+    this.objectiveId = objectiveId;
   }
 
   getInitiative(): number {
@@ -34,7 +38,7 @@ export class Objective implements Entity, Figure {
   }
 
   toModel(): GameObjectiveModel {
-    return new GameObjectiveModel(this.id, this.marker, this.title, this.name, this.escort, this.level, this.exhausted, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.initiative);
+    return new GameObjectiveModel(this.id, this.marker, this.title, this.name, this.escort, this.level, this.exhausted, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.initiative, this.objectiveId);
   }
 
   fromModel(model: GameObjectiveModel) {
@@ -59,6 +63,7 @@ export class Objective implements Entity, Figure {
     }
     this.markers = model.markers;
     this.initiative = model.initiative
+    this.objectiveId = model.objectiveId;
   }
 
 }
@@ -79,6 +84,7 @@ export class GameObjectiveModel {
   entityConditions: GameEntityConditionModel[] = [];
   markers: string[] = [];
   initiative: number;
+  objectiveId: ScenarioObjectiveIdentifier | undefined;
 
   constructor(
     id: number,
@@ -94,7 +100,8 @@ export class GameObjectiveModel {
     maxHealth: number | string,
     entityConditions: GameEntityConditionModel[],
     markers: string[],
-    initiative: number) {
+    initiative: number,
+    objectiveId: ScenarioObjectiveIdentifier | undefined) {
     this.id = id;
     this.marker = marker;
     this.title = title;
@@ -109,7 +116,8 @@ export class GameObjectiveModel {
     this.entityConditions = JSON.parse(JSON.stringify(entityConditions));
     this.markers = JSON.parse(JSON.stringify(markers));
     this.initiative = initiative;
+    this.objectiveId = objectiveId && JSON.parse(JSON.stringify(objectiveId)) || undefined;
   }
 }
 
-export const OBJECTIV_MARKERS: string[] = ["", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"];
+export const OBJECTIV_MARKERS: string[] = ["", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"];

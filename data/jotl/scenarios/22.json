@@ -4,7 +4,98 @@
   "edition": "jotl",
   "monsters": [
     "giant-viper",
-    "stone-golem",
-    "vermling-raider"
+    "stone-golem-22",
+    "vermling-raider-22"
+  ],
+  "rules": [
+    {
+      "round": "R > 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "giant-viper",
+            "player2": "normal",
+            "player4": "elite"
+          },
+          "count": 2
+        },
+        {
+          "monster": {
+            "name": "giant-viper",
+            "player3": "normal"
+          }
+        },
+        {
+          "monster": {
+            "name": "giant-viper",
+            "player3": "elite"
+          }
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": "stone-golem-22"
+          },
+          "type": "damage",
+          "value": "[C/2{$math.floor}]"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "jotl22-1",
+      "initial": true,
+      "monster": [
+        {
+          "name": "giant-viper",
+          "type": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "stone-golem-22",
+          "type": "boss"
+        },
+        {
+          "name": "vermling-raider-22",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite",
+          "marker": "A"
+        },
+        {
+          "name": "vermling-raider-22",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite",
+          "marker": "A"
+        }
+      ]
+    }
   ]
 }

@@ -1,33 +1,32 @@
 <div class="menu-container two-column data">
-
-  <div class="line">
-    <a (click)="exportGame()">{{'datamanagement.exportGame' | ghsLabel}}</a>
+  <div class="column">
+    <div class="line">
+      <a (click)="exportGame()">{{'datamanagement.exportGame' | ghsLabel}}</a>
+    </div>
+    <div class="line">
+      <label class="input-file" (click)="ghsInputFullScreenCheck()">
+        <input type="file" accept="application/json" (change)="importGame($event)" />
+        {{'datamanagement.importGame' | ghsLabel}}
+      </label>
+    </div>
+    <div class="line">
+      <a (click)="resetGame()">&lt;{{'datamanagement.resetGame' | ghsLabel}}(!)&gt;</a>
+    </div>
   </div>
 
-  <div class="line">
-    <a (click)="exportSettings()">{{'datamanagement.exportSettings' | ghsLabel}}</a>
-  </div>
-
-  <div class="line">
-    <label class="input-file" (click)="ghsInputFullScreenCheck()">
-      <input type="file" accept="application/json" (change)="importGame($event)" />
-      {{'datamanagement.importGame' | ghsLabel}}
-    </label>
-  </div>
-
-  <div class="line">
-    <label class="input-file" (click)="ghsInputFullScreenCheck()">
-      {{'datamanagement.importSettings' | ghsLabel}}
-      <input type="file" accept="application/json" (change)="importSettings($event)" />
-    </label>
-  </div>
-
-  <div class="line">
-    <a (click)="resetGame()">&lt;{{'datamanagement.resetGame' | ghsLabel}}(!)&gt;</a>
-  </div>
-
-  <div class="line">
-    <a (click)="resetSettings()">&lt;{{'datamanagement.resetSettings' | ghsLabel}}(!)&gt;</a>
+  <div class="column">
+    <div class="line">
+      <a (click)="exportSettings()">{{'datamanagement.exportSettings' | ghsLabel}}</a>
+    </div>
+    <div class="line">
+      <label class="input-file" (click)="ghsInputFullScreenCheck()">
+        {{'datamanagement.importSettings' | ghsLabel}}
+        <input type="file" accept="application/json" (change)="importSettings($event)" />
+      </label>
+    </div>
+    <div class="line">
+      <a (click)="resetSettings()">&lt;{{'datamanagement.resetSettings' | ghsLabel}}(!)&gt;</a>
+    </div>
   </div>
 
   <div class="separator"></div>

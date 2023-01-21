@@ -17,7 +17,20 @@
       "escort": true,
       "health": "3+L",
       "marker": "a",
-      "count": 11
+      "count": 11,
+      "actions": [
+        {
+          "type": "move",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.scenario.rules.gh.86.1%",
+              "small": true
+            }
+          ]
+        }
+      ]
     }
   ],
   "rules": [

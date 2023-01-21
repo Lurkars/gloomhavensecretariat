@@ -166,6 +166,7 @@
       "refreshItem": "Einen Gegenstand erneuern",
       "retaliate": "Vergeltung",
       "shield": "Schild",
+      "spawn": "Hervorbringen",
       "special": "Spezial",
       "specialTarget": "Sonderziel",
       "summon": "Beschwöre",
@@ -462,7 +463,7 @@
     }
   },
   "permissions": {
-    ".": "Berechtigungen",
+    ".": "Deine Berechtigungen",
     "all": {
       ".": "Volle Berechtigungen",
       "hint": "Kann ebenfalls neue Berechtigungen erstellen! Kann im Nachhinein nicht verändert werden!"
@@ -498,7 +499,7 @@
       "hint": "Ändern aller Monster"
     },
     "password": {
-      ".": "Passwort"
+      ".": "Neues Passwort für Berechtigungen"
     },
     "round": {
       ".": "Runde",

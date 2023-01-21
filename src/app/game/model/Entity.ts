@@ -48,8 +48,8 @@ export function EntityValueFunction(value: string | number, L: number | undefine
 
   let result = eval(expression) as number;
 
-  if (func && func.startsWith('%')) {
-    func = func.replace('%', '');
+  if (func && func.startsWith('$')) {
+    func = func.replace('$', '');
   }
 
   if (func) {

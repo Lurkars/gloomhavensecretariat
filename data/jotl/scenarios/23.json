@@ -7,5 +7,104 @@
     "rat-monstrosity",
     "stone-golem",
     "vermling-raider"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "once": true,
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "giant-viper",
+            "type": "normal"
+          },
+          "count": 2,
+          "marker": "C"
+        },
+        {
+          "monster": {
+            "name": "vermling-raider",
+            "type": "elite"
+          },
+          "marker": "B"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": "rat-monstrosity"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "once": true,
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "stone-golem",
+            "type": "elite"
+          },
+          "marker": "D"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": "giant-viper"
+          },
+          "type": "dead"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": "vermling-raider"
+          },
+          "type": "dead"
+        }
+      ],
+      "requiredRules": [
+        {
+          "edition": "jotl",
+          "scenario": "23",
+          "index": 0,
+          "section": false
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "jotl23-1",
+      "initial": true,
+      "monster": [
+        {
+          "name": "rat-monstrosity",
+          "type": "elite"
+        },
+        {
+          "name": "rat-monstrosity",
+          "type": "elite"
+        },
+        {
+          "name": "rat-monstrosity",
+          "type": "normal"
+        },
+        {
+          "name": "rat-monstrosity",
+          "type": "normal"
+        }
+      ]
+    }
   ]
 }

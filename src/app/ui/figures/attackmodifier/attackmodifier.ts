@@ -17,6 +17,7 @@ export class AttackModifierComponent implements OnInit, OnChanges {
   @Input() numeration: string = "";
   @Input() number: number = 0;
   @Input() reveal: boolean = false;
+  @Input() flip: boolean = false;
   @Input() flipped: boolean = false;
   @Input() newStyle: boolean = false;
   effectClasses: string = "";
@@ -49,7 +50,7 @@ export class AttackModifierComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     const flipped = changes['flipped'];
-    if (flipped && !flipped.firstChange && flipped.currentValue != flipped.previousValue) {
+    if (flipped && flipped.currentValue && this.flip && flipped.currentValue != flipped.previousValue) {
       this.animate = true;
     }
   }

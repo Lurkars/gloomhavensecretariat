@@ -47,7 +47,8 @@
   ],
   "rules": [
     {
-      "round": "once",
+      "round": "true",
+      "once": true,
       "always": true,
       "spawns": [
         {
@@ -73,7 +74,8 @@
       ]
     },
     {
-      "round": "once",
+      "round": "true",
+      "once": true,
       "always": true,
       "spawns": [
         {
@@ -99,7 +101,8 @@
       ]
     },
     {
-      "round": "once",
+      "round": "true",
+      "once": true,
       "always": true,
       "spawns": [
         {
@@ -125,7 +128,8 @@
       ]
     },
     {
-      "round": "once",
+      "round": "true",
+      "once": true,
       "always": true,
       "spawns": [
         {
@@ -151,7 +155,8 @@
       ]
     },
     {
-      "round": "once",
+      "round": "true",
+      "once": true,
       "always": true,
       "figures": [
         {
@@ -196,7 +201,8 @@
       ]
     },
     {
-      "round": "once",
+      "round": "true",
+      "once": true,
       "finish": "won",
       "figures": [
         {

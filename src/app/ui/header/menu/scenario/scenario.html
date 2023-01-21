@@ -52,7 +52,8 @@
     <div class="line" *ngIf="hasSpoilers(group)">
       <a (click)="settingsManager.addSpoilers(notSpoiled(group))">{{'spoiler.all' | ghsLabel}}</a>
     </div>
-    <ng-container *ngIf="gameManager.game.party.campaignMode">
+    <ng-container
+      *ngIf="gameManager.game.party.campaignMode && scenarios(group).length < scenarios(group,true,true).length">
       <div class="line title">
         <label>{{'scenario.manual.add' | ghsLabel}}
         </label>

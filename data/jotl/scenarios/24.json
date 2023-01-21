@@ -5,5 +5,164 @@
   "monsters": [
     "black-imp",
     "chaos-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Ward",
+      "health": "(2xL)+4",
+      "count": 3
+    }
+  ],
+  "rules": [
+    {
+      "round": "always",
+      "always": true,
+      "finish": "lost",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Ward"
+          },
+          "type": "dead",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "once": true,
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "black-imp",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "A",
+          "count": 2
+        },
+        {
+          "monster": {
+            "name": "black-imp",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "B",
+          "count": 2
+        },
+        {
+          "monster": {
+            "name": "chaos-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "C"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": ".*"
+          },
+          "type": "dead"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "once": true,
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "chaos-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "C"
+        },
+        {
+          "monster": {
+            "name": "chaos-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "D",
+          "count": 2
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "jotl",
+            "name": "chaos-demon"
+          },
+          "type": "dead"
+        }
+      ],
+      "requiredRules": [
+        {
+          "edition": "jotl",
+          "scenario": "24",
+          "index": 1,
+          "section": false
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "jotl24-1",
+      "initial": true,
+      "monster": [
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "type": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "type": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        1,
+        1,
+        1
+      ]
+    }
   ]
 }

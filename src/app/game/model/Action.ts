@@ -40,6 +40,7 @@ export enum ActionType {
   range = "range",
   retaliate = "retaliate",
   shield = "shield",
+  spawn = "spawn",
   special = "special",
   specialTarget = "specialTarget",
   summon = "summon",

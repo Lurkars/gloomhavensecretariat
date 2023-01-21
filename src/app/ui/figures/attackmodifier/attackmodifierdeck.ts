@@ -52,6 +52,7 @@ export class AttackModifierDeckComponent implements OnInit {
   AttackModifierType = AttackModifierType;
   type: AttackModifierType = AttackModifierType.minus1;
   current: number = -1;
+  internalDraw: number = -99;
   drawing: boolean = false;
   drawTimeout: any = null;
   queue: number = 0;
@@ -80,7 +81,18 @@ export class AttackModifierDeckComponent implements OnInit {
     this.current = this.deck.current;
     gameManager.uiChange.subscribe({
       next: () => {
-        if (!this.queueTimeout || this.deck.current < this.current + this.queue) {
+        if (this.internalDraw == -99 && this.current < this.deck.current) {
+          this.current = this.deck.current;
+          this.internalDraw = this.deck.current;
+        } else if (this.internalDraw < this.deck.current) {
+          if (!this.queueTimeout) {
+            this.current++;
+            this.update();
+          } else {
+            this.queue = this.queue + Math.max(0, this.deck.current - this.internalDraw);
+          }
+          this.internalDraw = this.deck.current;
+        } else if (!this.queueTimeout || this.deck.current < this.current + this.queue) {
           if (this.queueTimeout) {
             clearTimeout(this.queueTimeout);
             this.queueTimeout = null;
@@ -88,6 +100,7 @@ export class AttackModifierDeckComponent implements OnInit {
           this.queue = 0;
           this.drawing = false;
           this.current = this.deck.current;
+          this.internalDraw = this.deck.current;
         }
 
         if (settingsManager.settings.fhStyle) {
@@ -129,6 +142,7 @@ export class AttackModifierDeckComponent implements OnInit {
         this.drawTimeout = setTimeout(() => {
           this.before.emit(new AttackModiferDeckChange(this.deck, "draw"));
           gameManager.attackModifierManager.drawModifier(this.deck);
+          this.internalDraw = this.deck.current;
           this.after.emit(new AttackModiferDeckChange(this.deck, "draw"));
           if (this.drawing && this.deck.current + this.queue < this.deck.cards.length) {
             this.queue++;
