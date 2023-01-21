@@ -267,6 +267,7 @@
       "refreshItem": "Refresh an item",
       "retaliate": "Retaliate",
       "shield": "Shield",
+      "spawn": "Spawn",
       "special": "Special",
       "specialTarget": "Special Target",
       "summon": "Summon",
@@ -581,7 +582,7 @@
     }
   },
   "permissions": {
-    ".": "Permissions",
+    ".": "Your Permissions",
     "all": {
       ".": "Full Permissions",
       "hint": "Can also create new Permissions! Cannot be changed afterwards!"
@@ -617,7 +618,7 @@
       "hint": "Update and change all monsters and monster entities"
     },
     "password": {
-      ".": "Password"
+      ".": "New Password for Permissions"
     },
     "round": {
       ".": "Round",
