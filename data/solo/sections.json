@@ -45,7 +45,7 @@
     ]
   },
   {
-    "index": "QA3",
+    "index": "QA1",
     "name": "Cooling Chamber",
     "edition": "solo",
     "monsters": [
@@ -55,6 +55,7 @@
   {
     "index": "QA3",
     "name": "Inspection Chamber",
+    "edition": "solo",
     "monsters": [
       "steel-construct"
     ]

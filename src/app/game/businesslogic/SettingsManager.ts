@@ -83,6 +83,8 @@ export class SettingsManager {
     for (let editionDataUrl of settingsManager.settings.editionDataUrls) {
       await settingsManager.loadEditionData(editionDataUrl);
     }
+
+    settingsManager.validateEditionData();
   }
 
   storeSettings(): void {
@@ -403,95 +405,6 @@ export class SettingsManager {
             return this.settings.editionDataUrls.indexOf(a.url) - this.settings.editionDataUrls.indexOf(b.url);
           });
 
-          // check for duplicates
-          gameManager.charactersData().forEach((characterData, index, self) => {
-            if (self.find((other) => !characterData.replace && !other.replace && self.indexOf(other) != self.indexOf(characterData) && characterData.name == other.name && characterData.edition == other.edition)) {
-              console.warn("Duplicate Character: " + characterData.name + " (Edition: " + characterData.edition + ")");
-            }
-          })
-
-          gameManager.monstersData().forEach((monsterData, index, self) => {
-            if (self.find((other) => !monsterData.replace && !other.replace && self.indexOf(other) != self.indexOf(monsterData) && monsterData.name == other.name && monsterData.edition == other.edition)) {
-              console.warn("Duplicate Monster: " + monsterData.name + " (Edition: " + monsterData.edition + ")");
-            }
-          })
-
-          gameManager.decksData().forEach((deckData, index, self) => {
-            if (self.find((other) => self.indexOf(other) != self.indexOf(deckData) && deckData.name == other.name && deckData.edition == other.edition)) {
-              console.warn("Duplicate Deck: " + deckData.name + " (Edition: " + deckData.edition + ")");
-            }
-          })
-
-          gameManager.scenarioData().forEach((scenarioData, index, self) => {
-            if (self.find((other) => self.indexOf(other) != self.indexOf(scenarioData) && scenarioData.index == other.index && scenarioData.edition == other.edition && scenarioData.group == other.group)) {
-              console.warn("Duplicate Scenario: " + scenarioData.index + " (Edition: " + scenarioData.edition + ")");
-            }
-
-            if (scenarioData.edition == value.edition && value.edition == 'gh') {
-              if (scenarioData.monsters) {
-                scenarioData.monsters.forEach((name) => {
-                  if (!scenarioData.rooms || !scenarioData.rooms.some((roomData) => roomData.monster && roomData.monster.some((monsterStandeeData) => monsterStandeeData.name == name))) {
-                    if ((!scenarioData.rules || !scenarioData.rules.some((scenarioRule) => scenarioRule.spawns && scenarioRule.spawns.some((spawnData) => spawnData.monster && spawnData.monster.name == name)))) {
-                      console.debug("Missing monster '" + name + "' in rooms", scenarioData.edition, scenarioData.index, url);
-                    }
-                  }
-                })
-              }
-
-              if (scenarioData.rooms) {
-                scenarioData.rooms.forEach((roomData) => {
-                  if (roomData.monster) {
-                    roomData.monster.forEach((monsterStandeeData) => {
-                      if (!scenarioData.monsters || scenarioData.monsters.indexOf(monsterStandeeData.name) == -1) {
-                        console.debug("Missing monster '" + monsterStandeeData.name + "' from room '" + roomData.roomNumber + "' in monsters", scenarioData.edition, scenarioData.index, url);
-                      }
-                    })
-                    if (!roomData.monster.some((monsterStandeeData) => scenarioData.monsters.indexOf(monsterStandeeData.name) != -1)) {
-                    }
-                  }
-                })
-              }
-            }
-          })
-
-          gameManager.sectionData().forEach((sectionData, index, self) => {
-            if (self.find((other) => self.indexOf(other) != self.indexOf(sectionData) && sectionData.index == other.index && sectionData.edition == other.edition && sectionData.group == other.group)) {
-              console.warn("Duplicate Section: " + sectionData.index + " (Edition: " + sectionData.edition + ")");
-            }
-
-            if (sectionData.edition == value.edition && value.edition == 'gh') {
-              if (sectionData.monsters) {
-                sectionData.monsters.forEach((name) => {
-                  if (!sectionData.rooms || !sectionData.rooms.some((roomData) => roomData.monster && roomData.monster.some((monsterStandeeData) => monsterStandeeData.name == name))) {
-                    if ((!sectionData.rules || !sectionData.rules.some((scenarioRule) => scenarioRule.spawns && scenarioRule.spawns.some((spawnData) => spawnData.monster && spawnData.monster.name == name)))) {
-                      console.debug("Missing monster '" + name + "' in rooms | section", sectionData.edition, sectionData.index, url);
-                    }
-                  }
-                })
-              }
-
-              if (sectionData.rooms) {
-                sectionData.rooms.forEach((roomData) => {
-                  if (roomData.monster) {
-                    roomData.monster.forEach((monsterStandeeData) => {
-                      if (!sectionData.monsters || sectionData.monsters.indexOf(monsterStandeeData.name) == -1) {
-                        console.debug("Missing monster '" + monsterStandeeData.name + "' from room '" + roomData.roomNumber + "' in monsters | section", sectionData.edition, sectionData.index, url);
-                      }
-                    })
-                    if (!roomData.monster.some((monsterStandeeData) => sectionData.monsters.indexOf(monsterStandeeData.name) != -1)) {
-                    }
-                  }
-                })
-              }
-            }
-          })
-
-          gameManager.itemData().forEach((itemData, index, self) => {
-            if (self.find((other) => self.indexOf(other) != self.indexOf(itemData) && itemData.id == other.id && itemData.edition == other.edition)) {
-              console.warn("Duplicate Item: " + itemData.id + " (Edition: " + itemData.edition + ")");
-            }
-          })
-
           if (settingsManager.settings.editions.indexOf(value.edition) != -1) {
             this.loadDataLabel(value);
           } else {
@@ -504,6 +417,108 @@ export class SettingsManager {
       console.warn("Invalid data url: " + url + " [" + error + "]");
       return false;
     }
+  }
+
+  validateEditionData() {
+    // check for duplicates
+    gameManager.charactersData().forEach((characterData, index, self) => {
+      if (self.find((other) => !characterData.replace && !other.replace && self.indexOf(other) != self.indexOf(characterData) && characterData.name == other.name && characterData.edition == other.edition)) {
+        console.warn("Duplicate Character: " + characterData.name + " (Edition: " + characterData.edition + ")");
+      }
+    })
+
+    gameManager.monstersData().forEach((monsterData, index, self) => {
+      if (self.find((other) => !monsterData.replace && !other.replace && self.indexOf(other) != self.indexOf(monsterData) && monsterData.name == other.name && monsterData.edition == other.edition)) {
+        console.warn("Duplicate Monster: " + monsterData.name + " (Edition: " + monsterData.edition + ")");
+      }
+    })
+
+    gameManager.decksData().forEach((deckData, index, self) => {
+      if (self.find((other) => self.indexOf(other) != self.indexOf(deckData) && deckData.name == other.name && deckData.edition == other.edition)) {
+        console.warn("Duplicate Deck: " + deckData.name + " (Edition: " + deckData.edition + ")");
+      }
+    })
+
+    gameManager.scenarioData().forEach((scenarioData, index, self) => {
+      if (self.find((other) => self.indexOf(other) != self.indexOf(scenarioData) && scenarioData.index == other.index && scenarioData.edition == other.edition && scenarioData.group == other.group)) {
+        console.warn("Duplicate Scenario: " + scenarioData.index + " (Edition: " + scenarioData.edition + ")");
+      }
+
+      if (scenarioData.monsters) {
+        scenarioData.monsters.forEach((name) => {
+          if (!gameManager.monstersData().find((monsterData) => (monsterData.edition == scenarioData.edition || gameManager.editionExtensions(scenarioData.edition).indexOf(monsterData.edition) != -1) && monsterData.name == name.split(':')[0])) {
+            console.warn("Invalid monster: " + name + " | scenario", scenarioData.edition, scenarioData.index);
+          }
+
+          if (!scenarioData.rooms || !scenarioData.rooms.some((roomData) => roomData.monster && roomData.monster.some((monsterStandeeData) => monsterStandeeData.name == name))) {
+            if ((!scenarioData.rules || !scenarioData.rules.some((scenarioRule) => scenarioRule.spawns && scenarioRule.spawns.some((spawnData) => spawnData.monster && spawnData.monster.name == name)))) {
+              console.debug("Missing monster '" + name + "' in rooms", scenarioData.edition, scenarioData.index);
+            }
+          }
+        })
+      }
+
+      if (scenarioData.rooms) {
+        scenarioData.rooms.forEach((roomData) => {
+          if (roomData.monster) {
+            roomData.monster.forEach((monsterStandeeData) => {
+              if (!gameManager.monstersData().find((monsterData) => (monsterData.edition == scenarioData.edition || gameManager.editionExtensions(scenarioData.edition).indexOf(monsterData.edition) != -1) && monsterData.name == monsterStandeeData.name.split(':')[0])) {
+                console.warn("Invalid monster: " + monsterStandeeData.name + " | scenario", scenarioData.edition, scenarioData.index);
+              }
+
+              if (!scenarioData.monsters || scenarioData.monsters.indexOf(monsterStandeeData.name) == -1) {
+                console.debug("Missing monster '" + monsterStandeeData.name + "' from room '" + roomData.roomNumber + "' in monsters", scenarioData.edition, scenarioData.index);
+              }
+            })
+          }
+        })
+      }
+    })
+
+    gameManager.sectionData().forEach((sectionData, index, self) => {
+      if (self.find((other) => self.indexOf(other) != self.indexOf(sectionData) && sectionData.index == other.index && sectionData.edition == other.edition && sectionData.group == other.group)) {
+        console.warn("Duplicate Section: " + sectionData.index + " (Edition: " + sectionData.edition + ")");
+      }
+
+      if (sectionData.monsters) {
+        sectionData.monsters.forEach((name) => {
+
+          if (!gameManager.monstersData().find((monsterData) => (monsterData.edition == sectionData.edition || gameManager.editionExtensions(sectionData.edition).indexOf(monsterData.edition) != -1) && monsterData.name == name.split(':')[0])) {
+            console.warn("Invalid monster: " + name + " | section", sectionData.edition, sectionData.index);
+          }
+
+          if (!sectionData.rooms || !sectionData.rooms.some((roomData) => roomData.monster && roomData.monster.some((monsterStandeeData) => monsterStandeeData.name == name))) {
+            if ((!sectionData.rules || !sectionData.rules.some((scenarioRule) => scenarioRule.spawns && scenarioRule.spawns.some((spawnData) => spawnData.monster && spawnData.monster.name == name)))) {
+              console.debug("Missing monster '" + name + "' in rooms | section", sectionData.edition, sectionData.index);
+            }
+          }
+        })
+      }
+
+      if (sectionData.rooms) {
+        sectionData.rooms.forEach((roomData) => {
+          if (roomData.monster) {
+            roomData.monster.forEach((monsterStandeeData) => {
+
+              if (!gameManager.monstersData().find((monsterData) => (monsterData.edition == sectionData.edition || gameManager.editionExtensions(sectionData.edition).indexOf(monsterData.edition) != -1) && monsterData.name == monsterStandeeData.name.split(':')[0])) {
+                console.warn("Invalid monster: " + monsterStandeeData.name + " | section", sectionData.edition, sectionData.index);
+              }
+
+              if (!sectionData.monsters || sectionData.monsters.indexOf(monsterStandeeData.name) == -1) {
+                console.debug("Missing monster '" + monsterStandeeData.name + "' from room '" + roomData.roomNumber + "' in monsters | section", sectionData.edition, sectionData.index);
+              }
+            })
+          }
+        })
+
+      }
+    })
+
+    gameManager.itemData().forEach((itemData, index, self) => {
+      if (self.find((other) => self.indexOf(other) != self.indexOf(itemData) && itemData.id == other.id && itemData.edition == other.edition)) {
+        console.warn("Duplicate Item: " + itemData.id + " (Edition: " + itemData.edition + ")");
+      }
+    })
   }
 
   loadDataLabel(value: EditionData) {
