@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GameState } from "src/app/game/model/Game";
+import { environment } from "src/environments/environment";
 import { LootDeckChange } from "../../figures/loot/loot-deck";
 
 @Component({
@@ -16,7 +17,7 @@ export class LootDeckStandaloneComponent implements OnInit {
 
 
     async ngOnInit() {
-        await settingsManager.init();
+        await settingsManager.init(!environment.production);
         gameManager.stateManager.init();
         gameManager.uiChange.emit();
         if (gameManager.game.state != GameState.next) {

@@ -6,6 +6,7 @@ import { Character } from "src/app/game/model/Character";
 import { DeckData } from "src/app/game/model/data/DeckData";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterType } from "src/app/game/model/MonsterType";
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: 'ghs-decks-tool',
@@ -27,7 +28,7 @@ export class DecksToolComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   async ngOnInit() {
-    await settingsManager.init();
+    await settingsManager.init(!environment.production);
     gameManager.stateManager.init();
     this.edition = gameManager.editions(true)[0];
     this.update();

@@ -5,6 +5,7 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 import { AttackModifier, defaultAttackModifier } from "src/app/game/model/AttackModifier";
 import { Character } from "src/app/game/model/Character";
 import { PerkType } from "src/app/game/model/Perks";
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: 'ghs-attackmodifier-tool',
@@ -21,7 +22,7 @@ export class AttackModifierToolComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   async ngOnInit() {
-    await settingsManager.init();
+    await settingsManager.init(!environment.production);
     gameManager.stateManager.init();
     this.edition = gameManager.editions(true)[0];
     this.update();

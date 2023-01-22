@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { GameState } from "src/app/game/model/Game";
+import { environment } from "src/environments/environment";
 import { AttackModiferDeckChange } from "../../figures/attackmodifier/attackmodifierdeck";
 
 @Component({
@@ -14,7 +15,7 @@ export class AttackModifierStandaloneComponent implements OnInit {
     gameManager: GameManager = gameManager;
 
     async ngOnInit() {
-        await settingsManager.init();
+        await settingsManager.init(!environment.production);
         gameManager.stateManager.init();
         gameManager.uiChange.emit();
         if (gameManager.game.state != GameState.next) {

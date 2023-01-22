@@ -11,6 +11,7 @@ import { Monster } from "src/app/game/model/Monster";
 import { MonsterStat } from "src/app/game/model/MonsterStat";
 import { MonsterType } from "src/app/game/model/MonsterType";
 import { MonsterStatsComponent } from "src/app/ui/figures/monster/cards/stats";
+import { environment } from "src/environments/environment";
 import { EditorActionDialogComponent } from "../action/action";
 import { compactAction, DeckEditorComponent } from "../deck/deck";
 
@@ -46,7 +47,7 @@ export class MonsterEditorComponent implements OnInit {
   }
 
   async ngOnInit() {
-    await settingsManager.init();
+    await settingsManager.init(!environment.production);
     this.monsterDataToJson();
     this.inputMonsterData.nativeElement.addEventListener('change', (event: any) => {
       this.monsterDataFromJson();

@@ -12,6 +12,7 @@ export class SettingsManager {
   settings: Settings = new Settings();
   label: any = {};
   locales: string[] = ["en", "de", "fr", "ko"];
+  developent: boolean = false;
 
   constructor() {
     this.loadSettings();
@@ -73,7 +74,8 @@ export class SettingsManager {
     this.sortSpoilers();
   }
 
-  async init() {
+  async init(developent: boolean) {
+    this.developent = developent;
     for (let defaultEditionDataUrl of this.defaultEditionDataUrls) {
       if (settingsManager.settings.editionDataUrls.indexOf(defaultEditionDataUrl) == -1 && settingsManager.settings.excludeEditionDataUrls.indexOf(defaultEditionDataUrl) == -1) {
         settingsManager.settings.editionDataUrls.push(defaultEditionDataUrl);
@@ -84,7 +86,9 @@ export class SettingsManager {
       await settingsManager.loadEditionData(editionDataUrl);
     }
 
-    settingsManager.validateEditionData();
+    if (this.developent) {
+      settingsManager.validateEditionData();
+    }
   }
 
   storeSettings(): void {

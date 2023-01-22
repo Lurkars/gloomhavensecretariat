@@ -6,6 +6,7 @@ import { Character } from "src/app/game/model/Character";
 import { CharacterStat } from "src/app/game/model/CharacterStat";
 import { CharacterClass, CharacterData } from "src/app/game/model/data/CharacterData";
 import { ghsIsSpoiled } from "src/app/ui/helper/Static";
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: 'ghs-character-editor',
@@ -40,7 +41,7 @@ export class CharacterEditorComponent implements OnInit {
   }
 
   async ngOnInit() {
-    await settingsManager.init();
+    await settingsManager.init(!environment.production);
     this.characterDataToJson();
     this.inputCharacterData.nativeElement.addEventListener('change', (event: any) => {
       this.characterDataFromJson();

@@ -12,6 +12,7 @@ import { CharacterStat } from "src/app/game/model/CharacterStat";
 import { CharacterData } from "src/app/game/model/data/CharacterData";
 import { DeckData } from "src/app/game/model/data/DeckData";
 import { Monster } from "src/app/game/model/Monster";
+import { environment } from "src/environments/environment";
 import { EditorActionDialogComponent } from "../action/action";
 
 
@@ -88,7 +89,7 @@ export class DeckEditorComponent implements OnInit {
 
     async ngOnInit() {
         if (this.standalone) {
-            await settingsManager.init();
+            await settingsManager.init(!environment.production);
         }
 
         if (this.character) {

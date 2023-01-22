@@ -6,6 +6,7 @@ import { CharacterData } from "src/app/game/model/data/CharacterData";
 import { DeckData } from "src/app/game/model/data/DeckData";
 import { EditionData } from "src/app/game/model/data/EditionData";
 import { MonsterData } from "src/app/game/model/data/MonsterData";
+import { environment } from "src/environments/environment";
 
 @Component({
     selector: 'ghs-edition-editor',
@@ -27,7 +28,7 @@ export class EditionEditorComponent implements OnInit {
     }
 
     async ngOnInit() {
-        await settingsManager.init();
+        await settingsManager.init(!environment.production);
         this.editionDataToJson()
     }
 

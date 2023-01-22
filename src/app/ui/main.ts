@@ -4,6 +4,7 @@ import { SwUpdate } from '@angular/service-worker';
 import { last } from 'rxjs';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GameState } from 'src/app/game/model/Game';
+import { environment } from 'src/environments/environment';
 import { SettingsManager, settingsManager } from '../game/businesslogic/SettingsManager';
 import { Character } from '../game/model/Character';
 import { Monster } from '../game/model/Monster';
@@ -69,7 +70,7 @@ export class MainComponent implements OnInit {
 
   async ngOnInit() {
     document.body.classList.add('no-select');
-    await settingsManager.init();
+    await settingsManager.init(!environment.production);
     gameManager.stateManager.init();
     gameManager.uiChange.emit();
     document.body.style.setProperty('--ghs-factor', settingsManager.settings.zoom + '');
