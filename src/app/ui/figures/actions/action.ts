@@ -195,7 +195,7 @@ export class ActionComponent implements OnInit {
           this.additionalSubActions.splice(this.hasAOE ? 1 : 0, 0, newSubAction);
         }
 
-        if (stat.actions && this.monster.entities.some((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && monsterEntity.type == MonsterType.normal)) {
+        if (stat.actions && this.monster.entities.some((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && (monsterEntity.type == MonsterType.normal || monsterEntity.type == MonsterType.boss))) {
           let normalActions: Action | undefined = undefined;
           stat.actions.filter((statAction) => this.additionAttackSubActionTypes.indexOf(statAction.type) != -1).forEach((statAction) => {
             const newStatAction = new Action(statAction.type, statAction.value, statAction.valueType, statAction.subActions);
@@ -269,6 +269,22 @@ export class ActionComponent implements OnInit {
           }
         }
       })
+
+      let redundantAction = this.additionalSubActions.find((action) => (action.type == ActionType.element || action.type == ActionType.elementHalf) && action.valueType == ActionValueType.minus && action.subActions.every((subAction) => this.subActionExists(newSubActions, subAction)));
+
+      if (settingsManager.settings.fhStyle) {
+        redundantAction = this.elementActions.find((action) => (action.type == ActionType.element || action.type == ActionType.elementHalf) && action.valueType == ActionValueType.minus && action.subActions.every((subAction) => this.subActionExists(newSubActions, subAction)));
+      }
+
+      while (redundantAction) {
+        if (settingsManager.settings.fhStyle) {
+          this.elementActions.splice(this.elementActions.indexOf(redundantAction), 1);
+          redundantAction = this.elementActions.find((action) => (action.type == ActionType.element || action.type == ActionType.elementHalf) && action.valueType == ActionValueType.minus && action.subActions.every((subAction) => this.subActionExists(newSubActions, subAction)));
+        } else {
+          this.additionalSubActions.splice(this.additionalSubActions.indexOf(redundantAction), 1);
+          redundantAction = this.additionalSubActions.find((action) => (action.type == ActionType.element || action.type == ActionType.elementHalf) && action.valueType == ActionValueType.minus && action.subActions.every((subAction) => this.subActionExists(newSubActions, subAction)));
+        }
+      }
 
       if (this.additionalSubActions.some((action, index, self) => action.type == ActionType.monsterType && index < self.length - 1 && self[index + 1].type == ActionType.monsterType)) {
         const index = this.additionalSubActions.findIndex((action) => action.type == ActionType.monsterType);

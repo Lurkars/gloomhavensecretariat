@@ -7,7 +7,9 @@
   ],
   "monsters": [
     "bandit-guard",
-    "valrath-tracker"
+    "bear-drake-abomination",
+    "valrath-tracker",
+    "wolf-viper-abomination"
   ],
   "rooms": [
     {
@@ -132,29 +134,29 @@
           "player4": "normal"
         },
         {
-          "name": "hound",
+          "name": "wolf-viper-abomination",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "hound",
+          "name": "wolf-viper-abomination",
           "player2": "normal"
         },
         {
-          "name": "hound",
+          "name": "wolf-viper-abomination",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "hound",
+          "name": "wolf-viper-abomination",
           "player2": "normal"
         },
         {
-          "name": "hound",
+          "name": "wolf-viper-abomination",
           "player4": "elite"
         },
         {
-          "name": "hound",
+          "name": "wolf-viper-abomination",
           "player3": "normal"
         }
       ]
@@ -193,7 +195,7 @@
           "player4": "normal"
         },
         {
-          "name": "cave-bear",
+          "name": "bear-drake-abomination",
           "type": "elite"
         }
       ]

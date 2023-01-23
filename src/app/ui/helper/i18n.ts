@@ -113,10 +113,10 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         image = '<img  src="./assets/images/fh/action/target.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-action">' + image + '</span>';
       } else if (!fh && type == "damage") {
-        replace = '<span class="damage">' + settingsManager.getLabel('game.damage', [settingsManager.settings.calculate ? '' + EntityValueFunction(value) : value]) + '</span>';
+        replace = '<span class="damage">' + settingsManager.getLabel('game.damage', [value]) + '</span>';
       } else if (fh && type == "damage") {
         image = '<img  src="./assets/images/fh/action/damage.svg" class="icon ghs-svg">';
-        replace = '<span class="damage">' + image + (settingsManager.settings.calculate ? EntityValueFunction(value) : value) + '</span>';
+        replace = '<span class="damage">' + image + value + '</span>';
       } else if (type == "loot" && split.length == 4) {
         image = '<img  src="./assets/images/' + split[3] + '-player.svg" class="icon">';
         replace = '<span class="placeholder-player">' + image + '</span>';
