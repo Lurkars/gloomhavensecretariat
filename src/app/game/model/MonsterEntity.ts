@@ -53,12 +53,11 @@ export class MonsterEntity implements Entity {
   }
 
   toModel(): GameMonsterEntityModel {
-    return new GameMonsterEntityModel(this.number, this.marker, this.tags, this.type, this.dead, this.summon, this.active, this.off, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers);
+    return new GameMonsterEntityModel(this.number, this.marker, this.type, this.dead, this.summon, this.active, this.off, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags);
   }
 
   fromModel(model: GameMonsterEntityModel) {
     this.marker = model.marker;
-    this.tags = model.tags || [];
     this.dead = model.dead;
     this.summon = model.summon;
     this.active = model.active;
@@ -73,7 +72,8 @@ export class MonsterEntity implements Entity {
         return condition;
       });
     }
-    this.markers = model.markers;
+    this.markers = model.markers || this.markers;
+    this.tags = model.tags || this.tags;
   }
 
 
@@ -82,7 +82,6 @@ export class MonsterEntity implements Entity {
 export class GameMonsterEntityModel {
   number: number;
   marker: string;
-  tags: string[];
   type: MonsterType;
   dead: boolean;
   summon: SummonState;
@@ -92,10 +91,10 @@ export class GameMonsterEntityModel {
   maxHealth: number;
   entityConditions: GameEntityConditionModel[];
   markers: string[];
+  tags: string[];
 
   constructor(number: number,
     marker: string,
-    tags: string[],
     type: MonsterType,
     dead: boolean,
     summon: SummonState,
@@ -104,10 +103,10 @@ export class GameMonsterEntityModel {
     health: NumberSymbol,
     maxHealth: number,
     entityConditions: GameEntityConditionModel[],
-    markers: string[]) {
+    markers: string[],
+    tags: string[]) {
     this.number = number;
     this.marker = marker;
-    this.tags = JSON.parse(JSON.stringify(tags));
     this.type = type;
     this.dead = dead;
     this.summon = summon;
@@ -117,5 +116,6 @@ export class GameMonsterEntityModel {
     this.maxHealth = maxHealth;
     this.entityConditions = JSON.parse(JSON.stringify(entityConditions));
     this.markers = JSON.parse(JSON.stringify(markers));
+    this.tags = JSON.parse(JSON.stringify(tags));
   }
 }

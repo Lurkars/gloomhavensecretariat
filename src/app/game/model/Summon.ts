@@ -42,6 +42,7 @@ export class Summon implements Entity {
   maxHealth: number = 2;
   entityConditions: EntityCondition[] = [];
   markers: string[] = [];
+  tags: string[] = [];
 
   constructor(name: string, level: number, number: number, color: SummonColor, summonData: SummonData | undefined = undefined) {
     this.name = name;
@@ -61,7 +62,7 @@ export class Summon implements Entity {
   }
 
   toModel(): GameSummonModel {
-    return new GameSummonModel(this.name, this.number, this.color, this.attack, this.movement, this.range, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.action ? JSON.stringify(this.action) : undefined, this.additionalAction ? JSON.stringify(this.additionalAction) : undefined);
+    return new GameSummonModel(this.name, this.number, this.color, this.attack, this.movement, this.range, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags, this.action ? JSON.stringify(this.action) : undefined, this.additionalAction ? JSON.stringify(this.additionalAction) : undefined);
   }
 
   fromModel(model: GameSummonModel) {
@@ -92,7 +93,8 @@ export class Summon implements Entity {
       this.additionalAction = JSON.parse(model.additionalAction);
     }
 
-    this.markers = model.markers;
+    this.markers = model.markers || this.markers;
+    this.tags = model.tags || this.tags;
     this.init = false;
   }
 
@@ -112,6 +114,7 @@ export class GameSummonModel {
   maxHealth: number;
   entityConditions: GameEntityConditionModel[];
   markers: string[];
+  tags: string[];
   action: string | undefined;
   additionalAction: string | undefined;
 
@@ -128,6 +131,7 @@ export class GameSummonModel {
     maxHealth: number,
     entityConditions: GameEntityConditionModel[],
     markers: string[],
+    tags: string[],
     action: string | undefined,
     additionalAction: string | undefined) {
     this.name = name;
@@ -141,8 +145,9 @@ export class GameSummonModel {
     this.level = level;
     this.health = health;
     this.maxHealth = maxHealth;
-    this.entityConditions = entityConditions;
-    this.markers = markers;
+    this.entityConditions = JSON.parse(JSON.stringify(entityConditions));
+    this.markers = JSON.parse(JSON.stringify(markers));
+    this.tags = JSON.parse(JSON.stringify(tags));
     this.action = action;
     this.additionalAction = additionalAction;
   }

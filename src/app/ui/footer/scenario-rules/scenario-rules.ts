@@ -15,6 +15,7 @@ import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { GameState } from "src/app/game/model/Game";
 import { AttackModifier, AttackModifierType } from "src/app/game/model/AttackModifier";
 import { Figure } from "src/app/game/model/Figure";
+import { ScenarioObjectiveIdentifier } from "src/app/game/model/data/ObjectiveData";
 
 @Component({
     selector: 'ghs-scenario-rules',
@@ -76,7 +77,7 @@ export class ScenarioRulesComponent {
 
     sections(index: number): ScenarioData[] {
         if (gameManager.game.scenarioRules[index]) {
-            const scenario = gameManager.scenarioManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier);
+            const scenario = gameManager.scenarioManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier).scenario;
             if (scenario) {
                 const rule = gameManager.game.scenarioRules[index].rule;
                 if (rule && rule.sections) {
@@ -90,7 +91,7 @@ export class ScenarioRulesComponent {
     rooms(index: number): RoomData[] {
         let rooms: RoomData[] = [];
         if (gameManager.game.scenarioRules[index]) {
-            const scenario = gameManager.scenarioManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier);
+            const scenario = gameManager.scenarioManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier).scenario;
             if (scenario) {
                 const rule = gameManager.game.scenarioRules[index].rule;
                 if (rule && rule.rooms) {
@@ -182,7 +183,8 @@ export class ScenarioRulesComponent {
     applyRule(element: HTMLElement, index: number) {
         gameManager.stateManager.before("applyScenarioRule");
         if (gameManager.game.scenarioRules[index]) {
-            const scenario = gameManager.scenarioManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier);
+            const scenario = gameManager.scenarioManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier).scenario;
+            const section = gameManager.scenarioManager.getScenarioForRule(gameManager.game.scenarioRules[index].identifier).section;
             if (scenario) {
                 const rule = gameManager.game.scenarioRules[index].rule;
                 if (rule.spawns) {
@@ -310,6 +312,23 @@ export class ScenarioRulesComponent {
                                 gameManager.monsterManager.removeMonster(figure);
                                 gameManager.sortFigures();
                             }
+                        } else if (figures.length == 1 && figures[0] instanceof Objective) {
+                            const figure = figures[0];
+                            const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenario.edition, "scenario": scenario.index, "group": scenario.group, "section": section, "index": (+figureRule.value) - 1 };
+                            const objective = gameManager.characterManager.addObjective(scenario.objectives[(+figureRule.value) - 1], undefined, objectiveIdentifier);
+
+                            objective.id = figure.id;
+                            objective.marker = figure.marker;
+                            objective.title = figure.title;
+                            objective.exhausted = figure.exhausted;
+                            objective.off = figure.off;
+                            objective.active = figure.active;
+                            objective.health = figure.health;
+                            if (objective.health > EntityValueFunction(objective.maxHealth)) {
+                                objective.health = EntityValueFunction(objective.maxHealth);
+                            }
+                            objective.entityConditions = figure.entityConditions;
+                            gameManager.characterManager.removeObjective(figure);
                         }
                     })
 

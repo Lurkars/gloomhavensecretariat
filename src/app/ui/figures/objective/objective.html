@@ -42,10 +42,10 @@
         <div class="health">
           <img src="./assets/images/status/health.svg" />
           <span *ngIf="maxHealth() > 0">
-            {{objective.health}}/{{maxHealth()}} <span class="value-overlay "
-              [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}" *ngIf="health">
-              <span class="value">{{health |
-                ghsValueSign}}</span>
+            {{objective.health}}/{{maxHealth()}}
+            <span *ngIf="health" class="value-overlay"
+              [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">
+              <span class="value">{{health | ghsValueSign}}</span>
             </span>
           </span>
           <span *ngIf="maxHealth() == 0">-</span>

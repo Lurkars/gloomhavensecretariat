@@ -1,7 +1,7 @@
 <ghs-header></ghs-header>
-<main>
-  <div *ngIf="!fullviewChar" class="figures" cdkDropListGroup cdkScrollable  (scroll)="scroll($event)"
-    [ngClass]="{'loot-deck' : gameManager.game.lootDeck.active, 'ally-deck' : !gameManager.game.lootDeck.active && hasAllyDeck}">
+<main [ngClass]="{'compact' : compact()}">
+  <div *ngIf="!fullviewChar" class="figures" cdkDropListGroup cdkScrollable (scroll)="scroll($event)"
+    [ngClass]="{'loot-deck' : gameManager.game.lootDeck.active, 'ally-deck' : !gameManager.game.lootDeck.active && footer.hasAllyAttackModifierDeck}">
     <div class="figure" *ngFor="let figure of gameManager.game.figures; let i = index;" [figure-autoscroll]="figure"
       [cdkDropListData]="i" cdkDropList (cdkDropListDropped)="drop($event)" cdkDropListAutoScrollStep="20"
       (cdkDropListEntered)="entered($event)" (cdkDropListExited)="exited($event)"
@@ -30,4 +30,4 @@
     <ghs-character-fullview [character]="fullviewChar"></ghs-character-fullview>
   </div>
 </main>
-<ghs-footer></ghs-footer>
+<ghs-footer #footer></ghs-footer>

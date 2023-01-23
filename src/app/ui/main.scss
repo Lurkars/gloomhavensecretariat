@@ -98,7 +98,7 @@ main {
   }
 }
 
-@media (max-width: 500px) {
+.compact {
 
   .figure:last-child {
     padding-bottom: calc(var(--ghs-unit) * 12.5 * var(--ghs-text-factor) * var(--ghs-barsize));

@@ -45,6 +45,10 @@
           "101": {
             "1": "if adjacent Spitting Drake is alive and without %game.condition.stun%."
           },
+          "104": {
+            "1": "towards portal %game.mapMarker.1%",
+            "2": "towards portal %game.mapMarker.2%"
+          },
           "115": {
             "1": "Remove one damage token from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{$math.floor}] hit points for each damage token removed.",
             "2": "Remove two damage tokens from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{$math.floor}] hit points for each damage token removed.",

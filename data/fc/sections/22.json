@@ -9,9 +9,18 @@
   ],
   "rooms": [
     {
-      "roomNumber": 3,
+      "roomNumber": 1,
+      "ref": "f1a",
+      "initial": true,
+      "rooms": [
+        2
+      ]
+    },
+    {
+      "roomNumber": 2,
       "ref": "b3b",
       "initial": true,
+      "marker": "1",
       "monster": [
         {
           "name": "living-spirit",

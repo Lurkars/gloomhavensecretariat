@@ -1,4 +1,5 @@
 import { EditionData } from "../model/data/EditionData";
+import { ScenarioData } from "../model/data/ScenarioData";
 import { Settings } from "../model/Settings";
 import { Spoilable } from "../model/Spoilable";
 import { gameManager } from "./GameManager";
@@ -456,7 +457,7 @@ export class SettingsManager {
 
           if (!scenarioData.rooms || !scenarioData.rooms.some((roomData) => roomData.monster && roomData.monster.some((monsterStandeeData) => monsterStandeeData.name == name))) {
             if ((!scenarioData.rules || !scenarioData.rules.some((scenarioRule) => scenarioRule.spawns && scenarioRule.spawns.some((spawnData) => spawnData.monster && spawnData.monster.name == name)))) {
-              console.debug("Missing monster '" + name + "' in rooms", scenarioData.edition, scenarioData.index);
+              // console.debug("Missing monster '" + name + "' in rooms", scenarioData.edition, scenarioData.index);
             }
           }
         })
@@ -493,7 +494,7 @@ export class SettingsManager {
 
           if (!sectionData.rooms || !sectionData.rooms.some((roomData) => roomData.monster && roomData.monster.some((monsterStandeeData) => monsterStandeeData.name == name))) {
             if ((!sectionData.rules || !sectionData.rules.some((scenarioRule) => scenarioRule.spawns && scenarioRule.spawns.some((spawnData) => spawnData.monster && spawnData.monster.name == name)))) {
-              console.debug("Missing monster '" + name + "' in rooms | section", sectionData.edition, sectionData.index);
+              // console.debug("Missing monster '" + name + "' in rooms | section", sectionData.edition, sectionData.index);
             }
           }
         })
@@ -501,6 +502,12 @@ export class SettingsManager {
 
       if (sectionData.rooms) {
         sectionData.rooms.forEach((roomData) => {
+          let scenarioData: ScenarioData | undefined = undefined;
+          if (sectionData.parent) {
+            scenarioData = gameManager.scenarioData().find((scenarioData) => scenarioData.index == sectionData.parent && scenarioData.edition == sectionData.edition && scenarioData.group == sectionData.group);
+          }
+
+
           if (roomData.monster) {
             roomData.monster.forEach((monsterStandeeData) => {
 
@@ -508,7 +515,7 @@ export class SettingsManager {
                 console.warn("Invalid monster: " + monsterStandeeData.name + " | section", sectionData.edition, sectionData.index);
               }
 
-              if (!sectionData.monsters || sectionData.monsters.indexOf(monsterStandeeData.name) == -1) {
+              if ((!sectionData.monsters || sectionData.monsters.indexOf(monsterStandeeData.name) == -1) && (!scenarioData || !scenarioData.monsters || scenarioData.monsters.indexOf(monsterStandeeData.name) == -1)) {
                 console.debug("Missing monster '" + monsterStandeeData.name + "' from room '" + roomData.roomNumber + "' in monsters | section", sectionData.edition, sectionData.index);
               }
             })

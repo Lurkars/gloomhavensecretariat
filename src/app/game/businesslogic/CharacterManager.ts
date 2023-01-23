@@ -132,6 +132,7 @@ export class CharacterManager {
         objective.id = objectiveData.id;
       }
       objective.marker = objectiveData.marker;
+      objective.tags = objectiveData.tags;
       objective.name = objectiveData.name;
       if (name) {
         objective.name = name;
@@ -150,9 +151,6 @@ export class CharacterManager {
   }
 
   removeObjective(objective: Objective) {
-    if (this.game.sections.some((sectionData) => sectionData.objectives && sectionData.objectives.length > 0)) {
-      this.game.sections = [];
-    }
     this.game.figures.splice(this.game.figures.indexOf(objective), 1);
   }
 

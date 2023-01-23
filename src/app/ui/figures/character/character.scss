@@ -257,7 +257,7 @@
       align-self: center;
 
       img {
-        width: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+        width: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor) * var(--ghs-text-factor));
         height: auto;
         margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
       }

@@ -8,6 +8,7 @@ export interface Entity {
   maxHealth: number | string;
   entityConditions: EntityCondition[];
   markers: string[];
+  tags: string[];
 }
 
 export const EntityExpressionRegex = /^([xCL0-9\.\+\/\-\*\(\)\=\?\:\|\s\>\<]+)$/;

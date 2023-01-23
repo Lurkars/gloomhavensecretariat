@@ -125,14 +125,14 @@
     .health {
       display: flex;
       align-items: center;
-      font-size: calc(var(--ghs-unit) * 3.5);
+      font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
       color: var(--ghs-color-white);
       text-shadow: var(--ghs-outline);
 
 
       img {
-        margin: calc(var(--ghs-unit) * 0.5);
-        height: calc(var(--ghs-unit) * 3);
+        margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
         width: auto;
       }
     }

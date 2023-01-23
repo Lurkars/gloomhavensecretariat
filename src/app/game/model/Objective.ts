@@ -23,6 +23,7 @@ export class Objective implements Entity, Figure {
   maxHealth: number | string = 7;
   entityConditions: EntityCondition[] = [];
   markers: string[] = [];
+  tags: string[] = [];
 
   initiative: number = 99;
 
@@ -38,7 +39,7 @@ export class Objective implements Entity, Figure {
   }
 
   toModel(): GameObjectiveModel {
-    return new GameObjectiveModel(this.id, this.marker, this.title, this.name, this.escort, this.level, this.exhausted, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.initiative, this.objectiveId);
+    return new GameObjectiveModel(this.id, this.marker, this.title, this.name, this.escort, this.level, this.exhausted, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags, this.initiative, this.objectiveId);
   }
 
   fromModel(model: GameObjectiveModel) {
@@ -61,7 +62,8 @@ export class Objective implements Entity, Figure {
         return condition;
       });
     }
-    this.markers = model.markers;
+    this.markers = model.markers || this.markers;
+    this.tags = model.tags || this.tags;
     this.initiative = model.initiative
     this.objectiveId = model.objectiveId;
   }
@@ -81,8 +83,9 @@ export class GameObjectiveModel {
   active: boolean;
   health: number;
   maxHealth: number | string;
-  entityConditions: GameEntityConditionModel[] = [];
-  markers: string[] = [];
+  entityConditions: GameEntityConditionModel[];
+  markers: string[];
+  tags: string[];
   initiative: number;
   objectiveId: ScenarioObjectiveIdentifier | undefined;
 
@@ -100,6 +103,7 @@ export class GameObjectiveModel {
     maxHealth: number | string,
     entityConditions: GameEntityConditionModel[],
     markers: string[],
+    tags: string[],
     initiative: number,
     objectiveId: ScenarioObjectiveIdentifier | undefined) {
     this.id = id;
@@ -115,6 +119,7 @@ export class GameObjectiveModel {
     this.maxHealth = maxHealth;
     this.entityConditions = JSON.parse(JSON.stringify(entityConditions));
     this.markers = JSON.parse(JSON.stringify(markers));
+    this.tags = JSON.parse(JSON.stringify(tags));
     this.initiative = initiative;
     this.objectiveId = objectiveId && JSON.parse(JSON.stringify(objectiveId)) || undefined;
   }

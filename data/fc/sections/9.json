@@ -1,0 +1,16 @@
+{
+  "index": "9",
+  "name": "Crossing a Stream",
+  "edition": "fc",
+  "parent": "103",
+  "marker": "b",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "ref": "c2a",
+      "treasures": [
+        81
+      ]
+    }
+  ]
+}

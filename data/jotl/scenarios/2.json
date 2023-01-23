@@ -18,26 +18,26 @@
       ],
       "monster": [
         {
-          "name": "common-vermling-raider",
+          "name": "basic-vermling-raider",
           "type": "normal"
         },
         {
-          "name": "common-vermling-raider",
+          "name": "basic-vermling-raider",
           "type": "normal"
         },
         {
-          "name": "common-vermling-raider",
+          "name": "basic-vermling-raider",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "common-vermling-raider",
+          "name": "basic-vermling-raider",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "common-vermling-raider",
+          "name": "basic-vermling-raider",
           "player4": "normal"
         }
       ]
@@ -51,17 +51,17 @@
       ],
       "monster": [
         {
-          "name": "common-vermling-raider",
+          "name": "basic-vermling-raider",
           "type": "normal"
         },
         {
-          "name": "common-vermling-raider",
+          "name": "basic-vermling-raider",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "common-vermling-raider",
+          "name": "basic-vermling-raider",
           "player3": "normal",
           "player4": "normal"
         }

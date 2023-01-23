@@ -1,11 +1,10 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { ConnectionPositionPair, Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { GameState } from 'src/app/game/model/Game';
-import { LootDeck } from 'src/app/game/model/Loot';
+import { Game, GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { AttackModiferDeckChange } from '../figures/attackmodifier/attackmodifierdeck';
 import { HintDialogComponent } from './hint-dialog/hint-dialog';
@@ -17,9 +16,11 @@ import { Objective } from 'src/app/game/model/Objective';
   templateUrl: './footer.html',
   styleUrls: ['./footer.scss']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('nextButton') nextButton!: ElementRef;
+  @ViewChild('nextButton', { static: false }) nextButton!: ElementRef;
+  @ViewChild('footer', { static: false }) footer!: ElementRef;
+  @ViewChild('monsterDeck', { static: false }) monsterDeck!: ElementRef;
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -27,6 +28,8 @@ export class FooterComponent implements OnInit {
   currentTime: string = "";
   hasAllyAttackModifierDeck: boolean = false;
   lootDeck: boolean = false;
+
+  viewInit: boolean = false;
 
   constructor(private dialog: Dialog, private overlay: Overlay) { }
 
@@ -84,6 +87,14 @@ export class FooterComponent implements OnInit {
     } else {
       this.nextState();
     }
+  }
+
+  ngAfterViewInit(): void {
+    this.viewInit = true;
+  }
+
+  compact(): boolean {
+    return this.viewInit && this.monsterDeck.nativeElement.clientWidth > this.footer.nativeElement.clientWidth * 0.3;
   }
 
   async nextState() {
@@ -151,10 +162,11 @@ export class FooterComponent implements OnInit {
   }
 
   round(): number {
+    const offset = gameManager.game.round > 0 && gameManager.game.state == GameState.draw ? 1 : 0;
     if (gameManager.game.roundResets.length == 0) {
-      return gameManager.game.round
+      return gameManager.game.round + offset;
     }
-    return gameManager.game.round + gameManager.game.roundResets.reduce((a, b) => (a ? a - 1 : 0) + (b ? b - 1 : 0));
+    return gameManager.game.round + offset + gameManager.game.roundResets.reduce((a, b) => (a ? a - 1 : 0) + (b ? b - 1 : 0));
   }
 
   missingInitiative(): boolean {

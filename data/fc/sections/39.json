@@ -1,0 +1,48 @@
+{
+  "index": "39",
+  "name": "Another Revolution",
+  "edition": "fc",
+  "parent": "100",
+  "parentSections": [
+    "14",
+    "22"
+  ],
+  "marker": "b",
+  "monsters": [
+    "ancient-artillery"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "f1a",
+      "initial": true,
+      "rooms": [
+        2
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "i1b",
+      "marker": "1",
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

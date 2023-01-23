@@ -49,4 +49,4 @@ export class ScenarioFigureRule {
 
 export type ScenarioRuleIdentifier = { "edition": string, "scenario": string, "group": string | undefined, "index": number, "section": boolean };
 
-export type FigureIdentifier = { "type": string, "edition": string, "name": string, "marker": string | undefined } | undefined;
+export type FigureIdentifier = { "type": string, "edition": string, "name": string, "marker": string | undefined, "tag": string | undefined } | undefined;

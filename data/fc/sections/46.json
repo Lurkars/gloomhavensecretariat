@@ -1,0 +1,48 @@
+{
+  "index": "46",
+  "name": "Quick Turn",
+  "edition": "fc",
+  "parent": "100",
+  "parentSections": [
+    "14",
+    "22"
+  ],
+  "marker": "c",
+  "monsters": [
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "f1a",
+      "initial": true,
+      "rooms": [
+        2
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "b3b",
+      "marker": "1",
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

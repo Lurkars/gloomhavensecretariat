@@ -8,14 +8,31 @@
   "monsters": [
     "harrower-infester",
     "lurker",
-    "spitting-drake"
+    "spitting-drake",
+    "sun-demon"
   ],
   "objectives": [
     {
       "name": "Hail",
       "escort": true,
       "health": "6+2xL",
-      "marker": "a"
+      "marker": "a",
+      "tags": [
+        "104"
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.scenario.rules.fc.104.1%",
+              "small": true
+            }
+          ]
+        }
+      ]
     }
   ],
   "rules": [

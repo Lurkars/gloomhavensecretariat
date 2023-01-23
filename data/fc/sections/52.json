@@ -1,0 +1,124 @@
+{
+  "index": "52",
+  "name": "The First Portal",
+  "edition": "fc",
+  "parent": "104",
+  "marker": "1",
+  "objectives": [
+    {
+      "name": "Hail",
+      "escort": true,
+      "health": "6+2xL",
+      "marker": "a",
+      "tags": [
+        "52"
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.scenario.rules.fc.104.2%",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "round": "R % 8 == 2",
+      "spawns": [
+        {
+          "monster": {
+            "name": "lurker",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "1"
+        }
+      ]
+    },
+    {
+      "round": "R % 8 == 4",
+      "spawns": [
+        {
+          "monster": {
+            "name": "sun-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "2"
+        }
+      ]
+    },
+    {
+      "round": "R % 8 == 6",
+      "spawns": [
+        {
+          "monster": {
+            "name": "spitting-drake",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "3"
+        }
+      ]
+    },
+    {
+      "round": "R % 8 == 0",
+      "spawns": [
+        {
+          "monster": {
+            "name": "harrower-infester",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "4"
+        }
+      ]
+    },
+    {
+      "round": "always",
+      "always": true,
+      "disableRules": [
+        {
+          "edition": "fc",
+          "scenario": "104",
+          "index": -1,
+          "section": false
+        }
+      ]
+    },
+    {
+      "round": "always",
+      "once": true,
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "escort",
+            "name": "Hail",
+            "marker": "a"
+          },
+          "type": "transfer",
+          "value": "1"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true
+    }
+  ]
+}

@@ -345,7 +345,7 @@ export class ScenarioManager {
   }
 
   filterDisabledScenarioRules() {
-    this.game.scenarioRules = this.game.scenarioRules.filter((ruleModel, index, self) => !self.find((disableRule) => disableRule.rule.disableRules && disableRule.rule.disableRules.some((value) => value.edition == ruleModel.identifier.edition && value.group == ruleModel.identifier.group && value.index == ruleModel.identifier.index && value.scenario == ruleModel.identifier.scenario && value.section == ruleModel.identifier.section)));
+    this.game.scenarioRules = this.game.scenarioRules.filter((ruleModel, index, self) => !self.find((disableRule) => disableRule.rule.disableRules && disableRule.rule.disableRules.some((value) => value.edition == ruleModel.identifier.edition && value.group == ruleModel.identifier.group && (value.index == ruleModel.identifier.index || value.index == -1) && value.scenario == ruleModel.identifier.scenario && value.section == ruleModel.identifier.section)));
   }
 
   addScenarioRule(scenarioData: ScenarioData, rule: ScenarioRule, index: number, section: boolean) {
@@ -376,7 +376,7 @@ export class ScenarioManager {
     if (add) {
       if (rule.figures && rule.figures.filter((figureRule) => figureRule.type == "present" || figureRule.type == "dead").length > 0) {
         rule.figures.filter((figureRule) => figureRule.type == "present" || figureRule.type == "dead").forEach((figureRule) => {
-          const gameplayFigures: Figure[] = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect).filter((figure) => gameManager.gameplayFigure(figure) && (!(figure instanceof Monster) || !(figureRule.identifier?.marker) || (figure instanceof Monster && figure.entities.some((entity) => entity.marker == figureRule.identifier?.marker && !entity.dead && entity.health >= 1))));
+          const gameplayFigures: Figure[] = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect).filter((figure) => gameManager.gameplayFigure(figure) && (!(figure instanceof Monster) || (!(figureRule.identifier?.marker) || (figure instanceof Monster && figure.entities.some((entity) => entity.marker == figureRule.identifier?.marker && !entity.dead && entity.health >= 1))) && (!(figureRule.identifier?.tag) || (figure instanceof Monster && figure.entities.some((entity) => figureRule.identifier?.tag && entity.tags.indexOf(figureRule.identifier?.tag) != -1 && !entity.dead && entity.health >= 1)))));
           const tolerance: number = figureRule.value ? EntityValueFunction(figureRule.value.split(':')[0]) : 0;
           add = add && (figureRule.type == "present" ? gameplayFigures.length > tolerance : gameplayFigures.length <= tolerance);
         })
@@ -405,17 +405,17 @@ export class ScenarioManager {
 
   }
 
-  getScenarioForRule(rule: ScenarioRuleIdentifier): ScenarioData | undefined {
+  getScenarioForRule(rule: ScenarioRuleIdentifier): { scenario: ScenarioData | undefined, section: boolean } {
     if (rule.section) {
       const sectionData = this.game.sections.find((section) => section.edition == rule.edition && section.group == rule.group && section.index == rule.scenario && section.rules && section.rules.length > rule.index);
       if (sectionData) {
-        return sectionData;
+        return { scenario: sectionData, section: true };
       }
     } else if (this.game.scenario && this.game.scenario.edition == rule.edition && this.game.scenario.group == rule.group && this.game.scenario.index == rule.scenario && this.game.scenario.rules && this.game.scenario.rules.length > rule.index) {
-      return this.game.scenario;
+      return { scenario: this.game.scenario, section: false };
     }
 
-    return undefined;
+    return { scenario: undefined, section: false };
   }
 
   availableSections(): ScenarioData[] {

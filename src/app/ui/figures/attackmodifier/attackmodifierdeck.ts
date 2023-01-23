@@ -61,7 +61,7 @@ export class AttackModifierDeckComponent implements OnInit {
 
   @ViewChild('drawCard') drawCard!: ElementRef;
 
-  constructor(private element: ElementRef, private dialog: Dialog) {
+  constructor(public element: ElementRef, private dialog: Dialog) {
     this.deck = new AttackModifierDeck();
     this.element.nativeElement.addEventListener('click', (event: any) => {
       let elements = document.elementsFromPoint(event.clientX, event.clientY);

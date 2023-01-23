@@ -1,0 +1,52 @@
+{
+  "index": "71",
+  "name": "Quiet Rotation",
+  "edition": "fc",
+  "parent": "100",
+  "parentSections": [
+    "14",
+    "22"
+  ],
+  "marker": "c",
+  "monsters": [
+    "living-spirit",
+    "stone-golem"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "f1a",
+      "initial": true,
+      "rooms": [
+        2
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "b3b",
+      "marker": "1",
+      "initial": true,
+      "treasures": [
+        76,
+        85
+      ],
+      "monster": [
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "stone-golem",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

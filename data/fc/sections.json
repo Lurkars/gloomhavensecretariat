@@ -91,14 +91,6 @@
     "edition": "fc"
   },
   {
-    "index": "39",
-    "name": "Another Revolution",
-    "edition": "fc",
-    "monsters": [
-      "ancient-artillery"
-    ]
-  },
-  {
     "index": "42",
     "name": "Collapsed Atrium",
     "edition": "fc",
@@ -131,15 +123,6 @@
     "monsters": [
       "living-corpse",
       "living-spirit"
-    ]
-  },
-  {
-    "index": "71",
-    "name": "Quiet Rotation",
-    "edition": "fc",
-    "monsters": [
-      "living-spirit",
-      "stone-golem"
     ]
   },
   {
