@@ -1,5 +1,5 @@
 <footer class="{{settingsManager.settings.theme}}"
-  [ngClass]="{'compact' : compact()}" #footer>
+  [ngClass]="{'compact' : compact}" #footer>
   <div [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
     <div #nextButton (click)="next()" class="round-container" [ngClass]="{'disabled' : disabled()}">
       <a>{{ (gameManager.game.state == GameState.next ?

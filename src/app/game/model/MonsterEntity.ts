@@ -53,7 +53,7 @@ export class MonsterEntity implements Entity {
   }
 
   toModel(): GameMonsterEntityModel {
-    return new GameMonsterEntityModel(this.number, this.marker, this.type, this.dead, this.summon, this.active, this.off, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags);
+    return new GameMonsterEntityModel(this.number, this.marker, this.type, this.dead, this.summon, this.active, this.off, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || []);
   }
 
   fromModel(model: GameMonsterEntityModel) {

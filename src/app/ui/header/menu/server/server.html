@@ -33,6 +33,17 @@
       </select>
     </div>
 
+    <div class="server-info" *ngIf="selectedServerIndex != -1">
+      <a [href]="publicServer[selectedServerIndex].privacy" target="_blank">{{'server.info.privacy' | ghsLabel}}</a>
+      <a [href]="publicServer[selectedServerIndex].website" target="_blank">{{'server.info.website' | ghsLabel}}</a>
+
+      <label>{{'server.info.description' | ghsLabel}}</label>
+      <p>{{publicServer[selectedServerIndex].description}}</p>
+
+      <label>{{'server.info.location' | ghsLabel}}</label>
+      <p>{{publicServer[selectedServerIndex].location}}</p>
+    </div>
+
     <div class="line separator" [ngClass]="{'hidden' : selectedServerIndex != -1}">
       <label class="label">{{'server.url' | ghsLabel}}</label>
       <input type="text" #serverUrl [value]="settingsManager.settings.serverUrl || ''" (keyup)="0"

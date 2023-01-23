@@ -1,12 +1,11 @@
 import { CdkDragDrop, CdkDragEnter, CdkDragExit, moveItemInArray } from '@angular/cdk/drag-drop';
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GameState } from 'src/app/game/model/Game';
 import { environment } from 'src/environments/environment';
 import { SettingsManager, settingsManager } from '../game/businesslogic/SettingsManager';
 import { Character } from '../game/model/Character';
-import { Monster } from '../game/model/Monster';
 import { FooterComponent } from './footer/footer';
 
 @Component({
@@ -14,7 +13,7 @@ import { FooterComponent } from './footer/footer';
   templateUrl: './main.html',
   styleUrls: ['./main.scss'],
 })
-export class MainComponent implements OnInit, AfterViewInit {
+export class MainComponent implements OnInit {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -27,8 +26,6 @@ export class MainComponent implements OnInit, AfterViewInit {
 
   fullviewChar: Character | undefined;
   scrollTimeout: any = null;
-
-  viewInit: boolean = false;
 
   @ViewChild('footer') footer!: FooterComponent;
 
@@ -109,14 +106,6 @@ export class MainComponent implements OnInit, AfterViewInit {
         gameManager.stateManager.connect();
       }
     });
-  }
-
-  ngAfterViewInit(): void {
-    this.viewInit = true;
-  }
-
-  compact(): boolean {
-    return this.viewInit && this.footer.compact();
   }
 
   scroll(event: any) {

@@ -722,6 +722,13 @@
     "connecting": "Connecting",
     "disconnect": "Disconnect",
     "disconnected": "No Connection",
+    "info": {
+      ".": "Info",
+      "description": "Description",
+      "location": "Location",
+      "privacy": "Privacy Policy",
+      "website": "Website"
+    },
     "list": {
       "deselect": "Manual enter Server",
       "select": "Select public Server"

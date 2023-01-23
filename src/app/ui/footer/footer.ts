@@ -4,7 +4,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { Game, GameState } from 'src/app/game/model/Game';
+import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { AttackModiferDeckChange } from '../figures/attackmodifier/attackmodifierdeck';
 import { HintDialogComponent } from './hint-dialog/hint-dialog';
@@ -16,7 +16,7 @@ import { Objective } from 'src/app/game/model/Objective';
   templateUrl: './footer.html',
   styleUrls: ['./footer.scss']
 })
-export class FooterComponent implements OnInit, AfterViewInit {
+export class FooterComponent implements OnInit {
 
   @ViewChild('nextButton', { static: false }) nextButton!: ElementRef;
   @ViewChild('footer', { static: false }) footer!: ElementRef;
@@ -29,7 +29,7 @@ export class FooterComponent implements OnInit, AfterViewInit {
   hasAllyAttackModifierDeck: boolean = false;
   lootDeck: boolean = false;
 
-  viewInit: boolean = false;
+  compact: boolean = false;
 
   constructor(private dialog: Dialog, private overlay: Overlay) { }
 
@@ -66,6 +66,11 @@ export class FooterComponent implements OnInit, AfterViewInit {
       }
 
     }, 1000)
+
+
+    window.addEventListener('resize', (event) => {
+      this.compact = this.monsterDeck.nativeElement.clientWidth > this.footer.nativeElement.clientWidth * 0.3;
+    });
   }
 
   next(force: boolean = false): void {
@@ -87,14 +92,6 @@ export class FooterComponent implements OnInit, AfterViewInit {
     } else {
       this.nextState();
     }
-  }
-
-  ngAfterViewInit(): void {
-    this.viewInit = true;
-  }
-
-  compact(): boolean {
-    return this.viewInit && this.monsterDeck.nativeElement.clientWidth > this.footer.nativeElement.clientWidth * 0.3;
   }
 
   async nextState() {

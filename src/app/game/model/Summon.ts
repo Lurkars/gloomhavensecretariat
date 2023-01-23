@@ -62,7 +62,7 @@ export class Summon implements Entity {
   }
 
   toModel(): GameSummonModel {
-    return new GameSummonModel(this.name, this.number, this.color, this.attack, this.movement, this.range, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags, this.action ? JSON.stringify(this.action) : undefined, this.additionalAction ? JSON.stringify(this.additionalAction) : undefined);
+    return new GameSummonModel(this.name, this.number, this.color, this.attack, this.movement, this.range, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.action ? JSON.stringify(this.action) : undefined, this.additionalAction ? JSON.stringify(this.additionalAction) : undefined);
   }
 
   fromModel(model: GameSummonModel) {
