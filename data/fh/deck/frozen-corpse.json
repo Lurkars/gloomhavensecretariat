@@ -4,6 +4,7 @@
   "abilities": [
     {
       "name": "Freezing Embrace",
+      "cardId": 634,
       "initiative": 23,
       "actions": [
         {
@@ -33,7 +34,30 @@
       ]
     },
     {
+      "name": "Nothing Special",
+      "cardId": 635,
+      "initiative": 71,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "element",
+          "value": "ice"
+        }
+      ]
+    },
+    {
       "name": "Cold Snap",
+      "cardId": 636,
       "initiative": 42,
       "actions": [
         {
@@ -64,6 +88,7 @@
     },
     {
       "name": "Cold Snap",
+      "cardId": 637,
       "initiative": 42,
       "actions": [
         {
@@ -89,11 +114,86 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "Thawed Strike",
+      "cardId": 638,
+      "initiative": 68,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "If the element is consumed by<br>the Frozen Corpse during the<br>move ability, it suffers %game.damage:2%.",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "name": "Thawed Strike",
+      "cardId": 639,
+      "initiative": 68,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "element",
+              "value": "fire",
+              "valueType": "minus",
+              "subActions": [
+                {
+                  "type": "move",
+                  "value": 2,
+                  "valueType": "add",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "If the element is consumed by<br>the Frozen Corpse during the<br>move ability, it suffers %game.damage:2%.",
+          "small": true
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
         }
       ]
     },
     {
       "name": "Frost Breath",
+      "cardId": 640,
       "initiative": 39,
       "shuffle": true,
       "actions": [
@@ -120,105 +220,13 @@
       ]
     },
     {
-      "name": "Thawed Strike",
-      "initiative": 68,
-      "actions": [
-        {
-          "type": "move",
-          "value": 1,
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "element",
-              "value": "fire",
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "move",
-                  "value": 2,
-                  "valueType": "add",
-                  "small": true
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "custom",
-          "value": "If the element is consumed by<br>the Frozen Corpse during the<br>move ability, it suffers %game.damage:2%.",
-          "small": true
-        },
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "plus"
-        }
-      ]
-    },
-    {
-      "name": "Thawed Strike",
-      "initiative": 68,
-      "actions": [
-        {
-          "type": "move",
-          "value": 1,
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "element",
-              "value": "fire",
-              "valueType": "minus",
-              "subActions": [
-                {
-                  "type": "move",
-                  "value": 2,
-                  "valueType": "add",
-                  "small": true
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "type": "custom",
-          "value": "If the element is consumed by<br>the Frozen Corpse during the<br>move ability, it suffers %game.damage:2%.",
-          "small": true
-        },
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "plus"
-        }
-      ]
-    },
-    {
-      "name": "Nothing Special",
-      "initiative": 71,
-      "shuffle": true,
-      "actions": [
-        {
-          "type": "move",
-          "value": 0,
-          "valueType": "plus"
-        },
-        {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
-        },
-        {
-          "type": "element",
-          "value": "ice"
-        }
-      ]
-    },
-    {
       "name": "Icy Swipe",
+      "cardId": 641,
       "initiative": 84,
       "actions": [
         {
           "type": "move",
-          "value": 1, 
+          "value": 1,
           "valueType": "minus"
         },
         {
