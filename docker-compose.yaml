@@ -1,3 +1,4 @@
+# serving client on port 80
 version: "3.8"
 services:
   ghs-client:

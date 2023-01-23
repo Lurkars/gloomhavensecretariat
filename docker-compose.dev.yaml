@@ -1,3 +1,4 @@
+# running a client DEV enviroment on port 4200
 version: "3.8"
 services:
   ghs-client-dev:

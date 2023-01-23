@@ -1,3 +1,4 @@
+# This file is running both services, client on port 80 and server on port 8080, to connect to local server, use your local IP (e.g. 192.168.1.123) and port 8080 to connect to it
 version: "3.8"
 services:
   ghs-client:
