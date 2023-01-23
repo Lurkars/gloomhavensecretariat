@@ -1,8 +1,7 @@
 version: "3.8"
 services:
-  ghs-server:
+  ghs-client:
     container_name: ghs
     image: gloomhavensecretariat/ghs
-
     ports:
       - "80:80"
