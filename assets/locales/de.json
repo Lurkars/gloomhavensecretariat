@@ -603,6 +603,13 @@
     "connecting": "Verbinde",
     "disconnect": "Trennen",
     "disconnected": "Keine Verbindung",
+    "info": {
+      ".": "Info",
+      "description": "Beschreibung",
+      "location": "Standort",
+      "privacy": "Datenschutzerklärung",
+      "website": "Website"
+    },
     "list": {
       "deselect": "Server manuell eintragen",
       "select": "Öffentlichen Server auswählen"
