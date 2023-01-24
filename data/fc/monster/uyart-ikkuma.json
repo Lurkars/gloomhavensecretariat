@@ -2,7 +2,7 @@
   "name": "uyart-ikkuma",
   "thumbnail": "gh-savvas-lavaflow",
   "edition": "fc",
-  "deck": "savvas-lavaflow",
+  "deck": "uyart-ikkuma",
   "boss": true,
   "hidden": true,
   "count": 1,
@@ -12,10 +12,6 @@
       {
         "type": "custom",
         "value": "%data.custom.fc.uyart-ikkuma.1%"
-      },
-      {
-        "type": "custom",
-        "value": "%data.custom.fc.uyart-ikkuma.2%"
       },
       {
         "type": "condition",
@@ -68,25 +64,13 @@
       "level": 6,
       "health": "30xC/2",
       "movement": 4,
-      "attack": 6,
-      "immunities": [
-        "stun",
-        "poison",
-        "muddle",
-        "immobilize"
-      ]
+      "attack": 6
     },
     {
       "level": 7,
       "health": "35xC/2",
       "movement": 4,
-      "attack": 6,
-      "immunities": [
-        "stun",
-        "poison",
-        "muddle",
-        "immobilize"
-      ]
+      "attack": 6
     }
   ]
 }

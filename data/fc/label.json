@@ -128,8 +128,7 @@
           "2": "Focus on the enemy with the lowest current hit point value."
         },
         "uyart-ikkuma": {
-          "1": "All its summons are elite for three or four characters",
-          "2": "It may consume %game.element.consume.fire% / %game.element.consume.earth% as if the element is currently strong when a %data.monster.flame-demon% / %data.monster.earth-demon% is present on the map"
+          "1": "It may consume %game.element.consume.fire% / %game.element.consume.earth% as if the element is currently strong when a %data.monster.flame-demon% / %data.monster.earth-demon% is present on the map"
         },
         "valrath-savage": {
           "1": "All adjacent allies add +1 %game.action.attack% to all attacks",
@@ -267,8 +266,7 @@
           "2": "Visiere den Gegner mit dem niedrigesten TP Wert an."
         },
         "uyart-ikkuma": {
-          "1": "Alle Beschwörungen sind Elite-Monster für drei oder vier Charaktere.",
-          "2": "Konsumiere %game.element.consume.fire% / %game.element.consume.earth% als wäre das Element stark fall %data.monster.flame-demon% / %data.monster.earth-demon% auf der Karte sind."
+          "1": "Konsumiere %game.element.consume.fire% / %game.element.consume.earth% als wäre das Element stark fall %data.monster.flame-demon% / %data.monster.earth-demon% auf der Karte sind."
         },
         "valrath-savage": {
           "1": "Alle angrenzenden Verbündeten fügen +1 %game.action.attack% zu allen Angriffen hinzu.",
@@ -461,8 +459,7 @@
           "2": "Se focalise sur l'adversaire ayant le moins de points de vie."
         },
         "uyart-ikkuma": {
-          "1": "Toutes ses invocations sont d'élite pour trois ou quatre aventuriers",
-          "2": "Les effets %game.element.consume.fire% et %game.element.consume.earth% de ses cartes s'appliquent si un Démon de l'élément correspondant est présent sur le plateau"
+          "1": "Les effets %game.element.consume.fire% et %game.element.consume.earth% de ses cartes s'appliquent si un Démon de l'élément correspondant est présent sur le plateau"
         },
         "valrath-savage": {
           "1": "Tous les alliés adjacents ajoutent +1 %game.action.attack% à toutes leurs attaques",
@@ -597,8 +594,7 @@
           "2": "Focus on the enemy with the lowest current hit point value."
         },
         "uyart-ikkuma": {
-          "1": "All its summons are elite for three or four characters",
-          "2": "It may consume %game.element.consume.fire% / %game.element.consume.earth% as if the element is currently strong when a %data.monster.flame-demon% / %data.monster.earth-demon% is present on the map"
+          "1": "It may consume %game.element.consume.fire% / %game.element.consume.earth% as if the element is currently strong when a %data.monster.flame-demon% / %data.monster.earth-demon% is present on the map"
         },
         "valrath-savage": {
           "1": "All adjacent allies add +1 %game.action.attack% to all attacks",

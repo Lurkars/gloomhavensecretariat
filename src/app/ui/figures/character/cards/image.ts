@@ -31,7 +31,7 @@ export class CharacterImageComponent {
       if (gameManager.game.state == GameState.next && !this.character.exhausted && (!settingsManager.settings.initiativeRequired || this.character.initiative > 0)) {
         gameManager.stateManager.before(this.character.active ? "unsetActive" : "setActive", "data.character." + this.character.name);
         gameManager.roundManager.toggleFigure(this.character);
-        gameManager.stateManager.after(250);
+        gameManager.stateManager.after();
       } else if (settingsManager.settings.initiativeRequired && this.character.initiative <= 0 || gameManager.game.state == GameState.draw) {
         this.openInitiativeDialog();
       }

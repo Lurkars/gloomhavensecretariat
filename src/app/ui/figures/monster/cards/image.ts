@@ -18,7 +18,7 @@ export class MonsterImageComponent {
     if (gameManager.game.state == GameState.next) {
       gameManager.stateManager.before(this.monster.active ? "unsetActive" : "setActive", "data.monster." + this.monster.name);
       gameManager.roundManager.toggleFigure(this.monster);
-      gameManager.stateManager.after(250);
+      gameManager.stateManager.after();
     }
   }
 

@@ -132,12 +132,6 @@
           "type": "target",
           "value": "C"
         }
-      ],
-      "immunities": [
-        "stun",
-        "immobilize",
-        "muddle",
-        "poison"
       ]
     },
     {
@@ -159,12 +153,6 @@
           "type": "target",
           "value": "C"
         }
-      ],
-      "immunities": [
-        "stun",
-        "immobilize",
-        "muddle",
-        "poison"
       ]
     }
   ]

@@ -66,7 +66,7 @@ export class ObjectiveComponent implements OnInit {
     } else {
       gameManager.stateManager.before(this.objective.active ? "unsetActive" : "setActive", this.objective.title || this.objective.name);
       gameManager.roundManager.toggleFigure(this.objective);
-      gameManager.stateManager.after(250);
+      gameManager.stateManager.after();
     }
   }
 
