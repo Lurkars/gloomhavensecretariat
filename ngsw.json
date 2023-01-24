@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1674587835658,
+  "timestamp": 1674595170996,
   "appData": {
     "version": "0.42.12"
   },
@@ -796,7 +796,7 @@
     "gloomhavensecretariat/assets/data/.empty": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
     "gloomhavensecretariat/assets/data/bas.json": "29af49230d4eafd346d4cf22d74e2a529fa622c7",
     "gloomhavensecretariat/assets/data/cs.json": "8a6f80b71c2b5ca94829e0f240906dce484cd3b1",
-    "gloomhavensecretariat/assets/data/fc.json": "d2cfd55780aaaa9a6f28aa181ed5bc60684ccd6c",
+    "gloomhavensecretariat/assets/data/fc.json": "c6c8c5601b946d132536c992b6fdec16d4d8d029",
     "gloomhavensecretariat/assets/data/fh-crossover.json": "666a03da0329e548fc3c5afbfd29dd9eabddcddd",
     "gloomhavensecretariat/assets/data/fh.json": "42cd4e15dd90d599d1db8ba526cca7fedf12ca3c",
     "gloomhavensecretariat/assets/data/gh-envx.json": "6eaf85f16e4fd8570861badee9a50691c5216c99",
