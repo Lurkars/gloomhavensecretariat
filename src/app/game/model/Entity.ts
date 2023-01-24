@@ -47,7 +47,13 @@ export function EntityValueFunction(value: string | number, L: number | undefine
   expression = expression.replace(/[C]/g, "" + C);
   expression = expression.replace(/[L]/g, "" + L);
 
-  let result = eval(expression) as number;
+  let result = 0;
+  try {
+    result = eval(expression) as number;
+  } catch (e) {
+    console.error("Could not evaluate expression: " + expression, e);
+    return 0;
+  }
 
   if (func && func.startsWith('$')) {
     func = func.replace('$', '');

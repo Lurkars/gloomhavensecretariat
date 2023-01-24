@@ -82,7 +82,7 @@
       filter: grayscale(75%);
 
       .ghs-svg {
-        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow) !important;
+        filter: var(--ghs-filter-gray) !important;
       }
     }
 
@@ -106,7 +106,7 @@
 
     &.disabled {
       pointer-events: none;
-      filter: var(--ghs-filter-darkgray) var(--ghs-filter-shadow);
+      filter: var(--ghs-filter-darkgray);
     }
 
     top: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));

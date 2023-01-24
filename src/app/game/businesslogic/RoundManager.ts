@@ -344,6 +344,7 @@ export class RoundManager {
         figure.active = false;
         figure.off = false;
         figure.exhausted = false;
+        figure.longRest = false;
 
         figure.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => gameManager.characterManager.createSpecialSummon(figure, summonData));
 

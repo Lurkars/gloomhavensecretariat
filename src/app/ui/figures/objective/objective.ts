@@ -10,6 +10,7 @@ import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Objective } from 'src/app/game/model/Objective';
 import { ghsDefaultDialogPositions, ghsValueSign } from '../../helper/Static';
+import { CharacterInitiativeDialogComponent } from '../character/cards/initiative';
 import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
 
 @Component({
@@ -59,14 +60,22 @@ export class ObjectiveComponent implements OnInit {
     return EntityValueFunction(this.objective.maxHealth);
   }
 
-  toggleFigure(): void {
+  toggleFigure(event: any): void {
     if ((gameManager.game.state == GameState.draw || settingsManager.settings.initiativeRequired && this.objective.initiative <= 0) && !this.objective.exhausted && this.objective.health > 0) {
-      //
+      this.openInitiativeDialog(event);
     } else {
       gameManager.stateManager.before(this.objective.active ? "unsetActive" : "setActive", this.objective.title || this.objective.name);
       gameManager.roundManager.toggleFigure(this.objective);
       gameManager.stateManager.after(250);
     }
+  }
+
+  openInitiativeDialog(event: any) {
+    this.dialog.open(CharacterInitiativeDialogComponent, {
+      panelClass: 'dialog',
+      data: this.objective,
+      positionStrategy: this.overlay.position().flexibleConnectedTo(event.target).withPositions(ghsDefaultDialogPositions())
+    });
   }
 
   dragInitiativeMove(value: number) {

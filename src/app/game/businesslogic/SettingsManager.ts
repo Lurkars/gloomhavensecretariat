@@ -86,10 +86,6 @@ export class SettingsManager {
     for (let editionDataUrl of settingsManager.settings.editionDataUrls) {
       await settingsManager.loadEditionData(editionDataUrl);
     }
-
-    if (this.developent) {
-      settingsManager.validateEditionData();
-    }
   }
 
   storeSettings(): void {
@@ -529,6 +525,45 @@ export class SettingsManager {
       if (self.find((other) => self.indexOf(other) != self.indexOf(itemData) && itemData.id == other.id && itemData.edition == other.edition)) {
         console.warn("Duplicate Item: " + itemData.id + " (Edition: " + itemData.edition + ")");
       }
+    })
+
+    gameManager.monstersData().forEach((monsterData) => {
+      let found: boolean = false;
+
+      gameManager.scenarioData().forEach((scenarioData) => {
+        if (scenarioData.monsters && scenarioData.monsters.map((name) => name.split(':')[0]).indexOf(monsterData.name) != -1) {
+          found = true;
+        }
+
+        if (!found && scenarioData.rooms) {
+          scenarioData.rooms.forEach((roomData) => {
+            if (roomData.monster && roomData.monster.some((standee) => standee.name.split(':')[0] == monsterData.name)) {
+              found = true;
+            }
+          })
+        }
+      })
+
+      if (!found) {
+        gameManager.sectionData().forEach((sectionData) => {
+          if (sectionData.monsters && sectionData.monsters.map((name) => name.split(':')[0]).indexOf(monsterData.name) != -1) {
+            found = true;
+          }
+
+          if (!found && sectionData.rooms) {
+            sectionData.rooms.forEach((roomData) => {
+              if (roomData.monster && roomData.monster.some((standee) => standee.name.split(':')[0] == monsterData.name)) {
+                found = true;
+              }
+            })
+          }
+        })
+      }
+
+      if (!found) {
+        console.warn("Could not find usage of '" + monsterData.name + "'", monsterData.edition);
+      }
+
     })
   }
 

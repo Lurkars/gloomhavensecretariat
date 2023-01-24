@@ -1,4 +1,5 @@
 .initiative {
+  position: relative;
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -19,6 +20,12 @@
 
     &:hover {
       filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+    }
+
+    &.long-rest {
+      width: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
+      position: absolute;
+      bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
     }
   }
 

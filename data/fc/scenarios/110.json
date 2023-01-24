@@ -20,20 +20,20 @@
       "initial": true,
       "monster": [
         {
-          "name": "valrath-tracker",
-          "type": "elite"
+          "name": "selah-naberis",
+          "type": "boss"
         },
         {
-          "name": "vermling-shaman",
-          "type": "elite"
+          "name": "sraka-the-wise",
+          "type": "boss"
         },
         {
-          "name": "savvas-lavaflow",
-          "type": "elite"
+          "name": "the-steel-lion",
+          "type": "boss"
         },
         {
-          "name": "city-guard",
-          "type": "elite"
+          "name": "uyart-ikkuma",
+          "type": "boss"
         }
       ],
       "rooms": [

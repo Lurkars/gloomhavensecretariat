@@ -13,7 +13,7 @@
   ],
   "rules": [
     {
-      "round": "true",
+      "round": "always",
       "once": true,
       "always": true,
       "figures": [
@@ -34,10 +34,13 @@
             "type": "boss"
           }
         }
+      ],
+      "requiredRooms": [
+        3
       ]
     },
     {
-      "round": "true",
+      "round": "always",
       "once": true,
       "always": true,
       "spawns": [
@@ -66,7 +69,7 @@
         }
       ],
       "requiredRooms": [
-        5
+        4
       ]
     }
   ],
@@ -164,6 +167,7 @@
     {
       "roomNumber": 4,
       "ref": "a1a",
+      "marker": "3",
       "treasures": [
         22,
         3
@@ -172,7 +176,7 @@
     {
       "roomNumber": 5,
       "ref": "c2b",
-      "marker": "3",
+      "marker": "4",
       "monster": [
         {
           "name": "city-archer",

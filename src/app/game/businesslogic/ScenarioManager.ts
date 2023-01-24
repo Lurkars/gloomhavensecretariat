@@ -111,6 +111,20 @@ export class ScenarioManager {
       scenarioData.rooms.filter((roomData) => roomData.initial).forEach((roomData) => {
         this.openRoom(roomData, scenarioData, section);
       })
+
+      if (!settingsManager.settings.automaticStandees && scenarioData.monsters) {
+        scenarioData.monsters.forEach((name) => {
+          if (!scenarioData.rooms || !scenarioData.rooms.some((roomData) => roomData.monster && roomData.monster.some((standee) => standee.name == name))) {
+            let monster = gameManager.monsterManager.addMonsterByName(name, scenarioData.edition);
+            if (monster && scenarioData.allies && scenarioData.allies.indexOf(name) != -1) {
+              monster.isAlly = true;
+            }
+            if (monster && scenarioData.drawExtra && scenarioData.drawExtra.indexOf(name) != -1) {
+              monster.drawExtra = true;
+            }
+          }
+        })
+      }
     }
 
     if (scenarioData.solo) {
@@ -379,6 +393,11 @@ export class ScenarioManager {
           const gameplayFigures: Figure[] = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect).filter((figure) => gameManager.gameplayFigure(figure) && (!(figure instanceof Monster) || (!(figureRule.identifier?.marker) || (figure instanceof Monster && figure.entities.some((entity) => entity.marker == figureRule.identifier?.marker && !entity.dead && entity.health >= 1))) && (!(figureRule.identifier?.tag) || (figure instanceof Monster && figure.entities.some((entity) => figureRule.identifier?.tag && entity.tags.indexOf(figureRule.identifier?.tag) != -1 && !entity.dead && entity.health >= 1)))));
           const tolerance: number = figureRule.value ? EntityValueFunction(figureRule.value.split(':')[0]) : 0;
           add = add && (figureRule.type == "present" ? gameplayFigures.length > tolerance : gameplayFigures.length <= tolerance);
+
+          if ((figureRule.identifier?.marker || figureRule.identifier?.tag) && !settingsManager.settings.automaticStandees) {
+            add = false;
+          }
+
         })
       }
 

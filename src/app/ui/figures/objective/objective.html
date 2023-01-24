@@ -11,7 +11,7 @@
   </a>
 
   <ghs-drag-click class="drag-initiative" (dragMove)="dragInitiativeMove($event)" (dragEnd)="dragInitiativeEnd($event)"
-    (singleClick)="toggleFigure()"
+    (singleClick)="toggleFigure($event)"  (doubleClick)="openInitiativeDialog($event)"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round }">
   </ghs-drag-click>
 
@@ -41,13 +41,13 @@
       <div class="status-bar">
         <div class="health">
           <img src="./assets/images/status/health.svg" />
-          <span *ngIf="maxHealth() > 0">
+          <ng-container *ngIf="maxHealth() > 0">
             {{objective.health}}/{{maxHealth()}}
             <span *ngIf="health" class="value-overlay"
               [ngClass]="{'negative-value' : health < 0, 'positive-value' : health > 0}">
               <span class="value">{{health | ghsValueSign}}</span>
             </span>
-          </span>
+          </ng-container>
           <span *ngIf="maxHealth() == 0">-</span>
         </div>
         <div class="conditions">

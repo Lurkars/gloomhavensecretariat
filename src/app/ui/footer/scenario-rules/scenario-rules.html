@@ -49,7 +49,7 @@
         <ng-container *ngFor="let figureRule of figureRules(ruleModel.rule);">
           <span class="figure">
             <span class="text-white" [i18n]="'scenario.rules.figures.' + figureRule.type"
-              [i18n-args]="[figureNames(figureRule), figureRule.value || '', (settingsManager.settings.calculate && (figureRule.type == 'damage' || figureRule.type == 'hp')) ? '' + EntityValueFunction(figureRule.value || '') : (figureRule.value || ''), (figureRule.type == 'amAdd' || figureRule.type == 'amRemove') ? figureRule.value.split(':')[0] : '', (figureRule.type == 'amAdd' || figureRule.type == 'amRemove') ? figureRule.value.split(':')[1] : '']"></span>
+              [i18n-args]="[figureNames(figureRule), figureRule.value || '', (settingsManager.settings.calculate && (figureRule.type == 'damage' || figureRule.type == 'hp' && figureRule.value && figureRule.value.indexOf('%') == -1)) ? '' + EntityValueFunction(figureRule.value || '') : (figureRule.value || ''), (figureRule.type == 'amAdd' || figureRule.type == 'amRemove') ? figureRule.value.split(':')[0] : '', (figureRule.type == 'amAdd' || figureRule.type == 'amRemove') ? figureRule.value.split(':')[1] : '']"></span>
             <span *ngIf="figureRule.scenarioEffect" class="text-white">{{'scenario.rules.figures.scenarioEffect' |
               ghsLabel}}</span>
           </span>

@@ -88,7 +88,10 @@ export class CharacterComponent {
 
     this.character.initiative = value;
     this.character.initiativeVisible = true;
-
+    this.character.longRest = false;
+    if (value == 99) {
+      this.character.longRest = true;
+    }
   }
 
   dragInitiativeEnd(value: number) {
@@ -105,6 +108,10 @@ export class CharacterComponent {
     this.character.initiative = this.initiative;
     gameManager.stateManager.before("setInitiative", "data.character." + this.character.name, "" + value);
     this.character.initiative = value;
+    this.character.longRest = false;
+    if (value == 99) {
+      this.character.longRest = true;
+    }
     this.initiative = -1;
     if (this.character instanceof Character) {
       this.character.initiativeVisible = true;

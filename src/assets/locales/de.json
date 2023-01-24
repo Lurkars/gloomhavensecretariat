@@ -311,6 +311,8 @@
           "hint": "Keine Daten für %{0}% '%data.{0}.{1}%' gefunden! Prüfe die Edition Daten (Edition: %data.edition.{2}%)."
         }
       },
+      "longRest": "Lange Rast setzen",
+      "longRestOff": "Lange Rast deaktivieren",
       "setInitiative": "Initiative festlegen",
       "startTurn": "Zug beginnen"
     },
@@ -898,6 +900,8 @@
       "changeSummonMove": "Bewegung {2} für Beschwörung '{1}' von {0}",
       "changeSummonRange": "Reichweite {2} für Beschwörung '{1}' von {0}",
       "changeXP": "EP {1} für {0}",
+      "characterLongRest": "Lange Rast für {0} setzen",
+      "characterLongRestOff": "Lange Rast für {0} deaktivieren",
       "declineApplyCondition": {
         "char": "Anwenden von {1} auf {0} abgelehnt",
         "monsterEntities": "Anwenden von {1} auf alle {2}{0} abgelehnt",

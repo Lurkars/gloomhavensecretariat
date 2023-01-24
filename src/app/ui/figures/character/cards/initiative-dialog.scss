@@ -60,11 +60,17 @@
 
     &.long-rest-button {
 
+      img {
+        width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+        height: auto;
+        filter: var(--ghs-filter-gray);
+      }
+
       &.disabled {
         pointer-events: none;
 
         img {
-          filter: var(--ghs-filter-darkgray) var(--ghs-filter-shadow);
+          filter: var(--ghs-filter-darkgray);
         }
       }
 

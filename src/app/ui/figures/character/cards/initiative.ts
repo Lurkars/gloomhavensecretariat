@@ -46,11 +46,27 @@ export class CharacterInitiativeComponent {
       this.character.initiative = initiative;
       if (this.character instanceof Character) {
         this.character.initiativeVisible = true;
+        this.character.longRest = false;
+        if (initiative == 99) {
+          this.character.longRest = true;
+        }
       }
       if (gameManager.game.state == GameState.next) {
         gameManager.sortFigures();
       }
       gameManager.stateManager.after();
+    }
+  }
+
+  longRestOff(event: any) {
+    if (this.character instanceof Character && this.character.longRest) {
+      gameManager.stateManager.before("characterLongRestOff", "data.character." + this.character.name);
+      this.character.longRest = false;
+      if (gameManager.game.state == GameState.next) {
+        gameManager.sortFigures();
+      }
+      gameManager.stateManager.after();
+      event.preventDefault();
     }
   }
 
@@ -136,9 +152,25 @@ export class CharacterInitiativeDialogComponent {
     if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0 || initiative > 0) && initiative < 100) {
       this.character.initiative = initiative;
       if (this.character instanceof Character) {
+        this.character.longRest = false;
+        if (initiative == 99) {
+          this.character.longRest = true;
+        }
+      }
+      if (this.character instanceof Character) {
         this.character.initiativeVisible = true;
       }
     }
+  }
+
+  longRest() {
+    gameManager.stateManager.before("characterLongRest", "data.character." + this.character.name);
+    this.setInitiative(99);
+    if (gameManager.game.state == GameState.next) {
+      gameManager.sortFigures();
+    }
+    gameManager.stateManager.after();
+    this.dialogRef.close();
   }
 
 }

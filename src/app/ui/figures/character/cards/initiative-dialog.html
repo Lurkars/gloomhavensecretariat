@@ -25,9 +25,13 @@
     <span *ngFor="let number of [1,2,3,4,5,6,7,8,9]" class="number-button" (click)="pickNumber(number)">
       <span class="number">{{number}}</span>
     </span>
-    <span [ngClass]="{'disabled' : gameManager.game.state == GameState.next } " class="long-rest-button"
-      (click)="pickNumber(9);pickNumber(9);"><img class="ghs-svg" src="./assets/images/long-rest.svg"></span>
-    <span class="number-button" (click)="pickNumber(0)"><span class="number">0</span></span>
+    <span *ngIf="gameManager.isCharacter(character)" class="long-rest-button" title="{{'game.figure.longRest' | ghsLabel}}" (click)="longRest();">
+      <img class="ghs-svg" src="./assets/images/long-rest.svg">
+    </span>
+    <span *ngIf="!gameManager.isCharacter(character)"></span>
+    <span class="number-button" (click)="pickNumber(0)">
+      <span class="number">0</span>
+    </span>
     <span></span>
   </div>
 </div>
