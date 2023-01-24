@@ -5,7 +5,7 @@
   "deck": "guard",
   "boss": true,
   "hidden": true,
-  "count": 6,
+  "count": 1,
   "baseStat": {
     "type": "boss"
   },
@@ -35,10 +35,6 @@
             }
           ]
         }
-      ],
-      "immunities": [
-        "immobilize",
-        "wound"
       ]
     },
     {
@@ -66,10 +62,6 @@
             }
           ]
         }
-      ],
-      "immunities": [
-        "immobilize",
-        "wound"
       ]
     },
     {
@@ -97,10 +89,6 @@
             }
           ]
         }
-      ],
-      "immunities": [
-        "immobilize",
-        "wound"
       ]
     },
     {
@@ -132,10 +120,6 @@
           "type": "retaliate",
           "value": 1
         }
-      ],
-      "immunities": [
-        "immobilize",
-        "wound"
       ]
     },
     {
@@ -167,10 +151,6 @@
           "type": "retaliate",
           "value": 2
         }
-      ],
-      "immunities": [
-        "immobilize",
-        "wound"
       ]
     },
     {
@@ -202,10 +182,6 @@
           "type": "retaliate",
           "value": 2
         }
-      ],
-      "immunities": [
-        "immobilize",
-        "wound"
       ]
     },
     {
@@ -237,12 +213,6 @@
           "type": "retaliate",
           "value": 3
         }
-      ],
-      "immunities": [
-        "immobilize",
-        "wound",
-        "muddle",
-        "stun"
       ]
     },
     {
@@ -274,12 +244,6 @@
           "type": "retaliate",
           "value": 3
         }
-      ],
-      "immunities": [
-        "immobilize",
-        "wound",
-        "muddle",
-        "stun"
       ]
     }
   ]

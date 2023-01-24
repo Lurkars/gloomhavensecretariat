@@ -3,6 +3,7 @@
   "edition": "fc",
   "deck": "tracker",
   "boss": true,
+  "hidden": true,
   "count": 1,
   "baseStat": {
     "type": "boss",

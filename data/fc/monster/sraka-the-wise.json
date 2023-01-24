@@ -4,7 +4,8 @@
   "edition": "fc",
   "deck": "shaman",
   "boss": true,
-  "count": 6,
+  "hidden": true,
+  "count": 1,
   "baseStat": {
     "type": "boss"
   },
@@ -29,10 +30,6 @@
           "type": "shield",
           "value": 2
         }
-      ],
-      "immunities": [
-        "stun",
-        "wound"
       ]
     },
     {
@@ -55,10 +52,6 @@
           "type": "shield",
           "value": 3
         }
-      ],
-      "immunities": [
-        "stun",
-        "wound"
       ]
     },
     {
@@ -81,10 +74,6 @@
           "type": "shield",
           "value": 3
         }
-      ],
-      "immunities": [
-        "stun",
-        "wound"
       ]
     },
     {
@@ -107,10 +96,6 @@
           "type": "shield",
           "value": 3
         }
-      ],
-      "immunities": [
-        "stun",
-        "wound"
       ]
     },
     {
@@ -137,10 +122,6 @@
           "type": "condition",
           "value": "muddle"
         }
-      ],
-      "immunities": [
-        "stun",
-        "wound"
       ]
     },
     {
@@ -167,10 +148,6 @@
           "type": "condition",
           "value": "muddle"
         }
-      ],
-      "immunities": [
-        "stun",
-        "wound"
       ]
     },
     {
@@ -197,12 +174,6 @@
           "type": "condition",
           "value": "muddle"
         }
-      ],
-      "immunities": [
-        "stun",
-        "wound",
-        "disarm",
-        "pierce"
       ]
     },
     {
@@ -229,12 +200,6 @@
           "type": "condition",
           "value": "muddle"
         }
-      ],
-      "immunities": [
-        "stun",
-        "wound",
-        "disarm",
-        "pierce"
       ]
     }
   ]

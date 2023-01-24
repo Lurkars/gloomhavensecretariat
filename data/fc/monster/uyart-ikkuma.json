@@ -5,7 +5,7 @@
   "deck": "savvas-lavaflow",
   "boss": true,
   "hidden": true,
-  "count": 4,
+  "count": 1,
   "baseStat": {
     "type": "boss",
     "actions": [

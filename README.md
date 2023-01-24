@@ -156,6 +156,12 @@ Many thanks to all already contributing, you're awesome:
   <img src="https://contrib.rocks/image?repo=Lurkars/gloomhavensecretariat" />
 </a>
 
+## Archive
+
+All older versions are also available on `gloomhaven-secretariat.de`, for example the first version `v0.0.1` is available under [v0-0-1.gloomhaven-secretary.de](https://v0-0-1.gloomhaven-secretary.de). All available tags are listed under [Releases](https://github.com/Lurkars/gloomhavensecretariat/releases), just replace all `.` with `-` for a proper url. This is meant as showcase for the evolution of GHS, but also as fallback, if a release does break anything important, than you can always fallback to a previous version. 
+
+> Please keep in mind that there is no history of the server component. So connecting with older clients to the current server may not work properly!
+
 ## Privacy
 
 This app does NOT collect ANY personal data. Everything runs and stays in your browser/local storage. For usage of the server component please go to [Gloomhaven Secretariat Server#Privacy](https://github.com/Lurkars/ghs-server#privacy).
