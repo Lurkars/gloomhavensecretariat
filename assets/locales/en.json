@@ -413,6 +413,8 @@
           "hint": "No data found for %{0}% '%data.{0}.{1}%'! Please check edition data (Edition: %data.edition.{2}%)."
         }
       },
+      "longRest": "Set Long Rest",
+      "longRestOff": "Disable Long Rest",
       "setInitiative": "Set initiative",
       "startTurn": "Start turn"
     },
@@ -1016,6 +1018,8 @@
       "changeSummonMove": "Movement {2} for summon '{1}' of {0}",
       "changeSummonRange": "Range {2} for summon '{1}' of {0}",
       "changeXP": "XP {1} for {0}",
+      "characterLongRest": "Set Long Rest for {0}",
+      "characterLongRestOff": "Disable Long Rest for {0}",
       "declineApplyCondition": {
         "char": "Decline apply {1} to {0}",
         "monsterEntities": "Decline apply {1} to all {2}{0}",
@@ -1224,7 +1228,8 @@
         },
         "send": "Send Scenario"
       }
-    }
+    },
+    "validateEditionData": "Validate Edition Data"
   },
   "update": "Update - Reload",
   "wip": "Work In Progress"
