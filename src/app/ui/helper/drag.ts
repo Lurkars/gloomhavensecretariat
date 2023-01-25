@@ -102,7 +102,6 @@ export class DragClickDirective {
   @HostListener('panstart', ['$event'])
   panstart(event: any) {
     if (settingsManager.settings.dragValues) {
-      document.body.classList.add('dragging');
       this.elementRef.nativeElement.classList.add('dragging');
     }
     event.preventDefault();
@@ -134,12 +133,12 @@ export class DragClickDirective {
   }
 
   @HostListener('panend', ['$event'])
+  @HostListener('pancancel', ['$event'])
   panend(event: any) {
     if (settingsManager.settings.dragValues) {
       if (this.value >= this.min) {
         this.dragEnd.emit(this.relative ? this.value - this.relativeValue : this.value);
       }
-      document.body.classList.remove('dragging');
       this.elementRef.nativeElement.classList.remove('dragging');
     }
     event.preventDefault();

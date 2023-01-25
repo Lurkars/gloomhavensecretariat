@@ -253,13 +253,6 @@ body {
   }
 }
 
-.dragging {
-
-  *:not(.drag-value-input) {
-    pointer-events: none;
-  }
-}
-
 .denied {
   cursor: not-allowed !important;
 
