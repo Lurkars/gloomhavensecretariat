@@ -247,7 +247,7 @@
               "name": "hound",
               "player2": "normal",
               "player3": "elite",
-              "plaxer4": "elite"
+              "player4": "elite"
             },
             "marker": "a"
           }
@@ -261,7 +261,7 @@
               "name": "cave-bear",
               "player2": "normal",
               "player3": "normal",
-              "plaxer4": "elite"
+              "player4": "elite"
             },
             "marker": "c"
           }
@@ -275,7 +275,7 @@
               "name": "giant-viper",
               "player2": "normal",
               "player3": "elite",
-              "plaxer4": "elite"
+              "player4": "elite"
             },
             "marker": "b"
           },
@@ -284,7 +284,7 @@
               "name": "rending-drake",
               "player2": "normal",
               "player3": "normal",
-              "plaxer4": "elite"
+              "player4": "elite"
             },
             "marker": "d"
           }
@@ -298,7 +298,7 @@
               "name": "lurker",
               "player2": "normal",
               "player3": "elite",
-              "plaxer4": "elite"
+              "player4": "elite"
             },
             "marker": "a"
           },
@@ -307,7 +307,7 @@
               "name": "hound",
               "player2": "normal",
               "player3": "elite",
-              "plaxer4": "elite"
+              "player4": "elite"
             },
             "marker": "c"
           }
@@ -321,7 +321,7 @@
               "name": "cave-bear",
               "player2": "normal",
               "player3": "normal",
-              "plaxer4": "elite"
+              "player4": "elite"
             },
             "marker": "b"
           },
@@ -330,7 +330,7 @@
               "name": "giant-viper",
               "player2": "normal",
               "player3": "elite",
-              "plaxer4": "elite"
+              "player4": "elite"
             },
             "marker": "d"
           }
@@ -344,7 +344,7 @@
               "name": "rending-drake",
               "player2": "normal",
               "player3": "normal",
-              "plaxer4": "elite"
+              "player4": "elite"
             },
             "marker": "a"
           },
@@ -353,7 +353,7 @@
               "name": "lurker",
               "player2": "normal",
               "player3": "elite",
-              "plaxer4": "elite"
+              "player4": "elite"
             },
             "marker": "c"
           }
@@ -367,7 +367,7 @@
               "name": "hound",
               "player2": "normal",
               "player3": "elite",
-              "plaxer4": "elite"
+              "player4": "elite"
             },
             "marker": "b"
           },
@@ -376,7 +376,7 @@
               "name": "cave-bear",
               "player2": "normal",
               "player3": "normal",
-              "plaxer4": "elite"
+              "player4": "elite"
             },
             "marker": "d"
           }
@@ -390,7 +390,7 @@
               "name": "giant-viper",
               "player2": "normal",
               "player3": "elite",
-              "plaxer4": "elite"
+              "player4": "elite"
             },
             "marker": "a"
           },
@@ -399,7 +399,7 @@
               "name": "rending-drake",
               "player2": "normal",
               "player3": "normal",
-              "plaxer4": "elite"
+              "player4": "elite"
             },
             "marker": "c"
           }
@@ -413,7 +413,7 @@
               "name": "lurker",
               "player2": "normal",
               "player3": "elite",
-              "plaxer4": "elite"
+              "player4": "elite"
             },
             "marker": "b"
           },
@@ -422,7 +422,7 @@
               "name": "hound",
               "player2": "normal",
               "player3": "elite",
-              "plaxer4": "elite"
+              "player4": "elite"
             },
             "marker": "d"
           }
@@ -965,7 +965,7 @@
               "name": "spitting-drake",
               "player2": "normal",
               "player3": "normal",
-              "plaxer4": "elite"
+              "player4": "elite"
             },
             "marker": "c"
           }
@@ -979,7 +979,7 @@
               "name": "spitting-drake",
               "player2": "normal",
               "player3": "elite",
-              "plaxer4": "elite"
+              "player4": "elite"
             },
             "marker": "c"
           }

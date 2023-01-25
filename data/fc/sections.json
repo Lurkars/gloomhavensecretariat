@@ -1,35 +1,5 @@
 [
   {
-    "index": "6",
-    "name": "Kennel of Things",
-    "edition": "fc",
-    "monsters": [
-      "bandit-guard",
-      "valrath-tracker",
-      "wolf-viper-abomination"
-    ]
-  },
-  {
-    "index": "13",
-    "name": "Shrine of Ashtar",
-    "edition": "fc",
-    "monsters": [
-      "ancient-artillery",
-      "earth-demon",
-      "flame-demon",
-      "avatar-of-ashtar"
-    ]
-  },
-  {
-    "index": "15",
-    "name": "Trash Dump",
-    "edition": "fc",
-    "monsters": [
-      "vermling-scout",
-      "vermling-shaman"
-    ]
-  },
-  {
     "index": "17",
     "name": "Escape is Not So Easy",
     "edition": "fc",
@@ -48,16 +18,6 @@
     ]
   },
   {
-    "index": "28",
-    "name": "A Bear of a Drake",
-    "edition": "fc",
-    "monsters": [
-      "bandit-guard",
-      "valrath-tracker",
-      "bear-drake-abomination"
-    ]
-  },
-  {
     "index": "29",
     "name": "Serene Path",
     "edition": "fc",
@@ -72,38 +32,6 @@
     "monsters": [
       "deep-terror",
       "living-bones"
-    ]
-  },
-  {
-    "index": "35",
-    "name": "Shrine of Thelija",
-    "edition": "fc",
-    "monsters": [
-      "ancient-artillery",
-      "frost-demon",
-      "avatar-of-thelija",
-      "wind-demon"
-    ]
-  },
-  {
-    "index": "37",
-    "name": "Aiding Diamara",
-    "edition": "fc"
-  },
-  {
-    "index": "42",
-    "name": "Collapsed Atrium",
-    "edition": "fc",
-    "monsters": [
-      "living-spirit"
-    ]
-  },
-  {
-    "index": "46",
-    "name": "Quick Turn",
-    "edition": "fc",
-    "monsters": [
-      "living-spirit"
     ]
   },
   {
@@ -155,36 +83,11 @@
     ]
   },
   {
-    "index": "92",
-    "name": "Nesting Grounds",
-    "edition": "fc",
-    "monsters": [
-      "vermling-scout",
-      "vermling-shaman"
-    ]
-  },
-  {
     "index": "94",
     "name": "Seal of Reanimation",
     "edition": "fc",
     "monsters": [
       "living-corpse",
-      "living-spirit"
-    ]
-  },
-  {
-    "index": "95",
-    "name": "The Horde's Kitchen",
-    "edition": "fc",
-    "monsters": [
-      "vermling-scout"
-    ]
-  },
-  {
-    "index": "96",
-    "name": "Haunted Treasury",
-    "edition": "fc",
-    "monsters": [
       "living-spirit"
     ]
   },
@@ -208,37 +111,11 @@
     ]
   },
   {
-    "index": "126",
-    "name": "Training Maneuvers",
-    "edition": "fc",
-    "monsters": [
-      "vermling-scout",
-      "vermling-shaman"
-    ]
-  },
-  {
-    "index": "127",
-    "name": "Guarded Nursery",
-    "edition": "fc",
-    "monsters": [
-      "vermling-scout",
-      "vermling-shaman"
-    ]
-  },
-  {
     "index": "129",
     "name": "Fighting Dirty",
     "edition": "fc",
     "monsters": [
       "ooze"
-    ]
-  },
-  {
-    "index": "133",
-    "name": "A Secret Floor",
-    "edition": "fc",
-    "monsters": [
-      "ancient-artillery"
     ]
   },
   {

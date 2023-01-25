@@ -16,6 +16,7 @@ import { GameState } from "src/app/game/model/Game";
 import { AttackModifier, AttackModifierType } from "src/app/game/model/AttackModifier";
 import { Figure } from "src/app/game/model/Figure";
 import { ScenarioObjectiveIdentifier } from "src/app/game/model/data/ObjectiveData";
+import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 
 @Component({
     selector: 'ghs-scenario-rules',
@@ -243,7 +244,7 @@ export class ScenarioRulesComponent {
                     rule.figures.filter((figureRule) => figureRule.type == "gainCondition" || figureRule.type == "looseCondition" || figureRule.type == "damage" || figureRule.type == "hp").forEach((figureRule) => {
                         let figures = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
                         figures.forEach((figure) => {
-                            let entities: Entity[] = gameManager.entityManager.entities(figure);
+                            let entities: Entity[] = gameManager.entityManager.entities(figure).filter((entity) => (!figureRule.identifier?.marker || !(entity instanceof MonsterEntity) || entity.marker == figureRule.identifier.marker) && (!figureRule.identifier?.tag || entity.tags.indexOf(figureRule.identifier.tag) != -1));
                             entities.forEach((entity) => {
                                 switch (figureRule.type) {
                                     case "gainCondition":
@@ -258,8 +259,18 @@ export class ScenarioRulesComponent {
                                             gameManager.entityManager.toggleCondition(entity, looseCondition, figure.active, figure.off);
                                         }
                                         break;
-                                    case "damage":
-                                        gameManager.entityManager.changeHealth(entity, -EntityValueFunction(figureRule.value));
+                                    case "damage": let damage = 0;
+                                        if (isNaN(+figureRule.value) && figureRule.value.endsWith('%')) {
+                                            damage = Math.floor(EntityValueFunction(entity.maxHealth) * (+figureRule.value.replace('%', '')) / 100);
+                                        } else {
+                                            damage = +EntityValueFunction(figureRule.value);
+                                        }
+                                        if (damage < 0) {
+                                            damage = 0;
+                                        } else if (damage > EntityValueFunction(entity.maxHealth)) {
+                                            damage = EntityValueFunction(entity.maxHealth);
+                                        }
+                                        gameManager.entityManager.changeHealth(entity, -damage);
                                         break;
                                     case "hp":
                                         let hp = 0;
@@ -294,7 +305,9 @@ export class ScenarioRulesComponent {
                             const figure = figures[0];
                             const monster = gameManager.monsterManager.addMonsterByName(figureRule.value, scenario.edition);
                             if (monster) {
-                                monster.level = figure.level;
+                                if (figureRule.value.indexOf(':') == -1) {
+                                    monster.level = figure.level;
+                                }
                                 monster.off = figure.off;
                                 monster.active = figure.active;
                                 monster.drawExtra = figure.drawExtra;
@@ -309,7 +322,9 @@ export class ScenarioRulesComponent {
                                     }
                                 })
 
-                                gameManager.monsterManager.removeMonster(figure);
+                                if (monster != figure) {
+                                    gameManager.monsterManager.removeMonster(figure);
+                                }
                                 gameManager.sortFigures();
                             }
                         } else if (figures.length == 1 && figures[0] instanceof Objective) {

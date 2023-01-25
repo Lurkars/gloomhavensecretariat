@@ -1,0 +1,37 @@
+{
+  "index": "91",
+  "name": "A Burning Regret",
+  "edition": "fc",
+  "parent": "106",
+  "rules": [
+    {
+      "round": "always",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*"
+          },
+          "type": "damage",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "round": "always",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "wound"
+        }
+      ]
+    }
+  ]
+}

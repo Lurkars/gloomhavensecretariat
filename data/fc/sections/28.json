@@ -1,0 +1,54 @@
+{
+  "index": "28",
+  "name": "A Bear of a Drake",
+  "edition": "fc",
+  "parent": "105",
+  "marker": "2",
+  "monsters": [
+    "bandit-guard",
+    "valrath-tracker",
+    "bear-drake-abomination"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "ref": "b3a",
+      "initial": true,
+      "treasures": [
+        83
+      ],
+      "monster": [
+        {
+          "name": "bandit-guard",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player2": "normal",
+          "player3": "elite"
+        },
+        {
+          "name": "valrath-tracker",
+          "player4": "normal"
+        },
+        {
+          "name": "bear-drake-abomination",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

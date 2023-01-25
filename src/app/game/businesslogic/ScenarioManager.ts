@@ -65,7 +65,7 @@ export class ScenarioManager {
   addSection(section: ScenarioData) {
     if (!this.game.sections.some((value) => value.edition == section.edition && value.index == section.index && value.group == section.group)) {
       this.game.sections.push(new Scenario(section, []));
-      this.applyScenarioData(section), true;
+      this.applyScenarioData(section, true);
       if (section.rules) {
         section.rules.forEach((rule, index) => {
           this.addScenarioRule(section, rule, index, true);
@@ -415,9 +415,17 @@ export class ScenarioManager {
       }
     }
 
-    if (add && !this.game.disgardedScenarioRules.find((disgarded) => disgarded.edition == identifier.edition && disgarded.scenario == identifier.scenario && disgarded.group == identifier.group && disgarded.index == identifier.index && disgarded.section == identifier.section) && !this.game.scenarioRules.find((ruleModel) => ruleModel.identifier.edition == identifier.edition && ruleModel.identifier.scenario == identifier.scenario && ruleModel.identifier.group == identifier.group && ruleModel.identifier.index == identifier.index && ruleModel.identifier.section == identifier.section)) {
+    const disgarded = this.game.disgardedScenarioRules.find((disgarded) => disgarded.edition == identifier.edition && disgarded.scenario == identifier.scenario && disgarded.group == identifier.group && disgarded.index == identifier.index && disgarded.section == identifier.section);
+
+    const visible = this.game.scenarioRules.find((ruleModel) => ruleModel.identifier.edition == identifier.edition && ruleModel.identifier.scenario == identifier.scenario && ruleModel.identifier.group == identifier.group && ruleModel.identifier.index == identifier.index && ruleModel.identifier.section == identifier.section);
+
+    if (add && !disgarded && !visible) {
       if (rule.spawns) {
-        rule.spawns.forEach((spawn) => { if (spawn.manual && !spawn.count) { spawn.count = "1"; } });
+        rule.spawns.forEach((spawn) => {
+          if (spawn.manual && !spawn.count) {
+            spawn.count = "1";
+          }
+        });
       }
       this.game.scenarioRules.push({ "identifier": identifier, "rule": rule });
     }

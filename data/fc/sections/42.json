@@ -1,0 +1,48 @@
+{
+  "index": "42",
+  "name": "Collapsed Atrium",
+  "edition": "fc",
+  "parent": "107",
+  "monsters": [
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 6,
+      "ref": "l2b",
+      "inital": true,
+      "treasures": [
+        78
+      ],
+      "monster": [
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

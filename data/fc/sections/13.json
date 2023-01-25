@@ -1,0 +1,50 @@
+{
+  "index": "13",
+  "name": "Shrine of Ashtar",
+  "edition": "fc",
+  "parent": "106",
+  "marker": "1",
+  "monsters": [
+    "ancient-artillery",
+    "earth-demon",
+    "flame-demon",
+    "avatar-of-ashtar"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "ref": "d1a",
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "avatar-of-ashtar",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

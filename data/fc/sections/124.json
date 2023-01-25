@@ -1,0 +1,85 @@
+{
+  "index": "124",
+  "name": "From a Hostile Plane",
+  "edition": "fc",
+  "parent": "106",
+  "rules": [
+    {
+      "round": "always",
+      "always": true,
+      "once": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "flame-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite",
+            "tags": [
+              "spawn-fc-124"
+            ]
+          },
+          "marker": "g"
+        },
+        {
+          "monster": {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite",
+            "tags": [
+              "spawn-fc-124"
+            ]
+          },
+          "marker": "j"
+        },
+        {
+          "monster": {
+            "name": "flame-demon",
+            "player3": "normal",
+            "player4": "normal",
+            "tags": [
+              "spawn-fc-124"
+            ]
+          },
+          "marker": "i"
+        },
+        {
+          "monster": {
+            "name": "wind-demon",
+            "player3": "normal",
+            "player4": "normal",
+            "tags": [
+              "spawn-fc-124"
+            ]
+          },
+          "marker": "h"
+        }
+      ]
+    },
+    {
+      "round": "always",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*",
+            "tag": "spawn-fc-124"
+          },
+          "type": "present"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": ".*",
+            "tag": "spawn-fc-124"
+          },
+          "type": "damage",
+          "value": "50%"
+        }
+      ]
+    }
+  ]
+}

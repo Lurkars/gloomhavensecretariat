@@ -1,0 +1,23 @@
+{
+  "index": "11",
+  "name": "A Tear in the Fabric",
+  "edition": "fc",
+  "parent": "106",
+  "rules": [
+    {
+      "round": "always",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:1"
+        }
+      ]
+    }
+  ]
+}

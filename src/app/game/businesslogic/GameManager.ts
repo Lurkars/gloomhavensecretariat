@@ -368,15 +368,15 @@ export class GameManager {
           }
         }) : this.game.figures;
       }
-      if (identifier.edition && identifier.name) {
+      if (identifier.name) {
         const edition = identifier.edition;
         const name = new RegExp('^' + identifier.name + '$');
         switch (type) {
           case "monster":
-            return this.game.figures.filter((figure) => figure instanceof Monster && figure.edition == edition && figure.name.match(name) && (!identifier.marker || figure.entities.some((entity) => entity.marker == identifier.marker)) && (!identifier.tag || figure.entities.some((entity) => identifier.tag && entity.tags.indexOf(identifier.tag) != -1)));
+            return this.game.figures.filter((figure) => figure instanceof Monster && (!edition || figure.edition == edition) && figure.name.match(name) && (!identifier.marker || figure.entities.some((entity) => entity.marker == identifier.marker)) && (!identifier.tag || figure.entities.some((entity) => identifier.tag && entity.tags.indexOf(identifier.tag) != -1)));
           case "character":
             return this.game.figures.filter((figure) => {
-              if (figure instanceof Character && figure.edition == edition && figure.name.match(name) && (!identifier.tag || figure.tags.indexOf(identifier.tag) != -1)) {
+              if (figure instanceof Character && (!edition || figure.edition == edition) && figure.name.match(name) && (!identifier.tag || figure.tags.indexOf(identifier.tag) != -1)) {
                 if (scenarioEffect) {
                   const perk = figure.perks.find((perk) => perk.custom == '%game.custom.perks.ignoreNegativeScenario%');
                   if (!perk) {

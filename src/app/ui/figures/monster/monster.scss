@@ -135,7 +135,7 @@
     width: calc(var(--ghs-unit) * 17.5);
     min-height: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
 
     .entities-menu {
@@ -143,11 +143,11 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      margin-right: calc(var(--ghs-unit) * 3);
+      margin: 0 calc(var(--ghs-unit) * 0.8);
 
       img {
         opacity: 0.5;
-        width: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+        width: calc(var(--ghs-unit) * 3.7 * var(--ghs-text-factor));
         height: auto;
         filter: var(--ghs-filter-darkgray);
       }

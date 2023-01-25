@@ -418,6 +418,12 @@
     "normal": "Normal",
     "remove": "Monster entfernen",
     "removeAll": "Alle entfernen",
+    "selectStandees": {
+      "all": "Alle Aufsteller auswählen",
+      "boss": "Alle Boss Aufsteller auswählen",
+      "elite": "Alle Normalen Aufsteller auswählen",
+      "normal":"Alle Elite Aufsteller auswählen"
+    },
     "showHidden": "Ausgeblendete Monster anzeigen"
   },
   "objective": {
@@ -566,7 +572,7 @@
         "scenarioEffect": "als Szenarioeffekt",
         "toggleOff": "{0} inaktiv setzen",
         "toggleOn": "{0} aktiv setzen",
-        "transfer": "{0} wird zu %data.monster.{1}%"
+        "transfer": "{0} wird zu %data.monster.{1}% {4}"
       },
       "hide": "Nicht mehr anzeigen",
       "lost": "Szenario verloren!",

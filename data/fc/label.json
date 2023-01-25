@@ -7,6 +7,7 @@
       "fc": "Forgotten Circles"
     },
     "monster": {
+      "ancient-artillery-133": "Ancient Artillery #133",
       "aesther-ashblade": "Aesther Ashblade",
       "aesther-scout": "Aesther Scout",
       "avatar-of-ashtar": "Avatar of Ashtar",
@@ -49,6 +50,9 @@
             "1": "towards portal %game.mapMarker.1%",
             "2": "towards portal %game.mapMarker.2%"
           },
+          "105": {
+            "1": "Apply if Dimensional Equilibrium Party) is incomplete"
+          },
           "115": {
             "1": "Remove one damage token from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{$math.floor}] hit points for each damage token removed.",
             "2": "Remove two damage tokens from each altar %game.mapMarker.a% and %game.mapMarker.b%. The Manifestation of Corruption heals [C/2{$math.floor}] hit points for each damage token removed.",
@@ -61,6 +65,30 @@
     "section": {
       "rules": {
         "fc": {
+          "5": {
+            "1": "Flip over the numbered tokens on doors %game.mapMarker.3%, %game.mapMarker.5%, %game.mapMarker.8% and %game.mapMarker.11%",
+            "2": "Move the six iron walls to positions: %game.mapMarker.p%, %game.mapMarker.t%, %game.mapMarker.s%, %game.mapMarker.a1%, %game.mapMarker.a5% and %game.mapMarker.a6%"
+          },
+          "10": {
+            "1": "Flip over the numbered tokens on doors %game.mapMarker.3%, %game.mapMarker.8%, %game.mapMarker.9% and %game.mapMarker.10%",
+            "2": "Move the six iron walls to positions: %game.mapMarker.q%, %game.mapMarker.n%, %game.mapMarker.r%, %game.mapMarker.t%, %game.mapMarker.a4% and %game.mapMarker.a6%"
+          },
+          "19": {
+            "1": "Flip over the numbered tokens on doors %game.mapMarker.1%, %game.mapMarker.6%, %game.mapMarker.7% and %game.mapMarker.10%",
+            "2": "Move the six iron walls to positions: %game.mapMarker.q%, %game.mapMarker.p%, %game.mapMarker.t%, %game.mapMarker.a1%, %game.mapMarker.a2% and %game.mapMarker.a6%"
+          },
+          "31": {
+            "1": "Flip over the numbered tokens on doors %game.mapMarker.2%, %game.mapMarker.3%, %game.mapMarker.4% and %game.mapMarker.9%",
+            "2": "Move the six iron walls to positions: %game.mapMarker.q%, %game.mapMarker.o%, %game.mapMarker.r%, %game.mapMarker.t%, %game.mapMarker.a4% and %game.mapMarker.a6%"
+          },
+          "43": {
+            "1": "Flip over the numbered tokens on doors %game.mapMarker.4%, %game.mapMarker.6%, %game.mapMarker.8% and %game.mapMarker.9%",
+            "2": "Move the six iron walls to positions: %game.mapMarker.m%, %game.mapMarker.s%, %game.mapMarker.p%, %game.mapMarker.a2%, %game.mapMarker.a4% and %game.mapMarker.a6%"
+          },
+          "56": {
+            "1": "Flip over the numbered tokens on doors %game.mapMarker.1%, %game.mapMarker.2%, %game.mapMarker.5% and %game.mapMarker.7%",
+            "2": "Move the six iron walls to positions: %game.mapMarker.m%, %game.mapMarker.q%, %game.mapMarker.s%, %game.mapMarker.a2%, %game.mapMarker.a4% and %game.mapMarker.a5%"
+          },
           "64": {
             "1": "Both barrels move two hexes along the water tiles towards water tile %game.mapMarker.9%"
           },
@@ -85,6 +113,9 @@
     },
     "custom": {
       "fc": {
+        "ancient-artillery-133": {
+          "1": "Immune to all forced movement"
+        },
         "ashblade": {
           "1": "Focus on the enemy with the highest initiative.",
           "2": "%game.action.teleport% to the closest unoccupied hex adjacent to the focus."

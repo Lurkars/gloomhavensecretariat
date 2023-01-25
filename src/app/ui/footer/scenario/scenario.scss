@@ -20,7 +20,7 @@
     }
 
     &:hover {
-        color: var(--ghs-color-white);
+      color: var(--ghs-color-white);
     }
   }
 
@@ -39,6 +39,8 @@
     line-height: calc(var(--ghs-unit) * 2.2 * var(--ghs-barsize)* var(--ghs-text-factor));
     color: var(--ghs-color-gray);
     text-shadow: var(--ghs-outline-thin);
+    max-height: calc(var(--ghs-unit) * 3 * var(--ghs-barsize));
+    overflow: auto;
 
     .section {
       cursor: pointer;
@@ -49,12 +51,6 @@
 
       &:not(:first-child) {
         border-left: calc(var(--ghs-unit) * 0.1 * var(--ghs-barsize)) solid var(--ghs-color-gray);
-      }
-
-      @media (max-width: 791px) {
-        .name {
-          display: none;
-        }
       }
 
       .ghs-svg {
@@ -79,6 +75,14 @@
         .marker {
           filter: grayscale(0.3);
         }
+      }
+    }
+
+    @media (max-width: 791px) {
+      max-height: calc(var(--ghs-unit) * 7 * var(--ghs-barsize));
+
+      .section .name {
+        display: none;
       }
     }
   }

@@ -1,0 +1,48 @@
+{
+  "index": "37",
+  "name": "Aiding Diamara",
+  "edition": "fc",
+  "parent": "108",
+  "monsters": [
+    "city-archer",
+    "city-guard",
+    "human-commander"
+  ],
+  "allies": [
+    "city-archer",
+    "city-guard",
+    "human-commander"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "city-archer|city-guard|human-commander"
+          },
+          "type": "damage",
+          "value": "L"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "city-archer|city-guard|human-commander"
+          },
+          "type": "gainCondition",
+          "value": "poison"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "city-archer|city-guard|human-commander"
+          },
+          "type": "gainCondition",
+          "value": "wound"
+        }
+      ]
+    }
+  ]
+}

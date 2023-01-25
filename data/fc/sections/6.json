@@ -1,0 +1,84 @@
+{
+  "index": "6",
+  "name": "Kennel of Things",
+  "edition": "fc",
+  "parent": "105",
+  "marker": "1",
+  "monsters": [
+    "bandit-guard",
+    "valrath-tracker",
+    "wolf-viper-abomination"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "ref": "i2b",
+      "initial": true,
+      "treasures": [
+        88
+      ],
+      "monster": [
+        {
+          "name": "bandit-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player2": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player4": "elite"
+        },
+        {
+          "name": "valrath-tracker",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player2": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "wolf-viper-abomination",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "wolf-viper-abomination",
+          "player2": "normal"
+        },
+        {
+          "name": "wolf-viper-abomination",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "wolf-viper-abomination",
+          "player2": "normal"
+        },
+        {
+          "name": "wolf-viper-abomination",
+          "player4": "elite"
+        },
+        {
+          "name": "wolf-viper-abomination",
+          "player3": "normal"
+        }
+      ]
+    }
+  ]
+}

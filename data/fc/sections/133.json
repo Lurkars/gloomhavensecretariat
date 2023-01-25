@@ -1,0 +1,31 @@
+{
+  "index": "133",
+  "name": "A Secret Floor",
+  "edition": "fc",
+  "parent": "106",
+  "parentSections": [
+    "68"
+  ],
+  "marker": "k",
+  "monsters": [
+    "ancient-artillery-133"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "a1a",
+      "initial": true,
+      "treasures": [
+        "G"
+      ],
+      "monster": [
+        {
+          "name": "ancient-artillery-133",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

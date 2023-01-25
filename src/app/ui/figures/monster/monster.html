@@ -33,20 +33,20 @@
 <div class="entities-container" [ngClass]="{'empty' : emptyEntities() }"
   *ngIf="!settingsManager.settings.disableStandees">
   <div class="spacer" [ngClass]="{'disabled' : nonDead() < 2}">
-    <a class="entities-menu all" (click)="entitiesMenu($event)">
-      <img src="./assets/images/right.svg">
+    <a class="entities-menu all" (click)="entitiesMenu($event)" [title]="'game.monster.selectStandees.all' | ghsLabel">
+      <img src="./assets/images/up.svg">
     </a>
     <a class="entities-menu boss" *ngIf="entityTypeCount(MonsterType.boss)"
-      (click)="entitiesMenu($event, MonsterType.boss)">
-      <img src="./assets/images/right.svg">
+      (click)="entitiesMenu($event, MonsterType.boss)" [title]="'game.monster.selectStandees.boss' | ghsLabel">
+      <img src="./assets/images/up.svg">
     </a>
     <a class="entities-menu elite" *ngIf="entityTypeCount(MonsterType.elite)"
-      (click)="entitiesMenu($event, MonsterType.elite)">
-      <img src="./assets/images/right.svg">
+      (click)="entitiesMenu($event, MonsterType.elite)" [title]="'game.monster.selectStandees.elite' | ghsLabel">
+      <img src="./assets/images/up.svg">
     </a>
     <a class="entities-menu normal" *ngIf="entityTypeCount(MonsterType.normal)"
-      (click)="entitiesMenu($event, MonsterType.normal)">
-      <img src="./assets/images/right.svg">
+      (click)="entitiesMenu($event, MonsterType.normal)" [title]="'game.monster.selectStandees.normal' | ghsLabel">
+      <img src="./assets/images/up.svg">
     </a>
   </div>
   <div class="entities">

@@ -1,0 +1,49 @@
+{
+  "index": "96",
+  "name": "Haunted Treasury",
+  "edition": "fc",
+  "parent": "107",
+  "monsters": [
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "ref": "l1a",
+      "initial": true,
+      "treasures": [
+        90
+      ],
+      "monster": [
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

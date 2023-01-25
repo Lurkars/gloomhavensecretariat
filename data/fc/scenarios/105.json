@@ -7,9 +7,40 @@
   ],
   "monsters": [
     "bandit-guard",
-    "bear-drake-abomination",
-    "valrath-tracker",
-    "wolf-viper-abomination"
+    "valrath-tracker"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "wound",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "R == 1",
+      "start": true,
+      "note": "%data.scenario.rules.fc.105.1%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "gh",
+            "name": "bandit-guard"
+          },
+          "type": "transfer",
+          "value": "bandit-guard:+1"
+        }
+      ]
+    }
   ],
   "rooms": [
     {
@@ -89,114 +120,6 @@
           "name": "valrath-tracker",
           "player3": "normal",
           "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "i2b",
-      "treasures": [
-        88
-      ],
-      "monster": [
-        {
-          "name": "bandit-guard",
-          "player4": "normal"
-        },
-        {
-          "name": "bandit-guard",
-          "player2": "normal"
-        },
-        {
-          "name": "bandit-guard",
-          "player3": "elite"
-        },
-        {
-          "name": "bandit-guard",
-          "player4": "elite"
-        },
-        {
-          "name": "valrath-tracker",
-          "player4": "normal"
-        },
-        {
-          "name": "valrath-tracker",
-          "player2": "normal"
-        },
-        {
-          "name": "valrath-tracker",
-          "player2": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "valrath-tracker",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "wolf-viper-abomination",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "wolf-viper-abomination",
-          "player2": "normal"
-        },
-        {
-          "name": "wolf-viper-abomination",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "wolf-viper-abomination",
-          "player2": "normal"
-        },
-        {
-          "name": "wolf-viper-abomination",
-          "player4": "elite"
-        },
-        {
-          "name": "wolf-viper-abomination",
-          "player3": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "b3a",
-      "treasures": [
-        83
-      ],
-      "monster": [
-        {
-          "name": "bandit-guard",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "bandit-guard",
-          "player4": "normal"
-        },
-        {
-          "name": "valrath-tracker",
-          "player4": "normal"
-        },
-        {
-          "name": "valrath-tracker",
-          "player4": "normal"
-        },
-        {
-          "name": "valrath-tracker",
-          "player2": "normal",
-          "player3": "elite"
-        },
-        {
-          "name": "valrath-tracker",
-          "player4": "normal"
-        },
-        {
-          "name": "bear-drake-abomination",
-          "type": "elite"
         }
       ]
     }

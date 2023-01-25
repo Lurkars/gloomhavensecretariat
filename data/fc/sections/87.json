@@ -1,0 +1,55 @@
+{
+  "index": "87",
+  "name": "Elemental Storm",
+  "edition": "fc",
+  "parent": "106",
+  "rules": [
+    {
+      "round": "always",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:1"
+        },
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "condition",
+          "value": "muddle"
+        },
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "condition",
+          "value": "disarm"
+        },
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    }
+  ]
+}

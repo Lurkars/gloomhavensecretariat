@@ -1,0 +1,50 @@
+{
+  "index": "18",
+  "name": "Toxic Fumes",
+  "edition": "fc",
+  "parent": "106",
+  "rules": [
+    {
+      "round": "always",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "muddle"
+        }
+      ]
+    },
+    {
+      "round": "always",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "round": "always",
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "wound"
+        }
+      ]
+    }
+  ]
+}

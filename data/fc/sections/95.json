@@ -1,0 +1,48 @@
+{
+  "index": "95",
+  "name": "The Horde's Kitchen",
+  "edition": "fc",
+  "parent": "107",
+  "monsters": [
+    "vermling-scout"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 7,
+      "ref": "a1a",
+      "inital": true,
+      "monster": [
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}
