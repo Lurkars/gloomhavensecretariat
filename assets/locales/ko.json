@@ -671,7 +671,7 @@
         "looseCondition": "{0}의 %game.condition.{1}% 상태 해제",
         "toggleOff": "{0} 비활성화",
         "toggleOn": "{0} 활성화",
-        "transfer": "{0} %data.monster.{1}% 전환"
+        "transfer": "{0} %data.monster.{1}% {4} 전환"
       },
       "lost": "시나리오 패배!",
       "openRoom": "문 열기",
