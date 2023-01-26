@@ -78,19 +78,28 @@
       background-color: var(--ghs-color-black);
       filter: var(--ghs-filter-outline);
 
-      .background-image {
+      .background-image-container {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: var(--ghs-color-darkgray);
-        background-size: calc(var(--ghs-unit) * 9 * var(--ghs-text-factor)) AUTO;
-        background-repeat: no-repeat;
         border-top-left-radius: 25%;
         border-top-right-radius: 25%;
+        overflow: hidden;
         z-index: 0;
-        filter: brightness(70%);
+
+        .background-image {
+          position: absolute;
+          top: -7%;
+          left: 0;
+          width: 100%;
+          height: 150%;
+          background-color: var(--ghs-color-darkgray);
+          background-size: calc(var(--ghs-unit) * 9.5 * var(--ghs-text-factor)) AUTO;
+          background-repeat: no-repeat;
+          filter: brightness(70%);
+        }
       }
     }
 

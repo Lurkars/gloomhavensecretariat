@@ -4,7 +4,7 @@
     <span class="objective-marker" [ngClass]="{'active-border' : objective.active}">
       {{objective.id + 1}}
     </span>
-    <span *ngIf="objective.marker" class="map-marker" [ngClass]="{'active-border' : objective.active}">
+    <span *ngIf="objective.marker" class="map-marker">
       {{objective.marker}}
     </span>
     <ghs-healthbar [entity]="objective"></ghs-healthbar>

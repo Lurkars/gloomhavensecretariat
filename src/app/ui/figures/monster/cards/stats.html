@@ -105,7 +105,7 @@
     </div>
 
     <div class="extra elite" [ngClass]="{'hidden' : hideStats(MonsterType.elite)}">
-      <div class="notes" [i18n]="statsForType(MonsterType.elite).note"></div>
+      <div class="notes text-white" [i18n]="statsForType(MonsterType.elite).note"></div>
       <div class="additional">
         <ghs-actions [actions]="statsForType(MonsterType.elite).actions" [monster]="monster" [inline]="true"
           [relative]="relative" [hexSize]="0.5" [highlightActions]="highlightActions">
@@ -127,7 +127,7 @@
   </ng-container>
 
   <div class="extra boss" *ngIf="monster.boss" [ngClass]="{'hidden' : hideStats(MonsterType.boss)}">
-    <div class="notes" [i18n]="statsForType(MonsterType.boss).note"></div>
+    <div class="notes text-white" [i18n]="statsForType(MonsterType.boss).note"></div>
     <div class="additional">
       <ghs-actions [actions]="statsForType(MonsterType.boss).actions" [monster]="monster" [inline]="true"
         [relative]="relative" [hexSize]="0.5" [highlightActions]="highlightActions">

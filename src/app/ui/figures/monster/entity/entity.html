@@ -3,8 +3,10 @@
   [entityAnimation]="entity.dead">
   <div class="entity" [ngClass]="entity.type">
     <div #standee class="standee">
-      <div class="background-image"
-        [style.background-image]="'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'"></div>
+      <div class="background-image-container">
+        <div class="background-image"
+          [style.background-image]="'url(' + gameManager.monsterManager.monsterThumbnail(monster)+ ')'"></div>
+      </div>
       <span class="number" [ngClass]="{'highlight' : entity.number < 1 && !settingsManager.settings.disableAnimations}">
         <span class="value">{{entity.number < 0 ? '?' : entity.number}}</span>
         </span>

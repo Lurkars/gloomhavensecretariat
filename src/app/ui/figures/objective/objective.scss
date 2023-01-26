@@ -243,6 +243,10 @@
 
     .objective-marker {
       font-size: calc(var(--ghs-unit) * 3.8);
+
+      &:not(.active-border) {
+        box-shadow: 0px 0px calc(var(--ghs-unit) * 0.5) calc(var(--ghs-unit) * 0.1) var(--ghs-color-black);
+      }
     }
 
     .map-marker {
