@@ -1031,7 +1031,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "Kill one normal enemy withing %game.action.range:4%.",
+          "value": "Kill one normal enemy within %game.action.range:4%.",
           "small": true
         },
         {
@@ -1670,7 +1670,7 @@
       "bottomActions": [
         {
           "type": "custom",
-          "value": "All allies withing %game.action.range:2% add +X %game.action.attack% to all their attacks this round, where X is the number of your allies within %game.action.range:2% of you.",
+          "value": "All allies within %game.action.range:2% add +X %game.action.attack% to all their attacks this round, where X is the number of your allies within %game.action.range:2% of you.",
           "small": true
         },
         {
