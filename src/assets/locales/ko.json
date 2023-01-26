@@ -267,6 +267,7 @@
       "refreshItem": "아이템 하나 재생",
       "retaliate": "반격",
       "shield": "방어",
+      "spawn": "출현",
       "special": "특수",
       "specialTarget": "특수 대상",
       "summon": "소환",
@@ -375,13 +376,13 @@
     "damage": "피해 {0}",
     "dead": "사망",
     "element": {
-      "air": "공기 원소",
-      "any": "아무 원소",
-      "dark": "어둠 원소",
-      "earth": "대지 원소",
-      "fire": "불 원소",
-      "ice": "얼음 원소",
-      "light": "빛 원소",
+      "air": "공기",
+      "any": "아무",
+      "dark": "어둠",
+      "earth": "대지",
+      "fire": "불",
+      "ice": "얼음",
+      "light": "빛",
       "state": {
         "inert": "비활성화",
         "new": "유입",
@@ -412,6 +413,8 @@
           "hint": "%{0}% '%data.{0}.{1}%' 데이터를 찾을 수 없습니다! 에디션 데이터를 확인하십시오(에디션: %data.edition.{2}%)."
         }
       },
+      "longRest": "긴 휴식으로 설정",
+      "longRestOff": "긴 휴식 설정 해제",
       "setInitiative": "주도권 설정",
       "startTurn": "차례 시작"
     },
@@ -491,6 +494,13 @@
       "selfOrAlly": "자신 또는 아군",
       "targets": "모든 대상"
     },
+    "summon": {
+      "spawn": "%data.monster.{0}% {1}",
+      "spawnType": "%game.monsterType.{1}% %data.monster.{0}% {2}",
+      "playerAll": "%game.monsterType.{0}% for all characters",
+      "player2-3": "%game.monsterType.{0}% for two or three characters or %game.monsterType.{1}% for four characters",
+      "player3-4": "%game.monsterType.{0}% for two or %game.monsterType.{1}% for three or four characters"
+    },
     "target": {
       ".": "대상",
       "all": "모두"
@@ -522,10 +532,17 @@
       "normal": "일반 몬스터 출현"
     },
     "boss": "보스",
+    "changeType": "%monster.{0}% 유형에서 %monster.{1}% 유형으로 변경",
     "elite": "정예",
     "normal": "일반",
     "remove": "몬스터 제거",
     "removeAll": "모두 제거",
+    "selectStandees": {
+      "all": "모든 몬스터 말 선택",
+      "boss": "모든 보스 몬스터 말 선택",
+      "elite": "모든 정예 몬스터 말 선택",
+      "normal": "모든 일반 몬스터 말 선택"
+    },
     "showHidden": "숨겨진 몬스터 보기"
   },
   "objective": {
@@ -573,7 +590,7 @@
     }
   },
   "permissions": {
-    ".": "권한",
+    ".": "당신의 권한",
     "all": {
       ".": "모든 권한",
       "hint": "새로운 권한 생성도 가능합니다! 이 변경은 되돌릴 수 없습니다!"
@@ -609,7 +626,7 @@
       "hint": "모든 몬스터와 몬스터 항목에 대해 갱신하고 변경할 수 있음."
     },
     "password": {
-      ".": "암호"
+      ".": "권한에 부여할 새로운 암호"
     },
     "round": {
       ".": "라운드",
@@ -665,14 +682,18 @@
       "dismiss": "취소하기",
       "figures": {
         "all": "모든 피규어",
+        "amAdd": "{0} add %character.progress.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% to Attack Modifier Deck",
+        "amRemove": "{0} remove %character.progress.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% from Attack Modifier deck",
         "damage": "{0}에게 피해 %game.damage:{1}%점",
         "gainCondition": "{0}에게 %game.condition.{1}% 상태 추가",
         "hp": "{0} 체력을 {1}",
         "looseCondition": "{0}의 %game.condition.{1}% 상태 해제",
+        "scenarioEffect": "(시나리오 효과)",
         "toggleOff": "{0} 비활성화",
         "toggleOn": "{0} 활성화",
         "transfer": "{0} %data.monster.{1}% {4} 전환"
       },
+      "hide": "다시 표시하지 않음",
       "lost": "시나리오 패배!",
       "openRoom": "문 열기",
       "openRoomMarker": "%game.mapMarker.{0}% 위치의 문 열기",
@@ -682,6 +703,7 @@
     },
     "section": {
       "add": "{1} #{0} 섹션을 열까요?",
+      "addMarker": "Open Section #{0} %game.mapMarker.{1}%?",
       "cancel": "취소",
       "confirm": "확인"
     },
@@ -708,6 +730,13 @@
     "connecting": "연결 중",
     "disconnect": "연결 해제하기",
     "disconnected": "연결 없음",
+    "info": {
+      ".": "정보",
+      "description": "상세",
+      "location": "장소",
+      "privacy": "개인 정보 정책",
+      "website": "웹사이트"
+    },
     "list": {
       "deselect": "수동으로 서버에 입장하기",
       "select": "공개 서버 선택하기"
@@ -940,16 +969,21 @@
   "state": {
     "info": {
       "addBless": "{0}에게 축복 추가",
+      "addBlesses": "{1} Bless' {0}",
       "addChar": "{0} 캐릭터 추가",
       "addCondition": {
         "char": "{0}에게 {1} 상태 추가",
+        "monsterEntities": "{1} all {2}{0}",
         "monster": "{0} {1}번에게 {2} 상태 추가",
         "objective": "{0}에게 {1} 상태 추가",
         "summon": "{0} {1}번에게 {2} 상태 추가"
       },
       "addCurse": "{0}에게 저주 추가",
+      "addCurses": "{0}에게 {1}의 저주 추가",
       "addEntityBless": "{0} 몬스터 말 {2}번에게 축복 추가",
+      "addEntityBlesses": "{3} Bless' {0} standee {2}",
       "addEntityCurse": "{0} 몬스터 말 {2}번에게 저주 추가",
+      "addEntityCurses": "{3} Curses {0} standee {2}",
       "addEntityMarker": "{0} 몬스터 말 {1}번에게 {2} 표시 추가",
       "addItem": "{0}에게 {1} (%data.edition.{2}%) 아이템 추가",
       "addManualScenario": "시나리오 해금 #{0} {1} ({2})",
@@ -964,6 +998,7 @@
       "addTreasure": "{1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%) 보물 추가",
       "applyCondition": {
         "char": "{0}에게 {1} 적용",
+        "monsterEntities": "Apply {1} to all {2}{0}",
         "monster": "{0}의 {1}에게 {2} 적용",
         "objective": "{0}에게 {1} 적용",
         "summon": "{0}의 {1}에게 {2} 적용"
@@ -977,6 +1012,8 @@
       "changeHP": "{0}의 체력을 {1}만큼 변경",
       "changeLoot": "{0}의 노획: {1}",
       "changeMaxHP": "{0}의 최대 체력을 {1}만큼 변경",
+      "changeMonsterHP": "HP {1} for all {2}{0}",
+      "changeMonsterType": "Change type from {0} standee {2} from {1} to %monster.{3}%",
       "changeObjectiveHP": "목표 대상 {0}의 체력을 {1}만큼 변경",
       "changeObjectiveId": "{0}의 번호 번경: '{1}'",
       "changeObjectiveMaxHP": "목표 대상 {0}의 최대 체력을 {1}만큼 변경",
@@ -987,8 +1024,11 @@
       "changeSummonMove": "{0}의 소환물 '{1}'의 이동력을 변경: {2}",
       "changeSummonRange": "{0}의 소환물 '{1}'의 사정거리를 변경: {2}",
       "changeXP": "{0}의 경험치를 변경: {1}",
+      "characterLongRest": "{0}: 긴 휴식으로 설정",
+      "characterLongRestOff": "{0}: 긴 휴식 설정 해제",
       "declineApplyCondition": {
         "char": "{0}에게 {1} 해제",
+        "monsterEntities": "Decline apply {1} to all {2}{0}",
         "monster": "{0}의 {1}에게 {2} 해제",
         "objective": "{0}에게 {1} 해제",
         "summon": "{0}의 {1}에게 {2} 해제"
@@ -1011,6 +1051,7 @@
         "remove": "시나리오 제거 #{0} {1} ({2}) 성공",
         "success": "시나리오 #{0} {1} ({2}) 성공"
       },
+      "hideScenarioRule": "시나리오 규칙을 다시 표시하지 않음",
       "importParty": "파일에서 파티 정보 가져오기",
       "loadGameFromFile": "파일에서 게임 상태 불러오기",
       "lootDeckAddEnhancement": "노획 카드 강화 '{1} %game.loot.{0}%'",
@@ -1023,7 +1064,8 @@
       "lootDeckShow": "노획 덱 보기",
       "lootDeckShuffle": "노획 덱 섞기",
       "monsterConsumeElement": "{0}의 {1} 사용",
-      "monsterInfuseElement": "{0} infuse {1}",
+      "monsterDead": "모든 {1}{0} 죽임",
+      "monsterInfuseElement": "{0}: {1} 유입",
       "nextRound": "다음 라운드",
       "openRoom": "#{0} {1}: '{2}' 타일 문 열기",
       "openRoomMarker": "#{0} {1}:  %game.mapMarker.{3}% 위치의 '{2}' 타일 문 열기",
@@ -1032,16 +1074,21 @@
       "removeAllMonster": "모든 몬스터 제거",
       "removeAllObjectives": "모든 목표 대상 제거",
       "removeBless": "{0}에게서 축복 제거",
+      "removeBlesses": "Remove {1} Bless' from {0}",
       "removeChar": "{0} 캐릭터 제거",
       "removeCondition": {
         "char": "{0}에게서 {1} 상태 제거",
+        "monsterEntities": "Remove {1} from all {2}{0}",
         "monster": "{0} {1}번에게서 {2} 상태 제거",
         "objective": "{0}에게서 {1} 상태 제거",
         "summon": "{0} {1}번에게서 {2} 상태 제거"
       },
       "removeCurse": "{0}에게서 저주 제거",
+      "removeCurses": "Remove {1} Curses from {0}",
       "removeEntityBless": "{0} 몬스터 말 {2}번에게서 축복 제거",
+      "removeEntityBlesses": "Remove {3} Bless' from {0} standee {2}",
       "removeEntityCurse": "{0} 몬스터 말 {2}번에게서 저주 제거",
+      "removeEntityCurses": "Remove {3} Curses from {0} standee {2}",
       "removeEntityMarker": "{0} 몬스터 말 {1}번에게 {2} 표시 제거",
       "removeItem": "{0}에게서 {1} (%data.edition.{2}%) 아이템 제거",
       "removeManualScenario": "해금된 시나리오 #{0} {1} ({2}) 제거",
@@ -1062,6 +1109,7 @@
       "setBG": "{0}에게 {1} 전투 목표를 설정",
       "setConditionValue": {
         "char": "{0}의 {1} 상태를 변경: {2}",
+        "monsterEntities": "{1} to {2} for all {3}{0}",
         "monster": "{0} {1}번의 {2} 상태를 변경: {3}",
         "objective": "{0}의 {1} 상태를 변경: {2}",
         "summon": "{0} {1}번의 {2} 상태를 변경: {3}"
@@ -1120,7 +1168,7 @@
         "shuffle": "{0}의 공격 보정 덱 섞기"
       },
       "updateBonusAdjustment": "{0} 보너스 조정",
-      "updateElement": "원소 {0} {1}",
+      "updateElement": "{0} 원소 {1}",
       "updateLevelAdjustment": "{0} 레벨 조정"
     },
     "redo": "다시 실행",
@@ -1148,6 +1196,7 @@
       "githubIssue": "깃허브 이슈 파일",
       "reportIssue": {
         ".": "이슈 제보하기",
+        "download": "모든 데이터 다운로드",
         "send": "이슈 보내기",
         "specify": "텍스트로 지정하십시오.",
         "text": "텍스트",
@@ -1185,7 +1234,8 @@
         },
         "send": "시나리오 전송"
       }
-    }
+    },
+    "validateEditionData": "에디션 데이터 유효성 검증"
   },
   "update": "갱신하고 다시 불러오기",
   "wip": "진행 중인 작업입니다"
