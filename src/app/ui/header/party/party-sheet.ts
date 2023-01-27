@@ -17,7 +17,7 @@ export class PartySheetComponent {
 
   open(): void {
     this.dialog.open(PartySheetDialogComponent, {
-      panelClass: 'dialog-invert'
+      panelClass: ['dialog-invert', 'no-scroll']
     });
   }
 }

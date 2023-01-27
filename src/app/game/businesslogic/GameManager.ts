@@ -376,7 +376,7 @@ export class GameManager {
             return this.game.figures.filter((figure) => figure instanceof Monster && (!edition || figure.edition == edition) && figure.name.match(name) && (!identifier.marker || figure.entities.some((entity) => entity.marker == identifier.marker)) && (!identifier.tag || figure.entities.some((entity) => identifier.tag && entity.tags.indexOf(identifier.tag) != -1)));
           case "character":
             return this.game.figures.filter((figure) => {
-              if (figure instanceof Character && (!edition || figure.edition == edition) && figure.name.match(name) && (!identifier.tag || figure.tags.indexOf(identifier.tag) != -1)) {
+              if (figure instanceof Character && (!edition || figure.edition == edition) && figure.name.match(name) && (!identifier.tag || figure.tags && figure.tags.indexOf(identifier.tag) != -1)) {
                 if (scenarioEffect) {
                   const perk = figure.perks.find((perk) => perk.custom == '%game.custom.perks.ignoreNegativeScenario%');
                   if (!perk) {
@@ -393,7 +393,7 @@ export class GameManager {
               }
             });
           case "objective":
-            return this.game.figures.filter((figure) => figure instanceof Objective && figure.name.match(name) && (edition != "escort" || figure.escort) && (!identifier.marker || figure.marker == identifier.marker) && (!identifier.tag || figure.tags.indexOf(identifier.tag) != -1));
+            return this.game.figures.filter((figure) => figure instanceof Objective && figure.name.match(name) && (edition != "escort" || figure.escort) && (!identifier.marker || figure.marker == identifier.marker) && (!identifier.tag || figure.tags && figure.tags.indexOf(identifier.tag) != -1));
         }
       }
     }

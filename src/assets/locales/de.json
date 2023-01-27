@@ -572,7 +572,8 @@
         "scenarioEffect": "als Szenarioeffekt",
         "toggleOff": "{0} inaktiv setzen",
         "toggleOn": "{0} aktiv setzen",
-        "transfer": "{0} wird zu %data.monster.{1}% {4}"
+        "transfer": "{0} wird zu %data.monster.{1}% {4}",
+        "remove": "Entferne {0}"
       },
       "hide": "Nicht mehr anzeigen",
       "lost": "Szenario verloren!",

@@ -155,7 +155,7 @@ export class ScenarioRulesComponent {
                     return figure.title || settingsManager.getLabel('data.character.' + figure.name);
                 }
                 if (figure instanceof Objective) {
-                    return (figure.title || settingsManager.getLabel('data.objective.' + figure.name)) + (figure.marker ? ' %game.mapMarker.' + figure.marker + '%' : '');
+                    return (figure.title || settingsManager.getLabel('data.objective.' + figure.name)) + ' %game.objectiveMarker.' + (figure.id + 1) + '%' + (figure.marker ? ' %game.mapMarker.' + figure.marker + '%' : '');
                 }
                 if (figure instanceof Monster) {
                     return settingsManager.getLabel('data.monster.' + figure.name);
@@ -345,6 +345,18 @@ export class ScenarioRulesComponent {
                             objective.entityConditions = figure.entityConditions;
                             gameManager.characterManager.removeObjective(figure);
                         }
+                    })
+
+
+                    rule.figures.filter((figureRule) => figureRule.type == "remove").forEach((figureRule) => {
+                        const figures = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect);
+                        figures.forEach((figure) => {
+                            if (figure instanceof Objective) {
+                                gameManager.characterManager.removeObjective(figure);
+                            } else if (figure instanceof Monster) {
+                                gameManager.monsterManager.removeMonster(figure);
+                            }
+                        })
                     })
 
                     rule.figures.filter((figureRule) => figureRule.type == "amAdd" || figureRule.type == "amRemove").forEach((figureRule) => {

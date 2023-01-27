@@ -41,7 +41,7 @@ export class MonsterSpawnData {
 export class ScenarioFigureRule {
 
   identifier: FigureIdentifier = undefined;
-  type: "present" | "dead" | "gainCondition" | "looseCondition" | "damage" | "hp" | "toggleOff" | "toggleOn" | "transfer" | "amAdd" | "amRemove" = "present";
+  type: "present" | "dead" | "gainCondition" | "looseCondition" | "damage" | "hp" | "toggleOff" | "toggleOn" | "transfer" | "remove" | "amAdd" | "amRemove" = "present";
   value: string = "";
   scenarioEffect: boolean = false;
 

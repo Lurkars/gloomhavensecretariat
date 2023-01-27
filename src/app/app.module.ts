@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, HammerGestureConfig, HammerModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DEFAULT_DIALOG_CONFIG, DialogModule } from '@angular/cdk/dialog';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -122,6 +123,7 @@ import 'hammerjs'
     FeedbackToolComponent, FeedbackDialogComponent],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     DragDropModule,

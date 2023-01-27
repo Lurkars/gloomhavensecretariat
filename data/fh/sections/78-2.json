@@ -1,0 +1,56 @@
+{
+  "index": "78.2",
+  "name": "Glowing Catacombs",
+  "edition": "fh",
+  "parent": "9",
+  "marker": "1",
+  "monsters": [
+    "ice-wraith",
+    "living-spirit",
+    "ooze"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "ref": "11-B",
+      "initial": true,
+      "monster": [
+        {
+          "name": "ice-wraith",
+          "type": "elite"
+        },
+        {
+          "name": "ice-wraith",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

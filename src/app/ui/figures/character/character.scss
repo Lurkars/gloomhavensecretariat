@@ -147,6 +147,11 @@
       }
     }
 
+    .title-bar {
+      display: flex;
+      align-items: center;
+    }
+
     .title {
       pointer-events: none;
       font-family: var(--ghs-font-title);
@@ -374,14 +379,12 @@
     background-blend-mode: multiply;
 
     .title,
-    .conditions,
     .experience,
     .loot,
     .icon-container,
-    .attack-modifier-icon,
     .character-sheet-button,
     &::before {
-      filter: grayscale(1);
+      filter: grayscale(1) !important;
     }
   }
 }

@@ -232,8 +232,13 @@
       }
 
     }
+  }
 
-
+  .item {
+    &.active {
+      border: calc(var(--ghs-unit) / 4) var(--ghs-color-white) solid;
+      border-radius: 100%;
+    }
   }
 
   .shield-action,
@@ -299,6 +304,13 @@
 
     .badge {
       right: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    }
+  }
+
+  .remove {
+    img {
+      height: calc(var(--ghs-unit) * 3.2 * var(--ghs-dialog-factor));
+      filter: var(--ghs-filter-red);
     }
   }
 

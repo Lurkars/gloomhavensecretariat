@@ -245,9 +245,9 @@
       </div>
 
       <ng-container *ngIf="data.entity && gameManager.isCharacter(data.entity)">
-        <span class="item" title="{{'game.exhausted' | ghsLabel}}">
-          <a class="condition" [ngClass]="{'active' : gameManager.toCharacter(data.entity).exhausted}"
-            (click)="toggleExhausted()">
+        <span class="item" title="{{'game.exhausted' | ghsLabel}}"
+          [ngClass]="{'active' : gameManager.toCharacter(data.entity).exhausted}">
+          <a class="exhausted" (click)="toggleExhausted()">
             <img src="./assets/images/status/exhausted.svg" />
           </a>
         </span>
@@ -255,9 +255,14 @@
 
 
       <ng-container *ngIf="data.entity && gameManager.isObjective(data.entity)">
-        <span class="item" title="{{'game.exhausted' | ghsLabel}}">
-          <a class="condition" [ngClass]="{'active' : gameManager.toObjective(data.entity).exhausted || false}"
-            (click)="toggleExhausted()">
+        <span class="item" title="{{'objective.remove' | ghsLabel}}" [ngClass]="{'active' :objectiveDead}">
+          <a class="remove" (click)="toggleDead()">
+            <img src="./assets/images/close.svg" />
+          </a>
+        </span>
+        <span class="item" title="{{'game.exhausted' | ghsLabel}}"
+          [ngClass]="{'active' : gameManager.toObjective(data.entity).exhausted || false}">
+          <a class="exhausted" (click)="toggleExhausted()">
             <img src="./assets/images/status/exhausted.svg" />
           </a>
         </span>

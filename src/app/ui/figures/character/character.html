@@ -51,10 +51,12 @@
   <div class="stats">
     <ng-container *ngIf="!character.absent">
       <div class="column col-1" (click)="openEntityMenu($event)">
-        <div class="title" #characterName><img class="icon" [src]="characterManager.characterIcon(character)" />
-          {{character.title || ('data.character.' + character.name | ghsLabel)}}
-          <img class="ghs-svg exhausted" *ngIf="character.exhausted" src="./assets/images/status/exhausted.svg" />
-
+        <div class="title-bar">
+          <div class="title" #characterName>
+            <img class="icon" [src]="characterManager.characterIcon(character)" />
+            {{character.title || ('data.character.' + character.name | ghsLabel)}}
+            <img class="ghs-svg exhausted" *ngIf="character.exhausted" src="./assets/images/status/exhausted.svg" />
+          </div>
           <div class="markers">
             <span class="marker" *ngFor="let marker of character.markers;">
               <img src="./assets/images/character/icons/{{marker}}.svg" />

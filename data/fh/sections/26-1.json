@@ -1,0 +1,74 @@
+{
+  "index": "26.1",
+  "name": "Glowing Catacombs",
+  "edition": "fh",
+  "parent": "9",
+  "parentSections": [
+    "78.2"
+  ],
+  "marker": "2",
+  "monsters": [
+    "ooze"
+  ],
+  "objectives": [
+    {
+      "name": "Switch",
+      "health": 1,
+      "count": 2,
+      "marker": "a"
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ooze",
+            "player2": "normal",
+            "player3": "ekite",
+            "player4": "elite"
+          },
+          "count": "F"
+        }
+      ],
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Switch",
+            "marker": "a"
+          },
+          "type": "present"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "ref": "08-B",
+      "initial": true,
+      "monster": [
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        1,
+        1
+      ]
+    }
+  ]
+}

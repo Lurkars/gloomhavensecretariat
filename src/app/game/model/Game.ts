@@ -74,7 +74,7 @@ export class Game {
     });
 
     model.objectives.forEach((value) => {
-      let objective = this.figures.find((figure) => figure instanceof Objective && figure.id == value.id && figure.name == value.name && figure.marker == value.marker && figure.tags.every((tag, index, self) => index == self.indexOf(tag)) && (!figure.objectiveId && !value.objectiveId || figure.objectiveId && value.objectiveId && figure.objectiveId.edition == value.objectiveId.edition && figure.objectiveId.scenario == value.objectiveId.scenario && figure.objectiveId.group == value.objectiveId.group && figure.objectiveId.index == value.objectiveId.index && figure.objectiveId.section == value.objectiveId.section)) as Objective;
+      let objective = this.figures.find((figure) => figure instanceof Objective && figure.id == value.id && figure.name == value.name && figure.marker == value.marker && (!figure.tags || figure.tags.every((tag, index, self) => index == self.indexOf(tag))) && (!figure.objectiveId && !value.objectiveId || figure.objectiveId && value.objectiveId && figure.objectiveId.edition == value.objectiveId.edition && figure.objectiveId.scenario == value.objectiveId.scenario && figure.objectiveId.group == value.objectiveId.group && figure.objectiveId.index == value.objectiveId.index && figure.objectiveId.section == value.objectiveId.section)) as Objective;
       if (!objective) {
         if (!value.id) {
           value.id = 0;

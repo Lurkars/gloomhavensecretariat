@@ -6,9 +6,6 @@
     "9",
     "10"
   ],
-  "blocks": [
-    "6"
-  ],
   "monsters": [
     "frozen-corpse",
     "ice-wraith"
@@ -21,6 +18,23 @@
     "rockroot": 2,
     "corpsecap": 2
   },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "damage",
+          "value": "2",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,

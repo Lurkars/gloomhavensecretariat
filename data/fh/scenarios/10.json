@@ -1,0 +1,73 @@
+{
+  "index": "10",
+  "name": "Crystal Enclosure",
+  "edition": "fh",
+  "unlocks": [
+    "18"
+  ],
+  "monsters": [
+    "algox-guard",
+    "algox-priest"
+  ],
+  "objectives": [
+    {
+      "name": "Ice Pillar",
+      "health": "[(2+L)xC/2{$math.floor}]",
+      "count": 3,
+      "tags": [
+        "scenario-10"
+      ],
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.action.target% each monster whithin %game.action.range:4%"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 4,
+    "hide": 3,
+    "axenut": 2,
+    "arrowvine": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "13-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-guard",
+          "type": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-priest",
+          "type": "normal"
+        },
+        {
+          "name": "algox-priest",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        1,
+        1,
+        1
+      ]
+    }
+  ]
+}

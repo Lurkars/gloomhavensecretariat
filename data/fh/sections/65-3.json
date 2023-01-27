@@ -1,0 +1,136 @@
+{
+  "index": "65.3",
+  "name": "Crystal Enclosure",
+  "edition": "fh",
+  "parent": "10",
+  "marker": "1",
+  "monster": [
+    "algox-icespeaker"
+  ],
+  "objectives": [
+    {
+      "name": "Ice Pillar",
+      "health": "[(4+L)xC/2{$math.floor}]",
+      "count": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.action.target% each monster whithin %game.action.range:4%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ice Pillar",
+      "health": "[(4+L)xC/2{$math.floor}]",
+      "marker": "a",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.action.target% each monster whithin %game.action.range:4%"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ice Pillar",
+      "health": "[(4+L)xC/2{$math.floor}]",
+      "marker": "b",
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%game.action.target% each monster whithin %game.action.range:4%"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "round": "always",
+      "once": true,
+      "always": true,
+      "note": "%data.section.rules.fh.65-3.1%",
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Ice Pillar",
+            "tag": "scenario-10"
+          },
+          "type": "remove"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "ref": "16-A",
+      "initial": true,
+      "treasures": [
+        71
+      ],
+      "monster": [
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-priest",
+          "type": "normal"
+        },
+        {
+          "name": "algox-priest",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-priest",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-icespeaker",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        "2:C>2",
+        "3:C>3"
+      ]
+    }
+  ]
+}

@@ -29,7 +29,6 @@
     background-blend-mode: multiply;
 
     .title,
-    .conditions,
     .image-container,
     .icon-container {
       filter: grayscale(100%);
@@ -92,6 +91,11 @@
         width: calc(var(--ghs-unit) * 8);
         justify-content: space-evenly;
       }
+    }
+
+    .title-container {
+      display: flex;
+      align-items: center;
     }
 
     .title {

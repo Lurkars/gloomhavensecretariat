@@ -341,6 +341,10 @@
           background: none;
         }
 
+        select {
+          min-width: 0;
+        }
+
         .button {
           justify-self: center;
         }

@@ -691,7 +691,8 @@
         "scenarioEffect": "as scenario effect",
         "toggleOff": "{0} to inactive",
         "toggleOn": "{0} to active",
-        "transfer": "{0} become %data.monster.{1}% {4}"
+        "transfer": "{0} become %data.monster.{1}% {4}",
+        "remove": "Remove {0}"
       },
       "hide": "Don't show again",
       "lost": "Scenario lost!",

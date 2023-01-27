@@ -650,6 +650,10 @@ ghs-drag-click {
     background-image: none;
   }
 
+  &.no-scroll {
+    overflow: hidden;
+  }
+
 }
 
 .fullscreen-backdrop {
@@ -858,8 +862,8 @@ input[type="radio"] {
     vertical-align: sub;
 
     img {
-      width: 190%;
-      height: auto;
+      height: 100%;
+      width: auto;
       filter: brightness(0);
     }
   }
@@ -956,6 +960,11 @@ input[type="radio"] {
 
   .map-marker {
     margin: 0 0.2em;
+  }
+
+  .objective-marker {
+    margin: 0 0.2em;
+    font-size: 0.5em;
   }
 }
 

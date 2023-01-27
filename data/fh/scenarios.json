@@ -1,49 +1,5 @@
 [
   {
-    "index": "9",
-    "name": "Glowing Catacombs",
-    "edition": "fh",
-    "monsters": [
-      "ice-wraith",
-      "living-doom",
-      "living-spirit",
-      "ooze"
-    ],
-    "lootDeckConfig": {
-      "money": 8,
-      "lumber": 5,
-      "metal": 3,
-      "rockroot": 2,
-      "corpsecap": 1,
-      "random_item": 1
-    }
-  },
-  {
-    "index": "10",
-    "name": "Crystal Enclosure",
-    "edition": "fh",
-    "monsters": [
-      "algox-guard",
-      "algox-priest",
-      "algox-icespeaker"
-    ],
-    "objectives": [
-      {
-        "name": "Ice Pillar",
-        "health": "[(2+L)xC/2{$math.floor}]",
-        "count": 3
-      }
-    ],
-    "lootDeckConfig": {
-      "money": 8,
-      "lumber": 4,
-      "hide": 3,
-      "axenut": 2,
-      "arrowvine": 2,
-      "random_item": 1
-    }
-  },
-  {
     "index": "11",
     "name": "Snowscorn Peak",
     "edition": "fh",

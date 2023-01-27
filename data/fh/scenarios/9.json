@@ -1,0 +1,58 @@
+{
+  "index": "9",
+  "name": "Glowing Catacombs",
+  "edition": "fh",
+  "monsters": [
+    "ice-wraith",
+    "living-doom",
+    "living-spirit",
+    "ooze"
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 5,
+    "metal": 3,
+    "rockroot": 2,
+    "corpsecap": 1,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "16-C",
+      "initial": true,
+      "treasures": [
+        9
+      ],
+      "monster": [
+        {
+          "name": "ice-wraith",
+          "type": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ice-wraith",
+          "player3": "normal"
+        },
+        {
+          "name": "ice-wraith",
+          "player4": "normal"
+        },
+        {
+          "name": "living-doom",
+          "type": "normal"
+        },
+        {
+          "name": "living-doom",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

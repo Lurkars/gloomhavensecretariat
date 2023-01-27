@@ -120,8 +120,8 @@ export class MonsterManager {
     }
   }
 
-  monsterEntityCount(monster: Monster): number {
-    return monster.entities.filter((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0).length;
+  monsterEntityCount(monster: Monster, standee : boolean = false): number {
+    return monster.entities.filter((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && (!standee || monsterEntity.number > 0)).length;
   }
 
   addMonsterEntity(monster: Monster, number: number, type: MonsterType, summon: boolean = false): MonsterEntity | undefined {
@@ -207,7 +207,7 @@ export class MonsterManager {
           while (monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
             number = Math.floor(Math.random() * monster.count) + 1;
           }
-        } else if (this.monsterEntityCount(monster) == monster.count - 1) {
+        } else if (this.monsterEntityCount(monster) == monster.count - 1 && this.monsterEntityCount(monster, true) == this.monsterEntityCount(monster)) {
           number = 1;
           while (monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
             number++;

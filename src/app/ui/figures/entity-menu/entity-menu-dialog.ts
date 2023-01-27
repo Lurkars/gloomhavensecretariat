@@ -46,6 +46,7 @@ export class EntityMenuDialogComponent {
   curse: number = 0;
   marker: number = 0;
   id: number = 0;
+  objectiveDead: boolean = false;
 
   AttackModifierType = AttackModifierType;
   SummonState = SummonState;
@@ -408,6 +409,8 @@ export class EntityMenuDialogComponent {
       gameManager.stateManager.before("summonDead", "data.character." + this.data.figure.name, "data.summon." + this.data.entity.name);
       this.dead();
       gameManager.stateManager.after();
+    } else if (this.data.entity instanceof Objective) {
+      this.objectiveDead = !this.objectiveDead;
     }
   }
 
@@ -766,6 +769,12 @@ export class EntityMenuDialogComponent {
           this.data.entity.title = "";
           gameManager.stateManager.after();
         }
+      }
+
+      if (this.objectiveDead) {
+        gameManager.stateManager.before("removeObjective", this.data.entity.title || this.data.entity.name);
+        gameManager.characterManager.removeObjective(this.data.entity);
+        gameManager.stateManager.after();
       }
     }
   }
