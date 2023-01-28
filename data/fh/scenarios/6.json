@@ -6,6 +6,9 @@
     "11",
     "12"
   ],
+  "blocks" : [
+    "5"
+  ],
   "monsters": [
     "frost-demon",
     "snow-imp"

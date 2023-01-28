@@ -2,6 +2,9 @@
   "index": "9",
   "name": "Glowing Catacombs",
   "edition": "fh",
+  "unlocks": [
+    "17"
+  ],
   "monsters": [
     "ice-wraith",
     "living-doom",

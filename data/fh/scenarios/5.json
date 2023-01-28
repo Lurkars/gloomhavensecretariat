@@ -6,6 +6,9 @@
     "9",
     "10"
   ],
+  "blocks" : [
+    "6"
+  ],
   "monsters": [
     "frozen-corpse",
     "ice-wraith"

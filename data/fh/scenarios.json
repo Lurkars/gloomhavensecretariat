@@ -3,6 +3,9 @@
     "index": "11",
     "name": "Snowscorn Peak",
     "edition": "fh",
+    "unlocks": [
+      "19"
+    ],
     "monsters": [
       "algox-stormcaller",
       "frost-demon",
@@ -22,6 +25,9 @@
     "index": "12",
     "name": "Temple Entrance",
     "edition": "fh",
+    "unlocks": [
+      "20"
+    ],
     "monsters": [
       "ancient-artillery",
       "night-demon",
@@ -40,6 +46,10 @@
     "index": "13",
     "name": "Frozen Fjord",
     "edition": "fh",
+    "unlocks": [
+      "21",
+      "32"
+    ],
     "monsters": [
       "shrike-fiend",
       "snow-imp",
@@ -66,6 +76,9 @@
     "index": "14",
     "name": "Jagged Shoals",
     "edition": "fh",
+    "unlocks": [
+      "22"
+    ],
     "monsters": [
       "abael-herder",
       "lightning-eel",
@@ -83,6 +96,10 @@
     "index": "15",
     "name": "Ancient Spire",
     "edition": "fh",
+    "unlocks": [
+      "23",
+      "24"
+    ],
     "monsters": [
       "chaos-lieutenant",
       "robotic-boltshooter",
@@ -102,6 +119,10 @@
     "index": "16",
     "name": "Derelict Elevator",
     "edition": "fh",
+    "unlocks": [
+      "25",
+      "26"
+    ],
     "monsters": [
       "ancient-artillery",
       "flaming-bladespinner",
@@ -119,6 +140,9 @@
     "index": "17",
     "name": "Haunted Vault",
     "edition": "fh",
+    "unlocks": [
+      "27"
+    ],
     "monsters": [
       "ice-wraith",
       "living-doom",
@@ -145,6 +169,10 @@
     "index": "18",
     "name": "Crystal Fields",
     "edition": "fh",
+    "unlocks": [
+      "28",
+      "29"
+    ],
     "monsters": [
       "algox-guard",
       "burrowing-blade",
@@ -167,6 +195,10 @@
     "index": "19",
     "name": "Skyhall",
     "edition": "fh",
+    "unlocks": [
+      "28",
+      "30"
+    ],
     "monsters": [
       "earth-demon",
       "flame-demon",
@@ -186,6 +218,9 @@
     "index": "20",
     "name": "Temple of Liberation",
     "edition": "fh",
+    "unlocks": [
+      "31"
+    ],
     "monsters": [
       "flaming-bladespinner",
       "ruined-machine",
@@ -232,6 +267,9 @@
     "index": "22",
     "name": "Ice Floes",
     "edition": "fh",
+    "unlocks": [
+      "33"
+    ],
     "monsters": [
       "lightning-eel",
       "lurker-clawcrusher",
@@ -249,6 +287,9 @@
     "index": "23",
     "name": "Spire Basement",
     "edition": "fh",
+    "unlocks": [
+      "34"
+    ],
     "monsters": [
       "living-bones",
       "living-spirit"
@@ -266,6 +307,9 @@
     "index": "24",
     "name": "Upper Spire",
     "edition": "fh",
+    "unlocks": [
+      "34"
+    ],
     "monsters": [
       "chaos-demon",
       "living-bones",
@@ -285,6 +329,12 @@
     "index": "25",
     "name": "Rusted Tunnels",
     "edition": "fh",
+    "unlocks": [
+      "35"
+    ],
+    "blocks": [
+      "26"
+    ],
     "monsters": [
       "flaming-bladespinner",
       "robotic-boltshooter",
@@ -302,6 +352,13 @@
     "index": "26",
     "name": "Quatryl Library",
     "edition": "fh",
+    "unlocks": [
+      "36",
+      "37"
+    ],
+    "blocks": [
+      "25"
+    ],
     "monsters": [
       "ancient-artillery",
       "ruined-machine",
@@ -336,6 +393,13 @@
     "index": "28",
     "name": "Summit Meeting",
     "edition": "fh",
+    "unlocks": [
+      "38"
+    ],
+    "blocks": [
+      "29",
+      "30"
+    ],
     "monsters": [
       "algox-archer",
       "algox-guard",
@@ -366,6 +430,12 @@
     "index": "29",
     "name": "War of the Spire A",
     "edition": "fh",
+    "unlocks": [
+      "39"
+    ],
+    "blocks" : [
+      "28"
+    ],
     "monsters": [
       "algox-archer",
       "algox-guard",
@@ -386,6 +456,12 @@
     "index": "30",
     "name": "War of the Spire B",
     "edition": "fh",
+    "unlocks": [
+      "40"
+    ],
+    "blocks": [
+      "28"
+    ],
     "monsters": [
       "algox-archer",
       "algox-guard",
@@ -406,6 +482,9 @@
     "index": "31",
     "name": "Crackling Tunnel",
     "edition": "fh",
+    "unlocks": [
+      "41"
+    ],
     "monsters": [
       "flaming-bladespinner",
       "robotic-boltshooter",
@@ -442,6 +521,9 @@
     "index": "33",
     "name": "Thawed Wood",
     "edition": "fh",
+    "unlocks": [
+      "42"
+    ],
     "monsters": [
       "black-imp",
       "earth-demon",
@@ -469,6 +551,9 @@
     "index": "35",
     "name": "Scrap Pit",
     "edition": "fh",
+    "unlocks": [
+      "43"
+    ],
     "monsters": [
       "living-bones",
       "ruined-machine",
@@ -496,6 +581,12 @@
     "index": "36",
     "name": "Buried Ducts",
     "edition": "fh",
+    "unlocks": [
+      "44"
+    ],
+    "blocks" : [
+      "37"
+    ],
     "monsters": [
       "flaming-bladespinner",
       "robotic-boltshooter",
@@ -535,6 +626,12 @@
     "index": "37",
     "name": "The Dead Mile",
     "edition": "fh",
+    "unlocks": [
+      "44"
+    ],
+    "blocks" : [
+      "36"
+    ],
     "monsters": [
       "living-bones",
       "living-spirit",
@@ -553,6 +650,10 @@
     "index": "38",
     "name": "The Way Forward",
     "edition": "fh",
+    "unlocks": [
+      "45",
+      "46"
+    ],
     "monsters": [
       "hound",
       "polar-bear",
@@ -587,6 +688,9 @@
     "index": "39",
     "name": "Corrupted Camp",
     "edition": "fh",
+    "unlocks": [
+      "47"
+    ],
     "monsters": [
       "algox-guard",
       "algox-scout",
@@ -607,6 +711,9 @@
     "index": "40",
     "name": "Relief Effort",
     "edition": "fh",
+    "unlocks": [
+      "48"
+    ],
     "monsters": [
       "algox-archer",
       "algox-guard",
@@ -647,6 +754,10 @@
     "index": "42",
     "name": "Sunless Trench",
     "edition": "fh",
+    "unlocks": [
+      "49",
+      "50"
+    ],
     "monsters": [
       "deep-terror",
       "night-demon",
@@ -665,6 +776,9 @@
     "index": "43",
     "name": "Overrun Barricade",
     "edition": "fh",
+    "unlocks": [
+      "51"
+    ],
     "monsters": [
       "robotic-boltshooter",
       "ruined-machine",
@@ -683,6 +797,10 @@
     "index": "44",
     "name": "Nerve Center",
     "edition": "fh",
+    "unlocks": [
+      "58",
+      "59"
+    ],
     "monsters": [
       "ancient-artillery",
       "flaming-bladespinner",
@@ -708,6 +826,9 @@
     "index": "45",
     "name": "Living Glacier",
     "edition": "fh",
+    "unlocks": [
+      "52"
+    ],
     "monsters": [
       "abael-herder",
       "abael-scout",
@@ -726,6 +847,9 @@
     "index": "46",
     "name": "Dead Pass",
     "edition": "fh",
+    "unlocks": [
+      "52"
+    ],
     "monsters": [
       "burrowing-blade",
       "frozen-corpse",
@@ -744,6 +868,9 @@
     "index": "47",
     "name": "Carrion Ridge",
     "edition": "fh",
+    "unlocks": [
+      "56"
+    ],
     "monsters": [
       "algox-icespeaker",
       "harrower-infester",
@@ -762,6 +889,9 @@
     "index": "48",
     "name": "Blizzard Island",
     "edition": "fh",
+    "unlocks": [
+      "57"
+    ],
     "monsters": [
       "abael-scout",
       "frost-demon",
@@ -780,6 +910,9 @@
     "index": "49",
     "name": "Beneath Sea and Stone",
     "edition": "fh",
+    "unlocks": [
+      "53"
+    ],
     "monsters": [
       "black-imp",
       "deep-terror",
@@ -796,6 +929,9 @@
     "index": "50",
     "name": "Explosive Descent",
     "edition": "fh",
+    "unlocks": [
+      "54"
+    ],
     "monsters": [
       "lightning-eel",
       "lurker-clawcrusher",
@@ -820,6 +956,10 @@
     "index": "51",
     "name": "Orphan's Halls",
     "edition": "fh",
+    "unlocks": [
+      "58",
+      "59"
+    ],
     "monsters": [
       "ancient-artillery",
       "flaming-bladespinner",
@@ -838,6 +978,13 @@
     "index": "52",
     "name": "Fleeting Permanence",
     "edition": "fh",
+    "unlocks": [
+      "55"
+    ],
+    "requires": [
+      "45",
+      "46"
+    ],
     "monsters": [
       "frost-demon",
       "snow-imp"
@@ -856,6 +1003,9 @@
     "index": "53",
     "name": "Underwater Throne",
     "edition": "fh",
+    "unlocks": [
+      "60"
+    ],
     "monsters": [
       "seeker-of-the-abyss",
       "lurker-clawcrusher",
@@ -876,6 +1026,9 @@
     "index": "54",
     "name": "Among the Wreckage",
     "edition": "fh",
+    "unlocks": [
+      "60"
+    ],
     "monsters": [
       "seeker-of-the-abyss",
       "lightning-eel",
@@ -953,6 +1106,9 @@
     "index": "58",
     "name": "Orphan's Core",
     "edition": "fh",
+    "blocks": [
+      "59"
+    ],
     "monsters": [
       "orphan",
       "flaming-bladespinner",
@@ -978,6 +1134,9 @@
     "index": "59",
     "name": "Automaton Uprising",
     "edition": "fh",
+    "blocks": [
+      "58"
+    ],
     "monsters": [
       "flaming-bladespinner",
       "robotic-boltshooter",
@@ -1028,6 +1187,9 @@
     "index": "61",
     "name": "Life and Death",
     "edition": "fh",
+    "unlocks": [
+      "62"
+    ],
     "monsters": [
       "deep-terror",
       "earth-demon",
@@ -1056,6 +1218,9 @@
     "index": "62",
     "name": "The Unfettered Seal",
     "edition": "fh",
+    "unlocks": [
+      "63"
+    ],
     "monsters": [
       "black-imp",
       "chaos-demon",
@@ -1084,6 +1249,9 @@
     "index": "63",
     "name": "The Savvas Seal",
     "edition": "fh",
+    "unlocks": [
+      "64"
+    ],
     "monsters": [
       "earth-demon",
       "flame-demon",
@@ -1155,6 +1323,9 @@
     "index": "65",
     "name": "A Strong Foundation",
     "edition": "fh",
+    "unlocks": [
+      "66"
+    ],
     "monsters": [
       "frozen-corpse",
       "living-bones",
@@ -1173,6 +1344,9 @@
     "index": "66",
     "name": "Elemental Cores",
     "edition": "fh",
+    "unlocks": [
+      "67"
+    ],
     "monsters": [
       "earth-demon",
       "flame-demon",
@@ -1198,6 +1372,9 @@
     "index": "67",
     "name": "Core Attunement",
     "edition": "fh",
+    "unlocks": [
+      "68"
+    ],
     "monsters": [
       "chaos-demon",
       "earth-demon",
@@ -1250,6 +1427,9 @@
     "index": "69",
     "name": "Sacred Soil",
     "edition": "fh",
+    "unlocks": [
+      "70"
+    ],
     "monsters": [
       "earth-demon",
       "forest-imp",
@@ -1293,6 +1473,9 @@
     "index": "71",
     "name": "Invasion of the Dock",
     "edition": "fh",
+    "unlocks": [
+      "72"
+    ],
     "monsters": [
       "abael-scout",
       "lightning-eel",
@@ -1312,6 +1495,9 @@
     "index": "72",
     "name": "A Giant Block of Ice",
     "edition": "fh",
+    "unlocks": [
+      "73"
+    ],
     "monsters": [
       "frozen-corpse",
       "ice-wraith",
@@ -1330,6 +1516,9 @@
     "index": "73",
     "name": "Flotsam",
     "edition": "fh",
+    "unlocks": [
+      "74"
+    ],
     "monsters": [
       "fish-king",
       "abael-herder",
@@ -1349,6 +1538,10 @@
     "index": "74",
     "name": "Gaps in the Road",
     "edition": "fh",
+    "unlocks": [
+      "75",
+      "76"
+    ],
     "monsters": [
       "algox-archer",
       "algox-guard",
@@ -1376,6 +1569,9 @@
     "index": "75",
     "name": "Infiltrating the Lair",
     "edition": "fh",
+    "unlocks": [
+      "77"
+    ],
     "monsters": [
       "abael-herder",
       "abael-scout",
@@ -1397,6 +1593,9 @@
     "index": "76",
     "name": "Apotheosis",
     "edition": "fh",
+    "unlocks": [
+      "77"
+    ],
     "monsters": [
       "fish-king",
       "algox-archer",
@@ -1460,6 +1659,9 @@
     "index": "79",
     "name": "Relic",
     "edition": "fh",
+    "unlocks": [
+      "80"
+    ],
     "monsters": [
       "frozen-corpse",
       "ice-wraith",
@@ -1649,6 +1851,9 @@
     "index": "87",
     "name": "The Collection",
     "edition": "fh",
+    "unlocks": [
+      "88"
+    ],
     "monsters": [
       "algox-archer",
       "algox-guard",
@@ -1714,6 +1919,9 @@
     "index": "90",
     "name": "Frozen Treasure",
     "edition": "fh",
+    "unlocks": [
+      "91"
+    ],
     "monsters": [
       "frozen-corpse",
       "ice-wraith",
@@ -1818,6 +2026,9 @@
     "index": "94",
     "name": "A Grand View",
     "edition": "fh",
+    "unlocks": [
+      "95"
+    ],
     "monsters": [
       "ancient-artillery",
       "flaming-bladespinner",
@@ -1855,6 +2066,9 @@
     "index": "96",
     "name": "Underground Station",
     "edition": "fh",
+    "unlocks": [
+      "97"
+    ],
     "monsters": [
       "ancient-artillery",
       "black-imp",
@@ -1872,6 +2086,9 @@
     "index": "97",
     "name": "Program Control Nexus",
     "edition": "fh",
+    "unlocks": [
+      "98"
+    ],
     "monsters": [
       "program-director",
       "flaming-bladespinner",
@@ -1908,6 +2125,9 @@
     "index": "99",
     "name": "Prison Break",
     "edition": "fh",
+    "unlocks": [
+      "100"
+    ],
     "monsters": [
       "frozen-corpse",
       "robotic-boltshooter",
@@ -1925,6 +2145,9 @@
     "index": "100",
     "name": "Inside the Swarm",
     "edition": "fh",
+    "unlocks": [
+      "101"
+    ],
     "monsters": [
       "burrowing-blade",
       "earth-demon",
@@ -1939,6 +2162,9 @@
     "index": "101",
     "name": "Harrower Library",
     "edition": "fh",
+    "unlocks": [
+      "102"
+    ],
     "monsters": [
       "algox-archer",
       "algox-guard",
@@ -1958,6 +2184,9 @@
     "index": "102",
     "name": "Into the Black",
     "edition": "fh",
+    "unlocks": [
+      "103"
+    ],
     "monsters": [
       "chaos-demon",
       "frost-demon",
@@ -1996,6 +2225,9 @@
     "index": "104",
     "name": "Ruins of the Solstice",
     "edition": "fh",
+    "unlocks": [
+      "105"
+    ],
     "monsters": [
       "earth-demon",
       "forest-imp",
@@ -2016,6 +2248,9 @@
     "index": "105",
     "name": "Ruins of the Equinox",
     "edition": "fh",
+    "unlocks": [
+      "106"
+    ],
     "monsters": [
       "earth-demon",
       "flame-demon",
@@ -2193,6 +2428,9 @@
     "index": "114",
     "name": "Work Freeze",
     "edition": "fh",
+    "unlocks": [
+      "115"
+    ],
     "monsters": [
       "hound",
       "polar-bear",
@@ -2217,6 +2455,9 @@
     "index": "115",
     "name": "Pylon Problems",
     "edition": "fh",
+    "unlocks": [
+      "116"
+    ],
     "monsters": [
       "algox-guard",
       "algox-snowspeaker",
@@ -2333,6 +2574,9 @@
     "index": "120",
     "name": "Under the Influence",
     "edition": "fh",
+    "unlocks": [
+      "121"
+    ],
     "monsters": [
       "city-guard",
       "hound",
@@ -2406,6 +2650,9 @@
     "index": "124",
     "name": "A Growing Problem",
     "edition": "fh",
+    "unlocks": [
+      "125"
+    ],
     "monsters": [
       "living-bones",
       "living-spirit"
@@ -2512,6 +2759,9 @@
     "index": "128",
     "name": "A Tall Drunken Trail",
     "edition": "fh",
+    "unlocks": [
+      "129"
+    ],
     "monsters": [
       "abael-scout",
       "lurker-wavethrower-scenario-128",
@@ -2533,6 +2783,9 @@
     "index": "129",
     "name": "How to Lay an Ambush",
     "edition": "fh",
+    "unlocks": [
+      "130"
+    ],
     "monsters": [
       "algox-guard",
       "algox-priest",
