@@ -433,7 +433,7 @@
     "unlocks": [
       "39"
     ],
-    "blocks" : [
+    "blocks": [
       "28"
     ],
     "monsters": [
@@ -584,7 +584,7 @@
     "unlocks": [
       "44"
     ],
-    "blocks" : [
+    "blocks": [
       "37"
     ],
     "monsters": [
@@ -629,7 +629,7 @@
     "unlocks": [
       "44"
     ],
-    "blocks" : [
+    "blocks": [
       "36"
     ],
     "monsters": [
@@ -982,8 +982,10 @@
       "55"
     ],
     "requires": [
-      "45",
-      "46"
+      [
+        "45",
+        "46"
+      ]
     ],
     "monsters": [
       "frost-demon",
