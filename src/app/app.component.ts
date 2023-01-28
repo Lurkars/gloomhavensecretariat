@@ -1,4 +1,4 @@
-import { Component, isDevMode, OnInit } from '@angular/core';
+import { Component, HostListener, isDevMode, OnInit } from '@angular/core';
 import { gameManager } from './game/businesslogic/GameManager';
 import { settingsManager, SettingsManager } from './game/businesslogic/SettingsManager';
 
@@ -12,6 +12,8 @@ export class AppComponent implements OnInit {
 
   settingsManager: SettingsManager = settingsManager;
 
+  zoomInterval: any = null;
+
   ngOnInit(): void {
     this.applyFhStyle();
     gameManager.uiChange.subscribe({
@@ -21,14 +23,59 @@ export class AppComponent implements OnInit {
       }
     })
 
-
     window.addEventListener('keydown', (event: KeyboardEvent) => {
       if (event.ctrlKey && event.key.toLowerCase() === 'z' && !event.shiftKey) {
         gameManager.stateManager.undo();
       } else if (event.ctrlKey && event.key === 'y' || event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'z') {
         gameManager.stateManager.redo();
+      } else if (!this.zoomInterval && event.key === 'ArrowUp') {
+        this.zoom(-1);
+        this.zoomInterval = setInterval(() => {
+          this.zoom(-1);
+        }, 30);
+      } else if (!this.zoomInterval && event.key === 'ArrowDown') {
+        this.zoom(1);
+        this.zoomInterval = setInterval(() => {
+          this.zoom(1);
+        }, 30);
       }
     })
+
+    window.addEventListener('keyup', (event: KeyboardEvent) => {
+      if (this.zoomInterval && (event.key === 'ArrowUp' || event.key === 'ArrowDown')) {
+        clearInterval(this.zoomInterval);
+        this.zoomInterval = null;
+      }
+    })
+  }
+
+  @HostListener('pinchin', ['$event'])
+  pinchin(event: any) {
+    this.zoom(1);
+    if (event.srcEvent) {
+      event.srcEvent.preventDefault();
+      event.srcEvent.stopPropagation();
+    }
+  }
+
+  @HostListener('pinchout', ['$event'])
+  pinchout(event: any) {
+    this.zoom(-1);
+    if (event.srcEvent) {
+      event.srcEvent.preventDefault();
+      event.srcEvent.stopPropagation();
+    }
+  }
+
+  zoom(value: number) {
+    let factor: number = +window.getComputedStyle(document.body).getPropertyValue('--ghs-factor');
+    factor += value;
+    this.setZoom(factor);
+  }
+
+  setZoom(zoom: number) {
+    document.body.style.setProperty('--ghs-factor', zoom + '');
+    settingsManager.setZoom(zoom);
   }
 
   applyFhStyle() {

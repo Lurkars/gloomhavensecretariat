@@ -212,6 +212,7 @@
       "level": 6,
       "health": 4,
       "movement": 2,
+      "count": 3,
       "action": {
         "type": "retaliate",
         "value": 2

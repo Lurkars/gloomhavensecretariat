@@ -516,7 +516,7 @@ export class EntityMenuDialogComponent {
   close(): void {
     if (this.data.entity instanceof Character) {
       this.closeCharacter();
-    } else if (this.data.figure instanceof Monster && this.data.entity instanceof MonsterEntity) {
+    } else if (this.data.figure instanceof Monster) {
       this.closeMonster();
     } else if (this.data.entity instanceof Summon) {
       this.closeSummon();
