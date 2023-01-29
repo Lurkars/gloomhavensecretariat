@@ -1,0 +1,25 @@
+{
+  "index": "12.1",
+  "name": "Crystal Trench",
+  "edition": "fh",
+  "parent": "8",
+  "parentSections": [
+    "21.1"
+  ],
+  "marker": "2",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "ref": "02-E",
+      "initial": true,
+      "monster": [
+        {
+          "name": "polar-bear",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}
