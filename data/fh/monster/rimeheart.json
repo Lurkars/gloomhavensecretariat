@@ -5,7 +5,7 @@
   "deck": "ice-wraith",
   "boss": true,
   "hidden": true,
-  "count": 6,
+  "count": 1,
   "baseStat": {
     "type": "boss",
     "immunities": [
@@ -16,141 +16,23 @@
   "stats": [
     {
       "level": 0,
-      "health": "3+7x(C/2)",
-      "movement": 2,
-      "attack": 2,
+      "health": 7,
+      "movement": 4,
+      "attack": 3,
       "actions": [
         {
-          "type": "shield",
+          "type": "push",
           "value": 1
         }
-      ]
-    },
-    {
-      "level": 1,
-      "health": "3+8x(C/2)",
-      "movement": 2,
-      "attack": 2,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        }
-      ]
-    },
-    {
-      "level": 2,
-      "health": "3+10x(C/2)",
-      "movement": 3,
-      "attack": 2,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        }
-      ]
-    },
-    {
-      "level": 3,
-      "health": "3+10x(C/2)",
-      "movement": 3,
-      "attack": 3,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        },
-        {
-          "type": "condition",
-          "value": "curse"
-        }
-      ]
-    },
-    {
-      "level": 4,
-      "health": "3+12x(C/2)",
-      "movement": 3,
-      "attack": 4,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        },
-        {
-          "type": "condition",
-          "value": "curse"
-        }
-      ]
-    },
-    {
-      "level": 5,
-      "health": "3+16x(C/2)",
-      "movement": 3,
-      "attack": 3,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        },
-        {
-          "type": "condition",
-          "value": "curse"
-        }
-      ]
-    },
-    {
-      "level": 6,
-      "health": "3+21x(C/2)",
-      "movement": 3,
-      "attack": 4,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        },
-        {
-          "type": "condition",
-          "value": "curse"
-        }
       ],
       "immunities": [
-        "curse",
         "disarm",
         "stun"
       ]
     },
     {
-      "level": 7,
-      "health": "3+27x(C/2)",
-      "movement": 3,
-      "attack": 5,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        },
-        {
-          "type": "condition",
-          "value": "curse"
-        }
-      ],
-      "immunities": [
-        "curse",
-        "disarm",
-        "stun"
-      ]
-    },
-    {
-      "type": "elite",
-      "level": 0,
-      "health": "3+7x(C/2)",
-      "movement": 4,
-      "attack": 3
-    },
-    {
-      "type": "elite",
       "level": 1,
-      "health": "3+8x(C/2)",
+      "health": 8,
       "movement": 4,
       "attack": 3,
       "actions": [
@@ -164,13 +46,20 @@
               "small": true
             }
           ]
+        },
+        {
+          "type": "push",
+          "value": 1
         }
+      ],
+      "immunities": [
+        "disarm",
+        "stun"
       ]
     },
     {
-      "type": "elite",
       "level": 2,
-      "health": "3+10x(C/2)",
+      "health": 10,
       "movement": 5,
       "attack": 3,
       "actions": [
@@ -183,13 +72,20 @@
               "value": 2
             }
           ]
+        },
+        {
+          "type": "push",
+          "value": 1
         }
+      ],
+      "immunities": [
+        "disarm",
+        "stun"
       ]
     },
     {
-      "type": "elite",
       "level": 3,
-      "health": "3+10x(C/2)",
+      "health": 10,
       "movement": 5,
       "attack": 4,
       "actions": [
@@ -206,15 +102,22 @@
         {
           "type": "condition",
           "value": "wound"
+        },
+        {
+          "type": "push",
+          "value": 1
         }
+      ],
+      "immunities": [
+        "disarm",
+        "stun"
       ]
     },
     {
-      "type": "elite",
       "level": 4,
-      "health": "3+12x(C/2)",
+      "health": 12,
       "movement": 5,
-      "attack": 5,
+      "attack": 4,
       "actions": [
         {
           "type": "retaliate",
@@ -229,13 +132,20 @@
         {
           "type": "condition",
           "value": "wound"
+        },
+        {
+          "type": "push",
+          "value": 2
         }
+      ],
+      "immunities": [
+        "disarm",
+        "stun"
       ]
     },
     {
-      "type": "elite",
       "level": 5,
-      "health": "3+16x(C/2)",
+      "health": 16,
       "movement": 5,
       "attack": 5,
       "actions": [
@@ -252,13 +162,20 @@
         {
           "type": "condition",
           "value": "wound"
+        },
+        {
+          "type": "push",
+          "value": 2
         }
+      ],
+      "immunities": [
+        "disarm",
+        "stun"
       ]
     },
     {
-      "type": "elite",
       "level": 6,
-      "health": "3+21x(C/2)",
+      "health": 21,
       "movement": 5,
       "attack": 5,
       "actions": [
@@ -275,18 +192,21 @@
         {
           "type": "condition",
           "value": "wound"
+        },
+        {
+          "type": "push",
+          "value": 2
         }
       ],
       "immunities": [
-        "curse",
         "disarm",
-        "stun"
+        "stun",
+        "curse"
       ]
     },
     {
-      "type": "elite",
       "level": 7,
-      "health": "3+27x(C/2)",
+      "health": 27,
       "movement": 5,
       "attack": 6,
       "actions": [
@@ -296,19 +216,23 @@
           "subActions": [
             {
               "type": "range",
-              "value": 4
+              "value": 3
             }
           ]
         },
         {
           "type": "condition",
           "value": "wound"
+        },
+        {
+          "type": "push",
+          "value": 2
         }
       ],
       "immunities": [
-        "curse",
         "disarm",
-        "stun"
+        "stun",
+        "curse"
       ]
     }
   ]

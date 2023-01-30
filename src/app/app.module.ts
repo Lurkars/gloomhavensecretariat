@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule, HammerModule } from '@angular/platform-browser';
+import { Injectable, NgModule } from '@angular/core';
+import { BrowserModule, HammerGestureConfig, HammerModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DEFAULT_DIALOG_CONFIG, DialogModule } from '@angular/cdk/dialog';
@@ -87,6 +87,15 @@ import { EntitiesMenuDialogComponent } from './ui/figures/entities-menu/entities
 
 import 'hammerjs'
 
+@Injectable()
+export class GhsHammerConfig extends HammerGestureConfig {
+
+  override overrides = <any>{
+    'swipe': { enable: false },
+    'rotate': { enable: false }
+  };
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -131,7 +140,18 @@ import 'hammerjs'
     HammerModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: true, registrationStrategy: 'registerImmediately' })
   ],
-  providers: [{ provide: DEFAULT_DIALOG_CONFIG, useValue: { autoFocus: 'dialog', hasBackdrop: true } }],
+  providers: [
+    {
+      provide: DEFAULT_DIALOG_CONFIG,
+      useValue: {
+        autoFocus: 'dialog',
+        hasBackdrop: true
+      }
+    },
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: GhsHammerConfig
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

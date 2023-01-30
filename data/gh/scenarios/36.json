@@ -17,7 +17,7 @@
     "earth-demon",
     "flame-demon",
     "frost-demon",
-    "prime-demon-36",
+    "prime-demon-scenario-36",
     "wind-demon"
   ],
   "allies": [
@@ -105,7 +105,7 @@
           "identifier": {
             "type": "monster",
             "edition": "gh",
-            "name": "prime-demon-36"
+            "name": "prime-demon-scenario-36"
           }
         }
       ]
@@ -157,7 +157,7 @@
           "player4": "normal"
         },
         {
-          "name": "prime-demon-36",
+          "name": "prime-demon-scenario-36",
           "type": "boss"
         },
         {

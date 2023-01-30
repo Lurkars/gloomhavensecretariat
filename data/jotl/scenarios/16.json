@@ -9,7 +9,7 @@
     "black-imp",
     "blood-imp",
     "rat-monstrosity",
-    "rat-monstrosity-16-1"
+    "rat-monstrosity-scenario-16-1"
   ],
   "rules": [
     {
@@ -80,7 +80,7 @@
       "spawns": [
         {
           "monster": {
-            "name": "rat-monstrosity-16-1",
+            "name": "rat-monstrosity-scenario-16-1",
             "player3": "elite",
             "player4": "normal"
           },
@@ -89,7 +89,7 @@
         },
         {
           "monster": {
-            "name": "rat-monstrosity-16-1",
+            "name": "rat-monstrosity-scenario-16-1",
             "player2": "normal",
             "player4": "elite"
           },
@@ -98,7 +98,7 @@
         },
         {
           "monster": {
-            "name": "rat-monstrosity-16-1",
+            "name": "rat-monstrosity-scenario-16-1",
             "player3": "normal"
           },
           "marker": "C",
@@ -106,7 +106,7 @@
         },
         {
           "monster": {
-            "name": "rat-monstrosity-16-1",
+            "name": "rat-monstrosity-scenario-16-1",
             "player2": "elite",
             "player3": "normal",
             "player4": "normal"
@@ -147,7 +147,7 @@
       "spawns": [
         {
           "monster": {
-            "name": "rat-monstrosity-16-2",
+            "name": "rat-monstrosity-scenario-16-2",
             "player3": "normal",
             "player4": "normal"
           },
@@ -156,7 +156,7 @@
         },
         {
           "monster": {
-            "name": "rat-monstrosity-16-2",
+            "name": "rat-monstrosity-scenario-16-2",
             "player2": "normal",
             "player3": "normal",
             "player4": "elite"
@@ -166,7 +166,7 @@
         },
         {
           "monster": {
-            "name": "rat-monstrosity-16-2",
+            "name": "rat-monstrosity-scenario-16-2",
             "player2": "normal",
             "player3": "elite",
             "player4": "elite"
@@ -176,7 +176,7 @@
         },
         {
           "monster": {
-            "name": "rat-monstrosity-16-2",
+            "name": "rat-monstrosity-scenario-16-2",
             "player2": "elite",
             "player3": "normal",
             "player4": "normal"

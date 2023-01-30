@@ -38,6 +38,10 @@ main {
   overflow: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 
@@ -55,7 +59,6 @@ main {
   &::-webkit-scrollbar {
     display: none;
   }
-
 }
 
 .figure {

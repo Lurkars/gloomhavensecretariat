@@ -23,17 +23,12 @@
       "common-vermling-raider": "Common Vermling Raider",
       "first-of-the-order": "First of the Order",
       "giant-viper": "Giant Viper",
-      "giant-viper-21": "Giant Viper #21",
       "living-corpse": "Living Corpse",
       "living-spirit": "Living Spirit",
       "monstrosity": "Monstrosity",
       "rat-monstrosity": "Rat Monstrosity",
-      "rat-monstrosity-16-1": "Rat Monstrosity #16-1",
-      "rat-monstrosity-16-2": "Rat Monstrosity #16-2",
       "stone-golem": "Stone Golem",
-      "stone-golem-22": "Stone Golem #22",
       "vermling-raider": "Vermling Raider",
-      "vermling-raider-22": "Vermling Raider #22",
       "vermling-scout": "Vermling Scout",
       "zealot": "Zealot"
     },
@@ -77,7 +72,7 @@
           "1": "All attacks targeting %data.monster.giant-viper% gain Disadvantage this round.",
           "2": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.giant-viper%'s allies."
         },
-        "giant-viper-21": {
+        "giant-viper-scenario-21": {
           "1": "Each time after any figure attacks a Giant Viper, that figure suffers %game.damage:L%"
         },
         "black-sludge": {

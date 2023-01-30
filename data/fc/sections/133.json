@@ -8,7 +8,7 @@
   ],
   "marker": "k",
   "monsters": [
-    "ancient-artillery-133"
+    "ancient-artillery-section-133"
   ],
   "rooms": [
     {
@@ -20,7 +20,7 @@
       ],
       "monster": [
         {
-          "name": "ancient-artillery-133",
+          "name": "ancient-artillery-section-133",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"

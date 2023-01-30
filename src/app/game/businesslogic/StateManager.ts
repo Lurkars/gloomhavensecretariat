@@ -266,7 +266,8 @@ export class StateManager {
     if (ws && ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword) {
       let message = {
         "password": settingsManager.settings.serverPassword,
-        "type": "request-game"
+        "type": "request-game",
+        "payload": gameManager.game.toModel(),
       }
       ws.send(JSON.stringify(message));
 

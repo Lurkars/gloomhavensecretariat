@@ -41,6 +41,12 @@
     text-shadow: var(--ghs-outline-thin);
     max-height: calc(var(--ghs-unit) * 3 * var(--ghs-barsize));
     overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     .section {
       cursor: pointer;

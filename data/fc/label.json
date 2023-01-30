@@ -7,7 +7,6 @@
       "fc": "Forgotten Circles"
     },
     "monster": {
-      "ancient-artillery-133": "Ancient Artillery #133",
       "aesther-ashblade": "Aesther Ashblade",
       "aesther-scout": "Aesther Scout",
       "avatar-of-ashtar": "Avatar of Ashtar",
@@ -22,8 +21,6 @@
       "selah-naberis": "Selah Naberis",
       "sraka-the-wise": "Sraka The Wise",
       "the-husk": "The Husk",
-      "the-husk-66": "The Husk #66",
-      "the-husk-128": "The Husk #128",
       "the-steel-lion": "The Steel Lion",
       "uyart-ikkuma": "Uyart Ikkuma",
       "valrath-commander": "Valrath Commander",
@@ -102,7 +99,7 @@
             "1": "adjacent and to the right of any door %game.mapMarker.4%"
           },
           "128": {
-            "1": "%game.action.teleport% %data.monster.the-husk-66% to %game.mapMarker.c% and remove wall section %game.mapMarker.d%"
+            "1": "%game.action.teleport% %data.monster.the-husk-section-66% to %game.mapMarker.c% and remove wall section %game.mapMarker.d%"
           }
         }
       }
@@ -113,7 +110,7 @@
     },
     "custom": {
       "fc": {
-        "ancient-artillery-133": {
+        "ancient-artillery-section-133": {
           "1": "Immune to all forced movement"
         },
         "ashblade": {
@@ -190,8 +187,6 @@
       "selah-naberis": "Selah Naberis",
       "sraka-the-wise": "Die Weise Sraka",
       "the-husk": "Die Hülle",
-      "the-husk-66": "Die Hülle #66",
-      "the-husk-128": "Die Hülle #128",
       "the-steel-lion": "Der Stählernde Löwe",
       "uyart-ikkuma": "Uyart Ikkuma",
       "valrath-commander": "Valrath Kommandant",
@@ -328,8 +323,6 @@
       "selah-naberis": "Selah Naberis",
       "sraka-the-wise": "Sraka la Sage",
       "the-husk": "Le Karkass",
-      "the-husk-66": "Le Karkass #66",
-      "the-husk-128": "Le Karkass #128",
       "the-steel-lion": "Le Lion d'Acier",
       "uyart-ikkuma": "Uyart Ikkuma",
       "valrath-commander": "Commandant Valrath",
@@ -507,7 +500,7 @@
       "fc": "잊힌 비술"
     },
     "monster": {
-      "ancient-artillery-133": "고대 대포 #133",
+      "ancient-artillery-section-133": "고대 대포 #133",
       "aesther-ashblade": "에스더 잿빛칼날",
       "aesther-scout": "에스더 정찰병",
       "avatar-of-ashtar": "Avatar of Ashtar",
@@ -522,8 +515,6 @@
       "selah-naberis": "Selah Naberis",
       "sraka-the-wise": "Sraka The Wise",
       "the-husk": "The Husk",
-      "the-husk-66": "The Husk #66",
-      "the-husk-128": "The Husk #128",
       "the-steel-lion": "The Steel Lion",
       "uyart-ikkuma": "Uyart Ikkuma",
       "valrath-commander": "Valrath Commander",
@@ -602,7 +593,7 @@
             "1": "adjacent and to the right of any door %game.mapMarker.4%"
           },
           "128": {
-            "1": "%game.action.teleport% %data.monster.the-husk-66% to %game.mapMarker.c% and remove wall section %game.mapMarker.d%"
+            "1": "%game.action.teleport% %data.monster.the-husk-section-66% to %game.mapMarker.c% and remove wall section %game.mapMarker.d%"
           }
         }
       }
@@ -613,7 +604,7 @@
     },
     "custom": {
       "fc": {
-        "ancient-artillery-133": {
+        "ancient-artillery-section-133": {
           "1": "Immune to all forced movement"
         },
         "ashblade": {

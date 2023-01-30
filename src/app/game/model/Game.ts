@@ -65,6 +65,60 @@ export class Game {
     });
 
     model.monsters.forEach((value) => {
+
+      // < 0.43 migration
+      switch (value.name) {
+        case 'ancient-artillery-133':
+          value.name = 'ancient-artillery-section-133';
+          break;
+        case 'the-husk-66':
+          value.name = 'the-husk-section-66';
+          break;
+        case 'the-husk-128':
+          value.name = 'the-husk-section-128';
+          break;
+        case 'frozen-corpse-65':
+          value.name = 'frozen-corpse-scenario-65';
+          break;
+        case 'living-bones-65':
+          value.name = 'living-bones-scenario-65';
+          break;
+        case 'snow-imp-65':
+          value.name = 'snow-imp-scenario-65';
+          break;
+        case 'cave-bear-54':
+          value.name = 'cave-bear-scenario-54';
+          break;
+        case 'cultist-78':
+          value.name = 'cultist-scenario-78';
+          break;
+        case 'cultist-89':
+          value.name = 'cultist-scenario-89';
+          break;
+        case 'prime-demon-36':
+          value.name = 'prime-demon-scenario-36';
+          break;
+        case 'vermling-raider-22':
+          value.name = 'vermling-raider-scenario-223';
+          break;
+        case 'giant-viper-21':
+          value.name = 'giant-viper-scenario-21';
+          break;
+        case 'rat-monstrosity-16-1':
+          value.name = 'rat-monstrosity-scenario-16-1';
+          break;
+        case 'rat-monstrosity-16-2':
+          value.name = 'rat-monstrosity-scenario-16-2';
+          break;
+        case 'stone-golem-22':
+          value.name = 'stone-golem-scenario-22';
+          break;
+        case 'vermling-raider-22':
+          value.name = 'vermling-raider-scenario-22';
+          break;
+      }
+
+
       let monster = this.figures.find((figure) => figure instanceof Monster && figure.name == value.name && figure.edition == value.edition) as Monster;
       if (!monster) {
         monster = new Monster(gameManager.getMonsterData(value.name, value.edition));

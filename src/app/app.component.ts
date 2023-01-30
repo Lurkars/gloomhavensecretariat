@@ -14,6 +14,8 @@ export class AppComponent implements OnInit {
 
   zoomInterval: any = null;
 
+  currentZoom: number = 0;
+
   ngOnInit(): void {
     this.applyFhStyle();
     gameManager.uiChange.subscribe({
@@ -22,6 +24,8 @@ export class AppComponent implements OnInit {
         this.applyAnimations();
       }
     })
+
+    this.currentZoom = settingsManager.settings.zoom;
 
     window.addEventListener('keydown', (event: KeyboardEvent) => {
       if (event.ctrlKey && event.key.toLowerCase() === 'z' && !event.shiftKey) {
@@ -45,37 +49,28 @@ export class AppComponent implements OnInit {
       if (this.zoomInterval && (event.key === 'ArrowUp' || event.key === 'ArrowDown')) {
         clearInterval(this.zoomInterval);
         this.zoomInterval = null;
+        settingsManager.setZoom(this.currentZoom);
       }
     })
   }
 
-  @HostListener('pinchin', ['$event'])
-  pinchin(event: any) {
-    this.zoom(1);
-    if (event.srcEvent) {
-      event.srcEvent.preventDefault();
-      event.srcEvent.stopPropagation();
+  @HostListener('pinchmove', ['$event'])
+  pinchmove(event: any) {
+    if (event.scale < 1) {
+      this.zoom(1);
+    } else {
+      this.zoom(-1);
     }
   }
 
-  @HostListener('pinchout', ['$event'])
-  pinchout(event: any) {
-    this.zoom(-1);
-    if (event.srcEvent) {
-      event.srcEvent.preventDefault();
-      event.srcEvent.stopPropagation();
-    }
+  @HostListener('pinchend', ['$event'])
+  pinchend(event: any) {
+    settingsManager.setZoom(this.currentZoom);
   }
 
   zoom(value: number) {
-    let factor: number = +window.getComputedStyle(document.body).getPropertyValue('--ghs-factor');
-    factor += value;
-    this.setZoom(factor);
-  }
-
-  setZoom(zoom: number) {
-    document.body.style.setProperty('--ghs-factor', zoom + '');
-    settingsManager.setZoom(zoom);
+    this.currentZoom += value;
+    document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
   }
 
   applyFhStyle() {

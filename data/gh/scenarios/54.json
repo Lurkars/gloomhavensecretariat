@@ -3,7 +3,7 @@
   "name": "Palace of Ice",
   "edition": "gh",
   "monsters": [
-    "cave-bear-54",
+    "cave-bear-scenario-54",
     "frost-demon",
     "harrower-infester",
     "living-spirit"
@@ -18,17 +18,17 @@
       ],
       "monster": [
         {
-          "name": "cave-bear-54",
+          "name": "cave-bear-scenario-54",
           "type": "normal"
         },
         {
-          "name": "cave-bear-54",
+          "name": "cave-bear-scenario-54",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "cave-bear-54",
+          "name": "cave-bear-scenario-54",
           "player4": "normal"
         }
       ]

@@ -195,7 +195,7 @@ export class ConditionHighlightAnimationDirective implements OnInit {
       this.el.nativeElement.classList.remove("animation");
       if (this.condition.types.indexOf(ConditionType.turn) != -1 || !settingsManager.settings.activeApplyConditions) {
         this.condition.highlight = false;
-        gameManager.stateManager.after();
+        gameManager.stateManager.saveLocal();
       }
     }, settingsManager.settings.disableAnimations ? 0 : 1100);
   }

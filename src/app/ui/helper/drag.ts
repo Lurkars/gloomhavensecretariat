@@ -1,4 +1,4 @@
-import { Component, Directive, ElementRef, EventEmitter, HostListener, Input, Output } from "@angular/core";
+import { Directive, ElementRef, EventEmitter, HostListener, Input, Output } from "@angular/core";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 export const doubleClickTreshhold: number = 250;
@@ -28,6 +28,7 @@ export class DragClickDirective {
 
   constructor(private elementRef: ElementRef) {
     this.value = this.min - 1;
+    this.elementRef.nativeElement.style['touch-action'] = 'pan-y';
   }
 
   @HostListener('tap', ['$event'])
@@ -62,7 +63,7 @@ export class DragClickDirective {
 
   @HostListener('press', ['$event'])
   press(event: any) {
-    if (event.pointerType == "touch") {
+    if (event.pointerType == "touch" && this.doubleClick.observed) {
       this.doubleClick.emit(event);
     } else if (this.repeat) {
       this.repeatTimeout(event);
@@ -101,7 +102,7 @@ export class DragClickDirective {
 
   @HostListener('panstart', ['$event'])
   panstart(event: any) {
-    if (settingsManager.settings.dragValues) {
+    if (settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed)) {
       this.elementRef.nativeElement.classList.add('dragging');
     }
     event.preventDefault();
@@ -113,7 +114,7 @@ export class DragClickDirective {
 
   @HostListener('panmove', ['$event'])
   panmove(event: any) {
-    if (settingsManager.settings.dragValues) {
+    if (settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed)) {
       const rect = this.elementRef.nativeElement.getBoundingClientRect();
       if (this.screenWidth) {
         this.value = Math.min(99, Math.max(0, Math.floor(event.center.x / document.body.clientWidth * 100)));
@@ -135,7 +136,7 @@ export class DragClickDirective {
   @HostListener('panend', ['$event'])
   @HostListener('pancancel', ['$event'])
   panend(event: any) {
-    if (settingsManager.settings.dragValues) {
+    if (settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed)) {
       if (this.value >= this.min) {
         this.dragEnd.emit(this.relative ? this.value - this.relativeValue : this.value);
       }

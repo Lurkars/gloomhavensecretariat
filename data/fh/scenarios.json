@@ -338,6 +338,7 @@
     "rules": [
       {
         "round": "R % 2 == 0",
+        "start": true,
         "spawns": [
           {
             "monster": {
@@ -494,7 +495,14 @@
       "metal": 2,
       "corpsecap": 2,
       "random_item": 1
-    }
+    },
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "09-B",
+        "initial": true
+      }
+    ]
   },
   {
     "index": "18",
@@ -520,7 +528,36 @@
       "corpsecap": 1,
       "arrowvine": 2,
       "snowthistle": 1
-    }
+    },
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "11-A",
+        "initial": true,
+        "monster": [
+          {
+            "name": "frozen-corpse",
+            "type": "elite"
+          },
+          {
+            "name": "frozen-corpse",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "frozen-corpse",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "frozen-corpse",
+            "player3": "normal",
+            "player4": "normal"
+          }
+        ]
+      }
+    ]
   },
   {
     "index": "19",
@@ -543,7 +580,14 @@
       "rockroot": 1,
       "corpsecap": 1,
       "random_item": 1
-    }
+    },
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "16-B",
+        "initial": true
+      }
+    ]
   },
   {
     "index": "20",
@@ -571,7 +615,28 @@
       "metal": 5,
       "rockroot": 1,
       "arrowvine": 2
-    }
+    },
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "15-C",
+        "initial": true,
+        "monster": [
+          {
+            "name": "steel-automaton",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "steel-automaton",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          }
+        ]
+      }
+    ]
   },
   {
     "index": "21",
@@ -592,7 +657,41 @@
       "flamefruit": 1,
       "snowthistle": 2,
       "random_item": 1
-    }
+    },
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "14-B",
+        "initial": true,
+        "monster": [
+          {
+            "name": "frost-demon",
+            "type": "normal"
+          },
+          {
+            "name": "frost-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "frost-demon",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "living-spirit",
+            "type": "normal"
+          },
+          {
+            "name": "living-spirit",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          }
+        ]
+      }
+    ]
   },
   {
     "index": "22",
@@ -612,7 +711,55 @@
       "hide": 2,
       "arrowvine": 2,
       "random_item": 1
-    }
+    },
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "14-A",
+        "initial": true,
+        "monster": [
+          {
+            "name": "lurker-clawcrusher",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "lurker-clawcrusher",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "lurker-wavethrower",
+            "type": "normal"
+          },
+          {
+            "name": "lurker-wavethrower",
+            "type": "elite"
+          },
+          {
+            "name": "lurker-wavethrower",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "lurker-wavethrower",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "lurker-wavethrower",
+            "player4": "normal"
+          },
+          {
+            "name": "lurker-wavethrower",
+            "player4": "normal"
+          }
+        ]
+      }
+    ]
   },
   {
     "index": "23",
@@ -632,7 +779,52 @@
       "flamefruit": 1,
       "corpsecap": 2,
       "random_item": 1
-    }
+    },
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "11-F",
+        "initial": true,
+        "monster": [
+          {
+            "name": "living-bones",
+            "type": "normal"
+          },
+          {
+            "name": "living-bones",
+            "type": "elite"
+          },
+          {
+            "name": "living-bones",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "living-bones",
+            "player4": "normal"
+          },
+          {
+            "name": "living-spirit",
+            "type": "elite"
+          },
+          {
+            "name": "living-spirit",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "living-spirit",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "living-spirit",
+            "player4": "normal"
+          }
+        ]
+      }
+    ]
   },
   {
     "index": "24",
@@ -654,7 +846,48 @@
       "axenut": 2,
       "flamefruit": 1,
       "random_item": 1
-    }
+    },
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "15-D",
+        "initial": true,
+        "monster": [
+          {
+            "name": "chaos-demon",
+            "type": "elite"
+          },
+          {
+            "name": "chaos-demon",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name":"chaos-demon",
+            "player4": "normal"
+          },
+          {
+            "name": "living-bones",
+            "type": "elite"
+          },
+          {
+            "name": "living-bones",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "living-bones",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "living-bones",
+            "player4": "normal"
+          }
+        ]
+      }
+    ]
   },
   {
     "index": "25",
@@ -1660,9 +1893,9 @@
       "66"
     ],
     "monsters": [
-      "frozen-corpse",
-      "living-bones",
-      "snow-imp"
+      "frozen-corpse-scenario-65",
+      "living-bones-scenario-65",
+      "snow-imp-scenario-65"
     ],
     "lootDeckConfig": {
       "money": 8,

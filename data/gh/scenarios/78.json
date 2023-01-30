@@ -7,7 +7,7 @@
     "bandit-guard",
     "black-imp",
     "cultist",
-    "cultist-78",
+    "cultist-scenario-78",
     "living-bones"
   ],
   "rooms": [
@@ -75,12 +75,12 @@
           "type": "normal"
         },
         {
-          "name": "cultist-78",
+          "name": "cultist-scenario-78",
           "type": "elite",
           "marker": "b"
         },
         {
-          "name": "cultist-78",
+          "name": "cultist-scenario-78",
           "type": "elite",
           "marker": "b"
         },

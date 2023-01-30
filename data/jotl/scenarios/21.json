@@ -5,7 +5,7 @@
   "monsters": [
     "chaos-demon",
     "giant-viper",
-    "giant-viper-21"
+    "giant-viper-scenario-21"
   ],
   "objectives": [
     {
@@ -62,7 +62,7 @@
           "identifier": {
             "type": "monster",
             "edition": "jotl",
-            "name": "giant-viper-21"
+            "name": "giant-viper-scenario-21"
           },
           "type": "transfer",
           "value": "giant-viper"
@@ -150,20 +150,20 @@
           "marker": "3"
         },
         {
-          "name": "giant-viper-21",
+          "name": "giant-viper-scenario-21",
           "type": "elite"
         },
         {
-          "name": "giant-viper-21",
+          "name": "giant-viper-scenario-21",
           "type": "elite"
         },
         {
-          "name": "giant-viper-21",
+          "name": "giant-viper-scenario-21",
           "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "giant-viper-21",
+          "name": "giant-viper-scenario-21",
           "player4": "elite"
         }
       ]

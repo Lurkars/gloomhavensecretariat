@@ -5,6 +5,7 @@
     [style.fontSize]=" card.offsetWidth * 0.04 + 'px'">
     <div class=" card-back ability-back"
       [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0 && !character, 'character-actions' : character}">
+      <div class="touch"></div>
       <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
       <span class="name" *ngIf="monster">{{'data.monster.' + monster.name | ghsLabel}}</span>
       <span class="name" *ngIf="character">{{'data.character.' + character.name | ghsLabel}}</span>

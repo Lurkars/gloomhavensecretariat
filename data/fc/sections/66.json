@@ -4,7 +4,7 @@
   "edition": "fc",
   "parent": "111",
   "monsters": [
-    "the-husk-66"
+    "the-husk-section-66"
   ],
   "rules": [
     {
@@ -58,7 +58,7 @@
             "name": "the-husk"
           },
           "type": "transfer",
-          "value": "the-husk-66"
+          "value": "the-husk-section-66"
         }
       ]
     }

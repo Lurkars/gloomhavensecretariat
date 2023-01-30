@@ -798,6 +798,14 @@ export class SettingsManager {
       }
       return this.insertLabelArguments(from[key], args, argLabel);
     } else {
+      if (path == "data.monster.") {
+        const match = key.match(/(.+)\-(scenario|section)\-(.+)/)
+        if (match) {
+          key = match[1];
+          return this.insertLabelArguments(from[key], args, argLabel) + ' #' + match[3];
+        }
+      }
+
       let keys = key.split(".");
       if (from[keys[0]]) {
         key = keys.slice(1, keys.length).join(".");

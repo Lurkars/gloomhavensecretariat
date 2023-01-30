@@ -1,5 +1,5 @@
 {
-  "name": "giant-viper-21",
+  "name": "giant-viper-scenario-21",
   "thumbnail": "jotl-giant-viper",
   "edition": "jotl",
   "deck": "giant-viper",
@@ -18,7 +18,7 @@
       },
       {
         "type": "custom",
-        "value": "%data.custom.jotl.giant-viper-21.1%"
+        "value": "%data.custom.jotl.giant-viper-scenario-21.1%"
       }
     ]
   },

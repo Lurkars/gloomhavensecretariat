@@ -4,8 +4,8 @@
   "edition": "jotl",
   "monsters": [
     "giant-viper",
-    "stone-golem-22",
-    "vermling-raider-22"
+    "stone-golem-scenario-22",
+    "vermling-raider-scenario-22"
   ],
   "rules": [
     {
@@ -38,7 +38,7 @@
           "identifier": {
             "type": "monster",
             "edition": "jotl",
-            "name": "stone-golem-22"
+            "name": "stone-golem-scenario-22"
           },
           "type": "damage",
           "value": "[C/2{$math.floor}]"
@@ -78,18 +78,18 @@
           "player4": "elite"
         },
         {
-          "name": "stone-golem-22",
+          "name": "stone-golem-scenario-22",
           "type": "boss"
         },
         {
-          "name": "vermling-raider-22",
+          "name": "vermling-raider-scenario-22",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite",
           "marker": "A"
         },
         {
-          "name": "vermling-raider-22",
+          "name": "vermling-raider-scenario-22",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite",

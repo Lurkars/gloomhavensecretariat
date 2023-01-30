@@ -107,18 +107,7 @@ export class MainComponent implements OnInit {
       }
     });
   }
-
-  scroll(event: any) {
-    window.document.body.classList.add('scrolling');
-    if (this.scrollTimeout) {
-      clearTimeout(this.scrollTimeout);
-    }
-    this.scrollTimeout = setTimeout(() => {
-      window.document.body.classList.remove('scrolling');
-      this.scrollTimeout = null;
-    }, settingsManager.settings.disableAnimations ? 0 : 250)
-  }
-
+  
   calcColumns(scrollTo: HTMLElement | undefined = undefined): void {
     if (settingsManager.settings.disableColumns) {
       this.columns = 1;

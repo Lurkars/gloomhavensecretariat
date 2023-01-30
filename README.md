@@ -23,7 +23,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
 
 ## Current Features
 
-- Feature complete for GH, FH, JOTL, FC and CS (all needs testing, so please [contribute](#contributing)!)
+- Base Feature complete for GH, FH, JOTL, FC and CS (all needs testing, so please [contribute](#contributing)!), for details see [Data Progression](https://github.com/Lurkars/gloomhavensecretariat/wiki/Data-Progression)
 - Tracking:
   - **initiative** sorting
   - **health** automatic exhausting/dead, max values for every level
@@ -77,6 +77,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
 
 - validation of all existing data
 - room/section/standee data for all scenarios!
+- 
 - add Trail Of Ashes edition data
 
 ### Long term plans

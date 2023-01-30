@@ -231,6 +231,9 @@ export class EntityMenuDialogComponent {
 
   changeMaxHealth(value: number) {
     this.maxHp += value;
+    if (!(this.data.entity instanceof Character) && !(this.data.entity instanceof Objective)) {
+      this.health += value;
+    }
     if (this.data.entity) {
       if (EntityValueFunction(this.data.entity.maxHealth) + this.maxHp <= 1) {
         this.maxHp = -EntityValueFunction(this.data.entity.maxHealth) + 1;
@@ -527,6 +530,16 @@ export class EntityMenuDialogComponent {
 
   closeCharacter(): void {
     if (this.data.entity instanceof Character) {
+      if (this.maxHp) {
+        gameManager.stateManager.before("changeMaxHP", "data.character." + this.data.entity.name, ghsValueSign(this.maxHp));
+        if (this.data.entity.maxHealth + this.maxHp < this.data.entity.maxHealth || this.data.entity.health == this.data.entity.maxHealth) {
+          this.data.entity.health = this.data.entity.maxHealth + this.maxHp;
+        }
+        this.data.entity.maxHealth += this.maxHp;
+        gameManager.stateManager.after();
+        this.maxHp = 0;
+      }
+
       if (this.health != 0) {
         gameManager.stateManager.before("changeHP", "data.character." + this.data.entity.name, ghsValueSign(this.health));
         gameManager.entityManager.changeHealth(this.data.entity, this.health);
@@ -571,16 +584,6 @@ export class EntityMenuDialogComponent {
         this.curse = 0;
       }
 
-      if (this.maxHp) {
-        gameManager.stateManager.before("changeMaxHP", "data.character." + this.data.entity.name, ghsValueSign(this.maxHp));
-        if (this.data.entity.maxHealth + this.maxHp < this.data.entity.maxHealth || this.data.entity.health == this.data.entity.maxHealth) {
-          this.data.entity.health = this.data.entity.maxHealth + this.maxHp;
-        }
-        this.data.entity.maxHealth += this.maxHp;
-        gameManager.stateManager.after();
-        this.maxHp = 0;
-      }
-
       if (this.levelDialog && this.characterTitleInput) {
         if (this.characterTitleInput.nativeElement.value && this.characterTitleInput.nativeElement.value != settingsManager.getLabel('data.character.' + this.data.entity.name.toLowerCase())) {
           if (this.data.entity.title != this.characterTitleInput.nativeElement.value) {
@@ -622,20 +625,18 @@ export class EntityMenuDialogComponent {
       }
 
       if (this.data.entity instanceof MonsterEntity) {
+        if (this.maxHp) {
+          gameManager.stateManager.before("changeEntityMaxHp", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, ghsValueSign(this.maxHp));
+          this.data.entity.maxHealth += this.maxHp;
+          gameManager.stateManager.after();
+          this.maxHp = 0;
+        }
+
         if (this.health != 0) {
           gameManager.stateManager.before("changeEntityHp", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, ghsValueSign(this.health));
           gameManager.entityManager.changeHealth(this.data.entity, this.health);
           gameManager.stateManager.after();
           this.health = 0;
-        }
-        if (this.maxHp) {
-          gameManager.stateManager.before("changeEntityMaxHp", "data.monster." + this.data.figure.name, "monster." + this.data.entity.type, "" + this.data.entity.number, ghsValueSign(this.maxHp));
-          if (this.data.entity.maxHealth + this.maxHp < this.data.entity.maxHealth || this.data.entity.health == this.data.entity.maxHealth) {
-            this.data.entity.health = this.data.entity.maxHealth + this.maxHp;
-          }
-          this.data.entity.maxHealth += this.maxHp;
-          gameManager.stateManager.after();
-          this.maxHp = 0;
         }
 
         if (this.data.entity.maxHealth > 0 && this.data.entity.health <= 0 || this.data.entity.dead) {
@@ -672,6 +673,11 @@ export class EntityMenuDialogComponent {
         gameManager.characterManager.addSummon(this.data.figure, this.data.entity);
         gameManager.stateManager.after();
       } else {
+        if (this.maxHp) {
+          gameManager.stateManager.before("changeSummonMaxHp", "data.character." + this.data.figure.name, "data.summon." + this.data.entity.name, ghsValueSign(this.maxHp));
+          this.data.entity.maxHealth += this.maxHp;
+          gameManager.stateManager.after();
+        }
         if (this.health != 0) {
           gameManager.stateManager.before("changeSummonHp", "data.character." + this.data.figure.name, "data.summon." + this.data.entity.name, ghsValueSign(this.health));
           gameManager.entityManager.changeHealth(this.data.entity, this.health);
@@ -692,14 +698,6 @@ export class EntityMenuDialogComponent {
           this.data.entity.range += this.range;
           gameManager.stateManager.after();
         }
-        if (this.maxHp) {
-          gameManager.stateManager.before("changeSummonMaxHp", "data.character." + this.data.figure.name, "data.summon." + this.data.entity.name, ghsValueSign(this.maxHp));
-          if (this.data.entity.maxHealth + this.maxHp < this.data.entity.maxHealth || this.data.entity.health == this.data.entity.maxHealth) {
-            this.data.entity.health = this.data.entity.maxHealth + this.maxHp;
-          }
-          this.data.entity.maxHealth += this.maxHp;
-          gameManager.stateManager.after();
-        }
       }
 
       if (this.data.entity.health <= 0 || this.data.entity.dead) {
@@ -717,6 +715,15 @@ export class EntityMenuDialogComponent {
 
   closeObjective() {
     if (this.data.entity instanceof Objective) {
+      if (this.maxHp) {
+        gameManager.stateManager.before("changeObjectiveMaxHp", this.data.entity.title || this.data.entity.name || this.data.entity.escort ? 'escort' : 'objective', ghsValueSign(this.maxHp));
+        if (+this.data.entity.maxHealth + this.maxHp < this.data.entity.maxHealth || this.data.entity.health == this.data.entity.maxHealth) {
+          this.data.entity.health = +this.data.entity.maxHealth + this.maxHp;
+        }
+        this.data.entity.maxHealth = +this.data.entity.maxHealth + this.maxHp;
+        gameManager.stateManager.after();
+      }
+
       if (this.health != 0) {
         gameManager.stateManager.before("changeHP", this.data.entity.title || this.data.entity.name || this.data.entity.escort ? 'escort' : 'objective', ghsValueSign(this.health));
         const old = this.data.entity.health;
@@ -726,14 +733,6 @@ export class EntityMenuDialogComponent {
         }
         gameManager.stateManager.after();
         this.health = 0;
-      }
-      if (this.maxHp) {
-        gameManager.stateManager.before("changeObjectiveMaxHp", this.data.entity.title || this.data.entity.name || this.data.entity.escort ? 'escort' : 'objective', ghsValueSign(this.maxHp));
-        if (+this.data.entity.maxHealth + this.maxHp < this.data.entity.maxHealth || this.data.entity.health == this.data.entity.maxHealth) {
-          this.data.entity.health = +this.data.entity.maxHealth + this.maxHp;
-        }
-        this.data.entity.maxHealth = +this.data.entity.maxHealth + this.maxHp;
-        gameManager.stateManager.after();
       }
 
       const newId = ghsModulo(this.id + this.data.entity.id, 12);
