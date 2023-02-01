@@ -386,7 +386,7 @@
       },
       {
         "roomNumber": 2,
-        "ref": "10-B",
+        "ref": "01-B",
         "inital": true,
         "marker": "b",
         "treasures": [
@@ -847,6 +847,23 @@
       "flamefruit": 1,
       "random_item": 1
     },
+    "rules": [
+	{
+	  "round": "R == 1",
+	  "start": true,
+	  "figures": [
+	    {
+		  "identifier": {
+		    "type": "character",
+			"name": ".*"
+		  },
+		  "type": "amAdd",
+		  "value": "curse:2",
+		  "scenarioEffect": true
+		}
+	  ]
+	}
+	],
     "rooms": [
       {
         "roomNumber": 1,
