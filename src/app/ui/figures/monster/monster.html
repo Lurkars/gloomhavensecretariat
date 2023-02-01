@@ -30,7 +30,8 @@
   <ghs-figure-errors [figure]="monster"></ghs-figure-errors>
 </div>
 
-<div class="entities-container" [ngClass]="{'empty' : emptyEntities() }"
+<div class="entities-container"
+  [ngClass]="{'empty' : emptyEntities(), 'full-ability'  : settingsManager.settings.showFullAbilityCard  }"
   *ngIf="!settingsManager.settings.disableStandees">
   <div class="spacer" [ngClass]="{'disabled' : nonDead() < 2}">
     <a class="entities-menu all" (click)="entitiesMenu($event)" [title]="'game.monster.selectStandees.all' | ghsLabel">

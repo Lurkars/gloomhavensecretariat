@@ -17,16 +17,17 @@ export class AttackModifierComponent implements OnInit, OnChanges {
   @Input() numeration: string = "";
   @Input() number: number = 0;
   @Input() reveal: boolean = false;
-  @Input() flip: boolean = false;
+  @Input() disableFlip: boolean = false;
   @Input() flipped: boolean = false;
   @Input() newStyle: boolean = false;
   effectClasses: string = "";
   AttackModifierType = AttackModifierType;
   AttackModifierEffectType = AttackModifierEffectType;
   defaultType: boolean = true;
-  animate: boolean = false;
+  animate: boolean = true;
 
   ngOnInit(): void {
+    this.animate = !this.disableFlip;
     if (this.attackModifier) {
       if (this.attackModifier.effects) {
         this.attackModifier.effects.forEach((effect) => {
@@ -50,7 +51,7 @@ export class AttackModifierComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     const flipped = changes['flipped'];
-    if (flipped && flipped.currentValue && this.flip && flipped.currentValue != flipped.previousValue) {
+    if (flipped && !this.disableFlip && flipped.currentValue && flipped.currentValue != flipped.previousValue) {
       this.animate = true;
     }
   }

@@ -116,6 +116,13 @@
       }
     }
   }
+
+
+  &.full-ability {
+    ghs-monster-ability-card {
+      margin: 0 calc(var(--ghs-unit) * 1.25);
+    }
+  }
 }
 
 .entities-container {
@@ -197,6 +204,16 @@
 
     ghs-monster-entity {
       transition: all 1000ms ease-out;
+    }
+  }
+
+  &.full-ability {
+    .spacer {
+      width: calc(var(--ghs-unit) * 19.5);
+    }
+
+    .entities {
+      max-width: calc(var(--ghs-unit) * 75.5);
     }
   }
 }

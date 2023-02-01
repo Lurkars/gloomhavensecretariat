@@ -115,11 +115,14 @@
   }
 
   &.full-ability {
+    width: calc(var(--ghs-unit) * 37);
+    height: calc(var(--ghs-unit) * 24);
+
+    ghs-ability {
+      top: 0;
+      width: calc(var(--ghs-unit) * 37);
       height: calc(var(--ghs-unit) * 24);
-    
-      ghs-ability {
-        top:0;
-      }
+    }
   }
 }
 
@@ -127,7 +130,7 @@
   font-size: calc(var(--ghs-unit) * 2);
   position: absolute;
   color: var(--ghs-color-gray);
-  right: calc(var(--ghs-unit) * 1);
+  right: calc(var(--ghs-unit) * 0.5);
   bottom: calc(var(--ghs-unit) * 0);
   z-index: 4;
 }

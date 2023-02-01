@@ -39,11 +39,25 @@ export class ActionComponent implements OnInit {
 
   hasAOE: boolean = false;
 
-  hasEntities(type: MonsterType): boolean {
+  forceRelative: boolean = false;
+
+  ngOnInit(): void {
+    this.updateSubActions();
+    this.forceRelative = !this.hasEntities();
+    gameManager.uiChange.subscribe({
+      next: () => {
+        this.updateSubActions();
+        this.forceRelative = !this.hasEntities();
+      }
+    })
+  }
+
+  hasEntities(type: MonsterType | undefined = undefined): boolean {
     if (type == MonsterType.normal && this.monster && this.monster.boss) {
       return this.hasEntities(MonsterType.boss);
     }
-    return this.monster && this.monster.entities.some((monsterEntity) => monsterEntity.type == type && !monsterEntity.dead && monsterEntity.health > 0) || false;
+
+    return this.monster && this.monster.entities.some((monsterEntity) => (!type || monsterEntity.type == type) && !monsterEntity.dead && monsterEntity.health > 0) || false;
   }
 
   getNormalValue(): number | string {
@@ -114,7 +128,7 @@ export class ActionComponent implements OnInit {
       return "";
     }
 
-    if (settingsManager.settings.calculate && !this.relative) {
+    if (settingsManager.settings.calculate && !this.relative && !this.forceRelative) {
       const stat = this.getStat(type);
       let statValue: number = 0;
       let sign: boolean = true;
@@ -158,15 +172,6 @@ export class ActionComponent implements OnInit {
     } else {
       return this.action.value;
     }
-  }
-
-  ngOnInit(): void {
-    this.updateSubActions();
-    gameManager.uiChange.subscribe({
-      next: () => {
-        this.updateSubActions();
-      }
-    })
   }
 
   updateSubActions(): void {

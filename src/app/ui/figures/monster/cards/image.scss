@@ -24,4 +24,9 @@
     pointer-events: none;
   }
 
+  &.full-ability {
+    width: calc(var(--ghs-unit) * 17.5);
+    height: calc(var(--ghs-unit) * 17.5);
+  }
+
 }

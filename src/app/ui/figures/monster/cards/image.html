@@ -1,3 +1,5 @@
-<div class="image" (click)="toggleFigure()" [ngClass]="{'disabled' : gameManager.game.state == GameState.draw || monster.entities.length == 0}" title="{{gameManager.game.state == GameState.next ? ((monster.active ? 'game.figure.endTurn' : 'game.figure.startTurn') | ghsLabel) : ''}}">
+<div class="image" (click)="toggleFigure()"
+  [ngClass]="{'disabled' : gameManager.game.state == GameState.draw || monster.entities.length == 0, 'full-ability': settingsManager.settings.showFullAbilityCard}"
+  title="{{gameManager.game.state == GameState.next ? ((monster.active ? 'game.figure.endTurn' : 'game.figure.startTurn') | ghsLabel) : ''}}">
   <img [ngClass]="{'active-border' : monster.active}" [src]="gameManager.monsterManager.monsterThumbnail(monster)" />
 </div>

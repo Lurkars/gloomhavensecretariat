@@ -1,4 +1,4 @@
-import { DIALOG_DATA } from "@angular/cdk/dialog";
+import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, ElementRef, EventEmitter, Inject, OnInit, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
@@ -36,13 +36,16 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   drawing: boolean = false;
 
 
-  constructor(@Inject(DIALOG_DATA) private data: { deck: AttackModifierDeck, character: Character, numeration: string, newStyle: boolean, before: EventEmitter<AttackModiferDeckChange>, after: EventEmitter<AttackModiferDeckChange> }) {
+  constructor(@Inject(DIALOG_DATA) private data: { deck: AttackModifierDeck, character: Character, numeration: string, newStyle: boolean, before: EventEmitter<AttackModiferDeckChange>, after: EventEmitter<AttackModiferDeckChange> }, private dialogRef: DialogRef) {
     this.deck = data.deck;
     this.character = data.character;
     this.numeration = data.numeration;
     this.newStyle = data.newStyle;
     this.before = data.before;
     this.after = data.after;
+    this.dialogRef.closed.subscribe(() => {
+      this.upcomingCards().forEach((am) => am.revealed = false);
+    })
   };
 
   ngOnInit(): void {
