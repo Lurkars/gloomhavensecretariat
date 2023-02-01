@@ -44,11 +44,13 @@ export class DatamanagementMenuComponent {
     }
   }
 
-  toggleEdition(edition: string) {
-    if (this.settingsManager.settings.editions.indexOf(edition) != -1) {
-      this.settingsManager.removeEdition(edition);
+  async toggleEdition(editionData: EditionData) {
+    if (this.settingsManager.settings.editions.indexOf(editionData.edition) != -1) {
+      this.settingsManager.removeEdition(editionData.edition);
     } else {
-      this.settingsManager.addEdition(edition);
+      this.settingsManager.addEdition(editionData.edition);
+      await this.settingsManager.loadEditionData(editionData.url, true);
+      gameManager.uiChange.emit();
     }
   }
 

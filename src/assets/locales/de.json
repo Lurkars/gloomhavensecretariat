@@ -55,6 +55,7 @@
       "valrath": "Valrath",
       "vermling": "Ratzen"
     },
+    "filter": "Charaktere filtern",
     "present": "Anwesend",
     "progress": {
       ".": "Charakterbogen",
@@ -422,7 +423,7 @@
       "all": "Alle Aufsteller auswählen",
       "boss": "Alle Boss Aufsteller auswählen",
       "elite": "Alle Normalen Aufsteller auswählen",
-      "normal":"Alle Elite Aufsteller auswählen"
+      "normal": "Alle Elite Aufsteller auswählen"
     },
     "showHidden": "Ausgeblendete Monster anzeigen"
   },
@@ -591,6 +592,7 @@
     },
     "summary": {
       ".": "Szenario Zusammenfassung",
+      "close": "Zur Anwednung Dialog schließen",
       "gold": "Gold",
       "loot": "Beute",
       "name": "%character%",
@@ -829,6 +831,10 @@
     "scenarioRules": {
       ".": "Szenario Regeln einblenden",
       "hint": "Zeigt Popup-Fenster mit speziellen Szenario Regeln an und wendet diese optional an"
+    },
+    "showFullAbilityCard": {
+      ".": "Vollständige Fertigkeitskarten anzeigen",
+      "hint": "Zeigt die Fertigkeitskarten vollständig inklusive Titel an."
     },
     "theme": {
       ".": "Theme",

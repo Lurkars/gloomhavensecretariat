@@ -94,3 +94,14 @@
 
   }
 }
+
+.close {
+  display: flex;
+  justify-content: center;
+  font-family: var(--ghs-font-normal);
+  font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+
+  a {
+    cursor: pointer;
+  }
+}

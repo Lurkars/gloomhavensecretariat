@@ -18,7 +18,7 @@ export class FeedbackDialogComponent {
 
 
     scenarioMail(scenarioName: string, index: string, notes: string): string {
-        let mailto = 'mailto:scenario@gloomhaven-secretary.de';
+        let mailto = 'mailto:scenario@gloomhaven-secretariat.de';
 
         let scenario = new ScenarioData(scenarioName, index, [], [], [], [], gameManager.game.figures.filter((figure) => figure instanceof Monster).map((figure) => (figure as Monster).name), gameManager.game.figures.filter((figure) => figure instanceof Monster && figure.isAlly).map((figure) => (figure as Monster).name), gameManager.game.figures.filter((figure) => figure instanceof Monster && figure.drawExtra).map((figure) => (figure as Monster).name), gameManager.game.figures.filter((figure) => figure instanceof Objective).map((figure) => {
             const objective = figure as Objective;
@@ -33,7 +33,7 @@ export class FeedbackDialogComponent {
     }
 
     issueMail(type: string, text: string): string {
-        let mailto = 'mailto:issue@gloomhaven-secretary.de';
+        let mailto = 'mailto:issue@gloomhaven-secretariat.de';
 
         mailto += '?subject=Found issue with ' + settingsManager.getLabel('tools.feedback.reportIssue.type.' + type);
 

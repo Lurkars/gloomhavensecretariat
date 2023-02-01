@@ -44,7 +44,7 @@ import { EntityAnimationDirective } from './ui/helper/EntityAnimation';
 import { I18nDirective } from './ui/helper/i18n';
 import { ValueCalcDirective } from './ui/helper/valueCalc';
 import { CharacterSheetDialog } from './ui/figures/character/dialogs/character-sheet';
-import { ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent, SectionDialogComponent } from './ui/footer/scenario/scenario';
+import { ScenarioComponent } from './ui/footer/scenario/scenario';
 import { PartySheetComponent } from './ui/header/party/party-sheet';
 import { PartySheetDialogComponent } from './ui/header/party/party-sheet-dialog';
 import { DragClickDirective } from './ui/helper/drag';
@@ -86,6 +86,11 @@ import { LootApplyDialogComponent } from './ui/figures/loot/loot-apply-dialog';
 import { EntitiesMenuDialogComponent } from './ui/figures/entities-menu/entities-menu-dialog';
 
 import 'hammerjs'
+import { CharacterMenuComponent } from './ui/header/menu/character/character';
+import { GhsTooltipComponent, GhsTooltipDirective } from './ui/helper/tooltip/tooltip';
+import { ScenarioDialogComponent } from './ui/footer/scenario/dialog/scenario-dialog';
+import { ScenarioSummaryComponent } from './ui/footer/scenario/summary/scenario-summary';
+import { SectionDialogComponent } from './ui/footer/scenario/section/section-dialog';
 
 @Injectable()
 export class GhsHammerConfig extends HammerGestureConfig {
@@ -102,7 +107,7 @@ export class GhsHammerConfig extends HammerGestureConfig {
     MainComponent,
     HeaderComponent, ElementIconComponent, ElementComponent,
     PartySheetComponent, PartySheetDialogComponent,
-    MainMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent,
+    MainMenuComponent, CharacterMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent,
     FooterComponent,
     LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,
     HintDialogComponent, ScenarioRulesComponent,
@@ -129,6 +134,7 @@ export class GhsHammerConfig extends HammerGestureConfig {
     EditionEditorComponent,
     EditorActionComponent, EditorActionDialogComponent,
     DeckEditorComponent, CharacterEditorComponent, MonsterEditorComponent,
+    GhsTooltipComponent, GhsTooltipDirective,
     FeedbackToolComponent, FeedbackDialogComponent],
   imports: [
     BrowserModule,

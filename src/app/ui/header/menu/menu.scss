@@ -97,8 +97,17 @@
       filter: var(--ghs-filter-white);
     }
 
+
+    button {
+      border: 0;
+      box-shadow: none;
+      outline: none;
+      background-color: transparent;
+    }
+
     a,
-    label {
+    label,
+    button {
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -339,61 +348,6 @@
 
   &.monster-add {
     min-width: calc(var(--ghs-unit) * 30 * var(--ghs-dialog-factor));
-  }
-
-
-  .level-container {
-    position: fixed;
-    top: 0;
-    display: grid;
-    grid-template-columns: repeat(5, calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor)));
-    padding: calc(var(--ghs-unit) * 0.6 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-    background-color: var(--ghs-color-black);
-    z-index: 2;
-
-    span.item {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
-      width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
-    }
-
-    img {
-      height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-      width: auto;
-    }
-
-    .level {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
-      width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
-      cursor: pointer;
-      font-family: var(--ghs-font-title);
-      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-      color: var(--ghs-color-white);
-      text-shadow: var(--ghs-outline);
-
-      &:hover {
-        border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
-        border-radius: 100%;
-      }
-
-      &.active {
-        pointer-events: none;
-        border: calc(var(--ghs-unit) / 4) var(--ghs-color-white) solid;
-        border-radius: 100%;
-      }
-    }
-
-    &+.columns .column .line.sticky,
-    &+.columns .column .line:not(sticky):first-child {
-      padding-top: calc(var(--ghs-unit) * 15 * var(--ghs-dialog-factor));
-    }
-
   }
 
   .hidden-monster-menu {

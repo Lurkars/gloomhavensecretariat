@@ -55,6 +55,7 @@
       "valrath": "Valrath",
       "vermling": "Vermling"
     },
+    "filter": "Filter Character",
     "present": "Present",
     "progress": {
       ".": "Character Sheet",
@@ -710,6 +711,7 @@
     },
     "summary": {
       ".": "Scenario Summary",
+      "close": "Close dialog to apply",
       "gold": "Gold",
       "loot": "Loot",
       "name": "%character%",
@@ -947,6 +949,10 @@
     "scenarioRules": {
       ".": "Show Scenario Rules",
       "hint": "Show popup windows about special scenario rules and optional apply them"
+    },
+    "showFullAbilityCard": {
+      ".": "Show full ability cards",
+      "hint": "Show full ability cards including card title."
     },
     "theme": {
       ".": "Theme",

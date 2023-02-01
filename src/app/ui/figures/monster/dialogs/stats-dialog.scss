@@ -42,4 +42,10 @@
       transform-origin: top left;
     }
   }
+
+  &.full-ability {
+    .stats-container .stats {
+      min-height: calc(var(--ghs-unit) * 24 * var(--ghs-dialog-factor));
+    }
+  }
 }

@@ -1,5 +1,5 @@
 <div class="monster"
-  [ngClass]="{'off' : monsterOff(), 'denied' : !gameManager.stateManager.hasMonsterPermission(monster)}">
+  [ngClass]="{'off' : monsterOff(), 'denied' : !gameManager.stateManager.hasMonsterPermission(monster), 'full-ability'  : settingsManager.settings.showFullAbilityCard}">
   <ghs-monster-image [monster]="monster"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
   </ghs-monster-image>

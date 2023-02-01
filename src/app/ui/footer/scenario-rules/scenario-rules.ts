@@ -10,13 +10,13 @@ import { Monster } from "src/app/game/model/Monster";
 import { MonsterType } from "src/app/game/model/MonsterType";
 import { Objective } from "src/app/game/model/Objective";
 import { Condition, ConditionName } from "src/app/game/model/Condition";
-import { ScenarioSummaryComponent } from "src/app/ui/footer/scenario/scenario";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { GameState } from "src/app/game/model/Game";
 import { AttackModifier, AttackModifierType } from "src/app/game/model/AttackModifier";
 import { Figure } from "src/app/game/model/Figure";
 import { ScenarioObjectiveIdentifier } from "src/app/game/model/data/ObjectiveData";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
+import { ScenarioSummaryComponent } from "../scenario/summary/scenario-summary";
 
 @Component({
     selector: 'ghs-scenario-rules',

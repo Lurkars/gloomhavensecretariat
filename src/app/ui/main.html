@@ -9,7 +9,7 @@
       [ngClass]="{'column' : columns > 1}">
       <div cdkDrag>
         <div cdkDragHandle class="handle" (click)="handleClick($event)"
-          [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure)}"
+          [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure), 'monster-full' : settingsManager.settings.showFullAbilityCard}"
           *ngIf="!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters || gameManager.stateManager.permissions.monsters">
         </div>
         <ghs-character [character]="gameManager.toCharacter(figure)" *ngIf="gameManager.isCharacter(figure)">
@@ -19,7 +19,7 @@
         <ghs-monster [monster]="gameManager.toMonster(figure)" *ngIf="gameManager.isMonster(figure)">
         </ghs-monster>
         <div cdkDragHandle class="handle right" (click)="handleClick($event)"
-          [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure)}"
+          [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure), 'monster-full' : settingsManager.settings.showFullAbilityCard}"
           *ngIf=" !gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters ||
           gameManager.stateManager.permissions.monsters">
         </div>

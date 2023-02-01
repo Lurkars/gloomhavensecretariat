@@ -18,7 +18,10 @@ export function ghsShuffleArray(array: any[]): any[] {
   return array;
 }
 
-export function ghsHasSpoilers(items: Spoilable[]): boolean {
+export function ghsHasSpoilers(items: Spoilable[], multiple: boolean = false): boolean {
+  if (multiple) {
+    return items.filter((spoilable) => spoilable.spoiler && settingsManager.settings.spoilers.indexOf(spoilable.name) == -1).length > 1;
+  }
   return items.some((spoilable) => spoilable.spoiler && settingsManager.settings.spoilers.indexOf(spoilable.name) == -1);
 }
 

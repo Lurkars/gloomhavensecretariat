@@ -8,7 +8,7 @@ export class SettingsManager {
 
   defaultLocale: string = 'en';
   defaultEditions: string[] = ["gh", "jotl", "fc", "cs", "fh", "solo"];
-  defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/fh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/cs.json", "./assets/data/solo.json", "./assets/data/sox.json", "./assets/data/bas.json"];
+  defaultEditionDataUrls: string[] = ["./assets/data/gh.json", "./assets/data/fh.json", "./assets/data/jotl.json", "./assets/data/fc.json", "./assets/data/cs.json", "./assets/data/solo.json", "./assets/data/gh-envx.json", "./assets/data/sox.json", "./assets/data/bas.json"];
 
   settings: Settings = new Settings();
   label: any = {};
@@ -183,6 +183,11 @@ export class SettingsManager {
 
   setAbilityReveal(abilityReveal: boolean) {
     this.settings.abilityReveal = abilityReveal;
+    this.storeSettings();
+  }
+
+  setShowFullAbilityCard(showFullAbilityCard: boolean) {
+    this.settings.showFullAbilityCard = showFullAbilityCard;
     this.storeSettings();
   }
 
@@ -385,7 +390,7 @@ export class SettingsManager {
     gameManager.editionData = [];
   }
 
-  async loadEditionData(url: string): Promise<boolean> {
+  async loadEditionData(url: string, force: boolean = false): Promise<boolean> {
     try {
       const success = await fetch(url)
         .then(response => {
@@ -395,9 +400,13 @@ export class SettingsManager {
           }
           return response.json();
         }).then((value: EditionData) => {
-          if (gameManager.editions(true).indexOf(value.edition) != -1) {
+          if (gameManager.editions(true).indexOf(value.edition) != -1 && !force) {
             console.warn("Edition already exists: " + value.edition);
             return false;
+          }
+
+          if (force) {
+            gameManager.editionData = gameManager.editionData.filter((editionData) => editionData.url != url);
           }
 
           value.url = url;

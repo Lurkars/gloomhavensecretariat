@@ -1,6 +1,7 @@
 import { DIALOG_DATA } from "@angular/cdk/dialog";
 import { Component, Inject } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterType } from "src/app/game/model/MonsterType";
 
@@ -11,6 +12,7 @@ import { MonsterType } from "src/app/game/model/MonsterType";
 })
 export class MonsterStatsDialogComponent {
 
+  settingsManager: SettingsManager = settingsManager;
   levels: number[] = [0, 1, 2, 3, 4, 5, 6, 7];
 
   constructor(@Inject(DIALOG_DATA) public monster: Monster) { }

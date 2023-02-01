@@ -126,9 +126,14 @@
 
           </div>
 
-          <div class="row items">
-            <label *ngIf="!fhSheet">{{'character.progress.items' | ghsLabel}}:</label>
-            <label *ngIf="fhSheet">{{'character.progress.notes' | ghsLabel}}:</label>
+          <div *ngIf="fhSheet" class="row items">
+            <label>{{'character.progress.notes' | ghsLabel}}:</label>
+            <textarea [value]="character.progress.notes" (change)="setNotes($event)"
+              placeholder="{{'character.progress.notes' | ghsLabel}}"></textarea>
+          </div>
+
+          <div class="row items" *ngIf="!fhSheet">
+            <label>{{'character.progress.items' | ghsLabel}}:</label>
             <div class="item-list">
               <div class="item-entry" *ngFor="let item of items; let index = index;">
                 <span class="icon"><img [src]="'./assets/images/items/slots/' + item.slot +'.svg'"></span>
@@ -227,8 +232,48 @@
         <label class="headline">{{'character.progress.notes' | ghsLabel}}</label>
         <div class="columns">
           <div class="column column-left">
-            <textarea [value]="character.progress.notes" (change)="setNotes($event)"
+            <textarea *ngIf="!fhSheet" [value]="character.progress.notes" (change)="setNotes($event)"
               placeholder="{{'character.progress.notes' | ghsLabel}}"></textarea>
+
+            <div class="items" *ngIf="fhSheet">
+              <label>{{'character.progress.items' | ghsLabel}}:</label>
+              <div class="item-list">
+                <div class="item-entry" *ngFor="let item of items; let index = index;">
+                  <span class="icon"><img [src]="'./assets/images/items/slots/' + item.slot +'.svg'"></span>
+                  <span class="id">{{item.id}}.</span>
+                  <span class="name">{{item.name}}
+                    <ng-container *ngIf="item.edition != character.edition">&nbsp;({{'data.edition.' + item.edition |
+                      ghsLabel}})</ng-container>
+                  </span>
+                  <span class="spacer"></span>
+                  <a class="button loot" (click)="sellItem(item)"><img src="./assets/images/loot.svg">
+                    {{item.cost && (item.cost / 2) || '?'}}
+                  </a>
+                  <a class="button remove" (click)="removeItem(item)"><img src="./assets/images/close.svg"></a>
+                </div>
+              </div>
+              <div class="item-form">
+                <span class="prev" [ngClass]="{'disabled' : itemIndex == 1}" (click)="itemChange(-1)"><img
+                    src="./assets/images/left.svg"></span>
+                <input type="number" (change)="itemChange()" [(ngModel)]="itemIndex" min="1" value="1"
+                  [ngClass]="{'warn' : !itemCanAdd, 'error': !item}">
+                <select #itemEdition (change)="itemChange()" [ngClass]="{'warn' : !itemCanAdd, 'error': !item}">
+                  <option *ngFor="let edition of gameManager.editions()" [value]="edition">{{'data.edition.' + edition |
+                    ghsLabel}}</option>
+                </select>
+                <a class="button add" (click)="addItem()" [ngClass]="{'disabled': !item || !itemCanAdd}"><img
+                    src="./assets/images/plus.svg" [ngClass]="{'warn' : !itemCanAdd}"></a>
+                <span class="next" (click)="itemChange(+1)"> <img src="./assets/images/right.svg"></span>
+                <ng-container *ngIf="item">
+                  <span class="icon"><img [src]="'./assets/images/items/slots/' + item.slot +'.svg'"></span>
+                  <span class="name">{{item.name}}</span>
+                  <a class="button loot" (click)="buyItem()"
+                    [ngClass]="{'disabled' : !item || (item.cost + priceModifier) > character.progress.gold || !itemCanAdd}"><img
+                      src="./assets/images/loot.svg">{{item && item.cost && (item.cost + priceModifier) || '?'}}</a>
+                </ng-container>
+              </div>
+            </div>
+
           </div>
           <div class="column column-right">
             <div class="personal-quest">

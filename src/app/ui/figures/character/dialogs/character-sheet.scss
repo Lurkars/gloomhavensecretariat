@@ -810,6 +810,10 @@
 
     .items {
       height: calc(var(--ghs-unit) * 11 * var(--ghs-dialog-factor));
+
+      .item-list {
+        height: auto;
+      }
     }
 
     .resources {
@@ -931,7 +935,7 @@
     }
 
     .notes {
-      margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+      margin-top: calc(var(--ghs-unit) * 1.2 * var(--ghs-dialog-factor));
     }
   }
 }

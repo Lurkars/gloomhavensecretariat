@@ -87,6 +87,20 @@
     <div class="line">
       <div class="hint-container">
         <label>
+          <input type="checkbox" [checked]="settingsManager.settings.showFullAbilityCard"
+            (change)="settingsManager.setShowFullAbilityCard(!settingsManager.settings.showFullAbilityCard)">{{'settings.showFullAbilityCard'
+          | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.showFullAbilityCard.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="line">
+      <div class="hint-container">
+        <label>
           <input type="checkbox" [checked]="settingsManager.settings.initiativeRequired"
             (change)="settingsManager.setInitiativeRequired(!settingsManager.settings.initiativeRequired)">
           {{'settings.initiativeRequired' | ghsLabel}}

@@ -3,7 +3,6 @@ import packageJson from '../../../../../package.json';
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
-import { CharacterData } from "src/app/game/model/data/CharacterData";
 import { MonsterData } from "src/app/game/model/data/MonsterData";
 import { GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
@@ -142,37 +141,6 @@ export class MainMenuComponent implements OnInit {
     });
   }
 
-  characterData(edition: string | undefined = undefined): CharacterData[] {
-    return gameManager.charactersData(edition).sort((a, b) => {
-      const aName = settingsManager.getLabel('data.character.' + a.name).toLowerCase();
-      const bName = settingsManager.getLabel('data.character.' + b.name).toLowerCase();
-
-      if (a.spoiler && !b.spoiler) {
-        return 1;
-      }
-      if (!a.spoiler && b.spoiler) {
-        return -1;
-      }
-
-      if (a.spoiler && b.spoiler) {
-        if (!this.isSpoiled(a) && this.isSpoiled(b)) {
-          return 1;
-        }
-        if (this.isSpoiled(a) && !this.isSpoiled(b)) {
-          return -1;
-        }
-      }
-
-      if (aName > bName) {
-        return 1;
-      }
-      if (aName < bName) {
-        return -1;
-      }
-      return 0;
-    });
-  }
-
   monsters(): Monster[] {
     return gameManager.game.figures.filter((figure) => {
       return figure instanceof Monster;
@@ -238,15 +206,6 @@ export class MainMenuComponent implements OnInit {
       }
       return 0;
     });
-  }
-
-  addCharacter(characterData: CharacterData) {
-    gameManager.stateManager.before("addChar", "data.character." + characterData.name);
-    gameManager.characterManager.addCharacter(characterData, this.characterLevel);
-    if (this.hasAllCharacter()) {
-      this.close();
-    }
-    gameManager.stateManager.after();
   }
 
   removeCharacter(character: Character) {
@@ -321,16 +280,6 @@ export class MainMenuComponent implements OnInit {
     this.close();
     gameManager.scenarioManager.setScenario(undefined);
     gameManager.stateManager.after();
-  }
-
-  hasCharacter(characterData: CharacterData) {
-    return gameManager.game.figures.some((figure) => {
-      return figure instanceof Character && characterData.name == figure.name && characterData.edition == figure.edition;
-    })
-  }
-
-  hasAllCharacter() {
-    return gameManager.charactersData().every((characterData) => gameManager.game.figures.some((figure) => figure instanceof CharacterData && figure.name == characterData.name && figure.edition == characterData.edition));
   }
 
   hasMonster(monsterData: MonsterData) {

@@ -1,4 +1,4 @@
-<div class="stats-dialog">
+<div class="stats-dialog" [ngClass]="{'full-ability': settingsManager.settings.showFullAbilityCard}">
   <span class="name">{{'data.monster.' + monster.name | ghsLabel}}  <span *ngIf="monster.isAlly">({{'game.ally' | ghsLabel}})</span> <span class="edition"
       *ngIf="getEdition()">[{{'data.edition.' + getEdition()| ghsLabel}}]</span>
   </span>

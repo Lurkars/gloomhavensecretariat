@@ -1,18 +1,18 @@
 # Gloomhaven Secretariat
 
-[Latest Online Version](https://gloomhaven-secretary.de)
+[Latest Online Version](https://gloomhaven-secretariat.de)
 
 *Gloomhaven Secretariat* is a **Gloomhaven/Frosthaven companion app** and does bookkeeping of all entities values to gain more focus on gameplay. It is an open source web app made with [Angular](https://angular.io/).
 
 As GHS is a web application no installation is required and it runs in every modern browser even on mobile, still it can also be [installed](#install) for offline usage.
 
-For usage with multiple clients sharing the same game, the server component [Gloomhaven Secretariat Server](https://github.com/Lurkars/ghs-server) is required. A public instance is available under `gloomhaven-secretary.de` port `8443` with `secure` option. (I also manage a public server list, so please contact me, if you're running a public instance yourself.)
+For usage with multiple clients sharing the same game, the server component [Gloomhaven Secretariat Server](https://github.com/Lurkars/ghs-server) is required. A public instance is available under `gloomhaven-secretariat.de` port `8443` with `secure` option. (I also manage a public server list, so please contact me, if you're running a public instance yourself.)
 
 GHS is based on the look&feel of the original [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (by [Esoteric Software®](http://esotericsoftware.com)). Since GHH is discontinued and not available anymore, GHS should become a well maintained successor, implementing all functionality of GHH, many improvements and many more features. For a comparison of some popular apps, see [Comparison of Companion Apps](https://github.com/Lurkars/gloomhavensecretariat/wiki/Comparison-of-Companion-Apps).
 
 As open source software this is meant for the community to actively [contribute](#contributing) with ideas, suggestions and of course feedback. As I am not capable of good design/UX also feel free to contribute better assets. 
 
-If you need help using the app take a look at the [help page](https://help.gloomhaven-secretary.de). It is not complete but should help with all general steps to use GHS properly.
+If you need help using the app take a look at the [help page](https://help.gloomhaven-secretariat.de). It is not complete but should help with all general steps to use GHS properly.
 
 > SPOILER WARNING:
 > The `label-spoiler.json` files inside the `data`-folders and therefore the final edition data files in releases inside `./assets/data`-folder contain spoilers by including the corresponding label.
@@ -62,7 +62,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - load custom JSON edition data for custom content!
   - edit Monster Attack Modifier and Monster Ability decks (support for Diviner class mechanics): reveal cards, remove cards, re-order cards
   - FH Loot Deck support incl. Enhancements
-  - [Monster data editor](https://gloomhaven-secretary.de/editor/monster)
+  - [Monster data editor](https://gloomhaven-secretariat.de/editor/monster)
   - includes Solo Scenarios for GH, FC and CS
   - includes [Blood and Sand](https://boardgamegeek.com/thread/2613617/blood-and-sand-gloomhaven-campaign-set-red-desert) campaign: can be enabled under *Data Management* (Big thanks to [/u/Calm_Construction131](https://www.reddit.com/user/Calm_Construction131) for contribution)
   - includes [Seeker of Xor](https://boardgamegeek.com/thread/2220121/seeker-xorn-bonus-content) campaign: can be enabled under *Data Management*
@@ -70,7 +70,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - <details>
       <summary>SPOILER WARNING: Envelope X</summary>
 
-      > To add Envelope X, add the following Edition Data Url under *Data Management* `./assets/data/gh-envx.json` and enable it.
+      > To add Envelope X, enable it under *Data Management*, then type the complete secret into the *Character Filter* (not case-sensitive).
     </details>
 
 ### Short term plans
@@ -88,7 +88,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
 
 ### Install as App
 
-You can always install any hosted version as App (PWA) if your OS/Browser supports installation of PWA. For example here is the [Latest Online Version](https://gloomhaven-secretary.de).
+You can always install any hosted version as App (PWA) if your OS/Browser supports installation of PWA. For example here is the [Latest Online Version](https://gloomhaven-secretariat.de).
 
 Instructions for various devices/browser:
 - [Chrome/Android](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Installing#google_chrome_for_android)
@@ -151,15 +151,11 @@ Every edition folder get concatenated to a single edition data file on build.
 
 Also pull requests are welcome!
 
-Many thanks to all already contributing, you're awesome:
-
-<a href="https://github.com/Lurkars/gloomhavensecretariat/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Lurkars/gloomhavensecretariat" />
-</a>
+Many thanks to all already [contributed](https://github.com/Lurkars/gloomhavensecretariat/graphs/contributors), you're awesome!
 
 ## Archive
 
-All older versions are also available on `gloomhaven-secretariat.de`, for example the first version `v0.0.1` is available under [v0-0-1.gloomhaven-secretary.de](https://v0-0-1.gloomhaven-secretary.de). All available tags are listed under [Releases](https://github.com/Lurkars/gloomhavensecretariat/releases), just replace all `.` with `-` for a proper url. This is meant as showcase for the evolution of GHS, but also as fallback, if a release does break anything important, than you can always fallback to a previous version. 
+All older versions are also available on `gloomhaven-secretariat.de`, for example the first version `v0.0.1` is available under [v0-0-1.gloomhaven-secretariat.de](https://v0-0-1.gloomhaven-secretariat.de). All available tags are listed under [Releases](https://github.com/Lurkars/gloomhavensecretariat/releases), just replace all `.` with `-` for a proper url. This is meant as showcase for the evolution of GHS, but also as fallback, if a release does break anything important, than you can always fallback to a previous version. 
 
 > Please keep in mind that there is no history of the server component. So connecting with older clients to the current server may not work properly!
 

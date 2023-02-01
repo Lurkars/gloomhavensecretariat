@@ -73,7 +73,7 @@
         <label
           [title]="(settingsManager.settings.editions.indexOf(editionData.edition) != -1 ? 'datamanagement.editionDataUrls.disable' : 'datamanagement.editionDataUrls.enable') | ghsLabel">
           <input type="checkbox" [checked]="settingsManager.settings.editions.indexOf(editionData.edition) != -1"
-            (change)="toggleEdition(editionData.edition)">
+            (change)="toggleEdition(editionData)">
           {{'data.edition.' + editionData.edition | ghsLabel}}
         </label>
         <span class="custom" [title]="'datamanagement.editionDataUrls.custom' | ghsLabel"

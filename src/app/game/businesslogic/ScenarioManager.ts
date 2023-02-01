@@ -32,6 +32,7 @@ export class ScenarioManager {
       }
       gameManager.roundManager.resetScenario();
       this.applyScenarioData(scenarioData);
+      this.addScenarioRules(true);
     } else if (!scenario) {
       gameManager.roundManager.resetScenario();
     }
@@ -294,12 +295,12 @@ export class ScenarioManager {
     return blocked;
   }
 
-  addScenarioRules() {
+  addScenarioRules(initial: boolean = false) {
     this.game.scenarioRules = [];
     const scenario = this.game.scenario;
     if (scenario && scenario.rules) {
       scenario.rules.forEach((rule, index) => {
-        this.addScenarioRule(scenario, rule, index, false);
+        this.addScenarioRule(scenario, rule, index, false, initial);
       })
     }
 
@@ -307,7 +308,7 @@ export class ScenarioManager {
       this.game.sections.forEach((section) => {
         if (section.rules) {
           section.rules.forEach((rule, index) => {
-            this.addScenarioRule(section, rule, index, true);
+            this.addScenarioRule(section, rule, index, true, initial);
           })
         }
       })
@@ -362,14 +363,14 @@ export class ScenarioManager {
     this.game.scenarioRules = this.game.scenarioRules.filter((ruleModel, index, self) => !self.find((disableRule) => disableRule.rule.disableRules && disableRule.rule.disableRules.some((value) => value.edition == ruleModel.identifier.edition && value.group == ruleModel.identifier.group && (value.index == ruleModel.identifier.index || value.index == -1) && value.scenario == ruleModel.identifier.scenario && value.section == ruleModel.identifier.section)));
   }
 
-  addScenarioRule(scenarioData: ScenarioData, rule: ScenarioRule, index: number, section: boolean) {
+  addScenarioRule(scenarioData: ScenarioData, rule: ScenarioRule, index: number, section: boolean, initial: boolean = false) {
     const identifier = { "edition": scenarioData.edition, "scenario": scenarioData.index, "group": scenarioData.group, "index": index, "section": section };
 
     let round = rule.round || 'false';
     let add = false;
 
     while (round.indexOf('R') != -1) {
-      round = round.replace('R', '' + (gameManager.game.state == GameState.draw ? (this.game.round + 1) : this.game.round));
+      round = round.replace('R', '' + (rule.start ? (this.game.round + 1) : this.game.round));
     }
 
     while (round.indexOf('C') != -1) {
@@ -380,7 +381,7 @@ export class ScenarioManager {
       add = true
     } else {
       try {
-        add = eval(round) && (this.game.state == GameState.next && !rule.start || this.game.state == GameState.draw && rule.start);
+        add = eval(round) && (this.game.state == GameState.next || rule.start && initial);
       } catch (error) {
         console.warn("Cannot apply scenario rule: '" + rule.round + "'", "index: " + index, error);
         add = false;

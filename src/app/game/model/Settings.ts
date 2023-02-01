@@ -16,6 +16,7 @@ export class Settings {
   initiativeRequired: boolean = true;
   disableStandees: boolean = false;
   abilityReveal: boolean = true;
+  showFullAbilityCard: boolean = false;
   applyLoot: boolean = true;
   alwaysLootApplyDialog = false;
   alwaysLootDeck: boolean = false;

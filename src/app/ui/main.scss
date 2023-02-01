@@ -159,6 +159,14 @@ main {
       top: calc(var(--ghs-unit) * 5);
       height: calc(var(--ghs-unit) * 11.5);
     }
+
+    &.monster-full {
+      height: calc(var(--ghs-unit) * 24);
+
+      &.right {
+        height: calc(var(--ghs-unit) * 13);
+      }
+    }
   }
 
   &.right {

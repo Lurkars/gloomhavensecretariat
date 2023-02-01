@@ -52,6 +52,7 @@ export class CharacterData implements Editional, Spoilable {
   edition: string = "";
   // from Spoilable
   spoiler: boolean = false;
+  locked: boolean = false;
 
   // error
   errors: FigureError[] | undefined;

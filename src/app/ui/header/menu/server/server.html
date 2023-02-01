@@ -1,104 +1,106 @@
 <div class="menu-container two-column server">
   <div class="column">
-    <div class="line">
-      <label>
-        <input type="checkbox" [checked]="settingsManager.settings.serverAutoconnect"
-          (change)="settingsManager.setServerAutoconnect(!settingsManager.settings.serverAutoconnect)">
-        {{'server.autoconnect' | ghsLabel}}
-      </label>
-    </div>
-
-    <div class="line">
-      <label>
-        <input type="checkbox" [checked]="settingsManager.settings.serverSettings"
-          (change)="settingsManager.setServerSettings(!settingsManager.settings.serverSettings)">
-        {{'server.settings' | ghsLabel}}
-      </label>
-    </div>
-
-    <div class="line" [ngSwitch]="gameManager.stateManager.wsState()">
-      <p *ngSwitchCase="WebSocket.OPEN">{{'server.connected' | ghsLabel}}</p>
-      <p *ngSwitchCase="WebSocket.CONNECTING">{{'server.connecting' | ghsLabel}}</p>
-      <p *ngSwitchCase="WebSocket.CLOSING">{{'server.closing' | ghsLabel}}</p>
-      <p *ngSwitchCase="WebSocket.CLOSED">{{'server.closed' | ghsLabel}}</p>
-      <p *ngSwitchCase="-1">{{'server.disconnected' | ghsLabel}}</p>
-      <p *ngSwitchDefault>{{'server.undefined' | ghsLabel}}</p>
-    </div>
-
-    <div class="line separator" *ngIf="publicServer">
-      <select (change)="selectServer($event)">
-        <option>{{('server.list.' + (selectedServerIndex == -1 ? 'select' : 'deselect')) | ghsLabel}}</option>
-        <option *ngFor="let server of publicServer; let i = index;" [value]="i" [selected]="selectedServerIndex == i">
-          {{server.url}}:{{server.port}}</option>
-      </select>
-    </div>
-
-    <div class="server-info" *ngIf="selectedServerIndex != -1">
-      <a [href]="publicServer[selectedServerIndex].privacy" target="_blank">{{'server.info.privacy' | ghsLabel}}</a>
-      <a [href]="publicServer[selectedServerIndex].website" target="_blank">{{'server.info.website' | ghsLabel}}</a>
-
-      <label>{{'server.info.description' | ghsLabel}}</label>
-      <p>{{publicServer[selectedServerIndex].description}}</p>
-
-      <label>{{'server.info.location' | ghsLabel}}</label>
-      <p>{{publicServer[selectedServerIndex].location}}</p>
-    </div>
-
-    <div class="line separator" [ngClass]="{'hidden' : selectedServerIndex != -1}">
-      <label class="label">{{'server.url' | ghsLabel}}</label>
-      <input type="text" #serverUrl [value]="settingsManager.settings.serverUrl || ''" (keyup)="0"
-        (change)="setServerUrl($event)" placeholder="{{'server.url' | ghsLabel}}">
-    </div>
-    <div class="line" [ngClass]="{'hidden' : selectedServerIndex != -1}">
-      <label class="label">{{'server.port' | ghsLabel}}</label>
-      <input type="number" #serverPort [value]="settingsManager.settings.serverPort || ''" (keyup)="0"
-        (change)="setServerPort($event)" placeholder="{{'server.port' | ghsLabel}}">
-    </div>
-    <div class="line">
-      <div class="password-container">
-        <label class="label">{{'server.password' | ghsLabel}}</label>
-        <span class="spacer"></span>
-        <a *ngIf="!settingsManager.settings.serverPassword" (click)="createUUID()">{{'server.password.uuid' |
-          ghsLabel}}</a>
+    <form (ngSubmit)="connect(serverUrl.value,serverPort.value,serverPassword.value)">
+      <div class="line">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.serverAutoconnect"
+            (change)="settingsManager.setServerAutoconnect(!settingsManager.settings.serverAutoconnect)">
+          {{'server.autoconnect' | ghsLabel}}
+        </label>
       </div>
-      <input type="text" #serverPassword [value]="settingsManager.settings.serverPassword || ''" (keyup)="0"
-        (change)="setServerPassword($event)" placeholder="{{'server.password' | ghsLabel}}">
-    </div>
 
-    <div class="columns" [ngClass]="{'hidden' : selectedServerIndex != -1}">
-      <div class="column">
-        <div class="line">
-          <label>
-            <input type="checkbox" [checked]="settingsManager.settings.serverWss" (change)="settingsManager.setServerWss(!settingsManager.settings.serverWss);
-                this.updateServer();">
-            {{'server.wss' | ghsLabel}}
-          </label>
-        </div>
+      <div class="line">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.serverSettings"
+            (change)="settingsManager.setServerSettings(!settingsManager.settings.serverSettings)">
+          {{'server.settings' | ghsLabel}}
+        </label>
       </div>
-      <div class="column"
-        *ngIf="settingsManager.settings.serverWss && serverUrl.value && serverPort.value && serverPassword.value && tryConnect && gameManager.stateManager.wsState() != WebSocket.OPEN">
-        <div class="line">
-          <a target="_blank"
-            [href]="gameManager.stateManager.buildWsUrl('https://', serverUrl.value, serverPort.value)">{{'server.wss.accept'
-            | ghsLabel}}</a>
-        </div>
+
+      <div class="line" [ngSwitch]="gameManager.stateManager.wsState()">
+        <p *ngSwitchCase="WebSocket.OPEN">{{'server.connected' | ghsLabel}}</p>
+        <p *ngSwitchCase="WebSocket.CONNECTING">{{'server.connecting' | ghsLabel}}</p>
+        <p *ngSwitchCase="WebSocket.CLOSING">{{'server.closing' | ghsLabel}}</p>
+        <p *ngSwitchCase="WebSocket.CLOSED">{{'server.closed' | ghsLabel}}</p>
+        <p *ngSwitchCase="-1">{{'server.disconnected' | ghsLabel}}</p>
+        <p *ngSwitchDefault>{{'server.undefined' | ghsLabel}}</p>
       </div>
-    </div>
-    <div class="columns">
-      <div class="column">
-        <div class="line">
-          <a (click)="connect(serverUrl.value,serverPort.value,serverPassword.value)"
-            [ngClass]="{'disabled' : !serverUrl.value || !serverPort.value || !serverPassword.value}">{{(gameManager.stateManager.wsState()
-            == WebSocket.OPEN ? 'server.reconnect' : 'server.connect') |
+
+      <div class="line separator" *ngIf="publicServer">
+        <select (change)="selectServer($event)">
+          <option>{{('server.list.' + (selectedServerIndex == -1 ? 'select' : 'deselect')) | ghsLabel}}</option>
+          <option *ngFor="let server of publicServer; let i = index;" [value]="i" [selected]="selectedServerIndex == i">
+            {{server.url}}:{{server.port}}</option>
+        </select>
+      </div>
+
+      <div class="server-info" *ngIf="selectedServerIndex != -1">
+        <a [href]="publicServer[selectedServerIndex].privacy" target="_blank">{{'server.info.privacy' | ghsLabel}}</a>
+        <a [href]="publicServer[selectedServerIndex].website" target="_blank">{{'server.info.website' | ghsLabel}}</a>
+
+        <label>{{'server.info.description' | ghsLabel}}</label>
+        <p>{{publicServer[selectedServerIndex].description}}</p>
+
+        <label>{{'server.info.location' | ghsLabel}}</label>
+        <p>{{publicServer[selectedServerIndex].location}}</p>
+      </div>
+
+      <div class="line separator" [ngClass]="{'hidden' : selectedServerIndex != -1}">
+        <label class="label">{{'server.url' | ghsLabel}}</label>
+        <input type="text" #serverUrl [value]="settingsManager.settings.serverUrl || ''" (keyup)="0"
+          (change)="setServerUrl($event)" placeholder="{{'server.url' | ghsLabel}}">
+      </div>
+      <div class="line" [ngClass]="{'hidden' : selectedServerIndex != -1}">
+        <label class="label">{{'server.port' | ghsLabel}}</label>
+        <input type="number" #serverPort [value]="settingsManager.settings.serverPort || ''" (keyup)="0"
+          (change)="setServerPort($event)" placeholder="{{'server.port' | ghsLabel}}">
+      </div>
+      <div class="line">
+        <div class="password-container">
+          <label class="label">{{'server.password' | ghsLabel}}</label>
+          <span class="spacer"></span>
+          <a *ngIf="!settingsManager.settings.serverPassword" (click)="createUUID()">{{'server.password.uuid' |
             ghsLabel}}</a>
         </div>
+        <input type="text" #serverPassword [value]="settingsManager.settings.serverPassword || ''" (keyup)="0"
+          (change)="setServerPassword($event)" placeholder="{{'server.password' | ghsLabel}}">
       </div>
-      <div class="column" *ngIf="gameManager.stateManager.wsState() == WebSocket.OPEN">
-        <div class="line">
-          <a (click)="disconnect()">{{'server.disconnect' | ghsLabel}}</a>
+
+      <div class="columns" [ngClass]="{'hidden' : selectedServerIndex != -1}">
+        <div class="column">
+          <div class="line">
+            <label>
+              <input type="checkbox" [checked]="settingsManager.settings.serverWss" (change)="settingsManager.setServerWss(!settingsManager.settings.serverWss);
+                this.updateServer();">
+              {{'server.wss' | ghsLabel}}
+            </label>
+          </div>
+        </div>
+        <div class="column"
+          *ngIf="settingsManager.settings.serverWss && serverUrl.value && serverPort.value && serverPassword.value && tryConnect && gameManager.stateManager.wsState() != WebSocket.OPEN">
+          <div class="line">
+            <a target="_blank"
+              [href]="gameManager.stateManager.buildWsUrl('https://', serverUrl.value, serverPort.value)">{{'server.wss.accept'
+              | ghsLabel}}</a>
+          </div>
         </div>
       </div>
-    </div>
+      <div class="columns">
+        <div class="column">
+          <div class="line">
+            <button type="submit" [disabled]="!serverUrl.value || !serverPort.value || !serverPassword.value"
+              [ngClass]="{'disabled' : !serverUrl.value || !serverPort.value || !serverPassword.value}">{{(gameManager.stateManager.wsState()
+              == WebSocket.OPEN ? 'server.reconnect' : 'server.connect') |
+              ghsLabel}}</button>
+          </div>
+        </div>
+        <div class="column" *ngIf="gameManager.stateManager.wsState() == WebSocket.OPEN">
+          <div class="line">
+            <a (click)="disconnect()">{{'server.disconnect' | ghsLabel}}</a>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
   <div class="column" *ngIf="gameManager.stateManager.wsState() == WebSocket.OPEN">
     <div class="line title">

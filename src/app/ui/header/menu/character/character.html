@@ -1,0 +1,37 @@
+<div class="menu-container character-add">
+  <div class="level-container">
+    <span class="item"><img src="./assets/images/status/level.svg" /></span>
+    <span class="item" *ngFor="let level of [] | ghsRange:9"><a class="level"
+        [ngClass]="{'active' : level + 1 == characterLevel}" (click)="characterLevel = level+1">{{level
+        +1}}</a></span>
+    <div class="line search">
+      <input [(ngModel)]="filter" type="text" [placeholder]="'character.filter' | ghsLabel">
+    </div>
+  </div>
+  <div class="columns">
+    <ng-container *ngFor="let edition of gameManager.currentEditions()">
+      <div class="column spoilers" *ngIf="characterData('', edition).length > 0">
+        <div class="line title sticky">
+          <label>{{'data.edition.' + edition | ghsLabel}}</label>
+        </div>
+        <div class="line separator reveal-all" *ngIf="hasSpoilers(characterData(filter, edition), true)">
+          <a (click)="settingsManager.addSpoilers(notSpoiled(characterData(edition)))">{{'spoiler.all' |
+            ghsLabel}}</a>
+        </div>
+        <div class="line" *ngFor="let characterData of characterData(filter, edition)"
+          [ngClass]="{'disabled' : hasCharacter(characterData), 'spoiler' : characterData.spoiler}">
+          <a (click)="addCharacter(characterData);" *ngIf="isSpoiled(characterData)">
+            <img class="icon" [src]="gameManager.characterManager.characterIcon(characterData)" />{{'data.character.'
+            + characterData.name | ghsLabel}}
+          </a>
+          <a (click)="settingsManager.addSpoiler(characterData.name);" *ngIf="!isSpoiled(characterData)">
+            <img class="icon spoiler" [src]="gameManager.characterManager.characterIcon(characterData)" />
+            <span class="name">
+              {{'spoiler.placeholder' | ghsLabel}}</span>
+            <span class="add">{{'spoiler.add' | ghsLabel}}</span>
+          </a>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

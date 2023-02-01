@@ -117,7 +117,7 @@ export class GameManager {
   }
 
   charactersData(edition: string | undefined = undefined): CharacterData[] {
-    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(edition).indexOf(edition) != -1).map((editionData) => editionData.characters).flat().filter((characterData, index, characters) => characterData.replace || !characterData.replace && !characters.find((characterDataReplacement) => characterDataReplacement.replace && characterDataReplacement.name == characterData.name && characterDataReplacement.edition == characterData.edition));;
+    return this.editionData.map((editionData) => editionData.characters).flat().filter((characterData, index, characters) => (!edition || characterData.edition == edition) && (characterData.replace || !characterData.replace && !characters.find((characterDataReplacement) => characterDataReplacement.replace && characterDataReplacement.name == characterData.name && characterDataReplacement.edition == characterData.edition)));
   }
 
   monstersData(edition: string | undefined = undefined): MonsterData[] {
