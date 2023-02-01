@@ -46,7 +46,7 @@ import { PartySheetDialogComponent } from './ui/header/party/party-sheet-dialog'
 import { DragClickDirective } from './ui/helper/drag';
 import { AttackModifierDeckComponent } from './ui/figures/attackmodifier/attackmodifierdeck';
 import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodifier';
-import { ScenarioComponent, ScenarioDialogComponent, ScenarioSummaryComponent, SectionDialogComponent } from './ui/footer/scenario/scenario';
+import { ScenarioComponent } from './ui/footer/scenario/scenario';
 import { EntityMenuDialogComponent } from './ui/figures/entity-menu/entity-menu-dialog';
 import { MonsterLevelDialogComponent } from './ui/figures/monster/dialogs/level-dialog';
 import { MonsterStatsDialogComponent } from './ui/figures/monster/dialogs/stats-dialog';
@@ -82,6 +82,9 @@ import { FeedbackDialogComponent } from './ui/tools/feedback/feedback-dialog';
 import { FeedbackToolComponent } from './ui/tools/feedback/feedback';
 import { LootApplyDialogComponent } from './ui/figures/loot/loot-apply-dialog';
 import { EntitiesMenuDialogComponent } from './ui/figures/entities-menu/entities-menu-dialog';
+import { ScenarioDialogComponent } from './ui/footer/scenario/dialog/scenario-dialog';
+import { SectionDialogComponent } from './ui/footer/scenario/section/section-dialog';
+import { ScenarioSummaryComponent } from './ui/footer/scenario/summary/scenario-summary';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
