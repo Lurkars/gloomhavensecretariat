@@ -3197,11 +3197,6 @@
     "index": "122",
     "name": "The Eternal Crave",
     "edition": "fh",
-    "monsters": [
-      "ice-wraith",
-      "polar-bear",
-      "snow-imp"
-    ],
     "lootDeckConfig": {
       "money": 6,
       "lumber": 3,

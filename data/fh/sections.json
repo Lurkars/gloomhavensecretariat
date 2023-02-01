@@ -18,6 +18,47 @@
     ]
   },
   {
+    "index": "8.4",
+    "name": "The Eternal Crave",
+    "parent": "122",
+    "edition": "fh",
+    "marker": "6",
+    "parentSections": [
+      "172.1"
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "11-B",
+        "initial": true,
+        "treasures": [
+          31
+        ],
+        "monster": [
+          {
+            "name": "ice-wraith",
+            "type": "elite"
+          },
+          {
+            "name": "ice-wraith",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "snow-imp",
+            "player4": "elite"
+          },
+          {
+            "name": "snow-imp",
+            "player2": "elite",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "index": "11.7",
     "name": "The Lead Door",
     "parent": "103",
@@ -336,8 +377,49 @@
     "name": "The Eternal Crave",
     "parent": "122",
     "edition": "fh",
+    "marker": "1",
     "monsters": [
-      "hungry-maw"
+      "hungry-maw",
+      "snow-imp"
+    ],
+    "blocksSections": [
+      "152.1"
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "15-C",
+        "initial": true,
+        "monster": [
+          {
+            "name": "hungry-maw",
+            "type": "boss"
+          },
+          {
+            "name": "snow-imp",
+            "player2": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "snow-imp",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "snow-imp",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "snow-imp",
+            "type": "normal"
+          },
+          {
+            "name": "snow-imp",
+            "type": "normal"
+          }
+        ]
+      }
     ]
   },
   {
@@ -359,6 +441,55 @@
     "edition": "fh",
     "monsters": [
       "flaming-sword-of-justice"
+    ]
+  },
+  {
+    "index": "109.3",
+    "name": "The Eternal Crave",
+    "parent": "122",
+    "edition": "fh",
+    "parentSections": [
+      "8.4",
+      "145.1"
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "15-B",
+        "initial": true,
+        "monster": [
+          {
+            "name": "ice-wraith",
+            "player2": "elite",
+            "player3": "elite",
+            "player4": "normal"
+          },
+          {
+            "name": "ice-wraith",
+            "player4": "normal"
+          },
+          {
+            "name": "ice-wraith",
+            "player4": "normal"
+          },
+          {
+            "name": "snow-imp",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "snow-imp",
+            "player2": "normal",
+            "player3": "elite"
+          },
+          {
+            "name": "snow-imp",
+            "player2": "normal",
+            "player3": "elite"
+          }
+        ]
+      }
     ]
   },
   {
@@ -430,12 +561,177 @@
     ]
   },
   {
+    "index": "145.1",
+    "name": "The Eternal Crave",
+    "parent": "122",
+    "edition": "fh",
+    "marker": "5",
+    "parentSections": [
+      "179.2"
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "11-B",
+        "initial": true,
+        "treasures": [
+          31
+        ],
+        "monster": [
+          {
+            "name": "ice-wraith",
+            "type": "elite"
+          },
+          {
+            "name": "ice-wraith",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "snow-imp",
+            "player4": "elite"
+          },
+          {
+            "name": "snow-imp",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "polar-bear",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "polar-bear",
+            "player4": "normal"
+          },
+          {
+            "name": "polar-bear",
+            "player4": "normal"
+          },
+          {
+            "name": "snow-imp",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "snow-imp",
+            "player2": "normal",
+            "player3": "elite"
+          },
+          {
+            "name": "snow-imp",
+            "player2": "normal",
+            "player3": "elite"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "index": "146.3",
     "name": "A Contained Fire",
     "parent": "89",
     "edition": "fh",
     "monsters": [
       "vanjal"
+    ]
+  },
+  {
+    "index": "151.1",
+    "name": "The Eternal Crave",
+    "parent": "122",
+    "edition": "fh",
+    "marker": "2",
+    "monsters": [
+      "polar-bear"
+    ],
+    "parentSections": [
+      "98.1"
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "12-B",
+        "initial": true,
+        "treasures": [
+          31
+        ],
+        "monster": [
+          {
+            "name": "polar-bear",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "polar-bear",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "snow-imp",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "normal"
+          },
+          {
+            "name": "snow-imp",
+            "type": "normal"
+          },
+          {
+            "name": "snow-imp",
+            "player4": "elite"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "index": "152.1",
+    "name": "The Eternal Crave",
+    "parent": "122",
+    "edition": "fh",
+    "marker": "2",
+    "monsters": [
+      "polar-bear",
+      "snow-imp"
+    ],
+    "blocksSections": [
+      "98.1"
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "12-B",
+        "initial": true,
+        "monster": [
+          {
+            "name": "polar-bear",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "snow-imp",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "normal"
+          },
+          {
+            "name": "snow-imp",
+            "type": "normal"
+          },
+          {
+            "name": "snow-imp",
+            "player4": "normal"
+          }
+        ]
+      }
     ]
   },
   {
@@ -451,6 +747,48 @@
     ]
   },
   {
+    "index": "172.1",
+    "name": "The Eternal Crave",
+    "parent": "122",
+    "edition": "fh",
+    "marker": "4",
+    "monsters": [
+      "ice-wraith"
+    ],
+    "parentSections": [
+      "152.1"
+    ],
+    "blocksSections": [
+      "179.2"
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "07-A",
+        "initial": true,
+        "monster": [
+          {
+            "name": "polar-bear",
+            "player4": "normal"
+          },
+          {
+            "name": "polar-bear",
+            "type": "normal"
+          },
+          {
+            "name": "ice-wraith",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "ice-wraith",
+            "type": "elite"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "index": "174.3",
     "name": "Ruinous Research Lab",
     "parent": "81",
@@ -459,6 +797,53 @@
       {
         "name": "Barricade",
         "health": "L+5"
+      }
+    ]
+  },
+  {
+    "index": "179.2",
+    "name": "The Eternal Crave",
+    "parent": "122",
+    "edition": "fh",
+    "marker": "3",
+    "monsters": [
+      "ice-wraith"
+    ],
+    "parentSections": [
+      "152.1"
+    ],
+    "blocksSections": [
+      "172.1"
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "01-F",
+        "initial": true,
+        "monster": [
+          {
+            "name": "polar-bear",
+            "type": "elite"
+          },
+          {
+            "name": "polar-bear",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "ice-wraith",
+            "type": "normal"
+          },
+          {
+            "name": "snow-imp",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "snow-imp",
+            "player4": "elite"
+          }
+        ]
       }
     ]
   },
