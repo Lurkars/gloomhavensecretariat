@@ -27,7 +27,7 @@
           "monster": {
             "name": "ooze",
             "player2": "normal",
-            "player3": "ekite",
+            "player3": "elite",
             "player4": "elite"
           },
           "count": "F"
