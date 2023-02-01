@@ -1,6 +1,6 @@
 [
     {
-        "url": "gloomhaven-secretary.de",
+        "url": "gloomhaven-secretariat.de",
         "port": 8443,
         "privacy": "https://github.com/Lurkars/ghs-server#privacy",
         "secure": true,
