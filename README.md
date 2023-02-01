@@ -77,7 +77,6 @@ If you need help using the app take a look at the [help page](https://help.gloom
 
 - validation of all existing data
 - room/section/standee data for all scenarios!
-- 
 - add Trail Of Ashes edition data
 
 ### Long term plans
