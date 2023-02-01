@@ -110,8 +110,6 @@ To selfhost *Gloomhaven Secretariat* on your webserver, simple download the zip 
 
 #### Build and run using Docker
 
-### Build and run using Docker
-
 [![Publish Docker Image](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/publish-docker-image.yml/badge.svg)](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/publish-docker-image.yml)
 
 If you want to use docker for running on port 80 execute following:
