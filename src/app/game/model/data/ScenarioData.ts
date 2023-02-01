@@ -27,6 +27,7 @@ export class ScenarioData implements Editional, Spoilable {
   lootDeckConfig: LootDeckConfig = {};
   parent: string | undefined;
   parentSections: string[] = [];
+  blocksSections: string[] = [];
   resetRound: boolean = false;
 
   // from Editional
