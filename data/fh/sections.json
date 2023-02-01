@@ -196,47 +196,46 @@
     "name": "Upper Spire",
     "parent": "24",
     "edition": "fh",
-	"marker": "2",
-	"parentSections": [
+    "parentSections": [
       "83.2"
     ],
-	"rooms": [
-	  {
-	    "roomNumber": 1,
-		"ref": "04-B",
-		"initial": true,
-		"monster": [
-		  {
-		    "name": "chaos-demon",
-			"player3": "normal",
-			"player4": "elite"
-		  },
-		  {
-		    "name": "chaos-demon",
-			"type": "elite"
-		  },
-		  {
-		    "name": "living-bones",
-			"player4": "normal"
-		  },
-		  {
-		    "name": "living-bones",
-			"player3": "normal",
-			"player4": "normal"
-		  },
-		  {
-		    "name": "living-bones",
-			"type": "elite"
-		  },
-		  {
-		    "name": "wind-demon",
-			"player2": "normal",
-			"player3": "normal",
-			"player4": "elite"
-		  }
-		]
-	  }	
-	]
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "04-B",
+        "initial": true,
+        "monster": [
+          {
+            "name": "chaos-demon",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "chaos-demon",
+            "type": "elite"
+          },
+          {
+            "name": "living-bones",
+            "player4": "normal"
+          },
+          {
+            "name": "living-bones",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "living-bones",
+            "type": "elite"
+          },
+          {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        ]
+      }
+    ]
   },
   {
     "index": "80.2",
@@ -255,46 +254,45 @@
     "name": "Upper Spire",
     "parent": "24",
     "edition": "fh",
-	"marker": "1",
-	"monsters": [
-	  "wind-demon"
-	],
-	"rooms": [
-	  {
-	    "roomNumber": 1,
-		"ref": "08-A",
-		"initial": true,
-		"monster": [
-		  {
-		    "name": "chaos-demon",
-			"player2": "normal",
-			"player3": "normal",
-			"player4": "elite"
-		  },
-		  {
-		    "name": "living-bones",
-			"type": "normal"
-		  },
-		  {
-		    "name": "living-bones",
-			"player3": "normal",
-			"player4": "normal"
-		  },
-		  {
-		    "name": "wind-demon",
-			"player2": "normal",
-			"player3": "elite",
-			"player4": "elite"
-		  },
-		  {
-		    "name": "wind-demon",
-			"player2": "normal",
-			"player3": "elite",
-			"player4": "elite"
-		  }
-		]
-	  }	
-	]
+    "monsters": [
+      "wind-demon"
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "08-A",
+        "initial": true,
+        "monster": [
+          {
+            "name": "chaos-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "living-bones",
+            "type": "normal"
+          },
+          {
+            "name": "living-bones",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          }
+        ]
+      }
+    ]
   },
   {
     "index": "84.1",

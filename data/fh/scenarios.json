@@ -848,22 +848,22 @@
       "random_item": 1
     },
     "rules": [
-	{
-	  "round": "R == 1",
-	  "start": true,
-	  "figures": [
-	    {
-		  "identifier": {
-		    "type": "character",
-			"name": ".*"
-		  },
-		  "type": "amAdd",
-		  "value": "curse:2",
-		  "scenarioEffect": true
-		}
-	  ]
-	}
-	],
+      {
+        "round": "R == 1",
+        "start": true,
+        "figures": [
+          {
+            "identifier": {
+              "type": "character",
+              "name": ".*"
+            },
+            "type": "amAdd",
+            "value": "curse:2",
+            "scenarioEffect": true
+          }
+        ]
+      }
+    ],
     "rooms": [
       {
         "roomNumber": 1,
