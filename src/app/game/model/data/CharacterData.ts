@@ -1,7 +1,8 @@
+import { AttackModifier } from "../AttackModifier";
 import { CharacterStat } from "../CharacterStat";
 import { Editional } from "../Editional";
 import { FigureError } from "../FigureError";
-import { Perk } from "../Perks";
+import { Perk, PerkCard } from "../Perks";
 import { Spoilable } from "../Spoilable";
 import { SummonData } from "./SummonData";
 
@@ -46,6 +47,8 @@ export class CharacterData implements Editional, Spoilable {
 
   perks: Perk[] = [];
 
+  additionalModifier: PerkCard[] = [];
+
   masteries: string[] = [];
 
   // from Editional
@@ -78,6 +81,7 @@ export class CharacterData implements Editional, Spoilable {
         this.deck = character.deck;
       }
       this.perks = character.perks || [];
+      this.additionalModifier = character.additionalModifier || [];
       this.masteries = character.masteries || [];
     }
   }

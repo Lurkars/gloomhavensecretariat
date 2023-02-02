@@ -29,6 +29,7 @@ export class StateManager {
     const local: string | null = localStorage.getItem("ghs-game");
     if (local != null) {
       const gameModel: GameModel = Object.assign(new GameModel(), JSON.parse(local));
+      gameModel.server = false;
       this.game.fromModel(gameModel);
       gameManager.uiChange.emit();
     } else {

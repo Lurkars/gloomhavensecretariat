@@ -68,9 +68,9 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - includes [Seeker of Xor](https://boardgamegeek.com/thread/2220121/seeker-xorn-bonus-content) campaign: can be enabled under *Data Management*
   - manage multiple parties (on party sheet while no active scenario set)
   - <details>
-      <summary>SPOILER WARNING: Envelope X</summary>
+      <summary>SPOILER WARNING: Envelope X (and V)</summary>
 
-      > To add Envelope X, enable it under *Data Management*, then type the complete secret into the *Character Filter* (not case-sensitive).
+      > To add Envelope X (or V for ToA), enable it under *Data Management*, then type the complete name into the *Character Filter* (not case-sensitive).
     </details>
 
 ### Short term plans

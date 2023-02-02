@@ -63,6 +63,10 @@
   width: auto !important;
 }
 
+.spoilers .line:nth-child(2), .spoilers .reveal-all+.line {
+  border-top: none !important;
+}
+
 .spoilers .line:last-child {
   margin-bottom: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
 }

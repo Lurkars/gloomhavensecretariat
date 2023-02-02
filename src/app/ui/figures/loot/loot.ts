@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from "@angular/core";
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { Loot, LootType } from "src/app/game/model/Loot";
 
@@ -7,9 +7,10 @@ import { Loot, LootType } from "src/app/game/model/Loot";
     templateUrl: './loot.html',
     styleUrls: ['./loot.scss']
 })
-export class LootComponent implements OnChanges {
+export class LootComponent implements OnInit, OnChanges {
 
     @Input() loot!: Loot;
+    @Input() disableFlip: boolean = false;
     @Input() flipped: boolean = false;
     @Input() reveal: boolean = false;
 
@@ -19,13 +20,17 @@ export class LootComponent implements OnChanges {
     revealed: boolean = false;
     animate: boolean = false;
 
+    ngOnInit(): void {
+        this.animate = !this.disableFlip;
+    }
+
     onChange(revealed: boolean) {
         this.revealed = revealed;
     }
 
     ngOnChanges(changes: SimpleChanges): void {
         const flipped = changes['flipped'];
-        if (flipped && !flipped.firstChange && flipped.currentValue != flipped.previousValue) {
+        if (flipped && !this.disableFlip && flipped.currentValue && flipped.currentValue != flipped.previousValue) {
             this.animate = true;
         }
     }

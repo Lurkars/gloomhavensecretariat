@@ -44,6 +44,8 @@ export class EntityMenuDialogComponent {
   range: number = 0;
   bless: number = 0;
   curse: number = 0;
+  empower: number = 0;
+  enfeeble: number = 0;
   marker: number = 0;
   id: number = 0;
   objectiveDead: boolean = false;
@@ -201,6 +203,39 @@ export class EntityMenuDialogComponent {
         this.curse = 10 - existing;
       } else if (this.curse + existing < 0) {
         this.curse = -existing;
+      }
+    }
+  }
+
+  countAdditional(type: AttackModifierType): number {
+    if (this.data.figure instanceof Character && this.data.figure.additionalModifier.filter((card) => card.attackModifier.type == type).length > 0) {
+      return this.data.figure.additionalModifier.filter((card) => card.attackModifier.type == type).map((card) => card.count || 1).reduce((a, b) => a + b);
+    }
+    return 0;
+  }
+
+  changeEmpower(value: number) {
+    if (this.data.figure instanceof Character) {
+      this.empower += value;
+      const existing = this.countAllUpcomingAttackModifier(AttackModifierType.empower);
+      const count_all = this.countAdditional(AttackModifierType.empower);
+      if (this.empower + existing >= count_all) {
+        this.empower = count_all - existing;
+      } else if (this.empower + existing < 0) {
+        this.empower = -existing;
+      }
+    }
+  }
+
+  changeEnfeeble(value: number) {
+    if (this.data.figure instanceof Character) {
+      this.enfeeble += value;
+      const existing = this.countAllUpcomingAttackModifier(AttackModifierType.enfeeble);
+      const count_all = this.countAdditional(AttackModifierType.enfeeble);
+      if (this.enfeeble + existing >= count_all) {
+        this.enfeeble = count_all - existing;
+      } else if (this.enfeeble + existing < 0) {
+        this.enfeeble = -existing;
       }
     }
   }

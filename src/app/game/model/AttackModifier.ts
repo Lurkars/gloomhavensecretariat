@@ -11,6 +11,8 @@ export enum AttackModifierType {
   double = "double",
   bless = "bless",
   curse = "curse",
+  empower = "empower",
+  enfeeble = "enfeeble",
   invalid = "invalid",
 }
 

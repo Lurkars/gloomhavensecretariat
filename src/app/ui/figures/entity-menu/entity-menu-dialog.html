@@ -166,6 +166,55 @@
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </ghs-drag-click>
         </span>
+
+        <ng-container *ngIf="gameManager.isCharacter(data.figure) && this.countAdditional(AttackModifierType.empower)">
+          <span class="item">
+            <ghs-drag-click class="button"
+              [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.empower) + this.empower == 0}"
+              (singleClick)="changeEmpower(-1)" [repeat]="true">
+              <img class="ghs-svg" src="./assets/images/minus.svg">
+            </ghs-drag-click>
+          </span>
+          <span class="item" title="{{'game.condition.empower' | ghsLabel}}">
+            <span class="condition">
+              <img src="./assets/images/status/empower.svg" />
+            </span>
+            <span class="badge empower-count">{{countUpcomingAttackModifier(AttackModifierType.empower) +
+              this.empower}}</span>
+          </span>
+          <span class="item">
+            <ghs-drag-click class="button"
+              [ngClass]="{'disabled' : countAllUpcomingAttackModifier(AttackModifierType.empower) + this.empower >= this.countAdditional(AttackModifierType.empower)}"
+              (singleClick)="changeEmpower(1)" [repeat]="true">
+              <img class="ghs-svg" src="./assets/images/plus.svg">
+            </ghs-drag-click>
+          </span>
+        </ng-container>
+
+        <ng-container *ngIf="gameManager.isCharacter(data.figure) && this.countAdditional(AttackModifierType.enfeeble)">
+          <span class="item">
+            <ghs-drag-click class="button"
+              [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.enfeeble) + this.enfeeble == 0}"
+              (singleClick)="changeEnfeeble(-1)" [repeat]="true">
+              <img class="ghs-svg" src="./assets/images/minus.svg">
+            </ghs-drag-click>
+          </span>
+          <span class="item" title="{{'game.condition.enfeeble' | ghsLabel}}">
+            <span class="condition">
+              <img src="./assets/images/status/enfeeble.svg" />
+            </span>
+            <span class="badge enfeeble-count">{{countUpcomingAttackModifier(AttackModifierType.enfeeble) +
+              this.enfeeble}}</span>
+          </span>
+          <span class="item">
+            <ghs-drag-click class="button"
+              [ngClass]="{'disabled' : countAllUpcomingAttackModifier(AttackModifierType.enfeeble) + this.enfeeble >= this.countAdditional(AttackModifierType.enfeeble)}"
+              (singleClick)="changeEnfeeble(1)" [repeat]="true">
+              <img class="ghs-svg" src="./assets/images/plus.svg">
+            </ghs-drag-click>
+          </span>
+        </ng-container>
+
       </ng-container>
 
       <ng-container *ngIf="data.entity && gameManager.isObjective(data.entity)">

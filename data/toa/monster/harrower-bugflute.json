@@ -1,0 +1,68 @@
+{
+  "name": "harrower-bugflute",
+  "edition": "toa",
+  "deck": "boss",
+  "boss": true,
+  "flying": true,
+  "count": 1,
+  "baseStat": {
+    "immunities": [
+      "disarm",
+      "stun",
+      "curse",
+      "immobilize"
+    ],
+    "special": [],
+    "type": "boss"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "health": 12,
+      "movement": 3,
+      "attack": 2
+    },
+    {
+      "level": 1,
+      "health": 14,
+      "movement": 3,
+      "attack": 2
+    },
+    {
+      "level": 2,
+      "health": 18,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "level": 3,
+      "health": 20,
+      "movement": 4,
+      "attack": 3
+    },
+    {
+      "level": 4,
+      "health": 22,
+      "movement": 4,
+      "attack": 4
+    },
+    {
+      "level": 5,
+      "health": 26,
+      "movement": 4,
+      "attack": 4
+    },
+    {
+      "level": 6,
+      "health": 28,
+      "movement": 4,
+      "attack": 5
+    },
+    {
+      "level": 7,
+      "health": 30,
+      "movement": 4,
+      "attack": 6
+    }
+  ]
+}

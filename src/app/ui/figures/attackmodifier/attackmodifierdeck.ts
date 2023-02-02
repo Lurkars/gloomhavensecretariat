@@ -104,10 +104,10 @@ export class AttackModifierDeckComponent implements OnInit {
             this.current = this.deck.current;
             this.internalDraw = this.deck.current;
           }
+        }
 
-          if (settingsManager.settings.fhStyle) {
-            this.newStyle = true;
-          }
+        if (settingsManager.settings.fhStyle) {
+          this.newStyle = true;
         }
       }
     })

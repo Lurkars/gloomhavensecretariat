@@ -41,6 +41,7 @@ export class LootDeckComponent implements OnInit {
     gameManager: GameManager = gameManager;
     lootManager: LootManager = gameManager.lootManager;
     current: number = -1;
+    internalDraw: number = -99;
     LootType = LootType;
     GameState = GameState;
     drawing: boolean = false;
@@ -59,22 +60,37 @@ export class LootDeckComponent implements OnInit {
 
     ngOnInit(): void {
         this.current = this.deck.current;
+        this.internalDraw = -99;
         gameManager.uiChange.subscribe({
             next: () => {
-                if (!this.queueTimeout || this.deck.current < this.current + this.queue) {
-                    if (this.queueTimeout) {
-                        clearTimeout(this.queueTimeout);
-                        this.queueTimeout = null;
-                    }
-                    this.queue = 0;
-                    this.drawing = false;
+                if (this.internalDraw == -99 && this.current < this.deck.current) {
                     this.current = this.deck.current;
+                    this.internalDraw = this.deck.current;
+                } else if (this.internalDraw != -99) {
+                    if (this.internalDraw < this.deck.current) {
+                        if (!this.queueTimeout) {
+                            this.current++;
+                            this.update(false);
+                        } else {
+                            this.queue = this.queue + Math.max(0, this.deck.current - this.internalDraw);
+                        }
+                        this.internalDraw = this.deck.current;
+                    } else if (!this.queueTimeout || this.deck.current < this.current + this.queue) {
+                        if (this.queueTimeout) {
+                            clearTimeout(this.queueTimeout);
+                            this.queueTimeout = null;
+                        }
+                        this.queue = 0;
+                        this.drawing = false;
+                        this.current = this.deck.current;
+                        this.internalDraw = this.deck.current;
+                    }
                 }
             }
         })
     }
 
-    update() {
+    update(local: boolean = true) {
         this.drawing = true;
         this.element.nativeElement.getElementsByClassName('deck')[0].classList.add('drawing');
         this.queueTimeout = setTimeout(() => {
@@ -89,7 +105,7 @@ export class LootDeckComponent implements OnInit {
             }
 
             const loot = this.deck.cards[this.deck.current];
-            if (loot && appliableLootTypes.indexOf(loot.type) != null && settingsManager.settings.applyLoot && (!gameManager.game.figures.find((figure) => figure instanceof Character && figure.active) || settingsManager.settings.alwaysLootApplyDialog)) {
+            if (local && loot && appliableLootTypes.indexOf(loot.type) != null && settingsManager.settings.applyLoot && (!gameManager.game.figures.find((figure) => figure instanceof Character && figure.active) || settingsManager.settings.alwaysLootApplyDialog)) {
                 const dialog = this.dialog.open(LootApplyDialogComponent, {
                     panelClass: 'dialog',
                     data: loot
@@ -100,7 +116,9 @@ export class LootDeckComponent implements OnInit {
                         if (name) {
                             const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == name);
                             if (character) {
+                                gameManager.stateManager.before("addResource", "data.character." + character.name, "game.loot." + loot.type, this.lootManager.getValue(loot) + '');
                                 gameManager.lootManager.updateCharacterLoot(character as Character, loot);
+                                gameManager.stateManager.after();
                             }
                         }
                     }
@@ -116,7 +134,7 @@ export class LootDeckComponent implements OnInit {
             if (!this.drawTimeout && this.deck.current < this.deck.cards.length - 1) {
                 this.drawTimeout = setTimeout(() => {
                     this.before.emit(new LootDeckChange(this.deck, 'lootDeckDraw'));
-                    this.lootManager.drawCard(this.deck);
+                    gameManager.lootManager.drawCard(this.deck); this.internalDraw = this.deck.current;
                     this.after.emit(new LootDeckChange(this.deck, 'lootDeckDraw'));
                     if (this.drawing && this.deck.current + this.queue < this.deck.cards.length) {
                         this.queue++;

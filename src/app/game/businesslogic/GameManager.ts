@@ -104,7 +104,21 @@ export class GameManager {
 
   editionExtensions(edition: string): string[] {
     const editionData = this.editionData.find((editionData) => editionData.edition == edition);
-    return editionData && editionData.extensions || [];
+    let extensions: string[] = [];
+    if (editionData && editionData.extensions) {
+      editionData.extensions.forEach((extension) => {
+        if (extensions.indexOf(extension) == -1) {
+          extensions.push(extension);
+        }
+        this.editionExtensions(extension).forEach((extExt) => {
+          if (extensions.indexOf(extExt) == -1) {
+            extensions.push(extExt);
+          }
+        })
+      })
+    }
+
+    return extensions;
   }
 
   newAmStyle(edition: string): boolean {

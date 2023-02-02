@@ -208,7 +208,9 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
   }
 
   setResource(type: LootType, event: any) {
+    gameManager.stateManager.before("setResource", "data.character." + this.character.name, "game.loot." + type, event.target.value);
     this.character.progress.loot[type] = +event.target.value;
+    this.gameManager.stateManager.after();
   }
 
   donate() {

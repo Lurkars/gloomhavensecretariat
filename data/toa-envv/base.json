@@ -1,0 +1,6 @@
+{
+  "edition": "toa-envv",
+  "extensions": [
+    "toa"
+  ]
+}
