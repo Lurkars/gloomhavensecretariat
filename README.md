@@ -141,7 +141,7 @@ For development with docker, install docker compose and run `docker compose -f d
 
 ## Contributing
 
-Feel free to file a [new issue](https://github.com/Lurkars/gloomhavensecretariat/issues/new/choose) for bugs, features, improvements, help or feedback.
+Feel free to file a [new issue](https://github.com/Lurkars/gloomhavensecretariat/issues/new/choose) for bugs, features and improvements or start a new [new discussion](https://github.com/Lurkars/gloomhavensecretariat/discussions/new/choose) for help or feedback.
 
 All game data is inside the [data](./data/) folder with subfolders for every edition. A review of all data by a third person would be awesome. As all files are JSON data it should be easily human readable. Every character, monster and monster deck has it's own file, so it should be easy to check.
 Every edition folder get concatenated to a single edition data file on build.
