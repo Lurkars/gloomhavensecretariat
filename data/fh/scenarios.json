@@ -240,7 +240,7 @@
               "player3": "elite",
               "player4": "elite"
             },
-            "marker": "c",
+            "marker": "e",
             "count": 2
           }
         ]
@@ -296,6 +296,15 @@
             "name": "lightning-eel",
             "player3": "normal",
             "player4": "elite"
+          },
+          {
+            "name": "lightning-eel",
+            "player4": "normal"
+          },
+          {
+            "name": "lightning-eel",
+            "player3": "normal",
+            "player4": "normal"
           },
           {
             "name": "piranha-pig",
