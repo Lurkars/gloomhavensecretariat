@@ -9,10 +9,10 @@
     "8"
   ],
   "monsters": [
-    "frozen-fist",
-    "snowdancer",
     "algox-guard",
-    "algox-scout"
+    "algox-scout",
+    "frozen-fist",
+    "snowdancer"
   ],
   "allies": [
     "algox-scout"
@@ -53,38 +53,6 @@
       "initial": true,
       "monster": [
         {
-          "name": "algox-scout",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "algox-scout",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "algox-scout",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "algox-scout",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "algox-guard",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "algox-guard",
-          "player4": "normal"
-        },
-        {
           "name": "algox-guard",
           "type": "elite"
         },
@@ -96,6 +64,38 @@
         },
         {
           "name": "algox-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-scout",
+          "player3": "normal",
           "player4": "normal"
         }
       ]

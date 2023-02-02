@@ -6,7 +6,7 @@
     "9",
     "10"
   ],
-  "blocks" : [
+  "blocks": [
     "6"
   ],
   "monsters": [
@@ -46,8 +46,7 @@
       "monster": [
         {
           "name": "ice-wraith",
-          "player3": "elite",
-          "player4": "elite"
+          "type": "normal"
         },
         {
           "name": "ice-wraith",
@@ -55,11 +54,12 @@
         },
         {
           "name": "ice-wraith",
-          "player4": "normal"
+          "player3": "elite",
+          "player4": "elite"
         },
         {
           "name": "ice-wraith",
-          "type": "normal"
+          "player4": "normal"
         }
       ]
     }

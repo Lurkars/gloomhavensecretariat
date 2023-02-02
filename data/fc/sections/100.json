@@ -29,30 +29,6 @@
       ],
       "monster": [
         {
-          "name": "cultist",
-          "player4": "normal"
-        },
-        {
-          "name": "cultist",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "cultist",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "cultist",
-          "player4": "normal"
-        },
-        {
-          "name": "black-imp",
-          "player2": "normal",
-          "player4": "normal"
-        },
-        {
           "name": "black-imp",
           "player2": "normal",
           "player3": "elite",
@@ -65,14 +41,25 @@
           "player4": "normal"
         },
         {
-          "name": "deep-terror",
+          "name": "black-imp",
           "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "deep-terror",
-          "type": "normal"
+          "name": "black-imp",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         },
         {
           "name": "cultist",
@@ -81,12 +68,25 @@
           "player4": "normal"
         },
         {
-          "name": "black-imp",
-          "player3": "normal",
+          "name": "cultist",
+          "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "black-imp",
+          "name": "cultist",
+          "player4": "normal"
+        },
+        {
+          "name": "cultist",
+          "player4": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },

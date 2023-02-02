@@ -24,13 +24,17 @@
       ],
       "monster": [
         {
-          "name": "algox-scout",
+          "name": "algox-guard",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "algox-guard",
+          "name": "algox-scout",
+          "type": "elite"
+        },
+        {
+          "name": "algox-scout",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
@@ -39,10 +43,6 @@
           "name": "algox-scout",
           "player3": "normal",
           "player4": "normal"
-        },
-        {
-          "name": "algox-scout",
-          "type": "elite"
         },
         {
           "name": "algox-scout",

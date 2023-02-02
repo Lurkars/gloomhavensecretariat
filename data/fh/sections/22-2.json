@@ -26,22 +26,10 @@
       "initial": true,
       "monster": [
         {
-          "name": "snow-imp",
-          "type": "elite"
-        },
-        {
-          "name": "snow-imp",
+          "name": "frost-demon",
+          "player2": "normal",
           "player3": "normal",
           "player4": "elite"
-        },
-        {
-          "name": "snow-imp",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "snow-imp",
-          "type": "elite"
         },
         {
           "name": "frost-demon",
@@ -50,8 +38,20 @@
           "player4": "elite"
         },
         {
-          "name": "frost-demon",
-          "player2": "normal",
+          "name": "snow-imp",
+          "type": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "type": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
           "player3": "normal",
           "player4": "elite"
         }

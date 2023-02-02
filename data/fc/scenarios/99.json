@@ -28,6 +28,30 @@
       "initial": true,
       "monster": [
         {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "black-imp",
+          "type": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "cultist",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
           "name": "cultist",
           "player2": "elite",
           "player3": "elite",
@@ -35,10 +59,6 @@
         },
         {
           "name": "cultist",
-          "player4": "elite"
-        },
-        {
-          "name": "cultist",
           "player3": "normal",
           "player4": "normal"
         },
@@ -48,25 +68,11 @@
         },
         {
           "name": "cultist",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
           "player2": "normal",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "black-imp",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "black-imp",
-          "type": "elite"
-        },
-        {
-          "name": "black-imp",
-          "type": "elite"
-        },
-        {
-          "name": "black-imp",
           "player3": "normal",
           "player4": "elite"
         },
@@ -80,12 +86,6 @@
           "name": "deep-terror",
           "player3": "normal",
           "player4": "normal"
-        },
-        {
-          "name": "deep-terror",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
         }
       ],
       "objectives": [

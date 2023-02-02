@@ -20,10 +20,6 @@
       "monster": [
         {
           "name": "bandit-guard",
-          "player4": "normal"
-        },
-        {
-          "name": "bandit-guard",
           "player2": "normal"
         },
         {
@@ -32,15 +28,11 @@
         },
         {
           "name": "bandit-guard",
-          "player4": "elite"
-        },
-        {
-          "name": "valrath-tracker",
           "player4": "normal"
         },
         {
-          "name": "valrath-tracker",
-          "player2": "normal"
+          "name": "bandit-guard",
+          "player4": "elite"
         },
         {
           "name": "valrath-tracker",
@@ -49,13 +41,20 @@
         },
         {
           "name": "valrath-tracker",
+          "player2": "normal"
+        },
+        {
+          "name": "valrath-tracker",
           "player3": "elite",
           "player4": "normal"
         },
         {
-          "name": "wolf-viper-abomination",
-          "player3": "normal",
+          "name": "valrath-tracker",
           "player4": "normal"
+        },
+        {
+          "name": "wolf-viper-abomination",
+          "player2": "normal"
         },
         {
           "name": "wolf-viper-abomination",
@@ -68,15 +67,16 @@
         },
         {
           "name": "wolf-viper-abomination",
-          "player2": "normal"
-        },
-        {
-          "name": "wolf-viper-abomination",
-          "player4": "elite"
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "wolf-viper-abomination",
           "player3": "normal"
+        },
+        {
+          "name": "wolf-viper-abomination",
+          "player4": "elite"
         }
       ]
     }

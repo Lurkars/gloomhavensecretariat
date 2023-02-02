@@ -4,7 +4,7 @@
   "edition": "fh",
   "parent": "10",
   "marker": "1",
-  "monster": [
+  "monsters": [
     "algox-icespeaker"
   ],
   "objectives": [
@@ -104,6 +104,12 @@
           "player4": "normal"
         },
         {
+          "name": "algox-icespeaker",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
           "name": "algox-priest",
           "type": "normal"
         },
@@ -116,12 +122,6 @@
         {
           "name": "algox-priest",
           "player4": "normal"
-        },
-        {
-          "name": "algox-icespeaker",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
         }
       ],
       "objectives": [

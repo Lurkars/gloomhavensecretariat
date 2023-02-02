@@ -9,10 +9,10 @@
     "8"
   ],
   "monsters": [
-    "frozen-fist",
-    "snowdancer",
     "algox-archer",
-    "algox-guard"
+    "algox-guard",
+    "frozen-fist",
+    "snowdancer"
   ],
   "drawExtra": [
     "snowdancer"
@@ -51,7 +51,7 @@
       "monster": [
         {
           "name": "algox-archer",
-          "player4": "normal"
+          "type": "elite"
         },
         {
           "name": "algox-archer",
@@ -60,18 +60,18 @@
         },
         {
           "name": "algox-archer",
-          "type": "elite"
+          "player4": "normal"
         },
         {
           "name": "algox-guard",
           "player2": "normal",
-          "player3": "elite",
+          "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "algox-guard",
           "player2": "normal",
-          "player3": "normal",
+          "player3": "elite",
           "player4": "elite"
         }
       ]

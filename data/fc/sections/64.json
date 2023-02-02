@@ -24,28 +24,28 @@
       ],
       "monster": [
         {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
           "name": "living-corpse",
           "player2": "elite",
           "player4": "elite"
         },
         {
           "name": "living-corpse",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "living-corpse",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "living-bones",
-          "player3": "normal",
+          "name": "living-corpse",
+          "player3": "elite",
           "player4": "normal"
-        },
-        {
-          "name": "living-bones",
-          "type": "normal"
         }
       ]
     }

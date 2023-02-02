@@ -17,13 +17,7 @@
       "monster": [
         {
           "name": "living-spirit",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "living-spirit",
-          "player3": "normal",
-          "player4": "normal"
+          "player2": "normal"
         },
         {
           "name": "living-spirit",
@@ -31,7 +25,13 @@
         },
         {
           "name": "living-spirit",
-          "player2": "normal"
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "living-spirit",
@@ -41,7 +41,7 @@
         {
           "name": "living-spirit",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "elite"
         }
       ]
     }

@@ -20,15 +20,10 @@
       "initial": true,
       "monster": [
         {
-          "name": "living-corpse",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "living-corpse",
-          "player2": "elite",
-          "player3": "normal",
-          "player4": "elite"
+          "name": "black-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
         },
         {
           "name": "black-imp",
@@ -42,9 +37,8 @@
           "player4": "elite"
         },
         {
-          "name": "black-imp",
+          "name": "living-bones",
           "player2": "normal",
-          "player3": "elite",
           "player4": "normal"
         },
         {
@@ -62,9 +56,15 @@
           "player3": "elite"
         },
         {
-          "name": "living-bones",
-          "player2": "normal",
-          "player4": "normal"
+          "name": "living-corpse",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "elite"
         }
       ]
     }

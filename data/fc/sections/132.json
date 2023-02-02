@@ -15,6 +15,12 @@
       "initial": true,
       "monster": [
         {
+          "name": "aesther-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
           "name": "black-imp",
           "player2": "normal",
           "player3": "elite",
@@ -29,12 +35,6 @@
           "name": "night-demon",
           "player3": "normal",
           "player4": "normal"
-        },
-        {
-          "name": "aesther-scout",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
         }
       ]
     }

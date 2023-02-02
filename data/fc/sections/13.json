@@ -6,9 +6,9 @@
   "marker": "1",
   "monsters": [
     "ancient-artillery",
+    "avatar-of-ashtar",
     "earth-demon",
-    "flame-demon",
-    "avatar-of-ashtar"
+    "flame-demon"
   ],
   "rooms": [
     {
@@ -18,14 +18,14 @@
       "monster": [
         {
           "name": "ancient-artillery",
-          "player2": "elite",
-          "player3": "normal",
+          "player2": "normal",
+          "player3": "elite",
           "player4": "normal"
         },
         {
           "name": "ancient-artillery",
-          "player2": "normal",
-          "player3": "elite",
+          "player2": "elite",
+          "player3": "normal",
           "player4": "normal"
         },
         {

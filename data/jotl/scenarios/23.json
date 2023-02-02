@@ -90,19 +90,19 @@
       "monster": [
         {
           "name": "rat-monstrosity",
-          "type": "elite"
-        },
-        {
-          "name": "rat-monstrosity",
-          "type": "elite"
-        },
-        {
-          "name": "rat-monstrosity",
           "type": "normal"
         },
         {
           "name": "rat-monstrosity",
           "type": "normal"
+        },
+        {
+          "name": "rat-monstrosity",
+          "type": "elite"
+        },
+        {
+          "name": "rat-monstrosity",
+          "type": "elite"
         }
       ]
     }

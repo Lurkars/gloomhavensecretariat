@@ -43,19 +43,6 @@
       "initial": true,
       "monster": [
         {
-          "name": "lurker-soldier",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "lurker-soldier",
-          "player4": "normal"
-        },
-        {
-          "name": "lurker-soldier",
-          "type": "normal"
-        },
-        {
           "name": "lurker-clawcrusher",
           "type": "elite"
         },
@@ -65,9 +52,22 @@
         },
         {
           "name": "lurker-soldier",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-soldier",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "lurker-soldier",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker-soldier",
+          "player4": "normal"
         }
       ]
     }

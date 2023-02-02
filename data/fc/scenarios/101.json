@@ -90,6 +90,15 @@
       "initial": true,
       "monster": [
         {
+          "name": "rending-drake",
+          "type": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
           "name": "spitting-drake",
           "player2": "normal",
           "player3": "normal",
@@ -100,15 +109,6 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
-        },
-        {
-          "name": "rending-drake",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "rending-drake",
-          "type": "normal"
         }
       ]
     }

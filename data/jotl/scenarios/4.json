@@ -153,11 +153,11 @@
         },
         {
           "name": "zealot",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "zealot",
-          "player4": "normal"
+          "player4": "elite"
         }
       ],
       "objectives": [

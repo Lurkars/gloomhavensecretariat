@@ -43,14 +43,14 @@
       "initial": true,
       "monster": [
         {
-          "name": "snow-imp",
-          "player3": "elite",
+          "name": "polar-bear",
+          "player2": "normal",
+          "player3": "normal",
           "player4": "elite"
         },
         {
           "name": "snow-imp",
-          "player3": "elite",
-          "player4": "elite"
+          "type": "normal"
         },
         {
           "name": "snow-imp",
@@ -62,12 +62,12 @@
         },
         {
           "name": "snow-imp",
-          "type": "normal"
+          "player3": "elite",
+          "player4": "elite"
         },
         {
-          "name": "polar-bear",
-          "player2": "normal",
-          "player3": "normal",
+          "name": "snow-imp",
+          "player3": "elite",
           "player4": "elite"
         }
       ]

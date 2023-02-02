@@ -23,8 +23,8 @@
     {
       "roomNumber": 2,
       "ref": "i1b",
-      "marker": "1",
       "initial": true,
+      "marker": "1",
       "monster": [
         {
           "name": "ancient-artillery",

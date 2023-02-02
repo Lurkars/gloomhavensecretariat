@@ -24,8 +24,8 @@
     {
       "roomNumber": 2,
       "ref": "b3b",
-      "marker": "1",
       "initial": true,
+      "marker": "1",
       "treasures": [
         76,
         85

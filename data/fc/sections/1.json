@@ -22,11 +22,6 @@
       "monster": [
         {
           "name": "flame-demon",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "flame-demon",
           "player2": "elite",
           "player3": "normal",
           "player4": "normal"
@@ -35,6 +30,11 @@
           "name": "flame-demon",
           "player3": "normal",
           "player4": "normal"
+        },
+        {
+          "name": "flame-demon",
+          "player3": "normal",
+          "player4": "elite"
         }
       ],
       "objectives": [

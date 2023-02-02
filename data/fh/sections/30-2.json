@@ -23,11 +23,11 @@
         },
         {
           "name": "algox-guard",
-          "player4": "normal"
+          "type": "elite"
         },
         {
           "name": "algox-guard",
-          "type": "elite"
+          "player4": "normal"
         }
       ]
     }

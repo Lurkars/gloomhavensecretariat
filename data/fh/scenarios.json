@@ -387,7 +387,7 @@
       {
         "roomNumber": 2,
         "ref": "01-B",
-        "inital": true,
+        "initial": true,
         "marker": "b",
         "treasures": [
           40

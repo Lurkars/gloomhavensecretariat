@@ -32,11 +32,11 @@
       "monster": [
         {
           "name": "algox-archer",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "algox-archer",
-          "type": "normal"
+          "player4": "normal"
         },
         {
           "name": "algox-guard",

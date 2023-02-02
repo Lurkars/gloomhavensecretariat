@@ -19,12 +19,6 @@
       ],
       "monster": [
         {
-          "name": "stone-golem",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
           "name": "living-spirit",
           "type": "normal"
         },
@@ -32,6 +26,12 @@
           "name": "living-spirit",
           "player2": "normal",
           "player4": "normal"
+        },
+        {
+          "name": "stone-golem",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
         }
       ]
     }

@@ -38,6 +38,46 @@
       ],
       "monster": [
         {
+          "name": "algox-archer",
+          "type": "elite"
+        },
+        {
+          "name": "algox-archer",
+          "type": "elite"
+        },
+        {
+          "name": "algox-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "type": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-priest",
+          "type": "normal"
+        },
+        {
+          "name": "algox-priest",
+          "type": "elite"
+        },
+        {
           "name": "algox-priest",
           "player2": "normal",
           "player3": "normal",
@@ -45,6 +85,10 @@
         },
         {
           "name": "algox-priest",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
           "type": "normal"
         },
         {
@@ -52,50 +96,6 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "normal"
-        },
-        {
-          "name": "algox-guard",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "algox-archer",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "algox-archer",
-          "type": "elite"
-        },
-        {
-          "name": "algox-guard",
-          "type": "elite"
-        },
-        {
-          "name": "algox-archer",
-          "type": "elite"
-        },
-        {
-          "name": "algox-guard",
-          "type": "normal"
-        },
-        {
-          "name": "algox-archer",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "algox-priest",
-          "player4": "normal"
-        },
-        {
-          "name": "algox-priest",
-          "type": "elite"
-        },
-        {
-          "name": "hound",
-          "type": "normal"
         },
         {
           "name": "hound",

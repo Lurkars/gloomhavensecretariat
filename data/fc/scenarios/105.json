@@ -54,49 +54,11 @@
       "monster": [
         {
           "name": "bandit-guard",
-          "player4": "elite"
-        },
-        {
-          "name": "bandit-guard",
-          "player4": "normal"
-        },
-        {
-          "name": "bandit-guard",
-          "player3": "normal"
-        },
-        {
-          "name": "bandit-guard",
-          "player4": "normal"
-        },
-        {
-          "name": "valrath-tracker",
-          "player3": "normal"
-        },
-        {
-          "name": "valrath-tracker",
-          "player2": "elite"
-        },
-        {
-          "name": "valrath-tracker",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "bandit-guard",
           "player2": "normal"
         },
         {
           "name": "bandit-guard",
-          "player3": "normal"
-        },
-        {
-          "name": "bandit-guard",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "valrath-tracker",
-          "player4": "normal"
+          "player2": "elite"
         },
         {
           "name": "bandit-guard",
@@ -105,7 +67,28 @@
         },
         {
           "name": "bandit-guard",
-          "player2": "elite"
+          "player3": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player4": "elite"
         },
         {
           "name": "valrath-tracker",
@@ -114,11 +97,28 @@
         },
         {
           "name": "valrath-tracker",
-          "player3": "normal"
+          "player2": "elite"
         },
         {
           "name": "valrath-tracker",
           "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player3": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player3": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "valrath-tracker",
           "player4": "normal"
         }
       ]

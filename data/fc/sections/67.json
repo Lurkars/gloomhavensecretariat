@@ -14,22 +14,18 @@
       ],
       "monster": [
         {
-          "name": "black-imp",
+          "name": "aesther-scout",
           "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "black-imp",
-          "type": "normal"
-        },
-        {
-          "name": "night-demon",
-          "player2": "normal"
+          "player4": "normal"
         },
         {
           "name": "aesther-scout",
           "player3": "normal",
           "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "type": "normal"
         },
         {
           "name": "black-imp",
@@ -39,12 +35,16 @@
         },
         {
           "name": "black-imp",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
           "player3": "normal"
         },
         {
-          "name": "aesther-scout",
-          "player3": "normal",
-          "player4": "normal"
+          "name": "night-demon",
+          "player2": "normal"
         },
         {
           "name": "night-demon",

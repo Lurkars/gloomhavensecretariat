@@ -19,13 +19,13 @@
       "monster": [
         {
           "name": "living-spirit",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "normal"
+          "type": "normal"
         },
         {
           "name": "living-spirit",
-          "type": "normal"
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
         },
         {
           "name": "living-spirit",

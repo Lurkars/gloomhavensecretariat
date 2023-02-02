@@ -18,7 +18,7 @@
       ],
       "monster": [
         {
-          "name": "vermling-shaman",
+          "name": "harrower-infester",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
@@ -30,7 +30,7 @@
           "player4": "elite"
         },
         {
-          "name": "harrower-infester",
+          "name": "vermling-shaman",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"

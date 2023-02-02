@@ -110,10 +110,6 @@
       "marker": "2",
       "monster": [
         {
-          "name": "the-harvester:+1",
-          "type": "boss"
-        },
-        {
           "name": "earth-demon",
           "player2": "normal",
           "player3": "normal",
@@ -122,6 +118,10 @@
         {
           "name": "harrower-infester",
           "type": "normal"
+        },
+        {
+          "name": "the-harvester:+1",
+          "type": "boss"
         }
       ],
       "objectives": [

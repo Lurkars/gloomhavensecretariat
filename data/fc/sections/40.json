@@ -12,14 +12,20 @@
     {
       "roomNumber": 3,
       "ref": "e1a",
-      "marker": "g",
       "initial": true,
+      "marker": "g",
       "treasures": [
         null
       ],
       "monster": [
         {
-          "name": "living-corpse",
+          "name": "living-bones",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
           "player3": "normal",
           "player4": "normal"
         },
@@ -30,13 +36,7 @@
           "player4": "elite"
         },
         {
-          "name": "living-bones",
-          "player2": "elite",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "living-bones",
+          "name": "living-corpse",
           "player3": "normal",
           "player4": "normal"
         }

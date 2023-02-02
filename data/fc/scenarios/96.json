@@ -66,35 +66,8 @@
       ],
       "monster": [
         {
-          "name": "flame-demon",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
           "name": "earth-demon",
           "type": "normal"
-        },
-        {
-          "name": "frost-demon",
-          "player4": "elite"
-        },
-        {
-          "name": "frost-demon",
-          "player2": "elite",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "wind-demon",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "wind-demon",
-          "player2": "elite",
-          "player3": "normal",
-          "player4": "elite"
         },
         {
           "name": "earth-demon",
@@ -106,6 +79,33 @@
         },
         {
           "name": "flame-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player2": "elite",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "elite",
           "player4": "normal"
         }
       ]

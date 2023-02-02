@@ -14,6 +14,9 @@
       "roomNumber": 3,
       "ref": "b3a",
       "initial": true,
+      "treasures": [
+        79
+      ],
       "monster": [
         {
           "name": "bandit-archer",
@@ -22,27 +25,24 @@
           "player4": "normal"
         },
         {
-          "name": "spitting-drake",
-          "type": "normal"
-        },
-        {
-          "name": "bandit-guard",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
           "name": "bandit-guard",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
+          "name": "bandit-guard",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        },
+        {
           "name": "spitting-drake",
           "player4": "normal"
         }
-      ],
-      "treasures": [
-        79
       ]
     }
   ]

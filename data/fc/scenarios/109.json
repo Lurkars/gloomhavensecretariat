@@ -22,38 +22,9 @@
       ],
       "monster": [
         {
-          "name": "valrath-tracker",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "valrath-tracker",
-          "player4": "normal"
-        },
-        {
-          "name": "valrath-tracker",
-          "type": "elite"
-        },
-        {
-          "name": "valrath-tracker",
-          "player4": "normal"
-        },
-        {
-          "name": "valrath-tracker",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "valrath-savage",
-          "player2": "elite",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "valrath-savage",
+          "name": "city-archer",
           "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "city-archer",
@@ -63,11 +34,8 @@
         },
         {
           "name": "city-archer",
-          "player4": "normal"
-        },
-        {
-          "name": "city-archer",
-          "player3": "elite"
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "city-archer",
@@ -75,44 +43,19 @@
         },
         {
           "name": "city-archer",
-          "player2": "normal",
-          "player4": "normal"
+          "player3": "elite"
         },
         {
           "name": "city-archer",
-          "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "elite"
         },
         {
           "name": "city-guard",
           "player2": "normal",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "city-guard",
-          "player4": "elite"
-        },
-        {
-          "name": "city-guard",
-          "player4": "elite"
-        },
-        {
-          "name": "city-guard",
-          "player3": "elite",
-          "player4": "normal"
-        },
-        {
-          "name": "valrath-savage",
-          "type": "elite"
-        },
-        {
-          "name": "valrath-savage",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "valrath-savage",
           "player3": "elite",
           "player4": "normal"
         },
@@ -124,7 +67,64 @@
         },
         {
           "name": "city-guard",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player4": "elite"
+        },
+        {
+          "name": "valrath-savage",
           "type": "elite"
+        },
+        {
+          "name": "valrath-savage",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "valrath-savage",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "valrath-savage",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-savage",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "type": "elite"
+        },
+        {
+          "name": "valrath-tracker",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player4": "normal"
         }
       ]
     }

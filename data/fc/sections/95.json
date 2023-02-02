@@ -10,8 +10,12 @@
     {
       "roomNumber": 7,
       "ref": "a1a",
-      "inital": true,
+      "initial": true,
       "monster": [
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
         {
           "name": "vermling-scout",
           "type": "normal"
@@ -31,16 +35,12 @@
         {
           "name": "vermling-scout",
           "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "vermling-scout",
-          "player3": "normal",
           "player4": "normal"
         },
         {
           "name": "vermling-scout",
-          "type": "normal"
+          "player3": "normal",
+          "player4": "elite"
         }
       ]
     }

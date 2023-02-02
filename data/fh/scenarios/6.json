@@ -6,7 +6,7 @@
     "11",
     "12"
   ],
-  "blocks" : [
+  "blocks": [
     "5"
   ],
   "monsters": [
@@ -58,25 +58,25 @@
         },
         {
           "name": "frost-demon",
+          "player3": "normal",
           "player4": "normal"
         },
         {
           "name": "frost-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "snow-imp",
-          "player4": "normal"
-        },
-        {
-          "name": "snow-imp",
-          "player3": "normal",
           "player4": "normal"
         },
         {
           "name": "snow-imp",
           "type": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "player4": "normal"
         }
       ],
       "objectives": [

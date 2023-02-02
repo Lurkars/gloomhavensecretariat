@@ -15,11 +15,6 @@
       "monster": [
         {
           "name": "vermling-scout",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "vermling-scout",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
@@ -28,6 +23,11 @@
           "name": "vermling-scout",
           "player2": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
         },
         {
           "name": "vermling-scout",

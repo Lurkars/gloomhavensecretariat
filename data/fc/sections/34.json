@@ -22,11 +22,6 @@
       "monster": [
         {
           "name": "frost-demon",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "frost-demon",
           "type": "normal"
         },
         {
@@ -34,6 +29,11 @@
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "normal",
+          "player4": "normal"
         }
       ],
       "objectives": [

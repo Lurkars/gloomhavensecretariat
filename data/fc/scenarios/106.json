@@ -16,8 +16,7 @@
       "monster": [
         {
           "name": "aesther-scout",
-          "player3": "normal",
-          "player4": "elite"
+          "type": "elite"
         },
         {
           "name": "aesther-scout",
@@ -27,11 +26,12 @@
         },
         {
           "name": "aesther-scout",
-          "player4": "normal"
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "aesther-scout",
-          "type": "elite"
+          "player4": "normal"
         }
       ]
     }

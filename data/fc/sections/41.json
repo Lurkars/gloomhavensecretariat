@@ -51,13 +51,13 @@
       "initial": true,
       "monster": [
         {
-          "name": "night-demon",
-          "type": "elite"
-        },
-        {
           "name": "living-spirit",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "type": "elite"
         }
       ],
       "objectives": [

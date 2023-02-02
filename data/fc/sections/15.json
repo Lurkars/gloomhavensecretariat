@@ -11,12 +11,13 @@
     {
       "roomNumber": 8,
       "ref": "a2a",
-      "inital": true,
+      "initial": true,
       "monster": [
         {
           "name": "vermling-scout",
+          "player2": "elite",
           "player3": "normal",
-          "player4": "normal"
+          "player4": "elite"
         },
         {
           "name": "vermling-scout",
@@ -26,9 +27,8 @@
         },
         {
           "name": "vermling-scout",
-          "player2": "elite",
           "player3": "normal",
-          "player4": "elite"
+          "player4": "normal"
         },
         {
           "name": "vermling-shaman",

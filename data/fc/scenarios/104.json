@@ -104,6 +104,10 @@
       "monster": [
         {
           "name": "harrower-infester",
+          "player2": "elite"
+        },
+        {
+          "name": "harrower-infester",
           "player3": "normal",
           "player4": "elite"
         },
@@ -113,13 +117,18 @@
           "player4": "normal"
         },
         {
-          "name": "harrower-infester",
-          "player2": "elite"
+          "name": "lurker",
+          "player2": "normal"
         },
         {
-          "name": "spitting-drake",
+          "name": "lurker",
           "player3": "normal",
           "player4": "normal"
+        },
+        {
+          "name": "lurker",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "spitting-drake",
@@ -128,33 +137,24 @@
         {
           "name": "spitting-drake",
           "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "sun-demon",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "sun-demon",
-          "player3": "normal",
           "player4": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player3": "normal",
+          "player4": "elite"
         },
         {
           "name": "sun-demon",
           "player2": "elite"
         },
         {
-          "name": "lurker",
+          "name": "sun-demon",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "lurker",
-          "player2": "normal"
-        },
-        {
-          "name": "lurker",
+          "name": "sun-demon",
           "player3": "normal",
           "player4": "elite"
         }

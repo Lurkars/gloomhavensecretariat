@@ -26,13 +26,13 @@
         {
           "name": "vermling-shaman",
           "player2": "normal",
-          "player4": "normal"
+          "player3": "elite",
+          "player4": "elite"
         },
         {
           "name": "vermling-shaman",
           "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
+          "player4": "normal"
         }
       ]
     }

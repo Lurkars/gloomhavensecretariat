@@ -62,11 +62,6 @@
       "initial": true,
       "monster": [
         {
-          "name": "night-demon",
-          "player2": "normal",
-          "player4": "normal"
-        },
-        {
           "name": "living-spirit",
           "player3": "normal",
           "player4": "normal"
@@ -74,6 +69,11 @@
         {
           "name": "living-spirit",
           "player3": "normal"
+        },
+        {
+          "name": "night-demon",
+          "player2": "normal",
+          "player4": "normal"
         }
       ]
     }

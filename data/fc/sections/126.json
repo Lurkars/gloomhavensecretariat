@@ -14,28 +14,28 @@
       "initial": true,
       "monster": [
         {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
           "name": "vermling-shaman",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
-        },
-        {
-          "name": "vermling-scout",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "type": "normal"
-        },
-        {
-          "name": "vermling-scout",
-          "type": "normal"
         }
       ]
     }

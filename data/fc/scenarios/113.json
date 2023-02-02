@@ -47,21 +47,21 @@
       "monster": [
         {
           "name": "deep-terror",
+          "type": "elite"
+        },
+        {
+          "name": "deep-terror",
           "player3": "elite",
           "player4": "elite"
         },
         {
-          "name": "deep-terror",
-          "type": "elite"
+          "name": "living-bones",
+          "type": "normal"
         },
         {
           "name": "living-bones",
           "player2": "normal",
           "player4": "normal"
-        },
-        {
-          "name": "living-bones",
-          "type": "normal"
         },
         {
           "name": "living-bones",
@@ -79,9 +79,16 @@
       "ref": "j2b",
       "monster": [
         {
-          "name": "living-spirit",
-          "player3": "normal",
-          "player4": "normal"
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "elite"
         },
         {
           "name": "living-spirit",
@@ -93,16 +100,9 @@
           "player4": "normal"
         },
         {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "type": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "player4": "elite"
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
         }
       ]
     },
@@ -114,29 +114,29 @@
       ],
       "monster": [
         {
-          "name": "living-bones",
-          "player3": "elite",
-          "player4": "elite"
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player4": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player4": "normal"
         },
         {
           "name": "living-bones",
           "type": "elite"
         },
         {
-          "name": "deep-terror",
-          "type": "normal"
-        },
-        {
-          "name": "deep-terror",
-          "type": "normal"
-        },
-        {
-          "name": "deep-terror",
-          "player4": "normal"
-        },
-        {
-          "name": "deep-terror",
-          "player4": "normal"
+          "name": "living-bones",
+          "player3": "elite",
+          "player4": "elite"
         }
       ]
     },
@@ -145,23 +145,6 @@
       "ref": "j1b",
       "monster": [
         {
-          "name": "living-spirit",
-          "type": "normal"
-        },
-        {
-          "name": "living-spirit",
-          "player4": "elite"
-        },
-        {
-          "name": "living-spirit",
-          "type": "normal"
-        },
-        {
-          "name": "living-corpse",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
           "name": "living-corpse",
           "type": "elite"
         },
@@ -169,6 +152,23 @@
           "name": "living-corpse",
           "player3": "normal",
           "player4": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player4": "elite"
         }
       ]
     }

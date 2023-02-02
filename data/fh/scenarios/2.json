@@ -34,18 +34,8 @@
       "initial": true,
       "monster": [
         {
-          "name": "algox-guard",
-          "type": "elite"
-        },
-        {
-          "name": "algox-guard",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "algox-guard",
-          "player3": "normal",
-          "player4": "normal"
+          "name": "algox-archer",
+          "type": "normal"
         },
         {
           "name": "algox-archer",
@@ -54,8 +44,18 @@
           "player4": "elite"
         },
         {
-          "name": "algox-archer",
-          "type": "normal"
+          "name": "algox-guard",
+          "type": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "player3": "normal",
+          "player4": "elite"
         }
       ]
     }

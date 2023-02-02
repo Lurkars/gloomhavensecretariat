@@ -6,8 +6,8 @@
   "marker": "2",
   "monsters": [
     "bandit-guard",
-    "valrath-tracker",
-    "bear-drake-abomination"
+    "bear-drake-abomination",
+    "valrath-tracker"
   ],
   "rooms": [
     {
@@ -28,12 +28,8 @@
           "player4": "normal"
         },
         {
-          "name": "valrath-tracker",
-          "player4": "normal"
-        },
-        {
-          "name": "valrath-tracker",
-          "player4": "normal"
+          "name": "bear-drake-abomination",
+          "type": "elite"
         },
         {
           "name": "valrath-tracker",
@@ -45,8 +41,12 @@
           "player4": "normal"
         },
         {
-          "name": "bear-drake-abomination",
-          "type": "elite"
+          "name": "valrath-tracker",
+          "player4": "normal"
+        },
+        {
+          "name": "valrath-tracker",
+          "player4": "normal"
         }
       ]
     }
