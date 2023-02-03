@@ -261,13 +261,12 @@ export class ScenarioManager {
 
       let unlocked: boolean = false;
       let requires: boolean = !scenarioData.requires || scenarioData.requires.length == 0;
-      this.game.party.scenarios.forEach((identifier) => {
-        const scenario = scenarios.find((value) => value.index == identifier.index && value.edition == identifier.edition && value.group == identifier.group);
 
-        if (scenario && scenario.group == scenarioData.group) {
-          if ((scenario.unlocks && scenario.unlocks.indexOf(scenarioData.index) != -1)) {
-            unlocked = true;
-          }
+      this.game.party.scenarios.forEach((identifier) => {
+        const scenario = scenarios.find((scenarioData) => scenarioData.index == identifier.index && scenarioData.edition == identifier.edition && scenarioData.group == identifier.group);
+
+        if (scenario && scenario.edition == scenarioData.edition && scenario.group == scenarioData.group && scenario.unlocks && scenario.unlocks.indexOf(scenarioData.index) != -1) {
+          unlocked = true;
         }
       })
 

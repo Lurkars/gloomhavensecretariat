@@ -38,10 +38,15 @@
                                 [value]="ability.initiative && (ability.initiative < 10 ? '0' : '') + ability.initiative"
                                 (change)="changeInitiative($event, ability)">
 
+                            <a class="shuffle" (click)="ability.shuffle=!ability.shuffle;deckDataToJson();"
+                                [ngClass]="{'enabled' : ability.shuffle }">
+                                <img src="./assets/images/shuffle.svg">
+                            </a>
+
                             <ng-container
-                                *ngIf="!deckData.character && (!ability.bottomActions || ability.bottomActions.length == 0)">
-                                <a class="shuffle" (click)="ability.shuffle=!ability.shuffle;deckDataToJson();"
-                                    [ngClass]="{'enabled' : ability.shuffle }">
+                                *ngIf="!deckData.character && ability.bottomActions && ability.bottomActions.length > 0">
+                                <a class="bottom shuffle" (click)="ability.bottomShuffle=!ability.bottomShuffle;deckDataToJson();"
+                                    [ngClass]="{'enabled' : ability.bottomShuffle }">
                                     <img src="./assets/images/shuffle.svg">
                                 </a>
                             </ng-container>

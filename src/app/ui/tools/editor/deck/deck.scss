@@ -310,7 +310,9 @@
 
                     }
 
-                    .lost {
+                    .lost,
+                    .shuffle,
+                    .bottom-shuffle {
                         position: absolute;
                         bottom: 50%;
                         right: 15%;
@@ -353,6 +355,15 @@
                         &.bottom {
                             right: 19%;
                             bottom: 9%;
+                        }
+
+                        &.shuffle {
+                            right: 27%;
+                            height: 5.5%;
+
+                            &.bottom {
+                                right: 32%;
+                            }
                         }
                     }
 

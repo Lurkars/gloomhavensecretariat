@@ -10,6 +10,7 @@ export class Ability {
   lost: boolean = false;
   bottomActions: Action[];
   bottomLost: boolean = false;
+  bottomShuffle: boolean = false;
   hint: string | undefined;
   revealed: boolean = false;
 

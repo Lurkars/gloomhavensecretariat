@@ -32,6 +32,7 @@
           </div>
         </ng-container>
         <div class="shuffle" *ngIf="ability.shuffle"><img src="./assets/images/shuffle.svg"></div>
+        <div class="bottom-shuffle" *ngIf="ability.bottomShuffle"><img src="./assets/images/shuffle.svg"></div>
         <span class="index" *ngIf="!ability.cardId && settingsManager.settings.abilityNumbers">[{{abilityIndex(ability)
           + 1}}]</span>
         <span class="index" *ngIf="ability.cardId && settingsManager.settings.abilityNumbers">

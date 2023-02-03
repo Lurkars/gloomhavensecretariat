@@ -11,6 +11,7 @@
   }
 
   .hex {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,6 +21,18 @@
     img {
       width: 100%;
       height: auto;
+    }
+
+    .condition {
+      position: absolute;
+      top: calc(0.6em * var(--ghs-hex-size) * -0.2);
+      left: calc(0.6em * var(--ghs-hex-size) * -0.1);
+      width: calc(0.6em * var(--ghs-hex-size) * 1.3);
+
+      img {
+        width: 100%;
+        height: auto;
+      }
     }
   }
 }

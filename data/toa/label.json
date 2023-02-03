@@ -2,6 +2,13 @@
   "en": {
     "edition": {
       "toa": "Trail Of Ashes <%wip%(!)>"
+    },
+    "monster": {
+      "harrower-bugflute": "Harrower Bugflute",
+      "shardrender": "Shardrender",
+      "smoke-spirit": "Smoke Spirit",
+      "talo": "Talo",
+      "valrath-vanquisher": "Valrath Vanquisher"
     }
   }
 }

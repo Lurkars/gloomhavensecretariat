@@ -24,8 +24,13 @@
     }
   }
 
-  .hexes {
-    width: 0;
+  .area-container {
+    display: flex;
+    justify-content: space-between;
+
+    .hexes {
+      width: 0;
+    }
   }
 }
 

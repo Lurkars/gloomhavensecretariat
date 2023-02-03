@@ -62,7 +62,8 @@
       height: 17%;
     }
 
-    .shuffle {
+    .shuffle,
+    .bottom-shuffle {
       position: absolute;
       bottom: 3%;
       right: 3%;
@@ -187,7 +188,14 @@
       }
 
       .shuffle {
-        bottom: 0.5%;
+        top: 46.5%;
+        right: 12.5%;
+        bottom: initial;
+      }
+
+      .bottom-shuffle {
+        bottom: 6.5%;
+        right: 18.5%;
       }
 
       .index {

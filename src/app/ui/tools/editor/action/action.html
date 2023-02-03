@@ -22,10 +22,14 @@
     *ngIf="[ActionType.area, ActionType.card, ActionType.condition, ActionType.element, ActionType.jump, ActionType.monsterType, ActionType.specialTarget, ActionType.summon].indexOf(action.type) == -1"
     type="text" [ngModel]="action.value" (ngModelChange)="action.value=valueChange($event)" (change)="change()">
 
-  <div class="hexes" *ngIf="action.type == ActionType.area">
-    <ghs-action-hex [action]="hexAction" [value]="'' + hexAction.value" (clickCallback)="toggleHex($event)"
-      (doubleclickCallback)="removeHex($event)">
-    </ghs-action-hex>
+  <div class="area-container">
+    <div class="hexes" *ngIf="action.type == ActionType.area">
+      <ghs-action-hex [action]="hexAction" [value]="'' + hexAction.value" (clickCallback)="toggleHex($event)"
+        (doubleclickCallback)="removeHex($event)">
+      </ghs-action-hex>
+    </div>
+
+    <textarea [(ngModel)]="hexAction.value" (change)="changeHex()"></textarea>
   </div>
 
   <div class="summon" *ngIf="action.type == ActionType.summon">

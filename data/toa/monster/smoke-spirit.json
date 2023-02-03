@@ -1,0 +1,400 @@
+{
+  "name": "smoke-spirit",
+  "edition": "toa",
+  "flying": true,
+  "count": 10,
+  "baseStat": {
+    "immunities": [],
+    "special": [],
+    "type": "normal"
+  },
+  "stats": [
+    {
+      "level": 0,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "Retaliate only applies before its turn",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "health": 5,
+      "movement": 2,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "Retaliate only applies before its turn",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "health": 7,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "level": 1,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "Retaliate only applies before its turn",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "health": 7,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "Retaliate only applies before its turn",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "health": 9,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "level": 2,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "Retaliate only applies before its turn",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "health": 8,
+      "movement": 2,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "Retaliate only applies before its turn",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "health": 11,
+      "movement": 3,
+      "attack": 4
+    },
+    {
+      "level": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "Retaliate only applies before its turn",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "health": 9,
+      "movement": 3,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "Retaliate only applies before its turn",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "health": 13,
+      "movement": 3,
+      "attack": 4
+    },
+    {
+      "level": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "Retaliate only applies before its turn",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "health": 10,
+      "movement": 3,
+      "attack": 4
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "Retaliate only applies before its turn",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "health": 15,
+      "movement": 3,
+      "attack": 5
+    },
+    {
+      "level": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "Retaliate only applies before its turn",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "health": 13,
+      "movement": 3,
+      "attack": 5
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "Retaliate only applies before its turn",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "health": 17,
+      "movement": 4,
+      "attack": 5
+    },
+    {
+      "level": 6,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "Retaliate only applies before its turn",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "health": 14,
+      "movement": 3,
+      "attack": 5
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "Retaliate only applies before its turn",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "health": 20,
+      "movement": 4,
+      "attack": 6
+    },
+    {
+      "level": 7,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 5,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "Retaliate only applies before its turn",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "health": 17,
+      "movement": 4,
+      "attack": 6
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 5,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3,
+              "small": true
+            },
+            {
+              "type": "custom",
+              "value": "Retaliate only applies before its turn",
+              "small": true
+            }
+          ]
+        }
+      ],
+      "health": 22,
+      "movement": 4,
+      "attack": 6
+    }
+  ]
+}

@@ -120,14 +120,6 @@ export class EditorActionComponent implements OnInit {
 
   toggleHex(hex: ActionHex) {
 
-    let hexes: ActionHex[] = [];
-    ('' + this.hexAction.value).split('|').forEach((hexValue) => {
-      const hex: ActionHex | null = ActionHex.fromString(hexValue);
-      if (hex != null) {
-        hexes.push(hex);
-      }
-    })
-
     switch (hex.type) {
       case ActionHexType.target:
         hex.type = ActionHexType.active;
@@ -149,6 +141,14 @@ export class EditorActionComponent implements OnInit {
         break;
     }
 
+    let hexes: ActionHex[] = [];
+    ('' + this.hexAction.value).split('|').forEach((hexValue) => {
+      const hex: ActionHex | null = ActionHex.fromString(hexValue);
+      if (hex != null) {
+        hexes.push(hex);
+      }
+    })
+
     const same = hexes.find((other) => hex.x == other.x && hex.y == other.y);
 
     if (same) {
@@ -158,6 +158,20 @@ export class EditorActionComponent implements OnInit {
     }
 
     this.fillHexes(hex, hexes);
+
+    this.hexAction.value = hexes.map((hex) => ActionHex.toString(hex)).join('|');
+    this.action.value = hexes.filter((hex) => hex.type != ActionHexType.invisible).map((hex) => ActionHex.toString(hex)).join('|');
+    this.change();
+  }
+
+  changeHex() {
+    let hexes: ActionHex[] = [];
+    ('' + this.hexAction.value).split('|').forEach((hexValue) => {
+      const hex: ActionHex | null = ActionHex.fromString(hexValue);
+      if (hex != null) {
+        hexes.push(hex);
+      }
+    })
 
     this.hexAction.value = hexes.map((hex) => ActionHex.toString(hex)).join('|');
     this.action.value = hexes.filter((hex) => hex.type != ActionHexType.invisible).map((hex) => ActionHex.toString(hex)).join('|');
@@ -207,7 +221,7 @@ export class EditorActionComponent implements OnInit {
       for (let y = -1; y < 2; y++) {
         if ((hex.x + x != hex.x || hex.y + y != hex.y) && hex.x + x >= 0 && hex.y + y >= 0) {
           if (!hexes.find((other) => hex.x + x == other.x && hex.y + y == other.y)) {
-            hexes.push(new ActionHex(hex.x + x, hex.y + y, ActionHexType.invisible));
+            hexes.push(new ActionHex(hex.x + x, hex.y + y, ActionHexType.invisible, ""));
           }
         }
       }

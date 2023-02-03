@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, Output } from "@angular/core";
 import { Action, ActionHex } from "src/app/game/model/Action";
+import { ConditionName } from "src/app/game/model/Condition";
 
 @Component({
   selector: 'ghs-action-hex',
@@ -44,6 +45,10 @@ export class ActionHexComponent implements OnChanges {
         }
       }, 200)
     }
+  }
+
+  hasCondition(hex: ActionHex): boolean {
+    return hex.value && Object.keys(ConditionName).includes(hex.value) || false;
   }
 
 }
