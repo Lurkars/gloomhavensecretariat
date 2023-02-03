@@ -126,6 +126,72 @@
     ]
   },
   {
+    "index": "41.2",
+    "name": "Ice Floes",
+    "parent": "22",
+    "edition": "fh",
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "07-G",
+        "initial": true,
+        "monster": [
+          {
+            "name": "lurker-clawcrusher",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "lurker-clawcrusher",
+            "type": "elite"
+          },
+          {
+            "name": "lurker-clawcrusher",
+            "player4": "normal"
+          },
+          {
+            "name": "lurker-wavethrower",
+            "player4": "normal"
+          },
+          {
+            "name": "lurker-wavethrower",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "lurker-wavethrower",
+            "type": "normal"
+          },
+          {
+            "name": "lightning-eel",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "lightning-eel",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "lightning-eel",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "lightning-eel",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "index": "48.1",
     "name": "Realm of Endless Frost",
     "parent": "21",
