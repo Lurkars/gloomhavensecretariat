@@ -8,8 +8,8 @@
   "count": 6,
   "baseStat": {
     "type": "boss",
-    "note": "%game.custom.scenarioBook%",
     "movement": 3,
+    "note": "%game.custom.scenarioBook%",
     "immunities": [
       "immobilize",
       "muddle",

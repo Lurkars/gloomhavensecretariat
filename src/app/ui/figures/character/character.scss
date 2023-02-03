@@ -304,6 +304,15 @@
     }
   }
 
+  .absent-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(var(--ghs-unit) * 82);
+    height: calc(var(--ghs-unit) * 14);
+    cursor: pointer;
+  }
+
   .summon-dialog {
     display: flex;
     align-items: center;

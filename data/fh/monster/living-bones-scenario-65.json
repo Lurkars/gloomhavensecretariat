@@ -3,8 +3,8 @@
   "thumbnail": "fh-living-bones",
   "edition": "fh",
   "deck": "living-bones",
-  "count": 6,
   "hidden": true,
+  "count": 6,
   "baseStat": {
     "type": "normal"
   },

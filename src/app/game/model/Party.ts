@@ -1,5 +1,6 @@
 import { GameCharacterModel } from "./Character";
 import { Identifier } from "./Identifier";
+import { LootType } from "./Loot";
 import { GameScenarioModel } from "./Scenario";
 
 export class Party {
@@ -19,5 +20,14 @@ export class Party {
   treasures: Identifier[] = [];
   donations: number = 0;
   characters: GameCharacterModel[] = [];
+
+  weeks: number = 0;
+  loot: Partial<Record<LootType, number>> = {};
+  inspiration: number = 0;
+  defense: number = 0;
+  soldiers: number = 0;
+  morale: number = 0;
+  townGuardPerks: number = 0;
+  retirements: GameCharacterModel[] = [];
 
 }

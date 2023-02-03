@@ -215,6 +215,42 @@
           </div>
         </div>
 
+        <div class="row title">
+          <label>{{'party.campaign.retirements' | ghsLabel}}:</label>
+        </div>
+
+        <div class="row retirements">
+          <div class="list" [ngClass]="{'fh-sheet' : fhSheet}">
+            <div class="character header legend seperator">
+              <span>{{'party.campaign.retirements.player' | ghsLabel}}</span>
+              <span>{{'party.campaign.retirements.character' | ghsLabel}}</span>
+              <span>{{'party.campaign.retirements.class' | ghsLabel}}</span>
+              <span>{{'party.campaign.retirements.level' | ghsLabel}}</span>
+              <span>{{'party.campaign.retirements.perks' | ghsLabel}}</span>
+              <span *ngIf="fhSheet">{{'party.campaign.retirements.masteries' | ghsLabel}}</span>
+              <span></span>
+            </div>
+            <div class="character" *ngFor="let characterModel of party.retirements">
+              <span>{{characterModel.number}}</span>
+              <span>{{characterModel.title}}</span>
+              <span>{{'data.character.' + characterModel.name | ghsLabel}}</span>
+              <span>{{characterModel.level}}</span>
+              <span>{{characterPerks(characterModel) || '/'}}</span>
+              <span *ngIf="fhSheet">
+                <ng-container *ngIf="characterModel.progress">
+                  <span *ngFor="let mastery of characterModel.progress.masteries">
+                    <img class="success" src="./assets/images/check.svg">
+                  </span>
+                </ng-container>
+              </span>
+              <span class="reactivate" (click)="reactivateCharacter(characterModel)"
+                [title]="'party.campaign.retirements.reactivate' | ghsLabel">
+                <img class="ghs-svg" src="./assets/images/long-rest.svg">
+              </span>
+            </div>
+          </div>
+        </div>
+
         <div class="row donations">
           <label>{{'party.campaign.donations' | ghsLabel}}:</label>
           <div class="checklist">

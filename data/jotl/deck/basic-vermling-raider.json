@@ -6,8 +6,8 @@
       "name": "Screaming Shot",
       "cardId": 368,
       "initiative": 85,
-      "shuffle": true,
       "hint": "%data.custom.jotl.basic-vermling-raider.1%",
+      "shuffle": true,
       "actions": [
         {
           "type": "push",

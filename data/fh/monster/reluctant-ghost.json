@@ -7,8 +7,8 @@
   "hidden": true,
   "count": 10,
   "baseStat": {
-    "movement": 2,
     "type": "boss",
+    "movement": 2,
     "note": "Focus on moving torward the closest starting hex"
   },
   "stats": [

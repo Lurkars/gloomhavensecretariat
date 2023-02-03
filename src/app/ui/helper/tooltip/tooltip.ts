@@ -60,8 +60,6 @@ export class GhsTooltipDirective implements OnInit {
             }]);
 
         this.overlayRef = this.overlay.create({ positionStrategy });
-
-        console.log("init directive");
     }
 
     @HostListener('mouseenter')

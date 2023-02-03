@@ -1,8 +1,8 @@
 {
   "name": "ooze",
   "edition": "fh",
+  "catching": true,
   "count": 10,
-  "catching" : true,
   "baseStat": {
     "type": "normal"
   },

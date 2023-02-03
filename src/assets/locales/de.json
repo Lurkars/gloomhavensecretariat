@@ -441,6 +441,16 @@
       ".": "Kampagne",
       "achievements": "Globale Erfolge",
       "donations": "Spenden an den Tempel der Großen Eiche",
+      "retirements": {
+        ".": "Charaktere im Ruhestand",
+        "character": "Charakter",
+        "class": "Klasse",
+        "level": "Level",
+        "masteries": "Errungenschaften",
+        "perks": "Verbesserungen",
+        "player": "Spieler",
+        "reactivate": "Charakter reactivieren"
+      },
       "scenarios": {
         ".": "Szenarien",
         "addSuccess": "Als erfolgreich markieren",
@@ -451,6 +461,20 @@
         "name": "Name",
         "removeManual": "Von Freigeschaltenen entfernen",
         "removeSuccess": "Von Erfolgreichen entfernen"
+      },
+      "sheet": {
+        ".": "Kampagnenbogen",
+        "campaignSticker": "Kampagnenbogensticker",
+        "defense": "Verteidigung",
+        "inspiration": "Inspiration",
+        "morale": "Moral",
+        "name": "Gruppen<br>Name",
+        "soldiers": "Soldaten",
+        "summer": "Sommer",
+        "supply": "Versorgung von Frosthaven",
+        "totalDefense": "Gesamte Verteidigung",
+        "townGuardPerks": "Verbesserungen Stadtgarde",
+        "winter": "Winter"
       },
       "treasures": "Schatztruhen"
     },

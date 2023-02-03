@@ -148,6 +148,8 @@ Every edition folder get concatenated to a single edition data file on build.
 
 Also pull requests are welcome!
 
+> Please notice: all files under inside data-subfolder will be automatically formatted and added to any commit. If you made local changes to those files and do NOT want to commit those changes, please use the `--no-verify` parameter for your `git commit` and `git push` commands.
+
 Many thanks to all already [contributed](https://github.com/Lurkars/gloomhavensecretariat/graphs/contributors), you're awesome!
 
 ## Archive

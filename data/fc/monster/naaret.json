@@ -2,8 +2,8 @@
   "name": "naaret",
   "thumbnail": "fc-aesther-ashblade",
   "edition": "fc",
-  "boss": true,
   "deck": "ashblade",
+  "boss": true,
   "hidden": true,
   "count": 6,
   "baseStat": {

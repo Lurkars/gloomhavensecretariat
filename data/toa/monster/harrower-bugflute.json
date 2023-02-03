@@ -6,14 +6,14 @@
   "flying": true,
   "count": 1,
   "baseStat": {
+    "type": "boss",
     "immunities": [
       "disarm",
       "stun",
       "curse",
       "immobilize"
     ],
-    "special": [],
-    "type": "boss"
+    "special": []
   },
   "stats": [
     {

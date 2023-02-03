@@ -3,13 +3,13 @@
   "edition": "bas",
   "count": 6,
   "baseStat": {
+    "type": "normal",
     "actions": [
       {
         "type": "custom",
         "value": "%data.custom.bas.jackal.1%"
       }
-    ],
-    "type": "normal"
+    ]
   },
   "stats": [
     {
@@ -19,6 +19,48 @@
       "attack": 1
     },
     {
+      "level": 1,
+      "health": 4,
+      "movement": 4,
+      "attack": 1
+    },
+    {
+      "level": 2,
+      "health": 6,
+      "movement": 4,
+      "attack": 2
+    },
+    {
+      "level": 3,
+      "health": 8,
+      "movement": 4,
+      "attack": 2
+    },
+    {
+      "level": 4,
+      "health": 8,
+      "movement": 4,
+      "attack": 3
+    },
+    {
+      "level": 5,
+      "health": 9,
+      "movement": 4,
+      "attack": 3
+    },
+    {
+      "level": 6,
+      "health": 11,
+      "movement": 5,
+      "attack": 4
+    },
+    {
+      "level": 7,
+      "health": 13,
+      "movement": 5,
+      "attack": 4
+    },
+    {
       "type": "elite",
       "level": 0,
       "health": 6,
@@ -26,22 +68,10 @@
       "attack": 1
     },
     {
-      "level": 1,
-      "health": 4,
-      "movement": 4,
-      "attack": 1
-    },
-    {
       "type": "elite",
       "level": 1,
       "health": 6,
       "movement": 5,
-      "attack": 2
-    },
-    {
-      "level": 2,
-      "health": 6,
-      "movement": 4,
       "attack": 2
     },
     {
@@ -52,22 +82,10 @@
       "attack": 2
     },
     {
-      "level": 3,
-      "health": 8,
-      "movement": 4,
-      "attack": 2
-    },
-    {
       "type": "elite",
       "level": 3,
       "health": 8,
       "movement": 5,
-      "attack": 3
-    },
-    {
-      "level": 4,
-      "health": 8,
-      "movement": 4,
       "attack": 3
     },
     {
@@ -78,20 +96,8 @@
       "attack": 3
     },
     {
-      "level": 5,
-      "health": 9,
-      "movement": 4,
-      "attack": 3
-    },
-    {
       "type": "elite",
       "level": 5,
-      "health": 11,
-      "movement": 5,
-      "attack": 4
-    },
-    {
-      "level": 6,
       "health": 11,
       "movement": 5,
       "attack": 4
@@ -101,12 +107,6 @@
       "level": 6,
       "health": 13,
       "movement": 6,
-      "attack": 4
-    },
-    {
-      "level": 7,
-      "health": 13,
-      "movement": 5,
       "attack": 4
     },
     {

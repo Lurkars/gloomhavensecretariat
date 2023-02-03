@@ -1,6 +1,29 @@
 {
   "name": "horned-lizard",
+  "edition": "bas",
   "abilities": [
+    {
+      "initiative": 27,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "heal",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
     {
       "initiative": 39,
       "actions": [
@@ -17,6 +40,58 @@
         {
           "type": "retaliate",
           "value": 1
+        }
+      ]
+    },
+    {
+      "initiative": 45,
+      "actions": [
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,0,target)|(0,1,target)|(1,0,target)"
+            },
+            {
+              "type": "range",
+              "value": 1,
+              "valueType": "minus",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "initiative": 55,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "initiative": 55,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus"
         }
       ]
     },
@@ -45,6 +120,7 @@
     },
     {
       "initiative": 70,
+      "shuffle": true,
       "actions": [
         {
           "type": "move",
@@ -59,51 +135,6 @@
             {
               "type": "condition",
               "value": "muddle",
-              "small": true
-            }
-          ]
-        }
-      ],
-      "shuffle": true
-    },
-    {
-      "initiative": 27,
-      "actions": [
-        {
-          "type": "move",
-          "value": 0,
-          "valueType": "plus"
-        },
-        {
-          "type": "heal",
-          "value": 1,
-          "subActions": [
-            {
-              "type": "specialTarget",
-              "value": "self",
-              "small": true
-            }
-          ]
-        }
-      ],
-      "shuffle": true
-    },
-    {
-      "initiative": 45,
-      "actions": [
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus",
-          "subActions": [
-            {
-              "type": "area",
-              "value": "(0,0,target)|(0,1,target)|(1,0,target)"
-            },
-            {
-              "type": "range",
-              "value": 1,
-              "valueType": "minus",
               "small": true
             }
           ]
@@ -130,37 +161,6 @@
           ]
         }
       ]
-    },
-    {
-      "initiative": 55,
-      "actions": [
-        {
-          "type": "move",
-          "value": 0,
-          "valueType": "plus"
-        },
-        {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
-        }
-      ]
-    },
-    {
-      "initiative": 55,
-      "actions": [
-        {
-          "type": "move",
-          "value": 0,
-          "valueType": "plus"
-        },
-        {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus"
-        }
-      ]
     }
-  ],
-  "edition": "bas"
+  ]
 }

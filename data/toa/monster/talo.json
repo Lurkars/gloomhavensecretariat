@@ -4,18 +4,18 @@
   "boss": true,
   "count": 1,
   "baseStat": {
-    "immunities": [
-      "poison",
-      "muddle"
-    ],
-    "special": [],
     "type": "boss",
     "actions": [
       {
         "type": "custom",
         "value": "Moves towards exit %game.mapMarker.a% before determining enemy focus"
       }
-    ]
+    ],
+    "immunities": [
+      "poison",
+      "muddle"
+    ],
+    "special": []
   },
   "stats": [
     {

@@ -1,51 +1,51 @@
 {
-    "name": "laser-spires",
-    "edition": "fh",
-    "boss": true,
-    "hidden": true,
-    "count": 1,
-    "baseStat": {
-        "type": "boss",
-        "health": 0,
-        "special": [
-            [
-                {
-                    "type": "custom",
-                    "value": "All characters and character summons adjacent to a laser spire suffer hazardous terrain damage"
-                }
-            ],
-            [
-                {
-                    "type": "custom",
-                    "value": "Emit laster, starting at %game.mapMarker.a%"
-                }
-            ]
-        ]
-    },
-    "stats": [
+  "name": "laser-spires",
+  "edition": "fh",
+  "boss": true,
+  "hidden": true,
+  "count": 1,
+  "baseStat": {
+    "type": "boss",
+    "health": 0,
+    "special": [
+      [
         {
-            "level": 0
-        },
-        {
-            "level": 1
-        },
-        {
-            "level": 2
-        },
-        {
-            "level": 3
-        },
-        {
-            "level": 4
-        },
-        {
-            "level": 5
-        },
-        {
-            "level": 6
-        },
-        {
-            "level": 7
+          "type": "custom",
+          "value": "All characters and character summons adjacent to a laser spire suffer hazardous terrain damage"
         }
+      ],
+      [
+        {
+          "type": "custom",
+          "value": "Emit laster, starting at %game.mapMarker.a%"
+        }
+      ]
     ]
+  },
+  "stats": [
+    {
+      "level": 0
+    },
+    {
+      "level": 1
+    },
+    {
+      "level": 2
+    },
+    {
+      "level": 3
+    },
+    {
+      "level": 4
+    },
+    {
+      "level": 5
+    },
+    {
+      "level": 6
+    },
+    {
+      "level": 7
+    }
+  ]
 }

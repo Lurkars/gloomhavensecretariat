@@ -4,6 +4,7 @@ import { ScenarioData } from "./ScenarioData";
 import { MonsterData } from "./MonsterData";
 import { DeckData } from "./DeckData";
 import { ItemData } from "./ItemData";
+import { Perk } from "../Perks";
 
 export class EditionData implements Editional {
   // from Editional
@@ -21,6 +22,7 @@ export class EditionData implements Editional {
   url: string = "";
   extensions: string[] = [];
   newAmStyle: boolean = false;
+  campaign: CampaignData | undefined;
 
   constructor(edition: string, characters: CharacterData[],
     monsters: MonsterData[],
@@ -44,3 +46,14 @@ export class EditionData implements Editional {
   }
 
 }
+
+export class CampaignData {
+
+  weekEvents: Partial<Record<number, string[]>> = {};
+  townGuardPerks: TownGuardPerk[] = [];
+  lowMorale: string = "";
+  highMorale: string = "";
+
+}
+
+export type TownGuardPerk = { "sections": string[], "perk": Perk };

@@ -1,8 +1,8 @@
 import { DialogRef } from "@angular/cdk/dialog";
-import { Component, ElementRef, ViewChild } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Character } from "src/app/game/model/Character";
+import { Character, GameCharacterModel } from "src/app/game/model/Character";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { Identifier } from "src/app/game/model/Identifier";
 
@@ -15,7 +15,7 @@ import { ghsInputFullScreenCheck } from "../../helper/Static";
   templateUrl: 'party-sheet-dialog.html',
   styleUrls: ['./party-sheet-dialog.scss']
 })
-export class PartySheetDialogComponent {
+export class PartySheetDialogComponent implements OnInit {
 
   gameManager: GameManager = gameManager;
   ghsInputFullScreenCheck = ghsInputFullScreenCheck;
@@ -27,6 +27,9 @@ export class PartySheetDialogComponent {
 
   scenarioEditions: string[] = [];
   scenarios: Record<string, ScenarioData[]> = {};
+
+  fhSheet: boolean = false;
+  csSheet: boolean = false;
 
   @ViewChild('treasureIndex') treasureIndex!: ElementRef;
 
@@ -41,6 +44,11 @@ export class PartySheetDialogComponent {
         }
       }
     })
+  }
+
+  ngOnInit(): void {
+    this.fhSheet = gameManager.fhRules();
+    this.csSheet = !this.fhSheet && gameManager.editionRules('cs');
   }
 
   close() {
@@ -109,6 +117,24 @@ export class PartySheetDialogComponent {
       gameManager.stateManager.after();
       this.update();
     }
+  }
+
+  characterPerks(characterModel: GameCharacterModel): number {
+    if (characterModel.progress && characterModel.progress.perks && characterModel.progress.perks.length > 0) {
+      return characterModel.progress.perks.reduce((a, b) => a + b);
+    }
+
+    return 0;
+  }
+
+  reactivateCharacter(characterModel: GameCharacterModel) {
+    gameManager.stateManager.before("setRetired", "data.character." + characterModel.name, "" + false);
+    let character = new Character(gameManager.getCharacterData(characterModel.name, characterModel.edition), characterModel.level);
+    character.fromModel(characterModel);
+    character.progress.retired = false;
+    gameManager.game.figures.push(character);
+    this.party.retirements.splice(this.party.retirements.indexOf(characterModel), 1);
+    this.gameManager.stateManager.after();
   }
 
   removeParty() {

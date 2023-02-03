@@ -8,8 +8,8 @@
   "count": 6,
   "baseStat": {
     "type": "boss",
-    "note": "%data.custom.cs.drake-porter.1%",
     "movement": 3,
+    "note": "%data.custom.cs.drake-porter.1%",
     "immunities": [
       "immobilize",
       "wound",

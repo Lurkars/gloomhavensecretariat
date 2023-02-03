@@ -36,7 +36,6 @@ export class LootManager {
     if (loot.type == LootType.money || loot.type == LootType.special1 || loot.type == LootType.special2) {
       character.loot += value;
     } else if (appliableLootTypes.indexOf(loot.type) != -1) {
-      console.log(loot.type);
       const current = character.progress.loot[loot.type] || 0;
       if (current + value >= 0) {
         character.progress.loot[loot.type] = current + value;

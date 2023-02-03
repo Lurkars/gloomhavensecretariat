@@ -280,8 +280,8 @@
               <label>{{'character.progress.personalQuest' | ghsLabel}}:</label>
               <input [value]="character.progress.personalQuest" type="number" min="0"
                 (change)="setPersonalQuest($event)">
-              <span class="retired checkbox check" [ngClass]="{'checked' : character.progress.retired}"
-                (click)="toggleRetired()" title="{{'character.progress.retired' | ghsLabel}}"></span>
+              <span class="retired checkbox check" [ngClass]="{'checked' : retired}"
+                (click)="retired = !retired" title="{{'character.progress.retired' | ghsLabel}}"></span>
             </div>
             <div class="retirements">
               <label>{{'character.progress.retirements' | ghsLabel}}:</label>

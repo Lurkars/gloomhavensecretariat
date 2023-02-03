@@ -1,4 +1,5 @@
 {
+  "cardId": 150,
   "name": "mindthief",
   "edition": "gh",
   "character": true,
@@ -102,6 +103,7 @@
           "value": "experience:1"
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "move",
@@ -115,8 +117,7 @@
           "type": "card",
           "value": "experience:2"
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Feedback Loop",
@@ -205,10 +206,9 @@
       "cardId": 150,
       "level": 1,
       "initiative": 82,
+      "lost": true,
       "actions": [
         {
-          "type": "summon",
-          "value": "summonData",
           "valueObject": {
             "name": "Rat Swarm",
             "health": 6,
@@ -219,6 +219,8 @@
               "value": "poison"
             }
           },
+          "type": "summon",
+          "value": "summonData",
           "small": true
         },
         {
@@ -235,7 +237,6 @@
           ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "move",
@@ -408,6 +409,7 @@
           "value": 1
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "loot",
@@ -417,14 +419,14 @@
           "type": "card",
           "value": "experience:1"
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Perverse Edge",
       "cardId": 154,
       "level": 1,
       "initiative": 8,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
@@ -438,7 +440,6 @@
           ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "attack",
@@ -475,6 +476,7 @@
       "cardId": 155,
       "level": 1,
       "initiative": 11,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
@@ -506,7 +508,6 @@
           ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "move",
@@ -612,6 +613,7 @@
       "cardId": 157,
       "level": "X",
       "initiative": 51,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
@@ -629,7 +631,6 @@
           "value": "experience:2"
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "custom",
@@ -679,6 +680,7 @@
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "move",
@@ -699,18 +701,16 @@
           "type": "card",
           "value": "experience:1"
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Wretched Creature",
       "cardId": 159,
       "level": 2,
       "initiative": 84,
+      "lost": true,
       "actions": [
         {
-          "type": "summon",
-          "value": "summonData",
           "valueObject": {
             "name": "Monstrous Rat",
             "health": "4",
@@ -718,6 +718,8 @@
             "movement": "3",
             "count": 1
           },
+          "type": "summon",
+          "value": "summonData",
           "small": true
         },
         {
@@ -734,7 +736,6 @@
           ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "move",
@@ -795,6 +796,7 @@
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
@@ -819,14 +821,14 @@
             }
           ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Brain Leech",
       "cardId": 161,
       "level": 3,
       "initiative": 16,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
@@ -864,7 +866,6 @@
           ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "attack",
@@ -1003,6 +1004,7 @@
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "attack",
@@ -1020,14 +1022,14 @@
           "type": "card",
           "value": "experience:2"
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Cranium Overload",
       "cardId": 164,
       "level": 4,
       "initiative": 5,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
@@ -1051,7 +1053,6 @@
           ]
         }
       ],
-      "lost": true,
       "bottomActions": [
         {
           "type": "move",
@@ -1100,6 +1101,7 @@
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
@@ -1115,8 +1117,7 @@
           "type": "card",
           "value": "persistent"
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Frozen Mind",
@@ -1254,6 +1255,7 @@
       ]
     },
     {
+      "revealed": true,
       "name": "Dark Frenzy",
       "cardId": 168,
       "level": 6,
@@ -1341,8 +1343,7 @@
             }
           ]
         }
-      ],
-      "revealed": true
+      ]
     },
     {
       "name": "Vicious Blood",
@@ -1468,6 +1469,7 @@
           ]
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
@@ -1478,8 +1480,7 @@
           "type": "card",
           "value": "round"
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Shared Nightmare",
@@ -1605,6 +1606,7 @@
           "value": "experience:1"
         }
       ],
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
@@ -1625,18 +1627,16 @@
             }
           ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Many as One",
       "cardId": 173,
       "level": 9,
       "initiative": 91,
+      "lost": true,
       "actions": [
         {
-          "type": "summon",
-          "value": "summonData",
           "valueObject": {
             "name": "Rat King",
             "health": "9",
@@ -1649,6 +1649,8 @@
             },
             "count": 1
           },
+          "type": "summon",
+          "value": "summonData",
           "small": true
         },
         {
@@ -1666,7 +1668,7 @@
           ]
         }
       ],
-      "lost": true,
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
@@ -1687,8 +1689,7 @@
             }
           ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Phantasmal Killer",
@@ -1780,6 +1781,5 @@
         }
       ]
     }
-  ],
-  "cardId": 150
+  ]
 }

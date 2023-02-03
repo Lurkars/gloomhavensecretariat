@@ -568,6 +568,7 @@
         },
         {
           "type": "grid",
+          "small": true,
           "subActions": [
             {
               "type": "element",
@@ -608,11 +609,11 @@
                 }
               ]
             }
-          ],
-          "small": true
+          ]
         },
         {
           "type": "grid",
+          "small": true,
           "subActions": [
             {
               "type": "element",
@@ -653,8 +654,7 @@
                 }
               ]
             }
-          ],
-          "small": true
+          ]
         }
       ],
       "bottomActions": [
@@ -664,6 +664,7 @@
         },
         {
           "type": "grid",
+          "small": true,
           "subActions": [
             {
               "type": "element",
@@ -689,11 +690,11 @@
                 }
               ]
             }
-          ],
-          "small": true
+          ]
         },
         {
           "type": "grid",
+          "small": true,
           "subActions": [
             {
               "type": "element",
@@ -733,8 +734,7 @@
                 }
               ]
             }
-          ],
-          "small": true
+          ]
         },
         {
           "type": "card",
@@ -988,6 +988,7 @@
       "initiative": 82,
       "actions": [
         {
+          "valuType": "plus",
           "type": "attack",
           "value": 0,
           "subActions": [
@@ -1024,8 +1025,7 @@
                 }
               ]
             }
-          ],
-          "valuType": "plus"
+          ]
         }
       ],
       "bottomActions": [
@@ -1103,6 +1103,7 @@
       "cardId": 618,
       "level": "A",
       "initiative": 50,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
@@ -1132,7 +1133,7 @@
           ]
         }
       ],
-      "lost": true,
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
@@ -1161,14 +1162,14 @@
             }
           ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Legandary - Shadows",
       "cardId": 619,
       "level": "B",
       "initiative": 50,
+      "lost": true,
       "actions": [
         {
           "type": "attack",
@@ -1189,7 +1190,7 @@
           "small": true
         }
       ],
-      "lost": true,
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "attack",
@@ -1209,14 +1210,14 @@
           "value": "%data.custom.fc.manifestation-of-corruption.17%",
           "small": true
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Legengary - Gloom",
       "cardId": 620,
       "level": "C",
       "initiative": 50,
+      "lost": true,
       "actions": [
         {
           "type": "custom",
@@ -1246,7 +1247,7 @@
           ]
         }
       ],
-      "lost": true,
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "custom",
@@ -1275,28 +1276,27 @@
             }
           ]
         }
-      ],
-      "bottomLost": true
+      ]
     },
     {
       "name": "Legendary - Domination",
       "cardId": 621,
       "level": "D",
       "initiative": 50,
+      "lost": true,
       "actions": [
         {
           "type": "summon",
           "value": "naaret"
         }
       ],
-      "lost": true,
+      "bottomLost": true,
       "bottomActions": [
         {
           "type": "summon",
           "value": "naaret"
         }
-      ],
-      "bottomLost": true
+      ]
     }
   ]
 }

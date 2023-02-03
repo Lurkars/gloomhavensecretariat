@@ -48,6 +48,8 @@
     </div>
   </ng-container>
 
+  <div *ngIf="character.absent" class="absent-menu" (click)="openEntityMenu($event)"></div>
+
   <div class="stats">
     <ng-container *ngIf="!character.absent">
       <div class="column col-1" (click)="openEntityMenu($event)">

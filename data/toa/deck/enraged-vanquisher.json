@@ -1,4 +1,6 @@
 {
+  "name": "enraged-vanquisher",
+  "edition": "toa",
   "abilities": [
     {
       "name": "Abandoned Fury",
@@ -35,7 +37,5 @@
         }
       ]
     }
-  ],
-  "name": "enraged-vanquisher",
-  "edition": "toa"
+  ]
 }

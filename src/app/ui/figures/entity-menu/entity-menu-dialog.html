@@ -4,10 +4,13 @@
     <ng-container *ngIf="data.entity && gameManager.isCharacter(data.figure) && gameManager.isCharacter(data.entity)">
       <img (click)="toggleCharacterMarker()" class="icon character-icon"
         [src]="gameManager.characterManager.characterIcon(gameManager.toCharacter(data.figure))" />
-      {{gameManager.toCharacter(data.figure).title || ('data.character.' + data.figure.name |
-      ghsLabel)}}
-      <span *ngIf="gameManager.toCharacter(data.figure).title">&nbsp;({{('data.character.' + data.figure.name |
-        ghsLabel)}})</span>
+      <span class="character-title" [ngClass]="{'absent' : gameManager.toCharacter(data.figure).absent}" (click)="toggleCharacterAbsent()"
+        [title]="(gameManager.toCharacter(data.figure).absent ? 'character.absent' : 'character.present') | ghsLabel">
+        {{gameManager.toCharacter(data.figure).title || ('data.character.' + data.figure.name |
+        ghsLabel)}}
+        <span *ngIf="gameManager.toCharacter(data.figure).title">&nbsp;({{('data.character.' + data.figure.name |
+          ghsLabel)}})</span>
+      </span>
     </ng-container>
     <ng-container *ngIf="data.entity && gameManager.isObjective(data.entity)">
       <img class="icon"
@@ -55,7 +58,7 @@
     </ng-container>
   </div>
 
-  <div *ngIf="!levelDialog" class="status-container">
+  <div *ngIf="!levelDialog && (!gameManager.isCharacter(data.figure) || !gameManager.toCharacter(data.figure).absent)" class="status-container">
     <div class="entity-container">
 
       <div class="shield-action" *ngIf="gameManager.isMonster(data.figure) && +shieldAction().value > 0">

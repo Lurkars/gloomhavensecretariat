@@ -2,8 +2,8 @@
   "name": "bear-drake-abomination",
   "thumbnail": "gh-cave-bear",
   "edition": "fc",
-  "flying": true,
   "boss": true,
+  "flying": true,
   "hidden": true,
   "count": 1,
   "baseStat": {

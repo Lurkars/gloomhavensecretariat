@@ -24,9 +24,40 @@
       ]
     },
     {
-      "type": "elite",
-      "level": 0,
-      "health": 9,
+      "level": 1,
+      "health": 8,
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 10,
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "health": 11,
       "movement": 2,
       "attack": 3,
       "actions": [
@@ -41,10 +72,75 @@
       ]
     },
     {
-      "level": 1,
-      "health": 8,
+      "level": 4,
+      "health": 13,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 1
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 13,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 16,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 19,
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 9,
       "movement": 2,
-      "attack": 2,
+      "attack": 3,
       "actions": [
         {
           "type": "shield",
@@ -74,43 +170,11 @@
       ]
     },
     {
-      "level": 2,
-      "health": 10,
-      "movement": 2,
-      "attack": 2,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 1
-        },
-        {
-          "type": "custom",
-          "value": "%game.custom.advantage%"
-        }
-      ]
-    },
-    {
       "type": "elite",
       "level": 2,
       "health": 13,
       "movement": 2,
       "attack": 4,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 1
-        },
-        {
-          "type": "custom",
-          "value": "%game.custom.advantage%"
-        }
-      ]
-    },
-    {
-      "level": 3,
-      "health": 11,
-      "movement": 2,
-      "attack": 3,
       "actions": [
         {
           "type": "shield",
@@ -140,22 +204,6 @@
       ]
     },
     {
-      "level": 4,
-      "health": 13,
-      "movement": 3,
-      "attack": 3,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 1
-        },
-        {
-          "type": "custom",
-          "value": "%game.custom.advantage%"
-        }
-      ]
-    },
-    {
       "type": "elite",
       "level": 4,
       "health": 18,
@@ -173,43 +221,11 @@
       ]
     },
     {
-      "level": 5,
-      "health": 13,
-      "movement": 3,
-      "attack": 3,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        },
-        {
-          "type": "custom",
-          "value": "%game.custom.advantage%"
-        }
-      ]
-    },
-    {
       "type": "elite",
       "level": 5,
       "health": 18,
       "movement": 3,
       "attack": 5,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        },
-        {
-          "type": "custom",
-          "value": "%game.custom.advantage%"
-        }
-      ]
-    },
-    {
-      "level": 6,
-      "health": 16,
-      "movement": 3,
-      "attack": 4,
       "actions": [
         {
           "type": "shield",
@@ -226,22 +242,6 @@
       "level": 6,
       "health": 25,
       "movement": 4,
-      "attack": 5,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        },
-        {
-          "type": "custom",
-          "value": "%game.custom.advantage%"
-        }
-      ]
-    },
-    {
-      "level": 7,
-      "health": 19,
-      "movement": 3,
       "attack": 5,
       "actions": [
         {

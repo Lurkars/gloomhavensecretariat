@@ -1,8 +1,8 @@
 {
   "name": "cultist-scenario-78",
   "thumbnail": "gh-cultist",
-  "deck": "cultist",
   "edition": "gh",
+  "deck": "cultist",
   "hidden": true,
   "count": 6,
   "baseStat": {

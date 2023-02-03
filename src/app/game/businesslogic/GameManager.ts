@@ -436,7 +436,11 @@ export class GameManager {
   }
 
   fhRules(): boolean {
-    return this.game.edition && (this.game.edition == 'fh' || gameManager.editionExtensions(this.game.edition).indexOf('fh') != -1) || this.game.scenario && (this.game.scenario.edition == 'fh' || gameManager.editionExtensions(this.game.scenario.edition).indexOf('fh') != -1) || this.game.lootDeck.cards.length > 0 || false;
+    return this.editionRules('fh');
+  }
+
+  editionRules(edition: string): boolean {
+    return this.game.edition && (this.game.edition == edition || gameManager.editionExtensions(this.game.edition).indexOf(edition) != -1) || this.game.scenario && (this.game.scenario.edition == edition || gameManager.editionExtensions(this.game.scenario.edition).indexOf(edition) != -1) || this.game.lootDeck.cards.length > 0 || false;
   }
 
 }

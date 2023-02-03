@@ -41,6 +41,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
   doubleClickPerk: any = null;
   priceModifier: number = 0;
   itemIndex: number = 1;
+  retired: boolean = false;
 
   goldTimeout: any = null;
   xpTimeout: any = null;
@@ -49,6 +50,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
   csSheet: boolean = false;
 
   constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef) {
+    this.retired = character.progress.retired;
     this.dialogRef.closed.subscribe({
       next: () => {
         if (this.titleInput) {
@@ -67,6 +69,16 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
 
         if (this.itemEdition) {
           this.itemEdition.nativeElement.value = this.character.edition;
+        }
+
+        if (this.retired != this.character.progress.retired) {
+          gameManager.stateManager.before("setRetired", "data.character." + this.character.name, "" + !this.character.progress.retired);
+          this.character.progress.retired = this.retired;
+          if (this.retired && gameManager.game.party.campaignMode) {
+            gameManager.game.party.retirements.push(this.character.toModel());
+            gameManager.characterManager.removeCharacter(this.character);
+          }
+          this.gameManager.stateManager.after();
         }
       }
     });
@@ -262,12 +274,6 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
       this.character.progress.notes = event.target.value;
       this.gameManager.stateManager.after();
     }
-  }
-
-  toggleRetired() {
-    gameManager.stateManager.before("setRetired", "data.character." + this.character.name, "" + !this.character.progress.retired);
-    this.character.progress.retired = !this.character.progress.retired;
-    this.gameManager.stateManager.after();
   }
 
   itemChange(itemIndexChange: number = 0) {

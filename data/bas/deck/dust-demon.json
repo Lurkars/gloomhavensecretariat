@@ -1,5 +1,6 @@
 {
   "name": "dust-demon",
+  "edition": "bas",
   "abilities": [
     {
       "initiative": 13,
@@ -22,6 +23,54 @@
               "type": "custom",
               "value": "%data.custom.bas.dust-demon.1%",
               "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "initiative": 20,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
+    },
+    {
+      "initiative": 36,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "pull",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemiesRange:2",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "initiative": 56,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "condition",
+          "value": "stun",
+          "subActions": [
+            {
+              "type": "area",
+              "value": "(0,1,target)|(1,0,target)|(1,1,active)|(2,0,target)|(2,1,target)|(1,2,target)|(2,2,target)"
             }
           ]
         }
@@ -54,48 +103,6 @@
       ]
     },
     {
-      "initiative": 56,
-      "actions": [
-        {
-          "type": "condition",
-          "value": "stun",
-          "subActions": [
-            {
-              "type": "area",
-              "value": "(0,1,target)|(1,0,target)|(1,1,active)|(2,0,target)|(2,1,target)|(1,2,target)|(2,2,target)"
-            }
-          ]
-        }
-      ],
-      "shuffle": true
-    },
-    {
-      "initiative": 36,
-      "actions": [
-        {
-          "type": "pull",
-          "value": 1,
-          "subActions": [
-            {
-              "type": "specialTarget",
-              "value": "enemiesRange:2",
-              "small": true
-            }
-          ]
-        }
-      ],
-      "shuffle": true
-    },
-    {
-      "initiative": 97,
-      "actions": [
-        {
-          "type": "loot",
-          "value": 2
-        }
-      ]
-    },
-    {
       "initiative": 61,
       "actions": [
         {
@@ -107,21 +114,6 @@
           "type": "attack",
           "value": 0,
           "valueType": "plus"
-        }
-      ]
-    },
-    {
-      "initiative": 20,
-      "actions": [
-        {
-          "type": "move",
-          "value": 1,
-          "valueType": "plus"
-        },
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
         }
       ]
     },
@@ -139,7 +131,15 @@
           "valueType": "plus"
         }
       ]
+    },
+    {
+      "initiative": 97,
+      "actions": [
+        {
+          "type": "loot",
+          "value": 2
+        }
+      ]
     }
-  ],
-  "edition": "bas"
+  ]
 }

@@ -3,8 +3,8 @@
   "thumbnail": "jotl-giant-viper",
   "edition": "jotl",
   "deck": "giant-viper",
-  "count": 10,
   "hidden": true,
+  "count": 10,
   "baseStat": {
     "type": "normal",
     "actions": [

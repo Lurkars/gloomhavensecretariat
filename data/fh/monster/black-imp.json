@@ -2,8 +2,8 @@
   "name": "black-imp",
   "edition": "fh",
   "deck": "imp",
+  "catching": true,
   "count": 10,
-  "catching" : true,
   "baseStat": {
     "type": "normal",
     "movement": 1

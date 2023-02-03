@@ -33,6 +33,14 @@
       }
     }
 
+    .character-title {
+      cursor: pointer;
+
+      &.absent {
+        text-decoration: line-through;
+      }
+    }
+
     .standee-number {
       cursor: w-resize;
       font-family: var(--ghs-font-normal);

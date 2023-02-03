@@ -3,8 +3,8 @@
   "thumbnail": "fh-frozen-corpse",
   "edition": "fh",
   "deck": "frozen-corpse",
-  "count": 6,
   "hidden": true,
+  "count": 6,
   "baseStat": {
     "type": "normal"
   },

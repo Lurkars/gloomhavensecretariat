@@ -382,7 +382,7 @@
       "hungry-maw",
       "snow-imp"
     ],
-    "blocksSections": [
+    "blockedSections": [
       "152.1"
     ],
     "rooms": [
@@ -701,7 +701,7 @@
       "polar-bear",
       "snow-imp"
     ],
-    "blocksSections": [
+    "blockedSections": [
       "98.1"
     ],
     "rooms": [
@@ -758,7 +758,7 @@
     "parentSections": [
       "152.1"
     ],
-    "blocksSections": [
+    "blockedSections": [
       "179.2"
     ],
     "rooms": [
@@ -812,7 +812,7 @@
     "parentSections": [
       "152.1"
     ],
-    "blocksSections": [
+    "blockedSections": [
       "172.1"
     ],
     "rooms": [

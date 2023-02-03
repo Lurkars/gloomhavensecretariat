@@ -1,7 +1,7 @@
 {
   "name": "scoundrel",
   "characterClass": "human",
-  "gender" : "f",
+  "gender": "f",
   "edition": "fh-crossover",
   "color": "#9ecf5f",
   "stats": [

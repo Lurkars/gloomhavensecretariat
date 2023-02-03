@@ -385,6 +385,14 @@ export class EntityMenuDialogComponent {
     return false;
   }
 
+  toggleCharacterAbsent() {
+    if (this.data.entity instanceof Character && (this.data.entity.absent || gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length > 1)) {
+      gameManager.stateManager.before(this.data.entity.absent ? "unsetAbsent" : "setAbsent", "data.character." + this.data.entity.name);
+      this.data.entity.absent = !this.data.entity.absent;
+      this.gameManager.stateManager.after();
+    }
+  }
+
   toggleCharacterMarker() {
     if (this.data.entity instanceof Character) {
       gameManager.stateManager.before(this.data.entity.marker ? "disableMarker" : "enableMarker", "data.character." + this.data.entity.name);

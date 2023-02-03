@@ -120,27 +120,6 @@
       ]
     },
     {
-      "cardId": 675,
-      "initiative": 35,
-      "actions": [
-        {
-          "type": "move",
-          "value": 1,
-          "valueType": "plus",
-          "subActions": [
-            {
-              "type": "jump",
-              "small": true
-            }
-          ]
-        },
-        {
-          "type": "loot",
-          "value": 1
-        }
-      ]
-    },
-    {
       "cardId": 674,
       "initiative": 79,
       "actions": [
@@ -160,6 +139,27 @@
               "small": true
             }
           ]
+        }
+      ]
+    },
+    {
+      "cardId": 675,
+      "initiative": 35,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "jump",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "loot",
+          "value": 1
         }
       ]
     }

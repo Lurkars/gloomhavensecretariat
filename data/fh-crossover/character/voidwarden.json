@@ -1,7 +1,7 @@
 {
   "name": "voidwarden",
   "characterClass": "human",
-  "gender" : "f",
+  "gender": "f",
   "edition": "fh-crossover",
   "color": "#e8e9e9",
   "stats": [

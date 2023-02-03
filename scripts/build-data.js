@@ -119,7 +119,7 @@ for (edition_path of edition_dirs) {
           const existing = edition_data['sections'].find((sectionData) => sectionData.index == section.index && sectionData.edition == section.edition && sectionData.group == section.group);
           if (existing) {
             edition_data['sections'].splice(edition_data['sections'].indexOf(existing), 1, section);
-            console.log(section.edition + " Section #" + section.index + (section.group ? ' [' + section.group + ']' : '') + " replaced with new format.");
+            console.debug(section.edition + " Section #" + section.index + (section.group ? ' [' + section.group + ']' : '') + " replaced with new format.");
           } else {
             edition_data['sections'].push(section);
           }

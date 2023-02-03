@@ -62,38 +62,6 @@
       ]
     },
     {
-      "cardId": 555,
-      "initiative": 6,
-      "actions": [
-        {
-          "type": "shield",
-          "value": 2
-        },
-        {
-          "type": "heal",
-          "value": 2,
-          "subActions": [
-            {
-              "type": "specialTarget",
-              "value": "self",
-              "small": true
-            }
-          ]
-        },
-        {
-          "type": "condition",
-          "value": "strengthen",
-          "subActions": [
-            {
-              "type": "specialTarget",
-              "value": "self",
-              "small": true
-            }
-          ]
-        }
-      ]
-    },
-    {
       "cardId": 554,
       "initiative": 72,
       "shuffle": true,
@@ -130,6 +98,38 @@
             {
               "type": "condition",
               "value": "wound",
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cardId": 555,
+      "initiative": 6,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "heal",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "strengthen",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "self",
               "small": true
             }
           ]

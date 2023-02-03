@@ -6,7 +6,7 @@
   "count": 6,
   "baseStat": {
     "type": "normal",
-    "note" : "%data.custom.solo.char-am-deck%"
+    "note": "%data.custom.solo.char-am-deck%"
   },
   "stats": [
     {

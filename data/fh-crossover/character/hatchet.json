@@ -1,7 +1,7 @@
 {
   "name": "hatchet",
   "characterClass": "inox",
-  "gender" : "m",
+  "gender": "m",
   "edition": "fh-crossover",
   "color": "#7bbbd6",
   "marker": true,

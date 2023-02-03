@@ -1,6 +1,23 @@
 {
   "name": "giant-scorpion",
+  "edition": "bas",
   "abilities": [
+    {
+      "initiative": 8,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        }
+      ]
+    },
     {
       "initiative": 16,
       "actions": [
@@ -18,7 +35,8 @@
       ]
     },
     {
-      "initiative": 63,
+      "initiative": 24,
+      "shuffle": true,
       "actions": [
         {
           "type": "attack",
@@ -26,87 +44,7 @@
           "valueType": "plus"
         },
         {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
-          "subActions": [
-            {
-              "type": "specialTarget",
-              "value": "enemyOneAll",
-              "small": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "initiative": 8,
-      "actions": [
-        {
-          "type": "move",
-          "value": 2,
-          "valueType": "plus"
-        },
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
-        }
-      ],
-      "shuffle": true
-    },
-    {
-      "initiative": 75,
-      "actions": [
-        {
-          "type": "move",
-          "value": 0,
-          "valueType": "plus"
-        },
-        {
-          "type": "attack",
-          "value": 0,
-          "valueType": "plus",
-          "subActions": [
-            {
-              "type": "pierce",
-              "value": 2,
-              "small": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "initiative": 67,
-      "actions": [
-        {
-          "type": "move",
-          "value": 1,
-          "valueType": "minus"
-        },
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "plus"
-        }
-      ]
-    },
-    {
-      "initiative": 52,
-      "actions": [
-        {
-          "type": "move",
-          "value": 1,
-          "valueType": "plus"
-        },
-        {
-          "type": "attack",
-          "value": 1,
-          "valueType": "minus"
-        },
-        {
-          "type": "retaliate",
+          "type": "shield",
           "value": 2
         }
       ]
@@ -133,7 +71,26 @@
       ]
     },
     {
-      "initiative": 24,
+      "initiative": 52,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "retaliate",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "initiative": 63,
       "actions": [
         {
           "type": "attack",
@@ -141,12 +98,55 @@
           "valueType": "plus"
         },
         {
-          "type": "shield",
-          "value": 2
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "specialTarget",
+              "value": "enemyOneAll",
+              "small": true
+            }
+          ]
         }
-      ],
-      "shuffle": true
+      ]
+    },
+    {
+      "initiative": 67,
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "valueType": "minus"
+        },
+        {
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus"
+        }
+      ]
+    },
+    {
+      "initiative": 75,
+      "actions": [
+        {
+          "type": "move",
+          "value": 0,
+          "valueType": "plus"
+        },
+        {
+          "type": "attack",
+          "value": 0,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "pierce",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ]
     }
-  ],
-  "edition": "bas"
+  ]
 }

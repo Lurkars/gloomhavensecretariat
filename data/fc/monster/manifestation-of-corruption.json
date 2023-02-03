@@ -1,6 +1,7 @@
 {
   "name": "manifestation-of-corruption",
   "edition": "fc",
+  "deck": "boss",
   "boss": true,
   "flying": true,
   "count": 1,
@@ -73,6 +74,5 @@
       "attack": 8,
       "range": 7
     }
-  ],
-  "deck": "boss"
+  ]
 }

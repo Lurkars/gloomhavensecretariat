@@ -2,8 +2,8 @@
   "name": "spitting-drake",
   "edition": "fh",
   "flying": true,
+  "catching": true,
   "count": 6,
-  "catching" : true,
   "baseStat": {
     "type": "normal"
   },

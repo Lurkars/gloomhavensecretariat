@@ -200,6 +200,7 @@
       ]
     },
     {
+      "name": "Raging Blaze",
       "cardId": 553,
       "initiative": 30,
       "shuffle": true,
@@ -243,8 +244,7 @@
             }
           ]
         }
-      ],
-      "name": "Raging Blaze"
+      ]
     },
     {
       "name": "Calculated Strike",

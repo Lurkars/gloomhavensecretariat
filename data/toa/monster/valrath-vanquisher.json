@@ -5,18 +5,18 @@
   "boss": true,
   "count": 1,
   "baseStat": {
-    "immunities": [
-      "disarm",
-      "stun"
-    ],
-    "special": [],
     "type": "boss",
     "actions": [
       {
         "type": "custom",
         "value": "Unaffected by hazardous terrain"
       }
-    ]
+    ],
+    "immunities": [
+      "disarm",
+      "stun"
+    ],
+    "special": []
   },
   "stats": [
     {

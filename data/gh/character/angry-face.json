@@ -4,8 +4,8 @@
   "gender": "m",
   "edition": "gh",
   "color": "#5bc5dc",
-  "marker": true,
   "spoiler": true,
+  "marker": true,
   "stats": [
     {
       "level": 1,
