@@ -5,7 +5,7 @@ import { sortScenarioFiles } from "./sort/sort-scenario-files.mjs";
 
 const dataDirectory = process.argv[2];
 
-console.log("Start automatic formatting of data directory: " + dataDirectory);
+console.log("Start automatic formatting of data directory: " + dataDirectory + "\n");
 
 let changedFiles = [];
 
@@ -15,7 +15,11 @@ changedFiles.push(...sortMonsterFiles(dataDirectory));
 changedFiles.push(...sortScenarioFiles(dataDirectory));
 
 changedFiles.forEach((changedFile) => {
-    console.info("Automatically format file '" + changedFile + "'");
+    console.info("Automatically format file: " + changedFile);
 })
+
+if (changedFiles.length > 0) {
+    console.log("\n");
+}
 
 console.log("Finished automatic formatting.\n");
