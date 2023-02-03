@@ -19,7 +19,7 @@ changedFiles.forEach((changedFile) => {
 })
 
 if (changedFiles.length > 0) {
-    console.log("\n");
+    console.log("");
 }
 
 console.log("Finished automatic formatting.\n");
