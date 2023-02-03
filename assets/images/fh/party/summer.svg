@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="3.8773401mm"
+   height="4.3224502mm"
+   viewBox="0 0 3.8773401 4.3224502"
+   version="1.1"
+   id="svg30234"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="summer.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview30236"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     fit-margin-top="0.5"
+     fit-margin-left="0.5"
+     fit-margin-right="0.5"
+     fit-margin-bottom="0.5"
+     lock-margins="false"
+     inkscape:zoom="44.58541"
+     inkscape:cx="10.799497"
+     inkscape:cy="10.306062"
+     inkscape:window-width="1846"
+     inkscape:window-height="1016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs30231" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-181.27893,-85.156444)">
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.352778"
+       d="m 183.2176,88.092815 c -0.42857,0 -0.77584,-0.347265 -0.77584,-0.774457 0,-0.429948 0.34727,-0.775836 0.77584,-0.775836 0.42857,0 0.77584,0.345888 0.77584,0.775836 0,0.427192 -0.34727,0.774457 -0.77584,0.774457 m 1.43867,-1.605414 h -0.95911 l -0.47956,-0.830957 -0.47956,0.830957 h -0.95911 l 0.47956,0.830957 -0.47956,0.829579 h 0.95911 l 0.47956,0.830957 0.47956,-0.830957 h 0.95911 l -0.47956,-0.829579 z m 0,0"
+       id="path25416" />
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.352778"
+       d="m 183.78811,87.31698 c 0,0.315571 -0.25494,0.570508 -0.57051,0.570508 -0.31419,0 -0.56913,-0.254937 -0.56913,-0.570508 0,-0.314193 0.25494,-0.56913 0.56913,-0.56913 0.31557,0 0.57051,0.254937 0.57051,0.56913"
+       id="path25418" />
+  </g>
+</svg>

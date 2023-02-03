@@ -560,6 +560,16 @@
       ".": "Campaign",
       "achievements": "Global Achievements",
       "donations": "Donations to Sanctuary of the Great Oak",
+      "retirements": {
+        ".": "Retired Characters",
+        "character": "Character",
+        "class": "Class",
+        "level": "Level",
+        "masteries": "Masteries",
+        "perks": "Perks",
+        "player": "Player",
+        "reactivate": "Reactivate Character"
+      },
       "scenarios": {
         ".": "Scenarios",
         "addSuccess": "Mark successful",
@@ -570,6 +580,20 @@
         "name": "Name",
         "removeManual": "Remove from Unlocked",
         "removeSuccess": "Remove from successful"
+      },
+      "sheet": {
+        "." : "Campaign Sheet",
+        "campaignSticker": "Campaign Sticker",
+        "defense": "Defense",
+        "inspiration": "Inspiration",
+        "morale": "Morale",
+        "name": "Party<br>Name",
+        "soldiers": "Soldiers",
+        "summer": "Summer",
+        "supply": "Frosthaven Supply",
+        "totalDefense": "Total Defense",
+        "townGuardPerks": "Town Guard Perks",
+        "winter": "Winter"
       },
       "treasures": "Treasures"
     },
