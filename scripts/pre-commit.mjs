@@ -5,7 +5,13 @@ import { sortScenarioFiles } from "./sort/sort-scenario-files.mjs";
 
 const dataDirectory = process.argv[2];
 
-sortCharacterFiles(dataDirectory);
-sortDeckFiles(dataDirectory);
-sortMonsterFiles(dataDirectory);
-sortScenarioFiles(dataDirectory);
+let changedFiles = [];
+
+changedFiles.push(...sortCharacterFiles(dataDirectory));
+changedFiles.push(...sortDeckFiles(dataDirectory));
+changedFiles.push(...sortMonsterFiles(dataDirectory));
+changedFiles.push(...sortScenarioFiles(dataDirectory));
+
+changedFiles.forEach((changedFile) => {
+    console.info("Automatically format file '" + changedFile + "'");
+})
