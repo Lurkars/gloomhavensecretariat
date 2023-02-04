@@ -694,6 +694,10 @@
       ".": "Immer Gefährliches Gelände",
       "hint": "Immer Frosthaven Regel für Gefährliches Gelände Berechnung anwenden"
     },
+    "alwaysFhSolo": {
+      ".": "Immer Frosthaven Solo Regeln",
+      "hint": "Immer Frosthaven Regel für Solo Levelberechnung anwenden"
+    },
     "alwaysLootApplyDialog": {
       ".": "Beute zuweisen Dialog immer anzeigen",
       "hint": "Immer den Charakterauswahldialog anzeigen anstatt den aktiven Charakter zu verwenden nachdem eine Beute Karte gezogen wurde"

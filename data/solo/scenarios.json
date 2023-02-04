@@ -410,7 +410,7 @@
     "initial": true,
     "spoiler": true,
     "monsters": [
-      "city-guard-sun-solo",
+      "city-guard-sun-solo:-2",
       "bandit-guard",
       "bandit-archer",
       "inox-guard",

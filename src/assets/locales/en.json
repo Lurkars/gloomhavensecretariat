@@ -813,6 +813,10 @@
       ".": "Always Hazardous Terrain",
       "hint": "Always apply Frosthaven rules for Hazardous Terrain calculation"
     },
+    "alwaysFhSolo": {
+      ".": "Always Frosthaven Solo Rules",
+      "hint": "Always apply Frosthaven rules for Solo level calculation"
+    },
     "alwaysLootApplyDialog": {
       ".": "Always show Loot Apply Dialog",
       "hint": "Always show dialog to select character on Loot Card drawn instead of using active character"

@@ -13,6 +13,7 @@ export class Settings {
   activeStandees: boolean = true;
   alwaysAllyAttackModifierDeck: boolean = false;
   alwaysHazardousTerrain: boolean = false;
+  alwaysFhSolo: boolean = false;
   initiativeRequired: boolean = true;
   disableStandees: boolean = false;
   abilityReveal: boolean = true;
