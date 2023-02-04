@@ -161,6 +161,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setAlwaysFhSolo(alwaysFhSolo: boolean) {
+    this.settings.alwaysFhSolo = alwaysFhSolo;
+    this.storeSettings();
+  }
+
   setInitiativeRequired(initiativeRequired: boolean) {
     this.settings.initiativeRequired = initiativeRequired;
     this.storeSettings();
