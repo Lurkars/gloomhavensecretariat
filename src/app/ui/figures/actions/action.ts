@@ -52,7 +52,10 @@ export class ActionComponent implements OnInit {
     })
   }
 
-  hasEntities(type: MonsterType | undefined = undefined): boolean {
+  hasEntities(type: MonsterType | string | undefined = undefined): boolean {
+    if (typeof type === 'string') {
+      type = type as MonsterType;
+    }
     if (type == MonsterType.normal && this.monster && this.monster.boss) {
       return this.hasEntities(MonsterType.boss);
     }
@@ -269,6 +272,10 @@ export class ActionComponent implements OnInit {
               }
             } else {
               subAction.small = true;
+              if (subAction.type == ActionType.monsterType) {
+                subAction.small = false;
+                subAction.subActions.forEach((sub) => sub.small = true);
+              }
               this.additionalSubActions.push(subAction);
             }
           }

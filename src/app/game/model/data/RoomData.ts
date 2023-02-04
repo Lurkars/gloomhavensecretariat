@@ -20,6 +20,7 @@ export class MonsterStandeeData {
     player2: MonsterType | undefined;
     player3: MonsterType | undefined;
     player4: MonsterType | undefined;
+    health: string | number | undefined;
 
     constructor(name: string) {
         this.name = name;

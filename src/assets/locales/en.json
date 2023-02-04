@@ -420,6 +420,7 @@
       "startTurn": "Start turn"
     },
     "health": "Hit points",
+    "hp": "HP",
     "initiative": "Initiative",
     "level": {
       ".": "Level",

@@ -142,8 +142,14 @@
         },
         {
           "type": "custom",
-          "value": "If no Piranha Pig was targeted<br>by the grant ability, summon<br>one normal Piranha Pig.",
-          "small": true
+          "value": "If no Piranha Pig was targeted<br>by the grant ability:",
+          "small": true,
+          "subActions": [
+            {
+              "type": "summon",
+              "value": "piranha-pig:normal"
+            }
+          ]
         }
       ]
     },

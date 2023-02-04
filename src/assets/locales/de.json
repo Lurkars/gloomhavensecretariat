@@ -318,6 +318,7 @@
       "startTurn": "Zug beginnen"
     },
     "health": "Trefferpunkte",
+    "hp": "TP",
     "initiative": "Initiative",
     "level": {
       ".": "Level",

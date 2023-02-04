@@ -83,9 +83,52 @@
           "small": true
         },
         {
-          "type": "custom",
-          "value": "Summone one Vermling Scout (1 HP) in an adjacenty<br>unoccupied hex with a water tile.<br>Normal Wavethrowers summon<br>normal Eels, elites summon elites.",
-          "small": true
+          "type": "concatenation",
+          "subActions": [
+            {
+              "type": "monsterType",
+              "value": "normal",
+              "subActions": [
+                {
+                  "type": "summon",
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "vermling-scout",
+                        "type": "normal",
+                        "health": 1
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "monsterType",
+              "value": "elite",
+              "subActions": [
+                {
+                  "type": "summon",
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "vermling-scout",
+                        "type": "elite",
+                        "health": 1
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "in an adjacent unoccupied<br>hex with a water tile.",
+              "small": true
+            }
+          ]
         }
       ]
     },
@@ -101,9 +144,52 @@
           "small": true
         },
         {
-          "type": "custom",
-          "value": "Summone one Vermling Scout (1 HP) in an adjacenty<br>unoccupied hex with a water tile.<br>Normal Wavethrowers summon<br>normal Eels, elites summon elites.",
-          "small": true
+          "type": "concatenation",
+          "subActions": [
+            {
+              "type": "monsterType",
+              "value": "normal",
+              "subActions": [
+                {
+                  "type": "summon",
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "vermling-scout",
+                        "type": "normal",
+                        "health": 1
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "monsterType",
+              "value": "elite",
+              "subActions": [
+                {
+                  "type": "summon",
+                  "value": "monsterStandee",
+                  "valueObject": [
+                    {
+                      "monster": {
+                        "name": "vermling-scout",
+                        "type": "elite",
+                        "health": 1
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "in an adjacent unoccupied<br>hex with a water tile.",
+              "small": true
+            }
+          ]
         }
       ]
     },

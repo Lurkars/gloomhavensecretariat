@@ -122,11 +122,11 @@ export class ActionSummonComponent implements OnChanges {
 
   getSummonLabel(monsterSpawnData: MonsterSpawnData): string {
     if (monsterSpawnData.monster.player2 == monsterSpawnData.monster.player3 && monsterSpawnData.monster.player3 == monsterSpawnData.monster.player4) {
-      return settingsManager.getLabel('game.summon.playerAll', ['' + monsterSpawnData.monster.type]);
+      return settingsManager.getLabel('game.summon.playerAll', ['' + monsterSpawnData.monster.type]) + (monsterSpawnData.monster.health ? ('(' + EntityValueFunction(monsterSpawnData.monster.health) + ' ' + settingsManager.getLabel('figure.health') + ')') : '');
     } else if (monsterSpawnData.monster.player2 == monsterSpawnData.monster.player3) {
-      return settingsManager.getLabel('game.summon.player2-3', ['' + monsterSpawnData.monster.player2, '' + monsterSpawnData.monster.player4]);
+      return settingsManager.getLabel('game.summon.player2-3', ['' + monsterSpawnData.monster.player2, '' + monsterSpawnData.monster.player4]) + (monsterSpawnData.monster.health ? ('(' + EntityValueFunction(monsterSpawnData.monster.health) + ' ' + settingsManager.getLabel('figure.health') + ')') : '');
     } else if (monsterSpawnData.monster.player3 == monsterSpawnData.monster.player4) {
-      return settingsManager.getLabel('game.summon.player3-4', ['' + monsterSpawnData.monster.player2, '' + monsterSpawnData.monster.player4]);
+      return settingsManager.getLabel('game.summon.player3-4', ['' + monsterSpawnData.monster.player2, '' + monsterSpawnData.monster.player4]) + (monsterSpawnData.monster.health ? ('(' + EntityValueFunction(monsterSpawnData.monster.health) + ' ' + settingsManager.getLabel('figure.health') + ')') : '');
     } else {
       console.warn('Incorrect summon data', monsterSpawnData);
     }
@@ -160,14 +160,18 @@ export class ActionSummonComponent implements OnChanges {
       const count = EntityValueFunction(spawn.count || 1);
       gameManager.stateManager.before("summonAction", "data.monster." + spawn.monster.name, "game.monsterType." + spawn.monster.type, '' + count);
       for (let i = 0; i < count; i++) {
-        const entity = gameManager.monsterManager.spawnMonsterEntity(spawn.monster.name, spawn.monster.type, gameManager.game.scenario, !this.spawn);
+        const entity = gameManager.monsterManager.spawnMonsterEntity(spawn.monster.name, spawn.monster.type, this.monster.edition, this.monster.isAlly, false, !this.spawn);
         if (entity) {
           const tag = this.getTag(index);
           entity.tags = entity.tags || [];
           entity.tags.push(tag);
           this.tags.push(tag);
+          if (spawn.monster.health) {
+            entity.health = EntityValueFunction(spawn.monster.health);
+          }
         }
       }
+      this.update();
       gameManager.stateManager.after();
     }
     event.preventDefault();

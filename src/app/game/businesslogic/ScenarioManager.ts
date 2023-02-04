@@ -178,13 +178,16 @@ export class ScenarioManager {
         }
 
         if (type) {
-          const entity = gameManager.monsterManager.spawnMonsterEntity(monsterStandeeData.name, type, scenarioData);
+          const entity = gameManager.monsterManager.spawnMonsterEntity(monsterStandeeData.name, type, scenarioData.edition, scenarioData.allies && scenarioData.allies.indexOf(monsterStandeeData.name) != -1, scenarioData.drawExtra && scenarioData.drawExtra.indexOf(monsterStandeeData.name) != -1);
           if (entity) {
             if (monsterStandeeData.marker) {
               entity.marker = monsterStandeeData.marker;
             }
             if (monsterStandeeData.tags) {
               entity.tags = monsterStandeeData.tags;
+            }
+            if (monsterStandeeData.health) {
+              entity.health = EntityValueFunction(monsterStandeeData.health)
             }
             entities.push(entity);
           }

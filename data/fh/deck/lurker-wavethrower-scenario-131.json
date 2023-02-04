@@ -83,9 +83,27 @@
           "small": true
         },
         {
-          "type": "custom",
-          "value": "Summone one Lightning Eel in an adjacenty<br>unoccupied hex with a water tile.<br>Normal Wavethrowers summon<br>normal Eels, elites summon elites.",
-          "small": true
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "teleport",
+          "value": "",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "to the leftmost empty hex if it is an odd round or rightmost if it is even",
+              "small": true
+            }
+          ]
         }
       ]
     },
@@ -101,9 +119,27 @@
           "small": true
         },
         {
-          "type": "custom",
-          "value": "Summone one Lightning Eel in an adjacenty<br>unoccupied hex with a water tile.<br>Normal Wavethrowers summon<br>normal Eels, elites summon elites.",
-          "small": true
+          "type": "attack",
+          "value": 1,
+          "valueType": "plus",
+          "subActions": [
+            {
+              "type": "range",
+              "value": 4,
+              "small": true
+            }
+          ]
+        },
+        {
+          "type": "teleport",
+          "value": "",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "to the leftmost empty hex if it is an odd round or rightmost if it is even",
+              "small": true
+            }
+          ]
         }
       ]
     },

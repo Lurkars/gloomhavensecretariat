@@ -83,9 +83,34 @@
           "small": true
         },
         {
-          "type": "custom",
-          "value": "Summone one Lightning Eel in an adjacenty<br>unoccupied hex with a water tile.<br>Normal Wavethrowers summon<br>normal Eels, elites summon elites.",
-          "small": true
+          "type": "concatenation",
+          "subActions": [
+            {
+              "type": "monsterType",
+              "value": "normal",
+              "subActions": [
+                {
+                  "type": "summon",
+                  "value": "lightning-eel:normal"
+                }
+              ]
+            },
+            {
+              "type": "monsterType",
+              "value": "elite",
+              "subActions": [
+                {
+                  "type": "summon",
+                  "value": "lightning-eel:elite"
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "in an adjacent unoccupied<br>hex with a water tile.",
+              "small": true
+            }
+          ]
         }
       ]
     },
@@ -101,9 +126,34 @@
           "small": true
         },
         {
-          "type": "custom",
-          "value": "Summone one Lightning Eel in an adjacenty<br>unoccupied hex with a water tile.<br>Normal Wavethrowers summon<br>normal Eels, elites summon elites.",
-          "small": true
+          "type": "concatenation",
+          "subActions": [
+            {
+              "type": "monsterType",
+              "value": "normal",
+              "subActions": [
+                {
+                  "type": "summon",
+                  "value": "lightning-eel:normal"
+                }
+              ]
+            },
+            {
+              "type": "monsterType",
+              "value": "elite",
+              "subActions": [
+                {
+                  "type": "summon",
+                  "value": "lightning-eel:elite"
+                }
+              ]
+            },
+            {
+              "type": "custom",
+              "value": "in an adjacent unoccupied<br>hex with a water tile.",
+              "small": true
+            }
+          ]
         }
       ]
     },

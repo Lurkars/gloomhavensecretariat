@@ -120,8 +120,8 @@ export class MonsterManager {
     }
   }
 
-  monsterEntityCount(monster: Monster, standee : boolean = false): number {
-    return monster.entities.filter((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && (!standee || monsterEntity.number > 0)).length;
+  monsterEntityCount(monster: Monster, standee: boolean = false, type: MonsterType | undefined = undefined): number {
+    return monster.entities.filter((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && (!standee || monsterEntity.number > 0) && monsterEntity.summon != SummonState.new && (!type || monsterEntity.type == type)).length;
   }
 
   addMonsterEntity(monster: Monster, number: number, type: MonsterType, summon: boolean = false): MonsterEntity | undefined {
@@ -190,15 +190,11 @@ export class MonsterManager {
     return monsterEntity;
   }
 
-  spawnMonsterEntity(name: string, type: MonsterType, scenarioData: ScenarioData, summon: boolean = false): MonsterEntity | undefined {
-    let monster = gameManager.monsterManager.addMonsterByName(name, scenarioData.edition);
+  spawnMonsterEntity(name: string, type: MonsterType, edition: string, isAlly: boolean = false, drawExtra: boolean = false, summon: boolean = false): MonsterEntity | undefined {
+    let monster = gameManager.monsterManager.addMonsterByName(name, edition);
     if (monster) {
-      if (scenarioData.allies && scenarioData.allies.indexOf(monster.name) != -1) {
-        monster.isAlly = true;
-      }
-      if (scenarioData.drawExtra && scenarioData.drawExtra.indexOf(monster.name) != -1) {
-        monster.drawExtra = true;
-      }
+      monster.isAlly = isAlly;
+      monster.drawExtra = drawExtra;
       if (settingsManager.settings.automaticStandees && gameManager.monsterManager.monsterEntityCount(monster) < monster.count) {
         let number = (monster.entities.length + 1) * -1;
 

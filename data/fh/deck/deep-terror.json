@@ -175,8 +175,21 @@
         },
         {
           "type": "custom",
-          "value": "If the attack ability was performed,<br>summon one normal Deep Terror in<br>an empty hex adjacent to the target<br>of the attack ability",
-          "small": true
+          "value": "If the attack ability was performed",
+          "small": true,
+          "subActions": [
+            {
+              "type": "summon",
+              "value": "deep-terror:normal",
+              "subActions": [
+                {
+                  "type": "custom",
+                  "value": "in an empty hex adjacent to the target<br>of the attack ability",
+                  "small": true
+                }
+              ]
+            }
+          ]
         }
       ]
     },

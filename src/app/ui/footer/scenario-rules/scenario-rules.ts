@@ -195,7 +195,7 @@ export class ScenarioRulesComponent {
 
                         if (type && gameManager.game.scenario) {
                             for (let i = 0; i < this.spawnCount(rule, spawn); i++) {
-                                let entity = gameManager.monsterManager.spawnMonsterEntity(spawn.monster.name, type, scenario, spawn.summon);
+                                let entity = gameManager.monsterManager.spawnMonsterEntity(spawn.monster.name, type, scenario.edition, scenario.allies && scenario.allies.indexOf(spawn.monster.name) != -1, scenario.drawExtra && scenario.drawExtra.indexOf(spawn.monster.name) != -1, spawn.summon);
                                 if (entity) {
                                     if (spawn.monster.marker) {
                                         entity.marker = spawn.monster.marker;
