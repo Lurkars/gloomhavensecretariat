@@ -309,17 +309,17 @@ export class EntityMenuDialogComponent {
         let ability = gameManager.monsterManager.getAbility(this.data.figure);
         if (ability) {
           ability.actions.forEach((action) => {
-            if (action.type == ActionType.shield) {
+            if (action.type == ActionType.shield && !action.subActions.find((shieldSubAction) => shieldSubAction.type == ActionType.specialTarget && !('' + shieldSubAction.value).startsWith('self'))) {
               shieldAction.value = +shieldAction.value + +action.value;
               if (action.subActions && action.subActions.length > 0) {
-                shieldAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions)));
+                shieldAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions.filter((subAction) => subAction.type != ActionType.specialTarget))));
               }
             } else if (action.type == ActionType.monsterType && action.value == (this.data.entity as MonsterEntity).type) {
               action.subActions.forEach((action) => {
                 if (action.type == ActionType.shield) {
                   shieldAction.value = +shieldAction.value + +action.value;
                   if (action.subActions && action.subActions.length > 0) {
-                    shieldAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions)));
+                    shieldAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions.filter((subAction) => subAction.type != ActionType.specialTarget))));
                   }
                 }
               });

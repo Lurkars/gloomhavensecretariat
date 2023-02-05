@@ -86,13 +86,13 @@
     <div class="extra normal" [ngClass]="{'hidden' : hideStats(MonsterType.normal)}">
       <div class="notes" [i18n]="statsForType(MonsterType.normal).note"></div>
       <div class="additional">
-        <ghs-actions [actions]="statsForType(MonsterType.normal).actions" [monster]="monster" [inline]="true"
+        <ghs-actions [actions]="statsForType(MonsterType.normal).actions" [inline]="true" [statsCalculation]="false"
           [relative]="relative" [right]="true" [hexSize]="0.5" [highlightActions]="highlightActions">
         </ghs-actions>
       </div>
       <div class="specials" *ngFor="let special of (statsForType(MonsterType.normal).special); let index = index;">
         <span class="special">{{index+1}}:</span>
-        <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [relative]="relative" [right]="true"
+        <ghs-actions [actions]="special" [inline]="true" [statsCalculation]="false" [relative]="relative" [right]="true"
           [hexSize]="0.5">
         </ghs-actions>
       </div>
@@ -108,13 +108,14 @@
     <div class="extra elite" [ngClass]="{'hidden' : hideStats(MonsterType.elite)}">
       <div class="notes text-white" [i18n]="statsForType(MonsterType.elite).note"></div>
       <div class="additional">
-        <ghs-actions [actions]="statsForType(MonsterType.elite).actions" [monster]="monster" [inline]="true"
+        <ghs-actions [actions]="statsForType(MonsterType.elite).actions" [inline]="true" [statsCalculation]="false"
           [relative]="relative" [hexSize]="0.5" [highlightActions]="highlightActions">
         </ghs-actions>
       </div>
       <div class="specials" *ngFor="let special of (statsForType(MonsterType.elite).special); let index = index;">
         <span class="special">{{index+1}}:</span>
-        <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [relative]="relative" [hexSize]="0.5">
+        <ghs-actions [actions]="special" [inline]="true" [statsCalculation]="false" [relative]="relative"
+          [hexSize]="0.5">
         </ghs-actions>
       </div>
     </div>
@@ -130,13 +131,13 @@
   <div class="extra boss" *ngIf="monster.boss" [ngClass]="{'hidden' : hideStats(MonsterType.boss)}">
     <div class="notes text-white" [i18n]="statsForType(MonsterType.boss).note"></div>
     <div class="additional">
-      <ghs-actions [actions]="statsForType(MonsterType.boss).actions" [monster]="monster" [inline]="true"
+      <ghs-actions [actions]="statsForType(MonsterType.boss).actions" [inline]="true" [statsCalculation]="false"
         [relative]="relative" [hexSize]="0.5" [highlightActions]="highlightActions">
       </ghs-actions>
     </div>
     <div class="specials" *ngFor="let special of (statsForType(MonsterType.boss).special); let index = index;">
       <span class="special">{{index+1}}:</span>
-      <ghs-actions [actions]="special" [monster]="monster" [inline]="true" [relative]="relative" [hexSize]="0.5">
+      <ghs-actions [actions]="special" [inline]="true" [statsCalculation]="false" [relative]="relative" [hexSize]="0.5">
       </ghs-actions>
     </div>
   </div>

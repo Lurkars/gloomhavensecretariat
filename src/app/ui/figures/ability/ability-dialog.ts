@@ -6,7 +6,7 @@ import { Monster } from 'src/app/game/model/Monster';
 @Component({
   selector: 'ghs-ability-dialog',
   templateUrl: './ability-dialog.html',
-  styleUrls: [ './ability-dialog.scss' ]
+  styleUrls: ['./ability-dialog.scss']
 })
 export class AbilityDialogComponent {
 

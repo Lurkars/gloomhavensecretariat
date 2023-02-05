@@ -44,12 +44,20 @@ export class ActionComponent implements OnInit {
   ngOnInit(): void {
     this.updateSubActions();
     this.forceRelative = !this.hasEntities();
+    this.checkPlusAction();
     gameManager.uiChange.subscribe({
       next: () => {
         this.updateSubActions();
         this.forceRelative = !this.hasEntities();
+        this.checkPlusAction();
       }
     })
+  }
+
+  checkPlusAction() {
+    if (!this.relative && !this.forceRelative && settingsManager.settings.calculate && this.action && (this.action.type == ActionType.shield || this.action.type == ActionType.retaliate) && this.action.valueType != ActionValueType.minus && this.action.subActions && this.action.subActions.find((subAction) => subAction.type == ActionType.specialTarget && (subAction.value + '').startsWith('self'))) {
+      this.forceRelative = true;
+    }
   }
 
   hasEntities(type: MonsterType | string | undefined = undefined): boolean {
@@ -153,6 +161,19 @@ export class ActionComponent implements OnInit {
         case ActionType.range:
           statValue = stat.range;
           break;
+        case ActionType.shield:
+        case ActionType.retaliate:
+          if (!this.action.subActions || !this.action.subActions.find((shieldSubAction) => shieldSubAction.type == ActionType.specialTarget && shieldSubAction.value != 'self')) {
+            const statAction = stat.actions && stat.actions.find((statAction) => this.action && statAction.type == this.action.type);
+            if (statAction && statAction != this.action) {
+              statValue = EntityValueFunction(statAction.value);
+            }
+          }
+          break;
+      }
+
+      if ((this.action.type == ActionType.shield || this.action.type == ActionType.retaliate) && statValue > 0) {
+        return statValue + EntityValueFunction(this.action.value);
       }
 
       if (typeof this.action.value === "number" && sign) {
@@ -165,7 +186,6 @@ export class ActionComponent implements OnInit {
           return statValue - this.action.value;
         }
       }
-
     }
 
     if (this.action.valueType == ActionValueType.plus) {
