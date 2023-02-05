@@ -31,6 +31,8 @@ export class FooterComponent implements OnInit {
 
   compact: boolean = false;
 
+  nextHint: boolean = false;
+
   constructor(private dialog: Dialog, private overlay: Overlay) { }
 
   ngOnInit(): void {
@@ -70,14 +72,21 @@ export class FooterComponent implements OnInit {
     setTimeout(() => {
       this.compact = this.monsterDeck.nativeElement.clientWidth > this.footer.nativeElement.clientWidth * 0.3;
     })
-    
+
     window.addEventListener('resize', (event) => {
       this.compact = this.monsterDeck.nativeElement.clientWidth > this.footer.nativeElement.clientWidth * 0.3;
     });
+
+    window.addEventListener('keydown', (event: KeyboardEvent) => {
+      if (!event.shiftKey && !event.ctrlKey && !event.altKey && !this.nextHint && (event.key === 'r' || event.key === 'n')) {
+        this.next();
+      }
+    })
   }
 
   next(force: boolean = false): void {
     if (!force && this.disabled()) {
+      this.nextHint = true;
       const dialogRef = this.dialog.open(HintDialogComponent, {
         panelClass: 'dialog',
         positionStrategy: this.overlay.position().flexibleConnectedTo(this.nextButton).withPositions([new ConnectionPositionPair(
@@ -87,6 +96,7 @@ export class FooterComponent implements OnInit {
 
       dialogRef.closed.subscribe({
         next: (result) => {
+          this.nextHint = false;
           if (result) {
             this.nextState();
           }

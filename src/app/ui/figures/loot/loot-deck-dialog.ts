@@ -64,7 +64,25 @@ export class LootDeckDialogComponent implements OnInit {
       }
     })
 
-    this.enhancementDeck = gameManager.lootManager.fullLootDeck().filter((loot) => enhancableLootTypes.indexOf(loot.type) != -1);
+    this.enhancementDeck = gameManager.lootManager.fullLootDeck().filter((loot) => enhancableLootTypes.indexOf(loot.type) != -1).sort((a, b) => {
+      if (a.type != b.type) {
+        return enhancableLootTypes.indexOf(a.type) - enhancableLootTypes.indexOf(b.type);
+      }
+
+      if (a.value4P != b.value4P) {
+        return a.value4P - b.value4P;
+      }
+
+      if (a.value3P != b.value3P) {
+        return a.value3P - b.value3P;
+      }
+
+      if (a.value2P != b.value2P) {
+        return a.value2P - b.value2P;
+      }
+
+      return b.enhancements - a.enhancements;
+    });
   }
 
   enhanceCard(loot: Loot) {
