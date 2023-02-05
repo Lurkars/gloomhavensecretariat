@@ -758,6 +758,7 @@
     "connecting": "Connecting",
     "disconnect": "Disconnect",
     "disconnected": "No Connection",
+    "how-to-run": "Create your own server",
     "info": {
       ".": "Info",
       "description": "Description",
@@ -812,6 +813,10 @@
     "alwaysHazardousTerrain": {
       ".": "Always Hazardous Terrain",
       "hint": "Always apply Frosthaven rules for Hazardous Terrain calculation"
+    },
+    "alwaysFhSolo": {
+      ".": "Always Frosthaven Solo Rules",
+      "hint": "Always apply Frosthaven rules for Solo level calculation"
     },
     "alwaysLootApplyDialog": {
       ".": "Always show Loot Apply Dialog",

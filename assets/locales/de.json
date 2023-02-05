@@ -639,6 +639,7 @@
     "connecting": "Verbinde",
     "disconnect": "Trennen",
     "disconnected": "Keine Verbindung",
+    "how-to-run": "Einen eigenen Server erstellen",
     "info": {
       ".": "Info",
       "description": "Beschreibung",
@@ -693,6 +694,10 @@
     "alwaysHazardousTerrain": {
       ".": "Immer Gefährliches Gelände",
       "hint": "Immer Frosthaven Regel für Gefährliches Gelände Berechnung anwenden"
+    },
+    "alwaysFhSolo": {
+      ".": "Immer Frosthaven Solo Regeln",
+      "hint": "Immer Frosthaven Regel für Solo Levelberechnung anwenden"
     },
     "alwaysLootApplyDialog": {
       ".": "Beute zuweisen Dialog immer anzeigen",
