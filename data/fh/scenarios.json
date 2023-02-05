@@ -1101,7 +1101,7 @@
   },
   {
     "index": "32",
-    "name": "Raven's Roost",
+    "name": "Ravens' Roost",
     "edition": "fh",
     "monsters": [
       "frozen-corpse",
@@ -1115,7 +1115,58 @@
       "axenut": 2,
       "flamefruit": 2,
       "random_item": 1
-    }
+    },
+    "rules": [
+      {
+        "round": "R == 1",
+        "start": true,
+        "figures": [
+          {
+            "identifier": {
+              "type": "character",
+              "name": ".*"
+            },
+            "type": "gainCondition",
+            "value": "wound",
+            "scenarioEffect": true
+          }
+        ]
+      }
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "05-B",
+        "initial": true,
+        "monster": [
+          {
+            "name": "frozen-corpse",
+            "type": "normal"
+          },
+          {
+            "name": "frozen-corpse",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "frozen-corpse",
+            "type": "normal"
+          },
+          {
+            "name": "frozen-corpse",
+            "type": "normal"
+          },
+          {
+            "name": "frozen-corpse",
+            "player4": "normal"
+          },
+          {
+            "name": "frozen-corpse",
+            "player4": "normal"
+          }
+        ]
+      }
+    ]
   },
   {
     "index": "33",
