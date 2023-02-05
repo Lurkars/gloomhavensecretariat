@@ -48,6 +48,11 @@
       margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
     }
 
+    .server-run {
+      font-family: var(--ghs-font-normal);
+      font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+    }
+
     .password-container {
       display: flex;
     }

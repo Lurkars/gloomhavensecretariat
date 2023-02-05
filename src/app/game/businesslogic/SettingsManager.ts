@@ -332,11 +332,6 @@ export class SettingsManager {
     this.storeSettings();
   }
 
-  setFeedback(feedback: boolean) {
-    this.settings.feedback = feedback;
-    this.storeSettings();
-  }
-
   addSpoiler(spoiler: string) {
     if (this.settings.spoilers.indexOf(spoiler) == -1) {
       this.settings.spoilers.push(spoiler);

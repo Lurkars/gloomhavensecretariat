@@ -45,6 +45,12 @@
         <p>{{publicServer[selectedServerIndex].location}}</p>
       </div>
 
+      <div class="line">
+        <a class="server-run" href="https://github.com/Lurkars/ghs-server#how-to-run"
+          target="_blank">{{'server.how-to-run' |
+          ghsLabel}}</a>
+      </div>
+
       <div class="line separator" [ngClass]="{'hidden' : selectedServerIndex != -1}">
         <label class="label">{{'server.url' | ghsLabel}}</label>
         <input type="text" #serverUrl [value]="settingsManager.settings.serverUrl || ''" (keyup)="0"
@@ -55,7 +61,7 @@
         <input type="number" #serverPort [value]="settingsManager.settings.serverPort || ''" (keyup)="0"
           (change)="setServerPort($event)" placeholder="{{'server.port' | ghsLabel}}">
       </div>
-      <div class="line">
+      <div class="line" [ngClass]="{'separator' : selectedServerIndex != -1}">
         <div class="password-container">
           <label class="label">{{'server.password' | ghsLabel}}</label>
           <span class="spacer"></span>

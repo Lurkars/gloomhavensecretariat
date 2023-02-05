@@ -758,6 +758,7 @@
     "connecting": "Connecting",
     "disconnect": "Disconnect",
     "disconnected": "No Connection",
+    "how-to-run": "How to run my own server?",
     "info": {
       ".": "Info",
       "description": "Description",
