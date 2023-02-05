@@ -71,6 +71,56 @@
     ]
   },
   {
+    "index": "12.6",
+    "name": "Frozen Fjord",
+    "parent": "13",
+    "edition": "fh",
+    "marker": "3",
+    "parentSections": [
+      "44.1"
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "01-E",
+        "initial": true,
+        "monster": [
+          {
+            "name": "shrike-fiend",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          }
+        ]
+      },
+      {
+        "roomNumber": 2,
+        "ref": "01-G",
+        "initial": true,
+        "monster": [
+          {
+            "name": "snow-imp",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "snow-imp",
+            "type": "elite"
+          },
+          {
+            "name": "snow-imp",
+            "player4": "normal"
+          },
+          {
+            "name": "snow-imp",
+            "player4": "normal"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "index": "14.3",
     "name": "Temple of Liberation",
     "parent": "20",
@@ -122,6 +172,51 @@
       {
         "name": "Altar b",
         "health": "(L+1)xC/2"
+      }
+    ]
+  },
+  {
+    "index": "38.2",
+    "name": "Frozen Fjord",
+    "parent": "13",
+    "edition": "fh",
+    "marker": "2",
+    "parentSections": [
+      "44.1"
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "07-D",
+        "initial": true,
+        "monster": [
+          {
+            "name": "shrike-fiend",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "snow-imp",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "snow-imp",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "snow-imp",
+            "type": "elite"
+          },
+          {
+            "name": "snow-imp",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          }
+        ]
       }
     ]
   },
@@ -186,6 +281,56 @@
             "player2": "normal",
             "player3": "normal",
             "player4": "elite"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "index": "44.1",
+    "name": "Frozen Fjord",
+    "parent": "13",
+    "edition": "fh",
+    "marker": "1",
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "06-A",
+        "initial": true,
+        "monster": [
+          {
+            "name": "shrike-fiend",
+            "type": "elite"
+          },
+          {
+            "name": "shrike-fiend",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        ]
+      },
+      {
+        "roomNumber": 2,
+        "ref": "02-E",
+        "initial": "true",
+        "treasures": [
+          49
+        ],
+        "monster": [
+          {
+            "name": "wind-demon",
+            "type": "normal"
+          },
+          {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "wind-demon",
+            "player3": "normal",
+            "player4": "normal"
           }
         ]
       }

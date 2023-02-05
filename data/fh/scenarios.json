@@ -151,10 +151,6 @@
         "monster": [
           {
             "name": "shrike-fiend",
-            "type": "elite"
-          },
-          {
-            "name": "shrike-fiend",
             "player2": "elite"
           },
           {
@@ -166,11 +162,25 @@
             "name": "shrike-fiend",
             "player3": "elite",
             "player4": "elite"
+          }
+        ]
+      },
+      {
+        "roomNumber": 2,
+        "ref": "01-C",
+        "initial": true,
+        "monster": [
+          {
+            "name": "shrike-fiend",
+            "type": "elite"
           },
           {
             "name": "shrike-fiend",
             "player4": "elite"
           }
+        ],
+        "objectives": [
+          1
         ]
       }
     ]
