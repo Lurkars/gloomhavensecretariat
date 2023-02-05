@@ -45,7 +45,7 @@
         <p>{{publicServer[selectedServerIndex].location}}</p>
       </div>
 
-      <div class="line">
+      <div class="line" *ngIf="selectedServerIndex != -1 || gameManager.stateManager.wsState() != WebSocket.OPEN">
         <a class="server-run" href="https://github.com/Lurkars/ghs-server#how-to-run"
           target="_blank">{{'server.how-to-run' |
           ghsLabel}}</a>

@@ -76,12 +76,6 @@ export class FooterComponent implements OnInit {
     window.addEventListener('resize', (event) => {
       this.compact = this.monsterDeck.nativeElement.clientWidth > this.footer.nativeElement.clientWidth * 0.3;
     });
-
-    window.addEventListener('keydown', (event: KeyboardEvent) => {
-      if (!event.shiftKey && !event.ctrlKey && !event.altKey && !this.nextHint && (event.key === 'r' || event.key === 'n')) {
-        this.next();
-      }
-    })
   }
 
   next(force: boolean = false): void {
