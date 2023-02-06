@@ -433,7 +433,7 @@
         "actions": [
           {
             "type": "retaliate",
-            "value": "(L+1)/3 round up",
+            "value": "[(L+1)/3{$math.ceil}]",
             "subActions": [
               {
                 "type": "range",
