@@ -427,8 +427,21 @@
     "marker": "1",
     "objectives": [
       {
-        "name": "Raven Nest a",
-        "health": "(L+2)xCx3"
+        "name": "Raven Nest",
+        "health": "(L+2)xCx3",
+        "marker": "a",
+        "actions": [
+          {
+            "type": "retaliate",
+            "value": "(L+1)/3 round up",
+            "subActions": [
+              {
+                "type": "range",
+                "value": 10
+              }
+            ]
+          }
+        ]
       }
     ],
     "rules": [
