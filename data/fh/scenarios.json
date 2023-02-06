@@ -1104,7 +1104,7 @@
     "name": "Ravens' Roost",
     "edition": "fh",
     "monsters": [
-      "frozen-corpse",
+      "frozen-corpse-scenario-32",
       "harrower-infester",
       "shrike-fiend"
     ],
@@ -1140,28 +1140,28 @@
         "initial": true,
         "monster": [
           {
-            "name": "frozen-corpse",
+            "name": "frozen-corpse-scenario-32",
             "type": "normal"
           },
           {
-            "name": "frozen-corpse",
+            "name": "frozen-corpse-scenario-32",
             "player3": "normal",
             "player4": "normal"
           },
           {
-            "name": "frozen-corpse",
+            "name": "frozen-corpse-scenario-32",
             "type": "normal"
           },
           {
-            "name": "frozen-corpse",
+            "name": "frozen-corpse-scenario-32",
             "type": "normal"
           },
           {
-            "name": "frozen-corpse",
+            "name": "frozen-corpse-scenario-32",
             "player4": "normal"
           },
           {
-            "name": "frozen-corpse",
+            "name": "frozen-corpse-scenario-32",
             "player4": "normal"
           }
         ]
