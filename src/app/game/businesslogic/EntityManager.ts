@@ -41,15 +41,21 @@ export class EntityManager {
   changeHealthHighlightConditions(entity: Entity, value: number) {
     if (settingsManager.settings.applyConditions) {
       entity.entityConditions.filter((entityCondition) => entityCondition.name == ConditionName.poison || entityCondition.name == ConditionName.poison_x).forEach((entityCondition) => {
-        if (value < 0 && !entityCondition.expired) {
+        if (value < 0 && !entityCondition.expired && entityCondition.state != EntityConditionState.new) {
           entityCondition.highlight = true;
         } else {
           entityCondition.highlight = false;
         }
       });
 
-      const ward = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.name == ConditionName.ward);
-      const brittle = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.name == ConditionName.brittle);
+      const regenerate = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && entityCondition.name == ConditionName.regenerate);
+
+      if (regenerate && value < 0) {
+        regenerate.expired = true;
+      }
+
+      const ward = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && entityCondition.name == ConditionName.ward);
+      const brittle = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && entityCondition.name == ConditionName.brittle);
 
       if (value < 0 && ward && !brittle) {
         ward.value -= value;
@@ -58,9 +64,14 @@ export class EntityManager {
         ward.highlight = false;
       }
 
-      if (value < 0 && brittle && !ward) {
-        brittle.value -= value;
-        brittle.highlight = true;
+      if (brittle && !ward) {
+        if (value < 0) {
+          brittle.value -= value;
+          brittle.highlight = true;
+        } else if (value > 0) {
+          brittle.highlight = false;
+          brittle.expired = true;
+        }
       } else if (brittle) {
         brittle.highlight = false;
       }
@@ -68,6 +79,10 @@ export class EntityManager {
       if (brittle && ward) {
         brittle.highlight = false;
         ward.highlight = false;
+        if (value < 0) {
+          brittle.expired = true;
+          ward.expired = true
+        }
       }
     }
   }
@@ -397,7 +412,7 @@ export class EntityManager {
       infos.push(prefix + ".objective", entity.title || entity.name)
     } else if (figure instanceof Monster && entity instanceof MonsterEntity) {
       infos.push(prefix + ".monster", "data.monster." + figure.name, "" + entity.number)
-    }else if (figure instanceof Monster) {
+    } else if (figure instanceof Monster) {
       infos.push(prefix + ".monsterEntities", "data.monster." + figure.name,)
     }
 

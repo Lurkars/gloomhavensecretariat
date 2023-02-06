@@ -5,7 +5,7 @@ import { SettingsManager, settingsManager } from "src/app/game/businesslogic/Set
 import { Action, ActionType, ActionValueType } from "src/app/game/model/Action";
 import { AttackModifier, AttackModifierDeck, AttackModifierType } from "src/app/game/model/AttackModifier";
 import { Character } from "src/app/game/model/Character";
-import { ConditionName, ConditionType } from "src/app/game/model/Condition";
+import { ConditionName, ConditionType, EntityCondition, EntityConditionState } from "src/app/game/model/Condition";
 import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
 import { Figure } from "src/app/game/model/Figure";
 import { GameState } from "src/app/game/model/Game";
@@ -49,6 +49,7 @@ export class EntityMenuDialogComponent {
   marker: number = 0;
   id: number = 0;
   objectiveDead: boolean = false;
+  entityConditions: EntityCondition[] = [];
 
   AttackModifierType = AttackModifierType;
   SummonState = SummonState;
@@ -71,6 +72,9 @@ export class EntityMenuDialogComponent {
       if (data.entity.init) {
         this.levelDialog = true;
       }
+    }
+    if (this.data.entity) {
+      this.entityConditions = JSON.parse(JSON.stringify(this.data.entity.entityConditions))
     }
 
     this.dialogRef.closed.subscribe({
@@ -389,6 +393,9 @@ export class EntityMenuDialogComponent {
     if (this.data.entity instanceof Character && (this.data.entity.absent || gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length > 1)) {
       gameManager.stateManager.before(this.data.entity.absent ? "unsetAbsent" : "setAbsent", "data.character." + this.data.entity.name);
       this.data.entity.absent = !this.data.entity.absent;
+      if (this.data.entity.absent && this.data.entity.active) {
+        gameManager.roundManager.toggleFigure(this.data.entity);
+      }
       this.gameManager.stateManager.after();
     }
   }
@@ -569,6 +576,7 @@ export class EntityMenuDialogComponent {
     } else if (this.data.entity instanceof Objective) {
       this.closeObjective();
     }
+    this.closeConditions();
   }
 
   closeCharacter(): void {
@@ -818,6 +826,21 @@ export class EntityMenuDialogComponent {
         gameManager.characterManager.removeObjective(this.data.entity);
         gameManager.stateManager.after();
       }
+    }
+  }
+
+  closeConditions() {
+
+    if (this.data.entity) {
+      this.data.entity.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
+
+        if (this.data.entity) {
+          entityCondition.expired = entityCondition.state == EntityConditionState.new;
+          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition"), "game.condition." + entityCondition.name, this.data.entity instanceof MonsterEntity ? 'monster.' + this.data.entity.type + ' ' : '');
+          gameManager.entityManager.toggleCondition(this.data.entity, entityCondition, this.data.figure.active, this.data.figure.off);
+          gameManager.stateManager.after();
+        }
+      })
     }
   }
 

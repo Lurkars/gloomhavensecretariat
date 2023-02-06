@@ -75,7 +75,7 @@
       <div class="empty"></div>
 
       <div class="loot-container" *ngFor="let loot of disgardedCards(); let index = index" cdkDrag>
-        <ghs-loot class="drag-hidden" [loot]="loot" [flipped]="true"></ghs-loot>
+        <ghs-loot class="drag-hidden" [loot]="loot" [flipped]="true" [character]="getCharacter(deck.current - index)"></ghs-loot>
         <a class="button-remove" *ngIf="edit" (click)="remove(deck.current - index)">
           <img class="ghs-svg" src="./assets/images/minus.svg"></a>
         <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>

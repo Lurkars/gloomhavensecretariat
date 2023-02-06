@@ -56,6 +56,10 @@
       "vermling": "Ratzen"
     },
     "filter": "Charaktere filtern",
+    "lootCards": {
+      "drawn": "In gezogener Reihenfolge anordnen",
+      "sort": "Nach Typ anordnen"
+    },
     "present": "Anwesend",
     "progress": {
       ".": "Charakterbogen",
@@ -617,10 +621,12 @@
     },
     "summary": {
       ".": "Szenario Zusammenfassung",
-      "close": "Zur Anwednung Dialog schließen",
+      "anwenden": "Anwenden",
+      "cancel": "Abbrechen",
       "gold": "Gold",
       "loot": "Beute",
       "name": "%character%",
+      "restart": "Szenario neustarten (Ressourcen verlieren)",
       "totalGold": "Gold Gesamt",
       "totalXp": "EP Gesamt",
       "xp": "EP",

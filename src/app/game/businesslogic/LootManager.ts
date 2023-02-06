@@ -20,8 +20,12 @@ export class LootManager {
     if (settingsManager.settings.applyLoot && !settingsManager.settings.alwaysLootApplyDialog) {
       const activeCharacter = this.game.figures.find((figure) => figure instanceof Character && figure.active);
       const loot = deck.cards[deck.current];
-      if (activeCharacter && loot) {
-        this.updateCharacterLoot(activeCharacter as Character, loot);
+      if (activeCharacter instanceof Character && loot) {
+        activeCharacter.lootCards = activeCharacter.lootCards || [];
+        if (loot.type == LootType.money || loot.type == LootType.special1 || loot.type == LootType.special2) {
+          activeCharacter.loot += this.getValue(loot);
+        }
+        activeCharacter.lootCards.push(deck.current);
       }
     }
   }
@@ -31,7 +35,7 @@ export class LootManager {
     ghsShuffleArray(deck.cards);
   }
 
-  updateCharacterLoot(character: Character, loot: Loot) {
+  addCharacterLoot(character: Character, loot: Loot) {
     const value = this.getValue(loot);
     if (loot.type == LootType.money || loot.type == LootType.special1 || loot.type == LootType.special2) {
       character.loot += value;

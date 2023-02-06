@@ -14,8 +14,8 @@
         <span *ngIf="getValues(action).length > 1" class="value">{{getValues(action)[1]}}</span>
       </span>
     </span>
-    <div class="subactions" *ngIf="subActions.length > 0">
-      <ng-container *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let index = index;">
+    <div class="subactions" *ngIf="action.subActions.length > 0">
+      <ng-container *ngFor="let subAction of action.subActions | slice:(hasAOE ? 1 : 0); let index = index;">
         <span *ngIf="settingsManager.settings.fhStyle && index > 0">,</span>
         <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster" [inline]="inline"
           [right]="right" [hexSize]="hexSize" [statsCalculation]="statsCalculation"
@@ -55,8 +55,8 @@
       </span>
       <span class="minus" *ngIf="action.valueType == ActionValueType.minus">:</span>
     </span>
-    <div class="element-subactions" *ngIf="subActions && subActions.length > 0">
-      <ng-container *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let index = index;">
+    <div class="element-subactions" *ngIf="action.subActions.length > 0">
+      <ng-container *ngFor="let subAction of action.subActions | slice:(hasAOE ? 1 : 0); let index = index;">
         <span *ngIf="settingsManager.settings.fhStyle && index > 0">,</span>
         <ghs-action class="element-subaction" [ngClass]="'subaction-' + subAction.type" [action]="subAction"
           [monster]="monster" [relative]="relative || forceRelative" [inline]="inline" [right]="right"
@@ -71,9 +71,9 @@
       *ngIf="relative || hasEntities('' + action.value)">
       <span class="monster-type small" [ngClass]="'monster-type-' + action.value">{{'monster.' + action.value |
         ghsLabel}}:</span>
-      <div class="monster-type-subactions" *ngIf="subActions && subActions.length > 0">
+      <div class="monster-type-subactions" *ngIf="action.subActions.length > 0">
         <ghs-action [ngClass]="'subaction-' + subAction.type"
-          *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0)" [action]="subAction" [monster]="monster"
+          *ngFor="let subAction of action.subActions | slice:(hasAOE ? 1 : 0)" [action]="subAction" [monster]="monster"
           [relative]="true" [inline]="inline" [right]="right" [hexSize]="hexSize"
           [highlightElements]="highlightElements" [statsCalculation]="statsCalculation">
         </ghs-action>
@@ -93,8 +93,8 @@
       <span *ngIf="getEliteRange() && getRange() != getEliteRange()" class="elite">{{getEliteRange()}}</span>
     </span>
 
-    <div class="special-target-subactions" *ngIf="subActions && subActions.length > 0;">
-      <ng-container *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let index = index;">
+    <div class="special-target-subactions" *ngIf="action.subActions.length > 0;">
+      <ng-container *ngFor="let subAction of action.subActions | slice:(hasAOE ? 1 : 0); let index = index;">
         <span *ngIf="settingsManager.settings.fhStyle && index > 0">,</span>
         <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster" [inline]="inline"
           [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
@@ -107,9 +107,9 @@
   <span class="action-custom" *ngSwitchCase="ActionType.custom">
     <span class="custom-value" [i18n]="action.value + ''" [relative]="relative || forceRelative"
       [ngClass]="{'small' : action.small,'text-white' : !right}"></span>
-    <div class="custom-subactions" *ngIf="subActions && subActions.length > 0">
+    <div class="custom-subactions" *ngIf="action.subActions.length > 0">
       <ghs-action [ngClass]="'subaction-' + subAction.type"
-        *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0)" [action]="subAction" [monster]="monster"
+        *ngFor="let subAction of action.subActions | slice:(hasAOE ? 1 : 0)" [action]="subAction" [monster]="monster"
         [inline]="inline" [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
         [relative]="relative || forceRelative" [statsCalculation]="statsCalculation">
       </ghs-action>
@@ -119,9 +119,9 @@
   <span class="action-grant" *ngSwitchCase="ActionType.grant">
     <span class="grant-value" [i18n]="action.value + ''" [relative]="relative || forceRelative"
       [ngClass]="{'small' : action.small,'text-white' : !right}"></span>
-    <div class="grant-subactions" *ngIf="subActions && subActions.length > 0">
+    <div class="grant-subactions" *ngIf="action.subActions.length > 0">
       <ghs-action [ngClass]="'subaction-' + subAction.type"
-        *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0)" [action]="subAction" [monster]="monster"
+        *ngFor="let subAction of action.subActions | slice:(hasAOE ? 1 : 0)" [action]="subAction" [monster]="monster"
         [inline]="inline" [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements" [relative]="true"
         [statsCalculation]="false">
       </ghs-action>
@@ -130,9 +130,9 @@
 
   <span class="action-summon" *ngSwitchCase="ActionType.summon" [ngClass]="{'small' : action.small}">
     <ghs-action-summon [action]="action" [right]="right" [monster]="monster"></ghs-action-summon>
-    <ng-container *ngIf="subActions && subActions.length > 0">
+    <ng-container *ngIf="action.subActions.length > 0">
       <ghs-action [ngClass]="'subaction-' + subAction.type"
-        *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0)" [action]="subAction" [monster]="monster"
+        *ngFor="let subAction of action.subActions | slice:(hasAOE ? 1 : 0)" [action]="subAction" [monster]="monster"
         [inline]="inline" [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
         [relative]="relative || forceRelative" [statsCalculation]="statsCalculation">
       </ghs-action>
@@ -141,9 +141,9 @@
 
   <span class="action-summon" *ngSwitchCase="ActionType.spawn" [ngClass]="{'small' : action.small}">
     <ghs-action-summon [action]="action" [right]="right" [monster]="monster" [spawn]="true"></ghs-action-summon>
-    <ng-container *ngIf="subActions && subActions.length > 0">
+    <ng-container *ngIf="action.subActions.length > 0">
       <ghs-action [ngClass]="'subaction-' + subAction.type"
-        *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0)" [action]="subAction" [monster]="monster"
+        *ngFor="let subAction of action.subActions | slice:(hasAOE ? 1 : 0)" [action]="subAction" [monster]="monster"
         [inline]="inline" [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
         [relative]="relative || forceRelative" [statsCalculation]="statsCalculation">
       </ghs-action>
@@ -153,9 +153,9 @@
   <span class="action-trigger" *ngSwitchCase="ActionType.trigger">
     <span class="custom-value" [i18n]="action.value + ''" [relative]="relative || forceRelative"
       [ngClass]="{'small' : action.small,'text-white' : !right}"></span>
-    <ng-container *ngIf="subActions && subActions.length > 0;">
+    <ng-container *ngIf="action.subActions.length > 0;">
       <ghs-action [ngClass]="'subaction-' + subAction.type"
-        *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0)" [action]="subAction" [monster]="monster"
+        *ngFor="let subAction of action.subActions | slice:(hasAOE ? 1 : 0)" [action]="subAction" [monster]="monster"
         [inline]="inline" [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
         [relative]="relative || forceRelative" [statsCalculation]="statsCalculation">
       </ghs-action>
@@ -165,13 +165,13 @@
   <span class="action-default" *ngSwitchCase="ActionType.concatenation">
     <span class="action-concatenation" [ngClass]="{'small' : action.small}">
       <ng-container
-        *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0):(getValues(action).length > 1  ? +(getValues(action)[1]) : subActions.length); let i = index;">
+        *ngFor="let subAction of (action.subActions | slice:(hasAOE ? 1 : 0):(getValues(action).length > 1  ? +(getValues(action)[1]) : action.subActions.length)); let i = index;">
         <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster" [inline]="inline"
           [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
           [relative]="relative || forceRelative" [statsCalculation]="statsCalculation">
         </ghs-action>
         <span
-          *ngIf="!inline && (getValues(action).length > 1 && +(getValues(action)[1]) > 0 && i < +(getValues(action)[1]) - 1 || getValues(action).length < 2 && i < subActions.length -1)"
+          *ngIf="!inline && (getValues(action).length > 1 && +(getValues(action)[1]) > 0 && i < +(getValues(action)[1]) - 1 || getValues(action).length < 2 && i < action.subActions.length -1)"
           class="action-concatenation-item">
           <span *ngIf="getValues(action).length > 0">
             <span *ngIf="!settingsManager.settings.fhStyle" [i18n]="getValues(action)[0]"
@@ -181,9 +181,9 @@
         </span>
       </ng-container>
     </span>
-    <div class="subactions" *ngIf="getValues(action).length > 1 && subActions.length > +getValues(action)[1]">
+    <div class="subactions" *ngIf="getValues(action).length > 1 && action.subActions.length > +getValues(action)[1]">
       <ng-container
-        *ngFor="let subAction of subActions | slice:+getValues(action)[1] + (hasAOE ? 1 : 0):subActions.length; let index = index;">
+        *ngFor="let subAction of (action.subActions | slice:+getValues(action)[1] + (hasAOE ? 1 : 0):action.subActions.length); let index = index;">
         <span *ngIf="settingsManager.settings.fhStyle && index > 0">,</span>
         <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster" [inline]="inline"
           [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
@@ -194,8 +194,8 @@
   </span>
 
   <span class="action-default" *ngSwitchCase="ActionType.grid">
-    <span class="action-grid" [style.--ghs-grid-columns]="action.value || 2" [ngClass]="{'small' : action.small}">
-      <ng-container *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let i = index;">
+    <span class="action-grid" [style.--ghs-grid-columns]="action.value || 2" [ngClass]="{'small' : action.small}" *ngIf="(action.subActions | slice:(hasAOE ? 1 : 0)).length > 0">
+      <ng-container *ngFor="let subAction of (action.subActions | slice:(hasAOE ? 1 : 0)); let i = index;">
         <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster" [inline]="inline"
           [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
           [relative]="relative || forceRelative" [statsCalculation]="statsCalculation">
@@ -208,7 +208,7 @@
     <span *ngIf="action.value" class="action-box-label" [i18n]="'' + action.value"
       [relative]="relative || forceRelative"></span>
     <span class="action-box">
-      <ng-container *ngFor="let subAction of subActions | slice:(hasAOE ? 1 : 0); let i = index;">
+      <ng-container *ngFor="let subAction of action.subActions | slice:(hasAOE ? 1 : 0); let i = index;">
         <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster" [inline]="inline"
           [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
           [relative]="relative || forceRelative" [statsCalculation]="statsCalculation">
@@ -318,9 +318,9 @@
     </span>
 
     <div class="subactions"
-      *ngIf="((statsCalculation && additionalSubActions.length > 0 ? additionalSubActions : subActions)  | slice:(hasAOE ? 1 : 0)).length >  0">
+      *ngIf="((statsCalculation && additionalSubActions.length > 0 ? additionalSubActions : action.subActions)  | slice:(hasAOE ? 1 : 0)).length >  0">
       <ng-container
-        *ngFor="let subAction of (statsCalculation && additionalSubActions.length > 0 ? additionalSubActions : subActions) | slice:(hasAOE ? 1 : 0); let index = index;">
+        *ngFor="let subAction of (statsCalculation && additionalSubActions.length > 0 ? additionalSubActions : action.subActions) | slice:(hasAOE ? 1 : 0); let index = index;">
         <span *ngIf="settingsManager.settings.fhStyle && index > 0">,</span>
         <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster" [inline]="inline"
           [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
@@ -332,7 +332,7 @@
 
   <div class="aoe-value" *ngIf="hasAOE" [ngClass]="{'small' : action.small}">
     <ghs-action [ngClass]="'subaction-area'"
-      [action]="(statsCalculation && additionalSubActions.length > 0 ? additionalSubActions : subActions)[0]"
+      [action]="(statsCalculation && additionalSubActions.length > 0 ? additionalSubActions : action.subActions)[0]"
       [monster]="monster" [inline]="inline" [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"
       [relative]="relative || forceRelative" [statsCalculation]="statsCalculation">
     </ghs-action>

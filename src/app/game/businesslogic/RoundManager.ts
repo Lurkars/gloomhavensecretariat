@@ -337,6 +337,7 @@ export class RoundManager {
       if (figure instanceof Character) {
         figure.health = figure.maxHealth;
         figure.loot = 0;
+        figure.lootCards = [];
         figure.experience = 0;
         figure.entityConditions = [];
         figure.summons = [];
@@ -349,6 +350,7 @@ export class RoundManager {
         figure.availableSummons.filter((summonData) => summonData.special).forEach((summonData) => gameManager.characterManager.createSpecialSummon(figure, summonData));
 
         figure.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(figure);
+        figure.lootCardsVisible = false;
         gameManager.characterManager.applyDonations(figure);
       }
     })

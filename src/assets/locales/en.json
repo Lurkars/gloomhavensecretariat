@@ -56,6 +56,10 @@
       "vermling": "Vermling"
     },
     "filter": "Filter Character",
+    "lootCards": {
+      "drawn": "Order by time drawn",
+      "sort": "Order by type"
+    },
     "present": "Present",
     "progress": {
       ".": "Character Sheet",
@@ -583,7 +587,7 @@
         "removeSuccess": "Remove from successful"
       },
       "sheet": {
-        "." : "Campaign Sheet",
+        ".": "Campaign Sheet",
         "campaignSticker": "Campaign Sticker",
         "defense": "Defense",
         "inspiration": "Inspiration",
@@ -736,10 +740,12 @@
     },
     "summary": {
       ".": "Scenario Summary",
-      "close": "Close dialog to apply",
+      "apply": "Apply",
+      "cancel": "Cancel",
       "gold": "Gold",
       "loot": "Loot",
       "name": "%character%",
+      "restart": "Restart scenario (loose resources)",
       "totalGold": "Total Gold",
       "totalXp": "Total XP",
       "xp": "XP",

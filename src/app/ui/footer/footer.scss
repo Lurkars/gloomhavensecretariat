@@ -21,22 +21,19 @@ footer {
     z-index: 1;
     width: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor) * var(--ghs-barsize));
     height: calc(var(--ghs-unit) * 11 * var(--ghs-text-factor) * var(--ghs-barsize));
+    margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     display: flex;
     justify-content: center;
     align-items: center;
 
     a img {
-      width: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor) * var(--ghs-barsize));
-      height: auto;
+      width: auto;
+      height: calc(var(--ghs-unit) * 6 * var(--ghs-text-factor) * var(--ghs-barsize));
       filter: brightness(1.2) grayscale(0.3) var(--ghs-filter-shadow);
-
-      &.ghs-svg {
-        filter: var(--ghs-filter-yellow) var(--ghs-filter-shadow);
-      }
     }
 
-    &.fh a img.ghs-svg {
-      filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+    &:hover {
+      opacity: 0.7;
     }
   }
 

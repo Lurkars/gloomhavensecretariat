@@ -1,7 +1,7 @@
-import { Component, Directive, ElementRef, Input, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Condition, ConditionName, ConditionType, EntityCondition } from "src/app/game/model/Condition";
+import { Condition, ConditionName, EntityCondition, EntityConditionState } from "src/app/game/model/Condition";
 import { Entity } from "src/app/game/model/Entity";
 import { Figure } from "src/app/game/model/Figure";
 import { Monster } from "src/app/game/model/Monster";
@@ -75,7 +75,7 @@ export class ConditionsComponent implements OnInit {
     }
 
     if (!(this.entity instanceof MonsterEntity)) {
-      return this.entities.every((entity) => this.figure instanceof Monster && entity instanceof MonsterEntity && gameManager.entityManager.isImmune(this.figure, entity, conditionName));;
+      return this.entities.every((entity) => this.figure instanceof Monster && entity instanceof MonsterEntity && gameManager.entityManager.isImmune(this.figure, entity, conditionName));
     }
 
     return gameManager.entityManager.isImmune(this.figure, this.entity, conditionName);
@@ -120,84 +120,32 @@ export class ConditionsComponent implements OnInit {
 
   toggleCondition(condition: Condition) {
     if (this.entity) {
-      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, this.hasCondition(condition) ? "removeCondition" : "addCondition"), "game.condition." + condition.name, this.monsterType ? 'monster.' + this.monsterType + ' ' : '');
-      gameManager.entityManager.toggleCondition(this.entity, condition, this.figure.active, this.figure.off);
-      gameManager.stateManager.after();
+      this.setCondition(this.entity, this.hasCondition(condition), condition);
     } else {
-      const onlyOn = !this.hasCondition(condition) && !this.entities.every((entity) => !gameManager.entityManager.hasCondition(entity, condition));
-      gameManager.stateManager.before(...gameManager.entityManager.undoInfos(undefined, this.figure, this.hasCondition(condition) ? "removeCondition" : "addCondition"), "game.condition." + condition.name, this.monsterType ? 'monster.' + this.monsterType + ' ' : '');
       this.entities.forEach((entity) => {
-        if (!onlyOn || onlyOn && !gameManager.entityManager.hasCondition(entity, condition)) {
-          gameManager.entityManager.toggleCondition(entity, condition, this.figure.active, this.figure.off);
-        }
+        this.setCondition(entity, this.hasCondition(condition), condition);
       })
-      gameManager.stateManager.after();
+    }
+  }
+
+  setCondition(entity: Entity, remove: boolean, condition: Condition) {
+    if (remove) {
+      let entityCondition: EntityCondition | undefined = entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name);
+      if (entityCondition) {
+        entityCondition.expired = true;
+        entityCondition.state = EntityConditionState.removed;
+      }
+    } else {
+      let entityCondition: EntityCondition | undefined = entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name);
+      if (!entityCondition) {
+        entityCondition = new EntityCondition(condition.name, condition.value);
+        entityCondition.state = EntityConditionState.new;
+        entity.entityConditions.push(entityCondition);
+      } else {
+        entityCondition.expired = false;
+        entityCondition.state = EntityConditionState.new;
+      }
     }
   }
 }
 
-
-@Component({
-  selector: 'ghs-highlight-conditions',
-  templateUrl: './highlight.html',
-  styleUrls: ['./highlight.scss']
-})
-export class HighlightConditionsComponent {
-
-  @Input() entity!: Entity;
-  @Input() figure!: Figure;
-
-  gameManager: GameManager = gameManager;
-  settingsManager: SettingsManager = settingsManager;
-  ConditionType = ConditionType;
-
-  applyCondition(name: ConditionName, event: any) {
-    event.stopPropagation();
-    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "applyCondition"), "game.condition." + name);
-    gameManager.entityManager.applyCondition(this.entity, name)
-    gameManager.stateManager.after();
-  }
-
-  declineApplyCondition(name: ConditionName, event: any) {
-    event.stopPropagation();
-    gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "declineApplyCondition"), "game.condition." + name);
-    gameManager.entityManager.declineApplyCondition(this.entity, name)
-    gameManager.stateManager.after();
-  }
-}
-
-@Directive({
-  selector: '[conditionHighlight]'
-})
-export class ConditionHighlightAnimationDirective implements OnInit {
-
-
-  @Input('conditionHighlight') condition!: EntityCondition;
-
-  constructor(private el: ElementRef) { }
-
-  ngOnInit(): void {
-
-    gameManager.uiChange.subscribe({
-      next: () => {
-        if (this.condition.highlight && !settingsManager.settings.activeApplyConditions) {
-          this.playAnimation();
-        }
-      }
-    })
-
-    this.playAnimation();
-  }
-
-  playAnimation() {
-    this.el.nativeElement.classList.add("animation");
-    setTimeout(() => {
-      this.el.nativeElement.classList.remove("animation");
-      if (this.condition.types.indexOf(ConditionType.turn) != -1 || !settingsManager.settings.activeApplyConditions) {
-        this.condition.highlight = false;
-        gameManager.stateManager.saveLocal();
-      }
-    }, settingsManager.settings.disableAnimations ? 0 : 1100);
-  }
-
-}

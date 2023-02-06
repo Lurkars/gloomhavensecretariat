@@ -39,7 +39,27 @@
             font-size: 1.3em;
             text-align: center;
             white-space: nowrap;
-            background-color: var(--ghs-color-yellow-light);
+        }
+
+        .character {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 20%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            &.with-header {
+                top: 10%;
+            }
+
+            img {
+                height: 100%;
+                width: auto;
+                filter: var(--ghs-filter-outline);
+            }
         }
 
         .enhancements {
@@ -61,6 +81,18 @@
             }
         }
 
+        .card-id {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            font-size: 0.8em;
+            width: 20%;
+            height: 5%;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+        }
+
         .footer {
             position: absolute;
             display: flex;
@@ -71,7 +103,6 @@
             height: 12%;
             width: 20%;
             transform: translateX(-50%);
-            background-color: var(--ghs-color-yellow-light);
             border-top-left-radius: 25%;
             border-top-right-radius: 25%;
 

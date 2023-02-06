@@ -33,6 +33,7 @@ export class LootDeckComponent implements OnInit {
 
     @Input('deck') deck!: LootDeck;
     @Input() bottom: boolean = false;
+    @Input() characters: boolean = true;
     @Input() fullscreen: boolean = true;
     @Input() vertical: boolean = false;
     @Input() standalone: boolean = false;
@@ -115,9 +116,13 @@ export class LootDeckComponent implements OnInit {
                     next: (name) => {
                         if (name) {
                             const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.name == name);
-                            if (character) {
+                            if (character instanceof Character) {
                                 gameManager.stateManager.before("addResource", "data.character." + character.name, "game.loot." + loot.type, this.lootManager.getValue(loot) + '');
-                                gameManager.lootManager.updateCharacterLoot(character as Character, loot);
+                                character.lootCards = character.lootCards || [];
+                                if (loot.type == LootType.money || loot.type == LootType.special1 || loot.type == LootType.special2) {
+                                    character.loot += gameManager.lootManager.getValue(loot);
+                                }
+                                character.lootCards.push(this.deck.current);
                                 gameManager.stateManager.after();
                             }
                         }
@@ -171,6 +176,16 @@ export class LootDeckComponent implements OnInit {
         }
     }
 
+    getCharacter(index: number): string {
+        if (this.characters) {
+            const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.lootCards && figure.lootCards.indexOf(index) != -1);
+            if (character) {
+                return character.name;
+            }
+        }
+        return "";
+    }
+
     open(event: any) {
         if (this.deck.cards.length > 0 && gameManager.game.state == GameState.next && this.fullscreen && settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
             this.openFullscreen(event);
@@ -179,6 +194,7 @@ export class LootDeckComponent implements OnInit {
                 panelClass: 'dialog',
                 data: {
                     deck: this.deck,
+                    characters: this.characters,
                     before: this.before,
                     after: this.after
                 }

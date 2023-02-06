@@ -3,6 +3,7 @@ import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, ElementRef, EventEmitter, Inject, OnInit, ViewChild } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { Character } from "src/app/game/model/Character";
 import { GameState } from "src/app/game/model/Game";
 import { enhancableLootTypes, fullLootDeck, Loot, LootDeck, LootDeckConfig, LootType } from "src/app/game/model/Loot";
 import { LootDeckChange } from "./loot-deck";
@@ -34,11 +35,13 @@ export class LootDeckDialogComponent implements OnInit {
   drawing: boolean = false;
   configuration: boolean = false;
   enhancements: boolean = false;
+  characters: boolean = true;
 
   enhancementDeck: Loot[] = [];
 
-  constructor(@Inject(DIALOG_DATA) public data: { deck: LootDeck, before: EventEmitter<LootDeckChange>, after: EventEmitter<LootDeckChange> }, private dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) public data: { deck: LootDeck, characters: boolean, before: EventEmitter<LootDeckChange>, after: EventEmitter<LootDeckChange> }, private dialogRef: DialogRef) {
     this.deck = data.deck;
+    this.characters = data.characters;
     this.before = data.before;
     this.after = data.after;
   };
@@ -64,25 +67,7 @@ export class LootDeckDialogComponent implements OnInit {
       }
     })
 
-    this.enhancementDeck = gameManager.lootManager.fullLootDeck().filter((loot) => enhancableLootTypes.indexOf(loot.type) != -1).sort((a, b) => {
-      if (a.type != b.type) {
-        return enhancableLootTypes.indexOf(a.type) - enhancableLootTypes.indexOf(b.type);
-      }
-
-      if (a.value4P != b.value4P) {
-        return a.value4P - b.value4P;
-      }
-
-      if (a.value3P != b.value3P) {
-        return a.value3P - b.value3P;
-      }
-
-      if (a.value2P != b.value2P) {
-        return a.value2P - b.value2P;
-      }
-
-      return b.enhancements - a.enhancements;
-    });
+    this.enhancementDeck = gameManager.lootManager.fullLootDeck().filter((loot) => enhancableLootTypes.indexOf(loot.type) != -1).sort((a, b) => a.cardId - b.cardId);
   }
 
   enhanceCard(loot: Loot) {
@@ -218,6 +203,16 @@ export class LootDeckDialogComponent implements OnInit {
     return this.deck.cards.filter((loot, index) => {
       return loot.type == type && index > this.deck.current;
     }).length;
+  }
+
+  getCharacter(index: number): string {
+    if (this.characters) {
+      const character = gameManager.game.figures.find((figure) => figure instanceof Character && figure.lootCards && figure.lootCards.indexOf(index) != -1);
+      if (character) {
+        return character.name;
+      }
+    }
+    return "";
   }
 
 }

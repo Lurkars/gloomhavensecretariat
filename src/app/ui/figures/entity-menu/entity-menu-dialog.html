@@ -28,7 +28,7 @@
       {{'data.monster.' + data.figure.name | ghsLabel}}&nbsp;<span
         *ngIf="gameManager.toMonster(data.figure).isAlly">({{'game.ally' | ghsLabel}})&nbsp;</span>
       <a [title]="'monster.toggleType' | ghsLabel:[(gameManager.toMonsterEntity(data.entity).type == MonsterType.normal ? gameManager.toMonsterEntity(data.entity).type  :  MonsterType.elite),(gameManager.toMonsterEntity(data.entity).type == MonsterType.elite ?  MonsterType.normal: gameManager.toMonsterEntity(data.entity).type )]"
-        class="standee-number"
+        class="standee-number-toggle"
         *ngIf="data.entity && gameManager.isMonsterEntity(data.entity) && (gameManager.toMonsterEntity(data.entity).type == MonsterType.normal  || gameManager.toMonsterEntity(data.entity).type == MonsterType.elite)"
         (click)="toggleMonsterType()"
         [ngClass]="gameManager.toMonsterEntity(data.entity).type">#{{gameManager.toMonsterEntity(data.entity).number}}</a>

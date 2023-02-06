@@ -16,7 +16,8 @@
         <div class="loot-container" (click)="clickCard(index, $event)" *ngIf="index > current - 3"
             [style.z-index]="index > current ? deck.cards.length - index : deck.cards.length + index + 1"
             [ngClass]="{'disgarded' : index < current - 1, 'current' : index == current, 'last' : index == current - 1, 'bottom' : bottom}">
-            <ghs-loot class="loot-card" [loot]="card" [flipped]="index <= current" [disableFlip]="!drawing || index != current"></ghs-loot>
+            <ghs-loot class="loot-card" [loot]="card" [flipped]="index <= current"
+                [disableFlip]="!drawing || index != current" [character]="getCharacter(index)"></ghs-loot>
         </div>
     </ng-container>
 </div>

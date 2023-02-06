@@ -12,28 +12,29 @@
 
 <div class="character" [style.--ghs-character-color]="character.color"
   *ngIf="!character.absent || !settingsManager.settings.hideAbsent"
-  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.hasCharacterPermission(character), 'absent' : character.absent, 'dimmed' : character.attackModifierDeckVisible}">
+  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.hasCharacterPermission(character), 'absent' : character.absent, 'dimmed' : character.attackModifierDeckVisible || character.lootCardsVisible}">
 
   <ghs-character-image [character]="character"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
   </ghs-character-image>
 
   <ng-container *ngIf="!character.absent">
-    <ghs-drag-click *ngIf="!character.attackModifierDeckVisible" class="drag-initiative"
+    <ghs-drag-click *ngIf="!character.attackModifierDeckVisible && !character.lootCardsVisible" class="drag-initiative"
       (dragMove)="dragInitiativeMove($event)" (dragEnd)="dragInitiativeEnd($event)" (singleClick)="toggleFigure($event)"
       (doubleClick)="openInitiativeDialog($event)">
     </ghs-drag-click>
 
-    <ghs-drag-click *ngIf="!character.attackModifierDeckVisible" class="drag-hp" (dragMove)="dragHpMove($event)"
-      (dragEnd)="dragHpEnd($event)" [relative]="true" [screenWidth]="true"
+    <ghs-drag-click *ngIf="!character.attackModifierDeckVisible && !character.lootCardsVisible" class="drag-hp"
+      (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" [relative]="true" [screenWidth]="true"
       (singleClick)="openEntityMenu($event)"></ghs-drag-click>
 
-    <ghs-drag-click *ngIf="!character.attackModifierDeckVisible" class="drag-xp" (dragMove)="dragXpMove($event)"
-      (dragEnd)="dragXpEnd($event)" [relative]="true" [screenWidth]="true"
+    <ghs-drag-click *ngIf="!character.attackModifierDeckVisible && !character.lootCardsVisible" class="drag-xp"
+      (dragMove)="dragXpMove($event)" (dragEnd)="dragXpEnd($event)" [relative]="true" [screenWidth]="true"
       (singleClick)="openEntityMenu($event)"></ghs-drag-click>
 
-    <ghs-drag-click *ngIf="!character.attackModifierDeckVisible" class="drag-loot" (dragMove)="dragLootMove($event)"
-      (dragEnd)="dragLootEnd($event)" [relative]="true" [screenWidth]="true" (singleClick)="openEntityMenu($event)">
+    <ghs-drag-click *ngIf="!character.attackModifierDeckVisible && !character.lootCardsVisible" class="drag-loot"
+      (dragMove)="dragLootMove($event)" (dragEnd)="dragLootEnd($event)" [relative]="true" [screenWidth]="true"
+      (singleClick)="openEntityMenu($event)">
     </ghs-drag-click>
 
     <ghs-character-initiative [character]="character"></ghs-character-initiative>
@@ -41,10 +42,22 @@
     <ghs-highlight-conditions [entity]="character"></ghs-highlight-conditions>
 
     <div *ngIf="character.attackModifierDeckVisible" class="attack-modifierdeck-container">
-      <ghs-attackmodifier-deck [character]="character" (before)="beforeAttackModifierDeck($event)"
-        (after)="afterAttackModifierDeck($event)">
-      </ghs-attackmodifier-deck>
+      <div class="scroll-container">
+        <ghs-attackmodifier-deck [character]="character" (before)="beforeAttackModifierDeck($event)"
+          (after)="afterAttackModifierDeck($event)">
+        </ghs-attackmodifier-deck>
+      </div>
       <div class="attack-modifierdeck-close" (click)="toggleAttackModifierDeckVisible()"></div>
+    </div>
+    <div *ngIf="character.lootCardsVisible" class="loot-cards-container">
+      <div class="scroll-container">
+        <div class="loot-cards">
+          <div *ngFor="let index of character.lootCards" class="loot-card" (click)="openLootDeckDialog()">
+            <ghs-loot [loot]="gameManager.game.lootDeck.cards[index]" [flipped]="true" [disableFlip]="true"></ghs-loot>
+          </div>
+        </div>
+      </div>
+      <div class="loot-cards-close" (click)="toggleLootCardsVisible()"></div>
     </div>
   </ng-container>
 
@@ -103,7 +116,12 @@
     <ng-container *ngIf="!character.absent">
       <span class="spacer" (click)="openEntityMenu($event)"></span>
 
-      <span *ngIf="!character.attackModifierDeckVisible" class="attack-modifier-icon"
+      <div class="loot-cards-icon" *ngIf="character.lootCards && character.lootCards.length > 0"
+        (click)="toggleLootCardsVisible()" [ngClass]="{'disabled': character.lootCardsVisible}">
+        <img src="./assets/images/fh/loot-token.png" />
+      </div>
+
+      <span class="attack-modifier-icon" [ngClass]="{'disabled': character.attackModifierDeckVisible}"
         (click)="toggleAttackModifierDeckVisible()" title="{{'game.attackModifiers' | ghsLabel}}">
         <img src="./assets/images/attackmodifier/icon.png" />
       </span>

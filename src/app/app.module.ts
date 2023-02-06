@@ -38,7 +38,8 @@ import { ObjectiveComponent } from './ui/figures/objective/objective';
 import { ServerMenuComponent } from './ui/header/menu/server/server';
 import { FigureErrorsComponent, FigureErrorsDialogComponent } from './ui/figures/errors/errors';
 import { SectionMenuComponent } from './ui/header/menu/section/section';
-import { ConditionHighlightAnimationDirective, ConditionsComponent, HighlightConditionsComponent } from './ui/figures/conditions/conditions';
+import { ConditionsComponent } from './ui/figures/conditions/conditions';
+import { ConditionHighlightAnimationDirective, HighlightConditionsComponent } from './ui/figures/conditions/highlight';
 import { HealthbarComponent } from './ui/figures/healthbar/healthbar';
 import { EntityAnimationDirective } from './ui/helper/EntityAnimation';
 import { I18nDirective } from './ui/helper/i18n';
@@ -91,6 +92,7 @@ import { GhsTooltipComponent, GhsTooltipDirective } from './ui/helper/tooltip/to
 import { ScenarioDialogComponent } from './ui/footer/scenario/dialog/scenario-dialog';
 import { ScenarioSummaryComponent } from './ui/footer/scenario/summary/scenario-summary';
 import { SectionDialogComponent } from './ui/footer/scenario/section/section-dialog';
+import { CharacterLootCardsDialog } from './ui/figures/character/dialogs/loot-cards';
 
 @Injectable()
 export class GhsHammerConfig extends HammerGestureConfig {
@@ -116,7 +118,7 @@ export class GhsHammerConfig extends HammerGestureConfig {
     ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent,
     ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
     EntityMenuDialogComponent, EntitiesMenuDialogComponent,
-    CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetDialog, CharacterFullViewComponent,
+    CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog,
     ObjectiveComponent,
     SummonEntityComponent,
     MonsterComponent,

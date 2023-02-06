@@ -14,6 +14,7 @@ import { AttackModifierDeckFullscreenComponent } from '../attackmodifier/attackm
 import { EntityMenuDialogComponent } from '../entity-menu/entity-menu-dialog';
 import { CharacterInitiativeDialogComponent } from './cards/initiative';
 import { CharacterSheetDialog } from './dialogs/character-sheet';
+import { CharacterLootCardsDialog } from './dialogs/loot-cards';
 import { CharacterSummonDialog } from './dialogs/summondialog';
 
 @Component({
@@ -241,6 +242,7 @@ export class CharacterComponent {
     if (this.character.attackModifierDeckVisible) {
       this.character.attackModifierDeckVisible = false;
     } else if (settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
+      this.character.lootCardsVisible = false;
 
       const before = new EventEmitter<AttackModiferDeckChange>();
       const after = new EventEmitter<AttackModiferDeckChange>();
@@ -268,8 +270,21 @@ export class CharacterComponent {
 
     } else {
       this.character.attackModifierDeckVisible = true;
+      this.character.lootCardsVisible = false;
     }
     gameManager.stateManager.saveLocal();
+  }
+
+  toggleLootCardsVisible() {
+    this.character.lootCardsVisible = !this.character.lootCardsVisible;
+    gameManager.stateManager.saveLocal();
+  }
+
+  openLootDeckDialog() {
+    this.dialog.open(CharacterLootCardsDialog, {
+      panelClass: 'dialog',
+      data: this.character
+    });
   }
 
 }

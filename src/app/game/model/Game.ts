@@ -4,7 +4,7 @@ import { Character, GameCharacterModel } from "./Character";
 import { ScenarioRule, ScenarioRuleIdentifier } from "./data/ScenarioRule";
 import { defeaultElementBoard, ElementModel, } from "./Element";
 import { Figure } from "./Figure";
-import { Loot, LootDeck } from "./Loot";
+import { Loot, lootCardIdMigration, LootDeck } from "./Loot";
 import { GameMonsterModel, Monster } from "./Monster";
 import { GameObjectiveModel, Objective } from "./Objective";
 import { Party } from "./Party";
@@ -259,6 +259,9 @@ export class Game {
         loot.value = undefined;
       }
     })
+
+    lootCardIdMigration(this.lootDeck.cards);
+    lootCardIdMigration(this.lootDeckEnhancements);
 
     this.server = model.server;
   }

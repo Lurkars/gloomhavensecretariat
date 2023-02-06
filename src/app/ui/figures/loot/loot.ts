@@ -13,6 +13,7 @@ export class LootComponent implements OnInit, OnChanges {
     @Input() disableFlip: boolean = false;
     @Input() flipped: boolean = false;
     @Input() reveal: boolean = false;
+    @Input() character: string = "";
 
     gameManager: GameManager = gameManager;
     LootType = LootType;

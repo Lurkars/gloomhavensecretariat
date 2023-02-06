@@ -6,6 +6,7 @@ import { ScenarioRule, ScenarioRuleIdentifier } from "../model/data/ScenarioRule
 import { EntityValueFunction } from "../model/Entity";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
+import { LootType } from "../model/Loot";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
 import { MonsterType } from "../model/MonsterType";
@@ -38,11 +39,16 @@ export class ScenarioManager {
     }
   }
 
-  finishScenario(success: boolean = true) {
+  finishScenario(success: boolean = true, restart: boolean = false) {
     this.game.figures.forEach((figure) => {
       if (figure instanceof Character && !figure.absent) {
         gameManager.characterManager.addXP(figure, (success ? gameManager.levelManager.experience() : 0) + figure.experience);
         figure.progress.gold += figure.loot * gameManager.levelManager.loot();
+        if (!restart && figure.lootCards) {
+          figure.lootCards.forEach((index) => {
+            gameManager.lootManager.addCharacterLoot(figure, this.game.lootDeck.cards[index]);
+          })
+        }
       }
     })
 
@@ -51,15 +57,19 @@ export class ScenarioManager {
       this.game.party.manualScenarios = this.game.party.manualScenarios.filter((identifier) => this.game.scenario && (this.game.scenario.index != identifier.index || this.game.scenario.edition != identifier.edition || this.game.scenario.group != identifier.group));
     }
 
-    this.game.scenario = undefined;
-    this.game.sections = [];
-    gameManager.roundManager.resetScenario();
+    if (restart) {
+      gameManager.scenarioManager.setScenario(this.game.scenario);
+    } else {
+      this.game.scenario = undefined;
+      this.game.sections = [];
+      gameManager.roundManager.resetScenario();
 
-    this.game.figures.forEach((figure) => {
-      if (figure instanceof Character) {
-        figure.absent = false;
-      }
-    });
+      this.game.figures.forEach((figure) => {
+        if (figure instanceof Character) {
+          figure.absent = false;
+        }
+      });
+    }
   }
 
 

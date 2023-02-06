@@ -1,5 +1,5 @@
 import { CdkDragDrop, CdkDragEnter, CdkDragExit, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { GameState } from 'src/app/game/model/Game';
@@ -26,6 +26,8 @@ export class MainComponent implements OnInit {
 
   fullviewChar: Character | undefined;
   scrollTimeout: any = null;
+  zoomInterval: any = null;
+  currentZoom: number = 0;
 
   @ViewChild('footer') footer!: FooterComponent;
 
@@ -73,6 +75,8 @@ export class MainComponent implements OnInit {
     document.body.style.setProperty('--ghs-barsize', settingsManager.settings.barsize + '');
     document.body.style.setProperty('--ghs-fontsize', settingsManager.settings.fontsize + '');
 
+    this.currentZoom = settingsManager.settings.zoom;
+
     const figure = gameManager.game.figures.find((figure) => figure instanceof Character && figure.fullview);
     if (figure) {
       this.fullviewChar = figure as Character;
@@ -105,9 +109,52 @@ export class MainComponent implements OnInit {
       if (settingsManager.settings.serverAutoconnect && gameManager.stateManager.wsState() == WebSocket.CLOSED) {
         gameManager.stateManager.connect();
       }
-    });
+    }); window.addEventListener('keydown', (event: KeyboardEvent) => {
+      if (event.ctrlKey && event.key.toLowerCase() === 'z' && !event.shiftKey) {
+        gameManager.stateManager.undo();
+      } else if (event.ctrlKey && event.key === 'y' || event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'z') {
+        gameManager.stateManager.redo();
+      } else if (!this.zoomInterval && event.key === 'ArrowUp') {
+        this.zoom(-1);
+        this.zoomInterval = setInterval(() => {
+          this.zoom(-1);
+        }, 30);
+      } else if (!this.zoomInterval && event.key === 'ArrowDown') {
+        this.zoom(1);
+        this.zoomInterval = setInterval(() => {
+          this.zoom(1);
+        }, 30);
+      }
+    })
+
+    window.addEventListener('keyup', (event: KeyboardEvent) => {
+      if (this.zoomInterval && (event.key === 'ArrowUp' || event.key === 'ArrowDown')) {
+        clearInterval(this.zoomInterval);
+        this.zoomInterval = null;
+        settingsManager.setZoom(this.currentZoom);
+      }
+    })
   }
-  
+
+  @HostListener('pinchmove', ['$event'])
+  pinchmove(event: any) {
+    if (event.scale < 1) {
+      this.zoom(1);
+    } else {
+      this.zoom(-1);
+    }
+  }
+
+  @HostListener('pinchend', ['$event'])
+  pinchend(event: any) {
+    settingsManager.setZoom(this.currentZoom);
+  }
+
+  zoom(value: number) {
+    this.currentZoom += value;
+    document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
+  }
+
   calcColumns(scrollTo: HTMLElement | undefined = undefined): void {
     if (settingsManager.settings.disableColumns) {
       this.columns = 1;

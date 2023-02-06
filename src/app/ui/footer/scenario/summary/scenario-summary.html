@@ -5,11 +5,12 @@
     <span *ngIf="!success" class="failure">{{'scenario.finish.failure' | ghsLabel}}</span>
   </div>
 
-  <div class="table">
+  <div class="table" [style.--ghs-summary-columns]="5 + lootColumns.length">
     <div class="row header">
       <span>{{'scenario.summary.name' | ghsLabel}}</span>
       <span>{{'scenario.summary.loot' | ghsLabel}}</span>
       <span>{{'scenario.summary.gold' | ghsLabel}}</span>
+      <span *ngFor="let lootType of lootColumns"><img class="ghs-svg" [src]="'./assets/images/fh/loot/' + lootType + '.svg'"></span>
       <span>{{'scenario.summary.xpGained' | ghsLabel}}</span>
       <span>{{'scenario.summary.xpBonus' | ghsLabel}}</span>
       <span>{{'scenario.summary.xp' | ghsLabel}}</span>
@@ -38,6 +39,13 @@
         ({{character.progress.gold}})
       </span>
 
+      <span *ngFor="let lootType of lootColumns">
+        <span *ngIf="!character.absent">
+          <span class="loot">{{lootValue(character, lootType) | ghsValueSign}}</span>
+          ({{(character.progress.loot[lootType] || 0) + lootValue(character, lootType)}})
+        </span>
+      </span>
+
       <span>
         {{character.experience | ghsValueSign}}
       </span>
@@ -62,7 +70,9 @@
     </div>
   </div>
 
-  <div class="close">
-    <a (click)="close()">{{'scenario.summary.close' | ghsLabel}}</a>
+  <div class="buttons">
+    <a class="cancel" (click)="close('cancel')">{{'scenario.summary.cancel' | ghsLabel}}</a>
+    <a class="apply" (click)="close('apply')">{{'scenario.summary.apply' | ghsLabel}}</a>
+    <a class="restart" *ngIf="!success" (click)="close('restart')">{{'scenario.summary.restart' | ghsLabel}}</a>
   </div>
 </div>

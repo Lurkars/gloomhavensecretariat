@@ -161,6 +161,7 @@ export class CharacterManager {
         figure.initiativeVisible = false;
         figure.off = false;
         figure.attackModifierDeckVisible = false;
+        figure.lootCardsVisible = false;
         figure.longRest = false;
 
         figure.summons = figure.summons.filter((summon) => !summon.dead && summon.health > 0);

@@ -43,8 +43,10 @@ export enum ConditionType {
 }
 
 export enum EntityConditionState {
+  new = "new",
   normal = "normal",
   expire = "expire",
+  removed = "removed",
   turn = "turn"
 }
 

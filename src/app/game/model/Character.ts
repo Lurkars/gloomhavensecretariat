@@ -14,6 +14,7 @@ export class Character extends CharacterData implements Entity, Figure {
   initiative: number = 0;
   experience: number = 0;
   loot: number = 0;
+  lootCards: number[] = [];
   exhausted: boolean = false;
   stat: CharacterStat;
   summons: Summon[] = [];
@@ -22,6 +23,7 @@ export class Character extends CharacterData implements Entity, Figure {
 
   initiativeVisible: boolean = false;
   attackModifierDeckVisible: boolean = false;
+  lootCardsVisible: boolean = false;
   fullview: boolean = false;
   number: number = 0;
   attackModifierDeck: AttackModifierDeck;
@@ -87,7 +89,7 @@ export class Character extends CharacterData implements Entity, Figure {
   }
 
   toModel(): GameCharacterModel {
-    return new GameCharacterModel(this.name, this.edition, this.marker, this.title, this.initiative, this.experience, this.loot, this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible, this.attackModifierDeckVisible, this.fullview, this.number, this.attackModifierDeck.toModel(), this.donations, this.absent, this.longRest);
+    return new GameCharacterModel(this.name, this.edition, this.marker, this.title, this.initiative, this.experience, this.loot, this.lootCards || [], this.exhausted, this.level, this.off, this.active, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.summons.map((summon) => summon.toModel()), this.progress, this.initiativeVisible, this.attackModifierDeckVisible, this.lootCardsVisible, this.fullview, this.number, this.attackModifierDeck.toModel(), this.donations, this.absent, this.longRest);
   }
 
   fromModel(model: GameCharacterModel) {
@@ -121,6 +123,7 @@ export class Character extends CharacterData implements Entity, Figure {
     this.initiative = model.initiative;
     this.experience = model.experience;
     this.loot = model.loot;
+    this.lootCards = model.lootCards || [];
     this.exhausted = model.exhausted;
     this.level = model.level;
     this.off = model.off;
@@ -172,6 +175,9 @@ export class Character extends CharacterData implements Entity, Figure {
     if (model.attackModifierDeckVisible) {
       this.attackModifierDeckVisible = true;
     }
+    if (model.lootCardsVisible) {
+      this.lootCardsVisible = true;
+    }
 
     this.fullview = model.fullview;
     this.donations = model.donations || 0;
@@ -219,6 +225,7 @@ export class GameCharacterModel {
   initiative: number;
   experience: number;
   loot: number;
+  lootCards: number[];
   exhausted: boolean;
   level: number;
   off: boolean;
@@ -232,6 +239,7 @@ export class GameCharacterModel {
   progress: CharacterProgress | undefined;
   initiativeVisible: boolean;
   attackModifierDeckVisible: boolean;
+  lootCardsVisible: boolean;
   fullview: boolean;
   number: number;
   attackModifierDeck: GameAttackModifierDeckModel;
@@ -246,6 +254,7 @@ export class GameCharacterModel {
     initiative: number,
     experience: number,
     loot: number,
+    lootCards: number[],
     exhausted: boolean,
     level: number,
     off: boolean,
@@ -259,6 +268,7 @@ export class GameCharacterModel {
     progress: CharacterProgress | undefined,
     initiativeVisible: boolean,
     attackModifierDeckVisible: boolean,
+    lootCardsVisible: boolean,
     fullview: boolean,
     number: number,
     attackModifierDeck: GameAttackModifierDeckModel,
@@ -272,6 +282,7 @@ export class GameCharacterModel {
     this.initiative = initiative;
     this.experience = experience;
     this.loot = loot;
+    this.lootCards = JSON.parse(JSON.stringify(lootCards));
     this.exhausted = exhausted;
     this.level = level;
     this.off = off;
@@ -285,6 +296,7 @@ export class GameCharacterModel {
     this.progress = JSON.parse(JSON.stringify(progress));
     this.initiativeVisible = initiativeVisible;
     this.attackModifierDeckVisible = attackModifierDeckVisible;
+    this.lootCardsVisible = lootCardsVisible;
     this.fullview = fullview;
     this.number = number;
     this.attackModifierDeck = attackModifierDeck;

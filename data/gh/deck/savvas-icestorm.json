@@ -202,8 +202,7 @@
             {
               "type": "attack",
               "value": 0,
-              "valueType": "plus",
-              "small": true
+              "valueType": "plus"
             }
           ]
         }

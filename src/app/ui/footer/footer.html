@@ -1,5 +1,4 @@
-<footer class="{{settingsManager.settings.theme}}"
-  [ngClass]="{'compact' : compact}" #footer>
+<footer class="{{settingsManager.settings.theme}}" [ngClass]="{'compact' : compact}" #footer>
   <div [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
     <div #nextButton (click)="next()" class="round-container" [ngClass]="{'disabled' : disabled()}">
       <a>{{ (gameManager.game.state == GameState.next ?
@@ -21,9 +20,9 @@
 
   <div class="loot-toggle" [ngClass]="{'fh' : settingsManager.settings.fhStyle}"
     *ngIf="lootDeck || settingsManager.settings.alwaysLootDeck || gameManager.game.lootDeck.active">
-    <a (click)="toggleLootDeck()"><img *ngIf="!gameManager.game.lootDeck.active" class="ghs-svg"
-        [src]=" './assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/loot.svg'">
-      <img *ngIf="gameManager.game.lootDeck.active" [src]="'./assets/images/attackmodifier/icon.png'"></a>
+    <a (click)="toggleLootDeck()">
+      <img *ngIf="!gameManager.game.lootDeck.active" class="loot-token" src="./assets/images/fh/loot-token.png">
+      <img *ngIf="gameManager.game.lootDeck.active" src="./assets/images/attackmodifier/icon.png"></a>
   </div>
 
   <div class="deck ally-deck" *ngIf="hasAllyAttackModifierDeck"

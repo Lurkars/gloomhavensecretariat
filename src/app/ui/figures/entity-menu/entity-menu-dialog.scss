@@ -41,11 +41,15 @@
       }
     }
 
-    .standee-number {
-      cursor: w-resize;
+    .standee-number,
+    .standee-number-toggle {
       font-family: var(--ghs-font-normal);
       font-size: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
       margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+      &.standee-number-toggle {
+        cursor: w-resize;
+      }
 
       &.normal {
         color: var(--ghs-color-white);

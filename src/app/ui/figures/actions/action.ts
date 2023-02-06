@@ -17,18 +17,19 @@ import { valueCalc } from '../../helper/valueCalc';
 export class ActionComponent implements OnInit {
 
   @Input() monster: Monster | undefined;
-  @Input() action!: Action | undefined;
+  @Input('action') origAction!: Action | undefined;
   @Input() relative: boolean = false;
   @Input() inline: boolean = false;
   @Input() right: boolean = false;
   @Input() highlight: boolean = false;
   @Input() highlightElements: boolean = false;
   @Input() statsCalculation: boolean = false;
-  @Input() hexSize!: number;
+  @Input() hexSize!: number
+
+  action!: Action | undefined;
 
   settingsManager: SettingsManager = settingsManager;
 
-  subActions: Action[] = [];
   additionalSubActions: Action[] = [];
   elementActions: Action[] = [];
   additionAttackSubActionTypes: ActionType[] = [ActionType.condition, ActionType.target, ActionType.pierce, ActionType.pull, ActionType.push, ActionType.swing, ActionType.area];
@@ -42,21 +43,28 @@ export class ActionComponent implements OnInit {
   forceRelative: boolean = false;
 
   ngOnInit(): void {
-    this.updateSubActions();
-    this.forceRelative = !this.hasEntities();
-    this.checkPlusAction();
+    this.update();
     gameManager.uiChange.subscribe({
       next: () => {
-        this.updateSubActions();
-        this.forceRelative = !this.hasEntities();
-        this.checkPlusAction();
+        this.update();
       }
     })
   }
 
-  checkPlusAction() {
-    if (!this.relative && !this.forceRelative && settingsManager.settings.calculate && this.action && (this.action.type == ActionType.shield || this.action.type == ActionType.retaliate) && this.action.valueType != ActionValueType.minus && this.action.subActions && this.action.subActions.find((subAction) => subAction.type == ActionType.specialTarget && (subAction.value + '').startsWith('self'))) {
+  update() {
+    if (this.origAction) {
+      this.action = JSON.parse(JSON.stringify(this.origAction));
+    } else {
+      this.action = undefined;
+    }
+    if (this.action && !this.action.subActions) {
+      this.action.subActions = [];
+    }
+    this.updateSubActions();
+    this.forceRelative = this.monster != undefined && !this.hasEntities();
+    if (this.monster && !this.relative && !this.forceRelative && settingsManager.settings.calculate && this.action && (this.action.type == ActionType.shield || this.action.type == ActionType.retaliate) && this.action.valueType != ActionValueType.minus && this.action.subActions && this.action.subActions.find((subAction) => subAction.type == ActionType.specialTarget && (subAction.value + '').startsWith('self'))) {
       this.forceRelative = true;
+      this.action.valueType = ActionValueType.plus;
     }
   }
 
@@ -177,9 +185,6 @@ export class ActionComponent implements OnInit {
       }
 
       if (typeof this.action.value === "number" && sign) {
-        if (isNaN(statValue)) {
-          statValue = 0;
-        }
         if (this.action.valueType == ActionValueType.plus) {
           return statValue + this.action.value;
         } else if (this.action.valueType == ActionValueType.minus) {
@@ -201,23 +206,22 @@ export class ActionComponent implements OnInit {
     if (!this.action) {
       return;
     }
-    this.subActions = JSON.parse(JSON.stringify(this.action.subActions || []));
 
     if (settingsManager.settings.fhStyle && [ActionType.element, ActionType.concatenation, ActionType.box].indexOf(this.action.type) == -1) {
-      this.elementActions = this.subActions.filter((action) => action.type == ActionType.element);
-      this.subActions = this.subActions.filter((action) => action.type != ActionType.element);
+      this.elementActions = this.action.subActions.filter((action) => action.type == ActionType.element);
+      this.action.subActions = this.action.subActions.filter((action) => action.type != ActionType.element);
     } else {
       this.elementActions = [];
     }
 
-    this.additionalSubActions = JSON.parse(JSON.stringify(this.subActions));
+    this.additionalSubActions = JSON.parse(JSON.stringify(this.action.subActions));
     this.hasAOE = this.additionalSubActions.some((subAction, index) => index == 0 && subAction.type == ActionType.area) && (this.action.type != ActionType.element || this.action.valueType != ActionValueType.minus);
     if (this.monster && settingsManager.settings.calculateStats && !this.relative) {
       let newSubActions: Action[] = [];
       const stat = gameManager.monsterManager.getStat(this.monster, this.monster.boss ? MonsterType.boss : MonsterType.normal);
       let eliteStat = this.monster.boss ? undefined : gameManager.monsterManager.getStat(this.monster, MonsterType.elite);
       if (this.action.type == ActionType.attack && this.action.valueType != ActionValueType.add && this.action.valueType != ActionValueType.subtract) {
-        if (stat.range && (!this.subActions.some((subAction) => subAction.type == ActionType.range || subAction.type == ActionType.area && ("" + subAction.value).indexOf('active') != -1 || subAction.type == ActionType.specialTarget))) {
+        if (stat.range && (!this.action.subActions.some((subAction) => subAction.type == ActionType.range || subAction.type == ActionType.area && ("" + subAction.value).indexOf('active') != -1 || subAction.type == ActionType.specialTarget))) {
           const newSubAction = new Action(ActionType.range, 0, ActionValueType.plus);
           newSubAction.small = true;
           this.additionalSubActions.splice(this.hasAOE ? 1 : 0, 0, newSubAction);
@@ -227,16 +231,16 @@ export class ActionComponent implements OnInit {
           let normalActions: Action | undefined = undefined;
           stat.actions.filter((statAction) => this.additionAttackSubActionTypes.indexOf(statAction.type) != -1).forEach((statAction) => {
             const newStatAction = new Action(statAction.type, statAction.value, statAction.valueType, statAction.subActions);
-            if (!this.subActionExists(this.subActions, newStatAction) && !this.subActionExists(newSubActions, newStatAction)) {
-              if (statAction.type != ActionType.area || this.subActions.every((subAction) => subAction.type != ActionType.area)) {
+            if (this.action && !this.subActionExists(this.action.subActions, newStatAction) && !this.subActionExists(newSubActions, newStatAction)) {
+              if (statAction.type != ActionType.area || this.action.subActions.every((subAction) => subAction.type != ActionType.area)) {
                 if (!eliteStat || eliteStat.actions && this.subActionExists(eliteStat.actions, newStatAction) || (settingsManager.settings.hideStats && this.monster && !this.monster.entities.some((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && monsterEntity.type == MonsterType.elite))) {
                   newStatAction.small = true;
                   newSubActions.push(newStatAction);
                 } else if (eliteStat && (!eliteStat.actions || !this.subActionExists(eliteStat.actions, newStatAction))) {
-                  if (!normalActions && !this.subActionExists(this.subActions, newStatAction) && !this.subActionExists(newSubActions, newStatAction)) {
+                  if (!normalActions && !this.subActionExists(this.action.subActions, newStatAction) && !this.subActionExists(newSubActions, newStatAction)) {
                     normalActions = new Action(ActionType.monsterType, MonsterType.normal, ActionValueType.fixed, [newStatAction]);
                     newSubActions.push(normalActions);
-                  } else if (normalActions && !this.subActionExists(this.subActions, newStatAction) && !this.subActionExists(newSubActions, newStatAction) && !this.subActionExists(normalActions.subActions, newStatAction)) {
+                  } else if (normalActions && !this.subActionExists(this.action.subActions, newStatAction) && !this.subActionExists(newSubActions, newStatAction) && !this.subActionExists(normalActions.subActions, newStatAction)) {
                     normalActions.subActions.push(newStatAction);
                   }
                 }
@@ -249,11 +253,11 @@ export class ActionComponent implements OnInit {
           let eliteActions: Action | undefined = undefined;
           eliteStat.actions.filter((eliteAction) => this.additionAttackSubActionTypes.indexOf(eliteAction.type) != -1).forEach((eliteAction) => {
             const newEliteAction = new Action(eliteAction.type, eliteAction.value, eliteAction.valueType, eliteAction.subActions);
-            if (!stat.actions || !this.subActionExists(stat.actions, newEliteAction)) {
-              if (!eliteActions && !this.subActionExists(this.subActions, newEliteAction) && !this.subActionExists(newSubActions, newEliteAction)) {
+            if (this.action && (!stat.actions || !this.subActionExists(stat.actions, newEliteAction))) {
+              if (!eliteActions && !this.subActionExists(this.action.subActions, newEliteAction) && !this.subActionExists(newSubActions, newEliteAction)) {
                 eliteActions = new Action(ActionType.monsterType, MonsterType.elite, ActionValueType.fixed, [newEliteAction]);
                 newSubActions.push(eliteActions);
-              } else if (eliteActions && !this.subActionExists(this.subActions, newEliteAction) && !this.subActionExists(newSubActions, newEliteAction) && !this.subActionExists(eliteActions.subActions, newEliteAction)) {
+              } else if (eliteActions && !this.subActionExists(this.action.subActions, newEliteAction) && !this.subActionExists(newSubActions, newEliteAction) && !this.subActionExists(eliteActions.subActions, newEliteAction)) {
                 eliteActions.subActions.push(newEliteAction);
               }
             }
@@ -262,41 +266,54 @@ export class ActionComponent implements OnInit {
       }
 
       newSubActions.forEach((subAction) => {
-        if (subAction.type == ActionType.target) {
-          if (!this.additionalSubActions.some((other) => other.type == ActionType.target || other.type == ActionType.specialTarget)) {
-            if (subAction.valueType == ActionValueType.add) {
-              subAction.valueType = ActionValueType.fixed;
-              subAction.value = (+subAction.value) + 1;
-            }
-            this.additionalSubActions.push(subAction);
-          } else if (subAction.valueType == ActionValueType.add && this.additionalSubActions.some((other) => other.type == ActionType.target) && !this.additionalSubActions.some((other) => other.type == ActionType.specialTarget)) {
-            const targetAction = this.additionalSubActions.find((other) => other.type == ActionType.target);
-            if (targetAction) {
-              subAction.valueType = ActionValueType.fixed;
-              subAction.value = +targetAction.value + +subAction.value;
-              this.additionalSubActions.splice(this.additionalSubActions.indexOf(targetAction), 1, subAction);
-            }
-          }
-        } else if (subAction.type == ActionType.range && !this.additionalSubActions.some((other) => other.type == ActionType.range)) {
-          this.additionalSubActions.push(subAction);
-        } else if (subAction.type != ActionType.range && !this.subActionExists(this.additionalSubActions, subAction)) {
-          if (subAction.type == ActionType.area) {
-            this.additionalSubActions.splice(0, 0, subAction);
-            this.hasAOE = true;
-          } else {
-            if (subAction.type == ActionType.card && this.subActions.find((subAction) => subAction.type == ActionType.pierce)) {
-              const pieceAction = this.subActions.find((subAction) => subAction.type == ActionType.pierce);
-              if (pieceAction) {
-                pieceAction.value = +pieceAction.value
-                  + +subAction.value
+        if (this.action) {
+          if (subAction.type == ActionType.target) {
+            if (!this.additionalSubActions.some((other) => other.type == ActionType.target || other.type == ActionType.specialTarget)) {
+              if (subAction.valueType == ActionValueType.add) {
+                subAction.valueType = ActionValueType.fixed;
+                subAction.value = EntityValueFunction(subAction.value) + 1;
               }
+              if (this.additionalSubActions.length > 0 && this.additionalSubActions[this.additionalSubActions.length - 1].type == ActionType.element) {
+                this.additionalSubActions.splice(this.additionalSubActions.length - 1, 0, subAction);
+              } else {
+                this.additionalSubActions.push(subAction);
+              }
+            } else if (subAction.valueType == ActionValueType.add && this.additionalSubActions.some((other) => other.type == ActionType.target) && !this.additionalSubActions.some((other) => other.type == ActionType.specialTarget)) {
+              const targetAction = this.additionalSubActions.find((other) => other.type == ActionType.target);
+              if (targetAction) {
+                subAction.valueType = ActionValueType.fixed;
+                subAction.value = EntityValueFunction(targetAction.value) + EntityValueFunction(subAction.value);
+                this.additionalSubActions.splice(this.additionalSubActions.indexOf(targetAction), 1, subAction);
+              }
+            }
+          } else if (subAction.type == ActionType.range && !this.additionalSubActions.some((other) => other.type == ActionType.range)) {
+            if (this.additionalSubActions.length > 0 && this.action.subActions[this.additionalSubActions.length - 1].type == ActionType.element) {
+              this.additionalSubActions.splice(this.action.subActions.length - 1, 0, subAction);
             } else {
-              subAction.small = true;
-              if (subAction.type == ActionType.monsterType) {
-                subAction.small = false;
-                subAction.subActions.forEach((sub) => sub.small = true);
-              }
               this.additionalSubActions.push(subAction);
+            }
+          } else if (subAction.type != ActionType.range && !this.subActionExists(this.additionalSubActions, subAction)) {
+            if (subAction.type == ActionType.area) {
+              this.additionalSubActions.splice(0, 0, subAction);
+              this.hasAOE = true;
+            } else {
+              if (this.action && subAction.type == ActionType.card && this.action.subActions.find((subAction) => subAction.type == ActionType.pierce)) {
+                const pieceAction = this.action.subActions.find((subAction) => subAction.type == ActionType.pierce);
+                if (pieceAction) {
+                  pieceAction.value = EntityValueFunction(pieceAction.value) + EntityValueFunction(subAction.value);
+                }
+              } else {
+                subAction.small = true;
+                if (subAction.type == ActionType.monsterType) {
+                  subAction.small = false;
+                  subAction.subActions.forEach((sub) => sub.small = true);
+                }
+                if (this.additionalSubActions.length > 0 && this.additionalSubActions[this.additionalSubActions.length - 1].type == ActionType.element) {
+                  this.additionalSubActions.splice(this.additionalSubActions.length - 1, 0, subAction);
+                } else {
+                  this.additionalSubActions.push(subAction);
+                }
+              }
             }
           }
         }

@@ -15,7 +15,7 @@
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round }">
   </ghs-drag-click>
 
-  <ghs-drag-click *ngIf="maxHealth() >= 0" class="drag-hp" (click)="openEntityMenu($event)"
+  <ghs-drag-click *ngIf="maxHealth() >= 0" class="drag-hp" (singleClick)="openEntityMenu($event)"
     (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)" [relative]="true"
     [screenWidth]="true"></ghs-drag-click>
 
