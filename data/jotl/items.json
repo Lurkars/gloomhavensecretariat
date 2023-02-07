@@ -441,5 +441,15 @@
     "slot": "body",
     "spent": true,
     "folder": "27-36"
-  }
+  },
+	{
+		"id": 36,
+		"name": "Jet Boots",
+		"cost": 30,
+		"count": 1,
+    "edition": "jotl",
+		"slot": "legs",
+		"spent": true,
+		"folder": "27-36"
+	}
 ]
