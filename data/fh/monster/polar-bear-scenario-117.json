@@ -3,6 +3,7 @@
   "thumbnail": "fh-polar-bear",
   "edition": "fh",
   "deck": "polar-bear",
+  "hidden": true,
   "count": 5,
   "baseStat": {
     "type": "normal",

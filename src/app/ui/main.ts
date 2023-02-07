@@ -59,6 +59,7 @@ export class MainComponent implements OnInit {
     })
 
     if (this.swUpdate.isEnabled) {
+      this.swUpdate.checkForUpdate();
       // check for PWA update every 30s
       setInterval(() => {
         this.swUpdate.checkForUpdate();
