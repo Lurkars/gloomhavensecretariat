@@ -1,4 +1,5 @@
-<div class="card-container ability" [ngClass]="{'fh' : settingsManager.settings.fhStyle}"
+<div class="card-container ability"
+  [ngClass]="{'fh' : settingsManager.settings.fhStyle, 'denied' : monster && !gameManager.stateManager.hasMonsterPermission(monster) || character && !gameManager.stateManager.hasCharacterPermission(character)}"
   [style.--ghs-ability-color]="character && character.color">
   <div class="card" [ngClass]="{'flipped' : flipped || ability && ability.revealed}" card-reveal
     (change)="onChange($event)" [disabled]="!reveal || !ability" #card
@@ -9,7 +10,7 @@
       <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
       <span class="name" *ngIf="monster">{{'data.monster.' + monster.name | ghsLabel}}</span>
       <span class="name" *ngIf="character">{{'data.character.' + character.name | ghsLabel}}</span>
-      <span class="logo" *ngIf="character"><img [src]="characterManager.characterIcon(character)" /></span>
+      <span class="logo" *ngIf="character"><img [src]="gameManager.characterManager.characterIcon(character)" /></span>
     </div>
     <div class="card-front ability-front"
       [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0 && !character, 'character-actions' : character}">
@@ -40,7 +41,8 @@
           <span *ngIf="character && ability.cardId < 10">0</span>
           <span>{{ability.cardId}}</span>
         </span>
-        <span class="logo" *ngIf="character"><img [src]="characterManager.characterIcon(character)" /></span>
+        <span class="logo" *ngIf="character"><img
+            [src]="gameManager.characterManager.characterIcon(character)" /></span>
         <span *ngIf="ability.lost" class="lost">
           <img src="./assets/images/action/card/lost.svg">
           <img class="overlay" src="./assets/images/action/card/overlay/lost.svg">

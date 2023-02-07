@@ -133,16 +133,19 @@ export class ConditionsComponent implements OnInit {
       let entityCondition: EntityCondition | undefined = entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name);
       if (entityCondition) {
         entityCondition.expired = true;
+        entityCondition.lastState = entityCondition.state;
         entityCondition.state = EntityConditionState.removed;
       }
     } else {
       let entityCondition: EntityCondition | undefined = entity.entityConditions.find((entityCondition) => entityCondition.name == condition.name);
       if (!entityCondition) {
         entityCondition = new EntityCondition(condition.name, condition.value);
+        entityCondition.lastState = entityCondition.state;
         entityCondition.state = EntityConditionState.new;
         entity.entityConditions.push(entityCondition);
       } else {
         entityCondition.expired = false;
+        entityCondition.lastState = entityCondition.state;
         entityCondition.state = EntityConditionState.new;
       }
     }

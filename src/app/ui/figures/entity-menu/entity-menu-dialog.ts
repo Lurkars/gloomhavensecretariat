@@ -313,7 +313,7 @@ export class EntityMenuDialogComponent {
         let ability = gameManager.monsterManager.getAbility(this.data.figure);
         if (ability) {
           ability.actions.forEach((action) => {
-            if (action.type == ActionType.shield && !action.subActions.find((shieldSubAction) => shieldSubAction.type == ActionType.specialTarget && !('' + shieldSubAction.value).startsWith('self'))) {
+            if (action.type == ActionType.shield && (!action.subActions || !action.subActions.find((shieldSubAction) => shieldSubAction.type == ActionType.specialTarget && !('' + shieldSubAction.value).startsWith('self')))) {
               shieldAction.value = +shieldAction.value + +action.value;
               if (action.subActions && action.subActions.length > 0) {
                 shieldAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions.filter((subAction) => subAction.type != ActionType.specialTarget))));
@@ -830,10 +830,8 @@ export class EntityMenuDialogComponent {
   }
 
   closeConditions() {
-
     if (this.data.entity) {
       this.data.entity.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
-
         if (this.data.entity) {
           entityCondition.expired = entityCondition.state == EntityConditionState.new;
           gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.data.entity, this.data.figure, entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition"), "game.condition." + entityCondition.name, this.data.entity instanceof MonsterEntity ? 'monster.' + this.data.entity.type + ' ' : '');

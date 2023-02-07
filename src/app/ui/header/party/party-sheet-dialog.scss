@@ -638,7 +638,7 @@
               height: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
             }
 
-            &> span {
+            &>span {
               display: flex;
               align-items: center;
               padding: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor))
@@ -903,6 +903,16 @@
           }
         }
       }
+    }
+  }
+
+  .scroll-container.denied {
+
+    .campaign-toggle,
+    .campaign-toggle *,
+    .export,
+    .export * {
+      pointer-events: initial;
     }
   }
 }

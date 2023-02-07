@@ -176,6 +176,7 @@
 
       &.col-1 {
         max-width: calc(var(--ghs-unit) * 42);
+        overflow: visible;
       }
 
       &.col-2 {
@@ -196,6 +197,7 @@
       text-shadow: var(--ghs-outline);
       display: flex;
       align-items: center;
+      white-space: nowrap;
 
       img.icon {
         height: calc(var(--ghs-unit) * 5.5 * var(--ghs-text-factor));
@@ -437,6 +439,14 @@
     .character-sheet-button,
     &::before {
       filter: grayscale(1) !important;
+    }
+  }
+
+  &.denied {
+
+    .character-sheet-button,
+    .character-sheet-button * {
+      pointer-events: initial;
     }
   }
 }

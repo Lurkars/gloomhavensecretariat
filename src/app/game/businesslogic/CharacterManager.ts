@@ -175,10 +175,16 @@ export class CharacterManager {
         }
 
         if (settingsManager.settings.applyConditions) {
-          figure.entityConditions.filter((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => entityCondition.state = EntityConditionState.normal);
+          figure.entityConditions.filter((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => {
+            entityCondition.lastState = entityCondition.state;
+            entityCondition.state = EntityConditionState.normal;
+          });
 
           figure.summons.forEach((summon) => {
-            summon.entityConditions.filter((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => entityCondition.state = EntityConditionState.normal);
+            summon.entityConditions.filter((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => {
+              entityCondition.lastState = entityCondition.state;
+              entityCondition.state = EntityConditionState.normal;
+            });
           });
         }
       } else if (figure instanceof Objective) {
@@ -190,7 +196,10 @@ export class CharacterManager {
 
 
         if (settingsManager.settings.applyConditions) {
-          figure.entityConditions.filter((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => entityCondition.state = EntityConditionState.normal);
+          figure.entityConditions.filter((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => {
+            entityCondition.lastState = entityCondition.state;
+            entityCondition.state = EntityConditionState.normal;
+          });
         }
       }
     })

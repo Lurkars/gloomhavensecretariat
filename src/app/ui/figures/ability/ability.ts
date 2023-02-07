@@ -1,6 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
-import { gameManager } from "src/app/game/businesslogic/GameManager";
+import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Ability } from "src/app/game/model/Ability";
 import { Character } from "src/app/game/model/Character";
@@ -25,9 +24,8 @@ export class AbilityComponent {
   @Input() highlightElements: boolean = false;
   @Input() statsCalculation: boolean = true;
 
-
+  gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
-  characterManager: CharacterManager = gameManager.characterManager;
 
   abilityIndex(ability: Ability): number {
     if (this.abilities && this.abilities.length > 0) {

@@ -2,7 +2,7 @@ import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 import { Component, Inject } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { ConditionName, ConditionType } from "src/app/game/model/Condition";
+import { ConditionName, ConditionType, EntityConditionState } from "src/app/game/model/Condition";
 import { EntityValueFunction } from "src/app/game/model/Entity";
 import { GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
@@ -113,6 +113,13 @@ export class EntitiesMenuDialogComponent {
         if (entity.maxHealth > 0 && entity.health <= 0 || entity.dead) {
           this.dead(entity);
         }
+
+        entity.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
+            entityCondition.expired = entityCondition.state == EntityConditionState.new;
+            gameManager.stateManager.before(...gameManager.entityManager.undoInfos(entity, this.data.monster, entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition"), "game.condition." + entityCondition.name, entity instanceof MonsterEntity ? 'monster.' + entity.type + ' ' : '');
+            gameManager.entityManager.toggleCondition(entity, entityCondition, this.data.monster.active, this.data.monster.off);
+            gameManager.stateManager.after();
+        })
       })
       gameManager.stateManager.after();
     }

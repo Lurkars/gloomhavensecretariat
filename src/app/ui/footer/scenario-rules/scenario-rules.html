@@ -1,4 +1,5 @@
-<div class="rules-dialog">
+<div class="rules-dialog"
+  [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
   <ng-container *ngFor="let ruleModel of gameManager.game.scenarioRules; let index = index;">
     <div class="rule dialog" #ruleElement *ngIf="visible(index)">
       <div class="hide" (click)="hideRule(ruleElement, index)">{{'scenario.rules.hide' | ghsLabel}}

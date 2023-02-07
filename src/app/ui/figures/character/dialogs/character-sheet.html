@@ -1,6 +1,6 @@
 <div class="light character-sheet-dialog" [ngClass]="{'cs-sheet' : csSheet, 'fh-sheet' : fhSheet}">
   <a class="close" (click)="close()" [title]="'close' | ghsLabel"><img src="./assets/images/close.svg"></a>
-  <div class="scroll-container">
+  <div class="scroll-container" [ngClass]="{'denied' : !gameManager.stateManager.hasCharacterPermission(character)}">
     <div class="container">
       <div class="columns">
         <div class="column column-left">
@@ -280,8 +280,8 @@
               <label>{{'character.progress.personalQuest' | ghsLabel}}:</label>
               <input [value]="character.progress.personalQuest" type="number" min="0"
                 (change)="setPersonalQuest($event)">
-              <span class="retired checkbox check" [ngClass]="{'checked' : retired}"
-                (click)="retired = !retired" title="{{'character.progress.retired' | ghsLabel}}"></span>
+              <span class="retired checkbox check" [ngClass]="{'checked' : retired}" (click)="retired = !retired"
+                title="{{'character.progress.retired' | ghsLabel}}"></span>
             </div>
             <div class="retirements">
               <label>{{'character.progress.retirements' | ghsLabel}}:</label>
@@ -289,12 +289,14 @@
                 (keyup)="setRetirements($event)">
             </div>
             <div class="import-export">
-              <label (click)="exportCharacter()" title="{{'character.progress.export' |
-        ghsLabel}}"><img src="./assets/images/export.svg">{{'character.progress.export' |
-                ghsLabel}}</label>
-              <label title="{{'character.progress.import' | ghsLabel}}" (click)="ghsInputFullScreenCheck()">
-                <input type="file" accept="application/json" (change)="importCharacter($event)" /><img
-                  src="./assets/images/import.svg">{{'character.progress.import' | ghsLabel}}</label>
+              <label class="export" (click)="exportCharacter()" title="{{'character.progress.export' | ghsLabel}}">
+                <img src="./assets/images/export.svg">
+                {{'character.progress.export' | ghsLabel}}
+              </label>
+              <label class="import" title="{{'character.progress.import' | ghsLabel}}" (click)="ghsInputFullScreenCheck()">
+                <input type="file" accept="application/json" (change)="importCharacter($event)" />
+                <img src="./assets/images/import.svg">{{'character.progress.import' | ghsLabel}}
+              </label>
             </div>
           </div>
         </div>

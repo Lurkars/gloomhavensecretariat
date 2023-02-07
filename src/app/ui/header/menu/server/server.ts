@@ -29,6 +29,8 @@ export class ServerMenuComponent implements OnInit {
 
   password: string = '';
 
+  createPermissions: boolean = false;
+
 
   async ngOnInit() {
 

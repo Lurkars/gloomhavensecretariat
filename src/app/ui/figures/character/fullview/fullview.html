@@ -30,11 +30,11 @@
   <div class="row">
     <div class="conditions">
       <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.activeConditions(character)">
-        <img src="./assets/images/condition/{{entityCondition.name}}.svg" [style.z-index]="entityCondition.value" />
+        <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" [style.z-index]="entityCondition.value" />
         <ng-container *ngIf="entityCondition.types.indexOf(ConditionType.stack) != -1">
           <img class="stack" *ngFor="let i of [] | ghsRange:(entityCondition.value - 1)"
             [style.z-index]="entityCondition.value - i - 1"
-            src="./assets/images/condition/{{entityCondition.name}}.svg" />
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
         </ng-container>
         <span class="value"
           *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>

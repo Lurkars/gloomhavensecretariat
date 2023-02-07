@@ -243,9 +243,6 @@ export class MainMenuComponent implements OnInit {
     gameManager.characterManager.removeObjective(objective);
     if (this.objectives().length == 0) {
       this.close();
-      if (gameManager.game.figures.every((figure) => figure instanceof Character)) {
-        gameManager.scenarioManager.setScenario(undefined);
-      }
     }
     gameManager.stateManager.after();
   }
@@ -254,9 +251,6 @@ export class MainMenuComponent implements OnInit {
     gameManager.stateManager.before("removeAllObjectives");
     gameManager.game.figures = gameManager.game.figures.filter((figure) => !(figure instanceof Objective))
     this.close();
-    if (gameManager.game.figures.every((figure) => figure instanceof Character)) {
-      gameManager.scenarioManager.setScenario(undefined);
-    }
     gameManager.stateManager.after();
   }
 
@@ -274,9 +268,6 @@ export class MainMenuComponent implements OnInit {
     gameManager.monsterManager.removeMonster(monster);
     if (this.monsters().length == 0) {
       this.close();
-      if (gameManager.game.figures.every((figure) => figure instanceof Character)) {
-        gameManager.scenarioManager.setScenario(undefined);
-      }
     }
     gameManager.stateManager.after();
   }
@@ -287,9 +278,6 @@ export class MainMenuComponent implements OnInit {
       return !(figure instanceof Monster);
     })
     this.close();
-    if (gameManager.game.figures.every((figure) => figure instanceof Character)) {
-      gameManager.scenarioManager.setScenario(undefined);
-    }
     gameManager.stateManager.after();
   }
 

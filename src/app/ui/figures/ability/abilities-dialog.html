@@ -1,5 +1,5 @@
 <div class="abilities-dialog" [ngClass]="{ 'edit' : edit}">
-  <div #menu class="menu">
+  <div #menu class="menu" [ngClass]="{'denied' : monster && !gameManager.stateManager.hasMonsterPermission(monster)}">
     <a (click)="reveal = (reveal + 1) % 3">{{(reveal == 2 ? 'game.cards.coverAll' : (reveal == 0 ?
       'game.cards.revealAll' : 'game.cards.revealAllConfirm')) | ghsLabel}}</a>
     <a (click)="shuffle()">{{'game.cards.shuffle' | ghsLabel}}</a>
@@ -20,7 +20,8 @@
         [cdkDropListAutoScrollStep]="20">
         <div class="empty" *ngIf="upcomingCards().length == 0"></div>
         <ng-container *ngFor="let ability of upcomingCards();let index = index;">
-          <div class="container drag-hidden" cdkDrag  [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0}">
+          <div class="container drag-hidden" cdkDrag
+            [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0}">
             <ghs-ability [ability]="ability" [monster]="monster" [flipped]="reveal == 2" [reveal]="true">
             </ghs-ability>
             <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
@@ -35,7 +36,8 @@
         [cdkDropListAutoScrollStep]="20">
         <div class="empty"></div>
         <ng-container *ngFor="let ability of disgardedCards(); let index = index;">
-          <div class="container drag-hidden" cdkDrag  [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0}">
+          <div class="container drag-hidden" cdkDrag
+            [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0}">
             <ghs-ability [ability]="ability" [monster]="monster" [flipped]="true">
             </ghs-ability>
             <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>

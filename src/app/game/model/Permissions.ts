@@ -12,5 +12,6 @@ export class Permissions {
   level: boolean = false;
   attackModifiers: boolean = false;
   lootDeck: boolean = false;
+  party: boolean = false;
 
 }

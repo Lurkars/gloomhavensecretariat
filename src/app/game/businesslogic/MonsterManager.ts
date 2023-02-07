@@ -352,7 +352,10 @@ export class MonsterManager {
 
         if (settingsManager.settings.applyConditions) {
           figure.entities.forEach((monsterEntity) => {
-            monsterEntity.entityConditions.filter((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => entityCondition.state = EntityConditionState.normal);
+            monsterEntity.entityConditions.filter((entityCondition) => entityCondition.types.indexOf(ConditionType.turn) != -1).forEach((entityCondition) => {
+              entityCondition.lastState = entityCondition.state;
+              entityCondition.state = EntityConditionState.normal;
+            });
           });
         }
 

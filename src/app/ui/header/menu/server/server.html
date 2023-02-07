@@ -107,18 +107,28 @@
         </div>
       </div>
     </form>
-  </div>
-  <div class="column" *ngIf="gameManager.stateManager.wsState() == WebSocket.OPEN">
-    <div class="line title">
-      <label>{{'permissions' | ghsLabel}}</label>
-    </div>
-    <ng-container *ngIf="!gameManager.stateManager.permissions">
+
+
+    <ng-container *ngIf="gameManager.stateManager.wsState() == WebSocket.OPEN && !gameManager.stateManager.permissions">
+      <div class="line title">
+        <label>{{'permissions' | ghsLabel}}</label>
+      </div>
       <div class="line">
         <p>{{'permissions.hasAll' | ghsLabel}}</p>
       </div>
-      <div class="line title">
-        <label>{{'permissions.create' | ghsLabel}}</label>
+      <div class="line">
+        <a (click)="createPermissions = !createPermissions">{{'permissions.create' | ghsLabel}}</a>
       </div>
+    </ng-container>
+
+
+  </div>
+  <div class="column" *ngIf="createPermissions || gameManager.stateManager.permissions">
+    <div class="line title">
+      <label>{{(gameManager.stateManager.permissions ? 'permissions' : 'permissions.create') | ghsLabel}}</label>
+    </div>
+    <ng-container *ngIf="!gameManager.stateManager.permissions">
+
       <div class="line">
         <div class="hint-container">
           <label>
@@ -146,9 +156,7 @@
     </ng-container>
 
     <ng-container *ngIf="getPermissions() && permissions">
-      <div class="line"
-        *ngIf="!gameManager.stateManager.permissions || permissions && permissions.character.length == 0"
-        [ngClass]="{'separator' : !gameManager.stateManager.permissions}">
+      <div class="line" [ngClass]="{'separator' : !gameManager.stateManager.permissions}">
         <div class="hint-container">
           <label [ngClass]="{'disabled' : gameManager.stateManager.permissions}">
             <input type="checkbox" [checked]="permissions.characters"
@@ -175,7 +183,7 @@
         </ng-container>
       </div>
 
-      <div class="line" *ngIf="!gameManager.stateManager.permissions || permissions && permissions.monster.length == 0">
+      <div class="line">
         <div class="hint-container">
           <label [ngClass]="{'disabled' : gameManager.stateManager.permissions}">
             <input type="checkbox" [checked]="permissions.monsters"
@@ -211,6 +219,20 @@
           <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
           <span class="hint">
             <span class="text">{{'permissions.scenario.hint' | ghsLabel}}</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="line">
+        <div class="hint-container">
+          <label [ngClass]="{'disabled' : gameManager.stateManager.permissions}">
+            <input type="checkbox" [checked]="permissions.party"
+              (change)="permissions.party = !permissions.party">
+            {{'permissions.party' | ghsLabel}}
+          </label>
+          <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+          <span class="hint">
+            <span class="text">{{'permissions.party.hint' | ghsLabel}}</span>
           </span>
         </div>
       </div>

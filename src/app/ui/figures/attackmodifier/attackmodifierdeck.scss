@@ -85,6 +85,17 @@
         cursor: help;
       }
     }
+
+    &.denied .am {
+
+      .number,
+      .number *,
+      .fullscreen,
+      .fullscreen *,
+      &.open-dialig {
+        pointer-events: initial;
+      }
+    }
   }
 
 

@@ -15,20 +15,20 @@
         *ngSwitchCase="WebSocket.CONNECTING" [title]="'server.connecting' | ghsLabel">
       <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection closing"
         *ngSwitchCase="WebSocket.CLOSING" [title]="'server.closing' | ghsLabel">
-      <a (click)="settingsManager.settings.serverAutoconnect ? gameManager.stateManager.connect() : openMenu($event, SubMenu.server)" [title]="'server.reconnected' | ghsLabel"
-        *ngSwitchCase="WebSocket.CLOSED" class="server-connection-status">
+      <a (click)="settingsManager.settings.serverAutoconnect ? gameManager.stateManager.connect() : openMenu($event, SubMenu.server)"
+        [title]="'server.reconnected' | ghsLabel" *ngSwitchCase="WebSocket.CLOSED" class="server-connection-status">
         <img src="./assets/images/warning.svg" class="ghs-svg server-connection closed"
           [title]="'server.closed' | ghsLabel">
         <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection closed"
           [title]="'server.closed' | ghsLabel">
       </a>
-      <a (click)="settingsManager.settings.serverAutoconnect ? gameManager.stateManager.connect() : openMenu($event, SubMenu.server)" [title]="'server.reconnected' | ghsLabel" *ngSwitchCase="-1"
-        class="server-connection-status">
+      <a (click)="settingsManager.settings.serverAutoconnect ? gameManager.stateManager.connect() : openMenu($event, SubMenu.server)"
+        [title]="'server.reconnected' | ghsLabel" *ngSwitchCase="-1" class="server-connection-status">
         <img src="./assets/images/server-connection.svg" class="ghs-svg server-connection disconnected"
           [title]="'server.disconnected' | ghsLabel">
       </a>
     </ng-container>
-    
+
     <img src="./assets/images/shuffle.svg" class="server-connection syncing" *ngIf="syncing()">
     <span class="game-server" *ngIf="!syncing() && gameManager.game.server">°</span>
 

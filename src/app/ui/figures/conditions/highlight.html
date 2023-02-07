@@ -1,22 +1,28 @@
 <div class="highlight-conditions" *ngIf="gameManager.entityManager.highlightedConditions(entity).length > 0">
   <span class="condition" [conditionHighlight]="entityCondition"
     *ngFor="let entityCondition of gameManager.entityManager.highlightedConditions(entity)"
-    [ngClass]="{'apply' : entityCondition.types.indexOf(ConditionType.apply) != -1 && settingsManager.settings.activeApplyConditions}">
+    [ngClass]="{'apply' : settingsManager.settings.activeApplyConditions &&  entityCondition.types.indexOf(ConditionType.apply) != -1, 'double': entityCondition.types.indexOf(ConditionType.double) != -1}">
 
     <a class="close" [conditionHighlight]="entityCondition"
-      *ngIf="entityCondition.types.indexOf(ConditionType.apply) != -1 && settingsManager.settings.activeApplyConditions"
+      *ngIf="settingsManager.settings.activeApplyConditions && entityCondition.types.indexOf(ConditionType.apply) != -1"
       (click)="declineApplyCondition(entityCondition.name, $event)">
       <img class="ghs-svg" src="./assets/images/close.svg" />
     </a>
 
     <span class="condition-image">
-      <img src="./assets/images/condition/{{entityCondition.name}}.svg" />
+      <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
       <span class="value"
         *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
     </span>
 
+    <a class="double" [conditionHighlight]="entityCondition"
+      *ngIf="settingsManager.settings.activeApplyConditions &&  entityCondition.types.indexOf(ConditionType.apply) != -1 && entityCondition.types.indexOf(ConditionType.double) != -1"
+      (click)="applyCondition(entityCondition.name, $event, true)">
+      <img src="./assets/images/attackmodifier/icons/double.png" />
+    </a>
+
     <a class="check" [conditionHighlight]="entityCondition"
-      *ngIf="entityCondition.types.indexOf(ConditionType.apply) != -1 && settingsManager.settings.activeApplyConditions"
+      *ngIf="settingsManager.settings.activeApplyConditions && entityCondition.types.indexOf(ConditionType.apply) != -1"
       (click)="applyCondition(entityCondition.name, $event)">
       <img class="ghs-svg" src="./assets/images/check.svg" />
     </a>

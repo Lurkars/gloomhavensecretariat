@@ -1,5 +1,4 @@
-<div #levelButton class="level-status"
-  [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.level}">
+<div #levelButton class="level-status">
   <div class="values" (click)="open($event)">
     <span class="level" title="{{'game.level' | ghsLabel}}"><img class="ghs-svg" src="./assets/images/level.svg">
       {{gameManager.game.level}}</span>

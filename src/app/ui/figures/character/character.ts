@@ -162,8 +162,8 @@ export class CharacterComponent {
         this.exhausted();
       }
       this.health = 0;
+      gameManager.stateManager.after();
     }
-    gameManager.stateManager.after();
   }
 
   dragXpMove(value: number) {

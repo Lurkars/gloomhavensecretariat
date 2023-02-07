@@ -938,4 +938,11 @@
       margin-top: calc(var(--ghs-unit) * 1.2 * var(--ghs-dialog-factor));
     }
   }
+
+  .scroll-container.denied {
+    .export,
+    .export * {
+      pointer-events: initial;
+    }
+  }
 }

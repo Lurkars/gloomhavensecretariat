@@ -98,6 +98,10 @@ export class AbiltiesDialogComponent implements OnInit {
       moveItemInArray(this.monster.abilities, offset - event.previousIndex, event.currentIndex + offset);
       this.monster.ability = this.monster.ability - 1;
     }
+    const sameDeckMonster = gameManager.monsterManager.getSameDeckMonster(this.monster);
+    if (sameDeckMonster) {
+      gameManager.monsterManager.applySameDeck(sameDeckMonster);
+    }
     gameManager.stateManager.after();
   }
 
@@ -109,6 +113,10 @@ export class AbiltiesDialogComponent implements OnInit {
       this.monster.ability = this.monster.ability + 1;
       const offset = this.monster.ability;
       moveItemInArray(this.monster.abilities, event.previousIndex + offset, offset - event.currentIndex);
+    }
+    const sameDeckMonster = gameManager.monsterManager.getSameDeckMonster(this.monster);
+    if (sameDeckMonster) {
+      gameManager.monsterManager.applySameDeck(sameDeckMonster);
     }
     gameManager.stateManager.after();
   }

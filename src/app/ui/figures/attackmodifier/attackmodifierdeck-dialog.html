@@ -1,5 +1,6 @@
 <div class="attack-modifiers-dialog">
-  <div class="menu" #menu>
+  <div class="menu" #menu
+    [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers && (!character || !gameManager.stateManager.hasCharacterPermission(character))}">
     <a (click)="reveal = (reveal + 1) % 3">{{(reveal == 2 ? 'game.cards.coverAll' : (reveal == 0 ?
       'game.cards.revealAll' : 'game.cards.revealAllConfirm')) | ghsLabel}}</a>
     <a (click)="shuffle()">{{'game.cards.shuffle' | ghsLabel}}</a>
@@ -73,7 +74,8 @@
     <div class="attack-modifiers-container" [style.maxHeight]="maxHeight">
       <div class="upcoming drop-list" cdkDropList [cdkDropListDisabled]="!edit" #upcomingList="cdkDropList"
         [cdkDropListConnectedTo]="disgardedList" (cdkDropListDropped)="dropUpcoming($event)"
-        [cdkDropListAutoScrollStep]="20">
+        [cdkDropListAutoScrollStep]="20"
+        [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.attackModifiers && (!character || !gameManager.stateManager.hasCharacterPermission(character))}">
         <div class="empty" *ngIf="upcomingCards().length == 0"></div>
         <div class="attack-modifier-container" *ngFor="let attackModifier of upcomingCards(); let index = index"
           cdkDrag>

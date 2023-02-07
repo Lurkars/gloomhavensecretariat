@@ -1,6 +1,7 @@
 <div class="light party-sheet-dialog">
   <a class="close" (click)="close()" [title]="'close' | ghsLabel"><img src="./assets/images/close.svg"></a>
-  <div class="scroll-container">
+  <div class="scroll-container"
+    [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
     <div class="container" [ngClass]="{'campaign-container' : campaign}">
       <div class="sheet" *ngIf="!campaign">
         <div class="columns">
@@ -73,12 +74,15 @@
             </div>
 
             <div class="import-export">
-              <label (click)="exportParty()" title="{{'party.export' |
-          ghsLabel}}"><img src="./assets/images/export.svg"><span>{{'party.export' |
-                  ghsLabel}}</span></label>
-              <label title="{{'party.import' | ghsLabel}}" (click)="ghsInputFullScreenCheck()">
-                <input type="file" accept="application/json" (change)="importParty($event)" /><img
-                  src="./assets/images/import.svg"><span>{{'party.import' | ghsLabel}}</span></label>
+              <label class="export" (click)="exportParty()" title="{{'party.export' | ghsLabel}}">
+                <img src="./assets/images/export.svg">
+                <span>{{'party.export' | ghsLabel}}</span>
+              </label>
+              <label class="import" title="{{'party.import' | ghsLabel}}" (click)="ghsInputFullScreenCheck()">
+                <input type="file" accept="application/json" (change)="importParty($event)" />
+                <img src="./assets/images/import.svg">
+                <span>{{'party.import' | ghsLabel}}</span>
+              </label>
             </div>
           </div>
         </div>

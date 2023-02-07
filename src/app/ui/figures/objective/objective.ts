@@ -127,8 +127,8 @@ export class ObjectiveComponent implements OnInit {
         this.exhausted();
       }
       this.health = 0;
+      gameManager.stateManager.after();
     }
-    gameManager.stateManager.after();
   }
 
   openEntityMenu(event: any): void {

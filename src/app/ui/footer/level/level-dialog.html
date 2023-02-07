@@ -1,4 +1,5 @@
-<div class="level-dialog">
+<div class="level-dialog"
+  [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.level}">
   <div class="menu">
     <label>
       <input type="checkbox" [checked]="gameManager.game.levelCalculation"
@@ -40,7 +41,8 @@
 
   <div class="values">
     <div class="loot">
-      <span class="icon"><img class="ghs-svg" [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/loot.svg'">:</span>
+      <span class="icon"><img class="ghs-svg"
+          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/loot.svg'">:</span>
       <span class="value">x{{loot}}</span>
       <span class="hint">{{'game.level.loot' | ghsLabel}}</span>
     </div>

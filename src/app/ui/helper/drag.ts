@@ -140,6 +140,8 @@ export class DragClickDirective {
       if (this.value >= this.min) {
         this.dragEnd.emit(this.relative ? this.value - this.relativeValue : this.value);
       }
+      this.value = -1;
+      this.relativeValue = -1;
       this.elementRef.nativeElement.classList.remove('dragging');
     }
     event.preventDefault();

@@ -19,10 +19,13 @@ export class HighlightConditionsComponent {
   settingsManager: SettingsManager = settingsManager;
   ConditionType = ConditionType;
 
-  applyCondition(name: ConditionName, event: any) {
+  applyCondition(name: ConditionName, event: any, double: boolean = false) {
     event.stopPropagation();
     gameManager.stateManager.before(...gameManager.entityManager.undoInfos(this.entity, this.figure, "applyCondition"), "game.condition." + name);
-    gameManager.entityManager.applyCondition(this.entity, name)
+    gameManager.entityManager.applyCondition(this.entity, name);
+    if (double) {
+      gameManager.entityManager.applyCondition(this.entity, name);
+    }
     gameManager.stateManager.after();
   }
 

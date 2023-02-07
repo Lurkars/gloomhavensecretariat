@@ -20,6 +20,8 @@ export class StateManager {
 
   hasUpdate: boolean = false;
 
+  lastAction: "update" | "undo" | "redo" = "update";
+
   constructor(game: Game) {
     this.game = game;
     this.lastSaveTimestamp = new Date().getTime();
@@ -249,7 +251,11 @@ export class StateManager {
         case "error":
           console.warn("[GHS] Error: " + message.message);
           if (message.message == "Permission(s) missing") {
-            gameManager.stateManager.undo();
+            if (gameManager.stateManager.lastAction == "redo" || gameManager.stateManager.lastAction == "update") {
+              gameManager.stateManager.undo(false);
+            } else if (gameManager.stateManager.lastAction == "undo") {
+              gameManager.stateManager.redo(false);
+            }
           }
           if (message.message.startsWith("Invalid password")) {
             console.warn("Disconnect...");
@@ -355,6 +361,8 @@ export class StateManager {
       window.document.body.classList.remove('working');
       window.document.body.classList.remove('server-sync');
     }
+
+    this.lastAction = "update";
   }
 
   addToUndo(info: string[]) {
@@ -389,14 +397,19 @@ export class StateManager {
     return this.undos.length > 0;
   }
 
-  undo() {
+  undo(sync: boolean = true) {
     if (this.undos.length > 0) {
       window.document.body.classList.add('working');
       this.redos.push(this.game.toModel());
       const gameModel: GameModel = this.undos.splice(this.undos.length - 1, 1)[0];
       this.game.fromModel(gameModel);
       this.saveLocalStorage();
-      this.after();
+      if (sync) {
+        this.after();
+      } else {
+        gameManager.uiChange.emit();
+      }
+      this.lastAction = "undo";
     }
   }
 
@@ -404,14 +417,19 @@ export class StateManager {
     return this.redos.length > 0;
   }
 
-  redo() {
+  redo(sync: boolean = true) {
     if (this.redos.length > 0) {
       window.document.body.classList.add('working');
       this.undos.push(this.game.toModel());
       const gameModel: GameModel = this.redos.splice(this.redos.length - 1, 1)[0];
       this.game.fromModel(gameModel);
       this.saveLocalStorage();
-      this.after();
+      if (sync) {
+        this.after();
+      } else {
+        gameManager.uiChange.emit();
+      }
+      this.lastAction = "undo";
     }
   }
 

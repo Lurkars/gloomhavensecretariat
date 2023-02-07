@@ -1,5 +1,5 @@
-<div class="scenario-container" (click)="open($event)">
-  <div class="button">
+<div class="scenario-container">
+  <div class="button" (click)="open($event)">
     <div class="scenario">
       <span *ngIf="gameManager.game.scenario && gameManager.game.scenario.index"
         class="index">#{{gameManager.game.scenario.index}}</span>
@@ -8,7 +8,7 @@
         ghsLabel}}</span>
     </div>
   </div>
-  <div class="sections rooms">
+  <div class="sections rooms" (click)="open($event)" [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
     <ng-container *ngIf="settingsManager.settings.scenarioRooms">
       <span *ngFor="let roomData of gameManager.scenarioManager.openRooms();" class="section room">
         <img class="ghs-svg" src="./assets/images/door-open.svg">

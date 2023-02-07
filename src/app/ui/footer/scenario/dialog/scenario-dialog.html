@@ -1,4 +1,4 @@
-<div class="scenario-popup">
+<div class="scenario-popup" [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
   <div class="title">
     <span *ngIf="gameManager.game.scenario && gameManager.game.scenario.index"
       class="index">#{{gameManager.game.scenario.index}}</span>

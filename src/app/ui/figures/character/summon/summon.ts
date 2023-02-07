@@ -63,8 +63,8 @@ export class SummonEntityComponent implements OnInit {
       }
       this.health = 0;
       this.health = 0;
+      gameManager.stateManager.after();
     }
-    gameManager.stateManager.after();
   }
 
   dead() {
