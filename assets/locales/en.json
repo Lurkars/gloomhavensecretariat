@@ -655,6 +655,10 @@
       ".": "All Monsters",
       "hint": "Update and change all monsters and monster entities"
     },
+    "party": {
+      ".": "Party",
+      "hint": "Update and change Party and Campaign progress"
+    },
     "password": {
       ".": "New Password for Permissions"
     },

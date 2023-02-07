@@ -536,6 +536,10 @@
       ".": "Alle Monster",
       "hint": "Ändern aller Monster"
     },
+    "party": {
+      ".": "Gruppe",
+      "hint": "Gruppen- und Kampagnen-Progression bearbeiten"
+    },
     "password": {
       ".": "Neues Passwort für Berechtigungen"
     },
