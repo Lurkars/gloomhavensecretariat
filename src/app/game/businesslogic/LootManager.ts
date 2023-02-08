@@ -48,7 +48,7 @@ export class LootManager {
   }
 
   getValue(loot: Loot): number {
-    const charCount = this.game.figures.filter((figure) => figure instanceof Character).length;
+    const charCount = this.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length;
     let value = loot.value4P;
     if (charCount <= 2) {
       value = loot.value2P;
