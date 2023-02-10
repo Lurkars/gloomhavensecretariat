@@ -159,8 +159,8 @@
           }
         ]
       },
-	  {
-	    "round": "R > 0",
+      {
+        "round": "R > 0",
         "start": false,
         "spawns": [
           {
@@ -171,7 +171,7 @@
             "marker": "a"
           }
         ]
-	  }
+      }
     ],
     "rooms": [
       {
