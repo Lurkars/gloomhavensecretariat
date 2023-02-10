@@ -1185,10 +1185,46 @@
       "money": 8,
       "lumber": 5,
       "hide": 3,
+      "axenut": 2,
       "rockroot": 1,
-      "flamefruit": 1,
-      "axenut": 2
-    }
+      "flamefruit": 1
+    },
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "11-C",
+        "initial": true,
+        "monster": [
+          {
+            "name": "shrike-fiend",
+            "type": "normal"
+          },
+          {
+            "name": "shrike-fiend",
+            "player4": "normal"
+          },
+          {
+            "name": "shrike-fiend",
+            "type": "elite"
+          },
+          {
+            "name": "black-imp",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "black-imp",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "black-imp",
+            "type": "normal"
+          }
+        ]
+      }
+    ]
   },
   {
     "index": "34",
