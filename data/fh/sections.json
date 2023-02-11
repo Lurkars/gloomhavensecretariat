@@ -1108,7 +1108,7 @@
     "rules": [
       {
         "round": "R % 2 == 0",
-        "start": false,
+        "start": true,
         "spawns": [
           {
             "monster": {
@@ -1126,11 +1126,19 @@
             },
             "marker": "f"
           }
+        ],
+        "disableRules": [
+          {
+            "edition": "fh",
+            "scenario": "114",
+            "index": 0,
+            "section": true
+          }
         ]
       },
       {
         "round": "R % 2 == 1",
-        "start": false,
+        "start": true,
         "spawns": [
           {
             "monster": {
@@ -1146,6 +1154,14 @@
               "player4": "normal"
             },
             "marker": "e"
+          }
+        ],
+        "disableRules": [
+          {
+            "edition": "fh",
+            "scenario": "114",
+            "index": 1,
+            "section": true
           }
         ]
       }
