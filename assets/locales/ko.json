@@ -73,32 +73,6 @@
       "masteries": "숙련",
       "name": "이름",
       "notes": "메모",
-      "perks": {
-        ".": "특혜",
-        "additional": "{0} 및 {1}",
-        "card": "카드",
-        "cardLabel": "{1} {2} {0}",
-        "cards": {
-          "1": "1장",
-          "2": "2장",
-          "3": "3장",
-          "4": "4장",
-          "5": "5장",
-          ".": "카드"
-        },
-        "effects": {
-          "recoverRandomDiscard": "버린 더미에서 무작위로 카드 1장을 회수: %game.card.recover%",
-          "refreshItem": "아이템 재생",
-          "refreshSpentItem": "소모된 아이템 재생"
-        },
-        "type": {
-          "add": "{0} 추가",
-          "remove": "{0} 제거",
-          "replace": "{0}을 {1}으로 교체"
-        },
-        "warning": "선택 가능한 특혜보다 더 많습니다!",
-        "wip": "%wip%! 해당 클래스의 특혜는 아직 작업이 완료되지 않았습니다."
-      },
       "personalQuest": "개인 퀘스트",
       "resources": "자원",
       "retired": "은퇴",
@@ -292,6 +266,32 @@
         "refreshSpentItem": "소모"
       },
       "openDialog": "공격 보정 덱 보기",
+      "perks": {
+        ".": "특혜",
+        "additional": "{0} 및 {1}",
+        "card": "카드",
+        "cardLabel": "{1} {2} {0}",
+        "cards": {
+          "1": "1장",
+          "2": "2장",
+          "3": "3장",
+          "4": "4장",
+          "5": "5장",
+          ".": "카드"
+        },
+        "effects": {
+          "recoverRandomDiscard": "버린 더미에서 무작위로 카드 1장을 회수: %game.card.recover%",
+          "refreshItem": "아이템 재생",
+          "refreshSpentItem": "소모된 아이템 재생"
+        },
+        "type": {
+          "add": "{0} 추가",
+          "remove": "{0} 제거",
+          "replace": "{0}을 {1}으로 교체"
+        },
+        "warning": "선택 가능한 특혜보다 더 많습니다!",
+        "wip": "%wip%! 해당 클래스의 특혜는 아직 작업이 완료되지 않았습니다."
+      },
       "types": {
         "bless": "축복",
         "curse": "저주",
@@ -682,8 +682,8 @@
       "dismiss": "취소하기",
       "figures": {
         "all": "모든 피규어",
-        "amAdd": "{0} add %character.progress.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% to Attack Modifier Deck",
-        "amRemove": "{0} remove %character.progress.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% from Attack Modifier deck",
+        "amAdd": "{0} add %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% to Attack Modifier Deck",
+        "amRemove": "{0} remove %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% from Attack Modifier deck",
         "damage": "{0}에게 피해 %game.damage:{1}%점",
         "gainCondition": "{0}에게 %game.condition.{1}% 상태 추가",
         "hp": "{0} 체력을 {1}",
