@@ -1,0 +1,11 @@
+<span class="text capitalize">
+    <ng-container *ngIf="perk.custom"><span [i18n]="perk.custom"></span>
+        <ng-container *ngIf="perk.type != PerkType.custom">
+            {{'and' | ghsLabel}}
+        </ng-container>
+        &nbsp;
+    </ng-container>
+    <ng-container *ngIf="perk.type != PerkType.custom">
+        <span class="label" [i18n]="'game.attackModifiers.perks.type.' + perk.type" [i18n-args]="perkLabel(perk)"></span>
+    </ng-container>
+</span>

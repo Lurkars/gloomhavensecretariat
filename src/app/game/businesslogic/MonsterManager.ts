@@ -61,6 +61,10 @@ export class MonsterManager {
     if (!monsterData) {
       console.warn("Monster not found: '" + name + "' for edition :" + edition);
       monsterData = gameManager.monstersData().find((monsterData) => monsterData.name == name);
+      if (monsterData) {
+        monsterData.errors = monsterData.errors || [];
+        monsterData.errors.push(new FigureError(FigureErrorType.monsterEdition, "monster", monsterData.name, edition, monsterData.edition));
+      }
     }
 
     if (monsterData) {

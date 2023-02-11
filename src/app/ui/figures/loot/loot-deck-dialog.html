@@ -24,7 +24,7 @@
         <a class="button" [ngClass]="{'disabled' : !lootDeckConfig[type]}" (click)="changeType(type, -1)">
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </a>
-        <span class="value" title="{{'game.condition.bless' | ghsLabel}}">
+        <span class="value" title="{{'game.loot.' + type | ghsLabel}}">
           {{lootDeckConfig[type] && 'x' + lootDeckConfig[type] || '-'}}
         </span>
         <a class="button" [ngClass]="{'disabled' : lootDeckConfig[type] == maxValue(type)}"

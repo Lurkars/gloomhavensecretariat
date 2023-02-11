@@ -3,8 +3,10 @@ import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character, GameCharacterModel } from "src/app/game/model/Character";
+import { CampaignData, TownGuardPerk } from "src/app/game/model/data/EditionData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { Identifier } from "src/app/game/model/Identifier";
+import { LootType } from "src/app/game/model/Loot";
 
 import { Party } from "src/app/game/model/Party";
 import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
@@ -30,6 +32,8 @@ export class PartySheetDialogComponent implements OnInit {
 
   fhSheet: boolean = false;
   csSheet: boolean = false;
+
+  LootType = LootType;
 
   @ViewChild('treasureIndex') treasureIndex!: ElementRef;
 
@@ -380,4 +384,152 @@ export class PartySheetDialogComponent implements OnInit {
     this.party.treasures.splice(this.party.treasures.indexOf(treasure), 1);
     gameManager.stateManager.after();
   }
+
+  campaignData(): CampaignData | undefined {
+    const editionData = gameManager.editionData.find((editionData) => editionData.edition == gameManager.currentEdition());
+
+    if (editionData && editionData.campaign) {
+      return editionData.campaign;
+    }
+
+    return undefined;
+  }
+
+  sectionsForWeek(week: number): string[] {
+    const campaign = this.campaignData();
+    if (campaign && campaign.weeks && campaign.weeks[week + 1]) {
+      return campaign.weeks[week + 1] || [];
+    }
+    return [];
+  }
+
+  townGuardPerks(): TownGuardPerk[] {
+    const campaign = this.campaignData();
+
+    if (campaign && campaign.townGuardPerks) {
+      return campaign.townGuardPerks;
+    }
+
+    return [];
+  }
+
+  setWeek(value: number) {
+    if (this.party.weeks == value) {
+      value--;
+    }
+    if (value < 0) {
+      value = 0;
+    }
+
+    gameManager.stateManager.before("setPartyWeeks", "" + value);
+    this.party.weeks = value;
+    gameManager.stateManager.after();
+  }
+
+  setResource(type: LootType, event: any) {
+    if (!isNaN(+event.target.value)) {
+      gameManager.stateManager.before("setPartyResource", this.party.name, "game.loot." + type, event.target.value);
+      this.party.loot[type] = +event.target.value;
+      this.gameManager.stateManager.after();
+    }
+  }
+
+  setInspiration(event: any) {
+    if (!isNaN(+event.target.value) && this.party.inspiration != +event.target.value) {
+      gameManager.stateManager.before("setPartyInspiration", this.party.name, event.target.value);
+      this.party.inspiration = +event.target.value;
+      this.gameManager.stateManager.after();
+    }
+  }
+
+  setTotalDefense(event: any) {
+    if (!isNaN(+event.target.value) && this.party.defense != +event.target.value) {
+      gameManager.stateManager.before("setPartyTotalDefense", this.party.name, event.target.value);
+      this.party.defense = +event.target.value;
+      this.gameManager.stateManager.after();
+    }
+  }
+
+  setSoldiers(value: number) {
+    if (this.party.soldiers == value) {
+      value--;
+    }
+    if (value < 0) {
+      value = 0;
+    }
+
+    gameManager.stateManager.before("setPartySoldiers", "" + value);
+    this.party.soldiers = value;
+    gameManager.stateManager.after();
+  }
+
+  setMorale(value: number) {
+    if (this.party.morale == value) {
+      value--;
+    }
+    if (value < 0) {
+      value = 0;
+    }
+
+    gameManager.stateManager.before("setPartyMorale", "" + value);
+    this.party.morale = value;
+    gameManager.stateManager.after();
+  }
+
+  setTownGuardPerks(value: number) {
+    if (this.party.townGuardPerks == value) {
+      value--;
+    }
+    if (value < 0) {
+      value = 0;
+    }
+
+    gameManager.stateManager.before("setPartyTownGuardPerks", "" + value);
+    this.party.townGuardPerks = value;
+    gameManager.stateManager.after();
+  }
+
+  toggleTownGuardPerkSection(section: string, force: boolean = false) {
+    this.party.townGuardPerkSections = this.party.townGuardPerkSections || [];
+    const index = this.party.townGuardPerkSections.indexOf(section);
+    if (index != -1 || this.party.townGuardPerkSections.length < Math.floor(this.party.townGuardPerks / 3) || force) {
+      gameManager.stateManager.before(index == -1 ? "addPartyTownGuardPerkSection" : "removePartyTownGuardPerkSection", section);
+      if (index == -1) {
+        this.party.townGuardPerkSections.push(section);
+      } else {
+        this.party.townGuardPerkSections.splice(index, 1);
+      }
+      gameManager.stateManager.after();
+    }
+  }
+
+  addCampaignSticker(campaignStickerElement: HTMLInputElement) {
+    const sticker = campaignStickerElement.value;
+    this.party.campaignStickers = this.party.campaignStickers || [];
+    if (this.party.campaignStickers.indexOf(sticker) == -1) {
+      gameManager.stateManager.before("addCampaignSticker", sticker);
+      this.party.campaignStickers.push(sticker);
+      campaignStickerElement.value = "";
+      gameManager.stateManager.after();
+    }
+  }
+
+  removeCampaignSticker(campaignSticker: string) {
+    const index = this.party.campaignStickers.indexOf(campaignSticker);
+    if (index != -1) {
+      gameManager.stateManager.before("removeCampaignSticker", campaignSticker);
+      this.party.campaignStickers.splice(index, 1);
+      gameManager.stateManager.after();
+    }
+  }
+
+  campaignStickerImage(campaignSticker: string): string | undefined {
+    const campaign = this.campaignData();
+    const sticker = campaignSticker.toLowerCase().replaceAll(' ', '-');
+    if (campaign && campaign.campaignStickers && campaign.campaignStickers.indexOf(sticker) != -1) {
+      return './assets/images/fh/party/campaign-stickers/' + sticker + '.png';
+    }
+    return undefined;
+  }
+
 }

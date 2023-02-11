@@ -1,10 +1,12 @@
 export enum AttackModifierType {
+  plus = "plus",
   plus0 = "plus0",
   plus1 = "plus1",
   plus2 = "plus2",
   plus3 = "plus3",
   plus4 = "plus4",
   plusX = "plusX",
+  minus = "minus",
   minus1 = "minus1",
   minus2 = "minus2",
   null = "null",
@@ -35,8 +37,9 @@ export class AttackModifier {
   revealed: boolean = false;
   character: boolean = false;
 
-  constructor(type: AttackModifierType, id: string | undefined = undefined, effects: AttackModifierEffect[] = [], rolling: boolean = false, active: boolean = false) {
+  constructor(type: AttackModifierType, value: number = 0, id: string | undefined = undefined, effects: AttackModifierEffect[] = [], rolling: boolean = false, active: boolean = false) {
     this.type = type;
+    this.value = value;
     this.id = id || type;
     this.effects = effects;
     this.rolling = rolling;
@@ -56,6 +59,9 @@ export class AttackModifier {
         break;
       case AttackModifierType.plus4:
         this.value = 4;
+        break;
+      case AttackModifierType.minus:
+        this.valueType = AttackModifierValueType.minus;
         break;
       case AttackModifierType.minus1:
         this.valueType = AttackModifierValueType.minus;

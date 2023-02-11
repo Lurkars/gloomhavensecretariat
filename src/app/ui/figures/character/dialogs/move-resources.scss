@@ -1,0 +1,86 @@
+.move-resources-dialog {
+    margin-bottom: 5%;
+    padding: 2em;
+
+    .ghs-svg {
+        height: 1em;
+        width: auto;
+        margin: 0 0.3em;
+        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+    }
+
+    .title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+        color: var(--ghs-color-white);
+        text-shadow: var(--ghs-outline);
+        margin: 0 calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+    }
+
+    .values {
+
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        font-size: 2em;
+
+        label {
+            color: var(--ghs-color-white);
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            white-space: nowrap;
+
+            .ghs-svg {
+                filter: var(--ghs-filter-white);
+                margin-right: 0.3em;
+            }
+        }
+
+        .value {
+            color: var(--ghs-color-white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.3em;
+        }
+
+        .button {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.3em;
+
+            &.disabled {
+                pointer-events: none;
+                color: var(--ghs-color-gray);
+
+                .ghs-svg {
+                    filter: var(--ghs-filter-gray) !important;
+                }
+            }
+        }
+    }
+
+    .menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+            cursor: pointer;
+            font-size: 2em;
+            padding: 0.3em;
+
+            &.cancel {
+                color: var(--ghs-color-red);
+            }
+
+            &.apply {
+                color: var(--ghs-color-green);
+            }
+        }
+    }
+}

@@ -49,10 +49,11 @@ export class EditionData implements Editional {
 
 export class CampaignData {
 
-  weekEvents: Partial<Record<number, string[]>> = {};
-  townGuardPerks: TownGuardPerk[] = [];
-  lowMorale: string = "";
+  campaignStickers: string[] = [];
   highMorale: string = "";
+  lowMorale: string = "";
+  townGuardPerks: TownGuardPerk[] = [];
+  weeks: Partial<Record<number, string[]>> = {};
 
 }
 

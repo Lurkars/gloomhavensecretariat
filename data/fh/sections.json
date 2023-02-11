@@ -144,29 +144,30 @@
     "parent": "33",
     "edition": "fh",
     "marker": "1",
+    "resetRound": true,
     "rules": [
       {
-        "round": "R % 2 == 1",
-        "start": false,
+        "round": "R % 2 == 0",
+        "start": true,
         "spawns": [
           {
             "monster": {
               "name": "black-imp",
-              "player2": "normal",
-              "player4": "elite"
+              "player2": "normal"
             },
             "marker": "a"
           }
         ]
       },
       {
-        "round": "R > 0",
-        "start": false,
+        "round": "R > 1",
+        "start": true,
         "spawns": [
           {
             "monster": {
               "name": "black-imp",
-              "player3": "normal"
+              "player3": "normal",
+              "player4": "elite"
             },
             "marker": "a"
           }

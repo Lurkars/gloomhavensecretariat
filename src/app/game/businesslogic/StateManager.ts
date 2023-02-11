@@ -212,6 +212,10 @@ export class StateManager {
               gameManager.stateManager.before("serverSync", ...undoinfo);
             }
           }
+          if (gameManager.game.revision > gameModel.revision) {
+            localStorage.setItem("ghs-game-rev." + gameManager.game.revision, JSON.stringify(gameManager.game.toModel()));
+            console.warn("An older revision was loaded from server, created a backup of previous state.");
+          }
           gameManager.game.fromModel(gameModel, true);
           gameManager.stateManager.saveLocal();
           gameManager.uiChange.emit();
@@ -250,14 +254,14 @@ export class StateManager {
           break;
         case "error":
           console.warn("[GHS] Error: " + message.message);
-          if (message.message == "Permission(s) missing") {
+          if (message.message == "Permission(s) missing" || message.message == "invalid revision") {
             if (gameManager.stateManager.lastAction == "redo" || gameManager.stateManager.lastAction == "update") {
               gameManager.stateManager.undo(false);
             } else if (gameManager.stateManager.lastAction == "undo") {
               gameManager.stateManager.redo(false);
             }
           }
-          if (message.message.startsWith("Invalid password")) {
+          if (message.message && message.message.startsWith("Invalid password")) {
             console.warn("Disconnect...");
             ev.target?.close();
           }
@@ -338,6 +342,7 @@ export class StateManager {
   }
 
   after(timeout: number = 1) {
+    this.game.revision++;
     this.saveLocal();
     if (this.ws && this.ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword) {
       window.document.body.classList.add('server-sync');
@@ -401,8 +406,10 @@ export class StateManager {
     if (this.undos.length > 0) {
       window.document.body.classList.add('working');
       this.redos.push(this.game.toModel());
+      const revision = gameManager.game.revision;
       const gameModel: GameModel = this.undos.splice(this.undos.length - 1, 1)[0];
       this.game.fromModel(gameModel);
+      this.game.revision = revision;
       this.saveLocalStorage();
       if (sync) {
         this.after();
@@ -421,8 +428,10 @@ export class StateManager {
     if (this.redos.length > 0) {
       window.document.body.classList.add('working');
       this.undos.push(this.game.toModel());
+      const revision = gameManager.game.revision;
       const gameModel: GameModel = this.redos.splice(this.redos.length - 1, 1)[0];
       this.game.fromModel(gameModel);
+      this.game.revision = revision;
       this.saveLocalStorage();
       if (sync) {
         this.after();

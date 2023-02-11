@@ -2,8 +2,8 @@
   <a class="close" (click)="close()" [title]="'close' | ghsLabel"><img src="./assets/images/close.svg"></a>
   <div class="scroll-container"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
-    <div class="container" [ngClass]="{'campaign-container' : campaign}">
-      <div class="sheet" *ngIf="!campaign">
+    <div class="container" [ngClass]="{'fh-container' : !campaign && fhSheet, 'campaign-container' : campaign}">
+      <div class="sheet" *ngIf="!campaign && !fhSheet" [ngClass]="{'fh-sheet' : fhSheet}">
         <div class="columns">
           <div class="column column-left">
             <div class="row title">
@@ -87,6 +87,218 @@
           </div>
         </div>
       </div>
+
+      <div class="sheet fh-sheet" *ngIf="!campaign && fhSheet">
+        <div class="title">
+          <label class="summer"><img src="./assets/images/fh/party/summer.svg">{{'party.campaign.sheet.summer' |
+            ghsLabel}}</label>
+          <label class="headline" (click)="campaign = true">
+            <img src="./assets/images/left.svg">
+            {{'party.campaign.sheet' | ghsLabel}}</label>
+          <label class="winter">{{'party.campaign.sheet.winter' | ghsLabel}}<img
+              src="./assets/images/fh/party/winter.svg"></label>
+        </div>
+
+        <div class="weeks">
+          <div class="week" *ngFor="let week of [] | ghsRange:80; let index = index" (click)="setWeek(index+1)"
+            [ngClass]="{'checked': party.weeks > index, 'section': sectionsForWeek(week).length > 0}">
+            <div class="section" *ngFor="let section of sectionsForWeek(week)">
+              <img src="./assets/images/fh/party/section.svg">{{section}}
+            </div>
+          </div>
+        </div>
+
+        <div class="name">
+          <label>{{'party.campaign.sheet.name' | ghsLabel}}:</label>
+          <input type="text" [value]="party.name" (change)="setName($event)"
+            placeholder="{{'party.campaign.sheet.name' | ghsLabel}}">
+
+          <ng-container *ngIf="!gameManager.game.scenario">
+            <img *ngIf="gameManager.game.parties.length > 1" class="remove-party" src="./assets/images/minus.svg"
+              (click)="removeParty()" [title]="'party.remove' | ghsLabel">
+            <select *ngIf="gameManager.game.parties.length > 1 && !gameManager.game.scenario" class="select-party"
+              (change)="selectParty($event)" [title]="'party.change' | ghsLabel">
+              <option *ngFor="let p of gameManager.game.parties" [selected]="p.id == party.id"
+                [disabled]="p.id == party.id" value="{{p.id}}">{{p.name || ('party' | ghsLabel) + ' ' + p.id}}
+              </option>
+            </select>
+            <img class="new-party" src="./assets/images/plus.svg" (click)="newParty()" [title]="'party.new' | ghsLabel">
+          </ng-container>
+        </div>
+
+        <div class="resources">
+          <label>{{'party.campaign.sheet.supply' | ghsLabel}}:</label>
+
+          <div class="resource-table">
+            <div class="materials">
+              <div class="resource lumber">
+                <img src="./assets/images/fh/loot/lumber.svg">
+                <input [value]="party.loot.lumber || 0" type="number" min="0"
+                  (change)="setResource(LootType.lumber, $event)">
+              </div>
+              <div class="resource metal">
+                <img src="./assets/images/fh/loot/metal.svg">
+                <input [value]="party.loot.metal || 0" type="number" min="0"
+                  (change)="setResource(LootType.metal, $event)">
+              </div>
+              <div class="resource hide">
+                <img src="./assets/images/fh/loot/hide.svg">
+                <input [value]="party.loot.hide || 0" type="number" min="0"
+                  (change)="setResource(LootType.hide, $event)">
+              </div>
+            </div>
+
+            <div class="herbs">
+              <div class="resource arrowvine">
+                <img src="./assets/images/fh/loot/arrowvine.svg">
+                <input [value]="party.loot.arrowvine || 0" type="number" min="0"
+                  (change)="setResource(LootType.arrowvine, $event)">
+              </div>
+              <div class="resource axenut">
+                <img src="./assets/images/fh/loot/axenut.svg">
+                <input [value]="party.loot.axenut || 0" type="number" min="0"
+                  (change)="setResource(LootType.axenut, $event)">
+              </div>
+              <div class="resource corpsecap">
+                <img src="./assets/images/fh/loot/corpsecap.svg">
+                <input [value]="party.loot.corpsecap || 0" type="number" min="0"
+                  (change)="setResource(LootType.corpsecap, $event)">
+              </div>
+              <div class="resource flamefruit">
+                <img src="./assets/images/fh/loot/flamefruit.svg">
+                <input [value]="party.loot.flamefruit || 0" type="number" min="0"
+                  (change)="setResource(LootType.flamefruit, $event)">
+              </div>
+              <div class="resource rockroot">
+                <img src="./assets/images/fh/loot/rockroot.svg">
+                <input [value]="party.loot.rockroot || 0" type="number" min="0"
+                  (change)="setResource(LootType.rockroot, $event)">
+              </div>
+              <div class="resource snowthistle">
+                <img src="./assets/images/fh/loot/snowthistle.svg">
+                <input [value]="party.loot.snowthistle || 0" type="number" min="0"
+                  (change)="setResource(LootType.snowthistle, $event)">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="inspiration">
+          <label>{{'party.campaign.sheet.inspiration' | ghsLabel}}:</label>
+          <input type="number" [value]="party.inspiration || 0" (change)="setInspiration($event)"
+            placeholder="{{'party.campaign.sheet.inspiration' | ghsLabel}}">
+        </div>
+
+        <div class="total-defense">
+          <label>{{'party.campaign.sheet.totalDefense' | ghsLabel}}:</label>
+          <input type="number" [value]="party.defense || 0" (change)="setTotalDefense($event)"
+            placeholder="{{'party.campaign.sheet.totalDefense' | ghsLabel}}">
+        </div>
+
+        <div class="soldiers">
+          <label>{{'party.campaign.sheet.soldiers' | ghsLabel}}:</label>
+          <div class="soldier-table">
+            <div class="line" *ngFor="let level of [] | ghsRange:4">
+              <label><span class="text">{{'party.campaign.sheet.soldierLevel' |
+                  ghsLabel}}</span><span>{{level+1}}</span></label>
+              <div class="soldiers-line">
+                <div class="soldier" *ngFor="let soldier of [] | ghsRange:(level > 0 ? 2 : 4);"
+                  (click)="setSoldiers(soldier + (level > 0 ? 2 + level * 2 : 0) + 1)">
+                  <img src="./assets/images/fh/party/soldier.svg">
+                  <div class="check"
+                    [ngClass]="{'checked' : (soldier + (level > 0 ? 2 + level * 2 : 0)) < party.soldiers}"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="morale">
+          <label>{{'party.campaign.sheet.morale' | ghsLabel}}</label>
+          <div class="grid morale-grid">
+            <ng-container *ngFor="let morale of [] | ghsRange:21">
+              <span class="value" (click)="setMorale(20 - morale)"
+                [ngClass]="{'checked' : party.morale == (20 - morale)}">
+                <span class="key">{{20 - morale}}</span>
+              </span>
+            </ng-container>
+          </div>
+        </div>
+        <div class="defense">
+          <label>{{'party.campaign.sheet.defense' | ghsLabel}}</label>
+          <div class="grid defense-grid">
+            <span class="section" [ngClass]="{'highlight' : party.morale > 19}">
+              <img src="./assets/images/fh/party/section.svg">
+              {{campaignData()?.highMorale || ''}}
+              <img *ngIf="party.morale > 19" src="./assets/images/checkmark.svg">
+            </span>
+            <span class="value" [ngClass]="{'highlight' : party.morale > 13}">+15</span>
+            <span class="value" [ngClass]="{'highlight' : party.morale < 14 && party.morale > 10}">+10</span>
+            <span class="value" [ngClass]="{'highlight' : party.morale < 11 && party.morale > 7}">+5</span>
+            <span class="value" [ngClass]="{'highlight' : party.morale < 8 && party.morale > 4}">0</span>
+            <span class="value" [ngClass]="{'highlight' : party.morale < 5 && party.morale > 2}">-5</span>
+            <span class="value" [ngClass]="{'highlight' : party.morale < 3}">-10</span>
+            <span class="section" [ngClass]="{'highlight' : party.morale < 1}"><img
+                src="./assets/images/fh/party/section.svg">
+              {{campaignData()?.lowMorale || ''}}
+              <img *ngIf="party.morale < 1" src="./assets/images/checkmark.svg">
+            </span>
+          </div>
+        </div>
+
+
+        <div class="town-guard-perks">
+          <label>{{'party.campaign.sheet.townGuardPerks' | ghsLabel}}</label>
+          <div class="town-guard-perks-grid">
+            <ng-container *ngFor="let item of [] | ghsRange:45">
+              <span class="checkmark" *ngIf="item % 3 == 0">
+                <img src="./assets/images/close.svg">:</span>
+              <span class="townguard-perk checkbox" [ngClass]="{'checked' : party.townGuardPerks >= item + 1}"
+                (click)="setTownGuardPerks(item + 1)"></span>
+            </ng-container>
+          </div>
+          <div class="perk-list">
+            <div class="perk" *ngFor="let townGuardPerk of townGuardPerks()">
+              <div class="sections">
+                <div class="section" *ngFor="let section of townGuardPerk.sections"
+                  [ngClass]="{'checked': party.townGuardPerkSections.indexOf(section) != -1, 'disabled' : party.townGuardPerkSections.indexOf(section) == -1 && party.townGuardPerkSections.length >= (party.townGuardPerks / 3 | ghsFloor)}"
+                  ghs-drag-click (singleClick)="toggleTownGuardPerkSection(section)" (doubleClick)="toggleTownGuardPerkSection(section, true)">
+                  <img src="./assets/images/fh/party/section.svg"> {{section}}
+                </div>
+              </div>
+              <ghs-perk-label [perk]="townGuardPerk.perk"></ghs-perk-label>
+            </div>
+          </div>
+
+
+          <div class="warning" title="{{'game.attackModifiers.perks.warning' | ghsLabel}}"
+            *ngIf="party.townGuardPerkSections.length > (party.townGuardPerks / 3 | ghsFloor)">
+            <img class="ghs-svg" src="./assets/images/warning.svg">
+            {{'game.attackModifiers.perks.warning' | ghsLabel}}
+          </div>
+        </div>
+
+        <div class="campaign-stickers">
+          <form class="header" (submit)="addCampaignSticker(campaignSticker)">
+            <label>{{'party.campaign.sheet.campaignStickers' | ghsLabel}}</label>
+            <input type="text" #campaignSticker placeholder="{{'party.campaign.sheet.campaignStickers' | ghsLabel}}">
+            <img src="./assets/images/plus.svg" (click)="addCampaignSticker(campaignSticker)">
+          </form>
+          <div class="stickers">
+            <div class="sticker" *ngFor="let sticker of party.campaignStickers">
+              <span class="text" *ngIf="!campaignStickerImage(sticker)">{{sticker}}</span>
+              <img *ngIf="campaignStickerImage(sticker)" class="image" [src]="campaignStickerImage(sticker)"
+                [title]="sticker">
+              <img class="remove" src="./assets/images/minus.svg" (click)="removeCampaignSticker(sticker)">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <span class="toggle-fh-sheet" *ngIf="!campaign" (click)="fhSheet = !fhSheet">
+        {{'party.campaign.sheet.' + (fhSheet ? 'disable': 'enable') | ghsLabel}}
+      </span>
+
       <div class="campaign" *ngIf="campaign">
         <div class="row title">
           <span class="campaign-toggle" (click)="campaign = false">
@@ -219,11 +431,11 @@
           </div>
         </div>
 
-        <div class="row title">
+        <div class="row title" *ngIf="party.retirements && party.retirements.length > 0">
           <label>{{'party.campaign.retirements' | ghsLabel}}:</label>
         </div>
 
-        <div class="row retirements">
+        <div class="row retirements" *ngIf="party.retirements && party.retirements.length > 0">
           <div class="list" [ngClass]="{'fh-sheet' : fhSheet}">
             <div class="character header legend seperator">
               <span>{{'party.campaign.retirements.player' | ghsLabel}}</span>

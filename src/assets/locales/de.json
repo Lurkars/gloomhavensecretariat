@@ -78,34 +78,12 @@
       "masteries": "Errungenschaften",
       "name": "Name",
       "notes": "Notizen",
-      "perks": {
-        ".": "Verbesserungen",
-        "additional": "{0} und {1}",
-        "card": "Karte",
-        "cardLabel": "{0}{1} {2}",
-        "cards": {
-          "1": "eine",
-          "2": "zwei",
-          "3": "drei",
-          "4": "vier",
-          "5": "fünf",
-          ".": "Karten"
-        },
-        "effects": {
-          "recoverRandomDiscard": "Hole %game.card.recover% eine zufällig Karte vom Abwurfstapel zurück",
-          "refreshItem": "Einen Gegenstand erneuern",
-          "refreshSpentItem": "Einen verbrauchten Gegenstand erneuern"
-        },
-        "type": {
-          "add": "füge {0} hinzu",
-          "remove": "entferne {0}",
-          "replace": "ersetze {0} durch {1}"
-        },
-        "warning": "Mehr Verbesserungen ausgewählt als verfügbar!",
-        "wip": "%wip%! Verbesserungen sind noch nicht vollständig."
-      },
       "personalQuest": "Persönliche Quest",
-      "resources": "Ressourcen",
+      "resources": {
+        ".": "Ressourcen",
+        "move": "Zur Frosthaven Versorgung verschieben",
+        "apply": "Ressourcen verschieben"
+      },
       "retired": "Ruhestand",
       "retirements": "Ruhestände",
       "title": "{1} {0}",
@@ -196,6 +174,32 @@
         "refreshSpentItem": "Verbraucht"
       },
       "openDialog": "Angriffsmodifikatordeck anzeigen",
+      "perks": {
+        ".": "Verbesserungen",
+        "additional": "{0} und {1}",
+        "card": "Karte",
+        "cardLabel": "{0}{1} {2}",
+        "cards": {
+          "1": "eine",
+          "2": "zwei",
+          "3": "drei",
+          "4": "vier",
+          "5": "fünf",
+          ".": "Karten"
+        },
+        "effects": {
+          "recoverRandomDiscard": "Hole %game.card.recover% eine zufällig Karte vom Abwurfstapel zurück",
+          "refreshItem": "Einen Gegenstand erneuern",
+          "refreshSpentItem": "Einen verbrauchten Gegenstand erneuern"
+        },
+        "type": {
+          "add": "füge {0} hinzu",
+          "remove": "entferne {0}",
+          "replace": "ersetze {0} durch {1}"
+        },
+        "warning": "Mehr Verbesserungen ausgewählt als verfügbar!",
+        "wip": "%wip%! Verbesserungen sind noch nicht vollständig."
+      },
       "types": {
         "bless": "Segen",
         "curse": "Fluch",
@@ -469,11 +473,14 @@
       },
       "sheet": {
         ".": "Kampagnenbogen",
-        "campaignSticker": "Kampagnenbogensticker",
+        "campaignStickers": "Kampagnenbogensticker",
         "defense": "Verteidigung",
+        "disable": "Zeige den Gloomhaven Gruppenbogen an",
+        "enable": "Zeige den Frosthaven Kampagnenbogen an",
         "inspiration": "Inspiration",
         "morale": "Moral",
         "name": "Gruppen Name",
+        "soldierLevel": "Lvl",
         "soldiers": "Soldaten",
         "summer": "Sommer",
         "supply": "Versorgung von Frosthaven",
@@ -597,8 +604,8 @@
       "dismiss": "Schließen",
       "figures": {
         "all": "Alle Figuren",
-        "amAdd": "{0} fügen %character.progress.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% zum Angriffsmodifikatordeck hinzu",
-        "amRemove": "{0} entfernen %character.progress.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% vom Angriffsmodifikatordeck",
+        "amAdd": "{0} fügen %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% zum Angriffsmodifikatordeck hinzu",
+        "amRemove": "{0} entfernen %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% vom Angriffsmodifikatordeck",
         "damage": "{0} erleiden %game.damage:{2}%",
         "gainCondition": "{0} erlangt %game.condition.{1}%",
         "hp": "{0} TP auf {2}",

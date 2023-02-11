@@ -393,7 +393,7 @@ export class ScenarioManager {
       add = true
     } else {
       try {
-        add = eval(round) && (this.game.state == GameState.next || rule.start && initial);
+        add = eval(round) && (!rule.start && this.game.state == GameState.next || this.game.round > 0 && rule.start && this.game.state == GameState.draw || rule.start && initial);
       } catch (error) {
         console.warn("Cannot apply scenario rule: '" + rule.round + "'", "index: " + index, error);
         add = false;

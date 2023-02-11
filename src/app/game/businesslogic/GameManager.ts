@@ -440,7 +440,7 @@ export class GameManager {
   }
 
   editionRules(edition: string): boolean {
-    return this.game.edition && (this.game.edition == edition || gameManager.editionExtensions(this.game.edition).indexOf(edition) != -1) || this.game.scenario && (this.game.scenario.edition == edition || gameManager.editionExtensions(this.game.scenario.edition).indexOf(edition) != -1) || this.game.lootDeck.cards.length > 0 || false;
+    return this.currentEdition() == edition || this.editionExtensions(this.currentEdition()).indexOf(edition) != -1;
   }
 
 }

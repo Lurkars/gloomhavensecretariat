@@ -20,6 +20,7 @@ export class Party {
   treasures: Identifier[] = [];
   donations: number = 0;
   characters: GameCharacterModel[] = [];
+  retirements: GameCharacterModel[] = [];
 
   weeks: number = 0;
   loot: Partial<Record<LootType, number>> = {};
@@ -28,6 +29,7 @@ export class Party {
   soldiers: number = 0;
   morale: number = 0;
   townGuardPerks: number = 0;
-  retirements: GameCharacterModel[] = [];
+  townGuardPerkSections: string[] = [];
+  campaignStickers: string[] = [];
 
 }

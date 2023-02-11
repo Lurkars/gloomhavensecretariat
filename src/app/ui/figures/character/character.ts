@@ -276,7 +276,15 @@ export class CharacterComponent {
   }
 
   toggleLootCardsVisible() {
-    this.character.lootCardsVisible = !this.character.lootCardsVisible;
+    if (this.character.lootCardsVisible) {
+      this.character.lootCardsVisible = false;
+    } else if (settingsManager.settings.automaticAttackModifierFullscreen && (window.innerWidth < 800 || window.innerHeight < 400)) {
+      this.character.lootCardsVisible = false;
+      this.openLootDeckDialog();
+    } else {
+      this.character.lootCardsVisible = true;
+      this.character.attackModifierDeckVisible = false;
+    }
     gameManager.stateManager.saveLocal();
   }
 

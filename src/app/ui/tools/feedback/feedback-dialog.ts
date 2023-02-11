@@ -23,7 +23,7 @@ export class FeedbackDialogComponent {
         let scenario = new ScenarioData(scenarioName, index, [], [], [], [], gameManager.game.figures.filter((figure) => figure instanceof Monster).map((figure) => (figure as Monster).name), gameManager.game.figures.filter((figure) => figure instanceof Monster && figure.isAlly).map((figure) => (figure as Monster).name), gameManager.game.figures.filter((figure) => figure instanceof Monster && figure.drawExtra).map((figure) => (figure as Monster).name), gameManager.game.figures.filter((figure) => figure instanceof Objective).map((figure) => {
             const objective = figure as Objective;
             return new ObjectiveData(objective.name, objective.maxHealth, objective.escort, objective.id, objective.marker, objective.tags, objective.initiative);
-        }), gameManager.game.scenario?.rooms || [], gameManager.game.scenario?.marker || "", gameManager.game.scenario?.rules || [], gameManager.game.scenario?.edition || gameManager.game.edition || '');
+        }), gameManager.game.scenario?.rooms || [], gameManager.game.scenario?.marker || "", gameManager.game.scenario?.rules || [], gameManager.game.scenario?.edition || gameManager.currentEdition());
 
         mailto += '?subject=Submit Scenario #' + scenario.index + ' ' + scenario.name + ' (' + settingsManager.getLabel('data.edition.' + scenario.edition) + ')';
 

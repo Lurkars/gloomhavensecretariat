@@ -1,8 +1,9 @@
 
 export enum FigureErrorType {
   deck = "deck",
-  stat = "stat",
+  monsterEdition = "monsterEdition",
   monsterType = "monsterType",
+  stat = "stat",
   unknown = "unknown"
 }
 

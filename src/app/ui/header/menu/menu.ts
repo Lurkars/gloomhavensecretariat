@@ -97,12 +97,12 @@ export class MainMenuComponent implements OnInit {
   }
 
   hasScenarios(): boolean {
-    return gameManager.editionData.some((editionData) => (!gameManager.game.edition || editionData.edition == gameManager.game.edition) && editionData.scenarios && editionData.scenarios.length > 0);
+    return gameManager.editionData.some((editionData) => editionData.edition == gameManager.currentEdition() && editionData.scenarios && editionData.scenarios.length > 0);
   }
 
 
   hasSections(): boolean {
-    return gameManager.editionData.some((editionData) => (!gameManager.game.edition || editionData.edition == gameManager.game.edition) && editionData.sections && editionData.sections.length > 0);
+    return gameManager.editionData.some((editionData) => editionData.edition == gameManager.currentEdition() && editionData.sections && editionData.sections.length > 0);
   }
 
   characters(): Character[] {
@@ -160,7 +160,7 @@ export class MainMenuComponent implements OnInit {
   }
 
   hasHiddenMonster(): boolean {
-    return gameManager.monstersData(gameManager.game.edition).some((monsterData) => monsterData.hidden);
+    return gameManager.monstersData(gameManager.currentEdition()).some((monsterData) => monsterData.hidden);
   }
 
   monsterData(edition: string | undefined = undefined): MonsterData[] {

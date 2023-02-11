@@ -44,6 +44,24 @@ export class GhsRangePipe implements PipeTransform {
 }
 
 @Pipe({
+  name: 'ghsFloor'
+})
+export class GhsFloorPipe implements PipeTransform {
+  transform(number: number): number {
+    return Math.floor(number);
+  }
+}
+
+@Pipe({
+  name: 'ghsCeil'
+})
+export class GhsCeilPipe implements PipeTransform {
+  transform(number: number): number {
+    return Math.ceil(number);
+  }
+}
+
+@Pipe({
   name: 'ghsScenarioSearch'
 })
 export class GhsScenarioSearch implements PipeTransform {

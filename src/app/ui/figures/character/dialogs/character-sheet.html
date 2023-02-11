@@ -30,7 +30,7 @@
                 <div class="column">
                   <div class="level-grid">
                     <ng-container *ngFor="let level of [] | ghsRange:9">
-                      <div class="level-item" [ngClass]="{'checked' : character.level > level}"
+                      <div class="checkbox level-item" [ngClass]="{'checked' : character.level > level}"
                         (click)="setLevel(level + 1)">{{level +1 }}</div>
                     </ng-container>
                     <ng-container *ngFor="let level of [] | ghsRange:9">
@@ -70,6 +70,8 @@
 
           <div class="row resources" *ngIf="fhSheet">
             <label>{{'character.progress.resources' | ghsLabel}}:</label>
+
+            <a class="move" (click)="moveResources()">{{'character.progress.resources.move' | ghsLabel}}</a>
 
             <div class="resource-table">
               <div class="materials">
@@ -187,34 +189,28 @@
 
         <div class="column column-right">
           <div class="row perks">
-            <label *ngIf="!fhSheet" class="headline">{{'character.progress.perks' | ghsLabel}}</label>
+            <label *ngIf="!fhSheet" class="headline">{{'game.attackModifiers.perks' | ghsLabel}}</label>
             <div class="list">
               <div class="perk" *ngFor="let perk of character.perks; let i = index;">
                 <div class="checkboxes" [ngClass]="{'combined' : perk.combined}">
                   <span class="checkbox" *ngFor="let count of []|ghsRange:perk.count"
                     [ngClass]="{'checked' : character.progress.perks[i] && character.progress.perks[i] > count, 'disabled' : gameManager.game.state == GameState.next || character.progress.perks[i] <= count && availablePerks < count - character.progress.perks[i] + 1}"
-                    (click)="addPerk(i, count+1)"></span>
+                    ghs-drag-click (singleClick)="addPerk(i, count+1)" (doubleClick)="addPerk(i, count+1, true)"></span>
                 </div>
-                <span class="text capitalize">
-                  <ng-container *ngIf="perk.custom"><span [i18n]="perk.custom"></span> <ng-container
-                      *ngIf="perk.type != PerkType.custom"> {{'and' | ghsLabel}} </ng-container>&nbsp;</ng-container>
-                  <ng-container *ngIf="perk.type != PerkType.custom">
-                    <span class="label" [i18n]="'character.progress.perks.type.' + perk.type"
-                      [i18n-args]="perkLabel(perk)"></span>
-                  </ng-container>
-                </span>
+                <ghs-perk-label [perk]="perk"></ghs-perk-label>
               </div>
             </div>
-            <div class="warning" title="{{'character.progress.perks.warning' | ghsLabel}}" *ngIf="availablePerks < 0">
-              <img class="ghs-svg" src="./assets/images/warning.svg"> {{'character.progress.perks.warning' | ghsLabel}}
+            <div class="warning" title="{{'game.attackModifiers.perks.warning' | ghsLabel}}" *ngIf="availablePerks < 0">
+              <img class="ghs-svg" src="./assets/images/warning.svg"> {{'game.attackModifiers.perks.warning' |
+              ghsLabel}}
             </div>
             <div *ngIf="perksWip" class="wip" title="{{'wip' | ghsLabel}}">
-              <img class="ghs-svg" src="./assets/images/warning.svg"> {{'character.progress.perks.wip' | ghsLabel}}
+              <img class="ghs-svg" src="./assets/images/warning.svg"> {{'game.attackModifiers.perks.wip' | ghsLabel}}
             </div>
           </div>
           <div class="row battlegoals">
             <label *ngIf="!fhSheet && !csSheet" class="headline">{{'character.progress.battlegoals' | ghsLabel}}</label>
-            <label *ngIf="fhSheet" class="headline">{{'character.progress.perks' | ghsLabel}}</label>
+            <label *ngIf="fhSheet" class="headline">{{'game.attackModifiers.perks' | ghsLabel}}</label>
             <div class="battlegoals-grid">
               <ng-container *ngFor="let item of [] | ghsRange:18">
                 <span class="checkmark" *ngIf="item % 3 == 0">
@@ -293,7 +289,8 @@
                 <img src="./assets/images/export.svg">
                 {{'character.progress.export' | ghsLabel}}
               </label>
-              <label class="import" title="{{'character.progress.import' | ghsLabel}}" (click)="ghsInputFullScreenCheck()">
+              <label class="import" title="{{'character.progress.import' | ghsLabel}}"
+                (click)="ghsInputFullScreenCheck()">
                 <input type="file" accept="application/json" (change)="importCharacter($event)" />
                 <img src="./assets/images/import.svg">{{'character.progress.import' | ghsLabel}}
               </label>

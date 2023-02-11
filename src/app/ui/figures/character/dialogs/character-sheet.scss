@@ -120,14 +120,7 @@
           z-index: 2;
 
           &.checked::before {
-            content: ' ';
-            position: absolute;
-            top: 0;
-            width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-            height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-            clip-path: polygon(10% 0, 0 10%, 40% 50%, 0 90%, 10% 100%, 50% 60%, 90% 100%, 100% 90%, 60% 50%, 100% 10%, 90% 0, 50% 40%);
-            background-color: var(--ghs-color-black);
-            z-index: 1;
+            opacity: 0.8;
           }
         }
 
@@ -429,116 +422,6 @@
               }
             }
           }
-
-          .text {
-            display: inline-block;
-
-            &::first-letter {
-              text-transform: uppercase;
-            }
-          }
-
-          .attack-modifier-effect {
-            position: relative;
-            margin-left: calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
-
-
-            img.action-icon {
-              position: relative;
-              height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-              margin-left: calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
-              width: auto;
-              vertical-align: middle;
-
-              &.sw {
-                filter: invert(1) contrast(1) grayscale(1) brightness(2.5);
-                filter: none; // disabled
-              }
-
-              &.circled {
-                border: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid var(--ghs-color-black);
-                border-radius: 100%;
-              }
-            }
-
-            &.rolling,
-            &.condition,
-            &.target,
-            &.pierce,
-            &.pull,
-            &.push,
-            &.element,
-            &.element-half {
-              img.action-icon {
-                height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-              }
-            }
-
-            .value {
-              margin-left: calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor));
-            }
-
-            &.condition,
-            &.target,
-            &.pierce {
-              text-transform: uppercase;
-            }
-
-            &.element {
-              img {
-                margin: 0;
-              }
-            }
-
-            &.element-half-placeholder {
-              display: inline-block;
-              position: relative;
-              width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-              height: 0;
-
-              .element-half-container {
-                position: absolute;
-                width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-                height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-                top: calc(var(--ghs-unit) * -1.6 * var(--ghs-dialog-factor));
-              }
-            }
-
-            &.element-half-placeholder.fh {
-              width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-
-              .element-half-container {
-                width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-                height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-                top: calc(var(--ghs-unit) * -2.5 * var(--ghs-dialog-factor));
-              }
-            }
-          }
-
-          .attack-modifier-icon {
-            position: relative;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'ghs-title';
-            font-size: calc(var(--ghs-unit) * 1.8 * var(--ghs-dialog-factor));
-            width: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));
-            height: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));
-            margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-            margin-right: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
-            vertical-align: middle;
-
-            &::before {
-              content: ' ';
-              position: absolute;
-              left: 0;
-              top: calc(var(--ghs-unit) * -0.15 * var(--ghs-dialog-factor));
-              width: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
-              height: calc(var(--ghs-unit) * 2.2 * var(--ghs-dialog-factor));
-              border: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) solid var(--ghs-color-black);
-              border-radius: 100%;
-            }
-          }
         }
       }
 
@@ -683,12 +566,15 @@
         top: 50%;
         width: calc(var(--ghs-unit) * 1.9 * var(--ghs-dialog-factor));
         height: calc(var(--ghs-unit) * 1.9 * var(--ghs-dialog-factor));
-        clip-path: polygon(10% 0, 0 10%, 40% 50%, 0 90%, 10% 100%, 50% 60%, 90% 100%, 100% 90%, 60% 50%, 100% 10%, 90% 0, 50% 40%);
-        background-color: var(--ghs-color-black);
         transform: scale(0);
         transform-origin: top left;
         transition: 120ms transform ease-in-out;
         z-index: 1;
+        background-image: url('~src/assets/images/checkmark.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        filter: var(--ghs-filter-darkgray);
       }
 
       &.checked::before {
@@ -702,11 +588,11 @@
       }
 
       &.check::before {
-        left: 0;
-        top: calc(var(--ghs-unit) * -0.6 * var(--ghs-dialog-factor));
+        left: calc(var(--ghs-unit) * -0.1 * var(--ghs-dialog-factor));
+        top: calc(var(--ghs-unit) * -0.5 * var(--ghs-dialog-factor));
         width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
         height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-        clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+        background-image: url('~src/assets/images/check.svg');
         transform-origin: bottom left;
       }
 
@@ -817,17 +703,31 @@
     }
 
     .resources {
+      position: relative;
       height: calc(var(--ghs-unit) * 19 * var(--ghs-dialog-factor));
       margin-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
       flex-direction: column;
 
+      .move {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: var(--ghs-color-black);
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+
       .resource-table {
         display: flex;
         flex-direction: column;
+        margin-top: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
 
         .resource {
           display: flex;
-          margin: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
+          padding: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor));
 
           img {
             width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
@@ -838,41 +738,30 @@
             min-width: 0;
             flex-grow: 1;
           }
-
-          &:not(:nth-child(3n)) {
-            border-right: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor)) solid var(--ghs-color-black);
-          }
         }
 
         .materials {
           display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-columns: repeat(3, calc(var(--ghs-unit) * 11.1 * var(--ghs-dialog-factor)));
 
           .resource {
             flex-direction: column;
+            height: calc(var(--ghs-unit) * 5.5 * var(--ghs-dialog-factor));
 
             input {
               width: 100%;
               margin-left: 0;
             }
           }
-
-          border-bottom: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor)) solid var(--ghs-color-black);
-          padding-bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-          margin-bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
         }
 
         .herbs {
           display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-columns: repeat(3, calc(var(--ghs-unit) * 11.1 * var(--ghs-dialog-factor)));
 
           .resource {
 
-            &:nth-child(1),
-            &:nth-child(2),
-            &:nth-child(3) {
-              border-bottom: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor)) solid var(--ghs-color-black);
-            }
+            height: calc(var(--ghs-unit) * 4.7 * var(--ghs-dialog-factor));
           }
         }
       }
@@ -940,6 +829,7 @@
   }
 
   .scroll-container.denied {
+
     .export,
     .export * {
       pointer-events: initial;

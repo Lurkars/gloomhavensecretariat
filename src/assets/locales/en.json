@@ -78,34 +78,12 @@
       "masteries": "Masteries",
       "name": "Name",
       "notes": "Notes",
-      "perks": {
-        ".": "Perks",
-        "additional": "{0} and {1}",
-        "card": "card",
-        "cardLabel": "{0}{1} {2}",
-        "cards": {
-          "1": "one",
-          "2": "two",
-          "3": "three",
-          "4": "four",
-          "5": "five",
-          ".": "cards"
-        },
-        "effects": {
-          "recoverRandomDiscard": "Recover %game.card.recover% one random card from your dicard pile",
-          "refreshItem": "Refresh an item",
-          "refreshSpentItem": "Refresh a spent item"
-        },
-        "type": {
-          "add": "add {0}",
-          "remove": "remove {0}",
-          "replace": "replace {0} with {1}"
-        },
-        "warning": "More perks than available selected!",
-        "wip": "%wip%! Perks not complete yet."
-      },
       "personalQuest": "Personal Quest",
-      "resources": "Resources",
+      "resources": {
+        ".": "Resources",
+        "move": "Move to Frosthaven Supply",
+        "apply": "Move Resources"
+      },
       "retired": "Retired",
       "retirements": "Retirements",
       "title": "{1} {0}",
@@ -297,14 +275,42 @@
         "refreshSpentItem": "Spent"
       },
       "openDialog": "Show Attack Modifier Deck",
+      "perks": {
+        ".": "Perks",
+        "additional": "{0} and {1}",
+        "card": "card",
+        "cardLabel": "{0}{1} {2}",
+        "cards": {
+          "1": "one",
+          "2": "two",
+          "3": "three",
+          "4": "four",
+          "5": "five",
+          ".": "cards"
+        },
+        "effects": {
+          "recoverRandomDiscard": "Recover %game.card.recover% one random card from your dicard pile",
+          "refreshItem": "Refresh an item",
+          "refreshSpentItem": "Refresh a spent item"
+        },
+        "type": {
+          "add": "add {0}",
+          "remove": "remove {0}",
+          "replace": "replace {0} with {1}"
+        },
+        "warning": "More perks than available selected!",
+        "wip": "%wip%! Perks not complete yet."
+      },
       "types": {
         "bless": "Bless",
         "curse": "Curse",
         "double": "Double",
         "invalid": "Invalid",
+        "minut": "Minus",
         "minus1": "Minus 1",
         "minus2": "Minus 2",
         "null": "Null",
+        "plus": "Plus",
         "plus0": "Plus 0",
         "plus1": "Plus 1",
         "plus2": "Plus 2",
@@ -404,6 +410,10 @@
         "deck": {
           ".": "Missing Deck",
           "hint": "No Ability Deck found for %{0}% '%data.{0}.{1}%'! Please check deck data (Edition: %data.edition.{2}%)."
+        },
+        "monsterEdition": {
+          ".": "Wrong Monster Edition",
+          "hint": "No Monster '%data.{0}.{1}%' found for edition '%data.edition.{2}%' (Edition '%data.edition.{3}%' used instead)! Please check monster data for edition: %data.edition.{2}%."
         },
         "monsterType": {
           ".": "Missing Monster Type",
@@ -588,11 +598,14 @@
       },
       "sheet": {
         ".": "Campaign Sheet",
-        "campaignSticker": "Campaign Sticker",
+        "campaignStickers": "Campaign Stickers",
         "defense": "Defense",
+        "disable": "Go to Gloomhaven Party Sheet",
+        "enable": "Go to Frosthaven Campaign Sheet",
         "inspiration": "Inspiration",
         "morale": "Morale",
         "name": "Party Name",
+        "soldierLevel": "Lvl",
         "soldiers": "Soldiers",
         "summer": "Summer",
         "supply": "Frosthaven Supply",
@@ -716,8 +729,8 @@
       "dismiss": "Dismiss",
       "figures": {
         "all": "All figures",
-        "amAdd": "{0} add %character.progress.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% to Attack Modifier Deck",
-        "amRemove": "{0} remove %character.progress.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% from Attack Modifier deck",
+        "amAdd": "{0} add %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% to Attack Modifier Deck",
+        "amRemove": "{0} remove %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% from Attack Modifier deck",
         "damage": "{0} suffer %game.damage:{2}%",
         "gainCondition": "{0} gain %game.condition.{1}%",
         "hp": "{0} HP to {2}",
