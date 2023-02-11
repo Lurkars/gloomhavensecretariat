@@ -155,7 +155,7 @@
               "name": "black-imp",
               "player2": "normal"
             },
-            "marker": "a"
+            "marker": "b"
           }
         ]
       },
@@ -169,7 +169,7 @@
               "player3": "normal",
               "player4": "elite"
             },
-            "marker": "a"
+            "marker": "b"
           }
         ]
       }
