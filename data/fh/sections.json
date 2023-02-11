@@ -139,6 +139,49 @@
     "edition": "fh"
   },
   {
+    "index": "20.1",
+    "name": "Thawed Wood",
+    "parent": "33",
+    "edition": "fh",
+    "marker": "1",
+    "rules": [
+      {
+        "round": "R % 2 == 1",
+        "start": false,
+        "spawns": [
+          {
+            "monster": {
+              "name": "black-imp",
+              "player2": "normal",
+              "player4": "elite"
+            },
+            "marker": "a"
+          }
+        ]
+      },
+      {
+        "round": "R > 0",
+        "start": false,
+        "spawns": [
+          {
+            "monster": {
+              "name": "black-imp",
+              "player3": "normal"
+            },
+            "marker": "a"
+          }
+        ]
+      }
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "16-B",
+        "initial": true
+      }
+    ]
+  },
+  {
     "index": "29.2",
     "name": "Crystal Trench",
     "parent": "106",
