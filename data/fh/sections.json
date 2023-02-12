@@ -155,7 +155,7 @@
               "name": "black-imp",
               "player2": "normal"
             },
-            "marker": "a"
+            "marker": "b"
           }
         ]
       },
@@ -169,7 +169,7 @@
               "player3": "normal",
               "player4": "elite"
             },
-            "marker": "a"
+            "marker": "b"
           }
         ]
       }
@@ -1084,6 +1084,134 @@
       {
         "name": "Glowing Orb",
         "health": "((Lx2)+3)xC"
+      }
+    ]
+  },
+  {
+    "index": "159.1",
+    "name": "Work Freeze",
+    "parent": "114",
+    "edition": "fh",
+    "marker": "b",
+    "objectives": [
+      {
+        "name": "Ice Pillar",
+        "health": "(2xL)+2",
+        "actions": [
+          {
+            "type": "shield",
+            "value": "[L/2{$math.ceil}]"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "round": "R % 2 == 0",
+        "start": true,
+        "spawns": [
+          {
+            "monster": {
+              "name": "snow-imp",
+              "player2": "normal",
+              "player3": "elite",
+              "player4": "normal"
+            },
+            "marker": "f"
+          },
+          {
+            "monster": {
+              "name": "snow-imp",
+              "player4": "elite"
+            },
+            "marker": "f"
+          }
+        ],
+        "disableRules": [
+          {
+            "edition": "fh",
+            "scenario": "114",
+            "index": 0,
+            "section": true
+          }
+        ]
+      },
+      {
+        "round": "R % 2 == 1",
+        "start": true,
+        "spawns": [
+          {
+            "monster": {
+              "name": "hound",
+              "player2": "normal",
+              "player3": "elite"
+            },
+            "marker": "e"
+          },
+          {
+            "monster": {
+              "name": "polar-bear",
+              "player4": "normal"
+            },
+            "marker": "e"
+          }
+        ],
+        "disableRules": [
+          {
+            "edition": "fh",
+            "scenario": "114",
+            "index": 1,
+            "section": true
+          }
+        ]
+      }
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "13-C",
+        "initial": true,
+        "monster": [
+          {
+            "name": "hound",
+            "player4": "normal"
+          },
+          {
+            "name": "hound",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "snow-imp",
+            "type": "normal"
+          },
+          {
+            "name": "snow-imp",
+            "player4": "elite"
+          },
+          {
+            "name": "snow-imp",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "polar-bear",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "polar-bear",
+            "type": "normal"
+          }
+        ],
+        "objectives": [
+          1,
+          1,
+          1,
+          1
+        ]
       }
     ]
   },

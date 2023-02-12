@@ -3125,20 +3125,130 @@
       "polar-bear",
       "snow-imp"
     ],
-    "objectives": [
-      {
-        "name": "Ice Pillar",
-        "health": "(2xL)+2",
-        "count": 2
-      }
-    ],
     "lootDeckConfig": {
       "money": 10,
       "metal": 3,
       "hide": 4,
       "axenut": 1,
       "snowthistle": 2
-    }
+    },
+    "objectives": [
+      {
+        "name": "Ice Pillar",
+        "health": "(2xL)+2",
+        "marker": "b",
+        "actions": [
+          {
+            "type": "shield",
+            "value": "[L/2{$math.ceil}]"
+          }
+        ]
+      },
+      {
+        "name": "Ice Pillar",
+        "health": "(2xL)+2",
+        "actions": [
+          {
+            "type": "shield",
+            "value": "[L/2{$math.ceil}]"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "round": "R % 2 == 0",
+        "start": false,
+        "spawns": [
+          {
+            "monster": {
+              "name": "snow-imp",
+              "player2": "normal",
+              "player3": "elite",
+              "player4": "normal"
+            },
+            "marker": "d"
+          },
+          {
+            "monster": {
+              "name": "snow-imp",
+              "player4": "elite"
+            },
+            "marker": "d"
+          }
+        ]
+      },
+      {
+        "round": "R % 2 == 1",
+        "start": false,
+        "spawns": [
+          {
+            "monster": {
+              "name": "hound",
+              "player2": "normal",
+              "player3": "elite"
+            },
+            "marker": "c"
+          },
+          {
+            "monster": {
+              "name": "polar-bear",
+              "player4": "normal"
+            },
+            "marker": "c"
+          }
+        ]
+      }
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "13-A",
+        "initial": true,
+        "monster": [
+          {
+            "name": "hound",
+            "player4": "normal"
+          },
+          {
+            "name": "hound",
+            "player4": "normal"
+          },
+          {
+            "name": "hound",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "hound",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "snow-imp",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "snow-imp",
+            "type": "elite"
+          },
+          {
+            "name": "polar-bear",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          }
+        ],
+        "objectives": [
+          1,
+          1,
+          2,
+          2
+        ]
+      }
+    ]
   },
   {
     "index": "115",
