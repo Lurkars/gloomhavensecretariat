@@ -330,10 +330,12 @@ export class RoundManager {
     this.game.elementBoard.forEach((element) => element.state = ElementState.inert);
     this.game.monsterAttackModifierDeck.fromModel(new AttackModifierDeck().toModel());
     this.game.allyAttackModifierDeck.fromModel(new AttackModifierDeck().toModel());
-    this.game.figures = this.game.figures.filter((figure) => figure instanceof Character);
+    this.game.figures = this.game.figures.filter((figure) => figure instanceof Character || this.game.scenario && this.game.scenario.custom);
     this.game.lootDeck.fromModel(new LootDeck());
 
     this.game.figures.forEach((figure) => {
+      figure.active = false;
+      figure.off = false;
       if (figure instanceof Character) {
         figure.health = figure.maxHealth;
         figure.loot = 0;
@@ -342,8 +344,6 @@ export class RoundManager {
         figure.entityConditions = [];
         figure.summons = [];
         figure.initiative = 0;
-        figure.active = false;
-        figure.off = false;
         figure.exhausted = false;
         figure.longRest = false;
 
@@ -352,6 +352,14 @@ export class RoundManager {
         figure.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(figure);
         figure.lootCardsVisible = false;
         gameManager.characterManager.applyDonations(figure);
+      } else if (figure instanceof Monster) {
+        figure.entities = [];
+        figure.ability = -1;
+        figure.abilities = [];
+        gameManager.monsterManager.resetMonsterAbilities(figure);
+      } else if (figure instanceof Objective) {
+        figure.health = EntityValueFunction(figure.maxHealth);
+        figure.entityConditions = [];
       }
     })
 

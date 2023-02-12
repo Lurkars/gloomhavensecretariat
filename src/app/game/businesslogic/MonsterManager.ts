@@ -88,13 +88,7 @@ export class MonsterManager {
       monster = new Monster(monsterData);
       this.setLevel(monster, level);
       monster.off = true;
-      if (!this.applySameDeck(monster)) {
-        if (!monster.abilities || monster.abilities.length == 0) {
-          const abilities = gameManager.abilities(monster);
-          monster.abilities = abilities.filter((ability) => isNaN(+ability.level) || +ability.level <= (monster && monster.level || 0)).map((ability) => abilities.indexOf(ability));
-        }
-        this.shuffleAbilities(monster);
-      }
+      this.resetMonsterAbilities(monster);
       this.game.figures.push(monster);
       if (gameManager.game.state == GameState.next) {
         gameManager.sortFigures();
@@ -107,6 +101,16 @@ export class MonsterManager {
     }
 
     return monster;
+  }
+
+  resetMonsterAbilities(monster: Monster) {
+    if (!this.applySameDeck(monster)) {
+      if (!monster.abilities || monster.abilities.length == 0) {
+        const abilities = gameManager.abilities(monster);
+        monster.abilities = abilities.filter((ability) => isNaN(+ability.level) || +ability.level <= (monster && monster.level || 0)).map((ability) => abilities.indexOf(ability));
+      }
+      this.shuffleAbilities(monster);
+    }
   }
 
   removeMonster(monster: Monster) {
@@ -387,6 +391,10 @@ export class MonsterManager {
           figure.ability = figure.ability + 1 + this.game.figures.filter((f) => f instanceof Monster && (f.name != figure.name || f.edition != figure.edition) && gameManager.deckData(f).name == gameManager.deckData(figure).name && gameManager.deckData(f).edition == gameManager.deckData(figure).edition && f.drawExtra && f.ability > -1).length;
           figure.lastDraw = this.game.round;
 
+          if (this.hasBottomActions(figure)) {
+            figure.ability += 1;
+          }
+
           if (figure.ability >= figure.abilities.length) {
             this.shuffleAbilities(figure);
           }
@@ -461,6 +469,10 @@ export class MonsterManager {
 
     monster.ability += 1;
 
+    if (this.hasBottomActions(monster)) {
+      monster.ability += 1;
+    }
+
     this.game.figures.forEach((figure) => {
       if (figure instanceof Monster && this.getSameDeckMonster(figure)) {
         figure.ability = monster.ability;
@@ -498,5 +510,9 @@ export class MonsterManager {
     }
 
     return abilities[monster.abilities[monster.ability]]
+  }
+
+  hasBottomActions(monster: Monster): boolean {
+    return gameManager.abilities(monster).every((ability) => gameManager.hasBottomAbility(ability));
   }
 }

@@ -180,11 +180,11 @@
         "card": "Karte",
         "cardLabel": "{0}{1} {2}",
         "cards": {
-          "1": "eine",
-          "2": "zwei",
-          "3": "drei",
-          "4": "vier",
-          "5": "fünf",
+          "1": "%number.1%",
+          "2": "%number.2%",
+          "3": "%number.3%",
+          "4": "%number.4%",
+          "5": "%number.5%",
           ".": "Karten"
         },
         "effects": {
@@ -436,6 +436,18 @@
     },
     "showHidden": "Ausgeblendete Monster anzeigen"
   },
+  "number": {
+    "0": "null",
+    "1": "eine",
+    "2": "zwei",
+    "3": "drei",
+    "4": "vier",
+    "5": "fünf",
+    "6": "sechs",
+    "7": "sieben",
+    "8": "acht",
+    "9": "neun"
+  },
   "objective": {
     ".": "Zielobjekte",
     "add": "Zielobjekt hinzufügen",
@@ -469,7 +481,8 @@
         "index": "#",
         "name": "Name",
         "removeManual": "Von Freigeschaltenen entfernen",
-        "removeSuccess": "Von Erfolgreichen entfernen"
+        "removeSuccess": "Von Erfolgreichen entfernen",
+        "unlock": "Szenario freischalten"
       },
       "sheet": {
         ".": "Kampagnenbogen",

@@ -36,16 +36,22 @@ export class MonsterAbilityCardComponent {
   flipped(): boolean {
     if (this.index == -1) {
       this.ability = gameManager.monsterManager.getAbility(this.monster);
-      if (this.ability && this.ability.bottomActions && this.ability.bottomActions.length > 0) {
-        // Manifestation of Corruption mechanic?!
-        this.secondAbility = gameManager.abilities(this.monster)[this.monster.ability + (this.monster.ability < this.monster.abilities.length + 1 ? 1 : -1)];
-      }
     } else {
       this.ability = gameManager.abilities(this.monster)[this.index];
     }
 
+    if (!this.ability && gameManager.monsterManager.hasBottomActions(this.monster)) {
+      this.ability = gameManager.abilities(this.monster)[0];
+      this.secondAbility = gameManager.abilities(this.monster)[1];
+    }
+
     if (!this.ability) {
       return false;
+    }
+
+    if (gameManager.hasBottomAbility(this.ability)) {
+      // Manifestation of Corruption mechanic?!
+      this.secondAbility = gameManager.abilities(this.monster)[this.monster.abilities[this.monster.ability + (this.monster.ability < this.monster.abilities.length + 1 ? 1 : -1)]];
     }
 
     let flipped = gameManager.roundManager.working && gameManager.game.state == GameState.draw || !gameManager.roundManager.working && gameManager.game.state == GameState.next && gameManager.gameplayFigure(this.monster);

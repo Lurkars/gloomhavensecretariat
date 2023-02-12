@@ -262,7 +262,8 @@
               <div class="sections">
                 <div class="section" *ngFor="let section of townGuardPerk.sections"
                   [ngClass]="{'checked': party.townGuardPerkSections.indexOf(section) != -1, 'disabled' : party.townGuardPerkSections.indexOf(section) == -1 && party.townGuardPerkSections.length >= (party.townGuardPerks / 3 | ghsFloor)}"
-                  ghs-drag-click (singleClick)="toggleTownGuardPerkSection(section)" (doubleClick)="toggleTownGuardPerkSection(section, true)">
+                  ghs-drag-click (singleClick)="toggleTownGuardPerkSection(section)"
+                  (doubleClick)="toggleTownGuardPerkSection(section, true)">
                   <img src="./assets/images/fh/party/section.svg"> {{section}}
                 </div>
               </div>
@@ -335,7 +336,6 @@
               <span class="span">{{'data.edition.' + edition | ghsLabel}}</span>
             </div>
             <div class="scenario" *ngFor="let scenarioData of scenarios[edition]">
-
               <span>
                 <ng-container *ngIf="!scenarioData.solo">
                   #<span *ngIf="maxScenario(scenarios[edition]) > 2 && scenarioData.index.length < 3">0</span><span
@@ -370,6 +370,17 @@
                   (click)="addSuccess(scenarioData)" [ngClass]="{'disabled' : blocked(scenarioData)}"><img
                     src="./assets/images/check.svg"></a>
               </span>
+            </div>
+            <div class="scenario unlock">
+              <span><input #unlockScenarioIndex [placeholder]="'party.campaign.scenarios.index' | ghsLabel"
+                  (keyup)="unlockScenarioIndex.classList.remove('error'); unlockScenarioGroup.classList.remove('error');"
+                  (keyup.enter)="unlockScenario(unlockScenarioIndex, unlockScenarioGroup, edition)"></span>
+              <span><input #unlockScenarioGroup [placeholder]="'party.campaign.scenarios.group' | ghsLabel"
+                  (keyup)="unlockScenarioIndex.classList.remove('error'); unlockScenarioGroup.classList.remove('error');"
+                  (keyup.enter)="unlockScenario(unlockScenarioIndex, unlockScenarioGroup, edition)"></span>
+              <a class="addScenario" [title]="'party.campaign.scenarios.unlock' | ghsLabel"
+                (click)="unlockScenario(unlockScenarioIndex, unlockScenarioGroup, edition)">{{'party.campaign.scenarios.unlock' | ghsLabel}}&nbsp;<img
+                src="./assets/images/plus.svg"></a>
             </div>
           </ng-container>
         </div>

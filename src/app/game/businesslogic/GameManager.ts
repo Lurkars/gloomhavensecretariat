@@ -295,6 +295,10 @@ export class GameManager {
     return this.deckData(figure).abilities || [];
   }
 
+  hasBottomAbility(ability: Ability | undefined): boolean {
+    return ability && ability.bottomActions && ability.bottomActions.length > 0 || false;
+  }
+
   getCharacterData(name: string, edition: string = ''): CharacterData {
     let characterData = this.charactersData().find((value) => value.name == name && (!edition || value.edition == edition));
     if (!characterData) {

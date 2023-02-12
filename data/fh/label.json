@@ -104,14 +104,14 @@
     "ability": {},
     "scenario": {},
     "section": {
-      "rules" : {
+      "rules": {
         "fh": {
-          "21-1" : {
+          "21-1": {
             "1": "one for every empty starting Hex."
-          } ,
-          "65-3" : {
+          },
+          "65-3": {
             "1": "Open all doors %game.mapMarker.1%. Place all characters and character summons, in initiative order, in the closest empty hex on tile 16-A, then remove all doors and tile 13-A from the map."
-          } 
+          }
         }
       }
     },
@@ -156,6 +156,9 @@
       "trapping-unit": "Trapping Unit",
       "white-owl": "White Owl",
       "wraith": "Wraith"
+    },
+    "treasures": {
+      "fh": {}
     }
   },
   "ko": {

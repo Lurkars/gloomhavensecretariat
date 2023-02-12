@@ -34,7 +34,7 @@ export class AbiltiesDialogComponent implements OnInit {
       }
     }, settingsManager.settings.disableAnimations ? 0 : 250);
 
-    this.bottomActions = gameManager.abilities(this.monster).some((ability) => ability.bottomActions && ability.bottomActions.length > 0);
+    this.bottomActions = gameManager.monsterManager.hasBottomActions(this.monster);
   }
 
   toggleEdit() {
@@ -45,13 +45,21 @@ export class AbiltiesDialogComponent implements OnInit {
   }
 
   upcomingCards(): Ability[] {
-    return this.monster.abilities.filter((value, index) => index > this.monster.ability).map((value) => gameManager.abilities(this.monster)[value]);
+    let abilityNumber = this.monster.ability;
+    if (abilityNumber >= 0 && this.bottomActions) {
+      abilityNumber++;
+    }
+    return this.monster.abilities.filter((value, index) => index > abilityNumber).map((value) => gameManager.abilities(this.monster)[value]);
   }
 
   disgardedCards(): Ability[] {
+    let abilityNumber = this.monster.ability;
+    if (abilityNumber >= 0 && this.bottomActions) {
+      abilityNumber++;
+    }
     return [
-      ...this.monster.abilities.filter((value, index) => index <= this.monster.ability).map((value) => gameManager.abilities(this.monster)[value]).reverse(),
-      ...this.monster.abilities.filter((value, index) => index > this.monster.ability && index < gameManager.monsterManager.drawnAbilities(this.monster)).map((value) => gameManager.abilities(this.monster)[value])
+      ...this.monster.abilities.filter((value, index) => index <= abilityNumber).map((value) => gameManager.abilities(this.monster)[value]).reverse(),
+      ...this.monster.abilities.filter((value, index) => index > abilityNumber && index < gameManager.monsterManager.drawnAbilities(this.monster)).map((value) => gameManager.abilities(this.monster)[value])
     ];
   }
 

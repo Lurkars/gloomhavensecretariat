@@ -6,7 +6,6 @@ import { ScenarioRule, ScenarioRuleIdentifier } from "../model/data/ScenarioRule
 import { EntityValueFunction } from "../model/Entity";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
-import { LootType } from "../model/Loot";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
 import { MonsterType } from "../model/MonsterType";
@@ -21,7 +20,6 @@ export class ScenarioManager {
   constructor(game: Game) {
     this.game = game;
   }
-
 
   setScenario(scenario: Scenario | undefined) {
     this.game.scenario = scenario ? new Scenario(scenario, scenario.revealedRooms, scenario.custom) : undefined;
@@ -39,7 +37,7 @@ export class ScenarioManager {
     }
   }
 
-  finishScenario(success: boolean = true, restart: boolean = false) {
+  finishScenario(success: boolean = true, restart: boolean = false, linkedScenario: Scenario | undefined = undefined) {
     this.game.figures.forEach((figure) => {
       if (figure instanceof Character && !figure.absent) {
         gameManager.characterManager.addXP(figure, (success ? gameManager.levelManager.experience() : 0) + figure.experience);
@@ -64,14 +62,21 @@ export class ScenarioManager {
       this.game.sections = [];
       gameManager.roundManager.resetScenario();
 
-      this.game.figures.forEach((figure) => {
-        if (figure instanceof Character) {
-          figure.absent = false;
-        }
-      });
+      if (gameManager.fhRules() && !linkedScenario) {
+        this.game.party.weeks++;
+      }
+
+      if (linkedScenario) {
+        this.setScenario(linkedScenario);
+      } else {
+        this.game.figures.forEach((figure) => {
+          if (figure instanceof Character) {
+            figure.absent = false;
+          }
+        });
+      }
     }
   }
-
 
   addSection(section: ScenarioData) {
     if (!this.game.sections.some((value) => value.edition == section.edition && value.index == section.index && value.group == section.group)) {

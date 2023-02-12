@@ -103,7 +103,6 @@
     ghs-ability {
       top: 0;
       height: calc(var(--ghs-unit) * 54);
-
     }
 
     &.second-ability {
@@ -123,7 +122,30 @@
       width: calc(var(--ghs-unit) * 37);
       height: calc(var(--ghs-unit) * 24);
     }
+
+
+    &.second-ability {
+
+      ghs-ability {
+        width: calc(var(--ghs-unit) * 18.5);
+        height: calc(var(--ghs-unit) * 12);
+      }
+    }
+
+    &.bottom-actions {
+      ghs-ability {
+        height: calc(var(--ghs-unit) * 38.2);
+      }
+
+      &.second-ability {
+
+        ghs-ability {
+          height: calc(var(--ghs-unit) * 25);
+        }
+      }
+    }
   }
+
 }
 
 .left-abilities {

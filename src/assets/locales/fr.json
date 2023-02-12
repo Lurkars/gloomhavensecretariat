@@ -71,11 +71,11 @@
         "card": "carte",
         "cardLabel": "{0} {2}{1}",
         "cards": {
-          "1": "une",
-          "2": "deux",
-          "3": "trois",
-          "4": "quatre",
-          "5": "cinq",
+          "1": "%number.1%",
+          "2": "%number.2%",
+          "3": "%number.3%",
+          "4": "%number.4%",
+          "5": "%number.5%",
           ".": "cartes"
         },
         "effects": {
@@ -381,6 +381,18 @@
     "remove": "Retirer un monstre",
     "removeAll": "Retirer tout",
     "showHidden": "Monstres cachés"
+  },
+  "number": {
+    "0": "zéro",
+    "1": "un/e",
+    "2": "deux",
+    "3": "trois",
+    "4": "quatre",
+    "5": "cinq",
+    "6": "six",
+    "7": "sept",
+    "8": "huit",
+    "9": "neuf"
   },
   "objective": {
     ".": "Objectif",

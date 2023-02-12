@@ -22,7 +22,7 @@
         <div class="empty" *ngIf="upcomingCards().length == 0"></div>
         <ng-container *ngFor="let ability of upcomingCards();let index = index;">
           <div class="container drag-hidden" cdkDrag
-            [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0}">
+            [ngClass]="{'bottom-actions' : gameManager.hasBottomAbility(ability)}">
             <ghs-ability [ability]="ability" [monster]="monster" [flipped]="reveal == 2" [reveal]="true">
             </ghs-ability>
             <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
@@ -38,7 +38,7 @@
         <div class="empty"></div>
         <ng-container *ngFor="let ability of disgardedCards(); let index = index;">
           <div class="container drag-hidden" cdkDrag
-            [ngClass]="{'bottom-actions' : ability && ability.bottomActions && ability.bottomActions.length > 0}">
+            [ngClass]="{'bottom-actions' : gameManager.hasBottomAbility(ability)}">
             <ghs-ability [ability]="ability" [monster]="monster" [flipped]="true">
             </ghs-ability>
             <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>
