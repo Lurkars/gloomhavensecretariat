@@ -707,6 +707,10 @@
             "player2": "normal",
             "player3": "elite",
             "player4": "elite"
+          },
+          {
+            "name": "living-spirit",
+            "player4": "normal"
           }
         ]
       }
