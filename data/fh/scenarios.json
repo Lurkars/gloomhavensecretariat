@@ -677,7 +677,7 @@
       "snowthistle": 2,
       "random_item": 1
     },
-	"rules": [
+    "rules": [
       {
         "round": "R == 1",
         "start": true,
