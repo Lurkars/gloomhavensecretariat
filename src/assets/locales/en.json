@@ -747,6 +747,7 @@
         "damage": "{0} suffer %game.damage:{2}%",
         "gainCondition": "{0} gain %game.condition.{1}%",
         "hp": "{0} HP to {2}",
+        "discard": "{0} discards %number.{2}% cards",
         "looseCondition": "{0} loose %game.condition.{1}%",
         "scenarioEffect": "as scenario effect",
         "toggleOff": "{0} to inactive",

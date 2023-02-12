@@ -385,30 +385,57 @@
     "name": "Realm of Endless Frost",
     "parent": "21",
     "edition": "fh",
+    "marker": "2",
+    "parentSections": [
+      "51.1"
+    ],
     "objectives": [
       {
-        "name": "Crate 1",
+        "name": "Crate",
         "health": "L+2"
       },
       {
-        "name": "Crate 2",
+        "name": "Bookshelf",
         "health": "L+2"
-      },
+      }
+    ],
+    "rooms": [
       {
-        "name": "Crate 3",
-        "health": "L+2"
-      },
-      {
-        "name": "Bookshelf 1",
-        "health": "L+2"
-      },
-      {
-        "name": "Bookshelf 2",
-        "health": "L+2"
-      },
-      {
-        "name": "Bookshelf 3",
-        "health": "L+2"
+        "roomNumber": 1,
+        "ref": "07-E",
+        "initial": true,
+        "treasures": [
+          84
+        ],
+        "monster": [
+          {
+            "name": "living-bones",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "living-spirit",
+            "type": "normal"
+          },
+          {
+            "name": "living-spirit",
+            "player4": "normal"
+          },
+          {
+            "name": "living-spirit",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        ],
+        "objectives": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          2
+        ]
       }
     ]
   },
@@ -417,10 +444,78 @@
     "name": "Realm of Endless Frost",
     "parent": "21",
     "edition": "fh",
+    "marker": "1",
     "objectives": [
       {
         "name": "Glowing Orb",
-        "health": "(L+2)xC"
+        "health": "(L+2)xC",
+        "actions": [
+          {
+            "type": "custom",
+            "value": "Whenever it suffers damage, all characters and monsters suffer %game.damage:2%"
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "round": "true",
+        "start": false,
+        "figures": [
+          {
+            "type": "present",
+            "identifier": {
+              "type": "objective",
+              "edition": "objective",
+              "name": "Glowing Orb"
+            }
+          }
+        ],
+        "spawns": [
+          {
+            "monster": {
+              "name": "living-bones",
+              "player2": "normal",
+              "player3": "normal",
+              "player4": "elite"
+            },
+            "marker": "a"
+          },
+          {
+            "monster": {
+              "name": "living-bones",
+              "player2": "normal",
+              "player3": "elite",
+              "player4": "elite"
+            },
+            "marker": "b"
+          }
+        ]
+      }
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "15-C",
+        "initial": true,
+        "monster": [
+          {
+            "name": "living-bones",
+            "type": "elite"
+          },
+          {
+            "name": "living-bones",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "living-bones",
+            "player4": "normal"
+          }
+        ],
+        "objectives": [
+          1
+        ]
       }
     ]
   },
