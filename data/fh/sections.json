@@ -386,7 +386,7 @@
     "parent": "21",
     "edition": "fh",
     "marker": "2",
-    "parentSection": [
+    "parentSections": [
       "51.1"
     ],
     "objectives": [
@@ -461,6 +461,16 @@
       {
         "round": "true",
         "start": false,
+        "figures": [
+          {
+            "type": "present",
+            "identifier": {
+              "type": "objective",
+              "edition": "objective",
+              "name": "Glowing Orb"
+            }
+          }
+        ],
         "spawns": [
           {
             "monster": {
@@ -470,13 +480,7 @@
               "player4": "elite"
             },
             "marker": "a"
-          }
-        ]
-      },
-      {
-        "round": "true",
-        "start": false,
-        "spawns": [
+          },
           {
             "monster": {
               "name": "living-bones",
@@ -485,34 +489,6 @@
               "player4": "elite"
             },
             "marker": "b"
-          }
-        ]
-      },
-      {
-        "round": "true",
-        "start": false,
-        "figures": [
-          {
-            "type": "dead",
-            "identifier": {
-              "type": "objective",
-              "edition": "objective",
-              "name": "Glowing Orb"
-            }
-          }
-        ],
-        "disableRules": [
-          {
-            "edition": "fh",
-            "scenario": "51.1",
-            "index": 0,
-            "section": true
-          },
-          {
-            "edition": "fh",
-            "scenario": "51.1",
-            "index": 1,
-            "section": true
           }
         ]
       }
