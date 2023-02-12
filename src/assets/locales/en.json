@@ -149,11 +149,11 @@
           "download": "Download Character Data as JSON file"
         },
         "hp": {
-          "0": "Low Profile",
-          "1": "Middle Profile",
-          "2": "High Profile",
           ".": "Hit Points",
           "-1": "Custom Profile"
+          "0": "Low Profile",
+          "1": "Middle Profile",
+          "2": "High Profile"
         }
       },
       "edition": "Edition",
