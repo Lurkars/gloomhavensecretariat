@@ -399,26 +399,6 @@
         "health": "L+2"
       }
     ],
-    "rules": [
-      {
-        "round": "always",
-        "always": true,
-        "disableRules": [
-          {
-            "edition": "fh",
-            "scenario": "51.1",
-            "index": 0,
-            "section": true
-          },
-          {
-            "edition": "fh",
-            "scenario": "51.1",
-            "index": 1,
-            "section": true
-          }
-        ]
-      }
-    ],
     "rooms": [
       {
         "roomNumber": 1,
@@ -505,6 +485,34 @@
               "player4": "elite"
             },
             "marker": "b"
+          }
+        ]
+      },
+      {
+        "round": "true",
+        "start": false,
+        "figures": [
+          {
+            "type": "dead",
+            "identifier": {
+              "type": "objective",
+              "edition": "objective",
+              "name": "Glowing Orb"
+            }
+          }
+        ],
+        "disableRules": [
+          {
+            "edition": "fh",
+            "scenario": "51.1",
+            "index": 0,
+            "section": true
+          },
+          {
+            "edition": "fh",
+            "scenario": "51.1",
+            "index": 1,
+            "section": true
           }
         ]
       }
