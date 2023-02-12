@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1676235161760,
+  "timestamp": 1676238658722,
   "appData": {
     "version": "0.45.2"
   },
@@ -16,7 +16,7 @@
       "urls": [
         "gloomhavensecretariat/favicon.ico",
         "gloomhavensecretariat/index.html",
-        "gloomhavensecretariat/main.96a5cce4b3485f70.js",
+        "gloomhavensecretariat/main.7513da9230888d45.js",
         "gloomhavensecretariat/manifest.webmanifest",
         "gloomhavensecretariat/polyfills.3711c2260c639175.js",
         "gloomhavensecretariat/runtime.3f906f644b28d401.js",
@@ -1426,7 +1426,7 @@
     "gloomhavensecretariat/assets/images/monster/thumbnail/fh-seeker-of-the-abyss.png": "f581d4443689df48bdc2a229dca5a13b015d681c",
     "gloomhavensecretariat/assets/images/monster/thumbnail/fh-shrike-fiend.png": "4b011b8c6b3e7e5b50111dd2d41651de218acf26",
     "gloomhavensecretariat/assets/images/monster/thumbnail/fh-snow-imp.png": "b2855437bb9ed6ea14d49880069f1072cd37e115",
-    "gloomhavensecretariat/assets/images/monster/thumbnail/fh-snowdancer.png": "dfa991010ad25aa6c4d0ae2d4a0bc86ce1773bdf",
+    "gloomhavensecretariat/assets/images/monster/thumbnail/fh-snowdancer.png": "0e4a1b3b04ce7a1597b656f6e38bbdcdf3d80498",
     "gloomhavensecretariat/assets/images/monster/thumbnail/fh-spitting-drake.png": "6dff762100a1ae8a399799c10b72c2de7922c248",
     "gloomhavensecretariat/assets/images/monster/thumbnail/fh-steel-automaton.png": "07630c1180c14ae9d57f556faf479ae0c4a76f19",
     "gloomhavensecretariat/assets/images/monster/thumbnail/fh-sun-demon.png": "33dfc4dc0f8060246efde49e29d72a91e326f3b8",
@@ -1577,11 +1577,11 @@
     "gloomhavensecretariat/health.8d6a842a197d29d3.svg": "05afb6de2ed74490df7d750cc939124afb1c5457",
     "gloomhavensecretariat/immune.3638b2264dfc0cf4.svg": "683fda2b898292506e4a8f0984c5057c0e877509",
     "gloomhavensecretariat/immunity.5d026de2db8a1d8f.svg": "ad20fc18e93269c79312170674c6008615438f9b",
-    "gloomhavensecretariat/index.html": "9f60ebe33524bb71d8be0c5b7be85256cf73d7b2",
+    "gloomhavensecretariat/index.html": "652cdccb3f7cff1d30f802789672c98cd1a4d2ef",
     "gloomhavensecretariat/initiative.a7663b57012bb669.svg": "85c1e0fe11ba2111c2dc55370ff84796c86eb556",
     "gloomhavensecretariat/level.38e1f58a07dc5898.svg": "004f02ea9f24d4ecbfef70b7d0c9cbd5e731827e",
     "gloomhavensecretariat/loot-back.b3962872f80142fe.png": "a10c9bcc106f820ba1ce8e9a9a9cc47fdbc734d1",
-    "gloomhavensecretariat/main.96a5cce4b3485f70.js": "a3499ce7141041b8d04558627259409860577171",
+    "gloomhavensecretariat/main.7513da9230888d45.js": "2e06e3130aa3a955e843fc8db1d06688d1b446a3",
     "gloomhavensecretariat/majallab.00c7b4c865792c45.ttf": "cd2e9e61aca39d2b987b66e4c2a0a3ea13c3be48",
     "gloomhavensecretariat/majallab.3bc19f63b5b1d474.svg": "68458a0f79e0e45258f0948d48f2a65c125b4322",
     "gloomhavensecretariat/majallab.4ef31693f35ab4df.woff": "5f4a605494c5e4adbe49e3b23bfdcf1f7f8a92b6",
