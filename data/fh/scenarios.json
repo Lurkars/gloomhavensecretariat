@@ -690,6 +690,15 @@
             "type": "gainCondition",
             "value": "muddle",
             "scenarioEffect": true
+          },
+          {
+            "identifier": {
+              "type": "character",
+              "name": ".*"
+            },
+            "type": "discard",
+            "value": "two",
+            "scenarioEffect": true
           }
         ]
       }
