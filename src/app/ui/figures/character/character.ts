@@ -221,7 +221,7 @@ export class CharacterComponent {
 
   openCharacterSheet(): void {
     this.dialog.open(CharacterSheetDialog, {
-      panelClass: ['dialog-invert', 'no-scroll'],
+      panelClass: ['dialog-invert'],
       data: this.character
     });
   }

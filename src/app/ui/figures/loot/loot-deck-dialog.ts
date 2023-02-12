@@ -39,7 +39,7 @@ export class LootDeckDialogComponent implements OnInit {
 
   enhancementDeck: Loot[] = [];
 
-  constructor(@Inject(DIALOG_DATA) public data: { deck: LootDeck, characters: boolean, before: EventEmitter<LootDeckChange>, after: EventEmitter<LootDeckChange> }, private dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) public data: { deck: LootDeck, characters: boolean, before: EventEmitter<LootDeckChange>, after: EventEmitter<LootDeckChange> }, public dialogRef: DialogRef) {
     this.deck = data.deck;
     this.characters = data.characters;
     this.before = data.before;

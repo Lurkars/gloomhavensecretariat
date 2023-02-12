@@ -5,7 +5,7 @@ import { Monster } from 'src/app/game/model/Monster';
 import { Ability } from 'src/app/game/model/Ability';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { DIALOG_DATA } from '@angular/cdk/dialog';
+import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 import { applyPlaceholder } from '../../helper/i18n';
 
 @Component({
@@ -25,7 +25,7 @@ export class AbiltiesDialogComponent implements OnInit {
   maxHeight: string = "";
   bottomActions: boolean = false;
 
-  constructor(@Inject(DIALOG_DATA) public monster: Monster) { }
+  constructor(@Inject(DIALOG_DATA) public monster: Monster, public dialogRef: DialogRef) { }
 
   ngOnInit(): void {
     setTimeout(() => {

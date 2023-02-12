@@ -1,26 +1,25 @@
 .loot-cards-dialog {
-    width: calc(var(--ghs-unit) * 60 * var(--ghs-dialog-factor));
-    max-width: 100vw;
-
+    position: relative;
 
     .menu {
         display: flex;
         justify-content: space-evenly;
         flex-wrap: wrap;
-    
-        a  {
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          font-family: var(--ghs-font-title);
-          font-size: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-          color: var(--ghs-color-gray);
-          text-shadow: var(--ghs-outline);
-          margin: 0 calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
-    
-          &:hover {
-            color: var(--ghs-color-white);
-          }
+        max-width: calc(var(--ghs-unit) * 60 * var(--ghs-dialog-factor));
+
+        a {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-family: var(--ghs-font-title);
+            font-size: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+            color: var(--ghs-color-gray);
+            text-shadow: var(--ghs-outline);
+            margin: 0 calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+
+            &:hover {
+                color: var(--ghs-color-white);
+            }
         }
     }
 

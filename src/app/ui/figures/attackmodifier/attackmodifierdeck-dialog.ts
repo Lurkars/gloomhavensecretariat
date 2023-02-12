@@ -36,7 +36,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   drawing: boolean = false;
 
 
-  constructor(@Inject(DIALOG_DATA) private data: { deck: AttackModifierDeck, character: Character, numeration: string, newStyle: boolean, before: EventEmitter<AttackModiferDeckChange>, after: EventEmitter<AttackModiferDeckChange> }, private dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) private data: { deck: AttackModifierDeck, character: Character, numeration: string, newStyle: boolean, before: EventEmitter<AttackModiferDeckChange>, after: EventEmitter<AttackModiferDeckChange> }, public dialogRef: DialogRef) {
     this.deck = data.deck;
     this.character = data.character;
     this.numeration = data.numeration;
@@ -230,7 +230,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
 
     this.type = Object.values(AttackModifierType)[index];
 
-    if ([AttackModifierType.invalid, AttackModifierType.plus3, AttackModifierType.plus4].indexOf(this.type) != -1) {
+    if ([AttackModifierType.plus, AttackModifierType.minus, AttackModifierType.invalid, AttackModifierType.plus3, AttackModifierType.plus4, AttackModifierType.empower, AttackModifierType.enfeeble].indexOf(this.type) != -1) {
       this.changeType(prev);
     }
   }

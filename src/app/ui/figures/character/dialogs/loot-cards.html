@@ -1,10 +1,13 @@
 <div class="loot-cards-dialog">
-    <div class="menu">
-        <a (click)="sort()">{{(sorted ? 'character.lootCards.drawn' : 'character.lootCards.sort') | ghsLabel}}</a>
-    </div>
-    <div class="loot-cards" *ngIf="character.lootCards">
-        <div class="loot-container" *ngFor="let loot of lootCards">
-            <ghs-loot [loot]="loot" [flipped]="true" [disableFlip]="true"></ghs-loot>
+    <a class="close" (click)="dialogRef.close()" [title]="'close' | ghsLabel"><img src="./assets/images/close.svg"></a>
+    <div class="scroll-container">
+        <div class="menu">
+            <a (click)="sort()">{{(sorted ? 'character.lootCards.drawn' : 'character.lootCards.sort') | ghsLabel}}</a>
+        </div>
+        <div class="loot-cards" *ngIf="character.lootCards">
+            <div class="loot-container" *ngFor="let loot of lootCards">
+                <ghs-loot [loot]="loot" [flipped]="true" [disableFlip]="true"></ghs-loot>
+            </div>
         </div>
     </div>
 </div>

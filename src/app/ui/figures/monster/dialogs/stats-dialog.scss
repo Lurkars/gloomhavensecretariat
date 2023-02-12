@@ -1,7 +1,6 @@
 .stats-dialog {
-
+  position: relative;
   width: calc(var(--ghs-unit) * 46 * var(--ghs-dialog-factor));
-
   display: flex;
   flex-direction: column;
 

@@ -23,10 +23,10 @@
     ghs-character-initiative,
     .title,
     .conditions,
-    .loot-cards-icon,
+    .loot-cards-button,
     .experience,
     .loot,
-    .attack-modifier-icon,
+    .attack-modifier-button,
     .icon-container,
     .stats .column {
       filter: grayscale(15%);
@@ -175,7 +175,7 @@
       align-items: flex-start;
 
       &.col-1 {
-        max-width: calc(var(--ghs-unit) * 42);
+        max-width: calc(var(--ghs-unit) * 24);
         overflow: visible;
       }
 
@@ -187,6 +187,7 @@
     .title-bar {
       display: flex;
       align-items: center;
+      z-index: 2;
     }
 
     .title {
@@ -294,11 +295,12 @@
       }
     }
 
-    .attack-modifier-icon,
-    .loot-cards-icon {
+    .attack-modifier-button,
+    .loot-cards-button {
       display: flex;
       align-items: center;
       align-self: center;
+      z-index: 1;
 
       img {
         width: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor) * var(--ghs-text-factor));
@@ -421,7 +423,7 @@
   .experience,
   .loot,
   .icon-container,
-  .attack-modifier-icon,
+  .attack-modifier-button,
   .character-sheet-button,
   &::before {
     transition: filter 150ms ease-in-out;

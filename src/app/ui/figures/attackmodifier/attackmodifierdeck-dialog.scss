@@ -1,12 +1,11 @@
 .attack-modifiers-dialog {
-
-  width: calc(var(--ghs-unit) * 60 * var(--ghs-dialog-factor));
-  max-width: 100vw;
+  position: relative;
 
   .menu {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    max-width: calc(var(--ghs-unit) * 60 * var(--ghs-dialog-factor));
 
     a,
     label {
@@ -59,7 +58,7 @@
           color: var(--ghs-color-darkgray);
 
           .ghs-svg {
-            filter: var(--ghs-filter-darkgray)  var(--ghs-filter-shadow) !important;
+            filter: var(--ghs-filter-darkgray) var(--ghs-filter-shadow) !important;
           }
         }
       }

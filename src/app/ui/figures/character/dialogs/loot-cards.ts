@@ -17,7 +17,7 @@ export class CharacterLootCardsDialog {
     lootCards: Loot[] = [];
     sorted: boolean = false;
 
-    constructor(@Inject(DIALOG_DATA) public character: Character, private dialogRef: DialogRef) {
+    constructor(@Inject(DIALOG_DATA) public character: Character, public dialogRef: DialogRef) {
         if (this.character.lootCards) {
             this.character.lootCards.forEach((index) => this.lootCards.push(gameManager.game.lootDeck.cards[index]));
         }

@@ -2,23 +2,6 @@
   position: relative;
   background-color: var(--ghs-color-white);
 
-  .close {
-    position: absolute;
-    top: calc(var(--ghs-unit) * -1 * var(--ghs-dialog-factor));
-    right: calc(var(--ghs-unit) * -1 * var(--ghs-dialog-factor));
-    z-index: 1;
-    cursor: pointer;
-
-    img {
-      width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-      height: auto;
-    }
-
-    &:hover {
-      filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
-    }
-  }
-
   .container {
     width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
     height: calc(var(--ghs-unit) * 94 * var(--ghs-dialog-factor));

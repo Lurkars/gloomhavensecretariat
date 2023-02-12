@@ -643,15 +643,28 @@ ghs-drag-click {
   border-image-outset: calc(var(--ghs-unit) * -1);
   border-image-width: calc(var(--ghs-unit) * 6);
   background-color: var(--ghs-color-black);
-  overflow: auto;
+
+  .close {
+    position: absolute;
+    top: calc(var(--ghs-unit) * -2 * var(--ghs-dialog-factor));
+    right: calc(var(--ghs-unit) * -1 * var(--ghs-dialog-factor));
+    z-index: 1;
+    filter: var(--ghs-filter-red) brightness(0.6) var(--ghs-filter-shadow);
+    cursor: pointer;
+
+    img {
+      width: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+      height: auto;
+    }
+
+    &:hover {
+      filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+    }
+  }
 
   &.dialog-invert {
     background-color: var(--ghs-color-white);
     background-image: none;
-  }
-
-  &.no-scroll {
-    overflow: hidden;
   }
 
 }

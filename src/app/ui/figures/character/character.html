@@ -116,12 +116,12 @@
     <ng-container *ngIf="!character.absent">
       <span class="spacer" (click)="openEntityMenu($event)"></span>
 
-      <div class="loot-cards-icon" *ngIf="character.lootCards && character.lootCards.length > 0"
+      <div class="loot-cards-button" *ngIf="character.lootCards && character.lootCards.length > 0"
         (click)="toggleLootCardsVisible()" [ngClass]="{'disabled': character.lootCardsVisible}">
         <img src="./assets/images/fh/loot-token.png" />
       </div>
 
-      <span class="attack-modifier-icon" [ngClass]="{'disabled': character.attackModifierDeckVisible}"
+      <span class="attack-modifier-button" [ngClass]="{'disabled': character.attackModifierDeckVisible}"
         (click)="toggleAttackModifierDeckVisible()" title="{{'game.attackModifiers' | ghsLabel}}">
         <img src="./assets/images/attackmodifier/icon.png" />
       </span>
