@@ -472,7 +472,7 @@
         "actions": [
           {
             "type": "custom",
-            "value": "Whenever it suffers damage, all characters and monsters suffer 2 %game.action.damage%"
+            "value": "Whenever it suffers damage, all characters and monsters suffer %game.action.damage% 2"
           }
         ]
       }
