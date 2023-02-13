@@ -1,4 +1,4 @@
-import { DialogRef } from "@angular/cdk/dialog";
+import { Dialog, DialogRef } from "@angular/cdk/dialog";
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
@@ -11,6 +11,7 @@ import { LootType } from "src/app/game/model/Loot";
 import { Party } from "src/app/game/model/Party";
 import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
 import { ghsInputFullScreenCheck } from "../../helper/Static";
+import { PartyWeekDialogComponent } from "./week-dialog";
 
 @Component({
   selector: 'ghs-party-sheet-dialog',
@@ -37,7 +38,7 @@ export class PartySheetDialogComponent implements OnInit {
 
   @ViewChild('treasureIndex') treasureIndex!: ElementRef;
 
-  constructor(private dialogRef: DialogRef) {
+  constructor(private dialogRef: DialogRef, private dialog: Dialog) {
     this.party = gameManager.game.party;
     this.update();
     gameManager.uiChange.subscribe({
@@ -53,6 +54,10 @@ export class PartySheetDialogComponent implements OnInit {
   ngOnInit(): void {
     this.fhSheet = gameManager.fhRules();
     this.csSheet = !this.fhSheet && gameManager.editionRules('cs');
+
+    if (this.fhSheet) {
+      this.prosperitySteps = [5, 14, 26, 41, 60, 81, 105, 132];
+    }
   }
 
   close() {
@@ -157,7 +162,7 @@ export class PartySheetDialogComponent implements OnInit {
     character.progress.retired = false;
     gameManager.game.figures.push(character);
     this.party.retirements.splice(this.party.retirements.indexOf(characterModel), 1);
-    this.gameManager.stateManager.after();
+    gameManager.stateManager.after();
   }
 
   removeParty() {
@@ -253,7 +258,7 @@ export class PartySheetDialogComponent implements OnInit {
       reader.addEventListener('load', (event: any) => {
         gameManager.stateManager.before("importParty");
         gameManager.game.party = Object.assign(new Party(), JSON.parse(event.target.result));
-        if (!this.gameManager.game.party) {
+        if (!gameManager.game.party) {
           parent.classList.add("error");
         } else {
           this.party = gameManager.game.party;
@@ -414,10 +419,17 @@ export class PartySheetDialogComponent implements OnInit {
     return undefined;
   }
 
-  sectionsForWeek(week: number): string[] {
+  sectionsForWeekFixed(week: number): string[] {
     const campaign = this.campaignData();
     if (campaign && campaign.weeks && campaign.weeks[week + 1]) {
       return campaign.weeks[week + 1] || [];
+    }
+    return [];
+  }
+
+  sectionsForWeek(week: number): string[] {
+    if (this.party.weekSections && this.party.weekSections[week + 1]) {
+      return this.party.weekSections[week + 1] || [];
     }
     return [];
   }
@@ -445,11 +457,18 @@ export class PartySheetDialogComponent implements OnInit {
     gameManager.stateManager.after();
   }
 
+  setWeekSection(week: number) {
+    this.dialog.open(PartyWeekDialogComponent, {
+      panelClass: ['dialog', 'dialog-invert'],
+      data: week
+    });
+  }
+
   setResource(type: LootType, event: any) {
     if (!isNaN(+event.target.value)) {
       gameManager.stateManager.before("setPartyResource", this.party.name, "game.loot." + type, event.target.value);
       this.party.loot[type] = +event.target.value;
-      this.gameManager.stateManager.after();
+      gameManager.stateManager.after();
     }
   }
 
@@ -457,7 +476,7 @@ export class PartySheetDialogComponent implements OnInit {
     if (!isNaN(+event.target.value) && this.party.inspiration != +event.target.value) {
       gameManager.stateManager.before("setPartyInspiration", this.party.name, event.target.value);
       this.party.inspiration = +event.target.value;
-      this.gameManager.stateManager.after();
+      gameManager.stateManager.after();
     }
   }
 
@@ -465,7 +484,7 @@ export class PartySheetDialogComponent implements OnInit {
     if (!isNaN(+event.target.value) && this.party.defense != +event.target.value) {
       gameManager.stateManager.before("setPartyTotalDefense", this.party.name, event.target.value);
       this.party.defense = +event.target.value;
-      this.gameManager.stateManager.after();
+      gameManager.stateManager.after();
     }
   }
 

@@ -35,7 +35,7 @@ export class ScenarioSummaryComponent {
         dialogRef.closed.subscribe({
             next: (state) => {
                 if (state && state != "cancel") {
-                    gameManager.stateManager.before("finishScenario." + (success ? "success" : "failure"), ...gameManager.scenarioManager.scenarioUndoArgs());
+                    gameManager.stateManager.before("finishScenario." + (state == "restart" ? "restart": (success ? "success" : "failure")), ...gameManager.scenarioManager.scenarioUndoArgs());
                     gameManager.scenarioManager.finishScenario(success, state == "restart");
                     gameManager.stateManager.after(1000);
                 }

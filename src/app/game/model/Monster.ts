@@ -136,8 +136,8 @@ export class GameMonsterModel {
     this.drawExtra = drawExtra;
     this.lastDraw = lastDraw;
     this.ability = ability;
-    this.abilities = abilities;
-    this.entities = entities;
+    this.abilities = JSON.parse(JSON.stringify(abilities));
+    this.entities = JSON.parse(JSON.stringify(entities));
     this.isAlly = isAlly;
   }
 }

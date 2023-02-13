@@ -315,7 +315,9 @@ export class StateManager {
   }
 
   reset() {
+    const revision = this.game.revision;
     this.game = new Game();
+    this.game.revision = revision;
     localStorage.removeItem("ghs-game");
     this.clearLocalStorage();
   }

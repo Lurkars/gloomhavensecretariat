@@ -306,7 +306,7 @@
         "curse": "Curse",
         "double": "Double",
         "invalid": "Invalid",
-        "minut": "Minus",
+        "minus": "Minus",
         "minus1": "Minus 1",
         "minus2": "Minus 2",
         "null": "Null",
@@ -351,6 +351,7 @@
       "chill": "Chill",
       "curse": "Curse",
       "disarm": "Disarm",
+      "dodge": "Dodge",
       "immobilize": "Immobilize",
       "impair": "Impair",
       "infect": "Infect",
@@ -624,6 +625,12 @@
         "supply": "Frosthaven Supply",
         "totalDefense": "Total Defense",
         "townGuardPerks": "Town Guard Perks",
+        "weekSections": {
+          ".": "Set Sections for week {0}",
+          "addSection": "Add Section to week",
+          "calc": "{0} weeks from current week",
+          "section": "Section"
+        },
         "winter": "Winter"
       },
       "treasures": "Treasures"
@@ -745,9 +752,9 @@
         "amAdd": "{0} add %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% to Attack Modifier Deck",
         "amRemove": "{0} remove %game.attackModifiers.perks.cards.{4}% %game.attackmodifier.{3}% %game.attackModifiers.types.{3}% from Attack Modifier deck",
         "damage": "{0} suffer %game.damage:{2}%",
+        "discard": "{0} discard %number.{2}% ability cards each",
         "gainCondition": "{0} gain %game.condition.{1}%",
         "hp": "{0} HP to {2}",
-        "discard": "{0} discard %number.{2}% ability cards each",
         "looseCondition": "{0} loose %game.condition.{1}%",
         "scenarioEffect": "as scenario effect",
         "toggleOff": "{0} to inactive",
@@ -1044,6 +1051,7 @@
     "info": {
       "addBless": "Bless {0}",
       "addBlesses": "{1} Bless' {0}",
+      "addCampaignSticker": "Add Campaign Sticker {0}",
       "addChar": "Add character {0}",
       "addCondition": {
         "char": "{1} {0}",
@@ -1065,6 +1073,8 @@
       "addNextStandee": "Add {1} {0} standee",
       "addObjective": "Add objective {0}",
       "addParty": "Create new party '{0}'",
+      "addPartyTownGuardPerkSection": "Add Town Guard Perk Section {1}",
+      "addPartyWeekSection": "Add section {2} to week {1}",
       "addRandomStandee": "Add random {1} {0} standee {2}",
       "addResource": "Add +{2} {1} for {0}",
       "addSection": "Add section #{0} {1} ({2})",
@@ -1124,9 +1134,11 @@
       "finishScenario": {
         "failure": "Scenario #{0} {1} ({2}) failed",
         "remove": "Remove scenario #{0} {1} ({2}) success",
+        "restart": "Restart failed Scenario  #{0} {1} ({2})",
         "success": "Scenario #{0} {1} ({2}) successful"
       },
       "hideScenarioRule": "Don't show scenario rule again",
+      "importCharacter": "Import character {0} from file",
       "importParty": "Import party from file",
       "loadGameFromFile": "Load game state from file",
       "lootDeckAddEnhancement": "Enhance Loot Card '{1} %game.loot.{0}%'",
@@ -1138,6 +1150,7 @@
       "lootDeckReorder": "Reorder Loot deck",
       "lootDeckShow": "Show Loot deck",
       "lootDeckShuffle": "Shuffle Loot deck",
+      "moveResource": "Move {2} {1} from {0} to Frosthaven Supply",
       "monsterConsumeElement": "{0} consume {1}",
       "monsterDead": "Kill all {1}{0}",
       "monsterInfuseElement": "{0} infuse {1}",
@@ -1150,6 +1163,7 @@
       "removeAllObjectives": "Remove all objectives",
       "removeBless": "Remove Bless from {0}",
       "removeBlesses": "Remove {1} Bless' from {0}",
+      "removeCampaignSticker": "Remove Campaign Sticker {0}",
       "removeChar": "Remove character {0}",
       "removeCondition": {
         "char": "Remove {1} from {0}",
@@ -1170,6 +1184,8 @@
       "removeMonster": "Remove monster {0}",
       "removeObjective": "Remove objective {0}",
       "removeParty": "Remove party '{0}'",
+      "removePartyTownGuardPerkSection": "Remove Town Guard Perk Section {1}",
+      "removePartyWeekSection": "Remove section {2} from week {1}",
       "removeScenarioRule": "Remove scenario rule",
       "removeTreasure": "Remove treasure {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
       "reorder": "Reorder figures",
@@ -1203,11 +1219,18 @@
       "setObjectiveInitiative": "Initiative {1} for objective {0}",
       "setPartyAchievements": "Party achievements",
       "setPartyDonations": "Donations to {0}",
+      "setPartyInspiation": "Inspiration to {1}",
       "setPartyLocation": "Party location '{0}'",
+      "setPartyMorale": "Morale to {0}",
       "setPartyName": "Party name '{0}'",
       "setPartyNotes": "Party notes",
       "setPartyProsperity": "Prosperity to {0}",
       "setPartyReputation": "Reputation to {0}",
+      "setPartyResource": "Set Forsthaven Supply {1} to {2}",
+      "setPartySoldiers": "Soldiers to {0}",
+      "setPartyTotalDefense": "Set Total Defense to {1}",
+      "setPartyTownGuardPerks": "Town Guard Perks to {0}",
+      "setPartyWeeks": "Weeks to {0}",
       "setPerk": "Perk {1} to {2} for {0}",
       "setPQ": "Personal Quest {1} for {0} ",
       "setResource": "Set {1} {2} for {0}",
@@ -1220,6 +1243,7 @@
       "setXP": "XP {1} for {0}",
       "shuffleAbilityDeck": "Shuffle abilities of {0}",
       "summonDead": "Kill summon '{1}' of {0}",
+      "startCampaign": "Start a new {0} campaign",
       "unsetAbsent": "{0} present",
       "unsetActive": "End turn of {0}",
       "unsetAlly": "{0} as enemy",
@@ -1314,5 +1338,11 @@
     "validateEditionData": "Validate Edition Data"
   },
   "update": "Update - Reload",
+  "welcome": {
+    ".": "Welcome to Gloomhaven Secretariat",
+    "chooseCharacters": "Choose your characters",
+    "chooseEdition": "Start a new campaign by choosing your Edition:",
+    "orChooseCharacters": "or start a casual game by adding characters directly"
+  },
   "wip": "Work In Progress"
 }

@@ -1,6 +1,25 @@
-<ghs-header></ghs-header>
+<ghs-header #header></ghs-header>
 <main [ngClass]="{'compact' : footer.compact}">
-  <div *ngIf="!fullviewChar" class="figures" cdkDropListGroup cdkScrollable
+  <div *ngIf="!fullviewChar && welcome" class="welcome" [ngClass]="{'fh': settingsManager.settings.fhStyle}">
+
+    <img src="./assets/images/logo-transparent.svg">
+
+    <h2>{{'welcome' | ghsLabel}}</h2>
+    <div class="choose-edition" *ngIf="!gameManager.game.edition">
+      <p>{{'welcome.chooseEdition' | ghsLabel}}</p>
+      <div class="editions">
+        <div class="edition" *ngFor="let edition of gameManager.editions()" (click)="startCampaign(edition)">
+          {{'data.edition.' + edition | ghsLabel}}
+        </div>
+      </div>
+    </div>
+    <p *ngIf="!gameManager.game.edition">{{'welcome.orChooseCharacters' | ghsLabel}}</p>
+    <p *ngIf="gameManager.game.edition">{{'welcome.chooseCharacters' | ghsLabel}}</p>
+    <div class="add-characters" (click)="header.openMenu($event, SubMenu.character_add)">
+      {{'hints.addCharacters' | ghsLabel}}
+    </div>
+  </div>
+  <div *ngIf="!fullviewChar && !welcome" class="figures" cdkDropListGroup cdkScrollable
     [ngClass]="{'loot-deck' : gameManager.game.lootDeck.active, 'ally-deck' : !gameManager.game.lootDeck.active && footer.hasAllyAttackModifierDeck}">
     <div class="figure" *ngFor="let figure of gameManager.game.figures; let i = index;" [figure-autoscroll]="figure"
       [cdkDropListData]="i" cdkDropList (cdkDropListDropped)="drop($event)" cdkDropListAutoScrollStep="20"

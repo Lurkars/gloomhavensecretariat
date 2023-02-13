@@ -95,6 +95,7 @@ import { SectionDialogComponent } from './ui/footer/scenario/section/section-dia
 import { CharacterLootCardsDialog } from './ui/figures/character/dialogs/loot-cards';
 import { PerkLabelComponent } from './ui/figures/attackmodifier/perk/label';
 import { CharacterMoveResourcesDialog } from './ui/figures/character/dialogs/move-resources';
+import { PartyWeekDialogComponent } from './ui/header/party/week-dialog';
 
 @Injectable()
 export class GhsHammerConfig extends HammerGestureConfig {
@@ -110,7 +111,7 @@ export class GhsHammerConfig extends HammerGestureConfig {
     AppComponent,
     MainComponent,
     HeaderComponent, ElementIconComponent, ElementComponent,
-    PartySheetComponent, PartySheetDialogComponent,
+    PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent,
     MainMenuComponent, CharacterMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent,
     FooterComponent,
     LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,

@@ -100,10 +100,15 @@
         </div>
 
         <div class="weeks">
-          <div class="week" *ngFor="let week of [] | ghsRange:80; let index = index" (click)="setWeek(index+1)"
-            [ngClass]="{'checked': party.weeks > index, 'section': sectionsForWeek(week).length > 0}">
-            <div class="section" *ngFor="let section of sectionsForWeek(week)">
+          <div class="week" *ngFor="let week of [] | ghsRange:80; let index = index" ghs-drag-click
+            (singleClick)="setWeek(index+1)" (doubleClick)="setWeekSection(index+1)"
+            [ngClass]="{'checked': party.weeks > index, 'section': sectionsForWeekFixed(week).length > 0}">
+            <div class="section" *ngFor="let section of sectionsForWeekFixed(week)">
               <img src="./assets/images/fh/party/section.svg">{{section}}
+            </div>
+            <div class="section manual" *ngFor="let section of sectionsForWeek(week)">
+              <img src="./assets/images/fh/party/section.svg">{{section}}
+              <img class="manual-icon" src="./assets/images/hint.svg">
             </div>
           </div>
         </div>
@@ -379,8 +384,8 @@
                   (keyup)="unlockScenarioIndex.classList.remove('error'); unlockScenarioGroup.classList.remove('error');"
                   (keyup.enter)="unlockScenario(unlockScenarioIndex, unlockScenarioGroup, edition)"></span>
               <a class="addScenario" [title]="'party.campaign.scenarios.unlock' | ghsLabel"
-                (click)="unlockScenario(unlockScenarioIndex, unlockScenarioGroup, edition)">{{'party.campaign.scenarios.unlock' | ghsLabel}}&nbsp;<img
-                src="./assets/images/plus.svg"></a>
+                (click)="unlockScenario(unlockScenarioIndex, unlockScenarioGroup, edition)">{{'party.campaign.scenarios.unlock'
+                | ghsLabel}}&nbsp;<img src="./assets/images/plus.svg"></a>
             </div>
           </ng-container>
         </div>
@@ -431,7 +436,8 @@
             </div>
           </div>
           <div class="checklist">
-            <div class="tick" *ngFor="let check of []|ghsRange:64; let index = index;"
+            <div class="tick"
+              *ngFor="let check of []|ghsRange:(prosperitySteps[prosperitySteps.length-1]+1); let index = index;"
               [autoscroll]="party.prosperity == index +1 || party.prosperity == 0 && index == 0">
               <div class="level" *ngIf="prosperitySteps.indexOf(index) != -1">{{prosperitySteps.indexOf(index) + 2}}
               </div>
@@ -478,7 +484,7 @@
           </div>
         </div>
 
-        <div class="row donations">
+        <div class="row donations" *ngIf="!fhSheet">
           <label>{{'party.campaign.donations' | ghsLabel}}:</label>
           <div class="checklist">
             <div class="tick" *ngFor="let check of []|ghsRange:10; let index = index;">

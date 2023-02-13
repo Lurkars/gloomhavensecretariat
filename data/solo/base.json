@@ -1,5 +1,6 @@
 {
   "edition": "solo",
+  "additional": true,
   "extensions": [
     "gh",
     "fh",

@@ -20,6 +20,7 @@ export class EditionData implements Editional {
   label: any = {};
   labelSpoiler: any = {};
   url: string = "";
+  additional: boolean = false;
   extensions: string[] = [];
   newAmStyle: boolean = false;
   campaign: CampaignData | undefined;
@@ -31,6 +32,7 @@ export class EditionData implements Editional {
     sections: ScenarioData[],
     items: ItemData[],
     conditions: string[] | undefined = undefined,
+    additional: boolean = false,
     extensions: string[] = []) {
     this.edition = edition;
     this.characters = characters;
@@ -42,6 +44,7 @@ export class EditionData implements Editional {
     if (conditions) {
       this.conditions = conditions;
     }
+    this.additional = additional;
     this.extensions = extensions;
   }
 

@@ -73,7 +73,7 @@ export class GameManager {
   }
 
   editions(all: boolean = false): string[] {
-    return this.editionData.map((editionData) => editionData.edition).filter((edition) => all || settingsManager.settings.editions.indexOf(edition) != -1);
+    return this.editionData.filter((editionData) => (all || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && !editionData.additional).map((editionData) => editionData.edition);
   }
 
   currentEditions(): string[] {

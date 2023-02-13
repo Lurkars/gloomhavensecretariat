@@ -76,7 +76,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
             gameManager.game.party.retirements.push(this.character.toModel());
             gameManager.characterManager.removeCharacter(this.character);
           }
-          this.gameManager.stateManager.after();
+          gameManager.stateManager.after();
         }
       }
     });
@@ -89,8 +89,8 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
 
     this.character.progress.perks = this.character.progress.perks || [];
 
-    this.fhSheet = this.character.masteries && this.character.masteries.length > 0 || this.character.edition == 'fh' || gameManager.fhRules();
-    this.csSheet = !this.fhSheet && (this.character.edition == 'cs' || gameManager.editionExtensions(this.character.edition).indexOf('cs') != -1);
+    this.fhSheet = gameManager.fhRules();
+    this.csSheet = !this.fhSheet && gameManager.editionRules('cs');
 
     for (let i = 0; i < 15; i++) {
       if (!this.character.progress.perks[i]) {
@@ -172,7 +172,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
       if (this.character.absent && this.character.active) {
         gameManager.roundManager.toggleFigure(this.character);
       }
-      this.gameManager.stateManager.after();
+      gameManager.stateManager.after();
     }
   }
 
@@ -187,7 +187,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     }
     gameManager.stateManager.before("setLevel", "data.character." + this.character.name, "" + level);
     this.characterManager.setLevel(this.character, level);
-    this.gameManager.stateManager.after();
+    gameManager.stateManager.after();
   }
 
   setXP(event: any) {
@@ -199,7 +199,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
       this.xpTimeout = setTimeout(() => {
         gameManager.stateManager.before("setXP", "data.character." + this.character.name, ghsValueSign(+event.target.value - this.character.progress.experience));
         this.characterManager.addXP(this.character, event.target.value - this.character.progress.experience);
-        this.gameManager.stateManager.after();
+        gameManager.stateManager.after();
         this.xpTimeout = null;
       }, 500);
     }
@@ -214,7 +214,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
       this.goldTimeout = setTimeout(() => {
         gameManager.stateManager.before("setGold", "data.character." + this.character.name, event.target.value);
         this.character.progress.gold = +event.target.value;
-        this.gameManager.stateManager.after();
+        gameManager.stateManager.after();
         this.goldTimeout = null;
       }, 500);
     }
@@ -224,7 +224,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     if (!isNaN(+event.target.value)) {
       gameManager.stateManager.before("setResource", "data.character." + this.character.name, "game.loot." + type, event.target.value);
       this.character.progress.loot[type] = +event.target.value;
-      this.gameManager.stateManager.after();
+      gameManager.stateManager.after();
     }
   }
 
@@ -235,7 +235,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
       this.character.donations += 1;
       gameManager.game.party.donations += 1;
       this.character.progress.gold -= 10;
-      this.gameManager.stateManager.after();
+      gameManager.stateManager.after();
     }
   }
 
@@ -243,7 +243,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     if (!isNaN(+event.target.value) && this.character.progress.personalQuest != +event.target.value) {
       gameManager.stateManager.before("setPQ", "data.character." + this.character.name, event.target.value);
       this.character.progress.personalQuest = +event.target.value;
-      this.gameManager.stateManager.after();
+      gameManager.stateManager.after();
     }
   }
 
@@ -251,7 +251,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     if (!isNaN(+event.target.value) && this.character.progress.retirements != +event.target.value) {
       gameManager.stateManager.before("setRetirements", "data.character." + this.character.name, event.target.value);
       this.character.progress.retirements = +event.target.value;
-      this.gameManager.stateManager.after();
+      gameManager.stateManager.after();
     }
   }
 
@@ -267,7 +267,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     if (this.character.progress.battleGoals != battleGoals) {
       gameManager.stateManager.before("setBG", "data.character." + this.character.name, "" + battleGoals);
       this.character.progress.battleGoals = battleGoals;
-      this.gameManager.stateManager.after();
+      gameManager.stateManager.after();
     }
   }
 
@@ -275,7 +275,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     if (this.character.progress.notes != event.target.value) {
       gameManager.stateManager.before("setNotes", "data.character." + this.character.name, event.target.value);
       this.character.progress.notes = event.target.value;
-      this.gameManager.stateManager.after();
+      gameManager.stateManager.after();
     }
   }
 

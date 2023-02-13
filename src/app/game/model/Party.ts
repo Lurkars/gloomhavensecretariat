@@ -23,6 +23,7 @@ export class Party {
   retirements: GameCharacterModel[] = [];
 
   weeks: number = 0;
+  weekSections: Partial<Record<number, string[]>> = {};
   loot: Partial<Record<LootType, number>> = {};
   inspiration: number = 0;
   defense: number = 0;

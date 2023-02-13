@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { SettingsManager, settingsManager } from '../game/businesslogic/SettingsManager';
 import { Character } from '../game/model/Character';
 import { FooterComponent } from './footer/footer';
+import { SubMenu } from './header/menu/menu';
 
 @Component({
   selector: 'ghs-main',
@@ -23,7 +24,9 @@ export class MainComponent implements OnInit {
   columns: number = 2;
 
   resizeObserver: ResizeObserver;
+  SubMenu = SubMenu;
 
+  welcome: boolean = false;
   fullviewChar: Character | undefined;
   scrollTimeout: any = null;
   zoomInterval: any = null;
@@ -37,8 +40,12 @@ export class MainComponent implements OnInit {
         const figure = gameManager.game.figures.find((figure) => figure instanceof Character && figure.fullview);
         if (figure) {
           this.fullviewChar = figure as Character;
+          this.welcome = false;
+        } else if (gameManager.game.figures.length == 0) {
+          this.welcome = true;
         } else {
           this.fullviewChar = undefined;
+          this.welcome = false;
           this.calcColumns();
         }
       }
@@ -154,6 +161,13 @@ export class MainComponent implements OnInit {
   zoom(value: number) {
     this.currentZoom += value;
     document.body.style.setProperty('--ghs-factor', this.currentZoom + '');
+  }
+
+  startCampaign(edition: string) {
+    gameManager.stateManager.before("startCampaign", 'data.edition.' + edition);
+    gameManager.game.edition = edition;
+    gameManager.game.party.campaignMode = true;
+    gameManager.stateManager.after();
   }
 
   calcColumns(scrollTo: HTMLElement | undefined = undefined): void {

@@ -396,7 +396,7 @@ export class EntityMenuDialogComponent {
       if (this.data.entity.absent && this.data.entity.active) {
         gameManager.roundManager.toggleFigure(this.data.entity);
       }
-      this.gameManager.stateManager.after();
+      gameManager.stateManager.after();
     }
   }
 

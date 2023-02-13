@@ -665,6 +665,8 @@ ghs-drag-click {
   &.dialog-invert {
     background-color: var(--ghs-color-white);
     background-image: none;
+    border: none;
+    border-radius: 5px;
   }
 
 }
@@ -696,6 +698,7 @@ input {
 
 input[type="text"],
 input[type="number"] {
+  max-width: 100%;
   min-width: calc(var(--ghs-unit) * 8 * var(--ghs-dialog-factor));
   margin: 0;
   color: var(--ghs-color-white);

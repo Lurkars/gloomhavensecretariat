@@ -1,0 +1,295 @@
+{
+    "campaignStickers": [
+        "bug-in-a-jar",
+        "charged-core",
+        "crown-united",
+        "destroyer-of-the-icespeakers",
+        "destroyer-of-the-snowspeakers",
+        "empty-jar",
+        "firepepper",
+        "friend-of-the-fish-king",
+        "friend-of-the-frostspeakers",
+        "friend-of-the-icespeakers",
+        "friend-of-the-snowspeakers",
+        "into-the-forest",
+        "shard-seeker",
+        "uncharged-core",
+        "unfettered-allies",
+        "unfettered-deactivated"
+    ],
+    "highMorale": "161.3",
+    "lowMorale": "126.1",
+    "townGuardPerks": [
+        {
+            "sections": [
+                "19.2",
+                "178.3"
+            ],
+            "perk": {
+                "type": "replace",
+                "cards": [
+                    {
+                        "count": 1,
+                        "attackModifier": {
+                            "type": "minus",
+                            "value": 10
+                        }
+                    },
+                    {
+                        "count": 1,
+                        "attackModifier": {
+                            "type": "plus",
+                            "value": 30
+                        }
+                    },
+                    {
+                        "count": 1,
+                        "attackModifier": {
+                            "type": "minus",
+                            "value": 20,
+                            "effects": [
+                                {
+                                    "type": "custom",
+                                    "value": "Gain any one material resource"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "sections": [
+                "17.2",
+                "166.4"
+            ],
+            "perk": {
+                "type": "replace",
+                "cards": [
+                    {
+                        "count": 2,
+                        "attackModifier": {
+                            "type": "plus",
+                            "value": 10
+                        }
+                    },
+                    {
+                        "count": 1,
+                        "attackModifier": {
+                            "type": "plus",
+                            "value": 30
+                        }
+                    },
+                    {
+                        "count": 1,
+                        "attackModifier": {
+                            "type": "minus",
+                            "value": 20,
+                            "effects": [
+                                {
+                                    "type": "custom",
+                                    "value": "Gain any two material resources"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "sections": [
+                "151.3",
+                "194.3"
+            ],
+            "perk": {
+                "type": "replace",
+                "cards": [
+                    {
+                        "count": 1,
+                        "attackModifier": {
+                            "type": "minus",
+                            "value": 10
+                        }
+                    },
+                    {
+                        "count": 1,
+                        "attackModifier": {
+                            "type": "plus",
+                            "value": 10
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "sections": [
+                "91.4",
+                "157.3"
+            ],
+            "perk": {
+                "type": "replace",
+                "cards": [
+                    {
+                        "count": 2,
+                        "attackModifier": {
+                            "type": "plus0"
+                        }
+                    },
+                    {
+                        "count": 1,
+                        "attackModifier": {
+                            "type": "plus",
+                            "value": 10
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "sections": [
+                "130.3",
+                "104.1"
+            ],
+            "perk": {
+                "type": "replace",
+                "cards": [
+                    {
+                        "count": 2,
+                        "attackModifier": {
+                            "type": "plus",
+                            "value": 10
+                        }
+                    },
+                    {
+                        "count": 2,
+                        "attackModifier": {
+                            "type": "plus",
+                            "value": 10,
+                            "rolling": true,
+                            "effects": [
+                                {
+                                    "type": "custom",
+                                    "value": "Gain Adavantage on this target"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "sections": [
+                "167.2",
+                "175.1"
+            ],
+            "perk": {
+                "type": "add",
+                "cards": [
+                    {
+                        "count": 1,
+                        "attackModifier": {
+                            "type": "plus",
+                            "value": 30
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "sections": [
+                "180.3"
+            ],
+            "perk": {
+                "type": "add",
+                "cards": [
+                    {
+                        "count": 2,
+                        "attackModifier": {
+                            "type": "plus",
+                            "value": 0,
+                            "rolling": true,
+                            "effects": [
+                                {
+                                    "type": "custom",
+                                    "value": "Gain one Hide"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "sections": [
+                "41.1"
+            ],
+            "perk": {
+                "type": "add",
+                "cards": [
+                    {
+                        "count": 2,
+                        "attackModifier": {
+                            "type": "plus",
+                            "value": 0,
+                            "rolling": true,
+                            "effects": [
+                                {
+                                    "type": "custom",
+                                    "value": "Gain one Lumber"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "sections": [
+                "192.1"
+            ],
+            "perk": {
+                "type": "add",
+                "cards": [
+                    {
+                        "count": 2,
+                        "attackModifier": {
+                            "type": "plus",
+                            "value": 0,
+                            "rolling": true,
+                            "effects": [
+                                {
+                                    "type": "custom",
+                                    "value": "Gain one Metal"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "weeks": {
+        "5": [
+            "32.3"
+        ],
+        "10": [
+            "183.3",
+            "21.4"
+        ],
+        "20": [
+            "129.3"
+        ],
+        "25": [
+            "183.3"
+        ],
+        "30": [
+            "183.3"
+        ],
+        "40": [
+            "184.1"
+        ],
+        "80": [
+            "137.2"
+        ]
+    }
+}
