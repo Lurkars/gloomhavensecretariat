@@ -205,9 +205,11 @@
         "curse": "Fluch",
         "double": "Doppelt",
         "invalid": "Ungültig",
+        "minus": "Minus",
         "minus1": "Minus 1",
         "minus2": "Minus 2",
         "null": "Null",
+        "plus": "Plus",
         "plus0": "Plus 0",
         "plus1": "Plus 1",
         "plus2": "Plus 2",
@@ -248,6 +250,7 @@
       "chill": "Mutlosigkeit",
       "curse": "Fluch",
       "disarm": "Entwaffnen",
+      "dodge": "Ausweichen",
       "immobilize": "Lähmung",
       "impair": "Beschädigt",
       "infect": "Infektion",
@@ -307,6 +310,10 @@
           ".": "Fehlendes Kartendeck",
           "hint": "Kein Fertigkeitskartendeck für %{0}% '%data.{0}.{1}%' gefunden! Prüfe die Kartendeck Daten (Edition: %data.edition.{2}%)."
         },
+        "monsterEdition": {
+          ".": "Fehlender Monster Edition",
+          "hint": "Kein Monster '%data.{0}.{1}%' für die Edition '%data.edition.{2}%' gefunden (stattdessen Edition '%data.edition.{3}%' verwendet)! Prüfe die Monster Daten für Edition: %data.edition.{2}%."
+        },
         "monsterType": {
           ".": "Fehlender Monstertyp",
           "hint": "Monstertyp {3} für '%data.{0}.{1}%' nicht gefunden! Prüfe die Monster Daten (Edition: %data.edition.{2}%)."
@@ -337,8 +344,10 @@
     },
     "loot": {
       ".": "Beute",
+      "apply": "Zum ausgewählten Charakter hinzufügen",
       "arrowvine": "Pfeilrebe",
       "axenut": "Axtnuss",
+      "chooseCharacter": "Charakter für +{0} {1} auswählen",
       "config": {
         ".": "Beute Tabelle",
         "apply": "Beute Tabelle anwenden",
@@ -348,6 +357,12 @@
         "show": "Beute Tabelle anzeigen"
       },
       "corpsecap": "Leichenmütze",
+      "deck": "Beutekarten",
+      "enhancements": {
+        ".": "Verbesserungen",
+        "add": "Karte verbessern",
+        "remove": "Verbesserung entfernen"
+      },
       "flamefruit": "Flammenfrucht",
       "hide": "Fell",
       "lumber": "Holz",
@@ -375,6 +390,7 @@
       "enemies": "%game.target% alle Gegner an",
       "enemiesAdjacent": "%game.target% alle angrenzenden Gegner an",
       "enemiesMovedThrough": "%game.target% alle durchquerten Gegner an",
+      "enemiesMovedThroughAdjacent": "%game.target% alle Gegner auf besetzten oder angrenzenden<br>durchquerten Feldern der Beweungsfertigkeit",
       "enemiesRange": "%game.target% alle Gegner in %game.action.range% {0} an",
       "enemiesRangeAffect": "%game.target% alle Gegner in %game.action.range% {0}",
       "enemy": "%game.target% einen Gegner an",
@@ -384,6 +400,7 @@
       "figures": "%game.target% alle Figuren an",
       "figuresAdjacent": "%game.target% alle angrenzenden Figuren an",
       "figuresRange": "%game.target% alle Figuren in %game.action.range% {0} an",
+      "focusEnemyFarthest": "Fokussiere den Gegner der am<br>weitesten entfernt ist.",
       "self": "Selbst",
       "selfAllies": "Selbst und alle Verbündeten",
       "selfAlliesAdjacentAffect": "%game.target% dich selbst und alle angrenzenden Verbündeten an",
@@ -391,6 +408,13 @@
       "selfAlliesRange": "%game.target% dich selbst und alle Verbündeten in %game.action.range% {0} an",
       "selfOrAlly": "Selbst oder Verbündeter",
       "targets": "Alle Ziele"
+    },
+    "summon": {
+      "spawn": "{1} %data.monster.{0}%",
+      "spawnType": "{2} %game.monsterType.{1}% %data.monster.{0}%",
+      "playerAll": "%game.monsterType.{0}% für alle Charaktere",
+      "player2-3": "%game.monsterType.{0}% für zwei oder drei Charaktere oder %game.monsterType.{1}% für vier Charaktere",
+      "player3-4": "%game.monsterType.{0}% für zwei oder %game.monsterType.{1}% für drei oder vier Charaktere"
     },
     "target": {
       ".": "Visiere",
@@ -499,6 +523,12 @@
         "supply": "Versorgung von Frosthaven",
         "totalDefense": "Gesamte Verteidigung",
         "townGuardPerks": "Verbesserungen Stadtgarde",
+        "weekSections": {
+          ".": "Sektion für Woche {0} setzen",
+          "addSection": "Sektion der Woche hinzufügen",
+          "calc": "{0} Wochen von der akutellen Woche",
+          "section": "Sektion"
+        },
         "winter": "Winter"
       },
       "treasures": "Schatztruhen"
@@ -646,7 +676,7 @@
     },
     "summary": {
       ".": "Szenario Zusammenfassung",
-      "anwenden": "Anwenden",
+      "apply": "Anwenden",
       "cancel": "Abbrechen",
       "gold": "Gold",
       "loot": "Beute",
@@ -920,6 +950,7 @@
     "info": {
       "addBless": "Segen {0}",
       "addBlesses": "{1} Segen {0}",
+      "addCampaignSticker": "Kampagnen Sticker {0} hinzufügen",
       "addChar": "Character {0} hinzufügen",
       "addCondition": {
         "char": "{1} {0}",
@@ -941,6 +972,8 @@
       "addNextStandee": "Aufsteller {1} {0} hinzufügen",
       "addObjective": "Ziel {0} hinzufügen",
       "addParty": "Neue Gruppe '{0}' erstellen",
+      "addPartyTownGuardPerkSection": "Verbesserung der Stadtgarde Sektion {1}",
+      "addPartyWeekSection": "Sektion {2} zur Woche {1} hinzufügen",
       "addRandomStandee": "Zufälliger Aufsteller {1} {0} {2} hinzufügen",
       "addResource": "+{2} {1} für {0}",
       "addSection": "Abschnitt #{0} {1} ({2}) hinzufügen",
@@ -1000,6 +1033,7 @@
       "finishScenario": {
         "failure": "Szenario #{0} {1} ({2}) gescheitert",
         "remove": "Entferne Szenario #{0} {1} ({2}) von Erfolgreichen",
+        "restart": "Gescheitertes Szenario  #{0} {1} ({2}) neustarten",
         "success": "Szenario #{0} {1} ({2}) erfolgreich"
       },
       "hideScenarioRule": "Szenario Regel nicht mehr anzeigen",
@@ -1014,6 +1048,7 @@
       "lootDeckReorder": "Beute Karten neu anordnen",
       "lootDeckShow": "Beute Karten einblenden",
       "lootDeckShuffle": "Beute Karten mischen",
+      "moveResource": "{2} {1} von {0} zur Frosthaven Versorgung hinzufügen",
       "monsterConsumeElement": "{0} verbraucht {1}",
       "monsterDead": "Töte alle {1}{0}",
       "monsterInfuseElement": "{0} reichert {1} an",
@@ -1026,6 +1061,7 @@
       "removeAllObjectives": "Alle Ziele entfernen",
       "removeBless": "Segen von {0} entfernen",
       "removeBlesses": "{1} Segen von {0} entfernen",
+      "removeCampaignSticker": "Kampagnen Sticker {0} entfernen",
       "removeChar": "Charakter {0} entfernen",
       "removeCondition": {
         "char": "{1} von {0} entfernen",
@@ -1046,6 +1082,8 @@
       "removeMonster": "Monster {0} entfernen",
       "removeObjective": "Ziel {0} entfernen",
       "removeParty": "Gruppe '{0}' löschen",
+      "removePartyTownGuardPerkSection": "Sektion {1} von den Verbesserungen der Stadtgarde entfernen",
+      "removePartyWeekSection": "Sektion {2} von Woche {1} entfernen",
       "removeScenarioRule": "Szenario Regel ausblenden",
       "removeTreasure": "Schatz {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%) entfernen",
       "reorder": "Figuren neu anordnen",
@@ -1079,11 +1117,18 @@
       "setObjectiveInitiative": "Initiative {1} für Ziel {0}",
       "setPartyAchievements": "Gruppen Erfolge",
       "setPartyDonations": "Spenden auf {0}",
+      "setPartyInspiation": "Inspiration auf {1}",
       "setPartyLocation": "Gruppenort '{0}'",
+      "setPartyMorale": "Moral auf {0}",
       "setPartyName": "Gruppenname '{0}'",
       "setPartyNotes": "Gruppennotizen",
       "setPartyProsperity": "Wohlstand auf {0}",
       "setPartyReputation": "Ansehen auf {0}",
+      "setPartyResource": "Frosthaven Versorung {1} auf {2} setzen",
+      "setPartySoldiers": "Soldaten auf {0}",
+      "setPartyTotalDefense": "Komplette Verteidigung auf {1}",
+      "setPartyTownGuardPerks": "Verbesserungen der Stadtgarde auf {0}",
+      "setPartyWeeks": "Weeks to {0}",
       "setPerk": "Verbesserung {1} auf {2} für {0}",
       "setPQ": "Persönliche Quest {1} für {0}",
       "setResource": "{1} {2} für {0}",
@@ -1096,6 +1141,7 @@
       "setXP": "EP {1} für {0}",
       "shuffleAbilityDeck": "Fertigkeiten mischen für {0}",
       "summonDead": "Töte Beschwörung '{1}' von {0}",
+      "startCampaign": "Neue {0} Kampagne starten",
       "unsetAbsent": "{0} anwesend",
       "unsetActive": "Zug beenden von {0}",
       "unsetAlly": "{0} als Gegner",
@@ -1189,5 +1235,11 @@
     }
   },
   "update": "Update - Neu Laden",
+  "welcome": {
+    ".": "Willkommen zu Gloomhaven Secretariat",
+    "chooseCharacters": "Wählt eure Charaktere aus",
+    "chooseEdition": "Wähle deine Edition um eine neue Kampagne zu starten:",
+    "orChooseCharacters": "oder starte ein freies Spiel indem du direkt deine Charaktere auswählst"
+  },
   "wip": "In Enticklung"
 }
