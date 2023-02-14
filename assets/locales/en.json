@@ -60,6 +60,7 @@
       "drawn": "Order by time drawn",
       "sort": "Order by type"
     },
+    "playerNumber": "Player #",
     "present": "Present",
     "progress": {
       ".": "Character Sheet",
