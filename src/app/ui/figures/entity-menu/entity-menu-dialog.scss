@@ -34,10 +34,18 @@
     }
 
     .character-title {
-      cursor: pointer;
+
+      display: flex;
+      align-items: center;
 
       &.absent {
         text-decoration: line-through;
+      }
+
+      img.absent {
+        margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        cursor: pointer;
+        filter: var(--ghs-filter-white);
       }
     }
 

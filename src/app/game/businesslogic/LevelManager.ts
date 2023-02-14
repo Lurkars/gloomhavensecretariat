@@ -52,9 +52,9 @@ export class LevelManager {
 
   terrain(): number {
     if (settingsManager.settings.alwaysHazardousTerrain || gameManager.fhRules()) {
-      return Math.floor(this.trap() / 2);
+      return 1 + Math.ceil(this.game.level / 3);
     }
-    return 1 + Math.ceil(this.game.level / 3);
+    return Math.floor(this.trap() / 2);
   }
 
   scenarioLevel(): number {

@@ -118,6 +118,7 @@
         margin-left: calc(var(--ghs-unit) * 1);
         height: calc(var(--ghs-unit) * 4);
         width: auto;
+        filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
       }
     }
 

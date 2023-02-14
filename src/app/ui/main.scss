@@ -39,17 +39,24 @@ main {
   align-items: center;
   width: 100%;
   height: 100%;
+  overflow: auto;
 
   img {
     margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
     width: 100%;
     max-width: calc(var(--ghs-unit) * 30 * var(--ghs-text-factor));
+    border-radius: 5px;
+  }
+
+  .ghs-logo {
+    filter: var(--ghs-filter-outline);
   }
 
   h2 {
     color: var(--ghs-color-darkgray);
     margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
     font-size: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
+    text-align: center;
   }
 
   p {
@@ -57,6 +64,7 @@ main {
     font-family: var(--ghs-font-text);
     margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
     font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
+    text-align: center;
   }
 
   .editions {
@@ -69,15 +77,14 @@ main {
 
   .edition,
   .add-characters {
-    color: var(--ghs-color-gray);
+    color: var(--ghs-color-darkgray);
     cursor: pointer;
     font-family: var(--ghs-font-title);
     font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
     margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
-    filter: var(--ghs-filter-outline);
 
     &:hover {
-      opacity: 0.8;
+      opacity: 0.6;
     }
   }
 

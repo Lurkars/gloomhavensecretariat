@@ -221,6 +221,24 @@
     }
   }
 
+  .front .value {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 49.5%;
+    width: 34%;
+    height: 52%;
+    transform: translate(-50%, -50%);
+    font-family: ghs-title;
+    color: var(--ghs-color-white);
+    font-size: 3.5em;
+    z-index: 1;
+    text-shadow: 1px 0px var(--ghs-color-darkgray), 0px 1px var(--ghs-color-darkgray), 1px 0px var(--ghs-color-darkgray), 0px 1px var(--ghs-color-darkgray);
+    filter: drop-shadow(1px 1px 1px var(--ghs-color-darkgray));
+  }
+
   &.bless .front::before {
     display: none;
   }

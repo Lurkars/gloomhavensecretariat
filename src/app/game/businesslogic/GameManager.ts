@@ -195,7 +195,7 @@ export class GameManager {
   }
 
   markers(): string[] {
-    return this.game.figures.filter((figure) => figure instanceof Character && (figure.marker || this.game.state == GameState.next && figure.active)).map((figure) => figure as Character).sort((a, b) => {
+    return this.game.figures.filter((figure) => figure instanceof Character && !figure.absent && (figure.marker || this.game.state == GameState.next && figure.active)).map((figure) => figure as Character).sort((a, b) => {
       if (a.marker && !b.marker) {
         return -1;
       } else if (!a.marker && b.marker) {

@@ -166,6 +166,11 @@ export class MainComponent implements OnInit {
   startCampaign(edition: string) {
     gameManager.stateManager.before("startCampaign", 'data.edition.' + edition);
     gameManager.game.edition = edition;
+    if (edition == 'fh') {
+      settingsManager.setFhStyle(true);
+    } else {
+      settingsManager.setFhStyle(false);
+    }
     gameManager.game.party.campaignMode = true;
     gameManager.stateManager.after();
   }

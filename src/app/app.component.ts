@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   }
 
   applyFhStyle() {
-    if (settingsManager.settings.fhStyle) {
+    if (settingsManager.settings.theme == 'fh') {
       document.body.classList.add('fh');
     } else {
       document.body.classList.remove('fh');

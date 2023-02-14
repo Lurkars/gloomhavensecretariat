@@ -39,7 +39,7 @@ export class ScenarioRulesComponent {
         let type: MonsterType | undefined = monsterStandeeData.type;
 
         if (!type) {
-            const charCount = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length;
+            const charCount = Math.max(2, gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length);
             if (charCount < 3) {
                 type = monsterStandeeData.player2;
             } else if (charCount == 3) {

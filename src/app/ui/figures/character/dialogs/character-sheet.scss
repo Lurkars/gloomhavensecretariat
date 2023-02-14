@@ -74,6 +74,10 @@
           align-self: center;
           cursor: pointer;
         }
+
+        .absent {
+          cursor: pointer;
+        }
       }
     }
 
@@ -459,7 +463,8 @@
       }
 
       .personal-quest,
-      .retirements {
+      .retirements,
+      .player-number {
         margin-top: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
         margin-left: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
         margin-bottom: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
@@ -808,6 +813,12 @@
 
     .notes {
       margin-top: calc(var(--ghs-unit) * 1.2 * var(--ghs-dialog-factor));
+
+      .columns .column.column-right {
+        flex-direction: column;
+
+      }
+
     }
   }
 

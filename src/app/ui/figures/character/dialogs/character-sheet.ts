@@ -255,6 +255,18 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     }
   }
 
+  setPlayerNumber(event: any) {
+    if (!isNaN(+event.target.value) && this.character.number != +event.target.value && (+event.target.value > 0)) {
+      gameManager.stateManager.before("setPlayerNumber", "data.character." + this.character.name, event.target.value);
+      const existing = gameManager.game.figures.find((figure) => figure instanceof Character && figure.number == +event.target.value);
+      if (existing) {
+        (existing as Character).number = this.character.number;
+      }
+      this.character.number = +event.target.value;
+      gameManager.stateManager.after();
+    }
+  }
+
   setBattleGoals(battleGoals: number) {
     if (this.character.progress.battleGoals == battleGoals) {
       battleGoals--;

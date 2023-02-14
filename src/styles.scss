@@ -1048,6 +1048,11 @@ input[type="radio"] {
 }
 
 .fh {
+
+  .active-border {
+    box-shadow: 0px 0px calc(var(--ghs-unit) * 1) calc(var(--ghs-unit) * 0.5) var(--ghs-color-red);
+  }
+
   .element {
     &.consume {
       &::before {

@@ -281,7 +281,7 @@ export class CharacterManager {
       }
 
       if (figure instanceof Character || figure instanceof Objective) {
-        if (!figure.exhausted && figure.health > 0) {
+        if (!figure.exhausted && figure.health > 0 && (!(figure instanceof Character) || !figure.absent)) {
           figure.off = false;
         }
       }

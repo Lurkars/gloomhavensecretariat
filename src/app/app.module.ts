@@ -85,8 +85,6 @@ import { LootDeckStandaloneComponent } from './ui/tools/standalone/loot-deck-sta
 import { AttackModifierStandaloneComponent } from './ui/tools/standalone/attackmodifier-standalone';
 import { LootApplyDialogComponent } from './ui/figures/loot/loot-apply-dialog';
 import { EntitiesMenuDialogComponent } from './ui/figures/entities-menu/entities-menu-dialog';
-
-import 'hammerjs'
 import { CharacterMenuComponent } from './ui/header/menu/character/character';
 import { GhsTooltipComponent, GhsTooltipDirective } from './ui/helper/tooltip/tooltip';
 import { ScenarioDialogComponent } from './ui/footer/scenario/dialog/scenario-dialog';
@@ -96,6 +94,8 @@ import { CharacterLootCardsDialog } from './ui/figures/character/dialogs/loot-ca
 import { PerkLabelComponent } from './ui/figures/attackmodifier/perk/label';
 import { CharacterMoveResourcesDialog } from './ui/figures/character/dialogs/move-resources';
 import { PartyWeekDialogComponent } from './ui/header/party/week-dialog';
+
+import 'hammerjs'
 
 @Injectable()
 export class GhsHammerConfig extends HammerGestureConfig {

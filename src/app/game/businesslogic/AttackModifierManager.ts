@@ -1,9 +1,11 @@
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
-import { AttackModifier, AttackModifierDeck, AttackModifierType, defaultAttackModifier } from "../model/AttackModifier";
+import { AttackModifier, AttackModifierDeck, AttackModifierType, defaultAttackModifier, defaultTownGuardAttackModifier } from "../model/AttackModifier";
 import { Character } from "../model/Character";
+import { CampaignData } from "../model/data/EditionData";
 import { Figure } from "../model/Figure";
 import { Game } from "../model/Game";
 import { Monster } from "../model/Monster";
+import { Party } from "../model/Party";
 import { Perk, PerkCard, PerkType } from "../model/Perks";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
@@ -126,11 +128,11 @@ export class AttackModifierManager {
         }
         if (perk.combined) {
           if (checked == perk.count) {
-            this.addPerkCard(perk, attackModifierDeck);
+            this.addPerkCard(perk, attackModifierDeck, defaultAttackModifier);
           }
         } else {
           for (let check = 0; check < checked; check++) {
-            this.addPerkCard(perk, attackModifierDeck);
+            this.addPerkCard(perk, attackModifierDeck, defaultAttackModifier);
           }
         }
       })
@@ -139,11 +141,58 @@ export class AttackModifierManager {
     return attackModifierDeck;
   }
 
-  addPerkCard(perk: Perk, attackModifierDeck: AttackModifierDeck) {
+  buildTownGuardAttackModifierDeck(party: Party, campaignData: CampaignData): AttackModifierDeck {
+    const defaultTownGuardDeck = defaultTownGuardAttackModifier.map((am) => am.clone());
+    const attackModifierDeck = new AttackModifierDeck(defaultTownGuardDeck);
+
+    let perkId = 0;
+    campaignData.townGuardPerks.forEach((townGuardPerk) => {
+      const perk = townGuardPerk.perk;
+      if (perk.cards) {
+        perk.cards.forEach((card, index) => {
+          if (perk.type == PerkType.add || perk.type == PerkType.replace) {
+            let am = Object.assign(new AttackModifier(card.attackModifier.type), card.attackModifier);
+            am.id = "perk" + perkId;
+            if (!this.findByAttackModifier(defaultTownGuardDeck, am) || perk.type == PerkType.add || index > 0) {
+              am.character = true;
+            }
+            if (!this.findByAttackModifier(attackModifierDeck.attackModifiers, am)) {
+              perkId++;
+              attackModifierDeck.attackModifiers.push(am);
+            }
+          }
+        })
+      }
+    })
+
+    if (party.townGuardPerkSections) {
+      campaignData.townGuardPerks.forEach((townGuardPerk) => {
+        const perk = townGuardPerk.perk;
+        if (!perk) {
+          // error
+          return;
+        }
+        const checked = townGuardPerk.sections.filter((section) => party.townGuardPerkSections.indexOf(section) != -1).length;
+        if (perk.combined) {
+          if (checked == perk.count) {
+            this.addPerkCard(perk, attackModifierDeck, defaultTownGuardDeck);
+          }
+        } else {
+          for (let check = 0; check < checked; check++) {
+            this.addPerkCard(perk, attackModifierDeck, defaultTownGuardDeck);
+          }
+        }
+      })
+    }
+
+    return attackModifierDeck;
+  }
+
+  addPerkCard(perk: Perk, attackModifierDeck: AttackModifierDeck, characterCards: AttackModifier[]) {
     perk.cards = perk.cards || [];
 
     perk.cards.forEach((card, index) => {
-      if (!this.findByAttackModifier(defaultAttackModifier, card.attackModifier) || perk.type == PerkType.add || perk.type == PerkType.replace && index > 0) {
+      if (!this.findByAttackModifier(characterCards, card.attackModifier) || perk.type == PerkType.add || perk.type == PerkType.replace && index > 0) {
         card.attackModifier.character = true;
       }
     })

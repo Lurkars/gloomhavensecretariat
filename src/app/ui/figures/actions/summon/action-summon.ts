@@ -53,7 +53,7 @@ export class ActionSummonComponent implements OnChanges {
       this.summon = this.action.valueObject as SummonData;
     } if (this.action.value == 'monsterStandee') {
       this.monsters = JSON.parse(JSON.stringify(this.action.valueObject)) as MonsterSpawnData[];
-      const charCount = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length;
+      const charCount = Math.max(2, gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length);
       this.monsters = this.monsters.filter((spawn) => {
         if (spawn.monster.type) {
           return true;

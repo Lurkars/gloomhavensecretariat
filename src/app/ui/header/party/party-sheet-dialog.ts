@@ -2,6 +2,7 @@ import { Dialog, DialogRef } from "@angular/cdk/dialog";
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { AttackModifierDeck } from "src/app/game/model/AttackModifier";
 import { Character, GameCharacterModel } from "src/app/game/model/Character";
 import { CampaignData, TownGuardPerk } from "src/app/game/model/data/EditionData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
@@ -10,6 +11,7 @@ import { LootType } from "src/app/game/model/Loot";
 
 import { Party } from "src/app/game/model/Party";
 import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
+import { AttackModiferDeckChange } from "../../figures/attackmodifier/attackmodifierdeck";
 import { ghsInputFullScreenCheck } from "../../helper/Static";
 import { PartyWeekDialogComponent } from "./week-dialog";
 
@@ -36,10 +38,17 @@ export class PartySheetDialogComponent implements OnInit {
 
   LootType = LootType;
 
+  townGuardDeck: AttackModifierDeck | undefined;
+
   @ViewChild('treasureIndex') treasureIndex!: ElementRef;
 
   constructor(private dialogRef: DialogRef, private dialog: Dialog) {
     this.party = gameManager.game.party;
+
+    if (gameManager.game.edition && !this.party.edition) {
+      this.party.edition = gameManager.game.edition;
+    }
+
     this.update();
     gameManager.uiChange.subscribe({
       next: () => {
@@ -153,6 +162,14 @@ export class PartySheetDialogComponent implements OnInit {
     }
 
     return 0;
+  }
+
+  setPlayerNumber(characterModel: GameCharacterModel, event: any) {
+    if (!isNaN(+event.target.value) && characterModel.number != +event.target.value && (+event.target.value > 0)) {
+      gameManager.stateManager.before("setPlayerNumber", "data.character." + characterModel.name, event.target.value);
+      characterModel.number = +event.target.value;
+      gameManager.stateManager.after();
+    }
   }
 
   reactivateCharacter(characterModel: GameCharacterModel) {
@@ -371,6 +388,16 @@ export class PartySheetDialogComponent implements OnInit {
     } else {
       this.priceModifier = Math.floor((this.party.reputation + 2) / 4) * -1;
     }
+
+    const campaign = this.campaignData();
+    if (campaign) {
+      this.townGuardDeck = gameManager.attackModifierManager.buildTownGuardAttackModifierDeck(this.party, campaign);
+      if (this.party.townGuardDeck) {
+        this.townGuardDeck.fromModel(this.party.townGuardDeck);
+      } else {
+        this.party.townGuardDeck = this.townGuardDeck.toModel();
+      }
+    }
   }
 
   characterIcon(name: string): string {
@@ -568,6 +595,16 @@ export class PartySheetDialogComponent implements OnInit {
       return './assets/images/fh/party/campaign-stickers/' + sticker + '.png';
     }
     return undefined;
+  }
+
+  beforeTownGuardDeck(change: AttackModiferDeckChange) {
+    gameManager.stateManager.before("updateAttackModifierDeck." + change.type, "townguard", ...change.values);
+  }
+
+  afterTownGuardDeck(change: AttackModiferDeckChange) {
+    this.townGuardDeck = change.deck;
+    this.party.townGuardDeck = this.townGuardDeck.toModel();
+    gameManager.stateManager.after();
   }
 
 }

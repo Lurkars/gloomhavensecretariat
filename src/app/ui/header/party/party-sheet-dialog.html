@@ -299,6 +299,10 @@
             </div>
           </div>
         </div>
+        <ng-container *ngIf="townGuardDeck">
+          <ghs-attackmodifier-deck class="town-guard-deck" [bottom]="true" [deck]="townGuardDeck"
+            (before)="beforeTownGuardDeck($event)" (after)="afterTownGuardDeck($event)"></ghs-attackmodifier-deck>
+        </ng-container>
       </div>
 
       <span class="toggle-fh-sheet" *ngIf="!campaign" (click)="fhSheet = !fhSheet">
@@ -377,12 +381,12 @@
               </span>
             </div>
             <div class="scenario unlock">
-              <span><input #unlockScenarioIndex [placeholder]="'party.campaign.scenarios.index' | ghsLabel"
-                  (keyup)="unlockScenarioIndex.classList.remove('error'); unlockScenarioGroup.classList.remove('error');"
-                  (keyup.enter)="unlockScenario(unlockScenarioIndex, unlockScenarioGroup, edition)"></span>
-              <span><input #unlockScenarioGroup [placeholder]="'party.campaign.scenarios.group' | ghsLabel"
-                  (keyup)="unlockScenarioIndex.classList.remove('error'); unlockScenarioGroup.classList.remove('error');"
-                  (keyup.enter)="unlockScenario(unlockScenarioIndex, unlockScenarioGroup, edition)"></span>
+              <input #unlockScenarioIndex [placeholder]="'party.campaign.scenarios.index' | ghsLabel"
+                (keyup)="unlockScenarioIndex.classList.remove('error'); unlockScenarioGroup.classList.remove('error');"
+                (keyup.enter)="unlockScenario(unlockScenarioIndex, unlockScenarioGroup, edition)">
+              <input #unlockScenarioGroup [placeholder]="'party.campaign.scenarios.group' | ghsLabel"
+                (keyup)="unlockScenarioIndex.classList.remove('error'); unlockScenarioGroup.classList.remove('error');"
+                (keyup.enter)="unlockScenario(unlockScenarioIndex, unlockScenarioGroup, edition)">
               <a class="addScenario" [title]="'party.campaign.scenarios.unlock' | ghsLabel"
                 (click)="unlockScenario(unlockScenarioIndex, unlockScenarioGroup, edition)">{{'party.campaign.scenarios.unlock'
                 | ghsLabel}}&nbsp;<img src="./assets/images/plus.svg"></a>
@@ -390,8 +394,8 @@
           </ng-container>
         </div>
 
-        <div class="row columns">
-          <div class="achievements">
+        <div class="row">
+          <div class="achievements" *ngIf="!fhSheet">
             <label>{{'party.campaign.achievements' | ghsLabel}}:</label>
             <textarea type="text" [value]="party.globalAchievements" (change)="setGlobalAchievements($event)"
               placeholder="{{'party.campaign.achievements' | ghsLabel}}"></textarea>
@@ -464,7 +468,10 @@
               <span></span>
             </div>
             <div class="character" *ngFor="let characterModel of party.retirements">
-              <span>{{characterModel.number}}</span>
+              <span>
+                <input [value]="characterModel.number" type="number" min="1"
+                  (change)="setPlayerNumber(characterModel,$event)" (keyup)="setPlayerNumber(characterModel,$event)">
+              </span>
               <span>{{characterModel.title}}</span>
               <span>{{'data.character.' + characterModel.name | ghsLabel}}</span>
               <span>{{characterModel.level}}</span>

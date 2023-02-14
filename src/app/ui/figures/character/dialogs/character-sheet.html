@@ -13,7 +13,7 @@
                 character.characterClass ? 'character.class.' + (character.gender ? character.gender + '.' : '') +
                 character.characterClass : '']}}
               </div>
-              <img *ngIf="character.absent" src="./assets/images/status/exhausted.svg">
+              <img class="absent" [src]="'./assets/images/status/' + (character.absent ? 'absent': 'present') + '.svg'" [title]="(character.absent ? 'character.present' : 'character.absent') | ghsLabel">
             </label>
           </div>
           <div class="row base">
@@ -274,15 +274,20 @@
           <div class="column column-right">
             <div class="personal-quest">
               <label>{{'character.progress.personalQuest' | ghsLabel}}:</label>
-              <input [value]="character.progress.personalQuest" type="number" min="0"
-                (change)="setPersonalQuest($event)">
               <span class="retired checkbox check" [ngClass]="{'checked' : retired}" (click)="retired = !retired"
                 title="{{'character.progress.retired' | ghsLabel}}"></span>
+              <input [value]="character.progress.personalQuest" type="number" min="0"
+                (change)="setPersonalQuest($event)">
             </div>
             <div class="retirements">
               <label>{{'character.progress.retirements' | ghsLabel}}:</label>
               <input [value]="character.progress.retirements" type="number" min="0" (change)="setRetirements($event)"
                 (keyup)="setRetirements($event)">
+            </div>
+            <div class="player-number">
+              <label>{{'character.playerNumber' | ghsLabel}}:</label>
+              <input [value]="character.number" type="number" min="1" (change)="setPlayerNumber($event)"
+                (keyup)="setPlayerNumber($event)">
             </div>
             <div class="import-export">
               <label class="export" (click)="exportCharacter()" title="{{'character.progress.export' | ghsLabel}}">

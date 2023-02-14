@@ -35,10 +35,7 @@ export function EntityValueFunction(value: string | number, L: number | undefine
   }
 
 
-  let C = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length;
-  if (C < 1) {
-    C = 1;
-  }
+  let C = Math.max(2, gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length);
   if (L == undefined) {
     L = gameManager.game.level;
   }

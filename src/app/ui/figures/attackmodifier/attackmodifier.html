@@ -9,7 +9,7 @@
         <img [src]="'./assets/images/attackmodifier/' + (defaultType ? attackModifier.type : 'am-front') + '.png'" />
       </div>
       <img class="overlay" [ngClass]="{'side' : newStyle}"
-        *ngIf="attackModifier.effects && attackModifier.effects.length > 0 && (attackModifier.type != AttackModifierType.plus0 || newStyle)"
+        *ngIf="attackModifier.effects && attackModifier.effects.length > 0 && (attackModifier.type != AttackModifierType.plus0 && attackModifier.type != AttackModifierType.plus && attackModifier.type != AttackModifierType.minus || newStyle)"
         [src]="'./assets/images/attackmodifier/' + (newStyle ? 'icons/' : 'overlays/') + attackModifier.type + '.png'" />
       <img class="rolling" *ngIf="attackModifier.rolling" src="./assets/images/attackmodifier/rolling.svg" />
       <span *ngIf="(!characterIcon || !attackModifier.character && attackModifier.type !=
@@ -19,6 +19,8 @@
         AttackModifierType.curse" class="numeration character-curse-icon">
         *
       </span>
+      <span class="value" *ngIf="attackModifier.type == AttackModifierType.plus">+{{attackModifier.value}}</span>
+      <span class="value" *ngIf="attackModifier.type == AttackModifierType.minus">-{{attackModifier.value}}</span>
       <span *ngIf="characterIcon && attackModifier.character" class="character-icon">
         <img [src]="characterIcon" />
       </span>

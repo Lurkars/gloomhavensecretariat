@@ -1,5 +1,5 @@
 <div class="entity-border"
-  [ngClass]="{'dead' : entity.dead, 'off' : entity.off, 'active' : entity.active && settingsManager.settings.activeStandees, 'active-focus': entity.active && settingsManager.settings.activeStandees && !monster.active, 'denied' : !gameManager.stateManager.hasMonsterPermission(monster)}"
+  [ngClass]="{'dead' : entity.dead, 'off' : entity.off, 'active' : entity.active && settingsManager.settings.activeStandees, 'active-focus': entity.active && settingsManager.settings.activeStandees && !monster.active, 'denied' : !gameManager.stateManager.hasMonsterPermission(monster), 'fh': settingsManager.settings.theme == 'fh'}"
   [entityAnimation]="entity.dead">
   <div class="entity" [ngClass]="entity.type">
     <div #standee class="standee">
@@ -32,7 +32,8 @@
       <span class="condition"
         *ngFor="let entityCondition of gameManager.entityManager.activeConditions(entity); let index = index;"
         [ngClass]="{'center' : entity.summon == SummonState.false && ((gameManager.entityManager.activeConditions(entity)).length % 2) == 1 && (gameManager.entityManager.activeConditions(entity)).length == index + 1}">
-        <img *ngIf="!entityCondition.expired" [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
+        <img *ngIf="!entityCondition.expired"
+          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
         <span class="value"
           *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
       </span>

@@ -1,3 +1,4 @@
+import { GameAttackModifierDeckModel } from "./AttackModifier";
 import { GameCharacterModel } from "./Character";
 import { Identifier } from "./Identifier";
 import { LootType } from "./Loot";
@@ -32,5 +33,6 @@ export class Party {
   townGuardPerks: number = 0;
   townGuardPerkSections: string[] = [];
   campaignStickers: string[] = [];
+  townGuardDeck: GameAttackModifierDeckModel | undefined;
 
 }

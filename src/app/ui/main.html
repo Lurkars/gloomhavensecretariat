@@ -1,15 +1,15 @@
 <ghs-header #header></ghs-header>
 <main [ngClass]="{'compact' : footer.compact}">
-  <div *ngIf="!fullviewChar && welcome" class="welcome" [ngClass]="{'fh': settingsManager.settings.fhStyle}">
+  <div *ngIf="!fullviewChar && welcome" class="welcome" [ngClass]="{'fh': settingsManager.settings.theme == 'fh'}">
 
-    <img src="./assets/images/logo-transparent.svg">
+    <img class="ghs-logo" src="./assets/images/logo-transparent.svg">
 
     <h2>{{'welcome' | ghsLabel}}</h2>
     <div class="choose-edition" *ngIf="!gameManager.game.edition">
       <p>{{'welcome.chooseEdition' | ghsLabel}}</p>
       <div class="editions">
         <div class="edition" *ngFor="let edition of gameManager.editions()" (click)="startCampaign(edition)">
-          {{'data.edition.' + edition | ghsLabel}}
+          <img [src]="'./assets/images/logos/' + edition + '.png'" [title]="'data.edition.' + edition | ghsLabel">
         </div>
       </div>
     </div>
