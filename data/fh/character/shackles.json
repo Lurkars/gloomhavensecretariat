@@ -280,7 +280,7 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "Each round in which you long rest, you may ignore all negative conditions you haven.<br>If you do, they cannot be removed that round"
+      "custom": "Each round in which you long rest, you may ignore all negative conditions you have.<br>If you do, they cannot be removed that round"
     },
     {
       "type": "custom",
