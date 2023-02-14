@@ -139,7 +139,7 @@
           }
         },
         {
-          "count": 1,
+          "count": 2,
           "attackModifier": {
             "type": "plus2",
             "effects": [
