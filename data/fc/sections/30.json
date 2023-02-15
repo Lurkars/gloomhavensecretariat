@@ -1,0 +1,56 @@
+{
+  "index": "30",
+  "name": "Seal of Attraction",
+  "edition": "fc",
+  "parent": "113",
+  "monsters": [
+    "deep-terror",
+    "living-bones"
+  ],
+  "objectives": [
+    {
+      "name": "Seal",
+      "health": "5xC",
+      "marker": "a"
+    }
+  ],
+  "rooms": [
+    {
+      "inital": true,
+      "roomNumber": 2,
+      "ref": "l2a",
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player4": "normal"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

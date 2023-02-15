@@ -1,0 +1,55 @@
+{
+  "index": "11",
+  "name": "Snowscorn Peak",
+  "edition": "fh",
+  "unlocks": [
+    "19"
+  ],
+  "monsters": [
+    "algox-stormcaller",
+    "frost-demon",
+    "wind-demon"
+  ],
+  "lootDeckConfig": {
+    "money": 6,
+    "lumber": 4,
+    "metal": 3,
+    "hide": 3,
+    "flamefruit": 1,
+    "axenut": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "15-A",
+      "initial": true,
+      "treasures": [
+        71
+      ],
+      "monster": [
+        {
+          "name": "algox-stormcaller",
+          "type": "boss"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

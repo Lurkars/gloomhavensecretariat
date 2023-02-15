@@ -89,12 +89,22 @@ export class LootManager {
   apply(deck: LootDeck, config: LootDeckConfig = {}) {
     deck.cards = [];
     Object.values(LootType).forEach((type) => {
-      if (config[type]) {
-        let availableTypes = ghsShuffleArray(this.fullLootDeck().filter((loot) => loot.type == type));
-        const count = Math.min(Math.max(config[type] || 0), availableTypes.length);
+      let availableTypes: Loot[] = ghsShuffleArray(this.fullLootDeck().filter((loot) => loot.type == type)) as Loot[];
+      const count = Math.min(Math.max(config[type] || 0), availableTypes.length);
+      if (type != LootType.special1 && type != LootType.special2) {
         for (let i = 0; i < count; i++) {
-          deck.cards.push(availableTypes[i]);
+          const loot: Loot = availableTypes[i];
+          deck.cards.push(loot);
         }
+      } else if (count > 0) {
+        const loot: Loot = availableTypes[0];
+        deck.cards.push(loot);
+        if (this.game.lootDeckFixed.indexOf(loot.type) == -1) {
+          this.game.lootDeckFixed.push(loot.type);
+        }
+      } else {
+        this.game.lootDeckFixed = this.game.lootDeckFixed.filter((lootType) => lootType != type);
+        deck.cards = deck.cards.filter((loot) => loot.type != type);
       }
     })
     this.shuffleDeck(deck);

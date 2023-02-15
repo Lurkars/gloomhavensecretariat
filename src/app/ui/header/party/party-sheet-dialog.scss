@@ -564,7 +564,6 @@
 
             .resource {
               display: flex;
-              margin-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
               margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
               margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 
@@ -576,7 +575,7 @@
               input {
                 margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
                 font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-                height: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+                height: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
                 min-width: 0;
                 flex-grow: 1;
               }
@@ -586,15 +585,8 @@
               display: grid;
               grid-template-columns: 1fr 1fr 1fr;
 
-              .resource {
-                flex-direction: column;
-
-                input {
-                  margin-left: 0;
-                }
-              }
-
-              padding-bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+              padding-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+              padding-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
             }
 
             .herbs {
@@ -1304,6 +1296,7 @@
               text-align: center;
               border: none;
               outline: none;
+              min-width: 0;
             }
 
             &.seperator {

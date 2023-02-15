@@ -1,0 +1,36 @@
+{
+  "index": "27.2",
+  "name": "Derelict Elevator",
+  "edition": "fh",
+  "parent": "16",
+  "parentSections": [
+    "90.3"
+  ],
+  "rules": [
+    {
+      "round": "R == 7",
+      "start": true,
+      "sections": [
+        "44.2"
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "01-D",
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

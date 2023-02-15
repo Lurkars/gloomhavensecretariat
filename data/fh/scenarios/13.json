@@ -1,0 +1,71 @@
+{
+  "index": "13",
+  "name": "Frozen Fjord",
+  "edition": "fh",
+  "unlocks": [
+    "21",
+    "32"
+  ],
+  "monsters": [
+    "shrike-fiend",
+    "snow-imp",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Scenario",
+      "escort": true,
+      "health": "(2+L)xCx2"
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 7,
+    "lumber": 5,
+    "hide": 3,
+    "flamefruit": 1,
+    "snowthistle": 1,
+    "arrowvine": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "07-B",
+      "initial": true,
+      "monster": [
+        {
+          "name": "shrike-fiend",
+          "player2": "elite"
+        },
+        {
+          "name": "shrike-fiend",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "shrike-fiend",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "01-C",
+      "initial": true,
+      "monster": [
+        {
+          "name": "shrike-fiend",
+          "type": "elite"
+        },
+        {
+          "name": "shrike-fiend",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

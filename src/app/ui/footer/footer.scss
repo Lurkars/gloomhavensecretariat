@@ -132,12 +132,18 @@ footer {
     }
 
     .round {
+      display: flex;
+      align-items: center;
       color: var(--ghs-color-gray);
       text-shadow: var(--ghs-outline);
       position: absolute;
-      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor) * var(--ghs-barsize));
-      left: calc(var(--ghs-unit) * 11.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      left: calc(var(--ghs-unit) * 12 * var(--ghs-text-factor) * var(--ghs-barsize));
       bottom: 0;
+
+      .total-rounds {
+        font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+      }
     }
 
     &:hover {

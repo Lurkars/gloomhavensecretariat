@@ -1,0 +1,48 @@
+{
+  "index": "39.1",
+  "name": "Derelict Elevator",
+  "edition": "fh",
+  "parent": "16",
+  "parentSections": [
+    "15.3"
+  ],
+  "monsters": [
+    "ancient-artillery",
+    "flaming-bladespinner",
+    "ruined-machine"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "once": true,
+      "always": true,
+      "note": "Place one debris in each %game.mapMarker.d%. Any figure occupying %game.mapMarker.d% suffers trap damage and is placed in the closest empty hex."
+    },
+    {
+      "round": "true",
+      "once": true,
+      "always": true,
+      "note": "Any figure occupying %game.mapMarker.e% or %game.mapMarker.f% suffers trap damage and is placed in the closest empty hex.",
+      "spawns": [
+        {
+          "monster": {
+            "name": "flaming-bladespinner",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "e"
+        },
+        {
+          "monster": {
+            "name": "flaming-bladespinner",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "f"
+        }
+      ]
+    }
+  ]
+}

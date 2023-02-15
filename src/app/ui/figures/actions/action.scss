@@ -251,6 +251,10 @@
         height: auto;
         margin: 0;
         filter: var(--ghs-filter-shadow-thin);
+
+        &.warning {
+          filter: var(--ghs-filter-yellow) var(--ghs-filter-shadow-thin);
+        }
       }
 
       .value {

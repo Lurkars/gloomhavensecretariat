@@ -1,0 +1,35 @@
+{
+  "index": "15.3",
+  "name": "Derelict Elevator",
+  "edition": "fh",
+  "parent": "16",
+  "parentSections": [
+    "44.2"
+  ],
+  "monsters": [
+    "ancient-artillery",
+    "flaming-bladespinner",
+    "ruined-machine"
+  ],
+  "rules": [
+    {
+      "round": "R == 12",
+      "start": true,
+      "sections": [
+        "39.1"
+      ]
+    },
+    {
+      "round": "true",
+      "once": true,
+      "always": true,
+      "note": "Pebbles rain down at %game.mapMarker.d%,%game.mapMarker.e% and %game.mapMarker.f%. This has no effect"
+    },
+    {
+      "round": "true",
+      "once": true,
+      "always": true,
+      "note": "Place one debris in each %game.mapMarker.c%. Any figure occupying %game.mapMarker.c% suffers trap damage and is placed in the closest empty hex."
+    }
+  ]
+}

@@ -166,11 +166,18 @@ export class FooterComponent implements OnInit {
   }
 
   round(): number {
-    const offset = gameManager.game.round > 0 && gameManager.game.state == GameState.draw ? 1 : 0;
-    if (gameManager.game.roundResets.length == 0) {
+    const offset = (gameManager.game.round > 0 || gameManager.game.roundResets.length > 0 || gameManager.game.roundResetsHidden.length > 0) && gameManager.game.state == GameState.draw ? 1 : 0;
+    if (gameManager.game.roundResetsHidden.length == 0) {
       return gameManager.game.round + offset;
     }
-    return gameManager.game.round + offset + gameManager.game.roundResets.reduce((a, b) => (a ? a - 1 : 0) + (b ? b - 1 : 0));
+    return gameManager.game.round + offset + gameManager.game.roundResetsHidden.reduce((a, b) => (a ? a - 1 : 0) + (b ? b - 1 : 0));
+  }
+
+  totalRounds() {
+    if (gameManager.game.roundResets.length == 0) {
+      return 0;
+    }
+    return gameManager.game.roundResets.reduce((a, b) => (a ? a - 1 : 0) + (b ? b : 0)) + this.round() - 1;
   }
 
   missingInitiative(): boolean {

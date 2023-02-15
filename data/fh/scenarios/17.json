@@ -1,0 +1,45 @@
+{
+  "index": "17",
+  "name": "Haunted Vault",
+  "edition": "fh",
+  "unlocks": [
+    "27"
+  ],
+  "monsters": [
+    "ice-wraith",
+    "living-doom",
+    "living-spirit"
+  ],
+  "objectives": [
+    {
+      "name": "Spectral Helper",
+      "escort": true,
+      "health": 0,
+      "initiative": 50,
+      "count": "4-C",
+      "actions": [
+        {
+          "type": "move",
+          "value": 4
+        }
+      ]
+    }
+  ],
+  "lootDeckConfig": {
+    "money": 10,
+    "lumber": 5,
+    "metal": 2,
+    "corpsecap": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "09-B",
+      "initial": true,
+      "objectives": [
+        "1:4-C"
+      ]
+    }
+  ]
+}

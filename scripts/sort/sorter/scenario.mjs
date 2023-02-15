@@ -23,5 +23,5 @@ export const sortScenario = function (scenario) {
         })
     }
 
-    return sortObjectKeys(scenario, 'index', 'group', 'name', 'edition', 'parent', 'parentSections', 'blockedSections', 'spoiler', 'initial', 'solo', 'allyDeck', 'resetRound', 'unlocks', 'requires', 'blocks', 'links', 'monsters', 'allies', 'drawExtra', 'objectives', 'lootDeckConfig', 'rules', 'rooms');
+    return sortObjectKeys(scenario, 'index', 'group', 'name', 'edition', 'parent', 'parentSections', 'blockedSections', 'marker', 'spoiler', 'initial', 'solo', 'allyDeck', 'resetRound', 'unlocks', 'requires', 'blocks', 'links', 'monsters', 'allies', 'drawExtra', 'objectives', 'lootDeckConfig', 'rules', 'rooms');
 }

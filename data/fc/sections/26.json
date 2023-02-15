@@ -1,0 +1,45 @@
+{
+  "index": "26",
+  "name": "Secret Library",
+  "edition": "fc",
+  "parent": "100",
+  "parentSections": [
+    "110"
+  ],
+  "marker": "2",
+  "monsters": [
+    "ancient-artillery"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "c2b",
+      "initial": true,
+      "treasures": [
+        "G"
+      ],
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "type": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player4": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player4": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "playe3": "normal"
+        }
+      ]
+    }
+  ]
+}

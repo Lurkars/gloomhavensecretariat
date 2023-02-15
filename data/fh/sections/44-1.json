@@ -1,0 +1,50 @@
+{
+  "index": "44.1",
+  "name": "Frozen Fjord",
+  "edition": "fh",
+  "parent": "13",
+  "marker": "1",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "06-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "shrike-fiend",
+          "type": "elite"
+        },
+        {
+          "name": "shrike-fiend",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "02-E",
+      "initial": true,
+      "treasures": [
+        49
+      ],
+      "monster": [
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

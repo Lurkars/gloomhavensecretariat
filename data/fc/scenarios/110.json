@@ -13,15 +13,25 @@
     "the-steel-lion",
     "uyart-ikkuma"
   ],
+  "rules": [
+    {
+      "round": "R == 4",
+      "sections": [
+        "129"
+      ]
+    },
+    {
+      "round": "R == 8",
+      "sections": [
+        "134"
+      ]
+    }
+  ],
   "rooms": [
     {
       "roomNumber": 1,
       "ref": "c1a",
       "initial": true,
-      "rooms": [
-        2,
-        3
-      ],
       "treasures": [
         84
       ],
@@ -41,64 +51,6 @@
         {
           "name": "uyart-ikkuma",
           "type": "boss"
-        }
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "b3b",
-      "monster": [
-        {
-          "name": "ooze",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "ooze",
-          "player2": "normal",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "ooze",
-          "player2": "elite",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "ooze",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "ooze",
-          "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 3,
-      "ref": "b2b",
-      "monster": [
-        {
-          "name": "lurker",
-          "player2": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "lurker",
-          "player2": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "lurker",
-          "player3": "normal"
-        },
-        {
-          "name": "lurker",
-          "player3": "elite",
-          "player4": "elite"
         }
       ]
     }

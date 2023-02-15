@@ -2,6 +2,7 @@
 
   <div class="name">
     <ng-container *ngIf="data.entity && gameManager.isCharacter(data.figure) && gameManager.isCharacter(data.entity)">
+      <span class="spacer"></span>
       <img (click)="toggleCharacterMarker()" class="icon character-icon"
         [src]="gameManager.characterManager.characterIcon(gameManager.toCharacter(data.figure))" />
       <span class="character-title" [ngClass]="{'absent' : gameManager.toCharacter(data.figure).absent}"
@@ -10,11 +11,12 @@
         ghsLabel)}}
         <span *ngIf="gameManager.toCharacter(data.figure).title">&nbsp;({{('data.character.' + data.figure.name |
           ghsLabel)}})</span>
-        <img class="absent"
-          [src]="'./assets/images/status/' + (gameManager.toCharacter(data.figure).absent ? 'absent': 'present') + '.svg'"
-          [title]="(gameManager.toCharacter(data.figure).absent ? 'character.present' : 'character.absent') | ghsLabel"
-          (click)="toggleCharacterAbsent()">
       </span>
+      <span class="spacer"></span>
+      <img class="absent"
+        [src]="'./assets/images/status/' + (gameManager.toCharacter(data.figure).absent ? 'absent': 'present') + '.svg'"
+        [title]="(gameManager.toCharacter(data.figure).absent ? 'character.present' : 'character.absent') | ghsLabel"
+        (click)="toggleCharacterAbsent()">
     </ng-container>
     <ng-container *ngIf="data.entity && gameManager.isObjective(data.entity)">
       <img class="icon"

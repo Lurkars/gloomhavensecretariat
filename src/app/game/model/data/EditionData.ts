@@ -56,6 +56,8 @@ export class CampaignData {
   highMorale: string = "";
   lowMorale: string = "";
   townGuardPerks: TownGuardPerk[] = [];
+  lootSpecial1Sections: string[] = [];
+  lootSpecial2Sections: string[] = [];
   weeks: Partial<Record<number, string[]>> = {};
 
 }

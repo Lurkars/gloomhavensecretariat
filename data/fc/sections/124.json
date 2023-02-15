@@ -77,7 +77,7 @@
             "tag": "spawn-fc-124"
           },
           "type": "damage",
-          "value": "50%"
+          "value": "HP/2"
         }
       ]
     }

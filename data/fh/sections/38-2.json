@@ -1,0 +1,45 @@
+{
+  "index": "38.2",
+  "name": "Frozen Fjord",
+  "edition": "fh",
+  "parent": "13",
+  "parentSections": [
+    "44.1"
+  ],
+  "marker": "2",
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "07-D",
+      "initial": true,
+      "monster": [
+        {
+          "name": "shrike-fiend",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "type": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "snow-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "snow-imp",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

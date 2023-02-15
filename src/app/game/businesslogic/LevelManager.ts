@@ -34,27 +34,39 @@ export class LevelManager {
     return level;
   }
 
-  trap(): number {
-    return 2 + this.game.level;
+  trap(level: number = -1): number {
+    if (level < 0 || level > 7) {
+      level = this.game.level;
+    }
+    return 2 + level;
   }
 
-  experience(): number {
-    return 4 + this.adjustedLevel() * 2;
+  experience(level: number = -1): number {
+    if (level < 0 || level > 7) {
+      level = this.adjustedLevel();
+    }
+    return 4 + level * 2;
   }
 
-  loot(): number {
-    let loot = 2 + Math.floor(this.adjustedLevel() / 2);
-    if (this.adjustedLevel() >= 7) {
+  loot(level: number = -1): number {
+    if (level < 0 || level > 7) {
+      level = this.adjustedLevel();
+    }
+    let loot = 2 + Math.floor(level / 2);
+    if (level >= 7) {
       loot = 6;
     }
     return loot;
   }
 
-  terrain(): number {
+  terrain(level: number = -1): number {
     if (settingsManager.settings.alwaysHazardousTerrain || gameManager.fhRules()) {
-      return 1 + Math.ceil(this.game.level / 3);
+      if (level < 0 || level > 7) {
+        level = this.game.level;
+      }
+      return 1 + Math.ceil(level / 3);
     }
-    return Math.floor(this.trap() / 2);
+    return Math.floor(this.trap(level) / 2);
   }
 
   scenarioLevel(): number {

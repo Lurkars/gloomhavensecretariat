@@ -1,0 +1,55 @@
+{
+  "index": "129",
+  "name": "Fighting Dirty",
+  "edition": "fc",
+  "parent": "110",
+  "marker": "1",
+  "monsters": [
+    "ooze"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "once": true,
+      "start": true,
+      "always": true,
+      "note": "All Oozes are enemies to you and all other monster types."
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "ref": "b3b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

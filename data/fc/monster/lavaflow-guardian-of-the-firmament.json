@@ -3,11 +3,16 @@
   "thumbnail": "gh-savvas-lavaflow",
   "edition": "fc",
   "deck": "savvas-lavaflow",
-  "boss": true,
   "hidden": true,
   "count": 4,
   "baseStat": {
-    "type": "boss",
+    "type": "normal",
+    "actions": [
+      {
+        "type": "custom",
+        "value": "%game.custom.advantage%"
+      }
+    ],
     "immunities": [
       "stun"
     ]
@@ -15,17 +20,143 @@
   "stats": [
     {
       "level": 0,
-      "health": 13,
+      "health": 8,
+      "movement": 3,
+      "attack": 2
+    },
+    {
+      "level": 1,
+      "health": 9,
+      "movement": 3,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "health": 11,
       "movement": 3,
       "attack": 3,
       "actions": [
         {
           "type": "custom",
           "value": "%game.custom.advantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
         }
       ]
     },
     {
+      "level": 3,
+      "health": 14,
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 4,
+      "health": 16,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "health": 18,
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 6,
+      "health": 20,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "health": 24,
+      "movement": 4,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "custom",
+          "value": "%game.custom.advantage%"
+        },
+        {
+          "type": "condition",
+          "value": "poison"
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": 13,
+      "movement": 3,
+      "attack": 3
+    },
+    {
+      "type": "elite",
       "level": 1,
       "health": 15,
       "movement": 3,
@@ -42,6 +173,7 @@
       ]
     },
     {
+      "type": "elite",
       "level": 2,
       "health": 18,
       "movement": 3,
@@ -62,6 +194,7 @@
       ]
     },
     {
+      "type": "elite",
       "level": 3,
       "health": 21,
       "movement": 3,
@@ -82,6 +215,7 @@
       ]
     },
     {
+      "type": "elite",
       "level": 4,
       "health": 24,
       "movement": 4,
@@ -102,6 +236,7 @@
       ]
     },
     {
+      "type": "elite",
       "level": 5,
       "health": 27,
       "movement": 4,
@@ -122,6 +257,7 @@
       ]
     },
     {
+      "type": "elite",
       "level": 6,
       "health": 30,
       "movement": 4,
@@ -142,6 +278,7 @@
       ]
     },
     {
+      "type": "elite",
       "level": 7,
       "health": 35,
       "movement": 4,

@@ -11,6 +11,7 @@ changedFiles.push(...sortCharacterFiles(dataDirectory));
 changedFiles.push(...sortDeckFiles(dataDirectory));
 changedFiles.push(...sortMonsterFiles(dataDirectory));
 changedFiles.push(...sortScenarioFiles(dataDirectory));
+changedFiles.push(...sortScenarioFiles(dataDirectory, true));
 
 changedFiles.forEach((changedFile) => {
     console.log("Automatically format file: " + changedFile);

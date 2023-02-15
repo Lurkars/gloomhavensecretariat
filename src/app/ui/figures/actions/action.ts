@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Action, ActionType, ActionTypesIcons, ActionValueType } from 'src/app/game/model/Action';
+import { Condition, ConditionName, ConditionType } from 'src/app/game/model/Condition';
 import { ElementState } from 'src/app/game/model/Element';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Monster } from 'src/app/game/model/Monster';
@@ -202,6 +203,10 @@ export class ActionComponent implements OnInit {
     }
   }
 
+  getConditionName(name: string): string {
+    return new Condition(name).name;
+  }
+
   updateSubActions(): void {
     if (!this.action) {
       return;
@@ -233,7 +238,7 @@ export class ActionComponent implements OnInit {
             const newStatAction = new Action(statAction.type, statAction.value, statAction.valueType, statAction.subActions);
             if (this.action && !this.subActionExists(this.action.subActions, newStatAction) && !this.subActionExists(newSubActions, newStatAction)) {
               if (statAction.type != ActionType.area || this.action.subActions.every((subAction) => subAction.type != ActionType.area)) {
-                if (!eliteStat || eliteStat.actions && this.subActionExists(eliteStat.actions, newStatAction) || (settingsManager.settings.hideStats && this.monster && !this.monster.entities.some((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && monsterEntity.type == MonsterType.elite))) {
+                if (!eliteStat || eliteStat.actions && this.subActionExists(eliteStat.actions, newStatAction, false) || (settingsManager.settings.hideStats && this.monster && !this.monster.entities.some((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && monsterEntity.type == MonsterType.elite))) {
                   newStatAction.small = true;
                   newSubActions.push(newStatAction);
                 } else if (eliteStat && (!eliteStat.actions || !this.subActionExists(eliteStat.actions, newStatAction))) {
@@ -253,7 +258,7 @@ export class ActionComponent implements OnInit {
           let eliteActions: Action | undefined = undefined;
           eliteStat.actions.filter((eliteAction) => this.additionAttackSubActionTypes.indexOf(eliteAction.type) != -1).forEach((eliteAction) => {
             const newEliteAction = new Action(eliteAction.type, eliteAction.value, eliteAction.valueType, eliteAction.subActions);
-            if (this.action && (!stat.actions || !this.subActionExists(stat.actions, newEliteAction))) {
+            if (this.action && (!stat.actions || !this.subActionExists(stat.actions, newEliteAction, false))) {
               if (!eliteActions && !this.subActionExists(this.action.subActions, newEliteAction) && !this.subActionExists(newSubActions, newEliteAction)) {
                 eliteActions = new Action(ActionType.monsterType, MonsterType.elite, ActionValueType.fixed, [newEliteAction]);
                 newSubActions.push(eliteActions);
@@ -343,7 +348,11 @@ export class ActionComponent implements OnInit {
 
   }
 
-  subActionExists(additionalSubActions: Action[], subAction: Action): boolean {
+  subActionExists(additionalSubActions: Action[], subAction: Action, stackableCondition: boolean = true): boolean {
+    if (stackableCondition && subAction.type == ActionType.condition && (new Condition(subAction.value + '').types.indexOf(ConditionType.stack) != -1)) {
+      return false;
+    }
+
     return additionalSubActions.some((action) => action.type == subAction.type && action.value == subAction.value && (action.valueType || ActionValueType.fixed) == (subAction.valueType || ActionValueType.fixed));
   }
 

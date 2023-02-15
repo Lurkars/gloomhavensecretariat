@@ -59,5 +59,29 @@
     "monsters": [
       "steel-construct"
     ]
+  },
+  {
+    "index": "29",
+    "name": "Serene Path",
+    "edition": "fc",
+    "monsters": [
+      "valrath-savage"
+    ]
+  },
+  {
+    "index": "73",
+    "name": "Reflecting Road",
+    "edition": "fc",
+    "monsters": [
+      "valrath-savage"
+    ]
+  },
+  {
+    "index": "90",
+    "name": "Misty Glade",
+    "edition": "fc",
+    "monsters": [
+      "valrath-savage"
+    ]
   }
 ]

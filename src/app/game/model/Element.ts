@@ -26,4 +26,4 @@ export class ElementModel {
 
 }
 
-export const defeaultElementBoard: ElementModel[] = [ new ElementModel(Element.fire), new ElementModel(Element.ice), new ElementModel(Element.air), new ElementModel(Element.earth), new ElementModel(Element.light), new ElementModel(Element.dark) ]; 
+export const defaultElementBoard: ElementModel[] = [ new ElementModel(Element.fire), new ElementModel(Element.ice), new ElementModel(Element.air), new ElementModel(Element.earth), new ElementModel(Element.light), new ElementModel(Element.dark) ]; 

@@ -3,7 +3,7 @@
   "name": "Flooded Catacombs",
   "edition": "fc",
   "parent": "101",
-  "resetRound": true,
+  "resetRound": "hidden",
   "monsters": [
     "living-bones",
     "living-corpse"

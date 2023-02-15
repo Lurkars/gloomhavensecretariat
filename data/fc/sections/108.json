@@ -1,0 +1,54 @@
+{
+  "index": "108",
+  "name": "Seal of Distortion",
+  "edition": "fc",
+  "parent": "113",
+  "monsters": [
+    "deep-terror",
+    "living-bones"
+  ],
+  "objectives": [
+    {
+      "name": "Seal",
+      "health": "5xC",
+      "marker": "a"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "ref": "l3b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player4": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player4": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

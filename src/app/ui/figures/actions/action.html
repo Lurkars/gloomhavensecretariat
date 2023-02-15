@@ -6,11 +6,13 @@
 
   <span class="action-condition" *ngSwitchCase="ActionType.condition" [ngClass]="{'small' : action.small}">
     <span class="condition">
-      <span class="condition-value">{{('game.condition.' + getValues(action)[0]) |
+      <span class="condition-value">{{('game.condition.' + getConditionName(getValues(action)[0]))|
         ghsLabel:(getValues(action).length > 1 ? [getValues(action)[1]] : [])}}</span>
       <span class="condition-image">
-        <img class="icon"
-          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + getValues(action)[0] + '.svg'" />
+        <img class="icon" *ngIf="getConditionName(getValues(action)[0]) != 'invalid'"
+          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + getConditionName(getValues(action)[0]) + '.svg'" />
+        <img class="icon warning" *ngIf="getConditionName(getValues(action)[0]) == 'invalid'"
+          src="./assets/images/warning.svg" />
         <span *ngIf="getValues(action).length > 1" class="value">{{getValues(action)[1]}}</span>
       </span>
     </span>
@@ -194,7 +196,8 @@
   </span>
 
   <span class="action-default" *ngSwitchCase="ActionType.grid">
-    <span class="action-grid" [style.--ghs-grid-columns]="action.value || 2" [ngClass]="{'small' : action.small}" *ngIf="(action.subActions | slice:(hasAOE ? 1 : 0)).length > 0">
+    <span class="action-grid" [style.--ghs-grid-columns]="action.value || 2" [ngClass]="{'small' : action.small}"
+      *ngIf="(action.subActions | slice:(hasAOE ? 1 : 0)).length > 0">
       <ng-container *ngFor="let subAction of (action.subActions | slice:(hasAOE ? 1 : 0)); let i = index;">
         <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster" [inline]="inline"
           [right]="right" [hexSize]="hexSize" [highlightElements]="highlightElements"

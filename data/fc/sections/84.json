@@ -1,0 +1,64 @@
+{
+  "index": "84",
+  "group": "Challenge",
+  "name": "Gateway to the Firmament",
+  "edition": "fc",
+  "parent": "1",
+  "parentSections": [
+    "103"
+  ],
+  "marker": "2",
+  "monsters": [
+    "earth-demon",
+    "elham",
+    "flame-demon",
+    "frost-demon",
+    "icestorm-guardian-of-the-firmamant",
+    "lavaflow-guardian-of-the-firmament"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "ref": "-3",
+      "treasures": [
+        89
+      ],
+      "monster": [
+        {
+          "name": "elham",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "icestorm-guardian-of-the-firmamant",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "icestorm-guardian-of-the-firmamant",
+          "player3": "normal"
+        },
+        {
+          "name": "icestorm-guardian-of-the-firmamant",
+          "player4": "normal"
+        },
+        {
+          "name": "lavaflow-guardian-of-the-firmament",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lavaflow-guardian-of-the-firmament",
+          "player3": "normal"
+        },
+        {
+          "name": "lavaflow-guardian-of-the-firmament",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

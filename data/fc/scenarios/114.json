@@ -15,7 +15,44 @@
       "name": "Hail",
       "escort": true,
       "health": "4+2xL",
-      "marker": "a"
+      "marker": "a",
+      "tags": [
+        "hail-#114"
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "towards cabinet %game.mapMarker.b%"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "poison",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "R < 3",
+      "start": true,
+      "note": "The initiative values of all monsters are considered 10 lower than the values on their ability cards."
     }
   ],
   "rooms": [
@@ -85,34 +122,6 @@
       ],
       "objectives": [
         1
-      ]
-    },
-    {
-      "roomNumber": 2,
-      "ref": "a1b",
-      "monster": [
-        {
-          "name": "aesther-ashblade",
-          "player3": "elite",
-          "player4": "elite"
-        },
-        {
-          "name": "aesther-scout",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "aesther-scout",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "wind-demon",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        }
       ]
     }
   ]

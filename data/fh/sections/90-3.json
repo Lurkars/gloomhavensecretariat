@@ -1,0 +1,21 @@
+{
+  "index": "90.3",
+  "name": "Derelict Elevator",
+  "edition": "fh",
+  "parent": "16",
+  "rules": [
+    {
+      "round": "true",
+      "once": true,
+      "always": true,
+      "note": "Pebbles rain down at each %game.mapMarker.a%. This has no effect"
+    },
+    {
+      "round": "R == 4",
+      "start": true,
+      "sections": [
+        "27.2"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "index": "44.2",
+  "name": "Derelict Elevator",
+  "edition": "fh",
+  "parent": "16",
+  "parentSections": [
+    "27.2"
+  ],
+  "monsters": [
+    "ancient-artillery",
+    "flaming-bladespinner",
+    "ruined-machine"
+  ],
+  "rules": [
+    {
+      "round": "R == 9",
+      "start": true,
+      "sections": [
+        "15.3"
+      ]
+    },
+    {
+      "round": "true",
+      "once": true,
+      "always": true,
+      "note": "Pebbles rain down at each %game.mapMarker.c%. This has no effect"
+    },
+    {
+      "round": "true",
+      "once": true,
+      "always": true,
+      "note": "Any figure occupying %game.mapMarker.b% suffers trap damage and is placed in the closest empty hex.",
+      "spawns": [
+        {
+          "monster": {
+            "name": "flaming-bladespinner",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "once": true,
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "type": "elite"
+          },
+          "marker": "g",
+          "count": 2
+        },
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "h",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "01-B",
+      "initial": true,
+      "treasures": [
+        77
+      ],
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

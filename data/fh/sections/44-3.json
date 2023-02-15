@@ -1,0 +1,42 @@
+{
+  "index": "44.3",
+  "name": "Haunted Vault",
+  "edition": "fh",
+  "parent": "17",
+  "marker": "3",
+  "resetRound": "hidden",
+  "rules": [
+    {
+      "round": "R == 2",
+      "start": true,
+      "once": true,
+      "note": "adjacent to each character on tile 09-B",
+      "spawns": [
+        {
+          "monster": {
+            "name": "living-spirit",
+            "type": "elite"
+          },
+          "count": 0,
+          "manual": true
+        }
+      ]
+    },
+    {
+      "round": "R == 2",
+      "start": true,
+      "once": true,
+      "note": "adjacent to each character on tile 02-K",
+      "spawns": [
+        {
+          "monster": {
+            "name": "ice-wraith",
+            "type": "elite"
+          },
+          "count": 0,
+          "manual": true
+        }
+      ]
+    }
+  ]
+}

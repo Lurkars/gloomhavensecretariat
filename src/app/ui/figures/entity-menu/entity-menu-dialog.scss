@@ -8,6 +8,7 @@
     font-family: var(--ghs-font-title);
     font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
     color: var(--ghs-color-white);
+    min-width: calc(var(--ghs-unit) * 44 * var(--ghs-dialog-factor));
 
 
     img.icon {
@@ -41,12 +42,12 @@
       &.absent {
         text-decoration: line-through;
       }
+    }
 
-      img.absent {
-        margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
-        cursor: pointer;
-        filter: var(--ghs-filter-white);
-      }
+    img.absent {
+      margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+      cursor: pointer;
+      filter: var(--ghs-filter-white);
     }
 
     .standee-number,

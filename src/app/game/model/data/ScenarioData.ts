@@ -28,7 +28,7 @@ export class ScenarioData implements Editional, Spoilable {
   parent: string | undefined;
   parentSections: string[] = [];
   blockedSections: string[] = [];
-  resetRound: boolean = false;
+  resetRound: "visible" | "hidden" | undefined;
 
   // from Editional
   edition: string;

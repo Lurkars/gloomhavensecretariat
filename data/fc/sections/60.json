@@ -1,0 +1,55 @@
+{
+  "index": "60",
+  "name": "Seal of Repulsion",
+  "edition": "fc",
+  "parent": "113",
+  "monsters": [
+    "living-corpse",
+    "living-spirit"
+  ],
+  "objectives": [
+    {
+      "name": "Seal",
+      "health": "5xC",
+      "marker": "a"
+    }
+  ],
+  "rooms": [
+    {
+      "inital": true,
+      "roomNumber": 3,
+      "ref": "j2b",
+      "monster": [
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "type": "normal"
+        },
+        {
+          "name": "living-corpse",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "type": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

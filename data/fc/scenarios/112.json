@@ -15,9 +15,6 @@
       "roomNumber": 1,
       "ref": "k1a",
       "initial": true,
-      "rooms": [
-        2
-      ],
       "monster": [
         {
           "name": "ancient-artillery",
@@ -56,10 +53,7 @@
     {
       "roomNumber": 2,
       "ref": "k2b",
-      "rooms": [
-        3,
-        4
-      ],
+      "initial": true,
       "monster": [
         {
           "name": "ancient-artillery",
@@ -98,6 +92,7 @@
     {
       "roomNumber": 3,
       "ref": "d2a",
+      "initial": true,
       "monster": [
         {
           "name": "ancient-artillery",
@@ -119,6 +114,7 @@
     {
       "roomNumber": 4,
       "ref": "d1a",
+      "initial": true,
       "monster": [
         {
           "name": "ancient-artillery",

@@ -242,7 +242,7 @@ export class EditorActionComponent implements OnInit {
   }
 
   changeCondition() {
-    if (new Condition(this.value as unknown as ConditionName).types.indexOf(ConditionType.value) != -1) {
+    if (new Condition(this.value).types.indexOf(ConditionType.value) != -1) {
       if (!this.subValue) {
         this.subValue = '1';
       }

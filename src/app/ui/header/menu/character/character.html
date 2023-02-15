@@ -15,7 +15,7 @@
           <label>{{'data.edition.' + edition | ghsLabel}}</label>
         </div>
         <div class="line separator reveal-all" *ngIf="hasSpoilers(characterData(filter, edition), true)">
-          <a (click)="settingsManager.addSpoilers(notSpoiled(characterData(edition)))">{{'spoiler.all' |
+          <a (click)="settingsManager.addSpoilers(notSpoiled(characterData('',edition)))">{{'spoiler.all' |
             ghsLabel}}</a>
         </div>
         <div class="line" *ngFor="let characterData of characterData(filter, edition)"

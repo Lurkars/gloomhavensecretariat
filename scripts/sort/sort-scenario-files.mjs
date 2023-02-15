@@ -2,11 +2,11 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { sortScenario } from './sorter/scenario.mjs';
 
-export const sortScenarioFiles = function (dataDirectory) {
+export const sortScenarioFiles = function (dataDirectory, sections = false) {
     let changedFiles = [];
     if (fs.existsSync(dataDirectory) && fs.lstatSync(dataDirectory).isDirectory) {
         for (let editionDirectory of fs.readdirSync(dataDirectory)) {
-            const scenarioDirectory = path.join(dataDirectory, editionDirectory, 'scenarios');
+            const scenarioDirectory = path.join(dataDirectory, editionDirectory, sections ? 'sections' : 'scenarios');
             if (fs.existsSync(scenarioDirectory) && fs.lstatSync(scenarioDirectory).isDirectory) {
                 for (let file of fs.readdirSync(scenarioDirectory)) {
                     const scenarioFile = path.join(scenarioDirectory, file);

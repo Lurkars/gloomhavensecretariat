@@ -3,6 +3,9 @@
   "name": "Edge of the World",
   "edition": "fh",
   "parent": "7",
+  "parentSections": [
+    "42.1"
+  ],
   "marker": "2",
   "monsters": [
     "coral-corpse"
@@ -22,8 +25,5 @@
         }
       ]
     }
-  ],
-  "parentSection": [
-    "42.1"
   ]
 }

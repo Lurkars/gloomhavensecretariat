@@ -3,7 +3,10 @@
     <div #nextButton (click)="next()" class="round-container" [ngClass]="{'disabled' : disabled()}">
       <a>{{ (gameManager.game.state == GameState.next ?
         'round.next' : 'round.draw') | ghsLabel}} </a>
-      <span class="round" *ngIf="round() > 0">{{round()}}</span>
+      <span class="round">
+        <span *ngIf="round() > 0">{{round()}}</span>
+        <span class="total-rounds" *ngIf="totalRounds() > 0">&nbsp;({{totalRounds()}})</span>
+      </span>
       <span class="time">{{ currentTime }}</span>
       <span #button></span>
     </div>

@@ -169,9 +169,9 @@ export class GameManager {
 
     return this.editionData.filter((editionData) => (editionData.edition == edition || this.editionExtensions(edition).indexOf(editionData.edition) != -1) && editionData.conditions && editionData.conditions.length > 0).map((other) => other.conditions).flat().filter((value, index, self) => self.indexOf(value) == index).map((value) => {
       if (value.split(':').length > 1) {
-        return new Condition(value.split(':')[0] as ConditionName, + value.split(':')[1]);
+        return new Condition(value.split(':')[0], + value.split(':')[1]);
       } else {
-        return new Condition(value as ConditionName);
+        return new Condition(value);
       }
     })
   }
@@ -359,7 +359,7 @@ export class GameManager {
   }
 
   getEdition(figure: any): string {
-    if (this.game.figures.some((value) => typeof (figure) == typeof (value) && figure.name == value.name && figure.edition != value.edition || this.game.edition && figure.edition != this.game.edition)) {
+    if (this.game.figures.some((value) => typeof (figure) == typeof (value) && figure.name == value.name && figure.edition != value.edition || this.game.edition && figure.edition != this.game.edition && this.editionExtensions(this.game.edition).indexOf(figure.edition) == -1)) {
       return figure.edition;
     }
     return "";

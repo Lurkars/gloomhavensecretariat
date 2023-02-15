@@ -1,0 +1,85 @@
+{
+  "index": "1",
+  "group": "Challenge",
+  "name": "Tower to the Stars",
+  "edition": "fc",
+  "monsters": [
+    "ancient-artillery",
+    "city-archer",
+    "city-guard",
+    "hound"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "n1b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player4": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player4": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player2": "normal",
+          "player3": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

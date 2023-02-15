@@ -569,21 +569,6 @@
         transform: scale(1) translate(-50%, -50%);
       }
 
-      &.check {
-        width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-        height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-        box-shadow: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 0.25 * var(--ghs-dialog-factor)) var(--ghs-color-gray);
-      }
-
-      &.check::before {
-        left: calc(var(--ghs-unit) * -0.1 * var(--ghs-dialog-factor));
-        top: calc(var(--ghs-unit) * -0.5 * var(--ghs-dialog-factor));
-        width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-        height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-        background-image: url('~src/assets/images/check.svg');
-        transform-origin: bottom left;
-      }
-
       &.checked.check::before {
         transform: scale(1);
       }

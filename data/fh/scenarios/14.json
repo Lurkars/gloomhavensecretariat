@@ -1,0 +1,147 @@
+{
+  "index": "14",
+  "name": "Jagged Shoals",
+  "edition": "fh",
+  "unlocks": [
+    "22"
+  ],
+  "monsters": [
+    "abael-herder",
+    "lightning-eel",
+    "piranha-pig"
+  ],
+  "lootDeckConfig": {
+    "money": 7,
+    "lumber": 4,
+    "metal": 2,
+    "hide": 5,
+    "snowthistle": 2
+  },
+  "rules": [
+    {
+      "round": "R % 2 == 1",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "piranha-pig",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "lightning-eel",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "round": "R % 2 == 0",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "piranha-pig",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "d"
+        },
+        {
+          "monster": {
+            "name": "lightning-eel",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "e",
+          "count": 2
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "13-A",
+      "initial": true,
+      "treasures": [
+        64
+      ],
+      "monster": [
+        {
+          "name": "abael-herder",
+          "type": "normal"
+        },
+        {
+          "name": "abael-herder",
+          "type": "normal"
+        },
+        {
+          "name": "abael-herder",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "abael-herder",
+          "player4": "normal"
+        },
+        {
+          "name": "lightning-eel",
+          "type": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "type": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lightning-eel",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lightning-eel",
+          "player4": "normal"
+        },
+        {
+          "name": "piranha-pig",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "piranha-pig",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "index": "16",
+  "name": "Derelict Elevator",
+  "edition": "fh",
+  "unlocks": [
+    "25",
+    "26"
+  ],
+  "monsters": [
+    "ancient-artillery",
+    "flaming-bladespinner",
+    "ruined-machine"
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 4,
+    "metal": 5,
+    "rockroot": 2,
+    "random_item": 1
+  },
+  "rules": [
+    {
+      "round": "R == 2",
+      "start": true,
+      "sections": [
+        "90.3"
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "13-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "type": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ruined-machine",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ruined-machine",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

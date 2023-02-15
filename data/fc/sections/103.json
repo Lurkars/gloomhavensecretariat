@@ -1,0 +1,82 @@
+{
+  "index": "103",
+  "group": "Challenge",
+  "name": "The Thorns of Hate",
+  "edition": "fc",
+  "parent": "1",
+  "parentSections": [
+    "47"
+  ],
+  "marker": "2",
+  "monsters": [
+    "earth-demon",
+    "forest-imp",
+    "wind-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "ref": "-2",
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "type": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

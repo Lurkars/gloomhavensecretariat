@@ -4,7 +4,7 @@
   "edition": "fh",
   "parent": "5",
   "marker": 1,
-  "resetRound": true,
+  "resetRound": "visible",
   "objectives": [
     {
       "name": "Altar",

@@ -22,7 +22,8 @@ export enum ConditionName {
   enfeeble = "enfeeble",
   poison_x = "poison_x",
   wound_x = "wound_x",
-  heal = "heal"
+  heal = "heal",
+  invalid = "invalid",
 }
 
 export enum ConditionType {
@@ -59,8 +60,17 @@ export class Condition {
   types: ConditionType[] = [];
   value: number = 1;
 
-  constructor(name: ConditionName, value: number = 1) {
-    this.name = name;
+  constructor(name: ConditionName | string, value: number = 1) {
+    if (typeof name == 'string') {
+      if (Object.keys(ConditionName).indexOf(name) == -1) {
+        console.warn("Invalid condition name: " + name);
+        this.name = ConditionName.invalid;
+      } else {
+        this.name = name as ConditionName;
+      }
+    } else {
+      this.name = name;
+    }
     this.value = value;
 
     this.types.push(ConditionType.action);
@@ -87,7 +97,7 @@ export class Condition {
       this.types.push(ConditionType.value);
     }
 
-    if ([ConditionName.chill].indexOf(this.name) != -1) {
+    if ([ConditionName.bless, ConditionName.chill, ConditionName.curse].indexOf(this.name) != -1) {
       this.types.push(ConditionType.stack);
     }
 

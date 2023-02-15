@@ -6,6 +6,7 @@ import { ScenarioRule, ScenarioRuleIdentifier } from "../model/data/ScenarioRule
 import { EntityValueFunction } from "../model/Entity";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
+import { LootDeckConfig } from "../model/Loot";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
 import { MonsterType } from "../model/MonsterType";
@@ -161,11 +162,19 @@ export class ScenarioManager {
     }
 
     if (scenarioData.lootDeckConfig) {
-      gameManager.lootManager.apply(this.game.lootDeck, scenarioData.lootDeckConfig);
+      let lootDeckConfig: LootDeckConfig = JSON.parse(JSON.stringify(scenarioData.lootDeckConfig));
+      this.game.lootDeckFixed.forEach((lootType) => {
+        lootDeckConfig[lootType] = 1;
+      })
+      gameManager.lootManager.apply(this.game.lootDeck, lootDeckConfig);
     }
 
     if (scenarioData.resetRound) {
-      this.game.roundResets.push(this.game.round);
+      if (scenarioData.resetRound == "visible") {
+        this.game.roundResets.push(this.game.round + (this.game.state == GameState.draw ? 1 : 0));
+      } else {
+        this.game.roundResetsHidden.push(this.game.round + (this.game.state == GameState.draw ? 1 : 0));
+      }
       this.game.round = this.game.state == GameState.draw ? 0 : 1;
     }
   }
@@ -440,8 +449,8 @@ export class ScenarioManager {
     if (add && !disgarded && !visible) {
       if (rule.spawns) {
         rule.spawns.forEach((spawn) => {
-          if (spawn.manual && !spawn.count) {
-            spawn.count = "1";
+          if (spawn.manual && !spawn.count && spawn.count != 0) {
+            spawn.count = 1;
           }
         });
       }

@@ -1,0 +1,88 @@
+{
+  "index": "15",
+  "name": "Ancient Spire",
+  "edition": "fh",
+  "unlocks": [
+    "23",
+    "24"
+  ],
+  "monsters": [
+    "chaos-lieutenant",
+    "robotic-boltshooter",
+    "ruined-machine"
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 4,
+    "metal": 5,
+    "hide": 2,
+    "corpsecap": 1,
+    "flamefruit": 1,
+    "random_item": 1
+  },
+  "rules": [
+    {
+      "round": "R % 2 == 0",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "ruined-machine",
+            "type": "normal"
+          },
+          "marker": "c",
+          "count": "C-1"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "15-D",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "robotic-boltshooter",
+          "type": "elite"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "type": "elite"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "robotic-boltshooter",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "01-B",
+      "initial": true,
+      "marker": "b",
+      "treasures": [
+        40
+      ],
+      "monster": [
+        {
+          "name": "chaos-lieutenant",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

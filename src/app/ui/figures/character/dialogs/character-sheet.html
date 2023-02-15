@@ -274,7 +274,7 @@
           <div class="column column-right">
             <div class="personal-quest">
               <label>{{'character.progress.personalQuest' | ghsLabel}}:</label>
-              <span class="retired checkbox check" [ngClass]="{'checked' : retired}" (click)="retired = !retired"
+              <span class="retired checkbox" [ngClass]="{'checked' : retired}" (click)="retired = !retired"
                 title="{{'character.progress.retired' | ghsLabel}}"></span>
               <input [value]="character.progress.personalQuest" type="number" min="0"
                 (change)="setPersonalQuest($event)">

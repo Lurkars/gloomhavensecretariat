@@ -124,13 +124,13 @@ export class ScenarioRulesComponent {
                 figures.forEach((figure) => {
                     if (figureRule.type == "gainCondition") {
                         let entities: Entity[] = gameManager.entityManager.entities(figure);
-                        let gainCondition = new Condition(figureRule.value as ConditionName);
+                        let gainCondition = new Condition(figureRule.value);
                         if (entities.every((entity) => gameManager.entityManager.hasCondition(entity, gainCondition))) {
                             add = false;
                         }
                     } else if (figureRule.type == "looseCondition") {
                         let entities: Entity[] = gameManager.entityManager.entities(figure);
-                        let looseCondition = new Condition(figureRule.value as ConditionName);
+                        let looseCondition = new Condition(figureRule.value);
                         if (entities.every((entity) => !gameManager.entityManager.hasCondition(entity, looseCondition))) {
                             add = false;
                         }
@@ -248,20 +248,20 @@ export class ScenarioRulesComponent {
                             entities.forEach((entity) => {
                                 switch (figureRule.type) {
                                     case "gainCondition":
-                                        let gainCondition = new Condition(figureRule.value as ConditionName);
+                                        let gainCondition = new Condition(figureRule.value);
                                         if (!gameManager.entityManager.hasCondition(entity, gainCondition)) {
                                             gameManager.entityManager.toggleCondition(entity, gainCondition, figure.active, figure.off);
                                         }
                                         break;
                                     case "looseCondition":
-                                        let looseCondition = new Condition(figureRule.value as ConditionName);
+                                        let looseCondition = new Condition(figureRule.value);
                                         if (gameManager.entityManager.hasCondition(entity, looseCondition)) {
                                             gameManager.entityManager.toggleCondition(entity, looseCondition, figure.active, figure.off);
                                         }
                                         break;
                                     case "damage": let damage = 0;
-                                        if (isNaN(+figureRule.value) && figureRule.value.endsWith('%')) {
-                                            damage = Math.floor(EntityValueFunction(entity.maxHealth) * (+figureRule.value.replace('%', '')) / 100);
+                                        if (isNaN(+figureRule.value) && figureRule.value.indexOf('H') != -1) {
+                                            damage = +EntityValueFunction(figureRule.value.replaceAll('HP', '' + EntityValueFunction(entity.maxHealth)).replaceAll('H', '' + entity.health));
                                         } else {
                                             damage = +EntityValueFunction(figureRule.value);
                                         }
@@ -274,8 +274,8 @@ export class ScenarioRulesComponent {
                                         break;
                                     case "hp":
                                         let hp = 0;
-                                        if (isNaN(+figureRule.value) && figureRule.value.endsWith('%')) {
-                                            hp = Math.ceil(EntityValueFunction(entity.maxHealth) * (+figureRule.value.replace('%', '')) / 100);
+                                        if (isNaN(+figureRule.value) && figureRule.value.indexOf('H') != -1) {
+                                            hp = +EntityValueFunction(figureRule.value.replaceAll('HP', '' + EntityValueFunction(entity.maxHealth)).replaceAll('H', '' + entity.health));
                                         } else {
                                             hp = +EntityValueFunction(figureRule.value);
                                         }
@@ -331,7 +331,6 @@ export class ScenarioRulesComponent {
                             const figure = figures[0];
                             const objectiveIdentifier: ScenarioObjectiveIdentifier = { "edition": scenario.edition, "scenario": scenario.index, "group": scenario.group, "section": section, "index": (+figureRule.value) - 1 };
                             const objective = gameManager.characterManager.addObjective(scenario.objectives[(+figureRule.value) - 1], undefined, objectiveIdentifier);
-
                             objective.id = figure.id;
                             objective.marker = figure.marker;
                             objective.title = figure.title;

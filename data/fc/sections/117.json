@@ -1,0 +1,105 @@
+{
+  "index": "17",
+  "name": "Escape is Not So Easy",
+  "edition": "fc",
+  "parent": "114",
+  "monsters": [
+    "aesther-ashblade",
+    "aesther-scout",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Hail",
+      "escort": true,
+      "health": "4+2xL",
+      "marker": "a",
+      "tags": [
+        "hail-#17"
+      ],
+      "actions": [
+        {
+          "type": "move",
+          "value": 1,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "towards cabinet %game.mapMarker.b%"
+            }
+          ]
+        },
+        {
+          "type": "custom",
+          "value": "Unaffected by difficult terrain"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "once": true,
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "name": "Hail",
+            "tag": "hail-#114"
+          },
+          "type": "damage",
+          "value": "H/2"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "name": "Hail",
+            "tag": "hail-#114"
+          },
+          "type": "gainCondition",
+          "value": "poison"
+        },
+        {
+          "identifier": {
+            "type": "objective",
+            "name": "Hail",
+            "tag": "hail-#114"
+          },
+          "type": "transfer",
+          "value": "1"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "ref": "a1b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "aesther-ashblade",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "aesther-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "aesther-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

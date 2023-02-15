@@ -1,0 +1,47 @@
+{
+  "index": "134",
+  "name": "Clawing at Victory",
+  "edition": "fc",
+  "parent": "110",
+  "marker": "2",
+  "monsters": [
+    "lurker"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "once": true,
+      "start": true,
+      "always": true,
+      "note": "All Lurkers are enemies to you and all other monster types."
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "ref": "b2b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "lurker",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker",
+          "player3": "normal"
+        },
+        {
+          "name": "lurker",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}
