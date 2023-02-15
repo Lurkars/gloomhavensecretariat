@@ -109,7 +109,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Create one 1-hex hazardouus terrain tile in a featureless hex adjacent to the target"
+                "value": "Create one 1-hex hazardous terrain tile in a featureless hex adjacent to the target"
               }
             ]
           }
@@ -219,7 +219,7 @@
     }
   ],
   "masteries": [
-    "Create or destroy at least one obstalce or hazardous terrain tile each round",
-    "Move enemeis through six different hexes of hazardous terrain you created in one turn"
+    "Create or destroy at least one obstacle or hazardous terrain tile each round",
+    "Move enemies through six different hexes of hazardous terrain you created in one turn"
   ]
 }
