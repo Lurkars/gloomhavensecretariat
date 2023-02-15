@@ -5,7 +5,7 @@ import { ActionHex, ActionType, ActionTypesIcons } from "src/app/game/model/Acti
 import { Character } from "src/app/game/model/Character";
 import { EntityValueFunction, EntityValueRegex } from "src/app/game/model/Entity";
 
-export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\,|\%|\+|\(|\)|\||\_|\[|\]|\||\{|\}|\$|\\|\/)+)\%/;
+export const ghsLabelRegex = /\%((\w+|\.|\-|\:|\,|\+|\(|\)|\||\_|\[|\]|\||\{|\}|\$|\\|\/)+)\%/;
 
 export const applyPlaceholder = function (value: string, placeholder: string[] = [], relative: boolean = false, forceFh: boolean = false): string {
   const fh = settingsManager.settings.fhStyle || forceFh;

@@ -96,13 +96,13 @@
                 "value": "dark"
               }
             ]
-          },
-          {
-          "count": 1, 
+          }
+        },
+        {
+          "count": 1,
           "attackModifier": {
             "type": "minus1"
-              }
-           }
+          }
         }
       ]
     },
