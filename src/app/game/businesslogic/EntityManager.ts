@@ -173,7 +173,7 @@ export class EntityManager {
       }
 
       if (condition.name == ConditionName.ward) {
-        entity.health += Math.floor((condition.value - 1) / 2);
+        entity.health += Math.ceil(condition.value / 2);
         const maxHealth = EntityValueFunction(entity.maxHealth);
         if (entity.health > maxHealth) {
           entity.health = maxHealth;
@@ -189,7 +189,7 @@ export class EntityManager {
       }
 
       if (condition.name == ConditionName.brittle) {
-        entity.health -= Math.floor((condition.value - 1) / 2);
+        entity.health -= condition.value;
         if (entity.health < 0) {
           entity.health = 0;
         }
