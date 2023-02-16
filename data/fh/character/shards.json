@@ -192,7 +192,8 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Gain 1 %game.action.custom.fh-resonance%"
+                "value": "Gain 1 %game.characterToken.shards.fh-resonance%",
+                "note": "Gain 1 %game.action.custom.fh-resonance%"
               }
             ]
           }

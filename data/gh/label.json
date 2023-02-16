@@ -197,8 +197,8 @@
           "1": "%data.monster.living-corpse% suffers %game.damage:1%."
         },
         "mindthief": {
-          "augment": "Augment %game.characterToken.mindthief%",
-          "augments": "Augments %game.characterToken.mindthief%"
+          "augment": "Augment %game.characterIconColored.mindthief%",
+          "augments": "Augments %game.characterIconColored.mindthief%"
         },
         "night-demon": {
           "1": "All adjacent enemies and allies suffer %game.damage:1%."
@@ -587,8 +587,8 @@
           "1": "%data.monster.living-corpse% erleidet %game.damage:1%."
         },
         "mindthief": {
-          "augment": "Erweiterung %game.characterToken.mindthief%",
-          "augments": "Erweiterungen %game.characterToken.mindthief%"
+          "augment": "Erweiterung %game.characterIconColored.mindthief%",
+          "augments": "Erweiterungen %game.characterIconColored.mindthief%"
         },
         "night-demon": {
           "1": "Alle angrenzenden Verbündeten und Gegner erleiden %game.damage:2%."
@@ -883,8 +883,8 @@
           "1": "Le %data.monster.living-corpse% subit 1 dégât."
         },
         "mindthief": {
-          "augment": "Augmentation %game.characterToken.mindthief%",
-          "augments": "Augmente %game.characterToken.mindthief%"
+          "augment": "Augmentation %game.characterIconColored.mindthief%",
+          "augments": "Augmente %game.characterIconColored.mindthief%"
         },
         "night-demon": {
           "1": "Tous les alliés et adversaires adjacents subissent 1 dégât."
@@ -1200,8 +1200,8 @@
           "1": "%data.monster.living-corpse%가 스스로 피해 %game.damage:1%점을 입는다."
         },
         "mindthief": {
-          "augment": "증강 %game.characterToken.mindthief%",
-          "augments": "증강 %game.characterToken.mindthief%"
+          "augment": "증강 %game.characterIconColored.mindthief%",
+          "augments": "증강 %game.characterIconColored.mindthief%"
         },
         "night-demon": {
           "1": "인접한 모든 적과 아군이 피해 %game.damage:1%점을 입는다."

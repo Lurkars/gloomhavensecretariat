@@ -16,7 +16,9 @@ export class AttackModifierToolComponent implements OnInit {
 
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
+  characterName: string[] = [];
   characters: Character[] = [];
+  filteredCharacters: Character[] = [];
   edition: string | undefined;
 
   constructor(private route: ActivatedRoute, private router: Router) { }
@@ -29,11 +31,19 @@ export class AttackModifierToolComponent implements OnInit {
 
     this.route.queryParams.subscribe({
       next: (queryParams) => {
+        let update = false;
         if (queryParams['edition']) {
           this.edition = queryParams['edition'];
           if (this.edition && gameManager.editions(true).indexOf(this.edition) == -1) {
             this.edition == undefined;
+            update = true;
           }
+        }
+        if (queryParams['characters']) {
+          this.characterName = typeof queryParams['characters'] === 'string' ? [queryParams['characters']] : queryParams['characters'];
+          update = true;
+        }
+        if (update) {
           this.update();
         }
       }
@@ -81,6 +91,14 @@ export class AttackModifierToolComponent implements OnInit {
         return aName < bName ? -1 : 1;
       }
     })
+
+    this.filteredCharacters = [];
+    this.characterName.forEach((name) => {
+      const character = this.characters.find((character) => character.name == name);
+      if (character) {
+        this.filteredCharacters.push(character);
+      }
+    })
   }
 
   updateQueryParams() {
@@ -88,7 +106,7 @@ export class AttackModifierToolComponent implements OnInit {
       [],
       {
         relativeTo: this.route,
-        queryParams: { edition: this.edition || undefined },
+        queryParams: { edition: this.edition || undefined, characters: this.characterName || undefined },
         queryParamsHandling: 'merge'
       });
   }

@@ -20,7 +20,7 @@
      showgrid="false"
      inkscape:zoom="21.4813"
      inkscape:cx="-4.0267582"
-     inkscape:cy="0.67500572"
+     inkscape:cy="0.6750057"
      inkscape:window-width="1846"
      inkscape:window-height="1016"
      inkscape:window-x="0"
@@ -48,13 +48,6 @@
          id="path7" />
     </clipPath>
   </defs>
-  <circle
-     class="cls-3"
-     cx="5.0799999"
-     cy="5.0799999"
-     r="4.7800002"
-     id="circle12"
-     style="stroke:#000000;stroke-opacity:1" />
   <path
      class="cls-5"
      d="M 6.95,8.39 6.65,8.31 H 6.8 6.64 A 2.57,2.57 0 0 0 6.33,6.58 5.28,5.28 0 0 0 5.19,5.31 L 5.02,5.16 4.87,5 A 5.56,5.56 0 0 1 3.67,3.65 3,3 0 0 1 3.32,1.65 L 3.61,1.8 A 2.64,2.64 0 0 0 3.92,3.5 5.74,5.74 0 0 0 5.06,4.8 L 5.23,4.95 5.4,5.11 a 5.6,5.6 0 0 1 1.21,1.32 2.91,2.91 0 0 1 0.34,2"

@@ -9,11 +9,19 @@
           ghsLabel}}</option>
       </select>
     </label>
+    <label>
+      {{'settings.character' | ghsLabel}}
+      <select [(ngModel)]="characterName" (change)="update(); updateQueryParams()" multiple>
+        <option *ngFor="let character of characters" [value]="character.name">{{'data.character.' + character.name|
+          ghsLabel}}
+        </option>
+      </select>
+    </label>
   </div>
 
   <div class="characters">
-    <ng-container *ngFor="let character of characters">
-      <div class="character" *ngIf="character.attackModifierDeck.cards.length > 0">
+    <ng-container *ngFor="let character of filteredCharacters">
+      <div class="character" *ngIf="character && character.attackModifierDeck.cards.length > 0">
         <h1>{{'data.character.' + character.name | ghsLabel}} [{{character.attackModifierDeck.cards.length}}]</h1>
         <ghs-attackmodifier [attackModifier]="attackModifier" [flipped]="true"
           [characterIcon]="'./assets/images/character/icons/' + character.edition + '-' + character.name + '.svg'"

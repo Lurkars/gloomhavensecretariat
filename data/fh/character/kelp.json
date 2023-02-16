@@ -212,7 +212,8 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Gain 1 %game.action.custom.fh-trophy%"
+                "value": "Gain 1 %game.characterToken.kelp.fh-trophy%",
+                "note": "Gain 1 %game.action.custom.fh-trophy%"
               }
             ]
           }

@@ -37,6 +37,73 @@
         height: 100%;
       }
 
+      &.custom {
+        &.new-style {
+          filter: none;
+        }
+
+        &.fh~.overlay.custom {
+          display: inline-block;
+        }
+      }
+
+      &.multiple {
+        background-image: url('~src/assets/images/attackmodifier/am-front.png');
+        background-size: 100%;
+
+        &.multiple-1 {
+          &:nth-child(2) {
+            mask-image: conic-gradient(from 90deg at 50% 50%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 1) 75%);
+          }
+
+          &:nth-child(2).fh {
+            mask-image: conic-gradient(from 90deg at 50% 50%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 1) 80%);
+          }
+        }
+
+        &.multiple-2 {
+          &:nth-child(2) {
+            mask-image: conic-gradient(from 90deg at 50% 50%, rgba(0, 0, 0, 1) 35%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0) 85%, rgba(0, 0, 0, 1) 95%);
+          }
+        }
+
+        &.multiple-3 {
+          &:nth-child(2) {
+            mask-image: conic-gradient(from 90deg at 50% 50%, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 45%);
+          }
+
+          &:nth-child(3) {
+            mask-image: conic-gradient(from 90deg at 50% 50%, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 1) 75%);
+          }
+        }
+
+        &.any {
+          &.air {
+            mask-image: conic-gradient(from 90deg at 50% 20%, rgba(0, 0, 0, 0) 45%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 75%, rgba(0, 0, 0, 0) 80%);
+          }
+
+          &.ice {
+            mask-image: conic-gradient(from 180deg at 50% 20%, rgba(0, 0, 0, 0) 45%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 75%, rgba(0, 0, 0, 0) 80%);
+          }
+
+          &.fire {
+            mask-image: conic-gradient(from 270deg at 66% 30%, rgba(0, 0, 0, 0) 35%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 70%);
+          }
+
+          &.earth {
+            mask-image: conic-gradient(from 290deg at 50% 80%, rgba(0, 0, 0, 0) 35%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 70%)
+          }
+
+          &.light {
+            mask-image: conic-gradient(from 30deg at 50% 80%, rgba(0, 0, 0, 0) 35%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 70%)
+          }
+
+          &.dark {
+            mask-image: conic-gradient(from 40deg at 33% 30%, rgba(0, 0, 0, 0) 35%, rgb(0, 0, 0) 50%, rgb(0, 0, 0) 65%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 0) 70%);
+          }
+        }
+      }
+
       &.air {
         filter: hue-rotate(160deg) saturate(80%);
       }
@@ -59,6 +126,10 @@
 
       &.light {
         filter: hue-rotate(20deg) saturate(200%) brightness(110%);
+      }
+
+      &.brittle {
+        filter: hue-rotate(175deg) saturate(90%);
       }
 
       &.curse {
@@ -89,6 +160,10 @@
         filter: hue-rotate(290deg) saturate(200%);
       }
 
+      &.strengthen {
+        filter: hue-rotate(165deg) saturate(100%);
+      }
+
       &.stun {
         filter: hue-rotate(168deg) saturate(150%);
       }
@@ -109,6 +184,10 @@
         filter: hue-rotate(10deg) saturate(180%);
       }
 
+      &.retaliate {
+        filter: hue-rotate(160deg) grayscale(30%);
+      }
+
       &.target {
         filter: hue-rotate(330deg) saturate(350%) brightness(80%);
       }
@@ -121,30 +200,6 @@
         filter: hue-rotate(330deg) saturate(250%);
       }
 
-      &.fire.light {
-        filter: none;
-
-        &::before {
-          content: ' ';
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 50%;
-          height: 100%;
-          filter: hue-rotate(355deg) saturate(250%);
-        }
-
-        &::after {
-          content: ' ';
-          position: absolute;
-          left: 50%;
-          top: 0;
-          width: 50%;
-          height: 100%;
-          filter: hue-rotate(20deg) saturate(200%) brightness(110%);
-        }
-      }
-
     }
 
     img.overlay {
@@ -152,6 +207,10 @@
       width: 100%;
       height: 100%;
       z-index: 2;
+
+      &.custom {
+        display: none;
+      }
 
       &.side {
         top: 50%;
@@ -221,7 +280,7 @@
     }
   }
 
-  .front .value {
+  .front .am-value {
     position: absolute;
     display: flex;
     justify-content: center;

@@ -98,10 +98,18 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         let characterName = split[2];
         image = '<img src="' + gameManager.characterManager.characterIcon(characterName) + '">';
         replace = '<span class="placeholder-character-icon">' + image + '</span>';
-      } else if (type == "characterToken" && split.length == 3) {
+      } else if (type == "characterIconColored" && split.length == 3) {
         let characterName = split[2];
         image = '<img src="' + gameManager.characterManager.characterIcon(characterName) + '">';
-        replace = '<span class="placeholder-character-token" style="background-color:' + gameManager.characterManager.characterColor(characterName) + '">' + image + '</span>';
+        replace = '<span class="placeholder-character-icon-colored" style="background-color:' + gameManager.characterManager.characterColor(characterName) + '">' + image + '</span>';
+      } else if (type == "characterToken" && split.length >= 3) {
+        let characterName = split[2];
+        let icon = gameManager.characterManager.characterIcon(characterName);
+        if (split.length > 3) {
+          icon = './assets/images/character/custom/' + split[3] + '.svg';
+        }
+        image = '<img src="' + icon + '">';
+        replace = '<span class="placeholder-character-token" style="--ghs-character-color:' + gameManager.characterManager.characterColor(characterName) + '">' + image + '</span>';
       } else if (type == "monsterType" && split.length == 3) {
         let monsterType = split[2];
         replace = '<span class="placeholder-monster-type ' + monsterType + '">' + settingsManager.getLabel('game.monster.' + monsterType) + '</span>';

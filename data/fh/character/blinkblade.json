@@ -139,7 +139,7 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "+2 %game.action.attack%",
+                "value": "On your next attack, discard this card to add +2 %game.action.attack%.<br>%game.card.persistent%",
                 "hint": "Place this card in your active area. On your next attack, discard this card to add +2 %game.action.attack%"
               }
             ]
@@ -176,7 +176,8 @@
             "effects": [
               {
                 "type": "custom",
-                "value": "Gain 1 %data.action.custom.fh-hourglass%"
+                "value": "Gain 1 %data.characterToken.blinkblade.fh-hourglass%",
+                "hint": "Gain 1 %data.action.custom.fh-hourglass%"
               }
             ]
           }

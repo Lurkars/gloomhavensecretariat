@@ -5,9 +5,30 @@
       <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
     </div>
     <div class="card-front front">
-      <div class="type" [ngClass]="effectClasses">
-        <img [src]="'./assets/images/attackmodifier/' + (defaultType ? attackModifier.type : 'am-front') + '.png'" />
+      <div *ngIf="!multipe || anyElement" class="type {{effectClasses}}"
+        [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
+        <img
+          [src]="'./assets/images/attackmodifier/' + (defaultType && (!newStyle || attackModifier.valueType != AttackModifierValueType.plus || !attackModifier.effects || attackModifier.effects.length == 0) ? attackModifier.type : 'am-front') + '.png'" />
       </div>
+      <ng-container *ngIf="multipe && attackModifier.effects.length > 1">
+        <div *ngFor="let effect of attackModifier.effects" class="type multiple {{effect.value}}"
+          [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle, 'multiple-2' : attackModifier.effects.length == 2, 'multiple-3' : attackModifier.effects.length == 3, 'multiple-4' : attackModifier.effects.length == 4}">
+        </div>
+      </ng-container>
+      <ng-container *ngIf="multipe && attackModifier.effects.length == 1">
+        <div *ngFor="let element of attackModifier.effects[0].value.split('|')" class="type multiple multiple-1 {{element}}"
+          [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
+        </div>
+      </ng-container>
+      <ng-container *ngIf="anyElement">
+        <div class="type multiple any air"></div>
+        <div class="type multiple any ice"></div>
+        <div class="type multiple any fire"></div>
+        <div class="type multiple any earth"></div>
+        <div class="type multiple any light"></div>
+        <div class="type multiple any dark"></div>
+      </ng-container>
+      <img class="overlay custom" src="./assets/images/attackmodifier/overlays/blank.png">
       <img class="overlay" [ngClass]="{'side' : newStyle}"
         *ngIf="attackModifier.effects && attackModifier.effects.length > 0 && (attackModifier.type != AttackModifierType.plus0 && attackModifier.type != AttackModifierType.plus && attackModifier.type != AttackModifierType.minus || newStyle)"
         [src]="'./assets/images/attackmodifier/' + (newStyle ? 'icons/' : 'overlays/') + attackModifier.type + '.png'" />
@@ -19,8 +40,8 @@
         AttackModifierType.curse" class="numeration character-curse-icon">
         *
       </span>
-      <span class="value" *ngIf="attackModifier.type == AttackModifierType.plus">+{{attackModifier.value}}</span>
-      <span class="value" *ngIf="attackModifier.type == AttackModifierType.minus">-{{attackModifier.value}}</span>
+      <span class="am-value" *ngIf="attackModifier.type == AttackModifierType.plus">+{{attackModifier.value}}</span>
+      <span class="am-value" *ngIf="attackModifier.type == AttackModifierType.minus">-{{attackModifier.value}}</span>
       <span *ngIf="characterIcon && attackModifier.character" class="character-icon">
         <img [src]="characterIcon" />
       </span>
