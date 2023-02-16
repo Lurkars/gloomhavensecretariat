@@ -58,14 +58,14 @@ export class EntityManager {
       const brittle = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && entityCondition.name == ConditionName.brittle);
 
       if (value < 0 && ward && !brittle) {
-        ward.value -= value;
+        ward.value = value * -1;
         ward.highlight = true;
       } else if (ward) {
         ward.highlight = false;
       }
 
       if (brittle && !ward && value < 0) {
-        brittle.value -= value;
+        brittle.value = value * -1;
         brittle.highlight = true;
       } else if (brittle) {
         brittle.highlight = false;
@@ -173,14 +173,19 @@ export class EntityManager {
       }
 
       if (condition.name == ConditionName.ward) {
-        entity.health += Math.ceil(condition.value / 2);
+        entity.health += condition.value - Math.floor(condition.value / 2);
         const maxHealth = EntityValueFunction(entity.maxHealth);
         if (entity.health > maxHealth) {
           entity.health = maxHealth;
         }
 
-        if (entity.health > 0 && (entity instanceof MonsterEntity || entity instanceof Summon) && entity.dead) {
-          entity.dead = false;
+        if (entity.health > 0) {
+          if ((entity instanceof Character || entity instanceof Objective)) {
+            entity.off = false;
+            entity.exhausted = false;
+          } else if ((entity instanceof MonsterEntity || entity instanceof Summon) && entity.dead) {
+            entity.dead = false;
+          }
         }
 
         condition.value = 1;
@@ -189,13 +194,18 @@ export class EntityManager {
       }
 
       if (condition.name == ConditionName.brittle) {
-        entity.health -= condition.value;
+        entity.health += condition.value - condition.value * 2;
         if (entity.health < 0) {
           entity.health = 0;
         }
 
-        if (entity.health == 0 && (entity instanceof MonsterEntity || entity instanceof Summon) && !entity.dead) {
-          entity.dead = true;
+        if (entity.health == 0) {
+          if ((entity instanceof Character || entity instanceof Objective)) {
+            entity.off = true;
+            entity.exhausted = true;
+          } else if ((entity instanceof MonsterEntity || entity instanceof Summon) && !entity.dead) {
+            entity.dead = true;
+          }
         }
 
         condition.value = 1;

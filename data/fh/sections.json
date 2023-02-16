@@ -133,6 +133,13 @@
     ]
   },
   {
+    "index": "23.1",
+    "name": "The Way Forward",
+    "parent": "38",
+    "edition": "fh",
+    "resetRound": "visible"
+  },
+  {
     "index": "29.2",
     "name": "Crystal Trench",
     "parent": "106",
@@ -168,6 +175,13 @@
         "health": "(L+1)xC/2"
       }
     ]
+  },
+  {
+    "index": "40.2",
+    "name": "Dead Pass",
+    "parent": "46",
+    "edition": "fh",
+    "resetRound": "visible"
   },
   {
     "index": "41.2",
@@ -838,6 +852,13 @@
     "monsters": [
       "power-core"
     ]
+  },
+  {
+    "index": "132.2",
+    "name": "A Giant Block of Ice",
+    "parent": "72",
+    "edition": "fh",
+    "resetRound": "visible"
   },
   {
     "index": "137.1",
