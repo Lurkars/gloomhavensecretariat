@@ -460,6 +460,55 @@
     ]
   },
   {
+    "index": "63.3",
+    "name": "Sunless Trench",
+    "parent": "42",
+    "edition": "fh",
+    "marker": "1",
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "11-B",
+        "initial": true,
+        "monster": [
+          {
+            "name": "deep-terror",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "deep-terror",
+            "player4": "normal"
+          },
+          {
+            "name": "deep-terror",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "deep-terror",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "night-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "night-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "index": "65.2",
     "name": "Unfettered Shard",
     "parent": "41",
@@ -778,6 +827,47 @@
     ]
   },
   {
+    "index": "103.3",
+    "name": "Sunless Trench",
+    "parent": "42",
+    "edition": "fh",
+    "marker": "2",
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "03-A",
+        "initial": true,
+        "monster": [
+          {
+            "name": "night-demon",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "night-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "night-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "night-demon",
+            "player4": "normal"
+          },
+          {
+            "name": "night-demon",
+            "type": "normal"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "index": "106.2",
     "name": "The True Oak",
     "parent": "70",
@@ -897,6 +987,20 @@
     "parent": "72",
     "edition": "fh",
     "resetRound": "visible"
+  },
+  {
+    "index": "135.2",
+    "name": "Sunless Trench",
+    "parent": "42",
+    "edition": "fh",
+    "marker": "3",
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "12-D",
+        "initial": true
+      }
+    ]
   },
   {
     "index": "137.1",
