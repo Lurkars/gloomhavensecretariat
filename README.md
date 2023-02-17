@@ -90,7 +90,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
 You can always install any hosted version as App (PWA) if your OS/Browser supports installation of PWA. For example here is the [Latest Online Version](https://gloomhaven-secretariat.de).
 
 Instructions for various devices/browser:
-- [Chrome: Computer/Android/iPhone & iPad](https://support.google.com/chrome/answer/9658361)
+- [Chrome: Computer/Android](https://support.google.com/chrome/answer/9658361)
 - [Safari: iOS](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Installing#safari_for_ios_iphoneos_ipados)
 - [Firefox: Android](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Installing#firefox_for_android)
 - others: search for "install PWA" 
