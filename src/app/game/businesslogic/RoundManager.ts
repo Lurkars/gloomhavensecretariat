@@ -104,10 +104,20 @@ export class RoundManager {
     if (!figure.active && !figure.off) {
       this.turn(figure);
     } else if (figure.active && !figure.off) {
-      this.afterTurn(figure)
+      if (settingsManager.settings.activeStandees && figure instanceof Character && figure.summons.find((summon) => summon.active)) {
+        figure.summons.forEach((summon) => summon.active = false);
+      } else {
+        this.afterTurn(figure);
+      }
     } else if (!figures.some((other, otherIndex) => otherIndex < index && other.active)) {
       if (gameManager.gameplayFigure(figure)) {
         figure.active = true;
+        if (settingsManager.settings.activeStandees && figure instanceof Character) {
+          const summon = figure.summons.find((summon) => !summon.dead && summon.health > 0 && summon.state != SummonState.new);
+          if (summon && !figure.summons.find((summon) => summon.active)) {
+            summon.active = true;
+          }
+        }
       }
     } else {
       this.beforeTurn(figure);
@@ -224,6 +234,13 @@ export class RoundManager {
       });
     }
 
+    if (settingsManager.settings.activeStandees && figure instanceof Character) {
+      const summon = figure.summons.find((summon) => !summon.dead && summon.health > 0 && summon.state != SummonState.new);
+      if (summon && !figure.summons.find((summon) => summon.active)) {
+        summon.active = true;
+      }
+    }
+
     this.game.elementBoard.forEach((element) => {
       if (element.state == ElementState.new) {
         element.state = ElementState.strong;
@@ -264,6 +281,14 @@ export class RoundManager {
         figure.entities.forEach((monsterEntity) => {
           monsterEntity.active = false;
           monsterEntity.off = true;
+        });
+      }
+
+      if (settingsManager.settings.activeStandees && figure instanceof Character) {
+        figure.summons.forEach((summon) => {
+          if (summon.active) {
+            summon.active = false;
+          }
         });
       }
 

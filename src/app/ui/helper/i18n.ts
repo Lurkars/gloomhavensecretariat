@@ -192,7 +192,7 @@ export class I18nDirective implements OnInit, OnChanges {
     gameManager.uiChange.subscribe({
       next: () => {
         if (this.locale != settingsManager.settings.locale || this.C != gameManager.game.figures.filter((figure) => figure instanceof Character).length || this.L != gameManager.game.level || (!this.fhForce && this.fhStyle != settingsManager.settings.fhStyle) || this.calc != settingsManager.settings.calculate) {
-    this.C = Math.max(2, gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length);
+          this.C = Math.max(2, gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length);
           this.L = gameManager.game.level;
           this.locale = settingsManager.settings.locale;
           this.fhStyle = settingsManager.settings.fhStyle || this.fhForce;

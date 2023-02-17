@@ -35,6 +35,7 @@ export class Summon implements Entity {
   init: boolean = true;
   action: Action | undefined;
   additionalAction: Action | undefined;
+  active: boolean = false;
 
   // from entity
   level: number;
@@ -62,7 +63,7 @@ export class Summon implements Entity {
   }
 
   toModel(): GameSummonModel {
-    return new GameSummonModel(this.name, this.number, this.color, this.attack, this.movement, this.range, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.action ? JSON.stringify(this.action) : undefined, this.additionalAction ? JSON.stringify(this.additionalAction) : undefined);
+    return new GameSummonModel(this.name, this.number, this.color, this.attack, this.movement, this.range, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.action ? JSON.stringify(this.action) : undefined, this.additionalAction ? JSON.stringify(this.additionalAction) : undefined, this.active);
   }
 
   fromModel(model: GameSummonModel) {
@@ -93,11 +94,12 @@ export class Summon implements Entity {
       this.additionalAction = JSON.parse(model.additionalAction);
     }
 
+    this.active = model.active;
+
     this.markers = model.markers || this.markers;
     this.tags = model.tags || this.tags;
     this.init = false;
   }
-
 }
 
 export class GameSummonModel {
@@ -117,6 +119,7 @@ export class GameSummonModel {
   tags: string[];
   action: string | undefined;
   additionalAction: string | undefined;
+  active: boolean = false;
 
   constructor(name: string,
     number: number,
@@ -133,7 +136,8 @@ export class GameSummonModel {
     markers: string[],
     tags: string[],
     action: string | undefined,
-    additionalAction: string | undefined) {
+    additionalAction: string | undefined,
+    active: boolean) {
     this.name = name;
     this.number = number;
     this.color = color;
@@ -150,5 +154,6 @@ export class GameSummonModel {
     this.tags = JSON.parse(JSON.stringify(tags));
     this.action = action;
     this.additionalAction = additionalAction;
+    this.active = active;
   }
 }

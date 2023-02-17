@@ -258,8 +258,11 @@ export class ActionComponent implements OnInit {
           let eliteActions: Action | undefined = undefined;
           eliteStat.actions.filter((eliteAction) => this.additionAttackSubActionTypes.indexOf(eliteAction.type) != -1).forEach((eliteAction) => {
             const newEliteAction = new Action(eliteAction.type, eliteAction.value, eliteAction.valueType, eliteAction.subActions);
-            if (this.action && (!stat.actions || !this.subActionExists(stat.actions, newEliteAction, false))) {
-              if (!eliteActions && !this.subActionExists(this.action.subActions, newEliteAction) && !this.subActionExists(newSubActions, newEliteAction)) {
+            if (this.action && (!stat.actions || !this.subActionExists(stat.actions, newEliteAction, false) || !this.hasEntities(MonsterType.normal))) {
+              if (!this.hasEntities(MonsterType.normal)) {
+                newEliteAction.small = true;
+                newSubActions.push(newEliteAction);
+              } else if (!eliteActions && !this.subActionExists(this.action.subActions, newEliteAction) && !this.subActionExists(newSubActions, newEliteAction)) {
                 eliteActions = new Action(ActionType.monsterType, MonsterType.elite, ActionValueType.fixed, [newEliteAction]);
                 newSubActions.push(eliteActions);
               } else if (eliteActions && !this.subActionExists(this.action.subActions, newEliteAction) && !this.subActionExists(newSubActions, newEliteAction) && !this.subActionExists(eliteActions.subActions, newEliteAction)) {
@@ -283,11 +286,11 @@ export class ActionComponent implements OnInit {
               } else {
                 this.additionalSubActions.push(subAction);
               }
-            } else if (subAction.valueType == ActionValueType.add && this.additionalSubActions.some((other) => other.type == ActionType.target) && !this.additionalSubActions.some((other) => other.type == ActionType.specialTarget)) {
-              const targetAction = this.additionalSubActions.find((other) => other.type == ActionType.target);
+            } else if ((subAction.valueType == ActionValueType.add || subAction.valueType == ActionValueType.fixed) && this.additionalSubActions.some((other) => other.type == ActionType.target) && !this.additionalSubActions.some((other) => other.type == ActionType.specialTarget)) {
+              const targetAction = this.additionalSubActions.find((other) => other.type == ActionType.target && other != subAction);
               if (targetAction) {
                 subAction.valueType = ActionValueType.fixed;
-                subAction.value = EntityValueFunction(targetAction.value) + EntityValueFunction(subAction.value);
+                subAction.value = EntityValueFunction(subAction.value) + (targetAction.valueType != ActionValueType.subtract && targetAction.valueType != ActionValueType.minus ? EntityValueFunction(targetAction.value) : - EntityValueFunction(targetAction.value));
                 this.additionalSubActions.splice(this.additionalSubActions.indexOf(targetAction), 1, subAction);
               }
             }
@@ -323,6 +326,27 @@ export class ActionComponent implements OnInit {
           }
         }
       })
+
+      const targetSubAction = this.additionalSubActions.find((other) => other.type == ActionType.target && (other.valueType == ActionValueType.add || other.valueType == ActionValueType.subtract));
+      if (targetSubAction) {
+        let removeTargetSubAction = false;
+        newSubActions.forEach((subAction) => {
+          if (this.action) {
+            if (subAction.type == ActionType.monsterType && subAction.subActions.find((typeSubAction) => typeSubAction.type == ActionType.target)) {
+              const subActionTargetAction = subAction.subActions.find((typeSubAction) => typeSubAction.type == ActionType.target);
+              if (subActionTargetAction) {
+                removeTargetSubAction = true;
+                subActionTargetAction.value = EntityValueFunction(subActionTargetAction.value) + (targetSubAction.valueType == ActionValueType.add ? EntityValueFunction(targetSubAction.value) : -EntityValueFunction(targetSubAction.value));
+              }
+            }
+          }
+        })
+        if (removeTargetSubAction) {
+          this.additionalSubActions.splice(this.additionalSubActions.indexOf(targetSubAction), 1);
+        } else {
+
+        }
+      }
 
       let redundantAction = this.additionalSubActions.find((action) => (action.type == ActionType.element || action.type == ActionType.elementHalf) && action.valueType == ActionValueType.minus && action.subActions.every((subAction) => this.subActionExists(newSubActions, subAction)));
 

@@ -5,18 +5,43 @@
       <span class="revealed">{{'game.cards.confirmReveal' | ghsLabel}}</span>
     </div>
     <div class="card-front front">
-      <div *ngIf="!multipe || anyElement" class="type {{effectClasses}}"
+      <div *ngIf="!mixedElement && !multipe || anyElement" class="type {{effectClasses}}"
         [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
         <img
           [src]="'./assets/images/attackmodifier/' + (defaultType && (!newStyle || attackModifier.valueType != AttackModifierValueType.plus || !attackModifier.effects || attackModifier.effects.length == 0) ? attackModifier.type : 'am-front') + '.png'" />
       </div>
       <ng-container *ngIf="multipe && attackModifier.effects.length > 1">
-        <div *ngFor="let effect of attackModifier.effects" class="type multiple {{effect.value}}"
+        <div *ngFor="let effect of attackModifier.effects" class="type multiple {{effect.type}} {{effect.value}}"
           [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle, 'multiple-2' : attackModifier.effects.length == 2, 'multiple-3' : attackModifier.effects.length == 3, 'multiple-4' : attackModifier.effects.length == 4}">
         </div>
       </ng-container>
+
+
+      <ng-container *ngIf="mixedElement && effects().length > 0">
+        <div class="type multiple multiple-mixed-element {{mixedElement.value}}"
+          [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
+        </div>
+        <ng-container *ngFor="let effect of effects()">
+          <div *ngIf="filter(effect)" class="type multiple multiple-mixed-element {{effect.type}} {{effect.value}}"
+            [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
+          </div>
+        </ng-container>
+        <ng-container *ngIf="orTypeEffect && orTypeEffect.effects.length > 1">
+          <div *ngFor="let effect of orTypeEffect.effects"
+            class="type multiple  multiple-mixed-element multiple-mixed-element-or {{effect.type}} {{effect.value}}"
+            [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
+          </div>
+        </ng-container>
+      </ng-container>
+
+      <ng-container *ngIf="!mixedElement && orTypeEffect && orTypeEffect.effects.length > 1">
+        <div *ngFor="let effect of orTypeEffect.effects" class="type multiple {{effect.type}} {{effect.value}}"
+          [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle, 'multiple-2' : orTypeEffect.effects.length == 2, 'multiple-3' : orTypeEffect.effects.length == 3, 'multiple-4' : orTypeEffect.effects.length == 4}">
+        </div>
+      </ng-container>
       <ng-container *ngIf="multipe && attackModifier.effects.length == 1">
-        <div *ngFor="let element of attackModifier.effects[0].value.split('|')" class="type multiple multiple-1 {{element}}"
+        <div *ngFor="let element of attackModifier.effects[0].value.split('|')"
+          class="type multiple multiple-1 {{element}}"
           [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
         </div>
       </ng-container>
@@ -46,9 +71,14 @@
         <img [src]="characterIcon" />
       </span>
       <ng-container *ngIf="attackModifier.effects">
-        <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="attackModifier.effects"
+        <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="effects()"
           [offsetWidth]="card.offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effects>
       </ng-container>
+
+      <div class="mixed-element" *ngIf="mixedElement">
+        <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="[mixedElement]"
+          [offsetWidth]="card.offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effects>
+      </div>
     </div>
   </div>
 </div>

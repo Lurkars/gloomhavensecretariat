@@ -51,13 +51,24 @@
         background-image: url('~src/assets/images/attackmodifier/am-front.png');
         background-size: 100%;
 
-        &.multiple-1 {
-          &:nth-child(2) {
+        &.multiple-mixed-element {
+          &:not(:nth-child(1)) {
             mask-image: conic-gradient(from 90deg at 50% 50%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 1) 75%);
           }
 
-          &:nth-child(2).fh {
-            mask-image: conic-gradient(from 90deg at 50% 50%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 1) 80%);
+          &.multiple-mixed-element-or {
+            mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0) 100%);
+          }
+        }
+
+        &.multiple-1 {
+
+          &:nth-child(2) {
+            mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0) 55%, rgba(0, 0, 0) 100%);
+          }
+
+          &.fh:nth-child(2){
+            mask-image: conic-gradient(from 110deg at 50% 50%, rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 70%, rgb(0, 0, 0) 75%);
           }
         }
 
@@ -296,6 +307,14 @@
     z-index: 1;
     text-shadow: 1px 0px var(--ghs-color-darkgray), 0px 1px var(--ghs-color-darkgray), 1px 0px var(--ghs-color-darkgray), 0px 1px var(--ghs-color-darkgray);
     filter: drop-shadow(1px 1px 1px var(--ghs-color-darkgray));
+  }
+
+  .front .mixed-element {
+    position: absolute;
+    top: 0;
+    left: -7%;
+    width: 40%;
+    height: 40%;
   }
 
   &.bless .front::before {

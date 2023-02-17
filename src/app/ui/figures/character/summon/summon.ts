@@ -18,7 +18,7 @@ import { EntityMenuDialogComponent } from '../../entity-menu/entity-menu-dialog'
 })
 export class SummonEntityComponent implements OnInit {
 
-  @ViewChild('standee') standee!: ElementRef;
+  @ViewChild('standee', { static: false }) standee!: ElementRef;
 
   @Input() character!: Character;
   @Input() summon!: Summon;
@@ -98,6 +98,23 @@ export class SummonEntityComponent implements OnInit {
         }
       }
     })
+  }
+
+  toggleActive() {
+    if (this.summon.active) {
+    gameManager.stateManager.before("summonInactive", "data.character." + this.character.name, "data.summon." + this.summon.name);
+      const summon = this.character.summons.find((summon, index, self) => index > self.indexOf(this.summon) && !summon.dead && summon.health > 0 && summon.state != SummonState.new && !summon.active);
+      if (this.character.active && summon) {
+        summon.active = true;
+      }
+      this.summon.active = false;
+      gameManager.stateManager.after();
+    } else if (!this.summon.dead && this.summon.health > 0 && this.summon.state != SummonState.new) {
+      gameManager.stateManager.before("summonActive", "data.character." + this.character.name, "data.summon." + this.summon.name);
+      this.character.summons.forEach((summon) => summon.active = false);
+      this.summon.active = true;
+      gameManager.stateManager.after();
+    }
   }
 
 }

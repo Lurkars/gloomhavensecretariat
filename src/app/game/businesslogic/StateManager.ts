@@ -244,6 +244,9 @@ export class StateManager {
 
             settingsManager.setSettings(settings);
             localStorage.setItem("ghs-settings", JSON.stringify(settingsManager.settings));
+            setTimeout(() => {
+              window.document.body.classList.remove('server-sync');
+            }, 1);
           }
           break;
         case "permissions":

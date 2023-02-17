@@ -30,6 +30,7 @@ import { CardRevealDirective } from './ui/helper/CardReveal';
 import { GhsCeilPipe, GhsFloorPipe, GhsLabelPipe, GhsRangePipe, GhsScenarioSearch, GhsValueSignPipe } from './ui/helper/Pipes';
 import { MainComponent } from './ui/main';
 import { SummonEntityComponent } from './ui/figures/character/summon/summon';
+import { SummonSheetComponent } from './ui/figures/character/summon/sheet/summon-sheet';
 import { CharacterImageComponent } from './ui/figures/character/cards/image';
 import { DatamanagementMenuComponent } from './ui/header/menu/datamanagement/datamanagement';
 import { ScenarioMenuComponent } from './ui/header/menu/scenario/scenario';
@@ -123,7 +124,7 @@ export class GhsHammerConfig extends HammerGestureConfig {
     EntityMenuDialogComponent, EntitiesMenuDialogComponent,
     CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog,
     ObjectiveComponent,
-    SummonEntityComponent,
+    SummonEntityComponent, SummonSheetComponent,
     MonsterComponent,
     MonsterEntityComponent,
     MonsterImageComponent,

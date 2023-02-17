@@ -223,13 +223,11 @@
                 "effects": [
                   {
                     "type": "condition",
-                    "value": "ward",
-                    "effects": [
-                      {
-                        "type": "specialTarget",
-                        "value": "allyShort"
-                      }
-                    ]
+                    "value": "ward"
+                  },
+                  {
+                    "type": "specialTarget",
+                    "value": "allyShort"
                   }
                 ]
               }

@@ -127,7 +127,7 @@
             "effects": [
               {
                 "type": "heal",
-                "value": 2,
+                "value": 1,
                 "effects": [
                   {
                     "type": "specialTarget",

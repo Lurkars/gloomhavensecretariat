@@ -209,8 +209,19 @@
             "rolling": true,
             "effects": [
               {
-                "type": "custom",
-                "value": "Add %game.action.push% 2 or %game.action.pull% 2"
+                "type": "or",
+                "value": "",
+                "note": "Add %game.action.push% 2 or %game.action.pull% 2",
+                "effects": [
+                  {
+                    "type": "push",
+                    "value": 2
+                  },
+                  {
+                    "type": "pull",
+                    "value": 2
+                  }
+                ]
               }
             ]
           }

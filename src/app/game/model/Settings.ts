@@ -11,6 +11,7 @@ export class Settings {
   hideStats: boolean = true;
   randomStandees: boolean = false;
   activeStandees: boolean = true;
+  activeSummons: boolean = true;
   alwaysAllyAttackModifierDeck: boolean = false;
   alwaysHazardousTerrain: boolean = false;
   alwaysFhSolo: boolean = false;

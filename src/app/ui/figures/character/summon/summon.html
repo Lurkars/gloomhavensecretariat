@@ -1,6 +1,10 @@
-<div class="summon-border" [ngClass]="{'dead' : summon.dead, 'off' : character.off}" [entityAnimation]="summon.dead">
+<div class="summon-border" [ngClass]="{'dead' : summon.dead, 'off' : character.off, 'active' : summon.active}"
+  [entityAnimation]="summon.dead">
   <div class="summon" title="{{'data.summon.' + summon.name | ghsLabel}}">
     <div #standee class="standee">
+      <div class="sheet">
+        <ghs-summon-sheet *ngIf="summon.active" [summon]="summon" ></ghs-summon-sheet>
+      </div>
 
       <span class="image"
         [ngClass]="{'active' : summon.state == SummonState.true, 'new' : summon.state == SummonState.new, 'center' : (summon.entityConditions.length % 2) == 0}">
@@ -27,7 +31,8 @@
 
     <div class="conditions">
       <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.activeConditions(summon)">
-        <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
+        <img
+          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
         <span class="value"
           *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1">{{entityCondition.value}}</span>
       </span>
@@ -35,6 +40,6 @@
     <ghs-healthbar [entity]="summon" [diff]="health"></ghs-healthbar>
   </div>
 
-  <ghs-drag-click class="drag-hp" (singleClick)="open()" (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)"
-    [relative]="true" [screenWidth]="true"></ghs-drag-click>
+  <ghs-drag-click class="drag-hp" (singleClick)="open()" (doubleClick)="toggleActive()" (dragMove)="dragHpMove($event)"
+    (dragEnd)="dragHpEnd($event)" [relative]="true" [screenWidth]="true"></ghs-drag-click>
 </div>

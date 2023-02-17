@@ -9,7 +9,7 @@ import { SummonData } from "src/app/game/model/data/SummonData";
 import { EntityValueFunction } from "src/app/game/model/Entity";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterType } from "src/app/game/model/MonsterType";
-import { SummonState } from "src/app/game/model/Summon";
+import { Summon, SummonColor, SummonState } from "src/app/game/model/Summon";
 
 @Component({
   selector: 'ghs-action-summon',
@@ -25,7 +25,7 @@ export class ActionSummonComponent implements OnChanges {
   @Input() additional: boolean = false;
   monsters: MonsterSpawnData[] = [];
   type: MonsterType | undefined;
-  summon: SummonData | undefined;
+  summonData: SummonData | undefined;
   count: number | undefined;
   tags: string[] = [];
 
@@ -44,13 +44,13 @@ export class ActionSummonComponent implements OnChanges {
   }
 
   update() {
-    this.summon = undefined;
+    this.summonData = undefined;
     this.monsters = [];
     this.tags = [];
     this.count = undefined;
     this.type = undefined;
     if (this.action.value == 'summonData') {
-      this.summon = this.action.valueObject as SummonData;
+      this.summonData = this.action.valueObject as SummonData;
     } if (this.action.value == 'monsterStandee') {
       this.monsters = JSON.parse(JSON.stringify(this.action.valueObject)) as MonsterSpawnData[];
       const charCount = Math.max(2, gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length);
@@ -131,6 +131,13 @@ export class ActionSummonComponent implements OnChanges {
       console.warn('Incorrect summon data', monsterSpawnData);
     }
     return "";
+  }
+
+  getSummon(): Summon {
+    if (this.summonData) {
+      return new Summon(this.summonData.name, this.summonData.level || 0, this.summonData.count, SummonColor.custom, this.summonData);
+    }
+    return new Summon("", 0, 0, SummonColor.custom);
   }
 
   getSpawnId(): number {

@@ -59,6 +59,34 @@
     <div class="line">
       <div class="hint-container">
         <label>
+          <input type="checkbox" [checked]="settingsManager.settings.initiativeRequired"
+            (change)="settingsManager.setInitiativeRequired(!settingsManager.settings.initiativeRequired)">
+          {{'settings.initiativeRequired' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.initiativeRequired.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.activeSummons"
+            (change)="settingsManager.setActiveSummons(!settingsManager.settings.activeSummons)">
+          {{'settings.activeSummons' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.activeSummons.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="line">
+      <div class="hint-container">
+        <label>
           <input type="checkbox" [checked]="settingsManager.settings.abilityReveal"
             (change)="settingsManager.setAbilityReveal(!settingsManager.settings.abilityReveal)">{{'settings.abilityReveal'
           | ghsLabel}}
@@ -101,34 +129,6 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.initiativeRequired"
-            (change)="settingsManager.setInitiativeRequired(!settingsManager.settings.initiativeRequired)">
-          {{'settings.initiativeRequired' | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.initiativeRequired.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.automaticAttackModifierFullscreen"
-            (change)="settingsManager.setAutomaticAttackModifierFullscreen(!settingsManager.settings.automaticAttackModifierFullscreen)">
-          {{'settings.automaticAttackModifierFullscreen' | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.automaticAttackModifierFullscreen.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label>
           <input type="checkbox" [checked]="settingsManager.settings.scenarioRules"
             (change)="settingsManager.setScenarioRules(!settingsManager.settings.scenarioRules)">
           {{'settings.scenarioRules' | ghsLabel}}
@@ -136,6 +136,20 @@
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
           <span class="text">{{'settings.scenarioRules.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.hideAbsent"
+            (change)="settingsManager.setHideAbsent(!settingsManager.settings.hideAbsent)">
+          {{'settings.hideAbsent' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.hideAbsent.hint' | ghsLabel}}</span>
         </span>
       </div>
     </div>
@@ -459,13 +473,13 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.hideAbsent"
-            (change)="settingsManager.setHideAbsent(!settingsManager.settings.hideAbsent)">
-          {{'settings.hideAbsent' | ghsLabel}}
+          <input type="checkbox" [checked]="settingsManager.settings.automaticAttackModifierFullscreen"
+            (change)="settingsManager.setAutomaticAttackModifierFullscreen(!settingsManager.settings.automaticAttackModifierFullscreen)">
+          {{'settings.automaticAttackModifierFullscreen' | ghsLabel}}
         </label>
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
-          <span class="text">{{'settings.hideAbsent.hint' | ghsLabel}}</span>
+          <span class="text">{{'settings.automaticAttackModifierFullscreen.hint' | ghsLabel}}</span>
         </span>
       </div>
     </div>

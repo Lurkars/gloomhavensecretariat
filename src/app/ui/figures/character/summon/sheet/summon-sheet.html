@@ -1,0 +1,34 @@
+<div class="summon-container" *ngIf="summon" [ngClass]="{'additional' : summon.additionalAction || additional}">
+    <span class="name">
+        <span class="summon-label" *ngIf="action">{{'game.action.summon' | ghsLabel}}&nbsp;</span>
+        <span [i18n]="'data.summon.' + summon.name" [ngClass]="{'text-white' : !right}"></span>
+    </span>
+    <div class="grid">
+        <span class="item health">
+            <img class="ghs-svg" src="./assets/images/action/heal.svg" />
+            <span>:</span>
+            <span [value-calc]="summon.maxHealth" [empty]="true"></span>
+        </span>
+        <span class="item move">
+            <img class="ghs-svg" src="./assets/images/action/move.svg" />
+            <span>:</span>
+            <span [value-calc]="summon.movement" [empty]="true"></span>
+        </span>
+        <span class="action">
+            <ghs-action *ngIf="summon.action" [action]="summon.action"></ghs-action>
+        </span>
+        <span class="item attack">
+            <img class="ghs-svg" src="./assets/images/action/attack.svg" />
+            <span>:</span>
+            <span [value-calc]="summon.attack" [empty]="true"></span>
+        </span>
+        <span class="item range">
+            <img class="ghs-svg" src="./assets/images/action/range.svg" />
+            <span>:</span>
+            <span [value-calc]="summon.range" [empty]="true"></span>
+        </span>
+        <span class="additionalAction" *ngIf="summon.additionalAction">
+            <ghs-action [action]="summon.additionalAction"></ghs-action>
+        </span>
+    </div>
+</div>

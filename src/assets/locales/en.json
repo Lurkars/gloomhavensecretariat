@@ -488,7 +488,7 @@
       "ally": "%game.target% one ally",
       "allyAdjacent": "%game.target% one adjacent ally",
       "allyAffect": "%game.affect% any ally",
-      "allyAffectRange": "%game.affect% one ally %game.action.range% {0}",
+      "allyAffectRange": "%game.affect% one ally within %game.action.range% {0}",
       "allyShort": "Ally",
       "enemies": "%game.target% all enemies",
       "enemiesAdjacent": "%game.target% all adjacent enemies",
@@ -850,6 +850,10 @@
     "activeStandees": {
       ".": "Active standees",
       "hint": "On monsters turn, every standee has an active state, double click on standee to mark as done"
+    },
+    "activeSummons": {
+      ".": "Active summons",
+      "hint": "At start of the characters turn, summons will be activated in its order, double click to toggle active state."
     },
     "alwaysAllyAttackModifierDeck": {
       ".": "Always Attack Modifier Deck for allies",
@@ -1243,7 +1247,9 @@
       "setTitle": "Title '{1}' for {0}",
       "setXP": "XP {1} for {0}",
       "shuffleAbilityDeck": "Shuffle abilities of {0}",
+      "summonActive": "Summon '{1}' von {0} active",
       "summonDead": "Kill summon '{1}' of {0}",
+      "summonInactive": "Summon '{1}' von {0} inactive",
       "startCampaign": "Start a new {0} campaign",
       "unsetAbsent": "{0} present",
       "unsetActive": "End turn of {0}",

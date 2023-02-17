@@ -46,7 +46,44 @@
       }
     }
 
+    .target-value-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      width: 100%;
+      height: 40%;
+      bottom: 5%;
+      font-family: var(--ghs-font-title);
+      font-size: 0.6em;
+      line-height: 0.8em;
+      color: var(--ghs-color-white);
+      left: 50%;
+      transform: translateX(-50%);
+
+      &.target-self,
+      &.target-allyShort {
+        font-size: 1.2em;
+      }
+
+      .target-value {
+        display: inline;
+        text-align: center;
+      }
+    }
+
+    &.fh .target-value-container {
+      font-family: var(--ghs-font-normal);
+      font-size: 0.7em;
+
+      &.target-self,
+      &.target-allyShort {
+        font-size: 1.3em;
+      }
+    }
+
     .effect-container {
+      position: relative;
       width: 100%;
       height: 100%;
       border: 1px solid var(--ghs-color-white);
@@ -67,10 +104,10 @@
 
       img {
         position: absolute;
-        top: 25%;
+        top: 10%;
         left: 50%;
         transform: translateX(-50%);
-        width: 30%;
+        width: 50%;
         height: auto;
       }
 
@@ -84,25 +121,6 @@
         color: var(--ghs-color-black);
       }
 
-      .target-value-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        width: 100%;
-        height: 40%;
-        bottom: 5%;
-        font-family: var(--ghs-font-title);
-        font-size: 0.6em;
-        color: var(--ghs-color-white);
-        left: 50%;
-        transform: translateX(-50%);
-
-        .target-value {
-          display: block;
-        }
-      }
-
       &.heal-container {
         background-color: #a11f1a;
       }
@@ -111,7 +129,8 @@
         background-color: #6e4e34;
 
         img {
-          width: 50%;
+          top: 10%;
+          width: 80%;
         }
 
         .value {
@@ -164,8 +183,6 @@
         }
       }
     }
-
-
 
     .card-action-container {
       display: flex;
@@ -294,30 +311,36 @@
       height: 52%;
       transform: translate(-50%, -50%);
 
-      &.multiple.condition {
-        &:nth-child(1) {
-          transform: translate(-70%, -70%) scale(0.5);
-        }
+      &.multiple {
 
-        &:nth-child(2) {
-          transform: translate(-30%, -30%) scale(0.5);
-        }
-
-        &:nth-child(3) {
-          transform: translate(-30%, -70%) scale(0.5);
-        }
-
-        &:nth-child(4) {
-          transform: translate(-70%, -30%) scale(0.5);
-        }
-
-        &.multiple-2 {
+        &.condition,
+        &.pull,
+        &.push,
+        &.pierce {
           &:nth-child(1) {
-            transform: translate(-67.5%, -67.5%) scale(0.6);
+            transform: translate(-70%, -70%) scale(0.5);
           }
 
           &:nth-child(2) {
-            transform: translate(-32.5%, -32.5%) scale(0.6);
+            transform: translate(-30%, -30%) scale(0.5);
+          }
+
+          &:nth-child(3) {
+            transform: translate(-30%, -70%) scale(0.5);
+          }
+
+          &:nth-child(4) {
+            transform: translate(-70%, -30%) scale(0.5);
+          }
+
+          &.multiple-2 {
+            &:nth-child(1) {
+              transform: translate(-67.5%, -67.5%) scale(0.6);
+            }
+
+            &:nth-child(2) {
+              transform: translate(-32.5%, -32.5%) scale(0.6);
+            }
           }
         }
       }
@@ -399,14 +422,84 @@
         }
       }
 
+      &.or {
+        width: 100%;
+        height: 100%;
+
+        .or-label {
+          font-size: 0.8em;
+          color: var(--ghs-color-white);
+          position: relative;
+
+          &.new-style {
+            &::before {
+              content: ' ';
+              position: absolute;
+              top: -1em;
+              left: 0.75em;
+              right: -1.25em;
+              bottom: 1em;
+              color: var(--ghs-color-white);
+              background-color: var(--ghs-color-white);
+              clip-path: polygon(100% 0%, 95% 0%, 0% 95%, 0% 100%, 5% 100%, 100% 5%);
+            }
+
+
+            &::after {
+              content: ' ';
+              position: absolute;
+              top: 1em;
+              left: -1.25em;
+              right: 0.75em;
+              bottom: -1em;
+              color: var(--ghs-color-white);
+              background-color: var(--ghs-color-white);
+              clip-path: polygon(100% 0%, 95% 0%, 0% 95%, 0% 100%, 5% 100%, 100% 5%);
+            }
+          }
+        }
+
+        ghs-attackmodifier-effects {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+
+          .effect:nth-child(1) {
+            transform: translate(-70%, -70%) scale(0.5);
+          }
+
+          .effect:nth-child(2) {
+            transform: translate(-30%, -30%) scale(0.5);
+          }
+        }
+      }
+
       .value {
         font-size: 1em;
       }
 
       &.condition {
+
+        flex-direction: column;
+
         .value {
           font-size: 1.3em;
         }
+
+        img.full.target {
+          width: 60%;
+          top: 0;
+          position: absolute;
+        }
+
+        .target-value-container {
+          width: 90%;
+          height: 40%;
+          bottom: 5%;
+        }
+
       }
 
       .effect-container {
@@ -414,36 +507,37 @@
         height: 80%;
 
         .value {
-          font-size: 1.6em;
+          font-size: 2em;
+          top: 25%;
         }
 
         .target-value-container {
-          width: 60%;
-          height: 20%;
-          bottom: 20%;
+          width: 80%;
+          height: 30%;
+          bottom: 10%;
         }
 
         &.target {
 
           img {
-            top: 17%;
-            width: 28%;
+            top: 8%;
+            width: 35%;
           }
 
           .value {
-            top: 30%;
+            top: 20%;
             font-size: 1.4em;
           }
 
           &.shield-container,
           &.retaliate-container {
             img {
-              top: 20%;
-              width: 40%;
+              top: 10%;
+              width: 50%;
             }
 
             .value {
-              top: 25%;
+              top: 15%;
             }
           }
         }

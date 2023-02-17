@@ -34,6 +34,20 @@ export class AttackModifierEffectsComponent {
     return "";
   }
 
+  getRange(effect: AttackModifierEffect): string {
+    if (effect.effects) {
+      const rangeEffect = effect.effects.find((subEffect) => subEffect.type == AttackModifierEffectType.range);
+      if (rangeEffect) {
+        return "%game.action.range:" + rangeEffect.value + '%';
+      }
+    }
+    return "";
+  }
+
+  subEffects(effect: AttackModifierEffect): AttackModifierEffect[] {
+    return effect.effects && effect.effects.filter((subEffect) => subEffect.type != AttackModifierEffectType.specialTarget && subEffect.type != AttackModifierEffectType.target && subEffect.type != AttackModifierEffectType.range && subEffect.type != AttackModifierEffectType.custom) || [];
+  }
+
   isGhsSvg(type: AttackModifierEffectType) {
     return this.invertIcons.indexOf(type) != -1;
   }

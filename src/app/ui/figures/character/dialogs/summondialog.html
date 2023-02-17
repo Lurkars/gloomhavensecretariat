@@ -21,7 +21,7 @@
         <span class="number">{{number}}</span>
       </span>
     </div>
-    <div class="summons">
+    <div class="scroll-container summons">
       <span *ngFor="let summonData of summonData()" class="summon" (click)="addSummon(summonData)"
         [ngClass]="{'disabled' : !available(summonData)}">
         <span class="summon-button">

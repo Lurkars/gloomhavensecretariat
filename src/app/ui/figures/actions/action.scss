@@ -172,6 +172,12 @@
       justify-content: center;
       align-items: center;
 
+      .action-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
       .value {
         white-space: nowrap;
       }
@@ -809,6 +815,22 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
+            img.icon {
+              width: 1.5em;
+              height: 1.5em;
+              margin: 0;
+            }
+          }
+        }
+
+        .action-push,
+        .action-pull,
+        .action-pierce {
+          .action-icon {
+            width: 1.7em;
+            height: 1em;
+            justify-content: flex-start;
 
             img.icon {
               width: 1.5em;

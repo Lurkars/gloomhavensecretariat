@@ -248,12 +248,14 @@
       <ng-container *ngIf=" action.valueType != ActionValueType.add && action.valueType != ActionValueType.subtract">
         <span class="type">{{'game.action.' + action.type | ghsLabel}}</span>
 
-        <img *ngIf="action.type != ActionType.move || !monster || !monster.flying"
-          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/' + action.type + '.svg'"
-          class="icon" [ngClass]="{'ghs-svg' : isGhsSvg(action.type)}" />
-        <img *ngIf="action.type == ActionType.move && monster && monster.flying"
-          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/fly.svg'" class="icon"
-          [ngClass]="{'ghs-svg' : isGhsSvg(action.type)}" />
+        <span class="action-icon">
+          <img *ngIf="action.type != ActionType.move || !monster || !monster.flying"
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/' + action.type + '.svg'"
+            class="icon" [ngClass]="{'ghs-svg' : isGhsSvg(action.type)}" />
+          <img *ngIf="action.type == ActionType.move && monster && monster.flying"
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/fly.svg'" class="icon"
+            [ngClass]="{'ghs-svg' : isGhsSvg(action.type)}" />
+        </span>
         <span class="value">
           <span *ngIf="!relative && !forceRelative">
             <ng-container *ngIf="hasEntities(MonsterType.normal) || !monster">

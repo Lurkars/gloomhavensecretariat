@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from "@angular/core";
 import { elementAt } from "rxjs";
+import { Action } from "rxjs/internal/scheduler/Action";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType, AttackModifierValueType } from "src/app/game/model/AttackModifier";
 
@@ -27,6 +28,8 @@ export class AttackModifierComponent implements OnInit, OnChanges {
   animate: boolean = true;
   multipe: boolean = false;
   anyElement: boolean = false;
+  mixedElement: AttackModifierEffect | undefined;
+  orTypeEffect: AttackModifierEffect | undefined;
 
   settingsManager: SettingsManager = settingsManager;
 
@@ -35,11 +38,22 @@ export class AttackModifierComponent implements OnInit, OnChanges {
     if (this.attackModifier) {
       this.multipe = false;
       this.anyElement = false;
+      this.mixedElement = undefined;
+      this.orTypeEffect = undefined;
       if (this.attackModifier.effects) {
-        this.multipe = this.attackModifier.effects.length > 1 && this.attackModifier.effects.every((effect) => effect.type == AttackModifierEffectType.element) || this.attackModifier.effects.length > 1 && this.attackModifier.effects.every((effect) => effect.type == AttackModifierEffectType.condition) || this.attackModifier.effects.length == 1 && this.attackModifier.effects.every((effect) => effect.type == AttackModifierEffectType.elementHalf) || false;
-        this.anyElement = this.attackModifier.effects.length == 1 && this.attackModifier.effects.every((effect) => (effect.type == AttackModifierEffectType.element || effect.type == AttackModifierEffectType.elementConsume) && effect.value == 'any');
 
-        this.attackModifier.effects.forEach((effect) => {
+        if (this.attackModifier.effects.find((effect) => effect.type == AttackModifierEffectType.element) && this.attackModifier.effects.some((effect) => effect.type != AttackModifierEffectType.element)) {
+          this.mixedElement = this.attackModifier.effects.find((effect) => effect.type == AttackModifierEffectType.element);
+        }
+
+        this.multipe = this.effects().length > 1 && this.effects().every((effect) => effect.type == AttackModifierEffectType.element) || this.effects().length > 1 && this.effects().every((effect) => effect.type == AttackModifierEffectType.condition || effect.type == AttackModifierEffectType.pierce || effect.type == AttackModifierEffectType.pull || effect.type == AttackModifierEffectType.push) || this.effects().length == 1 && this.effects().every((effect) => effect.type == AttackModifierEffectType.elementHalf) || false;
+
+        this.anyElement = this.effects().length == 1 && this.effects().every((effect) => (effect.type == AttackModifierEffectType.element || effect.type == AttackModifierEffectType.elementConsume) && effect.value == 'any');
+
+        this.orTypeEffect = this.effects().find((effect) => effect.type == AttackModifierEffectType.or);
+
+
+        this.effects().forEach((effect) => {
           if (effect.type != AttackModifierEffectType.heal && effect.type != AttackModifierEffectType.shield) {
             this.defaultType = false;
           }
@@ -74,4 +88,11 @@ export class AttackModifierComponent implements OnInit, OnChanges {
     return "";
   }
 
+  effects(): AttackModifierEffect[] {
+    return this.mixedElement ? this.attackModifier.effects.filter((effect) => effect != this.mixedElement) : this.attackModifier.effects;
+  }
+
+  filter(effect: AttackModifierEffect): boolean {
+    return [AttackModifierEffectType.element, AttackModifierEffectType.elementConsume, AttackModifierEffectType.elementHalf, AttackModifierEffectType.condition, AttackModifierEffectType.custom, AttackModifierEffectType.pull, , AttackModifierEffectType.push, AttackModifierEffectType.pierce].indexOf(effect.type) != -1;
+  }
 } 

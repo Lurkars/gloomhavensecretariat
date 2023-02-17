@@ -151,6 +151,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setActiveSummons(activeSummons: boolean) {
+    this.settings.activeSummons = activeSummons;
+    this.storeSettings();
+  }
+
   setAlwaysAllyAttackModifierDeck(alwaysAllyAttackModifierDeck: boolean) {
     this.settings.alwaysAllyAttackModifierDeck = alwaysAllyAttackModifierDeck;
     this.storeSettings();
