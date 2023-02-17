@@ -749,6 +749,10 @@
       ".": "Aktive Aufsteller",
       "hint": "Während des Zuges ist jeder Monster Aufsteller als aktiv markiert, durch Doppelklick kann der Zug des einzelnen Aufstellers beendet werden"
     },
+    "activeSummons": {
+      ".": "Aktive Beschwörungen",
+      "hint": "Zu Beginn eines Zuges werden die Beschwörungen eines Charakters nacheinander als aktiv markiert und entsprechende Daten angezeigt, durch Doppelklick wird die jeweils nächste Beschwörung ausgewählt."
+    },
     "alwaysAllyAttackModifierDeck": {
       ".": "Immer Angriffsmodifikatordeck für Verbündete",
       "hint": "Immer Frosthaven Regel anwenden, dass Verbündete ein eigenes Angriffsmodifikatordeck verwenden anstelle des Monsterdecks"
@@ -1141,7 +1145,9 @@
       "setTitle": "Titel '{1}' für {0}",
       "setXP": "EP {1} für {0}",
       "shuffleAbilityDeck": "Fertigkeiten mischen für {0}",
+      "summonActive": "Beschwörung '{1}' von {0} aktiv",
       "summonDead": "Töte Beschwörung '{1}' von {0}",
+      "summonInactive": "Beschwörung '{1}' von {0} nicht aktiv",
       "startCampaign": "Neue {0} Kampagne starten",
       "unsetAbsent": "{0} anwesend",
       "unsetActive": "Zug beenden von {0}",
