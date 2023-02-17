@@ -15,7 +15,9 @@ As open source software this is meant for the community to actively [contribute]
 If you need help using the app take a look at the [help page](https://help.gloomhaven-secretariat.de). It is not complete but should help with all general steps to use GHS properly.
 
 > SPOILER WARNING:
-> The `label-spoiler.json` files inside the `data`-folders and therefore the final edition data files in releases inside `./assets/data`-folder contain spoilers by including the corresponding label.
+> The `label-spoiler.json` files inside the `data`-folders and therefore the final edition data files in releases inside `./assets/data`-folder contain spoilers by including the corresponding label. 
+> 
+> [More infos about spoiler in this repository](https://github.com/Lurkars/gloomhavensecretariat/discussions/103)
 
 ## Support me
 
