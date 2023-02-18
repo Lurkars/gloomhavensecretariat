@@ -1,16 +1,22 @@
-<div class="summon-container" *ngIf="summon" [ngClass]="{'additional' : summon.additionalAction || additional}">
+<div class="summon-container" *ngIf="summon"
+    [ngClass]="{'action' : summon.action,  'additional' : summon.additionalAction || additional, 'fh' : settingsManager.settings.fhStyle}">
     <span class="name">
         <span class="summon-label" *ngIf="action">{{'game.action.summon' | ghsLabel}}&nbsp;</span>
         <span [i18n]="'data.summon.' + summon.name" [ngClass]="{'text-white' : !right}"></span>
     </span>
+    <span class="thumbnail" *ngIf="summon.thumbnail">
+        <img [src]="'./assets/images/summons/thumbnail/' + summon.thumbnail + '.png'" />
+    </span>
     <div class="grid">
         <span class="item health">
-            <img class="ghs-svg" src="./assets/images/action/heal.svg" />
+            <img class="ghs-svg"
+                [src]="'./assets/images/' +(settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/heal.svg'" />
             <span>:</span>
             <span [value-calc]="summon.maxHealth" [empty]="true"></span>
         </span>
         <span class="item move">
-            <img class="ghs-svg" src="./assets/images/action/move.svg" />
+            <img class="ghs-svg"
+                [src]="'./assets/images/' +(settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/move.svg'" />
             <span>:</span>
             <span [value-calc]="summon.movement" [empty]="true"></span>
         </span>
@@ -18,12 +24,14 @@
             <ghs-action *ngIf="summon.action" [action]="summon.action"></ghs-action>
         </span>
         <span class="item attack">
-            <img class="ghs-svg" src="./assets/images/action/attack.svg" />
+            <img class="ghs-svg"
+                [src]="'./assets/images/' +(settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/attack.svg'" />
             <span>:</span>
             <span [value-calc]="summon.attack" [empty]="true"></span>
         </span>
         <span class="item range">
-            <img class="ghs-svg" src="./assets/images/action/range.svg" />
+            <img class="ghs-svg"
+                [src]="'./assets/images/' +(settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/range.svg'" />
             <span>:</span>
             <span [value-calc]="summon.range" [empty]="true"></span>
         </span>

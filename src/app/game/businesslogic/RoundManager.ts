@@ -112,7 +112,7 @@ export class RoundManager {
     } else if (!figures.some((other, otherIndex) => otherIndex < index && other.active)) {
       if (gameManager.gameplayFigure(figure)) {
         figure.active = true;
-        if (settingsManager.settings.activeStandees && figure instanceof Character) {
+        if (settingsManager.settings.activeSummons && figure instanceof Character) {
           const summon = figure.summons.find((summon) => !summon.dead && summon.health > 0 && summon.state != SummonState.new);
           if (summon && !figure.summons.find((summon) => summon.active)) {
             summon.active = true;
@@ -184,6 +184,12 @@ export class RoundManager {
         monsterEntity.active = figure.active;
         monsterEntity.off = false;
       });
+    } else if (!figure.active && settingsManager.settings.activeSummons && figure instanceof Character) {
+      figure.summons.forEach((summon) => {
+        if (summon.active) {
+          summon.active = false;
+        }
+      });
     }
 
     if (settingsManager.settings.applyConditions) {
@@ -234,7 +240,7 @@ export class RoundManager {
       });
     }
 
-    if (settingsManager.settings.activeStandees && figure instanceof Character) {
+    if (settingsManager.settings.activeSummons && figure instanceof Character) {
       const summon = figure.summons.find((summon) => !summon.dead && summon.health > 0 && summon.state != SummonState.new);
       if (summon && !figure.summons.find((summon) => summon.active)) {
         summon.active = true;
@@ -284,9 +290,10 @@ export class RoundManager {
         });
       }
 
-      if (settingsManager.settings.activeStandees && figure instanceof Character) {
+      if (settingsManager.settings.activeSummons && figure instanceof Character) {
         figure.summons.forEach((summon) => {
           if (summon.active) {
+            console.log("AFRER?");
             summon.active = false;
           }
         });

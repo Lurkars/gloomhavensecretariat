@@ -2741,6 +2741,10 @@
             "type": "elite"
           },
           {
+            "name": "snow-imp",
+            "type": "normal"
+          },
+          {
             "name": "polar-bear",
             "player2": "normal",
             "player3": "elite",

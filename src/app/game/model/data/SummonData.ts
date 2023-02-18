@@ -3,6 +3,7 @@ import { Action } from "../Action";
 export class SummonData {
 
   name: string;
+  edition: string;
   health: number | string;
   attack: number | string;
   movement: number | string;
@@ -12,8 +13,9 @@ export class SummonData {
   level: number | undefined;
   special: boolean;
   count: number;
+  thumbnail: boolean;
 
-  constructor(name: string, health: number | string,
+  constructor(name: string, edition: string, health: number | string,
     attack: number | string,
     movement: number | string,
     range: number | string,
@@ -21,8 +23,10 @@ export class SummonData {
     additionaAction: Action | undefined = undefined,
     level: number | undefined = undefined,
     special: boolean = false,
-    count: number = 1) {
+    count: number = 1,
+    thumbnail: boolean = false) {
     this.name = name;
+    this.edition = edition;
     this.health = health;
     this.attack = attack;
     this.movement = movement;
@@ -32,6 +36,7 @@ export class SummonData {
     this.level = level;
     this.special = special;
     this.count = count;
+    this.thumbnail = thumbnail;
   }
 
 }

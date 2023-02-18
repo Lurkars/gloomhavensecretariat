@@ -279,7 +279,7 @@ export class EditorActionComponent implements OnInit {
       this.summon = undefined;
       this.changeSummonMonster();
     } else if (event.target.value == 'summon') {
-      this.summon = new SummonData("", 0, 0, 0, 0);
+      this.summon = new SummonData("","", 0, 0, 0, 0);
       this.action.value = JSON.stringify(this.summon);
     }
   }

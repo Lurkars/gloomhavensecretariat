@@ -36,6 +36,7 @@ export class Summon implements Entity {
   action: Action | undefined;
   additionalAction: Action | undefined;
   active: boolean = false;
+  thumbnail: string | undefined;
 
   // from entity
   level: number;
@@ -58,12 +59,15 @@ export class Summon implements Entity {
       this.range = EntityValueFunction(summonData.range, level);
       this.action = summonData.action ? JSON.parse(JSON.stringify(summonData.action)) : undefined;
       this.additionalAction = summonData.additionalAction ? JSON.parse(JSON.stringify(summonData.additionalAction)) : undefined;
+      if (summonData.thumbnail) {
+        this.thumbnail = summonData.edition + "-" + summonData.name;
+      }
     }
     this.health = this.maxHealth;
   }
 
   toModel(): GameSummonModel {
-    return new GameSummonModel(this.name, this.number, this.color, this.attack, this.movement, this.range, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.action ? JSON.stringify(this.action) : undefined, this.additionalAction ? JSON.stringify(this.additionalAction) : undefined, this.active);
+    return new GameSummonModel(this.name, this.number, this.color, this.attack, this.movement, this.range, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.action ? JSON.stringify(this.action) : undefined, this.additionalAction ? JSON.stringify(this.additionalAction) : undefined, this.active, this.thumbnail);
   }
 
   fromModel(model: GameSummonModel) {
@@ -95,6 +99,7 @@ export class Summon implements Entity {
     }
 
     this.active = model.active;
+    this.thumbnail = model.thumbnail;
 
     this.markers = model.markers || this.markers;
     this.tags = model.tags || this.tags;
@@ -120,6 +125,7 @@ export class GameSummonModel {
   action: string | undefined;
   additionalAction: string | undefined;
   active: boolean = false;
+  thumbnail: string | undefined;
 
   constructor(name: string,
     number: number,
@@ -137,7 +143,8 @@ export class GameSummonModel {
     tags: string[],
     action: string | undefined,
     additionalAction: string | undefined,
-    active: boolean) {
+    active: boolean,
+    thumbnail: string | undefined) {
     this.name = name;
     this.number = number;
     this.color = color;
@@ -155,5 +162,6 @@ export class GameSummonModel {
     this.action = action;
     this.additionalAction = additionalAction;
     this.active = active;
+    this.thumbnail = thumbnail;
   }
 }

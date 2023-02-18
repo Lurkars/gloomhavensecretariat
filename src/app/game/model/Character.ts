@@ -86,6 +86,8 @@ export class Character extends CharacterData implements Entity, Figure {
     }
 
     this.attackModifierDeck = gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this);
+
+    this.availableSummons.forEach((summonData) => summonData.edition = this.edition);
   }
 
   toModel(): GameCharacterModel {

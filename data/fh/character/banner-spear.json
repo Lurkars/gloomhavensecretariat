@@ -52,12 +52,14 @@
     {
       "name": "banner-of-strength",
       "level": 1,
-      "health": 4
+      "health": 4,
+      "thumbnail": true
     },
     {
       "name": "banner-of-hope",
       "level": 1,
-      "health": 4
+      "health": 4,
+      "thumbnail": true
     },
     {
       "name": "torch-bearer",
@@ -69,7 +71,8 @@
     {
       "name": "banner-of-courage",
       "level": 3,
-      "health": 7
+      "health": 7,
+      "thumbnail": true
     },
     {
       "name": "trained-falcon",
@@ -94,7 +97,8 @@
     {
       "name": "banner-of-doom",
       "level": 9,
-      "health": 9
+      "health": 9,
+      "thumbnail": true
     }
   ],
   "perks": [

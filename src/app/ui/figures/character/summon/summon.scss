@@ -51,6 +51,7 @@
       border-top-left-radius: 25%;
       border-top-right-radius: 25%;
       filter: var(--ghs-filter-outline);
+      transition: width 500ms ease-out;
 
       .sheet {
         position: absolute;
@@ -58,7 +59,7 @@
         left: 0;
         width: 100%;
         height: calc(var(--ghs-unit) * 6.5 * var(--ghs-text-factor));
-        transition: height 500ms ease-out;
+        transition: height 500ms ease-out, width 500ms ease-out;
         overflow: auto;
         -ms-overflow-style: none;
         scrollbar-width: none;
@@ -81,10 +82,12 @@
     }
 
     .image {
-      position: relative;
+      position: absolute;
       top: calc(var(--ghs-unit) * 0.5);
+      left: 0;
       width: calc(var(--ghs-unit) * 4);
       height: calc(var(--ghs-unit) * 4);
+      transition: top 500ms ease-out, left 500ms ease-out;
 
       &.new::before {
         content: " ";
@@ -128,10 +131,11 @@
 
     .health {
       font-size: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
-      position: relative;
+      position: absolute;
       top: calc(var(--ghs-unit) * 1.2 * var(--ghs-text-factor));
-      left: 0;
+      left: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
       height: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
+      transition: top 500ms ease-out, left 500ms ease-out;
 
       &::before {
         content: " ";
@@ -236,6 +240,7 @@
       z-index: 0;
       border-radius: 15%;
       overflow: hidden;
+      transition: width 500ms ease-out;
     }
   }
 
@@ -273,15 +278,12 @@
         }
 
         .image {
-          position: absolute;
           top: calc(var(--ghs-unit) * -1);
           left: calc(var(--ghs-unit) * -2);
         }
 
         .health {
-          position: absolute;
-          top: initial;
-          bottom: calc(var(--ghs-unit) * -0.2);
+          top: calc(var(--ghs-unit) * 6.5 * var(--ghs-text-factor));
           left: calc(var(--ghs-unit) * 1);
 
           .value-overlay {

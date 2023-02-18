@@ -48,7 +48,7 @@ export function EntityValueFunction(value: string | number, L: number | undefine
   try {
     result = eval(expression) as number;
   } catch (e) {
-    console.error("Could not evaluate expression: " + expression, e);
+    console.warn("Could not evaluate expression: " + expression, e);
     return 0;
   }
 
