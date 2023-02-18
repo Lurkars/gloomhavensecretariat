@@ -60,7 +60,7 @@
       "import": "Importer",
       "items": {
         ".": "Objets",
-        "wip": "%wip%! Gestion des objets non terminée."
+        "wip": "%wip%! Gestion des objets pour %data.edition.{0}% non terminée."
       },
       "level": "Niveau",
       "name": "Nom",

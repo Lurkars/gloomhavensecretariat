@@ -73,7 +73,7 @@
       "import": "Import",
       "items": {
         ".": "Items",
-        "wip": "%wip%! Items not complete yet."
+        "wip": "%wip%! Items for %data.edition.{0}% not complete yet."
       },
       "level": "Level",
       "masteries": "Masteries",
@@ -121,7 +121,7 @@
     "all": "All Editions"
   },
   "editor": {
-    ".": "Editor",
+    ".": "Editor [Spoiler!]",
     "action": {
       "add": "Add Action",
       "addBottom": "Add Bottom Action",
@@ -1294,7 +1294,7 @@
     }
   },
   "tools": {
-    ".": "Tools",
+    ".": "Tools [Spoiler!]",
     "attackModifier": "Attack Modifier",
     "backToGhs": "Back to GHS",
     "decks": "Ability Decks",
