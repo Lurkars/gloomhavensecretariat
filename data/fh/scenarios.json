@@ -987,7 +987,7 @@
           {
             "identifier": {
               "type": "character",
-              "name": ".*"
+              "name": "^(?!.*Crashing Tide).*$"
             },
             "type": "amAdd",
             "value": "curse:2"

@@ -998,7 +998,34 @@
       {
         "roomNumber": 1,
         "ref": "12-D",
-        "initial": true
+        "initial": true,
+        "monster": [
+          {
+            "name": "ooze",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "ooze",
+            "player4": "normal"
+          },
+          {
+            "name": "ooze",
+            "type": "elite"
+          },
+          {
+            "name": "ooze",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "ooze",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        ]
       }
     ]
   },
