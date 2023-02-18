@@ -61,11 +61,6 @@
       left: 50%;
       transform: translateX(-50%);
 
-      &.target-self,
-      &.target-allyShort {
-        font-size: 1.2em;
-      }
-
       .target-value {
         display: inline;
         text-align: center;
@@ -123,6 +118,45 @@
 
       &.heal-container {
         background-color: #a11f1a;
+
+        .sub-effects {
+          display: none;
+        }
+
+        &.sub-effects {
+
+          img,
+          .value {
+            left: 35%;
+          }
+
+          .sub-effects {
+            display: block;
+            position: absolute;
+            top: 15%;
+            left: 40%;
+            width: 100%;
+            height: 100%;
+
+            .divider {
+              position: absolute;
+              top: 10%;
+              left: 10%;
+              color: var(--ghs-color-white);
+              margin-left: 5%;
+              margin-right: 3%;
+              font-size: 1.5em;
+            }
+
+            .effect {
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              transform: none;
+            }
+          }
+        }
       }
 
       &.shield-container {
@@ -235,17 +269,29 @@
     &.elementConsume {
 
       .element.consume {
-        width: 35%;
+        width: 50%;
         height: auto;
+        display: flex;
+      }
+
+      .divider {
+        margin-left: 5%;
+        margin-right: 3%;
       }
 
       .sub-effects {
-        width: 100%;
+        width: 50%;
 
         ghs-attackmodifier-effects {
           position: relative;
           display: block;
           width: 100%;
+
+          .effect.center.element {
+            width: 100%;
+            height: auto;
+            display: flex;
+          }
         }
       }
     }
@@ -292,7 +338,17 @@
       color: #4f504f;
     }
 
-
+    &.loot {
+      img {
+        width: 60%;
+        height: auto;
+        filter: var(--ghs-filter-white);
+      }
+      
+      .value {
+        color: var(--ghs-color-black);
+      }
+    }
 
     .element-background {
       position: absolute;
@@ -422,6 +478,14 @@
         }
       }
 
+      &.changeType {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: none;
+      }
+
       &.or {
         width: 100%;
         height: 100%;
@@ -515,6 +579,11 @@
           width: 80%;
           height: 30%;
           bottom: 10%;
+
+          &.target-self,
+          &.target-allyShort {
+            font-size: 1.2em;
+          }
         }
 
         &.target {

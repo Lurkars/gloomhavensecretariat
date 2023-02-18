@@ -36,7 +36,8 @@
         <span class="element consume">
           <img
             [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') + 'element/' + effect.value + '.svg'">
-        </span>:
+        </span>
+        <span class="divider">:</span>
         <div class="sub-effects" *ngIf="effect.effects">
           <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="effect.effects"
             [offsetWidth]="offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effects>
@@ -45,7 +46,7 @@
 
       <div class="effect-container heal-container" *ngSwitchCase="AttackModifierEffectType.heal"
         [style.border-width]="offsetWidth * ( attackModifier.type == AttackModifierType.plus0 && index == 0 ? 0.020 : 0.010)  + 'px'"
-        [ngClass]="{'target' : getTarget(effect) || getRange(effect)}">
+        [ngClass]="{'target' : getTarget(effect) || getRange(effect), 'sub-effects' : subEffects(effect).length > 0}">
         <img [ngClass]="{'ghs-svg' : isGhsSvg(effect.type)}" [src]="'./assets/images/action/' + effect.type + '.svg'" />
         <span class="value" *ngIf="effect.value">{{+effect.value | ghsValueSign}}</span>
         <span class="target-value-container {{'target-' + getTarget(effect).replace('game.specialTarget.','')}}"
@@ -57,6 +58,7 @@
           <span class="target-value text-white" [i18n]="getRange(effect)" [fh-force]="newStyle"></span>
         </span>
         <div class="sub-effects">
+          <span class="divider">,</span>
           <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="subEffects(effect)"
             [offsetWidth]="offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effects>
         </div>
@@ -179,6 +181,13 @@
 
       <ng-container *ngSwitchCase="AttackModifierEffectType.or">
         <span class="or-label" [ngClass]="{'new-style' : newStyle}">{{'or' | ghsLabel}}</span>
+        <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="effect.effects"
+          [offsetWidth]="offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effects>
+      </ng-container>
+
+
+      <ng-container *ngSwitchCase="AttackModifierEffectType.changeType">
+        <img class="overlay" [src]="'./assets/images/attackmodifier/overlays/' +effect.value + '.png'" />
         <ghs-attackmodifier-effects [attackModifier]="attackModifier" [effects]="effect.effects"
           [offsetWidth]="offsetWidth" [newStyle]="newStyle"></ghs-attackmodifier-effects>
       </ng-container>

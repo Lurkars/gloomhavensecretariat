@@ -121,7 +121,7 @@
     "all": "All Editions"
   },
   "editor": {
-    ".": "Editor",
+    ".": "Editor [Spoiler!]",
     "action": {
       "add": "Add Action",
       "addBottom": "Add Bottom Action",
@@ -1294,7 +1294,7 @@
     }
   },
   "tools": {
-    ".": "Tools",
+    ".": "Tools [Spoiler!]",
     "attackModifier": "Attack Modifier",
     "backToGhs": "Back to GHS",
     "decks": "Ability Decks",
