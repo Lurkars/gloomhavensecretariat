@@ -987,7 +987,7 @@
           {
             "identifier": {
               "type": "character",
-              "name": "^(?!.*coral|kelp).*$"
+              "name": "(?!.*coral|kelp).*"
             },
             "type": "amAdd",
             "value": "curse:2"
