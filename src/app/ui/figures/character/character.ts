@@ -201,6 +201,14 @@ export class CharacterComponent {
   }
 
   openEntityMenu(event: any): void {
+    /*
+    const summon = this.character.summons.find((summon) => summon.active);
+    if (summon) {
+      gameManager.stateManager.before("summonInactive", "data.character." + this.character.name, "data.summon." + summon.name);
+      summon.active = false;
+      gameManager.stateManager.after();
+    } else {
+    */
     this.dialog.open(EntityMenuDialogComponent, {
       panelClass: 'dialog',
       data: {
@@ -209,6 +217,7 @@ export class CharacterComponent {
       },
       positionStrategy: this.overlay.position().flexibleConnectedTo(this.characterName).withPositions(ghsDefaultDialogPositions())
     });
+    // }
   }
 
   openSummonDialog(event: any): void {

@@ -73,7 +73,7 @@
       "import": "Import",
       "items": {
         ".": "Items",
-        "wip": "%wip%! Items not complete yet."
+        "wip": "%wip%! Items for %data.edition.{0}% not complete yet."
       },
       "level": "Level",
       "masteries": "Masteries",

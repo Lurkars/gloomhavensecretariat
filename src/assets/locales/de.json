@@ -73,7 +73,7 @@
       "import": "Importieren",
       "items": {
         ".": "Gegenstände",
-        "wip": "%wip%! Gegenstände sind noch nicht vollständig."
+        "wip": "%wip%! Gegenstände für %data.edition.{0}% sind noch nicht vollständig."
       },
       "level": "Level",
       "masteries": "Errungenschaften",

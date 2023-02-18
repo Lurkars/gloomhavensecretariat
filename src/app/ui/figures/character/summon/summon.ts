@@ -81,6 +81,22 @@ export class SummonEntityComponent implements OnInit {
     gameManager.stateManager.after();
   }
 
+  singleClick() {
+    if (this.summon.active) {
+      this.toggleActive();
+    } else {
+      this.open();
+    }
+  }
+
+  doubleClick() {
+    if (this.summon.active) {
+      this.open();
+    } else {
+      this.toggleActive();
+    }
+  }
+
   open(): void {
     const dialogRef = this.dialog.open(EntityMenuDialogComponent, {
       panelClass: 'dialog',
@@ -102,7 +118,7 @@ export class SummonEntityComponent implements OnInit {
 
   toggleActive() {
     if (this.summon.active) {
-    gameManager.stateManager.before("summonInactive", "data.character." + this.character.name, "data.summon." + this.summon.name);
+      gameManager.stateManager.before("summonInactive", "data.character." + this.character.name, "data.summon." + this.summon.name);
       const summon = this.character.summons.find((summon, index, self) => index > self.indexOf(this.summon) && !summon.dead && summon.health > 0 && summon.state != SummonState.new && !summon.active);
       if (this.character.active && summon) {
         summon.active = true;

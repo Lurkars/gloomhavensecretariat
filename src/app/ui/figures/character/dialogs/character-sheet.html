@@ -13,7 +13,8 @@
                 character.characterClass ? 'character.class.' + (character.gender ? character.gender + '.' : '') +
                 character.characterClass : '']}}
               </div>
-              <img class="absent" [src]="'./assets/images/status/' + (character.absent ? 'absent': 'present') + '.svg'" [title]="(character.absent ? 'character.present' : 'character.absent') | ghsLabel">
+              <img class="absent" [src]="'./assets/images/status/' + (character.absent ? 'absent': 'present') + '.svg'"
+                [title]="(character.absent ? 'character.present' : 'character.absent') | ghsLabel">
             </label>
           </div>
           <div class="row base">
@@ -171,6 +172,8 @@
                     src="./assets/images/loot.svg">{{item && item.cost && (item.cost + priceModifier) || '?'}}</a>
               </ng-container>
             </div>
+            <div class="wip" *ngIf="item?.edition == 'fh'"><img class="ghs-svg" src="./assets/images/warning.svg">
+              {{'character.progress.items.wip' | ghsLabel:[item?.edition || '']}}</div>
           </div>
           <div class="row masteries" *ngIf="fhSheet">
             <label>{{'character.progress.masteries' | ghsLabel}}:</label>
@@ -233,6 +236,8 @@
 
             <div class="items" *ngIf="fhSheet">
               <label>{{'character.progress.items' | ghsLabel}}:</label>
+              <div class="wip" *ngIf="item?.edition == 'fh'"><img class="ghs-svg" src="./assets/images/warning.svg">
+                {{'character.progress.items.wip' | ghsLabel:[item?.edition || '']}}</div>
               <div class="item-list">
                 <div class="item-entry" *ngFor="let item of items; let index = index;">
                   <span class="icon"><img [src]="'./assets/images/items/slots/' + item.slot +'.svg'"></span>
