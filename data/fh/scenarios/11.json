@@ -5,6 +5,9 @@
   "unlocks": [
     "19"
   ],
+  "forcedLinks": [
+    "19"
+  ],
   "monsters": [
     "algox-stormcaller",
     "frost-demon",

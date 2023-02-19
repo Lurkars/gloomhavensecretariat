@@ -47,7 +47,7 @@ export class ScenarioMenuComponent implements OnInit {
     return groups;
   }
 
-  scenarios(group: string | undefined = undefined, includeSpoiler: boolean = false, all : boolean = false): ScenarioData[] {
+  scenarios(group: string | undefined = undefined, includeSpoiler: boolean = false, all: boolean = false): ScenarioData[] {
     if (!this.edition) {
       return [];
     }
@@ -100,7 +100,7 @@ export class ScenarioMenuComponent implements OnInit {
   customScenario() {
     if (!gameManager.game.scenario || !gameManager.game.scenario.custom) {
       gameManager.stateManager.before("setCustomScenario");
-      gameManager.scenarioManager.setScenario(new Scenario(new ScenarioData("", "", [], [], [], [], [], [], [], [], [], "", [], ""), [], true));
+      gameManager.scenarioManager.setScenario(new Scenario(new ScenarioData("", "", [], [], [], [], [], [], [], [], [], [], "", [], ""), [], true));
       gameManager.stateManager.after();
     } else {
       gameManager.stateManager.before("unsetCustomScenario");

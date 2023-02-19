@@ -41,7 +41,7 @@ export class ScenarioManager {
   finishScenario(success: boolean = true, restart: boolean = false, linkedScenario: Scenario | undefined = undefined) {
     this.game.figures.forEach((figure) => {
       if (figure instanceof Character && !figure.absent) {
-        gameManager.characterManager.addXP(figure, (success ? gameManager.levelManager.experience() : 0) + figure.experience);
+        gameManager.characterManager.addXP(figure, (success ? gameManager.levelManager.experience() : 0) + figure.experience, !restart && !linkedScenario);
         figure.progress.gold += figure.loot * gameManager.levelManager.loot();
         if (!restart && figure.lootCards) {
           figure.lootCards.forEach((index) => {
@@ -507,7 +507,7 @@ export class ScenarioManager {
 
   scenarioDataForModel(model: GameScenarioModel): ScenarioData | undefined {
     if (model.isCustom) {
-      return new ScenarioData(model.custom, "", [], [], [], [], [], [], [], [], [], "", [], "");
+      return new ScenarioData(model.custom, "", [], [], [], [], [], [], [], [], [], [], "", [], "");
     }
 
     const scenarioData = gameManager.scenarioData().find((scenarioData) => scenarioData.index == model.index && scenarioData.edition == model.edition && scenarioData.group == model.group);

@@ -198,7 +198,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
       }
       this.xpTimeout = setTimeout(() => {
         gameManager.stateManager.before("setXP", "data.character." + this.character.name, ghsValueSign(+event.target.value - this.character.progress.experience));
-        this.characterManager.addXP(this.character, event.target.value - this.character.progress.experience);
+        this.characterManager.addXP(this.character, event.target.value - this.character.progress.experience, !gameManager.game.scenario && gameManager.game.round == 0);
         gameManager.stateManager.after();
         this.xpTimeout = null;
       }, 500);

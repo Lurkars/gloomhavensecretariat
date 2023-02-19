@@ -205,13 +205,15 @@ export class CharacterManager {
     })
   }
 
-  addXP(character: Character, value: number) {
+  addXP(character: Character, value: number, levelUp: boolean = true) {
     character.progress.experience += value;
-    this.xpMap.forEach((value, index) => {
-      if (character.progress.experience >= value && (index < this.xpMap.length - 1 && character.progress.experience < this.xpMap[index + 1] || index == this.xpMap.length - 1)) {
-        this.setLevel(character, index + 1);
-      }
-    })
+    if (levelUp) {
+      this.xpMap.forEach((value, index) => {
+        if (character.progress.experience >= value && (index < this.xpMap.length - 1 && character.progress.experience < this.xpMap[index + 1] || index == this.xpMap.length - 1)) {
+          this.setLevel(character, index + 1);
+        }
+      })
+    }
   }
 
   setLevel(character: Character, level: number) {

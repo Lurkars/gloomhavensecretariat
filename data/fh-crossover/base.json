@@ -1,6 +1,7 @@
 {
   "conditions": [],
   "edition": "fh-crossover",
+  "additional": true,
   "extensions": [
     "gh",
     "fc",

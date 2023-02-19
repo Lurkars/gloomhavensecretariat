@@ -293,6 +293,9 @@
     "unlocks": [
       "34"
     ],
+    "links": [
+      "34"
+    ],
     "monsters": [
       "living-bones",
       "living-spirit"
@@ -356,6 +359,9 @@
     "name": "Upper Spire",
     "edition": "fh",
     "unlocks": [
+      "34"
+    ],
+    "links": [
       "34"
     ],
     "monsters": [
@@ -780,6 +786,9 @@
     "blocks": [
       "37"
     ],
+    "forcedLinks": [
+      "44"
+    ],
     "monsters": [
       "flaming-bladespinner",
       "robotic-boltshooter",
@@ -824,6 +833,9 @@
     ],
     "blocks": [
       "36"
+    ],
+    "forcedLinks": [
+      "44"
     ],
     "monsters": [
       "living-bones",
@@ -1050,6 +1062,9 @@
     "unlocks": [
       "51"
     ],
+    "forcedLinks": [
+      "51"
+    ],
     "monsters": [
       "robotic-boltshooter",
       "ruined-machine",
@@ -1069,6 +1084,10 @@
     "name": "Nerve Center",
     "edition": "fh",
     "unlocks": [
+      "58",
+      "59"
+    ],
+    "forcedLinks": [
       "58",
       "59"
     ],
@@ -1142,6 +1161,9 @@
     "unlocks": [
       "56"
     ],
+    "links": [
+      "56"
+    ],
     "monsters": [
       "algox-icespeaker",
       "harrower-infester",
@@ -1161,6 +1183,9 @@
     "name": "Blizzard Island",
     "edition": "fh",
     "unlocks": [
+      "57"
+    ],
+    "links": [
       "57"
     ],
     "monsters": [
@@ -1184,6 +1209,9 @@
     "unlocks": [
       "53"
     ],
+    "forcedLinks": [
+      "53"
+    ],
     "monsters": [
       "black-imp",
       "deep-terror",
@@ -1201,6 +1229,9 @@
     "name": "Explosive Descent",
     "edition": "fh",
     "unlocks": [
+      "54"
+    ],
+    "forcedLinks": [
       "54"
     ],
     "monsters": [
@@ -1228,6 +1259,10 @@
     "name": "Orphan's Halls",
     "edition": "fh",
     "unlocks": [
+      "58",
+      "59"
+    ],
+    "forcedLinks": [
       "58",
       "59"
     ],
@@ -1525,6 +1560,9 @@
     "unlocks": [
       "64"
     ],
+    "forcedLinks": [
+      "64"
+    ],
     "monsters": [
       "earth-demon",
       "flame-demon",
@@ -1646,6 +1684,9 @@
     "name": "Core Attunement",
     "edition": "fh",
     "unlocks": [
+      "68"
+    ],
+    "forcedLinks": [
       "68"
     ],
     "monsters": [
@@ -1771,6 +1812,9 @@
     "unlocks": [
       "73"
     ],
+    "forcedLinks": [
+      "73"
+    ],
     "monsters": [
       "frozen-corpse",
       "ice-wraith",
@@ -1845,6 +1889,9 @@
     "unlocks": [
       "77"
     ],
+    "forcedLinks": [
+      "77"
+    ],
     "monsters": [
       "abael-herder",
       "abael-scout",
@@ -1867,6 +1914,9 @@
     "name": "Apotheosis",
     "edition": "fh",
     "unlocks": [
+      "77"
+    ],
+    "forcedLinks": [
       "77"
     ],
     "monsters": [
@@ -2127,6 +2177,9 @@
     "unlocks": [
       "88"
     ],
+    "links": [
+      "88"
+    ],
     "monsters": [
       "algox-archer",
       "algox-guard",
@@ -2193,6 +2246,9 @@
     "name": "Frozen Treasure",
     "edition": "fh",
     "unlocks": [
+      "91"
+    ],
+    "forcedLinks": [
       "91"
     ],
     "monsters": [
@@ -2342,6 +2398,9 @@
     "unlocks": [
       "97"
     ],
+    "forcedLinks": [
+      "97"
+    ],
     "monsters": [
       "ancient-artillery",
       "black-imp",
@@ -2360,6 +2419,9 @@
     "name": "Program Control Nexus",
     "edition": "fh",
     "unlocks": [
+      "98"
+    ],
+    "forcedLinks": [
       "98"
     ],
     "monsters": [
@@ -3168,6 +3230,9 @@
     "unlocks": [
       "130"
     ],
+    "forcedLinks": [
+      "130"
+    ],
     "monsters": [
       "algox-guard",
       "algox-priest",
@@ -3216,6 +3281,12 @@
     "index": "132",
     "name": "Temple of Feline Power",
     "edition": "fh",
+    "unlocks": [
+      "133"
+    ],
+    "forcedLinks": [
+      "133"
+    ],
     "monsters": [
       "frost-demon",
       "frozen-corpse",

@@ -2,6 +2,12 @@
   "index": "55",
   "name": "Foggy Ticket",
   "edition": "gh",
+  "unlocks": [
+    "56"
+  ],
+  "links": [
+    "56"
+  ],
   "rules": [
     {
       "round": "R == 1",

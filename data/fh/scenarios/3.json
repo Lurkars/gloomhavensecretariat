@@ -9,6 +9,9 @@
     "2",
     "4B"
   ],
+  "forcedLinks": [
+    "4"
+  ],
   "monsters": [
     "algox-archer",
     "algox-guard",
