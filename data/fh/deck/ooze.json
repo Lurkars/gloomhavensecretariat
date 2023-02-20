@@ -177,7 +177,7 @@
         {
           "type": "summon",
           "value": "ooze:normal",
-		  "small": true,
+          "small": true,
           "subActions": [
             {
               "type": "custom",
