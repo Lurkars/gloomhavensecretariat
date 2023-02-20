@@ -175,8 +175,15 @@
           "value": "Ooze suffers %game.damage:2%"
         },
         {
-          "type": "custom",
-          "value": "Summon one normal Ooze with<br>a hit point value equal to the<br>summoning Ooze's cucrent hit point<br>value (limited by a normal Ooze's<br>maximum hit point values)."
+          "type": "summon",
+          "value": "ooze:normal",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "with<br>a hit point value equal to the<br>summoning Ooze's current hit point<br>value (limited by a normal Ooze's<br>maximum hit point values).",
+              "small": true
+            }
+          ]
         }
       ]
     },
@@ -190,8 +197,15 @@
           "value": "Ooze suffers %game.damage:2%"
         },
         {
-          "type": "custom",
-          "value": "Summon one normal Ooze with<br>a hit point value equal to the<br>summoning Ooze's cucrent hit point<br>value (limited by a normal Ooze's<br>maximum hit point values)."
+          "type": "summon",
+          "value": "ooze:normal",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "with<br>a hit point value equal to the<br>summoning Ooze's current hit point<br>value (limited by a normal Ooze's<br>maximum hit point values).",
+              "small": true
+            }
+          ]
         }
       ]
     },
