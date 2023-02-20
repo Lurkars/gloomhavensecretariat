@@ -1,5 +1,6 @@
 {
   "edition": "bas",
+  "additional": true,
   "extensions": [
     "gh",
     "fc",

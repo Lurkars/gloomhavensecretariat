@@ -10,7 +10,7 @@
   "objectives": [
     {
       "name": "Ice Pillar",
-      "health": "[(4+L)xC/2{$math.floor}]",
+      "health": "[4+(LxC)/2{$math.floor}]",
       "count": 3,
       "actions": [
         {
@@ -27,7 +27,7 @@
     },
     {
       "name": "Ice Pillar",
-      "health": "[(4+L)xC/2{$math.floor}]",
+      "health": "[4+(LxC)/2{$math.floor}]",
       "marker": "a",
       "actions": [
         {
@@ -44,7 +44,7 @@
     },
     {
       "name": "Ice Pillar",
-      "health": "[(4+L)xC/2{$math.floor}]",
+      "health": "[4+(LxC)/2{$math.floor}]",
       "marker": "b",
       "actions": [
         {
