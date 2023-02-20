@@ -19,7 +19,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%game.action.target% each monster whithin %game.action.range:4%"
+              "value": "%game.action.target% each monster within %game.action.range:4%"
             }
           ]
         }
@@ -36,7 +36,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%game.action.target% each monster whithin %game.action.range:4%"
+              "value": "%game.action.target% each monster within %game.action.range:4%"
             }
           ]
         }
@@ -53,7 +53,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%game.action.target% each monster whithin %game.action.range:4%"
+              "value": "%game.action.target% each monster within %game.action.range:4%"
             }
           ]
         }
