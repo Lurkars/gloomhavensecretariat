@@ -177,10 +177,11 @@
         {
           "type": "summon",
           "value": "ooze:normal",
+		  "small": true,
           "subActions": [
             {
               "type": "custom",
-              "value": "with<br>a hit point value equal to the<br>summoning Ooze's current hit point<br>value (limited by a normal Ooze's<br>maximum hit point values).",
+              "value": "with a hit point value equal to the<br>summoning Ooze's current hit point<br>value (limited by a normal Ooze's<br>maximum hit point values).",
               "small": true
             }
           ]
@@ -199,10 +200,11 @@
         {
           "type": "summon",
           "value": "ooze:normal",
+          "small": true,
           "subActions": [
             {
               "type": "custom",
-              "value": "with<br>a hit point value equal to the<br>summoning Ooze's current hit point<br>value (limited by a normal Ooze's<br>maximum hit point values).",
+              "value": "with a hit point value equal to the<br>summoning Ooze's current hit point<br>value (limited by a normal Ooze's<br>maximum hit point values).",
               "small": true
             }
           ]
