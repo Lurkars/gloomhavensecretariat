@@ -54,6 +54,26 @@ export class EntityManager {
         regenerate.expired = true;
       }
 
+      this.sufferDamageHighlightConditions(entity, value);
+
+      if (entity.health + value > entity.health) {
+        const clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && condition.state != EntityConditionState.expire && condition.state != EntityConditionState.new && !condition.expired);
+        let heal = entity.entityConditions.find((condition) => condition.name == ConditionName.heal);
+        if ((clearHeal) && (!heal || heal.expired || !heal.highlight)) {
+          if (!heal) {
+            heal = new EntityCondition(ConditionName.heal, value);
+            entity.entityConditions.push(heal);
+          }
+          heal.expired = false;
+          heal.highlight = true;
+          heal.value = value;
+        }
+      }
+    }
+  }
+
+  sufferDamageHighlightConditions(entity: Entity, value: number) {
+    if (settingsManager.settings.applyConditions) {
       const ward = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && entityCondition.name == ConditionName.ward);
       const brittle = entity.entityConditions.find((entityCondition) => !entityCondition.expired && entityCondition.state != EntityConditionState.new && entityCondition.name == ConditionName.brittle);
 
@@ -77,20 +97,6 @@ export class EntityManager {
         if (value < 0) {
           brittle.expired = true;
           ward.expired = true
-        }
-      }
-
-      if (entity.health + value > entity.health) {
-        const clearHeal = entity.entityConditions.find((condition) => condition.types.indexOf(ConditionType.clearHeal) != -1 && condition.state != EntityConditionState.expire && condition.state != EntityConditionState.new && !condition.expired);
-        let heal = entity.entityConditions.find((condition) => condition.name == ConditionName.heal);
-        if ((clearHeal) && (!heal || heal.expired || !heal.highlight)) {
-          if (!heal) {
-            heal = new EntityCondition(ConditionName.heal, value);
-            entity.entityConditions.push(heal);
-          }
-          heal.expired = false;
-          heal.highlight = true;
-          heal.value = value;
         }
       }
     }
@@ -342,6 +348,9 @@ export class EntityManager {
         entityCondition.highlight = true;
         setTimeout(() => {
           entityCondition.highlight = false;
+          if (entity.health > 0) {
+            this.sufferDamageHighlightConditions(entity, - entityCondition.value);
+          }
         }, 1000);
       }
     })

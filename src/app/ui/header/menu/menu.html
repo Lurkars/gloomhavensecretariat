@@ -25,7 +25,7 @@
 
     <ng-container *ngIf="!standalone">
       <div class="line"
-        [ngClass]="{'disabled' : !hasScenarios(), 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
+        [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
         <a (click)="setActive(SubMenu.scenario)">{{'scenario' | ghsLabel}}</a>
       </div>
       <div class="line"
@@ -115,7 +115,7 @@
 
   <ghs-edition-menu *ngSwitchCase="SubMenu.edition"></ghs-edition-menu>
 
-  <ghs-scenario-menu *ngSwitchCase="SubMenu.scenario"></ghs-scenario-menu>
+  <ghs-scenario-menu *ngSwitchCase="SubMenu.scenario" (close)="close()"></ghs-scenario-menu>
 
   <ghs-section-menu *ngSwitchCase="SubMenu.section"></ghs-section-menu>
 

@@ -33,4 +33,10 @@
         </a>
       </span>
   </div>
+
+  <span class="toggle-type" *ngIf="toogleTypeAvailable" (click)="toggleType()">
+    <span [i18n]="'%game.monsterType.normal%'"></span>
+    &nbsp;&lt;-&gt;&nbsp;
+    <span [i18n]="'%game.monsterType.elite%'"></span>
+  </span>
 </div>

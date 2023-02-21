@@ -33,10 +33,6 @@
           "type": "normal"
         },
         {
-          "name": "living-spirit",
-          "player3": "normal"
-        },
-        {
           "name": "ice-wraith",
           "player3": "elite",
           "player4": "elite"
@@ -54,6 +50,10 @@
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal"
         }
       ]
     }

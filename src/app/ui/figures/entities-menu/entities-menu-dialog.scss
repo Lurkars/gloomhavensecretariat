@@ -112,3 +112,12 @@
     text-align: center;
   }
 }
+
+.toggle-type {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: var(--ghs-color-white);
+  font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+}

@@ -96,11 +96,6 @@ export class MainMenuComponent implements OnInit {
     this.active = active;
   }
 
-  hasScenarios(): boolean {
-    return gameManager.editionData.some((editionData) => editionData.edition == gameManager.currentEdition() && editionData.scenarios && editionData.scenarios.length > 0);
-  }
-
-
   hasSections(): boolean {
     return gameManager.editionData.some((editionData) => editionData.edition == gameManager.currentEdition() && editionData.sections && editionData.sections.length > 0);
   }

@@ -243,8 +243,13 @@ export class ActionComponent implements OnInit {
                   newSubActions.push(newStatAction);
                 } else if (eliteStat && (!eliteStat.actions || !this.subActionExists(eliteStat.actions, newStatAction))) {
                   if (!normalActions && !this.subActionExists(this.action.subActions, newStatAction) && !this.subActionExists(newSubActions, newStatAction)) {
-                    normalActions = new Action(ActionType.monsterType, MonsterType.normal, ActionValueType.fixed, [newStatAction]);
-                    newSubActions.push(normalActions);
+                    normalActions = this.additionalSubActions.find((typeAction) => typeAction.type == ActionType.monsterType && typeAction.value == MonsterType.normal);
+                    if (normalActions) {
+                      normalActions.subActions.push(newStatAction);
+                    } else {
+                      normalActions = new Action(ActionType.monsterType, MonsterType.normal, ActionValueType.fixed, [newStatAction]);
+                      newSubActions.push(normalActions);
+                    }
                   } else if (normalActions && !this.subActionExists(this.action.subActions, newStatAction) && !this.subActionExists(newSubActions, newStatAction) && !this.subActionExists(normalActions.subActions, newStatAction)) {
                     normalActions.subActions.push(newStatAction);
                   }
@@ -263,8 +268,13 @@ export class ActionComponent implements OnInit {
                 newEliteAction.small = true;
                 newSubActions.push(newEliteAction);
               } else if (!eliteActions && !this.subActionExists(this.action.subActions, newEliteAction) && !this.subActionExists(newSubActions, newEliteAction)) {
-                eliteActions = new Action(ActionType.monsterType, MonsterType.elite, ActionValueType.fixed, [newEliteAction]);
-                newSubActions.push(eliteActions);
+                eliteActions = this.additionalSubActions.find((typeAction) => typeAction.type == ActionType.monsterType && typeAction.value == MonsterType.elite);
+                if (eliteActions) {
+                  eliteActions.subActions.push(newEliteAction);
+                } else {
+                  eliteActions = new Action(ActionType.monsterType, MonsterType.elite, ActionValueType.fixed, [newEliteAction]);
+                  newSubActions.push(eliteActions);
+                }
               } else if (eliteActions && !this.subActionExists(this.action.subActions, newEliteAction) && !this.subActionExists(newSubActions, newEliteAction) && !this.subActionExists(eliteActions.subActions, newEliteAction)) {
                 eliteActions.subActions.push(newEliteAction);
               }

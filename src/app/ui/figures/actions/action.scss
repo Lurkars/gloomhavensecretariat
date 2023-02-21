@@ -556,9 +556,9 @@
     --ghs-grid-columns: 2;
     display: grid;
     grid-template-columns: repeat(var(--ghs-grid-columns), auto);
-    column-gap: 0.2em;
+    column-gap: 1em;
     margin: 0 0.5em;
-    align-items: center;
+    align-items: start;
   }
 
   .action-box-container {
@@ -791,6 +791,9 @@
       align-items: center;
     }
 
+    .action-grid {
+      column-gap: 0.1em;
+    }
 
     .monster-type {
       text-transform: initial;

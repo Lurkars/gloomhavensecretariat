@@ -2,7 +2,6 @@ RewriteEngine On
 
 RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
 RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
-RewriteCond %{REQUEST_URI} !^/api/.*$
 RewriteRule ^ - [L]
 
 RewriteRule ^ /index.html [L]

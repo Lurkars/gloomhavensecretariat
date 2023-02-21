@@ -27,6 +27,8 @@ export class EntitiesMenuDialogComponent {
   MonsterType = MonsterType;
   entities: MonsterEntity[];
 
+  toogleTypeAvailable: boolean;
+
   constructor(@Inject(DIALOG_DATA) public data: { monster: Monster, type: MonsterType | undefined }, private dialogRef: DialogRef) {
     this.entities = data.monster.entities.filter((entity) => !data.type || entity.type == data.type);
     this.dialogRef.closed.subscribe({
@@ -36,6 +38,7 @@ export class EntitiesMenuDialogComponent {
         }
       }
     })
+    this.toogleTypeAvailable = this.entities.some((entity) => entity.type == MonsterType.normal) && this.entities.some((entity) => entity.type == MonsterType.elite);
   }
 
   changeHealth(value: number) {
@@ -73,6 +76,14 @@ export class EntitiesMenuDialogComponent {
     });
 
     return immune;
+  }
+
+  toggleType() {
+    gameManager.stateManager.before("toggleTypeAll", "data.monster." + this.data.monster.name);
+    this.entities.forEach((entity) => {
+      entity.type = entity.type == MonsterType.elite ? MonsterType.normal : MonsterType.elite;
+    });
+    gameManager.stateManager.after();
   }
 
   toggleDead() {
@@ -115,10 +126,10 @@ export class EntitiesMenuDialogComponent {
         }
 
         entity.entityConditions.filter((entityCondition) => entityCondition.state == EntityConditionState.new || entityCondition.state == EntityConditionState.removed).forEach((entityCondition) => {
-            entityCondition.expired = entityCondition.state == EntityConditionState.new;
-            gameManager.stateManager.before(...gameManager.entityManager.undoInfos(entity, this.data.monster, entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition"), "game.condition." + entityCondition.name, entity instanceof MonsterEntity ? 'monster.' + entity.type + ' ' : '');
-            gameManager.entityManager.toggleCondition(entity, entityCondition, this.data.monster.active, this.data.monster.off);
-            gameManager.stateManager.after();
+          entityCondition.expired = entityCondition.state == EntityConditionState.new;
+          gameManager.stateManager.before(...gameManager.entityManager.undoInfos(entity, this.data.monster, entityCondition.state == EntityConditionState.removed ? "removeCondition" : "addCondition"), "game.condition." + entityCondition.name, entity instanceof MonsterEntity ? 'monster.' + entity.type + ' ' : '');
+          gameManager.entityManager.toggleCondition(entity, entityCondition, this.data.monster.active, this.data.monster.off);
+          gameManager.stateManager.after();
         })
       })
       gameManager.stateManager.after();

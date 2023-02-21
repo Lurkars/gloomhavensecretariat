@@ -1,10 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { GameState } from "src/app/game/model/Game";
 import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
 import { Spoilable, SpoilableMock } from "src/app/game/model/Spoilable";
+import { MainMenuComponent } from "../menu";
 
 @Component({
   selector: 'ghs-scenario-menu',
@@ -13,10 +14,12 @@ import { Spoilable, SpoilableMock } from "src/app/game/model/Spoilable";
 })
 export class ScenarioMenuComponent implements OnInit {
 
+  @Output() close = new EventEmitter();
+
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
-  edition: string = ""
+  edition: string = "";
 
 
   ngOnInit(): void {
@@ -83,7 +86,8 @@ export class ScenarioMenuComponent implements OnInit {
   setScenario(scenarioData: ScenarioData) {
     if (!this.hasScenario(scenarioData)) {
       gameManager.stateManager.before("setScenario", ...gameManager.scenarioManager.scenarioUndoArgs(new Scenario(scenarioData)));
-      gameManager.scenarioManager.setScenario(scenarioData as Scenario)
+      gameManager.scenarioManager.setScenario(scenarioData as Scenario);
+      this.close.emit();
       gameManager.stateManager.after();
     }
   }
@@ -92,7 +96,8 @@ export class ScenarioMenuComponent implements OnInit {
     if (gameManager.game.scenario) {
       gameManager.stateManager.before("resetScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
       gameManager.roundManager.resetScenario();
-      gameManager.scenarioManager.setScenario(gameManager.game.scenario)
+      gameManager.scenarioManager.setScenario(gameManager.game.scenario);
+      this.close.emit();
       gameManager.stateManager.after();
     }
   }

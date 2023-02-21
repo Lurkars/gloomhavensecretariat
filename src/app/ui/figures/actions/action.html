@@ -74,11 +74,13 @@
       <span class="monster-type small" [ngClass]="'monster-type-' + action.value">{{'monster.' + action.value |
         ghsLabel}}:</span>
       <div class="monster-type-subactions" *ngIf="action.subActions.length > 0">
-        <ghs-action [ngClass]="'subaction-' + subAction.type"
-          *ngFor="let subAction of action.subActions | slice:(hasAOE ? 1 : 0)" [action]="subAction" [monster]="monster"
-          [relative]="true" [inline]="inline" [right]="right" [hexSize]="hexSize"
-          [highlightElements]="highlightElements" [statsCalculation]="statsCalculation">
-        </ghs-action>
+        <ng-container *ngFor="let subAction of action.subActions | slice:(hasAOE ? 1 : 0); let index = index;">
+          <span *ngIf="settingsManager.settings.fhStyle && index > 0">,</span>
+          <ghs-action [ngClass]="'subaction-' + subAction.type" [action]="subAction" [monster]="monster"
+            [relative]="true" [inline]="inline" [right]="right" [hexSize]="hexSize"
+            [highlightElements]="highlightElements" [statsCalculation]="statsCalculation">
+          </ghs-action>
+        </ng-container>
       </div>
     </span>
   </ng-container>
