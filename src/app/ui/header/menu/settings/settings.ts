@@ -113,6 +113,7 @@ export class SettingsMenuComponent {
     settingsManager.settings.eliteFirst = true;
     settingsManager.settings.disableStandees = false;
     settingsManager.settings.randomStandees = false;
+    settingsManager.settings.nextStandees = false;
     settingsManager.settings.expireConditions = false;
     settingsManager.settings.applyConditions = false;
     settingsManager.settings.activeApplyConditions = false;

@@ -10,6 +10,7 @@ export class Settings {
   moveElements: boolean = true;
   hideStats: boolean = true;
   randomStandees: boolean = false;
+  nextStandees: boolean = false;
   activeStandees: boolean = true;
   activeSummons: boolean = true;
   alwaysAllyAttackModifierDeck: boolean = false;

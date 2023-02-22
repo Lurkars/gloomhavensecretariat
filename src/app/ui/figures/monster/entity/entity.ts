@@ -94,6 +94,12 @@ export class MonsterEntityComponent {
           number = Math.floor(Math.random() * this.monster.count) + 1;
         }
         this.entity.number = number;
+      } else if (settingsManager.settings.nextStandees) {
+        let number = 1;
+        while (this.monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
+          number += 1;
+        }
+        this.entity.number = number;
       } else {
         const dialogRef = this.dialog.open(MonsterNumberPickerDialog, {
           panelClass: 'dialog',

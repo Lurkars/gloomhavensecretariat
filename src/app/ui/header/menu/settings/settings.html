@@ -252,6 +252,19 @@
         </span>
       </div>
     </div>
+    <div class="line" [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.nextStandees"
+            (change)="settingsManager.setNextStandees(!settingsManager.settings.nextStandees)">
+          {{'settings.nextStandees' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.nextStandees.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
 
     <div class="line" [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
       <div class="hint-container">

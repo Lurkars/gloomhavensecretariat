@@ -145,6 +145,11 @@ export class SettingsManager {
     this.settings.randomStandees = randomStandees;
     this.storeSettings();
   }
+  
+  setNextStandees(nextStandees: boolean) {
+    this.settings.nextStandees = nextStandees;
+    this.storeSettings();
+  }
 
   setActiveStandees(activeStandees: boolean) {
     this.settings.activeStandees = activeStandees;

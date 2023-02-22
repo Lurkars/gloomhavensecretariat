@@ -1017,6 +1017,10 @@
       ".": "Random standees",
       "hint": "Add standees with an unused random number"
     },
+    "nextStandees": {
+      ".": "Automatic next standee",
+      "hint": "Add standees with the next unused number"
+    },
     "scenarioNumberInput": {
       ".": "Scenario Number Input",
       "hint": ""

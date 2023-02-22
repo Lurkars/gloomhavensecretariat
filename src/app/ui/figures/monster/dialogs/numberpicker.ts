@@ -69,6 +69,8 @@ export class MonsterNumberPicker {
       }
     } else if (settingsManager.settings.randomStandees) {
       this.randomStandee();
+    } else if (settingsManager.settings.nextStandees) {
+      this.nextStandee();
     } else {
       this.dialog.open(MonsterNumberPickerDialog, {
         panelClass: 'dialog',
