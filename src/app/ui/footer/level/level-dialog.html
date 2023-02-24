@@ -62,4 +62,14 @@
       <span class="hint">{{'game.level.hazardousTerrain' | ghsLabel}}</span>
     </div>
   </div>
+
+
+
+  <label class="player-count">
+    <input type="checkbox" [checked]="gameManager.game.playerCount > 0" (change)="togglePlayerCount($event)">
+    {{'settings.playerCount' | ghsLabel}}
+    <input *ngIf="gameManager.game.playerCount > 0" type="number" #playerCount [value]="gameManager.game.playerCount"
+      min="1" (keyup)="0" (change)="setPlayerCount(+playerCount.value)" [size]="playerCount.value.length"
+      placeholder="{{'settings.playerCount' | ghsLabel}}">
+  </label>
 </div>

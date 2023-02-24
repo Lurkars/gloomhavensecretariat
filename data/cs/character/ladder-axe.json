@@ -45,6 +45,7 @@
   "availableSummons": [
     {
       "name": "spotted-hound",
+      "cardId": "128",
       "level": 1,
       "health": 4,
       "attack": 1,
@@ -52,6 +53,7 @@
     },
     {
       "name": "reigniting-drakefiend",
+      "cardId": "144",
       "level": 9,
       "health": 1,
       "attack": 2,

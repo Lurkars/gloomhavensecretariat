@@ -16,7 +16,7 @@ export class LevelManager {
     if (!this.game.ge5Player) {
       return 0;
     }
-    const chars = this.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length;
+    const chars = gameManager.characterManager.characterCount();
     if (chars <= 4) {
       return 0;
     }
@@ -70,7 +70,7 @@ export class LevelManager {
   }
 
   scenarioLevel(): number {
-    const charCount = this.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length;
+    const charCount = gameManager.characterManager.characterCount();
 
     if (charCount == 0) {
       return 0;

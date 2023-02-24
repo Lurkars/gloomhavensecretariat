@@ -46,6 +46,7 @@
   "availableSummons": [
     {
       "name": "animated-claymore",
+      "cardId": "196",
       "level": 1,
       "health": 2,
       "attack": 3,
@@ -57,10 +58,12 @@
     },
     {
       "name": "spiritbound-falchion",
+      "cardId": "211",
       "level": 8,
       "health": 6,
       "attack": 4,
       "movement": 3,
+      "flying": true,
       "action": {
         "type": "shield",
         "value": 1

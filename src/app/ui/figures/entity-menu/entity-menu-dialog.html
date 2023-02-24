@@ -435,7 +435,8 @@
     </ng-container>
     <ng-container *ngIf="data.entity && gameManager.isSummon(data.entity)">
       <div class="summon-container">
-        <a class="button" (click)="changeMaxHealth(-1)">
+        <a class="button" (click)="changeMaxHealth(-1)"
+          [ngClass]="{'disabled' : EntityValueFunction(data.entity.maxHealth) + maxHp == 0}">
           <img class="ghs-svg" src="./assets/images/minus.svg">
         </a>
         <span class="item">
@@ -450,7 +451,8 @@
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </a>
 
-          <a class="button" (click)="changeMovement(-1)">
+          <a class="button" (click)="changeMovement(-1)"
+            [ngClass]="{'disabled' : gameManager.toSummon(data.entity).movement + movement == 0}">
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </a>
           <span class="item">
@@ -462,18 +464,23 @@
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </a>
 
-          <a class="button" (click)="changeAttack(-1)">
+          <a class="button" (click)="changeAttack(-1)"
+            [ngClass]="{'disabled' : gameManager.toSummon(data.entity).attack == 'X' || +gameManager.toSummon(data.entity).attack + attack == 0}">
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </a>
           <span class="item">
             <img class="ghs-svg" src="./assets/images/action/attack.svg" />
-            <span class="badge" [value-calc]="gameManager.toSummon(data.entity).attack + attack" [empty]="true">></span>
+            <span class="badge" *ngIf="gameManager.toSummon(data.entity).attack != 'X'"
+              [value-calc]="+gameManager.toSummon(data.entity).attack + attack" [empty]="true"></span>
+            <span class="badge" *ngIf="gameManager.toSummon(data.entity).attack == 'X'">X</span>
           </span>
-          <a class="button" (click)="changeAttack(1)">
+          <a class="button" (click)="changeAttack(1)"
+            [ngClass]="{'disabled' : gameManager.toSummon(data.entity).attack == 'X'}">
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </a>
 
-          <a class="button" (click)="changeRange(-1)">
+          <a class="button" (click)="changeRange(-1)"
+            [ngClass]="{'disabled' : gameManager.toSummon(data.entity).range + range == 0}">
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </a>
           <span class="item">

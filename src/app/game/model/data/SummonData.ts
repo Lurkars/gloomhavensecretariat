@@ -3,11 +3,13 @@ import { Action } from "../Action";
 export class SummonData {
 
   name: string;
+  cardId: string;
   edition: string;
   health: number | string;
   attack: number | string;
   movement: number | string;
   range: number | string;
+  flying: boolean;
   action: Action | undefined;
   additionalAction: Action | undefined;
   level: number | undefined;
@@ -15,10 +17,11 @@ export class SummonData {
   count: number;
   thumbnail: boolean;
 
-  constructor(name: string, edition: string, health: number | string,
+  constructor(name: string, cardId: string, edition: string, health: number | string,
     attack: number | string,
     movement: number | string,
     range: number | string,
+    flying: boolean,
     action: Action | undefined = undefined,
     additionaAction: Action | undefined = undefined,
     level: number | undefined = undefined,
@@ -26,11 +29,13 @@ export class SummonData {
     count: number = 1,
     thumbnail: boolean = false) {
     this.name = name;
+    this.cardId = cardId;
     this.edition = edition;
     this.health = health;
     this.attack = attack;
     this.movement = movement;
     this.range = range;
+    this.flying = flying;
     this.action = action;
     this.additionalAction = additionaAction;
     this.level = level;

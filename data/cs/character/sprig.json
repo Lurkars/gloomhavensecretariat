@@ -45,12 +45,14 @@
   "availableSummons": [
     {
       "name": "flailing-ivies",
+      "cardId": "247",
       "level": 1,
       "health": 1,
       "attack": 1
     },
     {
       "name": "crypt-nettle",
+      "cardId": "266",
       "level": 7,
       "health": 3,
       "attack": 1

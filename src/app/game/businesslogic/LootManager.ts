@@ -2,6 +2,7 @@ import { ghsShuffleArray } from "src/app/ui/helper/Static";
 import { Character } from "../model/Character";
 import { Game } from "../model/Game";
 import { appliableLootTypes, fullLootDeck, Loot, LootDeck, LootDeckConfig, LootType } from "../model/Loot";
+import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 
 export class LootManager {
@@ -48,7 +49,7 @@ export class LootManager {
   }
 
   getValue(loot: Loot): number {
-    const charCount = this.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length;
+    const charCount = gameManager.characterManager.characterCount();
     let value = loot.value4P;
     if (charCount <= 2) {
       value = loot.value2P;

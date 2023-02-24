@@ -45,12 +45,14 @@
   "availableSummons": [
     {
       "name": "metal-detector",
+      "cardId": "046",
       "level": 3,
       "health": 6,
       "movement": 1
     },
     {
       "name": "black-hole",
+      "cardId": "053",
       "level": 7,
       "health": 4,
       "range": 4

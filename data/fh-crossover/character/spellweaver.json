@@ -45,6 +45,7 @@
   "availableSummons": [
     {
       "name": "mystic-ally",
+      "cardId": "071",
       "level": 1,
       "health": 2,
       "attack": 3,
@@ -53,6 +54,7 @@
     },
     {
       "name": "burning-avatar",
+      "cardId": "080",
       "level": 6,
       "health": 2,
       "attack": 2,

@@ -55,6 +55,14 @@ export class CharacterManager {
     return './assets/images/character/thumbnail/' + characterData.edition + '-' + characterData.name + '.png';
   }
 
+  characterCount(): number {
+    if (this.game.playerCount > 0) {
+      return this.game.playerCount;
+    }
+
+    return this.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length;
+  }
+
   addCharacter(characterData: CharacterData, level: number) {
     if (!this.game.figures.some((figure) => {
       return figure instanceof Character && figure.name == characterData.name && figure.edition == characterData.edition;
@@ -254,7 +262,7 @@ export class CharacterManager {
   createSpecialSummon(character: Character, summonData: SummonData) {
     character.summons = character.summons.filter((summon) => summon.name != summonData.name || summon.number != 0 || summon.color != SummonColor.custom);
     if (!summonData.level || summonData.level <= character.level) {
-      let summon: Summon = new Summon(summonData.name, character.level, 0, SummonColor.custom, summonData);
+      let summon: Summon = new Summon(summonData.name, summonData.cardId, character.level, 0, SummonColor.custom, summonData);
       summon.state = SummonState.true;
       summon.init = false;
       this.addSummon(character, summon);

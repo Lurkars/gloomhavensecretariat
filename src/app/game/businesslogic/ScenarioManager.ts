@@ -191,7 +191,7 @@ export class ScenarioManager {
         let type: MonsterType | undefined = monsterStandeeData.type;
 
         if (!type) {
-          const charCount = this.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length;
+          const charCount = gameManager.characterManager.characterCount();
           if (charCount < 3) {
             type = monsterStandeeData.player2;
           } else if (charCount == 3) {
@@ -400,7 +400,7 @@ export class ScenarioManager {
     }
 
     while (round.indexOf('C') != -1) {
-      round = round.replace('C', '' + this.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length);
+      round = round.replace('C', '' + gameManager.characterManager.characterCount());
     }
 
     if (round == "always") {

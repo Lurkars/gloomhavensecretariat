@@ -25,11 +25,13 @@ export enum SummonColor {
 export class Summon implements Entity {
 
   name: string;
+  cardId: string;
   number: number;
   color: SummonColor;
-  attack: number = 0;
+  attack: number | string = 0;
   movement: number = 0;
   range: number = 0;
+  flying: boolean = false;
   dead: boolean = false;
   state: SummonState = SummonState.new;
   init: boolean = true;
@@ -46,17 +48,19 @@ export class Summon implements Entity {
   markers: string[] = [];
   tags: string[] = [];
 
-  constructor(name: string, level: number, number: number, color: SummonColor, summonData: SummonData | undefined = undefined) {
+  constructor(name: string, cardId: string, level: number, number: number, color: SummonColor, summonData: SummonData | undefined = undefined) {
     this.name = name;
+    this.cardId = cardId;
     this.level = level;
     this.number = number;
     this.color = color;
     if (summonData) {
       this.maxHealth = EntityValueFunction(summonData.health, level);
       this.health = this.maxHealth;
-      this.attack = EntityValueFunction(summonData.attack, level);
+      this.attack = summonData.attack != 'X' ? EntityValueFunction(summonData.attack, level) : 'X';
       this.movement = EntityValueFunction(summonData.movement, level);
       this.range = EntityValueFunction(summonData.range, level);
+      this.flying = summonData.flying;
       this.action = summonData.action ? JSON.parse(JSON.stringify(summonData.action)) : undefined;
       this.additionalAction = summonData.additionalAction ? JSON.parse(JSON.stringify(summonData.additionalAction)) : undefined;
       if (summonData.thumbnail) {
@@ -67,16 +71,18 @@ export class Summon implements Entity {
   }
 
   toModel(): GameSummonModel {
-    return new GameSummonModel(this.name, this.number, this.color, this.attack, this.movement, this.range, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.action ? JSON.stringify(this.action) : undefined, this.additionalAction ? JSON.stringify(this.additionalAction) : undefined, this.active, this.thumbnail);
+    return new GameSummonModel(this.name, this.cardId, this.number, this.color, this.attack + '', this.movement, this.range, this.flying, this.dead, this.state, this.level, this.health, this.maxHealth, this.entityConditions.map((condition) => condition.toModel()), this.markers, this.tags || [], this.action ? JSON.stringify(this.action) : undefined, this.additionalAction ? JSON.stringify(this.additionalAction) : undefined, this.active, this.thumbnail);
   }
 
   fromModel(model: GameSummonModel) {
     this.name = model.name || "";
+    this.cardId = model.cardId || "";
     this.number = model.number;
     this.color = model.color;
-    this.attack = model.attack;
+    this.attack = !isNaN(+model.attack) ? +model.attack : model.attack;
     this.movement = model.movement;
     this.range = model.range;
+    this.flying = model.flying;
     this.dead = model.dead;
     this.state = model.state;
     this.level = model.level;
@@ -109,11 +115,13 @@ export class Summon implements Entity {
 
 export class GameSummonModel {
   name: string;
+  cardId: string;
   number: number;
   color: SummonColor;
-  attack: number;
+  attack: string;
   movement: number;
   range: number;
+  flying: boolean;
   dead: boolean;
   state: SummonState;
   level: number;
@@ -128,11 +136,13 @@ export class GameSummonModel {
   thumbnail: string | undefined;
 
   constructor(name: string,
+    cardId: string,
     number: number,
     color: SummonColor,
-    attack: number,
+    attack: string,
     movement: number,
     range: number,
+    flying: boolean,
     dead: boolean,
     state: SummonState,
     level: number,
@@ -146,11 +156,13 @@ export class GameSummonModel {
     active: boolean,
     thumbnail: string | undefined) {
     this.name = name;
+    this.cardId = cardId;
     this.number = number;
     this.color = color;
     this.attack = attack;
     this.movement = movement;
     this.range = range;
+    this.flying = flying;
     this.dead = dead;
     this.state = state;
     this.level = level;

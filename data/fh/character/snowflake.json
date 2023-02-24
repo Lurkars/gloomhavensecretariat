@@ -46,6 +46,7 @@
   "availableSummons": [
     {
       "name": "snow-fox",
+      "cardId": "334",
       "level": 1,
       "health": 5,
       "attack": 2,
@@ -53,6 +54,7 @@
     },
     {
       "name": "white-owl",
+      "cardId": "344",
       "level": 2,
       "health": 3,
       "attack": 2,
@@ -65,6 +67,7 @@
     },
     {
       "name": "polar-cat",
+      "cardId": "352",
       "level": 6,
       "health": 6,
       "attack": 2,

@@ -45,6 +45,7 @@
   "availableSummons": [
     {
       "name": "doppelganger",
+      "cardId": "469",
       "level": 6,
       "health": 10,
       "movement": 2,
@@ -56,11 +57,23 @@
     },
     {
       "name": "mana-sphere",
+      "cardId": "474",
       "level": 9,
       "health": 3,
       "attack": 2,
       "range": 3,
-      "movement": 3
+      "movement": 3,
+      "action": {
+        "type": "element",
+        "value": "any",
+        "subActions": [
+          {
+            "type": "custom",
+            "value": "when %game.action.attack% performed",
+            "small": true
+          }
+        ]
+      }
     }
   ],
   "perks": [

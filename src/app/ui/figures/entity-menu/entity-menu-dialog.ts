@@ -390,7 +390,7 @@ export class EntityMenuDialogComponent {
   }
 
   toggleCharacterAbsent() {
-    if (this.data.entity instanceof Character && (this.data.entity.absent || gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length > 1)) {
+    if (this.data.entity instanceof Character && (this.data.entity.absent || gameManager.characterManager.characterCount() > 1)) {
       gameManager.stateManager.before(this.data.entity.absent ? "unsetAbsent" : "setAbsent", "data.character." + this.data.entity.name);
       this.data.entity.absent = !this.data.entity.absent;
       if (this.data.entity.absent && this.data.entity.active) {
@@ -504,7 +504,7 @@ export class EntityMenuDialogComponent {
   changeAttack(value: number) {
     if (this.data.entity instanceof Summon) {
       this.attack += value;
-      if (this.data.entity.attack + this.attack < 0) {
+      if (typeof this.data.entity.attack == 'number' && this.data.entity.attack + this.attack < 0) {
         this.attack = -this.data.entity.attack;
       }
     }
@@ -706,7 +706,7 @@ export class EntityMenuDialogComponent {
         if (this.health != 0) {
           gameManager.entityManager.changeHealth(this.data.entity, this.health);
         }
-        if (this.attack != 0) {
+        if (this.attack != 0 && typeof this.data.entity.attack == 'number') {
           this.data.entity.attack += this.attack;
         }
         if (this.movement != 0) {
@@ -734,7 +734,7 @@ export class EntityMenuDialogComponent {
           gameManager.entityManager.changeHealth(this.data.entity, this.health);
           gameManager.stateManager.after();
         }
-        if (this.attack != 0) {
+        if (this.attack != 0 && typeof this.data.entity.attack == 'number') {
           gameManager.stateManager.before("changeSummonAttack", "data.character." + this.data.figure.name, "data.summon." + this.data.entity.name, ghsValueSign(this.attack));
           this.data.entity.attack += this.attack;
           gameManager.stateManager.after();

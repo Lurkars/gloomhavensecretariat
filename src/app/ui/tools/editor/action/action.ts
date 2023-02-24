@@ -63,7 +63,7 @@ export class EditorActionComponent implements OnInit {
       try {
         let value = JSON.parse(this.action.value + '');
         if (typeof value != 'string') {
-          this.summon = new SummonData(value.name, value.health, value.attack, value.movement, value.range, value.action, value.additionalAction);
+          this.summon = new SummonData(value.name, value.health, value.attack, value.movement, value.range, value.flying, value.action, value.additionalAction);
         } else {
           throw Error("fallback");
         }
@@ -279,7 +279,7 @@ export class EditorActionComponent implements OnInit {
       this.summon = undefined;
       this.changeSummonMonster();
     } else if (event.target.value == 'summon') {
-      this.summon = new SummonData("","", 0, 0, 0, 0);
+      this.summon = new SummonData("", "", "", 0, 0, 0, 0,false);
       this.action.value = JSON.stringify(this.summon);
     }
   }

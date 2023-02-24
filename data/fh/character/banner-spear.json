@@ -45,60 +45,119 @@
   "availableSummons": [
     {
       "name": "reinforcements",
+      "cardId": "061",
       "level": 1,
       "health": 1,
       "movement": 2
     },
     {
       "name": "banner-of-strength",
+      "cardId": "062",
       "level": 1,
       "health": 4,
-      "thumbnail": true
+      "thumbnail": true,
+      "action": {
+        "type": "custom",
+        "value": "All allies within %game.range:2% add +1 %game.action.attack% to one of their attacks each turn.",
+        "small": true
+      }
     },
     {
       "name": "banner-of-hope",
+      "cardId": "073",
       "level": 1,
       "health": 4,
-      "thumbnail": true
+      "thumbnail": true,
+      "action": {
+        "type": "custom",
+        "value": "At the start of their turns, grant allies withing %game.range:3%:",
+        "small": true,
+        "subActions": [
+          {
+            "type": "heal",
+            "value": 1,
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "self",
+                "small": true
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "name": "torch-bearer",
+      "cardId": "072",
       "level": 1,
       "health": 5,
       "attack": 1,
-      "movement": 2
+      "movement": 2,
+      "action": {
+        "type": "condition",
+        "value": "wound"
+      }
     },
     {
       "name": "banner-of-courage",
+      "cardId": "076",
       "level": 3,
       "health": 7,
-      "thumbnail": true
+      "thumbnail": true,
+      "action": {
+        "type": "custom",
+        "value": "All adjacent allies gain %game.shield% 1.",
+        "small": true
+      }
     },
     {
       "name": "trained-falcon",
+      "cardId": "079",
       "level": 4,
       "health": 1,
       "attack": 2,
-      "movement": 3
+      "movement": 3,
+      "action": {
+        "type": "fly",
+        "value": ""
+      }
     },
     {
       "name": "banner-of-valor",
+      "cardId": "082",
       "level": 6,
-      "health": 5
+      "health": 5,
+      "action": {
+        "type": "custom",
+        "value": "Negate the first source of %game.damage% to an adjacent ally each round",
+        "small": true
+      }
     },
     {
       "name": "longbowman",
+      "cardId": "085",
       "level": 7,
       "health": 4,
       "attack": 2,
       "range": 4,
-      "movement": 2
+      "movement": 2,
+      "action": {
+        "type": "condition",
+        "value": "muddle"
+      }
     },
     {
       "name": "banner-of-doom",
+      "cardId": "088",
       "level": 9,
       "health": 9,
-      "thumbnail": true
+      "thumbnail": true,
+      "action": {
+        "type": "custom",
+        "value": "All enemies within %game.action.range%4 suffer %game.damage:1% at the start of their turns.",
+        "small": true
+      }
     }
   ],
   "perks": [

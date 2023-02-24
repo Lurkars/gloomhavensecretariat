@@ -912,6 +912,10 @@
       ".": "Automatisch Elementen Status ändern",
       "hint": "Der Status der Elemente wird automatisch vor jeder Runde angepasst"
     },
+    "playerCount": {
+      ".": "Manuelle Charakter Anzahl",
+      "hint": ""
+    },
     "randomStandees": {
       ".": "Zufällige Aufsteller",
       "hint": "Aufsteller mit zufälliger, nicht vergebener Nummer setzen"
@@ -1024,6 +1028,7 @@
       },
       "disableAutomaticLevel": "Automatische Berechnung Level ausschalten",
       "disabledGe5Player": "≥ 5 Spieler Regel ausschalten",
+      "disabledManualPlayerCount": "Manuelle Charakter Anzahal ausschalten",
       "disablePartyCampaignMode": "Kampagnenmodus ausschalten",
       "disableSolo": "Einzelspieler Level Berechnung ausschalten",
       "donate": "{0} spendet an Tempel der Großen Eiche",
@@ -1031,6 +1036,7 @@
       "drawAbility": "Fertigkeit für {0} ziehen",
       "enableAutomaticLevel": "Automatische Berechnung Level einschalten",
       "enabledGe5Player": "≥ 5 Spieler Regel einschalten",
+      "enabledManualPlayerCount": "Manuelle Charakter Anzahal einschalten",
       "enablePartyCampaignMode": "Kampagnenmodus einschalten",
       "enableSolo": "Einzelspieler Level Berechnung einschalten",
       "endAllTurns": "Alle Züge beenden",
@@ -1174,7 +1180,8 @@
       },
       "updateBonusAdjustment": "Anpassung Boni Szenariostufe {0}",
       "updateElement": "Element {0} {1}",
-      "updateLevelAdjustment": "Anpassung Szenariostufe {0}"
+      "updateLevelAdjustment": "Anpassung Szenariostufe {0}",
+      "updateManualPlayerCount": "Manuelle Charakter Anzahl auf {0}"
     },
     "redo": "Wiederherstellen",
     "reset": "Zurücksetzen",

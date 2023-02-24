@@ -31,7 +31,8 @@
             <span class="summon-number">{{summonNumber}}</span>
           </span>
         </span>
-        <label>{{'data.summon.' + summonData.name | ghsLabel}}</label>
+        <label>{{'data.summon.' + summonData.name | ghsLabel}} <span
+            *ngIf="showLevel(summonData)">({{'character.summon.level' | ghsLabel}} {{summonData.level}})</span></label>
       </span>
       <span class="summon" *ngIf="!summonFilter">
         <span class="summon-button" (click)="addCustomSummon()" [ngClass]="{'disabled' : customDisabled()}">

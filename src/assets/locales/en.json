@@ -1013,6 +1013,10 @@
       ".": "Automatic update element state",
       "hint": "The element state is automatically changed before each round "
     },
+    "playerCount": {
+      ".": "Manual character count",
+      "hint": ""
+    },
     "randomStandees": {
       ".": "Random standees",
       "hint": "Add standees with an unused random number"
@@ -1125,6 +1129,7 @@
       },
       "disableAutomaticLevel": "Disable automatic level calculation",
       "disabledGe5Player": "Disable ≥ 5 player rules",
+      "disabledManualPlayerCount": "Disable manual player count",
       "disablePartyCampaignMode": "Disable campagin mode",
       "disableSolo": "Disable solo level calculation",
       "donate": "{0} donate to Sanctuary of the Great Oak",
@@ -1132,6 +1137,7 @@
       "drawAbility": "Draw ability for {0}",
       "enableAutomaticLevel": "Enable automatic level calculation",
       "enabledGe5Player": "Enable ≥ 5 player rules",
+      "enabledManualPlayerCount": "Enable manual player count",
       "enablePartyCampaignMode": "Enable campagin mode",
       "enableSolo": "Enable solo level calculation",
       "endAllTurns": "End all turns",
@@ -1276,7 +1282,8 @@
       },
       "updateBonusAdjustment": "Bonuses adjustment {0}",
       "updateElement": "Element {0} {1}",
-      "updateLevelAdjustment": "Level adjustment {0}"
+      "updateLevelAdjustment": "Level adjustment {0}",
+      "updateManualPlayerCount": "Set manual player count to {0}"
     },
     "redo": "Redo",
     "reset": "Reset",

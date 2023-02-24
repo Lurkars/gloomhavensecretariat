@@ -45,6 +45,7 @@
   "availableSummons": [
     {
       "name": "rat-swarm",
+      "cardId": "150",
       "level": 1,
       "health": 6,
       "attack": 2,
@@ -56,6 +57,7 @@
     },
     {
       "name": "monstrous-rat",
+      "cardId": "159",
       "level": 2,
       "health": 4,
       "attack": 3,
@@ -63,6 +65,7 @@
     },
     {
       "name": "rat-king",
+      "cardId": "173",
       "attack": "X",
       "level": 9,
       "health": 9,

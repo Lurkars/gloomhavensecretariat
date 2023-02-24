@@ -22,7 +22,7 @@ Please notice, that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*
 | Curse & Bless Attack Modifier                                                   | :heavy_check_mark:        | :heavy_check_mark:       | :heavy_check_mark:        | :heavy_check_mark:       | :heavy_check_mark:      |
 | Ally Attack Modifier Deck                                                       | :heavy_check_mark:        | :heavy_check_mark:       | :heavy_check_mark:        | :no_entry_sign:          | :no_entry_sign:         |
 | Scenario Setup (Monster, Objectives, Escorts)                                   | :heavy_check_mark:        | :heavy_check_mark:       | :heavy_check_mark:        | :heavy_check_mark:       | :heavy_check_mark:      |
-| Sperate Rooms/Sections                                                          | :heavy_check_mark:[^16]   | :no_entry_sign:          | :heavy_check_mark:        | :heavy_check_mark:       | :no_entry_sign:         |
+| Sperate Rooms/Sections                                                          | :heavy_check_mark:        | :heavy_check_mark:       | :heavy_check_mark:        | :heavy_check_mark:       | :no_entry_sign:         |
 | Character Attack Modifier Deck                                                  | :heavy_check_mark:        | :no_entry_sign:          | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
 | Character Perks                                                                 | :heavy_check_mark:        | :no_entry_sign:          | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
 | Character Scenario XP                                                           | :heavy_check_mark:        | :heavy_check_mark:       | :heavy_check_mark:        | :heavy_check_mark:       | :heavy_check_mark:      |
@@ -43,7 +43,7 @@ Please notice, that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*
 | Solo Scenarios (for supported Editions)                                         | :heavy_check_mark:        | :heavy_check_mark:       | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
 | Seeker Of Xorn                                                                  | :heavy_check_mark:[^3]    | :heavy_check_mark:       | :no_entry_sign:           | :no_entry_sign:          | :no_entry_sign:         |
 | Blood and Sand                                                                  | :heavy_check_mark:[^3]    | :no_entry_sign:          | :no_entry_sign:           | :no_entry_sign:          | :no_entry_sign:         |
-| Trail Of Ashes                                                                  | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:           | :no_entry_sign:          | :no_entry_sign:         |
+| Trail Of Ashes                                                                  | :white_check_mark:[^16]   | :heavy_check_mark:       | :no_entry_sign:           | :no_entry_sign:          | :no_entry_sign:         |
 | supports Envelope X                                                             | :heavy_check_mark:[^3]    | :heavy_check_mark:       | :no_entry_sign:           | :heavy_check_mark:       | :heavy_check_mark:      |
 |                                                                                 |                           |                          |                           |                          |                         |
 | **Additional Features**                                                         | *GHS*                     | *XHA*                    | *FOC*                     | *GHFS*                   | *GHH*                   |
@@ -67,8 +67,10 @@ Please notice, that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*
 | Hide Standees                                                                   | :heavy_check_mark:        | :heavy_check_mark:       | :no_entry_sign:           | :no_entry_sign:          | :heavy_check_mark:      |
 | Drag Values (Initiative, HP, XP, Gold)                                          | :heavy_check_mark:        | :white_check_mark:[^19]  | :no_entry_sign:           | :no_entry_sign:          | :heavy_check_mark:      |
 | Play without initiative required                                                | :heavy_check_mark:        | :heavy_check_mark:       | :heavy_check_mark:        | :no_entry_sign:          | :heavy_check_mark:      |
-| Automatic level caluclation                                                     | :heavy_check_mark:        | :white_check_mark:[^12]  | :no_entry_sign:           | :heavy_check_mark:       | :white_check_mark:[^12] |
+| Automatic level calculation                                                     | :heavy_check_mark:        | :white_check_mark:[^12]  | :no_entry_sign:           | :heavy_check_mark:       | :white_check_mark:[^12] |
 | Ability Card Names                                                              | :heavy_check_mark:[^17.1] | :heavy_check_mark:       | :heavy_check_mark:[^17.2] | :heavy_check_mark:       | :no_entry_sign:         |
+| Named Summons                                                                   | :heavy_check_mark:        | :heavy_check_mark:       | :heavy_check_mark:        | :heavy_check_mark:       | :no_entry_sign:         |
+| Summon Stats                                                                    | :heavy_check_mark:        | :no_entry_sign:          | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
 | Support ≥ 5 Players rules                                                       | :heavy_check_mark:        | :no_entry_sign:          | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
 | Absent Characters                                                               | :heavy_check_mark:        | :no_entry_sign:          | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
 | Localization                                                                    | :heavy_check_mark:[^5]    | :no_entry_sign:          | :no_entry_sign:           | :no_entry_sign:          | :white_check_mark:[^6]  |
@@ -123,7 +125,7 @@ Please notice, that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*
 
 [^15]: [Source Code](https://github.com/Tarmslitaren/FrosthavenAssistant) ([AGPL 3.0](https://github.com/Tarmslitaren/FrosthavenAssistant/blob/main/LICENCE))
 
-[^16]: Feature fully implemented, data currently only complete for GH and JOTL, other Editions WIP
+[^16]: Charactery only, rest work in progress
 
 [^17.1]: By default only shown on hovering card or fullscreen card, can be activated permenent in settings
 

@@ -46,6 +46,7 @@
   "availableSummons": [
     {
       "name": "lava-golem",
+      "cardId": "236",
       "level": 1,
       "health": 7,
       "attack": 3,
@@ -68,6 +69,7 @@
     },
     {
       "name": "shadow-wolf",
+      "cardId": "235",
       "level": 1,
       "health": 3,
       "attack": 2,
@@ -80,6 +82,7 @@
     },
     {
       "name": "iron-beast",
+      "cardId": "233",
       "level": 1,
       "health": 5,
       "attack": 1,
@@ -95,6 +98,7 @@
     },
     {
       "name": "thorn-shooter",
+      "cardId": "234",
       "level": 1,
       "health": 2,
       "attack": 2,
@@ -107,6 +111,7 @@
     },
     {
       "name": "living-bomb",
+      "cardId": "243",
       "level": 1,
       "health": 1,
       "attack": 2,
@@ -141,6 +146,7 @@
     },
     {
       "name": "bat-swarm",
+      "cardId": "242",
       "level": 1,
       "health": 4,
       "attack": 2,
@@ -148,10 +154,22 @@
       "action": {
         "type": "fly",
         "value": ""
+      },
+      "additionalAction": {
+        "type": "element",
+        "value": "air",
+        "subActions": [
+          {
+            "type": "custom",
+            "value": "when %game.action.attack% performed",
+            "small": true
+          }
+        ]
       }
     },
     {
       "name": "slime-spirit",
+      "cardId": "248",
       "level": 3,
       "health": 4,
       "attack": 1,
@@ -167,13 +185,26 @@
     },
     {
       "name": "rock-colossus",
+      "cardId": "249",
       "level": 4,
       "health": 7,
       "attack": 3,
-      "movement": 1
+      "movement": 1,
+      "action": {
+        "type": "element",
+        "value": "earth",
+        "subActions": [
+          {
+            "type": "custom",
+            "value": "when %game.action.attack% performed",
+            "small": true
+          }
+        ]
+      }
     },
     {
       "name": "healing-sprite",
+      "cardId": "252",
       "level": 5,
       "health": 2,
       "attack": 1,
@@ -209,6 +240,7 @@
     },
     {
       "name": "nail-sphere",
+      "cardId": "253",
       "level": 6,
       "health": 4,
       "movement": 2,
@@ -224,6 +256,7 @@
     },
     {
       "name": "void-eater",
+      "cardId": "255",
       "level": 7,
       "health": 5,
       "attack": 2,
@@ -236,6 +269,7 @@
     },
     {
       "name": "black-unicorn",
+      "cardId": "260",
       "level": 9,
       "health": 6,
       "attack": 4,

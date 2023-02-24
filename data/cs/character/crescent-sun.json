@@ -45,6 +45,7 @@
   "availableSummons": [
     {
       "name": "gleaming-squid",
+      "cardId": "242",
       "level": 9,
       "health": 3,
       "attack": 2,

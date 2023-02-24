@@ -45,6 +45,7 @@
   "availableSummons": [
     {
       "name": "venator-tarantula",
+      "cardId": "027",
       "level": 7,
       "health": 2,
       "attack": 1,
@@ -54,6 +55,7 @@
     },
     {
       "name": "beta-aegis",
+      "cardId": "031",
       "level": 9,
       "movement": 3
     }

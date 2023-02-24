@@ -45,12 +45,14 @@
   "availableSummons": [
     {
       "name": "decoy",
+      "cardId": "031",
       "level": 1,
       "health": 6,
       "movement": 2
     },
     {
       "name": "battle-bot",
+      "cardId": "049",
       "level": 4,
       "health": 6,
       "attack": 2,
@@ -58,6 +60,7 @@
     },
     {
       "name": "kill-bot",
+      "cardId": "055",
       "level": 7,
       "health": 6,
       "attack": 3,

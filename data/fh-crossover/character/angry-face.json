@@ -47,6 +47,7 @@
   "availableSummons": [
     {
       "name": "war-hawk",
+      "cardId": "378",
       "level": 1,
       "health": 3,
       "attack": 3,
@@ -58,6 +59,7 @@
     },
     {
       "name": "vicious-jackal",
+      "cardId": "389",
       "level": 1,
       "health": 5,
       "attack": 1,
@@ -73,6 +75,7 @@
     },
     {
       "name": "battle-boar",
+      "cardId": "379",
       "level": 1,
       "health": 7,
       "attack": 1,
@@ -80,6 +83,7 @@
     },
     {
       "name": "giant-toad",
+      "cardId": "399",
       "level": 6,
       "health": 7,
       "attack": 1,
@@ -91,6 +95,7 @@
     },
     {
       "name": "spitting-cobra",
+      "cardId": "405",
       "level": 9,
       "health": 5,
       "attack": 3,

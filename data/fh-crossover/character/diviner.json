@@ -44,13 +44,16 @@
   "availableSummons": [
     {
       "name": "ghost-falcon",
+      "cardId": "588",
       "level": 3,
       "health": 4,
       "attack": 2,
-      "movement": 3
+      "movement": 3,
+      "count": 2
     },
     {
       "name": "twilight-archon",
+      "cardId": "601",
       "level": 9,
       "health": 9,
       "attack": 2,

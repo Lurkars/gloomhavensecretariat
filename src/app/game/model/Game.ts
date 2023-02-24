@@ -24,6 +24,7 @@ export class Game {
   levelAdjustment: number = 0;
   bonusAdjustment: number = 0;
   ge5Player: boolean = true;
+  playerCount: number = -1;
   round: number = 0;
   roundResets: number[] = [];
   roundResetsHidden: number[] = [];
@@ -48,7 +49,7 @@ export class Game {
   }
 
   toModel(): GameModel {
-    return new GameModel(this.revision, this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario && gameManager.scenarioManager.toModel(this.scenario, this.scenario.revealedRooms, this.scenario.custom, this.scenario.custom ? this.scenario.name : "") || undefined, this.sections.map((section) => gameManager.scenarioManager.toModel(section, section.revealedRooms)), this.scenarioRules.map((value) => value.identifier), this.disgardedScenarioRules, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.round, this.roundResets,this.roundResetsHidden, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party, this.parties, this.lootDeck, this.lootDeckEnhancements, this.lootDeckFixed, this.lootDeckSections, this.server);
+    return new GameModel(this.revision, this.edition, this.figures.map((figure) => figure.name), this.figures.filter((figure) => figure instanceof Character).map((figure) => ((figure as Character).toModel())), this.figures.filter((figure) => figure instanceof Monster).map((figure) => ((figure as Monster).toModel())), this.figures.filter((figure) => figure instanceof Objective).map((figure) => ((figure as Objective).toModel())), this.state, this.scenario && gameManager.scenarioManager.toModel(this.scenario, this.scenario.revealedRooms, this.scenario.custom, this.scenario.custom ? this.scenario.name : "") || undefined, this.sections.map((section) => gameManager.scenarioManager.toModel(section, section.revealedRooms)), this.scenarioRules.map((value) => value.identifier), this.disgardedScenarioRules, this.level, this.levelCalculation, this.levelAdjustment, this.bonusAdjustment, this.ge5Player, this.playerCount, this.round, this.roundResets, this.roundResetsHidden, this.playSeconds, this.totalSeconds, this.monsterAttackModifierDeck.toModel(), this.allyAttackModifierDeck.toModel(), this.elementBoard, this.solo, this.party, this.parties, this.lootDeck, this.lootDeckEnhancements, this.lootDeckFixed, this.lootDeckSections, this.server);
   }
 
   fromModel(model: GameModel, server: boolean = false) {
@@ -194,6 +195,7 @@ export class Game {
     this.levelAdjustment = model.levelAdjustment;
     this.bonusAdjustment = model.bonusAdjustment;
     this.ge5Player = model.ge5Player;
+    this.playerCount = model.playerCount || -1;
 
     this.round = model.round;
     this.roundResets = model.roundResets || [];
@@ -298,6 +300,7 @@ export class GameModel {
   levelAdjustment: number;
   bonusAdjustment: number;
   ge5Player: boolean;
+  playerCount: number;
   round: number;
   roundResets: number[];
   roundResetsHidden: number[];
@@ -330,6 +333,7 @@ export class GameModel {
     levelAdjustment: number = 0,
     bonusAdjustment: number = 0,
     ge5Player: boolean = true,
+    playerCount: number = -1,
     round: number = 0,
     roundResets: number[] = [],
     roundResetsHidden: number[] = [],
@@ -362,6 +366,7 @@ export class GameModel {
     this.levelAdjustment = levelAdjustment;
     this.bonusAdjustment = bonusAdjustment;
     this.ge5Player = ge5Player;
+    this.playerCount = playerCount;
     this.round = round;
     this.roundResets = JSON.parse(JSON.stringify(roundResets));
     this.roundResetsHidden = JSON.parse(JSON.stringify(roundResetsHidden));

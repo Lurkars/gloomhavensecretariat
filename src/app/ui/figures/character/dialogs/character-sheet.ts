@@ -166,7 +166,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
   }
 
   toggleCharacterAbsent() {
-    if (this.character.absent || gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length > 1) {
+    if (this.character.absent || gameManager.characterManager.characterCount() > 1) {
       gameManager.stateManager.before(this.character.absent ? "unsetAbsent" : "setAbsent", "data.character." + this.character.name);
       this.character.absent = !this.character.absent;
       if (this.character.absent && this.character.active) {

@@ -53,7 +53,7 @@ export class ActionSummonComponent implements OnChanges {
       this.summonData = this.action.valueObject as SummonData;
     } if (this.action.value == 'monsterStandee') {
       this.monsters = JSON.parse(JSON.stringify(this.action.valueObject)) as MonsterSpawnData[];
-      const charCount = Math.max(2, gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length);
+      const charCount = Math.max(2, gameManager.characterManager.characterCount());
       this.monsters = this.monsters.filter((spawn) => {
         if (spawn.monster.type) {
           return true;
@@ -135,9 +135,9 @@ export class ActionSummonComponent implements OnChanges {
 
   getSummon(): Summon {
     if (this.summonData) {
-      return new Summon(this.summonData.name, this.summonData.level || 0, this.summonData.count, SummonColor.custom, this.summonData);
+      return new Summon(this.summonData.name, this.summonData.cardId, this.summonData.level || 0, this.summonData.count, SummonColor.custom, this.summonData);
     }
-    return new Summon("", 0, 0, SummonColor.custom);
+    return new Summon("", "", 0, 0, SummonColor.custom);
   }
 
   getSpawnId(): number {

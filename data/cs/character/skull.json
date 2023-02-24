@@ -45,16 +45,19 @@
   "availableSummons": [
     {
       "name": "blazing-fire",
+      "cardId": "272",
       "level": 1,
       "health": 2
     },
     {
       "name": "wall-of-shadows",
+      "cardId": "274",
       "level": 1,
       "health": 2
     },
     {
       "name": "phantom-hound",
+      "cardId": "275",
       "level": 1,
       "health": 1,
       "attack": 2,
@@ -62,6 +65,7 @@
     },
     {
       "name": "wailing-banshee",
+      "cardId": "279",
       "level": 1,
       "health": 2,
       "attack": 2,
@@ -69,6 +73,7 @@
     },
     {
       "name": "skeletal-archer",
+      "cardId": "276",
       "level": 1,
       "health": 2,
       "attack": 1,
@@ -77,12 +82,14 @@
     },
     {
       "name": "ghost-carriage",
+      "cardId": "277",
       "level": 1,
       "health": 2,
       "movement": 4
     },
     {
       "name": "deatheater",
+      "cardId": "282",
       "level": 1,
       "health": 2,
       "attack": 1,
@@ -91,6 +98,7 @@
     },
     {
       "name": "leeching-phantasm",
+      "cardId": "283",
       "level": 1,
       "health": 2,
       "attack": 2,
@@ -111,6 +119,7 @@
     },
     {
       "name": "bat-cloud",
+      "cardId": "285",
       "level": 2,
       "health": 2,
       "attack": 1,
@@ -118,6 +127,7 @@
     },
     {
       "name": "mantle-of-darkness",
+      "cardId": "286",
       "level": 2,
       "health": 2,
       "attack": 2,
@@ -125,6 +135,7 @@
     },
     {
       "name": "leprous-wraith",
+      "cardId": "288",
       "level": 3,
       "health": 2,
       "attack": 2,
@@ -132,6 +143,7 @@
     },
     {
       "name": "orb-of-light",
+      "cardId": "290",
       "level": 4,
       "health": 2,
       "attack": 2,
@@ -139,22 +151,26 @@
     },
     {
       "name": "shifting-discs",
+      "cardId": "290",
       "level": 4,
       "health": 2,
       "movement": 2
     },
     {
       "name": "imbued-monolith",
+      "cardId": "292",
       "level": 5,
       "health": 2
     },
     {
       "name": "mimicking-sprite",
+      "cardId": "293",
       "level": 6,
       "health": 1
     },
     {
       "name": "soul-snatcher",
+      "cardId": "294",
       "level": 6,
       "health": 3,
       "attack": 2,
@@ -163,6 +179,7 @@
     },
     {
       "name": "spectral-phoenix",
+      "cardId": "295",
       "level": 7,
       "health": 1,
       "attack": 3,
@@ -170,17 +187,20 @@
     },
     {
       "name": "vengeful-phantasm",
+      "cardId": "296",
       "level": 7,
       "health": 2,
       "movement": 1
     },
     {
       "name": "wandering-soul",
+      "cardId": "300",
       "level": 9,
       "movement": 3
     },
     {
       "name": "disembodied-goliath",
+      "cardId": "300",
       "level": 9,
       "health": 3,
       "attack": 2,

@@ -11,10 +11,15 @@
   label {
     cursor: pointer;
     display: flex;
+    align-items: center;
     font-family: var(--ghs-font-title);
     font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
     color: var(--ghs-color-gray);
     text-shadow: var(--ghs-outline);
+
+    &.player-count {
+      font-size: calc(var(--ghs-unit) * 2.3 * var(--ghs-dialog-factor));
+    }
   }
 
   display: flex;

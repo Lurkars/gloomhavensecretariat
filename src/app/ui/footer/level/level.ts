@@ -3,9 +3,7 @@ import { ConnectionPositionPair, Overlay } from '@angular/cdk/overlay';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
 import { settingsManager, SettingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Character } from 'src/app/game/model/Character';
-import { LootDeck, LootType } from 'src/app/game/model/Loot';
-import { ghsValueSign } from '../../helper/Static';
+import { LevelDialogComponent } from './level-dialog';
 
 @Component({
   selector: 'ghs-level',
@@ -59,84 +57,3 @@ export class LevelComponent {
   }
 
 }
-
-
-@Component({
-  selector: 'ghs-level-dialog',
-  templateUrl: './level-dialog.html',
-  styleUrls: ['./level-dialog.scss']
-})
-export class LevelDialogComponent {
-
-  gameManager: GameManager = gameManager;
-  settingsManager: SettingsManager = settingsManager;
-  trap: number = 0;
-  experience: number = 0;
-  loot: number = 0;
-  hazardousTerrain: number = 0;
-
-  levels: number[] = [0, 1, 2, 3, 4, 5, 6, 7];
-
-  constructor() {
-    this.calculateValues();
-    gameManager.uiChange.subscribe({
-      next: () => {
-        this.calculateValues();
-      }
-    })
-  }
-
-  setLevelCalculation(levelCalculation: boolean) {
-    gameManager.stateManager.before(levelCalculation ? "enableAutomaticLevel" : "disabledAutomaticLevel");
-    gameManager.game.levelCalculation = levelCalculation;
-    gameManager.levelManager.calculateScenarioLevel();
-    gameManager.stateManager.after();
-  }
-
-  setLevelAdjustment(levelAdjustment: number) {
-    gameManager.stateManager.before("updateLevelAdjustment", ghsValueSign(levelAdjustment));
-    gameManager.game.levelAdjustment = levelAdjustment;
-    gameManager.levelManager.calculateScenarioLevel();
-    gameManager.stateManager.after();
-  }
-
-  setBonusAdjustment(bonusAdjustment: number) {
-    gameManager.stateManager.before("updateBonusAdjustment", ghsValueSign(bonusAdjustment));
-    gameManager.game.bonusAdjustment = bonusAdjustment;
-    gameManager.levelManager.calculateScenarioLevel();
-    gameManager.stateManager.after();
-  }
-
-  setGe5Player(ge5Player: boolean) {
-    gameManager.stateManager.before(ge5Player ? "enabledGe5Player" : "disabledGe5Player");
-    gameManager.game.ge5Player = ge5Player;
-    gameManager.levelManager.calculateScenarioLevel();
-    gameManager.stateManager.after();
-  }
-
-  ge5Player(): boolean {
-    return gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).length > 4;
-  }
-
-  setLevel(level: number) {
-    gameManager.stateManager.before("setScenarioLevel", "" + level);
-    gameManager.levelManager.setLevel(level);
-    gameManager.game.levelCalculation = false;
-    gameManager.stateManager.after();
-  }
-
-  setSolo(solo: boolean) {
-    gameManager.stateManager.before(solo ? "enableSolo" : "disableSolo");
-    gameManager.game.solo = solo;
-    gameManager.stateManager.after();
-  }
-
-
-  calculateValues() {
-    this.trap = gameManager.levelManager.trap();
-    this.experience = gameManager.levelManager.experience();
-    this.loot = gameManager.levelManager.loot();
-    this.hazardousTerrain = gameManager.levelManager.terrain();
-  }
-}
-
