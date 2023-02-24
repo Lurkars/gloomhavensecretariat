@@ -39,7 +39,7 @@ Please notice, that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*
 | Forgotten Circles (including Diviner Mechanics)                                 | :heavy_check_mark:        | :heavy_check_mark:       | :no_entry_sign:           | :heavy_check_mark:       | :heavy_check_mark:      |
 | Jaws Of The Lion                                                                | :heavy_check_mark:        | :heavy_check_mark:       | :no_entry_sign:           | :heavy_check_mark:       | :heavy_check_mark:      |
 | Frosthaven                                                                      | :heavy_check_mark:[^2.1]  | :heavy_check_mark:       | :heavy_check_mark:        | :heavy_check_mark:[^2.2] | :no_entry_sign:         |
-| The Crimson Scales                                                              | :white_check_mark:[^1.1]  | :white_check_mark:[^1.2] | :no_entry_sign:           | :white_check_mark:[^1.3] | :no_entry_sign:         |
+| The Crimson Scales                                                              | :heavy_check_mark:        | :white_check_mark:[^1.2] | :no_entry_sign:           | :white_check_mark:[^1.3] | :no_entry_sign:         |
 | Solo Scenarios (for supported Editions)                                         | :heavy_check_mark:        | :heavy_check_mark:       | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
 | Seeker Of Xorn                                                                  | :heavy_check_mark:[^3]    | :heavy_check_mark:       | :no_entry_sign:           | :no_entry_sign:          | :no_entry_sign:         |
 | Blood and Sand                                                                  | :heavy_check_mark:[^3]    | :no_entry_sign:          | :no_entry_sign:           | :no_entry_sign:          | :no_entry_sign:         |
@@ -88,8 +88,6 @@ Please notice, that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*
 | OpenSource License                                                              | :heavy_check_mark:[^14]   | :heavy_check_mark:[^15]  | :no_entry_sign:           | :no_entry_sign:          | :no_entry_sign:         |
 | Custom Content                                                                  | :heavy_check_mark:        | :no_entry_sign:          | :no_entry_sign:           | :no_entry_sign:          | :no_entry_sign:         |
 | Monster Editor (Stats + Abilities)                                              | :heavy_check_mark:        | :no_entry_sign:          | :no_entry_sign:           | :no_entry_sign:          | :no_entry_sign:         |
-
-[^1.1]: Special Attackmodifier Rules missing
 
 [^1.2]: Only Scenarios, Characters and Monster
 
