@@ -8,7 +8,7 @@ As GHS is a web application no installation is required and it runs in every mod
 
 For usage with multiple clients sharing the same game, the server component [Gloomhaven Secretariat Server](https://github.com/Lurkars/ghs-server) is required. A public instance is available under `gloomhaven-secretariat.de` port `8443` with `secure` option. (I also manage a public server list, so please contact me, if you're running a public instance yourself.)
 
-GHS is based on the look&feel of the original [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (by [Esoteric Software®](http://esotericsoftware.com)). Since GHH is discontinued and not available anymore, GHS should become a well maintained successor, implementing all functionality of GHH, many improvements and many more features. For a comparison of some popular apps, see [Comparison of Companion Apps](https://github.com/Lurkars/gloomhavensecretariat/wiki/Comparison-of-Companion-Apps).
+GHS is based on the look&feel of the original [Gloomhaven Helper](http://esotericsoftware.com/gloomhaven-helper) (by [Esoteric Software®](http://esotericsoftware.com)). Since GHH is discontinued and not available anymore, GHS should become a well maintained successor, implementing all functionality of GHH, many improvements and many more features. For a comparison of some popular apps, see [Comparison of Companion Apps](./resources/app-comparison.md).
 
 As open source software this is meant for the community to actively [contribute](#contributing) with ideas, suggestions and of course feedback. As I am not capable of good design/UX also feel free to contribute better assets. 
 
