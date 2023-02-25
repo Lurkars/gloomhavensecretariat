@@ -353,6 +353,7 @@
       "curse": "Curse",
       "disarm": "Disarm",
       "dodge": "Dodge",
+      "heal": "Heal",
       "immobilize": "Immobilize",
       "impair": "Impair",
       "infect": "Infect",
@@ -779,9 +780,11 @@
     },
     "summary": {
       ".": "Scenario Summary",
-      "apply": "Apply",
+      "apply": "Finish",
       "cancel": "Cancel",
       "gold": "Gold",
+      "forcedLinks": "Continue with scenario (forced)",
+      "links": "Select linked scenario",
       "loot": "Loot",
       "name": "%character%",
       "restart": "Restart scenario (loose resources)",
@@ -1144,6 +1147,7 @@
       "entityDead": "Kill {1} standee {2} of {0}",
       "finishScenario": {
         "failure": "Scenario #{0} {1} ({2}) failed",
+        "linked": "Scenario #{0} {1} successful, continue with #{3} ({2})",
         "remove": "Remove scenario #{0} {1} ({2}) success",
         "restart": "Restart failed Scenario  #{0} {1} ({2})",
         "success": "Scenario #{0} {1} ({2}) successful"
