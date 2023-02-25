@@ -4,6 +4,7 @@ import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager
 import { LootManager } from "src/app/game/businesslogic/LootManager";
 import { Character } from "src/app/game/model/Character";
 import { LootType } from "src/app/game/model/Loot";
+import { Scenario } from "src/app/game/model/Scenario";
 
 
 @Component({
@@ -31,16 +32,6 @@ export class ScenarioSummaryComponent {
                 this.lootColumns.push(lootType);
             }
         }
-
-        dialogRef.closed.subscribe({
-            next: (state) => {
-                if (state && state != "cancel") {
-                    gameManager.stateManager.before("finishScenario." + (state == "restart" ? "restart": (success ? "success" : "failure")), ...gameManager.scenarioManager.scenarioUndoArgs());
-                    gameManager.scenarioManager.finishScenario(success, state == "restart");
-                    gameManager.stateManager.after(1000);
-                }
-            }
-        })
     }
 
     lootValue(character: Character, lootType: LootType): number {
@@ -58,7 +49,33 @@ export class ScenarioSummaryComponent {
         return value;
     }
 
-    close(state: "apply" | "restart" | "cancel") {
-        this.dialogRef.close(state);
+    apply() {
+        gameManager.stateManager.before("finishScenario." + (this.success ? "success" : "failure"), ...gameManager.scenarioManager.scenarioUndoArgs());
+        gameManager.scenarioManager.finishScenario(this.success);
+        gameManager.stateManager.after(1000);
+        this.dialogRef.close();
+    }
+
+    restart() {
+        gameManager.stateManager.before("finishScenario.restart", ...gameManager.scenarioManager.scenarioUndoArgs());
+        gameManager.scenarioManager.finishScenario(this.success, true);
+        gameManager.stateManager.after(1000);
+        this.dialogRef.close();
+    }
+
+    linkedScenario(index: string) {
+        if (gameManager.game.scenario) {
+            const scenario = gameManager.scenarioData(gameManager.game.scenario.edition).find((scenarioData) => scenarioData.group == gameManager.game.scenario?.group && scenarioData.index == index);
+            if (scenario) {
+                gameManager.stateManager.before("finishScenario.linked", ...gameManager.scenarioManager.scenarioUndoArgs(), index);
+                gameManager.scenarioManager.finishScenario(this.success, false, new Scenario(scenario));
+                gameManager.stateManager.after(1000);
+                this.dialogRef.close();
+            }
+        }
+    }
+
+    close() {
+        this.dialogRef.close();
     }
 }

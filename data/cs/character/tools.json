@@ -79,8 +79,8 @@
       "level": 5,
       "health": 3,
       "attack": 3,
-      "range": 3,
-      "movement": 3
+      "movement": 3,
+      "range": 3
     },
     {
       "name": "clockwork-rocket",

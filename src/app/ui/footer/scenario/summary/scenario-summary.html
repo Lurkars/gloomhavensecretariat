@@ -10,7 +10,8 @@
       <span>{{'scenario.summary.name' | ghsLabel}}</span>
       <span>{{'scenario.summary.loot' | ghsLabel}}</span>
       <span>{{'scenario.summary.gold' | ghsLabel}}</span>
-      <span *ngFor="let lootType of lootColumns"><img class="ghs-svg" [src]="'./assets/images/fh/loot/' + lootType + '.svg'"></span>
+      <span *ngFor="let lootType of lootColumns"><img class="ghs-svg"
+          [src]="'./assets/images/fh/loot/' + lootType + '.svg'"></span>
       <span>{{'scenario.summary.xpGained' | ghsLabel}}</span>
       <span>{{'scenario.summary.xpBonus' | ghsLabel}}</span>
       <span>{{'scenario.summary.xp' | ghsLabel}}</span>
@@ -71,8 +72,22 @@
   </div>
 
   <div class="buttons">
-    <a class="cancel" (click)="close('cancel')">{{'scenario.summary.cancel' | ghsLabel}}</a>
-    <a class="apply" (click)="close('apply')">{{'scenario.summary.apply' | ghsLabel}}</a>
-    <a class="restart" *ngIf="!success" (click)="close('restart')">{{'scenario.summary.restart' | ghsLabel}}</a>
+    <a class="cancel" (click)="close()">{{'scenario.summary.cancel' | ghsLabel}}</a>
+    <span class="links" *ngIf="success && gameManager.game.party.campaignMode">
+      <ng-container *ngIf="gameManager.game.scenario && gameManager.game.scenario.forcedLinks && gameManager.game.scenario.forcedLinks.length > 0">
+        <span class="text">{{'scenario.summary.forcedLinks' | ghsLabel}}</span>
+        <a class="apply forced-link" (click)="linkedScenario(index)"
+          *ngFor="let index of gameManager.game.scenario.forcedLinks">#{{index}}</a>
+      </ng-container>
+      <ng-container *ngIf="success && gameManager.game.scenario && (!gameManager.game.scenario.forcedLinks || gameManager.game.scenario.forcedLinks.length == 0)">
+        <span class="text">{{'scenario.summary.links' | ghsLabel}}</span>
+        <a class="link" (click)="linkedScenario(index)"
+          *ngFor="let index of gameManager.game.scenario.links">#{{index}}</a>
+      </ng-container>
+    </span>
+    <a class="apply"
+      *ngIf="!success || !gameManager.game.party.campaignMode || !gameManager.game.scenario || !gameManager.game.scenario.forcedLinks || gameManager.game.scenario.forcedLinks.length == 0"
+      (click)="apply()">{{'scenario.summary.apply' | ghsLabel}}</a>
+    <a class="restart" *ngIf="!success" (click)="restart()">{{'scenario.summary.restart' | ghsLabel}}</a>
   </div>
 </div>

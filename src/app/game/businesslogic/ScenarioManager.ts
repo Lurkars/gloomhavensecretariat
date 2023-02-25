@@ -81,7 +81,6 @@ export class ScenarioManager {
 
   addSection(section: ScenarioData) {
     if (!this.game.sections.some((value) => value.edition == section.edition && value.index == section.index && value.group == section.group)) {
-      this.game.sections.push(new Scenario(section, []));
       this.applyScenarioData(section, true);
       if (section.rules) {
         section.rules.forEach((rule, index) => {
@@ -90,6 +89,7 @@ export class ScenarioManager {
 
         this.filterDisabledScenarioRules();
       }
+      this.game.sections.push(new Scenario(section, []));
     }
   }
 

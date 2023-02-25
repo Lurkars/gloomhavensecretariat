@@ -1,0 +1,57 @@
+{
+  "index": "91.2",
+  "name": "Crystal Fields",
+  "edition": "fh",
+  "parent": "18",
+  "marker": "1",
+  "monsters": [
+    "burrowing-blade",
+    "frozen-corpse"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "once": true,
+      "always": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "burrowing-blade",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "count": 2,
+          "marker": "a"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "ref": "15-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "burrowing-blade",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "burrowing-blade",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

@@ -49,8 +49,8 @@
       "level": 7,
       "health": 2,
       "attack": 1,
-      "range": 3,
       "movement": 3,
+      "range": 3,
       "count": 2
     },
     {

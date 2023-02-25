@@ -293,7 +293,6 @@ export class RoundManager {
       if (settingsManager.settings.activeSummons && figure instanceof Character) {
         figure.summons.forEach((summon) => {
           if (summon.active) {
-            console.log("AFRER?");
             summon.active = false;
           }
         });

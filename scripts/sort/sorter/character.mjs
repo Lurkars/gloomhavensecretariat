@@ -15,7 +15,17 @@ export const sortCharacter = function (character) {
     }
 
     if (character.availableSummons) {
-        character.availableSummons.forEach((summonData) => summonData = sortSummon(summonData));
+        character.availableSummons = character.availableSummons.map((summonData) => sortSummon(summonData)).sort((a, b) => {
+            if (a.level == b.level) {
+                return (+a.cardId) - (+b.cardId);
+            } else if (!a.level && b.level) {
+                return -1;
+            } else if (!b.level && a.level) {
+                return 1;
+            } else {
+                return a.level - b.level;
+            }
+        });
     }
 
     return sortObjectKeys(character, 'name', 'characterClass', 'gender', 'icon', 'thumbnail', 'edition', 'color', 'spoiler', 'locked', 'marker', 'deck', 'stats', 'summon', 'characterClass', 'availableSummons', 'perks', 'masteries', 'additionalModifier');

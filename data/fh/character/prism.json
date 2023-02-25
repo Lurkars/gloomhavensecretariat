@@ -57,37 +57,13 @@
       }
     },
     {
-      "name": "jackal-mech",
-      "cardId": "389",
-      "level": 1,
-      "health": 4,
-      "attack": 2,
-      "movement": 3,
-      "action": {
-        "type": "condition",
-        "value": "wound"
-      },
-      "additionalAction": {
-        "type": "retaliate",
-        "value": 1
-      }
-    },
-    {
-      "name": "sniper-turret",
-      "cardId": "391",
-      "level": 1,
-      "health": 3,
-      "attack": 2,
-      "range": 4
-    },
-    {
       "name": "repair-drone",
       "cardId": "388",
       "level": 1,
       "health": 3,
       "attack": 1,
-      "range": 3,
       "movement": 2,
+      "range": 3,
       "flying": true,
       "action": {
         "type": "grid",
@@ -114,6 +90,22 @@
       }
     },
     {
+      "name": "jackal-mech",
+      "cardId": "389",
+      "level": 1,
+      "health": 4,
+      "attack": 2,
+      "movement": 3,
+      "action": {
+        "type": "condition",
+        "value": "wound"
+      },
+      "additionalAction": {
+        "type": "retaliate",
+        "value": 1
+      }
+    },
+    {
       "name": "leaper",
       "cardId": "390",
       "level": 1,
@@ -131,6 +123,14 @@
           }
         ]
       }
+    },
+    {
+      "name": "sniper-turret",
+      "cardId": "391",
+      "level": 1,
+      "health": 3,
+      "attack": 2,
+      "range": 4
     },
     {
       "name": "arcing-generator",
@@ -157,8 +157,8 @@
       "level": 2,
       "health": 5,
       "attack": 1,
-      "range": 2,
       "movement": 2,
+      "range": 2,
       "action": {
         "type": "custom",
         "small": true,
@@ -225,8 +225,8 @@
       "level": 7,
       "health": 5,
       "attack": 2,
-      "range": 4,
       "movement": 1,
+      "range": 4,
       "action": {
         "type": "area",
         "small": true,

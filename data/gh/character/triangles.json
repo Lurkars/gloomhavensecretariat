@@ -61,8 +61,8 @@
       "level": 9,
       "health": 3,
       "attack": 2,
-      "range": 3,
       "movement": 3,
+      "range": 3,
       "action": {
         "type": "element",
         "value": "any",

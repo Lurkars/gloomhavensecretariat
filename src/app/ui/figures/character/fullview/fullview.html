@@ -17,20 +17,22 @@
       [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
     </ghs-character-image>
 
-    <ghs-drag-click class="drag-initiative"
-      (dragMove)="dragInitiativeMove($event)" (dragEnd)="dragInitiativeEnd($event)">
+    <ghs-drag-click class="drag-initiative" (dragMove)="dragInitiativeMove($event)"
+      (dragEnd)="dragInitiativeEnd($event)">
     </ghs-drag-click>
 
     <ghs-character-initiative [character]="character"></ghs-character-initiative>
 
-    <ghs-highlight-conditions [entity]="character"></ghs-highlight-conditions>
+    <ghs-highlight-conditions [entity]="character" [figure]="character"></ghs-highlight-conditions>
 
   </div>
 
   <div class="row">
     <div class="conditions">
       <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.activeConditions(character)">
-        <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" [style.z-index]="entityCondition.value" />
+        <img
+          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
+          [style.z-index]="entityCondition.value" />
         <ng-container *ngIf="entityCondition.types.indexOf(ConditionType.stack) != -1">
           <img class="stack" *ngFor="let i of [] | ghsRange:(entityCondition.value - 1)"
             [style.z-index]="entityCondition.value - i - 1"

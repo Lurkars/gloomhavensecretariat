@@ -613,7 +613,7 @@
     "group": "solo",
     "name": "The Sands of Time",
     "edition": "gh-envx",
-    "solo": "bladeswarm",
+    "solo": "envx",
     "initial": true,
     "spoiler": true,
     "monsters": [

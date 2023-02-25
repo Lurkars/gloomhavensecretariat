@@ -45,19 +45,6 @@
   ],
   "availableSummons": [
     {
-      "name": "soul-leeches",
-      "cardId": "644",
-      "level": 1,
-      "health": 4,
-      "attack": "X",
-      "movement": 3,
-      "action": {
-        "type": "custom",
-        "value": "X is the number of adjacent figures.",
-        "small": true
-      }
-    },
-    {
       "name": "creeping-beetles",
       "cardId": "629",
       "level": 1,
@@ -98,6 +85,19 @@
       "additionalAction": {
         "type": "custom",
         "value": "All adjacent allies gain %game.action.shield% 1."
+      }
+    },
+    {
+      "name": "soul-leeches",
+      "cardId": "644",
+      "level": 1,
+      "health": 4,
+      "attack": "X",
+      "movement": 3,
+      "action": {
+        "type": "custom",
+        "value": "X is the number of adjacent figures.",
+        "small": true
       }
     },
     {

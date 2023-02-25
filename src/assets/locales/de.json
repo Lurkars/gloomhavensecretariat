@@ -252,6 +252,7 @@
       "curse": "Fluch",
       "disarm": "Entwaffnen",
       "dodge": "Ausweichen",
+      "heal": "Heilen",
       "immobilize": "Lähmung",
       "impair": "Beschädigt",
       "infect": "Infektion",
@@ -677,9 +678,11 @@
     },
     "summary": {
       ".": "Szenario Zusammenfassung",
-      "apply": "Anwenden",
+      "apply": "Abschließen",
       "cancel": "Abbrechen",
       "gold": "Gold",
+      "forcedLinks": "Weiter mit Szenario (erzwungen)",
+      "links": "Verknüpftes Szenario auswählen",
       "loot": "Beute",
       "name": "%character%",
       "restart": "Szenario neustarten (Ressourcen verlieren)",
@@ -1043,6 +1046,7 @@
       "entityDead": "Töte {1} Aufsteller {2} von {0}",
       "finishScenario": {
         "failure": "Szenario #{0} {1} ({2}) gescheitert",
+        "linked": "Szenario #{0} {1} erfolgreich, weiter mit #{3} ({2})",
         "remove": "Entferne Szenario #{0} {1} ({2}) von Erfolgreichen",
         "restart": "Gescheitertes Szenario  #{0} {1} ({2}) neustarten",
         "success": "Szenario #{0} {1} ({2}) erfolgreich"

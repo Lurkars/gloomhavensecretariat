@@ -58,6 +58,14 @@
       }
     },
     {
+      "name": "battle-boar",
+      "cardId": "379",
+      "level": 1,
+      "health": 7,
+      "attack": 1,
+      "movement": 3
+    },
+    {
       "name": "vicious-jackal",
       "cardId": "389",
       "level": 1,
@@ -72,14 +80,6 @@
         "type": "condition",
         "value": "wound"
       }
-    },
-    {
-      "name": "battle-boar",
-      "cardId": "379",
-      "level": 1,
-      "health": 7,
-      "attack": 1,
-      "movement": 3
     },
     {
       "name": "giant-toad",
@@ -99,8 +99,8 @@
       "level": 9,
       "health": 5,
       "attack": 3,
-      "range": 3,
       "movement": 3,
+      "range": 3,
       "action": {
         "type": "condition",
         "value": "poison"

@@ -67,30 +67,13 @@
       "movement": 2
     },
     {
-      "name": "shambling-skeleton",
-      "cardId": "137",
-      "level": 3,
-      "health": 3,
-      "attack": 2,
-      "movement": 2
-    },
-    {
-      "name": "shambling-skeleton",
-      "cardId": "143",
-      "level": 6,
-      "health": 3,
-      "attack": 2,
-      "movement": 2,
-      "count": 2
-    },
-    {
       "name": "wraith",
       "cardId": "126",
       "level": 1,
       "health": 1,
       "attack": 1,
-      "range": 3,
       "movement": 2,
+      "range": 3,
       "action": {
         "type": "fly",
         "value": ""
@@ -109,6 +92,14 @@
       "movement": 2
     },
     {
+      "name": "shambling-skeleton",
+      "cardId": "137",
+      "level": 3,
+      "health": 3,
+      "attack": 2,
+      "movement": 2
+    },
+    {
       "name": "stitched-atrocity",
       "cardId": "141",
       "level": 5,
@@ -119,6 +110,15 @@
         "type": "condition",
         "value": "wound"
       }
+    },
+    {
+      "name": "shambling-skeleton",
+      "cardId": "143",
+      "level": 6,
+      "health": 3,
+      "attack": 2,
+      "movement": 2,
+      "count": 2
     },
     {
       "name": "bone-horde",
@@ -139,8 +139,8 @@
       "level": 9,
       "health": 6,
       "attack": 3,
-      "range": 3,
-      "movement": 3
+      "movement": 3,
+      "range": 3
     }
   ],
   "perks": [

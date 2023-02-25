@@ -63,6 +63,18 @@
       }
     },
     {
+      "name": "torch-bearer",
+      "cardId": "072",
+      "level": 1,
+      "health": 5,
+      "attack": 1,
+      "movement": 2,
+      "action": {
+        "type": "condition",
+        "value": "wound"
+      }
+    },
+    {
       "name": "banner-of-hope",
       "cardId": "073",
       "level": 1,
@@ -85,18 +97,6 @@
             ]
           }
         ]
-      }
-    },
-    {
-      "name": "torch-bearer",
-      "cardId": "072",
-      "level": 1,
-      "health": 5,
-      "attack": 1,
-      "movement": 2,
-      "action": {
-        "type": "condition",
-        "value": "wound"
       }
     },
     {
@@ -140,8 +140,8 @@
       "level": 7,
       "health": 4,
       "attack": 2,
-      "range": 4,
       "movement": 2,
+      "range": 4,
       "action": {
         "type": "condition",
         "value": "muddle"

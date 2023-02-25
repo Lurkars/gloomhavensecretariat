@@ -39,7 +39,7 @@
 
     <ghs-character-initiative [character]="character"></ghs-character-initiative>
 
-    <ghs-highlight-conditions [entity]="character"></ghs-highlight-conditions>
+    <ghs-highlight-conditions [entity]="character" [figure]="character"></ghs-highlight-conditions>
 
     <div *ngIf="character.attackModifierDeckVisible" class="attack-modifierdeck-container">
       <div class="scroll-container">
@@ -90,7 +90,8 @@
           <div class="conditions">
             <span class="condition"
               *ngFor="let entityCondition of gameManager.entityManager.activeConditions(character)">
-              <img [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
+              <img
+                [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
                 [style.z-index]="entityCondition.value" />
               <ng-container *ngIf="entityCondition.types.indexOf(ConditionType.stack) != -1">
                 <img class="stack" *ngFor="let i of [] | ghsRange:(entityCondition.value - 1)"

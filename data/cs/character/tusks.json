@@ -44,14 +44,6 @@
   ],
   "availableSummons": [
     {
-      "name": "scout-dog",
-      "cardId": "096",
-      "level": 1,
-      "health": 4,
-      "attack": 1,
-      "movement": 3
-    },
-    {
       "name": "fighting-bull",
       "cardId": "088",
       "level": 1,
@@ -76,12 +68,12 @@
       "movement": 1
     },
     {
-      "name": "cavalry-camel",
-      "cardId": "100",
+      "name": "scout-dog",
+      "cardId": "096",
       "level": 1,
-      "health": 5,
+      "health": 4,
       "attack": 1,
-      "movement": 2
+      "movement": 3
     },
     {
       "name": "pack-mule",
@@ -91,11 +83,12 @@
       "movement": 3
     },
     {
-      "name": "warrior-hawk",
+      "name": "cavalry-camel",
+      "cardId": "100",
       "level": 1,
-      "health": 4,
+      "health": 5,
       "attack": 1,
-      "movement": 3
+      "movement": 2
     },
     {
       "name": "swamp-hippo",
@@ -103,6 +96,13 @@
       "health": 6,
       "attack": 3,
       "movement": 1
+    },
+    {
+      "name": "warrior-hawk",
+      "level": 1,
+      "health": 4,
+      "attack": 1,
+      "movement": 3
     },
     {
       "name": "black-panther",

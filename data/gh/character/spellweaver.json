@@ -49,8 +49,8 @@
       "level": 1,
       "health": 2,
       "attack": 3,
-      "range": 2,
-      "movement": 2
+      "movement": 2,
+      "range": 2
     },
     {
       "name": "burning-avatar",
@@ -58,8 +58,8 @@
       "level": 6,
       "health": 2,
       "attack": 2,
-      "range": 3,
       "movement": 3,
+      "range": 3,
       "action": {
         "type": "grid",
         "value": "1",

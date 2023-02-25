@@ -1,0 +1,75 @@
+{
+  "index": "54.1",
+  "name": "Crystal Fields",
+  "edition": "fh",
+  "parent": "18",
+  "parentSections": [
+    "91.2"
+  ],
+  "marker": "2",
+  "monsters": [
+    "algox-guard",
+    "burrowing-blade"
+  ],
+  "allies": [
+    "algox-guard"
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "once": true,
+      "always": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "edition": "fh",
+            "name": "algox-guard"
+          },
+          "type": "dead"
+        }
+      ],
+      "finish": "lost"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "ref": "11-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-guard",
+          "type": "elite"
+        },
+        {
+          "name": "burrowing-blade",
+          "type": "normal"
+        },
+        {
+          "name": "burrowing-blade",
+          "type": "elite"
+        },
+        {
+          "name": "burrowing-blade",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "burrowing-blade",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "burrowing-blade",
+          "player4": "normal"
+        },
+        {
+          "name": "burrowing-blade",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

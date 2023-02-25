@@ -1,7 +1,7 @@
 import { Component, Directive, ElementRef, Input, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { Condition, ConditionName, ConditionType, EntityCondition } from "src/app/game/model/Condition";
+import { ConditionName, ConditionType, EntityCondition } from "src/app/game/model/Condition";
 import { Entity } from "src/app/game/model/Entity";
 import { Figure } from "src/app/game/model/Figure";
 

@@ -3,7 +3,7 @@
   <div class="summon" title="{{'data.summon.' + summon.name | ghsLabel}}">
     <div #standee class="standee">
       <div class="sheet">
-        <ghs-summon-sheet *ngIf="summon.active" [summon]="summon" ></ghs-summon-sheet>
+        <ghs-summon-sheet *ngIf="summon.active" [summon]="summon"></ghs-summon-sheet>
       </div>
 
       <span class="image"
@@ -27,7 +27,7 @@
       </span>
     </div>
 
-    <ghs-highlight-conditions [entity]="summon"></ghs-highlight-conditions>
+    <ghs-highlight-conditions [entity]="summon" [figure]="character"></ghs-highlight-conditions>
 
     <div class="conditions">
       <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.activeConditions(summon)">

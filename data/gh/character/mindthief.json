@@ -66,9 +66,9 @@
     {
       "name": "rat-king",
       "cardId": "173",
-      "attack": "X",
       "level": 9,
       "health": 9,
+      "attack": "X",
       "movement": 2,
       "action": {
         "type": "custom",
