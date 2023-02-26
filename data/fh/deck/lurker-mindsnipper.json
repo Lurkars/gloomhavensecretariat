@@ -222,7 +222,7 @@
           ]
         },
         {
-          "type": "custom",
+          "type": "grant",
           "value": "Control all targets of the attack<br>ability in initiative order:",
           "small": true,
           "subActions": [
