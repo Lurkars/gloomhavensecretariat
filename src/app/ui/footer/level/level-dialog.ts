@@ -32,28 +32,36 @@ export class LevelDialogComponent {
     setLevelCalculation(levelCalculation: boolean) {
         gameManager.stateManager.before(levelCalculation ? "enableAutomaticLevel" : "disabledAutomaticLevel");
         gameManager.game.levelCalculation = levelCalculation;
-        gameManager.levelManager.calculateScenarioLevel();
+        if (gameManager.game.levelCalculation) {
+            gameManager.levelManager.calculateScenarioLevel();
+        }
         gameManager.stateManager.after();
     }
 
     setLevelAdjustment(levelAdjustment: number) {
         gameManager.stateManager.before("updateLevelAdjustment", ghsValueSign(levelAdjustment));
         gameManager.game.levelAdjustment = levelAdjustment;
-        gameManager.levelManager.calculateScenarioLevel();
+        if (gameManager.game.levelCalculation) {
+            gameManager.levelManager.calculateScenarioLevel();
+        }
         gameManager.stateManager.after();
     }
 
     setBonusAdjustment(bonusAdjustment: number) {
         gameManager.stateManager.before("updateBonusAdjustment", ghsValueSign(bonusAdjustment));
         gameManager.game.bonusAdjustment = bonusAdjustment;
-        gameManager.levelManager.calculateScenarioLevel();
+        if (gameManager.game.levelCalculation) {
+            gameManager.levelManager.calculateScenarioLevel();
+        }
         gameManager.stateManager.after();
     }
 
     setGe5Player(ge5Player: boolean) {
         gameManager.stateManager.before(ge5Player ? "enabledGe5Player" : "disabledGe5Player");
         gameManager.game.ge5Player = ge5Player;
-        gameManager.levelManager.calculateScenarioLevel();
+        if (gameManager.game.levelCalculation) {
+            gameManager.levelManager.calculateScenarioLevel();
+        }
         gameManager.stateManager.after();
     }
 
@@ -64,14 +72,18 @@ export class LevelDialogComponent {
     togglePlayerCount(event: any) {
         gameManager.stateManager.before(event.target.checked ? "enabledManualPlayerCount" : "disabledManualPlayerCount");
         gameManager.game.playerCount = event.target.checked ? 2 : -1;
-        gameManager.levelManager.calculateScenarioLevel();
+        if (gameManager.game.levelCalculation) {
+            gameManager.levelManager.calculateScenarioLevel();
+        }
         gameManager.stateManager.after();
     }
 
     setPlayerCount(playerCount: number) {
         gameManager.stateManager.before("updateManualPlayerCount", '' + playerCount);
         gameManager.game.playerCount = playerCount;
-        gameManager.levelManager.calculateScenarioLevel();
+        if (gameManager.game.levelCalculation) {
+            gameManager.levelManager.calculateScenarioLevel();
+        }
         gameManager.stateManager.after();
     }
 
