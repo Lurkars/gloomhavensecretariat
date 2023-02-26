@@ -361,6 +361,10 @@ a {
 
   &.flipped {
     transform: rotateX(180deg);
+
+    &.reverse {
+      transform: rotateX(-180deg);
+    }
   }
 
   .revealed {
@@ -385,10 +389,15 @@ a {
     /* Safari */
     backface-visibility: hidden;
     overflow: hidden;
+    z-index: 1;
   }
 
   .card-front {
     transform: rotateX(180deg);
+  }
+
+  &.reverse .card-front {
+    transform: rotateX(-180deg);
   }
 }
 
@@ -1168,7 +1177,7 @@ input[type="radio"] {
     transform: translateX(-50%);
   }
 
-  .placeholder  .placeholder-character-token {
+  .placeholder .placeholder-character-token {
     background-image: url('~src/assets/images/fh/character/token.png');
     top: 0.25em;
     height: 1.6em;

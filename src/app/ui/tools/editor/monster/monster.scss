@@ -52,12 +52,9 @@
     margin-top: calc(var(--ghs-unit) * 3);
     min-width: calc(var(--ghs-unit) * 82);
 
-    ghs-monster-stats-card {
-      pointer-events: none;
-
-      .extra  {
-        display: none;
-      }
+    ghs-monster-stats {
+      width: calc(var(--ghs-unit) * 40);
+      height: calc(var(--ghs-unit) * 21.5);
     }
 
     .stats-input {

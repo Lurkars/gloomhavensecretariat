@@ -1,7 +1,7 @@
 <div class="level-dialog"
   [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.level}">
   <div class="menu">
-    <label>
+    <label *ngIf="gameManager.game.playerCount < 1">
       <input type="checkbox" [checked]="gameManager.game.levelCalculation"
         (change)="setLevelCalculation(!gameManager.game.levelCalculation)">
       {{'settings.levelCalculation' | ghsLabel}}

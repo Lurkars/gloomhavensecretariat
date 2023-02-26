@@ -72,7 +72,9 @@ export class LevelDialogComponent {
     togglePlayerCount(event: any) {
         gameManager.stateManager.before(event.target.checked ? "enabledManualPlayerCount" : "disabledManualPlayerCount");
         gameManager.game.playerCount = event.target.checked ? 2 : -1;
-        if (gameManager.game.levelCalculation) {
+        if (event.target.checked) {
+            gameManager.game.levelCalculation = false;
+        } else if (gameManager.game.levelCalculation) {
             gameManager.levelManager.calculateScenarioLevel();
         }
         gameManager.stateManager.after();

@@ -9,7 +9,6 @@ import { MonsterType } from 'src/app/game/model/MonsterType';
 import { ghsDefaultDialogPositions } from '../../helper/Static';
 import { EntitiesMenuDialogComponent } from '../entities-menu/entities-menu-dialog';
 import { MonsterNumberPickerDialog } from './dialogs/numberpicker';
-import { MonsterStatsDialogComponent } from './dialogs/stats-dialog';
 
 @Component({
   selector: 'ghs-monster',
@@ -98,10 +97,6 @@ export class MonsterComponent {
 
   getEdition(): string {
     return gameManager.getEdition(this.monster);
-  }
-
-  openStatsPopup() {
-    this.dialog.open(MonsterStatsDialogComponent, { panelClass: 'dialog', data: this.monster });
   }
 
   entityTypeCount(type: MonsterType): boolean {

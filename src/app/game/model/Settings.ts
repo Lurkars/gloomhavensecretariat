@@ -36,6 +36,7 @@ export class Settings {
   hideAbsent: boolean = false;
   hints: boolean = true;
   zoom: number = 100;
+  pressDoubleClick: boolean = true;
   automaticAttackModifierFullscreen: boolean = true;
   barsize: number = 1;
   fontsize: number = 1;

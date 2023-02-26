@@ -91,7 +91,6 @@ export class CharacterSummonDialog {
       if (!summonData.count || this.character.summons.filter((summon) => summon.name == summonData.name && summon.cardId == summonData.cardId).length == summonData.count) {
         this.dialogRef.close();
       } else {
-        this.dialogRef.disableClose = true;
         this.summonFilter = summonData.cardId;
         this.summonNumber++;
         if (this.summonNumber > 4) {

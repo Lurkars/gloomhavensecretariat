@@ -1,12 +1,12 @@
-<div class="stats-dialog" [ngClass]="{'full-ability': settingsManager.settings.showFullAbilityCard}">
+<div class="stats-dialog">
   <a class="close" (click)="dialogRef.close()" [title]="'close' | ghsLabel"><img src="./assets/images/close.svg"></a>
   <span class="name">{{'data.monster.' + monster.name | ghsLabel}}  <span *ngIf="monster.isAlly">({{'game.ally' | ghsLabel}})</span> <span class="edition"
       *ngIf="getEdition()">[{{'data.edition.' + getEdition()| ghsLabel}}]</span>
   </span>
   <div class="stats-container">
     <div class="stats" *ngFor="let level of levels">
-      <ghs-monster-stats-card [monster]="getMonsterForLevel(level)" [showName]="true" [forceStats]="true">
-      </ghs-monster-stats-card>
+      <ghs-monster-stats [monster]="getMonsterForLevel(level)" [forceStats]="true" [noClick]="true">
+      </ghs-monster-stats>
     </div>
   </div>
 </div>

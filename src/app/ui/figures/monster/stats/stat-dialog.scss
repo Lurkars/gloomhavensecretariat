@@ -1,0 +1,20 @@
+:host {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border: 0; 
+}
+
+.stat-dialog {
+  width: 100vw;
+  max-width: 600px;
+  height: 54vw;
+  max-height: 322.5px;
+  border-image: none;
+  background: none;
+
+  .card-container {
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,12 @@
+<div class="stat-dialog">
+  <div class="card-container" (click)="close()">
+    <div class="card reverse" [ngClass]="{'flipped' : true}">
+      <div class="card-back">
+        <ghs-monster-stats [monster]="getBackside()" [noClick]="true"></ghs-monster-stats>
+      </div>
+      <div class="card-front">
+        <ghs-monster-stats [monster]="monster" [noClick]="true"></ghs-monster-stats>
+      </div>
+    </div>
+  </div>
+</div>

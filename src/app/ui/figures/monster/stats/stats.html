@@ -1,10 +1,10 @@
 <div class="stats-container"
-  [ngClass]="{'boss' : monster.boss, 'fh' : settingsManager.settings.fhStyle, 'full-ability': settingsManager.settings.showFullAbilityCard, 'denied' : !gameManager.stateManager.hasMonsterPermission(monster)}" #card
-  [style.fontSize]="card.offsetWidth * 0.03 + 'px'">
+  [ngClass]="{'boss' : monster.boss, 'fh' : settingsManager.settings.fhStyle, 'full-ability': fullAbility, 'no-click': noClick, 'denied' : !gameManager.stateManager.hasMonsterPermission(monster)}"
+  #card [style.fontSize]="card.offsetWidth * 0.03 + 'px'">
   <div #levelButton (click)="openLevelDialog()" class="level" title="{{'game.level' | ghsLabel}}">{{monster.level}}
   </div>
 
-  <div class="name-container" *ngIf="showName">
+  <div class="name-container" ghs-drag-click (singleClick)="openStatsPopup()" (doubleClick)="openStatPopup()">
     <span class="name">
       {{'data.monster.' + monster.name | ghsLabel}}
       <span *ngIf="monster.isAlly">({{'game.ally' | ghsLabel}})</span>

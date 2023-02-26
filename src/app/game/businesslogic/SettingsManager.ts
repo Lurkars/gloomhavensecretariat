@@ -286,6 +286,12 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setPressDoubleClick(pressDoubleClick: boolean) {
+    this.settings.pressDoubleClick = pressDoubleClick;
+    this.storeSettings();
+  }
+
+
   setAutomaticAttackModifierFullscreen(automaticAttackModifierFullscreen: boolean) {
     this.settings.automaticAttackModifierFullscreen = automaticAttackModifierFullscreen;
     this.storeSettings();

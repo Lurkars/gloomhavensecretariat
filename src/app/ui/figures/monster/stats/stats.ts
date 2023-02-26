@@ -10,6 +10,8 @@ import { MonsterType } from 'src/app/game/model/MonsterType';
 import { ghsDefaultDialogPositions } from 'src/app/ui/helper/Static';
 import { EntityMenuDialogComponent } from '../../entity-menu/entity-menu-dialog';
 import { MonsterLevelDialogComponent } from '../dialogs/level-dialog';
+import { MonsterStatDialogComponent } from './stat-dialog';
+import { MonsterStatsDialogComponent } from './stats-dialog';
 
 @Component({
   selector: 'ghs-monster-stats',
@@ -19,9 +21,10 @@ import { MonsterLevelDialogComponent } from '../dialogs/level-dialog';
 export class MonsterStatsComponent implements OnInit {
 
   @Input() monster!: Monster;
-  @Input() showName: boolean = false;
   @Input() forceStats: boolean = false;
   @Input() relative: boolean = false;
+  @Input() noClick: boolean = false;
+  @Input() fullAbility: boolean = false;
   MonsterType = MonsterType;
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
@@ -96,6 +99,14 @@ export class MonsterStatsComponent implements OnInit {
         }
       }
     })
+  }
+
+  openStatPopup() {
+    this.dialog.open(MonsterStatDialogComponent, { data: this.monster });
+  }
+
+  openStatsPopup() {
+    this.dialog.open(MonsterStatsDialogComponent, { panelClass: 'dialog', data: this.monster });
   }
 
   openEntityMenu(event: any): void {

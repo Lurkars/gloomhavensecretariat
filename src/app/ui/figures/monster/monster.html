@@ -3,18 +3,8 @@
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round || !gameManager.stateManager.hasMonsterPermission(monster)}">
   </ghs-monster-image>
   <ghs-monster-ability-card [monster]="monster"></ghs-monster-ability-card>
-  <ghs-monster-stats-card [monster]="monster"></ghs-monster-stats-card>
-
-  <div class="stats-popup-button" [ngClass]="{'denied' : !gameManager.stateManager.hasMonsterPermission(monster)}">
-    <span class="name" (click)="openStatsPopup()">
-      {{'data.monster.' + monster.name | ghsLabel}}
-      <span *ngIf="monster.isAlly">({{'game.ally' | ghsLabel}})</span>
-    </span>
-    <span *ngIf="monster.flying" class="flying"><img
-        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
-    <span class="edition" *ngIf="getEdition()"> [{{'data.edition.' + getEdition()| ghsLabel}}]</span>
-    <span class="catching" *ngIf="monster.catching"><img class="ghs-svg" src="./assets/images/fh/catching.svg"></span>
-  </div>
+  <ghs-monster-stats [monster]="monster" [fullAbility]="settingsManager.settings.showFullAbilityCard"
+    [ngClass]="{'full-ability': settingsManager.settings.showFullAbilityCard}"></ghs-monster-stats>
 
   <ghs-monster-numberpicker *ngIf="!monster.boss" class="normal" [monster]="monster" [type]="MonsterType.normal"
     [max]="monster.count"

@@ -6,7 +6,6 @@ import { ActionsComponent } from './ui/figures/actions/actions';
 import { ActionHexComponent } from './ui/figures/actions/area/action-hex';
 import { MonsterAbilityCardComponent } from './ui/figures/monster/cards/ability-card';
 import { MonsterImageComponent } from './ui/figures/monster/cards/image';
-import { MonsterStatsCardComponent } from './ui/figures/monster/cards/stats';
 import { MonsterStatsComponent } from './ui/figures/monster/stats/stats';
 import { MonsterNumberPicker, MonsterNumberPickerDialog } from './ui/figures/monster/dialogs/numberpicker';
 import { MonsterEntityComponent } from './ui/figures/monster/entity/entity';
@@ -52,7 +51,8 @@ import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodif
 import { ScenarioComponent } from './ui/footer/scenario/scenario';
 import { EntityMenuDialogComponent } from './ui/figures/entity-menu/entity-menu-dialog';
 import { MonsterLevelDialogComponent } from './ui/figures/monster/dialogs/level-dialog';
-import { MonsterStatsDialogComponent } from './ui/figures/monster/dialogs/stats-dialog';
+import { MonsterStatDialogComponent } from './ui/figures/monster/stats/stat-dialog';
+import { MonsterStatsDialogComponent } from './ui/figures/monster/stats/stats-dialog';
 import { AbilityComponent } from './ui/figures/ability/ability';
 import { AbiltiesDialogComponent } from './ui/figures/ability/abilities-dialog';
 import { AbilityDialogComponent } from './ui/figures/ability/ability-dialog';
@@ -113,7 +113,7 @@ describe('AppComponent', () => {
         MonsterEntityComponent,
         MonsterImageComponent,
         MonsterAbilityCardComponent, MonsterStatsComponent,
-        MonsterStatsCardComponent, MonsterStatsDialogComponent, MonsterLevelDialogComponent,
+        MonsterStatDialogComponent, MonsterStatsDialogComponent, MonsterLevelDialogComponent,
         MonsterNumberPicker, MonsterNumberPickerDialog,
         AbilityComponent, AbiltiesDialogComponent, AbilityDialogComponent,
         ActionsComponent, ActionComponent, ActionHexComponent, ActionSummonComponent,

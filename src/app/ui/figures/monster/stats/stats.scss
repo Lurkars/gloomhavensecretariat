@@ -6,7 +6,7 @@
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-image: url('~/src/assets/images/monster/stats/standard.png');
-  border-radius: calc(var(--ghs-unit) * 1);
+  border-radius: 1em;
 
   * {
     transition: opacity 1s ease-in-out;
@@ -25,12 +25,17 @@
     align-items: center;
     font-family: var(--ghs-font-title);
     color: var(--ghs-color-white);
-    font-size: 2.5em;
-    filter: drop-shadow(0.01em 0.01em 0.01em var(--ghs-color-black));
+    font-size: 2.1em;
+    filter: drop-shadow(0.1em 0.1em 0.1em var(--ghs-color-black));
     text-align: left;
     white-space: nowrap;
     overflow: auto;
     z-index: 4;
+
+    &:hover {
+      cursor: pointer;
+      color: var(--ghs-color-gray);
+    }
 
     .edition {
       margin-left: 1.25%;
@@ -80,10 +85,10 @@
     &.ally::after {
       content: ' ';
       position: absolute;
-      top: 2.8%;
-      left: 0.25%;
-      bottom: 2.8%;
-      right: 0.25%;
+      top: 15%;
+      left: 1%;
+      bottom: 15%;
+      right: 1%;
       background-color: var(--ghs-color-red);
       clip-path: polygon(10% 0, 0 10%, 40% 50%, 0 90%, 10% 100%, 50% 60%, 90% 100%, 100% 90%, 60% 50%, 100% 10%, 90% 0, 50% 40%);
     }
@@ -108,25 +113,27 @@
 
   .stats {
     position: absolute;
-    top: 28.8%;
-    left: 49.75%;
+    top: 27%;
+    left: 49.5%;
+    width: 26%;
+    height: 64%;
     display: grid;
-    grid-template-columns: 4.75em 0 4.75em;
-    grid-template-rows: repeat(3, 4.5em);
+    grid-template-columns: 50% 0 50%;
+    grid-template-rows: repeat(3, 33%);
     filter: drop-shadow(0.01em 0.01em 0.01em var(--ghs-color-black));
     z-index: 1;
     transform: translateX(-50%);
 
     &.boss {
-      top: calc(var(--ghs-unit) * 6.6);
-      left: calc(var(--ghs-unit) * 12);
+      top: 29%;
+      left: 30%;
       grid-template-columns: 8em 0;
     }
 
     .stat {
-      font-size: 2.7em;
+      font-size: 2.4em;
+      line-height: 1.7em;
       padding-top: 0;
-      line-height: 4.8em;
       width: 100%;
 
       &.normal,
@@ -135,14 +142,14 @@
         justify-self: end;
         text-align: right;
         filter: drop-shadow(0.01em 0.01em 0.01em var(--ghs-color-white));
-        padding-right: 2.5em;
+        padding-right: 0.8em;
 
         &.bordered::before {
           content: ' ';
           position: absolute;
           bottom: 0;
           right: 0;
-          height: 0.15em;
+          height: 1px;
           width: 100%;
           background: linear-gradient(to right, transparent, var(--ghs-color-darkred));
         }
@@ -153,14 +160,14 @@
         text-align: left;
         color: var(--ghs-color-white);
         filter: drop-shadow(0.01em 0.01em 0.01em var(--ghs-color-black));
-        padding-left: 2.5em;
+        padding-left: 0.8em;
 
         &.bordered::before {
           content: ' ';
           position: absolute;
           bottom: 0;
           left: 0;
-          height: 0.15em;
+          height: 1px;
           width: 100%;
           background: linear-gradient(to right, var(--ghs-color-white), transparent);
         }
@@ -171,8 +178,8 @@
       position: relative;
       justify-self: center;
       align-self: center;
-      width: 3em;
-      height: 3em;
+      width: 2.5em;
+      height: 2.5em;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -184,8 +191,8 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        width: 2.5em;
-        height: 2.5em;
+        width: 2em;
+        height: 2em;
         background-color: var(--ghs-color-darkgray);
         border: 0.25em solid var(--ghs-color-white);
         z-index: 1;
@@ -195,42 +202,41 @@
 
       img {
         filter: var(--ghs-filter-white);
-        height: 1.8em;
+        height: 1.4em;
         width: auto;
         z-index: 2;
       }
     }
 
     &.range {
-      grid-template-rows: repeat(4, 3.2em);
+      grid-template-rows: repeat(4, 25%);
 
       &.boss {
         top: calc(var(--ghs-unit) * 6.8);
       }
 
       .stat {
-        line-height: 3.6em;
+        line-height: 1.3em;
 
         &.normal,
         &.boss {
-          padding-right: 2.2em;
+          padding-right: 0.7em;
         }
 
         &.elite {
-          padding-left: 2em;
+          padding-left: 0.6em;
         }
       }
 
       .stat-icon {
 
         &::before {
-          width: 1.8em;
-          height: 1.8em;
-          border: 0.25em solid var(--ghs-color-white);
+          width: 1.4em;
+          height: 1.4em;
         }
 
         img {
-          height: 1.2em;
+          height: 1em;
         }
       }
     }
@@ -242,18 +248,18 @@
 
   .extra {
     position: absolute;
-    top: 25.5%;
-    width: calc(var(--ghs-unit) * 14);
+    top: 27%;
+    width: 35%;
     display: flex;
     flex-direction: column;
-    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-fontsize));
+    font-size: 1.6em;
     height: 74.5%;
     z-index: 2;
     overflow-x: unset;
     overflow-y: auto;
 
     &.normal {
-      right: 63.75%;
+      right: 64%;
       text-align: right;
 
       .condition {
@@ -271,9 +277,9 @@
     }
 
     &.boss {
-      width: 52.5%;
-      height: 69.77%;
-      right: 1.25%;
+      width: 51%;
+      height: 70%;
+      right: 1.5%;
       color: var(--ghs-color-white);
     }
 
@@ -306,22 +312,22 @@
 
   .immunities {
     position: absolute;
-    top: 31.15%;
-    left: 3.75%;
+    top: 31%;
+    left: 4%;
     display: grid;
     justify-items: center;
     align-items: center;
-    grid-template-columns: repeat(5, 7%);
-    grid-template-rows: repeat(8, 5.8%);
-    column-gap: 1%;
-    row-gap: 1.8%;
+    grid-template-columns: repeat(5, 2.25em);
+    grid-template-rows: repeat(8, 1.125em);
+    column-gap: 0.4em;
+    row-gap: 0.2em;
 
     .immunity {
 
       position: relative;
       display: block;
-      width: 6.25%;
-      height: 11.62%;
+      width: 2.25em;
+      height: 2.25em;
 
       &:nth-child(1) {
         grid-column: 1;
@@ -518,6 +524,15 @@
     }
   }
 
+  &.no-click {
+
+    .name-container,
+    .level,
+    .toggle-ally {
+      pointer-events: none;
+    }
+  }
+
   &.full-ability {
     background-size: 100% 100%;
 
@@ -534,38 +549,39 @@
     }
 
     .stats {
-      top: 27%;
-      grid-template-columns: 13.125% 0 13.125%;
-      grid-template-rows: repeat(3, 20.8%);
 
       .stat {
-        line-height: 5.5em;
+        line-height: 1.9em;
+
       }
 
-      &.range {
-        grid-template-rows: repeat(4, 15.4%);
+      .stat-icon {
 
-        .stat {
-          line-height: 4.2em;
+        &::before {
+          width: 2.2em;
+          height: 2.2em;
+        }
 
-          &.normal,
-          &.boss {
-            padding-right: 6.25%;
-          }
-
-          &.elite {
-            padding-left: 5.5%;
-          }
+        img {
+          height: 1.5em;
         }
       }
 
-      &.boss {
-        top: 27.5%;
-        left: 30%;
-        grid-template-columns: 20% 0;
-
+      &.range {
         .stat {
-          line-height: 5.25em;
+          line-height: 1.4em;
+        }
+
+        .stat-icon {
+
+          &::before {
+            width: 1.5em;
+            height: 1.5em;
+          }
+
+          img {
+            height: 1.2em;
+          }
         }
       }
     }
@@ -575,34 +591,31 @@
       height: 72.9%;
     }
 
-
     .immunities {
-      top: 31.25%;
-      grid-template-columns: repeat(5, 7.125%);
-      grid-template-rows: repeat(8, 6.25%);
 
-      &.boss {
+      grid-template-columns: repeat(5, 2.4em);
+      grid-template-rows: repeat(8, 1.4em);
+
+      &.normal {
         left: 5%;
       }
 
-      &.normal {
-        left: 6.25%;
-      }
-
       &.elite {
-        right: 6.25%;
+        right: 5%;
       }
 
       .immunity {
-        width: 7.5%;
-        height: 12.5%;
+        width: 2.5em;
+        height: 2.5em;
       }
     }
   }
 }
 
 :host.stats-editor {
-  .extra {
+
+  .extra,
+  .name-container {
     display: none !important;
   }
 }

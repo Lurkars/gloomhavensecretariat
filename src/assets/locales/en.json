@@ -1020,6 +1020,10 @@
       ".": "Manual character count",
       "hint": ""
     },
+    "pressDoubleClick": {
+      ".": "Long press for doubleclick (Touch)",
+      "hint": "On touchscreens, trigger doubleclick with long press instead. (Recommended to avoid ghost clicks)"
+    },
     "randomStandees": {
       ".": "Random standees",
       "hint": "Add standees with an unused random number"

@@ -35,7 +35,7 @@ export class DragClickDirective {
   tap(event: any) {
     if (this.clickBehind) {
       this.emitClickBehind(event.center.x, event.center.y);
-    } else if (event.pointerType == "touch") {
+    } else if (event.pointerType == "touch" && settingsManager.settings.pressDoubleClick) {
       setTimeout(() => {
         this.singleClick.emit(event);
       }, doubleClickTreshhold);
@@ -43,7 +43,9 @@ export class DragClickDirective {
       if (this.timeout) {
         clearTimeout(this.timeout);
         this.timeout = null;
-        this.doubleClick.emit(event);
+        setTimeout(() => {
+          this.doubleClick.emit(event);
+        }, doubleClickTreshhold)
       } else {
         this.timeout = setTimeout(() => {
           if (this.timeout) {
@@ -63,7 +65,7 @@ export class DragClickDirective {
 
   @HostListener('press', ['$event'])
   press(event: any) {
-    if (event.pointerType == "touch" && this.doubleClick.observed) {
+    if (event.pointerType == "touch" && this.doubleClick.observed && settingsManager.settings.pressDoubleClick) {
       this.doubleClick.emit(event);
     } else if (this.repeat) {
       this.repeatTimeout(event);
@@ -91,7 +93,7 @@ export class DragClickDirective {
 
   @HostListener('pressup', ['$event'])
   pressup(event: any) {
-    if (this.repeat && this.timeout) {
+    if (this.repeat && this.timeout && settingsManager.settings.pressDoubleClick) {
       clearTimeout(this.timeout);
     }
     if (event.srcEvent) {

@@ -429,6 +429,20 @@
     <div class="line">
       <div class="hint-container">
         <label>
+          <input type="checkbox" [checked]="settingsManager.settings.pressDoubleClick"
+            (change)="settingsManager.setPressDoubleClick(!settingsManager.settings.pressDoubleClick)">
+          {{'settings.pressDoubleClick' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.pressDoubleClick.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="line">
+      <div class="hint-container">
+        <label>
           <input type="checkbox" [checked]="settingsManager.settings.disableAnimations"
             (change)="settingsManager.setDisableAnimations(!settingsManager.settings.disableAnimations)">
           {{'settings.disableAnimations' | ghsLabel}}
