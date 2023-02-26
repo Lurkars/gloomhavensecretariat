@@ -4,7 +4,6 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { ActionType } from 'src/app/game/model/Action';
-import { FigureError, FigureErrorType } from 'src/app/game/model/FigureError';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterStat } from 'src/app/game/model/MonsterStat';
 import { MonsterType } from 'src/app/game/model/MonsterType';
@@ -13,11 +12,11 @@ import { EntityMenuDialogComponent } from '../../entity-menu/entity-menu-dialog'
 import { MonsterLevelDialogComponent } from '../dialogs/level-dialog';
 
 @Component({
-  selector: 'ghs-monster-stats-card',
+  selector: 'ghs-monster-stats',
   templateUrl: './stats.html',
   styleUrls: ['./stats.scss']
 })
-export class MonsterStatsCardComponent implements OnInit {
+export class MonsterStatsComponent implements OnInit {
 
   @Input() monster!: Monster;
   @Input() showName: boolean = false;

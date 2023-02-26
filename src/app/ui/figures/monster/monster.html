@@ -3,7 +3,7 @@
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round || !gameManager.stateManager.hasMonsterPermission(monster)}">
   </ghs-monster-image>
   <ghs-monster-ability-card [monster]="monster"></ghs-monster-ability-card>
-  <ghs-monster-stats [monster]="monster"></ghs-monster-stats>
+  <ghs-monster-stats-card [monster]="monster"></ghs-monster-stats-card>
 
   <div class="stats-popup-button" [ngClass]="{'denied' : !gameManager.stateManager.hasMonsterPermission(monster)}">
     <span class="name" (click)="openStatsPopup()">

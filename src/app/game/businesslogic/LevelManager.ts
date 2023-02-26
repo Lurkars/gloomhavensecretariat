@@ -76,7 +76,7 @@ export class LevelManager {
       return 0;
     }
 
-    const charLevel = this.game.figures.filter((figure) => figure instanceof Character && !figure.absent).map((figure) => (figure as Character).level).reduce((a, b) => a + b);
+    const charLevel = this.game.figures.some((figure) => figure instanceof Character) ? this.game.figures.filter((figure) => figure instanceof Character && !figure.absent).map((figure) => (figure as Character).level).reduce((a, b) => a + b) : 1;
 
 
     return Math.ceil(((charLevel / charCount) + (this.game.solo && ((gameManager.fhRules() || settingsManager.settings.alwaysFhSolo ? 1 : 0)) ? 1 : 0)) / 2) + (this.game.solo && !gameManager.fhRules() && !settingsManager.settings.alwaysFhSolo ? 1 : 0) + this.ge5PlayerOffset();

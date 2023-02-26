@@ -6,7 +6,7 @@
   width: calc(var(--ghs-unit) * 98);
 
   ghs-monster-ability-card,
-  ghs-monster-stats,
+  ghs-monster-stats-card,
   ghs-monster-image {
     &:not(ghs-monster-image) {
       filter: var(--ghs-filter-outline);
@@ -18,7 +18,7 @@
   &.off {
 
     ghs-monster-ability-card,
-    ghs-monster-stats,
+    ghs-monster-stats-card,
     ghs-monster-image {
       filter: grayscale(100%);
 
@@ -26,6 +26,11 @@
         filter: grayscale(100%) var(--ghs-filter-outline);
       }
     }
+  }
+
+  ghs-monster-stats {
+    width: calc(var(--ghs-unit) * 40);
+    height: calc(var(--ghs-unit) * 21.5);
   }
 
   ghs-figure-errors {

@@ -43,8 +43,8 @@
 
           <div class="stats-container" *ngFor="let level of (level == -1 ? ([] | ghsRange:8) : [level])">
             <div class="stats-input" *ngIf="level != -1">
-              <ghs-monster-stats class="stats-editor" [monster]="getMonsterForLevel(level)">
-              </ghs-monster-stats>
+              <ghs-monster-stats-card class="stats-editor" [monster]="getMonsterForLevel(level)">
+              </ghs-monster-stats-card>
 
               <input class="name" [(ngModel)]="monsterData.name" (change)="monsterDataToJson()"
                 (keyup)="monsterDataToJson()">
@@ -166,9 +166,9 @@
               </ng-container>
             </div>
 
-            <ghs-monster-stats class="stats-preview" [monster]="getMonsterForLevel(level)" [forceStats]="true"
+            <ghs-monster-stats-card class="stats-preview" [monster]="getMonsterForLevel(level)" [forceStats]="true"
               [relative]="true" [showName]="true">
-            </ghs-monster-stats>
+            </ghs-monster-stats-card>
           </div>
 
           <a class="button" *ngIf="level != -1" (click)="applyToAllLevel(level)">{{'editor.monster.stats.applyAll' |

@@ -10,7 +10,7 @@ import { FigureError, FigureErrorType } from "src/app/game/model/FigureError";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterStat } from "src/app/game/model/MonsterStat";
 import { MonsterType } from "src/app/game/model/MonsterType";
-import { MonsterStatsComponent } from "src/app/ui/figures/monster/cards/stats";
+import { MonsterStatsCardComponent } from "src/app/ui/figures/monster/cards/stats";
 import { environment } from "src/environments/environment";
 import { EditorActionDialogComponent } from "../action/action";
 import { compactAction, DeckEditorComponent } from "../deck/deck";
@@ -26,7 +26,7 @@ export const newMonsterJson: string = '{"name": "new-monster", "thumbnail" : "",
 export class MonsterEditorComponent implements OnInit {
 
   @ViewChild('inputMonsterData', { static: true }) inputMonsterData!: ElementRef;
-  @ViewChild('monsterStats') monsterStats!: MonsterStatsComponent;
+  @ViewChild('monsterStats') monsterStats!: MonsterStatsCardComponent;
   @ViewChild('deckEditor') deckEditor!: DeckEditorComponent;
 
   gameManager: GameManager = gameManager;

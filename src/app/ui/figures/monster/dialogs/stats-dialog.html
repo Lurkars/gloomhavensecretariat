@@ -5,8 +5,8 @@
   </span>
   <div class="stats-container">
     <div class="stats" *ngFor="let level of levels">
-      <ghs-monster-stats [monster]="getMonsterForLevel(level)" [showName]="true" [forceStats]="true">
-      </ghs-monster-stats>
+      <ghs-monster-stats-card [monster]="getMonsterForLevel(level)" [showName]="true" [forceStats]="true">
+      </ghs-monster-stats-card>
     </div>
   </div>
 </div>
