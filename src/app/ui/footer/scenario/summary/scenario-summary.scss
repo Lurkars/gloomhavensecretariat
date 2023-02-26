@@ -113,7 +113,7 @@
 
   a {
     cursor: pointer;
-    width: 33%;
+    min-width: 33%;
     display: flex;
     justify-content: center;
 
@@ -136,6 +136,8 @@
     align-items: center;
 
     .text {
+      font-family: var(--ghs-font-text);
+      font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
       color: var(--ghs-color-white);
     }
   }

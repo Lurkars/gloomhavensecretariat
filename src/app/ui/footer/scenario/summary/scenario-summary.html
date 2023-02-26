@@ -73,16 +73,21 @@
 
   <div class="buttons">
     <a class="cancel" (click)="close()">{{'scenario.summary.cancel' | ghsLabel}}</a>
-    <span class="links" *ngIf="success && gameManager.game.party.campaignMode">
-      <ng-container *ngIf="gameManager.game.scenario && gameManager.game.scenario.forcedLinks && gameManager.game.scenario.forcedLinks.length > 0">
+    <span class="links"
+      *ngIf="success && gameManager.game.party.campaignMode && gameManager.game.scenario && (gameManager.game.scenario.links && gameManager.game.scenario.links.length > 0 || gameManager.game.scenario.forcedLinks && gameManager.game.scenario.forcedLinks.length > 0)">
+      <ng-container *ngIf="gameManager.game.scenario.forcedLinks && gameManager.game.scenario.forcedLinks.length > 0">
         <span class="text">{{'scenario.summary.forcedLinks' | ghsLabel}}</span>
         <a class="apply forced-link" (click)="linkedScenario(index)"
-          *ngFor="let index of gameManager.game.scenario.forcedLinks">#{{index}}</a>
+          *ngFor="let index of gameManager.game.scenario.forcedLinks">
+          <span [i18n]="'scenario.summary.link'" [i18n-args]="[index]"></span>
+        </a>
       </ng-container>
-      <ng-container *ngIf="success && gameManager.game.scenario && (!gameManager.game.scenario.forcedLinks || gameManager.game.scenario.forcedLinks.length == 0)">
+      <ng-container
+        *ngIf="(!gameManager.game.scenario.forcedLinks || gameManager.game.scenario.forcedLinks.length == 0)">
         <span class="text">{{'scenario.summary.links' | ghsLabel}}</span>
-        <a class="link" (click)="linkedScenario(index)"
-          *ngFor="let index of gameManager.game.scenario.links">#{{index}}</a>
+        <a class="link" (click)="linkedScenario(index)" *ngFor="let index of gameManager.game.scenario.links">
+          <span [i18n]="'scenario.summary.link'" [i18n-args]="[index]"></span>
+        </a>
       </ng-container>
     </span>
     <a class="apply"
