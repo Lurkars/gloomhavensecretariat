@@ -83,6 +83,64 @@
     ]
   },
   {
+    "index": "16.3",
+    "name": "Beneath Sea and Stone",
+    "parent": "49",
+    "edition": "fh",
+    "marker": "2",
+    "parentSections": [
+      "94.2"
+    ],
+    "objectives": [
+      {
+        "name": "Ice Pillar",
+        "health": "[(L+1)xC/2{$math.floor}]",
+        "marker": "b"
+      }
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "04-A",
+        "initial": true,
+        "monster": [
+          {
+            "name": "frost-demon",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "deep-terror",
+            "player4": "normal"
+          },
+          {
+            "name": "deep-terror",
+            "type": "elite"
+          },
+          {
+            "name": "deep-terror",
+            "type": "elite"
+          },
+          {
+            "name": "deep-terror",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "deep-terror",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        ],
+        "objectives": [
+          1
+        ]
+      }
+    ]
+  },
+  {
     "index": "17.1",
     "name": "Unfettered Shard",
     "parent": "41",
@@ -761,6 +819,70 @@
         "name": "Elemental Anchor",
         "escort": true,
         "health": "(L+1)xCx2"
+      }
+    ]
+  },
+  {
+    "index": "94.2",
+    "name": "Beneath Sea and Stone",
+    "parent": "49",
+    "edition": "fh",
+    "marker": "1",
+    "objectives": [
+      {
+        "name": "Ice Pillar",
+        "health": "[(L+1)xC/2{$math.floor}]"
+      }
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "11-D",
+        "initial": true,
+        "monster": [
+          {
+            "name": "frost-demon",
+            "type": "elite"
+          },
+          {
+            "name": "frost-demon",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "frost-demon",
+            "player4": "normal"
+          },
+          {
+            "name": "black-imp",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "black-imp",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "black-imp",
+            "player4": "normal"
+          },
+          {
+            "name": "black-imp",
+            "type": "elite"
+          },
+          {
+            "name": "black-imp",
+            "player3": "normal",
+            "player4": "normal"
+          }
+        ],
+        "objectives": [
+          1,
+          1
+        ]
       }
     ]
   },
