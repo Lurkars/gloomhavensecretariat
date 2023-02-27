@@ -98,7 +98,7 @@
                         }
                     },
                     {
-                        "count": 1,
+                        "count": 2,
                         "attackModifier": {
                             "type": "plus",
                             "value": 30
@@ -156,7 +156,8 @@
                     {
                         "count": 2,
                         "attackModifier": {
-                            "type": "plus0"
+                            "type": "plus",
+                            "value": 0
                         }
                     },
                     {
@@ -193,7 +194,7 @@
                             "effects": [
                                 {
                                     "type": "custom",
-                                    "value": "Gain Adavantage on this target"
+                                    "value": "Gain Advantage on this target"
                                 }
                             ]
                         }
