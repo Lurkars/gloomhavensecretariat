@@ -98,7 +98,7 @@
                         }
                     },
                     {
-                        "count": 1,
+                        "count": 2,
                         "attackModifier": {
                             "type": "plus",
                             "value": 30
