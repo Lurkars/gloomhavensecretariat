@@ -833,6 +833,10 @@
       ".": "Zweispaltiges Layout deaktivieren",
       "hint": "Deaktivere das zweispaltige Layout unabhängig von Zoom und Platz"
     },
+    "disableDragFigures": {
+      ".": "Drag'n'Drop für Figurenliste deaktivieren",
+      "hint": "Deaktiviert Drag'n'Drop für die Figurenliste. Achtung, falls keine Initiative gesetzt werden muss ist ein Verschieben der Figuren nicht mehr möglich."
+    },
     "disableStandees": {
       ".": "Aufsteller deaktivieren",
       "hint": "Blende alle Aufsteller aus (falls Werte ausblenden aktiviert ist, müssen normale und elite Monster separat hinzugefügt werden). Dies deaktiviert auch das freischalten von Räumen und das automatische Hinzufügen von Aufstellern."

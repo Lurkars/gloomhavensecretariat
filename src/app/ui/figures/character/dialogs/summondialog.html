@@ -33,6 +33,12 @@
         </span>
         <label>{{'data.summon.' + summonData.name | ghsLabel}} <span
             *ngIf="showLevel(summonData)">({{'character.summon.level' | ghsLabel}} {{summonData.level}})</span></label>
+        <ng-container *ngIf="summonData.thumbnail">
+          <span class="spacer"></span>
+          <span class="thumbnail">
+            <img [src]="'./assets/images/summons/thumbnail/' + summonData.edition + '-' + summonData.name + '.png'" />
+          </span>
+        </ng-container>
       </span>
       <span class="summon" *ngIf="!summonFilter">
         <span class="summon-button" (click)="addCustomSummon()" [ngClass]="{'disabled' : customDisabled()}">

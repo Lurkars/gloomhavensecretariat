@@ -170,6 +170,12 @@ main {
       padding-bottom: calc(var(--ghs-unit) * 12.5 * var(--ghs-text-factor) * var(--ghs-barsize));
     }
   }
+
+  &.drag-disabled {
+    .handle {
+      display: none;
+    }
+  }
 }
 
 .compact {

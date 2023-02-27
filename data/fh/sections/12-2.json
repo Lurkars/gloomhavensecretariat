@@ -29,6 +29,11 @@
         },
         {
           "name": "frost-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "frost-demon",
           "player4": "normal"
         },
         {

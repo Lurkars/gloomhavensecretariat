@@ -46,6 +46,7 @@
     {
       "name": "reinforcements",
       "cardId": "061",
+      "thumbnail": true,
       "level": 1,
       "health": 1,
       "movement": 2
@@ -53,9 +54,9 @@
     {
       "name": "banner-of-strength",
       "cardId": "062",
+      "thumbnail": true,
       "level": 1,
       "health": 4,
-      "thumbnail": true,
       "action": {
         "type": "custom",
         "value": "All allies within %game.range:2% add +1 %game.action.attack% to one of their attacks each turn.",
@@ -65,6 +66,7 @@
     {
       "name": "torch-bearer",
       "cardId": "072",
+      "thumbnail": true,
       "level": 1,
       "health": 5,
       "attack": 1,
@@ -77,9 +79,9 @@
     {
       "name": "banner-of-hope",
       "cardId": "073",
+      "thumbnail": true,
       "level": 1,
       "health": 4,
-      "thumbnail": true,
       "action": {
         "type": "custom",
         "value": "At the start of their turns, grant allies withing %game.range:3%:",
@@ -102,9 +104,9 @@
     {
       "name": "banner-of-courage",
       "cardId": "076",
+      "thumbnail": true,
       "level": 3,
       "health": 7,
-      "thumbnail": true,
       "action": {
         "type": "custom",
         "value": "All adjacent allies gain %game.shield% 1.",
@@ -114,6 +116,7 @@
     {
       "name": "trained-falcon",
       "cardId": "079",
+      "thumbnail": true,
       "level": 4,
       "health": 1,
       "attack": 2,
@@ -126,6 +129,7 @@
     {
       "name": "banner-of-valor",
       "cardId": "082",
+      "thumbnail": true,
       "level": 6,
       "health": 5,
       "action": {
@@ -137,6 +141,7 @@
     {
       "name": "longbowman",
       "cardId": "085",
+      "thumbnail": true,
       "level": 7,
       "health": 4,
       "attack": 2,
@@ -150,9 +155,9 @@
     {
       "name": "banner-of-doom",
       "cardId": "088",
+      "thumbnail": true,
       "level": 9,
       "health": 9,
-      "thumbnail": true,
       "action": {
         "type": "custom",
         "value": "All enemies within %game.action.range%4 suffer %game.damage:1% at the start of their turns.",

@@ -48,6 +48,11 @@
         },
         {
           "name": "lurker-clawcrusher",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker-clawcrusher",
           "player4": "normal"
         },
         {
@@ -59,11 +64,6 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
-        },
-        {
-          "name": "lurker-soldier",
-          "player3": "normal",
-          "player4": "normal"
         },
         {
           "name": "lurker-soldier",

@@ -114,6 +114,15 @@
 
   }
 
+  .thumbnail {
+    margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+    img {
+      width: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
+      height: auto;
+    }
+  }
+
   .color-container {
 
     display: grid;

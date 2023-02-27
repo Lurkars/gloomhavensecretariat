@@ -47,6 +47,7 @@
     {
       "name": "armored-tank",
       "cardId": "387",
+      "thumbnail": true,
       "level": 1,
       "health": 6,
       "attack": 2,
@@ -59,6 +60,7 @@
     {
       "name": "repair-drone",
       "cardId": "388",
+      "thumbnail": true,
       "level": 1,
       "health": 3,
       "attack": 1,
@@ -92,6 +94,7 @@
     {
       "name": "jackal-mech",
       "cardId": "389",
+      "thumbnail": true,
       "level": 1,
       "health": 4,
       "attack": 2,
@@ -108,6 +111,7 @@
     {
       "name": "leaper",
       "cardId": "390",
+      "thumbnail": true,
       "level": 1,
       "health": 7,
       "attack": 1,
@@ -127,6 +131,7 @@
     {
       "name": "sniper-turret",
       "cardId": "391",
+      "thumbnail": true,
       "level": 1,
       "health": 3,
       "attack": 2,
@@ -135,6 +140,7 @@
     {
       "name": "arcing-generator",
       "cardId": "398",
+      "thumbnail": true,
       "level": 1,
       "health": 5,
       "attack": 2,
@@ -154,6 +160,7 @@
     {
       "name": "dampening-unit",
       "cardId": "401",
+      "thumbnail": true,
       "level": 2,
       "health": 5,
       "attack": 1,
@@ -168,6 +175,7 @@
     {
       "name": "machine-bolter",
       "cardId": "403",
+      "thumbnail": true,
       "level": 3,
       "health": 3,
       "attack": 2,
@@ -180,6 +188,7 @@
     {
       "name": "toxin-distributor",
       "cardId": "405",
+      "thumbnail": true,
       "level": 4,
       "health": 6,
       "attack": 2,
@@ -192,6 +201,7 @@
     {
       "name": "trapping-unit",
       "cardId": "407",
+      "thumbnail": true,
       "level": 5,
       "health": 7,
       "attack": 2,
@@ -209,6 +219,7 @@
     {
       "name": "sword-propeller",
       "cardId": "409",
+      "thumbnail": true,
       "level": 6,
       "health": 1,
       "attack": 2,
@@ -222,6 +233,7 @@
     {
       "name": "bombardier",
       "cardId": "411",
+      "thumbnail": true,
       "level": 7,
       "health": 5,
       "attack": 2,
@@ -236,6 +248,7 @@
     {
       "name": "shield-spider",
       "cardId": "413",
+      "thumbnail": true,
       "level": 8,
       "health": 7,
       "attack": 2,
@@ -267,6 +280,7 @@
     {
       "name": "sledge-driver",
       "cardId": "415",
+      "thumbnail": true,
       "level": 9,
       "health": 9,
       "attack": 4,

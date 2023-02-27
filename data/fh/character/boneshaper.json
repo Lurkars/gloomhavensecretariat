@@ -45,6 +45,7 @@
     {
       "name": "shambling-skeleton",
       "cardId": "120",
+      "thumbnail": true,
       "level": 1,
       "health": 3,
       "attack": 2,
@@ -53,6 +54,7 @@
     {
       "name": "shambling-skeleton",
       "cardId": "121",
+      "thumbnail": true,
       "level": 1,
       "health": 3,
       "attack": 2,
@@ -61,6 +63,7 @@
     {
       "name": "shambling-skeleton",
       "cardId": "122",
+      "thumbnail": true,
       "level": 1,
       "health": 3,
       "attack": 2,
@@ -69,6 +72,7 @@
     {
       "name": "wraith",
       "cardId": "126",
+      "thumbnail": true,
       "level": 1,
       "health": 1,
       "attack": 1,
@@ -86,6 +90,7 @@
     {
       "name": "raging-corpse",
       "cardId": "135",
+      "thumbnail": true,
       "level": 2,
       "health": 6,
       "attack": 3,
@@ -94,6 +99,7 @@
     {
       "name": "shambling-skeleton",
       "cardId": "137",
+      "thumbnail": true,
       "level": 3,
       "health": 3,
       "attack": 2,
@@ -102,6 +108,7 @@
     {
       "name": "stitched-atrocity",
       "cardId": "141",
+      "thumbnail": true,
       "level": 5,
       "health": 8,
       "attack": 3,
@@ -114,6 +121,7 @@
     {
       "name": "shambling-skeleton",
       "cardId": "143",
+      "thumbnail": true,
       "level": 6,
       "health": 3,
       "attack": 2,
@@ -123,6 +131,7 @@
     {
       "name": "bone-horde",
       "cardId": "147",
+      "thumbnail": true,
       "level": 8,
       "health": 7,
       "attack": 3,
@@ -136,6 +145,7 @@
     {
       "name": "skeleton-sorcerer",
       "cardId": "149",
+      "thumbnail": true,
       "level": 9,
       "health": 6,
       "attack": 3,

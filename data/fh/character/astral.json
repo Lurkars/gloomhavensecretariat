@@ -47,6 +47,7 @@
     {
       "name": "animated-claymore",
       "cardId": "196",
+      "thumbnail": true,
       "level": 1,
       "health": 2,
       "attack": 3,
@@ -59,6 +60,7 @@
     {
       "name": "spiritbound-falchion",
       "cardId": "211",
+      "thumbnail": true,
       "level": 8,
       "health": 6,
       "attack": 4,

@@ -241,6 +241,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setDisableDragFigures(disableDragFigures: boolean) {
+    this.settings.disableDragFigures = disableDragFigures;
+    this.storeSettings();
+  }
+
   setDisableAnimations(disableAnimations: boolean) {
     this.settings.disableAnimations = disableAnimations;
     this.storeSettings();
@@ -290,7 +295,6 @@ export class SettingsManager {
     this.settings.pressDoubleClick = pressDoubleClick;
     this.storeSettings();
   }
-
 
   setAutomaticAttackModifierFullscreen(automaticAttackModifierFullscreen: boolean) {
     this.settings.automaticAttackModifierFullscreen = automaticAttackModifierFullscreen;
@@ -845,6 +849,10 @@ export class SettingsManager {
       for (let index in args) {
         while (label.indexOf(`{${index}}`) != -1) {
           label = label.replace(`{${index}}`, argLabel ? this.getLabel(args[index]) : args[index]);
+          if (args[index].indexOf(`{${index}}`) != -1) {
+            console.warn("Loop for '" + label + "'", args[index]);
+            break;
+          }
         }
       }
     }

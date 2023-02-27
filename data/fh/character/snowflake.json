@@ -47,6 +47,7 @@
     {
       "name": "snow-fox",
       "cardId": "334",
+      "thumbnail": true,
       "level": 1,
       "health": 5,
       "attack": 2,
@@ -55,6 +56,7 @@
     {
       "name": "white-owl",
       "cardId": "344",
+      "thumbnail": true,
       "level": 2,
       "health": 3,
       "attack": 2,
@@ -68,6 +70,7 @@
     {
       "name": "polar-cat",
       "cardId": "352",
+      "thumbnail": true,
       "level": 6,
       "health": 6,
       "attack": 2,

@@ -1,9 +1,14 @@
-<div class="summon-border" [ngClass]="{'dead' : summon.dead, 'off' : character.off, 'active' : summon.active}"
+<div class="summon-border" [ngClass]="{'dead' : summon.dead, 'off' : character.off, 'active' : summon.active, 'fh' : settingsManager.settings.fhStyle}"
   [entityAnimation]="summon.dead">
   <div class="summon" title="{{'data.summon.' + summon.name | ghsLabel}}">
     <div #standee class="standee">
       <div class="sheet">
         <ghs-summon-sheet *ngIf="summon.active" [summon]="summon"></ghs-summon-sheet>
+
+        <div class="background-image-container" *ngIf="summon.thumbnail">
+          <div class="background-image"
+            [style.background-image]="'url(./assets/images/summons/thumbnail/' + summon.thumbnail + '.png)'"></div>
+        </div>
       </div>
 
       <span class="image"

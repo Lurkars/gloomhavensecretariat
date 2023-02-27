@@ -47,6 +47,7 @@
     {
       "name": "flesh-fiend",
       "cardId": "307",
+      "thumbnail": true,
       "level": 1,
       "health": 7,
       "attack": 1,
@@ -60,6 +61,7 @@
     {
       "name": "flesh-bomb",
       "cardId": "312",
+      "thumbnail": true,
       "level": 1,
       "health": 3,
       "attack": 2,

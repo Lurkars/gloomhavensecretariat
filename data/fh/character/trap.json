@@ -47,6 +47,7 @@
     {
       "name": "shaggy-lure",
       "cardId": "274",
+      "thumbnail": true,
       "level": 1,
       "health": 2,
       "action": {
@@ -80,6 +81,7 @@
     {
       "name": "defense-grid",
       "cardId": "296",
+      "thumbnail": true,
       "level": 7,
       "health": 8,
       "attack": 2,

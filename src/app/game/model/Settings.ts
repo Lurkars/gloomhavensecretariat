@@ -31,6 +31,7 @@ export class Settings {
   automaticStandees: boolean = true;
   scenarioNumberInput: boolean = false;
   disableColumns: boolean = false;
+  disableDragFigures: boolean = false;
   disableAnimations: boolean = false;
   dragValues: boolean = true;
   hideAbsent: boolean = false;

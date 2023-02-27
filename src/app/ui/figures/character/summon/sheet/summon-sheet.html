@@ -6,9 +6,6 @@
         <span *ngIf="summon.flying" class="flying"><img
                 [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
     </span>
-    <span class="thumbnail" *ngIf="summon.thumbnail">
-        <img [src]="'./assets/images/summons/thumbnail/' + summon.thumbnail + '.png'" />
-    </span>
     <div class="grid">
         <span class="item health">
             <img class="ghs-svg"
