@@ -156,7 +156,8 @@
                     {
                         "count": 2,
                         "attackModifier": {
-                            "type": "plus0"
+                            "type": "plus",
+                            "value": 0
                         }
                     },
                     {
