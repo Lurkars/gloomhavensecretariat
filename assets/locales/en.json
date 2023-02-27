@@ -934,6 +934,10 @@
       ".": "Disable column layout",
       "hint": "Completely disable two-column layout regardless of zoom and space"
     },
+    "disableDragFigures": {
+      ".": "Disable drag'n'drop for figures",
+      "hint": "Disable drag'n'drop for the figure list. Warning, if no initiative is required, there is no way to re-order the figures."
+    },
     "disableStandees": {
       ".": "Disable standees",
       "hint": "Do not display standees (when Hide stats is set, add normal and elite monster separate). This also disables unlocking rooms and automatic standees."
