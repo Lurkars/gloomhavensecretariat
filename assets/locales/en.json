@@ -1154,6 +1154,7 @@
       "enableSolo": "Enable solo level calculation",
       "endAllTurns": "End all turns",
       "entityDead": "Kill {1} standee {2} of {0}",
+      "equipItem": "Equip Item {1} (%data.edition.{2}%) for {0}",
       "finishScenario": {
         "failure": "Scenario #{0} {1} ({2}) failed",
         "linked": "Scenario #{0} {1} successful, continue with #{3} ({2})",
@@ -1270,6 +1271,7 @@
       "summonDead": "Kill summon '{1}' of {0}",
       "summonInactive": "Summon '{1}' von {0} inactive",
       "startCampaign": "Start a new {0} campaign",
+      "unequipItem": "Deoposit Item {1} (%data.edition.{2}%) for {0}",
       "unsetAbsent": "{0} present",
       "unsetActive": "End turn of {0}",
       "unsetAlly": "{0} as enemy",
