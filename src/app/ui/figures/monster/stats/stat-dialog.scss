@@ -2,7 +2,7 @@
   background-color: transparent;
   padding: 0;
   margin: 0;
-  border: 0; 
+  border: 0;
 }
 
 .stat-dialog {
@@ -12,9 +12,29 @@
   max-height: 322.5px;
   border-image: none;
   background: none;
+  transition: transform 150ms ease-in-out;
+  transform: scale(0);
 
   .card-container {
     width: 100%;
     height: 100%;
   }
+
+  &.opened {
+    transform: scale(1);
+  }
+
+  &.closed {
+    transform: scale(0);
+    transition-delay: 800ms;
+  }
+
+}
+
+.close-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }

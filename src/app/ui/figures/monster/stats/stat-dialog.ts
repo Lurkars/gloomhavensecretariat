@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { DialogRef, DIALOG_DATA } from '@angular/cdk/dialog';
 import { Monster } from 'src/app/game/model/Monster';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
@@ -9,12 +9,21 @@ import { MonsterType } from 'src/app/game/model/MonsterType';
   templateUrl: './stat-dialog.html',
   styleUrls: ['./stat-dialog.scss']
 })
-export class MonsterStatDialogComponent {
+export class MonsterStatDialogComponent implements OnInit {
+
+  opened: boolean = false;
 
   constructor(@Inject(DIALOG_DATA) public monster: Monster, private dialogRef: DialogRef) { }
 
+  ngOnInit(): void {
+    this.opened = true;
+  }
+
   close() {
-    this.dialogRef.close();
+    this.opened = false
+    setTimeout(() => {
+      this.dialogRef.close();
+    }, 1000);
   }
 
   getBackside(): Monster {

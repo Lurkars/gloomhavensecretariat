@@ -42,7 +42,15 @@
           filter: none;
         }
 
+        &.new-style~.overlay.custom {
+          display: inline-block;
+        }
+
         &.fh~.overlay.custom {
+          display: none;
+        }
+
+        &.fh~.overlay.custom-fh {
           display: inline-block;
         }
       }
@@ -67,7 +75,7 @@
             mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0) 55%, rgba(0, 0, 0) 100%);
           }
 
-          &.fh:nth-child(2){
+          &.fh:nth-child(2) {
             mask-image: conic-gradient(from 110deg at 50% 50%, rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 70%, rgb(0, 0, 0) 75%);
           }
         }
@@ -137,6 +145,10 @@
 
       &.light {
         filter: hue-rotate(20deg) saturate(200%) brightness(110%);
+      }
+
+      &.bless {
+        filter: hue-rotate(20deg) saturate(250%) brightness(100%);
       }
 
       &.brittle {
@@ -210,7 +222,6 @@
       &.custom {
         filter: hue-rotate(330deg) saturate(250%);
       }
-
     }
 
     img.overlay {
@@ -219,7 +230,8 @@
       height: 100%;
       z-index: 2;
 
-      &.custom {
+      &.custom,
+      &.custom-fh {
         display: none;
       }
 

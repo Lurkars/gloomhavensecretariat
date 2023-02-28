@@ -1053,6 +1053,7 @@
       "enableSolo": "Einzelspieler Level Berechnung einschalten",
       "endAllTurns": "Alle Züge beenden",
       "entityDead": "Töte {1} Aufsteller {2} von {0}",
+      "equipItem": "Gegenstand {1} (%data.edition.{2}%) von {0} anlegen",
       "finishScenario": {
         "failure": "Szenario #{0} {1} ({2}) gescheitert",
         "linked": "Szenario #{0} {1} erfolgreich, weiter mit #{3} ({2})",
@@ -1168,6 +1169,7 @@
       "summonDead": "Töte Beschwörung '{1}' von {0}",
       "summonInactive": "Beschwörung '{1}' von {0} nicht aktiv",
       "startCampaign": "Neue {0} Kampagne starten",
+      "unequipItem": "Gegenstand {1} (%data.edition.{2}%) von {0} ablegen",
       "unsetAbsent": "{0} anwesend",
       "unsetActive": "Zug beenden von {0}",
       "unsetAlly": "{0} als Gegner",

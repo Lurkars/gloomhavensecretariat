@@ -139,13 +139,21 @@
             <label>{{'character.progress.items' | ghsLabel}}:</label>
             <div class="item-list">
               <div class="item-entry" *ngFor="let item of items; let index = index;">
-                <span class="icon"><img [src]="'./assets/images/items/slots/' + item.slot +'.svg'"></span>
+                <span class="icon">
+                  <img [src]="'./assets/images/items/slots/' + item.slot +'.svg'">
+                </span>
                 <span class="id">{{item.id}}.</span>
-                <span class="name">{{item.name}}
+                <span class="name" (click)="toggleEquippedItem(item)">{{item.name}}
                   <ng-container *ngIf="item.edition != character.edition">&nbsp;({{'data.edition.' + item.edition |
                     ghsLabel}})</ng-container>
                 </span>
                 <span class="spacer"></span>
+                <span class="equipped" *ngIf="isEquipped(item)"><img src="./assets/images/check.svg"></span>
+                <span class="minus-one" *ngIf="isEquipped(item) && item.minusOne"
+                  [ngClass]="{'ignore' : characterManager.ignoreNegativeItemEffects(character)}">
+                  <img src="./assets/images/action/card/minus1.svg">
+                  x{{item.minusOne}}
+                </span>
                 <a class="button loot" (click)="sellItem(item)"><img src="./assets/images/loot.svg">
                   {{item.cost && (item.cost / 2) || '?'}}
                 </a>
@@ -156,8 +164,8 @@
               <span class="prev" [ngClass]="{'disabled' : itemIndex == 1}" (click)="itemChange(-1)"><img
                   src="./assets/images/left.svg"></span>
               <input type="number" (change)="itemChange()" [(ngModel)]="itemIndex" min="1" value="1"
-                [ngClass]="{'warn' : !itemCanAdd, 'error': !item}">
-              <select #itemEdition (change)="itemChange()" [ngClass]="{'warn' : !itemCanAdd, 'error': !item}">
+                [ngClass]="{ 'error': !item}">
+              <select #itemEdition (change)="itemChange()" [ngClass]="{'error': !item}">
                 <option *ngFor="let edition of gameManager.editions()" [value]="edition">{{'data.edition.' + edition |
                   ghsLabel}}</option>
               </select>
@@ -166,9 +174,9 @@
               <span class="next" (click)="itemChange(+1)"> <img src="./assets/images/right.svg"></span>
               <ng-container *ngIf="item">
                 <span class="icon"><img [src]="'./assets/images/items/slots/' + item.slot +'.svg'"></span>
-                <span class="name">{{item.name}}</span>
+                <span class="name" [ngClass]="{'warn' : !itemCanAdd}">{{item.name}}</span>
                 <a class="button loot" (click)="buyItem()"
-                  [ngClass]="{'disabled' : !item || (item.cost + priceModifier) > character.progress.gold || !itemCanAdd}"><img
+                  [ngClass]="{'disabled' : !item || (item.cost + priceModifier) > character.progress.gold || !itemCanAdd, 'warn' : !itemCanAdd}"><img
                     src="./assets/images/loot.svg">{{item && item.cost && (item.cost + priceModifier) || '?'}}</a>
               </ng-container>
             </div>
@@ -242,11 +250,12 @@
                 <div class="item-entry" *ngFor="let item of items; let index = index;">
                   <span class="icon"><img [src]="'./assets/images/items/slots/' + item.slot +'.svg'"></span>
                   <span class="id">{{item.id}}.</span>
-                  <span class="name">{{item.name}}
+                  <span class="name" (click)="toggleEquippedItem(item)">{{item.name}}
                     <ng-container *ngIf="item.edition != character.edition">&nbsp;({{'data.edition.' + item.edition |
                       ghsLabel}})</ng-container>
                   </span>
                   <span class="spacer"></span>
+                  <span class="equipped" *ngIf="isEquipped(item)"><img src="./assets/images/check.svg"></span>
                   <a class="button loot" (click)="sellItem(item)"><img src="./assets/images/loot.svg">
                     {{item.cost && (item.cost / 2) || '?'}}
                   </a>
@@ -257,8 +266,8 @@
                 <span class="prev" [ngClass]="{'disabled' : itemIndex == 1}" (click)="itemChange(-1)"><img
                     src="./assets/images/left.svg"></span>
                 <input type="number" (change)="itemChange()" [(ngModel)]="itemIndex" min="1" value="1"
-                  [ngClass]="{'warn' : !itemCanAdd, 'error': !item}">
-                <select #itemEdition (change)="itemChange()" [ngClass]="{'warn' : !itemCanAdd, 'error': !item}">
+                  [ngClass]="{'error': !item}">
+                <select #itemEdition (change)="itemChange()" [ngClass]="{'error': !item}">
                   <option *ngFor="let edition of gameManager.editions()" [value]="edition">{{'data.edition.' + edition |
                     ghsLabel}}</option>
                 </select>
@@ -267,9 +276,9 @@
                 <span class="next" (click)="itemChange(+1)"> <img src="./assets/images/right.svg"></span>
                 <ng-container *ngIf="item">
                   <span class="icon"><img [src]="'./assets/images/items/slots/' + item.slot +'.svg'"></span>
-                  <span class="name">{{item.name}}</span>
+                  <span class="name" [ngClass]="{'warn' : !itemCanAdd}">{{item.name}}</span>
                   <a class="button loot" (click)="buyItem()"
-                    [ngClass]="{'disabled' : !item || (item.cost + priceModifier) > character.progress.gold || !itemCanAdd}"><img
+                    [ngClass]="{'disabled' : !item || (item.cost + priceModifier) > character.progress.gold || !itemCanAdd, 'warn' : !itemCanAdd}"><img
                       src="./assets/images/loot.svg">{{item && item.cost && (item.cost + priceModifier) || '?'}}</a>
                 </ng-container>
               </div>

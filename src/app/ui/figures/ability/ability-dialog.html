@@ -1,3 +1,5 @@
-<div class="ability-dialog" [ngClass]="{'bottom-actions' : gameManager.hasBottomAbility(ability)}">
-  <ghs-ability [ability]="ability" [monster]="monster" [flipped]="true" (click)="close()"></ghs-ability>
+<div class="ability-dialog"
+  [ngClass]="{'bottom-actions' : gameManager.hasBottomAbility(ability), 'closed' : !opened, 'opened' : opened}">
+  <ghs-ability [ability]="ability" [monster]="monster" [flipped]="opened"></ghs-ability>
 </div>
+<div class="close-container" (click)="close()"></div>

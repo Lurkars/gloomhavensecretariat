@@ -42,7 +42,11 @@ export class AttackModifier {
   constructor(type: AttackModifierType, value: number = 0, id: string | undefined = undefined, effects: AttackModifierEffect[] = [], rolling: boolean = false, active: boolean = false) {
     this.type = type;
     this.value = value;
-    this.id = id || (type != AttackModifierType.plus && type != AttackModifierType.minus) ? type : (type + value);
+    if (id) {
+      this.id = id;
+    } else {
+      this.id = (type != AttackModifierType.plus && type != AttackModifierType.minus) ? type : (type + value);
+    }
     this.effects = effects;
     this.rolling = rolling;
     this.active = active;
@@ -207,6 +211,27 @@ export const defaultTownGuardAttackModifier: AttackModifier[] = [
   new AttackModifier(AttackModifierType.success)
 ];
 
+export const CsOakDeckAttackModifier: AttackModifier[] = [
+  // 8x 2x
+  new AttackModifier(AttackModifierType.double, 0, 'cs-oak-527', [new AttackModifierEffect(AttackModifierEffectType.condition, 'bless', '', [new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'allyShort')])]),
+  new AttackModifier(AttackModifierType.double, 0, 'cs-oak-528', [new AttackModifierEffect(AttackModifierEffectType.condition, 'bless', '', [new AttackModifierEffect(AttackModifierEffectType.specialTarget, 'allyShort')])]),
+  new AttackModifier(AttackModifierType.double, 0, 'cs-oak-529', [new AttackModifierEffect(AttackModifierEffectType.heal, '2', '', [new AttackModifierEffect(AttackModifierEffectType.range, '2')])]),
+  new AttackModifier(AttackModifierType.double, 0, 'cs-oak-530', [new AttackModifierEffect(AttackModifierEffectType.heal, '2', '', [new AttackModifierEffect(AttackModifierEffectType.range, '2')])]),
+  new AttackModifier(AttackModifierType.double, 0, 'cs-oak-531', [new AttackModifierEffect(AttackModifierEffectType.element, 'any')]),
+  new AttackModifier(AttackModifierType.double, 0, 'cs-oak-532', [new AttackModifierEffect(AttackModifierEffectType.element, 'any')]),
+  new AttackModifier(AttackModifierType.double, 0, 'cs-oak-533', [new AttackModifierEffect(AttackModifierEffectType.custom, 'All enemies adjacent to the target suffer %game.damage:1%')]),
+  new AttackModifier(AttackModifierType.double, 0, 'cs-oak-534', [new AttackModifierEffect(AttackModifierEffectType.custom, 'All enemies adjacent to the target suffer %game.damage:1%')]),
+  // 8x rolling
+  new AttackModifier(AttackModifierType.plus1, 1, 'cs-oak-535', [new AttackModifierEffect(AttackModifierEffectType.push, '2')], true),
+  new AttackModifier(AttackModifierType.plus1, 1, 'cs-oak-536', [new AttackModifierEffect(AttackModifierEffectType.push, '2')], true),
+  new AttackModifier(AttackModifierType.plus1, 1, 'cs-oak-537', [new AttackModifierEffect(AttackModifierEffectType.heal, '1', '', [new AttackModifierEffect(AttackModifierEffectType.range, '2')])], true),
+  new AttackModifier(AttackModifierType.plus1, 1, 'cs-oak-538', [new AttackModifierEffect(AttackModifierEffectType.heal, '1', '', [new AttackModifierEffect(AttackModifierEffectType.range, '2')])], true),
+  new AttackModifier(AttackModifierType.plus0, 0, 'cs-oak-539', [new AttackModifierEffect(AttackModifierEffectType.condition, 'wound'), new AttackModifierEffect(AttackModifierEffectType.condition, 'muddle')], true),
+  new AttackModifier(AttackModifierType.plus0, 0, 'cs-oak-540', [new AttackModifierEffect(AttackModifierEffectType.condition, 'wound'), new AttackModifierEffect(AttackModifierEffectType.condition, 'muddle')], true),
+  new AttackModifier(AttackModifierType.plus1, 1, 'cs-oak-541', [new AttackModifierEffect(AttackModifierEffectType.pierce, '3')], true),
+  new AttackModifier(AttackModifierType.plus1, 1, 'cs-oak-542', [new AttackModifierEffect(AttackModifierEffectType.pierce, '3')], true)
+];
+
 export class AttackModifierDeck {
 
   attackModifiers: AttackModifier[];
@@ -223,7 +248,13 @@ export class AttackModifierDeck {
   cardById(id: string): AttackModifier | undefined {
     let attackModifier = this.attackModifiers.find((attackModifier) => attackModifier.id == id);
     if (!attackModifier) {
-      return undefined;
+      attackModifier = defaultAttackModifier.find((attackModifier) => attackModifier.id == id);
+      if (!attackModifier) {
+        attackModifier = CsOakDeckAttackModifier.find((attackModifier) => attackModifier.id == id);
+      }
+      if (!attackModifier) {
+        return undefined;
+      }
     }
     return JSON.parse(JSON.stringify(attackModifier));
   }

@@ -7,6 +7,7 @@ export class CharacterProgress {
   gold: number = 0;
   loot: Partial<Record<LootType, number>> = {};
   items: Identifier[] = [];
+  equippedItems: Identifier[] = [];
   personalQuest: number = 0;
   battleGoals: number = 0;
   notes: string = "";

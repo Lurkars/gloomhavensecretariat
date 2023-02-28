@@ -8,7 +8,7 @@
       <div *ngIf="!mixedElement && !multipe || anyElement" class="type {{effectClasses}}"
         [ngClass]="{'new-style' : newStyle, 'fh': settingsManager.settings.fhStyle}">
         <img
-          [src]="'./assets/images/attackmodifier/' + (defaultType && (!newStyle || attackModifier.valueType != AttackModifierValueType.plus || !attackModifier.effects || attackModifier.effects.length == 0) ? attackModifier.type : 'am-front') + '.png'" />
+          [src]="'./assets/images/attackmodifier/' + (defaultType && !csOak && (!newStyle || attackModifier.valueType != AttackModifierValueType.plus || !attackModifier.effects || attackModifier.effects.length == 0) ? attackModifier.type : 'am-front') + '.png'" />
       </div>
       <ng-container *ngIf="multipe && attackModifier.effects.length > 1">
         <div *ngFor="let effect of attackModifier.effects" class="type multiple {{effect.type}} {{effect.value}}"
@@ -53,13 +53,19 @@
         <div class="type multiple any light"></div>
         <div class="type multiple any dark"></div>
       </ng-container>
-      <img class="overlay custom" src="./assets/images/attackmodifier/overlays/blank.png">
+
+      <div class="type cs-oak" *ngIf="csOak">
+        <img src="./assets/images/attackmodifier/cs-oak.png" />
+      </div>
+      
+      <img class="overlay custom" src="./assets/images/attackmodifier/overlays/custom.png">
+      <img class="overlay custom-fh" src="./assets/images/attackmodifier/overlays/custom-fh.png">
       <img class="overlay" [ngClass]="{'side' : newStyle}"
         *ngIf="attackModifier.effects && attackModifier.effects.length > 0 && (attackModifier.type != AttackModifierType.plus0 && attackModifier.type != AttackModifierType.plus && attackModifier.type != AttackModifierType.minus || newStyle)"
         [src]="'./assets/images/attackmodifier/' + (newStyle ? 'icons/' : 'overlays/') + attackModifier.type + '.png'" />
       <img class="rolling" *ngIf="attackModifier.rolling" src="./assets/images/attackmodifier/rolling.svg" />
       <span *ngIf="(!characterIcon || !attackModifier.character && attackModifier.type !=
-      AttackModifierType.curse) && attackModifier.type != AttackModifierType.bless"
+      AttackModifierType.curse) && attackModifier.type != AttackModifierType.bless && !csOak"
         class="numeration">{{numeration}}</span>
       <span *ngIf="characterIcon && attackModifier.type ==
         AttackModifierType.curse" class="numeration character-curse-icon">

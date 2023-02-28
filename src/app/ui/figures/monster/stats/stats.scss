@@ -32,11 +32,6 @@
     overflow: auto;
     z-index: 4;
 
-    &:hover {
-      cursor: pointer;
-      color: var(--ghs-color-gray);
-    }
-
     .edition {
       margin-left: 1.25%;
     }
@@ -52,6 +47,33 @@
         height: 1em;
         width: auto;
         filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+      }
+    }
+
+    .catching {
+      position: absolute;
+      right: 3%;
+      top: 50%;
+      display: none;
+      width: 1.2em;
+      height: auto;
+      filter: var(--ghs-filter-white);
+      transform: translateY(-50%);
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: var(--ghs-color-gray);
+
+      .flying {
+        img {
+          filter: var(--ghs-filter-gray);
+        }
+      }
+
+      .catching {
+        display: block;
+        filter: var(--ghs-filter-gray);
       }
     }
   }
@@ -212,7 +234,7 @@
       grid-template-rows: repeat(4, 25%);
 
       &.boss {
-        top: calc(var(--ghs-unit) * 6.8);
+        top: 29%;
       }
 
       .stat {
@@ -526,10 +548,13 @@
 
   &.no-click {
 
-    .name-container,
     .level,
     .toggle-ally {
       pointer-events: none;
+    }
+
+    .name-container {
+      cursor: initial;
     }
   }
 

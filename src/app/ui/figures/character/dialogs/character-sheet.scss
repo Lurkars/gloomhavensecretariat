@@ -247,10 +247,10 @@
 
         &.disabled {
           pointer-events: none;
-          color: var(--ghs-color-darkgray);
+          color: var(--ghs-color-darkgray) !important;
 
           img {
-            filter: var(--ghs-filter-darkgray);
+            filter: var(--ghs-filter-darkgray) !important;
           }
         }
       }
@@ -267,6 +267,11 @@
           align-items: center;
           margin: calc(var(--ghs-unit) * 0.4 * var(--ghs-dialog-factor));
 
+          .icon {
+            position: relative;
+            width: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+          }
+
           .id {
             text-align: right;
             width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
@@ -282,6 +287,10 @@
             font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
           }
 
+          .name {
+            cursor: pointer;
+          }
+
           .edition {
             font-size: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
           }
@@ -295,6 +304,39 @@
             img {
               height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
               width: auto;
+            }
+          }
+
+          .loot {
+            width: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+          }
+
+          .equipped {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+            img {
+              filter: var(--ghs-filter-green);
+              height: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+              width: auto;
+            }
+          }
+
+          .minus-one {
+            font-family: var(--ghs-font-title);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+            img {
+              margin-right: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor));
+            }
+
+            &.ignore {
+              opacity: 0.5;
             }
           }
         }

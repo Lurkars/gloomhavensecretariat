@@ -13,6 +13,7 @@ export class DragClickDirective {
   @Input() relative: boolean = false;
   @Input() screenWidth: boolean = false;
   @Input() repeat: boolean = false;
+  @Input() disabled: boolean = false;
   @Input() min: number = 0;
   @Input() max: number = 99;
   @Output('dragMove') dragMove = new EventEmitter<number>();
@@ -33,29 +34,31 @@ export class DragClickDirective {
 
   @HostListener('tap', ['$event'])
   tap(event: any) {
-    if (this.clickBehind) {
-      this.emitClickBehind(event.center.x, event.center.y);
-    } else if (event.pointerType == "touch" && settingsManager.settings.pressDoubleClick) {
-      setTimeout(() => {
-        this.singleClick.emit(event);
-      }, doubleClickTreshhold);
-    } else if (!this.repeat || this.doubleClick.observed) {
-      if (this.timeout) {
-        clearTimeout(this.timeout);
-        this.timeout = null;
+    if (!this.disabled) {
+      if (this.clickBehind) {
+        this.emitClickBehind(event.center.x, event.center.y);
+      } else if (event.pointerType == "touch" && settingsManager.settings.pressDoubleClick) {
         setTimeout(() => {
-          this.doubleClick.emit(event);
-        }, doubleClickTreshhold)
-      } else {
-        this.timeout = setTimeout(() => {
-          if (this.timeout) {
-            this.timeout = null;
-            this.singleClick.emit(event);
-          }
+          this.singleClick.emit(event);
         }, doubleClickTreshhold);
+      } else if (!this.repeat || this.doubleClick.observed) {
+        if (this.timeout) {
+          clearTimeout(this.timeout);
+          this.timeout = null;
+          setTimeout(() => {
+            this.doubleClick.emit(event);
+          }, doubleClickTreshhold)
+        } else {
+          this.timeout = setTimeout(() => {
+            if (this.timeout) {
+              this.timeout = null;
+              this.singleClick.emit(event);
+            }
+          }, doubleClickTreshhold);
+        }
+      } else {
+        this.singleClick.emit(event);
       }
-    } else {
-      this.singleClick.emit(event);
     }
 
     if (event.srcEvent.defaultPrevented) {
@@ -65,10 +68,12 @@ export class DragClickDirective {
 
   @HostListener('press', ['$event'])
   press(event: any) {
-    if (event.pointerType == "touch" && this.doubleClick.observed && settingsManager.settings.pressDoubleClick) {
-      this.doubleClick.emit(event);
-    } else if (this.repeat) {
-      this.repeatTimeout(event);
+    if (!this.disabled) {
+      if (event.pointerType == "touch" && this.doubleClick.observed && settingsManager.settings.pressDoubleClick) {
+        this.doubleClick.emit(event);
+      } else if (this.repeat) {
+        this.repeatTimeout(event);
+      }
     }
     if (event.srcEvent) {
       event.srcEvent.preventDefault();
@@ -93,7 +98,7 @@ export class DragClickDirective {
 
   @HostListener('pressup', ['$event'])
   pressup(event: any) {
-    if (this.repeat && this.timeout && settingsManager.settings.pressDoubleClick) {
+    if (!this.disabled && this.repeat && this.timeout && settingsManager.settings.pressDoubleClick) {
       clearTimeout(this.timeout);
     }
     if (event.srcEvent) {
@@ -104,7 +109,7 @@ export class DragClickDirective {
 
   @HostListener('panstart', ['$event'])
   panstart(event: any) {
-    if (settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed)) {
+    if (!this.disabled && settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed)) {
       this.elementRef.nativeElement.classList.add('dragging');
     }
     event.preventDefault();
@@ -116,7 +121,7 @@ export class DragClickDirective {
 
   @HostListener('panmove', ['$event'])
   panmove(event: any) {
-    if (settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed)) {
+    if (!this.disabled && settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed)) {
       const rect = this.elementRef.nativeElement.getBoundingClientRect();
       if (this.screenWidth) {
         this.value = Math.min(99, Math.max(0, Math.floor(event.center.x / document.body.clientWidth * 100)));
@@ -138,7 +143,7 @@ export class DragClickDirective {
   @HostListener('panend', ['$event'])
   @HostListener('pancancel', ['$event'])
   panend(event: any) {
-    if (settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed)) {
+    if (!this.disabled && settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed)) {
       if (this.value >= this.min) {
         this.dragEnd.emit(this.relative ? this.value - this.relativeValue : this.value);
       }

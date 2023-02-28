@@ -4,7 +4,8 @@
   <div #levelButton (click)="openLevelDialog()" class="level" title="{{'game.level' | ghsLabel}}">{{monster.level}}
   </div>
 
-  <div class="name-container" ghs-drag-click (singleClick)="openStatsPopup()" (doubleClick)="openStatPopup()">
+  <div class="name-container" ghs-drag-click (singleClick)="openStatsPopup()" (doubleClick)="openStatPopup()"
+    [disabled]="noClick">
     <span class="name">
       {{'data.monster.' + monster.name | ghsLabel}}
       <span *ngIf="monster.isAlly">({{'game.ally' | ghsLabel}})</span>
@@ -12,6 +13,7 @@
     <span *ngIf="monster.flying" class="flying"><img
         [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/action/fly.svg'" /></span>
     <span class="edition" *ngIf="getEdition()">[{{'data.edition.' + getEdition()| ghsLabel}}]</span>
+    <span class="catching" *ngIf="monster.catching"><img class="ghs-svg" src="./assets/images/fh/catching.svg"></span>
   </div>
 
   <span class="toggle-ally" [ngClass]="{'ally' : monster.isAlly}" (click)="toggleAlly()"><img

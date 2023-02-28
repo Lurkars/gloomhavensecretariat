@@ -28,6 +28,7 @@ export class AttackModifierComponent implements OnInit, OnChanges {
   animate: boolean = true;
   multipe: boolean = false;
   anyElement: boolean = false;
+  csOak: boolean = false;
   mixedElement: AttackModifierEffect | undefined;
   orTypeEffect: AttackModifierEffect | undefined;
 
@@ -36,12 +37,12 @@ export class AttackModifierComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.animate = !this.disableFlip;
     if (this.attackModifier) {
+      this.csOak = this.attackModifier.id.startsWith('cs-oak');
       this.multipe = false;
       this.anyElement = false;
       this.mixedElement = undefined;
       this.orTypeEffect = undefined;
       if (this.attackModifier.effects) {
-
         if (this.attackModifier.effects.find((effect) => effect.type == AttackModifierEffectType.element) && this.attackModifier.effects.some((effect) => effect.type != AttackModifierEffectType.element)) {
           this.mixedElement = this.attackModifier.effects.find((effect) => effect.type == AttackModifierEffectType.element);
         }
@@ -51,7 +52,6 @@ export class AttackModifierComponent implements OnInit, OnChanges {
         this.anyElement = this.effects().length == 1 && this.effects().every((effect) => (effect.type == AttackModifierEffectType.element || effect.type == AttackModifierEffectType.elementConsume) && effect.value == 'any');
 
         this.orTypeEffect = this.effects().find((effect) => effect.type == AttackModifierEffectType.or);
-
 
         this.effects().forEach((effect) => {
           if (effect.type != AttackModifierEffectType.heal && effect.type != AttackModifierEffectType.shield) {

@@ -43,7 +43,7 @@ Please notice, that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*
 | Solo Scenarios (for supported Editions)                                         | :heavy_check_mark:        | :heavy_check_mark:      | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
 | Seeker Of Xorn                                                                  | :heavy_check_mark:[^3]    | :heavy_check_mark:      | :no_entry_sign:           | :no_entry_sign:          | :no_entry_sign:         |
 | Blood and Sand                                                                  | :heavy_check_mark:[^3]    | :no_entry_sign:         | :no_entry_sign:           | :no_entry_sign:          | :no_entry_sign:         |
-| Trail Of Ashes                                                                  | :white_check_mark:[^16]   | :heavy_check_mark:      | :no_entry_sign:           | :no_entry_sign:          | :no_entry_sign:         |
+| Trail Of Ashes                                                                  | :white_check_mark:[^16.1] | :heavy_check_mark:      | :no_entry_sign:           | :no_entry_sign:          | :no_entry_sign:         |
 | supports Envelope X                                                             | :heavy_check_mark:[^3]    | :heavy_check_mark:      | :no_entry_sign:           | :heavy_check_mark:       | :heavy_check_mark:      |
 |                                                                                 |                           |                         |                           |                          |                         |
 | **Additional Features**                                                         | *GHS*                     | *XHA*                   | *FOC*                     | *GHFS*                   | *GHH*                   |
@@ -58,7 +58,7 @@ Please notice, that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*
 | Apply Conditions                                                                | :heavy_check_mark:        | :no_entry_sign:         | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
 | Special Scenario Rules/Notes                                                    | :heavy_check_mark:        | :heavy_check_mark:      | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
 | Apply Special Scenario Rules                                                    | :heavy_check_mark:        | :no_entry_sign:         | :no_entry_sign:           | :heavy_check_mark:       | :no_entry_sign:         |
-| Automatic Standees                                                              | :heavy_check_mark:[^16]   | :no_entry_sign:         | :heavy_check_mark:        | :heavy_check_mark:       | :no_entry_sign:         |
+| Automatic Standees                                                              | :heavy_check_mark:[^16.2] | :no_entry_sign:         | :heavy_check_mark:        | :heavy_check_mark:       | :no_entry_sign:         |
 | Assign Standee Numbers                                                          | :heavy_check_mark:        | :heavy_check_mark:      | :white_check_mark:[^18]   | :heavy_check_mark:       | :heavy_check_mark:      |
 | Sort Standees                                                                   | :heavy_check_mark:        | :heavy_check_mark:      | :heavy_check_mark:        | :heavy_check_mark:       | :heavy_check_mark:      |
 | Select multiple standees                                                        | :heavy_check_mark:        | :no_entry_sign:         | :no_entry_sign:           | :no_entry_sign:          | :no_entry_sign:         |
@@ -121,7 +121,9 @@ Please notice, that *GHS*, *XHA* and *FOC* are mostly clones/successors of *GHH*
 
 [^15]: [Source Code](https://github.com/Tarmslitaren/FrosthavenAssistant) ([AGPL 3.0](https://github.com/Tarmslitaren/FrosthavenAssistant/blob/main/LICENCE))
 
-[^16]: Charactery only, rest work in progress
+[^16.1]: Character only, rest work in progress
+
+[^16.2]: Full data only for GH+FC and JOTL, rest work in progress
 
 [^17.1]: By default only shown on hovering card or fullscreen card, can be activated permenent in settings
 

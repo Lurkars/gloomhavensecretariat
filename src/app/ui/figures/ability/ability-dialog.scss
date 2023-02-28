@@ -2,7 +2,7 @@
   background-color: transparent;
   padding: 0;
   margin: 0;
-  border: 0; 
+  border: 0;
 }
 
 .ability-dialog {
@@ -12,9 +12,30 @@
   max-height: 384.3px;
   border-image: none;
   background: none;
+  transition: transform 150ms ease-in-out;
+  transform: scale(0);
 
   &.bottom-actions {
     height: 135vw;
     max-height: 810px;
   }
+
+
+  &.opened {
+    transform: scale(1);
+  }
+
+  &.closed {
+    transform: scale(0);
+    transition-delay: 800ms;
+  }
+
+}
+
+.close-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }

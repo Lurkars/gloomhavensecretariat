@@ -1,4 +1,4 @@
-import { AttackModifier, AttackModifierType } from "../model/AttackModifier";
+import { AttackModifier, AttackModifierType, CsOakDeckAttackModifier } from "../model/AttackModifier";
 import { Character } from "../model/Character";
 import { CharacterStat } from "../model/CharacterStat";
 import { ConditionType, EntityConditionState } from "../model/Condition";
@@ -269,20 +269,63 @@ export class CharacterManager {
     }
   }
 
+  applyItemEffects(character: Character) {
+    if (!this.ignoreNegativeItemEffects(character)) {
+      for (let itemIdentifier of character.progress.equippedItems) {
+        const itemData = gameManager.item(+itemIdentifier.name, itemIdentifier.edition);
+        if (itemData && itemData.minusOne) {
+          for (let i = 0; i < itemData.minusOne; i++) {
+            gameManager.attackModifierManager.addModifier(character.attackModifierDeck, new AttackModifier(AttackModifierType.minus1));
+          }
+        }
+      }
+    }
+  }
+
+  ignoreNegativeItemEffects(character: Character): boolean {
+    let perk = character.perks.find((perk) => perk.custom == '%game.custom.perks.ignoreNegativeItem%' || perk.custom == '%game.custom.perks.ignoreNegativeItemFh%');
+    if (!perk) {
+      return false;
+    } else {
+      const perkIndex = character.perks.indexOf(perk);
+      return character.progress.perks[perkIndex] && perk.combined ? (character.progress.perks[perkIndex] == perk.count) : character.progress.perks[perkIndex] > 0;
+    }
+  }
+
   applyDonations(character: Character) {
     for (let i = 0; i < character.donations; i++) {
-      gameManager.attackModifierManager.addModifier(character.attackModifierDeck, new AttackModifier(AttackModifierType.bless));
-      gameManager.attackModifierManager.addModifier(character.attackModifierDeck, new AttackModifier(AttackModifierType.bless));
+      if (gameManager.editionRules('cs')) {
+        const oakDouble = CsOakDeckAttackModifier.filter((attackModifier) => !attackModifier.rolling && !this.game.figures.find((figure) => figure instanceof Character && figure.attackModifierDeck.cards.find((am) => am.id == attackModifier.id)));
+        const oakRolling = CsOakDeckAttackModifier.filter((attackModifier) => attackModifier.rolling && !this.game.figures.find((figure) => figure instanceof Character && figure.attackModifierDeck.cards.find((am) => am.id == attackModifier.id)));
+
+        if (oakDouble.length > 0) {
+          gameManager.attackModifierManager.addModifier(character.attackModifierDeck, oakDouble[Math.floor(Math.random() * oakDouble.length)]);
+        }
+        if (oakRolling.length > 0) {
+          gameManager.attackModifierManager.addModifier(character.attackModifierDeck, oakRolling[Math.floor(Math.random() * oakRolling.length)]);
+        }
+      } else {
+        gameManager.attackModifierManager.addModifier(character.attackModifierDeck, new AttackModifier(AttackModifierType.bless));
+        gameManager.attackModifierManager.addModifier(character.attackModifierDeck, new AttackModifier(AttackModifierType.bless));
+      }
     }
 
     character.donations = 0;
   }
 
   draw() {
+    if (this.game.round == 1) {
+      this.game.figures.forEach((figure) => {
+        if (figure instanceof Character) {
+          this.applyItemEffects(figure);
+          this.applyDonations(figure);
+          figure.initiativeVisible = true;
+        }
+      })
+    }
+
     this.game.figures.forEach((figure) => {
       if (figure instanceof Character) {
-        figure.initiativeVisible = true;
-        this.applyDonations(figure);
         for (let summon of figure.summons) {
           if (summon.state == SummonState.new) {
             summon.state = SummonState.true;

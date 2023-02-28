@@ -32,7 +32,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - **conditions** automatic expire + automatic apply (wound, wound_x, regenerate, bane, poison, poison_x, ward, brittle)
   - **level**, **loot**, **experience** of Characters
   - **Character Progress** level, loot, experience, items, battlegoals, perks, masteries
-  - **Character Attack Modifier Deck** including perks
+  - **Character Attack Modifier Deck** including perks & CS oak cards
   - **Elements** automatic update state
   - **Monster Stats**
   - **Monster Standees** automatic add standees for scenario rooms/sections and special rules (rooms/sections data WIP)
@@ -41,7 +41,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - **Character Summons**
   - **Scenarios** and **Sections** with automatic level calculation, remind and apply special rules and scenario finish for applying character progress
   - **Party Sheet**
-  - **Campaign Management** (special Rules for CS and FH missing)
+  - **Campaign Management** (special Rules for CS missing)
   - **Markers**
 - Eliminating the following physical components:
   - monster ability cards
@@ -55,7 +55,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - character sheets
   - character attack modifier deck
   - loot deck
-  - party sheet
+  - party/campaign sheet
 - Other features:
   - i18n support (currently en, de, fr and ko, more translations required. Big thanks to contributers of french and korean)
   - PWA for installation on all devices!

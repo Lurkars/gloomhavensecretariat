@@ -120,6 +120,13 @@ export class SettingsMenuComponent {
     settingsManager.settings.abilityNumbers = false;
     settingsManager.settings.moveElements = true;
     settingsManager.settings.initiativeRequired = true;
+    settingsManager.settings.scenarioRules = false;
+    settingsManager.settings.automaticStandees = false;
+    settingsManager.settings.scenarioRooms = false;
+    settingsManager.settings.activeStandees = false;
+    settingsManager.settings.activeSummons = false;
+    settingsManager.settings.fhStyle = false;
+    settingsManager.settings.theme = 'default';
     settingsManager.storeSettings();
   }
 }

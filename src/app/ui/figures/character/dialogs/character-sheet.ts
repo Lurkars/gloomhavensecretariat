@@ -1,4 +1,5 @@
 import { Dialog, DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
+import { identifierName } from "@angular/compiler";
 import { AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild, ViewEncapsulation } from "@angular/core";
 import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
@@ -6,7 +7,7 @@ import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 import { Character, GameCharacterModel } from "src/app/game/model/Character";
 import { CharacterProgress } from "src/app/game/model/CharacterProgress";
-import { ItemData } from "src/app/game/model/data/ItemData";
+import { ItemData, ItemSlot } from "src/app/game/model/data/ItemData";
 import { GameState } from "src/app/game/model/Game";
 import { Identifier } from "src/app/game/model/Identifier";
 import { LootType } from "src/app/game/model/Loot";
@@ -292,29 +293,31 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
   }
 
   itemChange(itemIndexChange: number = 0) {
-
-    if (itemIndexChange != 0) {
-      this.itemIndex += itemIndexChange;
-      this.item = gameManager.item(this.itemIndex, this.itemEdition && this.itemEdition.nativeElement.value || this.character.edition);
-      while (!this.item && this.itemIndex > 0 && this.itemIndex < gameManager.maxItemIndex(this.itemEdition && this.itemEdition.nativeElement.value || this.character.edition)) {
+    this.itemCanAdd = true;
+    setTimeout(() => {
+      if (itemIndexChange != 0) {
         this.itemIndex += itemIndexChange;
         this.item = gameManager.item(this.itemIndex, this.itemEdition && this.itemEdition.nativeElement.value || this.character.edition);
+        while (!this.item && this.itemIndex > 0 && this.itemIndex < gameManager.maxItemIndex(this.itemEdition && this.itemEdition.nativeElement.value || this.character.edition)) {
+          this.itemIndex += itemIndexChange;
+          this.item = gameManager.item(this.itemIndex, this.itemEdition && this.itemEdition.nativeElement.value || this.character.edition);
+        }
+      } else {
+        this.item = gameManager.item(this.itemIndex, this.itemEdition && this.itemEdition.nativeElement.value || this.character.edition);
       }
-    } else {
-      this.item = gameManager.item(this.itemIndex, this.itemEdition && this.itemEdition.nativeElement.value || this.character.edition);
-    }
 
-    this.itemCanAdd = false;
-    if (this.item) {
-      const soldItems = gameManager.game.figures.filter((figure) => figure instanceof Character && figure.progress && figure.progress.items).map((figure) => figure as Character).map((figure) => figure.progress && figure.progress.items).reduce((pre, cur): Identifier[] => {
-        return pre && cur && pre.concat(cur);
-      }).filter((item) => this.item && item.name == this.item.id + "" && item.edition == this.item.edition).length;
-      if (this.item.count && soldItems < this.item.count) {
+      this.itemCanAdd = false;
+      if (this.item) {
+        const soldItems = gameManager.game.figures.filter((figure) => figure instanceof Character && figure.progress && figure.progress.items).map((figure) => figure as Character).map((figure) => figure.progress && figure.progress.items).reduce((pre, cur): Identifier[] => {
+          return pre && cur && pre.concat(cur);
+        }).filter((item) => this.item && item.name == this.item.id + "" && item.edition == this.item.edition).length;
+        if (this.item.count && soldItems < this.item.count && !this.character.progress.items.find((identifier) => this.item && identifier.name == '' + this.item.id && identifier.edition == this.item.edition)) {
+          this.itemCanAdd = true;
+        }
+      } else {
         this.itemCanAdd = true;
       }
-    } else {
-      this.itemCanAdd = true;
-    }
+    });
   }
 
   addItem() {
@@ -324,7 +327,6 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
       this.character.progress.items.push(new Identifier(this.itemIndex + "", this.itemEdition.nativeElement.value));
       this.items.push(this.item);
       this.items.sort((a, b) => a.id - b.id);
-      this.itemIndex = 1;
       gameManager.stateManager.after();
       this.itemChange();
     }
@@ -332,13 +334,12 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
 
   buyItem() {
     this.itemChange();
-    if (this.item && (this.item.cost + this.priceModifier) <= this.character.progress.gold) {
+    if (this.item && this.itemCanAdd && (this.item.cost + this.priceModifier) <= this.character.progress.gold) {
       gameManager.stateManager.before("buyItem", "data.character." + this.character.name, this.itemIndex + "", this.itemEdition.nativeElement.value);
       this.character.progress.gold -= (this.item.cost + this.priceModifier);
       this.character.progress.items.push(new Identifier(this.itemIndex + "", this.itemEdition.nativeElement.value));
       this.items.push(this.item);
       this.items.sort((a, b) => a.id - b.id);
-      this.itemIndex = 1;
       gameManager.stateManager.after();
       this.itemChange();
     }
@@ -350,6 +351,7 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
       const index = this.character.progress.items.indexOf(item)
       gameManager.stateManager.before("removeItem", "data.character." + this.character.name, this.character.progress.items[index].name, this.character.progress.items[index].edition);
       this.character.progress.items.splice(index, 1);
+      this.character.progress.equippedItems = this.character.progress.equippedItems.filter((identifier) => identifier.name != itemData.name || identifier.edition != itemData.edition);
       this.items.splice(index, 1);
       gameManager.stateManager.after();
       this.itemChange();
@@ -363,10 +365,51 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
       gameManager.stateManager.before("sellItem", "data.character." + this.character.name, this.character.progress.items[index].name, this.character.progress.items[index].edition);
       this.character.progress.gold += Math.ceil(itemData.cost / 2);
       this.character.progress.items.splice(index, 1);
+      this.character.progress.equippedItems = this.character.progress.equippedItems.filter((identifier) => identifier.name != itemData.name || identifier.edition != itemData.edition);
       this.items.splice(index, 1);
       gameManager.stateManager.after();
       this.itemChange();
     }
+  }
+
+  isEquipped(item: ItemData) {
+    return this.character.progress.equippedItems.find((identifier) => identifier.name == '' + item.id && identifier.edition == item.edition);
+  }
+
+  toggleEquippedItem(item: ItemData) {
+    let equippedItems: ItemData[] = this.character.progress.equippedItems.map((identifier) => this.items.find((itemData) => identifier.name == '' + itemData.id && itemData.edition == identifier.edition)).filter((itemData) => itemData).map((itemData) => itemData as ItemData);
+    const equipIndex = equippedItems.indexOf(item);
+    if (equipIndex != -1) {
+      equippedItems.splice(equipIndex, 1);
+    } else {
+      if (item.slot == ItemSlot.small) {
+        const allowed = Math.ceil(this.character.level / 2);
+        if (equippedItems.filter((itemData) => itemData.slot == item.slot).length >= allowed) {
+          const equipped = equippedItems.find((itemData) => itemData.slot == item.slot);
+          if (equipped) {
+            equippedItems.splice(equippedItems.indexOf(equipped), 1);
+          }
+        }
+      } else if (item.slot == ItemSlot.onehand) {
+        equippedItems = equippedItems.filter((equipped) => equipped.slot != ItemSlot.twohand);
+        if (equippedItems.filter((equipped) => equipped.slot == item.slot).length > 1) {
+          const equipped = equippedItems.find((equipped) => equipped.slot == item.slot);
+          if (equipped) {
+            equippedItems.splice(equippedItems.indexOf(equipped), 1);
+          }
+        }
+      } else if (item.slot == ItemSlot.twohand) {
+        equippedItems = equippedItems.filter((equipped) => equipped.slot != ItemSlot.onehand && equipped.slot != ItemSlot.twohand);
+      } else {
+        equippedItems = equippedItems.filter((equipped) => equipped.slot != item.slot);
+      }
+
+      equippedItems.push(item);
+    }
+
+    gameManager.stateManager.before(equipIndex != -1 ? 'unequipItem' : 'equipItem', "data.character." + this.character.name, item.name, item.edition)
+    this.character.progress.equippedItems = equippedItems.map((itemData) => new Identifier(itemData.id + '', itemData.edition));
+    gameManager.stateManager.after();
   }
 
   toggleMastery(index: number) {
