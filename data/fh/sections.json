@@ -900,6 +900,7 @@
         "escort": true,
         "health": "(LxC)+2",
         "initiative": 99,
+        "marker": "c",
         "actions": [
           {
             "type": "move",
@@ -928,9 +929,9 @@
           {
             "identifier": {
               "type": "objective",
+              "marker": "c",
               "edition": "escort",
-              "name": "Artificer",
-              "marker": "c"
+              "name": "Artificer"
             },
             "type": "transfer",
             "value": "1"
@@ -1120,6 +1121,7 @@
         "name": "Artificer",
         "escort": true,
         "health": "(LxC)+2",
+        "marker": "c",
         "initiative": 99
       }
     ],
