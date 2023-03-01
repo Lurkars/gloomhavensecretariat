@@ -12,6 +12,11 @@
         (click)="open($event)" src="./assets/images/shuffle.svg">
       <img [title]="'game.cards.fullscreen' | ghsLabel" *ngIf="fullscreen" (click)="openFullscreen($event)"
         class="fullscreen" src="./assets/images/fullscreen.svg">
+
+      <span *ngIf="!characterIcon" class="numeration">{{numeration}}</span>
+      <span *ngIf="characterIcon" class="character-icon">
+        <img [src]="characterIcon" />
+      </span>
     </div>
   </div>
   <ng-container *ngFor="let attackModifier of deck.cards; let index = index;">

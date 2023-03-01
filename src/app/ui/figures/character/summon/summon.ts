@@ -120,12 +120,12 @@ export class SummonEntityComponent implements OnInit {
     if (this.summon.active) {
       gameManager.stateManager.before("summonInactive", "data.character." + this.character.name, "data.summon." + this.summon.name);
       const summon = this.character.summons.find((summon, index, self) => index > self.indexOf(this.summon) && !summon.dead && summon.health > 0 && summon.state != SummonState.new && !summon.active);
-      if (this.character.active && summon) {
+      if (this.character.active && summon && settingsManager.settings.activeSummons) {
         summon.active = true;
       }
       this.summon.active = false;
       gameManager.stateManager.after();
-    } else if (!this.summon.dead && this.summon.health > 0 && this.summon.state != SummonState.new) {
+    } else {
       gameManager.stateManager.before("summonActive", "data.character." + this.character.name, "data.summon." + this.summon.name);
       this.character.summons.forEach((summon) => summon.active = false);
       this.summon.active = true;

@@ -17,12 +17,14 @@ export class ScenarioSummaryComponent {
     gameManager: GameManager = gameManager;
 
     characters: Character[];
+    battleGoals: number[] = [];
     lootColumns: LootType[] = [];
 
     constructor(@Inject(DIALOG_DATA) public success: boolean, private dialogRef: DialogRef) {
-        this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => {
+        this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure, index) => {
             let char = new Character((figure as Character), figure.level);
             char.fromModel((figure as Character).toModel());
+            this.battleGoals[index] = 0;
             return char;
         })
 
@@ -49,8 +51,23 @@ export class ScenarioSummaryComponent {
         return value;
     }
 
+    toggleBattleGoal(event: any, index: number, value: number) {
+        if (event.target.checked && this.battleGoals[index] < value) {
+            this.battleGoals[index] = value;
+        } else if (this.battleGoals[index] >= value) {
+            this.battleGoals[index] = value - 1;
+        }
+    }
+
     apply() {
         gameManager.stateManager.before("finishScenario." + (this.success ? "success" : "failure"), ...gameManager.scenarioManager.scenarioUndoArgs());
+        if (this.success) {
+            gameManager.game.figures.filter((figure) => figure instanceof Character).forEach((figure, index) => {
+                if (this.battleGoals[index] > 0) {
+                    (figure as Character).progress.battleGoals += this.battleGoals[index];
+                }
+            })
+        }
         gameManager.scenarioManager.finishScenario(this.success);
         gameManager.stateManager.after(1000);
         this.dialogRef.close();

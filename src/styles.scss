@@ -763,6 +763,12 @@ input[type="checkbox"] {
   &:hover::before {
     background-color: var(--ghs-color-white);
   }
+
+  &:disabled {
+    cursor: initial;
+    color: var(--ghs-color-darkgray);
+    border-width: calc(var(--ghs-unit) * 0.4);
+  }
 }
 
 input[type="radio"] {

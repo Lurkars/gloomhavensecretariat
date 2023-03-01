@@ -781,6 +781,7 @@
     "summary": {
       ".": "Scenario Summary",
       "apply": "Finish",
+      "battlegoals": "Battelgoals",
       "cancel": "Cancel",
       "gold": "Gold",
       "forcedLinks": "%scenario.summary.links% (forced)",
@@ -788,7 +789,8 @@
       "links": "Continue with a linked scenario",
       "loot": "Loot",
       "name": "%character%",
-      "restart": "Restart scenario (loose resources)",
+      "restart": "Restart scenario",
+      "restartLooseLoot": "Restart scenario (loose resources)",
       "totalGold": "Total Gold",
       "totalXp": "Total XP",
       "xp": "XP",
