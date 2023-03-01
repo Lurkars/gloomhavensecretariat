@@ -887,6 +887,66 @@
     ]
   },
   {
+    "index": "95.3",
+    "name": "Invasion of the Dock",
+    "parent": "71",
+    "edition": "fh",
+    "parentSections": [
+      "111.2"
+    ],
+    "objectives": [
+      {
+        "name": "Artificer",
+        "escort": true,
+        "health": "(LxC)+2",
+        "initiative": 99,
+        "marker": "c",
+        "actions": [
+          {
+            "type": "move",
+            "value": 2
+          },
+          {
+            "type": "heal",
+            "value": 1,
+            "subActions": [
+              {
+                "type": "specialTarget",
+                "value": "self",
+                "small": true
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "round": "always",
+        "once": true,
+        "always": true,
+        "figures": [
+          {
+            "identifier": {
+              "type": "objective",
+              "marker": "c",
+              "edition": "escort",
+              "name": "Artificer"
+            },
+            "type": "transfer",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "initial": true
+      }
+    ]
+  },
+  {
     "index": "98.1",
     "name": "The Eternal Crave",
     "parent": "122",
@@ -1052,12 +1112,122 @@
     "name": "Invasion of the Dock",
     "parent": "71",
     "edition": "fh",
+    "marker": "a",
+    "parentSections": [
+      "129.2"
+    ],
     "objectives": [
       {
         "name": "Artificer",
         "escort": true,
         "health": "(LxC)+2",
+        "marker": "c",
         "initiative": 99
+      }
+    ],
+    "rules": [
+      {
+        "round": "R % 2 == 0",
+        "start": true,
+        "spawns": [
+          {
+            "monster": {
+              "name": "lurker-clawcrusher",
+              "player2": "normal",
+              "player3": "elite",
+              "player4": "elite"
+            },
+            "marker": "d"
+          },
+          {
+            "monster": {
+              "name": "lurker-wavethrower",
+              "player2": "normal",
+              "player3": "normal",
+              "player4": "elite"
+            },
+            "marker": "e"
+          },
+          {
+            "monster": {
+              "name": "piranha-pig",
+              "player2": "normal",
+              "player3": "normal",
+              "player4": "elite"
+            },
+            "marker": "f"
+          }
+        ]
+      },
+      {
+        "round": "R % 2 == 1",
+        "start": true,
+        "spawns": [
+          {
+            "monster": {
+              "name": "piranha-pig",
+              "player2": "normal",
+              "player3": "elite",
+              "player4": "elite"
+            },
+            "marker": "f"
+          }
+        ]
+      }
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "02-D",
+        "initial": true
+      },
+      {
+        "roomNumber": 2,
+        "ref": "10-B",
+        "initial": true,
+        "treasures": [
+          "22"
+        ],
+        "monster": [
+          {
+            "name": "abael-scout",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "piranha-pig",
+            "type": "elite"
+          },
+          {
+            "name": "piranha-pig",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "lurker-clawcrusher",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "lurker-wavethrower",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "lurker-mindsnipper",
+            "type": "normal"
+          }
+        ],
+        "objectives": [
+          1
+        ]
+      },
+      {
+        "roomNumber": 3,
+        "ref": "01-H",
+        "initial": true
       }
     ]
   },
@@ -1101,6 +1271,65 @@
     "edition": "fh",
     "monsters": [
       "power-core"
+    ]
+  },
+  {
+    "index": "129.2",
+    "name": "Invasion of the Dock",
+    "parent": "71",
+    "edition": "fh",
+    "marker": "1",
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "14-A",
+        "initial": true,
+        "treasures": [
+          "23"
+        ],
+        "monster": [
+          {
+            "name": "abael-scout",
+            "type": "normal"
+          },
+          {
+            "name": "piranha-pig",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          {
+            "name": "piranha-pig",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "piranha-pig",
+            "type": "normal"
+          },
+          {
+            "name": "lurker-clawcrusher",
+            "type": "normal"
+          },
+          {
+            "name": "lurker-wavethrower",
+            "type": "normal"
+          },
+          {
+            "name": "lurker-clawcrusher",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          {
+            "name": "lurker-wavethrower",
+            "player4": "normal"
+          },
+          {
+            "name": "lurker-mindsnipper",
+            "type": "normal"
+          }
+        ]
+      }
     ]
   },
   {
