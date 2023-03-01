@@ -679,6 +679,7 @@
     "summary": {
       ".": "Szenario Zusammenfassung",
       "apply": "Abschließen",
+      "battlegoals": "Kampfziele",
       "cancel": "Abbrechen",
       "gold": "Gold",
       "forcedLinks": "%scenario.summary.links% (erzwungen)",
@@ -686,7 +687,8 @@
       "links": "Weiter mit einem verlinktem Szenario",
       "loot": "Beute",
       "name": "%character%",
-      "restart": "Szenario neustarten (Ressourcen verlieren)",
+      "restart": "Szenario neustarten",
+      "restartLooseLoot": "Szenario neustarten (Ressourcen verlieren)",
       "totalGold": "Gold Gesamt",
       "totalXp": "EP Gesamt",
       "xp": "EP",
