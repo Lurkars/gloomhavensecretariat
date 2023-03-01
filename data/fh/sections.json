@@ -887,6 +887,59 @@
     ]
   },
   {
+    "index": "95.3",
+    "name": "Invasion of the Dock",
+    "parent": "71",
+    "edition": "fh",
+    "parentSections": [
+      "111.2",
+      "129.2"
+    ],
+    "objectives": [
+      {
+        "name": "Artificer",
+        "escort": true,
+        "health": "(LxC)+2",
+        "initiative": 99,
+        "actions": [
+          {
+            "type": "move",
+            "value": 2
+          },
+          {
+            "type": "heal",
+            "value": 1
+          }
+        ]
+      }
+    ],
+    "rules": [
+      {
+        "round": "always",
+        "once": true,
+        "always": true,
+        "figures": [
+          {
+            "identifier": {
+              "type": "objective",
+              "edition": "escort",
+              "name": "Artificer",
+              "marker": "c"
+            },
+            "type": "transfer",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "initial": true
+      }
+    ]
+  },
+  {
     "index": "98.1",
     "name": "The Eternal Crave",
     "parent": "122",
