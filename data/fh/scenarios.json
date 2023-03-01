@@ -3119,8 +3119,7 @@
       {
         "name": "Ice Pillar",
         "escort": true,
-        "health": "L+3",
-        "count": 7
+        "health": "L+3"
       }
     ],
     "lootDeckConfig": {
@@ -3128,10 +3127,171 @@
       "lumber": 3,
       "metal": 3,
       "hide": 3,
-      "rockroot": 1,
       "arrowvine": 1,
+      "rockroot": 1,
       "snowthistle": 1
-    }
+    },
+    "rules": [
+      {
+        "round": "R == 5",
+        "start": true,
+        "spawns": [
+          {
+            "monster": {
+              "name": "algox-guard",
+              "player2": "normal",
+              "player3": "normal",
+              "player4": "elite"
+            },
+            "marker": "a"
+          },
+          {
+            "monster": {
+              "name": "algox-guard",
+              "player2": "normal",
+              "player3": "normal",
+              "player4": "elite"
+            },
+            "marker": "a"
+          },
+          {
+            "monster": {
+              "name": "algox-guard",
+              "player2": "normal",
+              "player3": "elite",
+              "player4": "elite"
+            },
+            "marker": "b"
+          },
+          {
+            "monster": {
+              "name": "algox-guard",
+              "player2": "normal",
+              "player3": "elite",
+              "player4": "elite"
+            },
+            "marker": "b"
+          }
+        ]
+      },
+      {
+        "round": "R == 8",
+        "start": true,
+        "spawns": [
+          {
+            "monster": {
+              "name": "algox-snowspeaker",
+              "player2": "normal",
+              "player3": "elite",
+              "player4": "elite"
+            },
+            "marker": "a"
+          },
+          {
+            "monster": {
+              "name": "algox-snowspeaker",
+              "player2": "normal",
+              "player3": "elite",
+              "player4": "elite"
+            },
+            "marker": "a"
+          },
+          {
+            "monster": {
+              "name": "snow-imp",
+              "player2": "normal",
+              "player3": "normal",
+              "player4": "elite"
+            },
+            "marker": "b",
+            "count": "2"
+          },
+          {
+            "monster": {
+              "name": "snow-imp",
+              "player2": "normal",
+              "player3": "normal",
+              "player4": "elite"
+            },
+            "marker": "b",
+            "count": "2"
+          }
+        ]
+      }
+    ],
+    "rooms": [
+      {
+        "roomNumber": 1,
+        "ref": "13-A",
+        "initial": true,
+        "monster": [
+          {
+            "name": "algox-guard",
+            "type": "normal"
+          },
+          {
+            "name": "algox-snowspeaker",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          {
+            "name": "algox-guard",
+            "player4": "normal"
+          },
+          {
+            "name": "algox-guard",
+            "type": "normal"
+          },
+          {
+            "name": "algox-snowspeaker",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        ],
+        "objectives": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "roomNumber": 2,
+        "ref": "11-C",
+        "initial": true,
+        "monster": [
+          {
+            "name": "snow-imp",
+            "player4": "normal"
+          },
+          {
+            "name": "snow-imp",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          }
+        ],
+        "objectives": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "roomNumber": 3,
+        "ref": "02-G",
+        "initial": true,
+        "monster": [
+          {
+            "name": "snow-imp",
+            "type": "elite"
+          }
+        ],
+        "objectives": [
+          1
+        ]
+      }
+    ]
   },
   {
     "index": "116",
