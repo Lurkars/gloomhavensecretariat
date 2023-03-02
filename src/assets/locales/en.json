@@ -538,6 +538,7 @@
     "next": "Click \"%round.next%\"",
     "setScenario": "%scenario%"
   },
+  "installApp": "Install as App",
   "menu": {
     "backToMain": "Back to %menu.main%",
     "main": "Mainmenu"

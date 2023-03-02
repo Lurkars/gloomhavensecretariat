@@ -103,6 +103,11 @@
         ghsLabel}}</a>
     </div>
 
+    <div class="line" *ngIf="gameManager.stateManager.installPrompt">
+      <a class="install" (click)="gameManager.stateManager.install()"> <img class="ghs-svg"
+          src="./assets/images/install.svg"> {{'installApp' | ghsLabel}}</a>
+    </div>
+
     <div class="line">
       <a (click)="feedbackDialog()"><img class="ghs-svg" src="./assets/images/hint.svg">&nbsp;{{'tools.feedback' |
         ghsLabel}}</a>

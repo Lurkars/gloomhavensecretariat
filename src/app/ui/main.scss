@@ -42,13 +42,13 @@ main {
   overflow: auto;
 
   img {
-    margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
     width: 100%;
     max-width: calc(var(--ghs-unit) * 30 * var(--ghs-text-factor));
     border-radius: 5px;
   }
 
   .ghs-logo {
+    margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
     filter: var(--ghs-filter-outline);
   }
 
@@ -80,11 +80,38 @@ main {
     color: var(--ghs-color-darkgray);
     cursor: pointer;
     font-family: var(--ghs-font-title);
-    font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
     margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+
+    &.add-characters {
+      font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+    }
 
     &:hover {
       opacity: 0.6;
+    }
+  }
+
+  .install {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ghs-color-white);
+    font-size: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor) * var(--ghs-barsize));
+    z-index: 2;
+
+    img {
+      width: 0.9em;
+      height: auto;
+      filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+    }
+
+    &:hover {
+      color: var(--ghs-color-darkgray);
+
+      img {
+        filter: var(--ghs-filter-darkgray) var(--ghs-filter-shadow);
+      }
     }
   }
 
@@ -93,6 +120,14 @@ main {
     h2,
     p {
       color: var(--ghs-color-black);
+    }
+
+    .install {
+      color: var(--ghs-color-black);
+
+      img {
+        filter: var(--ghs-filter-black);
+      }
     }
 
     .edition,
@@ -198,6 +233,7 @@ main {
     }
   }
 }
+
 
 .handle {
   position: absolute;

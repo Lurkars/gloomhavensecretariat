@@ -1,5 +1,6 @@
 import { Editional } from "../Editional";
 import { Identifier } from "../Identifier";
+import { LootType } from "../Loot";
 import { SummonData } from "./SummonData";
 
 export class ItemData implements Editional {
@@ -18,7 +19,8 @@ export class ItemData implements Editional {
   unlockProsperity: number = 0;
   summon: SummonData | undefined;
   folder: string = "";
-  resources: Record<string, number> = {};
+  resources: Partial<Record<LootType, number>> = {};
+  requiredItems: number[] = [];
 }
 
 export enum ItemSlot {

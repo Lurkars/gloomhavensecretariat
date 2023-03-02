@@ -1,0 +1,65 @@
+<div class="items">
+    <label>{{'character.progress.items' | ghsLabel}}:</label>
+    <div class="item-list">
+        <div class="item-entry" *ngFor="let item of items; let index = index;">
+            <span class="icon">
+                <img [src]="'./assets/images/items/slots/' + item.slot +'.svg'">
+            </span>
+            <span class="id">{{item.id}}.</span>
+            <span class="name" (click)="toggleEquippedItem(item)">{{item.name}}
+                <ng-container *ngIf="item.edition != itemEdition.value">&nbsp;({{'data.edition.' + item.edition |
+                    ghsLabel}})</ng-container>
+            </span>
+            <span class="spacer"></span>
+            <span class="equipped" *ngIf="isEquipped(item)"><img src="./assets/images/check.svg"></span>
+            <span class="minus-one" *ngIf="isEquipped(item) && item.minusOne"
+                [ngClass]="{'ignore' : gameManager.characterManager.ignoreNegativeItemEffects(character)}">
+                <img src="./assets/images/action/card/minus1.svg">
+                x{{item.minusOne}}
+            </span>
+            <a class="button loot" (click)="sellItem(item)"><img src="./assets/images/loot.svg">
+                {{sellValue(item)}}
+            </a>
+            <a class="button remove" (click)="removeItem(item)"><img src="./assets/images/close.svg"></a>
+        </div>
+    </div>
+    <div class="item-form">
+        <span class="prev" [ngClass]="{'disabled' : itemIndex == 1}" (click)="itemChange(-1)"><img
+                src="./assets/images/left.svg"></span>
+        <input type="number" (change)="itemChange()" [(ngModel)]="itemIndex" min="1" value="1"
+            [ngClass]="{ 'error': !item}">
+        <select #itemEdition (change)="itemChange()" [ngClass]="{'error': !item}">
+            <option *ngFor="let edition of gameManager.editions()" [value]="edition">{{'data.edition.' + edition |
+                ghsLabel}}</option>
+        </select>
+        <a class="button add" (click)="addItem(item)" [ngClass]="{'disabled': !canAdd(item)}"><img
+                src="./assets/images/plus.svg" [ngClass]="{'warn' : !canAdd}"></a>
+        <span class="next" (click)="itemChange(+1)"> <img src="./assets/images/right.svg"></span>
+        <ng-container *ngIf="item">
+            <span class="icon"><img [src]="'./assets/images/items/slots/' + item.slot +'.svg'"></span>
+            <span class="name" [ngClass]="{'disabled' : !canAdd(item)}">{{item.name}}</span>
+            <a *ngIf="item.cost" class="button loot" (click)="buyItem(item)"
+                [ngClass]="{'disabled' : !canAdd(item) || !canBuy(item)}"><img
+                    src="./assets/images/loot.svg">{{item.cost &&
+                (item.cost + priceModifier) || '?'}}</a>
+
+            <a *ngIf="item.resources || item.requiredItems && item.requiredItems.length > 0" class="button craft"
+                (click)="craftItem(item)"
+                [ngClass]="{'disabled' : !canAdd(item) || !canCraft(item), 'warn' : !canAdd(item)}">
+                <ng-container *ngIf="item.requiredItems">
+                    <span class="item" *ngFor="let requiredItem of item.requiredItems">
+                        <span *ngIf="requiredItem < 100">0</span>
+                        <span *ngIf="requiredItem < 10">0</span>
+                        {{requiredItem}}
+                    </span>
+                </ng-container>
+                <ng-container *ngIf="item.resources">
+                    <span class="resource" *ngFor="let resource of item.resources | keyvalue">
+                        <span *ngIf="resource.value && resource.value > 1">{{resource.value}}x</span>
+                        <img [src]="'./assets/images/fh/loot/' + resource.key + '.svg'">
+                    </span>
+                </ng-container>
+            </a>
+        </ng-container>
+    </div>
+</div>

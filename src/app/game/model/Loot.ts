@@ -26,6 +26,21 @@ export const enhancableLootTypes: LootType[] = [LootType.lumber, LootType.metal,
 
 export const appliableLootTypes: LootType[] = [LootType.money, LootType.lumber, LootType.metal, LootType.hide, LootType.arrowvine, LootType.axenut, LootType.corpsecap, LootType.flamefruit, LootType.rockroot, LootType.snowthistle, LootType.special1, LootType.special2];
 
+
+export function getLootClass(type: LootType): LootClass {
+    if (type == LootType.money) {
+        return LootClass.money;
+    } else if (type == LootType.random_item) {
+        return LootClass.random_item;
+    } else if (type == LootType.special1 || type == LootType.special2) {
+        return LootClass.special;
+    } else if ([LootType.lumber, LootType.metal, LootType.hide].indexOf(type) != -1) {
+        return LootClass.material_resources
+    }
+
+    return LootClass.herb_resources;
+}
+
 export class Loot {
 
     type: LootType;

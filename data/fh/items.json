@@ -1,45 +1,36 @@
 [
   {
     "id": 1,
-    "name": "Crude Helmet",
+    "name": "Spyglass",
     "count": 2,
     "edition": "fh",
     "slot": "head",
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    },
+    "spent": true,
+    "folder": "001-010",
     "resources": {
       "metal": 1
     }
   },
   {
     "id": 2,
-    "name": "Simple Charm",
+    "name": "Crude Helmet",
     "count": 2,
     "edition": "fh",
     "slot": "head",
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    },
+    "folder": "001-010",
     "resources": {
       "metal": 1
     }
   },
   {
     "id": 3,
-    "name": "Spyglass",
+    "name": "Traveling Cloak",
     "count": 2,
     "edition": "fh",
-    "slot": "head",
-    "spent": true,
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    },
+    "slot": "body",
+    "folder": "001-010",
     "resources": {
-      "metal": 1
+      "hide": 1
     }
   },
   {
@@ -50,86 +41,68 @@
     "slot": "body",
     "spent": true,
     "minusOne": 1,
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    },
+    "folder": "001-010",
     "resources": {
-      "hide": 1
+      "hide": 2
     }
   },
   {
     "id": 5,
-    "name": "Crude Chain Armor",
+    "name": "Crude Boots",
     "count": 2,
     "edition": "fh",
-    "slot": "body",
+    "slot": "legs",
     "spent": true,
-    "minusOne": 1,
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    },
+    "folder": "001-010",
     "resources": {
-      "metal": 2
+      "hide": 2
     }
   },
   {
     "id": 6,
-    "name": "Traveling Cloak",
+    "name": "Flexible Slippers",
     "count": 2,
     "edition": "fh",
-    "slot": "body",
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    },
+    "slot": "legs",
+    "spent": true,
+    "folder": "001-010",
     "resources": {
       "hide": 1
     }
   },
   {
     "id": 7,
-    "name": "Crude Spear",
-    "count": 2,
-    "edition": "fh",
-    "slot": "twohand",
-    "spent": true,
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    },
-    "resources": {
-      "hide": 1,
-      "lumber": 1
-    }
-  },
-  {
-    "id": 8,
     "name": "Crude Bow",
     "count": 2,
     "edition": "fh",
     "slot": "twohand",
     "spent": true,
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    },
+    "folder": "001-010",
     "resources": {
       "lumber": 1
     }
   },
   {
+    "id": 8,
+    "name": "Crude Spear",
+    "count": 2,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "001-010",
+    "resources": {
+      "lumber": 1,
+      "metal": 1
+    }
+  },
+  {
     "id": 9,
-    "name": "Protective Charm",
+    "name": "Protective Scepter",
     "count": 2,
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    },
+    "folder": "001-010",
     "resources": {
       "lumber": 1,
       "hide": 1
@@ -143,12 +116,46 @@
     "slot": "onehand",
     "spent": true,
     "minusOne": 1,
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    },
+    "folder": "001-010",
     "resources": {
       "metal": 1
+    }
+  },
+  {
+    "id": 11,
+    "name": "Simple Charm",
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "folder": "011-015",
+    "resources": {
+      "metal": 2
+    }
+  },
+  {
+    "id": 12,
+    "name": "Crude Chain Armor",
+    "count": 2,
+    "edition": "fh",
+    "slot": "body",
+    "spent": true,
+    "minusOne": 1,
+    "folder": "011-015",
+    "resources": {
+      "metal": 1
+    }
+  },
+  {
+    "id": 13,
+    "name": "Dancing Slippers",
+    "count": 2,
+    "edition": "fh",
+    "slot": "legs",
+    "spent": true,
+    "folder": "011-015",
+    "resources": {
+      "hide": 1,
+      "snowthistle": 1
     }
   },
   {
@@ -158,10 +165,7 @@
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    },
+    "folder": "011-015",
     "resources": {
       "metal": 1,
       "hide": 1
@@ -170,103 +174,1482 @@
   {
     "id": 15,
     "name": "Reinforced Shield",
-    "count": 2,
+    "count": 1,
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    },
+    "minusOne": 2,
+    "folder": "011-015",
     "resources": {
-      "item": [
-        10
-      ],
       "lumber": 1
-    }
+    },
+    "requiredItems": [
+      10
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Inspiring Helmet",
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "spent": true,
+    "folder": "016-020",
+    "resources": {
+      "metal": 1,
+      "hide": 1
+    },
+    "requiredItems": [
+      2
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Cured Leather Armor",
+    "count": 2,
+    "edition": "fh",
+    "slot": "body",
+    "spent": true,
+    "folder": "016-020",
+    "requiredItems": [
+      4,
+      98
+    ]
   },
   {
     "id": 18,
-    "name": "Crude Boots",
+    "name": "Rough Boots",
     "count": 2,
     "edition": "fh",
     "slot": "legs",
     "spent": true,
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    },
+    "folder": "016-020",
     "resources": {
+      "hide": 1
+    },
+    "requiredItems": [
+      5
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Ringing Hammer",
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "minusOne": 1,
+    "folder": "016-020",
+    "resources": {
+      "lumber": 1,
+      "metal": 1,
+      "axenut": 1
+    }
+  },
+  {
+    "id": 20,
+    "name": "Well Strung Bow",
+    "count": 1,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "016-020",
+    "resources": {
+      "arrowvine": 1
+    },
+    "requiredItems": [
+      7
+    ]
+  },
+  {
+    "id": 21,
+    "name": "Chain Hood",
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "minusOne": 1,
+    "folder": "021-025",
+    "resources": {
+      "metal": 3,
       "hide": 1
     }
   },
   {
-    "id": 25,
-    "name": "Soothing Scepter",
+    "id": 22,
+    "name": "Heavy Chain Armor",
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "spent": true,
+    "minusOne": 2,
+    "folder": "021-025",
+    "resources": {
+      "metal": 1
+    },
+    "requiredItems": [
+      12
+    ]
+  },
+  {
+    "id": 23,
+    "name": "Sturdy Greaves",
+    "count": 1,
+    "edition": "fh",
+    "slot": "legs",
+    "spent": true,
+    "minusOne": 2,
+    "folder": "021-025",
+    "resources": {
+      "metal": 2,
+      "hide": 2
+    }
+  },
+  {
+    "id": 24,
+    "name": "Corrupted Blade",
     "count": 2,
     "edition": "fh",
     "slot": "onehand",
     "spent": true,
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    },
+    "folder": "021-025",
+    "requiredItems": [
+      14,
+      98
+    ]
+  },
+  {
+    "id": 25,
+    "name": "Soothing Scepter",
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "021-025",
     "resources": {
       "lumber": 1,
+      "hide": 1,
+      "rockroot": 1
+    }
+  },
+  {
+    "id": 26,
+    "name": "Truesight Lenses",
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "spent": true,
+    "folder": "026-030",
+    "resources": {
       "metal": 1,
       "hide": 1
     }
   },
   {
-    "id": 38,
+    "id": 27,
+    "name": "Cloak of Warding",
+    "count": 2,
+    "edition": "fh",
+    "slot": "body",
+    "spent": true,
+    "folder": "026-030",
+    "resources": {
+      "hide": 1
+    },
+    "requiredItems": [
+      3,
+      91
+    ]
+  },
+  {
+    "id": 28,
+    "name": "Sturdy Boots",
+    "count": 2,
+    "edition": "fh",
+    "slot": "legs",
+    "spent": true,
+    "folder": "026-030",
+    "resources": {
+      "hide": 1
+    },
+    "requiredItems": [
+      18
+    ]
+  },
+  {
+    "id": 29,
+    "name": "Cleaving Axe",
+    "count": 2,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "026-030",
+    "resources": {
+      "lumber": 1,
+      "metal": 2
+    }
+  },
+  {
+    "id": 30,
+    "name": "Parrying Gauntlet",
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "026-030",
+    "resources": {
+      "metal": 1,
+      "hide": 1
+    }
+  },
+  {
+    "id": 31,
+    "name": "Deathproof Charm",
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "spent": true,
+    "folder": "031-035",
+    "requiredItems": [
+      11,
+      106
+    ]
+  },
+  {
+    "id": 32,
+    "name": "Shell Armor",
+    "count": 1,
+    "edition": "fh",
+    "slot": "body",
+    "spent": true,
+    "folder": "031-035",
+    "resources": {
+      "lumber": 1,
+      "metal": 2,
+      "hide": 2
+    }
+  },
+  {
+    "id": 33,
     "name": "Volatile Boots",
     "count": 2,
     "edition": "fh",
     "slot": "legs",
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    },
+    "folder": "031-035",
     "resources": {
-      "item": [
-        18,
-        96
-      ],
+      "metal": 1
+    },
+    "requiredItems": [
+      18,
+      96
+    ]
+  },
+  {
+    "id": 34,
+    "name": "Shrapnel Bomb",
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "031-035",
+    "resources": {
+      "metal": 2
+    },
+    "requiredItems": [
+      97
+    ]
+  },
+  {
+    "id": 35,
+    "name": "Kite Shield",
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "minusOne": 2,
+    "folder": "031-035",
+    "resources": {
+      "lumber": 2,
       "metal": 1
     }
   },
   {
-    "id": 90,
-    "name": "Corrupted Blade",
+    "id": 36,
+    "name": "Plumed Helmet",
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "folder": "036-040",
+    "resources": {
+      "hide": 1,
+      "snowthistle": 1
+    },
+    "requiredItems": [
+      16
+    ]
+  },
+  {
+    "id": 37,
+    "name": "Ghost Cloak",
+    "count": 2,
+    "edition": "fh",
+    "slot": "body",
+    "spent": true,
+    "folder": "036-040",
+    "resources": {
+      "corpsecap": 1
+    },
+    "requiredItems": [
+      3,
+      114
+    ]
+  },
+  {
+    "id": 38,
+    "name": "Duelists Shoes",
+    "count": 1,
+    "edition": "fh",
+    "slot": "legs",
+    "spent": true,
+    "folder": "036-040",
+    "requiredItems": [
+      13,
+      113
+    ]
+  },
+  {
+    "id": 39,
+    "name": "Abyss Axe",
+    "count": 2,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "036-040",
+    "requiredItems": [
+      29,
+      101,
+      112
+    ]
+  },
+  {
+    "id": 40,
+    "name": "Heartstrike Bow",
+    "count": 1,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "036-040",
+    "resources": {
+      "lumber": 1
+    },
+    "requiredItems": [
+      20,
+      85
+    ]
+  },
+  {
+    "id": 41,
+    "name": "Intricate Charm",
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "folder": "041-045",
+    "resources": {
+      "metal": 1
+    },
+    "requiredItems": [
+      11,
+      110
+    ]
+  },
+  {
+    "id": 42,
+    "name": "Ornate Armor",
+    "count": 2,
+    "edition": "fh",
+    "slot": "body",
+    "spent": true,
+    "minusOne": 4,
+    "folder": "041-045",
+    "resources": {
+      "metal": 3
+    },
+    "requiredItems": [
+      112
+    ]
+  },
+  {
+    "id": 43,
+    "name": "Kicking Boots",
+    "count": 2,
+    "edition": "fh",
+    "slot": "legs",
+    "spent": true,
+    "folder": "041-045",
+    "resources": {
+      "metal": 1
+    },
+    "requiredItems": [
+      28,
+      90
+    ]
+  },
+  {
+    "id": 44,
+    "name": "Sword of Absolution",
     "count": 2,
     "edition": "fh",
     "slot": "onehand",
-    "spent": "true",
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    },
+    "spent": true,
+    "folder": "041-045",
+    "requiredItems": [
+      24,
+      101
+    ]
+  },
+  {
+    "id": 45,
+    "name": "Master Scepter",
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "041-045",
+    "requiredItems": [
+      9,
+      25
+    ]
+  },
+  {
+    "id": 46,
+    "name": "Double-Lens Goggles",
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "spent": true,
+    "folder": "046-050",
     "resources": {
-      "item": [
-        14,
-        98
-      ]
+      "hide": 1
+    },
+    "requiredItems": [
+      26,
+      129
+    ]
+  },
+  {
+    "id": 47,
+    "name": "Robes of Doom",
+    "count": 2,
+    "edition": "fh",
+    "slot": "body",
+    "spent": true,
+    "folder": "046-050",
+    "requiredItems": [
+      27,
+      119,
+      162
+    ]
+  },
+  {
+    "id": 48,
+    "name": "Living Shoes",
+    "count": 2,
+    "edition": "fh",
+    "slot": "legs",
+    "folder": "046-050",
+    "resources": {
+      "hide": 2,
+      "flamefruit": 1
+    },
+    "requiredItems": [
+      13
+    ]
+  },
+  {
+    "id": 49,
+    "name": "Cruel Dagger",
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "046-050",
+    "resources": {
+      "metal": 1
+    },
+    "requiredItems": [
+      111,
+      145
+    ]
+  },
+  {
+    "id": 50,
+    "name": "Shield of Reciprocity",
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "minusOne": 3,
+    "folder": "046-050",
+    "resources": {
+      "metal": 1
+    },
+    "requiredItems": [
+      35,
+      105,
+      161
+    ]
+  },
+  {
+    "id": 51,
+    "name": "Spiked Collar",
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "spent": true,
+    "folder": "051-065",
+    "resources": {
+      "flamefruit": 1
+    },
+    "requiredItems": [
+      11
+    ]
+  },
+  {
+    "id": 52,
+    "name": "Laser Lens",
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "spent": true,
+    "folder": "051-065",
+    "requiredItems": [
+      97,
+      129
+    ]
+  },
+  {
+    "id": 53,
+    "name": "Hobnail Boots",
+    "count": 2,
+    "edition": "fh",
+    "slot": "legs",
+    "folder": "051-065",
+    "resources": {
+      "metal": 1
+    },
+    "requiredItems": [
+      18,
+      88
+    ]
+  },
+  {
+    "id": 54,
+    "name": "Restful Slippers",
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "spent": true,
+    "folder": "051-065",
+    "resources": {
+      "snowthistle": 1
+    },
+    "requiredItems": [
+      6,
+      92
+    ]
+  },
+  {
+    "id": 55,
+    "name": "Biting Gauntlet",
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "051-065",
+    "resources": {
+      "metal": 1,
+      "hide": 1
+    },
+    "requiredItems": [
+      94
+    ]
+  },
+  {
+    "id": 56,
+    "name": "Scavenger's Magnet",
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "spent": true,
+    "folder": "051-065",
+    "resources": {
+      "lumber": 1,
+      "metal": 1
     }
   },
   {
-    "id": 91,
+    "id": 57,
+    "name": "Shovel",
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "folder": "051-065",
+    "resources": {
+      "lumber": 1,
+      "metal": 1
+    }
+  },
+  {
+    "id": 58,
+    "name": "Slippery Sword",
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "051-065",
+    "requiredItems": [
+      14,
+      85,
+      90
+    ]
+  },
+  {
+    "id": 59,
+    "name": "Charm of Expertise",
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "folder": "051-065",
+    "requiredItems": [
+      11,
+      113
+    ]
+  },
+  {
+    "id": 60,
+    "name": "Cloak of Many Pockets",
+    "count": 2,
+    "edition": "fh",
+    "slot": "body",
+    "folder": "051-065",
+    "resources": {
+      "hide": 3
+    },
+    "requiredItems": [
+      132
+    ]
+  },
+  {
+    "id": 61,
+    "name": "Spiked Shell",
+    "count": 2,
+    "edition": "fh",
+    "slot": "body",
+    "spent": true,
+    "folder": "051-065",
+    "resources": {
+      "metal": 1
+    },
+    "requiredItems": [
+      32,
+      105
+    ]
+  },
+  {
+    "id": 62,
+    "name": "Everlasting Boots",
+    "count": 2,
+    "edition": "fh",
+    "slot": "legs",
+    "spent": true,
+    "folder": "051-065",
+    "requiredItems": [
+      28,
+      99
+    ]
+  },
+  {
+    "id": 63,
+    "name": "Shadow Stompers",
+    "count": 2,
+    "edition": "fh",
+    "slot": "legs",
+    "spent": true,
+    "folder": "051-065",
+    "requiredItems": [
+      13,
+      158
+    ]
+  },
+  {
+    "id": 64,
+    "name": "Detonator",
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "051-065",
+    "resources": {
+      "metal": 1
+    },
+    "requiredItems": [
+      96,
+      112
+    ]
+  },
+  {
+    "id": 65,
+    "name": "Rust Powder",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "051-065",
+    "resources": {
+      "corpsecap": 1
+    },
+    "requiredItems": [
+      157
+    ]
+  },
+  {
+    "id": 66,
+    "name": "Amulet of Eternal Life",
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "folder": "066-082",
+    "requiredItems": [
+      109,
+      120
+    ]
+  },
+  {
+    "id": 67,
+    "name": "Converging Lenses",
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "folder": "066-082",
+    "resources": {
+      "metal": 1
+    },
+    "requiredItems": [
+      1,
+      93
+    ]
+  },
+  {
+    "id": 68,
+    "name": "Scaled Armor",
+    "count": 2,
+    "edition": "fh",
+    "slot": "body",
+    "spent": true,
+    "folder": "066-082",
+    "requiredItems": [
+      89,
+      123
+    ]
+  },
+  {
+    "id": 69,
+    "name": "Feathered Cloak",
+    "count": 2,
+    "edition": "fh",
+    "slot": "body",
+    "spent": true,
+    "folder": "066-082",
+    "requiredItems": [
+      3,
+      233
+    ]
+  },
+  {
+    "id": 70,
+    "name": "Aesther Robe",
+    "count": 2,
+    "edition": "fh",
+    "slot": "body",
+    "folder": "066-082",
+    "requiredItems": [
+      27,
+      113
+    ]
+  },
+  {
+    "id": 71,
+    "name": "Bone Boots",
+    "count": 2,
+    "edition": "fh",
+    "slot": "legs",
+    "spent": true,
+    "folder": "066-082",
+    "resources": {
+      "corpsecap": 1
+    },
+    "requiredItems": [
+      18
+    ]
+  },
+  {
+    "id": 72,
+    "name": "Oak Staff",
+    "count": 2,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "066-082",
+    "resources": {
+      "lumber": 1
+    },
+    "requiredItems": [
+      91
+    ]
+  },
+  {
+    "id": 73,
+    "name": "Energizing Baton",
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "066-082",
+    "resources": {
+      "metal": 2
+    },
+    "requiredItems": [
+      101
+    ]
+  },
+  {
+    "id": 74,
+    "name": "Shock Grenades",
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "066-082",
+    "requiredItems": [
+      19,
+      97
+    ]
+  },
+  {
+    "id": 75,
+    "name": "Rose Gauntlet",
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "066-082",
+    "resources": {
+      "flamefruit": 1,
+      "snowthistle": 1
+    },
+    "requiredItems": [
+      30
+    ]
+  },
+  {
+    "id": 76,
+    "name": "Horn of Command",
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "066-082",
+    "resources": {
+      "metal": 1,
+      "hide": 1,
+      "rockroot": 1
+    }
+  },
+  {
+    "id": 77,
+    "name": "Chaos Cannon",
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "066-082",
+    "resources": {
+      "metal": 2
+    },
+    "requiredItems": [
+      86
+    ]
+  },
+  {
+    "id": 78,
+    "name": "Balanced Scales",
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "folder": "066-082",
+    "resources": {
+      "metal": 1,
+      "hide": 1
+    },
+    "requiredItems": [
+      110
+    ]
+  },
+  {
+    "id": 79,
+    "name": "Roasted Fowl",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "066-082",
+    "resources": {
+      "hide": 2,
+      "flamefruit": 1,
+      "snowthistle": 1
+    }
+  },
+  {
+    "id": 80,
+    "name": "Living Stone",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "066-082",
+    "resources": {
+      "rockroot": 1
+    },
+    "requiredItems": [
+      99,
+      156
+    ]
+  },
+  {
+    "id": 81,
+    "name": "Pain Simulacrum",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "066-082",
+    "resources": {
+      "hide": 2
+    },
+    "requiredItems": [
+      97
+    ]
+  },
+  {
+    "id": 82,
+    "name": "Mechanical Cube",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "066-082",
+    "resources": {
+      "metal": 2
+    },
+    "requiredItems": [
+      112
+    ]
+  },
+  {
+    "id": 83,
+    "name": "Healing Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "arrowvine": 1,
+      "rockroot": 1
+    }
+  },
+  {
+    "id": 84,
     "name": "Stamina Potion",
     "count": 2,
     "edition": "fh",
     "slot": "small",
-    "spent": "true",
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    },
+    "spent": true,
+    "folder": "083-119",
     "resources": {
       "arrowvine": 1,
       "snowthistle": 1
+    }
+  },
+  {
+    "id": 85,
+    "name": "Power Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "arrowvine": 1,
+      "axenut": 1
+    }
+  },
+  {
+    "id": 86,
+    "name": "Element Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "arrowvine": 1,
+      "flamefruit": 1
+    }
+  },
+  {
+    "id": 87,
+    "name": "Cure Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "arrowvine": 1,
+      "corpsecap": 1
+    }
+  },
+  {
+    "id": 88,
+    "name": "Fireshield Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "rockroot": 1,
+      "flamefruit": 1
+    }
+  },
+  {
+    "id": 89,
+    "name": "Stoneskin Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "rockroot": 1,
+      "corpsecap": 1
+    }
+  },
+  {
+    "id": 90,
+    "name": "Muscle Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "rockroot": 1,
+      "flamefruit": 1
+    }
+  },
+  {
+    "id": 91,
+    "name": "Holy Water",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "corpsecap": 1,
+      "flamefruit": 1
+    }
+  },
+  {
+    "id": 92,
+    "name": "Renewing Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "rockroot": 1,
+      "snowthistle": 1
+    }
+  },
+  {
+    "id": 93,
+    "name": "Glancing Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "rockroot": 1,
+      "axenut": 1
+    }
+  },
+  {
+    "id": 94,
+    "name": "Frenzy Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "corpsecap": 1,
+      "axenut": 1
+    }
+  },
+  {
+    "id": 95,
+    "name": "Poison Vial",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "snowthistle": 1,
+      "corpsecap": 1
+    }
+  },
+  {
+    "id": 96,
+    "name": "Flame Vial",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "snowthistle": 1,
+      "flamefruit": 1
+    }
+  },
+  {
+    "id": 97,
+    "name": "Explosive Vial",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "snowthistle": 1,
+      "axenut": 1
+    }
+  },
+  {
+    "id": 98,
+    "name": "Unhealthy Mixture",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119"
+  },
+  {
+    "id": 99,
+    "name": "Major Healing Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "arrowvine": 1,
+      "rockroot": 1,
+      "snowthistle": 1
+    }
+  },
+  {
+    "id": 100,
+    "name": "Major Stamina Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "arrowvine": 1,
+      "snowthistle": 1,
+      "axenut": 1
+    }
+  },
+  {
+    "id": 101,
+    "name": "Major Power Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "arrowvine": 1,
+      "axenut": 1,
+      "corpsecap": 1
+    }
+  },
+  {
+    "id": 102,
+    "name": "Major Element Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "arrowvine": 1,
+      "axenut": 1,
+      "flamefruit": 1
+    }
+  },
+  {
+    "id": 103,
+    "name": "Major Cure Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "arrowvine": 1,
+      "corpsecap": 1,
+      "flamefruit": 1
+    }
+  },
+  {
+    "id": 104,
+    "name": "Swiftness Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "rockroot": 1,
+      "axenut": 1,
+      "flamefruit": 1
+    }
+  },
+  {
+    "id": 105,
+    "name": "Major Fireshield Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "arrowvine": 1,
+      "rockroot": 1,
+      "flamefruit": 1
+    }
+  },
+  {
+    "id": 106,
+    "name": "Stonewall Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "arrowvine": 1,
+      "rockroot": 1,
+      "axenut": 1
+    }
+  },
+  {
+    "id": 107,
+    "name": "Vigor Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "arrowvine": 1,
+      "rockroot": 1,
+      "corpsecap": 1
+    }
+  },
+  {
+    "id": 108,
+    "name": "Holy Rain",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "arrowvine": 1,
+      "snowthistle": 1,
+      "corpsecap": 1
+    }
+  },
+  {
+    "id": 109,
+    "name": "Major Renewing Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "rockroot": 1,
+      "snowthistle": 1,
+      "flamefruit": 1
+    }
+  },
+  {
+    "id": 110,
+    "name": "Precision Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "rockroot": 1,
+      "snowthistle": 1,
+      "corpsecap": 1
+    }
+  },
+  {
+    "id": 111,
+    "name": "Major Frenzy Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "rockroot": 1,
+      "axenut": 1,
+      "corpsecap": 1
+    }
+  },
+  {
+    "id": 112,
+    "name": "Hammer Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "rockroot": 1,
+      "snowthistle": 1,
+      "axenut": 1
+    }
+  },
+  {
+    "id": 113,
+    "name": "Expertise Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "rockroot": 1,
+      "corpsecap": 1,
+      "flamefruit": 1
+    }
+  },
+  {
+    "id": 114,
+    "name": "Foresight Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "snowthistle": 1,
+      "corpsecap": 1,
+      "flamefruit": 1
+    }
+  },
+  {
+    "id": 115,
+    "name": "Infusion Potion",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "axenut": 1,
+      "corpsecap": 1,
+      "flamefruit": 1
+    }
+  },
+  {
+    "id": 116,
+    "name": "Plague Flask",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "snowthistle": 1,
+      "axenut": 1,
+      "corpsecap": 1
+    }
+  },
+  {
+    "id": 117,
+    "name": "Inferno Flask",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "snowthistle": 1,
+      "axenut": 1,
+      "flamefruit": 1
+    }
+  },
+  {
+    "id": 118,
+    "name": "Fulminant Flask",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "arrowvine": 1,
+      "snowthistle": 1,
+      "flamefruit": 1
+    }
+  },
+  {
+    "id": 119,
+    "name": "Deadly Mixture",
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "083-119",
+    "resources": {
+      "any": [
+        2,
+        1
+      ]
     }
   },
   {
@@ -276,11 +1659,18 @@
     "count": 2,
     "edition": "fh",
     "slot": "head",
-    "spent": "true",
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    }
+    "spent": true,
+    "folder": "120-128"
+  },
+  {
+    "id": 121,
+    "name": "Circlet of Elements",
+    "cost": 25,
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "spent": true,
+    "folder": "120-128"
   },
   {
     "id": 122,
@@ -289,11 +1679,8 @@
     "count": 2,
     "edition": "fh",
     "slot": "body",
-    "spent": "true",
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    }
+    "spent": true,
+    "folder": "120-128"
   },
   {
     "id": 123,
@@ -302,11 +1689,8 @@
     "count": 2,
     "edition": "fh",
     "slot": "body",
-    "spent": "true",
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    }
+    "spent": true,
+    "folder": "120-128"
   },
   {
     "id": 124,
@@ -315,11 +1699,8 @@
     "count": 2,
     "edition": "fh",
     "slot": "legs",
-    "spent": "true",
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    }
+    "spent": true,
+    "folder": "120-128"
   },
   {
     "id": 125,
@@ -328,11 +1709,18 @@
     "count": 2,
     "edition": "fh",
     "slot": "legs",
-    "spent": "true",
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    }
+    "spent": true,
+    "folder": "120-128"
+  },
+  {
+    "id": 126,
+    "name": "Weighted Net",
+    "cost": 20,
+    "count": 2,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "120-128"
   },
   {
     "id": 127,
@@ -341,11 +1729,8 @@
     "count": 2,
     "edition": "fh",
     "slot": "onehand",
-    "spent": "true",
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    }
+    "spent": true,
+    "folder": "120-128"
   },
   {
     "id": 128,
@@ -354,10 +1739,1207 @@
     "count": 2,
     "edition": "fh",
     "slot": "onehand",
-    "spent": "true",
-    "unlockScenario": {
-      "name": 1,
-      "edition": "fh"
-    }
+    "spent": true,
+    "folder": "120-128"
+  },
+  {
+    "id": 129,
+    "name": "Eagle-Eye Goggles",
+    "cost": 30,
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 130,
+    "name": "Iron Helmet",
+    "cost": 20,
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "minusOne": 1,
+    "folder": "129-167"
+  },
+  {
+    "id": 131,
+    "name": "Chainmail",
+    "cost": 25,
+    "count": 2,
+    "edition": "fh",
+    "slot": "body",
+    "spent": true,
+    "minusOne": 3,
+    "folder": "129-167"
+  },
+  {
+    "id": 132,
+    "name": "Cloak of Pockets",
+    "cost": 30,
+    "count": 2,
+    "edition": "fh",
+    "slot": "body",
+    "folder": "129-167"
+  },
+  {
+    "id": 133,
+    "name": "Nimble Legguards",
+    "cost": 20,
+    "count": 2,
+    "edition": "fh",
+    "slot": "legs",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 134,
+    "name": "Comfortable Shoes",
+    "cost": 30,
+    "count": 2,
+    "edition": "fh",
+    "slot": "legs",
+    "folder": "129-167"
+  },
+  {
+    "id": 135,
+    "name": "Armorbane Bow",
+    "cost": 30,
+    "count": 2,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 136,
+    "name": "Battle Axe",
+    "cost": 20,
+    "count": 2,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 137,
+    "name": "Tower Shield",
+    "cost": 35,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "minusOne": 1,
+    "folder": "129-167"
+  },
+  {
+    "id": 138,
+    "name": "Heavy Basinet",
+    "cost": 30,
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "minusOne": 2,
+    "folder": "129-167"
+  },
+  {
+    "id": 139,
+    "name": "Horned Helm",
+    "cost": 50,
+    "count": 1,
+    "edition": "fh",
+    "slot": "head",
+    "folder": "129-167"
+  },
+  {
+    "id": 140,
+    "name": "Mantle of Summoning",
+    "cost": 40,
+    "count": 2,
+    "edition": "fh",
+    "slot": "body",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 141,
+    "name": "Studded Leather",
+    "cost": 20,
+    "count": 2,
+    "edition": "fh",
+    "slot": "body",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 142,
+    "name": "Boots of Quickness",
+    "cost": 50,
+    "count": 2,
+    "edition": "fh",
+    "slot": "legs",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 143,
+    "name": "Endurance Footwraps",
+    "cost": 40,
+    "count": 2,
+    "edition": "fh",
+    "slot": "legs",
+    "folder": "129-167"
+  },
+  {
+    "id": 144,
+    "name": "Staff of Eminence",
+    "cost": 50,
+    "count": 2,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 145,
+    "name": "Versatile Dagger",
+    "cost": 25,
+    "count": 2,
+    "edition": "fh",
+    "slot": "onehand",
+    "folder": "129-167"
+  },
+  {
+    "id": 146,
+    "name": "Hooked Chain",
+    "cost": 35,
+    "count": 1,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 147,
+    "name": "Mask of Terror",
+    "cost": 60,
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "folder": "129-167"
+  },
+  {
+    "id": 148,
+    "name": "Circlet of Sanctity",
+    "cost": 45,
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "folder": "129-167"
+  },
+  {
+    "id": 149,
+    "name": "Platemail",
+    "cost": 50,
+    "count": 2,
+    "edition": "fh",
+    "slot": "body",
+    "spent": true,
+    "minusOne": 5,
+    "folder": "129-167"
+  },
+  {
+    "id": 150,
+    "name": "Robes of the Oak",
+    "cost": 30,
+    "count": 2,
+    "edition": "fh",
+    "slot": "body",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 151,
+    "name": "Serene Sandals",
+    "cost": 75,
+    "count": 2,
+    "edition": "fh",
+    "slot": "legs",
+    "folder": "129-167"
+  },
+  {
+    "id": 152,
+    "name": "Steel Sabatons",
+    "cost": 55,
+    "count": 2,
+    "edition": "fh",
+    "slot": "legs",
+    "minusOne": 2,
+    "folder": "129-167"
+  },
+  {
+    "id": 153,
+    "name": "Long Spear",
+    "cost": 40,
+    "count": 2,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 154,
+    "name": "volatile Bomb",
+    "cost": 50,
+    "count": 2,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 155,
+    "name": "Wall Shield",
+    "cost": 50,
+    "count": 2,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "minusOne": 2,
+    "folder": "129-167"
+  },
+  {
+    "id": 156,
+    "name": "Moon Earring",
+    "cost": 20,
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 157,
+    "name": "Steel Ring",
+    "cost": 20,
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 158,
+    "name": "Deep Earth Brooch",
+    "cost": 30,
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 159,
+    "name": "Glorious Bracelet",
+    "cost": 30,
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 160,
+    "name": "Sun Earring",
+    "cost": 35,
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 161,
+    "name": "Strategists Ring",
+    "cost": 30,
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 162,
+    "name": "Howling Ice Brooch",
+    "cost": 40,
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 163,
+    "name": "Stunning Bracelet",
+    "cost": 35,
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 164,
+    "name": "Star Earring",
+    "cost": 50,
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 165,
+    "name": "Ring of Haste",
+    "cost": 40,
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 166,
+    "name": "Blazing Sun Brooch",
+    "cost": 50,
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 167,
+    "name": "Attractive Bracelet",
+    "cost": 40,
+    "count": 2,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "129-167"
+  },
+  {
+    "id": 168,
+    "name": "Circlet of Eyes",
+    "cost": 50,
+    "count": 1,
+    "edition": "fh",
+    "slot": "head",
+    "spent": true,
+    "folder": "168-192"
+  },
+  {
+    "id": 169,
+    "name": "Fateful Charm",
+    "cost": 30,
+    "count": 1,
+    "edition": "fh",
+    "slot": "head",
+    "spent": true,
+    "folder": "168-192"
+  },
+  {
+    "id": 170,
+    "name": "Eye of Truth",
+    "cost": 25,
+    "count": 1,
+    "edition": "fh",
+    "slot": "head",
+    "spent": true,
+    "folder": "168-192"
+  },
+  {
+    "id": 171,
+    "name": "Rejuvenating Charm",
+    "cost": 20,
+    "count": 1,
+    "edition": "fh",
+    "slot": "head",
+    "folder": "168-192"
+  },
+  {
+    "id": 172,
+    "name": "Cap of Premonition",
+    "cost": 25,
+    "count": 1,
+    "edition": "fh",
+    "slot": "head",
+    "spent": true,
+    "folder": "168-192"
+  },
+  {
+    "id": 173,
+    "name": "Multi Colored Cloak",
+    "cost": 20,
+    "count": 1,
+    "edition": "fh",
+    "slot": "body",
+    "spent": true,
+    "folder": "168-192"
+  },
+  {
+    "id": 174,
+    "name": "Magnetic Cape",
+    "cost": 40,
+    "count": 1,
+    "edition": "fh",
+    "slot": "body",
+    "spent": true,
+    "folder": "168-192"
+  },
+  {
+    "id": 175,
+    "name": "Mirrored Armor",
+    "cost": 35,
+    "count": 1,
+    "edition": "fh",
+    "slot": "body",
+    "spent": true,
+    "minusOne": 2,
+    "folder": "168-192"
+  },
+  {
+    "id": 176,
+    "name": "Blinking Cape",
+    "cost": 50,
+    "count": 1,
+    "edition": "fh",
+    "slot": "body",
+    "spent": true,
+    "folder": "168-192"
+  },
+  {
+    "id": 177,
+    "name": "Boots of Transference",
+    "cost": 40,
+    "count": 1,
+    "edition": "fh",
+    "slot": "legs",
+    "spent": true,
+    "folder": "168-192"
+  },
+  {
+    "id": 178,
+    "name": "Tranquil Shoes",
+    "cost": 40,
+    "count": 1,
+    "edition": "fh",
+    "slot": "legs",
+    "folder": "168-192"
+  },
+  {
+    "id": 179,
+    "name": "Burst Boots",
+    "cost": 25,
+    "count": 1,
+    "edition": "fh",
+    "slot": "legs",
+    "spent": true,
+    "folder": "168-192"
+  },
+  {
+    "id": 180,
+    "name": "Boots of Greed",
+    "cost": 35,
+    "count": 1,
+    "edition": "fh",
+    "slot": "legs",
+    "folder": "168-192"
+  },
+  {
+    "id": 181,
+    "name": "Translocation Rod",
+    "cost": 30,
+    "count": 1,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "168-192"
+  },
+  {
+    "id": 182,
+    "name": "Wing Clippers",
+    "cost": 40,
+    "count": 1,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "168-192"
+  },
+  {
+    "id": 183,
+    "name": "Decanter of Mists",
+    "cost": 35,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "168-192"
+  },
+  {
+    "id": 184,
+    "name": "Flashing Axe",
+    "cost": 20,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "168-192"
+  },
+  {
+    "id": 185,
+    "name": "Mirrored Knife",
+    "cost": 20,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "168-192"
+  },
+  {
+    "id": 186,
+    "name": "Wild Growth Seeds",
+    "cost": 20,
+    "count": 1,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "168-192"
+  },
+  {
+    "id": 187,
+    "name": "Dangerous Gear",
+    "cost": 25,
+    "count": 1,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "168-192"
+  },
+  {
+    "id": 188,
+    "name": "Freezing Crystal",
+    "cost": 35,
+    "count": 1,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "168-192"
+  },
+  {
+    "id": 189,
+    "name": "Ring of the Night",
+    "cost": 50,
+    "count": 1,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "168-192"
+  },
+  {
+    "id": 190,
+    "name": "White Card",
+    "cost": 20,
+    "count": 1,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "168-192"
+  },
+  {
+    "id": 191,
+    "name": "Corrupted Scroll",
+    "cost": 25,
+    "count": 1,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "168-192"
+  },
+  {
+    "id": 192,
+    "name": "Enticing Bell",
+    "cost": 25,
+    "count": 1,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "168-192"
+  },
+  {
+    "id": 193,
+    "name": "Mind Thieving Helmet",
+    "cost": 30,
+    "count": 1,
+    "edition": "fh",
+    "slot": "head",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 194,
+    "name": "Temporal Amulet",
+    "cost": 30,
+    "count": 1,
+    "edition": "fh",
+    "slot": "head",
+    "folder": "193-247"
+  },
+  {
+    "id": 195,
+    "name": "Tri-Corner Hat",
+    "cost": 30,
+    "count": 2,
+    "edition": "fh",
+    "slot": "head",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 196,
+    "name": "Choker of Sacrifice",
+    "cost": 30,
+    "count": 1,
+    "edition": "fh",
+    "slot": "head",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 197,
+    "name": "Aesther Diadem",
+    "cost": 30,
+    "count": 1,
+    "edition": "fh",
+    "slot": "head",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 198,
+    "name": "Hunter's Necklace",
+    "cost": 35,
+    "count": 1,
+    "edition": "fh",
+    "slot": "head",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 199,
+    "name": "Opulent Shoes",
+    "cost": 30,
+    "count": 2,
+    "edition": "fh",
+    "slot": "legs",
+    "folder": "193-247"
+  },
+  {
+    "id": 200,
+    "name": "Eventide Scepter",
+    "cost": 50,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "folder": "193-247"
+  },
+  {
+    "id": 201,
+    "name": "Wave Blade",
+    "cost": 50,
+    "count": 1,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 202,
+    "name": "Giant Piranha Pig Spine",
+    "cost": 40,
+    "count": 1,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 203,
+    "name": "Scepter of Control",
+    "cost": 50,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 204,
+    "name": "Severed Claw",
+    "cost": 35,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "minusOne": 1,
+    "folder": "193-247"
+  },
+  {
+    "id": 205,
+    "name": "Harpoon",
+    "cost": 30,
+    "count": 1,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 206,
+    "name": "Giant Sword",
+    "cost": 40,
+    "count": 1,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "minusOne": 3,
+    "folder": "193-247"
+  },
+  {
+    "id": 207,
+    "name": "Fishhook",
+    "cost": 25,
+    "count": 1,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 208,
+    "name": "Titan Nail",
+    "cost": 35,
+    "count": 1,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 209,
+    "name": "Sword of Mastery",
+    "cost": 60,
+    "count": 1,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 210,
+    "name": "Tanjo",
+    "cost": 30,
+    "count": 1,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 211,
+    "name": "Boom Barrel",
+    "cost": 30,
+    "count": 1,
+    "edition": "fh",
+    "slot": "twohand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 212,
+    "name": "Elemental Stone",
+    "cost": 30,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 213,
+    "name": "Key of Seasons",
+    "cost": 70,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "folder": "193-247"
+  },
+  {
+    "id": 214,
+    "name": "Cup of Ventillion",
+    "cost": 30,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 215,
+    "name": "Befuddling Mug",
+    "cost": 30,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 216,
+    "name": "Tome of Elements",
+    "cost": 50,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 217,
+    "name": "Tome of Time",
+    "cost": 50,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 218,
+    "name": "Tome of Life",
+    "cost": 50,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 219,
+    "name": "Tome of Conflict",
+    "cost": 50,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 220,
+    "name": "Belaras Quill",
+    "cost": 50,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 221,
+    "name": "Ice Shiv",
+    "cost": 30,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 222,
+    "name": "Black Box",
+    "cost": 30,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 223,
+    "name": "Lightning Rod",
+    "cost": 20,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 224,
+    "name": "Armor of Empathy",
+    "cost": 40,
+    "count": 1,
+    "edition": "fh",
+    "slot": "body",
+    "folder": "193-247"
+  },
+  {
+    "id": 225,
+    "name": "Algox Carving",
+    "cost": 60,
+    "count": 1,
+    "edition": "fh",
+    "slot": "body",
+    "folder": "193-247"
+  },
+  {
+    "id": 226,
+    "name": "Unfettered Arm",
+    "cost": 20,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 227,
+    "name": "Data Drive",
+    "cost": 40,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 228,
+    "name": "Extendable Pole",
+    "cost": 20,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 229,
+    "name": "Exquisite Map",
+    "cost": 50,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 230,
+    "name": "Examination Glass",
+    "cost": 20,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 231,
+    "name": "Skinning Knife",
+    "cost": 15,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 232,
+    "name": "Orchid Wand",
+    "cost": 20,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 233,
+    "name": "Dead Raven",
+    "cost": 30,
+    "count": 1,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 234,
+    "name": "ooze vial",
+    "cost": 30,
+    "count": 1,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 235,
+    "name": "Small Rat",
+    "cost": 10,
+    "count": 1,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 236,
+    "name": "Cracked Mirror",
+    "cost": 30,
+    "count": 1,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 237,
+    "name": "Mesmerizing Seashell",
+    "cost": 45,
+    "count": 1,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 238,
+    "name": "Cracked Idol",
+    "cost": 30,
+    "count": 1,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 239,
+    "name": "Eye of the Storm",
+    "cost": 40,
+    "count": 1,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 240,
+    "name": "Demons Gem",
+    "cost": 15,
+    "count": 1,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 241,
+    "name": "Shimmering Powder",
+    "cost": 40,
+    "count": 1,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 242,
+    "name": "Lucky Dice",
+    "cost": 30,
+    "count": 1,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 243,
+    "name": "Cursed Rock",
+    "cost": 10,
+    "count": 1,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 244,
+    "name": "Ember Energy Source",
+    "cost": 50,
+    "count": 1,
+    "edition": "fh",
+    "slot": "small",
+    "spent": true,
+    "folder": "193-247"
+  },
+  {
+    "id": 245,
+    "name": "Ancient Coin",
+    "cost": 0,
+    "count": 1,
+    "edition": "fh",
+    "folder": "193-247"
+  },
+  {
+    "id": 245,
+    "name": "Ancient Coin",
+    "cost": 0,
+    "count": 1,
+    "edition": "fh",
+    "folder": "193-247"
+  },
+  {
+    "id": 245,
+    "name": "Ancient Coin",
+    "cost": 0,
+    "count": 1,
+    "edition": "fh",
+    "folder": "193-247"
+  },
+  {
+    "id": 245,
+    "name": "Ancient Coin",
+    "cost": 0,
+    "count": 1,
+    "edition": "fh",
+    "folder": "193-247"
+  },
+  {
+    "id": 246,
+    "name": "Key Card",
+    "cost": 0,
+    "count": 1,
+    "edition": "fh",
+    "folder": "193-247"
+  },
+  {
+    "id": 247,
+    "name": "Trainers Net",
+    "cost": 50,
+    "count": 1,
+    "edition": "fh",
+    "slot": "onehand",
+    "spent": true,
+    "folder": "193-247"
   }
 ]

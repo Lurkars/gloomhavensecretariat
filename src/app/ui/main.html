@@ -4,6 +4,9 @@
 
     <img class="ghs-logo" src="./assets/images/logo-transparent.svg">
 
+    <a *ngIf="gameManager.stateManager.installPrompt" class="install" (click)="gameManager.stateManager.install()"> <img
+        class="ghs-svg" src="./assets/images/install.svg"> {{'installApp' | ghsLabel}}</a>
+
     <h2>{{'welcome' | ghsLabel}}</h2>
     <div class="choose-edition" *ngIf="!gameManager.game.edition">
       <p>{{'welcome.chooseEdition' | ghsLabel}}</p>

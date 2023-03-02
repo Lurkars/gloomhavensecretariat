@@ -19,6 +19,7 @@ export class StateManager {
   lastSaveTimestamp: number;
 
   hasUpdate: boolean = false;
+  installPrompt: any = null;
 
   lastAction: "update" | "undo" | "redo" = "update";
 
@@ -67,6 +68,14 @@ export class StateManager {
     const missingUndoInfos = this.undos.length + this.redos.length - this.undoInfos.length;
     for (let i = 0; i < missingUndoInfos; i++) {
       this.undoInfos.unshift([]);
+    }
+  }
+
+  async install() {
+    if (this.installPrompt) {
+      this.installPrompt.prompt();
+      const outcome = await gameManager.stateManager.installPrompt.userChoice;
+      this.installPrompt = null;
     }
   }
 

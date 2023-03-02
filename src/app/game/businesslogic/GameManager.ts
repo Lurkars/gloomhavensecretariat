@@ -84,7 +84,7 @@ export class GameManager {
     return [this.game.edition, ...this.editionExtensions(this.game.edition)];
   }
 
-  currentEdition(): string {
+  currentEdition(fallback: string | undefined = undefined): string {
     if (this.game.edition) {
       return this.game.edition;
     }
@@ -99,7 +99,7 @@ export class GameManager {
       return charEditions[0];
     }
 
-    return this.editions()[0];
+    return fallback || this.editions()[0];
   }
 
   editionExtensions(edition: string): string[] {

@@ -72,6 +72,15 @@ export class MainComponent implements OnInit {
         this.swUpdate.checkForUpdate();
       }, 30000);
     }
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      gameManager.stateManager.installPrompt = e;
+    });
+
+    window.addEventListener('appinstalled', () => {
+      gameManager.stateManager.installPrompt = null;
+    });
   }
 
   async ngOnInit() {

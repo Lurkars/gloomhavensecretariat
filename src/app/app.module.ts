@@ -99,6 +99,7 @@ import { CharacterMoveResourcesDialog } from './ui/figures/character/dialogs/mov
 import { PartyWeekDialogComponent } from './ui/header/party/week-dialog';
 
 import 'hammerjs'
+import { CharacterItemsComponent } from './ui/figures/character/items/items';
 
 @Injectable()
 export class GhsHammerConfig extends HammerGestureConfig {
@@ -124,7 +125,7 @@ export class GhsHammerConfig extends HammerGestureConfig {
     ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent,
     ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
     EntityMenuDialogComponent, EntitiesMenuDialogComponent,
-    CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog,
+    CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterItemsComponent,
     ObjectiveComponent,
     SummonEntityComponent, SummonSheetComponent,
     MonsterComponent,
