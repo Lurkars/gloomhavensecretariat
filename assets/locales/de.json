@@ -436,6 +436,7 @@
     "next": "\"%round.next%\" klicken",
     "setScenario": "%scenario%"
   },
+  "installApp": "Installiere als App",
   "menu": {
     "backToMain": "Zurück zum %menu.main%",
     "main": "Hauptmenu"
