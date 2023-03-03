@@ -56,10 +56,12 @@ export class HeaderComponent implements OnInit {
   }
 
   hintStateValue(): string {
-    if (gameManager.game.figures.every((figure) => !(figure instanceof Character) && !(figure instanceof Monster))) {
+    if (gameManager.game.playerCount < 1 && gameManager.game.figures.every((figure) => !(figure instanceof Character) && !(figure instanceof Monster))) {
       return 'characters';
     } else if (!gameManager.game.scenario && gameManager.game.figures.every((figure) => !(figure instanceof Monster))) {
       return 'scenario';
+    } else if (gameManager.game.figures.every((figure) => !(figure instanceof Monster))) {
+      return 'monsters';
     } else if (gameManager.game.figures.every((figure) => !(figure instanceof Monster) || figure.entities.length == 0)) {
       return 'addMonsterEntities';
     } else if (gameManager.game.figures.some((figure) => figure.active)) {

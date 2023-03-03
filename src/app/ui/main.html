@@ -4,8 +4,8 @@
 
     <img class="ghs-logo" src="./assets/images/logo-transparent.svg">
 
-    <a *ngIf="gameManager.stateManager.installPrompt" class="install" (click)="gameManager.stateManager.install()"> <img
-        class="ghs-svg" src="./assets/images/install.svg"> {{'installApp' | ghsLabel}}</a>
+    <a *ngIf="gameManager.stateManager.installPrompt" class="install" (click)="gameManager.stateManager.install()">
+      <img class="ghs-svg" src="./assets/images/install.svg"> {{'app.install' | ghsLabel}}</a>
 
     <h2>{{'welcome' | ghsLabel}}</h2>
     <div class="choose-edition" *ngIf="!gameManager.game.edition">
@@ -21,6 +21,16 @@
     <div class="add-characters" (click)="header.openMenu($event, SubMenu.character_add)">
       {{'hints.addCharacters' | ghsLabel}}
     </div>
+
+    <ng-container *ngIf="loading">
+      <span>{{'app.loading' | ghsLabel}}</span>
+
+      <div class="loading-bar-container">
+        <div class="loading-bar"></div>
+      </div>
+
+      <a class="loading-cancel" *ngIf="cancelLoading" (click)="loading = false">{{'app.loading.cancel' | ghsLabel}}</a>
+    </ng-container>
   </div>
   <div *ngIf="!fullviewChar && !welcome" class="figures" cdkDropListGroup cdkScrollable
     [ngClass]="{'loot-deck' : gameManager.game.lootDeck.active, 'ally-deck' : !gameManager.game.lootDeck.active && footer.hasAllyAttackModifierDeck, 'drag-disabled': settingsManager.settings.disableDragFigures}">

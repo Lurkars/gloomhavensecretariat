@@ -26,6 +26,8 @@ export class MainComponent implements OnInit {
   resizeObserver: ResizeObserver;
   SubMenu = SubMenu;
 
+  loading: boolean = true;
+  cancelLoading: boolean = false;
   welcome: boolean = false;
   fullviewChar: Character | undefined;
   scrollTimeout: any = null;
@@ -58,11 +60,17 @@ export class MainComponent implements OnInit {
     })
 
     this.swUpdate.versionUpdates.subscribe(evt => {
+      console.debug(evt);
+      this.loading = false;
       if (evt.type == 'VERSION_READY') {
         gameManager.stateManager.hasUpdate = true;
       } else if (evt.type == 'VERSION_INSTALLATION_FAILED') {
         console.error(`Failed to install version '${evt.version.hash}': ${evt.error}`);
       }
+    })
+
+    this.swUpdate.unrecoverable.subscribe(evt => {
+      this.loading = false;
     })
 
     if (this.swUpdate.isEnabled) {
@@ -71,7 +79,13 @@ export class MainComponent implements OnInit {
       setInterval(() => {
         this.swUpdate.checkForUpdate();
       }, 30000);
+    } else {
+      this.loading = false;
     }
+
+    setInterval(() => {
+      this.cancelLoading = true;
+    }, 10000);
 
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault();

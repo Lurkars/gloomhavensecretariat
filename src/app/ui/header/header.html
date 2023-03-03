@@ -43,6 +43,9 @@
           <span>{{'or' | ghsLabel}}</span>
           <a class="menu-hint" (click)="openMenu($event, SubMenu.monster_add)">{{'hints.addMonsters' | ghsLabel}}</a>
         </ng-container>
+        <ng-container *ngSwitchCase="'monsters'">
+          <a class="menu-hint" (click)="openMenu($event, SubMenu.monster_add)">{{'hints.addMonsters' | ghsLabel}}</a>
+        </ng-container>
         <ng-container *ngSwitchDefault>{{'hints.' + hintState | ghsLabel}}</ng-container>
       </ng-container>
     </div>

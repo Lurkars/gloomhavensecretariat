@@ -1,61 +1,11 @@
 <div class="menu-container two-column settings">
+
+  <!-- GAMEPLAY -->
+  <div class="line title span">
+    <label>{{'settings.gameplay' | ghsLabel}}</label>
+  </div>
+
   <div class="column">
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.calculate"
-            (change)="settingsManager.setCalculate(!settingsManager.settings.calculate)">
-          {{'settings.calc' | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.calc.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.calculateStats"
-            (change)="settingsManager.setCalculateStats(!settingsManager.settings.calculateStats)">
-          {{'settings.calcStats' | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.calcStats.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.hideStats"
-            (change)="settingsManager.setHideStats(!settingsManager.settings.hideStats)">{{'settings.hideStats' |
-          ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.hideStats.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.dragValues"
-            (change)="settingsManager.setDragValues(!settingsManager.settings.dragValues)">{{'settings.dragValues'
-          | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.dragValues.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-
     <div class="line">
       <div class="hint-container">
         <label>
@@ -69,77 +19,6 @@
         </span>
       </div>
     </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.activeSummons"
-            (change)="settingsManager.setActiveSummons(!settingsManager.settings.activeSummons)">
-          {{'settings.activeSummons' | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.activeSummons.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.abilityReveal"
-            (change)="settingsManager.setAbilityReveal(!settingsManager.settings.abilityReveal)">{{'settings.abilityReveal'
-          | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.abilityReveal.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.abilityNumbers"
-            (change)="settingsManager.setAbilityNumbers(!settingsManager.settings.abilityNumbers)">{{'settings.abilityNumbers'
-          | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.abilityNumbers.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.showFullAbilityCard"
-            (change)="settingsManager.setShowFullAbilityCard(!settingsManager.settings.showFullAbilityCard)">{{'settings.showFullAbilityCard'
-          | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.showFullAbilityCard.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.scenarioRules"
-            (change)="settingsManager.setScenarioRules(!settingsManager.settings.scenarioRules)">
-          {{'settings.scenarioRules' | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.scenarioRules.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-
     <div class="line">
       <div class="hint-container">
         <label>
@@ -154,6 +33,221 @@
       </div>
     </div>
   </div>
+
+  <div class="column">
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.scenarioRules"
+            (change)="settingsManager.setScenarioRules(!settingsManager.settings.scenarioRules)">
+          {{'settings.scenarioRules' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.scenarioRules.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
+          <input type="checkbox" [checked]="settingsManager.settings.scenarioRooms && !settingsManager.settings.disableStandees"
+            (change)="settingsManager.setScenarioRooms(!settingsManager.settings.scenarioRooms)">
+          {{'settings.scenarioRooms' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.scenarioRooms.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MONSTERS -->
+  <div class="line title span">
+    <label>{{'settings.monsters' | ghsLabel}}</label>
+  </div>
+
+  <div class="column">
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.calculate"
+            (change)="settingsManager.setCalculate(!settingsManager.settings.calculate)">
+          {{'settings.calc' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.calc.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.calculateStats"
+            (change)="settingsManager.setCalculateStats(!settingsManager.settings.calculateStats)">
+          {{'settings.calcStats' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.calcStats.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.hideStats"
+            (change)="settingsManager.setHideStats(!settingsManager.settings.hideStats)">{{'settings.hideStats' |
+          ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.hideStats.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.abilityReveal"
+            (change)="settingsManager.setAbilityReveal(!settingsManager.settings.abilityReveal)">{{'settings.abilityReveal'
+          | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.abilityReveal.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.abilityNumbers"
+            (change)="settingsManager.setAbilityNumbers(!settingsManager.settings.abilityNumbers)">{{'settings.abilityNumbers'
+          | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.abilityNumbers.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.showFullAbilityCard"
+            (change)="settingsManager.setShowFullAbilityCard(!settingsManager.settings.showFullAbilityCard)">{{'settings.showFullAbilityCard'
+          | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.showFullAbilityCard.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STANDEES -->
+  <div class="line title span">
+    <label>{{'settings.standees' | ghsLabel}}</label>
+  </div>
+
+  <div class="column">
+    <div class="line">
+      <div class="hint-container">
+        <label [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
+          <input type="checkbox" [checked]="settingsManager.settings.eliteFirst && !settingsManager.settings.disableStandees"
+            (change)="settingsManager.setEliteFirst(!settingsManager.settings.eliteFirst)">{{'settings.eliteFirst' |
+          ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.eliteFirst.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
+          <input type="checkbox" [checked]="settingsManager.settings.activeStandees && !settingsManager.settings.disableStandees"
+            (change)="settingsManager.setActiveStandees(!settingsManager.settings.activeStandees)">
+          {{'settings.activeStandees' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.activeStandees.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.activeSummons"
+            (change)="settingsManager.setActiveSummons(!settingsManager.settings.activeSummons)">
+          {{'settings.activeSummons' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.activeSummons.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="line">
+      <div class="hint-container">
+        <label
+          [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || settingsManager.settings.disableStandees}">
+          <input type="checkbox" [checked]="settingsManager.settings.automaticStandees && !settingsManager.settings.disableStandees && settingsManager.settings.scenarioRooms"
+            (change)="settingsManager.setAutomaticStandees(!settingsManager.settings.automaticStandees)">
+          {{'settings.automaticStandees' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.automaticStandees.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
+          <input type="checkbox" [checked]="settingsManager.settings.randomStandees && !settingsManager.settings.disableStandees"
+            (change)="settingsManager.setRandomStandees(!settingsManager.settings.randomStandees)">
+          {{'settings.randomStandees' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.randomStandees.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.disableStandees"
+            (change)="settingsManager.setDisableStandees(!settingsManager.settings.disableStandees)">
+          {{'settings.disableStandees' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.disableStandees.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONDITION/ELEMENTS -->
+  <div class="line title span">
+    <label>{{'settings.conditions' | ghsLabel}}</label>
+  </div>
+
   <div class="column">
     <div class="line">
       <div class="hint-container">
@@ -168,7 +262,6 @@
         </span>
       </div>
     </div>
-
     <div class="line">
       <div class="hint-container">
         <label>
@@ -182,10 +275,12 @@
         </span>
       </div>
     </div>
+  </div>
 
-    <div class="line" [ngClass]="{'disabled' : !settingsManager.settings.applyConditions}">
+  <div class="column">
+    <div class="line">
       <div class="hint-container">
-        <label>
+        <label [ngClass]="{'disabled' : !settingsManager.settings.applyConditions}">
           <input type="checkbox"
             [checked]="settingsManager.settings.applyConditions && settingsManager.settings.activeApplyConditions"
             (change)="settingsManager.setActiveApplyConditions(!settingsManager.settings.activeApplyConditions)">
@@ -211,96 +306,55 @@
         </span>
       </div>
     </div>
-
-    <div class="line" [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.eliteFirst"
-            (change)="settingsManager.setEliteFirst(!settingsManager.settings.eliteFirst)">{{'settings.eliteFirst' |
-          ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.eliteFirst.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line" [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.activeStandees"
-            (change)="settingsManager.setActiveStandees(!settingsManager.settings.activeStandees)">
-          {{'settings.activeStandees' | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.activeStandees.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-    <div class="line" [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.randomStandees"
-            (change)="settingsManager.setRandomStandees(!settingsManager.settings.randomStandees)">
-          {{'settings.randomStandees' | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.randomStandees.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line" [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.scenarioRooms"
-            (change)="settingsManager.setScenarioRooms(!settingsManager.settings.scenarioRooms)">
-          {{'settings.scenarioRooms' | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.scenarioRooms.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line"
-      [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || settingsManager.settings.disableStandees}">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.automaticStandees"
-            (change)="settingsManager.setAutomaticStandees(!settingsManager.settings.automaticStandees)">
-          {{'settings.automaticStandees' | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.automaticStandees.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.disableStandees"
-            (change)="settingsManager.setDisableStandees(!settingsManager.settings.disableStandees)">
-          {{'settings.disableStandees' | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.disableStandees.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
   </div>
 
   <div class="separator"></div>
 
+  <!-- FROSTHAVEN -->
   <div class="line title span">
     <label>{{'settings.fhRules' | ghsLabel}}</label>
+  </div>
+
+  <div class="column">
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.applyLoot"
+            (change)="settingsManager.setApplyLoot(!settingsManager.settings.applyLoot)">
+          {{'settings.applyLoot' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.applyLoot.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label [ngClass]="{'disabled' : !settingsManager.settings.applyLoot}">
+          <input type="checkbox" [checked]="settingsManager.settings.alwaysLootApplyDialog && settingsManager.settings.applyLoot"
+            (change)="settingsManager.setAlwaysLootApplyDialog(!settingsManager.settings.alwaysLootApplyDialog)">
+          {{'settings.alwaysLootApplyDialog' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.alwaysLootApplyDialog.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.alwaysLootDeck"
+            (change)="settingsManager.setAlwaysLootDeck(!settingsManager.settings.alwaysLootDeck)">
+          {{'settings.alwaysLootDeck' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.alwaysLootDeck.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
   </div>
 
   <div class="column">
@@ -347,50 +401,94 @@
     </div>
   </div>
 
+  <!-- INTERFACE -->
+  <div class="line title span">
+    <label>{{'settings.interface' | ghsLabel}}</label>
+  </div>
+
   <div class="column">
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.alwaysLootDeck"
-            (change)="settingsManager.setAlwaysLootDeck(!settingsManager.settings.alwaysLootDeck)">
-          {{'settings.alwaysLootDeck' | ghsLabel}}
+          <input type="checkbox" [checked]="settingsManager.settings.fhStyle"
+            (change)="settingsManager.setFhStyle(!settingsManager.settings.fhStyle)">
+          {{'settings.fhStyle' | ghsLabel}}
         </label>
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
-          <span class="text">{{'settings.alwaysLootDeck.hint' | ghsLabel}}</span>
+          <span class="text">{{'settings.fhStyle.hint' | ghsLabel}}</span>
         </span>
       </div>
     </div>
-
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.applyLoot"
-            (change)="settingsManager.setApplyLoot(!settingsManager.settings.applyLoot)">
-          {{'settings.applyLoot' | ghsLabel}}
+          <input type="checkbox" [checked]="settingsManager.settings.dragValues"
+            (change)="settingsManager.setDragValues(!settingsManager.settings.dragValues)">{{'settings.dragValues'
+          | ghsLabel}}
         </label>
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
-          <span class="text">{{'settings.applyLoot.hint' | ghsLabel}}</span>
+          <span class="text">{{'settings.dragValues.hint' | ghsLabel}}</span>
         </span>
       </div>
     </div>
-
-    <div class="line" *ngIf="settingsManager.settings.applyLoot">
+    <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.alwaysLootApplyDialog"
-            (change)="settingsManager.setAlwaysLootApplyDialog(!settingsManager.settings.alwaysLootApplyDialog)">
-          {{'settings.alwaysLootApplyDialog' | ghsLabel}}
+          <input type="checkbox" [checked]="settingsManager.settings.pressDoubleClick"
+            (change)="settingsManager.setPressDoubleClick(!settingsManager.settings.pressDoubleClick)">
+          {{'settings.pressDoubleClick' | ghsLabel}}
         </label>
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
-          <span class="text">{{'settings.alwaysLootApplyDialog.hint' | ghsLabel}}</span>
+          <span class="text">{{'settings.pressDoubleClick.hint' | ghsLabel}}</span>
         </span>
       </div>
     </div>
   </div>
 
+  <div class="column">
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.autoscroll"
+            (change)="settingsManager.setAutoscroll(!settingsManager.settings.autoscroll)">
+          {{'settings.autoscroll' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.autoscroll.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.automaticAttackModifierFullscreen"
+            (change)="settingsManager.setAutomaticAttackModifierFullscreen(!settingsManager.settings.automaticAttackModifierFullscreen)">
+          {{'settings.automaticAttackModifierFullscreen' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.automaticAttackModifierFullscreen.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.disableDragFigures"
+            (change)="settingsManager.setDisableDragFigures(!settingsManager.settings.disableDragFigures)">
+          {{'settings.disableDragFigures' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.disableDragFigures.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+  </div>
 
   <div class="separator"></div>
 
@@ -425,34 +523,6 @@
         </span>
       </div>
     </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.pressDoubleClick"
-            (change)="settingsManager.setPressDoubleClick(!settingsManager.settings.pressDoubleClick)">
-          {{'settings.pressDoubleClick' | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.pressDoubleClick.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.disableDragFigures"
-            (change)="settingsManager.setDisableDragFigures(!settingsManager.settings.disableDragFigures)">
-          {{'settings.disableDragFigures' | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.disableDragFigures.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
   </div>
 
   <div class="column">
@@ -466,48 +536,6 @@
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
           <span class="text">{{'settings.hints.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.autoscroll"
-            (change)="settingsManager.setAutoscroll(!settingsManager.settings.autoscroll)">
-          {{'settings.autoscroll' | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.autoscroll.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.automaticAttackModifierFullscreen"
-            (change)="settingsManager.setAutomaticAttackModifierFullscreen(!settingsManager.settings.automaticAttackModifierFullscreen)">
-          {{'settings.automaticAttackModifierFullscreen' | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.automaticAttackModifierFullscreen.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.fhStyle"
-            (change)="settingsManager.setFhStyle(!settingsManager.settings.fhStyle)">
-          {{'settings.fhStyle' | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.fhStyle.hint' | ghsLabel}}</span>
         </span>
       </div>
     </div>

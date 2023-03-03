@@ -9,7 +9,9 @@
     "folder": "001-010",
     "resources": {
       "metal": 1
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 2,
@@ -20,7 +22,9 @@
     "folder": "001-010",
     "resources": {
       "metal": 1
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 3,
@@ -31,7 +35,9 @@
     "folder": "001-010",
     "resources": {
       "hide": 1
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 4,
@@ -44,7 +50,9 @@
     "folder": "001-010",
     "resources": {
       "hide": 2
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 5,
@@ -56,7 +64,9 @@
     "folder": "001-010",
     "resources": {
       "hide": 2
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 6,
@@ -68,7 +78,9 @@
     "folder": "001-010",
     "resources": {
       "hide": 1
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 7,
@@ -80,7 +92,9 @@
     "folder": "001-010",
     "resources": {
       "lumber": 1
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 8,
@@ -93,7 +107,9 @@
     "resources": {
       "lumber": 1,
       "metal": 1
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 9,
@@ -106,7 +122,9 @@
     "resources": {
       "lumber": 1,
       "hide": 1
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 10,
@@ -119,7 +137,9 @@
     "folder": "001-010",
     "resources": {
       "metal": 1
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 11,
@@ -130,7 +150,9 @@
     "folder": "011-015",
     "resources": {
       "metal": 2
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 2
   },
   {
     "id": 12,
@@ -143,7 +165,9 @@
     "folder": "011-015",
     "resources": {
       "metal": 1
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 2
   },
   {
     "id": 13,
@@ -156,7 +180,9 @@
     "resources": {
       "hide": 1,
       "snowthistle": 1
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 2
   },
   {
     "id": 14,
@@ -169,7 +195,9 @@
     "resources": {
       "metal": 1,
       "hide": 1
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 2
   },
   {
     "id": 15,
@@ -185,7 +213,9 @@
     },
     "requiredItems": [
       10
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 2
   },
   {
     "id": 16,
@@ -201,7 +231,9 @@
     },
     "requiredItems": [
       2
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 17,
@@ -213,8 +245,10 @@
     "folder": "016-020",
     "requiredItems": [
       4,
-      98
-    ]
+      8
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 18,
@@ -229,7 +263,9 @@
     },
     "requiredItems": [
       5
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 19,
@@ -244,7 +280,9 @@
       "lumber": 1,
       "metal": 1,
       "axenut": 1
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 20,
@@ -259,7 +297,9 @@
     },
     "requiredItems": [
       7
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 21,
@@ -272,7 +312,9 @@
     "resources": {
       "metal": 3,
       "hide": 1
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 4
   },
   {
     "id": 22,
@@ -288,7 +330,9 @@
     },
     "requiredItems": [
       12
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 4
   },
   {
     "id": 23,
@@ -302,7 +346,9 @@
     "resources": {
       "metal": 2,
       "hide": 2
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 4
   },
   {
     "id": 24,
@@ -315,7 +361,9 @@
     "requiredItems": [
       14,
       98
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 4
   },
   {
     "id": 25,
@@ -329,7 +377,9 @@
       "lumber": 1,
       "hide": 1,
       "rockroot": 1
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 4
   },
   {
     "id": 26,
@@ -342,7 +392,9 @@
     "resources": {
       "metal": 1,
       "hide": 1
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 5
   },
   {
     "id": 27,
@@ -358,7 +410,9 @@
     "requiredItems": [
       3,
       91
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 5
   },
   {
     "id": 28,
@@ -373,7 +427,9 @@
     },
     "requiredItems": [
       18
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 5
   },
   {
     "id": 29,
@@ -386,7 +442,9 @@
     "resources": {
       "lumber": 1,
       "metal": 2
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 5
   },
   {
     "id": 30,
@@ -399,7 +457,9 @@
     "resources": {
       "metal": 1,
       "hide": 1
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 5
   },
   {
     "id": 31,
@@ -412,7 +472,9 @@
     "requiredItems": [
       11,
       106
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 6
   },
   {
     "id": 32,
@@ -426,7 +488,9 @@
       "lumber": 1,
       "metal": 2,
       "hide": 2
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 6
   },
   {
     "id": 33,
@@ -441,7 +505,9 @@
     "requiredItems": [
       18,
       96
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 6
   },
   {
     "id": 34,
@@ -456,7 +522,9 @@
     },
     "requiredItems": [
       97
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 6
   },
   {
     "id": 35,
@@ -470,7 +538,9 @@
     "resources": {
       "lumber": 2,
       "metal": 1
-    }
+    },
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 6
   },
   {
     "id": 36,
@@ -485,7 +555,9 @@
     },
     "requiredItems": [
       16
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 7
   },
   {
     "id": 37,
@@ -501,7 +573,9 @@
     "requiredItems": [
       3,
       114
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 7
   },
   {
     "id": 38,
@@ -514,7 +588,9 @@
     "requiredItems": [
       13,
       113
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 7
   },
   {
     "id": 39,
@@ -528,7 +604,9 @@
       29,
       101,
       112
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 7
   },
   {
     "id": 40,
@@ -544,7 +622,9 @@
     "requiredItems": [
       20,
       85
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 7
   },
   {
     "id": 41,
@@ -559,7 +639,9 @@
     "requiredItems": [
       11,
       110
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 8
   },
   {
     "id": 42,
@@ -575,7 +657,9 @@
     },
     "requiredItems": [
       112
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 8
   },
   {
     "id": 43,
@@ -591,7 +675,9 @@
     "requiredItems": [
       28,
       90
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 8
   },
   {
     "id": 44,
@@ -604,7 +690,9 @@
     "requiredItems": [
       24,
       101
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 8
   },
   {
     "id": 45,
@@ -617,7 +705,9 @@
     "requiredItems": [
       9,
       25
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 8
   },
   {
     "id": 46,
@@ -633,7 +723,9 @@
     "requiredItems": [
       26,
       129
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 9
   },
   {
     "id": 47,
@@ -647,7 +739,9 @@
       27,
       119,
       162
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 9
   },
   {
     "id": 48,
@@ -662,7 +756,9 @@
     },
     "requiredItems": [
       13
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 9
   },
   {
     "id": 49,
@@ -678,7 +774,9 @@
     "requiredItems": [
       111,
       145
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 9
   },
   {
     "id": 50,
@@ -695,7 +793,9 @@
       35,
       105,
       161
-    ]
+    ],
+    "requiredBuilding": "craftsman",
+    "requiredBuildingLevel": 9
   },
   {
     "id": 51,
@@ -1164,7 +1264,9 @@
     "resources": {
       "arrowvine": 1,
       "rockroot": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 84,
@@ -1177,7 +1279,9 @@
     "resources": {
       "arrowvine": 1,
       "snowthistle": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 85,
@@ -1190,7 +1294,9 @@
     "resources": {
       "arrowvine": 1,
       "axenut": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 86,
@@ -1203,7 +1309,9 @@
     "resources": {
       "arrowvine": 1,
       "flamefruit": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 87,
@@ -1216,7 +1324,9 @@
     "resources": {
       "arrowvine": 1,
       "corpsecap": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 88,
@@ -1229,7 +1339,9 @@
     "resources": {
       "rockroot": 1,
       "flamefruit": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 89,
@@ -1242,7 +1354,9 @@
     "resources": {
       "rockroot": 1,
       "corpsecap": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 90,
@@ -1255,7 +1369,9 @@
     "resources": {
       "rockroot": 1,
       "flamefruit": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 91,
@@ -1268,7 +1384,9 @@
     "resources": {
       "corpsecap": 1,
       "flamefruit": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 92,
@@ -1281,7 +1399,9 @@
     "resources": {
       "rockroot": 1,
       "snowthistle": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 93,
@@ -1294,7 +1414,9 @@
     "resources": {
       "rockroot": 1,
       "axenut": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 94,
@@ -1307,7 +1429,9 @@
     "resources": {
       "corpsecap": 1,
       "axenut": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 95,
@@ -1320,7 +1444,9 @@
     "resources": {
       "snowthistle": 1,
       "corpsecap": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 96,
@@ -1333,7 +1459,9 @@
     "resources": {
       "snowthistle": 1,
       "flamefruit": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 97,
@@ -1346,7 +1474,9 @@
     "resources": {
       "snowthistle": 1,
       "axenut": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 98,
@@ -1369,7 +1499,9 @@
       "arrowvine": 1,
       "rockroot": 1,
       "snowthistle": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 100,
@@ -1383,7 +1515,9 @@
       "arrowvine": 1,
       "snowthistle": 1,
       "axenut": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 101,
@@ -1397,7 +1531,9 @@
       "arrowvine": 1,
       "axenut": 1,
       "corpsecap": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 102,
@@ -1411,7 +1547,9 @@
       "arrowvine": 1,
       "axenut": 1,
       "flamefruit": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 103,
@@ -1425,7 +1563,9 @@
       "arrowvine": 1,
       "corpsecap": 1,
       "flamefruit": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 104,
@@ -1439,7 +1579,9 @@
       "rockroot": 1,
       "axenut": 1,
       "flamefruit": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 105,
@@ -1453,7 +1595,9 @@
       "arrowvine": 1,
       "rockroot": 1,
       "flamefruit": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 106,
@@ -1467,7 +1611,9 @@
       "arrowvine": 1,
       "rockroot": 1,
       "axenut": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 107,
@@ -1481,7 +1627,9 @@
       "arrowvine": 1,
       "rockroot": 1,
       "corpsecap": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 108,
@@ -1495,7 +1643,9 @@
       "arrowvine": 1,
       "snowthistle": 1,
       "corpsecap": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 109,
@@ -1509,7 +1659,9 @@
       "rockroot": 1,
       "snowthistle": 1,
       "flamefruit": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 110,
@@ -1523,7 +1675,9 @@
       "rockroot": 1,
       "snowthistle": 1,
       "corpsecap": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 111,
@@ -1537,7 +1691,9 @@
       "rockroot": 1,
       "axenut": 1,
       "corpsecap": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 112,
@@ -1551,7 +1707,9 @@
       "rockroot": 1,
       "snowthistle": 1,
       "axenut": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 113,
@@ -1565,7 +1723,9 @@
       "rockroot": 1,
       "corpsecap": 1,
       "flamefruit": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 114,
@@ -1579,7 +1739,9 @@
       "snowthistle": 1,
       "corpsecap": 1,
       "flamefruit": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 115,
@@ -1593,7 +1755,9 @@
       "axenut": 1,
       "corpsecap": 1,
       "flamefruit": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 116,
@@ -1607,7 +1771,9 @@
       "snowthistle": 1,
       "axenut": 1,
       "corpsecap": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 117,
@@ -1621,7 +1787,9 @@
       "snowthistle": 1,
       "axenut": 1,
       "flamefruit": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 118,
@@ -1635,7 +1803,9 @@
       "arrowvine": 1,
       "snowthistle": 1,
       "flamefruit": 1
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 119,
@@ -1650,7 +1820,9 @@
         2,
         1
       ]
-    }
+    },
+    "requiredBuilding": "alchemy",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 120,
@@ -1750,7 +1922,9 @@
     "edition": "fh",
     "slot": "head",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 2
   },
   {
     "id": 130,
@@ -1760,7 +1934,9 @@
     "edition": "fh",
     "slot": "head",
     "minusOne": 1,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 2
   },
   {
     "id": 131,
@@ -1771,7 +1947,9 @@
     "slot": "body",
     "spent": true,
     "minusOne": 3,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 2
   },
   {
     "id": 132,
@@ -1780,7 +1958,9 @@
     "count": 2,
     "edition": "fh",
     "slot": "body",
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 2
   },
   {
     "id": 133,
@@ -1790,7 +1970,9 @@
     "edition": "fh",
     "slot": "legs",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 2
   },
   {
     "id": 134,
@@ -1799,7 +1981,9 @@
     "count": 2,
     "edition": "fh",
     "slot": "legs",
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 2
   },
   {
     "id": 135,
@@ -1809,7 +1993,9 @@
     "edition": "fh",
     "slot": "twohand",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 2
   },
   {
     "id": 136,
@@ -1819,7 +2005,9 @@
     "edition": "fh",
     "slot": "twohand",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 2
   },
   {
     "id": 137,
@@ -1830,7 +2018,9 @@
     "slot": "onehand",
     "spent": true,
     "minusOne": 1,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 2
   },
   {
     "id": 138,
@@ -1840,7 +2030,9 @@
     "edition": "fh",
     "slot": "head",
     "minusOne": 2,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 139,
@@ -1849,7 +2041,9 @@
     "count": 1,
     "edition": "fh",
     "slot": "head",
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 140,
@@ -1859,7 +2053,9 @@
     "edition": "fh",
     "slot": "body",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 141,
@@ -1869,7 +2065,9 @@
     "edition": "fh",
     "slot": "body",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 142,
@@ -1879,7 +2077,9 @@
     "edition": "fh",
     "slot": "legs",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 143,
@@ -1888,7 +2088,9 @@
     "count": 2,
     "edition": "fh",
     "slot": "legs",
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 144,
@@ -1898,7 +2100,9 @@
     "edition": "fh",
     "slot": "twohand",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 145,
@@ -1907,7 +2111,9 @@
     "count": 2,
     "edition": "fh",
     "slot": "onehand",
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 146,
@@ -1917,7 +2123,9 @@
     "edition": "fh",
     "slot": "twohand",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 147,
@@ -1926,7 +2134,9 @@
     "count": 2,
     "edition": "fh",
     "slot": "head",
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 4
   },
   {
     "id": 148,
@@ -1935,7 +2145,9 @@
     "count": 2,
     "edition": "fh",
     "slot": "head",
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 4
   },
   {
     "id": 149,
@@ -1946,7 +2158,9 @@
     "slot": "body",
     "spent": true,
     "minusOne": 5,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 4
   },
   {
     "id": 150,
@@ -1956,7 +2170,9 @@
     "edition": "fh",
     "slot": "body",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 4
   },
   {
     "id": 151,
@@ -1965,7 +2181,9 @@
     "count": 2,
     "edition": "fh",
     "slot": "legs",
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 4
   },
   {
     "id": 152,
@@ -1975,7 +2193,9 @@
     "edition": "fh",
     "slot": "legs",
     "minusOne": 2,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 4
   },
   {
     "id": 153,
@@ -1985,7 +2205,9 @@
     "edition": "fh",
     "slot": "twohand",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 4
   },
   {
     "id": 154,
@@ -1995,7 +2217,9 @@
     "edition": "fh",
     "slot": "twohand",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 4
   },
   {
     "id": 155,
@@ -2006,7 +2230,9 @@
     "slot": "twohand",
     "spent": true,
     "minusOne": 2,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "trading-post",
+    "requiredBuildingLevel": 4
   },
   {
     "id": 156,
@@ -2016,7 +2242,9 @@
     "edition": "fh",
     "slot": "small",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "jeweler",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 157,
@@ -2026,7 +2254,9 @@
     "edition": "fh",
     "slot": "small",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "jeweler",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 158,
@@ -2036,7 +2266,9 @@
     "edition": "fh",
     "slot": "small",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "jeweler",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 159,
@@ -2046,7 +2278,9 @@
     "edition": "fh",
     "slot": "small",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "jeweler",
+    "requiredBuildingLevel": 1
   },
   {
     "id": 160,
@@ -2056,7 +2290,9 @@
     "edition": "fh",
     "slot": "small",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "jeweler",
+    "requiredBuildingLevel": 2
   },
   {
     "id": 161,
@@ -2066,7 +2302,9 @@
     "edition": "fh",
     "slot": "small",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "jeweler",
+    "requiredBuildingLevel": 2
   },
   {
     "id": 162,
@@ -2076,7 +2314,9 @@
     "edition": "fh",
     "slot": "small",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "jeweler",
+    "requiredBuildingLevel": 2
   },
   {
     "id": 163,
@@ -2086,7 +2326,9 @@
     "edition": "fh",
     "slot": "small",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "jeweler",
+    "requiredBuildingLevel": 2
   },
   {
     "id": 164,
@@ -2096,7 +2338,9 @@
     "edition": "fh",
     "slot": "small",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "jeweler",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 165,
@@ -2106,7 +2350,9 @@
     "edition": "fh",
     "slot": "small",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "jeweler",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 166,
@@ -2116,7 +2362,9 @@
     "edition": "fh",
     "slot": "head",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "jeweler",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 167,
@@ -2126,7 +2374,9 @@
     "edition": "fh",
     "slot": "small",
     "spent": true,
-    "folder": "129-167"
+    "folder": "129-167",
+    "requiredBuilding": "jeweler",
+    "requiredBuildingLevel": 3
   },
   {
     "id": 168,

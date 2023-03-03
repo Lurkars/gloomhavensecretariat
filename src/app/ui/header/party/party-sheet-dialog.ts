@@ -28,6 +28,7 @@ export class PartySheetDialogComponent implements OnInit {
   prosperitySteps = [3, 8, 14, 21, 29, 38, 49, 63];
   priceModifier: number = 0;
   campaign: boolean = false;
+  buildings: boolean = false;
   doubleClickAddSuccess: any = null;
 
   scenarioEditions: string[] = [];

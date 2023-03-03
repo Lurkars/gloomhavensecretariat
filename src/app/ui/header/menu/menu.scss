@@ -5,9 +5,9 @@
 .back {
   cursor: pointer;
   position: absolute;
-  top: calc(var(--ghs-unit) * 5);
+  top: calc(var(--ghs-unit) * 2);
   left: 0;
-  width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+  width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
   height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
   z-index: 1000;
 

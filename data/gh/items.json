@@ -388,10 +388,7 @@
       "attack": 2,
       "movement": 3,
       "range": 0,
-      "action": {
-        "type": "fly",
-        "value": ""
-      }
+      "flying": true
     },
     "unlockProsperity": 4
   },
@@ -1411,7 +1408,7 @@
     "name": "Imposing Blade",
     "cost": 50,
     "count": 1,
-     "edition": "solo",
+    "edition": "solo",
     "slot": "onehand",
     "folder": "64-151"
   },
@@ -1420,7 +1417,7 @@
     "name": "Focusing Ray",
     "cost": 50,
     "count": 1,
-     "edition": "solo",
+    "edition": "solo",
     "slot": "onehand",
     "spent": true,
     "folder": "64-151"
@@ -1430,7 +1427,7 @@
     "name": "Volatile Elixir",
     "cost": 50,
     "count": 1,
-     "edition": "solo",
+    "edition": "solo",
     "slot": "small",
     "spent": true,
     "folder": "64-151"
@@ -1440,7 +1437,7 @@
     "name": "Silent Stiletto",
     "cost": 50,
     "count": 1,
-     "edition": "solo",
+    "edition": "solo",
     "slot": "onehand",
     "folder": "64-151"
   },
@@ -1449,7 +1446,7 @@
     "name": "Stone Charm",
     "cost": 50,
     "count": 1,
-     "edition": "solo",
+    "edition": "solo",
     "slot": "head",
     "spent": true,
     "folder": "64-151"
@@ -1459,7 +1456,7 @@
     "name": "Psychic Knife",
     "cost": 50,
     "count": 1,
-     "edition": "solo",
+    "edition": "solo",
     "slot": "onehand",
     "folder": "64-151"
   },
@@ -1468,7 +1465,7 @@
     "name": "Sun Shield",
     "cost": 50,
     "count": 1,
-     "edition": "solo",
+    "edition": "solo",
     "slot": "onehand",
     "folder": "64-151"
   },
@@ -1477,7 +1474,7 @@
     "name": "Utility Belt",
     "cost": 50,
     "count": 1,
-     "edition": "solo",
+    "edition": "solo",
     "slot": "small",
     "spent": true,
     "folder": "64-151"
@@ -1487,7 +1484,7 @@
     "name": "Phasing Idol",
     "cost": 50,
     "count": 1,
-     "edition": "solo",
+    "edition": "solo",
     "slot": "small",
     "spent": true,
     "folder": "64-151"
@@ -1497,7 +1494,7 @@
     "name": "Smoke Elixir",
     "cost": 50,
     "count": 1,
-     "edition": "solo",
+    "edition": "solo",
     "slot": "small",
     "spent": true,
     "folder": "64-151"
@@ -1507,7 +1504,7 @@
     "name": "Pendant of the Plague",
     "cost": 50,
     "count": 1,
-     "edition": "solo",
+    "edition": "solo",
     "slot": "head",
     "spent": true,
     "folder": "64-151"
@@ -1517,7 +1514,7 @@
     "name": "Mask of Death",
     "cost": 50,
     "count": 1,
-     "edition": "solo",
+    "edition": "solo",
     "slot": "head",
     "folder": "64-151"
   },
@@ -1526,7 +1523,7 @@
     "name": "Master's Lute",
     "cost": 50,
     "count": 1,
-     "edition": "solo",
+    "edition": "solo",
     "slot": "twohand",
     "folder": "64-151"
   },
@@ -1535,7 +1532,7 @@
     "name": "Cloak of the Hunter",
     "cost": 50,
     "count": 1,
-     "edition": "solo",
+    "edition": "solo",
     "slot": "body",
     "folder": "64-151"
   },
@@ -1544,7 +1541,7 @@
     "name": "Doctor's Coat",
     "cost": 50,
     "count": 1,
-     "edition": "solo",
+    "edition": "solo",
     "slot": "body",
     "folder": "64-151"
   },
@@ -1553,7 +1550,7 @@
     "name": "Elemental Boots",
     "cost": 50,
     "count": 1,
-     "edition": "solo",
+    "edition": "solo",
     "slot": "legs",
     "spent": true,
     "folder": "64-151"
@@ -1563,7 +1560,7 @@
     "name": "Staff of Command",
     "cost": 50,
     "count": 1,
-     "edition": "solo",
+    "edition": "solo",
     "slot": "twohand",
     "spent": true,
     "folder": "64-151"
@@ -1573,7 +1570,7 @@
     "name": "Sword of the Sands",
     "cost": 50,
     "count": 1,
-     "edition": "solo",
+    "edition": "solo",
     "slot": "onehand",
     "spent": true,
     "folder": "64-151"

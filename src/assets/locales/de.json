@@ -8,6 +8,13 @@
     "support": "Entwickler unterstützen"
   },
   "and": "und",
+  "app": {
+    "install": "Installiere als App",
+    "loading": {
+      ".": "Laden...",
+      "cancel": "Laden abbrechen?"
+    }
+  },
   "cancel": "Abbrechen",
   "character": {
     ".": "Charakter",
@@ -436,7 +443,6 @@
     "next": "\"%round.next%\" klicken",
     "setScenario": "%scenario%"
   },
-  "installApp": "Installiere als App",
   "menu": {
     "backToMain": "Zurück zum %menu.main%",
     "main": "Hauptmenu"
@@ -513,6 +519,9 @@
       },
       "sheet": {
         ".": "Kampagnenbogen",
+        "buildings": {
+          ".": "Gebäude"
+        },
         "campaignStickers": "Kampagnenbogensticker",
         "defense": "Verteidigung",
         "disable": "Zeige den Gloomhaven Gruppenbogen an",
@@ -798,7 +807,7 @@
     },
     "automaticStandees": {
       ".": "Automatische Aufsteller (%wip%)",
-      "hint": "Automatisches Hinzufügen von Aufstellern. (Automatische Aufsteller ist %wip% und steht bislang nicht in allen Edition zur Verfügung.)"
+      "hint": "Automatisches Hinzufügen von Aufstellern. (Automatische Aufsteller ist %wip% und steht bislang nicht in allen Edition vollständig zur Verfügung.)"
     },
     "barsize": {
       ".": "Leistengröße",
@@ -823,6 +832,7 @@
       ".": "Füge Monsterwerte zu Fähigkeiten zu",
       "hint": "Basiswerte werden zu Fähigkeiten hinzugefügt, z.B. wird die Reichweite automatisch bei einer Angriffsfertigkeit angezeigt"
     },
+    "conditions": "Zustände/Elemente",
     "debug": {
       ".": "Debug Einstellung/Werkzeuge",
       "hint": "",
@@ -860,10 +870,10 @@
       ".": "Feedback Button deaktivieren",
       "hint": ""
     },
-    "fhRules": "Frosthaven Regeln immer anwenden",
+    "fhRules": "Frosthaven Regeln",
     "fhStyle": {
       ".": "Frosthaven Stil",
-      "hint": "Frosthaven Stil einschalten"
+      "hint": "Aktionen, Fertigkeitskarten und Symbole in neuem Frosthaven Stil anzeigen, aktiviert außerdem automatsich das Frosthaven Theme."
     },
     "fontsize": {
       ".": "Fertigkeit Schriftgröße",
@@ -876,6 +886,7 @@
       ".": "Vollbild",
       "hint": "In den Vollboldmodus wechseln"
     },
+    "gameplay": "Spielablauf",
     "ge5Player": {
       ".": "≥ 5 Spieler Regeln",
       "hint": ""
@@ -900,6 +911,7 @@
       ".": "Initiative muss gesetzt werden",
       "hint": "Wenn nicht ausgewählt muss die Reihenfolge der Figuren manuell über drag&drop festgelegt werden"
     },
+    "interface": "Oberfläche",
     "levelAdjustment": {
       ".": "Anpassung Szenariostufe",
       "hint": ""
@@ -919,6 +931,7 @@
       ".": "Max. Anzahl Rückgängigvorgänge",
       "hint": ""
     },
+    "monsters": "Monster",
     "moveElements": {
       ".": "Automatisch Elementen Status ändern",
       "hint": "Der Status der Elemente wird automatisch vor jeder Runde angepasst"
@@ -941,7 +954,7 @@
     },
     "scenarioRooms": {
       ".": "Szenario Räume (%wip%)",
-      "hint": "Freischalten einzelner Räume in einem Szenario. Wenn nicht ausgewählt, ist auch das automatische Hinzufügen von Aufstellern deaktiviert. (Räume freischalten ist %wip% und steht bislang nicht in allen Edition zur Verfügung.)"
+      "hint": "Freischalten einzelner Räume in einem Szenario. Wenn nicht ausgewählt, ist auch das automatische Hinzufügen von Aufstellern deaktiviert. (Räume freischalten ist %wip% und steht bislang nicht in allen Edition vollständig zur Verfügung.)"
     },
     "scenarioRules": {
       ".": "Szenario Regeln einblenden",
@@ -951,6 +964,7 @@
       ".": "Vollständige Fertigkeitskarten anzeigen",
       "hint": "Zeigt die Fertigkeitskarten vollständig inklusive Titel an."
     },
+    "standees": "Aufsteller",
     "theme": {
       ".": "Theme",
       "default": "Standard",

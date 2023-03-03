@@ -21,6 +21,8 @@ export class ItemData implements Editional {
   folder: string = "";
   resources: Partial<Record<LootType, number>> = {};
   requiredItems: number[] = [];
+  requiredBuilding: string = "";
+  requiredBuildingLevel: number = 0;
 }
 
 export enum ItemSlot {

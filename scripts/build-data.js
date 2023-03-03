@@ -69,6 +69,10 @@ for (edition_path of edition_dirs) {
   edition_data['scenarios'] = load_file(edition_path, 'scenarios.json', []);
   edition_data['campaign'] = load_file(edition_path, 'campaign.json', undefined);
 
+  if (edition_data['campaign']) {
+    edition_data['campaign']['buildings'] = load_file(edition_path, 'buildings.json', undefined);
+  }
+
   const scenariosFolder = path.join(edition_path, 'scenarios');
   if (fs.existsSync(scenariosFolder) && fs.lstatSync(scenariosFolder).isDirectory()) {
     for (let scenarioFile of fs.readdirSync(scenariosFolder)) {

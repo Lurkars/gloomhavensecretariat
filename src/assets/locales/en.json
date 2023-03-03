@@ -8,6 +8,13 @@
     "support": "Support the dev"
   },
   "and": "and",
+  "app": {
+    "install": "Install as App",
+    "loading": {
+      ".": "Loading...",
+      "cancel": "Cancel loading?"
+    }
+  },
   "cancel": "Cancel",
   "character": {
     ".": "Character",
@@ -538,7 +545,6 @@
     "next": "Click \"%round.next%\"",
     "setScenario": "%scenario%"
   },
-  "installApp": "Install as App",
   "menu": {
     "backToMain": "Back to %menu.main%",
     "main": "Mainmenu"
@@ -615,6 +621,9 @@
       },
       "sheet": {
         ".": "Campaign Sheet",
+        "buildings": {
+          ".": "Buildings"
+        },
         "campaignStickers": "Campaign Stickers",
         "defense": "Defense",
         "disable": "Go to Gloomhaven Party Sheet",
@@ -900,7 +909,7 @@
     },
     "automaticStandees": {
       ".": "Automatic Standees (%wip%)",
-      "hint": "Automatic addition of standees. (Automatic standees is %wip% and not available for all editions yet.)"
+      "hint": "Automatic addition of standees. (Automatic standees is %wip% and not completely available for all editions yet.)"
     },
     "barsize": {
       ".": "Barsize",
@@ -925,6 +934,7 @@
       ".": "Add stats values to abilities",
       "hint": "Default stats values are added to the ability value, for example a Range value is automatically added to the Attack ability"
     },
+    "conditions": "Conditions/Elements",
     "debug": {
       ".": "Debug Settings/Tools",
       "rightClick": "Always enable Right-Click"
@@ -961,10 +971,10 @@
       ".": "Disable Feedback Button",
       "hint": ""
     },
-    "fhRules": "Always apply Frosthaven Rules",
+    "fhRules": "Frosthaven Rules",
     "fhStyle": {
       ".": "Frosthaven Style",
-      "hint": "Switch to new Frosthaven Style"
+      "hint": "Display actions, abilities and icons in new Frosthaven style, automatically activates Frosthaven theme."
     },
     "fontsize": {
       ".": "Ability fontsize",
@@ -977,6 +987,7 @@
       ".": "Fullscreen",
       "hint": "Switch to fullscreen"
     },
+    "gameplay": "Gameplay",
     "ge5Player": {
       ".": "≥ 5 player rules",
       "hint": ""
@@ -1001,6 +1012,7 @@
       ".": "Initiative is required",
       "hint": "If unchecked, the order of the entities must be set manually with drag&drop "
     },
+    "interface": "Interface",
     "levelAdjustment": {
       ".": "Scenario level adjustment",
       "hint": ""
@@ -1020,6 +1032,7 @@
       ".": "Max. number of undos",
       "hint": ""
     },
+    "monsters": "Monster",
     "moveElements": {
       ".": "Automatic update element state",
       "hint": "The element state is automatically changed before each round "
@@ -1042,7 +1055,7 @@
     },
     "scenarioRooms": {
       ".": "Scenario Rooms (%wip%)",
-      "hint": "Unlocking of seperate rooms in a scenario. If not set, also disables automatic adding of standees. (Unlocking rooms is %wip% and not available for all editions yet.)"
+      "hint": "Unlocking of seperate rooms in a scenario. If not set, also disables automatic adding of standees. (Unlocking rooms is %wip% and not completely available for all editions yet.)"
     },
     "scenarioRules": {
       ".": "Show Scenario Rules",
@@ -1052,6 +1065,7 @@
       ".": "Show full ability cards",
       "hint": "Show full ability cards including card title."
     },
+    "standees": "Standees",
     "theme": {
       ".": "Theme",
       "default": "Default",

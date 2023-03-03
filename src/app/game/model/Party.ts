@@ -1,5 +1,6 @@
 import { GameAttackModifierDeckModel } from "./AttackModifier";
 import { GameCharacterModel } from "./Character";
+import { BuildingModel } from "./data/BuildingData";
 import { Identifier } from "./Identifier";
 import { LootType } from "./Loot";
 import { GameScenarioModel } from "./Scenario";
@@ -22,6 +23,7 @@ export class Party {
   donations: number = 0;
   characters: GameCharacterModel[] = [];
   retirements: GameCharacterModel[] = [];
+  unlockedItems: Identifier[] = [];
 
   weeks: number = 0;
   weekSections: Partial<Record<number, string[]>> = {};
@@ -34,5 +36,6 @@ export class Party {
   townGuardPerkSections: string[] = [];
   campaignStickers: string[] = [];
   townGuardDeck: GameAttackModifierDeckModel | undefined;
+  buildings: BuildingModel[] = [];
 
 }

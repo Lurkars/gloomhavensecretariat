@@ -159,6 +159,35 @@
     },
     "treasures": {
       "fh": {}
+    },
+    "buildings": {
+      "alchemist": "Alchemist",
+      "barracks": "Barracks",
+      "carpenter": "Carpenter",
+      "craftsman": "Craftsman",
+      "enhancer": "Enhancer",
+      "garden": "Garden",
+      "hall-of-revelry": "Hall of Revelry",
+      "hide-depot": "Hide Depot",
+      "hunting-lodge": "Hunting Lodge",
+      "inn": "Inn",
+      "jeweler": "Jeweler",
+      "library": "Library",
+      "logging-camp": "Logging Camp",
+      "lumber-depot": "Lumber Depot",
+      "metal-depot": "Metal Depot",
+      "mining-camp": "Mining Camp",
+      "stables": "Stables",
+      "tavern": "Tavern",
+      "temple": "Temple of the Great Oak",
+      "town-hall": "Town-hall",
+      "trading-post": "Trading Post",
+      "wall-j": "Wall J",
+      "wall-k": "Wall K",
+      "wall-l": "Wall L",
+      "wall-m": "Wall M",
+      "wall-n": "Wall N",
+      "workshop": "Workshop"
     }
   },
   "ko": {

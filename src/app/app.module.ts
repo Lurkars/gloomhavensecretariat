@@ -97,9 +97,10 @@ import { CharacterLootCardsDialog } from './ui/figures/character/dialogs/loot-ca
 import { PerkLabelComponent } from './ui/figures/attackmodifier/perk/label';
 import { CharacterMoveResourcesDialog } from './ui/figures/character/dialogs/move-resources';
 import { PartyWeekDialogComponent } from './ui/header/party/week-dialog';
+import { CharacterItemsComponent } from './ui/figures/character/items/items';
+import { PartyBuildingsComponent } from './ui/header/party/buildings/buildings';
 
 import 'hammerjs'
-import { CharacterItemsComponent } from './ui/figures/character/items/items';
 
 @Injectable()
 export class GhsHammerConfig extends HammerGestureConfig {
@@ -115,7 +116,7 @@ export class GhsHammerConfig extends HammerGestureConfig {
     AppComponent,
     MainComponent,
     HeaderComponent, ElementIconComponent, ElementComponent,
-    PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent,
+    PartySheetComponent, PartySheetDialogComponent, PartyWeekDialogComponent, PartyBuildingsComponent,
     MainMenuComponent, CharacterMenuComponent, EditionMenuComponent, SettingsMenuComponent, DatamanagementMenuComponent, ScenarioMenuComponent, SectionMenuComponent, ServerMenuComponent, SettingsDebugMenuComponent,
     FooterComponent,
     LootComponent, LootDeckComponent, LootDeckFullscreenComponent, LootDeckDialogComponent, LootDeckStandaloneComponent, LootApplyDialogComponent,

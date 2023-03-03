@@ -16,9 +16,9 @@
           <img src="./assets/images/summons/{{color}}.png">
         </span>
       </span>
-      <span *ngFor="let number of [1,2,3,4]" class="number-button" (click)="pickNumber(number)"
-        [ngClass]="{'disabled' : summonNumber == number}">
-        <span class="number">{{number}}</span>
+      <span *ngFor="let number of [] | ghsRange:8" class="number-button" (click)="pickNumber(number+1)"
+        [ngClass]="{'disabled' : summonNumber == number+1}">
+        <span class="number">{{number+1}}</span>
       </span>
     </div>
     <div class="scroll-container summons">

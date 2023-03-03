@@ -5,6 +5,7 @@ import { MonsterData } from "./MonsterData";
 import { DeckData } from "./DeckData";
 import { ItemData } from "./ItemData";
 import { Perk } from "../Perks";
+import { BuildingData } from "./BuildingData";
 
 export class EditionData implements Editional {
   // from Editional
@@ -53,11 +54,12 @@ export class EditionData implements Editional {
 export class CampaignData {
 
   campaignStickers: string[] = [];
+  buildings: BuildingData[] = [];
   highMorale: string = "";
   lowMorale: string = "";
-  townGuardPerks: TownGuardPerk[] = [];
   lootSpecial1Sections: string[] = [];
   lootSpecial2Sections: string[] = [];
+  townGuardPerks: TownGuardPerk[] = [];
   weeks: Partial<Record<number, string[]>> = {};
 
 }
