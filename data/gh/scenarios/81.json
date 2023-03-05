@@ -2,6 +2,9 @@
   "index": "81",
   "name": "Temple of the Eclipse",
   "edition": "gh",
+  "rewards": {
+    "experience": 10
+  },
   "monsters": [
     "ancient-artillery",
     "night-demon",

@@ -5,6 +5,15 @@
   "unlocks": [
     "3"
   ],
+  "rewards": {
+    "gold": 25,
+    "items": [
+      "1-13"
+    ],
+    "ignoredBonus": [
+      "experience"
+    ]
+  },
   "monsters": [
     "basic-vermling-raider"
   ],

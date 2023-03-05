@@ -1,5 +1,15 @@
 <ghs-header #header></ghs-header>
 <main [ngClass]="{'compact' : footer.compact}">
+  <div *ngIf="gameManager.stateManager.updateBlocked" class="dialog blocked">
+    {{'server.blocked' | ghsLabel}}
+    <div class="buttons">
+      <a class="force" (click)="gameManager.stateManager.forceUpdateState()">
+        {{'server.force' | ghsLabel}}
+        <span class="force-hint">{{'server.forceHint' | ghsLabel}}</span>
+      </a>
+      <a class="connect" (click)="gameManager.stateManager.connect()">{{'server.connect' | ghsLabel}}</a>
+    </div>
+  </div>
   <div *ngIf="!fullviewChar && welcome" class="welcome" [ngClass]="{'fh': settingsManager.settings.theme == 'fh'}">
 
     <img class="ghs-logo" src="./assets/images/logo-transparent.svg">

@@ -13,6 +13,21 @@
   "blocks": [
     "36"
   ],
+  "rewards": {
+    "globalAchievements": [
+      "City Rule: Demonic",
+      "Artifact: Lost"
+    ],
+    "lostPartyAchievements": [
+      "A Demon's Errand"
+    ],
+    "gold": 30,
+    "reputation": -5,
+    "prosperity": -2,
+    "events": [
+      "city:79"
+    ]
+  },
   "monsters": [
     "captain-of-the-guard",
     "city-archer",

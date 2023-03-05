@@ -7,6 +7,12 @@
       "28"
     ]
   ],
+  "rewards": {
+    "globalAchievements": [
+      "The Edge of Darkness"
+    ],
+    "experience": 15
+  },
   "monsters": [
     "black-imp",
     "living-bones",

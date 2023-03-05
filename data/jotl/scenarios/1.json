@@ -6,6 +6,12 @@
   "unlocks": [
     "2"
   ],
+  "rewards": {
+    "ignoredBonus": [
+      "gold",
+      "experience"
+    ]
+  },
   "monsters": [
     "common-vermling-raider"
   ],

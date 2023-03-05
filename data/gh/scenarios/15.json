@@ -2,6 +2,9 @@
   "index": "15",
   "name": "Shrine of Strength",
   "edition": "gh",
+  "rewards": {
+    "experience": 20
+  },
   "monsters": [
     "frost-demon",
     "harrower-infester",

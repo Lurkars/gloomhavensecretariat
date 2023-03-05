@@ -13,6 +13,11 @@
   "links": [
     "29"
   ],
+  "rewards": {
+    "partyAchievements": [
+      "An Invitation"
+    ]
+  },
   "monsters": [
     "cultist",
     "living-bones",

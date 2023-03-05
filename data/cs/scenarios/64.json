@@ -5,5 +5,60 @@
   "monsters": [
     "deep-terror",
     "lurker"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "d1",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "lurker",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "k1",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "lurker",
+          "type": "normal"
+        },
+        {
+          "name": "lurker",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "c1",
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "elite"
+        },
+        {
+          "name": "lurker",
+          "type": "elite"
+        }
+      ]
+    }
   ]
 }

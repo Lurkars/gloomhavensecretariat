@@ -10,6 +10,11 @@
       "39"
     ]
   ],
+  "rewards": {
+    "globalAchievements": [
+      "End of Corruption"
+    ]
+  },
   "monsters": [
     "frost-demon",
     "night-demon",

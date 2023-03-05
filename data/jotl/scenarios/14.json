@@ -5,6 +5,9 @@
   "unlocks": [
     "15"
   ],
+  "rewards": {
+    "battleGoals": 1
+  },
   "monsters": [
     "blood-imp",
     "giant-viper",

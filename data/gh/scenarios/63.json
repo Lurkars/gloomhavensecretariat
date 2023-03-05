@@ -2,6 +2,9 @@
   "index": "63",
   "name": "Magma Pit",
   "edition": "gh",
+  "rewards": {
+    "gold": 15
+  },
   "monsters": [
     "flame-demon",
     "inox-archer",

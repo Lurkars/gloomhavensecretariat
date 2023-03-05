@@ -1,0 +1,127 @@
+{
+  "index": "1",
+  "group": "QA",
+  "name": "Capstone Test",
+  "edition": "cs",
+  "initial": true,
+  "unlocks": [
+    "2"
+  ],
+  "monsters": [
+    "clockwork-railcaster",
+    "clockwork-soldier"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "m1",
+      "initial": true,
+      "rooms": [
+        2,
+        3,
+        4
+      ],
+      "monster": [
+        {
+          "name": "city-archer",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "a2",
+      "monster": [
+        {
+          "name": "city-archer",
+          "player2": "normal",
+          "player3": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player2": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "k1",
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "type": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "player2": "normal",
+          "player3": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "d2",
+      "monster": [
+        {
+          "name": "stone-golem",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

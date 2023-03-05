@@ -18,6 +18,11 @@
       "22"
     ]
   ],
+  "rewards": {
+    "globalAchievements": [
+      "Artifact: Cleansed"
+    ]
+  },
   "monsters": [
     "black-imp",
     "deep-terror",

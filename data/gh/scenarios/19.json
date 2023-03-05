@@ -10,6 +10,12 @@
       "14"
     ]
   ],
+  "rewards": {
+    "partyAchievements": [
+      "Stonebreaker's Censer"
+    ],
+    "prosperity": 1
+  },
   "monsters": [
     "cultist",
     "living-bones",

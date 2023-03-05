@@ -1,0 +1,282 @@
+{
+  "index": "1",
+  "group": "AA",
+  "name": "The Riches of the Steelsilk",
+  "edition": "cs",
+  "initial": true,
+  "unlocks": [
+    "2"
+  ],
+  "monsters": [
+    "bandit-archer",
+    "bandit-guard",
+    "frost-demon",
+    "harrower-aegis",
+    "hound",
+    "wind-demon"
+  ],
+  "rules": [
+    {
+      "round": "R == 2 || R == 6",
+      "start": true,
+      "spawns": [
+        {
+          "count": "[C]",
+          "monster": {
+            "name": "bandit-guard",
+            "type": "normal"
+          }
+        }
+      ]
+    },
+    {
+      "round": "R == 3 || R == 7",
+      "start": true,
+      "spawns": [
+        {
+          "count": "[C]",
+          "monster": {
+            "name": "bandit-archer",
+            "type": "normal"
+          }
+        }
+      ]
+    },
+    {
+      "round": "R == 4 || R == 8",
+      "start": true,
+      "spawns": [
+        {
+          "count": "[C]",
+          "monster": {
+            "name": "hound",
+            "type": "normal"
+          }
+        }
+      ]
+    },
+    {
+      "round": "R == 5",
+      "start": true,
+      "spawns": [
+        {
+          "count": "[C]",
+          "monster": {
+            "name": "wind-demon",
+            "type": "normal"
+          }
+        }
+      ]
+    },
+    {
+      "round": "R == 9",
+      "start": true,
+      "spawns": [
+        {
+          "count": "[C]",
+          "monster": {
+            "name": "frost-demon",
+            "type": "normal"
+          }
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "k1",
+      "initial": true,
+      "monster": [
+        {
+          "name": "harrower-aegis",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "monster": [
+        {
+          "name": "bandit-guard",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "monster": [
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 5,
+      "monster": [
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "type": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 6,
+      "monster": [
+        {
+          "name": "bandit-guard",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 7,
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "type": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-archer",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 8,
+      "monster": [
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 9
+    },
+    {
+      "roomNumber": 10
+    }
+  ]
+}

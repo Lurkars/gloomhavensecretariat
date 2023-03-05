@@ -2,6 +2,11 @@
   "index": "24",
   "name": "Warding the Void",
   "edition": "jotl",
+  "rewards": {
+    "items": [
+      "35"
+    ]
+  },
   "monsters": [
     "black-imp",
     "chaos-demon"

@@ -1,7 +1,7 @@
 {
   "name": "Gloomhaven Secretariat",
-  "description": "Gloomhaven Secretariat is a Gloomhaven Companion app.",
-  "short_name": "ghs",
+  "description": "Gloomhaven Secretariat is a companion app for Gloomhaven / Frosthaven based board games.",
+  "short_name": "GH Secretariat",
   "categories": [
     "games",
     "utilities"

@@ -13,6 +13,14 @@
     "35",
     "36"
   ],
+  "rewards": {
+    "globalAchievements": [
+      "The Rift Neutralized"
+    ],
+    "gold": 100,
+    "prosperity": 1,
+    "custom": "This money must immediately be spent on enhancements"
+  },
   "monsters": [
     "earth-demon",
     "flame-demon",

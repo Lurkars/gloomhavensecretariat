@@ -1,0 +1,233 @@
+{
+  "index": "3",
+  "group": "RM",
+  "name": "Ruined Colony",
+  "edition": "cs",
+  "unlocks": [
+    "4",
+    "7"
+  ],
+  "monsters": [
+    "cave-bear",
+    "giant-viper",
+    "gnashing-drake",
+    "hound",
+    "ooze"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "l3",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "giant-viper",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player2": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player3": "elite"
+        },
+        {
+          "name": "giant-viper",
+          "player4": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player4": "normal"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player3": "normal"
+        },
+        {
+          "name": "ooze",
+          "player2": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player2": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ooze",
+          "player3": "normal"
+        },
+        {
+          "name": "ooze",
+          "player3": "normal"
+        },
+        {
+          "name": "ooze",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "m1",
+      "rooms": [
+        3,
+        4
+      ],
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "normal"
+        },
+        {
+          "name": "cave-bear",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "cave-bear",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "cave-bear",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "elite",
+          "player3": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "l2",
+      "monster": [
+        {
+          "name": "gnashing-drake",
+          "type": "elite"
+        },
+        {
+          "name": "gnashing-drake",
+          "type": "elite"
+        },
+        {
+          "name": "gnashing-drake",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "player2": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "player2": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "player4": "elite"
+        },
+        {
+          "name": "gnashing-drake",
+          "player4": "elite"
+        },
+        {
+          "name": "gnashing-drake",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "c2",
+      "monster": [
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

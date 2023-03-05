@@ -812,6 +812,7 @@
   "section": "Add Section",
   "server": {
     "autoconnect": "Connect Automatically",
+    "blocked": "Since you are not connected to your configured server, game updates are currently prevented.",
     "closed": "Closed",
     "closing": "Closing",
     "connect": "Connect",
@@ -819,6 +820,8 @@
     "connecting": "Connecting",
     "disconnect": "Disconnect",
     "disconnected": "No Connection",
+    "force": "Allow local changes",
+    "forceHint": "Attention: Local changes are discarded after a reconnect!",
     "how-to-run": "Create your own server",
     "info": {
       ".": "Info",

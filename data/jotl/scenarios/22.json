@@ -2,6 +2,11 @@
   "index": "22",
   "name": "Unfriendly Message",
   "edition": "jotl",
+  "rewards": {
+    "items": [
+      "33"
+    ]
+  },
   "monsters": [
     "giant-viper",
     "stone-golem-scenario-22",

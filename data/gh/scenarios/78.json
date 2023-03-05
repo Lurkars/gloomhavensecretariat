@@ -2,6 +2,9 @@
   "index": "78",
   "name": "Sacrifice Pit",
   "edition": "gh",
+  "rewards": {
+    "reputation": 3
+  },
   "monsters": [
     "bandit-archer",
     "bandit-guard",

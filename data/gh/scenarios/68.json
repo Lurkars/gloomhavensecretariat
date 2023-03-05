@@ -2,6 +2,11 @@
   "index": "68",
   "name": "Toxic Moor",
   "edition": "gh",
+  "rewards": {
+    "items": [
+      "27:2"
+    ]
+  },
   "monsters": [
     "black-imp",
     "giant-viper",

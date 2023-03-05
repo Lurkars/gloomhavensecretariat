@@ -2,6 +2,11 @@
   "index": "25",
   "name": "The Greatest Job in the World",
   "edition": "jotl",
+  "rewards": {
+    "items": [
+      "36"
+    ]
+  },
   "monsters": [
     "living-spirit",
     "vermling-raider",

@@ -9,6 +9,11 @@
   "blocks": [
     "11"
   ],
+  "rewards": {
+    "items": [
+      "28"
+    ]
+  },
   "monsters": [
     "living-corpse",
     "living-spirit"

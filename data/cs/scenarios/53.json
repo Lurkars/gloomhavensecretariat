@@ -6,5 +6,90 @@
     "lurker",
     "spitting-drake",
     "water-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "j2",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "player4": "normal"
+        },
+        {
+          "name": "water-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "water-spirit",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "water-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "e1",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "lurker",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker",
+          "player4": "normal"
+        },
+        {
+          "name": "water-spirit",
+          "type": "elite"
+        },
+        {
+          "name": "water-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "n1",
+      "monster": [
+        {
+          "name": "water-spirit",
+          "type": "elite"
+        }
+      ]
+    }
   ]
 }

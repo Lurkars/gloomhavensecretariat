@@ -2,6 +2,14 @@
   "index": "65",
   "name": "Sulfur Mine",
   "edition": "gh",
+  "rewards": {
+    "globalAchievements": [
+      "Ancient Technology"
+    ],
+    "items": [
+      "112"
+    ]
+  },
   "monsters": [
     "hound",
     "inox-shaman",

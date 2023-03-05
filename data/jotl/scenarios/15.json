@@ -5,6 +5,12 @@
   "unlocks": [
     "16"
   ],
+  "rewards": {
+    "gold": 10,
+    "items": [
+      "21-26"
+    ]
+  },
   "monsters": [
     "black-imp",
     "blood-imp",

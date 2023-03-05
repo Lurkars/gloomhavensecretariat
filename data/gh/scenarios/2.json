@@ -11,6 +11,10 @@
       "1"
     ]
   ],
+  "rewards": {
+    "gold": 10,
+    "prosperity": 1
+  },
   "monsters": [
     "bandit-archer",
     "bandit-commander",

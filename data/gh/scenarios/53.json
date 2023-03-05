@@ -5,6 +5,12 @@
   "unlocks": [
     "54"
   ],
+  "rewards": {
+    "items": [
+      "114"
+    ],
+    "custom": "The Seeker of Xorn receives item. The Seeker cannot sell this item."
+  },
   "monsters": [
     "giant-viper",
     "living-bones",

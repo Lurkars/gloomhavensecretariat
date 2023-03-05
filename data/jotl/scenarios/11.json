@@ -9,6 +9,11 @@
   "blocks": [
     "12"
   ],
+  "rewards": {
+    "items": [
+      "28"
+    ]
+  },
   "monsters": [
     "black-sludge",
     "giant-viper",

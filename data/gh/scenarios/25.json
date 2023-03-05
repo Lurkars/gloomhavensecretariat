@@ -9,6 +9,11 @@
   "links": [
     "34"
   ],
+  "rewards": {
+    "partyAchievements": [
+      "The Drake's Command"
+    ]
+  },
   "monsters": [
     "hound",
     "rending-drake",

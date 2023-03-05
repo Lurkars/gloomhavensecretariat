@@ -6,5 +6,93 @@
     "bandit-archer",
     "bandit-guard",
     "hound"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "a4",
+      "initial": true,
+      "rooms": [
+        2,
+        3
+      ],
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player2": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player2": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "bandit-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "bandit-guard",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "l1",
+      "monster": [
+        {
+          "name": "bandit-archer",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "l3",
+      "monster": [
+        {
+          "name": "bandit-guard",
+          "type": "elite"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
   ]
 }

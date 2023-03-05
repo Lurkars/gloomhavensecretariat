@@ -2,6 +2,9 @@
   "index": "21",
   "name": "Agents of Chaos",
   "edition": "jotl",
+  "rewards": {
+    "gold": 15
+  },
   "monsters": [
     "chaos-demon",
     "giant-viper",

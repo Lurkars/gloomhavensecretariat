@@ -7,6 +7,10 @@
       "86"
     ]
   ],
+  "rewards": {
+    "reputation": 1,
+    "prosperity": 1
+  },
   "monsters": [
     "black-imp",
     "deep-terror",

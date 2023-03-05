@@ -10,6 +10,11 @@
       "38"
     ]
   ],
+  "rewards": {
+    "globalAchievements": [
+      "End of Corruption"
+    ]
+  },
   "monsters": [
     "dark-rider",
     "earth-demon",

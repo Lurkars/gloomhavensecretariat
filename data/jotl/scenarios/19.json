@@ -2,6 +2,11 @@
   "index": "19",
   "name": "Den of Thieves",
   "edition": "jotl",
+  "rewards": {
+    "items": [
+      "31"
+    ]
+  },
   "monsters": [
     "rat-monstrosity",
     "vermling-raider",

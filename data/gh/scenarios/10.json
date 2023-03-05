@@ -9,6 +9,11 @@
   "links": [
     "21"
   ],
+  "rewards": {
+    "partyAchievements": [
+      "A Demon's Errand"
+    ]
+  },
   "monsters": [
     "earth-demon",
     "flame-demon",

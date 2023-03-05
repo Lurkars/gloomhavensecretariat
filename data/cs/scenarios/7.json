@@ -6,6 +6,12 @@
     "10",
     "8"
   ],
+  "rewards": {
+    "partyAchievements": [
+      "Follow the Money"
+    ],
+    "collectiveGold": 30
+  },
   "monsters": [
     "cave-bear",
     "forest-imp",
@@ -13,5 +19,40 @@
     "hound",
     "rending-drake",
     "spitting-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "l3",
+      "initial": true,
+      "monster": [
+        {
+          "name": "giant-viper",
+          "player2": "normal",
+          "player3": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player4": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
+        }
+      ]
+    }
   ]
 }

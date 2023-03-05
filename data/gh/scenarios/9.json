@@ -9,6 +9,13 @@
   "blocks": [
     "8"
   ],
+  "rewards": {
+    "globalAchievements": [
+      "The Dead Invade"
+    ],
+    "gold": 20,
+    "prosperity": 1
+  },
   "monsters": [
     "hound",
     "merciless-overseer",

@@ -2,6 +2,12 @@
   "index": "84",
   "name": "Crystalline Cave",
   "edition": "gh",
+  "rewards": {
+    "prosperity": 1,
+    "items": [
+      "133"
+    ]
+  },
   "monsters": [
     "earth-demon",
     "flame-demon",

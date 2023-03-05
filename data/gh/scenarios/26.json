@@ -13,6 +13,14 @@
       "43"
     ]
   ],
+  "rewards": {
+    "partyAchievements": [
+      "Following Clues"
+    ],
+    "gold": 10,
+    "reputation": 1,
+    "prosperity": 2
+  },
   "monsters": [
     "black-imp",
     "living-corpse",

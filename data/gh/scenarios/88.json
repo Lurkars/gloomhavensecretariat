@@ -7,6 +7,11 @@
       "43"
     ]
   ],
+  "rewards": {
+    "items": [
+      "120"
+    ]
+  },
   "monsters": [
     "frost-demon",
     "lurker",

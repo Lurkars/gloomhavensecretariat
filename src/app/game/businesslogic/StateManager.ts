@@ -22,6 +22,8 @@ export class StateManager {
   installPrompt: any = null;
 
   lastAction: "update" | "undo" | "redo" = "update";
+  updateBlocked: boolean = false;
+  permissionBackup: Permissions | undefined;
 
   constructor(game: Game) {
     this.game = game;
@@ -39,8 +41,15 @@ export class StateManager {
       localStorage.setItem("ghs-game", JSON.stringify(this.game.toModel()));
     }
 
-    if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword && settingsManager.settings.serverAutoconnect) {
-      this.connect();
+    this.updateBlocked = false;
+
+    if (settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword) {
+      if (settingsManager.settings.serverAutoconnect) {
+        this.connect();
+      } else {
+        gameManager.stateManager.updateBlocked = true;
+        gameManager.stateManager.permissions = new Permissions();
+      }
     }
 
 
@@ -195,6 +204,7 @@ export class StateManager {
       this.ws.onmessage = this.onMessage;
       this.ws.onopen = this.onOpen;
       this.ws.onclose = this.onClose;
+      this.ws.onerror = this.onError
     }
   }
 
@@ -260,6 +270,7 @@ export class StateManager {
           break;
         case "permissions":
           gameManager.stateManager.permissions = message.payload as Permissions || undefined;
+          gameManager.stateManager.permissionBackup = gameManager.stateManager.permissions && JSON.parse(JSON.stringify(gameManager.stateManager.permissions)) || undefined;
           break;
         case "requestUpdate":
           gameManager.stateManager.after();
@@ -287,6 +298,8 @@ export class StateManager {
   onOpen(ev: Event) {
     const ws = ev.target as WebSocket;
     if (ws && ws.readyState == WebSocket.OPEN && settingsManager.settings.serverPassword) {
+      gameManager.stateManager.updateBlocked = false;
+      gameManager.stateManager.permissions = gameManager.stateManager.permissionBackup;
       let message = {
         "password": settingsManager.settings.serverPassword,
         "type": "request-game",
@@ -306,6 +319,19 @@ export class StateManager {
 
   onClose(ev: Event) {
     gameManager.game.server = false;
+    gameManager.stateManager.updateBlocked = true;
+    gameManager.stateManager.permissions = new Permissions();
+  }
+
+  onError(ev: Event) {
+    gameManager.game.server = false;
+    gameManager.stateManager.updateBlocked = true;
+    gameManager.stateManager.permissions = new Permissions();
+  }
+
+  forceUpdateState() {
+    gameManager.stateManager.updateBlocked = false;
+    gameManager.stateManager.permissions = gameManager.stateManager.permissionBackup;
   }
 
   requestSettings() {
@@ -416,6 +442,14 @@ export class StateManager {
     return this.undos.length > 0;
   }
 
+  hasUndoPermission(): boolean {
+    if (!this.hasUndo()) {
+      return false;
+    }
+
+    return !this.permissions || !this.updateBlocked;
+  }
+
   undo(sync: boolean = true) {
     if (this.undos.length > 0) {
       window.document.body.classList.add('working');
@@ -436,6 +470,14 @@ export class StateManager {
 
   hasRedo(): boolean {
     return this.redos.length > 0;
+  }
+
+  hasRedoPermission(): boolean {
+    if (!this.hasRedo()) {
+      return false;
+    }
+
+    return !this.permissions || !this.updateBlocked;
   }
 
   redo(sync: boolean = true) {

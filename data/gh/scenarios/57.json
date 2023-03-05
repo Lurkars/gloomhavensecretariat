@@ -5,6 +5,9 @@
   "unlocks": [
     "58"
   ],
+  "rewards": {
+    "reputation": 1
+  },
   "monsters": [
     "city-archer",
     "city-guard",

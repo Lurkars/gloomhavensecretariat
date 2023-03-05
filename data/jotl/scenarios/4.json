@@ -5,6 +5,11 @@
   "unlocks": [
     "5"
   ],
+  "rewards": {
+    "items": [
+      "14"
+    ]
+  },
   "monsters": [
     "stone-golem",
     "zealot"

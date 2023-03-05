@@ -1,0 +1,146 @@
+{
+  "index": "4",
+  "group": "RM",
+  "name": "Terrorscale Lair",
+  "edition": "cs",
+  "unlocks": [
+    "5",
+    "6"
+  ],
+  "monsters": [
+    "gnashing-drake",
+    "rending-drake",
+    "spitting-drake",
+    "terrorscale-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "n1",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "gnashing-drake",
+          "type": "elite"
+        },
+        {
+          "name": "gnashing-drake",
+          "player2": "elite",
+          "player3": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "player2": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "gnashing-drake",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "gnashing-drake",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "gnashing-drake",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "gnashing-drake",
+          "player4": "elite"
+        },
+        {
+          "name": "terrorscale-drake",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "j2",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "gnashing-drake",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "gnashing-drake",
+          "player2": "normal",
+          "player3": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "player2": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "gnashing-drake",
+          "player2": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "gnashing-drake",
+          "player3": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "l3",
+      "monster": [
+        {
+          "name": "gnashing-drake",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "player2": "normal"
+        },
+        {
+          "name": "gnashing-drake",
+          "player2": "normal"
+        },
+        {
+          "name": "rending-drake",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "terrorscale-drake",
+          "type": "normal"
+        }
+      ]
+    }
+  ]
+}

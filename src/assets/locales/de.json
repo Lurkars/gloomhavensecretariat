@@ -710,6 +710,7 @@
   "section": "Sektion hinzufügen",
   "server": {
     "autoconnect": "Automatisch Verbinden",
+    "blocked": "Deine Serververbindung ist unterbrochen, daher sind Änderungen am Spiel aktuell unterbunden.",
     "closed": "Geschlossen",
     "closing": "Schließen",
     "connect": "Verbinden",
@@ -717,6 +718,8 @@
     "connecting": "Verbinde",
     "disconnect": "Trennen",
     "disconnected": "Keine Verbindung",
+    "force": "Lokale Änderungen zulassen",
+    "forceHint": "Achtung: Lokale Änderungen werden bei erneuter Verbindung verworfen!",
     "how-to-run": "Einen eigenen Server erstellen",
     "info": {
       ".": "Info",

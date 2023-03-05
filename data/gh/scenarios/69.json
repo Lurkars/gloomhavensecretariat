@@ -2,6 +2,9 @@
   "index": "69",
   "name": "Well of the Unfortunate",
   "edition": "gh",
+  "rewards": {
+    "gold": 15
+  },
   "monsters": [
     "forest-imp",
     "living-spirit",

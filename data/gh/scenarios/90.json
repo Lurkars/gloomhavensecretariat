@@ -2,6 +2,11 @@
   "index": "90",
   "name": "Demonic Rift",
   "edition": "gh",
+  "rewards": {
+    "items": [
+      "128"
+    ]
+  },
   "monsters": [
     "earth-demon",
     "living-spirit",

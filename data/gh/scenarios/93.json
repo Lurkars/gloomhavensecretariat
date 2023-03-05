@@ -2,6 +2,9 @@
   "index": "93",
   "name": "Sunken Vessel",
   "edition": "gh",
+  "rewards": {
+    "experience": 10
+  },
   "monsters": [
     "frost-demon",
     "living-spirit",

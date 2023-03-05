@@ -6,11 +6,185 @@
     "5",
     "6"
   ],
+  "rewards": {
+    "custom": "Each character gains one random \"Orb\" item (1-10)"
+  },
   "monsters": [
     "blood-ooze",
     "city-archer",
     "city-guard",
     "flaming-drake",
     "toxic-imp"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "i2",
+      "initial": true,
+      "rooms": [
+        2,
+        3,
+        4
+      ],
+      "monster": [
+        {
+          "name": "flaming-drake",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "flaming-drake",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "flaming-drake",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "toxic-imp",
+          "player2": "normal",
+          "player3": "elite"
+        },
+        {
+          "name": "toxic-imp",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "toxic-imp",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "toxic-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "toxic-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "toxic-imp",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "b4",
+      "monster": [
+        {
+          "name": "blood-ooze",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "blood-ooze",
+          "player2": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "blood-ooze",
+          "player3": "elite"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "toxic-imp",
+          "type": "normal"
+        },
+        {
+          "name": "toxic-imp",
+          "player3": "normal"
+        },
+        {
+          "name": "toxic-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "toxic-imp",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "e1",
+      "monster": [
+        {
+          "name": "blood-ooze",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "blood-ooze",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "city-archer",
+          "type": "normal"
+        },
+        {
+          "name": "flaming-drake",
+          "type": "elite"
+        },
+        {
+          "name": "flaming-drake",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "toxic-imp",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "a2",
+      "monster": [
+        {
+          "name": "blood-ooze",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "blood-ooze",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "toxic-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
   ]
 }

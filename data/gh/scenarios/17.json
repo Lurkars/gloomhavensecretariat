@@ -2,6 +2,9 @@
   "index": "17",
   "name": "Lost Island",
   "edition": "gh",
+  "rewards": {
+    "gold": 25
+  },
   "monsters": [
     "cave-bear",
     "vermling-scout",

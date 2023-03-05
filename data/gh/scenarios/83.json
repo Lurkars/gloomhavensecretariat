@@ -2,6 +2,9 @@
   "index": "83",
   "name": "Shadows Within",
   "edition": "gh",
+  "rewards": {
+    "collectiveGold": 40
+  },
   "monsters": [
     "cultist",
     "flame-demon",

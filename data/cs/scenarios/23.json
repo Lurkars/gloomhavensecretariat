@@ -12,5 +12,142 @@
     "frozen-cadaver",
     "hail-demon",
     "harrower-icecrawlers"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "d2",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "frozen-cadaver",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "frozen-cadaver",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "frozen-cadaver",
+          "player2": "normal"
+        },
+        {
+          "name": "frozen-cadaver",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-icecrawlers",
+          "type": "elite"
+        },
+        {
+          "name": "harrower-icecrawlers",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-icecrawlers",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "k1",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "frozen-cadaver",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-cadaver",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-cadaver",
+          "type": "normal"
+        },
+        {
+          "name": "frozen-cadaver",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "frozen-cadaver",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hail-demon",
+          "player2": "normal",
+          "player3": "normal"
+        },
+        {
+          "name": "hail-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hail-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "hail-demon",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "e1",
+      "monster": [
+        {
+          "name": "hail-demon",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hail-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hail-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-icecrawlers",
+          "player2": "normal",
+          "player3": "elite"
+        },
+        {
+          "name": "harrower-icecrawlers",
+          "player2": "normal"
+        },
+        {
+          "name": "harrower-icecrawlers",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-icecrawlers",
+          "player4": "elite"
+        }
+      ]
+    }
   ]
 }

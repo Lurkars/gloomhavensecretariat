@@ -19,6 +19,12 @@
     "3",
     "9"
   ],
+  "rewards": {
+    "partyAchievements": [
+      "The Merchant Flees"
+    ],
+    "reputation": 2
+  },
   "monsters": [
     "inox-bodyguard",
     "living-bones",

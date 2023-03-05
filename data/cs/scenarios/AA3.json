@@ -1,0 +1,239 @@
+{
+  "index": "3",
+  "group": "AA",
+  "name": "Solo: Hive Guardian",
+  "edition": "cs",
+  "unlocks": [
+    "4",
+    "7"
+  ],
+  "monsters": [
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "night-demon",
+    "sun-demon",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Soul Leech Egg",
+      "health": "3+L",
+      "escort": true,
+      "initiative": 25,
+      "marker": "a",
+      "count": 2
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 2 || R == 6",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "flame-demon",
+            "type": "normal"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 3 || R == 7",
+      "start": true,
+      "spawns": [
+        {
+          "count": 2,
+          "monster": {
+            "name": "sun-demon",
+            "type": "normal"
+          },
+          "marker": "d"
+        }
+      ]
+    },
+    {
+      "round": "R == 4 || R == 8",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "night-demon",
+            "type": "normal"
+          },
+          "marker": "b"
+        }
+      ]
+    },
+    {
+      "round": "R == 5 || R == 9",
+      "start": true,
+      "spawns": [
+        {
+          "count": 2,
+          "monster": {
+            "name": "wind-demon",
+            "type": "normal"
+          },
+          "marker": "e"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "l2",
+      "initial": true,
+      "monster": [
+        {
+          "name": "earth-demon",
+          "type": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "normal"
+        },
+        {
+          "name": "frost-demon",
+          "type": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "type": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player4": "elite"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "monster": [
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "monster": [
+        {
+          "name": "sun-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "monster": [
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 5,
+      "monster": [
+        {
+          "name": "wind-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 6,
+      "monster": [
+        {
+          "name": "flame-demon",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 7,
+      "monster": [
+        {
+          "name": "sun-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "sun-demon",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 8,
+      "monster": [
+        {
+          "name": "night-demon",
+          "type": "normal"
+        },
+        {
+          "name": "night-demon",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 9,
+      "monster": [
+        {
+          "name": "wind-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "wind-demon",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -9,6 +9,18 @@
   "blocks": [
     "12"
   ],
+  "rewards": {
+    "globalAchievements": [
+      "City Rule: Economic",
+      "End of the Invasion"
+    ],
+    "gold": 15,
+    "reputation": -2,
+    "prosperity": 2,
+    "items": [
+      "113"
+    ]
+  },
   "monsters": [
     "captain-of-the-guard",
     "city-archer",

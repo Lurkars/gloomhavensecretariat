@@ -8,6 +8,9 @@
   "blocks": [
     "7"
   ],
+  "rewards": {
+    "experience": 20
+  },
   "monsters": [
     "blood-tumor",
     "chaos-demon",

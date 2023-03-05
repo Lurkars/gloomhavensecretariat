@@ -6,6 +6,9 @@
     "7",
     "8"
   ],
+  "rewards": {
+    "battleGoals": 1
+  },
   "monsters": [
     "black-sludge",
     "rat-monstrosity"

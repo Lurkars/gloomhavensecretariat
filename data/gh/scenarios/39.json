@@ -9,6 +9,12 @@
   "links": [
     "46"
   ],
+  "rewards": {
+    "partyAchievements": [
+      "Across the Divide"
+    ],
+    "experience": 10
+  },
   "monsters": [
     "cave-bear",
     "cultist",

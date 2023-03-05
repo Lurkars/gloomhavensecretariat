@@ -2,6 +2,14 @@
   "index": "67",
   "name": "Arcane Library",
   "edition": "gh",
+  "rewards": {
+    "globalAchievements": [
+      "Ancient Technology"
+    ],
+    "items": [
+      "132"
+    ]
+  },
   "monsters": [
     "arcane-golem:+1",
     "cave-bear",

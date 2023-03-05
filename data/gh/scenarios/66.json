@@ -2,6 +2,11 @@
   "index": "66",
   "name": "Clockwork Cove",
   "edition": "gh",
+  "rewards": {
+    "globalAchievements": [
+      "Ancient Technology"
+    ]
+  },
   "monsters": [
     "ancient-artillery",
     "living-spirit",

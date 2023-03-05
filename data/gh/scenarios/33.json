@@ -10,6 +10,12 @@
       "25"
     ]
   ],
+  "rewards": {
+    "partyAchievements": [
+      "The Voice's Treasure",
+      "The Drake's Treasure"
+    ]
+  },
   "monsters": [
     "earth-demon",
     "flame-demon",

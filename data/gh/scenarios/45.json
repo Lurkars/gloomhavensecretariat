@@ -11,6 +11,10 @@
       "35"
     ]
   ],
+  "rewards": {
+    "gold": 20,
+    "reputation": -2
+  },
   "monsters": [
     "city-archer",
     "city-guard",

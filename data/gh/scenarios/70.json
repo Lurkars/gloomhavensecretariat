@@ -2,6 +2,9 @@
   "index": "70",
   "name": "Chained Isle",
   "edition": "gh",
+  "rewards": {
+    "prosperity": 2
+  },
   "monsters": [
     "living-spirit",
     "night-demon",

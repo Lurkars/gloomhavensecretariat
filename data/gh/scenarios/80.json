@@ -2,6 +2,9 @@
   "index": "80",
   "name": "Vigil Keep",
   "edition": "gh",
+  "rewards": {
+    "experience": 10
+  },
   "monsters": [
     "ancient-artillery",
     "city-archer",

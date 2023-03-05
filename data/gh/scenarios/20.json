@@ -12,6 +12,11 @@
       "8"
     ]
   ],
+  "rewards": {
+    "gold": 20,
+    "reputation": 2,
+    "prosperity": 1
+  },
   "monsters": [
     "cultist",
     "jekserah",

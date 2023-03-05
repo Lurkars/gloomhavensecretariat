@@ -6,6 +6,13 @@
     "8",
     "9"
   ],
+  "rewards": {
+    "partyAchievements": [
+      "Jekserah's Plans"
+    ],
+    "gold": 15,
+    "prosperity": 1
+  },
   "monsters": [
     "inox-archer",
     "inox-guard",

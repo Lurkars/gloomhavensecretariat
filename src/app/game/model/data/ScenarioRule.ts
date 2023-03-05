@@ -47,6 +47,26 @@ export class ScenarioFigureRule {
 
 }
 
+export class ScenarioRewards {
+
+  globalAchievements: string[] = [];
+  partyAchievements: string[] = [];
+  lostPartyAchievements: string[] = [];
+  envelopes: string[] = [];
+  gold: number = 0;
+  experience: number = 0;
+  collectiveGold: number = 0;
+  reputation: number = 0;
+  prosperity: number = 0;
+  perks: number = 0;
+  battleGoals: number = 0;
+  items: string[] = [];
+  events: string[] = [];
+  custom: string = "";
+  ignoredBonus: string[] = [];
+
+}
+
 export type ScenarioRuleIdentifier = { "edition": string, "scenario": string, "group": string | undefined, "index": number, "section": boolean };
 
 export type FigureIdentifier = { "type": string, "edition": string, "name": string, "marker": string | undefined, "tag": string | undefined } | undefined;

@@ -1,0 +1,10 @@
+{
+  "index": "82-B",
+  "name": "Conclusion B",
+  "edition": "gh",
+  "parent": "82",
+  "rewards": {
+    "reputation": -1,
+    "prosperity": -2
+  }
+}

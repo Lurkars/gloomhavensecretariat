@@ -2,6 +2,9 @@
   "index": "73",
   "name": "Rockslide Ridge",
   "edition": "gh",
+  "rewards": {
+    "reputation": 1
+  },
   "monsters": [
     "ancient-artillery",
     "hound",

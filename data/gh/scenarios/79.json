@@ -2,6 +2,9 @@
   "index": "79",
   "name": "Lost Temple",
   "edition": "gh",
+  "rewards": {
+    "gold": 15
+  },
   "monsters": [
     "giant-viper",
     "stone-golem",

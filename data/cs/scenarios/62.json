@@ -7,5 +7,70 @@
     "cave-bear",
     "forest-imp",
     "vermling-shaman"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "b1",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "h2",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "d2"
+    },
+    {
+      "roomNumber": 4,
+      "ref": "d2",
+      "monster": [
+        {
+          "name": "the-colorless",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 5,
+      "ref": "d2",
+      "monster": [
+        {
+          "name": "aesther-ashblade",
+          "type": "elite"
+        }
+      ]
+    }
   ]
 }

@@ -5,6 +5,12 @@
   "unlocks": [
     "87"
   ],
+  "rewards": {
+    "partyAchievements": [
+      "The Poison's Source"
+    ],
+    "reputation": 2
+  },
   "monsters": [
     "cave-bear",
     "lurker",

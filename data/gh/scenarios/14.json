@@ -2,6 +2,11 @@
   "index": "14",
   "name": "Frozen Hollow",
   "edition": "gh",
+  "rewards": {
+    "globalAchievements": [
+      "The Power of Enhancement"
+    ]
+  },
   "monsters": [
     "frost-demon",
     "hound",

@@ -2,6 +2,16 @@
   "index": "54",
   "name": "Palace of Ice",
   "edition": "gh",
+  "rewards": {
+    "envelopes": [
+      "%data.characterIcon.squidface%"
+    ],
+    "events": [
+      "city:59",
+      "road:59"
+    ],
+    "custom": "Immediately retire the Seeker of Xorn. City and Road events instead of normal retirement events for the class"
+  },
   "monsters": [
     "cave-bear-scenario-54",
     "frost-demon",

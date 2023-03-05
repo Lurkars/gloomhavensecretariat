@@ -7,6 +7,12 @@
       "38"
     ]
   ],
+  "rewards": {
+    "envelopes": [
+      "%data.characterIcon.angry-face%"
+    ],
+    "reputation": 2
+  },
   "monsters": [
     "hound",
     "inox-archer",

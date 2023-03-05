@@ -10,6 +10,13 @@
   "blocks": [
     "50"
   ],
+  "rewards": {
+    "globalAchievements": [
+      "Annihilation of Order"
+    ],
+    "gold": 50,
+    "reputation": -3
+  },
   "monsters": [
     "city-archer",
     "city-guard",

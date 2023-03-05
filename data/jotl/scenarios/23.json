@@ -2,6 +2,11 @@
   "index": "23",
   "name": "The Best of the Best",
   "edition": "jotl",
+  "rewards": {
+    "items": [
+      "34"
+    ]
+  },
   "monsters": [
     "giant-viper",
     "rat-monstrosity",

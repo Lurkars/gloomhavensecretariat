@@ -13,5 +13,146 @@
     "inox-archer",
     "inox-guard",
     "water-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "i2",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "deep-terror",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "water-spirit",
+          "player2": "normal"
+        },
+        {
+          "name": "water-spirit",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "water-spirit",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "h1",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player2": "normal",
+          "player3": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "water-spirit",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "e1",
+      "monster": [
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player2": "elite"
+        },
+        {
+          "name": "inox-guard",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "water-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "water-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "water-spirit",
+          "player3": "elite"
+        },
+        {
+          "name": "water-spirit",
+          "player4": "elite"
+        }
+      ]
+    }
   ]
 }

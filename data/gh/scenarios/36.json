@@ -12,6 +12,19 @@
     "21",
     "35"
   ],
+  "rewards": {
+    "globalAchievements": [
+      "The Rift Neutralized"
+    ],
+    "lostPartyAchievements": [
+      "The Demmon's Errand"
+    ],
+    "gold": 10,
+    "reputation": 4,
+    "events": [
+      "city:78"
+    ]
+  },
   "monsters": [
     "city-archer",
     "earth-demon",

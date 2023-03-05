@@ -2,6 +2,10 @@
   "index": "92",
   "name": "Back Alley Brawl",
   "edition": "gh",
+  "rewards": {
+    "gold": 10,
+    "reputation": -3
+  },
   "monsters": [
     "bandit-archer",
     "bandit-guard",

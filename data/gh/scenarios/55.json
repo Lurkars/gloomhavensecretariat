@@ -8,6 +8,9 @@
   "links": [
     "56"
   ],
+  "rewards": {
+    "collectiveGold": 10
+  },
   "rules": [
     {
       "round": "R == 1",

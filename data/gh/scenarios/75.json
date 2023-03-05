@@ -2,6 +2,9 @@
   "index": "75",
   "name": "Overgrown Graveyard",
   "edition": "gh",
+  "rewards": {
+    "gold": 60
+  },
   "monsters": [
     "bloated-regent",
     "living-bones",

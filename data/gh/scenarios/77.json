@@ -2,6 +2,9 @@
   "index": "77",
   "name": "Vault of Secrets",
   "edition": "gh",
+  "rewards": {
+    "experience": 5
+  },
   "monsters": [
     "city-archer",
     "city-guard",

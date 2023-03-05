@@ -57,6 +57,56 @@ main {
   }
 }
 
+.blocked {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+
+  font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+  text-align: center;
+  color: var(--ghs-color-white);
+
+  .buttons {
+    display: flex;
+    margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    font-family: var(--ghs-font-title);
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    justify-content: space-evenly;
+    align-items: flex-start;
+
+    a {
+      cursor: pointer;
+      min-width: 33%;
+      display: flex;
+      justify-content: center;
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+
+    .connect {
+      color: var(--ghs-color-green);
+    }
+
+    .force {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--ghs-color-yellow);
+
+      .force-hint {
+        font-family: var(--ghs-font-text);
+        font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        color: var(--ghs-color-yellow-light);
+      }
+    }
+  }
+}
+
 .welcome {
   display: flex;
   flex-direction: column;

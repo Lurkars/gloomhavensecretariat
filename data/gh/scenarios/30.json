@@ -10,6 +10,12 @@
       "24"
     ]
   ],
+  "rewards": {
+    "partyAchievements": [
+      "The Scepter and the Voice"
+    ],
+    "gold": 10
+  },
   "monsters": [
     "deep-terror",
     "lurker",

@@ -5,6 +5,12 @@
   "unlocks": [
     "10"
   ],
+  "rewards": {
+    "experience": 20,
+    "items": [
+      "15-20"
+    ]
+  },
   "monsters": [
     "blood-horror",
     "living-corpse",

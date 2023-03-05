@@ -5,6 +5,9 @@
   "unlocks": [
     "6"
   ],
+  "rewards": {
+    "experience": 25
+  },
   "monsters": [
     "blood-tumor",
     "chaos-demon",

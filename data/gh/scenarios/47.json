@@ -10,6 +10,11 @@
       "37"
     ]
   ],
+  "rewards": {
+    "globalAchievements": [
+      "End of Corruption"
+    ]
+  },
   "monsters": [
     "deep-terror",
     "harrower-infester",

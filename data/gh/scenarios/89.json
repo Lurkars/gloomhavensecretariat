@@ -2,6 +2,9 @@
   "index": "89",
   "name": "Syndicate Hideout",
   "edition": "gh",
+  "rewards": {
+    "collectiveGold": 50
+  },
   "monsters": [
     "bandit-archer",
     "bandit-guard",

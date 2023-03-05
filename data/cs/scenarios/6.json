@@ -7,10 +7,64 @@
       "5"
     ]
   ],
+  "rewards": {
+    "reputation": 2,
+    "prosperity": 1,
+    "items": [
+      "21"
+    ]
+  },
   "monsters": [
     "blood-ooze",
     "flaming-drake",
     "toxic-imp",
     "water-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "m1",
+      "initial": true,
+      "monster": [
+        {
+          "name": "blood-ooze",
+          "type": "elite"
+        },
+        {
+          "name": "blood-ooze",
+          "player4": "normal"
+        },
+        {
+          "name": "toxic-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "toxic-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "toxic-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "water-spirit",
+          "type": "normal"
+        },
+        {
+          "name": "water-spirit",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "water-spirit",
+          "player4": "elite"
+        }
+      ]
+    }
   ]
 }

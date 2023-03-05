@@ -93,7 +93,9 @@ export class MonsterEntityComponent {
         while (this.monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
           number = Math.floor(Math.random() * this.monster.count) + 1;
         }
+        gameManager.stateManager.before("addRandomStandee", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + number);
         this.entity.number = number;
+        gameManager.stateManager.after();
       } else {
         const dialogRef = this.dialog.open(MonsterNumberPickerDialog, {
           panelClass: 'dialog',

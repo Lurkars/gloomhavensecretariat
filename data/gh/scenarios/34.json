@@ -10,6 +10,17 @@
   "blocks": [
     "33"
   ],
+  "rewards": {
+    "globalAchievements": [
+      "The Drake Slain"
+    ],
+    "lostPartyAchievements": [
+      "The Drake's Command"
+    ],
+    "gold": 20,
+    "reputation": 2,
+    "prosperity": 1
+  },
   "monsters": [
     "elder-drake",
     "rending-drake",

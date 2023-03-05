@@ -5,6 +5,14 @@
   "unlocks": [
     "26"
   ],
+  "rewards": {
+    "globalAchievements": [
+      "Ancient Technology"
+    ],
+    "partyAchievements": [
+      "Through the Ruins"
+    ]
+  },
   "monsters": [
     "ancient-artillery",
     "living-bones",

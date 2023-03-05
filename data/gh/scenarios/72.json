@@ -2,6 +2,10 @@
   "index": "72",
   "name": "Oozing Grove",
   "edition": "gh",
+  "rewards": {
+    "reputation": 1,
+    "prosperity": 1
+  },
   "monsters": [
     "forest-imp",
     "giant-viper",

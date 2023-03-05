@@ -10,6 +10,11 @@
       "43"
     ]
   ],
+  "rewards": {
+    "partyAchievements": [
+      "Through the Trench"
+    ]
+  },
   "monsters": [
     "deep-terror",
     "harrower-infester",

@@ -5,10 +5,110 @@
   "unlocks": [
     "6"
   ],
+  "rewards": {
+    "partyAchievements": [
+      "Ooze Destroyed"
+    ]
+  },
   "monsters": [
     "blood-ooze",
     "earth-demon",
     "flaming-drake",
     "toxic-imp"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "l1",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player2": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player3": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "elite"
+        },
+        {
+          "name": "toxic-imp",
+          "player2": "normal",
+          "player3": "normal"
+        },
+        {
+          "name": "toxic-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "toxic-imp",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "toxic-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "toxic-imp",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "m1",
+      "monster": [
+        {
+          "name": "blood-ooze",
+          "type": "elite"
+        },
+        {
+          "name": "earth-demon",
+          "player2": "normal",
+          "player3": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "earth-demon",
+          "player4": "elite"
+        },
+        {
+          "name": "flaming-drake",
+          "type": "normal"
+        },
+        {
+          "name": "flaming-drake",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
   ]
 }

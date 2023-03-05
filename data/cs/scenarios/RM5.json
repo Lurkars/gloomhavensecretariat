@@ -1,0 +1,159 @@
+{
+  "index": "5",
+  "group": "RM",
+  "name": "Unseen Plight",
+  "edition": "cs",
+  "unlocks": [
+    "6"
+  ],
+  "monsters": [
+    "black-imp",
+    "ravenous-gharial"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "j1",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "ravenous-gharial",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "ravenous-gharial",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "ravenous-gharial",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ravenous-gharial",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "ravenous-gharial",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "f1",
+      "rooms": [
+        3,
+        4
+      ],
+      "monster": [
+        {
+          "name": "black-imp",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "black-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "black-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "ravenous-gharial",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "d2",
+      "monster": [
+        {
+          "name": "ravenous-gharial",
+          "type": "elite"
+        },
+        {
+          "name": "ravenous-gharial",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "ravenous-gharial",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "m1",
+      "monster": [
+        {
+          "name": "ravenous-gharial",
+          "type": "elite"
+        },
+        {
+          "name": "ravenous-gharial",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "ravenous-gharial",
+          "player3": "normal"
+        },
+        {
+          "name": "ravenous-gharial",
+          "player4": "normal"
+        },
+        {
+          "name": "ravenous-gharial",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

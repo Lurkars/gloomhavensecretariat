@@ -2,6 +2,10 @@
   "index": "17",
   "name": "Red Twilight",
   "edition": "jotl",
+  "rewards": {
+    "gold": 30,
+    "experience": 25
+  },
   "monsters": [
     "blood-imp",
     "blood-monstrosity",

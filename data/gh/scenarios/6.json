@@ -5,6 +5,14 @@
   "unlocks": [
     "8"
   ],
+  "rewards": {
+    "partyAchievements": [
+      "Jekserah's Plans",
+      "Dark Bounty"
+    ],
+    "gold": 5,
+    "prosperity": 1
+  },
   "monsters": [
     "living-bones",
     "living-corpse",

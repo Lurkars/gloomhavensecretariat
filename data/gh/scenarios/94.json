@@ -8,6 +8,11 @@
   "links": [
     "95"
   ],
+  "rewards": {
+    "partyAchievements": [
+      "Through the Nest"
+    ]
+  },
   "monsters": [
     "cave-bear",
     "hound",

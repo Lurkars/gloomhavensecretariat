@@ -1,0 +1,190 @@
+{
+  "index": "7",
+  "group": "RM",
+  "name": "Insatiable",
+  "edition": "cs",
+  "unlocks": [
+    "10",
+    "8"
+  ],
+  "monsters": [
+    "giant-viper",
+    "hound",
+    "ruinmaw",
+    "vermling-scout",
+    "vermling-shaman"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "l3",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "ruinmaw",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "player2": "normal"
+        },
+        {
+          "name": "vermling-shaman",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "a2",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "n1",
+      "rooms": [
+        4
+      ],
+      "monster": [
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "giant-viper",
+          "type": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hound",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player4": "normal"
+        },
+        {
+          "name": "ruinmaw",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "ref": "a4",
+      "rooms": [
+        5
+      ],
+      "monster": [
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 5,
+      "ref": "m1",
+      "monster": [
+        {
+          "name": "ruinmaw",
+          "type": "normal"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

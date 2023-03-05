@@ -6,6 +6,11 @@
     "30",
     "32"
   ],
+  "rewards": {
+    "partyAchievements": [
+      "The Voice's Command"
+    ]
+  },
   "monsters": [
     "living-spirit",
     "ooze",

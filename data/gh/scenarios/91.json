@@ -2,6 +2,9 @@
   "index": "91",
   "name": "Wild Melee",
   "edition": "gh",
+  "rewards": {
+    "battleGoals": 2
+  },
   "monsters": [
     "bandit-archer",
     "bandit-guard",

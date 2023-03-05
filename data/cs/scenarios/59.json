@@ -8,5 +8,61 @@
     "hound",
     "vermling-scout",
     "vermling-shaman"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "b1",
+      "initial": true,
+      "monster": [
+        {
+          "name": "giant-viper-mount",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "monster": [
+        {
+          "name": "giant-viper-mount",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "monster": [
+        {
+          "name": "hound-mount",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 4,
+      "monster": [
+        {
+          "name": "cave-bear-mount",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-shaman",
+          "type": "elite"
+        }
+      ]
+    }
   ]
 }

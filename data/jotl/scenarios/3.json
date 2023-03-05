@@ -5,6 +5,9 @@
   "unlocks": [
     "4"
   ],
+  "rewards": {
+    "perks": 1
+  },
   "monsters": [
     "basic-giant-viper",
     "basic-zealot"

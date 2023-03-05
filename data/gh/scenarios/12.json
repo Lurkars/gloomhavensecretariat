@@ -10,6 +10,15 @@
   "blocks": [
     "11"
   ],
+  "rewards": {
+    "globalAchievements": [
+      "End of the Invasion"
+    ],
+    "reputation": 4,
+    "items": [
+      "113"
+    ]
+  },
   "monsters": [
     "city-archer",
     "city-guard",

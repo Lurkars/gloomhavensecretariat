@@ -3,7 +3,7 @@ import { LootDeckConfig } from "../Loot";
 import { Spoilable } from "../Spoilable";
 import { ObjectiveData } from "./ObjectiveData";
 import { RoomData } from "./RoomData";
-import { ScenarioRule } from "./ScenarioRule";
+import { ScenarioRewards, ScenarioRule } from "./ScenarioRule";
 
 export class ScenarioData implements Editional, Spoilable {
 
@@ -30,6 +30,7 @@ export class ScenarioData implements Editional, Spoilable {
   parentSections: string[] = [];
   blockedSections: string[] = [];
   resetRound: "visible" | "hidden" | undefined;
+  rewards: ScenarioRewards | undefined;
 
   // from Editional
   edition: string;

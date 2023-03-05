@@ -2,6 +2,13 @@
   "index": "60",
   "name": "Alchemy Lab",
   "edition": "gh",
+  "rewards": {
+    "envelopes": [
+      "X"
+    ],
+    "prosperity": 1,
+    "custom": "\"Finding the Cure\" quest complete"
+  },
   "monsters": [
     "giant-viper",
     "hound",

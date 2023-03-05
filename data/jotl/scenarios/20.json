@@ -2,6 +2,9 @@
   "index": "20",
   "name": "Misplaced Goods",
   "edition": "jotl",
+  "rewards": {
+    "gold": 10
+  },
   "monsters": [
     "black-sludge",
     "chaos-demon",

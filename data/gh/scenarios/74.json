@@ -2,6 +2,10 @@
   "index": "74",
   "name": "Merchant Ship",
   "edition": "gh",
+  "rewards": {
+    "gold": 10,
+    "prosperity": 2
+  },
   "monsters": [
     "bandit-archer",
     "bandit-guard",

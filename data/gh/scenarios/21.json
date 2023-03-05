@@ -7,6 +7,13 @@
     "35",
     "36"
   ],
+  "rewards": {
+    "gold": 50,
+    "prosperity": 1,
+    "events": [
+      "city:78"
+    ]
+  },
   "monsters": [
     "earth-demon",
     "flame-demon",

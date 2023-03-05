@@ -2,6 +2,11 @@
   "index": "85",
   "name": "Sun Temple",
   "edition": "gh",
+  "rewards": {
+    "items": [
+      "121"
+    ]
+  },
   "monsters": [
     "black-imp",
     "hound",

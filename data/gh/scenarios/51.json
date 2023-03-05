@@ -2,6 +2,17 @@
   "index": "51",
   "name": "The Void",
   "edition": "gh",
+  "rewards": {
+    "globalAchievements": [
+      "End of Gloom"
+    ],
+    "reputation": 5,
+    "prosperity": 5,
+    "events": [
+      "city:81",
+      "road:69"
+    ]
+  },
   "monsters": [
     "the-gloom"
   ],

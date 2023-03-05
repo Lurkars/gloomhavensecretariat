@@ -10,6 +10,15 @@
   "blocks": [
     "42"
   ],
+  "rewards": {
+    "globalAchievements": [
+      "The Voice Freed"
+    ],
+    "gold": 50,
+    "experience": 25,
+    "prosperity": 2,
+    "battleGoals": 2
+  },
   "monsters": [
     "ancient-artillery",
     "living-corpse",

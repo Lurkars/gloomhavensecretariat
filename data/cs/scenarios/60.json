@@ -7,5 +7,48 @@
     "rending-drake-cs",
     "savvas-lavaflow",
     "spitting-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "g2",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "savvas-lavaflow",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "d2",
+      "rooms": [
+        3
+      ],
+      "monster": [
+        {
+          "name": "rending-drake",
+          "type": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "n1",
+      "monster": [
+        {
+          "name": "elder-drake",
+          "type": "elite"
+        },
+        {
+          "name": "flame-demon",
+          "type": "elite"
+        }
+      ]
+    }
   ]
 }
