@@ -169,6 +169,12 @@ export class MainComponent implements OnInit {
 
     if (!settingsManager.settings.disableWakeLock && "wakeLock" in navigator) {
       gameManager.stateManager.wakeLock = await navigator.wakeLock.request("screen");
+
+      document.addEventListener("visibilitychange", async () => {
+        if (gameManager.stateManager.wakeLock !== null && document.visibilityState === "visible") {
+          gameManager.stateManager.wakeLock = await navigator.wakeLock.request("screen");
+        }
+      });
     }
   }
 
