@@ -127,7 +127,7 @@
       </ng-container>
     </div>
 
-    <div class="rewards" *ngIf="rewards && success">
+    <div class="rewards" *ngIf="success">
       <div class="reward locations" *ngIf="gameManager.game.scenario && gameManager.game.scenario.unlocks">
         <label>{{(gameManager.game.scenario.unlocks.length > 1 ? 'scenario.rewards.locations' :
           'scenario.rewards.location') | ghsLabel}}:</label>
