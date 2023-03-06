@@ -25,6 +25,10 @@
 
 .main {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: auto;
 }
 
 
@@ -110,6 +114,7 @@
   color: var(--ghs-color-white);
   display: flex;
   flex-direction: column;
+  min-width: calc(var(--ghs-unit) * 35 * var(--ghs-summary-columns) * var(--ghs-dialog-factor));
   width: calc(var(--ghs-unit) * 35 * var(--ghs-dialog-factor));
 
   margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
