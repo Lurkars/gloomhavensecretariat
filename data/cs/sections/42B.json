@@ -1,0 +1,13 @@
+{
+  "index": "42B",
+  "name": "Scenario 38",
+  "edition": "cs",
+  "parent": "38",
+  "objectives": [
+    {
+      "name": "Altar of Mystification",
+      "health": "Cx(L+3)",
+      "marker": "a"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "index": "2-3",
+  "group": "QA",
+  "name": "Mechanical Menace",
+  "edition": "cs",
+  "monsters": [
+    "clockwork-devastator"
+  ]
+}

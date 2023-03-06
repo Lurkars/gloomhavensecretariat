@@ -1,0 +1,13 @@
+{
+  "index": "43A",
+  "name": "Scenario 38",
+  "edition": "cs",
+  "parent": "38",
+  "objectives": [
+    {
+      "name": "Altar of Disorientation",
+      "health": "Cx(L+4)",
+      "marker": "b"
+    }
+  ]
+}

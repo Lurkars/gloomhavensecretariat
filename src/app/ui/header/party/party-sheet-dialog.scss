@@ -197,6 +197,51 @@
       background: none;
     }
 
+    .achievements {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: calc(var(--ghs-unit) * 27 * var(--ghs-dialog-factor));
+      margin-top: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+
+      .achievements-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 24 * var(--ghs-dialog-factor));
+        width: calc(var(--ghs-unit) * 40 * var(--ghs-dialog-factor));
+        overflow: auto;
+
+        .list {
+          display: flex;
+          flex-direction: column;
+          width: calc(var(--ghs-unit) * 20 * var(--ghs-dialog-factor));
+
+          .achievement {
+            display: flex;
+
+            input {
+              min-width: 0;
+              border: none;
+              outline: none;
+              flex-shrink: 1;
+            }
+
+            .remove {
+              cursor: pointer;
+              width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+              height: auto;
+              filter: var(--ghs-filter-red);
+
+              &:hover {
+                opacity: 0.7;
+              }
+            }
+          }
+        }
+      }
+    }
+
     .sheet {
       width: calc(var(--ghs-unit) * 62 * var(--ghs-dialog-factor));
       height: calc(var(--ghs-unit) * 76 * var(--ghs-dialog-factor));
@@ -242,13 +287,6 @@
         flex-direction: column;
         height: calc(var(--ghs-unit) * 25 * var(--ghs-dialog-factor));
         margin-top: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
-      }
-
-      .achievements {
-        display: flex;
-        flex-direction: column;
-        height: calc(var(--ghs-unit) * 27 * var(--ghs-dialog-factor));
-        margin-top: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
       }
 
       .reputation,
@@ -1377,6 +1415,15 @@
           margin-top: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
           width: 50%;
           flex-grow: 1;
+
+          .achievements-container {
+            height: 100%;
+            width: 100%;
+
+            .list {
+              width: calc(var(--ghs-unit) * 15 * var(--ghs-dialog-factor));
+            }
+          }
         }
 
         .treasures {

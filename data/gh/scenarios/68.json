@@ -31,7 +31,7 @@
             "type": "character",
             "name": ".*"
           },
-          "type": "condition",
+          "type": "gainCondition",
           "value": "poison",
           "scenarioEffect": true
         }

@@ -7,7 +7,8 @@
             </span>
             <span class="id">{{item.id}}.</span>
             <span class="name" (click)="toggleEquippedItem(item)">{{item.name}}
-                <ng-container *ngIf="item.edition != itemEdition.value">&nbsp;({{'data.edition.' + item.edition |
+                <ng-container *ngIf="item.edition != itemEdition">&nbsp;({{'data.edition.' +
+                    item.edition |
                     ghsLabel}})</ng-container>
             </span>
             <span class="spacer"></span>
@@ -28,7 +29,7 @@
                 src="./assets/images/left.svg"></span>
         <input type="number" (change)="itemChange()" [(ngModel)]="itemIndex" min="1" value="1"
             [ngClass]="{ 'error': !item}">
-        <select #itemEdition (change)="itemChange()" [ngClass]="{'error': !item}">
+        <select [(ngModel)]="itemEdition" (change)="itemChange()" [ngClass]="{'error': !item}">
             <option *ngFor="let edition of gameManager.editions()" [value]="edition">{{'data.edition.' + edition |
                 ghsLabel}}</option>
         </select>

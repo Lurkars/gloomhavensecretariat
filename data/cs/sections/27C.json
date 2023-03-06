@@ -1,0 +1,14 @@
+{
+  "index": "27C",
+  "name": "Scenario 26",
+  "edition": "cs",
+  "parent": "26",
+  "objectives": [
+    {
+      "name": "Hot thermal stone",
+      "health": "C+3",
+      "marker": "b",
+      "count": 2
+    }
+  ]
+}

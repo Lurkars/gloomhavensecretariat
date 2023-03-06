@@ -1,0 +1,9 @@
+{
+  "index": "8A",
+  "name": "Scenario 5",
+  "edition": "cs",
+  "parent": "5",
+  "monsters": [
+    "gelatinous-giant"
+  ]
+}

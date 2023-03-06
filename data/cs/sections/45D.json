@@ -1,0 +1,9 @@
+{
+  "index": "45D",
+  "name": "Scenario 42",
+  "edition": "cs",
+  "parent": "42",
+  "monsters": [
+    "goring-grizzly"
+  ]
+}

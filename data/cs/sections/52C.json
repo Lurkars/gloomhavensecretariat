@@ -1,0 +1,13 @@
+{
+  "index": "52C",
+  "name": "Scenario 46",
+  "edition": "cs",
+  "parent": "46",
+  "objectives": [
+    {
+      "name": "Tree of Death",
+      "health": "Cx(L+5)",
+      "marker": "c"
+    }
+  ]
+}

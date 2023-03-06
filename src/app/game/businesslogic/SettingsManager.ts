@@ -301,6 +301,18 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  async setDisableWakeLock(disableWakeLock: boolean) {
+    this.settings.disableWakeLock = disableWakeLock;
+    if (disableWakeLock && gameManager.stateManager.wakeLock) {
+      gameManager.stateManager.wakeLock.release().then(() => {
+        gameManager.stateManager.wakeLock = null;
+      });
+    } else if (!disableWakeLock && !gameManager.stateManager.wakeLock && "wakeLock" in navigator) {
+      gameManager.stateManager.wakeLock = await navigator.wakeLock.request("screen");
+    }
+    this.storeSettings();
+  }
+
   setBarsize(barsize: number) {
     this.settings.barsize = barsize;
     this.storeSettings();
@@ -629,6 +641,12 @@ export class SettingsManager {
     }
     if (!this.label.data.scenario) {
       this.label.data.scenario = {};
+    }
+    if (!this.label.data.partyAchievements) {
+      this.label.data.partyAchievements = {};
+    }
+    if (!this.label.data.globalAchievements) {
+      this.label.data.globalAchievements = {};
     }
     if (!this.label.data.scenario.group) {
       this.label.data.scenario.group = {};

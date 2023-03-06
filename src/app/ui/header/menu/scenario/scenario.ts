@@ -105,7 +105,7 @@ export class ScenarioMenuComponent implements OnInit {
   customScenario() {
     if (!gameManager.game.scenario || !gameManager.game.scenario.custom) {
       gameManager.stateManager.before("setCustomScenario");
-      gameManager.scenarioManager.setScenario(new Scenario(new ScenarioData("", "", [], [], [], [], [], [], [], [], [], [], "", [], ""), [], true));
+      gameManager.scenarioManager.setScenario(new Scenario(new ScenarioData("", "", [], [], [], [], [], undefined, [], [], [], [], [], "", [], ""), [], true));
       gameManager.stateManager.after();
     } else {
       gameManager.stateManager.before("unsetCustomScenario");

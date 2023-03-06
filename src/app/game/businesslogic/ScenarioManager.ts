@@ -6,6 +6,7 @@ import { ScenarioRule, ScenarioRuleIdentifier } from "../model/data/ScenarioRule
 import { EntityValueFunction } from "../model/Entity";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
+import { Identifier } from "../model/Identifier";
 import { LootDeckConfig } from "../model/Loot";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
@@ -20,6 +21,10 @@ export class ScenarioManager {
 
   constructor(game: Game) {
     this.game = game;
+  }
+
+  getScenario(index: string, edition: string, group: string | undefined): ScenarioData | undefined {
+    return gameManager.scenarioData().find((scenarioData) => scenarioData.index == index && scenarioData.edition == edition && scenarioData.group == group);
   }
 
   setScenario(scenario: Scenario | undefined) {
@@ -39,33 +44,111 @@ export class ScenarioManager {
   }
 
   finishScenario(success: boolean = true, restart: boolean = false, linkedScenario: Scenario | undefined = undefined) {
-    this.game.figures.forEach((figure) => {
-      if (figure instanceof Character && !figure.absent) {
-        gameManager.characterManager.addXP(figure, (success ? gameManager.levelManager.experience() : 0) + figure.experience, !restart && !linkedScenario);
-        figure.progress.gold += figure.loot * gameManager.levelManager.loot();
-        if (!restart && figure.lootCards) {
-          figure.lootCards.forEach((index) => {
-            gameManager.lootManager.addCharacterLoot(figure, this.game.lootDeck.cards[index]);
-          })
+    const scenario = this.game.scenario;
+
+    if (scenario) {
+      this.game.figures.forEach((figure) => {
+        if (figure instanceof Character && !figure.absent) {
+          const scnearioXP: number = success && (!scenario.rewards || !scenario.rewards.ignoredBonus || scenario.rewards.ignoredBonus.indexOf('experience') == -1) ? gameManager.levelManager.experience() : 0;
+
+          gameManager.characterManager.addXP(figure, scnearioXP + figure.experience, !restart && !linkedScenario);
+
+          if ((!scenario.rewards || !scenario.rewards.ignoredBonus || scenario.rewards.ignoredBonus.indexOf('gold') == -1)) {
+            figure.progress.gold += figure.loot * gameManager.levelManager.loot();
+            if (!restart && figure.lootCards) {
+              figure.lootCards.forEach((index) => {
+                gameManager.lootManager.addCharacterLoot(figure, this.game.lootDeck.cards[index]);
+              })
+            }
+          }
+
+          if (scenario.rewards && scenario.rewards.experience) {
+            figure.progress.experience += scenario.rewards.experience;
+          }
+
+          if (scenario.rewards && scenario.rewards.gold) {
+            figure.progress.gold += scenario.rewards.gold;
+          }
+
+          if (scenario.rewards && scenario.rewards.perks) {
+            figure.progress.extraPerks += scenario.rewards.perks;
+            if (figure.progress.extraPerks < 0) {
+              figure.progress.extraPerks = 0;
+            }
+          }
+
+          if (scenario.rewards && scenario.rewards.battleGoals) {
+            figure.progress.battleGoals += scenario.rewards.battleGoals;
+            if (figure.progress.battleGoals > 18) {
+              figure.progress.battleGoals = 18;
+            } else if (figure.progress.battleGoals < 0) {
+              figure.progress.battleGoals = 0;
+            }
+          }
+        }
+      })
+    }
+
+    if (scenario && scenario.rewards) {
+      if (scenario.rewards.reputation) {
+        this.game.party.reputation += scenario.rewards.reputation;
+        if (this.game.party.reputation > 20) {
+          this.game.party.reputation = 20;
+        } else if (this.game.party.reputation < -20) {
+          this.game.party.reputation = -20;
         }
       }
-    })
+      if (scenario.rewards.prosperity) {
+        this.game.party.prosperity += scenario.rewards.prosperity;
+        if (this.game.party.prosperity > (gameManager.fhRules() ? 132 : 64)) {
+          this.game.party.prosperity = (gameManager.fhRules() ? 132 : 64);
+        } else if (this.game.party.prosperity < 0) {
+          this.game.party.prosperity = 0;
+        }
+      }
 
-    if (success && this.game.party && this.game.scenario) {
-      this.game.party.scenarios.push(new GameScenarioModel(this.game.scenario.index, this.game.scenario.edition, this.game.scenario.group, this.game.scenario.custom, this.game.scenario.custom ? this.game.scenario.name : "", this.game.scenario.revealedRooms));
-      this.game.party.manualScenarios = this.game.party.manualScenarios.filter((identifier) => this.game.scenario && (this.game.scenario.index != identifier.index || this.game.scenario.edition != identifier.edition || this.game.scenario.group != identifier.group));
+      if (scenario.rewards.globalAchievements) {
+        this.game.party.globalAchievementsList.push(...scenario.rewards.globalAchievements);
+      }
+
+      if (scenario.rewards.partyAchievements) {
+        this.game.party.achievementsList.push(...scenario.rewards.partyAchievements);
+      }
+
+      if (scenario.rewards.lostPartyAchievements) {
+        this.game.party.achievementsList = this.game.party.achievementsList.filter((achivement) => scenario.rewards && scenario.rewards.lostPartyAchievements.indexOf(achivement) == -1);
+      }
+
+      if (scenario.rewards.itemDesigns) {
+        scenario.rewards.itemDesigns.forEach((item) => {
+          if (item.indexOf('-') != -1) {
+            const from = +item.split('-')[0];
+            const to = +item.split('-')[1];
+            for (let i = from; i <= to; i++) {
+              this.game.party.unlockedItems.push(new Identifier(i + '', scenario.edition));
+            }
+          } else {
+            this.game.party.unlockedItems.push(new Identifier(item, scenario.edition));
+          }
+        })
+      }
+    }
+
+    if (success && this.game.party && scenario) {
+      this.game.party.scenarios.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group, scenario.custom, scenario.custom ? scenario.name : "", scenario.revealedRooms));
+      this.game.party.manualScenarios = this.game.party.manualScenarios.filter((identifier) => scenario && (scenario.index != identifier.index || scenario.edition != identifier.edition || scenario.group != identifier.group));
     }
 
     if (restart) {
-      gameManager.scenarioManager.setScenario(this.game.scenario);
+      gameManager.scenarioManager.setScenario(scenario);
     } else {
+      if (scenario && gameManager.fhRules() && !linkedScenario) {
+        this.game.party.weeks++;
+      }
+
       this.game.scenario = undefined;
       this.game.sections = [];
       gameManager.roundManager.resetScenario();
-
-      if (gameManager.fhRules() && !linkedScenario) {
-        this.game.party.weeks++;
-      }
 
       if (linkedScenario) {
         this.setScenario(linkedScenario);
@@ -507,7 +590,7 @@ export class ScenarioManager {
 
   scenarioDataForModel(model: GameScenarioModel): ScenarioData | undefined {
     if (model.isCustom) {
-      return new ScenarioData(model.custom, "", [], [], [], [], [], [], [], [], [], [], "", [], "");
+      return new ScenarioData(model.custom, "", [], [], [], [], [], undefined, [], [], [], [], [], "", [], "");
     }
 
     const scenarioData = gameManager.scenarioData().find((scenarioData) => scenarioData.index == model.index && scenarioData.edition == model.edition && scenarioData.group == model.group);

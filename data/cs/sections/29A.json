@@ -1,0 +1,9 @@
+{
+  "index": "29A",
+  "name": "Scenario 27",
+  "edition": "cs",
+  "parent": "27",
+  "monsters": [
+    "savvas-icebound"
+  ]
+}

@@ -17,6 +17,11 @@ export class SettingsMenuComponent {
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
   SubMenu = SubMenu;
+  wakeLock: boolean;
+
+  constructor() {
+    this.wakeLock = 'wakeLock' in navigator;
+  }
 
   doubleClick: any = null;
 

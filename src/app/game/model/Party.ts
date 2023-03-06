@@ -12,13 +12,15 @@ export class Party {
   edition: string | undefined;
   location: string = "";
   notes: string = "";
-  achievements: string | string[] = "";
+  achievements: string = "";
+  achievementsList: string[] = [];
   reputation: number = 0;
   prosperity: number = 0;
   scenarios: GameScenarioModel[] = [];
   manualScenarios: GameScenarioModel[] = [];
   campaignMode: boolean = false;
-  globalAchievements: string | string[] = "";
+  globalAchievements: string = "";
+  globalAchievementsList: string[] = [];
   treasures: Identifier[] = [];
   donations: number = 0;
   characters: GameCharacterModel[] = [];

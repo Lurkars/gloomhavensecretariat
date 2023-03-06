@@ -1,0 +1,9 @@
+{
+  "index": "46B",
+  "name": "Scenario 42",
+  "edition": "cs",
+  "parent": "42",
+  "monsters": [
+    "king-cobra"
+  ]
+}

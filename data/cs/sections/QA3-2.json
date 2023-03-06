@@ -1,0 +1,9 @@
+{
+  "index": "3-2",
+  "group": "QA",
+  "name": "Inspection Chamber",
+  "edition": "cs",
+  "monsters": [
+    "steel-construct"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "index": "2-1",
+  "group": "RM",
+  "name": "Courtyard",
+  "edition": "cs",
+  "monsters": [
+    "living-wall"
+  ]
+}

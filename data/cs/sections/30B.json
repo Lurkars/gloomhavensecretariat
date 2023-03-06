@@ -1,0 +1,13 @@
+{
+  "index": "30B",
+  "name": "Scenario 28",
+  "edition": "cs",
+  "parent": "28",
+  "objectives": [
+    {
+      "name": "Fountain of Bones",
+      "health": "Cx(L+8)",
+      "marker": "a"
+    }
+  ]
+}

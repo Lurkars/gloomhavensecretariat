@@ -1,0 +1,9 @@
+{
+  "index": "32A",
+  "name": "Scenario 30",
+  "edition": "cs",
+  "parent": "30",
+  "monsters": [
+    "shadow-demon"
+  ]
+}

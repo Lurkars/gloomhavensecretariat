@@ -1,0 +1,13 @@
+{
+  "index": "38A",
+  "name": "Scenario 34",
+  "edition": "cs",
+  "parent": "34",
+  "objectives": [
+    {
+      "name": "Ordained Monk",
+      "health": "C+L+2",
+      "marker": "d"
+    }
+  ]
+}

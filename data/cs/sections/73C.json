@@ -1,0 +1,14 @@
+{
+  "index": "73C",
+  "name": "Scenario 65",
+  "edition": "cs",
+  "parent": "65",
+  "objectives": [
+    {
+      "name": "Vile Spirit",
+      "health": 4,
+      "marker": "b",
+      "count": 2
+    }
+  ]
+}

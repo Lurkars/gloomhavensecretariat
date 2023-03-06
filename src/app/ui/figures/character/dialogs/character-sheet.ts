@@ -100,13 +100,13 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
       this.character.progress.experience = gameManager.characterManager.xpMap[this.character.level - 1];
     }
 
-    this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.retirements + this.character.progress.masteries.length;
+    this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.extraPerks + this.character.progress.retirements + this.character.progress.masteries.length;
 
     this.perksWip = this.character.perks.length == 0 || this.character.perks.map((perk) => perk.count).reduce((a, b) => a + b) != (this.character.edition == 'fh' ? 18 : 15);
 
     gameManager.uiChange.subscribe({
       next: () => {
-        this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.retirements + this.character.progress.masteries.length;
+        this.availablePerks = this.character.level + Math.floor(this.character.progress.battleGoals / 3) - (this.character.progress.perks && this.character.progress.perks.length > 0 ? this.character.progress.perks.reduce((a, b) => a + b) : 0) - 1 + this.character.progress.extraPerks + this.character.progress.retirements + this.character.progress.masteries.length;
 
         for (let i = 0; i < 15; i++) {
           if (!this.character.progress.perks[i]) {
@@ -203,6 +203,14 @@ export class CharacterSheetDialog implements OnInit, AfterViewInit {
     if (!isNaN(+event.target.value) && this.character.progress.personalQuest != +event.target.value) {
       gameManager.stateManager.before("setPQ", "data.character." + this.character.name, event.target.value);
       this.character.progress.personalQuest = +event.target.value;
+      gameManager.stateManager.after();
+    }
+  }
+
+  setExtraPerks(event: any) {
+    if (!isNaN(+event.target.value) && this.character.progress.extraPerks != +event.target.value) {
+      gameManager.stateManager.before("setExtraPerks", "data.character." + this.character.name, event.target.value);
+      this.character.progress.extraPerks = +event.target.value;
       gameManager.stateManager.after();
     }
   }

@@ -1,0 +1,9 @@
+{
+  "index": "1-1",
+  "group": "QA",
+  "name": "Power Conduit Relay",
+  "edition": "cs",
+  "monsters": [
+    "clockwork-ravager"
+  ]
+}

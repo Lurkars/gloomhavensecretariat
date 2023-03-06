@@ -13,15 +13,14 @@ import { getLootClass, LootClass, LootType } from "src/app/game/model/Loot";
     styleUrls: ['./items.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class CharacterItemsComponent implements OnInit, AfterViewInit, OnDestroy {
-
-    @ViewChild('itemEdition', { static: false }) itemEdition!: ElementRef;
+export class CharacterItemsComponent implements OnInit, OnDestroy {
 
     @Input() character!: Character;
     @Input() priceModifier: number = 0;
     items: ItemData[] = [];
     item: ItemData | undefined;
     itemIndex: number = 1;
+    itemEdition: string = "";
 
     gameManager: GameManager = gameManager;
 
@@ -33,18 +32,15 @@ export class CharacterItemsComponent implements OnInit, AfterViewInit, OnDestroy
                 this.updateItems();
             }
         })
-    }
-
-    ngAfterViewInit(): void {
-        if (this.itemEdition) {
-            this.itemEdition.nativeElement.value = gameManager.currentEdition(this.character.edition);
+        if (!this.itemEdition) {
+            this.itemEdition = gameManager.currentEdition(this.character.edition);
         }
         this.itemIndex = 1;
     }
 
     ngOnDestroy(): void {
         if (this.itemEdition) {
-            this.itemEdition.nativeElement.value = gameManager.currentEdition(this.character.edition);
+            this.itemEdition = gameManager.currentEdition(this.character.edition);
         }
     }
 
@@ -75,13 +71,13 @@ export class CharacterItemsComponent implements OnInit, AfterViewInit, OnDestroy
         setTimeout(() => {
             if (itemIndexChange != 0) {
                 this.itemIndex += itemIndexChange;
-                this.item = gameManager.item(this.itemIndex, this.itemEdition && this.itemEdition.nativeElement.value || this.character.edition);
-                while (!this.item && this.itemIndex > 0 && this.itemIndex < gameManager.maxItemIndex(this.itemEdition && this.itemEdition.nativeElement.value || this.character.edition)) {
+                this.item = gameManager.item(this.itemIndex, this.itemEdition && this.itemEdition || this.character.edition);
+                while (!this.item && this.itemIndex > 0 && this.itemIndex < gameManager.maxItemIndex(this.itemEdition || this.character.edition)) {
                     this.itemIndex += itemIndexChange;
-                    this.item = gameManager.item(this.itemIndex, this.itemEdition && this.itemEdition.nativeElement.value || this.character.edition);
+                    this.item = gameManager.item(this.itemIndex, this.itemEdition || this.character.edition);
                 }
             } else {
-                this.item = gameManager.item(this.itemIndex, this.itemEdition && this.itemEdition.nativeElement.value || this.character.edition);
+                this.item = gameManager.item(this.itemIndex, this.itemEdition || this.character.edition);
             }
         });
     }
@@ -143,8 +139,8 @@ export class CharacterItemsComponent implements OnInit, AfterViewInit, OnDestroy
 
     addItem(item: ItemData | undefined) {
         if (item && this.canAdd(item)) {
-            gameManager.stateManager.before("addItem", "data.character." + this.character.name, this.itemIndex + "", this.itemEdition.nativeElement.value);
-            this.character.progress.items.push(new Identifier(this.itemIndex + "", this.itemEdition.nativeElement.value));
+            gameManager.stateManager.before("addItem", "data.character." + this.character.name, this.itemIndex + "", this.itemEdition);
+            this.character.progress.items.push(new Identifier(this.itemIndex + "", this.itemEdition));
             this.items.push(item);
             this.items.sort((a, b) => a.id - b.id);
             gameManager.stateManager.after();
@@ -154,9 +150,9 @@ export class CharacterItemsComponent implements OnInit, AfterViewInit, OnDestroy
 
     buyItem(item: ItemData | undefined) {
         if (item && this.canBuy(item)) {
-            gameManager.stateManager.before("buyItem", "data.character." + this.character.name, this.itemIndex + "", this.itemEdition.nativeElement.value);
+            gameManager.stateManager.before("buyItem", "data.character." + this.character.name, this.itemIndex + "", this.itemEdition);
             this.character.progress.gold -= (item.cost + this.priceModifier);
-            this.character.progress.items.push(new Identifier(this.itemIndex + "", this.itemEdition.nativeElement.value));
+            this.character.progress.items.push(new Identifier(this.itemIndex + "", this.itemEdition));
             this.items.push(item);
             this.items.sort((a, b) => a.id - b.id);
             gameManager.stateManager.after();
@@ -209,9 +205,9 @@ export class CharacterItemsComponent implements OnInit, AfterViewInit, OnDestroy
 
     craftItem(item: ItemData | undefined) {
         if (item && this.canCraft(item)) {
-            gameManager.stateManager.before("craftItem", "data.character." + this.character.name, this.itemIndex + "", this.itemEdition.nativeElement.value);
+            gameManager.stateManager.before("craftItem", "data.character." + this.character.name, this.itemIndex + "", this.itemEdition);
             this.craftItemResources(item);
-            this.character.progress.items.push(new Identifier(this.itemIndex + "", this.itemEdition.nativeElement.value));
+            this.character.progress.items.push(new Identifier(this.itemIndex + "", this.itemEdition));
             this.items.push(item);
             this.items.sort((a, b) => a.id - b.id);
             gameManager.stateManager.after();

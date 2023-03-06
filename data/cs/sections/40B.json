@@ -1,0 +1,9 @@
+{
+  "index": "40B",
+  "name": "Scenario 36",
+  "edition": "cs",
+  "parent": "36",
+  "monsters": [
+    "terrible-two-guard"
+  ]
+}

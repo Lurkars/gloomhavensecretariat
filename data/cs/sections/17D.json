@@ -1,0 +1,9 @@
+{
+  "index": "17D",
+  "name": "Scenario 16",
+  "edition": "cs",
+  "parent": "16",
+  "monsters": [
+    "apex-demon"
+  ]
+}

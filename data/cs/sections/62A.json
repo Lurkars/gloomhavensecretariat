@@ -1,0 +1,10 @@
+{
+  "index": "62A",
+  "name": "Scenario 54",
+  "edition": "cs",
+  "parent": "54",
+  "monsters": [
+    "black-bear",
+    "cave-imp"
+  ]
+}

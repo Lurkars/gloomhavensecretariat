@@ -61,6 +61,7 @@ export class ScenarioRewards {
   perks: number = 0;
   battleGoals: number = 0;
   items: string[] = [];
+  itemDesigns: string[] = [];
   events: string[] = [];
   custom: string = "";
   ignoredBonus: string[] = [];

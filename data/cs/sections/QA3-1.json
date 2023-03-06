@@ -1,0 +1,9 @@
+{
+  "index": "3-1",
+  "group": "QA",
+  "name": "Cooling Chamber",
+  "edition": "cs",
+  "monsters": [
+    "clockwork-guardian"
+  ]
+}

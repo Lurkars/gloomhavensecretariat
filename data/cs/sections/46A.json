@@ -1,0 +1,16 @@
+{
+  "index": "46A",
+  "name": "Scenario 41",
+  "edition": "cs",
+  "parent": "41",
+  "monsters": [
+    "rogue-hollowpact"
+  ],
+  "objectives": [
+    {
+      "name": "Void Pit",
+      "health": "C+L",
+      "count": 6
+    }
+  ]
+}

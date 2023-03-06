@@ -1,0 +1,10 @@
+{
+  "index": "61B",
+  "name": "Scenario 54",
+  "edition": "cs",
+  "parent": "54",
+  "monsters": [
+    "terror-drone",
+    "undead-archer"
+  ]
+}

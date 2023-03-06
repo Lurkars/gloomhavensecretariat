@@ -203,6 +203,11 @@
 
           </div>
           <div class="column column-right">
+            <div class="player-number">
+              <label>{{'character.playerNumber' | ghsLabel}}:</label>
+              <input [value]="character.number" type="number" min="1" (change)="setPlayerNumber($event)"
+                (keyup)="setPlayerNumber($event)">
+            </div>
             <div class="personal-quest">
               <label>{{'character.progress.personalQuest' | ghsLabel}}:</label>
               <span class="retired checkbox" [ngClass]="{'checked' : retired}" (click)="retired = !retired"
@@ -215,10 +220,10 @@
               <input [value]="character.progress.retirements" type="number" min="0" (change)="setRetirements($event)"
                 (keyup)="setRetirements($event)">
             </div>
-            <div class="player-number">
-              <label>{{'character.playerNumber' | ghsLabel}}:</label>
-              <input [value]="character.number" type="number" min="1" (change)="setPlayerNumber($event)"
-                (keyup)="setPlayerNumber($event)">
+            <div class="extra-perks">
+              <label>{{'character.progress.perks.extra' | ghsLabel}}:</label>
+              <input [value]="character.progress.extraPerks" type="number" min="0" (change)="setExtraPerks($event)"
+                (keyup)="setExtraPerks($event)">
             </div>
             <div class="import-export">
               <label class="export" (click)="exportCharacter()" title="{{'character.progress.export' | ghsLabel}}">

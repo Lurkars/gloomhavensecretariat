@@ -25,6 +25,8 @@ export class StateManager {
   updateBlocked: boolean = false;
   permissionBackup: Permissions | undefined;
 
+  wakeLock: any = null;
+
   constructor(game: Game) {
     this.game = game;
     this.lastSaveTimestamp = new Date().getTime();

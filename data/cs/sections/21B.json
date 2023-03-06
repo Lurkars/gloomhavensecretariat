@@ -1,0 +1,9 @@
+{
+  "index": "21B",
+  "name": "Scenario 21",
+  "edition": "cs",
+  "parent": "21",
+  "monsters": [
+    "lavalite"
+  ]
+}

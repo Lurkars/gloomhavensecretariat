@@ -60,7 +60,6 @@ export class MainComponent implements OnInit {
     })
 
     this.swUpdate.versionUpdates.subscribe(evt => {
-      console.debug(evt);
       this.loading = false;
       if (evt.type == 'VERSION_READY') {
         gameManager.stateManager.hasUpdate = true;
@@ -137,10 +136,12 @@ export class MainComponent implements OnInit {
     });
 
     window.addEventListener('focus', (event) => {
-      if (settingsManager.settings.serverAutoconnect && gameManager.stateManager.wsState() == WebSocket.CLOSED) {
+      if (settingsManager.settings.serverAutoconnect && gameManager.stateManager.wsState() != WebSocket.OPEN) {
         gameManager.stateManager.connect();
       }
-    }); window.addEventListener('keydown', (event: KeyboardEvent) => {
+    });
+
+    window.addEventListener('keydown', (event: KeyboardEvent) => {
       if (event.ctrlKey && event.key.toLowerCase() === 'z' && !event.shiftKey) {
         gameManager.stateManager.undo();
       } else if (event.ctrlKey && event.key === 'y' || event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'z') {
@@ -165,6 +166,10 @@ export class MainComponent implements OnInit {
         settingsManager.setZoom(this.currentZoom);
       }
     })
+
+    if (!settingsManager.settings.disableWakeLock && "wakeLock" in navigator) {
+      gameManager.stateManager.wakeLock = await navigator.wakeLock.request("screen");
+    }
   }
 
   @HostListener('pinchmove', ['$event'])

@@ -4,11 +4,11 @@
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
     "types": [
-      "jasmine"
+      "jasmine",
+      "dom-screen-wake-lock"
     ]
   },
-  "files": [
-  ],
+  "files": [],
   "include": [
     "src/**/*.spec.ts",
     "src/**/*.d.ts",

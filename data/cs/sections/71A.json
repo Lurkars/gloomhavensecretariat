@@ -1,0 +1,9 @@
+{
+  "index": "71A",
+  "name": "Scenario 62",
+  "edition": "cs",
+  "parent": "62",
+  "monsters": [
+    "your-shadow"
+  ]
+}

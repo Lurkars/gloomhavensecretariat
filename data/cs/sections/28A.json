@@ -1,0 +1,13 @@
+{
+  "index": "28A",
+  "name": "Scenario 26",
+  "edition": "cs",
+  "parent": "26",
+  "objectives": [
+    {
+      "name": "Icy Flame thermal stone",
+      "health": "C+6",
+      "marker": "c"
+    }
+  ]
+}

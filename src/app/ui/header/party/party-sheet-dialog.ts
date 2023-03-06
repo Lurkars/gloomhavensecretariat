@@ -66,7 +66,7 @@ export class PartySheetDialogComponent implements OnInit {
     this.csSheet = !this.fhSheet && gameManager.editionRules('cs');
 
     if (this.fhSheet) {
-      this.prosperitySteps = [5, 14, 26, 41, 60, 81, 105, 132];
+      this.prosperitySteps = [5, 14, 26, 41, 59, 80, 104, 131];
     }
   }
 
@@ -130,18 +130,51 @@ export class PartySheetDialogComponent implements OnInit {
   setAchievements(event: any) {
     if (this.party.achievements != event.target.value) {
       gameManager.stateManager.before("setPartyAchievements", event.target.value);
-      this.party.achievements = event.target.value;
+      this.party.achievementsList.push(...event.target.value.split("\n").filter((value : string) => value));
+      this.party.achievements = "";
+      event.target.value = "";
       gameManager.stateManager.after();
     }
+  }
+
+  updateAchievement(event: any, index: number) {
+    if (this.party.achievementsList[index] != event.target.value) {
+      gameManager.stateManager.before("updatePartyAchievement", event.target.value);
+      this.party.achievementsList[index] = event.target.value
+      gameManager.stateManager.after();
+    }
+  }
+
+  removeAchievement(index: number) {
+    gameManager.stateManager.before("removePartyAchievement", this.party.achievementsList[index]);
+    this.party.achievementsList.splice(index, 1);
+    gameManager.stateManager.after();
   }
 
   setGlobalAchievements(event: any) {
     if (this.party.globalAchievements != event.target.value) {
       gameManager.stateManager.before("setGlobalAchievements", event.target.value);
-      this.party.globalAchievements = event.target.value;
+      this.party.globalAchievementsList.push(...event.target.value.split("\n").filter((value : string) => value));
+      this.party.globalAchievements = "";
+      event.target.value = "";
       gameManager.stateManager.after();
     }
   }
+
+  updateGlobalAchievement(event: any, index: number) {
+    if (this.party.globalAchievementsList[index] != event.target.value) {
+      gameManager.stateManager.before("updateGlobalAchievement", event.target.value);
+      this.party.globalAchievementsList[index] = event.target.value
+      gameManager.stateManager.after();
+    }
+  }
+
+  removeGlobalAchievement(index: number) {
+    gameManager.stateManager.before("removeGlobalAchievement", this.party.achievementsList[index]);
+    this.party.globalAchievementsList.splice(index, 1);
+    gameManager.stateManager.after();
+  }
+
 
   setReputation(value: number) {
     if (this.party.reputation != value) {
@@ -248,8 +281,8 @@ export class PartySheetDialogComponent implements OnInit {
     if (this.party.prosperity == value) {
       value--;
     }
-    if (value > 64) {
-      value = 64
+    if (value > (gameManager.fhRules() ? 132 : 64)) {
+      value = (gameManager.fhRules() ? 132 : 64)
     } else if (value < 0) {
       value = 0;
     }

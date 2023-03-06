@@ -3146,31 +3146,7 @@
     "id": 245,
     "name": "Ancient Coin",
     "cost": 0,
-    "count": 1,
-    "edition": "fh",
-    "folder": "193-247"
-  },
-  {
-    "id": 245,
-    "name": "Ancient Coin",
-    "cost": 0,
-    "count": 1,
-    "edition": "fh",
-    "folder": "193-247"
-  },
-  {
-    "id": 245,
-    "name": "Ancient Coin",
-    "cost": 0,
-    "count": 1,
-    "edition": "fh",
-    "folder": "193-247"
-  },
-  {
-    "id": 245,
-    "name": "Ancient Coin",
-    "cost": 0,
-    "count": 1,
+    "count": 4,
     "edition": "fh",
     "folder": "193-247"
   },

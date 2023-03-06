@@ -1,0 +1,9 @@
+{
+  "index": "44C",
+  "name": "Scenario 40",
+  "edition": "cs",
+  "parent": "40",
+  "monsters": [
+    "drake-porter"
+  ]
+}

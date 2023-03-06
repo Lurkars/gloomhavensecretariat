@@ -13,6 +13,7 @@ export class CharacterProgress {
   notes: string = "";
   retired: boolean = false;
   retirements: number = 0;
+  extraPerks: number = 0;
   perks: number[] = [];
   masteries: number[] = [];
   donations: number = 0;

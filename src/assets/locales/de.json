@@ -86,6 +86,10 @@
       "masteries": "Errungenschaften",
       "name": "Name",
       "notes": "Notizen",
+      "perks": {
+        ".": "Verbesserungen",
+        "extra": "Extra Verbesserungen"
+      },
       "personalQuest": "Persönliche Quest",
       "resources": {
         ".": "Ressourcen",
@@ -652,6 +656,30 @@
     "openRoom": "Raum für Kachel '{0}' öffnen",
     "openRoomMarker": "Raum %game.mapMarker.{1}% für Kachel '{0}' öffnen",
     "reset": "Szenario neustarten",
+    "rewards": {
+      ".": "Belohnungen",
+      "battleGoals": "jeweils {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
+      "collectiveGold": "{0} gemeinschaftliches Gold",
+      "envelope": "Umschlag {0} öffnen",
+      "event": {
+        "city": "City Event {0} zu den Karten",
+        "road": "Road Event {0} zu den Karten"
+      },
+      "experience": "jeweils {0} Erfahrung",
+      "globalAchievements": "Globale Erfolge",
+      "gold": "jeweils {0} Gold",
+      "item": "\"{1}\" (Gegenstand {0})",
+      "items": "{2} \"{1}\" (Gegenstand {0})",
+      "itemDesign": "\"{1}\" Design (Gegenstand {0})",
+      "itemDesignRange": "Füge Gegenstände {0} hinzu",
+      "location": "Neuer Ort",
+      "locations": "Neue Orte",
+      "lostPartyAchievements": "Verlorene Gruppen-Erfolge",
+      "partyAchievements": "Gruppen-Erfolge",
+      "perks": "Jeweils {0} Verbesserungen",
+      "prosperity": "{0} Wohlstand",
+      "reputation": "{0} Ansehen"
+    },
     "rules": {
       "addSection": "Sektion #{0} {1} öffnen",
       "addSectionMarker": "Sektion #{0} {1} %game.mapMarker.{2}% öffnen",
@@ -693,10 +721,15 @@
       "cancel": "Abbrechen",
       "gold": "Gold",
       "forcedLinks": "%scenario.summary.links% (erzwungen)",
+      "item": "Gegenstand \"{0}\"",
       "link": "Weiter mit #{0}",
       "links": "Weiter mit einem verlinktem Szenario",
       "loot": "Beute",
       "name": "%character%",
+      "rewards": {
+        "experience": "EP Belohnung",
+        "gold": "Gold Belohnung"
+      },
       "restart": "Szenario neustarten",
       "restartLooseLoot": "Szenario neustarten (Ressourcen verlieren)",
       "totalGold": "Gold Gesamt",
@@ -856,6 +889,10 @@
     "disableStandees": {
       ".": "Aufsteller deaktivieren",
       "hint": "Blende alle Aufsteller aus (falls Werte ausblenden aktiviert ist, müssen normale und elite Monster separat hinzugefügt werden). Dies deaktiviert auch das freischalten von Räumen und das automatische Hinzufügen von Aufstellern."
+    },
+    "disableWakeLock": {
+      ".": "Display immer an deaktivieren",
+      "hint": "Deaktiviert Display immer an bei unterstützen Geräten. Die Funktion hält das Display immer eingeschaltet, dies kann zu höherem Energieverbrauch auf Mobilgeräten führen."
     },
     "dragValues": {
       ".": "Initiative/TP/XP/Beute ziehen",

@@ -1,0 +1,9 @@
+{
+  "index": "60A",
+  "name": "Scenario 53",
+  "edition": "cs",
+  "parent": "53",
+  "monsters": [
+    "morphling"
+  ]
+}

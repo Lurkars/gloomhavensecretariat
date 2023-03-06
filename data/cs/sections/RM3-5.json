@@ -1,0 +1,15 @@
+{
+  "index": "3-5",
+  "group": "RM",
+  "name": "Wrong Turn",
+  "edition": "cs",
+  "objectives": [
+    {
+      "name": "Vermling",
+      "escort": true,
+      "health": "C+L",
+      "initiative": 35,
+      "count": 3
+    }
+  ]
+}

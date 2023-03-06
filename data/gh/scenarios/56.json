@@ -4,7 +4,7 @@
   "edition": "gh",
   "rewards": {
     "envelopes": [
-      "%data.characterIcon.%angry-face%"
+      "%data.characterIcon.angry-face%"
     ],
     "gold": 10,
     "reputation": 2,

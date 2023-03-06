@@ -51,7 +51,8 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
-          <input type="checkbox" [checked]="settingsManager.settings.scenarioRooms && !settingsManager.settings.disableStandees"
+          <input type="checkbox"
+            [checked]="settingsManager.settings.scenarioRooms && !settingsManager.settings.disableStandees"
             (change)="settingsManager.setScenarioRooms(!settingsManager.settings.scenarioRooms)">
           {{'settings.scenarioRooms' | ghsLabel}}
         </label>
@@ -162,7 +163,8 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
-          <input type="checkbox" [checked]="settingsManager.settings.eliteFirst && !settingsManager.settings.disableStandees"
+          <input type="checkbox"
+            [checked]="settingsManager.settings.eliteFirst && !settingsManager.settings.disableStandees"
             (change)="settingsManager.setEliteFirst(!settingsManager.settings.eliteFirst)">{{'settings.eliteFirst' |
           ghsLabel}}
         </label>
@@ -175,7 +177,8 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
-          <input type="checkbox" [checked]="settingsManager.settings.activeStandees && !settingsManager.settings.disableStandees"
+          <input type="checkbox"
+            [checked]="settingsManager.settings.activeStandees && !settingsManager.settings.disableStandees"
             (change)="settingsManager.setActiveStandees(!settingsManager.settings.activeStandees)">
           {{'settings.activeStandees' | ghsLabel}}
         </label>
@@ -205,7 +208,8 @@
       <div class="hint-container">
         <label
           [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || settingsManager.settings.disableStandees}">
-          <input type="checkbox" [checked]="settingsManager.settings.automaticStandees && !settingsManager.settings.disableStandees && settingsManager.settings.scenarioRooms"
+          <input type="checkbox"
+            [checked]="settingsManager.settings.automaticStandees && !settingsManager.settings.disableStandees && settingsManager.settings.scenarioRooms"
             (change)="settingsManager.setAutomaticStandees(!settingsManager.settings.automaticStandees)">
           {{'settings.automaticStandees' | ghsLabel}}
         </label>
@@ -218,7 +222,8 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
-          <input type="checkbox" [checked]="settingsManager.settings.randomStandees && !settingsManager.settings.disableStandees"
+          <input type="checkbox"
+            [checked]="settingsManager.settings.randomStandees && !settingsManager.settings.disableStandees"
             (change)="settingsManager.setRandomStandees(!settingsManager.settings.randomStandees)">
           {{'settings.randomStandees' | ghsLabel}}
         </label>
@@ -332,7 +337,8 @@
     <div class="line">
       <div class="hint-container">
         <label [ngClass]="{'disabled' : !settingsManager.settings.applyLoot}">
-          <input type="checkbox" [checked]="settingsManager.settings.alwaysLootApplyDialog && settingsManager.settings.applyLoot"
+          <input type="checkbox"
+            [checked]="settingsManager.settings.alwaysLootApplyDialog && settingsManager.settings.applyLoot"
             (change)="settingsManager.setAlwaysLootApplyDialog(!settingsManager.settings.alwaysLootApplyDialog)">
           {{'settings.alwaysLootApplyDialog' | ghsLabel}}
         </label>
@@ -564,6 +570,20 @@
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
           <span class="text">{{'settings.disableAnimations.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="line" *ngIf="wakeLock">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.disableWakeLock"
+            (change)="settingsManager.setDisableWakeLock(!settingsManager.settings.disableWakeLock)">
+          {{'settings.disableWakeLock' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.disableWakeLock.hint' | ghsLabel}}</span>
         </span>
       </div>
     </div>

@@ -1,0 +1,9 @@
+{
+  "index": "68A",
+  "name": "Scenario 60",
+  "edition": "cs",
+  "parent": "60",
+  "monsters": [
+    "drakefiend"
+  ]
+}

@@ -97,6 +97,7 @@
       justify-content: space-between;
       font-family: var(--ghs-font-normal);
       font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+      margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 
       a:not(:first-child) {
         margin-left: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));

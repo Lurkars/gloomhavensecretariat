@@ -224,10 +224,33 @@ export class Game {
 
     this.solo = model.solo;
     this.party = model.party ? Object.assign(new Party(), model.party) : new Party();
+
+    // migration
+    if (this.party.achievements) {
+      this.party.achievementsList.push(...this.party.achievements.split("\n"));
+      this.party.achievements = "";
+    }
+
+    if (this.party.globalAchievements) {
+      this.party.globalAchievementsList.push(...this.party.globalAchievements.split("\n"));
+      this.party.globalAchievements = "";
+    }
+
     this.parties = [this.party];
     if (model.parties) {
       model.parties.forEach((party) => {
         if (party.id != this.party.id) {
+          // migration
+          if (party.achievements) {
+            party.achievementsList.push(...party.achievements.split("\n"));
+            party.achievements = "";
+          }
+
+          if (party.globalAchievements) {
+            party.globalAchievementsList.push(...party.globalAchievements.split("\n"));
+            party.globalAchievements = "";
+          }
+
           this.parties.push(Object.assign(new Party(), party));
         }
       })

@@ -1,0 +1,9 @@
+{
+  "index": "47A",
+  "name": "Scenario 42",
+  "edition": "cs",
+  "parent": "42",
+  "monsters": [
+    "sly-wolf"
+  ]
+}

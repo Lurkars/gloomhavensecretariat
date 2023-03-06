@@ -39,6 +39,7 @@ export class Settings {
   zoom: number = 100;
   pressDoubleClick: boolean = true;
   automaticAttackModifierFullscreen: boolean = true;
+  disableWakeLock: boolean = false;
   barsize: number = 1;
   fontsize: number = 1;
   locale: string = "en";

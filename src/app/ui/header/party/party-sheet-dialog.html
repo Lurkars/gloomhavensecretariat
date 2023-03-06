@@ -44,8 +44,19 @@
             </div>
             <div class="row achievements">
               <label>{{'party.achievements' | ghsLabel}}:</label>
-              <textarea type="text" [value]="party.achievements" (change)="setAchievements($event)"
-                placeholder="{{'party.achievements' | ghsLabel}}"></textarea>
+
+              <div class="achievements-container">
+                <div class="list">
+                  <div class="achievement" *ngFor="let achievement of party.achievementsList; let i = index;">
+                    <input [value]="achievement" (change)="updateAchievement($event, i)">
+                    <span class="remove" (click)="removeAchievement(i)">
+                      <img class="ghs-svg" src="./assets/images/close.svg"></span>
+                  </div>
+                </div>
+
+                <textarea type="text" [value]="party.achievements" (change)="setAchievements($event)"
+                  placeholder="{{'party.achievements' | ghsLabel}}"></textarea>
+              </div>
             </div>
           </div>
 
@@ -399,8 +410,18 @@
         <div class="row">
           <div class="achievements" *ngIf="!fhSheet">
             <label>{{'party.campaign.achievements' | ghsLabel}}:</label>
-            <textarea type="text" [value]="party.globalAchievements" (change)="setGlobalAchievements($event)"
-              placeholder="{{'party.campaign.achievements' | ghsLabel}}"></textarea>
+            <div class="achievements-container">
+              <div class="list">
+                <div class="achievement" *ngFor="let achievement of party.globalAchievementsList; let i = index;">
+                  <input [value]="achievement" (change)="updateGlobalAchievement($event, i)">
+                  <span class="remove" (click)="removeGlobalAchievement(i)">
+                    <img class="ghs-svg" src="./assets/images/close.svg"></span>
+                </div>
+              </div>
+
+              <textarea type="text" [value]="party.globalAchievements" (change)="setGlobalAchievements($event)"
+                placeholder="{{'party.campaign.achievements'| ghsLabel}}"></textarea>
+            </div>
           </div>
           <div class="treasures">
             <label>{{'party.campaign.treasures' | ghsLabel}}:</label>
@@ -510,7 +531,8 @@
       </div>
 
       <div class="buildings" *ngIf="!campaign && buildings">
-        <label class="headline" (click)="buildings = false"><img src="./assets/images/left.svg"> {{'party.sheet' | ghsLabel}}</label>
+        <label class="headline" (click)="buildings = false"><img src="./assets/images/left.svg"> {{'party.sheet' |
+          ghsLabel}}</label>
         <ghs-party-buildings></ghs-party-buildings>
       </div>
     </div>
