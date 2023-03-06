@@ -86,6 +86,10 @@
       "masteries": "Masteries",
       "name": "Name",
       "notes": "Notes",
+      "perks": {
+        ".": "Perks",
+        "extra": "Extra Perks"
+      },
       "personalQuest": "Personal Quest",
       "resources": {
         ".": "Resources",
@@ -754,6 +758,30 @@
     "openRoom": "Open door for tile '{0}'",
     "openRoomMarker": "Open door %game.mapMarker.{1}% for tile '{0}'",
     "reset": "Restart Scenario",
+    "rewards": {
+      ".": "Rewards",
+      "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> each",
+      "collectiveGold": "{0} collective gold",
+      "envelope": "Open envelope {0}",
+      "event": {
+        "city": "Add City Event {0} to the deck",
+        "road": "Add Road Event {0} to the deck"
+      },
+      "experience": "{0} experience each",
+      "globalAchievements": "Global Achievements",
+      "gold": "{0} gold each",
+      "item": "\"{1}\" (Item {0})",
+      "items": "{2} \"{1}\" (Item {0})",
+      "itemDesign": "\"{1}\" design (Item {0})",
+      "itemDesignRange": "Add Items {0}",
+      "location": "New Location",
+      "locations": "New Locations",
+      "lostPartyAchievements": "Lost Party Achievements",
+      "partyAchievements": "Party Achievements",
+      "perks": "Gain {0} perk each",
+      "prosperity": "{0} prosperity",
+      "reputation": "{0} reputation"
+    },
     "rules": {
       "addSection": "Open Section #{0} {1}",
       "addSectionMarker": "Open Section #{0} {1} %game.mapMarker.{2}%",
@@ -795,10 +823,15 @@
       "cancel": "Cancel",
       "gold": "Gold",
       "forcedLinks": "%scenario.summary.links% (forced)",
+      "item": "Item \"{0}\"",
       "link": "Continue with #{0}",
       "links": "Continue with a linked scenario",
       "loot": "Loot",
       "name": "%character%",
+      "rewards": {
+        "experience": "Reward XP",
+        "gold": "Reward Gold"
+      },
       "restart": "Restart scenario",
       "restartLooseLoot": "Restart scenario (loose resources)",
       "totalGold": "Total Gold",
@@ -812,6 +845,7 @@
   "section": "Add Section",
   "server": {
     "autoconnect": "Connect Automatically",
+    "blocked": "Since you are not connected to your configured server, game updates are currently prevented.",
     "closed": "Closed",
     "closing": "Closing",
     "connect": "Connect",
@@ -819,6 +853,8 @@
     "connecting": "Connecting",
     "disconnect": "Disconnect",
     "disconnected": "No Connection",
+    "force": "Allow local changes",
+    "forceHint": "Attention: Local changes are discarded after a reconnect!",
     "how-to-run": "Create your own server",
     "info": {
       ".": "Info",
@@ -954,6 +990,10 @@
     "disableStandees": {
       ".": "Disable standees",
       "hint": "Do not display standees (when Hide stats is set, add normal and elite monster separate). This also disables unlocking rooms and automatic standees."
+    },
+    "disableWakeLock": {
+      ".": "Disable Wake Lock",
+      "hint": "Disable Wake Lock on supported devices. Wake Lock will keep the screen on. This can drain battery on mobile."
     },
     "dragValues": {
       ".": "Drag Initiative/HP/XP/Loot",
