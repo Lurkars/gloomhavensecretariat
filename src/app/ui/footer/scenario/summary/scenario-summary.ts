@@ -137,7 +137,7 @@ export class ScenarioSummaryComponent {
                     character.progress.gold += this.collectiveGold[index];
                 }
 
-                if (this.items[index].length > 0) {
+                if (this.items[index] && this.items[index].length > 0) {
                     this.items[index].forEach((itemId) => {
                         if (gameManager.game.scenario) {
                             character.progress.items.push(new Identifier('' + itemId, gameManager.game.scenario.edition));
