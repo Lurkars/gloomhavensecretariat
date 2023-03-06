@@ -58,7 +58,7 @@
 
   .gold,
   .xp {
-    font-size: 1.3em;
+    font-size: calc(var(--ghs-unit) * 3.2 * var(--ghs-dialog-factor));
     margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 
     &.gold {
@@ -83,7 +83,7 @@
   .head-col {
     font-family: var(--ghs-font-title);
     font-weight: bold;
-    font-size: 0.7em;
+    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
     flex-direction: row;
     justify-content: flex-end;
     border-left: none;
@@ -131,7 +131,7 @@
     label {
       color: var(--ghs-color-brown);
       font-family: var(--ghs-font-title);
-      font-size: 2em;
+      font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
     }
 
     .list {
@@ -140,7 +140,7 @@
       flex-direction: column;
       width: 100%;
       height: 100%;
-      font-size: 1.2em;
+      font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
       font-family: var(--ghs-font-text);
       padding-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
       margin-bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
