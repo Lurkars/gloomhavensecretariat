@@ -52,7 +52,7 @@ export class ScenarioTreasuresDialogComponent {
     }
 
     toggleCharacter(character: Character) {
-        if (this.character != character) {
+        if (this.character != character && this.treasureIndex != -1) {
             this.character = character;
             if (this.treasureIndex != -1 && this.looted.indexOf(this.treasureIndex) != -1) {
                 this.treasureIndex = -1;
@@ -83,7 +83,7 @@ export class ScenarioTreasuresDialogComponent {
     lootTreasure() {
         if (this.treasureIndex != -1) {
             const treasure = this.treasures[this.treasureIndex];
-            if (this.character && treasure) {
+            if (this.character && treasure && this.character.treasures.indexOf(treasure == 'G' ? 'G-' + this.treasureIndex : treasure) == -1) {
                 gameManager.stateManager.before('lootTreasure', '' + treasure, this.scenario.edition);
                 this.looted.push(this.treasureIndex);
                 this.character.treasures = this.character.treasures || [];
