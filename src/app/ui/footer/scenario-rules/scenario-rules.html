@@ -27,7 +27,7 @@
         <ng-container *ngFor="let roomData of rooms(index); let i = index">
           <span class="and" *ngIf="i > 0">,</span>
           <span class="section room">
-            <img class="ghs-svg" src="./assets/images/door.svg">
+            <img class="ghs-svg" src="./assets/images/scenario/door.svg">
             <span class="text-white"
               [i18n]="roomData.marker ? 'scenario.rules.openRoomMarker' : 'scenario.rules.openRoom'"
               [i18n-args]="[roomData.marker || '']"></span>
@@ -38,7 +38,7 @@
         <ng-container *ngFor="let sectionData of sections(index); let i = index">
           <span class="and" *ngIf="i > 0">,</span>
           <span class="section">
-            <img class="ghs-svg" src="./assets/images/lock.svg">
+            <img class="ghs-svg" src="./assets/images/scenario/lock.svg">
             <span class="text-white"
               [i18n]="sectionData.marker ? 'scenario.rules.addSectionMarker' : 'scenario.rules.addSection'"
               [i18n-args]="[sectionData.index, 'data.section.' + sectionData.name, sectionData.marker || '']"></span>

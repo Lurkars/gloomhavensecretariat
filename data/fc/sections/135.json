@@ -1,0 +1,28 @@
+{
+  "conclusion": true,
+  "index": "135",
+  "edition": "fc",
+  "parent": "111",
+  "parentSections": [
+    "128"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "A Peril Averted"
+    ],
+    "partyAchievements": [
+      "Hunting the Hunter"
+    ],
+    "lostPartyAchievements": [
+      "Hunted Prey"
+    ],
+    "gold": 135,
+    "prosperity": 1,
+    "hints": {
+      "globalAchievements": [
+        "(If this is the second \"A Peril Averted\" achivement gained, read section 118 on page 37)"
+      ],
+      "gold": "This money must be immediatley be spend on any %game.action.move%, %game.action.range%, or %game.action.jump% enhancement"
+    }
+  }
+}

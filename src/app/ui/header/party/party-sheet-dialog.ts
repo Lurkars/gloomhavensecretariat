@@ -130,7 +130,7 @@ export class PartySheetDialogComponent implements OnInit {
   setAchievements(event: any) {
     if (this.party.achievements != event.target.value) {
       gameManager.stateManager.before("setPartyAchievements", event.target.value);
-      this.party.achievementsList.push(...event.target.value.split("\n").filter((value : string) => value));
+      this.party.achievementsList.push(...event.target.value.split("\n").filter((value: string) => value));
       this.party.achievements = "";
       event.target.value = "";
       gameManager.stateManager.after();
@@ -154,7 +154,7 @@ export class PartySheetDialogComponent implements OnInit {
   setGlobalAchievements(event: any) {
     if (this.party.globalAchievements != event.target.value) {
       gameManager.stateManager.before("setGlobalAchievements", event.target.value);
-      this.party.globalAchievementsList.push(...event.target.value.split("\n").filter((value : string) => value));
+      this.party.globalAchievementsList.push(...event.target.value.split("\n").filter((value: string) => value));
       this.party.globalAchievements = "";
       event.target.value = "";
       gameManager.stateManager.after();

@@ -296,11 +296,25 @@ main {
   .cdk-drag {
     position: relative;
     width: calc(var(--ghs-unit) * 98);
-    margin: calc(var(--ghs-unit) * var(--ghs-text-factor) * 0.8) auto;
+    margin: calc(var(--ghs-unit) * 0.8) auto;
 
     :nth-child(2) {
       position: relative;
       display: block;
+    }
+  }
+
+  &.column-left {
+    .cdk-drag {
+      margin-left: auto;
+      margin-right: calc(var(--ghs-unit) * 2);
+    }
+  }
+
+  &.column-right {
+    .cdk-drag {
+      margin-right: auto;
+      margin-left: calc(var(--ghs-unit) * 2);
     }
   }
 }

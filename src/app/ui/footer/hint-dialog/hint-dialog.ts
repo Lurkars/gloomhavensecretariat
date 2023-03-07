@@ -33,7 +33,7 @@ export class HintDialogComponent {
 
     finishScenario(success: boolean) {
         gameManager.stateManager.before("finishScenario." + (success ? "success" : "failure"), ...gameManager.scenarioManager.scenarioUndoArgs());
-        gameManager.scenarioManager.finishScenario(success);
+        gameManager.scenarioManager.finishScenario(success, undefined);
         gameManager.stateManager.after(1000);
     }
 

@@ -61,11 +61,32 @@ export class ScenarioRewards {
   perks: number = 0;
   battleGoals: number = 0;
   items: string[] = [];
+  chooseItem: string[] = [];
   itemDesigns: string[] = [];
   events: string[] = [];
   custom: string = "";
   ignoredBonus: string[] = [];
+  hints: ScenarioRewardHints | undefined = undefined;
 
+}
+
+
+export class ScenarioRewardHints {
+  globalAchievements: string[] = [];
+  partyAchievements: string[] = [];
+  lostPartyAchievements: string[] = [];
+  envelopes: string[] = [];
+  gold: string = "";
+  experience: string = "";
+  collectiveGold: string = "";
+  reputation: string = "";
+  prosperity: string = "";
+  perks: string = "";
+  battleGoals: string = "";
+  items: string[] = [];
+  chooseItem: string[] = [];
+  itemDesigns: string[] = [];
+  events: string[] = [];
 }
 
 export type ScenarioRuleIdentifier = { "edition": string, "scenario": string, "group": string | undefined, "index": number, "section": boolean };

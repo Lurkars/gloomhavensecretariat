@@ -3,6 +3,14 @@
   "group": "Challenge",
   "name": "Tower to the Stars",
   "edition": "fc",
+  "rewards": {
+    "partyAchievements": [
+      "Beauty in Freedom"
+    ],
+    "gold": 15,
+    "battleGoals": 1,
+    "custom": "All characters may add one new card of their class to their active card pool. The card selected must have a level equal or less then the character's level minus 2."
+  },
   "monsters": [
     "ancient-artillery",
     "city-archer",

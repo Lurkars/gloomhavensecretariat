@@ -401,7 +401,7 @@ export class ScenarioRulesComponent {
                 if (rule.finish) {
                     this.dialog.open(ScenarioSummaryComponent, {
                         panelClass: 'dialog',
-                        data: rule.finish == "won"
+                        data: { scenario: scenario, success: rule.finish == "won" }
                     })
                 }
             }

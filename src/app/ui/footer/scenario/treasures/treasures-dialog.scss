@@ -1,0 +1,169 @@
+.treasures-popup {
+
+    text-align: center;
+    color: var(--ghs-color-white);
+    padding: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+    min-width: calc(var(--ghs-unit) * 35 * var(--ghs-dialog-factor));
+
+    .title {
+        display: flex;
+        justify-content: center;
+        font-family: var(--ghs-font-text);
+        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    }
+
+    .treasures {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .treasure {
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            background-image: url('~src/assets/images/scenario/treasure.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+            color: var(--ghs-color-black);
+            width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+            height: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
+            margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+            .overlay {
+                display: none;
+                position: absolute;
+                top: 30%;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 50%;
+                width: auto;
+
+                &.check {
+                    filter: var(--ghs-filter-green);
+                }
+
+                &.remove {
+                    filter: var(--ghs-filter-red);
+                }
+            }
+
+            &:hover {
+                opacity: 0.8;
+            }
+
+            &.looted {
+                pointer-events: none;
+                opacity: 0.4;
+
+                .check {
+                    display: block;
+                }
+            }
+
+            &.disabled {
+                cursor: not-allowed;
+                filter: grayscale(0.5);
+            }
+
+            &.highlight {
+                .check {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .characters {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .character {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            margin: 0.25em;
+            padding: 0.25em;
+            border: 1px solid transparent;
+
+            .name {
+                font-family: var(--ghs-font-title);
+                font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+                color: var(--ghs-color-gray);
+                text-shadow: var(--ghs-outline);
+            }
+
+            .icon {
+                width: 1.5em;
+                height: auto;
+                margin-right: 0.2em;
+                filter: grayscale(0.7);
+            }
+
+            &:hover {
+                color: var(--ghs-color-darkgray);
+                border-color: var(--ghs-color-darkgray);
+
+                .icon {
+                    filter: grayscale(0.3);
+                }
+            }
+
+            &.disabled {
+                border-color: transparent;
+            }
+
+            &.selected {
+                color: var(--ghs-color-white);
+                border-color: var(--ghs-color-gray);
+
+                .icon {
+                    filter: none;
+                }
+            }
+
+            .treasures .treasure {
+                cursor: pointer;
+                font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                line-height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                width: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
+                height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+
+                &:hover {
+                    .remove {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+    .loot {
+        display: flex;
+        flex-direction: column;
+        padding-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+        min-height: calc(var(--ghs-unit) * 10 * var(--ghs-dialog-factor));
+
+        p {
+            padding: 0;
+            margin: 0;
+        }
+
+        .button {
+            cursor: pointer;
+            font-family: var(--ghs-font-title);
+            font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+            margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+            color: var(--ghs-color-green);
+
+            &:hover {
+                opacity: 0.6;
+            }
+        }
+    }
+}

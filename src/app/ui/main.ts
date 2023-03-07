@@ -231,7 +231,7 @@ export class MainComponent implements OnInit {
             figureWidth = figureElements[0].firstChild.clientWidth;
           }
 
-          if (figureWidth < (containerElement.clientWidth / 2)) {
+          if (figureWidth < (containerElement.clientWidth / 2.06)) {
             let height = 0;
             let columnSize = 0;
             const minColumn = Math.ceil(figures.length / 2);

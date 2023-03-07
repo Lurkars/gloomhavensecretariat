@@ -378,6 +378,11 @@
       },
       "flamefruit": "Flammenfrucht",
       "hide": "Fell",
+      "lootTreasure": {
+        ".": "{0} erbeutet Schatz {1}?",
+        "confirm": "Bestätigen",
+        "looted": "{0} erbeutet:"
+      },
       "lumber": "Holz",
       "metal": "Metall",
       "money": "Geld",
@@ -385,7 +390,8 @@
       "rockroot": "Steinwurzel",
       "snowthistle": "Schneedistel",
       "special1": "Spezial Karte 1 (#1418)",
-      "special2": "Spezial Karte 2 (#1419)"
+      "special2": "Spezial Karte 2 (#1419)",
+      "treasures": "Schatztruhen"
     },
     "maxHealth": "Maximale Trefferpunkte",
     "solo": "Alleine",
@@ -640,6 +646,7 @@
   "scenario": {
     ".": "Szenario auswählen",
     "cancel": "Szenario abbrechen",
+    "conclusion": "Lösung",
     "custom": "Benutzerdefiniert",
     "filter": "Szenario filtern",
     "finish": {
@@ -659,6 +666,7 @@
     "rewards": {
       ".": "Belohnungen",
       "battleGoals": "jeweils {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
+      "chooseItem": "Wähle eines der folgenden aus",
       "collectiveGold": "{0} gemeinschaftliches Gold",
       "envelope": "Umschlag {0} öffnen",
       "event": {
@@ -709,16 +717,22 @@
       "won": "Szenario erfolgreich!"
     },
     "section": {
+      ".": "Sektion",
       "add": "Sektion {1}#{0} öffnen?",
       "addMarker": "Sektion #{0} %game.mapMarker.{1}% öffnen?",
       "cancel": "Abbrechen",
-      "confirm": "Bestätigen"
+      "confirm": "Bestätigen",
+      "conclusion": "Szenario beenden mit {0}?"
     },
     "summary": {
       ".": "Szenario Zusammenfassung",
       "apply": "Abschließen",
       "battlegoals": "Kampfziele",
       "cancel": "Abbrechen",
+      "conclusionWarning": {
+        ".": "Keine Lösung!",
+        "hint": "Es scheint das Szenario wurde ohne entsprechende Lösung beendet. Dies kann zu fehlenden Belohungen und Freischaltungen führen. Lösungen sind Sektionen die mit einem <img class=\"icon ghs-svg\" src=\"./assets/images/conclusion.svg\"> Symbole gekennzeichnet sind."
+      },
       "gold": "Gold",
       "forcedLinks": "%scenario.summary.links% (erzwungen)",
       "item": "Gegenstand \"{0}\"",
@@ -884,7 +898,11 @@
     },
     "disableDragFigures": {
       ".": "Drag'n'Drop für Figurenliste deaktivieren",
-      "hint": "Deaktiviert Drag'n'Drop für die Figurenliste. Achtung, falls keine Initiative gesetzt werden muss ist ein Verschieben der Figuren nicht mehr möglich."
+      "hint": "Deaktiviert Drag'n'Drop für die Figurenliste. Achtung, falls keine Initiative gesetzt werden muss ist ein manuelles Verschieben der Figuren nicht mehr möglich."
+    },
+    "disableSortFigures": {
+      ".": "Figuren sortieren deaktivieren",
+      "hint": "Deaktiviert das automatische Sortieren der Figuren. Die Reihenfolge muss manuell über Drag'n'Drop festgelegt werden."
     },
     "disableStandees": {
       ".": "Aufsteller deaktivieren",

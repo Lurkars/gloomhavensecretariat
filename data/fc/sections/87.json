@@ -22,7 +22,7 @@
             "type": "character",
             "name": ".*"
           },
-          "type": "condition",
+          "type": "gainCondition",
           "value": "muddle"
         },
         {
@@ -30,7 +30,7 @@
             "type": "character",
             "name": ".*"
           },
-          "type": "condition",
+          "type": "gainCondition",
           "value": "poison"
         },
         {
@@ -38,7 +38,7 @@
             "type": "character",
             "name": ".*"
           },
-          "type": "condition",
+          "type": "gainCondition",
           "value": "disarm"
         },
         {
@@ -46,7 +46,7 @@
             "type": "character",
             "name": ".*"
           },
-          "type": "condition",
+          "type": "gainCondition",
           "value": "wound"
         }
       ]

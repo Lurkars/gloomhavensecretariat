@@ -2,7 +2,7 @@ import { Character } from "../model/Character";
 import { ScenarioObjectiveIdentifier } from "../model/data/ObjectiveData";
 import { RoomData } from "../model/data/RoomData";
 import { ScenarioData } from "../model/data/ScenarioData";
-import { ScenarioRule, ScenarioRuleIdentifier } from "../model/data/ScenarioRule";
+import { ScenarioRewards, ScenarioRule, ScenarioRuleIdentifier } from "../model/data/ScenarioRule";
 import { EntityValueFunction } from "../model/Entity";
 import { Figure } from "../model/Figure";
 import { Game, GameState } from "../model/Game";
@@ -21,6 +21,10 @@ export class ScenarioManager {
 
   constructor(game: Game) {
     this.game = game;
+  }
+
+  createScenario() : Scenario {
+    return new Scenario(new ScenarioData("", "", [], [], [], [], [], undefined, [], [], [], [], [], "", [], ""), [], true);
   }
 
   getScenario(index: string, edition: string, group: string | undefined): ScenarioData | undefined {
@@ -43,17 +47,19 @@ export class ScenarioManager {
     }
   }
 
-  finishScenario(success: boolean = true, restart: boolean = false, linkedScenario: Scenario | undefined = undefined) {
+  finishScenario(success: boolean = true, conclusionSection: ScenarioData | undefined, restart: boolean = false, linkedScenario: Scenario | undefined = undefined) {
     const scenario = this.game.scenario;
+
+    const rewards: ScenarioRewards | undefined = scenario && scenario.rewards || conclusionSection && conclusionSection.rewards || undefined;
 
     if (scenario) {
       this.game.figures.forEach((figure) => {
         if (figure instanceof Character && !figure.absent) {
-          const scnearioXP: number = success && (!scenario.rewards || !scenario.rewards.ignoredBonus || scenario.rewards.ignoredBonus.indexOf('experience') == -1) ? gameManager.levelManager.experience() : 0;
+          const scnearioXP: number = success && (!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('experience') == -1) ? gameManager.levelManager.experience() : 0;
 
           gameManager.characterManager.addXP(figure, scnearioXP + figure.experience, !restart && !linkedScenario);
 
-          if ((!scenario.rewards || !scenario.rewards.ignoredBonus || scenario.rewards.ignoredBonus.indexOf('gold') == -1)) {
+          if ((!rewards || !rewards.ignoredBonus || rewards.ignoredBonus.indexOf('gold') == -1)) {
             figure.progress.gold += figure.loot * gameManager.levelManager.loot();
             if (!restart && figure.lootCards) {
               figure.lootCards.forEach((index) => {
@@ -61,82 +67,90 @@ export class ScenarioManager {
               })
             }
           }
-
-          if (scenario.rewards && scenario.rewards.experience) {
-            figure.progress.experience += scenario.rewards.experience;
-          }
-
-          if (scenario.rewards && scenario.rewards.gold) {
-            figure.progress.gold += scenario.rewards.gold;
-          }
-
-          if (scenario.rewards && scenario.rewards.perks) {
-            figure.progress.extraPerks += scenario.rewards.perks;
-            if (figure.progress.extraPerks < 0) {
-              figure.progress.extraPerks = 0;
-            }
-          }
-
-          if (scenario.rewards && scenario.rewards.battleGoals) {
-            figure.progress.battleGoals += scenario.rewards.battleGoals;
-            if (figure.progress.battleGoals > 18) {
-              figure.progress.battleGoals = 18;
-            } else if (figure.progress.battleGoals < 0) {
-              figure.progress.battleGoals = 0;
-            }
-          }
         }
       })
-    }
 
-    if (scenario && scenario.rewards) {
-      if (scenario.rewards.reputation) {
-        this.game.party.reputation += scenario.rewards.reputation;
-        if (this.game.party.reputation > 20) {
-          this.game.party.reputation = 20;
-        } else if (this.game.party.reputation < -20) {
-          this.game.party.reputation = -20;
-        }
-      }
-      if (scenario.rewards.prosperity) {
-        this.game.party.prosperity += scenario.rewards.prosperity;
-        if (this.game.party.prosperity > (gameManager.fhRules() ? 132 : 64)) {
-          this.game.party.prosperity = (gameManager.fhRules() ? 132 : 64);
-        } else if (this.game.party.prosperity < 0) {
-          this.game.party.prosperity = 0;
-        }
-      }
+      if (success) {
+        if (rewards) {
+          this.game.figures.forEach((figure) => {
+            if (figure instanceof Character && !figure.absent) {
+              if (rewards.experience) {
+                gameManager.characterManager.addXP(figure, rewards.experience, !restart && !linkedScenario);
+              }
 
-      if (scenario.rewards.globalAchievements) {
-        this.game.party.globalAchievementsList.push(...scenario.rewards.globalAchievements);
-      }
+              if (rewards.gold) {
+                figure.progress.gold += rewards.gold;
+              }
 
-      if (scenario.rewards.partyAchievements) {
-        this.game.party.achievementsList.push(...scenario.rewards.partyAchievements);
-      }
+              if (rewards.perks) {
+                figure.progress.extraPerks += rewards.perks;
+                if (figure.progress.extraPerks < 0) {
+                  figure.progress.extraPerks = 0;
+                }
+              }
 
-      if (scenario.rewards.lostPartyAchievements) {
-        this.game.party.achievementsList = this.game.party.achievementsList.filter((achivement) => scenario.rewards && scenario.rewards.lostPartyAchievements.indexOf(achivement) == -1);
-      }
-
-      if (scenario.rewards.itemDesigns) {
-        scenario.rewards.itemDesigns.forEach((item) => {
-          if (item.indexOf('-') != -1) {
-            const from = +item.split('-')[0];
-            const to = +item.split('-')[1];
-            for (let i = from; i <= to; i++) {
-              this.game.party.unlockedItems.push(new Identifier(i + '', scenario.edition));
+              if (rewards.battleGoals) {
+                figure.progress.battleGoals += rewards.battleGoals;
+                if (figure.progress.battleGoals > 18) {
+                  figure.progress.battleGoals = 18;
+                } else if (figure.progress.battleGoals < 0) {
+                  figure.progress.battleGoals = 0;
+                }
+              }
             }
-          } else {
-            this.game.party.unlockedItems.push(new Identifier(item, scenario.edition));
-          }
-        })
-      }
-    }
+          })
 
-    if (success && this.game.party && scenario) {
-      this.game.party.scenarios.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group, scenario.custom, scenario.custom ? scenario.name : "", scenario.revealedRooms));
-      this.game.party.manualScenarios = this.game.party.manualScenarios.filter((identifier) => scenario && (scenario.index != identifier.index || scenario.edition != identifier.edition || scenario.group != identifier.group));
+          if (rewards.reputation) {
+            this.game.party.reputation += rewards.reputation;
+            if (this.game.party.reputation > 20) {
+              this.game.party.reputation = 20;
+            } else if (this.game.party.reputation < -20) {
+              this.game.party.reputation = -20;
+            }
+          }
+          if (rewards.prosperity) {
+            this.game.party.prosperity += rewards.prosperity;
+            if (this.game.party.prosperity > (gameManager.fhRules() ? 132 : 64)) {
+              this.game.party.prosperity = (gameManager.fhRules() ? 132 : 64);
+            } else if (this.game.party.prosperity < 0) {
+              this.game.party.prosperity = 0;
+            }
+          }
+
+          if (rewards.globalAchievements) {
+            this.game.party.globalAchievementsList.push(...rewards.globalAchievements);
+          }
+
+          if (rewards.partyAchievements) {
+            this.game.party.achievementsList.push(...rewards.partyAchievements);
+          }
+
+          if (rewards.lostPartyAchievements) {
+            this.game.party.achievementsList = this.game.party.achievementsList.filter((achivement) => rewards && rewards.lostPartyAchievements.indexOf(achivement) == -1);
+          }
+
+          if (rewards.itemDesigns) {
+            rewards.itemDesigns.forEach((item) => {
+              if (item.indexOf('-') != -1) {
+                const from = +item.split('-')[0];
+                const to = +item.split('-')[1];
+                for (let i = from; i <= to; i++) {
+                  this.game.party.unlockedItems.push(new Identifier(i + '', scenario.edition));
+                }
+              } else {
+                this.game.party.unlockedItems.push(new Identifier(item, scenario.edition));
+              }
+            })
+          }
+        }
+
+        if (conclusionSection) {
+          this.game.party.conclusions.push(new GameScenarioModel(conclusionSection.index, conclusionSection.edition, conclusionSection.group, false, "", []));
+        }
+
+        this.game.party.scenarios.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group, scenario.custom, scenario.custom ? scenario.name : "", scenario.revealedRooms));
+        this.game.party.manualScenarios = this.game.party.manualScenarios.filter((identifier) => scenario && (scenario.index != identifier.index || scenario.edition != identifier.edition || scenario.group != identifier.group));
+      }
     }
 
     if (restart) {
@@ -380,6 +394,14 @@ export class ScenarioManager {
         }
       })
 
+      this.game.party.conclusions.forEach((identifier) => {
+        const conclusionSection = gameManager.sectionData(identifier.edition).find((sectionData) => sectionData.index == identifier.index && sectionData.edition == identifier.edition && sectionData.group == identifier.group);
+
+        if (conclusionSection && conclusionSection.edition == scenarioData.edition && conclusionSection.group == scenarioData.group && conclusionSection.unlocks && conclusionSection.unlocks.indexOf(scenarioData.index) != -1) {
+          unlocked = true;
+        }
+      })
+
       if (!requires) {
         requires = scenarioData.requires.some((requires) => requires.every((require) => this.game.party.scenarios.find((identifier) => identifier.index == require && identifier.group == scenarioData.group && identifier.edition == scenarioData.edition)));
       }
@@ -560,7 +582,51 @@ export class ScenarioManager {
       return [];
     }
 
-    return gameManager.sectionData(this.game.scenario.edition).filter((sectionData) => (this.game.scenario && sectionData.edition == this.game.scenario.edition && sectionData.parent == this.game.scenario.index && (!sectionData.parentSections || sectionData.parentSections.length == 0) || this.game.sections.find((active) => active.edition == sectionData.edition && sectionData.parentSections && sectionData.parentSections.indexOf(active.index) != -1)) && !this.game.sections.find((active) => active.edition == sectionData.edition && active.index == sectionData.index) && !this.game.sections.find((active) => active.edition == sectionData.edition && sectionData.blockedSections && sectionData.blockedSections.indexOf(active.index) != -1));
+    return gameManager.sectionData(this.game.scenario.edition).filter((sectionData) => (this.game.scenario && sectionData.edition == this.game.scenario.edition && sectionData.parent == this.game.scenario.index && (!sectionData.parentSections || sectionData.parentSections.length == 0) || this.game.sections.find((active) => active.edition == sectionData.edition && sectionData.parentSections && sectionData.parentSections.indexOf(active.index) != -1)) && !this.game.sections.find((active) => active.edition == sectionData.edition && active.index == sectionData.index) && !this.game.sections.find((active) => active.edition == sectionData.edition && sectionData.blockedSections && sectionData.blockedSections.indexOf(active.index) != -1)).sort(this.sortScenarios);
+  }
+
+  getTreasures(scenario: Scenario, sections: Scenario[]): ('G' | number)[] {
+    let treasures: ('G' | number)[] = [];
+    if (scenario.rooms && scenario.revealedRooms) {
+      scenario.revealedRooms.forEach((roomNumber) => {
+        const room = scenario.rooms.find((room) => room.roomNumber == roomNumber);
+        if (room && room.treasures) {
+          treasures.push(...room.treasures);
+        }
+      })
+    }
+
+    sections.forEach((section) => {
+      if (section.rooms && section.revealedRooms) {
+        section.revealedRooms.forEach((roomNumber) => {
+          const room = section.rooms.find((room) => room.roomNumber == roomNumber)
+          if (room && room.treasures) {
+            treasures.push(...room.treasures);
+          }
+        })
+      }
+    })
+
+    return treasures;
+  }
+
+  sortScenarios(a: ScenarioData, b: ScenarioData): number {
+    if (a.conclusion != b.conclusion) {
+      return a.conclusion ? 1 : -1;
+    }
+
+    if (!isNaN(+a.index) && !isNaN(+b.index)) {
+      return +a.index - +b.index;
+    }
+
+    const aMatch = a.index.match(/(\d+)/);
+    const bMatch = b.index.match(/(\d+)/);
+
+    if (aMatch && bMatch) {
+      return +(aMatch[0]) - +(bMatch[0]);
+    }
+
+    return a.index.toLowerCase() < b.index.toLowerCase() ? -1 : 1
   }
 
   openRooms(initial: boolean = false): RoomData[] {

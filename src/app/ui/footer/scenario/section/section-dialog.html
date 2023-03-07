@@ -1,7 +1,14 @@
 <div class="section-popup">
 
-    <p [i18n]="sectionData.marker ? 'scenario.section.addMarker' : 'scenario.section.add'"
+    <p *ngIf="!sectionData.conclusion"
+        [i18n]="sectionData.marker ? 'scenario.section.addMarker' : 'scenario.section.add'"
         [i18n-args]="[sectionData.index,  sectionData.marker || '']">
+    </p>
+
+    <p *ngIf="sectionData.conclusion"
+        [i18n]="'scenario.section.conclusion'"
+        [i18n-args]="[sectionData.name ? 'data.section.' + sectionData.name : '%scenario.section% #' + sectionData.index]"
+        [i18n-arg-label]="true">
     </p>
 
     <div class="buttons">

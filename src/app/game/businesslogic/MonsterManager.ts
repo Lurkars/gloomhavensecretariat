@@ -79,7 +79,7 @@ export class MonsterManager {
   addMonster(monsterData: MonsterData, level: number): Monster {
 
     if (!this.game.scenario) {
-      gameManager.scenarioManager.setScenario(new Scenario(new ScenarioData("", "", [], [], [], [], [],undefined, [], [], [], [], [], "", [], ""), [], true));
+      gameManager.scenarioManager.setScenario(gameManager.scenarioManager.createScenario());
     }
 
     let monster: Monster | undefined = this.game.figures.find((figure) =>

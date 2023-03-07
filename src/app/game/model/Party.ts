@@ -17,6 +17,7 @@ export class Party {
   reputation: number = 0;
   prosperity: number = 0;
   scenarios: GameScenarioModel[] = [];
+  conclusions: GameScenarioModel[] = [];
   manualScenarios: GameScenarioModel[] = [];
   campaignMode: boolean = false;
   globalAchievements: string = "";

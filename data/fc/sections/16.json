@@ -1,0 +1,21 @@
+{
+  "conclusion": true,
+  "index": "16",
+  "edition": "fc",
+  "parent": "99",
+  "rewards": {
+    "globalAchievements": [
+      "Knowledge is Power"
+    ],
+    "gold": 5,
+    "prosperity": 1,
+    "itemDesigns": [
+      "153"
+    ],
+    "hints": {
+      "globalAchievements": [
+        "(If this is the second \"Knowledge is Power\" achivement gained, read section 27 on page 10)"
+      ]
+    }
+  }
+}

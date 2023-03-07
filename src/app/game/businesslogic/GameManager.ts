@@ -17,7 +17,7 @@ import { CharacterManager } from "./CharacterManager";
 import { MonsterManager } from "./MonsterManager";
 import { settingsManager } from "./SettingsManager";
 import { StateManager } from "./StateManager";
-import { Condition, ConditionName, Conditions, ConditionType } from "../model/Condition";
+import { Condition,  Conditions, ConditionType } from "../model/Condition";
 import { EntityManager } from "./EntityManager";
 import { EventEmitter } from "@angular/core";
 import { ItemData } from "../model/data/ItemData";
@@ -208,16 +208,24 @@ export class GameManager {
 
   sortFigures() {
     this.game.figures.sort((a, b) => {
+      if (settingsManager.settings.disableSortFigures) {
+        return 0;
+      }
+
       if (this.game.state == GameState.draw) {
         return this.sortFiguresByTypeAndName(a, b);
-      } else if (settingsManager.settings.initiativeRequired) {
+      } else if (settingsManager.settings.initiativeRequired || a.getInitiative() > 0 && b.getInitiative() > 0) {
         if (a.getInitiative() == b.getInitiative()) {
           return this.sortFiguresByTypeAndName(a, b);
         }
         return a.getInitiative() - b.getInitiative();
+      } else if (a.getInitiative() > 0) {
+        return 1;
+      } else if (b.getInitiative() > 0) {
+        return -1;
       }
 
-      return 0;
+      return this.sortFiguresByTypeAndName(a, b);
     });
   }
 

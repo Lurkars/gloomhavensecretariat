@@ -5,6 +5,12 @@
   "unlocks": [
     "113"
   ],
+  "rewards": {
+    "experience": 10,
+    "items": [
+      "52"
+    ]
+  },
   "monsters": [
     "city-archer",
     "city-guard",

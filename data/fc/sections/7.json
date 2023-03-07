@@ -1,0 +1,12 @@
+{
+  "conclusion": true,
+  "index": "7",
+  "edition": "fc",
+  "parent": "97",
+  "rewards": {
+    "gold": 10,
+    "events": [
+      "city:88, 89 and 90"
+    ]
+  }
+}

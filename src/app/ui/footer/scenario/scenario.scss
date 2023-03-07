@@ -28,6 +28,22 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+
+    .treasures {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 1em;
+      width: auto;
+      margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-barsize));
+
+      .ghs-svg {
+        filter: var(--ghs-filter-yellow);
+        height: 0.8em;
+        width: auto;
+      }
+    }
   }
 
   .sections {

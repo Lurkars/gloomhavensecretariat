@@ -2,6 +2,20 @@
   "index": "115",
   "name": "Future Uncertain",
   "edition": "fc",
+  "rewards": {
+    "globalAchievements": [
+      "Severed Ties"
+    ],
+    "reputation": 3,
+    "prosperity": 1,
+    "events": [
+      "city:83",
+      "road:83"
+    ],
+    "hints": {
+      "prosperity": "Retire the Aesther Diviner %data.characterIcon.diviner%"
+    }
+  },
   "monsters": [
     "aesther-ashblade",
     "aesther-scout",

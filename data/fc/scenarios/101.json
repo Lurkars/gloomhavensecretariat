@@ -6,6 +6,19 @@
     "108",
     "109"
   ],
+  "rewards": {
+    "globalAchievements": [
+      "Knowledge is Power"
+    ],
+    "collectiveGold": 20,
+    "reputation": 1,
+    "prosperity": 1,
+    "hints": {
+      "globalAchievements": [
+        "(If this is the second \"Knowledge is Power\" achivement gained, read section 27 on page 10)"
+      ]
+    }
+  },
   "monsters": [
     "rending-drake",
     "spitting-drake"

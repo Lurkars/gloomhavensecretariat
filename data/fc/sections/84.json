@@ -13,7 +13,7 @@
     "elham",
     "flame-demon",
     "frost-demon",
-    "icestorm-guardian-of-the-firmamant",
+    "icestorm-guardian-of-the-firmament",
     "lavaflow-guardian-of-the-firmament"
   ],
   "rooms": [
@@ -31,17 +31,17 @@
           "player4": "elite"
         },
         {
-          "name": "icestorm-guardian-of-the-firmamant",
+          "name": "icestorm-guardian-of-the-firmament",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "icestorm-guardian-of-the-firmamant",
+          "name": "icestorm-guardian-of-the-firmament",
           "player3": "normal"
         },
         {
-          "name": "icestorm-guardian-of-the-firmamant",
+          "name": "icestorm-guardian-of-the-firmament",
           "player4": "normal"
         },
         {

@@ -32,6 +32,19 @@
         </span>
       </div>
     </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.disableSortFigures"
+            (change)="settingsManager.setDisableSortFigures(!settingsManager.settings.disableSortFigures)">
+          {{'settings.disableSortFigures' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.disableSortFigures.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
   </div>
 
   <div class="column">

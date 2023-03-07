@@ -32,6 +32,7 @@ export class Settings {
   scenarioNumberInput: boolean = false;
   disableColumns: boolean = false;
   disableDragFigures: boolean = false;
+  disableSortFigures: boolean = false;
   disableAnimations: boolean = false;
   dragValues: boolean = true;
   hideAbsent: boolean = false;

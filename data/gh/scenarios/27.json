@@ -19,7 +19,9 @@
     ],
     "gold": 100,
     "prosperity": 1,
-    "custom": "This money must immediately be spent on enhancements"
+    "hints": {
+      "gold": "This money must immediately be spent on enhancements"
+    }
   },
   "monsters": [
     "earth-demon",

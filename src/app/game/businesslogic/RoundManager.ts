@@ -371,6 +371,7 @@ export class RoundManager {
         figure.health = figure.maxHealth;
         figure.loot = 0;
         figure.lootCards = [];
+        figure.treasures = [];
         figure.experience = 0;
         figure.entityConditions = [];
         figure.summons = [];

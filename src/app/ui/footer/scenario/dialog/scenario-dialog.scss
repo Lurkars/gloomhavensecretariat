@@ -7,8 +7,26 @@
   padding: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
 
   .title {
+    display: flex;
+    justify-content: center;
     font-family: var(--ghs-font-text);
     font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+
+    .treasures {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 1em;
+      width: auto;
+      margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-barsize));
+
+      .ghs-svg {
+        filter: var(--ghs-filter-yellow);
+        height: 0.8em;
+        width: auto;
+      }
+    }
   }
 
   .index {

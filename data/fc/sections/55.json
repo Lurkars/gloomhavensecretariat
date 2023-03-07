@@ -1,0 +1,18 @@
+{
+  "conclusion": true,
+  "index": "55",
+  "edition": "fc",
+  "parent": "98",
+  "rewards": {
+    "globalAchievements": [
+      "Knowledge is Power"
+    ],
+    "gold": 5,
+    "reputation": 1,
+    "hints": {
+      "globalAchievements": [
+        "(If this is the second \"Knowledge is Power\" achivement gained, read section 27 on page 10)"
+      ]
+    }
+  }
+}

@@ -246,6 +246,14 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setDisableSortFigures(disableSortFigures: boolean) {
+    this.settings.disableSortFigures = disableSortFigures;
+    if (!disableSortFigures) {
+      gameManager.sortFigures();
+    }
+    this.storeSettings();
+  }
+
   setDisableAnimations(disableAnimations: boolean) {
     this.settings.disableAnimations = disableAnimations;
     this.storeSettings();

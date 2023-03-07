@@ -55,20 +55,7 @@ export class ScenarioMenuComponent implements OnInit {
       return [];
     }
 
-    return gameManager.scenarioManager.scenarioData(this.edition, all).filter((scenarioData) => scenarioData.group == group && (includeSpoiler || (!scenarioData.spoiler || settingsManager.settings.spoilers.indexOf(scenarioData.name) != -1 || scenarioData.solo && settingsManager.settings.spoilers.indexOf(scenarioData.solo) != -1))).sort((a, b) => {
-      if (!isNaN(+a.index) && !isNaN(+b.index)) {
-        return +a.index - +b.index;
-      }
-
-      const aMatch = a.index.match(/(\d+)/);
-      const bMatch = b.index.match(/(\d+)/);
-
-      if (aMatch && bMatch) {
-        return +(aMatch[0]) - +(bMatch[0]);
-      }
-
-      return a.index.toLowerCase() < b.index.toLowerCase() ? -1 : 1
-    });
+    return gameManager.scenarioManager.scenarioData(this.edition, all).filter((scenarioData) => scenarioData.group == group && (includeSpoiler || (!scenarioData.spoiler || settingsManager.settings.spoilers.indexOf(scenarioData.name) != -1 || scenarioData.solo && settingsManager.settings.spoilers.indexOf(scenarioData.solo) != -1))).sort(gameManager.scenarioManager.sortScenarios);
   }
 
   scenarioSuccess(scenario: ScenarioData) {
@@ -105,7 +92,7 @@ export class ScenarioMenuComponent implements OnInit {
   customScenario() {
     if (!gameManager.game.scenario || !gameManager.game.scenario.custom) {
       gameManager.stateManager.before("setCustomScenario");
-      gameManager.scenarioManager.setScenario(new Scenario(new ScenarioData("", "", [], [], [], [], [], undefined, [], [], [], [], [], "", [], ""), [], true));
+      gameManager.scenarioManager.setScenario(gameManager.scenarioManager.createScenario());
       gameManager.stateManager.after();
     } else {
       gameManager.stateManager.before("unsetCustomScenario");

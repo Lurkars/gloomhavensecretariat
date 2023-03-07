@@ -6,6 +6,7 @@ import { RoomData } from "src/app/game/model/data/RoomData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { SectionDialogComponent } from "../section/section-dialog";
 import { ScenarioSummaryComponent } from "../summary/scenario-summary";
+import { ScenarioTreasuresDialogComponent } from "../treasures/treasures-dialog";
 
 @Component({
     selector: 'ghs-scenario-dialog',
@@ -22,7 +23,10 @@ export class ScenarioDialogComponent {
         this.dialogRef.close();
         this.dialog.open(ScenarioSummaryComponent, {
             panelClass: 'dialog',
-            data: success
+            data: {
+                scenario: gameManager.game.scenario,
+                success: success
+            }
         })
     }
 
@@ -41,6 +45,15 @@ export class ScenarioDialogComponent {
         gameManager.stateManager.before("cancelScenario", ...gameManager.scenarioManager.scenarioUndoArgs());
         gameManager.scenarioManager.setScenario(undefined);
         gameManager.stateManager.after(1000);
+    }
+
+    openTreasures(event: any) {
+      if (gameManager.game.scenario) {
+        this.dialog.open(ScenarioTreasuresDialogComponent,
+          {
+            panelClass: 'dialog'
+          });
+      }
     }
 
     openRoom(roomData: RoomData) {

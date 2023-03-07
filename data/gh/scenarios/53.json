@@ -9,7 +9,11 @@
     "items": [
       "114"
     ],
-    "custom": "The Seeker of Xorn receives item. The Seeker cannot sell this item."
+    "hints": {
+      "items": [
+        "The Seeker of Xorn receives item. The Seeker cannot sell this item."
+      ]
+    }
   },
   "monsters": [
     "giant-viper",

@@ -1,6 +1,7 @@
 {
+  "conclusion": true,
   "index": "82-B",
-  "name": "Conclusion B",
+  "name": "%scenario.conclusion% B",
   "edition": "gh",
   "parent": "82",
   "rewards": {

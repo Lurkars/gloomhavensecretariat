@@ -31,6 +31,7 @@ export class ScenarioData implements Editional, Spoilable {
   blockedSections: string[] = [];
   resetRound: "visible" | "hidden" | undefined;
   rewards: ScenarioRewards | undefined;
+  conclusion: boolean = false;
 
   // from Editional
   edition: string;
@@ -39,7 +40,7 @@ export class ScenarioData implements Editional, Spoilable {
   spoiler: boolean;
 
   constructor(name: string, index: string, unlocks: string[], blocks: string[], requires: string[][], links: string[], forcedLinks: string[], rewards: ScenarioRewards | undefined, monsters: string[], allies: string[], drawExtra: string[], objectives: ObjectiveData[], rooms: RoomData[], marker: string, rules: ScenarioRule[], edition: string, group: string | undefined = undefined,
-    spoiler: boolean = false, allyDeck: boolean = false) {
+    spoiler: boolean = false, allyDeck: boolean = false, conclusion : boolean = false) {
     this.name = name;
     this.index = index;
     this.unlocks = unlocks;
@@ -59,5 +60,6 @@ export class ScenarioData implements Editional, Spoilable {
     this.group = group;
     this.spoiler = spoiler;
     this.allyDeck = allyDeck;
+    this.conclusion = conclusion;
   }
 }

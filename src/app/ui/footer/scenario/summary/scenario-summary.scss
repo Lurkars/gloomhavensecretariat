@@ -9,6 +9,19 @@
   color: var(--ghs-color-white);
   font-size: calc(var(--ghs-unit) * 4* var(--ghs-text-factor));
 
+  .title {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .name {
+      text-align: center;
+      color: var(--ghs-color-gray);
+      font-family: var(--ghs-font-normal);
+      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+    }
+  }
+
   .failure {
     color: var(--ghs-color-red);
     font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
@@ -27,8 +40,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  overflow: auto;
+  flex-wrap: wrap-reverse;
   height: 100%;
 }
 
@@ -39,8 +51,10 @@
   font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
   display: grid;
   grid-template-columns: repeat(var(--ghs-summary-columns), auto);
+  padding-bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
   margin-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
   color: var(--ghs-color-white);
+  overflow: auto;
 
   .ghs-svg {
     width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
@@ -164,6 +178,7 @@
         font-family: var(--ghs-font-text);
         position: relative;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
@@ -171,6 +186,7 @@
         margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
 
         &.location {
+          flex-direction: row;
           margin: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor));
         }
       }
@@ -178,15 +194,24 @@
       .location .index {
         display: flex;
         justify-content: center;
-        width: 1.2em;
-        height: 1.2em;
-        font-size: 1.2em;
-        line-height: 0.8em;
+        width: 1.5em;
+        height: 1.5em;
+        font-size: 1em;
         color: var(--ghs-color-black);
         background-color: var(--ghs-color-white);
         border-radius: 100%;
         border: 2px solid var(--ghs-color-black);
         margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+      }
+    }
+
+    &.warning {
+      label {
+        color: var(--ghs-color-red);
+      }
+
+      .list {
+        font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
       }
     }
   }

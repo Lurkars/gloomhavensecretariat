@@ -6,7 +6,7 @@ export class RoomData {
     initial: boolean = false;
     marker: string = "";
     rooms: number[] = [];
-    treasures: (string | number)[] = [];
+    treasures: ('G' | number)[] = [];
     monster: MonsterStandeeData[] = [];
     allies: string[] = [];
     objectives: (string | number)[] = [];

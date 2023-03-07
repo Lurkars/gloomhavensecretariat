@@ -1,0 +1,45 @@
+<div class="treasures-popup">
+
+    <div class="title">{{'game.loot.treasures' | ghsLabel}}</div>
+
+    <div class="treasures">
+        <div class="treasure" *ngFor="let treasure of treasures; let i = index;"
+            [ngClass]="{'looted': looted.indexOf(i) != -1, 'disabled' : !character, 'highlight' : i == treasureIndex}"
+            (click)="toggleTreasure(i)">
+            <span *ngIf="treasure < 10">0</span>{{treasure}}
+            <img class="overlay check" src="./assets/images/check.svg">
+        </div>
+    </div>
+
+    <div class="characters">
+        <div class="character" *ngFor="let char of characters" (click)="toggleCharacter(char)"
+            [ngClass]="{'selected' : character == char && treasureIndex != -1, 'disabled' : treasureIndex == -1}">
+            <img class="icon" [src]="gameManager.characterManager.characterIcon(char)" />
+            <span class="name">{{char.title || ('data.character.' + char.name | ghsLabel)}}</span>
+
+            <div class="treasures">
+                <div class="treasure" *ngFor="let treasure of char.treasures;"
+                    (click)="removeTreasure(char, treasure)">
+                    <span *ngIf="treasure < 10">0</span>{{('' + treasure).startsWith('G-') ? 'G' : treasure}}
+                    <img class="overlay remove" src="./assets/images/close.svg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="loot">
+        <ng-container
+            *ngIf="character && treasureIndex != -1 && character.treasures.indexOf(treasures[treasureIndex] == 'G' ? 'G-' + treasureIndex : '' + treasures[treasureIndex]) == -1">
+            <p>{{'game.loot.lootTreasure' | ghsLabel:[character.title || '%data.character.' + character.name + '%', '' +
+                treasures[treasureIndex]]}}</p>
+            <div class="button" (click)="lootTreasure()">{{'game.loot.lootTreasure.confirm' | ghsLabel}}</div>
+        </ng-container>
+        <ng-container
+            *ngIf="character && treasureIndex != -1 && character.treasures.indexOf(treasures[treasureIndex] == 'G' ? 'G-' + treasureIndex : '' + treasures[treasureIndex]) != -1">
+            <p>{{'game.loot.lootTreasure.looted' | ghsLabel:[character.title || '%data.character.' + character.name +
+                '%']}}</p>
+            <span class="text-white reward"
+                [i18n]="'data.treasures.' + scenario.edition + '.' + treasures[treasureIndex]"></span>
+        </ng-container>
+    </div>
+</div>

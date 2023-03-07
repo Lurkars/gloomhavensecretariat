@@ -5,6 +5,15 @@
   "unlocks": [
     "110"
   ],
+  "rewards": {
+    "partyAchievements": [
+      "Guard Detail"
+    ],
+    "prosperity": 2,
+    "events": [
+      "city:87"
+    ]
+  },
   "objectives": [
     {
       "name": "Orchid caravan",

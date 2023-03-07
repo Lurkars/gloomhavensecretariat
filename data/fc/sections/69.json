@@ -1,0 +1,11 @@
+{
+  "conclusion": true,
+  "index": "69",
+  "edition": "fc",
+  "parent": "112",
+  "rewards": {
+    "experience": 5,
+    "collectiveGold": 25,
+    "battleGoals": 1
+  }
+}

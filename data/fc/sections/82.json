@@ -1,0 +1,25 @@
+{
+  "conclusion": true,
+  "index": "82",
+  "edition": "fc",
+  "parent": "98",
+  "rewards": {
+    "globalAchievements": [
+      "Knowledge is Power"
+    ],
+    "partyAchievements": [
+      "Custodians"
+    ],
+    "gold": 10,
+    "reputation": 1,
+    "prosperity": 1,
+    "events": [
+      "city:86"
+    ],
+    "hints": {
+      "globalAchievements": [
+        "(If this is the second \"Knowledge is Power\" achivement gained, read section 27 on page 10)"
+      ]
+    }
+  }
+}

@@ -480,6 +480,11 @@
       },
       "flamefruit": "Flamefruit",
       "hide": "Hide",
+      "lootTreasure": {
+        ".": "{0} loots treasue {1}?",
+        "confirm": "Confirm",
+        "looted": "{0} loots:"
+      },
       "lumber": "Lumber",
       "metal": "Metal",
       "money": "Money",
@@ -487,7 +492,8 @@
       "rockroot": "Rockroot",
       "snowthistle": "Snowthistle",
       "special1": "Special Card 1 (#1418)",
-      "special2": "Special Card 2 (#1419)"
+      "special2": "Special Card 2 (#1419)",
+      "treasures": "Treasures"
     },
     "maxHealth": "Maximum hit points",
     "solo": "Solo",
@@ -742,6 +748,7 @@
   "scenario": {
     ".": "Set Scenario",
     "cancel": "Cancel Scenario",
+    "conclusion": "Conclusion",
     "custom": "Custom",
     "filter": "Filter Scenario",
     "finish": {
@@ -761,6 +768,7 @@
     "rewards": {
       ".": "Rewards",
       "battleGoals": "{0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\"> each",
+      "chooseItem": "Choose to gain one of the following",
       "collectiveGold": "{0} collective gold",
       "envelope": "Open envelope {0}",
       "event": {
@@ -811,16 +819,22 @@
       "won": "Scenario won!"
     },
     "section": {
+      ".": "Section",
       "add": "Open Section #{0}?",
       "addMarker": "Open Section #{0} %game.mapMarker.{1}%?",
       "cancel": "Cancel",
-      "confirm": "Confirm"
+      "confirm": "Confirm",
+      "conclusion": "Finish scenario with {0}?"
     },
     "summary": {
       ".": "Scenario Summary",
       "apply": "Finish",
       "battlegoals": "Battelgoals",
       "cancel": "Cancel",
+      "conclusionWarning": {
+        ".": "Missing Solution!",
+        "hint": "It seems that this scenario is finished without a conclusion. This may lead to missing rewards and unlocks. Conclusion sections are marked with a <img class=\"icon ghs-svg\" src=\"./assets/images/conclusion.svg\"> icon."
+      },
       "gold": "Gold",
       "forcedLinks": "%scenario.summary.links% (forced)",
       "item": "Item \"{0}\"",
@@ -985,7 +999,11 @@
     },
     "disableDragFigures": {
       ".": "Disable drag'n'drop for figures",
-      "hint": "Disable drag'n'drop for the figure list. Warning, if no initiative is required, there is no way to re-order the figures."
+      "hint": "Disable drag'n'drop for the figure list. Warning, if no initiative is required, there is no way to re-order the figures manually."
+    },
+    "disableSortFigures": {
+      ".": "Disable sorting figures",
+      "hint": "Disables the automatic sorting of figures. The order must be set manually via Drag'n'Drop."
     },
     "disableStandees": {
       ".": "Disable standees",
