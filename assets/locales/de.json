@@ -292,7 +292,9 @@
         "addTarget": "Ziel hinzufügen",
         "addTargets": "{0} Ziele hinzufügen",
         "ignoreNegativeItem": "negative Zustände von Gegenständen ignorieren",
-        "ignoreNegativeScenario": "negative Szenario Zustände ignorieren"
+        "ignoreNegativeItemFh": "ignoriere %game.card.minus1% Zustände von Gegenständen",
+        "ignoreNegativeScenario": "negative Szenario Zustände ignorieren",
+        "ignoreScenario": "Szenario Zustände ignorieren"
       },
       "scenarioBook": "Im Szenariobuch nachschlagen"
     },
@@ -515,6 +517,10 @@
         "player": "Spieler",
         "reactivate": "Charakter reactivieren"
       },
+      "players": {
+        ".": "Spielernamen",
+        "add": "Spieler hinzufügen"
+      },
       "scenarios": {
         ".": "Szenarien",
         "addSuccess": "Als erfolgreich markieren",
@@ -726,6 +732,12 @@
     },
     "summary": {
       ".": "Szenario Zusammenfassung",
+      "alreadyWarning": {
+        ".": "Gelegenheitsmodus",
+        "hint": "Da das Szenario bereits erfolgreich im Kampagnenmodus absolviert wurde, wurde automatisch in den Gelegenheitsmodus gewechselt. Die Belohnungen werden im Gelegenheitsmodus ignoriert.",
+        "ignore": "Trotzdem die Belohnungen erhalten!",
+        "reapply": "Zurück zum Gelegenheitsmodus wechseln"
+      },
       "apply": "Abschließen",
       "battlegoals": "Kampfziele",
       "cancel": "Abbrechen",
@@ -748,6 +760,7 @@
       "restartLooseLoot": "Szenario neustarten (Ressourcen verlieren)",
       "totalGold": "Gold Gesamt",
       "totalXp": "EP Gesamt",
+      "treasures": "Schatztruhen",
       "xp": "EP",
       "xpBonus": "Bonus EP",
       "xpGained": "EP gesammelt"
@@ -942,7 +955,7 @@
     },
     "fullscreen": {
       ".": "Vollbild",
-      "hint": "In den Vollboldmodus wechseln"
+      "hint": "In den Vollbildmodus wechseln"
     },
     "gameplay": "Spielablauf",
     "ge5Player": {

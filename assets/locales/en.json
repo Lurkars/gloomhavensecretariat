@@ -394,7 +394,8 @@
         "addTargets": "Add {0} targets",
         "ignoreNegativeItem": "Ignore negative item effects",
         "ignoreNegativeItemFh": "Ignore item %game.card.minus1% effects",
-        "ignoreNegativeScenario": "Ignore negative scenario effects"
+        "ignoreNegativeScenario": "Ignore negative scenario effects",
+        "ignoreScenario": "Ignore scenario effects"
       },
       "scenarioBook": "Reference the scenario book"
     },
@@ -617,6 +618,10 @@
         "player": "Player",
         "reactivate": "Reactivate Character"
       },
+      "players": {
+        ".": "Player Names",
+        "add": "Add Player"
+      },
       "scenarios": {
         ".": "Scenarios",
         "addSuccess": "Mark successful",
@@ -828,6 +833,12 @@
     },
     "summary": {
       ".": "Scenario Summary",
+      "alreadyWarning": {
+        ".": "Casual Mode",
+        "hint": "Automatically switched to casual mode since the scenario was already finished successfully in campaign mode. In casual mode no rewards are granted.",
+        "ignore": "Gain rewards anyways!",
+        "reapply": "Switch back to casual mode"
+      },
       "apply": "Finish",
       "battlegoals": "Battelgoals",
       "cancel": "Cancel",
@@ -850,6 +861,7 @@
       "restartLooseLoot": "Restart scenario (loose resources)",
       "totalGold": "Total Gold",
       "totalXp": "Total XP",
+      "treasures": "Treasures",
       "xp": "XP",
       "xpBonus": "Bonus XP",
       "xpGained": "Gained XP"
