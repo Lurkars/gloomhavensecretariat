@@ -7,7 +7,6 @@
     "edition": "jotl",
     "slot": "head",
     "spent": true,
-    "folder": "1-13",
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
@@ -20,7 +19,6 @@
     "count": 2,
     "edition": "jotl",
     "slot": "head",
-    "folder": "1-13",
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
@@ -34,7 +32,6 @@
     "edition": "jotl",
     "slot": "body",
     "spent": true,
-    "folder": "1-13",
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
@@ -48,7 +45,6 @@
     "edition": "jotl",
     "slot": "body",
     "spent": true,
-    "folder": "1-13",
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
@@ -62,7 +58,6 @@
     "edition": "jotl",
     "slot": "legs",
     "spent": true,
-    "folder": "1-13",
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
@@ -76,7 +71,6 @@
     "edition": "jotl",
     "slot": "legs",
     "spent": true,
-    "folder": "1-13",
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
@@ -90,7 +84,6 @@
     "edition": "jotl",
     "slot": "onehand",
     "spent": true,
-    "folder": "1-13",
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
@@ -104,7 +97,6 @@
     "edition": "jotl",
     "slot": "onehand",
     "spent": true,
-    "folder": "1-13",
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
@@ -118,7 +110,6 @@
     "edition": "jotl",
     "slot": "onehand",
     "spent": true,
-    "folder": "1-13",
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
@@ -132,7 +123,6 @@
     "edition": "jotl",
     "slot": "onehand",
     "spent": true,
-    "folder": "1-13",
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
@@ -146,7 +136,6 @@
     "edition": "jotl",
     "slot": "small",
     "spent": true,
-    "folder": "1-13",
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
@@ -160,7 +149,6 @@
     "edition": "jotl",
     "slot": "small",
     "spent": true,
-    "folder": "1-13",
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
@@ -174,7 +162,6 @@
     "edition": "jotl",
     "slot": "small",
     "spent": true,
-    "folder": "1-13",
     "unlockScenario": {
       "name": 2,
       "edition": "jotl"
@@ -187,8 +174,7 @@
     "count": 2,
     "edition": "jotl",
     "slot": "small",
-    "spent": true,
-    "folder": "14"
+    "spent": true
   },
   {
     "id": 15,
@@ -198,7 +184,6 @@
     "edition": "jotl",
     "slot": "head",
     "spent": true,
-    "folder": "15-20",
     "unlockScenario": {
       "name": 9,
       "edition": "jotl"
@@ -212,7 +197,6 @@
     "edition": "jotl",
     "slot": "body",
     "spent": true,
-    "folder": "15-20",
     "unlockScenario": {
       "name": 9,
       "edition": "jotl"
@@ -225,7 +209,6 @@
     "count": 1,
     "edition": "jotl",
     "slot": "legs",
-    "folder": "15-20",
     "unlockScenario": {
       "name": 9,
       "edition": "jotl"
@@ -239,7 +222,6 @@
     "edition": "jotl",
     "slot": "onehand",
     "spent": true,
-    "folder": "15-20",
     "unlockScenario": {
       "name": 9,
       "edition": "jotl"
@@ -253,7 +235,6 @@
     "edition": "jotl",
     "slot": "onehand",
     "spent": true,
-    "folder": "15-20",
     "unlockScenario": {
       "name": 9,
       "edition": "jotl"
@@ -267,7 +248,6 @@
     "edition": "jotl",
     "slot": "small",
     "spent": true,
-    "folder": "15-20",
     "unlockScenario": {
       "name": 9,
       "edition": "jotl"
@@ -281,7 +261,6 @@
     "edition": "jotl",
     "slot": "head",
     "spent": true,
-    "folder": "21-26",
     "unlockScenario": {
       "name": 15,
       "edition": "jotl"
@@ -295,7 +274,6 @@
     "edition": "jotl",
     "slot": "body",
     "spent": true,
-    "folder": "21-26",
     "unlockScenario": {
       "name": 15,
       "edition": "jotl"
@@ -309,7 +287,6 @@
     "edition": "jotl",
     "slot": "legs",
     "spent": true,
-    "folder": "21-26",
     "unlockScenario": {
       "name": 15,
       "edition": "jotl"
@@ -323,7 +300,6 @@
     "edition": "jotl",
     "slot": "onehand",
     "spent": true,
-    "folder": "21-26",
     "unlockScenario": {
       "name": 15,
       "edition": "jotl"
@@ -337,7 +313,10 @@
     "edition": "jotl",
     "slot": "onehand",
     "spent": true,
-    "folder": "21-26"
+    "unlockScenario": {
+      "name": 15,
+      "edition": "jotl"
+    }
   },
   {
     "id": 26,
@@ -347,7 +326,6 @@
     "edition": "jotl",
     "slot": "small",
     "spent": true,
-    "folder": "21-26",
     "unlockScenario": {
       "name": 15,
       "edition": "jotl"
@@ -360,8 +338,7 @@
     "count": 1,
     "edition": "jotl",
     "slot": "small",
-    "spent": true,
-    "folder": "27-36"
+    "spent": true
   },
   {
     "id": 28,
@@ -369,8 +346,7 @@
     "cost": 10,
     "count": 1,
     "edition": "jotl",
-    "slot": "body",
-    "folder": "27-36"
+    "slot": "body"
   },
   {
     "id": 29,
@@ -379,8 +355,7 @@
     "count": 1,
     "edition": "jotl",
     "slot": "onehand",
-    "spent": true,
-    "folder": "27-36"
+    "spent": true
   },
   {
     "id": 30,
@@ -389,8 +364,7 @@
     "count": 1,
     "edition": "jotl",
     "slot": "small",
-    "spent": true,
-    "folder": "27-36"
+    "spent": true
   },
   {
     "id": 31,
@@ -399,8 +373,7 @@
     "count": 1,
     "edition": "jotl",
     "slot": "small",
-    "spent": true,
-    "folder": "27-36"
+    "spent": true
   },
   {
     "id": 32,
@@ -409,8 +382,7 @@
     "count": 1,
     "edition": "jotl",
     "slot": "small",
-    "spent": true,
-    "folder": "27-36"
+    "spent": true
   },
   {
     "id": 33,
@@ -419,8 +391,7 @@
     "count": 1,
     "edition": "jotl",
     "slot": "small",
-    "spent": true,
-    "folder": "27-36"
+    "spent": true
   },
   {
     "id": 34,
@@ -429,8 +400,7 @@
     "count": 1,
     "edition": "jotl",
     "slot": "onehand",
-    "spent": true,
-    "folder": "27-36"
+    "spent": true
   },
   {
     "id": 35,
@@ -439,17 +409,15 @@
     "count": 1,
     "edition": "jotl",
     "slot": "body",
-    "spent": true,
-    "folder": "27-36"
+    "spent": true
   },
-	{
-		"id": 36,
-		"name": "Jet Boots",
-		"cost": 30,
-		"count": 1,
+  {
+    "id": 36,
+    "name": "Jet Boots",
+    "cost": 30,
+    "count": 1,
     "edition": "jotl",
-		"slot": "legs",
-		"spent": true,
-		"folder": "27-36"
-	}
+    "slot": "legs",
+    "spent": true
+  }
 ]

@@ -2,6 +2,7 @@
   "index": "67",
   "name": "Arcane Library",
   "edition": "gh",
+  "random": true,
   "rewards": {
     "globalAchievements": [
       "Ancient Technology"

@@ -2763,6 +2763,7 @@
     "index": "104",
     "name": "Ruins of the Solstice",
     "edition": "fh",
+    "random": true,
     "unlocks": [
       "105"
     ],
@@ -2830,6 +2831,7 @@
     "index": "107",
     "name": "My Private Empire",
     "edition": "fh",
+    "random": true,
     "monsters": [
       "flaming-bladespinner",
       "living-bones",
@@ -2853,6 +2855,7 @@
     "index": "108",
     "name": "Lustrous Pit",
     "edition": "fh",
+    "random": true,
     "monsters": [
       "ice-wraith",
       "snow-imp"
@@ -2871,6 +2874,7 @@
     "index": "109",
     "name": "Furious Factory",
     "edition": "fh",
+    "random": true,
     "monsters": [
       "ancient-artillery",
       "flaming-bladespinner",
@@ -2889,6 +2893,7 @@
     "index": "110",
     "name": "Guardian's Temple",
     "edition": "fh",
+    "random": true,
     "monsters": [
       "living-doom",
       "living-spirit",
@@ -2908,6 +2913,7 @@
     "index": "111",
     "name": "Ice Cave",
     "edition": "fh",
+    "random": true,
     "monsters": [
       "frost-demon",
       "hound",
@@ -2927,6 +2933,7 @@
     "index": "112",
     "name": "Raised by Wolves",
     "edition": "fh",
+    "random": true,
     "monsters": [
       "burrowing-blade",
       "chaos-demon",

@@ -2,6 +2,7 @@
   "index": "68",
   "name": "Toxic Moor",
   "edition": "gh",
+  "random": true,
   "rewards": {
     "items": [
       "27:2"

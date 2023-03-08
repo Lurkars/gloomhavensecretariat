@@ -2,6 +2,8 @@
   "name": "voidwarden",
   "characterClass": "human",
   "gender": "f",
+  "icon": "jotl-voidwarden",
+  "thumbnail": "jotl-bvoidwardenrute",
   "edition": "fh-crossover",
   "color": "#e8e9e9",
   "stats": [
@@ -217,5 +219,9 @@
         }
       ]
     }
+  ],
+  "masteries": [
+    "",
+    ""
   ]
 }

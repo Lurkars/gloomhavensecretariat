@@ -1,6 +1,8 @@
 {
   "name": "squidface",
   "characterClass": "harrower",
+  "icon": "gh-squidface",
+  "thumbnail": "gh-squidface",
   "edition": "fh-crossover",
   "color": "#72e0be",
   "spoiler": true,
@@ -205,7 +207,7 @@
     },
     {
       "type": "add",
-      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "custom": "%game.custom.perks.ignoreScenario%",
       "count": 1,
       "cards": [
         {
@@ -216,5 +218,9 @@
         }
       ]
     }
+  ],
+  "masteries": [
+    "",
+    ""
   ]
 }

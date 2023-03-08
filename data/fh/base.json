@@ -15,5 +15,8 @@
     "impair"
   ],
   "edition": "fh",
-  "newAmStyle": true
+  "newAmStyle": true,
+  "extensions": [
+    "fh-crossover"
+  ]
 }

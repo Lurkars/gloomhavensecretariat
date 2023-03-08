@@ -2,6 +2,7 @@
   "index": "63",
   "name": "Magma Pit",
   "edition": "gh",
+  "random": true,
   "rewards": {
     "gold": 15
   },

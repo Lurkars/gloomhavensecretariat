@@ -1,6 +1,8 @@
 {
   "name": "diviner",
   "characterClass": "aesther",
+  "icon": "fc-diviner",
+  "thumbnail": "fc-diviner",
   "edition": "fh-crossover",
   "color": "#c8e3ea",
   "stats": [
@@ -102,13 +104,7 @@
             "effects": [
               {
                 "type": "shield",
-                "value": 1,
-                "effects": [
-                  {
-                    "type": "specialTarget",
-                    "value": "self"
-                  }
-                ]
+                "value": 1
               }
             ]
           }
@@ -312,31 +308,6 @@
             "rolling": true,
             "effects": [
               {
-                "type": "heal",
-                "value": 1,
-                "effects": [
-                  {
-                    "type": "specialTarget",
-                    "value": "self"
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 2,
-          "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "effects": [
-              {
                 "type": "condition",
                 "value": "curse"
               }
@@ -347,7 +318,7 @@
     },
     {
       "type": "add",
-      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "custom": "%game.custom.perks.ignoreScenario%",
       "count": 1,
       "cards": [
         {
@@ -357,6 +328,15 @@
           }
         }
       ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "<b>Tip the Scales</b> Whenever you rest, you may look at the top card of one attack modifier deck, then you may %game.elementHalf.consume:dark|light% to place one card on the bottom of the deck"
     }
+  ],
+  "masteries": [
+    "During one round, have at least four monsters move into four different Rifts that affect those monsters",
+    "Reveal at least one card from at least one ability card deck or attack modifier deck each round"
   ]
 }

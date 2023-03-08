@@ -818,7 +818,7 @@
       {
         "name": "Elemental Anchor",
         "escort": true,
-        "health": "(L+1)xCx2"
+        "health": "2xCx(L+1)"
       }
     ]
   },

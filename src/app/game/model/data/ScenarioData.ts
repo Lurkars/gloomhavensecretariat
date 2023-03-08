@@ -23,8 +23,9 @@ export class ScenarioData implements Editional, Spoilable {
   marker: string = "";
   rules: ScenarioRule[];
   initial: boolean = false;
-  allyDeck: boolean = false;
+  random: boolean = false;
   solo: string | undefined;
+  allyDeck: boolean = false;
   lootDeckConfig: LootDeckConfig = {};
   parent: string | undefined;
   parentSections: string[] = [];

@@ -84,6 +84,18 @@ export class PartySheetDialogComponent implements OnInit {
     this.update();
   }
 
+  changePlayer(event: any, index: number) {
+    gameManager.stateManager.before("setPlayer", event.target.value, '' + (index + 1));
+    this.party.players[index] = event.target.value;
+    gameManager.stateManager.after();
+  }
+
+  removePlayer(index: number) {
+    gameManager.stateManager.before("removePlayer", this.party.players[index], '' + (index + 1));
+    this.party.players.splice(index, 1);
+    gameManager.stateManager.after();
+  }
+
   unlockScenario(indexElement: HTMLInputElement, groupElement: HTMLInputElement, edition: string) {
     let index: string = indexElement.value;
     let group: string | undefined = groupElement.value || undefined;

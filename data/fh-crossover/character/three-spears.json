@@ -2,6 +2,8 @@
   "name": "three-spears",
   "characterClass": "valrath",
   "gender": "m",
+  "icon": "gh-three-spears",
+  "thumbnail": "gh-three-spears",
   "edition": "fh-crossover",
   "color": "#ad9477",
   "spoiler": true,
@@ -205,5 +207,9 @@
         }
       ]
     }
+  ],
+  "masteries": [
+    "",
+    ""
   ]
 }

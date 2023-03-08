@@ -2,6 +2,8 @@
   "name": "mindthief",
   "characterClass": "vermling",
   "gender": "f",
+  "icon": "gh-mindthief",
+  "thumbnail": "gh-mindthief",
   "edition": "fh-crossover",
   "color": "#6279a5",
   "stats": [
@@ -280,7 +282,11 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "%game.custom.perks.ignoreNegativeScenario%"
+      "custom": "%game.custom.perks.ignoreScenario%"
     }
+  ],
+  "masteries": [
+    "",
+    ""
   ]
 }

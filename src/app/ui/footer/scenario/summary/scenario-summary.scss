@@ -123,6 +123,29 @@
     text-align: center;
   }
 
+  .treasures {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-content: center;
+    align-items: center;
+
+    .treasure {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      background-image: url('~src/assets/images/scenario/treasure.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+      line-height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+      color: var(--ghs-color-black);
+      width: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
+      height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+      margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+    }
+  }
+
 }
 
 .rewards {
@@ -175,7 +198,6 @@
       }
 
       .item {
-        font-family: var(--ghs-font-text);
         position: relative;
         display: flex;
         flex-direction: column;
@@ -188,6 +210,17 @@
         &.location {
           flex-direction: row;
           margin: calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor));
+        }
+
+        a {
+          cursor: pointer;
+          font-family: var(--ghs-font-normal);
+          color: var(--ghs-color-gray);
+          font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+
+          &:hover {
+            opacity: 0.7;
+          }
         }
       }
 

@@ -3,11 +3,10 @@
   "thumbnail": "fh-ice-wraith",
   "edition": "fh",
   "deck": "ice-wraith",
-  "boss": true,
   "hidden": true,
   "count": 1,
   "baseStat": {
-    "type": "boss",
+    "type": "normal",
     "immunities": [
       "disarm",
       "stun"
@@ -16,12 +15,12 @@
   "stats": [
     {
       "level": 0,
-      "health": 7,
-      "movement": 4,
-      "attack": 3,
+      "health": "[3+7x(C/2){$math.floor}]",
+      "movement": 2,
+      "attack": 2,
       "actions": [
         {
-          "type": "push",
+          "type": "shield",
           "value": 1
         }
       ],
@@ -32,7 +31,153 @@
     },
     {
       "level": 1,
-      "health": 8,
+      "health": "[3+8x(C/2){$math.floor}]",
+      "movement": 2,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ],
+      "immunities": [
+        "disarm",
+        "stun"
+      ]
+    },
+    {
+      "level": 2,
+      "health": "[3+10x(C/2){$math.floor}]",
+      "movement": 3,
+      "attack": 2,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        }
+      ],
+      "immunities": [
+        "disarm",
+        "stun"
+      ]
+    },
+    {
+      "level": 3,
+      "health": "[3+10x(C/2){$math.floor}]",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "curse"
+        }
+      ],
+      "immunities": [
+        "disarm",
+        "stun"
+      ]
+    },
+    {
+      "level": 4,
+      "health": "[3+12x(C/2){$math.floor}]",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "curse"
+        }
+      ],
+      "immunities": [
+        "disarm",
+        "stun"
+      ]
+    },
+    {
+      "level": 5,
+      "health": "[3+16x(C/2){$math.floor}]",
+      "movement": 3,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "curse"
+        }
+      ],
+      "immunities": [
+        "disarm",
+        "stun"
+      ]
+    },
+    {
+      "level": 6,
+      "health": "[3+21x(C/2){$math.floor}]",
+      "movement": 3,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "curse"
+        }
+      ],
+      "immunities": [
+        "disarm",
+        "stun",
+        "curse"
+      ]
+    },
+    {
+      "level": 7,
+      "health": "[3+27x(C/2){$math.floor}]",
+      "movement": 3,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "shield",
+          "value": 2
+        },
+        {
+          "type": "condition",
+          "value": "curse"
+        }
+      ],
+      "immunities": [
+        "disarm",
+        "stun",
+        "curse"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": "[3+7x(C/2){$math.floor}]",
+      "movement": 4,
+      "attack": 3,
+      "immunities": [
+        "disarm",
+        "stun"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": "[3+8x(C/2){$math.floor}]",
       "movement": 4,
       "attack": 3,
       "actions": [
@@ -46,10 +191,6 @@
               "small": true
             }
           ]
-        },
-        {
-          "type": "push",
-          "value": 1
         }
       ],
       "immunities": [
@@ -58,8 +199,9 @@
       ]
     },
     {
+      "type": "elite",
       "level": 2,
-      "health": 10,
+      "health": "[3+10x(C/2){$math.floor}]",
       "movement": 5,
       "attack": 3,
       "actions": [
@@ -72,10 +214,6 @@
               "value": 2
             }
           ]
-        },
-        {
-          "type": "push",
-          "value": 1
         }
       ],
       "immunities": [
@@ -84,8 +222,9 @@
       ]
     },
     {
+      "type": "elite",
       "level": 3,
-      "health": 10,
+      "health": "[3+10x(C/2){$math.floor}]",
       "movement": 5,
       "attack": 4,
       "actions": [
@@ -102,10 +241,6 @@
         {
           "type": "condition",
           "value": "wound"
-        },
-        {
-          "type": "push",
-          "value": 1
         }
       ],
       "immunities": [
@@ -114,8 +249,9 @@
       ]
     },
     {
+      "type": "elite",
       "level": 4,
-      "health": 12,
+      "health": "[3+12x(C/2){$math.floor}]",
       "movement": 5,
       "attack": 4,
       "actions": [
@@ -132,10 +268,6 @@
         {
           "type": "condition",
           "value": "wound"
-        },
-        {
-          "type": "push",
-          "value": 2
         }
       ],
       "immunities": [
@@ -144,8 +276,9 @@
       ]
     },
     {
+      "type": "elite",
       "level": 5,
-      "health": 16,
+      "health": "[3+16x(C/2){$math.floor}]",
       "movement": 5,
       "attack": 5,
       "actions": [
@@ -162,10 +295,6 @@
         {
           "type": "condition",
           "value": "wound"
-        },
-        {
-          "type": "push",
-          "value": 2
         }
       ],
       "immunities": [
@@ -174,8 +303,9 @@
       ]
     },
     {
+      "type": "elite",
       "level": 6,
-      "health": 21,
+      "health": "[3+21x(C/2){$math.floor}]",
       "movement": 5,
       "attack": 5,
       "actions": [
@@ -192,10 +322,6 @@
         {
           "type": "condition",
           "value": "wound"
-        },
-        {
-          "type": "push",
-          "value": 2
         }
       ],
       "immunities": [
@@ -205,8 +331,9 @@
       ]
     },
     {
+      "type": "elite",
       "level": 7,
-      "health": 27,
+      "health": "[3+27x(C/2){$math.floor}]",
       "movement": 5,
       "attack": 6,
       "actions": [
@@ -223,10 +350,6 @@
         {
           "type": "condition",
           "value": "wound"
-        },
-        {
-          "type": "push",
-          "value": 2
         }
       ],
       "immunities": [

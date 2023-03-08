@@ -37,7 +37,9 @@ export class CharacterData implements Editional, Spoilable {
   gender: CharacterGender = CharacterGender.unknown;
   availableSummons: SummonData[] = [];
 
+  icon: string | undefined;
   iconUrl: string | undefined;
+  thumbnail: string | undefined;
   thumbnailUrl: string | undefined;
   color: string = "#aaaaaa";
 
@@ -71,7 +73,9 @@ export class CharacterData implements Editional, Spoilable {
       this.gender = character.gender || CharacterGender.unknown;
       this.availableSummons = character.availableSummons || [];
       this.edition = character.edition || "";
+      this.icon = character.icon || undefined;
       this.iconUrl = character.iconUrl || undefined;
+      this.thumbnail = character.thumbnail || undefined;
       this.thumbnailUrl = character.thumbnailUrl || undefined;
       this.color = character.color || "#00000";
       this.marker = character.marker || false;

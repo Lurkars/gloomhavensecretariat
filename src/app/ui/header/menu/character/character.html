@@ -9,7 +9,7 @@
     </div>
   </div>
   <div class="columns">
-    <ng-container *ngFor="let edition of gameManager.currentEditions()">
+    <ng-container *ngFor="let edition of gameManager.currentEditions(true)">
       <div class="column spoilers" *ngIf="characterData('', edition).length > 0">
         <div class="line title sticky">
           <label>{{'data.edition.' + edition | ghsLabel}}</label>

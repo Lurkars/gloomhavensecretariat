@@ -1,11 +1,6 @@
 {
   "conditions": [],
   "edition": "fh-crossover",
-  "additional": true,
-  "extensions": [
-    "gh",
-    "fc",
-    "jotl",
-    "fh"
-  ]
+  "newAmStyle": true,
+  "additional": true
 }

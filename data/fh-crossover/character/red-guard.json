@@ -2,6 +2,8 @@
   "name": "red-guard",
   "characterClass": "valrath",
   "gender": "m",
+  "icon": "jotl-red-guard",
+  "thumbnail": "jotl-red-guard",
   "edition": "fh-crossover",
   "color": "#d8585d",
   "stats": [
@@ -245,5 +247,9 @@
         }
       ]
     }
+  ],
+  "masteries": [
+    "",
+    ""
   ]
 }

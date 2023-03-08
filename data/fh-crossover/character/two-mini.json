@@ -2,6 +2,8 @@
   "name": "two-mini",
   "characterClass": "vermling",
   "gender": "m",
+  "icon": "gh-two-mini",
+  "thumbnail": "gh-two-mini",
   "edition": "fh-crossover",
   "color": "#b4765a",
   "spoiler": true,
@@ -265,7 +267,11 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "%game.custom.perks.ignoreNegativeScenario%"
+      "custom": "%game.custom.perks.ignoreScenario%"
     }
+  ],
+  "masteries": [
+    "",
+    ""
   ]
 }

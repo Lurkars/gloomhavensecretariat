@@ -2,6 +2,8 @@
   "name": "scoundrel",
   "characterClass": "human",
   "gender": "f",
+  "icon": "gh-scoundrel",
+  "thumbnail": "gh-scoundrel",
   "edition": "fh-crossover",
   "color": "#9ecf5f",
   "stats": [
@@ -212,8 +214,12 @@
     },
     {
       "type": "custom",
-      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "custom": "%game.custom.perks.ignoreScenario%",
       "count": 1
     }
+  ],
+  "masteries": [
+    "",
+    ""
   ]
 }

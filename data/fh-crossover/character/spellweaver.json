@@ -2,6 +2,8 @@
   "name": "spellweaver",
   "characterClass": "orchid",
   "gender": "f",
+  "icon": "gh-spellweaver",
+  "thumbnail": "gh-spellweaver",
   "edition": "fh-crossover",
   "color": "#b28ac2",
   "stats": [
@@ -299,5 +301,9 @@
         }
       ]
     }
+  ],
+  "masteries": [
+    "",
+    ""
   ]
 }

@@ -24,6 +24,7 @@ export class Party {
   globalAchievementsList: string[] = [];
   treasures: Identifier[] = [];
   donations: number = 0;
+  players: string[] = [];
   characters: GameCharacterModel[] = [];
   retirements: GameCharacterModel[] = [];
   unlockedItems: Identifier[] = [];

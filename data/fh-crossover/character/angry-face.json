@@ -2,6 +2,8 @@
   "name": "angry-face",
   "characterClass": "orchid",
   "gender": "m",
+  "icon": "gh-angry-face",
+  "thumbnail": "gh-angry-face",
   "edition": "fh-crossover",
   "color": "#5bc5dc",
   "spoiler": true,
@@ -110,30 +112,152 @@
   "perks": [
     {
       "type": "remove",
-      "count": 2,
+      "count": 1,
       "cards": [
         {
-          "count": 2,
+          "count": 1,
           "attackModifier": {
-            "type": "minus1"
+            "type": "minus2"
           }
         }
       ]
     },
     {
       "type": "replace",
-      "count": 3,
+      "count": 4,
       "cards": [
         {
-          "count": 2,
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
           "attackModifier": {
             "type": "plus0"
           }
         },
         {
-          "count": 2,
+          "count": 1,
           "attackModifier": {
-            "type": "plus1"
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "target",
+                "value": 1,
+                "valueType": "plus"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "stun"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "wound"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "poison"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "muddle"
+              }
+            ]
           }
         }
       ]
@@ -154,60 +278,7 @@
     {
       "type": "add",
       "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus2",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "muddle"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "poison"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "wound"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
+      "custom": "%game.custom.perks.ignoreScenario%",
       "cards": [
         {
           "count": 1,
@@ -224,46 +295,13 @@
       ]
     },
     {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "stun"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 2,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "effects": [
-              {
-                "type": "target",
-                "value": 1
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
       "type": "custom",
       "count": 1,
-      "custom": "%game.custom.perks.ignoreNegativeScenario%"
+      "custom": "<b>Marked for the Hunt:</b> At the beginning of each round in which you long rest, you may choose one ally to gain the benefits of any of your active Dooms as if the Dooms were in that ally's active area for the round"
     }
+  ],
+  "masteries": [
+    "Never perform a Doom action that you have already performed in the scenario",
+    "Kill three Doomed enemies during one of your turn"
   ]
 }

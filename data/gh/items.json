@@ -7,7 +7,6 @@
     "edition": "gh",
     "slot": "legs",
     "spent": true,
-    "folder": "1-14",
     "unlockProsperity": 1
   },
   {
@@ -18,7 +17,6 @@
     "edition": "gh",
     "slot": "legs",
     "spent": true,
-    "folder": "1-14",
     "unlockProsperity": 1
   },
   {
@@ -31,7 +29,6 @@
     "spent": true,
     "minusOne": 2,
     "slots": 2,
-    "folder": "1-14",
     "unlockProsperity": 1
   },
   {
@@ -42,7 +39,6 @@
     "edition": "gh",
     "slot": "body",
     "spent": true,
-    "folder": "1-14",
     "unlockProsperity": 1
   },
   {
@@ -53,7 +49,6 @@
     "edition": "gh",
     "slot": "body",
     "spent": true,
-    "folder": "1-14",
     "unlockProsperity": 1
   },
   {
@@ -64,7 +59,6 @@
     "edition": "gh",
     "slot": "head",
     "spent": true,
-    "folder": "1-14",
     "unlockProsperity": 1
   },
   {
@@ -74,7 +68,6 @@
     "count": 2,
     "edition": "gh",
     "slot": "head",
-    "folder": "1-14",
     "unlockProsperity": 1
   },
   {
@@ -85,7 +78,6 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "folder": "1-14",
     "unlockProsperity": 1
   },
   {
@@ -96,7 +88,6 @@
     "edition": "gh",
     "slot": "twohand",
     "spent": true,
-    "folder": "1-14",
     "unlockProsperity": 1
   },
   {
@@ -107,7 +98,6 @@
     "edition": "gh",
     "slot": "twohand",
     "spent": true,
-    "folder": "1-14",
     "unlockProsperity": 1
   },
   {
@@ -118,7 +108,6 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "folder": "1-14",
     "unlockProsperity": 1
   },
   {
@@ -129,7 +118,6 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "1-14",
     "unlockProsperity": 1
   },
   {
@@ -140,7 +128,6 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "1-14",
     "unlockProsperity": 1
   },
   {
@@ -151,7 +138,6 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "1-14",
     "unlockProsperity": 1
   },
   {
@@ -162,7 +148,6 @@
     "edition": "gh",
     "slot": "legs",
     "spent": true,
-    "folder": "15-21",
     "unlockProsperity": 2
   },
   {
@@ -172,7 +157,6 @@
     "count": 2,
     "edition": "gh",
     "slot": "body",
-    "folder": "15-21",
     "unlockProsperity": 2
   },
   {
@@ -183,7 +167,6 @@
     "edition": "gh",
     "slot": "head",
     "spent": true,
-    "folder": "15-21",
     "unlockProsperity": 2
   },
   {
@@ -194,7 +177,6 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "folder": "15-21",
     "unlockProsperity": 2
   },
   {
@@ -205,7 +187,6 @@
     "edition": "gh",
     "slot": "twohand",
     "spent": true,
-    "folder": "15-21",
     "unlockProsperity": 2
   },
   {
@@ -216,7 +197,6 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "15-21",
     "unlockProsperity": 2
   },
   {
@@ -227,7 +207,6 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "15-21",
     "unlockProsperity": 2
   },
   {
@@ -238,7 +217,6 @@
     "edition": "gh",
     "slot": "legs",
     "minusOne": 1,
-    "folder": "22-28",
     "unlockProsperity": 3
   },
   {
@@ -250,7 +228,6 @@
     "slot": "body",
     "spent": true,
     "minusOne": 3,
-    "folder": "22-28",
     "unlockProsperity": 3
   },
   {
@@ -261,7 +238,6 @@
     "edition": "gh",
     "slot": "head",
     "spent": true,
-    "folder": "22-28",
     "unlockProsperity": 3
   },
   {
@@ -272,7 +248,6 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "folder": "22-28",
     "unlockProsperity": 3
   },
   {
@@ -283,7 +258,6 @@
     "edition": "gh",
     "slot": "twohand",
     "spent": true,
-    "folder": "22-28",
     "unlockProsperity": 3
   },
   {
@@ -294,7 +268,6 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "22-28",
     "unlockProsperity": 3
   },
   {
@@ -305,7 +278,6 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "22-28",
     "unlockProsperity": 3
   },
   {
@@ -315,7 +287,6 @@
     "count": 2,
     "edition": "gh",
     "slot": "legs",
-    "folder": "29-35",
     "unlockProsperity": 4
   },
   {
@@ -326,7 +297,6 @@
     "edition": "gh",
     "slot": "body",
     "spent": true,
-    "folder": "29-35",
     "unlockProsperity": 4
   },
   {
@@ -337,7 +307,6 @@
     "edition": "gh",
     "slot": "head",
     "spent": true,
-    "folder": "29-35",
     "unlockProsperity": 4
   },
   {
@@ -348,7 +317,6 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "folder": "29-35",
     "unlockProsperity": 4
   },
   {
@@ -359,7 +327,6 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "folder": "29-35",
     "unlockProsperity": 4
   },
   {
@@ -370,7 +337,6 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "29-35",
     "unlockProsperity": 4
   },
   {
@@ -381,7 +347,6 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "29-35",
     "summon": {
       "name": "Jade Falcon",
       "health": 2,
@@ -400,7 +365,6 @@
     "edition": "gh",
     "slot": "legs",
     "spent": true,
-    "folder": "36-42",
     "unlockProsperity": 5
   },
   {
@@ -411,7 +375,6 @@
     "edition": "gh",
     "slot": "body",
     "spent": true,
-    "folder": "36-42",
     "unlockProsperity": 5
   },
   {
@@ -422,7 +385,6 @@
     "edition": "gh",
     "slot": "head",
     "minusOne": 2,
-    "folder": "36-42",
     "unlockProsperity": 5
   },
   {
@@ -433,7 +395,6 @@
     "edition": "gh",
     "slot": "twohand",
     "spent": true,
-    "folder": "36-42",
     "unlockProsperity": 5
   },
   {
@@ -443,7 +404,6 @@
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "folder": "36-42",
     "unlockProsperity": 5
   },
   {
@@ -454,7 +414,6 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "36-42",
     "unlockProsperity": 5
   },
   {
@@ -465,7 +424,6 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "36-42",
     "unlockProsperity": 5
   },
   {
@@ -476,7 +434,6 @@
     "edition": "gh",
     "slot": "legs",
     "spent": true,
-    "folder": "43-49",
     "unlockProsperity": 6
   },
   {
@@ -487,7 +444,6 @@
     "edition": "gh",
     "slot": "body",
     "minusOne": 4,
-    "folder": "43-49",
     "unlockProsperity": 6
   },
   {
@@ -498,7 +454,6 @@
     "edition": "gh",
     "slot": "head",
     "spent": true,
-    "folder": "43-49",
     "unlockProsperity": 6
   },
   {
@@ -509,7 +464,6 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "folder": "43-49",
     "unlockProsperity": 6
   },
   {
@@ -520,7 +474,6 @@
     "edition": "gh",
     "slot": "twohand",
     "spent": true,
-    "folder": "43-49",
     "unlockProsperity": 6
   },
   {
@@ -531,7 +484,6 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "43-49",
     "unlockProsperity": 6
   },
   {
@@ -542,7 +494,6 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "43-49",
     "unlockProsperity": 6
   },
   {
@@ -553,7 +504,6 @@
     "edition": "gh",
     "slot": "legs",
     "minusOne": 2,
-    "folder": "50-56",
     "unlockProsperity": 7
   },
   {
@@ -564,7 +514,6 @@
     "edition": "gh",
     "slot": "body",
     "spent": true,
-    "folder": "50-56",
     "unlockProsperity": 7
   },
   {
@@ -574,7 +523,6 @@
     "count": 2,
     "edition": "gh",
     "slot": "head",
-    "folder": "50-56",
     "unlockProsperity": 7
   },
   {
@@ -585,7 +533,6 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "folder": "50-56",
     "unlockProsperity": 7
   },
   {
@@ -596,7 +543,6 @@
     "edition": "gh",
     "slot": "twohand",
     "spent": true,
-    "folder": "50-56",
     "unlockProsperity": 7
   },
   {
@@ -607,7 +553,6 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "50-56",
     "unlockProsperity": 7
   },
   {
@@ -618,7 +563,6 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "50-56",
     "unlockProsperity": 7
   },
   {
@@ -628,7 +572,6 @@
     "count": 2,
     "edition": "gh",
     "slot": "legs",
-    "folder": "57-63",
     "unlockProsperity": 8
   },
   {
@@ -638,7 +581,6 @@
     "count": 2,
     "edition": "gh",
     "slot": "body",
-    "folder": "57-63",
     "unlockProsperity": 8
   },
   {
@@ -649,7 +591,6 @@
     "edition": "gh",
     "slot": "head",
     "spent": true,
-    "folder": "57-63",
     "unlockProsperity": 8
   },
   {
@@ -660,7 +601,6 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "folder": "57-63",
     "unlockProsperity": 8
   },
   {
@@ -671,7 +611,6 @@
     "edition": "gh",
     "slot": "twohand",
     "spent": true,
-    "folder": "57-63",
     "unlockProsperity": 8
   },
   {
@@ -682,7 +621,6 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "57-63",
     "unlockProsperity": 8
   },
   {
@@ -693,7 +631,6 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "57-63",
     "unlockProsperity": 8
   },
   {
@@ -704,7 +641,6 @@
     "edition": "gh",
     "slot": "legs",
     "spent": true,
-    "folder": "64-151",
     "unlockProsperity": 9
   },
   {
@@ -717,7 +653,6 @@
     "spent": true,
     "minusOne": 5,
     "slots": 5,
-    "folder": "64-151",
     "unlockProsperity": 9
   },
   {
@@ -727,7 +662,6 @@
     "count": 2,
     "edition": "gh",
     "slot": "head",
-    "folder": "64-151",
     "unlockProsperity": 9
   },
   {
@@ -737,7 +671,6 @@
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "folder": "64-151",
     "unlockProsperity": 9
   },
   {
@@ -747,7 +680,6 @@
     "count": 2,
     "edition": "gh",
     "slot": "twohand",
-    "folder": "64-151",
     "unlockProsperity": 9
   },
   {
@@ -758,7 +690,6 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "64-151",
     "unlockProsperity": 9
   },
   {
@@ -769,7 +700,6 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "64-151",
     "unlockProsperity": 9
   },
   {
@@ -779,7 +709,7 @@
     "count": 2,
     "edition": "gh",
     "slot": "legs",
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 72,
@@ -788,7 +718,7 @@
     "count": 2,
     "edition": "gh",
     "slot": "legs",
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 73,
@@ -798,7 +728,7 @@
     "edition": "gh",
     "slot": "body",
     "spent": true,
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 74,
@@ -809,7 +739,7 @@
     "slot": "body",
     "spent": true,
     "minusOne": 4,
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 75,
@@ -819,7 +749,7 @@
     "edition": "gh",
     "slot": "head",
     "spent": true,
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 76,
@@ -829,7 +759,7 @@
     "edition": "gh",
     "slot": "head",
     "minusOne": 1,
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 77,
@@ -838,7 +768,7 @@
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 78,
@@ -847,7 +777,7 @@
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 79,
@@ -856,7 +786,7 @@
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 80,
@@ -865,7 +795,7 @@
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 81,
@@ -874,7 +804,7 @@
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 82,
@@ -883,7 +813,7 @@
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 83,
@@ -893,7 +823,7 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 84,
@@ -903,7 +833,7 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 85,
@@ -913,7 +843,7 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 86,
@@ -923,7 +853,7 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 87,
@@ -933,7 +863,7 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 88,
@@ -943,7 +873,7 @@
     "edition": "gh",
     "slot": "onehand",
     "spent": true,
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 89,
@@ -953,7 +883,7 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 90,
@@ -963,7 +893,7 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 91,
@@ -973,7 +903,7 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 92,
@@ -983,7 +913,7 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 93,
@@ -993,7 +923,7 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 94,
@@ -1003,7 +933,7 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 95,
@@ -1013,7 +943,7 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "64-151"
+    "random": true
   },
   {
     "id": 96,
@@ -1022,8 +952,7 @@
     "count": 2,
     "edition": "gh",
     "slot": "legs",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 97,
@@ -1031,8 +960,7 @@
     "cost": 40,
     "count": 1,
     "edition": "gh",
-    "slot": "legs",
-    "folder": "64-151"
+    "slot": "legs"
   },
   {
     "id": 98,
@@ -1040,8 +968,7 @@
     "cost": 50,
     "count": 1,
     "edition": "gh",
-    "slot": "legs",
-    "folder": "64-151"
+    "slot": "legs"
   },
   {
     "id": 99,
@@ -1049,8 +976,7 @@
     "cost": 50,
     "count": 1,
     "edition": "gh",
-    "slot": "legs",
-    "folder": "64-151"
+    "slot": "legs"
   },
   {
     "id": 100,
@@ -1059,8 +985,7 @@
     "count": 1,
     "edition": "gh",
     "slot": "body",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 101,
@@ -1068,8 +993,7 @@
     "cost": 30,
     "count": 1,
     "edition": "gh",
-    "slot": "body",
-    "folder": "64-151"
+    "slot": "body"
   },
   {
     "id": 102,
@@ -1078,8 +1002,7 @@
     "count": 1,
     "edition": "gh",
     "slot": "body",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 103,
@@ -1087,8 +1010,7 @@
     "cost": 50,
     "count": 1,
     "edition": "gh",
-    "slot": "body",
-    "folder": "64-151"
+    "slot": "body"
   },
   {
     "id": 104,
@@ -1097,8 +1019,7 @@
     "count": 1,
     "edition": "gh",
     "slot": "body",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 105,
@@ -1106,8 +1027,7 @@
     "cost": 10,
     "count": 1,
     "edition": "gh",
-    "slot": "body",
-    "folder": "64-151"
+    "slot": "body"
   },
   {
     "id": 106,
@@ -1115,8 +1035,7 @@
     "cost": 40,
     "count": 1,
     "edition": "gh",
-    "slot": "head",
-    "folder": "64-151"
+    "slot": "head"
   },
   {
     "id": 107,
@@ -1124,8 +1043,7 @@
     "cost": 30,
     "count": 2,
     "edition": "gh",
-    "slot": "head",
-    "folder": "64-151"
+    "slot": "head"
   },
   {
     "id": 108,
@@ -1133,8 +1051,7 @@
     "cost": 50,
     "count": 1,
     "edition": "gh",
-    "slot": "head",
-    "folder": "64-151"
+    "slot": "head"
   },
   {
     "id": 109,
@@ -1143,8 +1060,7 @@
     "count": 1,
     "edition": "gh",
     "slot": "head",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 110,
@@ -1152,8 +1068,7 @@
     "cost": 50,
     "count": 1,
     "edition": "gh",
-    "slot": "head",
-    "folder": "64-151"
+    "slot": "head"
   },
   {
     "id": 111,
@@ -1161,8 +1076,7 @@
     "cost": 50,
     "count": 1,
     "edition": "gh",
-    "slot": "head",
-    "folder": "64-151"
+    "slot": "head"
   },
   {
     "id": 112,
@@ -1171,8 +1085,7 @@
     "count": 2,
     "edition": "gh",
     "slot": "twohand",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 113,
@@ -1181,8 +1094,7 @@
     "count": 1,
     "edition": "gh",
     "slot": "twohand",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 114,
@@ -1191,8 +1103,7 @@
     "count": 1,
     "edition": "gh",
     "slot": "twohand",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 115,
@@ -1202,7 +1113,6 @@
     "edition": "gh",
     "slot": "twohand",
     "spent": true,
-    "folder": "64-151",
     "summon": {
       "name": "Warrior Spirit",
       "health": 4,
@@ -1218,8 +1128,7 @@
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 117,
@@ -1228,8 +1137,7 @@
     "count": 2,
     "edition": "gh",
     "slot": "onehand",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 118,
@@ -1238,8 +1146,7 @@
     "count": 2,
     "edition": "gh",
     "slot": "twohand",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 119,
@@ -1248,8 +1155,7 @@
     "count": 1,
     "edition": "gh",
     "slot": "onehand",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 120,
@@ -1258,8 +1164,7 @@
     "count": 1,
     "edition": "gh",
     "slot": "twohand",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 121,
@@ -1267,8 +1172,7 @@
     "cost": 50,
     "count": 1,
     "edition": "gh",
-    "slot": "onehand",
-    "folder": "64-151"
+    "slot": "onehand"
   },
   {
     "id": 122,
@@ -1276,8 +1180,7 @@
     "cost": 50,
     "count": 1,
     "edition": "gh",
-    "slot": "onehand",
-    "folder": "64-151"
+    "slot": "onehand"
   },
   {
     "id": 123,
@@ -1287,7 +1190,6 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "64-151",
     "summon": {
       "name": "Skeleton",
       "health": 3,
@@ -1303,8 +1205,7 @@
     "count": 1,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 125,
@@ -1313,8 +1214,7 @@
     "count": 1,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 126,
@@ -1323,8 +1223,7 @@
     "count": 1,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 127,
@@ -1333,8 +1232,7 @@
     "count": 1,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 128,
@@ -1343,8 +1241,7 @@
     "count": 1,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 129,
@@ -1353,8 +1250,7 @@
     "count": 1,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 130,
@@ -1363,8 +1259,7 @@
     "count": 1,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 131,
@@ -1373,8 +1268,7 @@
     "count": 1,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 132,
@@ -1384,7 +1278,6 @@
     "edition": "gh",
     "slot": "small",
     "spent": true,
-    "folder": "64-151",
     "summon": {
       "name": "Steel Construct",
       "health": 5,
@@ -1400,8 +1293,7 @@
     "count": 1,
     "edition": "gh",
     "slot": "small",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 134,
@@ -1409,8 +1301,7 @@
     "cost": 50,
     "count": 1,
     "edition": "solo",
-    "slot": "onehand",
-    "folder": "64-151"
+    "slot": "onehand"
   },
   {
     "id": 135,
@@ -1419,8 +1310,7 @@
     "count": 1,
     "edition": "solo",
     "slot": "onehand",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 136,
@@ -1429,8 +1319,7 @@
     "count": 1,
     "edition": "solo",
     "slot": "small",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 137,
@@ -1438,8 +1327,7 @@
     "cost": 50,
     "count": 1,
     "edition": "solo",
-    "slot": "onehand",
-    "folder": "64-151"
+    "slot": "onehand"
   },
   {
     "id": 138,
@@ -1448,8 +1336,7 @@
     "count": 1,
     "edition": "solo",
     "slot": "head",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 139,
@@ -1457,8 +1344,7 @@
     "cost": 50,
     "count": 1,
     "edition": "solo",
-    "slot": "onehand",
-    "folder": "64-151"
+    "slot": "onehand"
   },
   {
     "id": 140,
@@ -1466,8 +1352,7 @@
     "cost": 50,
     "count": 1,
     "edition": "solo",
-    "slot": "onehand",
-    "folder": "64-151"
+    "slot": "onehand"
   },
   {
     "id": 141,
@@ -1476,8 +1361,7 @@
     "count": 1,
     "edition": "solo",
     "slot": "small",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 142,
@@ -1486,8 +1370,7 @@
     "count": 1,
     "edition": "solo",
     "slot": "small",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 143,
@@ -1496,8 +1379,7 @@
     "count": 1,
     "edition": "solo",
     "slot": "small",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 144,
@@ -1506,8 +1388,7 @@
     "count": 1,
     "edition": "solo",
     "slot": "head",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 145,
@@ -1515,8 +1396,7 @@
     "cost": 50,
     "count": 1,
     "edition": "solo",
-    "slot": "head",
-    "folder": "64-151"
+    "slot": "head"
   },
   {
     "id": 146,
@@ -1524,8 +1404,7 @@
     "cost": 50,
     "count": 1,
     "edition": "solo",
-    "slot": "twohand",
-    "folder": "64-151"
+    "slot": "twohand"
   },
   {
     "id": 147,
@@ -1533,8 +1412,7 @@
     "cost": 50,
     "count": 1,
     "edition": "solo",
-    "slot": "body",
-    "folder": "64-151"
+    "slot": "body"
   },
   {
     "id": 148,
@@ -1542,8 +1420,7 @@
     "cost": 50,
     "count": 1,
     "edition": "solo",
-    "slot": "body",
-    "folder": "64-151"
+    "slot": "body"
   },
   {
     "id": 149,
@@ -1552,8 +1429,7 @@
     "count": 1,
     "edition": "solo",
     "slot": "legs",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 150,
@@ -1562,8 +1438,7 @@
     "count": 1,
     "edition": "solo",
     "slot": "twohand",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   },
   {
     "id": 151,
@@ -1572,7 +1447,6 @@
     "count": 1,
     "edition": "solo",
     "slot": "onehand",
-    "spent": true,
-    "folder": "64-151"
+    "spent": true
   }
 ]

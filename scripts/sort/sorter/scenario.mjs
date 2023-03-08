@@ -31,5 +31,5 @@ export const sortScenario = function (scenario) {
         scenario.rewards = sortObjectKeys(scenario.rewards, "globalAchievements", "partyAchievements", "lostPartyAchievements", "envelopes", "gold", "experience", "collectiveGold", "reputation", "prosperity", "perks", "battleGoals", "items", "chooseItem", "itemDesigns", "events", "custom", "ignoredBonus", "hints");
     }
 
-    return sortObjectKeys(scenario, 'index', 'group', 'name', 'edition', 'parent', 'parentSections', 'blockedSections', 'marker', 'spoiler', 'initial', 'solo', 'allyDeck', 'resetRound', 'unlocks', 'requires', 'blocks', 'links', "forcedLinks", "rewards", 'monsters', 'allies', 'drawExtra', 'objectives', 'lootDeckConfig', 'rules', 'rooms');
+    return sortObjectKeys(scenario, 'index', 'group', 'name', 'edition', 'parent', 'parentSections', 'blockedSections', 'marker', 'spoiler', 'initial', 'random', 'solo', 'allyDeck', 'resetRound', 'unlocks', 'requires', 'blocks', 'links', "forcedLinks", "rewards", 'monsters', 'allies', 'drawExtra', 'objectives', 'lootDeckConfig', 'rules', 'rooms');
 }

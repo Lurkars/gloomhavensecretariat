@@ -34,6 +34,11 @@ export class CharacterManager {
     if (characterData.iconUrl) {
       return characterData.iconUrl;
     }
+
+    if (characterData.icon) {
+      return './assets/images/character/icons/' + characterData.icon + '.svg';
+    }
+
     return './assets/images/character/icons/' + characterData.edition + '-' + characterData.name + '.svg';
   }
 
@@ -52,6 +57,11 @@ export class CharacterManager {
     if (characterData.thumbnailUrl) {
       return characterData.thumbnailUrl;
     }
+
+    if (characterData.thumbnail) {
+      return './assets/images/character/thumbnail/' + characterData.thumbnail + '.png';
+    }
+
     return './assets/images/character/thumbnail/' + characterData.edition + '-' + characterData.name + '.png';
   }
 
@@ -283,7 +293,17 @@ export class CharacterManager {
   }
 
   ignoreNegativeItemEffects(character: Character): boolean {
-    let perk = character.perks.find((perk) => perk.custom == '%game.custom.perks.ignoreNegativeItem%' || perk.custom == '%game.custom.perks.ignoreNegativeItemFh%');
+    let perk = character.perks.find((perk) => perk.custom && (perk.custom.indexOf('%game.custom.perks.ignoreNegativeItem%') != -1 || perk.custom.indexOf('%game.custom.perks.ignoreNegativeItemFh%') != -1));
+    if (!perk) {
+      return false;
+    } else {
+      const perkIndex = character.perks.indexOf(perk);
+      return character.progress.perks[perkIndex] && perk.combined ? (character.progress.perks[perkIndex] == perk.count) : character.progress.perks[perkIndex] > 0;
+    }
+  }
+
+  ignoreNegativeScenarioffects(character: Character): boolean {
+    let perk = character.perks.find((perk) => perk.custom && (perk.custom.indexOf('%game.custom.perks.ignoreNegativeScenario%') != -1 || perk.custom.indexOf('%game.custom.perks.ignoreScenario%') != -1));
     if (!perk) {
       return false;
     } else {

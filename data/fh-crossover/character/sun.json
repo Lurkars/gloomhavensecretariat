@@ -2,6 +2,8 @@
   "name": "sun",
   "characterClass": "valrath",
   "gender": "f",
+  "icon": "gh-sun",
+  "thumbnail": "gh-sun",
   "edition": "fh-crossover",
   "color": "#fce434",
   "spoiler": true,
@@ -220,8 +222,12 @@
     },
     {
       "type": "custom",
-      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "custom": "%game.custom.perks.ignoreScenario%",
       "count": 1
     }
+  ],
+  "masteries": [
+    "",
+    ""
   ]
 }

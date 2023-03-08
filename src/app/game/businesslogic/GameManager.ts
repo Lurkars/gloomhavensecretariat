@@ -17,7 +17,7 @@ import { CharacterManager } from "./CharacterManager";
 import { MonsterManager } from "./MonsterManager";
 import { settingsManager } from "./SettingsManager";
 import { StateManager } from "./StateManager";
-import { Condition,  Conditions, ConditionType } from "../model/Condition";
+import { Condition, Conditions, ConditionType } from "../model/Condition";
 import { EntityManager } from "./EntityManager";
 import { EventEmitter } from "@angular/core";
 import { ItemData } from "../model/data/ItemData";
@@ -72,13 +72,13 @@ export class GameManager {
     })
   }
 
-  editions(all: boolean = false): string[] {
-    return this.editionData.filter((editionData) => (all || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && !editionData.additional).map((editionData) => editionData.edition);
+  editions(all: boolean = false, additional: boolean = false): string[] {
+    return this.editionData.filter((editionData) => (all || settingsManager.settings.editions.indexOf(editionData.edition) != -1) && (additional || !editionData.additional)).map((editionData) => editionData.edition);
   }
 
-  currentEditions(): string[] {
+  currentEditions(additional: boolean = false): string[] {
     if (!this.game.edition) {
-      return this.editions();
+      return this.editions(false, additional);
     }
 
     return [this.game.edition, ...this.editionExtensions(this.game.edition)];
@@ -102,16 +102,16 @@ export class GameManager {
     return fallback || this.editions()[0];
   }
 
-  editionExtensions(edition: string): string[] {
+  editionExtensions(edition: string, all: boolean = false): string[] {
     const editionData = this.editionData.find((editionData) => editionData.edition == edition);
     let extensions: string[] = [];
     if (editionData && editionData.extensions) {
       editionData.extensions.forEach((extension) => {
-        if (extensions.indexOf(extension) == -1) {
+        if (extensions.indexOf(extension) == -1 && this.editions(all, true).indexOf(extension) != -1) {
           extensions.push(extension);
         }
         this.editionExtensions(extension).forEach((extExt) => {
-          if (extensions.indexOf(extExt) == -1) {
+          if (extensions.indexOf(extExt) == -1 && this.editions(all, true).indexOf(extension) != -1) {
             extensions.push(extExt);
           }
         })
@@ -384,13 +384,8 @@ export class GameManager {
         return scenarioEffect ? this.game.figures.filter((figure) => {
           if (!(figure instanceof Character)) {
             return true
-          }
-          const perk = figure.perks.find((perk) => perk.custom == '%game.custom.perks.ignoreNegativeScenario%');
-          if (!perk) {
-            return true;
           } else {
-            const perkIndex = figure.perks.indexOf(perk);
-            return !figure.progress.perks[perkIndex] || perk.combined ? (figure.progress.perks[perkIndex] != perk.count) : figure.progress.perks[perkIndex] < 1;
+            return !this.characterManager.ignoreNegativeScenarioffects(figure);
           }
         }) : this.game.figures;
       }
@@ -404,13 +399,7 @@ export class GameManager {
             return this.game.figures.filter((figure) => {
               if (figure instanceof Character && (!edition || figure.edition == edition) && figure.name.match(name) && (!identifier.tag || figure.tags && figure.tags.indexOf(identifier.tag) != -1)) {
                 if (scenarioEffect) {
-                  const perk = figure.perks.find((perk) => perk.custom == '%game.custom.perks.ignoreNegativeScenario%');
-                  if (!perk) {
-                    return true;
-                  } else {
-                    const perkIndex = figure.perks.indexOf(perk);
-                    return !figure.progress.perks[perkIndex] || perk.combined ? (figure.progress.perks[perkIndex] != perk.count) : figure.progress.perks[perkIndex] < 1;
-                  }
+                  return !this.characterManager.ignoreNegativeScenarioffects(figure);
                 } else {
                   return true;
                 }

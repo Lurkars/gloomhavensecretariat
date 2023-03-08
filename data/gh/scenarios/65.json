@@ -2,6 +2,7 @@
   "index": "65",
   "name": "Sulfur Mine",
   "edition": "gh",
+  "random": true,
   "rewards": {
     "globalAchievements": [
       "Ancient Technology"

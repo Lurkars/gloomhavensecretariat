@@ -282,15 +282,6 @@
     "spent": true
   },
   {
-    "id": 198,
-    "name": "Claw Trap",
-    "cost": 50,
-    "count": 1,
-    "edition": "cs",
-    "slot": "small",
-    "spent": true
-  },
-  {
     "id": 199,
     "name": "Staff of Retribution",
     "cost": 20,
@@ -336,32 +327,6 @@
     "spent": true
   },
   {
-    "id": 204,
-    "name": "Moonleather Boots",
-    "cost": 50,
-    "count": 1,
-    "edition": "cs",
-    "slot": "legs",
-    "spent": true
-  },
-  {
-    "id": 205,
-    "name": "Spirit Libation",
-    "cost": 50,
-    "count": 1,
-    "edition": "cs",
-    "slot": "small",
-    "spent": true
-  },
-  {
-    "id": 206,
-    "name": "Robe of Soothing",
-    "cost": 50,
-    "count": 1,
-    "edition": "cs",
-    "slot": "body"
-  },
-  {
     "id": 207,
     "name": "Resplendent Mitre",
     "cost": 40,
@@ -380,38 +345,12 @@
     "spent": true
   },
   {
-    "id": 209,
-    "name": "Chain Cannon",
-    "cost": 50,
-    "count": 1,
-    "edition": "cs",
-    "slot": "onehand",
-    "spent": true
-  },
-  {
     "id": 210,
     "name": "Summoner's Whistle",
     "cost": 30,
     "count": 1,
     "edition": "cs",
     "slot": "small",
-    "spent": true
-  },
-  {
-    "id": 211,
-    "name": "Nature Armlets",
-    "cost": 50,
-    "count": 1,
-    "edition": "cs",
-    "slot": "onehand"
-  },
-  {
-    "id": 212,
-    "name": "Test Tube",
-    "cost": 50,
-    "count": 1,
-    "edition": "cs",
-    "slot": "onehand",
     "spent": true
   },
   {
@@ -424,23 +363,6 @@
     "spent": true
   },
   {
-    "id": 214,
-    "name": "Luminous Carapace",
-    "cost": 50,
-    "count": 1,
-    "edition": "cs",
-    "slot": "body",
-    "spent": true
-  },
-  {
-    "id": 215,
-    "name": "Flaming Armor",
-    "cost": 50,
-    "count": 1,
-    "edition": "cs",
-    "slot": "body"
-  },
-  {
     "id": 216,
     "name": "Flaming Axe",
     "cost": 40,
@@ -448,14 +370,6 @@
     "edition": "cs",
     "slot": "twohand",
     "spent": true
-  },
-  {
-    "id": 217,
-    "name": "Field Mortar",
-    "cost": 50,
-    "count": 1,
-    "edition": "cs",
-    "slot": "small"
   },
   {
     "id": 218,
@@ -473,23 +387,6 @@
     "edition": "cs",
     "slot": "small",
     "spent": true
-  },
-  {
-    "id": 220,
-    "name": "Clamp Trap",
-    "cost": 50,
-    "count": 1,
-    "edition": "cs",
-    "slot": "small",
-    "spent": true
-  },
-  {
-    "id": 221,
-    "name": "Cleansed Voidheart",
-    "cost": 50,
-    "count": 1,
-    "edition": "cs",
-    "slot": "body"
   },
   {
     "id": 222,
@@ -867,6 +764,117 @@
     "count": 1,
     "edition": "cs",
     "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 265,
+    "name": "Rockspine Bulwark",
+    "cost": 35,
+    "count": 1,
+    "edition": "cs",
+    "slot": "body",
+    "spent": true,
+    "minusOne": 3
+  },
+  {
+    "id": 266,
+    "name": "Ghostshimmer Honey",
+    "cost": 35,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 268,
+    "name": "Power Modulator",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "slot": "twohand",
+    "spent": true
+  },
+  {
+    "id": 269,
+    "name": "Steam Piston Hammer",
+    "cost": 30,
+    "count": 2,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 270,
+    "name": "Spider Climb Gloves",
+    "cost": 30,
+    "count": 2,
+    "edition": "cs",
+    "slot": "onehand"
+  },
+  {
+    "id": 271,
+    "name": "Gravity Inversion Pads",
+    "cost": 40,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 272,
+    "name": "Delicate Model",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "slot": "small",
+    "summon": {
+      "health": 1,
+      "movement": 1
+    }
+  },
+  {
+    "id": 274,
+    "name": "Serrated Edge",
+    "cost": 25,
+    "count": 2,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 275,
+    "name": "Grisly Boots",
+    "cost": 20,
+    "count": 1,
+    "edition": "cs",
+    "slot": "legs",
+    "spent": true
+  },
+  {
+    "id": 276,
+    "name": "Terrorscale Saber",
+    "cost": 40,
+    "count": 1,
+    "edition": "cs",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 277,
+    "name": "Terrorscale Crossblades",
+    "cost": 40,
+    "count": 1,
+    "edition": "cs",
+    "slot": "twohand",
+    "spent": true
+  },
+  {
+    "id": 279,
+    "name": "Savage Cuirass",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "slot": "body",
     "spent": true
   }
 ]

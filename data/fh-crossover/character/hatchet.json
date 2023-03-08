@@ -2,6 +2,8 @@
   "name": "hatchet",
   "characterClass": "inox",
   "gender": "m",
+  "icon": "jotl-hatchet",
+  "thumbnail": "jotl-hatchet",
   "edition": "fh-crossover",
   "color": "#7bbbd6",
   "marker": true,
@@ -260,5 +262,9 @@
         }
       ]
     }
+  ],
+  "masteries": [
+    "",
+    ""
   ]
 }

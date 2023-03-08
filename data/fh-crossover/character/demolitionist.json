@@ -2,6 +2,8 @@
   "name": "demolitionist",
   "characterClass": "quatryl",
   "gender": "f",
+  "icon": "jotl-demolitionist",
+  "thumbnail": "jotl-demolitionist",
   "edition": "fh-crossover",
   "color": "#e5a26f",
   "stats": [
@@ -45,18 +47,6 @@
   "perks": [
     {
       "type": "remove",
-      "count": 1,
-      "cards": [
-        {
-          "count": 4,
-          "attackModifier": {
-            "type": "plus0"
-          }
-        }
-      ]
-    },
-    {
-      "type": "remove",
       "count": 2,
       "cards": [
         {
@@ -72,6 +62,18 @@
       "count": 1,
       "cards": [
         {
+          "count": 4,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
           "count": 1,
           "attackModifier": {
             "type": "minus2"
@@ -80,7 +82,13 @@
         {
           "count": 1,
           "attackModifier": {
-            "type": "plus1"
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "condition",
+                "value": "poison"
+              }
+            ]
           }
         }
       ]
@@ -116,55 +124,13 @@
         {
           "count": 1,
           "attackModifier": {
-            "type": "minus1"
-          }
-        },
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0",
-            "effects": [
-              {
-                "type": "condition",
-                "value": "poison"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 2,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus2"
-          }
-        }
-      ]
-    },
-    {
-      "type": "replace",
-      "count": 2,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
             "type": "plus1"
           }
         },
         {
-          "count": 1,
+          "count": 2,
           "attackModifier": {
-            "type": "plus2",
-            "effects": [
-              {
-                "type": "element",
-                "value": "earth"
-              }
-            ]
+            "type": "plus2"
           }
         }
       ]
@@ -194,11 +160,35 @@
       ]
     },
     {
-      "type": "add",
+      "type": "replace",
       "count": 2,
       "cards": [
         {
           "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2",
+            "effects": [
+              {
+                "type": "element",
+                "value": "earth"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
           "attackModifier": {
             "type": "plus0",
             "effects": [
@@ -210,6 +200,29 @@
           }
         }
       ]
+    },
+    {
+      "type": "remove",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreScenario%",
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 2,
+      "combined": true,
+      "custom": "<b>Remodeling</b> Whenever you rest while adjacent to a wall or obstacle, you may place an obstalce in an empty hex within %game.action.range% 2 (of you)"
     }
+  ],
+  "masteries": [
+    "Deal 10 or more damage with each of three different attack actions",
+    "Destroy at least six obstacles. End the scenario with no obstacles on the map other than ones placed by allies"
   ]
 }

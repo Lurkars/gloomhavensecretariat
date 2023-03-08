@@ -203,6 +203,13 @@
 
           </div>
           <div class="column column-right">
+            <div class="name">
+              <span *ngIf="character.number== 0 || character.number > gameManager.game.party.players.length || !gameManager.game.party.players[character.number
+                - 1]">/</span>
+              <span *ngIf="character.number > 0 && character.number <= gameManager.game.party.players.length && gameManager.game.party.players[character.number
+                - 1]">{{gameManager.game.party.players[character.number
+                - 1]}}</span>
+            </div>
             <div class="player-number">
               <label>{{'character.playerNumber' | ghsLabel}}:</label>
               <input [value]="character.number" type="number" min="1" (change)="setPlayerNumber($event)"

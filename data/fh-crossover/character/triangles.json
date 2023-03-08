@@ -1,6 +1,8 @@
 {
   "name": "triangles",
   "characterClass": "savvas",
+  "icon": "gh-triangles",
+  "thumbnail": "gh-triangles",
   "edition": "fh-crossover",
   "color": "#dcdcdc",
   "spoiler": true,
@@ -341,5 +343,9 @@
         }
       ]
     }
+  ],
+  "masteries": [
+    "",
+    ""
   ]
 }

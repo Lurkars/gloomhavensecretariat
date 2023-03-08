@@ -3,16 +3,15 @@
   "thumbnail": "fh-ice-wraith",
   "edition": "fh",
   "deck": "ice-wraith",
-  "boss": true,
   "hidden": true,
-  "count": 6,
+  "count": 1,
   "baseStat": {
-    "type": "boss"
+    "type": "normal"
   },
   "stats": [
     {
       "level": 0,
-      "health": "7xC/2",
+      "health": "[7xC/2{$math.floor}]",
       "movement": 2,
       "attack": 2,
       "actions": [
@@ -24,7 +23,7 @@
     },
     {
       "level": 1,
-      "health": "8xC/2",
+      "health": "[8xC/2{$math.floor}]",
       "movement": 2,
       "attack": 2,
       "actions": [
@@ -36,7 +35,7 @@
     },
     {
       "level": 2,
-      "health": "10xC/2",
+      "health": "[10xC/2{$math.floor}]",
       "movement": 3,
       "attack": 2,
       "actions": [
@@ -48,7 +47,7 @@
     },
     {
       "level": 3,
-      "health": "10xC/2",
+      "health": "[10xC/2{$math.floor}]",
       "movement": 3,
       "attack": 3,
       "actions": [
@@ -64,9 +63,9 @@
     },
     {
       "level": 4,
-      "health": "12xC/2",
+      "health": "[12xC/2{$math.floor}]",
       "movement": 3,
-      "attack": 4,
+      "attack": 3,
       "actions": [
         {
           "type": "shield",
@@ -80,7 +79,7 @@
     },
     {
       "level": 5,
-      "health": "16xC/2",
+      "health": "[16xC/2{$math.floor}]",
       "movement": 3,
       "attack": 3,
       "actions": [
@@ -96,7 +95,7 @@
     },
     {
       "level": 6,
-      "health": "21xC/2",
+      "health": "[21xC/2{$math.floor}]",
       "movement": 3,
       "attack": 4,
       "actions": [
@@ -115,7 +114,7 @@
     },
     {
       "level": 7,
-      "health": "27xC/2",
+      "health": "[27xC/2{$math.floor}]",
       "movement": 3,
       "attack": 5,
       "actions": [
@@ -135,14 +134,14 @@
     {
       "type": "elite",
       "level": 0,
-      "health": "7xC/2",
+      "health": "[7xC/2{$math.floor}]",
       "movement": 4,
       "attack": 3
     },
     {
       "type": "elite",
       "level": 1,
-      "health": "8xC/2",
+      "health": "[8xC/2{$math.floor}]",
       "movement": 4,
       "attack": 3,
       "actions": [
@@ -162,7 +161,7 @@
     {
       "type": "elite",
       "level": 2,
-      "health": "10xC/2",
+      "health": "[10xC/2{$math.floor}]",
       "movement": 5,
       "attack": 3,
       "actions": [
@@ -181,7 +180,7 @@
     {
       "type": "elite",
       "level": 3,
-      "health": "10xC/2",
+      "health": "[10xC/2{$math.floor}]",
       "movement": 5,
       "attack": 4,
       "actions": [
@@ -204,9 +203,9 @@
     {
       "type": "elite",
       "level": 4,
-      "health": "12xC/2",
+      "health": "[12xC/2{$math.floor}]",
       "movement": 5,
-      "attack": 5,
+      "attack": 4,
       "actions": [
         {
           "type": "retaliate",
@@ -227,7 +226,7 @@
     {
       "type": "elite",
       "level": 5,
-      "health": "16xC/2",
+      "health": "[16xC/2{$math.floor}]",
       "movement": 5,
       "attack": 5,
       "actions": [
@@ -250,7 +249,7 @@
     {
       "type": "elite",
       "level": 6,
-      "health": "21xC/2",
+      "health": "[21xC/2{$math.floor}]",
       "movement": 5,
       "attack": 5,
       "actions": [
@@ -276,7 +275,7 @@
     {
       "type": "elite",
       "level": 7,
-      "health": "27xC/2",
+      "health": "[27xC/2{$math.floor}]",
       "movement": 5,
       "attack": 6,
       "actions": [
@@ -286,7 +285,7 @@
           "subActions": [
             {
               "type": "range",
-              "value": 4
+              "value": 3
             }
           ]
         },

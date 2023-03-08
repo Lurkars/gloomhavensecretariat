@@ -2,6 +2,8 @@
   "name": "brute",
   "characterClass": "inox",
   "gender": "m",
+  "icon": "gh-brute",
+  "thumbnail": "gh-brute",
   "edition": "fh-crossover",
   "color": "#35acd5",
   "stats": [
@@ -44,20 +46,8 @@
   ],
   "perks": [
     {
-      "type": "remove",
-      "count": 1,
-      "cards": [
-        {
-          "count": 2,
-          "attackModifier": {
-            "type": "minus1"
-          }
-        }
-      ]
-    },
-    {
       "type": "replace",
-      "count": 1,
+      "count": 2,
       "cards": [
         {
           "count": 1,
@@ -74,33 +64,15 @@
       ]
     },
     {
-      "type": "add",
+      "type": "replace",
       "count": 2,
-      "cards": [
-        {
-          "count": 2,
-          "attackModifier": {
-            "type": "plus1"
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
       "cards": [
         {
           "count": 1,
           "attackModifier": {
-            "type": "plus3"
+            "type": "minus1"
           }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 2,
-      "cards": [
+        },
         {
           "count": 3,
           "attackModifier": {
@@ -117,9 +89,15 @@
       ]
     },
     {
-      "type": "add",
+      "type": "replace",
       "count": 1,
       "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
         {
           "count": 2,
           "attackModifier": {
@@ -129,6 +107,50 @@
               {
                 "type": "pierce",
                 "value": 3
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "target",
+                "value": 1,
+                "valueType": "plus"
               }
             ]
           }
@@ -188,25 +210,19 @@
     },
     {
       "type": "add",
-      "count": 2,
+      "count": 1,
       "cards": [
         {
           "count": 1,
           "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "effects": [
-              {
-                "type": "target",
-                "value": 1
-              }
-            ]
+            "type": "plus3"
           }
         }
       ]
     },
     {
       "type": "add",
+      "custom": "%game.custom.perks.ignoreNegativeItemFh%",
       "count": 1,
       "cards": [
         {
@@ -216,13 +232,7 @@
             "effects": [
               {
                 "type": "shield",
-                "value": 1,
-                "effects": [
-                  {
-                    "type": "specialTarget",
-                    "value": "self"
-                  }
-                ]
+                "value": 1
               }
             ]
           }
@@ -230,17 +240,13 @@
       ]
     },
     {
-      "type": "add",
-      "custom": "%game.custom.perks.ignoreNegativeItem%",
+      "type": "custom",
       "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus1"
-          }
-        }
-      ]
+      "custom": "<b>Rested and Ready:</b> Whenever you long rest, add +1 %game.action.move% to your first move ability the following round"
     }
+  ],
+  "masteries": [
+    "Cause enemies to suffer a total of 12 or more Retaliate damage during attacks targeting you in a single round",
+    "Accross three consecutive rounds, play six different ability cards and cause enemies to suffer at least %game.damage:6% on each of your turns"
   ]
 }

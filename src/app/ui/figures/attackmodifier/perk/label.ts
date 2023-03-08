@@ -51,7 +51,7 @@ export class PerkLabelComponent {
             html += '<span class="attack-modifier-effect rolling">&zwj;<img class="action-icon sw" src="./assets/images/attackmodifier/rolling.svg"></span>';
         }
 
-        if (!attackModifier.rolling || attackModifier.type != AttackModifierType.plus0) {
+        if (!attackModifier.rolling || settingsManager.settings.fhStyle || attackModifier.type != AttackModifierType.plus0) {
             if (attackModifier.valueType == AttackModifierValueType.minus) {
                 html += '<span class="attack-modifier-icon' + (attackModifier.value > 9 ? ' small' : '') + '">-' + attackModifier.value + '</span>';
             } else if (attackModifier.valueType == AttackModifierValueType.multiply) {
@@ -121,7 +121,11 @@ export class PerkLabelComponent {
                     return html;
                 }
             case AttackModifierEffectType.target:
-                html += '<span class="placeholder attack-modifier-effect target">' + settingsManager.getLabel((+effect.value) <= 1 ? 'game.custom.perks.addTarget' : 'game.custom.perks.addTargets', [effect.value + ""]) + '<img class="action-icon" src="./assets/images/attackmodifier/target.svg"></span>';
+                if (settingsManager.settings.fhStyle) {
+                    html += '<span class="placeholder attack-modifier-effect target">+' + effect.value + '<img class="action-icon" src="./assets/images/fh/attackmodifier/target.svg"></span>';
+                } else {
+                    html += '<span class="placeholder attack-modifier-effect target">' + settingsManager.getLabel((+effect.value) <= 1 ? 'game.custom.perks.addTarget' : 'game.custom.perks.addTargets', [effect.value + ""]) + '<img class="action-icon" src="./assets/images/attackmodifier/target.svg"></span>';
+                }
                 break;
             case AttackModifierEffectType.specialTarget:
                 if (effect.value.split(':').length > 1) {

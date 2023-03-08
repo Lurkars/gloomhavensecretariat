@@ -2,6 +2,8 @@
   "name": "eclipse",
   "characterClass": "aesther",
   "gender": "m",
+  "icon": "gh-eclipse",
+  "thumbnail": "gh-eclipse",
   "edition": "fh-crossover",
   "color": "#7440d4",
   "spoiler": true,
@@ -57,21 +59,15 @@
       ]
     },
     {
-      "type": "remove",
+      "type": "replace",
       "count": 1,
       "cards": [
         {
-          "count": 4,
+          "count": 1,
           "attackModifier": {
-            "type": "plus0"
+            "type": "minus2"
           }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 2,
-      "cards": [
+        },
         {
           "count": 1,
           "attackModifier": {
@@ -88,28 +84,23 @@
     },
     {
       "type": "replace",
-      "count": 2,
+      "count": 1,
       "cards": [
         {
           "count": 1,
           "attackModifier": {
-            "type": "minus1",
-            "effects": [
-              {
-                "type": "element",
-                "value": "dark"
-              }
-            ]
+            "type": "plus0"
           }
         },
         {
           "count": 1,
           "attackModifier": {
-            "type": "plus1",
+            "type": "plus0",
+            "rolling": true,
             "effects": [
               {
-                "type": "element",
-                "value": "dark"
+                "type": "target",
+                "value": 1
               }
             ]
           }
@@ -117,9 +108,40 @@
       ]
     },
     {
-      "type": "add",
+      "type": "replace",
       "count": 2,
       "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 3,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "condition",
+                "value": "muddle"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1"
+          }
+        },
         {
           "count": 1,
           "attackModifier": {
@@ -139,14 +161,32 @@
       "count": 2,
       "cards": [
         {
-          "count": 3,
+          "count": 1,
+          "attackModifier": {
+            "type": "plus1",
+            "effects": [
+              {
+                "type": "element",
+                "value": "dark"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 1,
+      "cards": [
+        {
+          "count": 2,
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
             "effects": [
               {
                 "type": "condition",
-                "value": "muddle"
+                "value": "curse"
               }
             ]
           }
@@ -180,45 +220,7 @@
     },
     {
       "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 2,
-          "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "effects": [
-              {
-                "type": "condition",
-                "value": "curse"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 1,
-          "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "effects": [
-              {
-                "type": "target",
-                "value": 1
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "custom": "%game.custom.perks.ignoreScenario%",
       "count": 1,
       "cards": [
         {
@@ -228,6 +230,16 @@
           }
         }
       ]
+    },
+    {
+      "type": "custom",
+      "count": 2,
+      "combined": true,
+      "custom": "<b>Empowering Night</b> At the start of the scenario, you may discard two cards to add a card with an action containing a persistent symbol from your pool to your hand and immediately play it, performing that action"
     }
+  ],
+  "masteries": [
+    "Have %game.condition.invisible% at the start or end of each of your turns",
+    "%game.element.dark% or %game.element.consume.dark% during each of your turns"
   ]
 }

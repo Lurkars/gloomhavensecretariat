@@ -2,6 +2,8 @@
   "name": "lightning",
   "characterClass": "inox",
   "gender": "f",
+  "icon": "gh-lightning",
+  "thumbnail": "gh-lightning",
   "edition": "fh-crossover",
   "color": "#f07c4e",
   "spoiler": true,
@@ -210,5 +212,9 @@
       "count": 1,
       "custom": "%game.custom.perks.ignoreNegativeItem%"
     }
+  ],
+  "masteries": [
+    "",
+    ""
   ]
 }

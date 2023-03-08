@@ -132,6 +132,7 @@
                 line-height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
                 width: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
                 height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+                margin: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor));
 
                 &:hover {
                     .remove {

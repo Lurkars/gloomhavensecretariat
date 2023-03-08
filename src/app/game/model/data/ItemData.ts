@@ -11,14 +11,15 @@ export class ItemData implements Editional {
   count: number = 0;
   edition: string = "";
   slot: ItemSlot = ItemSlot.small;
+  random: boolean = false;
   spent: boolean = false;
   consumed: boolean = false;
   slots: number = 0;
   minusOne: number = 0;
+  solo: string = "";
   unlockScenario: Identifier | undefined;
   unlockProsperity: number = 0;
   summon: SummonData | undefined;
-  folder: string = "";
   resources: Partial<Record<LootType, number>> = {};
   requiredItems: number[] = [];
   requiredBuilding: string = "";

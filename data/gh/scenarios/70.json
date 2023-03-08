@@ -2,6 +2,7 @@
   "index": "70",
   "name": "Chained Isle",
   "edition": "gh",
+  "random": true,
   "rewards": {
     "prosperity": 2
   },

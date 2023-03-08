@@ -3,11 +3,10 @@
   "thumbnail": "fh-ice-wraith",
   "edition": "fh",
   "deck": "ice-wraith",
-  "boss": true,
   "hidden": true,
-  "count": 6,
+  "count": 1,
   "baseStat": {
-    "type": "boss"
+    "type": "normal"
   },
   "stats": [
     {
@@ -66,7 +65,7 @@
       "level": 4,
       "health": "12xC",
       "movement": 3,
-      "attack": 4,
+      "attack": 3,
       "actions": [
         {
           "type": "shield",
@@ -126,6 +125,173 @@
         {
           "type": "condition",
           "value": "curse"
+        }
+      ],
+      "immunities": [
+        "curse"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 0,
+      "health": "7xC",
+      "movement": 4,
+      "attack": 3
+    },
+    {
+      "type": "elite",
+      "level": 1,
+      "health": "8xC",
+      "movement": 4,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2,
+              "small": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 2,
+      "health": "10xC",
+      "movement": 5,
+      "attack": 3,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 3,
+      "health": "10xC",
+      "movement": 5,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 2,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 4,
+      "health": "12xC",
+      "movement": 5,
+      "attack": 4,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 5,
+      "health": "16xC",
+      "movement": 5,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 3,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 6,
+      "health": "21xC",
+      "movement": 5,
+      "attack": 5,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "wound"
+        }
+      ],
+      "immunities": [
+        "curse"
+      ]
+    },
+    {
+      "type": "elite",
+      "level": 7,
+      "health": "27xC",
+      "movement": 5,
+      "attack": 6,
+      "actions": [
+        {
+          "type": "retaliate",
+          "value": 4,
+          "subActions": [
+            {
+              "type": "range",
+              "value": 3
+            }
+          ]
+        },
+        {
+          "type": "condition",
+          "value": "wound"
         }
       ],
       "immunities": [

@@ -1,6 +1,8 @@
 {
   "name": "cragheart",
   "characterClass": "savvas",
+  "icon": "gh-cragheart",
+  "thumbnail": "gh-cragheart",
   "edition": "fh-crossover",
   "color": "#828b3b",
   "stats": [
@@ -43,18 +45,6 @@
   ],
   "perks": [
     {
-      "type": "remove",
-      "count": 1,
-      "cards": [
-        {
-          "count": 4,
-          "attackModifier": {
-            "type": "plus0"
-          }
-        }
-      ]
-    },
-    {
       "type": "replace",
       "count": 3,
       "cards": [
@@ -73,27 +63,40 @@
       ]
     },
     {
-      "type": "add",
+      "type": "replace",
       "count": 1,
       "cards": [
         {
           "count": 1,
           "attackModifier": {
-            "type": "minus2"
+            "type": "plus0"
           }
         },
         {
           "count": 2,
           "attackModifier": {
-            "type": "plus2"
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "push",
+                "value": 2
+              }
+            ]
           }
         }
       ]
     },
     {
-      "type": "add",
+      "type": "replace",
       "count": 2,
       "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
         {
           "count": 1,
           "attackModifier": {
@@ -104,6 +107,24 @@
                 "value": "immobilize"
               }
             ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2"
           }
         }
       ]
@@ -123,53 +144,9 @@
               }
             ]
           }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
+        },
         {
-          "count": 2,
-          "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "effects": [
-              {
-                "type": "push",
-                "value": 2
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 2,
-      "cards": [
-        {
-          "count": 2,
-          "attackModifier": {
-            "type": "plus0",
-            "rolling": true,
-            "effects": [
-              {
-                "type": "element",
-                "value": "earth"
-              }
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "type": "add",
-      "count": 1,
-      "cards": [
-        {
-          "count": 2,
+          "count": 1,
           "attackModifier": {
             "type": "plus0",
             "rolling": true,
@@ -184,14 +161,43 @@
       ]
     },
     {
-      "type": "custom",
+      "type": "add",
       "count": 1,
-      "custom": "%game.custom.perks.ignoreNegativeItem%"
+      "cards": [
+        {
+          "count": 4,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "element",
+                "value": "earth"
+              }
+            ]
+          }
+        }
+      ]
     },
     {
       "type": "custom",
       "count": 1,
-      "custom": "%game.custom.perks.ignoreNegativeScenario%"
+      "custom": "%game.custom.perks.ignoreNegativeItemFh%"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreScenario%"
+    },
+    {
+      "type": "custom",
+      "count": 2,
+      "combined": true,
+      "custom": "<b>Earthquakes</b> Whenever a new room is revealed, control all enemies in the newly revealed room: %game.action.move% 1, this movement must end in an empty hex"
     }
+  ],
+  "masteries": [
+    "Only attack enemies adjacent to obstacles or walls",
+    "Damage or heal at least one ally each round"
   ]
 }

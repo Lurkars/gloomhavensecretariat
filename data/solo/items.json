@@ -1,0 +1,493 @@
+[
+  {
+    "id": 134,
+    "name": "Imposing Blade",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "brute",
+    "slot": "onehand"
+  },
+  {
+    "id": 135,
+    "name": "Focusing Ray",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "tinkerer",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 136,
+    "name": "Volatile Elixir",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "spellweaver",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 137,
+    "name": "Silent Stiletto",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "scoundrel",
+    "slot": "onehand"
+  },
+  {
+    "id": 138,
+    "name": "Stone Charm",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "cragheart",
+    "slot": "head",
+    "spent": true
+  },
+  {
+    "id": 139,
+    "name": "Psychic Knife",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "mindthief",
+    "slot": "onehand"
+  },
+  {
+    "id": 140,
+    "name": "Sun Shield",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "sun",
+    "slot": "onehand"
+  },
+  {
+    "id": 141,
+    "name": "Utility Belt",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "three-spears",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 142,
+    "name": "Phasing Idol",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "circles",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 143,
+    "name": "Smoke Elixir",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "eclipse",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 144,
+    "name": "Pendant of the Plague",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "squidface",
+    "slot": "head",
+    "spent": true
+  },
+  {
+    "id": 145,
+    "name": "Mask of Death",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "lightning",
+    "slot": "head"
+  },
+  {
+    "id": 146,
+    "name": "Master's Lute",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "music-note",
+    "slot": "twohand"
+  },
+  {
+    "id": 147,
+    "name": "Cloak of the Hunter",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "angry-face",
+    "slot": "body"
+  },
+  {
+    "id": 148,
+    "name": "Doctor's Coat",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "saw",
+    "slot": "body"
+  },
+  {
+    "id": 149,
+    "name": "Elemental Boots",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "triangles",
+    "slot": "legs",
+    "spent": true
+  },
+  {
+    "id": 150,
+    "name": "Staff of Command",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh",
+    "solo": "two-mini",
+    "slot": "twohand",
+    "spent": true
+  },
+  {
+    "id": 151,
+    "name": "Sword of the Sands",
+    "cost": 50,
+    "count": 1,
+    "edition": "gh-envx",
+    "solo": "envx",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 164,
+    "name": "Basin of Prophecy",
+    "cost": 50,
+    "count": 1,
+    "edition": "fc",
+    "solo": "diviner",
+    "slot": "twohand"
+  },
+  {
+    "id": 198,
+    "name": "Claw Trap",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "chain-helmet",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 204,
+    "name": "Moonleather Boots",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "galaxy",
+    "slot": "legs",
+    "spent": true
+  },
+  {
+    "id": 205,
+    "name": "Spirit Libation",
+    "cost": 50,
+    "count": 1,
+    "solo": "skull",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 206,
+    "name": "Robe of Soothing",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "leaf",
+    "slot": "body"
+  },
+  {
+    "id": 209,
+    "name": "Chain Cannon",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "target",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 211,
+    "name": "Nature Armlets",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "tusks",
+    "slot": "onehand"
+  },
+  {
+    "id": 212,
+    "name": "Test Tube",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "flask",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 214,
+    "name": "Luminous Carapace",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "crescent-sun",
+    "slot": "body",
+    "spent": true
+  },
+  {
+    "id": 215,
+    "name": "Flaming Armor",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "ladder-axe",
+    "slot": "body"
+  },
+  {
+    "id": 217,
+    "name": "Field Mortar",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "sprig",
+    "slot": "small"
+  },
+  {
+    "id": 220,
+    "name": "Clamp Trap",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "chain-helmet",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 221,
+    "name": "Cleansed Voidheart",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "vortex",
+    "slot": "body"
+  },
+  {
+    "id": 267,
+    "name": "Steelsilk Spinneret",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "beetle",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 273,
+    "name": "Auscudec of the Makers",
+    "cost": 50,
+    "count": 1,
+    "edition": "cs",
+    "solo": "tools",
+    "slot": "twohand",
+    "spent": true
+  },
+  {
+    "id": 278,
+    "name": "Rite of Ruin",
+    "cost": 40,
+    "count": 1,
+    "edition": "cs",
+    "solo": "bleeding-claw",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 248,
+    "name": "Wanderer's Club",
+    "cost": 0,
+    "count": 1,
+    "edition": "fh",
+    "solo": "drifter",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 249,
+    "name": "Recalibration Trigger",
+    "cost": 0,
+    "count": 1,
+    "edition": "fh",
+    "solo": "blinkblade",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 250,
+    "name": "Spear of Justice",
+    "cost": 0,
+    "count": 1,
+    "edition": "fh",
+    "solo": "banner-spear",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 251,
+    "name": "Soul Urn",
+    "cost": 0,
+    "count": 1,
+    "edition": "fh",
+    "solo": "deathwalker",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 252,
+    "name": "Black Earth Codex",
+    "cost": 0,
+    "count": 1,
+    "edition": "fh",
+    "solo": "boneshaper",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 253,
+    "name": "Mask of Duality",
+    "cost": 0,
+    "count": 1,
+    "edition": "fh",
+    "solo": "geminate",
+    "slot": "head"
+  },
+  {
+    "id": 254,
+    "name": "Ancestral Blade",
+    "cost": 0,
+    "count": 1,
+    "edition": "fh",
+    "solo": "astral",
+    "slot": "twohand",
+    "spent": true
+  },
+  {
+    "id": 255,
+    "name": "Mountain's Heart",
+    "cost": 0,
+    "count": 1,
+    "edition": "fh",
+    "solo": "meteor",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 256,
+    "name": "Sonorous Shard",
+    "cost": 0,
+    "count": 1,
+    "edition": "fh",
+    "solo": "shards",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 257,
+    "name": "Sly Camouflage",
+    "cost": 0,
+    "count": 1,
+    "edition": "fh",
+    "solo": "trap",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 258,
+    "name": "Skull of Agony",
+    "cost": 0,
+    "count": 1,
+    "edition": "fh",
+    "solo": "shackles",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 259,
+    "name": "Storm Carving",
+    "cost": 0,
+    "count": 1,
+    "edition": "fh",
+    "solo": "snowflake",
+    "slot": "onehand"
+  },
+  {
+    "id": 260,
+    "name": "Freezing Orb",
+    "cost": 0,
+    "count": 1,
+    "edition": "fh",
+    "solo": "fist",
+    "slot": "onehand",
+    "spent": true
+  },
+  {
+    "id": 261,
+    "name": "Energized Module",
+    "cost": 0,
+    "count": 1,
+    "edition": "fh",
+    "solo": "prism",
+    "slot": "small",
+    "spent": true
+  },
+  {
+    "id": 262,
+    "name": "Exhaust Boots",
+    "cost": 0,
+    "count": 1,
+    "edition": "fh",
+    "solo": "drill",
+    "slot": "legs"
+  },
+  {
+    "id": 263,
+    "name": "Warlords Skull",
+    "cost": 0,
+    "count": 1,
+    "edition": "fh",
+    "solo": "kelp",
+    "slot": "onehand"
+  },
+  {
+    "id": 264,
+    "name": "Spiraled Medallion",
+    "cost": 0,
+    "count": 1,
+    "edition": "fh",
+    "slot": "head",
+    "solo": "coral",
+    "spent": true
+  }
+]

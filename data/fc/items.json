@@ -6,8 +6,7 @@
     "count": 1,
     "edition": "fc",
     "slot": "small",
-    "spent": true,
-    "folder": "152-165"
+    "spent": true
   },
   {
     "id": 153,
@@ -15,8 +14,7 @@
     "cost": 25,
     "count": 2,
     "edition": "fc",
-    "slot": "small",
-    "folder": "152-165"
+    "slot": "small"
   },
   {
     "id": 154,
@@ -24,8 +22,7 @@
     "cost": 50,
     "count": 2,
     "edition": "fc",
-    "slot": "small",
-    "folder": "152-165"
+    "slot": "small"
   },
   {
     "id": 155,
@@ -35,8 +32,7 @@
     "edition": "fc",
     "slot": "body",
     "spent": true,
-    "minusOne": 3,
-    "folder": "152-165"
+    "minusOne": 3
   },
   {
     "id": 156,
@@ -44,8 +40,7 @@
     "cost": 50,
     "count": 2,
     "edition": "fc",
-    "slot": "twohand",
-    "folder": "152-165"
+    "slot": "twohand"
   },
   {
     "id": 157,
@@ -54,8 +49,7 @@
     "count": 2,
     "edition": "fc",
     "slot": "twohand",
-    "spent": true,
-    "folder": "152-165"
+    "spent": true
   },
   {
     "id": 158,
@@ -64,8 +58,7 @@
     "count": 2,
     "edition": "fc",
     "slot": "legs",
-    "spent": true,
-    "folder": "152-165"
+    "spent": true
   },
   {
     "id": 159,
@@ -74,8 +67,7 @@
     "count": 2,
     "edition": "fc",
     "slot": "small",
-    "spent": true,
-    "folder": "152-165"
+    "spent": true
   },
   {
     "id": 160,
@@ -84,8 +76,7 @@
     "count": 1,
     "edition": "fc",
     "slot": "onehand",
-    "spent": true,
-    "folder": "152-165"
+    "spent": true
   },
   {
     "id": 161,
@@ -94,8 +85,7 @@
     "count": 2,
     "edition": "fc",
     "slot": "onehand",
-    "spent": true,
-    "folder": "152-165"
+    "spent": true
   },
   {
     "id": 162,
@@ -104,8 +94,7 @@
     "count": 1,
     "edition": "fc",
     "slot": "small",
-    "spent": true,
-    "folder": "152-165"
+    "spent": true
   },
   {
     "id": 163,
@@ -113,17 +102,7 @@
     "cost": 75,
     "count": 1,
     "edition": "fc",
-    "slot": "head",
-    "folder": "152-165"
-  },
-  {
-    "id": 164,
-    "name": "Basin of Prophecy",
-    "cost": 50,
-    "count": 1,
-    "edition": "fc",
-    "slot": "twohand",
-    "folder": "152-165"
+    "slot": "head"
   },
   {
     "id": 280,
@@ -131,7 +110,6 @@
     "cost": 125,
     "count": 1,
     "edition": "fc",
-    "slot": "body",
-    "folder": "152-165"
+    "slot": "body"
   }
 ]

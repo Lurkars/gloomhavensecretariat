@@ -2,6 +2,7 @@
   "index": "66",
   "name": "Clockwork Cove",
   "edition": "gh",
+  "random": true,
   "rewards": {
     "globalAchievements": [
       "Ancient Technology"

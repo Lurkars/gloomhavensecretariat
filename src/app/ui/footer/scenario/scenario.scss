@@ -39,9 +39,15 @@
       margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-barsize));
 
       .ghs-svg {
-        filter: var(--ghs-filter-yellow);
+        filter: var(--ghs-filter-gray);
         height: 0.8em;
         width: auto;
+      }
+
+      &.unlooted {
+        .ghs-svg {
+          filter: var(--ghs-filter-yellow);
+        }
       }
     }
   }

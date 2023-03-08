@@ -217,7 +217,7 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "%game.custom.perks.ignoreNegativeScenario%, and whenever you enter icy terrain with a move ability, you may ignore the effect to add +1 %game.action.move%"
+      "custom": "%game.custom.perks.ignoreScenario%, and whenever you enter icy terrain with a move ability, you may ignore the effect to add +1 %game.action.move%"
     },
     {
       "type": "custom",

@@ -2,6 +2,8 @@
   "name": "saw",
   "characterClass": "human",
   "gender": "m",
+  "icon": "gh-saw",
+  "thumbnail": "gh-saw",
   "edition": "fh-crossover",
   "color": "#d5ca9c",
   "spoiler": true,
@@ -197,5 +199,9 @@
         }
       ]
     }
+  ],
+  "masteries": [
+    "",
+    ""
   ]
 }

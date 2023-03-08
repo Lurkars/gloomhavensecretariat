@@ -23,6 +23,8 @@ export class ScenarioSummaryComponent {
     conclusion: ScenarioData | undefined;
     success: boolean;
     conclusionWarning: boolean;
+    alreadyWarning: boolean = false;
+    casual: boolean = false;
 
     characters: Character[];
     battleGoals: number[] = [];
@@ -52,6 +54,10 @@ export class ScenarioSummaryComponent {
                 this.lootColumns.push(lootType);
             }
         }
+
+        this.alreadyWarning = !gameManager.fhRules() && gameManager.game.party.campaignMode && this.success && gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == this.scenario.index && scenarioModel.edition == this.scenario.edition && scenarioModel.group == this.scenario.group) != undefined;
+
+        this.casual = this.alreadyWarning;
 
         if (gameManager.game.party.campaignMode && this.success) {
             if (this.conclusion) {
@@ -162,7 +168,7 @@ export class ScenarioSummaryComponent {
                 }
             })
         }
-        gameManager.scenarioManager.finishScenario(this.success, this.conclusion);
+        gameManager.scenarioManager.finishScenario(this.success, this.conclusion, false, undefined, this.casual);
         gameManager.stateManager.after(1000);
         this.dialogRef.close();
     }

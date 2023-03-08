@@ -248,7 +248,7 @@
     {
       "type": "custom",
       "count": 1,
-      "custom": "%game.custom.perks.ignoreNegativeScenario%"
+      "custom": "%game.custom.perks.ignoreScenario%"
     },
     {
       "type": "custom",

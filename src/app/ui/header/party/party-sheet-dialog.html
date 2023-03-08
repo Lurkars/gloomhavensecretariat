@@ -345,6 +345,7 @@
               ghsLabel}}</option>
           </select>
         </div>
+
         <div class="row scenarios">
           <div class="scenario header legend seperator">
             <span>{{'party.campaign.scenarios.index' | ghsLabel}}</span>
@@ -475,6 +476,22 @@
           </div>
         </div>
 
+        <div class="row title">
+          <label>{{'party.campaign.players' | ghsLabel}}:</label>
+        </div>
+
+        <div class="row players">
+          <div class="player" *ngFor="let player of party.players; let index = index;">
+            <span class="index">#{{index + 1}}</span>
+            <input type="text" [value]="player" (change)="changePlayer($event, index)">
+            <a class="remove" (click)="removePlayer(index)"><img src="./assets/images/close.svg"></a>
+          </div>
+          <a class="add" (click)="party.players[party.players.length] = ''">
+            <img src="./assets/images/plus.svg">
+            {{'party.campaign.players.add' | ghsLabel}}
+          </a>
+        </div>
+
         <div class="row title" *ngIf="party.retirements && party.retirements.length > 0">
           <label>{{'party.campaign.retirements' | ghsLabel}}:</label>
         </div>
@@ -492,7 +509,7 @@
             </div>
             <div class="character" *ngFor="let characterModel of party.retirements">
               <span>
-                <input [value]="characterModel.number" type="number" min="1"
+                #<input [value]="characterModel.number" type="number" min="1"
                   (change)="setPlayerNumber(characterModel,$event)" (keyup)="setPlayerNumber(characterModel,$event)">
               </span>
               <span>{{characterModel.title}}</span>

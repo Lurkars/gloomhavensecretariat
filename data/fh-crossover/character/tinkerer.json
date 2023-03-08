@@ -2,6 +2,8 @@
   "name": "tinkerer",
   "characterClass": "quatryl",
   "gender": "m",
+  "icon": "gh-tinkerer",
+  "thumbnail": "gh-tinkerer",
   "edition": "fh-crossover",
   "color": "#d1c3a2",
   "stats": [
@@ -240,8 +242,12 @@
     },
     {
       "type": "custom",
-      "custom": "%game.custom.perks.ignoreNegativeScenario%",
+      "custom": "%game.custom.perks.ignoreScenario%",
       "count": 1
     }
+  ],
+  "masteries": [
+    "",
+    ""
   ]
 }
