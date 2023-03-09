@@ -27,7 +27,7 @@ If you need help using the app take a look at the [help page](https://help.gloom
 
 ## Current Features
 
-- Base Feature complete for GH, FH, JOTL, FC and CS (all needs testing, so please [contribute](#contributing)!), for details see [Data Progression](https://github.com/Lurkars/gloomhavensecretariat/wiki/Data-Progression)
+- Base Feature complete for GH, FH, JOTL, FC and CS (all needs testing, so please [contribute](#contributing)!), for details see [Data Progression](./resources/data-progression.md)
 - Tracking:
   - **initiative** sorting
   - **health** automatic exhausting/dead, max values for every level
@@ -43,8 +43,9 @@ If you need help using the app take a look at the [help page](https://help.gloom
   - **Character Summons**
   - **Scenarios** and **Sections** with automatic level calculation, remind and apply special rules and scenario finish for applying character progress
   - **Party Sheet**
-  - **Campaign Management** (special Rules for CS missing)
+  - **Campaign Management** (some special Rules for CS missing)
   - **Markers**
+  - **Treasures** (WIP)
 - Eliminating the following physical components:
   - monster ability cards
   - monster stats sheets
