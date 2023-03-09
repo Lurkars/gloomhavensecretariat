@@ -1,6 +1,8 @@
 # Gloomhaven Secretariat
 
-[Latest Online Version](https://gloomhaven-secretariat.de)
+## [Latest Online Version](https://gloomhaven-secretariat.de)
+
+[![Publish Latest Online Version](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/latest.yml/badge.svg)](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/latest.yml)  [![Build and publish release](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/release.yml/badge.svg)](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/release.yml) [![Publish Docker Image](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/publish-docker-image.yml/badge.svg)](https://github.com/Lurkars/gloomhavensecretariat/actions/workflows/publish-docker-image.yml)
 
 *Gloomhaven Secretariat* is a **Gloomhaven/Frosthaven companion app** and does bookkeeping of all entities values to gain more focus on gameplay. It is an open source web app made with [Angular](https://angular.io/).
 
