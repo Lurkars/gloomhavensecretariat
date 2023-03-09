@@ -1,6 +1,6 @@
 [
   {
-    "id": 281,
+    "id": 101,
     "name": "Runic Visard",
     "cost": 20,
     "count": 1,
@@ -8,7 +8,7 @@
     "slot": "head"
   },
   {
-    "id": 282,
+    "id": 102,
     "name": "Shoes of Ataraxy",
     "cost": 35,
     "count": 2,
@@ -17,7 +17,7 @@
     "spent": true
   },
   {
-    "id": 283,
+    "id": 103,
     "name": "Magnetic Relocator",
     "cost": 30,
     "count": 1,
@@ -26,7 +26,7 @@
     "spent": true
   },
   {
-    "id": 284,
+    "id": 104,
     "name": "Shepherd's Flute",
     "cost": 50,
     "count": 1,
@@ -46,7 +46,7 @@
     }
   },
   {
-    "id": 285,
+    "id": 105,
     "name": "Tyrannical Staff",
     "cost": 40,
     "count": 1,
@@ -55,7 +55,7 @@
     "spent": true
   },
   {
-    "id": 286,
+    "id": 106,
     "name": "Crushing Mace",
     "cost": 45,
     "count": 2,
@@ -65,7 +65,7 @@
     "minusOne": 1
   },
   {
-    "id": 287,
+    "id": 107,
     "name": "Chief's Garb",
     "cost": 30,
     "count": 1,
@@ -73,7 +73,7 @@
     "slot": "body"
   },
   {
-    "id": 288,
+    "id": 108,
     "name": "Iridescent Bracer",
     "cost": 30,
     "count": 1,
@@ -83,7 +83,7 @@
     "minusOne": 1
   },
   {
-    "id": 289,
+    "id": 109,
     "name": "Talo's Staff",
     "cost": 30,
     "count": 1,
@@ -92,7 +92,7 @@
     "spent": true
   },
   {
-    "id": 290,
+    "id": 110,
     "name": "Mask of Cruelty",
     "cost": 35,
     "count": 1,
@@ -101,7 +101,7 @@
     "minusOne": 1
   },
   {
-    "id": 291,
+    "id": 111,
     "name": "Staff of Equilibrium",
     "cost": 30,
     "count": 1,
@@ -110,7 +110,7 @@
     "spent": true
   },
   {
-    "id": 292,
+    "id": 112,
     "name": "Voyager's Blade",
     "cost": 40,
     "count": 1,
@@ -119,7 +119,7 @@
     "spent": true
   },
   {
-    "id": 293,
+    "id": 113,
     "name": "Looking Glass",
     "cost": 30,
     "count": 1,
@@ -128,7 +128,7 @@
     "spent": true
   },
   {
-    "id": 294,
+    "id": 114,
     "name": "Runic Boots of Travel",
     "cost": 34,
     "count": 1,
@@ -137,7 +137,7 @@
     "spent": true
   },
   {
-    "id": 295,
+    "id": 115,
     "name": "Battle Standard",
     "cost": 45,
     "count": 1,
@@ -146,7 +146,7 @@
     "spent": true
   },
   {
-    "id": 296,
+    "id": 116,
     "name": "Matriarch's Warhorn",
     "cost": 50,
     "count": 1,
@@ -155,7 +155,7 @@
     "spent": true
   },
   {
-    "id": 297,
+    "id": 117,
     "name": "Dawnbloom Nectar",
     "cost": 15,
     "count": 2,
@@ -164,7 +164,7 @@
     "spent": true
   },
   {
-    "id": 298,
+    "id": 118,
     "name": "Graveweed Extract",
     "cost": 15,
     "count": 2,
@@ -173,7 +173,7 @@
     "spent": true
   },
   {
-    "id": 299,
+    "id": 119,
     "name": "Thrice-Souled Warsword",
     "cost": 50,
     "count": 1,
@@ -182,7 +182,7 @@
     "spent": true
   },
   {
-    "id": 300,
+    "id": 120,
     "name": "Rekindled Core",
     "cost": 50,
     "count": 1,
@@ -190,7 +190,7 @@
     "slot": "onehand"
   },
   {
-    "id": 301,
+    "id": 121,
     "name": "Crystal Catalyst",
     "cost": 50,
     "count": 1,
@@ -199,7 +199,7 @@
     "spent": true
   },
   {
-    "id": 302,
+    "id": 122,
     "name": "Crystal Spike",
     "cost": 50,
     "count": 1,
@@ -208,7 +208,7 @@
     "spent": true
   },
   {
-    "id": 303,
+    "id": 123,
     "name": "Arclight Cladding",
     "cost": 50,
     "count": 1,
@@ -217,7 +217,7 @@
     "spent": true
   },
   {
-    "id": 304,
+    "id": 124,
     "name": "Arcbolt Lance",
     "cost": 40,
     "count": 1,
@@ -226,7 +226,7 @@
     "spent": true
   },
   {
-    "id": 305,
+    "id": 125,
     "name": "Scroll of Evasion",
     "cost": 40,
     "count": 1,
@@ -235,7 +235,7 @@
     "spent": true
   },
   {
-    "id": 306,
+    "id": 126,
     "name": "Arcstone Greaves",
     "cost": 50,
     "count": 1,
@@ -244,7 +244,7 @@
     "spent": true
   },
   {
-    "id": 307,
+    "id": 127,
     "name": "Arclight Hood",
     "cost": 50,
     "count": 1,
@@ -253,7 +253,7 @@
     "spent": true
   },
   {
-    "id": 308,
+    "id": 128,
     "name": "Barbed Whip",
     "cost": 50,
     "count": 1,
@@ -262,7 +262,7 @@
     "spent": true
   },
   {
-    "id": 309,
+    "id": 129,
     "name": "Talo's Rosary",
     "cost": 30,
     "count": 2,
@@ -271,7 +271,7 @@
     "spent": true
   },
   {
-    "id": 310,
+    "id": 130,
     "name": "Dynamic Sickle",
     "cost": 35,
     "count": 1,
@@ -280,7 +280,7 @@
     "spent": true
   },
   {
-    "id": 311,
+    "id": 131,
     "name": "Predator's Wristblade",
     "cost": 50,
     "count": 1,

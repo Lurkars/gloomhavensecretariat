@@ -55,6 +55,7 @@ import { AutoscrollDirective, FigureAutoscrollDirective } from './ui/helper/auto
 import { AttackModifierDeckComponent } from './ui/figures/attackmodifier/attackmodifierdeck';
 import { AttackModifierComponent } from './ui/figures/attackmodifier/attackmodifier';
 import { AttackModifierToolComponent } from './ui/tools/attackmodifier/attackmodifier-tool';
+import { TreasuresToolComponent } from './ui/tools/treasures/treasures-tool';
 import { TextShrinkDirective } from './ui/helper/textshrink';
 import { EntityMenuDialogComponent } from './ui/figures/entity-menu/entity-menu-dialog';
 import { AbilityComponent } from './ui/figures/ability/ability';
@@ -99,9 +100,10 @@ import { CharacterMoveResourcesDialog } from './ui/figures/character/dialogs/mov
 import { PartyWeekDialogComponent } from './ui/header/party/week-dialog';
 import { CharacterItemsComponent } from './ui/figures/character/items/items';
 import { PartyBuildingsComponent } from './ui/header/party/buildings/buildings';
+import { ScenarioTreasuresDialogComponent } from './ui/footer/scenario/treasures/treasures-dialog';
 
 import 'hammerjs'
-import { ScenarioTreasuresDialogComponent } from './ui/footer/scenario/treasures/treasures-dialog';
+import { TreasureLabelComponent } from './ui/footer/scenario/treasures/label/label';
 
 @Injectable()
 export class GhsHammerConfig extends HammerGestureConfig {
@@ -124,7 +126,7 @@ export class GhsHammerConfig extends HammerGestureConfig {
     HintDialogComponent, ScenarioRulesComponent,
     AttackModifierComponent, AttackModifierEffectsComponent, AttackModifierDeckComponent, AttackModifierDeckDialogComponent, AttackModifierDeckFullscreenComponent, AttackModifierStandaloneComponent,
     LevelComponent, LevelDialogComponent,
-    ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent, ScenarioTreasuresDialogComponent,
+    ScenarioComponent, ScenarioDialogComponent, SectionDialogComponent, ScenarioSummaryComponent, ScenarioTreasuresDialogComponent, TreasureLabelComponent,
     ConditionsComponent, HighlightConditionsComponent, ConditionHighlightAnimationDirective, HealthbarComponent,
     EntityMenuDialogComponent, EntitiesMenuDialogComponent,
     CharacterComponent, CharacterImageComponent, CharacterSummonDialog, CharacterInitiativeComponent, CharacterInitiativeDialogComponent, CharacterSheetDialog, CharacterFullViewComponent, CharacterLootCardsDialog, PerkLabelComponent, CharacterMoveResourcesDialog, CharacterItemsComponent,
@@ -141,7 +143,7 @@ export class GhsHammerConfig extends HammerGestureConfig {
     FigureErrorsComponent, FigureErrorsDialogComponent,
     CardRevealDirective, EntityAnimationDirective, I18nDirective, ValueCalcDirective, DragClickDirective, AutoscrollDirective, FigureAutoscrollDirective, TextShrinkDirective,
     GhsValueSignPipe, GhsLabelPipe, GhsRangePipe, GhsScenarioSearch, GhsFloorPipe, GhsCeilPipe,
-    AttackModifierToolComponent, DecksToolComponent,
+    AttackModifierToolComponent, TreasuresToolComponent, DecksToolComponent,
     EditionEditorComponent,
     EditorActionComponent, EditorActionDialogComponent,
     DeckEditorComponent, CharacterEditorComponent, MonsterEditorComponent,

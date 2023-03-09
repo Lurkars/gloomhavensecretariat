@@ -55,10 +55,20 @@
                 top: 10%;
             }
 
+            &.edit {
+                cursor: pointer;
+            }
+
             img {
                 height: 100%;
                 width: auto;
                 filter: var(--ghs-filter-outline);
+
+                &.warning {
+                    filter: var(--ghs-filter-red) var(--ghs-filter-outline);
+                    height: 60%;
+                    margin-right: 5%;
+                }
             }
         }
 

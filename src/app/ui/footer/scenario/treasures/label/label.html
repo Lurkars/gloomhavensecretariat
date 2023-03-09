@@ -1,0 +1,7 @@
+<span class="treasure-label" *ngIf="treasure">
+    <ng-container *ngFor="let reward of treasure.rewards; let index = index">
+        <span class="label" [i18n]="rewardLabel(reward)[0]" [i18n-args]="rewardLabel(reward).slice(1)"
+            [i18n-arg-label]="true"></span>
+        <span *ngIf="treasure.rewards.length > 1 && index < treasure.rewards.length -1">,&nbsp;</span>
+    </ng-container>
+</span>

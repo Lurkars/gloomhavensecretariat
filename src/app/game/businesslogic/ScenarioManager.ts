@@ -492,7 +492,7 @@ export class ScenarioManager {
     if (this.game.sections) {
       this.game.sections.forEach((section) => {
         if (section.rules) {
-          section.rules.filter((rule) => rule.requiredRooms && rule.requiredRooms.length > 0).forEach((rule, index) => {
+          section.rules.sort((a, b) => a.start == b.start ? section.rules.indexOf(a) - section.rules.indexOf(b) : (a.start ? 1 : -1)).filter((rule) => rule.requiredRooms && rule.requiredRooms.length > 0).forEach((rule, index) => {
             this.addScenarioRule(section, rule, section.rules.indexOf(rule), true);
           })
         }
@@ -524,7 +524,7 @@ export class ScenarioManager {
       add = true
     } else {
       try {
-        add = eval(round) && (!rule.start && this.game.state == GameState.next || this.game.round > 0 && rule.start && this.game.state == GameState.draw || rule.start && initial);
+        add = eval(round) && (this.game.state == GameState.next || rule.start && initial);
       } catch (error) {
         console.warn("Cannot apply scenario rule: '" + rule.round + "'", "index: " + index, error);
         add = false;
@@ -622,7 +622,9 @@ export class ScenarioManager {
     treasures = treasures.filter((treasure, index) => !unlooted || !gameManager.game.figures.some((figure) => figure instanceof Character &&
       figure.treasures.indexOf(treasure == 'G' ? 'G-' + index : treasure) != -1));
 
-    treasures = treasures.filter((treasure) => !gameManager.game.party.treasures.find((identifier) => identifier.name == '' + treasure && identifier.edition == scenario.edition));
+    if (unlooted) {
+      treasures = treasures.filter((treasure) => !gameManager.game.party.treasures.find((identifier) => identifier.name == '' + treasure && identifier.edition == scenario.edition));
+    }
 
     return treasures;
   }

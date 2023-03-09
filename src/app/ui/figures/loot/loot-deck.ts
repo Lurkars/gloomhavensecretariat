@@ -109,7 +109,7 @@ export class LootDeckComponent implements OnInit {
             if (local && loot && appliableLootTypes.indexOf(loot.type) != null && settingsManager.settings.applyLoot && gameManager.game.figures.find((figure) => figure instanceof Character && gameManager.gameplayFigure(figure)) && (!gameManager.game.figures.find((figure) => figure instanceof Character && figure.active) || settingsManager.settings.alwaysLootApplyDialog)) {
                 const dialog = this.dialog.open(LootApplyDialogComponent, {
                     panelClass: 'dialog',
-                    data: loot
+                    data: { loot: loot }
                 });
 
                 dialog.closed.subscribe({

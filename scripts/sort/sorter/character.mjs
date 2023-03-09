@@ -28,5 +28,5 @@ export const sortCharacter = function (character) {
         });
     }
 
-    return sortObjectKeys(character, 'name', 'characterClass', 'gender', 'icon', 'thumbnail', 'edition', 'color', 'spoiler', 'locked', 'marker', 'deck', 'stats', 'summon', 'characterClass', 'availableSummons', 'perks', 'masteries', 'additionalModifier');
+    return sortObjectKeys(character, 'name', 'characterClass', 'gender', 'icon', 'iconUrl', 'thumbnail', 'thumbnailUrl', 'edition', 'color', 'spoiler', 'locked', 'marker', 'deck', 'stats', 'summon', 'characterClass', 'availableSummons', 'perks', 'masteries', 'additionalModifier');
 }

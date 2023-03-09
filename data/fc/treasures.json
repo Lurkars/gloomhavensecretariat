@@ -1,0 +1,22 @@
+[
+    "damage:3|condition:wound|gold:10",
+    "item:90",
+    "itemDesign:157",
+    "item:35",
+    "battleGoal:1|event:rift-19",
+    "item:159|gold:10",
+    "itemDesign:158",
+    "item:66",
+    "damage:3|condition:poison|gold:10",
+    "custom:%data.treasures.fc.86%",
+    "damage:2|condition:curse|gold:15",
+    "battleGoal:1",
+    "item:70",
+    "custom:%data.treasures.fc.90%",
+    "gold:30|partyAchievement:Opportunists|event:city-84",
+    "item:68",
+    "item:159",
+    "battleGoal:1|event:rift-20",
+    "gold:25|partyAchievement:A Strongbox|event:city-85",
+    "custom:%data.treasures.fc.96%"
+]

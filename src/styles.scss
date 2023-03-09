@@ -964,15 +964,6 @@ input[type="radio"] {
     }
   }
 
-  &.text-white {
-
-    .placeholder-character-icon {
-      img {
-        filter: brightness(99);
-      }
-    }
-  }
-
   .placeholder-monster-type {
     &.normal {
       color: var(--ghs-color-white);
@@ -1033,6 +1024,21 @@ input[type="radio"] {
     }
   }
 
+  .placeholder-item-fh {
+    display: inline-flex;
+    justify-content: flex-end;
+    color: var(--ghs-color-white);
+    width: 1.8em;
+    height: 1.5em;
+    font-size: 0.9em;
+    line-height: 1.3em;
+    padding-right: 0.1em;
+    background-image: url('~/src/assets/images/items/fh-item.svg');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
   .map-marker {
     margin: 0 0.2em;
   }
@@ -1040,6 +1046,19 @@ input[type="radio"] {
   .objective-marker {
     margin: 0 0.2em;
     font-size: 0.5em;
+  }
+
+  &.text-white {
+
+    .placeholder-character-icon {
+      img {
+        filter: brightness(99);
+      }
+    }
+
+    .placeholder-item-fh {
+      filter: invert(1);
+    }
   }
 }
 

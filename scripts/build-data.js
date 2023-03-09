@@ -36,7 +36,7 @@ const load_file = function (edition_path, file, default_value) {
     try {
       return JSON.parse(f);
     } catch (e) {
-      console.error(file, e);
+      console.error(edition_path, file, e);
     }
   }
   // console.warn("\nCould not load file: '" + file_path + "'");
@@ -152,6 +152,7 @@ for (edition_path of edition_dirs) {
   })
 
   edition_data['items'] = load_file(edition_path, 'items.json', []);
+  edition_data['treasures'] = load_file(edition_path, 'treasures.json', []);
   edition_data['label'] = load_file(edition_path, 'label.json', {});
   edition_data['labelSpoiler'] = load_file(edition_path, 'label-spoiler.json', {});
 

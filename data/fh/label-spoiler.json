@@ -12,6 +12,15 @@
       "shards" : "Shattersong",
       "snowflake" : "Snowdancer",
       "trap" : "Trapper"
+    },
+    "treasures": {
+      "fh": {
+        "12": "You find the remains of Camilla and her paintings of a majestiv horned creature.",
+        "51": "Read <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/section.svg\"> 78.1",
+        "54": "Treasure chest? There was no reasure chest there Maybe you should slow down on the drink",
+        "57": "What’s this? An empty chest with a lead trapdoor at the bottom You make note of the location so you can return with Gem’s help later.",
+        "62": "gain Mechanical Cube blueprint %data.itemFh.82% when you find the other half of this blueprint."
+      }
     }
   }
 }

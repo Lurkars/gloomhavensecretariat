@@ -1,0 +1,6 @@
+{
+  "edition": "test",
+  "extensions": [
+    "gh"
+  ]
+}

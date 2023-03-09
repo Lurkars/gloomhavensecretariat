@@ -453,7 +453,7 @@
     "draw-full": "Fertigkeitskarten der Charakter auswählen, Initiative festlegen, \"%round.draw%\" klicken.",
     "draw-short": "Initiative festlegen, \"%round.draw%\" klicken.",
     "next": "\"%round.next%\" klicken",
-    "setScenario": "%scenario%"
+    "setScenario": "%scenario.set%"
   },
   "menu": {
     "backToMain": "Zurück zum %menu.main%",
@@ -650,7 +650,7 @@
     "next": "Nächste Runde"
   },
   "scenario": {
-    ".": "Szenario auswählen",
+    ".": "Szenario",
     "cancel": "Szenario abbrechen",
     "conclusion": "Lösung",
     "custom": "Benutzerdefiniert",
@@ -722,6 +722,7 @@
       "spawnMarker": "Füge {2}%data.monster.{0}% (%game.monsterType.{1}%) an %game.mapMarker.{3}% hinzu",
       "won": "Szenario erfolgreich!"
     },
+    "set": "Szenario auswählen",
     "section": {
       ".": "Sektion",
       "add": "Sektion {1}#{0} öffnen?",

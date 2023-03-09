@@ -94,7 +94,7 @@
       "roomNumber": 2,
       "ref": "j1a",
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
         {
@@ -118,7 +118,7 @@
       "roomNumber": 3,
       "ref": "k2b",
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
         {
@@ -139,7 +139,7 @@
       "roomNumber": 4,
       "ref": "j2a",
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
         {
@@ -164,7 +164,7 @@
       "roomNumber": 5,
       "ref": "k1a",
       "treasures": [
-        null
+        "G"
       ],
       "monster": [
         {

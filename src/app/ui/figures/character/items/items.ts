@@ -26,7 +26,6 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.updateItems();
-        this.itemChange();
         gameManager.uiChange.subscribe({
             next: () => {
                 this.updateItems();
@@ -35,7 +34,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
         if (!this.itemEdition) {
             this.itemEdition = gameManager.currentEdition(this.character.edition);
         }
-        this.itemIndex = 1;
+        this.editionChange();
     }
 
     ngOnDestroy(): void {
@@ -80,6 +79,17 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
                 this.item = gameManager.item(this.itemIndex, this.itemEdition || this.character.edition);
             }
         });
+    }
+
+    editionChange() {
+        this.itemIndex = 1;
+        if (this.itemEdition) {
+            const editionData = gameManager.editionData.find((editionData) => editionData.edition == this.itemEdition);
+            if (editionData && editionData.items) {
+                this.itemIndex = Math.min(...editionData.items.map((itemData) => itemData.id));
+            }
+        }
+        this.itemChange();
     }
 
     canAdd(item: ItemData | undefined): boolean {

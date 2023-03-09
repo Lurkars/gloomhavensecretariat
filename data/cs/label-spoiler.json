@@ -15,6 +15,14 @@
       "tools": "Artificer",
       "tusks": "Chieftain",
       "vortex": "Hollowpact"
+    },
+    "treasures": {
+      "cs": {
+        "4": "Recover one lost card",
+        "6": "Gdisarm all adjacent traps",
+        "19": "generate a Wild Element",
+        "43": "Refresh all spent items"
+      }
     }
   }
 }

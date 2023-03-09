@@ -29,7 +29,7 @@
                 src="./assets/images/left.svg"></span>
         <input type="number" (change)="itemChange()" [(ngModel)]="itemIndex" min="1" value="1"
             [ngClass]="{ 'error': !item}">
-        <select [(ngModel)]="itemEdition" (change)="itemChange()" [ngClass]="{'error': !item}">
+        <select [(ngModel)]="itemEdition" (change)="editionChange()" [ngClass]="{'error': !item}">
             <option *ngFor="let edition of gameManager.editions()" [value]="edition">{{'data.edition.' + edition |
                 ghsLabel}}</option>
         </select>
@@ -48,11 +48,8 @@
                 (click)="craftItem(item)"
                 [ngClass]="{'disabled' : !canAdd(item) || !canCraft(item), 'warn' : !canAdd(item)}">
                 <ng-container *ngIf="item.requiredItems">
-                    <span class="item" *ngFor="let requiredItem of item.requiredItems">
-                        <span *ngIf="requiredItem < 100">0</span>
-                        <span *ngIf="requiredItem < 10">0</span>
-                        {{requiredItem}}
-                    </span>
+                    <span class="item placeholder" [i18n]="'%data.itemFh.' + requiredItem + '%'"
+                        *ngFor="let requiredItem of item.requiredItems"> </span>
                 </ng-container>
                 <ng-container *ngIf="item.resources">
                     <span class="resource" *ngFor="let resource of item.resources | keyvalue">

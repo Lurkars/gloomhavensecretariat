@@ -3,7 +3,7 @@
     <div class="scenario" *ngIf="gameManager.game.scenario">
       <span *ngIf="gameManager.game.scenario.index" class="index">#{{gameManager.game.scenario.index}}</span>
       <span *ngIf="gameManager.game.scenario" class="name">{{(gameManager.game.scenario.name ? 'data.scenario.' +
-        gameManager.game.scenario.name : (gameManager.game.scenario.custom ? 'scenario.custom' : 'scenario')) |
+        gameManager.game.scenario.name : (gameManager.game.scenario.custom ? 'scenario.custom' : 'scenario.set')) |
         ghsLabel}}</span>
       <span class="treasures" (click)="openTreasures($event)"
         *ngIf="gameManager.scenarioManager.getTreasures(gameManager.game.scenario, gameManager.game.sections).length > 0"

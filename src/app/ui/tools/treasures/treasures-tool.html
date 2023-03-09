@@ -1,0 +1,21 @@
+<div class="container">
+  <ghs-header [standalone]="true"></ghs-header>
+
+  <div class="menu">
+    <label>
+      {{'settings.edition' | ghsLabel}}
+      <select [(ngModel)]="edition" (change)="update(); updateQueryParams()">
+        <option *ngFor="let edition of gameManager.editions(true)" [value]="edition">{{'data.edition.' + edition |
+          ghsLabel}}</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="treasures" *ngIf="edition">
+    <div class="treasure" *ngFor="let treasure of treasures">
+      <span class="index">{{treasure.index}}</span>
+
+      <ghs-treasure-label class="placeholder text-white" [treasure]="treasure" [edition]="edition"></ghs-treasure-label>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
-import { Dialog, DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
-import { Component, Inject } from "@angular/core";
+import { DialogRef } from "@angular/cdk/dialog";
+import { Component } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { Character } from "src/app/game/model/Character";
 import { Identifier } from "src/app/game/model/Identifier";
@@ -45,7 +45,14 @@ export class ScenarioTreasuresDialogComponent {
         this.treasures = gameManager.scenarioManager.getTreasures(this.scenario, gameManager.game.sections);
         this.looted = [];
         this.treasures.forEach((treasure, index) => {
-            if (this.looted.indexOf(index) == -1 && (treasure != 'G' && this.characters.some((character) => character.treasures.indexOf(treasure) != -1) || treasure == 'G' && this.characters.some((character) => character.treasures.indexOf('G-' + index) != -1) || gameManager.game.party.treasures.indexOf(new Identifier('' + treasure, this.scenario.edition)) != -1)) {
+            if (this.looted.indexOf(index) == -1 &&
+
+                (treasure != 'G' &&
+                    (this.characters.some((character) => character.treasures.indexOf(treasure) != -1)
+                        ||
+                        gameManager.game.party.treasures.find((identifier) => identifier.name == '' + treasure && identifier.edition == this.scenario.edition))
+
+                    || treasure == 'G' && this.characters.some((character) => character.treasures.indexOf('G-' + index) != -1))) {
                 this.looted.push(index);
             }
         })
@@ -70,10 +77,10 @@ export class ScenarioTreasuresDialogComponent {
 
     removeTreasure(character: Character, treasure: string | number) {
         if (typeof treasure === 'number') {
-            gameManager.stateManager.before('removeTresure', '' + treasure, this.scenario.edition);
+            gameManager.stateManager.before('removeCharTresure', '' + treasure, this.scenario.edition, "data.character." + character.name);
             this.looted.splice(this.treasures.indexOf(treasure), 1);
         } else {
-            gameManager.stateManager.before('removeTresure', 'G', this.scenario.edition);
+            gameManager.stateManager.before('removeCharTresure', 'G', this.scenario.edition);
             this.looted.splice(+treasure.replace('G-', ''), 1);
         }
         character.treasures.splice(character.treasures.indexOf(treasure), 1);
@@ -84,7 +91,7 @@ export class ScenarioTreasuresDialogComponent {
         if (this.treasureIndex != -1) {
             const treasure = this.treasures[this.treasureIndex];
             if (this.character && treasure && this.character.treasures.indexOf(treasure == 'G' ? 'G-' + this.treasureIndex : treasure) == -1) {
-                gameManager.stateManager.before('lootTreasure', '' + treasure, this.scenario.edition);
+                gameManager.stateManager.before('lootCharTreasure', '' + treasure, this.scenario.edition, "data.character." + this.character.name);
                 this.looted.push(this.treasureIndex);
                 this.character.treasures = this.character.treasures || [];
                 this.character.treasures.push(treasure == 'G' ? 'G-' + this.treasureIndex : treasure);

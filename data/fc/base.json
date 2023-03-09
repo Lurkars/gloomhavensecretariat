@@ -13,5 +13,6 @@
   "edition": "fc",
   "extensions": [
     "gh"
-  ]
+  ],
+  "treasureOffset": 75
 }

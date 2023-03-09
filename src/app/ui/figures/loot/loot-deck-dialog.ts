@@ -148,6 +148,11 @@ export class LootDeckDialogComponent implements OnInit {
   shuffle(): void {
     this.before.emit(new LootDeckChange(this.deck, 'lootDeckShuffle'));
     gameManager.lootManager.shuffleDeck(this.deck);
+    gameManager.game.figures.forEach((figure) => {
+      if (figure instanceof Character) {
+        figure.lootCards = [];
+      }
+    })
     this.after.emit(new LootDeckChange(this.deck, 'lootDeckShuffle'));
   }
 
@@ -157,11 +162,34 @@ export class LootDeckDialogComponent implements OnInit {
     if (event.container == event.previousContainer) {
       const offset = this.deck.current + 1;
       moveItemInArray(this.deck.cards, event.previousIndex + offset, event.currentIndex + offset);
+      gameManager.game.figures.forEach((figure) => {
+        if (figure instanceof Character) {
+          const prevIndex = figure.lootCards.indexOf(event.previousIndex + offset);
+          if (prevIndex != -1) {
+            figure.lootCards[prevIndex] = event.currentIndex + offset;
+          }
+        }
+      })
     } else {
       const offset = this.deck.current;
       moveItemInArray(this.deck.cards, offset - event.previousIndex, event.currentIndex + offset);
+      gameManager.game.figures.forEach((figure) => {
+        if (figure instanceof Character) {
+          const prevIndex = figure.lootCards.indexOf(offset - event.previousIndex);
+          if (prevIndex != -1) {
+            figure.lootCards[prevIndex] = event.currentIndex + offset;
+          }
+        }
+      })
       this.deck.current = this.deck.current - 1;
     }
+
+    gameManager.game.figures.forEach((figure) => {
+      if (figure instanceof Character) {
+        figure.lootCards = figure.lootCards.filter((value) => value <= this.deck.current);
+      }
+    })
+
     this.after.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
   }
 
@@ -169,10 +197,26 @@ export class LootDeckDialogComponent implements OnInit {
     this.before.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
     if (event.container == event.previousContainer) {
       moveItemInArray(this.deck.cards, this.deck.current - event.previousIndex, this.deck.current - event.currentIndex);
+      gameManager.game.figures.forEach((figure) => {
+        if (figure instanceof Character) {
+          const prevIndex = figure.lootCards.indexOf(this.deck.current - event.previousIndex);
+          if (prevIndex != -1) {
+            figure.lootCards[prevIndex] = this.deck.current - event.currentIndex;
+          }
+        }
+      })
     } else {
       this.deck.current = this.deck.current + 1;
       const offset = this.deck.current;
       moveItemInArray(this.deck.cards, event.previousIndex + offset, offset - event.currentIndex);
+      gameManager.game.figures.forEach((figure) => {
+        if (figure instanceof Character) {
+          const prevIndex = figure.lootCards.indexOf(event.previousIndex + offset);
+          if (prevIndex != -1) {
+            figure.lootCards[prevIndex] = offset - event.currentIndex;
+          }
+        }
+      })
     }
     this.after.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
   }

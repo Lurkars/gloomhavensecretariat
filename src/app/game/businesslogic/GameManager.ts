@@ -155,7 +155,11 @@ export class GameManager {
   }
 
   item(id: number, edition: string): ItemData | undefined {
-    return this.itemData().find((itemData) => itemData && itemData.id == id && (itemData.edition == edition || this.editionExtensions(edition).indexOf(itemData.edition) != -1));
+    let item = this.itemData(edition).find((itemData) => itemData && itemData.id == id && itemData.edition == edition);
+    if (!item) {
+      item = this.itemData().find((itemData) => itemData && itemData.id == id && this.editionExtensions(edition).indexOf(itemData.edition) != -1);
+    }
+    return item;
   }
 
   maxItemIndex(edition: string): number {

@@ -1,6 +1,9 @@
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
 import { Character } from "../model/Character";
+import { ConditionName } from "../model/Condition";
+import { TreasureData, TreasureReward } from "../model/data/RoomData";
 import { Game } from "../model/Game";
+import { Identifier } from "../model/Identifier";
 import { appliableLootTypes, fullLootDeck, Loot, LootDeck, LootDeckConfig, LootType } from "../model/Loot";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
@@ -45,6 +48,119 @@ export class LootManager {
       if (current + value >= 0) {
         character.progress.loot[loot.type] = current + value;
       }
+    }
+  }
+
+  lootTreasure(character: Character, index: number, edition: string) {
+    const editionData = gameManager.editionData.find((editionData) => editionData.edition == edition);
+    if (editionData && editionData.treasures) {
+      index = index - (editionData.treasureOffset || 0);
+      if (index >= 0 && index < editionData.treasures.length) {
+        const tresureString = editionData.treasures[index];
+        const treasure = new TreasureData(tresureString, index);
+        if (treasure.rewards) {
+          treasure.rewards.forEach((reward) => {
+            this.applyTreasureReward(character, reward, edition)
+          });
+        }
+      } else {
+        console.warn("Invalid treasure index: '" + index + "' for Edition " + edition);
+      }
+    }
+
+  }
+
+  applyTreasureReward(character: Character, reward: TreasureReward, edition: string) {
+    switch (reward.type) {
+      case "gold":
+      case "goldFh":
+        if (typeof reward.value === 'number') {
+          character.progress.gold += reward.value;
+        }
+        break;
+      case "experience":
+      case "experienceFh":
+        if (typeof reward.value === 'number') {
+          character.progress.experience += reward.value;
+        }
+        break;
+      case "battleGoal":
+        if (typeof reward.value === 'number') {
+          character.progress.battleGoals += reward.value;
+        }
+        break;
+      case "damage":
+        if (typeof reward.value === 'number') {
+          character.health -= reward.value;
+        } else if (reward.value == "terrain") {
+          character.health -= gameManager.levelManager.terrain();
+        }
+        if (character.health <= 0) {
+          character.exhausted = true;
+          character.off = true;
+          character.active = false;
+        }
+        break;
+      case "heal":
+        if (typeof reward.value === 'number') {
+          character.health += reward.value;
+          if (character.health > character.maxHealth) {
+            character.health = character.maxHealth;
+          }
+        }
+        break;
+      case "loot":
+        if (typeof reward.value === 'number') {
+          character.loot += reward.value;
+        }
+        break;
+      case "condition":
+        if (typeof reward.value === 'string') {
+          reward.value.split('+').forEach((condition) => {
+            gameManager.entityManager.applyCondition(character, condition as ConditionName)
+          })
+        }
+        break;
+      case "item":
+      case "itemDesign":
+        if (reward.value) {
+          ('' + reward.value).split('+').forEach((itemValue) => {
+            let itemEdition = edition;
+            let itemId: number = -1
+            if (isNaN(+itemValue)) {
+              itemEdition = itemValue.split('-')[0];
+              itemId = +itemValue.split('-')[1]
+            } else {
+              itemId = +itemValue;
+            }
+            const item = gameManager.item(itemId, itemEdition);
+            if (item) {
+              const identifier = new Identifier('' + item.id, item.edition);
+              if (reward.type == "item") {
+                character.progress.items.push(identifier);
+                // TODO: sell duplicate item!
+              } else {
+                gameManager.game.party.unlockedItems.push(identifier);
+              }
+            }
+          })
+        }
+        break;
+      case "itemBlueprint":
+      case "itemFh":
+        if (reward.value) {
+          const item = gameManager.item(+reward.value, edition);
+          if (item) {
+            const identifier = new Identifier('' + item.id, item.edition);
+            if (reward.type == "itemFh") {
+              character.progress.items.push(identifier);
+              // TODO: sell duplicate item!
+            } else {
+              gameManager.game.party.unlockedItems.push(identifier);
+            }
+          }
+        }
+        break;
     }
   }
 

@@ -1,0 +1,20 @@
+[
+    "condition:bless|randomScenario",
+    "gold:15|randomScenario",
+    "item:102",
+    "item:107",
+    "gold:25|custom:%data.treasures.toa.55%",
+    "scenario:77",
+    "experience:10|randomItemDesign",
+    "item:105",
+    "gold:25|custom:%data.treasures.toa.59%",
+    "gold:25|custom:%data.treasures.toa.55%",
+    "condition:bless+bless|item:101",
+    "item:118",
+    "item:gh-49",
+    "condition:muddle|item:102",
+    "experience:10|event:city-61|custom:%data.treasures.toa.65%",
+    "item:106",
+    "item:101",
+    "gold:15|randomItemDesign"
+]

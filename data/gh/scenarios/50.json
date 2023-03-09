@@ -67,8 +67,8 @@
         3
       ],
       "treasures": [
-        null,
-        null
+        "G",
+        "G"
       ],
       "monster": [
         {
@@ -112,8 +112,8 @@
       "roomNumber": 3,
       "ref": "i1b",
       "treasures": [
-        null,
-        null
+        "G",
+        "G"
       ],
       "monster": [
         {

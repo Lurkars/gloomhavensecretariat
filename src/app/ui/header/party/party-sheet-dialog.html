@@ -446,7 +446,7 @@
                 <span class="checkbox"><img class="check" src="./assets/images/check.svg"><img class="close"
                     src="./assets/images/close.svg"></span>
                 <span class="text">
-                  <span [i18n]="'data.treasures.' + treasure.edition + '.' + treasure.name"></span>
+                  <ghs-treasure-label [edition]="treasure.edition" [index]="+treasure.name -1"></ghs-treasure-label>
                   <span *ngIf="!party.edition">[{{'data.edition.' +
                     treasure.edition |
                     ghsLabel}}]</span>

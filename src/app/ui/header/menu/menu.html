@@ -26,7 +26,7 @@
     <ng-container *ngIf="!standalone">
       <div class="line"
         [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">
-        <a (click)="setActive(SubMenu.scenario)">{{'scenario' | ghsLabel}}</a>
+        <a (click)="setActive(SubMenu.scenario)">{{'scenario.set' | ghsLabel}}</a>
       </div>
       <div class="line"
         [ngClass]="{'disabled' : !hasSections(), 'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.scenario}">

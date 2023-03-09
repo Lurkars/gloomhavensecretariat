@@ -36,8 +36,8 @@ export class AttackModifierToolComponent implements OnInit {
           this.edition = queryParams['edition'];
           if (this.edition && gameManager.editions(true).indexOf(this.edition) == -1) {
             this.edition == undefined;
-            update = true;
           }
+          update = true;
         }
         if (queryParams['characters']) {
           this.characterName = typeof queryParams['characters'] === 'string' ? [queryParams['characters']] : queryParams['characters'];

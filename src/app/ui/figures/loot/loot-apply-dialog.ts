@@ -13,9 +13,12 @@ export class LootApplyDialogComponent {
 
     gameManager: GameManager = gameManager;
     characters: Character[] = [];
-    selected: string = "";
+    selected: string;
+    loot: Loot;
 
-    constructor(@Inject(DIALOG_DATA) public loot: Loot, private dialogRef: DialogRef) {
+    constructor(@Inject(DIALOG_DATA) public data: { loot: Loot, selected: string | undefined }, private dialogRef: DialogRef) {
+        this.loot = data.loot;
+        this.selected = data.selected || "";
         this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent && !figure.exhausted && figure.health > 0).map((figure) => figure as Character);
     }
 

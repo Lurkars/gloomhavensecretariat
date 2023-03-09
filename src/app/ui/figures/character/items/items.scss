@@ -47,18 +47,6 @@
             }
 
             .item {
-                display: flex;
-                justify-content: flex-end;
-                align-items: center;
-                color: var(--ghs-color-white);
-                width: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
-                height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-                font-size: 1em;
-                padding-right: 0.2em;
-                background-image: url('~/src/assets/images/items/required.svg');
-                background-position: top center;
-                background-repeat: no-repeat;
-                background-size: contain;
                 margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
             }
         }

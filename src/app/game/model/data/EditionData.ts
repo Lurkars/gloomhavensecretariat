@@ -25,6 +25,8 @@ export class EditionData implements Editional {
   extensions: string[] = [];
   newAmStyle: boolean = false;
   campaign: CampaignData | undefined;
+  treasures: string[] = [];
+  treasureOffset: number = 0;
 
   constructor(edition: string, characters: CharacterData[],
     monsters: MonsterData[],

@@ -134,27 +134,6 @@
           "1": "All adjacent enemies suffer %game.damage:1%"
         }
       }
-    },
-    "treasures": {
-      "jotl": {
-        "1": "Gain 10 experience",
-        "2": "'Ring of Strength' (Item 31)",
-        "3": "Gain 15 experience",
-        "4": "Gain 5 gold",
-        "5": "Gain 1 ✔",
-        "6": "Gain 10 gold",
-        "7": "Gain 5 gold",
-        "8": "Suffer %game.damage:3%, gain {POISON}",
-        "9": "Gain 5 gold",
-        "10": "'Fateful Compass' (Item 27)",
-        "11": "'Ring of Haste' (Item 30)",
-        "12": "Gain 5 gold",
-        "13": "Gain 5 gold",
-        "14": "Gain 3 money tokens",
-        "15": "Gain 1 ✔",
-        "16": "'Mana Potion' (Item 14)",
-        "X": "'Ring of Restoration' (Item 32)"
-      }
     }
   },
   "de": {
@@ -633,27 +612,6 @@
         "demolitionist": {
           "1": "인접한 모든 적이 피해 %game.damage:1%점을 입는다."
         }
-      }
-    },
-    "treasures": {
-      "jotl": {
-        "1": "경험치 10 획득",
-        "2": "'31번 아이템' 획득",
-        "3": "경험치 15 획득",
-        "4": "금화 5개 획득",
-        "5": "✔ 1개 획득",
-        "6": "금화 10개 획득",
-        "7": "금화 5개 획득",
-        "8": "피해 %game.damage:3%점 입고 {POISON} 상태가 됨",
-        "9": "금화 5개 획득",
-        "10": "'27번 아이템' 획득",
-        "11": "'30번 아이템' 획득",
-        "12": "금화 5개 획득",
-        "13": "금화 5개 획득",
-        "14": "돈 토큰 3개 획득",
-        "15": "✔ 1개 획득",
-        "16": "'14번 아이템' 획득",
-        "X": "'32번 아이템' 획득"
       }
     }
   }

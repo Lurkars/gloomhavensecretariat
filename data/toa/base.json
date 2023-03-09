@@ -20,5 +20,6 @@
   "newAmStyle": true,
   "extensions": [
     "cs"
-  ]
+  ],
+  "treasureOffset": 50
 }

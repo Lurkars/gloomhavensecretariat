@@ -11,9 +11,11 @@
                 <span [i18n]="gameManager.lootManager.valueLabel(loot)"></span>&nbsp;{{'game.loot.' + loot.type |
                 ghsLabel}}
             </span>
-            <span class="character" *ngIf="character"
-                [ngClass]="{'with-header' : loot.type != LootType.money && loot.type != LootType.special1 && loot.type != LootType.special2}">
-                <img [src]="gameManager.characterManager.characterIcon(character)" />
+            <span class="character" (click)="changeCharacter()" *ngIf="looted"
+                [ngClass]="{'with-header' : loot.type != LootType.money && loot.type != LootType.special1 && loot.type != LootType.special2, 'edit': edit && settingsManager.settings.applyLoot}">
+                <img *ngIf="character" [src]="gameManager.characterManager.characterIcon(character)" />
+                <img class="warning" *ngIf="!character && settingsManager.settings.applyLoot"
+                    src="./assets/images/warning.svg" />
             </span>
             <span class="enhancements">
                 <img class="icon" src="./assets/images/fh/loot/plus1.svg"

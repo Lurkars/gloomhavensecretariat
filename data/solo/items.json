@@ -181,7 +181,7 @@
     "slot": "twohand"
   },
   {
-    "id": 198,
+    "id": 34,
     "name": "Claw Trap",
     "cost": 50,
     "count": 1,
@@ -191,7 +191,7 @@
     "spent": true
   },
   {
-    "id": 204,
+    "id": 40,
     "name": "Moonleather Boots",
     "cost": 50,
     "count": 1,
@@ -201,16 +201,7 @@
     "spent": true
   },
   {
-    "id": 205,
-    "name": "Spirit Libation",
-    "cost": 50,
-    "count": 1,
-    "solo": "skull",
-    "slot": "small",
-    "spent": true
-  },
-  {
-    "id": 206,
+    "id": 42,
     "name": "Robe of Soothing",
     "cost": 50,
     "count": 1,
@@ -219,7 +210,7 @@
     "slot": "body"
   },
   {
-    "id": 209,
+    "id": 45,
     "name": "Chain Cannon",
     "cost": 50,
     "count": 1,
@@ -229,7 +220,7 @@
     "spent": true
   },
   {
-    "id": 211,
+    "id": 47,
     "name": "Nature Armlets",
     "cost": 50,
     "count": 1,
@@ -238,7 +229,7 @@
     "slot": "onehand"
   },
   {
-    "id": 212,
+    "id": 48,
     "name": "Test Tube",
     "cost": 50,
     "count": 1,
@@ -248,7 +239,7 @@
     "spent": true
   },
   {
-    "id": 214,
+    "id": 50,
     "name": "Luminous Carapace",
     "cost": 50,
     "count": 1,
@@ -258,7 +249,7 @@
     "spent": true
   },
   {
-    "id": 215,
+    "id": 51,
     "name": "Flaming Armor",
     "cost": 50,
     "count": 1,
@@ -267,7 +258,7 @@
     "slot": "body"
   },
   {
-    "id": 217,
+    "id": 53,
     "name": "Field Mortar",
     "cost": 50,
     "count": 1,
@@ -276,7 +267,7 @@
     "slot": "small"
   },
   {
-    "id": 220,
+    "id": 56,
     "name": "Clamp Trap",
     "cost": 50,
     "count": 1,
@@ -286,7 +277,7 @@
     "spent": true
   },
   {
-    "id": 221,
+    "id": 57,
     "name": "Cleansed Voidheart",
     "cost": 50,
     "count": 1,
@@ -295,7 +286,7 @@
     "slot": "body"
   },
   {
-    "id": 267,
+    "id": 103,
     "name": "Steelsilk Spinneret",
     "cost": 50,
     "count": 1,
@@ -305,7 +296,7 @@
     "spent": true
   },
   {
-    "id": 273,
+    "id": 109,
     "name": "Auscudec of the Makers",
     "cost": 50,
     "count": 1,
@@ -315,7 +306,7 @@
     "spent": true
   },
   {
-    "id": 278,
+    "id": 114,
     "name": "Rite of Ruin",
     "cost": 40,
     "count": 1,

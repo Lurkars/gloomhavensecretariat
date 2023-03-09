@@ -1,0 +1,29 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  ghs-header {
+    z-index: 2;
+  }
+}
+
+.treasures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: auto;
+
+  .treasure {
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    background-color: var(--ghs-color-darkgray);
+    color: var(--ghs-color-white);
+    font-size: 2em;
+
+    .index {
+      margin-right: 5px;
+    }
+  }
+}
