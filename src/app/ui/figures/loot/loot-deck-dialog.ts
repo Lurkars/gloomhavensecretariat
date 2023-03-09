@@ -186,7 +186,7 @@ export class LootDeckDialogComponent implements OnInit {
             index = cur;
           }
           return index;
-        })
+        }).sort((a, b) => a - b);
       }
     })
 
@@ -228,7 +228,7 @@ export class LootDeckDialogComponent implements OnInit {
             index = cur;
           }
           return index;
-        })
+        }).sort((a, b) => a - b);
       }
     })
     this.after.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));

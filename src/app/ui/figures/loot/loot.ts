@@ -72,6 +72,7 @@ export class LootComponent implements OnInit, OnChanges {
                                 character.loot += gameManager.lootManager.getValue(this.loot);
                             }
                             character.lootCards.push(this.index);
+                            character.lootCards.sort((a, b) => a - b);
                             gameManager.stateManager.after();
                         }
                     }
