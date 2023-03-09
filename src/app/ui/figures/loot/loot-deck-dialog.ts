@@ -159,30 +159,36 @@ export class LootDeckDialogComponent implements OnInit {
 
   dropUpcoming(event: CdkDragDrop<Loot[]>) {
     this.before.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
+    let offset = 0;
+    let prev = 0;
+    let cur = 0;
     if (event.container == event.previousContainer) {
-      const offset = this.deck.current + 1;
-      moveItemInArray(this.deck.cards, event.previousIndex + offset, event.currentIndex + offset);
-      gameManager.game.figures.forEach((figure) => {
-        if (figure instanceof Character) {
-          const prevIndex = figure.lootCards.indexOf(event.previousIndex + offset);
-          if (prevIndex != -1) {
-            figure.lootCards[prevIndex] = event.currentIndex + offset;
-          }
-        }
-      })
+      offset = this.deck.current + 1;
+      prev = event.previousIndex + offset;
+      cur = event.currentIndex + offset;
+      moveItemInArray(this.deck.cards, prev, cur);
     } else {
-      const offset = this.deck.current;
-      moveItemInArray(this.deck.cards, offset - event.previousIndex, event.currentIndex + offset);
-      gameManager.game.figures.forEach((figure) => {
-        if (figure instanceof Character) {
-          const prevIndex = figure.lootCards.indexOf(offset - event.previousIndex);
-          if (prevIndex != -1) {
-            figure.lootCards[prevIndex] = event.currentIndex + offset;
-          }
-        }
-      })
+      offset = this.deck.current;
+      prev = offset - event.previousIndex;
+      cur = event.currentIndex + offset;
+      moveItemInArray(this.deck.cards, prev, cur);
       this.deck.current = this.deck.current - 1;
     }
+
+    gameManager.game.figures.forEach((figure) => {
+      if (figure instanceof Character && figure.lootCards) {
+        figure.lootCards = figure.lootCards.map((index) => {
+          if (prev < cur && index > prev && index <= cur) {
+            index--;
+          } else if (prev > cur && index >= cur && index < prev) {
+            index++;
+          } else if (index == prev) {
+            index = cur;
+          }
+          return index;
+        })
+      }
+    })
 
     gameManager.game.figures.forEach((figure) => {
       if (figure instanceof Character) {
@@ -195,29 +201,36 @@ export class LootDeckDialogComponent implements OnInit {
 
   dropDisgarded(event: CdkDragDrop<Loot[]>) {
     this.before.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
+    let offset = 0;
+    let prev = 0;
+    let cur = 0;
     if (event.container == event.previousContainer) {
-      moveItemInArray(this.deck.cards, this.deck.current - event.previousIndex, this.deck.current - event.currentIndex);
-      gameManager.game.figures.forEach((figure) => {
-        if (figure instanceof Character) {
-          const prevIndex = figure.lootCards.indexOf(this.deck.current - event.previousIndex);
-          if (prevIndex != -1) {
-            figure.lootCards[prevIndex] = this.deck.current - event.currentIndex;
-          }
-        }
-      })
+      offset = this.deck.current;
+      prev = offset - event.previousIndex;
+      cur = offset - event.currentIndex;
+      moveItemInArray(this.deck.cards, prev, cur);
     } else {
       this.deck.current = this.deck.current + 1;
-      const offset = this.deck.current;
-      moveItemInArray(this.deck.cards, event.previousIndex + offset, offset - event.currentIndex);
-      gameManager.game.figures.forEach((figure) => {
-        if (figure instanceof Character) {
-          const prevIndex = figure.lootCards.indexOf(event.previousIndex + offset);
-          if (prevIndex != -1) {
-            figure.lootCards[prevIndex] = offset - event.currentIndex;
-          }
-        }
-      })
+      offset = this.deck.current;
+      prev = offset + event.previousIndex;
+      cur = offset - event.currentIndex;
+      moveItemInArray(this.deck.cards, prev, cur);
     }
+
+    gameManager.game.figures.forEach((figure) => {
+      if (figure instanceof Character && figure.lootCards) {
+        figure.lootCards = figure.lootCards.map((index) => {
+          if (prev < cur && index > prev && index <= cur) {
+            index--;
+          } else if (prev > cur && index >= cur && index < prev) {
+            index++;
+          } else if (index == prev) {
+            index = cur;
+          }
+          return index;
+        })
+      }
+    })
     this.after.emit(new LootDeckChange(this.deck, 'lootDeckReorder'));
   }
 

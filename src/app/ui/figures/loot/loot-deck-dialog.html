@@ -63,7 +63,8 @@
         [cdkDropListAutoScrollStep]="20">
         <div class="empty" *ngIf="upcomingCards().length == 0"></div>
         <div class="loot-container" *ngFor="let loot of upcomingCards(); let index = index" cdkDrag>
-          <ghs-loot class="drag-hidden" [loot]="loot" [reveal]="true" [flipped]="reveal == 2">
+          <ghs-loot class="drag-hidden" [loot]="loot" [reveal]="true" [flipped]="reveal == 2"
+            [character]="getCharacter(deck.current + index +1)">
           </ghs-loot>
           <a class="button-remove" *ngIf="edit" (click)="remove(index + deck.current + 1)">
             <img class="ghs-svg" src="./assets/images/minus.svg"></a>
