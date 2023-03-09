@@ -14,6 +14,7 @@ import { LootApplyDialogComponent } from "./loot-apply-dialog";
 export class LootComponent implements OnInit, OnChanges {
 
     @Input() loot!: Loot;
+    @Input() index: number = -1;
     @Input() disableFlip: boolean = false;
     @Input() flipped: boolean = false;
     @Input() reveal: boolean = false;
@@ -27,13 +28,11 @@ export class LootComponent implements OnInit, OnChanges {
 
     revealed: boolean = false;
     animate: boolean = false;
-    index: number = -1;
 
     constructor(private dialog: Dialog) { }
 
     ngOnInit(): void {
         this.animate = !this.disableFlip;
-        this.index = gameManager.game.lootDeck.cards.indexOf(this.loot);
     }
 
     onChange(revealed: boolean) {
