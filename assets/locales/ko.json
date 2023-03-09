@@ -517,7 +517,7 @@
     "draw-full": "캐릭터 능력 카드를 골라 주도권을 설정하고, \"%round.draw%\" 버튼을 클릭하십시오.",
     "draw-short": "주도권을 설정하고, \"%round.draw%\" 버튼을 클릭하십시오.",
     "next": "\"%round.next%\" 버튼을 클릭하십시오.",
-    "setScenario": "%scenario%"
+    "setScenario": "%scenario.set%"
   },
   "menu": {
     "backToMain": "%menu.main% 화면으로 되돌아가기",
@@ -669,7 +669,7 @@
     "next": "다음 라운드로"
   },
   "scenario": {
-    ".": "시나리오 설정",
+    ".": "시나리오",
     "cancel": "시나리오 취소",
     "custom": "커스텀",
     "filter": "시나리오 검색",
@@ -719,6 +719,7 @@
       "cancel": "취소",
       "confirm": "확인"
     },
+    "set": "시나리오 설정",
     "summary": {
       ".": "시나리오 요약",
       "gold": "금화",

@@ -361,7 +361,7 @@
     "draw-full": "Choisissez les cartes de capacités des personnages, définissez l'initiative, puis cliquez sur \"%round.draw%\".",
     "draw-short": "Définissez l'initiative, puis cliquez sur \"%round.draw%\"",
     "next": "Cliquez sur \"%round.next%\"",
-    "setScenario": "%scenario%"
+    "setScenario": "%scenario.set%"
   },
   "menu": {
     "backToMain": "Revenir au %menu.main%",
@@ -502,7 +502,7 @@
     "next": "Round suivant"
   },
   "scenario": {
-    ".": "Choisir le scénario",
+    ".": "Scénario",
     "cancel": "Annuler le scénario",
     "custom": "Custom",
     "finish": {
@@ -517,6 +517,7 @@
       "index": "Numéros de scénario, séparés par une virgule"
     },
     "reset": "Recommencer le scénario",
+    "set": "Choisir le scénario",
     "summary": {
       ".": "Résumé du scénario",
       "gold": "Or",

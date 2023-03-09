@@ -451,6 +451,8 @@
     "health": "Hit points",
     "hp": "HP",
     "initiative": "Initiative",
+    "item": "Item",
+    "items": "Items",
     "level": {
       ".": "Level",
       "experience": "Bonus experience",
@@ -494,7 +496,39 @@
       "snowthistle": "Snowthistle",
       "special1": "Special Card 1 (#1418)",
       "special2": "Special Card 2 (#1419)",
-      "treasures": "Treasures"
+      "treasures": {
+        ".": "Treasures",
+        "rewards": {
+          "battleGoal": "gain {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
+          "calenderSection": "add <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/section.svg\"> {0} in %number.{1}% weeks",
+          "condition": "gain {0}",
+          "damage": "suffer {0}",
+          "event": {
+            "city": "add City Event {0} to the deck",
+            "rift": "add Rift Event {0} to the deck",
+            "road": "add Road Event {0} to the deck"
+          },
+          "experience": "gain {0} experience",
+          "experienceFh": "gain {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
+          "goal": "Goal",
+          "gold": "gain {0} gold",
+          "goldFh": "gain {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
+          "heal": "Perform \"Heal {0}, Self\"",
+          "item": "gain {1} ({0})",
+          "itemFh": "gain {1} %data.itemFh.{0}%",
+          "itemDesign": "gain {1} design ({0})",
+          "itemBlueprint": "gain {1} blueprint %data.itemFh.{0}%",
+          "loot": "gain {0} money tokens",
+          "lootCards": "gain %number.{0}% loot cards",
+          "partyAchievement": "Party Achievement: \"{0}\"",
+          "randomItem": "Gain one random item (Items {0})",
+          "randomItemBlueprint": "Random Item Blueprint",
+          "randomItemDesign": "Random Item Design",
+          "randomScenario": "Random Side Scenario",
+          "resource": "gain {0}",
+          "scenario": "New Scenario: {1} <span class=\"scenario-number\">{0}</span>"
+        }
+      }
     },
     "maxHealth": "Maximum hit points",
     "solo": "Solo",
@@ -554,7 +588,7 @@
     "draw-full": "Choose character ability cards, set initiative, click \"%round.draw%\".",
     "draw-short": "Set initiative, click \"%round.draw%\"",
     "next": "Click \"%round.next%\"",
-    "setScenario": "%scenario%"
+    "setScenario": "%scenario.set%"
   },
   "menu": {
     "backToMain": "Back to %menu.main%",
@@ -751,7 +785,7 @@
     "next": "Next Round"
   },
   "scenario": {
-    ".": "Set Scenario",
+    ".": "Scenario",
     "cancel": "Cancel Scenario",
     "conclusion": "Conclusion",
     "custom": "Custom",
@@ -831,6 +865,7 @@
       "confirm": "Confirm",
       "conclusion": "Finish scenario with {0}?"
     },
+    "set": "Set Scenario",
     "summary": {
       ".": "Scenario Summary",
       "alreadyWarning": {
@@ -1177,6 +1212,7 @@
       "addEntityMarker": "{2} marker to {0} standee {1}",
       "addItem": "Add Item {1} (%data.edition.{2}%) to {0}",
       "addManualScenario": "Unlock scenario #{0} {1} ({2})",
+      "addMastery": "Check mastery {1} for {0}",
       "addMonster": "Add monster {0}",
       "addNextStandee": "Add {1} {0} standee",
       "addObjective": "Add objective {0}",
@@ -1219,6 +1255,7 @@
       "changeXP": "XP {1} for {0}",
       "characterLongRest": "Set Long Rest for {0}",
       "characterLongRestOff": "Disable Long Rest for {0}",
+      "craftItem": "Craft Item {1} (%data.edition.{2}%) for {0}",
       "declineApplyCondition": {
         "char": "Decline apply {1} to {0}",
         "monsterEntities": "Decline apply {1} to all {2}{0}",
@@ -1262,6 +1299,7 @@
       "lootDeckReorder": "Reorder Loot deck",
       "lootDeckShow": "Show Loot deck",
       "lootDeckShuffle": "Shuffle Loot deck",
+      "lootCharTreasure": "{2} loots treasure {1} '%data.treasures.{0}.{1}%'",
       "moveResource": "Move {2} {1} from {0} to Frosthaven Supply",
       "monsterConsumeElement": "{0} consume {1}",
       "monsterDead": "Kill all {1}{0}",
@@ -1291,15 +1329,20 @@
       "removeEntityCurse": "Remove Curse from {0} standee {2}",
       "removeEntityCurses": "Remove {3} Curses from {0} standee {2}",
       "removeEntityMarker": "Remove {2} marker from {0} standee {1}",
+      "removeGlobalAchievements": "Remove global achievement {0}",
       "removeItem": "Remove Item {1} (%data.edition.{2}%) from {0}",
       "removeManualScenario": "Remove scenario #{0} {1} ({2}) from unlocked",
+      "removeMastery": "Uncheck mastery {1} for {0}",
       "removeMonster": "Remove monster {0}",
       "removeObjective": "Remove objective {0}",
       "removeParty": "Remove party '{0}'",
+      "removePartyAchievements": "Remove party achievement {0}",
       "removePartyTownGuardPerkSection": "Remove Town Guard Perk Section {1}",
       "removePartyWeekSection": "Remove section {2} from week {1}",
+      "removePlayer": "Remove Player {1} ({0})",
       "removeScenarioRule": "Remove scenario rule",
       "removeTreasure": "Remove treasure {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
+      "removeCharTreasure": "Remove treasure {1} '%data.treasures.{0}.{1}%' for {2}",
       "reorder": "Reorder figures",
       "reorderAbilities": "Reorder abilities of {0}",
       "resetScenario": "Reset scenario #{0} {1} ({2})",
@@ -1344,6 +1387,8 @@
       "setPartyTownGuardPerks": "Town Guard Perks to {0}",
       "setPartyWeeks": "Weeks to {0}",
       "setPerk": "Perk {1} to {2} for {0}",
+      "setPlayer": "Set Player {1} to {0}",
+      "setPlayerNumber": "Set Playernumber {1} for {0}",
       "setPQ": "Personal Quest {1} for {0} ",
       "setResource": "Set {1} {2} for {0}",
       "setRetired": "{0} retired {1}",
@@ -1358,6 +1403,7 @@
       "summonDead": "Kill summon '{1}' of {0}",
       "summonInactive": "Summon '{1}' von {0} inactive",
       "startCampaign": "Start a new {0} campaign",
+      "toggleTypeAll": "Toggle all monster standee types for {0}",
       "unequipItem": "Deoposit Item {1} (%data.edition.{2}%) for {0}",
       "unsetAbsent": "{0} present",
       "unsetActive": "End turn of {0}",
@@ -1384,8 +1430,10 @@
       },
       "updateBonusAdjustment": "Bonuses adjustment {0}",
       "updateElement": "Element {0} {1}",
+      "updateGlobalAchievements": "Global achievement to {0}",
       "updateLevelAdjustment": "Level adjustment {0}",
-      "updateManualPlayerCount": "Set manual player count to {0}"
+      "updateManualPlayerCount": "Set manual player count to {0}",
+      "updatePartyAchievements": "Party achievement to {0}"
     },
     "redo": "Redo",
     "reset": "Reset",
