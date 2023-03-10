@@ -124,8 +124,7 @@ export class EntityMenuDialogComponent {
   }
 
   afterAttackModifierDeck(change: AttackModiferDeckChange) {
-    let attackModifierDeck = this.attackModifierDeck();
-    attackModifierDeck = change.deck;
+    this.attackModifierDeck().merge(change.deck);
     gameManager.stateManager.after();
   }
 
@@ -147,28 +146,12 @@ export class EntityMenuDialogComponent {
     }).length;
   }
 
-  countAllUpcomingAttackModifier(type: AttackModifierType) {
-    if (this.data.entity instanceof Character) {
-      let count = 0;
-      gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => (figure as Character)).forEach((character) => {
-        count += character.attackModifierDeck.cards.filter((attackModifier, index) => {
-          return attackModifier.type == type && index > character.attackModifierDeck.current;
-        }).length
-      })
-      return count;
-    } else {
-      return this.countUpcomingAttackModifier(type);
-    }
-  }
-
   changeAttackModifier(type: AttackModifierType, value: number) {
     if (value > 0) {
-      const existing = this.countAllUpcomingAttackModifier(type);
-      if (existing == 10) {
+      if (type == AttackModifierType.bless && gameManager.attackModifierManager.countUpcomingBlesses() >= 10) {
         return;
-      }
-      if (value + existing >= 10) {
-        value = 10 - existing;
+      } else if (type == AttackModifierType.curse && gameManager.attackModifierManager.countUpcomingCurses(this.data.figure instanceof Monster && !this.data.figure.isAlly) >= 10) {
+        return;
       }
       for (let i = 0; i < value; i++) {
         gameManager.attackModifierManager.addModifier(this.attackModifierDeck(), new AttackModifier(type));
@@ -190,7 +173,7 @@ export class EntityMenuDialogComponent {
   changeBless(value: number) {
     if (this.data.figure instanceof Character || this.data.figure instanceof Monster) {
       this.bless += value;
-      const existing = this.countAllUpcomingAttackModifier(AttackModifierType.bless);
+      const existing = gameManager.attackModifierManager.countUpcomingBlesses();
       if (this.bless + existing >= 10) {
         this.bless = 10 - existing;
       } else if (this.bless + existing < 0) {
@@ -202,7 +185,7 @@ export class EntityMenuDialogComponent {
   changeCurse(value: number) {
     if (this.data.figure instanceof Character || this.data.figure instanceof Monster) {
       this.curse += value;
-      const existing = this.countAllUpcomingAttackModifier(AttackModifierType.curse);
+      const existing = gameManager.attackModifierManager.countUpcomingCurses(this.data.figure instanceof Monster && !this.data.figure.isAlly);
       if (this.curse + existing >= 10) {
         this.curse = 10 - existing;
       } else if (this.curse + existing < 0) {
@@ -221,7 +204,7 @@ export class EntityMenuDialogComponent {
   changeEmpower(value: number) {
     if (this.data.figure instanceof Character) {
       this.empower += value;
-      const existing = this.countAllUpcomingAttackModifier(AttackModifierType.empower);
+      const existing = this.countUpcomingAttackModifier(AttackModifierType.empower);
       const count_all = this.countAdditional(AttackModifierType.empower);
       if (this.empower + existing >= count_all) {
         this.empower = count_all - existing;
@@ -234,7 +217,7 @@ export class EntityMenuDialogComponent {
   changeEnfeeble(value: number) {
     if (this.data.figure instanceof Character) {
       this.enfeeble += value;
-      const existing = this.countAllUpcomingAttackModifier(AttackModifierType.enfeeble);
+      const existing = this.countUpcomingAttackModifier(AttackModifierType.enfeeble);
       const count_all = this.countAdditional(AttackModifierType.enfeeble);
       if (this.enfeeble + existing >= count_all) {
         this.enfeeble = count_all - existing;
@@ -777,7 +760,6 @@ export class EntityMenuDialogComponent {
 
       if (this.health != 0) {
         gameManager.stateManager.before("changeHP", this.data.entity.title || this.data.entity.name || this.data.entity.escort ? 'escort' : 'objective', ghsValueSign(this.health));
-        const old = this.data.entity.health;
         gameManager.entityManager.changeHealth(this.data.entity, this.health);
         if (this.data.entity.health <= 0 || this.data.entity.exhausted && this.health >= 0 && this.data.entity.health > 0) {
           this.exhausted();

@@ -10,8 +10,6 @@ import { SummonState } from "../model/Summon";
 import { settingsManager } from "./SettingsManager";
 import { FigureError, FigureErrorType } from "../model/FigureError";
 import { ConditionType, EntityConditionState } from "../model/Condition";
-import { Scenario } from "../model/Scenario";
-import { ScenarioData } from "../model/data/ScenarioData";
 import { EntityValueFunction } from "../model/Entity";
 import { ghsShuffleArray } from "src/app/ui/helper/Static";
 

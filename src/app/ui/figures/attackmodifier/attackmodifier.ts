@@ -1,6 +1,4 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from "@angular/core";
-import { elementAt } from "rxjs";
-import { Action } from "rxjs/internal/scheduler/Action";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { AttackModifier, AttackModifierEffect, AttackModifierEffectType, AttackModifierType, AttackModifierValueType } from "src/app/game/model/AttackModifier";
 
@@ -14,6 +12,7 @@ export class AttackModifierComponent implements OnInit, OnChanges {
 
   @Input() attackModifier!: AttackModifier;
   @Input() characterIcon!: string;
+  @Input() ally: boolean = false;
   @Input() numeration: string = "";
   @Input() number: number = 0;
   @Input() reveal: boolean = false;

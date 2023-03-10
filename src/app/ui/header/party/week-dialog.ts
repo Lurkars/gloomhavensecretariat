@@ -1,5 +1,5 @@
-import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
-import { Component, Inject, OnInit } from "@angular/core";
+import { DIALOG_DATA } from "@angular/cdk/dialog";
+import { Component, Inject } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { CampaignData } from "src/app/game/model/data/EditionData";
 
@@ -12,7 +12,7 @@ export class PartyWeekDialogComponent {
 
     gameManager: GameManager = gameManager;
 
-    constructor(@Inject(DIALOG_DATA) public week: number, private dialogRef: DialogRef) { }
+    constructor(@Inject(DIALOG_DATA) public week: number) { }
 
     campaignData(): CampaignData | undefined {
         const editionData = gameManager.editionData.find((editionData) => editionData.edition == gameManager.currentEdition());

@@ -57,18 +57,19 @@
       <div class="type cs-oak" *ngIf="csOak">
         <img src="./assets/images/attackmodifier/cs-oak.png" />
       </div>
-      
+
       <img class="overlay custom" src="./assets/images/attackmodifier/overlays/custom.png">
       <img class="overlay custom-fh" src="./assets/images/attackmodifier/overlays/custom-fh.png">
       <img class="overlay" [ngClass]="{'side' : newStyle}"
         *ngIf="attackModifier.effects && attackModifier.effects.length > 0 && (attackModifier.type != AttackModifierType.plus0 && attackModifier.type != AttackModifierType.plus && attackModifier.type != AttackModifierType.minus || newStyle)"
         [src]="'./assets/images/attackmodifier/' + (newStyle ? 'icons/' : 'overlays/') + attackModifier.type + '.png'" />
       <img class="rolling" *ngIf="attackModifier.rolling" src="./assets/images/attackmodifier/rolling.svg" />
-      <span *ngIf="(!characterIcon || !attackModifier.character && attackModifier.type !=
-      AttackModifierType.curse) && attackModifier.type != AttackModifierType.bless && !csOak"
+      <span *ngIf="(!characterIcon && !ally || !attackModifier.character && attackModifier.type !=
+      AttackModifierType.curse) && attackModifier.type != AttackModifierType.bless && !csOak && attackModifier.type != AttackModifierType.minus1extra"
         class="numeration">{{numeration}}</span>
-      <span *ngIf="characterIcon && attackModifier.type ==
-        AttackModifierType.curse" class="numeration character-curse-icon">
+      <span *ngIf="(characterIcon || ally) && attackModifier.type ==
+        AttackModifierType.curse || attackModifier.type ==
+        AttackModifierType.minus1extra" class="numeration character-curse-icon">
         *
       </span>
       <span class="am-value" *ngIf="attackModifier.type == AttackModifierType.plus">+{{attackModifier.value}}</span>

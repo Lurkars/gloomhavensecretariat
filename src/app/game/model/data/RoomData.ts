@@ -47,7 +47,33 @@ export class TreasureData {
 
 }
 
-export type TreasureRewardType = "custom" | "gold" | "goldFh" | "experience" | "experienceFh" | "battleGoal" | "damage" | "condition" | "heal" | "item" | "itemFh" | "itemDesign" | "randomItem" | "randomItemDesign" | "itemBlueprint" | "randomItemBlueprint" | "scenario" | "randomScenario" | "partyAchievement" | "event" | "loot" | "lootCards" | "resource" | "campaignSticker" | "calenderSection";
+export enum TreasureRewardType {
+    custom = "custom",
+    gold = "gold",
+    goldFh = "goldFh",
+    experience = "experience",
+    experienceFh = "experienceFh",
+    battleGoal = "battleGoal",
+    damage = "damage",
+    condition = "condition",
+    heal = "heal",
+    item = "item",
+    itemFh = "itemFh",
+    itemDesign = "itemDesign",
+    randomItem = "randomItem",
+    randomItemDesign = "randomItemDesign",
+    itemBlueprint = "itemBlueprint",
+    randomItemBlueprint = "randomItemBlueprint",
+    scenario = "scenario",
+    randomScenario = "randomScenario",
+    partyAchievement = "partyAchievement",
+    event = "event",
+    loot = "loot",
+    lootCards = "lootCards",
+    resource = "resource",
+    campaignSticker = "campaignSticker",
+    calenderSection = "calenderSection"
+}
 
 export class TreasureReward {
 
@@ -66,7 +92,7 @@ export class TreasureReward {
                 }
             }
         } catch (e) {
-            this.type = "custom";
+            this.type = TreasureRewardType.custom;
             console.error("Invalid treasure reward string: '" + rewardString + "'");
         }
     }

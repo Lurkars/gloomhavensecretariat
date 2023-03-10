@@ -35,7 +35,7 @@ export class ScenarioSummaryComponent {
     items: number[][] = [];
     rewards: ScenarioRewards | undefined = undefined;
 
-    constructor(@Inject(DIALOG_DATA) private data: { scenario: Scenario, success: boolean, conclusion: ScenarioData | undefined }, private dialogRef: DialogRef) {
+    constructor(@Inject(DIALOG_DATA) data: { scenario: Scenario, success: boolean, conclusion: ScenarioData | undefined }, private dialogRef: DialogRef) {
         this.scenario = data.scenario;
         this.success = data.success;
         this.conclusion = data.conclusion;

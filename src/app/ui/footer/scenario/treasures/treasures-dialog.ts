@@ -2,7 +2,6 @@ import { DialogRef } from "@angular/cdk/dialog";
 import { Component } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { Character } from "src/app/game/model/Character";
-import { Identifier } from "src/app/game/model/Identifier";
 import { Scenario } from "src/app/game/model/Scenario";
 
 @Component({
@@ -22,7 +21,7 @@ export class ScenarioTreasuresDialogComponent {
     treasureIndex: number = -1;
     looted: number[] = [];
 
-    constructor(private dialogRef: DialogRef) {
+    constructor(dialogRef: DialogRef) {
         if (!gameManager.game.scenario) {
             dialogRef.close();
         } else {

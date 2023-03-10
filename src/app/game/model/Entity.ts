@@ -1,5 +1,4 @@
 import { gameManager } from "../businesslogic/GameManager";
-import { Character } from "./Character";
 import { EntityCondition } from "./Condition";
 
 export interface Entity {

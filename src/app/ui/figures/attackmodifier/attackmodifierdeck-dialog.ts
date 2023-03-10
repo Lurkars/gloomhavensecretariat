@@ -28,6 +28,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   edit: boolean = false;
   maxHeight: string = "";
   characterIcon: string = "";
+  ally: boolean = false;
   newStyle: boolean = false;
 
   AttackModifierType = AttackModifierType;
@@ -36,9 +37,10 @@ export class AttackModifierDeckDialogComponent implements OnInit {
   drawing: boolean = false;
 
 
-  constructor(@Inject(DIALOG_DATA) private data: { deck: AttackModifierDeck, character: Character, numeration: string, newStyle: boolean, before: EventEmitter<AttackModiferDeckChange>, after: EventEmitter<AttackModiferDeckChange> }, public dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) data: { deck: AttackModifierDeck, character: Character, ally: boolean, numeration: string, newStyle: boolean, before: EventEmitter<AttackModiferDeckChange>, after: EventEmitter<AttackModiferDeckChange> }, public dialogRef: DialogRef) {
     this.deck = data.deck;
     this.character = data.character;
+    this.ally = data.ally;
     this.numeration = data.numeration;
     this.newStyle = data.newStyle;
     this.before = data.before;
@@ -156,13 +158,6 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     this.after.emit(new AttackModiferDeckChange(this.deck, "addCardShuffled", "game.attackModifiers.types." + type));
   }
 
-  defaultMinus1(): number {
-    if (this.character) {
-      return gameManager.attackModifierManager.buildCharacterAttackModifierDeck(this.character).cards.filter((attackModifier) => attackModifier.type == AttackModifierType.minus1 && !attackModifier.character).length;
-    }
-    return 5;
-  }
-
   countAttackModifier(type: AttackModifierType): number {
     return this.deck.cards.filter((attackModifier) => {
       return attackModifier.type == type && !attackModifier.character;
@@ -181,12 +176,16 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     }).length;
   }
 
-
-  changeAttackModifier(type: AttackModifierType, value: number, limit: number = 10) {
+  changeAttackModifier(type: AttackModifierType, value: number) {
     if (value > 0) {
-      if (limit != -1 && this.countUpcomingAttackModifier(type) == limit) {
+      if (type == AttackModifierType.bless && gameManager.attackModifierManager.countUpcomingBlesses() >= 10) {
+        return;
+      } else if (type == AttackModifierType.curse && gameManager.attackModifierManager.countUpcomingCurses((!this.character && !this.ally)) >= 10) {
+        return;
+      } else if (type == AttackModifierType.minus1 && gameManager.attackModifierManager.countExtraMinus1() >= 15) {
         return;
       }
+
       gameManager.attackModifierManager.addModifier(this.deck, new AttackModifier(type));
     } else if (value < 0) {
       const card = this.deck.cards.find((attackModifier, index) => {
@@ -210,9 +209,9 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     this.after.emit(new AttackModiferDeckChange(this.deck, value < 0 ? "removeCurse" : "addCurse"));
   }
 
-  changeMinus1(value: number) {
+  changeMinus1Extra(value: number) {
     this.before.emit(new AttackModiferDeckChange(this.deck, value < 0 ? "removeMinus1" : "addMinus1"));
-    this.changeAttackModifier(AttackModifierType.minus1, value, -1);
+    this.changeAttackModifier(AttackModifierType.minus1extra, value);
     this.after.emit(new AttackModiferDeckChange(this.deck, value < 0 ? "removeMinus1" : "addMinus1"));
   }
 
@@ -230,7 +229,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
 
     this.type = Object.values(AttackModifierType)[index];
 
-    if ([AttackModifierType.plus, AttackModifierType.minus, AttackModifierType.invalid, AttackModifierType.plus3, AttackModifierType.plus4, AttackModifierType.empower, AttackModifierType.enfeeble].indexOf(this.type) != -1) {
+    if ([AttackModifierType.plus, AttackModifierType.minus, AttackModifierType.invalid, AttackModifierType.plus3, AttackModifierType.plus4, AttackModifierType.empower, AttackModifierType.enfeeble, AttackModifierType.success, AttackModifierType.wreck].indexOf(this.type) != -1) {
       this.changeType(prev);
     }
   }

@@ -146,7 +146,7 @@ export class MonsterNumberPickerDialog implements OnInit {
   entity: MonsterEntity | undefined;
   settingsManager: SettingsManager = settingsManager;
 
-  constructor(@Inject(DIALOG_DATA) private data: { monster: Monster, type: MonsterType, min: number, max: number, range: number[], entity: MonsterEntity | undefined }, private dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) data: { monster: Monster, type: MonsterType, min: number, max: number, range: number[], entity: MonsterEntity | undefined }, private dialogRef: DialogRef) {
     this.monster = data.monster;
     this.type = data.type;
     this.min = data.min;

@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Action, ActionType, ActionTypesIcons, ActionValueType } from 'src/app/game/model/Action';
-import { Condition, ConditionName, ConditionType } from 'src/app/game/model/Condition';
+import { Condition, ConditionType } from 'src/app/game/model/Condition';
 import { ElementState } from 'src/app/game/model/Element';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
+import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterStat } from 'src/app/game/model/MonsterStat';
 import { MonsterType } from 'src/app/game/model/MonsterType';
@@ -412,7 +413,7 @@ export class ActionComponent implements OnInit {
         gameManager.game.elementBoard.forEach((elementModel) => {
           if (elementModel.type == element && this.monster) {
             gameManager.stateManager.before("monsterInfuseElement", "data.monster." + this.monster.name, "game.element." + element);
-            elementModel.state = ElementState.new;
+            elementModel.state = gameManager.game.state == GameState.draw ? ElementState.new : ElementState.strong;
             gameManager.stateManager.after();
           }
         })

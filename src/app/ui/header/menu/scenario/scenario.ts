@@ -1,11 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { GameState } from "src/app/game/model/Game";
 import { GameScenarioModel, Scenario } from "src/app/game/model/Scenario";
 import { Spoilable, SpoilableMock } from "src/app/game/model/Spoilable";
-import { MainMenuComponent } from "../menu";
 
 @Component({
   selector: 'ghs-scenario-menu',

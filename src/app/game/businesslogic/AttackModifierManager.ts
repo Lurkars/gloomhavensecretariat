@@ -27,6 +27,69 @@ export class AttackModifierManager {
     return new AttackModifierDeck();
   }
 
+  countUpcomingBlesses(): number {
+    let count = 0;
+    if (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly)) {
+      count += gameManager.game.allyAttackModifierDeck.cards.filter((attackModifier, index) => {
+        return attackModifier.type == AttackModifierType.bless && index > gameManager.game.allyAttackModifierDeck.current;
+      }).length;
+    }
+
+    count += gameManager.game.monsterAttackModifierDeck.cards.filter((attackModifier, index) => {
+      return attackModifier.type == AttackModifierType.bless && index > gameManager.game.monsterAttackModifierDeck.current;
+    }).length;
+
+    gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => (figure as Character)).forEach((character) => {
+      count += character.attackModifierDeck.cards.filter((attackModifier, index) => {
+        return attackModifier.type == AttackModifierType.bless && index > character.attackModifierDeck.current;
+      }).length
+    })
+    return count;
+  }
+
+  countUpcomingCurses(isMonster: boolean): number {
+    if (isMonster) {
+      return gameManager.game.monsterAttackModifierDeck.cards.filter((attackModifier, index) => {
+        return attackModifier.type == AttackModifierType.curse && index > gameManager.game.monsterAttackModifierDeck.current;
+      }).length;
+    }
+
+    let count = 0;
+    if (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly)) {
+      count += gameManager.game.allyAttackModifierDeck.cards.filter((attackModifier, index) => {
+        return attackModifier.type == AttackModifierType.curse && index > gameManager.game.allyAttackModifierDeck.current;
+      }).length;
+    }
+
+    gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => (figure as Character)).forEach((character) => {
+      count += character.attackModifierDeck.cards.filter((attackModifier, index) => {
+        return attackModifier.type == AttackModifierType.curse && index > character.attackModifierDeck.current;
+      }).length
+    })
+    return count;
+  }
+
+  countExtraMinus1(): number {
+    let count = 0;
+    if (settingsManager.settings.alwaysAllyAttackModifierDeck || gameManager.fhRules() && gameManager.game.figures.some((figure) => figure instanceof Monster && figure.isAlly)) {
+      count += gameManager.game.allyAttackModifierDeck.cards.filter((attackModifier) => {
+        return attackModifier.type == AttackModifierType.minus1extra;
+      }).length;
+    }
+
+    count += gameManager.game.monsterAttackModifierDeck.cards.filter((attackModifier) => {
+      return attackModifier.type == AttackModifierType.minus1extra;
+    }).length;
+
+    gameManager.game.figures.filter((figure) => figure instanceof Character).map((figure) => (figure as Character)).forEach((character) => {
+      count += character.attackModifierDeck.cards.filter((attackModifier) => {
+        return attackModifier.type == AttackModifierType.minus1extra;
+      }).length;
+    });
+
+    return count;
+  }
+
   addModifier(attackModifierDeck: AttackModifierDeck, attackModifier: AttackModifier, index: number = -1) {
     if (index < 0 || index > attackModifierDeck.cards.length) {
       index = Math.floor(Math.random() * (attackModifierDeck.cards.length - attackModifierDeck.current)) + attackModifierDeck.current + 1;

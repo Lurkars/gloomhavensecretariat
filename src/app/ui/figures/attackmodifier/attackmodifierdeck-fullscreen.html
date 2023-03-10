@@ -16,8 +16,9 @@
     </div>
   </div>
   <div class="attack-modifierdeck-container" [ngClass]="{'vertical'  : vertical()}">
-    <ghs-attackmodifier-deck [deck]="deck" [character]="character" [numeration]="numeration" [fullscreen]="false"
-      [vertical]="vertical()" (before)="beforeAttackModifierDeck($event)" (after)="afterAttackModifierDeck($event)">
+    <ghs-attackmodifier-deck [deck]="deck" [character]="character" [ally]="ally" [numeration]="numeration"
+      [fullscreen]="false" [vertical]="vertical()" (before)="beforeAttackModifierDeck($event)"
+      (after)="afterAttackModifierDeck($event)">
     </ghs-attackmodifier-deck>
     <div class="close-container" (click)="dialogRef.close()"></div>
   </div>

@@ -26,7 +26,6 @@ export class TreasuresToolComponent implements OnInit {
 
     this.route.queryParams.subscribe({
       next: (queryParams) => {
-        let update = false;
         if (queryParams['edition']) {
           this.edition = queryParams['edition'];
           if (this.edition && gameManager.editions(true).indexOf(this.edition) == -1) {

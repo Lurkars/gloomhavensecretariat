@@ -30,7 +30,7 @@
 
   <div class="deck ally-deck" *ngIf="hasAllyAttackModifierDeck"
     [ngClass]="{'hidden' :  gameManager.game.lootDeck.active}">
-    <ghs-attackmodifier-deck [deck]="gameManager.game.allyAttackModifierDeck"
+    <ghs-attackmodifier-deck [deck]="gameManager.game.allyAttackModifierDeck" [ally]="true"
       (before)="beforeAllyAttackModifierDeck($event)" (after)="afterAllyAttackModifierDeck($event)" numeration="A"
       [bottom]="true"></ghs-attackmodifier-deck>
   </div>

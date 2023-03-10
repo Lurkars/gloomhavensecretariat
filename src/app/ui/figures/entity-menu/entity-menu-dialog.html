@@ -147,10 +147,14 @@
             <img src="./assets/images/status/bless.svg" />
           </span>
           <span class="badge bless-count">{{countUpcomingAttackModifier(AttackModifierType.bless) + this.bless}}</span>
+          <span class="warning-badge"
+            *ngIf="gameManager.attackModifierManager.countUpcomingBlesses() + this.bless > 10">
+            <img src="./assets/images/warning.svg" />
+          </span>
         </span>
         <span class="item">
           <ghs-drag-click class="button"
-            [ngClass]="{'disabled' : countAllUpcomingAttackModifier(AttackModifierType.bless) + this.bless >= 10 || isImmune(ConditionName.bless)}"
+            [ngClass]="{'disabled' : gameManager.attackModifierManager.countUpcomingBlesses() + this.bless >= 10 || isImmune(ConditionName.bless)}"
             (singleClick)="changeBless(1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </ghs-drag-click>
@@ -168,10 +172,14 @@
             <img src="./assets/images/status/curse.svg" />
           </span>
           <span class="badge curse-count">{{countUpcomingAttackModifier(AttackModifierType.curse) + this.curse}}</span>
+          <span class="warning-badge"
+            *ngIf="gameManager.attackModifierManager.countUpcomingCurses(gameManager.isMonster(data.figure) && !gameManager.toMonster(data.figure).isAlly) + this.curse > 10">
+            <img src="./assets/images/warning.svg" />
+          </span>
         </span>
         <span class="item">
           <ghs-drag-click class="button"
-            [ngClass]="{'disabled' : countAllUpcomingAttackModifier(AttackModifierType.curse) + this.curse >= 10 || isImmune(ConditionName.curse)}"
+            [ngClass]="{'disabled' : gameManager.attackModifierManager.countUpcomingCurses(gameManager.isMonster(data.figure) && !gameManager.toMonster(data.figure).isAlly) + this.curse >= 10 || isImmune(ConditionName.curse)}"
             (singleClick)="changeCurse(1)" [repeat]="true">
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </ghs-drag-click>
@@ -191,10 +199,14 @@
             </span>
             <span class="badge empower-count">{{countUpcomingAttackModifier(AttackModifierType.empower) +
               this.empower}}</span>
+            <span class="warning-badge"
+              *ngIf="countUpcomingAttackModifier(AttackModifierType.empower) + this.empower > this.countAdditional(AttackModifierType.empower)">
+              <img src="./assets/images/warning.svg" />
+            </span>
           </span>
           <span class="item">
             <ghs-drag-click class="button"
-              [ngClass]="{'disabled' : countAllUpcomingAttackModifier(AttackModifierType.empower) + this.empower >= this.countAdditional(AttackModifierType.empower)}"
+              [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.empower) + this.empower >= this.countAdditional(AttackModifierType.empower)}"
               (singleClick)="changeEmpower(1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/plus.svg">
             </ghs-drag-click>
@@ -215,10 +227,14 @@
             </span>
             <span class="badge enfeeble-count">{{countUpcomingAttackModifier(AttackModifierType.enfeeble) +
               this.enfeeble}}</span>
+            <span class="warning-badge"
+              *ngIf="countUpcomingAttackModifier(AttackModifierType.enfeeble) + this.enfeeble > this.countAdditional(AttackModifierType.enfeeble)">
+              <img src="./assets/images/warning.svg" />
+            </span>
           </span>
           <span class="item">
             <ghs-drag-click class="button"
-              [ngClass]="{'disabled' : countAllUpcomingAttackModifier(AttackModifierType.enfeeble) + this.enfeeble >= this.countAdditional(AttackModifierType.enfeeble)}"
+              [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.enfeeble) + this.enfeeble >= this.countAdditional(AttackModifierType.enfeeble)}"
               (singleClick)="changeEnfeeble(1)" [repeat]="true">
               <img class="ghs-svg" src="./assets/images/plus.svg">
             </ghs-drag-click>

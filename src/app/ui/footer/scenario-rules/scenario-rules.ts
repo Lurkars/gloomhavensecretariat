@@ -9,7 +9,7 @@ import { Entity, EntityValueFunction } from "src/app/game/model/Entity";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterType } from "src/app/game/model/MonsterType";
 import { Objective } from "src/app/game/model/Objective";
-import { Condition, ConditionName } from "src/app/game/model/Condition";
+import { Condition } from "src/app/game/model/Condition";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
 import { GameState } from "src/app/game/model/Game";
 import { AttackModifier, AttackModifierType } from "src/app/game/model/AttackModifier";

@@ -1,4 +1,3 @@
-import { query } from "@angular/animations";
 import { Dialog } from "@angular/cdk/dialog";
 import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";

@@ -97,7 +97,7 @@ export class MonsterEntityComponent {
         this.entity.number = number;
         gameManager.stateManager.after();
       } else {
-        const dialogRef = this.dialog.open(MonsterNumberPickerDialog, {
+        this.dialog.open(MonsterNumberPickerDialog, {
           panelClass: 'dialog',
           data: {
             monster: this.monster,

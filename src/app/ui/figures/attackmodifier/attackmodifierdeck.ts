@@ -32,6 +32,7 @@ export class AttackModifierDeckComponent implements OnInit {
 
   @Input('deck') deck!: AttackModifierDeck;
   @Input('character') character!: Character;
+  @Input() ally: boolean = false;
   @Input('numeration') numeration: string = "";
   @Input('bottom') bottom: boolean = false;
   @Output('before') before: EventEmitter<AttackModiferDeckChange> = new EventEmitter<AttackModiferDeckChange>();
@@ -168,6 +169,7 @@ export class AttackModifierDeckComponent implements OnInit {
       data: {
         deck: this.deck,
         character: this.character,
+        ally: this.ally,
         numeration: this.numeration,
         newStyle: this.newStyle,
         before: this.before,
@@ -223,6 +225,7 @@ export class AttackModifierDeckComponent implements OnInit {
         panelClass: 'dialog', data: {
           deck: this.deck,
           character: this.character,
+          ally: this.ally,
           numeration: this.numeration,
           newStyle: this.newStyle,
           before: this.before,

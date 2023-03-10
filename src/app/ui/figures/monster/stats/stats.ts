@@ -110,7 +110,7 @@ export class MonsterStatsComponent implements OnInit {
   }
 
   openEntityMenu(event: any): void {
-    const dialogRef = this.dialog.open(EntityMenuDialogComponent, {
+    this.dialog.open(EntityMenuDialogComponent, {
       panelClass: 'dialog',
       data: {
         entity: undefined,

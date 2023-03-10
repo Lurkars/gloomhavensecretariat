@@ -76,6 +76,18 @@
         font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
         text-shadow: var(--ghs-outline);
       }
+
+      .warning {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+
+        img {
+          filter: var(--ghs-filter-red);
+          height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+          width: auto;
+        }
+      }
     }
 
     input[type="checkbox"] {

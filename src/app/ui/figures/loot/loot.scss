@@ -44,11 +44,11 @@
         .character {
             position: absolute;
             top: 0;
-            right: 0;
+            left: 0;
             width: 100%;
             height: 20%;
             display: flex;
-            justify-content: flex-end;
+            justify-content: flex-start;
             align-items: center;
 
             &.with-header {
@@ -67,7 +67,7 @@
                 &.warning {
                     filter: var(--ghs-filter-red) var(--ghs-filter-outline);
                     height: 60%;
-                    margin-right: 5%;
+                    margin-left: 5%;
                 }
             }
         }

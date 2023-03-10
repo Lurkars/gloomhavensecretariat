@@ -18,7 +18,7 @@ export class AbilityDialogComponent implements OnInit {
 
   gameManager: GameManager = gameManager;
 
-  constructor(@Inject(DIALOG_DATA) private data: { ability: Ability, monster: Monster }, private dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) data: { ability: Ability, monster: Monster }, private dialogRef: DialogRef) {
     this.ability = data.ability;
     this.monster = data.monster;
   }

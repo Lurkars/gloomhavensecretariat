@@ -5,7 +5,8 @@
     "outDir": "./out-tsc/app",
     "types": [
       "dom-screen-wake-lock"
-    ]
+    ],
+    "noUnusedLocals": true
   },
   "files": [
     "src/main.ts"

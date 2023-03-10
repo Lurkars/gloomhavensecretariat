@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
-import { TreasureData, TreasureReward } from "src/app/game/model/data/RoomData";
+import { TreasureData, TreasureReward, TreasureRewardType } from "src/app/game/model/data/RoomData";
 
 @Component({
     selector: 'ghs-treasure-label',
@@ -41,27 +41,27 @@ export class TreasureLabelComponent implements OnInit {
         const value = '' + (reward.value || '');
 
         switch (reward.type) {
-            case "gold":
-            case "goldFh":
-            case "experience":
-            case "experienceFh":
-            case "battleGoal":
-            case "randomScenario":
-            case "randomItem":
-            case "randomItemDesign":
-            case "randomItemBlueprint":
-            case "partyAchievement":
-            case "campaignSticker":
-            case "heal":
-            case "loot":
-            case "lootCards":
+            case TreasureRewardType.gold:
+            case TreasureRewardType.goldFh:
+            case TreasureRewardType.experience:
+            case TreasureRewardType.experienceFh:
+            case TreasureRewardType.battleGoal:
+            case TreasureRewardType.randomScenario:
+            case TreasureRewardType.randomItem:
+            case TreasureRewardType.randomItemDesign:
+            case TreasureRewardType.randomItemBlueprint:
+            case TreasureRewardType.partyAchievement:
+            case TreasureRewardType.campaignSticker:
+            case TreasureRewardType.heal:
+            case TreasureRewardType.loot:
+            case TreasureRewardType.lootCards:
                 return [this.labelPrefix + reward.type, value]
-            case "damage":
+            case TreasureRewardType.damage:
                 if (value == "terrain") {
                     return [this.labelPrefix + reward.type, "%game.level.hazardousTerrain%"];
                 }
                 return [this.labelPrefix + reward.type, "%game.damage:" + value + "%"];
-            case "condition":
+            case TreasureRewardType.condition:
                 const conditions = value.split('+').map((condition) => "%game.condition." + condition + "%");
                 let conditionValue = conditions[0];
                 if (conditions.length > 1) {
@@ -69,13 +69,13 @@ export class TreasureLabelComponent implements OnInit {
                     conditionValue += ' %and% ' + (conditions[conditions.length - 1]);
                 }
                 return [this.labelPrefix + reward.type, conditionValue];
-            case "item":
-            case "itemDesign":
-                let itemIdValues: string[] = [];
-                let itemNameValues: string[] = [];
+            case TreasureRewardType.item:
+            case TreasureRewardType.itemDesign:
+                const itemIdValues: string[] = [];
+                const itemNameValues: string[] = [];
                 value.split('+').forEach((itemString) => {
                     let itemEdition = this.edition;
-                    let itemId: number = -1
+                    let itemId = -1
                     if (isNaN(+itemString)) {
                         itemEdition = itemString.split('-')[0];
                         itemId = +itemString.split('-')[1]
@@ -107,7 +107,7 @@ export class TreasureLabelComponent implements OnInit {
                 }
 
                 return [this.labelPrefix + reward.type, itemIdValue, itemNameValue];
-            case "itemBlueprint":
+            case TreasureRewardType.itemBlueprint:
                 const blueprintItem = gameManager.item(+value, this.edition);
                 if (blueprintItem) {
                     return [this.labelPrefix + reward.type, value, blueprintItem.name];
@@ -116,7 +116,7 @@ export class TreasureLabelComponent implements OnInit {
                     return [this.labelPrefix + reward.type, value, '<img class="icon ghs-svg" src="./assets/images/warning.svg"> %item%'];
                 }
                 break;
-            case "itemFh":
+            case TreasureRewardType.itemFh:
                 const itemFh = gameManager.item(+value, this.edition);
                 if (itemFh) {
                     return [this.labelPrefix + reward.type, value, itemFh.name];
@@ -125,7 +125,7 @@ export class TreasureLabelComponent implements OnInit {
                     return [this.labelPrefix + reward.type, value, '<img class="icon ghs-svg" src="./assets/images/warning.svg"> %item%'];
                 }
                 break;
-            case "scenario":
+            case TreasureRewardType.scenario:
                 const scenarioData = gameManager.scenarioManager.getScenario(value, this.edition, undefined);
                 if (scenarioData) {
                     return [this.labelPrefix + reward.type, scenarioData.index, 'data.scenario.' + scenarioData.name];
@@ -134,11 +134,11 @@ export class TreasureLabelComponent implements OnInit {
                     return [this.labelPrefix + reward.type, value, '<img class="icon ghs-svg" src="./assets/images/warning.svg"> %scenario%'];
                 }
                 break
-            case "event":
+            case TreasureRewardType.event:
                 const eventType = value.split('-')[0];
                 const eventValue = value.split('-')[1]
                 return [this.labelPrefix + reward.type + '.' + eventType, '' + eventValue]
-            case "resource":
+            case TreasureRewardType.resource:
                 const resources = value.split('+').map((resource) =>
                     resource.split("-")[1] + '<img class="icon ghs-svg" src="./assets/images/fh/loot/' + resource.split("-")[0] + '.svg">'
                 );
@@ -148,7 +148,7 @@ export class TreasureLabelComponent implements OnInit {
                     resourceValue += ' %and% ' + (resources[resources.length - 1]);
                 }
                 return [this.labelPrefix + reward.type, resourceValue];
-            case "calenderSection":
+            case TreasureRewardType.calenderSection:
                 if (value.split('-').length > 1) {
                     return [this.labelPrefix + reward.type, value.split('-')[0], value.split('-')[1]];
                 }

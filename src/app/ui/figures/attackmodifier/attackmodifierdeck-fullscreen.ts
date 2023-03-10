@@ -1,6 +1,5 @@
 import { DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
-import { Component, ElementRef, EventEmitter, Inject } from "@angular/core";
-import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
+import { Component, EventEmitter, Inject } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { AttackModifierDeck } from "src/app/game/model/AttackModifier";
 import { Character } from "src/app/game/model/Character";
@@ -15,6 +14,7 @@ export class AttackModifierDeckFullscreenComponent {
 
   deck: AttackModifierDeck;
   character: Character;
+  ally: boolean;
   numeration: string = "";
   newStyle: boolean = false;
   before: EventEmitter<AttackModiferDeckChange>;
@@ -22,9 +22,10 @@ export class AttackModifierDeckFullscreenComponent {
 
   gameManager: GameManager = gameManager;
 
-  constructor(@Inject(DIALOG_DATA) private data: { deck: AttackModifierDeck, character: Character, numeration: string, newStyle: boolean, before: EventEmitter<AttackModiferDeckChange>, after: EventEmitter<AttackModiferDeckChange> }, public dialogRef: DialogRef) {
+  constructor(@Inject(DIALOG_DATA) data: { deck: AttackModifierDeck, character: Character, ally: boolean, numeration: string, newStyle: boolean, before: EventEmitter<AttackModiferDeckChange>, after: EventEmitter<AttackModiferDeckChange> }, public dialogRef: DialogRef) {
     this.deck = data.deck;
     this.character = data.character;
+    this.ally = data.ally;
     this.numeration = data.numeration;
     this.newStyle = data.newStyle;
     this.before = data.before;

@@ -1,5 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from "@angular/core";
-import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
+import { Component, Input, ViewEncapsulation } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { ElementModel, ElementState } from "src/app/game/model/Element";
 import { GameState } from "src/app/game/model/Game";
@@ -10,7 +9,7 @@ import { GameState } from "src/app/game/model/Game";
   encapsulation: ViewEncapsulation.None,
   styleUrls: ['./element.scss']
 })
-export class ElementComponent  {
+export class ElementComponent {
 
   @Input() element!: ElementModel;
   gameManager: GameManager = gameManager;

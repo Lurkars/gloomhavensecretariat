@@ -27,11 +27,6 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
       }
 
       const type = split[1];
-      let quotes: boolean = false;
-
-      if (match.startsWith("\"") && match.endsWith("\"")) {
-        quotes = true;
-      }
 
       let replace: string = match;
       let image: string = '';

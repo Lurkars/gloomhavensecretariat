@@ -1,6 +1,6 @@
 import { Dialog, DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
 import { Overlay } from "@angular/cdk/overlay";
-import { Component, ElementRef, HostListener, Inject, Input, ViewChild } from "@angular/core";
+import { Component, ElementRef, HostListener, Inject, Input } from "@angular/core";
 import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";

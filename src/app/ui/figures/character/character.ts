@@ -264,6 +264,7 @@ export class CharacterComponent {
         data: {
           deck: this.character.attackModifierDeck,
           character: this.character,
+          ally: false,
           numeration: "" + this.character.number,
           before: before,
           after: after

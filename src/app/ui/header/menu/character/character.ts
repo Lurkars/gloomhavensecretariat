@@ -3,8 +3,6 @@ import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { CharacterData } from "src/app/game/model/data/CharacterData";
-import { ScenarioData } from "src/app/game/model/data/ScenarioData";
-import { GameState } from "src/app/game/model/Game";
 import { ghsHasSpoilers, ghsIsSpoiled, ghsNotSpoiled } from "src/app/ui/helper/Static";
 
 @Component({

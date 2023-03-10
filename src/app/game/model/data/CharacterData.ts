@@ -1,4 +1,3 @@
-import { AttackModifier } from "../AttackModifier";
 import { CharacterStat } from "../CharacterStat";
 import { Editional } from "../Editional";
 import { FigureError } from "../FigureError";

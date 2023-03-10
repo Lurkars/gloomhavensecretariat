@@ -13,6 +13,7 @@ export enum AttackModifierType {
   double = "double",
   bless = "bless",
   curse = "curse",
+  minus1extra = "minus1extra",
   empower = "empower",
   enfeeble = "enfeeble",
   invalid = "invalid",
@@ -95,6 +96,10 @@ export class AttackModifier {
         this.valueType = AttackModifierValueType.multiply;
         this.value = 0;
         break;
+      case AttackModifierType.minus1extra:
+        this.valueType = AttackModifierValueType.minus;
+        this.value = 1;
+        break;
       case AttackModifierType.wreck:
         this.valueType = AttackModifierValueType.minus;
         this.value = 0;
@@ -161,7 +166,8 @@ export const defaultAttackModifier: AttackModifier[] = [
   new AttackModifier(AttackModifierType.double),
   new AttackModifier(AttackModifierType.null),
   new AttackModifier(AttackModifierType.bless),
-  new AttackModifier(AttackModifierType.curse)
+  new AttackModifier(AttackModifierType.curse),
+  new AttackModifier(AttackModifierType.minus1extra)
 ];
 
 export const defaultAttackModifierCards: string[] = [
@@ -270,6 +276,13 @@ export class AttackModifierDeck {
 
     this.cards = model.cards.map((id) => this.cardById(id) || new AttackModifier(AttackModifierType.invalid));
     this.disgarded = model.disgarded || [];
+  }
+
+  merge(attackModifierDeck: AttackModifierDeck) {
+    this.attackModifiers = attackModifierDeck.attackModifiers;
+    this.current = attackModifierDeck.current;
+    this.cards = attackModifierDeck.cards;
+    this.disgarded = attackModifierDeck.disgarded;
   }
 }
 

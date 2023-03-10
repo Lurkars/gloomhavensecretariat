@@ -2,14 +2,13 @@ import { Component, Input, OnChanges } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Action } from "src/app/game/model/Action";
-import { Character } from "src/app/game/model/Character";
 import { MonsterStandeeData } from "src/app/game/model/data/RoomData";
 import { MonsterSpawnData } from "src/app/game/model/data/ScenarioRule";
 import { SummonData } from "src/app/game/model/data/SummonData";
 import { EntityValueFunction } from "src/app/game/model/Entity";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterType } from "src/app/game/model/MonsterType";
-import { Summon, SummonColor, SummonState } from "src/app/game/model/Summon";
+import { Summon, SummonColor } from "src/app/game/model/Summon";
 
 @Component({
   selector: 'ghs-action-summon',

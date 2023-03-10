@@ -139,7 +139,13 @@ export class LootDeckComponent implements OnInit {
             if (!this.drawTimeout && this.deck.current < this.deck.cards.length - 1) {
                 this.drawTimeout = setTimeout(() => {
                     this.before.emit(new LootDeckChange(this.deck, 'lootDeckDraw'));
-                    gameManager.lootManager.drawCard(this.deck); this.internalDraw = this.deck.current;
+                    const activeCharacter = gameManager.game.figures.find((figure) => figure instanceof Character && figure.active);
+                    if (!settingsManager.settings.alwaysLootApplyDialog && activeCharacter instanceof Character) {
+                        gameManager.lootManager.drawCard(this.deck, activeCharacter);
+                    } else {
+                        gameManager.lootManager.drawCard(this.deck, undefined);
+                    }
+                    this.internalDraw = this.deck.current;
                     this.after.emit(new LootDeckChange(this.deck, 'lootDeckDraw'));
                     if (this.drawing && this.deck.current + this.queue < this.deck.cards.length) {
                         this.queue++;

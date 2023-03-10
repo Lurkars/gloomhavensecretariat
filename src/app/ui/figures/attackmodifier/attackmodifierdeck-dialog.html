@@ -20,9 +20,12 @@
         <span class="item" title="{{'game.condition.bless' | ghsLabel}}">
           <img src="./assets/images/status/bless.svg" />
           <span class="badge bless-count">{{countUpcomingAttackModifier(AttackModifierType.bless)}}</span>
+          <span class="warning" *ngIf="gameManager.attackModifierManager.countUpcomingBlesses() > 10">
+            <img src="./assets/images/warning.svg" />
+          </span>
         </span>
         <span class="item">
-          <a class="button" [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.bless) >= 10}"
+          <a class="button" [ngClass]="{'disabled' : gameManager.attackModifierManager.countUpcomingBlesses() >= 10}"
             (click)="changeBless(1)">
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </a>
@@ -37,27 +40,35 @@
         <span class="item" title="{{'game.condition.curse' | ghsLabel}}">
           <img src="./assets/images/status/curse.svg" />
           <span class="badge curse-count">{{countUpcomingAttackModifier(AttackModifierType.curse)}}</span>
+          <span class="warning"
+            *ngIf="gameManager.attackModifierManager.countUpcomingCurses((!character && !ally)) > 10">
+            <img src="./assets/images/warning.svg" />
+          </span>
         </span>
         <span class="item">
-          <a class="button" [ngClass]="{'disabled' : countUpcomingAttackModifier(AttackModifierType.curse) >= 10}"
+          <a class="button"
+            [ngClass]="{'disabled' :gameManager.attackModifierManager.countUpcomingCurses((!character && !ally)) >= 10}"
             (click)="changeCurse(1)">
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </a>
         </span>
 
         <span class="item">
-          <a class="button"
-            [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.minus1) ==  defaultMinus1()}"
-            (click)="changeMinus1(-1)">
+          <a class="button" [ngClass]="{'disabled' : countAttackModifier(AttackModifierType.minus1extra) ==  0}"
+            (click)="changeMinus1Extra(-1)">
             <img class="ghs-svg" src="./assets/images/minus.svg">
           </a>
         </span>
         <span class="item" title="{{'game.attackmodifiers.types.minus1' | ghsLabel}}">
           <img src="./assets/images/attackmodifier/icons/minus1.png" />
-          <span class="badge minus1-count">{{countAttackModifier(AttackModifierType.minus1) - defaultMinus1()}}</span>
+          <span class="badge minus1-count">{{countAttackModifier(AttackModifierType.minus1extra)}}</span>
+          <span class="warning" *ngIf="gameManager.attackModifierManager.countExtraMinus1() > 15">
+            <img src="./assets/images/warning.svg" />
+          </span>
         </span>
         <span class="item">
-          <a class="button" (click)="changeMinus1(1)">
+          <a class="button" [ngClass]="{'disabled' : gameManager.attackModifierManager.countExtraMinus1() >= 15}"
+            (click)="changeMinus1Extra(1)">
             <img class="ghs-svg" src="./assets/images/plus.svg">
           </a>
         </span>
@@ -83,7 +94,7 @@
           cdkDrag>
           <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
             [reveal]="true" [flipped]="reveal == 2 || attackModifier.revealed" [newStyle]="newStyle"
-            [characterIcon]="characterIcon">
+            [characterIcon]="characterIcon" [ally]="ally">
           </ghs-attackmodifier>
           <a class="button-remove" *ngIf="edit" (click)="remove(index + deck.current + 1)">
             <img class="ghs-svg" src="./assets/images/minus.svg"></a>
@@ -99,7 +110,7 @@
         <div class="attack-modifier-container" *ngFor="let attackModifier of disgardedCards(); let index = index"
           cdkDrag>
           <ghs-attackmodifier class="drag-hidden" [attackModifier]="attackModifier" [numeration]="numeration"
-            [flipped]="true" [newStyle]="newStyle" [characterIcon]="characterIcon"></ghs-attackmodifier>
+            [flipped]="true" [newStyle]="newStyle" [characterIcon]="characterIcon" [ally]="ally"></ghs-attackmodifier>
           <a class="button-remove" *ngIf="edit" (click)="remove(deck.current - index)">
             <img class="ghs-svg" src="./assets/images/minus.svg"></a>
           <div *ngIf="edit" cdkDragHandle class="drag-handle"></div>

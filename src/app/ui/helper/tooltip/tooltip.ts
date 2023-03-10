@@ -4,7 +4,6 @@ import { ComponentPortal } from "@angular/cdk/portal";
 import { ChangeDetectionStrategy, Component, ComponentRef, Directive, ElementRef, HostListener, Input, OnInit } from "@angular/core";
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
-import { ghsDefaultDialogPositions } from "../Static";
 
 @Component({
     selector: 'ghs-tooltip',

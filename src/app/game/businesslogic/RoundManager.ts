@@ -37,7 +37,6 @@ export class RoundManager {
       gameManager.characterManager.next();
       gameManager.monsterManager.next();
       gameManager.attackModifierManager.next();
-      gameManager.lootManager.next();
 
       if (settingsManager.settings.moveElements) {
         this.game.elementBoard.forEach((element) => {

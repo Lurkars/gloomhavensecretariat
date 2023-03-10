@@ -85,7 +85,7 @@ export class StateManager {
   async install() {
     if (this.installPrompt) {
       this.installPrompt.prompt();
-      const outcome = await gameManager.stateManager.installPrompt.userChoice;
+      await gameManager.stateManager.installPrompt.userChoice;
       this.installPrompt = null;
     }
   }

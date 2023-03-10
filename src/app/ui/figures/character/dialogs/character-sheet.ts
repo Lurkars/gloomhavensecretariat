@@ -1,15 +1,11 @@
 import { Dialog, DialogRef, DIALOG_DATA } from "@angular/cdk/dialog";
-import { identifierName } from "@angular/compiler";
 import { AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild, ViewEncapsulation } from "@angular/core";
-import { CharacterManager } from "src/app/game/businesslogic/CharacterManager";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
 import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 import { Character, GameCharacterModel } from "src/app/game/model/Character";
 import { CharacterProgress } from "src/app/game/model/CharacterProgress";
-import { ItemData, ItemSlot } from "src/app/game/model/data/ItemData";
 import { GameState } from "src/app/game/model/Game";
-import { Identifier } from "src/app/game/model/Identifier";
 import { LootType } from "src/app/game/model/Loot";
 import { PerkType } from "src/app/game/model/Perks";
 import { ghsInputFullScreenCheck, ghsValueSign } from "src/app/ui/helper/Static";

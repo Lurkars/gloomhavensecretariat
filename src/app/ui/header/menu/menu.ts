@@ -42,7 +42,7 @@ export class MainMenuComponent implements OnInit {
   undoInfo: string[] = [];
   redoInfo: string[] = [];
 
-  constructor(@Inject(DIALOG_DATA) private data: { subMenu: SubMenu, standalone: boolean }, private dialogRef: DialogRef, private dialog: Dialog, private swUpdate: SwUpdate) {
+  constructor(@Inject(DIALOG_DATA) data: { subMenu: SubMenu, standalone: boolean }, private dialogRef: DialogRef, private dialog: Dialog, private swUpdate: SwUpdate) {
     this.active = data.subMenu;
     this.standalone = data.standalone;
   }
