@@ -350,6 +350,8 @@
     "health": "Trefferpunkte",
     "hp": "TP",
     "initiative": "Initiative",
+    "item": "Gegenstand",
+    "items": "Gegenstände",
     "level": {
       ".": "Level",
       "experience": "Bonuserfahrung",
@@ -393,7 +395,40 @@
       "snowthistle": "Schneedistel",
       "special1": "Spezial Karte 1 (#1418)",
       "special2": "Spezial Karte 2 (#1419)",
-      "treasures": "Schatztruhen"
+      "treasures":  {
+        ".": "Schätze",
+        "rewards": {
+          "battleGoal": "erhalte {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
+          "calenderSection": "füge <img class=\"icon ghs-svg\" src=\"./assets/images/fh/party/section.svg\"> {0} in %number.{1}% Wochen hinzu",
+          "campaignSticker": "erhalte \"{0}\" Kampagnenbogensticker",
+          "condition": "erhalte {0}",
+          "damage": "erleide {0}",
+          "event": {
+            "city": "füge Stadt-Ereignis {0} zum Deck hinzu",
+            "rift": "füge Rift-Ereignis {0} zum Deck hinzu",
+            "road": "füge Weg-Ereignis {0} zum Deck hinzu"
+          },
+          "experience": "erhalte {0} Erfahrung",
+          "experienceFh": "erhalte {0} <img class=\"icon ghs-svg\" src=\"./assets/images/experience.svg\">",
+          "goal": "Ziel",
+          "gold": "erhalte {0} Gold",
+          "goldFh": "erhalte {0} <img class=\"icon ghs-svg\" src=\"./assets/images/fh/loot.svg\">",
+          "heal": "Führe \"Heilen {0}, Selbst\" aus",
+          "item": "Erhalte {1} ({0})",
+          "itemFh": "erhalte {1} %data.itemFh.{0}%",
+          "itemDesign": "erhalte {1} Gegenstandsplan ({0})",
+          "itemBlueprint": "erhalte {1} Gegenstandsplan %data.itemFh.{0}%",
+          "loot": "erhalte {0} Münzmarker",
+          "lootCards": "erhalte %number.{0}% Beutekarten",
+          "partyAchievement": "Gruppenerfolg: \"{0}\"",
+          "randomItem": "Erhalte einen zufälligen Gegenstand (Gegenstände {0})",
+          "randomItemBlueprint": "Zufälliger Gegenstandsplan",
+          "randomItemDesign": "Zufälliger Gegenstandsplan",
+          "randomScenario": "Zufälliges Nebenszenario",
+          "resource": "Erhalte {0}",
+          "scenario": "Neues Szenario: {1} <span class=\"scenario-number\">{0}</span>"
+        }
+      }
     },
     "maxHealth": "Maximale Trefferpunkte",
     "solo": "Alleine",
@@ -559,7 +594,7 @@
         },
         "winter": "Winter"
       },
-      "treasures": "Schatztruhen"
+      "treasures": "Schätze"
     },
     "campaignMode": "Kampagnenmodus",
     "change": "Gruppe wechseln",
@@ -676,8 +711,8 @@
       "collectiveGold": "{0} gemeinschaftliches Gold",
       "envelope": "Umschlag {0} öffnen",
       "event": {
-        "city": "City Event {0} zu den Karten",
-        "road": "Road Event {0} zu den Karten"
+        "city": "füge Start-Ereginis {0} zum Deck hinzu",
+        "road": "füge Weg-Ereignis {0} zum Deck hinzu"
       },
       "experience": "jeweils {0} Erfahrung",
       "globalAchievements": "Globale Erfolge",
@@ -688,8 +723,8 @@
       "itemDesignRange": "Füge Gegenstände {0} hinzu",
       "location": "Neuer Ort",
       "locations": "Neue Orte",
-      "lostPartyAchievements": "Verlorene Gruppen-Erfolge",
-      "partyAchievements": "Gruppen-Erfolge",
+      "lostPartyAchievements": "Verlorene Gruppenerfolge",
+      "partyAchievements": "Gruppenerfolge",
       "perks": "Jeweils {0} Verbesserungen",
       "prosperity": "{0} Wohlstand",
       "reputation": "{0} Ansehen"
@@ -722,7 +757,6 @@
       "spawnMarker": "Füge {2}%data.monster.{0}% (%game.monsterType.{1}%) an %game.mapMarker.{3}% hinzu",
       "won": "Szenario erfolgreich!"
     },
-    "set": "Szenario auswählen",
     "section": {
       ".": "Sektion",
       "add": "Sektion {1}#{0} öffnen?",
@@ -731,6 +765,7 @@
       "confirm": "Bestätigen",
       "conclusion": "Szenario beenden mit {0}?"
     },
+    "set": "Szenario auswählen",
     "summary": {
       ".": "Szenario Zusammenfassung",
       "alreadyWarning": {
@@ -761,7 +796,7 @@
       "restartLooseLoot": "Szenario neustarten (Ressourcen verlieren)",
       "totalGold": "Gold Gesamt",
       "totalXp": "EP Gesamt",
-      "treasures": "Schatztruhen",
+      "treasures": "Schätze",
       "xp": "EP",
       "xpBonus": "Bonus EP",
       "xpGained": "EP gesammelt"
@@ -1060,7 +1095,7 @@
     "info": {
       "addBless": "Segen {0}",
       "addBlesses": "{1} Segen {0}",
-      "addCampaignSticker": "Kampagnen Sticker {0} hinzufügen",
+      "addCampaignSticker": "Kampagnenbogensticker {0} hinzufügen",
       "addChar": "Character {0} hinzufügen",
       "addCondition": {
         "char": "{1} {0}",
@@ -1078,6 +1113,7 @@
       "addEntityMarker": "{2} Markierung von {0} Aufsteller {1}",
       "addItem": "Gegenstand {1} (%data.edition.{2}%) für {0}",
       "addManualScenario": "Szenario #{0} {1} ({2}) freischalten",
+      "addMastery": "Errungenschaft {1} für {0}",
       "addMonster": "Monster {0} hinzufügen",
       "addNextStandee": "Aufsteller {1} {0} hinzufügen",
       "addObjective": "Ziel {0} hinzufügen",
@@ -1120,6 +1156,7 @@
       "changeXP": "EP {1} für {0}",
       "characterLongRest": "Lange Rast für {0} setzen",
       "characterLongRestOff": "Lange Rast für {0} deaktivieren",
+      "craftItem": "Gegenstand {1} (%data.edition.{2}%) für {0} anfertigen",
       "declineApplyCondition": {
         "char": "Anwenden von {1} auf {0} abgelehnt",
         "monsterEntities": "Anwenden von {1} auf alle {2}{0} abgelehnt",
@@ -1151,17 +1188,19 @@
         "success": "Szenario #{0} {1} ({2}) erfolgreich"
       },
       "hideScenarioRule": "Szenario Regel nicht mehr anzeigen",
+      "importCharacter": "Charakter {0} von Datei importieren",
       "importParty": "Gruppe von Datei importieren",
       "loadGameFromFile": "Spiel von Datei importieren",
       "lootDeckAddEnhancement": "Beute Karte '{1} %game.loot.{0}%' verzaubern",
       "lootDeckChangeConfig": "Beute Tabelle ändern",
       "lootDeckDraw": "Beute Karte ziehen",
-      "lootDeckHide": "Beute Karten ausblenden",
-      "lootDeckRemoveCard": "Karte {0} von Beute Karten entfernen",
+      "lootDeckHide": "Beute Deck ausblenden",
+      "lootDeckRemoveCard": "Karte {0} ais Beute Deck entfernen",
       "lootDeckRemoveEnhancement": "Verzauberung von Beute Karte '{1} %game.loot.{0}%' entfernen",
-      "lootDeckReorder": "Beute Karten neu anordnen",
-      "lootDeckShow": "Beute Karten einblenden",
-      "lootDeckShuffle": "Beute Karten mischen",
+      "lootDeckReorder": "Beute Deck neu anordnen",
+      "lootDeckShow": "Beute Deck einblenden",
+      "lootDeckShuffle": "Beute Deck mischen",
+      "lootCharTreasure": "{2} erbeutet Schatz {1}",
       "moveResource": "{2} {1} von {0} zur Frosthaven Versorgung hinzufügen",
       "monsterConsumeElement": "{0} verbraucht {1}",
       "monsterDead": "Töte alle {1}{0}",
@@ -1175,7 +1214,7 @@
       "removeAllObjectives": "Alle Ziele entfernen",
       "removeBless": "Segen von {0} entfernen",
       "removeBlesses": "{1} Segen von {0} entfernen",
-      "removeCampaignSticker": "Kampagnen Sticker {0} entfernen",
+      "removeCampaignSticker": "Kampagnenbogensticker {0} entfernen",
       "removeChar": "Charakter {0} entfernen",
       "removeCondition": {
         "char": "{1} von {0} entfernen",
@@ -1191,15 +1230,20 @@
       "removeEntityCurse": "Fluch von {0} Aufsteller {2} entfernen",
       "removeEntityCurses": "{1} Flüche von {0} Aufsteller {2} entfernen",
       "removeEntityMarker": "Markierung {2} von {0} Aufsteller {1} entfernen",
+      "removeGlobalAchievements": "Entferne globalen Erfolg {0}",
       "removeItem": "Gegenstand {1} (%data.edition.{2}%) von {0} entfernen",
       "removeManualScenario": "Szenario #{0} {1} ({2}) von Freigeschaltenen entfernen",
+      "removeMastery": "Entferne Errungenschaft {1} von {0}",
       "removeMonster": "Monster {0} entfernen",
       "removeObjective": "Ziel {0} entfernen",
       "removeParty": "Gruppe '{0}' löschen",
+      "removePartyAchievements": "Entferne Gruppenerfolg {0}",
       "removePartyTownGuardPerkSection": "Sektion {1} von den Verbesserungen der Stadtgarde entfernen",
       "removePartyWeekSection": "Sektion {2} von Woche {1} entfernen",
+      "removePlayer": "Entferne Spieler {1} ({0})",
       "removeScenarioRule": "Szenario Regel ausblenden",
-      "removeTreasure": "Schatz {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%) entfernen",
+      "removeTreasure": "Schatz {1} (%data.edition.{0}%) entfernen",
+      "removeCharTreasure": "Entferne Schatz {1} von {2}",
       "reorder": "Figuren neu anordnen",
       "reorderAbilities": "Fertigkeitskarten von {0} neu anordnen",
       "resetScenario": "Szenario #{0} {1} ({2}) zurücksetzen",
@@ -1229,7 +1273,7 @@
       "setNotes": "Notizen {1} für {0} ",
       "setObjectiveExhausted": "Ziel {0} erschöpft",
       "setObjectiveInitiative": "Initiative {1} für Ziel {0}",
-      "setPartyAchievements": "Gruppen Erfolge",
+      "setPartyAchievements": "Gruppenerfolge",
       "setPartyDonations": "Spenden auf {0}",
       "setPartyInspiation": "Inspiration auf {1}",
       "setPartyLocation": "Gruppenort '{0}'",
@@ -1244,6 +1288,8 @@
       "setPartyTownGuardPerks": "Verbesserungen der Stadtgarde auf {0}",
       "setPartyWeeks": "Weeks to {0}",
       "setPerk": "Verbesserung {1} auf {2} für {0}",
+      "setPlayer": "Spieler {1} auf {0}",
+      "setPlayerNumber": "Spielernummer {1} für {0}",
       "setPQ": "Persönliche Quest {1} für {0}",
       "setResource": "{1} {2} für {0}",
       "setRetired": "{0} erschöpft {1}",
@@ -1258,6 +1304,7 @@
       "summonDead": "Töte Beschwörung '{1}' von {0}",
       "summonInactive": "Beschwörung '{1}' von {0} nicht aktiv",
       "startCampaign": "Neue {0} Kampagne starten",
+      "toggleTypeAll": "Monstertypen tauschen für alle Aufsteller von {0}",
       "unequipItem": "Gegenstand {1} (%data.edition.{2}%) von {0} ablegen",
       "unsetAbsent": "{0} anwesend",
       "unsetActive": "Zug beenden von {0}",
@@ -1269,23 +1316,25 @@
       "unsetObjectiveExhausted": "Ziel {0} nicht erschöpft",
       "unsetTitle": "Titel '{1}' von {0} entfernen",
       "updateAttackModifierDeck": {
-        "addBless": "Segen zu {0} AM Karten zufügen",
-        "addCard": "Karte {1} zu {0} AM Karten hinzufügen",
-        "addCardShuffled": "Neue {1} Karte in {0} AM Karten mischen",
-        "addCurse": "Fluch zu {0} AM Karten zufügen",
+        "addBless": "Segen zu {0} AM Deck zufügen",
+        "addCard": "Karte {1} zu {0} AM Deck hinzufügen",
+        "addCardShuffled": "Neue {1} Karte in {0} AM Deck mischen",
+        "addCurse": "Fluch zu {0} AM Deck zufügen",
         "draw": "{0} AM Karte ziehen",
-        "removeBless": "Segen von {0} AM Karten entfernen",
-        "removeCard": "Karte {1} von {0} AM Karten entfernen",
-        "removeCurse": "Fluch von {0} AM Karten entfernen",
-        "removeDrawnDiscards": "Entferne gezogene Abgeworfene von {0} AM Karten",
-        "reorder": "{0} AM Karten anordnen ",
-        "restoreDefault": "Standard {0} AM Karten wiederherstellen",
-        "shuffle": "{0} AM Karten mischen"
+        "removeBless": "Segen von {0} AM Deck entfernen",
+        "removeCard": "Karte {1} von {0} AM Deck entfernen",
+        "removeCurse": "Fluch von {0} AM Deck entfernen",
+        "removeDrawnDiscards": "Entferne gezogene Abgeworfene von {0} AM Deck",
+        "reorder": "{0} AM Deck anordnen ",
+        "restoreDefault": "Standard {0} AM Deck wiederherstellen",
+        "shuffle": "{0} AM Deck mischen"
       },
       "updateBonusAdjustment": "Anpassung Boni Szenariostufe {0}",
       "updateElement": "Element {0} {1}",
+      "updateGlobalAchievements": "Globalen Erfolg auf {0}",
       "updateLevelAdjustment": "Anpassung Szenariostufe {0}",
-      "updateManualPlayerCount": "Manuelle Charakter Anzahl auf {0}"
+      "updateManualPlayerCount": "Manuelle Charakter Anzahl auf {0}",
+      "updatePartyAchievements": "Gruppenerfolg auf {0}"
     },
     "redo": "Wiederherstellen",
     "reset": "Zurücksetzen",
