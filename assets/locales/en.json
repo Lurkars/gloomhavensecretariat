@@ -791,6 +791,7 @@
     "conclusion": "Conclusion",
     "custom": "Custom",
     "filter": "Filter Scenario",
+    "filterSuccess": "Hide successfully finished scenarios",
     "finish": {
       ".": "Finish Scenario",
       "failure": "Failure",
@@ -878,6 +879,13 @@
       "apply": "Finish",
       "battlegoals": "Battelgoals",
       "cancel": "Cancel",
+      "casualWarning": "Casual Mode",
+      "casualFhWarning": {
+        ".": "Frosthaven Casual Mode",
+        "hint": "In Frosthaven casual mode , all campaign effects are ignored. No event is resolved, time does not pass, and the party does not gain any experience, loot, treasures, checkmarks, personal quest progress, rewards, unlockables, etc",
+        "ignore": "Gain rewards anyways!",
+        "reapply": "Switch back to casual mode"
+      },
       "conclusionWarning": {
         ".": "Missing Solution!",
         "hint": "It seems that this scenario is finished without a conclusion. This may lead to missing rewards and unlocks. Conclusion sections are marked with a <img class=\"icon ghs-svg\" src=\"./assets/images/conclusion.svg\"> icon."
@@ -1056,6 +1064,10 @@
     "disableStandees": {
       ".": "Disable standees",
       "hint": "Do not display standees (when Hide stats is set, add normal and elite monster separate). This also disables unlocking rooms and automatic standees."
+    },
+    "disabledTurnConfirmation": {
+      ".": "Disable Round/Turn confirmation",
+      "hint": "Disables the reminder when clicking \"%round.next%\" before all figures finished their turns. If %settings.expireConditions% or %settings.applyConditions% is active it will be automatically applied for all figures."
     },
     "disableWakeLock": {
       ".": "Disable Wake Lock",
