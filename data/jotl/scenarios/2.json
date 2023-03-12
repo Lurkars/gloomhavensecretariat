@@ -54,7 +54,6 @@
     {
       "roomNumber": 2,
       "ref": "jotl02-2",
-      "initial": true,
       "treasures": [
         14
       ],

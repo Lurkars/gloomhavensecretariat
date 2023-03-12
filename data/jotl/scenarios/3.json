@@ -36,7 +36,6 @@
     {
       "roomNumber": 2,
       "ref": "jotl03-2",
-      "initial": true,
       "marker": "1",
       "rooms": [
         3
@@ -71,7 +70,6 @@
     {
       "roomNumber": 3,
       "ref": "jotl03-3",
-      "initial": true,
       "marker": "2",
       "monster": [
         {
