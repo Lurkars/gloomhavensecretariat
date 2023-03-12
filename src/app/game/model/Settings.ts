@@ -28,6 +28,7 @@ export class Settings {
   autoscroll: boolean = true;
   scenarioRules: boolean = true;
   scenarioRooms: boolean = true;
+  disabledTurnConfirmation: boolean = false;
   automaticStandees: boolean = true;
   scenarioNumberInput: boolean = false;
   disableColumns: boolean = false;

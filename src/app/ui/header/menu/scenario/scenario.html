@@ -28,6 +28,12 @@
   <div class="line search">
     <input type="text" #search [placeholder]="'scenario.filter' | ghsLabel">
   </div>
+  <div class="line" *ngIf="gameManager.game.party.campaignMode">
+    <label>
+      <input type="checkbox" [(ngModel)]="filterSuccess">
+      {{'scenario.filterSuccess' | ghsLabel}}
+    </label>
+  </div>
   <ng-container *ngFor="let group of groups()">
     <div *ngIf="group" class="line title"><label>{{'data.scenario.group.' + group | ghsLabel}}</label></div>
     <div class="line scenarios">

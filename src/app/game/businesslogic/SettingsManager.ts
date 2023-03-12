@@ -274,6 +274,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setDisabledTurnConfirmation(disabledTurnConfirmation: boolean) {
+    this.settings.disabledTurnConfirmation = disabledTurnConfirmation;
+    this.storeSettings();
+  }
+
   setAutomaticStandees(automaticStandees: boolean) {
     this.settings.automaticStandees = automaticStandees;
     this.storeSettings();

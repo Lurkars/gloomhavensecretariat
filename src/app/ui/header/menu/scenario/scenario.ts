@@ -19,6 +19,7 @@ export class ScenarioMenuComponent implements OnInit {
   settingsManager: SettingsManager = settingsManager;
   GameState = GameState;
   edition: string = "";
+  filterSuccess: boolean = false;
 
 
   ngOnInit(): void {
@@ -54,7 +55,7 @@ export class ScenarioMenuComponent implements OnInit {
       return [];
     }
 
-    return gameManager.scenarioManager.scenarioData(this.edition, all).filter((scenarioData) => scenarioData.group == group && (includeSpoiler || (!scenarioData.spoiler || settingsManager.settings.spoilers.indexOf(scenarioData.name) != -1 || scenarioData.solo && settingsManager.settings.spoilers.indexOf(scenarioData.solo) != -1))).sort(gameManager.scenarioManager.sortScenarios);
+    return gameManager.scenarioManager.scenarioData(this.edition, all).filter((scenarioData) => scenarioData.group == group && (includeSpoiler || (!scenarioData.spoiler || settingsManager.settings.spoilers.indexOf(scenarioData.name) != -1 || scenarioData.solo && settingsManager.settings.spoilers.indexOf(scenarioData.solo) != -1)) && (!this.filterSuccess || !this.scenarioSuccess(scenarioData))).sort(gameManager.scenarioManager.sortScenarios);
   }
 
   scenarioSuccess(scenario: ScenarioData) {

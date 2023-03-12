@@ -11,4 +11,10 @@
       {{'data.edition.' + edition | ghsLabel}}
     </label>
   </div>
+  <div class="line separator ">
+    <label>
+      <input type="checkbox" [checked]="gameManager.game.party.campaignMode" (change)="toggleCampaignMode()">
+      {{'party.campaignMode' | ghsLabel}}
+    </label>
+  </div>
 </div>

@@ -103,9 +103,13 @@ export class FooterComponent implements OnInit {
 
   async nextState() {
     gameManager.stateManager.before(gameManager.game.state == GameState.next ? "nextRound" : "draw");
-    const activeFigure = gameManager.game.figures.find((figure) => figure.active && !figure.off);
-    if (!this.active() && activeFigure) {
-      gameManager.roundManager.afterTurn(activeFigure);
+    if (settingsManager.settings.disabledTurnConfirmation) {
+      gameManager.game.figures.forEach((figure) => gameManager.roundManager.afterTurn(figure));
+    } else {
+      const activeFigure = gameManager.game.figures.find((figure) => figure.active && !figure.off);
+      if (!this.activeHint() && activeFigure) {
+        gameManager.roundManager.afterTurn(activeFigure);
+      }
     }
     gameManager.roundManager.nextGameState();
     gameManager.stateManager.after(1000);
@@ -188,6 +192,10 @@ export class FooterComponent implements OnInit {
     return gameManager.game.figures.find((figure) => figure.active && !figure.off && (!(figure instanceof Character) || !figure.absent)) != undefined;
   };
 
+  activeHint(): boolean {
+    return (this.active() && !settingsManager.settings.disabledTurnConfirmation && (settingsManager.settings.expireConditions || settingsManager.settings.applyConditions));
+  }
+
   finish(): boolean {
     return false;
   }
@@ -205,7 +213,7 @@ export class FooterComponent implements OnInit {
   }
 
   nextDisabled(): boolean {
-    return this.active() || this.finish() || this.failed();
+    return this.activeHint() || this.finish() || this.failed();
   }
 
 }

@@ -395,7 +395,7 @@
       "snowthistle": "Schneedistel",
       "special1": "Spezial Karte 1 (#1418)",
       "special2": "Spezial Karte 2 (#1419)",
-      "treasures":  {
+      "treasures": {
         ".": "Schätze",
         "rewards": {
           "battleGoal": "erhalte {0} <img class=\"icon ghs-svg\" src=\"./assets/images/check.svg\">",
@@ -690,6 +690,7 @@
     "conclusion": "Lösung",
     "custom": "Benutzerdefiniert",
     "filter": "Szenario filtern",
+    "filterSuccess": "Abgeschlossene Szenarien ausblenden",
     "finish": {
       ".": "Szenario beenden",
       "failure": "Niederlage",
@@ -777,6 +778,13 @@
       "apply": "Abschließen",
       "battlegoals": "Kampfziele",
       "cancel": "Abbrechen",
+      "casualWarning": "Gelegenheitsmodus",
+      "casualFhWarning": {
+        ".": "Frosthaven Gelegenheitsmodus",
+        "hint": "Im Gelegenheitsmodus von Frosthaven werden alle Kampagneneffekte ignoriert. Es wird kein Ergeisnis gezogen, keine Zeit vergeht und die Gruppe erheilt keine Erfahrung, Beute, Schätze, Verbesserungen, persöhnlichen Quest Fortschrift, Belohnungen, Freischaltungen etc.",
+        "ignore": "Trotzdem die Belohnungen erhalten!",
+        "reapply": "Zurück zum Gelegenheitsmodus wechseln"
+      },
       "conclusionWarning": {
         ".": "Keine Lösung!",
         "hint": "Es scheint das Szenario wurde ohne entsprechende Lösung beendet. Dies kann zu fehlenden Belohungen und Freischaltungen führen. Lösungen sind Sektionen die mit einem <img class=\"icon ghs-svg\" src=\"./assets/images/conclusion.svg\"> Symbole gekennzeichnet sind."
@@ -956,6 +964,10 @@
     "disableStandees": {
       ".": "Aufsteller deaktivieren",
       "hint": "Blende alle Aufsteller aus (falls Werte ausblenden aktiviert ist, müssen normale und elite Monster separat hinzugefügt werden). Dies deaktiviert auch das freischalten von Räumen und das automatische Hinzufügen von Aufstellern."
+    },
+    "disabledTurnConfirmation": {
+      ".": "Runden/Zug Bestätigung deaktivieren",
+      "hint": "Deaktiviert die Errinnerung nach dem Klick auf \"%round.next%\" bevor alle Figuren am Zug waren. Falls %settings.expireConditions% oder %settings.applyConditions% aktiviert sind werden diese automatisch auf jede Figur angewendet."
     },
     "disableWakeLock": {
       ".": "Display immer an deaktivieren",

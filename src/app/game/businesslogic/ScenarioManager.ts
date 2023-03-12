@@ -52,8 +52,6 @@ export class ScenarioManager {
 
     const rewards: ScenarioRewards | undefined = scenario && scenario.rewards || conclusionSection && conclusionSection.rewards || undefined;
 
-    casual = casual || !gameManager.game.party.campaignMode;
-
     if (scenario) {
       if (!gameManager.fhRules() || !casual) {
         this.game.figures.forEach((figure) => {
@@ -160,8 +158,10 @@ export class ScenarioManager {
           this.game.party.conclusions.push(new GameScenarioModel(conclusionSection.index, conclusionSection.edition, conclusionSection.group, false, "", []));
         }
 
-        this.game.party.scenarios.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group, scenario.custom, scenario.custom ? scenario.name : "", scenario.revealedRooms));
-        this.game.party.manualScenarios = this.game.party.manualScenarios.filter((identifier) => scenario && (scenario.index != identifier.index || scenario.edition != identifier.edition || scenario.group != identifier.group));
+        if (gameManager.game.party.campaignMode && !casual) {
+          this.game.party.scenarios.push(new GameScenarioModel(scenario.index, scenario.edition, scenario.group, scenario.custom, scenario.custom ? scenario.name : "", scenario.revealedRooms));
+          this.game.party.manualScenarios = this.game.party.manualScenarios.filter((identifier) => scenario && (scenario.index != identifier.index || scenario.edition != identifier.edition || scenario.group != identifier.group));
+        }
       }
     }
 

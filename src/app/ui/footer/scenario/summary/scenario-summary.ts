@@ -55,9 +55,9 @@ export class ScenarioSummaryComponent {
             }
         }
 
-        this.alreadyWarning = !gameManager.fhRules() && gameManager.game.party.campaignMode && this.success && gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == this.scenario.index && scenarioModel.edition == this.scenario.edition && scenarioModel.group == this.scenario.group) != undefined;
+        this.alreadyWarning = gameManager.game.party.campaignMode && this.success && gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == this.scenario.index && scenarioModel.edition == this.scenario.edition && scenarioModel.group == this.scenario.group) != undefined;
 
-        this.casual = this.alreadyWarning;
+        this.casual = this.alreadyWarning || !gameManager.game.party.campaignMode && gameManager.fhRules();
 
         if (gameManager.game.party.campaignMode && this.success) {
             if (this.conclusion) {

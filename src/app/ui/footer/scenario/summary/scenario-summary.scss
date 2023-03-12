@@ -32,6 +32,12 @@
     font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
   }
 
+  .casual {
+    color: var(--ghs-color-red);
+    font-family: var(--ghs-font-normal);
+    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+  }
+
   margin-bottom: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
 
 }
@@ -152,8 +158,8 @@
   color: var(--ghs-color-white);
   display: flex;
   flex-direction: column;
-  min-width: calc(var(--ghs-unit) * 35 * var(--ghs-summary-columns) * var(--ghs-dialog-factor));
-  width: calc(var(--ghs-unit) * 35 * var(--ghs-dialog-factor));
+  min-width: 0;
+  max-width: calc(var(--ghs-unit) * 35 * var(--ghs-dialog-factor));
 
   margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
 

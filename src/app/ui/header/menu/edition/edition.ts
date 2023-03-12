@@ -25,4 +25,9 @@ export class EditionMenuComponent {
     gameManager.stateManager.after();
   }
 
+  toggleCampaignMode() {
+    gameManager.stateManager.before(gameManager.game.party.campaignMode ? "disablePartyCampaignMode" : "enablePartyCampaignMode");
+    gameManager.game.party.campaignMode = !gameManager.game.party.campaignMode;
+    gameManager.stateManager.after();
+  }
 }

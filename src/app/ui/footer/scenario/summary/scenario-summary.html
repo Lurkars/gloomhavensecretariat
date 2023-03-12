@@ -5,11 +5,13 @@
       <span class="name">#{{scenario.index}} {{'data.scenario.' + scenario.name | ghsLabel}}</span>
     </span>
     <span *ngIf="success" class="success">{{'scenario.finish.success' | ghsLabel}}</span>
+    <span *ngIf="success && !gameManager.game.party.campaignMode" class="casual">{{'scenario.summary.casualWarning' |
+      ghsLabel}}</span>
     <span *ngIf="!success" class="failure">{{'scenario.finish.failure' | ghsLabel}}</span>
   </div>
 
   <div class="main">
-    <div class="table" [style.--ghs-summary-columns]="1 + characters.length">
+    <div class="table" [style.--ghs-summary-columns]="1 + characters.length" *ngIf="!casual || !gameManager.fhRules()">
 
       <span class="head-col first">{{'scenario.summary.name' | ghsLabel}}</span>
       <span class="first" *ngFor="let character of characters; let index = index;">
@@ -139,21 +141,36 @@
       </ng-container>
     </div>
 
-    <div class="rewards" *ngIf="success && gameManager.game.party.campaignMode">
-      <div class="reward warning" *ngIf="alreadyWarning">
+    <div class="rewards">
+
+      <div class="reward warning" *ngIf="alreadyWarning && gameManager.game.party.campaignMode">
         <label>{{'scenario.summary.alreadyWarning' | ghsLabel}}</label>
         <div class="list">
           <div class="item" *ngIf="casual">
             <span>{{'scenario.summary.alreadyWarning.hint' | ghsLabel}}</span>
           </div>
-          <div class="item">
+          <div class="item" *ngIf="!gameManager.fhRules()">
             <a (click)="casual = !casual">{{'scenario.summary.alreadyWarning.' + (casual ? 'ignore' : 'reapply') |
               ghsLabel}}</a>
           </div>
         </div>
       </div>
 
-      <ng-container *ngIf="!casual">
+      <div class="reward warning"
+        *ngIf="(alreadyWarning || !gameManager.game.party.campaignMode) && gameManager.fhRules()">
+        <label>{{'scenario.summary.casualFhWarning' | ghsLabel}}</label>
+        <div class="list">
+          <div class="item" *ngIf="casual">
+            <span>{{'scenario.summary.casualFhWarning.hint' | ghsLabel}}</span>
+          </div>
+          <div class="item">
+            <a (click)="casual = !casual">{{'scenario.summary.casualFhWarning.' + (casual ? 'ignore' : 'reapply') |
+              ghsLabel}}</a>
+          </div>
+        </div>
+      </div>
+
+      <ng-container *ngIf="!casual && gameManager.game.party.campaignMode">
 
         <div class="reward warning" *ngIf="conclusionWarning">
           <label>{{'scenario.summary.conclusionWarning' | ghsLabel}}</label>

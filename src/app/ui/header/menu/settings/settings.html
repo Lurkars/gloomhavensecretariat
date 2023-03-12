@@ -75,6 +75,21 @@
         </span>
       </div>
     </div>
+    <div class="line">
+      <div class="hint-container">
+        <label
+          [ngClass]="{'disabled' : !settingsManager.settings.expireConditions && !settingsManager.settings.applyConditions}">
+          <input type="checkbox"
+            [checked]="settingsManager.settings.disabledTurnConfirmation || (!settingsManager.settings.expireConditions && !settingsManager.settings.applyConditions)"
+            (change)="settingsManager.setDisabledTurnConfirmation(!settingsManager.settings.disabledTurnConfirmation)">
+          {{'settings.disabledTurnConfirmation' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.disabledTurnConfirmation.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
   </div>
 
 

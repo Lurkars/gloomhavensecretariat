@@ -79,7 +79,7 @@ export class CharacterInitiativeComponent {
   }
 
   tabindex(): number {
-    return gameManager.game.figures.filter((figure) => figure instanceof Character).indexOf(this.character);
+    return gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent).indexOf(this.character);
   }
 
   focusNext(event: any) {
