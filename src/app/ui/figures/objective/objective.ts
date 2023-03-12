@@ -35,7 +35,7 @@ export class ObjectiveComponent implements OnInit {
   objectiveData: ObjectiveData | undefined;
 
 
-  constructor(private element: ElementRef, private dialog: Dialog, private overlay: Overlay) { }
+  constructor(private dialog: Dialog, private overlay: Overlay) { }
 
   ngOnInit(): void {
     if (this.objective && this.objective.objectiveId) {
@@ -110,8 +110,7 @@ export class ObjectiveComponent implements OnInit {
   }
 
   dragHpMove(value: number) {
-    const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
-    this.health = Math.floor(value / dragFactor);
+    this.health = value;
     if (this.objective.health + this.health > this.objective.maxHealth) {
       this.health = EntityValueFunction(this.objective.maxHealth) - this.objective.health;
     } else if (this.objective.health + this.health < 0) {

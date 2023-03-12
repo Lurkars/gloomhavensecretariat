@@ -45,8 +45,7 @@ export class SummonEntityComponent implements OnInit {
   }
 
   dragHpMove(value: number) {
-    const dragFactor = 20 * this.element.nativeElement.offsetWidth / window.innerWidth;
-    this.health = Math.floor(value / dragFactor);
+    this.health = value;
     if (this.summon.health + this.health > this.summon.maxHealth) {
       this.health = EntityValueFunction(this.summon.maxHealth) - this.summon.health;
     } else if (this.summon.health + this.health < 0) {

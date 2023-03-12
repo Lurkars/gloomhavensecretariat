@@ -45,7 +45,7 @@ export class CharacterComponent {
   loot: number = 0;
   maxHp: number = 0;
 
-  constructor(private element: ElementRef, private dialog: Dialog, private overlay: Overlay) { }
+  constructor(private dialog: Dialog, private overlay: Overlay) { }
 
   emptySummons(): boolean {
     return this.character.summons.length == 0 || this.character.summons.every((summon) => summon.dead);
@@ -145,8 +145,7 @@ export class CharacterComponent {
   }
 
   dragHpMove(value: number) {
-    const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
-    this.health = Math.floor(value / dragFactor);
+    this.health = value;
     if (this.character.health + this.health > this.character.maxHealth) {
       this.health = this.character.maxHealth - this.character.health;
     } else if (this.character.health + this.health < 0) {
@@ -167,8 +166,7 @@ export class CharacterComponent {
   }
 
   dragXpMove(value: number) {
-    const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
-    this.experience = Math.floor(value / dragFactor);
+    this.experience = value;
     if (this.character.experience + this.experience < 0) {
       this.experience = - this.character.experience;
     }
@@ -184,8 +182,7 @@ export class CharacterComponent {
   }
 
   dragLootMove(value: number) {
-    const dragFactor = 4 * this.element.nativeElement.offsetWidth / window.innerWidth;
-    this.loot = Math.floor(value / dragFactor);
+    this.loot = value;
     if (this.character.loot + this.loot < 0) {
       this.loot = - this.character.loot;
     }

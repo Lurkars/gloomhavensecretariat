@@ -3,6 +3,8 @@ import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 
 export const doubleClickTreshhold: number = 250;
 export const repeatInterval: number = 100;
+export const dragWidthThreshhold: number = 1200;
+export const dragWidthFactor: number = 0.4;
 
 @Directive({
   selector: 'ghs-drag-click, [ghs-drag-click]'
@@ -14,8 +16,6 @@ export class DragClickDirective {
   @Input() screenWidth: boolean = false;
   @Input() repeat: boolean = false;
   @Input() disabled: boolean = false;
-  @Input() min: number = 0;
-  @Input() max: number = 99;
   @Output('dragMove') dragMove = new EventEmitter<number>();
   @Output('dragEnd') dragEnd = new EventEmitter<number>();
 
@@ -28,7 +28,7 @@ export class DragClickDirective {
   repeats: number = -1;
 
   constructor(private elementRef: ElementRef) {
-    this.value = this.min - 1;
+    this.value = -1;
     this.elementRef.nativeElement.style['touch-action'] = 'pan-y';
   }
 
@@ -124,14 +124,22 @@ export class DragClickDirective {
     if (!this.disabled && settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed)) {
       const rect = this.elementRef.nativeElement.getBoundingClientRect();
       if (this.screenWidth) {
-        this.value = Math.min(99, Math.max(0, Math.floor(event.center.x / document.body.clientWidth * 100)));
+        if (document.body.clientWidth > dragWidthThreshhold) {
+          this.value = Math.min(99, Math.max(0, event.center.x * (dragWidthThreshhold / document.body.clientWidth) / document.body.clientWidth * 100));
+        } else {
+          this.value = Math.min(99, Math.max(0, event.center.x / document.body.clientWidth * 100));
+          if (this.relative) {
+            this.value = this.value * dragWidthFactor;
+          }
+        }
       } else {
-        this.value = Math.min(99, Math.max(0, Math.floor((event.center.x - rect.left) / rect.width * 100)));
+        this.value = Math.min(99, Math.max(0, (event.center.x - rect.left) / rect.width * 100));
       }
       if (this.relative && this.relativeValue == -1) {
         this.relativeValue = this.value;
       }
-      this.dragMove.emit(this.relative ? this.value - this.relativeValue : this.value);
+      this.value = Math.floor(this.relative ? this.value - this.relativeValue : this.value);
+      this.dragMove.emit(this.value);
     }
     event.preventDefault();
     if (event.srcEvent) {
@@ -144,8 +152,8 @@ export class DragClickDirective {
   @HostListener('pancancel', ['$event'])
   panend(event: any) {
     if (!this.disabled && settingsManager.settings.dragValues && (this.dragMove.observed || this.dragEnd.observed)) {
-      if (this.value >= this.min) {
-        this.dragEnd.emit(this.relative ? this.value - this.relativeValue : this.value);
+      if (this.value >= 0 || this.relative) {
+        this.dragEnd.emit(this.value);
       }
       this.value = -1;
       this.relativeValue = -1;
