@@ -655,6 +655,7 @@
       ".": "Campaign",
       "achievements": "Global Achievements",
       "donations": "Donations to Sanctuary of the Great Oak",
+      "items": "Unlocked Items",
       "retirements": {
         ".": "Retired Characters",
         "character": "Character",
