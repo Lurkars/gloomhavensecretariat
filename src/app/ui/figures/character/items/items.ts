@@ -47,7 +47,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
         this.items = [];
         if (this.character.progress.items) {
             this.character.progress.items.forEach((item) => {
-                const itemData = gameManager.item(+item.name, item.edition, false);
+                const itemData = gameManager.item(+item.name, item.edition, true);
                 if (itemData) {
                     this.items.push(itemData);
                 } else {
