@@ -1,5 +1,5 @@
 import { sortRoom } from "./room.mjs";
-import { sortObjectKeys } from "./sort-object-keys.mjs";
+import { sortObjectKeys } from './sort-helper.mjs';
 
 export const sortScenario = function (scenario) {
 

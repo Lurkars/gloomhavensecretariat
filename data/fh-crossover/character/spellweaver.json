@@ -5,6 +5,7 @@
   "icon": "gh-spellweaver",
   "thumbnail": "gh-spellweaver",
   "edition": "fh-crossover",
+  "handSize": 8,
   "color": "#b28ac2",
   "stats": [
     {

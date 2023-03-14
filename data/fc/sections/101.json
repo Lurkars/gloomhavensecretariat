@@ -2,5 +2,9 @@
   "index": "101",
   "name": "Getting Both Records",
   "edition": "fc",
-  "parent": "108"
+  "parent": "108",
+  "blockedSections": [
+    "37",
+    "44"
+  ]
 }

@@ -2,6 +2,7 @@
   "name": "squidface",
   "characterClass": "harrower",
   "edition": "gh",
+  "handSize": 11,
   "color": "#72e0be",
   "spoiler": true,
   "stats": [

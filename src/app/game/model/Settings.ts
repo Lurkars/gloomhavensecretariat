@@ -3,6 +3,7 @@ export class Settings {
   calculate: boolean = true;
   calculateStats: boolean = true;
   abilityNumbers: boolean = true;
+  characterHandSize: boolean = false;
   eliteFirst: boolean = true;
   expireConditions: boolean = true;
   applyConditions: boolean = true;
@@ -28,6 +29,8 @@ export class Settings {
   autoscroll: boolean = true;
   scenarioRules: boolean = true;
   scenarioRooms: boolean = true;
+  treasures: boolean = true;
+  treasuresLoot: boolean = true;
   disabledTurnConfirmation: boolean = false;
   automaticStandees: boolean = true;
   scenarioNumberInput: boolean = false;

@@ -2,6 +2,7 @@
   "name": "galaxy",
   "characterClass": "aesther",
   "edition": "cs",
+  "handSize": 10,
   "color": "#6d6fb3",
   "spoiler": true,
   "stats": [

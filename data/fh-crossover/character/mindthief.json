@@ -5,6 +5,7 @@
   "icon": "gh-mindthief",
   "thumbnail": "gh-mindthief",
   "edition": "fh-crossover",
+  "handSize": 10,
   "color": "#6279a5",
   "stats": [
     {

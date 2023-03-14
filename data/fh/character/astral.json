@@ -1,8 +1,8 @@
 {
   "name": "astral",
   "characterClass": "orchid",
-  "gender": "",
   "edition": "fh",
+  "handSize": 11,
   "color": "#6fb54e",
   "spoiler": true,
   "stats": [

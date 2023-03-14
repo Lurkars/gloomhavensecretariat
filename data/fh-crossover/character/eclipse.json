@@ -5,6 +5,7 @@
   "icon": "gh-eclipse",
   "thumbnail": "gh-eclipse",
   "edition": "fh-crossover",
+  "handSize": 9,
   "color": "#7440d4",
   "spoiler": true,
   "stats": [

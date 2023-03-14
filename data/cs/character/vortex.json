@@ -2,6 +2,7 @@
   "name": "vortex",
   "characterClass": "savvas",
   "edition": "cs",
+  "handSize": 10,
   "color": "#a04aa5",
   "spoiler": true,
   "stats": [

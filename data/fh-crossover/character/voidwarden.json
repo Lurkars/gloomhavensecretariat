@@ -5,6 +5,7 @@
   "icon": "jotl-voidwarden",
   "thumbnail": "jotl-bvoidwardenrute",
   "edition": "fh-crossover",
+  "handSize": 11,
   "color": "#e8e9e9",
   "stats": [
     {

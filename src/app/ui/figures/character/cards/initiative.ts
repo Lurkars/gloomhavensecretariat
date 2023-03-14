@@ -41,7 +41,7 @@ export class CharacterInitiativeComponent {
   }
 
   setInitiative(initiative: number) {
-    if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0 || initiative > 0) && initiative < 100) {
+    if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0 || initiative > 0) && initiative < 100 && initiative != this.character.initiative) {
       gameManager.stateManager.before("setInitiative", "data.character." + this.character.name, "" + initiative);
       this.character.initiative = initiative;
       if (this.character instanceof Character) {
@@ -136,20 +136,22 @@ export class CharacterInitiativeDialogComponent {
   }
 
   updateInitiative(initiative: number) {
-    gameManager.stateManager.before("setInitiative", "data.character." + this.character.name, "" + (initiative > 0 && initiative < 100 ? initiative : 0));
-    if (initiative > 0 && initiative < 100) {
-      this.setInitiative(initiative);
-    } else if (gameManager.game.state == GameState.draw) {
-      this.character.initiative = 0;
+    if (this.character.initiative != initiative) {
+      gameManager.stateManager.before("setInitiative", "data.character." + this.character.name, "" + (initiative > 0 && initiative < 100 ? initiative : 0));
+      if (initiative > 0 && initiative < 100) {
+        this.setInitiative(initiative);
+      } else if (gameManager.game.state == GameState.draw) {
+        this.character.initiative = 0;
+      }
+      if (gameManager.game.state == GameState.next) {
+        gameManager.sortFigures();
+      }
+      gameManager.stateManager.after();
     }
-    if (gameManager.game.state == GameState.next) {
-      gameManager.sortFigures();
-    }
-    gameManager.stateManager.after();
   }
 
   setInitiative(initiative: number) {
-    if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0 || initiative > 0) && initiative < 100) {
+    if (((gameManager.game.state == GameState.draw || !settingsManager.settings.initiativeRequired) && initiative >= 0 || initiative > 0) && initiative < 100 && initiative != this.character.initiative) {
       this.character.initiative = initiative;
       if (this.character instanceof Character) {
         this.character.longRest = false;

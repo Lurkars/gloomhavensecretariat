@@ -1,8 +1,8 @@
 {
   "name": "fist",
   "characterClass": "algox",
-  "gender": "",
   "edition": "fh",
+  "handSize": 8,
   "color": "#88abc6",
   "spoiler": true,
   "stats": [

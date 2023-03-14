@@ -13,6 +13,7 @@ export class TreasureLabelComponent implements OnInit {
     @Input() treasure: TreasureData | undefined;
     @Input() index!: number;
     @Input() edition!: string;
+    @Input() rewardResults!: string[][];
 
     labelPrefix = 'game.loot.treasures.rewards.';
 

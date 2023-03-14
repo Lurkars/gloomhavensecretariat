@@ -2,6 +2,7 @@
   "name": "bleeding-claw",
   "characterClass": "vermling",
   "edition": "cs",
+  "handSize": 11,
   "color": "#c12729",
   "spoiler": true,
   "stats": [

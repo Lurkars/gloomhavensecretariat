@@ -5,6 +5,7 @@
   "icon": "jotl-red-guard",
   "thumbnail": "jotl-red-guard",
   "edition": "fh-crossover",
+  "handSize": 10,
   "color": "#d8585d",
   "stats": [
     {

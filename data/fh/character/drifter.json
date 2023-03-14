@@ -2,6 +2,7 @@
   "name": "drifter",
   "characterClass": "inox",
   "edition": "fh",
+  "handSize": 12,
   "color": "#a28b7c",
   "stats": [
     {

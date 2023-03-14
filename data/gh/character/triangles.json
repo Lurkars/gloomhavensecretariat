@@ -2,6 +2,7 @@
   "name": "triangles",
   "characterClass": "savvas",
   "edition": "gh",
+  "handSize": 10,
   "color": "#dcdcdc",
   "spoiler": true,
   "stats": [

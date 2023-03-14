@@ -5,6 +5,7 @@
   "icon": "gh-saw",
   "thumbnail": "gh-saw",
   "edition": "fh-crossover",
+  "handSize": 10,
   "color": "#d5ca9c",
   "spoiler": true,
   "stats": [

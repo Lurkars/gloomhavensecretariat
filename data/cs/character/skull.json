@@ -2,6 +2,7 @@
   "name": "skull",
   "characterClass": "vermling",
   "edition": "cs",
+  "handSize": 10,
   "color": "#63bd57",
   "spoiler": true,
   "stats": [

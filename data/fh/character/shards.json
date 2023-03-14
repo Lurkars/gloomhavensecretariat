@@ -1,8 +1,8 @@
 {
   "name": "shards",
   "characterClass": "savvas",
-  "gender": "",
   "edition": "fh",
+  "handSize": 10,
   "color": "#c0d7e9",
   "spoiler": true,
   "stats": [

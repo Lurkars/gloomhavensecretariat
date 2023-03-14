@@ -1,8 +1,8 @@
 {
   "name": "shackles",
   "characterClass": "aesther",
-  "gender": "",
   "edition": "fh",
+  "handSize": 10,
   "color": "#7476a7",
   "spoiler": true,
   "stats": [

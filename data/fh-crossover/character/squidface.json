@@ -4,6 +4,7 @@
   "icon": "gh-squidface",
   "thumbnail": "gh-squidface",
   "edition": "fh-crossover",
+  "handSize": 11,
   "color": "#72e0be",
   "spoiler": true,
   "stats": [

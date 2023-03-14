@@ -1,6 +1,6 @@
 import { sortCharacterStat } from './character-stat.mjs';
 import { sortSummon } from './summon.mjs';
-import { sortObjectKeys } from './sort-object-keys.mjs';
+import { sortObjectKeys, removeEmptyValues } from './sort-helper.mjs';
 
 export const sortCharacter = function (character) {
 
@@ -28,5 +28,7 @@ export const sortCharacter = function (character) {
         });
     }
 
-    return sortObjectKeys(character, 'name', 'characterClass', 'gender', 'icon', 'iconUrl', 'thumbnail', 'thumbnailUrl', 'edition', 'color', 'spoiler', 'locked', 'marker', 'deck', 'stats', 'summon', 'characterClass', 'availableSummons', 'perks', 'masteries', 'additionalModifier');
+    removeEmptyValues(character);
+
+    return sortObjectKeys(character, 'name', 'characterClass', 'gender', 'icon', 'iconUrl', 'thumbnail', 'thumbnailUrl', 'edition', 'handSize', 'color', 'spoiler', 'locked', 'marker', 'deck', 'stats', 'summon', 'characterClass', 'availableSummons', 'perks', 'masteries', 'additionalModifier');
 }

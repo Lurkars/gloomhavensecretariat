@@ -1,8 +1,8 @@
 {
   "name": "spiked-ring",
   "characterClass": "orchid",
-  "gender": "",
   "edition": "toa",
+  "handSize": 11,
   "color": "#fbff96",
   "spoiler": true,
   "stats": [

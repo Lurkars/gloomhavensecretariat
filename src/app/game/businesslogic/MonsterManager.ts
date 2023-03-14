@@ -127,7 +127,11 @@ export class MonsterManager {
   }
 
   monsterEntityCount(monster: Monster, standee: boolean = false, type: MonsterType | undefined = undefined): number {
-    return monster.entities.filter((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && (!standee || monsterEntity.number > 0) && monsterEntity.summon != SummonState.new && (!type || monsterEntity.type == type)).length;
+    return monster.entities.filter((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && (!standee || monsterEntity.number > 0) && (standee || monsterEntity.summon != SummonState.new) && (!type || monsterEntity.type == type)).length;
+  }
+
+  monsterEntityCountAll(monster: Monster): number {
+    return monster.entities.filter((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0).length;
   }
 
   addMonsterEntity(monster: Monster, number: number, type: MonsterType, summon: boolean = false): MonsterEntity | undefined {
@@ -148,7 +152,8 @@ export class MonsterManager {
 
     if (summon) {
       monsterEntity.summon = SummonState.new;
-    } else {
+    }
+    if (!summon || gameManager.fhRules()) {
       if (this.game.state == GameState.next) {
         if (monster.ability == -1) {
           if (!this.applySameDeck(monster)) {
@@ -184,7 +189,7 @@ export class MonsterManager {
         }
       }
 
-      if (monster.off) {
+      if (!summon && monster.off) {
         monster.off = false;
       }
 
@@ -197,11 +202,11 @@ export class MonsterManager {
   }
 
   spawnMonsterEntity(name: string, type: MonsterType, edition: string, isAlly: boolean = false, drawExtra: boolean = false, summon: boolean = false): MonsterEntity | undefined {
-    let monster = gameManager.monsterManager.addMonsterByName(name, edition);
+    let monster = this.addMonsterByName(name, edition);
     if (monster) {
       monster.isAlly = isAlly;
       monster.drawExtra = drawExtra;
-      if (settingsManager.settings.automaticStandees && gameManager.monsterManager.monsterEntityCount(monster) < monster.count) {
+      if (settingsManager.settings.automaticStandees && this.monsterEntityCountAll(monster) < monster.count) {
         let number = (monster.entities.length + 1) * -1;
 
         if (settingsManager.settings.randomStandees) {
@@ -209,7 +214,7 @@ export class MonsterManager {
           while (monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
             number = Math.floor(Math.random() * monster.count) + 1;
           }
-        } else if (this.monsterEntityCount(monster) == monster.count - 1 && this.monsterEntityCount(monster, true) == this.monsterEntityCount(monster)) {
+        } else if (this.monsterEntityCountAll(monster) == monster.count - 1 && this.monsterEntityCount(monster, true) == this.monsterEntityCountAll(monster)) {
           number = 1;
           while (monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
             number++;
@@ -220,7 +225,7 @@ export class MonsterManager {
           type = MonsterType.boss;
         }
 
-        return gameManager.monsterManager.addMonsterEntity(monster, number, type, summon);
+        return this.addMonsterEntity(monster, number, type, summon);
       }
     }
     return undefined;
@@ -242,7 +247,7 @@ export class MonsterManager {
     const abilities = gameManager.abilities(monster);
     if (monster.abilities.length != abilities.filter((ability) => !ability.level || isNaN(+ability.level) || ability.level <= level).length) {
       monster.abilities = abilities.filter((ability) => !ability.level || isNaN(+ability.level) || ability.level <= level).map((ability, index) => index);
-      gameManager.monsterManager.shuffleAbilities(monster);
+      this.shuffleAbilities(monster);
     }
 
     monster.level = level;
@@ -375,7 +380,12 @@ export class MonsterManager {
               summonTag = entity.tags.find((tag) => tag.startsWith('summon-'));
             }
           }
+
+          if (entity.summon == SummonState.new) {
+            entity.summon = SummonState.true;
+          }
         })
+
 
         figure.off = figure.entities.length == 0;
       }
@@ -396,12 +406,6 @@ export class MonsterManager {
           if (figure.ability >= figure.abilities.length) {
             this.shuffleAbilities(figure);
           }
-
-          figure.entities.forEach((monsterEntity) => {
-            if (monsterEntity.summon == SummonState.new) {
-              monsterEntity.summon = SummonState.true;
-            }
-          })
         }
       }
     });

@@ -5,6 +5,7 @@ import { TreasureData, TreasureReward, TreasureRewardType } from "../model/data/
 import { Game } from "../model/Game";
 import { Identifier } from "../model/Identifier";
 import { appliableLootTypes, fullLootDeck, Loot, LootDeck, LootDeckConfig, LootType } from "../model/Loot";
+import { GameScenarioModel } from "../model/Scenario";
 import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 
@@ -50,8 +51,8 @@ export class LootManager {
     }
   }
 
-  lootTreasure(character: Character, index: number, edition: string): string[] {
-    let rewardResults: string[] = [];
+  lootTreasure(character: Character, index: number, edition: string): string[][] {
+    let rewardResults: string[][] = [];
     const editionData = gameManager.editionData.find((editionData) => editionData.edition == edition);
     if (editionData && editionData.treasures) {
       index = index - (editionData.treasureOffset || 0);
@@ -60,7 +61,7 @@ export class LootManager {
         const treasure = new TreasureData(tresureString, index);
         if (treasure.rewards) {
           treasure.rewards.forEach((reward) => {
-            this.applyTreasureReward(character, reward, edition)
+            rewardResults.push(this.applyTreasureReward(character, reward, edition));
           });
         }
       } else {
@@ -70,8 +71,12 @@ export class LootManager {
     return rewardResults;
   }
 
-  applyTreasureReward(character: Character, reward: TreasureReward, edition: string): string {
-    let result = "";
+  hasTreasure(character: Character, treasure: string | number, index: number): boolean {
+    return character.treasures.some((value) => value == treasure || typeof value === 'string' && (value.startsWith(treasure + ':') || treasure == 'G' && value == 'G-' + index));
+  }
+
+  applyTreasureReward(character: Character, reward: TreasureReward, edition: string): string[] {
+    let result: string[] = [];
     switch (reward.type) {
       case TreasureRewardType.gold:
       case TreasureRewardType.goldFh:
@@ -146,7 +151,7 @@ export class LootManager {
             const item = gameManager.item(itemId, itemEdition);
             if (item) {
               const identifier = new Identifier('' + item.id, item.edition);
-              if (reward.type == "item") {
+              if (reward.type == TreasureRewardType.item) {
                 character.progress.items.push(identifier);
                 // TODO: sell duplicate item!
               } else {
@@ -162,7 +167,7 @@ export class LootManager {
           const item = gameManager.item(+reward.value, edition);
           if (item) {
             const identifier = new Identifier('' + item.id, item.edition);
-            if (reward.type == "itemFh") {
+            if (reward.type == TreasureRewardType.itemFh) {
               character.progress.items.push(identifier);
               // TODO: sell duplicate item!
             } else {
@@ -193,9 +198,48 @@ export class LootManager {
         break;
       case TreasureRewardType.lootCards:
         if (typeof reward.value === 'number') {
+          gameManager.game.lootDeck.active = true;
           for (let i = 0; i < reward.value; i++) {
             this.drawCard(gameManager.game.lootDeck, character);
+            gameManager.uiChange.emit();
           }
+        }
+        break;
+      case TreasureRewardType.scenario:
+        if (reward.value) {
+          const scenario = new GameScenarioModel('' + reward.value, edition, undefined, false, "", []);
+          if (!gameManager.game.party.manualScenarios.find((scenarioModel) => scenarioModel.index == scenario.index && scenarioModel.edition == scenario.edition && scenarioModel.group == scenario.group && !scenarioModel.custom) && !gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == scenario.index && scenarioModel.edition == scenario.edition && scenarioModel.group == scenario.group && !scenarioModel.custom)) {
+            gameManager.game.party.manualScenarios.push(scenario);
+          }
+        }
+        break;
+      case TreasureRewardType.randomScenario:
+        const availableScenarios = gameManager.scenarioData(edition).filter((scenarioData) => scenarioData.random && !gameManager.game.party.manualScenarios.find((scenarioModel) => scenarioModel.index == scenarioData.index && scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && !scenarioModel.custom) && !gameManager.game.party.scenarios.find((scenarioModel) => scenarioModel.index == scenarioData.index && scenarioModel.edition == scenarioData.edition && scenarioModel.group == scenarioData.group && !scenarioModel.custom));
+        if (availableScenarios.length > 0) {
+          const scenarioData = availableScenarios[Math.floor(Math.random() * availableScenarios.length)];
+          const scenario = new GameScenarioModel('' + scenarioData.index, scenarioData.edition, scenarioData.group, false, "", []);
+          gameManager.game.party.manualScenarios.push(scenario);
+          result.push(scenarioData.index, scenarioData.name);
+        } else if (gameManager.fhRules()) {
+          gameManager.game.party.inspiration += 1;
+        }
+        break;
+      case TreasureRewardType.randomItemDesign:
+      case TreasureRewardType.randomItemBlueprint:
+        let availableItems = gameManager.itemData(edition).filter((itemData) => itemData.random && !gameManager.game.party.unlockedItems.find((identifier) => identifier.name == itemData.name && identifier.edition == itemData.edition));
+        if (typeof reward.value === 'string' && reward.value.indexOf('-') != -1) {
+          const from = + reward.value.split('-')[0];
+          const to = + reward.value.split('-')[1];
+          availableItems = availableItems.filter((itemData) => itemData.id >= from && itemData.id <= to);
+        }
+
+        if (availableItems.length > 0) {
+          const itemData = availableItems[Math.floor(Math.random() * availableItems.length)];
+          const item = new Identifier('' + itemData.id, itemData.edition);
+          gameManager.game.party.unlockedItems.push(item);
+          result.push('' + itemData.id, itemData.name);
+        } else if (reward.type == TreasureRewardType.randomItemBlueprint) {
+          gameManager.game.party.inspiration += 1;
         }
         break;
     }

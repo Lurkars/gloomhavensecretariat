@@ -4,6 +4,7 @@
   "icon": "fc-diviner",
   "thumbnail": "fc-diviner",
   "edition": "fh-crossover",
+  "handSize": 9,
   "color": "#c8e3ea",
   "stats": [
     {

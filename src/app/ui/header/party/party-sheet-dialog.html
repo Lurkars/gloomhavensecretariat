@@ -302,9 +302,9 @@
             <img src="./assets/images/plus.svg" (click)="addCampaignSticker(campaignSticker)">
           </form>
           <div class="stickers">
-            <div class="sticker" *ngFor="let sticker of party.campaignStickers">
-              <span class="text" *ngIf="!campaignStickerImage(sticker)">{{sticker}}</span>
-              <img *ngIf="campaignStickerImage(sticker)" class="image" [src]="campaignStickerImage(sticker)"
+            <div class="sticker" *ngFor="let sticker of party.campaignStickers; let index = index">
+              <span class="text" *ngIf="!campaignStickerImage(sticker,index)">{{sticker}}</span>
+              <img *ngIf="campaignStickerImage(sticker,index)" class="image" [src]="campaignStickerImage(sticker,index)"
                 [title]="sticker">
               <img class="remove" src="./assets/images/minus.svg" (click)="removeCampaignSticker(sticker)">
             </div>

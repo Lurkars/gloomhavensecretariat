@@ -111,6 +111,11 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setCharacterHandSize(characterHandSize: boolean) {
+    this.settings.characterHandSize = characterHandSize;
+    this.storeSettings();
+  }
+
   setEliteFirst(eliteFirst: boolean) {
     this.settings.eliteFirst = eliteFirst;
     this.storeSettings();
@@ -273,6 +278,18 @@ export class SettingsManager {
     this.settings.scenarioRooms = scenarioRooms;
     this.storeSettings();
   }
+
+  setTreasures(treasures: boolean) {
+    this.settings.treasures = treasures;
+    this.storeSettings();
+  }
+
+
+  setTreasuresLoot(treasuresLoot: boolean) {
+    this.settings.treasuresLoot = treasuresLoot;
+    this.storeSettings();
+  }
+
 
   setDisabledTurnConfirmation(disabledTurnConfirmation: boolean) {
     this.settings.disabledTurnConfirmation = disabledTurnConfirmation;

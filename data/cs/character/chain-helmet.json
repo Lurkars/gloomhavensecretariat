@@ -2,6 +2,7 @@
   "name": "chain-helmet",
   "characterClass": "inox",
   "edition": "cs",
+  "handSize": 10,
   "color": "#ce6d2f",
   "spoiler": true,
   "stats": [

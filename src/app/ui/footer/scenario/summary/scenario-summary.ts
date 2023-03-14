@@ -117,6 +117,14 @@ export class ScenarioSummaryComponent {
         return value;
     }
 
+    treasureRewardsFromString(treasure: string): string[][] {
+        if (treasure.split(':').length < 2) {
+            return [];
+        } else {
+            return treasure.split(':')[1].split('|').map((value) => value.split('+'));
+        }
+    }
+
     toggleBattleGoal(event: any, index: number, value: number) {
         if (event.target.checked && this.battleGoals[index] < value) {
             this.battleGoals[index] = value;

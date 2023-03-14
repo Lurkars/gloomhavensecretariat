@@ -4,6 +4,7 @@
   "icon": "gh-triangles",
   "thumbnail": "gh-triangles",
   "edition": "fh-crossover",
+  "handSize": 10,
   "color": "#dcdcdc",
   "spoiler": true,
   "stats": [

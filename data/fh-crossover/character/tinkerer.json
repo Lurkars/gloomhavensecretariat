@@ -5,6 +5,7 @@
   "icon": "gh-tinkerer",
   "thumbnail": "gh-tinkerer",
   "edition": "fh-crossover",
+  "handSize": 12,
   "color": "#d1c3a2",
   "stats": [
     {

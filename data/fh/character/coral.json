@@ -1,8 +1,8 @@
 {
   "name": "coral",
   "characterClass": "lurker",
-  "gender": "",
   "edition": "fh",
+  "handSize": 12,
   "color": "#4c988b",
   "spoiler": true,
   "stats": [

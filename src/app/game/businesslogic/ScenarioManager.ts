@@ -203,7 +203,7 @@ export class ScenarioManager {
   }
 
   applyScenarioData(scenarioData: ScenarioData, section: boolean = false) {
-    if (settingsManager.settings.disableStandees || !settingsManager.settings.scenarioRooms || !scenarioData.rooms || scenarioData.rooms.length == 0) {
+    if (!settingsManager.settings.scenarioRooms || !scenarioData.rooms || scenarioData.rooms.length == 0) {
       if (scenarioData.monsters) {
         scenarioData.monsters.forEach((name) => {
           let monster = gameManager.monsterManager.addMonsterByName(name, scenarioData.edition);
@@ -311,18 +311,22 @@ export class ScenarioManager {
         }
 
         if (type) {
-          const entity = gameManager.monsterManager.spawnMonsterEntity(monsterStandeeData.name, type, scenarioData.edition, scenarioData.allies && scenarioData.allies.indexOf(monsterStandeeData.name) != -1, scenarioData.drawExtra && scenarioData.drawExtra.indexOf(monsterStandeeData.name) != -1);
-          if (entity) {
-            if (monsterStandeeData.marker) {
-              entity.marker = monsterStandeeData.marker;
+          if (settingsManager.settings.disableStandees) {
+            gameManager.monsterManager.addMonsterByName(monsterStandeeData.name, scenarioData.edition);
+          } else {
+            const entity = gameManager.monsterManager.spawnMonsterEntity(monsterStandeeData.name, type, scenarioData.edition, scenarioData.allies && scenarioData.allies.indexOf(monsterStandeeData.name) != -1, scenarioData.drawExtra && scenarioData.drawExtra.indexOf(monsterStandeeData.name) != -1);
+            if (entity) {
+              if (monsterStandeeData.marker) {
+                entity.marker = monsterStandeeData.marker;
+              }
+              if (monsterStandeeData.tags) {
+                entity.tags = monsterStandeeData.tags;
+              }
+              if (monsterStandeeData.health) {
+                entity.health = EntityValueFunction(monsterStandeeData.health)
+              }
+              entities.push(entity);
             }
-            if (monsterStandeeData.tags) {
-              entity.tags = monsterStandeeData.tags;
-            }
-            if (monsterStandeeData.health) {
-              entity.health = EntityValueFunction(monsterStandeeData.health)
-            }
-            entities.push(entity);
           }
         }
       })
@@ -620,7 +624,7 @@ export class ScenarioManager {
     })
 
     treasures = treasures.filter((treasure, index) => !unlooted || !gameManager.game.figures.some((figure) => figure instanceof Character &&
-      figure.treasures.indexOf(treasure == 'G' ? 'G-' + index : treasure) != -1));
+      gameManager.lootManager.hasTreasure(figure, treasure, index)));
 
     if (unlooted) {
       treasures = treasures.filter((treasure) => !gameManager.game.party.treasures.find((identifier) => identifier.name == '' + treasure && identifier.edition == scenario.edition));

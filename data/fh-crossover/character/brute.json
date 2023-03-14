@@ -5,6 +5,7 @@
   "icon": "gh-brute",
   "thumbnail": "gh-brute",
   "edition": "fh-crossover",
+  "handSize": 10,
   "color": "#35acd5",
   "stats": [
     {

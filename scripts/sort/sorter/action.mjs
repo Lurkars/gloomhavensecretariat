@@ -1,4 +1,4 @@
-import { sortObjectKeys } from "./sort-object-keys.mjs";
+import { sortObjectKeys } from './sort-helper.mjs';
 
 export const sortAction = function (action) {
 

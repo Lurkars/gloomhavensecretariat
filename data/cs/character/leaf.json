@@ -2,6 +2,7 @@
   "name": "leaf",
   "characterClass": "human",
   "edition": "cs",
+  "handSize": 11,
   "color": "#ddde8b",
   "spoiler": true,
   "marker": true,

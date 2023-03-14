@@ -2,6 +2,7 @@
   "name": "blinkblade",
   "characterClass": "quatryl",
   "edition": "fh",
+  "handSize": 10,
   "color": "#01b0db",
   "stats": [
     {

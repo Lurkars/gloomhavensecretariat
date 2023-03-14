@@ -1,8 +1,8 @@
 {
   "name": "gemstone",
   "characterClass": "orchid",
-  "gender": "",
   "edition": "toa",
+  "handSize": 11,
   "color": "#ffd04f",
   "spoiler": true,
   "stats": [

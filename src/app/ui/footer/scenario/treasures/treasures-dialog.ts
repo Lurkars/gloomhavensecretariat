@@ -1,6 +1,7 @@
 import { DialogRef } from "@angular/cdk/dialog";
 import { Component } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
+import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Character } from "src/app/game/model/Character";
 import { Scenario } from "src/app/game/model/Scenario";
 
@@ -20,6 +21,7 @@ export class ScenarioTreasuresDialogComponent {
     treasures: ('G' | number)[] = [];
     treasureIndex: number = -1;
     looted: number[] = [];
+    rewardResults: string[][] = [];
 
     constructor(dialogRef: DialogRef) {
         if (!gameManager.game.scenario) {
@@ -45,13 +47,7 @@ export class ScenarioTreasuresDialogComponent {
         this.looted = [];
         this.treasures.forEach((treasure, index) => {
             if (this.looted.indexOf(index) == -1 &&
-
-                (treasure != 'G' &&
-                    (this.characters.some((character) => character.treasures.indexOf(treasure) != -1)
-                        ||
-                        gameManager.game.party.treasures.find((identifier) => identifier.name == '' + treasure && identifier.edition == this.scenario.edition))
-
-                    || treasure == 'G' && this.characters.some((character) => character.treasures.indexOf('G-' + index) != -1))) {
+                (this.characters.find((character) => gameManager.lootManager.hasTreasure(character, treasure, index)) || gameManager.game.party.treasures.find((identifier) => identifier.name == '' + treasure && identifier.edition == this.scenario.edition))) {
                 this.looted.push(index);
             }
         })
@@ -88,14 +84,26 @@ export class ScenarioTreasuresDialogComponent {
 
     lootTreasure() {
         if (this.treasureIndex != -1) {
+            this.rewardResults = [];
             const treasure = this.treasures[this.treasureIndex];
             if (this.character && treasure && this.character.treasures.indexOf(treasure == 'G' ? 'G-' + this.treasureIndex : treasure) == -1) {
                 gameManager.stateManager.before('lootCharTreasure', '' + treasure, this.scenario.edition, "data.character." + this.character.name);
                 this.looted.push(this.treasureIndex);
+                if (treasure != 'G' && settingsManager.settings.treasuresLoot) {
+                    this.rewardResults = gameManager.lootManager.lootTreasure(this.character, treasure - 1, this.scenario.edition);
+                }
                 this.character.treasures = this.character.treasures || [];
-                this.character.treasures.push(treasure == 'G' ? 'G-' + this.treasureIndex : treasure);
+                this.character.treasures.push(treasure == 'G' ? 'G-' + this.treasureIndex : this.rewardResults.some((rewardResult) => rewardResult.length > 0) ? treasure + ':' + this.rewardResults.map((reward) => reward.join('+')).join('|') : treasure);
                 gameManager.stateManager.after();
             }
+        }
+    }
+
+    rewardsFromString(treasure: string): string[][] {
+        if (treasure.split(':').length < 2) {
+            return [];
+        } else {
+            return treasure.split(':')[1].split('|').map((value) => value.split('+'));
         }
     }
 }

@@ -9,6 +9,73 @@
     <div class="line">
       <div class="hint-container">
         <label>
+          <input type="checkbox"
+            [checked]="settingsManager.settings.scenarioRooms"
+            (change)="settingsManager.setScenarioRooms(!settingsManager.settings.scenarioRooms)">
+          {{'settings.scenarioRooms' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.scenarioRooms.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
+          <input type="checkbox" [checked]="settingsManager.settings.scenarioRules"
+            (change)="settingsManager.setScenarioRules(!settingsManager.settings.scenarioRules)">
+          {{'settings.scenarioRules' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.scenarioRules.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="line">
+      <div class="hint-container">
+        <label 
+        [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms}">
+          <input type="checkbox" [checked]="settingsManager.settings.treasures && settingsManager.settings.scenarioRooms"
+            (change)="settingsManager.setTreasures(!settingsManager.settings.treasures)">
+          {{'settings.treasures' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.treasures.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label
+          [ngClass]="{'disabled' : !settingsManager.settings.expireConditions && !settingsManager.settings.applyConditions}">
+          <input type="checkbox"
+            [checked]="settingsManager.settings.disabledTurnConfirmation || (!settingsManager.settings.expireConditions && !settingsManager.settings.applyConditions)"
+            (change)="settingsManager.setDisabledTurnConfirmation(!settingsManager.settings.disabledTurnConfirmation)">
+          {{'settings.disabledTurnConfirmation' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.disabledTurnConfirmation.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHARACTER -->
+  <div class="line title span">
+    <label>{{'settings.character' | ghsLabel}}</label>
+  </div>
+
+  <div class="column">
+    <div class="line">
+      <div class="hint-container">
+        <label>
           <input type="checkbox" [checked]="settingsManager.settings.initiativeRequired"
             (change)="settingsManager.setInitiativeRequired(!settingsManager.settings.initiativeRequired)">
           {{'settings.initiativeRequired' | ghsLabel}}
@@ -32,66 +99,36 @@
         </span>
       </div>
     </div>
-    <div class="line">
-      <div class="hint-container">
-        <label>
-          <input type="checkbox" [checked]="settingsManager.settings.disableSortFigures"
-            (change)="settingsManager.setDisableSortFigures(!settingsManager.settings.disableSortFigures)">
-          {{'settings.disableSortFigures' | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.disableSortFigures.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
   </div>
 
   <div class="column">
     <div class="line">
       <div class="hint-container">
+        <label  [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || !settingsManager.settings.treasures }">
+          <input type="checkbox" [checked]="settingsManager.settings.treasuresLoot && settingsManager.settings.scenarioRooms  && settingsManager.settings.treasures"
+            (change)="settingsManager.setTreasuresLoot(!settingsManager.settings.treasuresLoot)">
+          {{'settings.treasuresLoot' | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.treasuresLoot.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.scenarioRules"
-            (change)="settingsManager.setScenarioRules(!settingsManager.settings.scenarioRules)">
-          {{'settings.scenarioRules' | ghsLabel}}
+          <input type="checkbox" [checked]="settingsManager.settings.characterHandSize"
+            (change)="settingsManager.setCharacterHandSize(!settingsManager.settings.characterHandSize)">
+          {{'settings.characterHandSize' | ghsLabel}}
         </label>
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
-          <span class="text">{{'settings.scenarioRules.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label [ngClass]="{'disabled' : settingsManager.settings.disableStandees}">
-          <input type="checkbox"
-            [checked]="settingsManager.settings.scenarioRooms && !settingsManager.settings.disableStandees"
-            (change)="settingsManager.setScenarioRooms(!settingsManager.settings.scenarioRooms)">
-          {{'settings.scenarioRooms' | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.scenarioRooms.hint' | ghsLabel}}</span>
-        </span>
-      </div>
-    </div>
-    <div class="line">
-      <div class="hint-container">
-        <label
-          [ngClass]="{'disabled' : !settingsManager.settings.expireConditions && !settingsManager.settings.applyConditions}">
-          <input type="checkbox"
-            [checked]="settingsManager.settings.disabledTurnConfirmation || (!settingsManager.settings.expireConditions && !settingsManager.settings.applyConditions)"
-            (change)="settingsManager.setDisabledTurnConfirmation(!settingsManager.settings.disabledTurnConfirmation)">
-          {{'settings.disabledTurnConfirmation' | ghsLabel}}
-        </label>
-        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
-        <span class="hint">
-          <span class="text">{{'settings.disabledTurnConfirmation.hint' | ghsLabel}}</span>
+          <span class="text">{{'settings.characterHandSize.hint' | ghsLabel}}</span>
         </span>
       </div>
     </div>
   </div>
-
 
   <!-- MONSTERS -->
   <div class="line title span">

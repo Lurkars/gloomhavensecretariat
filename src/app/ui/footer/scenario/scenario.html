@@ -6,7 +6,7 @@
         gameManager.game.scenario.name : (gameManager.game.scenario.custom ? 'scenario.custom' : 'scenario.set')) |
         ghsLabel}}</span>
       <span class="treasures" (click)="openTreasures($event)"
-        *ngIf="gameManager.scenarioManager.getTreasures(gameManager.game.scenario, gameManager.game.sections).length > 0"
+        *ngIf="settingsManager.settings.scenarioRooms &&  settingsManager.settings.treasures && gameManager.scenarioManager.getTreasures(gameManager.game.scenario, gameManager.game.sections).length > 0"
         [ngClass]="{'unlooted' : gameManager.scenarioManager.getTreasures(gameManager.game.scenario, gameManager.game.sections, true).length > 0}">
         <img class="ghs-svg" src="./assets/images/scenario/treasure.svg">
       </span>

@@ -158,7 +158,9 @@ export class ActionSummonComponent implements OnChanges {
 
   spawnHightlight(spawn: MonsterSpawnData, index: number): boolean {
     const entities = this.monster && gameManager.monsterManager.monsterEntityCount(this.monster) || 0;
-    return entities > 0 && this.monster && this.monster.active && this.tags.filter((tag) => tag == this.getTag(index)).length < entities || false;
+    const spawnMonster = gameManager.game.figures.find((figure) => figure instanceof Monster && figure.name == spawn.monster.name);
+    const spawns = spawnMonster && gameManager.monsterManager.monsterEntityCountAll(spawnMonster as Monster) || 0;
+    return entities > 0 && this.monster && this.monster.active && this.tags.filter((tag) => tag == this.getTag(index)).length < entities && (!spawnMonster || spawns < (spawnMonster as Monster).count) || false;
   }
 
   spawnSummons(event: any, spawn: MonsterSpawnData, index: number) {

@@ -3,6 +3,7 @@
   "characterClass": "inox",
   "gender": "m",
   "edition": "jotl",
+  "handSize": 10,
   "color": "#7bbbd6",
   "marker": true,
   "stats": [

@@ -1,8 +1,8 @@
 {
   "name": "prism",
   "characterClass": "unfettered",
-  "gender": "",
   "edition": "fh",
+  "handSize": 11,
   "color": "#d7ad47",
   "spoiler": true,
   "stats": [

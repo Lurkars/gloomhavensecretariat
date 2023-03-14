@@ -2,6 +2,7 @@
   "name": "crescent-sun",
   "characterClass": "lurker",
   "edition": "cs",
+  "handSize": 11,
   "color": "#bf9eca",
   "spoiler": true,
   "stats": [

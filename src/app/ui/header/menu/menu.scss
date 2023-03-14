@@ -223,46 +223,6 @@
     }
   }
 
-  .hint-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-
-    .hint-trigger {
-      cursor: help;
-      height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-      width: auto;
-      margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
-      filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
-
-      &:hover {
-        &~.hint .text {
-          display: inline-block !important;
-        }
-      }
-    }
-
-    .hint {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      font-family: var(--ghs-font-text);
-      font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-      color: var(--ghs-color-gray);
-      z-index: 1;
-
-      .text {
-        margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
-        padding: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
-        border: 1px solid var(--ghs-color-gray);
-        background-color: var(--ghs-color-black);
-        display: none;
-      }
-    }
-  }
-
   .bosses {
     &>.boss {
       margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));

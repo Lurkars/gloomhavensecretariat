@@ -2,6 +2,7 @@
   "name": "target",
   "characterClass": "quatryl",
   "edition": "cs",
+  "handSize": 9,
   "color": "#a59786",
   "spoiler": true,
   "stats": [

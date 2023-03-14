@@ -106,22 +106,23 @@ export class CharacterComponent {
       value = 1;
     }
 
-    this.character.initiative = this.initiative;
-    gameManager.stateManager.before("setInitiative", "data.character." + this.character.name, "" + value);
-    this.character.initiative = value;
-    this.character.longRest = false;
-    if (value == 99) {
-      this.character.longRest = true;
+    if (this.character.initiative != this.initiative) {
+      this.character.initiative = this.initiative;
+      gameManager.stateManager.before("setInitiative", "data.character." + this.character.name, "" + value);
+      this.character.initiative = value;
+      this.character.longRest = false;
+      if (value == 99) {
+        this.character.longRest = true;
+      }
+      this.initiative = -1;
+      if (this.character instanceof Character) {
+        this.character.initiativeVisible = true;
+      }
+      if (gameManager.game.state == GameState.next) {
+        gameManager.sortFigures();
+      }
+      gameManager.stateManager.after();
     }
-    this.initiative = -1;
-    if (this.character instanceof Character) {
-      this.character.initiativeVisible = true;
-    }
-    if (gameManager.game.state == GameState.next) {
-      gameManager.sortFigures();
-    }
-    gameManager.stateManager.after();
-
   }
 
   toggleFigure(event: any): void {

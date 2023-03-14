@@ -2,6 +2,7 @@
   "name": "diviner",
   "characterClass": "aesther",
   "edition": "fc",
+  "handSize": 9,
   "color": "#c8e3ea",
   "stats": [
     {

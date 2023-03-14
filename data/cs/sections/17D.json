@@ -3,7 +3,21 @@
   "name": "Scenario 16",
   "edition": "cs",
   "parent": "16",
+  "marker": "1",
   "monsters": [
     "apex-demon"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "c1",
+      "initial": true,
+      "monster": [
+        {
+          "name": "apex-demon",
+          "type": "boss"
+        }
+      ]
+    }
   ]
 }

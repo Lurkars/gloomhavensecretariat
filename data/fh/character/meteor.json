@@ -1,8 +1,8 @@
 {
   "name": "meteor",
   "characterClass": "savvas",
-  "gender": "",
   "edition": "fh",
+  "handSize": 10,
   "color": "#eb5b38",
   "spoiler": true,
   "stats": [

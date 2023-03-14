@@ -3,6 +3,7 @@
   "characterClass": "human",
   "gender": "m",
   "edition": "gh",
+  "handSize": 10,
   "color": "#d5ca9c",
   "spoiler": true,
   "stats": [

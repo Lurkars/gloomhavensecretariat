@@ -32,6 +32,7 @@
             width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
             height: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
             margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+            transition: translate 500ms ease-in-out;
 
             .overlay {
                 display: none;
@@ -49,6 +50,7 @@
 
             &:hover {
                 opacity: 0.8;
+                transform: scale(1.1);
             }
 
             &.looted {
@@ -110,7 +112,7 @@
             }
 
             &.disabled {
-                pointer-events: none;
+                cursor: initial !important;
                 border-color: transparent;
             }
 
@@ -123,13 +125,17 @@
                 }
             }
 
-            .treasures .treasure {
-                pointer-events: none;
-                font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-                line-height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-                width: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
-                height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
-                margin: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor));
+            .treasures {
+                position: relative;
+
+                .treasure {
+                    cursor: help !important;
+                    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                    line-height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                    width: calc(var(--ghs-unit) * 5 * var(--ghs-dialog-factor));
+                    height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+                    margin: calc(var(--ghs-unit) * 0.2 * var(--ghs-dialog-factor));
+                }
             }
         }
     }

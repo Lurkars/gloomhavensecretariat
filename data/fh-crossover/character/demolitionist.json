@@ -5,6 +5,7 @@
   "icon": "jotl-demolitionist",
   "thumbnail": "jotl-demolitionist",
   "edition": "fh-crossover",
+  "handSize": 9,
   "color": "#e5a26f",
   "stats": [
     {

@@ -2,6 +2,7 @@
   "name": "sprig",
   "characterClass": "quatryl",
   "edition": "cs",
+  "handSize": 10,
   "color": "#e65925",
   "spoiler": true,
   "stats": [

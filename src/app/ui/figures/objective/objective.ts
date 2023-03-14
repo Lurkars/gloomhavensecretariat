@@ -103,10 +103,12 @@ export class ObjectiveComponent implements OnInit {
       value = 1;
     }
 
-    gameManager.stateManager.before("setObjectiveInitiative", this.objective.title || this.objective.name, "" + value);
-    this.objective.initiative = value;
-    gameManager.sortFigures();
-    gameManager.stateManager.after();
+    if (this.objective.initiative != value) {
+      gameManager.stateManager.before("setObjectiveInitiative", this.objective.title || this.objective.name, "" + value);
+      this.objective.initiative = value;
+      gameManager.sortFigures();
+      gameManager.stateManager.after();
+    }
   }
 
   dragHpMove(value: number) {

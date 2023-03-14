@@ -5,6 +5,7 @@
   "icon": "gh-two-mini",
   "thumbnail": "gh-two-mini",
   "edition": "fh-crossover",
+  "handSize": 10,
   "color": "#b4765a",
   "spoiler": true,
   "stats": [

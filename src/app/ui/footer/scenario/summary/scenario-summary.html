@@ -126,9 +126,17 @@
       <ng-container *ngIf="gameManager.scenarioManager.getTreasures(scenario,gameManager.game.sections).length > 0">
         <span class="head-col">{{'scenario.summary.treasures' | ghsLabel}}</span>
         <span class="treasures" *ngFor="let character of characters; let index = index;">
-          <span class="treasure" *ngFor="let treasure of character.treasures || []">
-            <span *ngIf="treasure < 10">0</span>{{('' + treasure).startsWith('G-') ? 'G' : treasure}}
-          </span>
+          <div class="hint-container" *ngFor="let treasure of character.treasures || []">
+            <span class="treasure hint-trigger">
+              <span *ngIf="treasure < 10">0</span>{{('' + treasure).startsWith('G-') ? 'G' : (''
+              +treasure).split(':')[0]}}
+            </span>
+            <span class="hint above center">
+              <ghs-treasure-label class="text placeholder text-white" *ngIf="!('' + treasure).startsWith('G-')"
+                [edition]="scenario.edition" [index]="+(''
+            +treasure).split(':')[0] -1"
+                [rewardResults]="treasureRewardsFromString('' + treasure)"></ghs-treasure-label></span>
+          </div>
         </span>
       </ng-container>
 
@@ -187,7 +195,7 @@
           <div class="list">
             <div class="item location" *ngFor="let location of scenario.unlocks; let i = index;">
               {{'data.scenario.' + gameManager.scenarioManager.getScenario(location,scenario.edition,
-              scenario.group)?.name | ghsLabel}} <span class="index">{{location}}</span>
+              scenario.group)?.name | ghsLabel}} <span [i18n]="'%data.scenarioNumber:' + location+ '%'"></span>
               <span *ngIf="scenario.unlocks.length > 1 && i < scenario.unlocks.length - 1">,</span>
             </div>
           </div>
@@ -199,7 +207,7 @@
           <div class="list">
             <div class="item location" *ngFor="let location of conclusion.unlocks; let i = index;">
               {{'data.scenario.' + gameManager.scenarioManager.getScenario(location,conclusion.edition,
-              conclusion.group)?.name | ghsLabel}} <span class="index">{{location}}</span>
+              conclusion.group)?.name | ghsLabel}} <span [i18n]="'%data.scenarioNumber:' + location + '%'"></span>
               <span *ngIf="conclusion.unlocks.length > 1 && i < conclusion.unlocks.length - 1">,</span>
             </div>
           </div>

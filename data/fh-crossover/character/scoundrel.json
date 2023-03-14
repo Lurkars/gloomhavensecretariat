@@ -5,6 +5,7 @@
   "icon": "gh-scoundrel",
   "thumbnail": "gh-scoundrel",
   "edition": "fh-crossover",
+  "handSize": 9,
   "color": "#9ecf5f",
   "stats": [
     {

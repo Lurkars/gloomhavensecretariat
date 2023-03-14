@@ -1,6 +1,7 @@
 import { Dialog, DialogRef } from "@angular/cdk/dialog";
 import { Component } from "@angular/core";
 import { gameManager, GameManager } from "src/app/game/businesslogic/GameManager";
+import { settingsManager, SettingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { EditionData } from "src/app/game/model/data/EditionData";
 import { RoomData } from "src/app/game/model/data/RoomData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
@@ -16,6 +17,7 @@ import { ScenarioTreasuresDialogComponent } from "../treasures/treasures-dialog"
 export class ScenarioDialogComponent {
 
     gameManager: GameManager = gameManager;
+    settingsManager: SettingsManager = settingsManager;
 
     constructor(private dialogRef: DialogRef, private dialog: Dialog) { }
 

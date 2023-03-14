@@ -2,6 +2,7 @@
   "name": "envx",
   "characterClass": "harrower",
   "edition": "gh",
+  "handSize": 11,
   "color": "#cb9070",
   "spoiler": true,
   "locked": true,

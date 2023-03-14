@@ -2,6 +2,7 @@
   "name": "tools",
   "characterClass": "quatryl",
   "edition": "cs",
+  "handSize": 9,
   "color": "#79bcda",
   "spoiler": true,
   "stats": [

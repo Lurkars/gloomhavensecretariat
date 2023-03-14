@@ -14,7 +14,14 @@
       "ref": "c2",
       "initial": true,
       "rooms": [
-        2,
+        2
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "f1a",
+      "initial": true,
+      "rooms": [
         3,
         4
       ],
@@ -50,7 +57,7 @@
       ]
     },
     {
-      "roomNumber": 2,
+      "roomNumber": 3,
       "ref": "b2",
       "monster": [
         {
@@ -80,7 +87,7 @@
       ]
     },
     {
-      "roomNumber": 3,
+      "roomNumber": 4,
       "ref": "b3",
       "monster": [
         {
@@ -106,16 +113,6 @@
           "name": "night-demon",
           "player3": "normal",
           "player4": "normal"
-        }
-      ]
-    },
-    {
-      "roomNumber": 4,
-      "ref": "c1",
-      "monster": [
-        {
-          "name": "earth-demon",
-          "type": "elite"
         }
       ]
     }

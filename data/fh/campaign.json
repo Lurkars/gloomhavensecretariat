@@ -1,7 +1,9 @@
 {
     "campaignStickers": [
+        "brummix:5",
         "bug-in-a-jar",
-        "charged-core",
+        "charged-core:2",
+        "coral-shard:6",
         "crown-united",
         "destroyer-of-the-icespeakers",
         "destroyer-of-the-snowspeakers",
@@ -13,7 +15,7 @@
         "friend-of-the-snowspeakers",
         "into-the-forest",
         "shard-seeker",
-        "uncharged-core",
+        "uncharged-core:2",
         "unfettered-allies",
         "unfettered-deactivated"
     ],

@@ -152,14 +152,16 @@
       </div>
     </ng-container>
 
-    <a class="character-sheet-button" title="{{'character.progress' | ghsLabel}}">
+    <a class="character-sheet-button" title="{{'character.progress' | ghsLabel}}"
+      [ngClass]="{'hand-size-margin' : settingsManager.settings.characterHandSize}">
       <img [src]="characterManager.characterIcon(character)" />
       <ghs-drag-click (singleClick)="openCharacterSheet()" (doubleClick)="characterFullView()">
       </ghs-drag-click>
     </a>
 
-
-
+    <div *ngIf="settingsManager.settings.characterHandSize && !character.absent" class="hand-size">
+      {{character.handSize}}
+    </div>
   </div>
 
   <ghs-figure-errors [figure]="character"></ghs-figure-errors>

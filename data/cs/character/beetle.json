@@ -2,6 +2,7 @@
   "name": "beetle",
   "characterClass": "harrower",
   "edition": "cs",
+  "handSize": 11,
   "color": "#f89521",
   "spoiler": true,
   "stats": [

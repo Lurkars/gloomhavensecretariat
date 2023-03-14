@@ -1,5 +1,5 @@
 import { sortAction } from './action.mjs';
-import { sortObjectKeys } from './sort-object-keys.mjs';
+import { sortObjectKeys } from './sort-helper.mjs';
 
 export const sortAbility = function (ability) {
 

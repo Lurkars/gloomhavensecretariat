@@ -5,6 +5,7 @@
   "icon": "gh-circles",
   "thumbnail": "gh-circles",
   "edition": "fh-crossover",
+  "handSize": 9,
   "color": "#e570b3",
   "spoiler": true,
   "stats": [

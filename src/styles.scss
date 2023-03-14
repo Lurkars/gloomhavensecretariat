@@ -826,7 +826,64 @@ input[type="radio"] {
   color: var(--ghs-color-yellow) !important;
 }
 
+.hint-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 
+  .hint-trigger {
+    cursor: help;
+    height: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+    width: auto;
+    margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+    &.ghs-svg {
+      filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+    }
+
+    &:hover {
+      &~.hint .text {
+        display: inline-block !important;
+      }
+    }
+  }
+
+  .hint {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    min-width: calc(var(--ghs-unit) * 20 * var(--ghs-dialog-factor));
+    font-family: var(--ghs-font-text);
+    font-size: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+    color: var(--ghs-color-gray);
+    z-index: 1;
+
+    &.above {
+      top: initial;
+      bottom: 100%;
+    }
+
+    &.center {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &:hover .text {
+      display: inline-block !important;
+    }
+
+    .text {
+      margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+      padding: calc(var(--ghs-unit) * 1.5 * var(--ghs-dialog-factor));
+      border: calc(var(--ghs-unit) * 0.3 * var(--ghs-dialog-factor)) solid var(--ghs-color-gray);
+      border-radius: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+      background-color: var(--ghs-color-black);
+      display: none;
+    }
+  }
+}
 
 .placeholder {
   position: relative;
@@ -1048,12 +1105,32 @@ input[type="radio"] {
     font-size: 0.5em;
   }
 
+  .scenario-number {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.5em;
+    height: 1.5em;
+    font-size: 1em;
+    color: var(--ghs-color-black);
+    background-color: var(--ghs-color-white);
+    border-radius: 100%;
+    border: 2px solid var(--ghs-color-black);
+    margin: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+  }
+
   &.text-white {
 
     .placeholder-character-icon {
       img {
         filter: brightness(99);
       }
+    }
+
+    .scenario-number {
+      color: var(--ghs-color-white);
+      background-color: var(--ghs-color-black);
+      border-color: var(--ghs-color-white);
     }
 
     .placeholder-item-fh {

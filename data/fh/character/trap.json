@@ -1,8 +1,8 @@
 {
   "name": "trap",
   "characterClass": "vermling",
-  "gender": "",
   "edition": "fh",
+  "handSize": 9,
   "color": "#ddb586",
   "spoiler": true,
   "stats": [

@@ -1,8 +1,8 @@
 {
   "name": "snowflake",
   "characterClass": "algox",
-  "gender": "",
   "edition": "fh",
+  "handSize": 11,
   "color": "#83b5be",
   "spoiler": true,
   "stats": [

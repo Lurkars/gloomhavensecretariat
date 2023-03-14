@@ -617,7 +617,19 @@ export class PartySheetDialogComponent implements OnInit {
   addCampaignSticker(campaignStickerElement: HTMLInputElement) {
     const sticker = campaignStickerElement.value;
     this.party.campaignStickers = this.party.campaignStickers || [];
-    if (this.party.campaignStickers.indexOf(sticker) == -1) {
+
+    let total = 1;
+    const campaign = this.campaignData();
+    if (campaign && campaign.campaignStickers) {
+      const campaignSticker = campaign.campaignStickers.find((campaignSticker) => campaignSticker.startsWith(sticker.toLowerCase().replaceAll(' ', '-') + ':'));
+      if (campaignSticker) {
+        total = +(campaignSticker.split(':')[1]);
+      }
+    }
+
+    const count = this.party.campaignStickers.filter((campaignSticker) => campaignSticker.toLowerCase().replaceAll(' ', '-') == sticker.toLowerCase().replaceAll(' ', '-')).length;
+
+    if (count < total) {
       gameManager.stateManager.before("addCampaignSticker", sticker);
       this.party.campaignStickers.push(sticker);
       campaignStickerElement.value = "";
@@ -634,11 +646,29 @@ export class PartySheetDialogComponent implements OnInit {
     }
   }
 
-  campaignStickerImage(campaignSticker: string): string | undefined {
+  campaignStickerImage(campaignSticker: string, stickerIndex: number): string | undefined {
     const campaign = this.campaignData();
     const sticker = campaignSticker.toLowerCase().replaceAll(' ', '-');
-    if (campaign && campaign.campaignStickers && campaign.campaignStickers.indexOf(sticker) != -1) {
+
+    let total = 0;
+    if (campaign && campaign.campaignStickers) {
+      const campaignSticker = campaign.campaignStickers.find((campaignSticker) => campaignSticker.startsWith(sticker));
+      if (campaignSticker) {
+        if (campaignSticker.indexOf(':') != -1)
+          total = +(campaignSticker.split(':')[1]);
+      } else {
+        total = 1;
+      }
+    }
+
+    if (total == 1) {
       return './assets/images/fh/party/campaign-stickers/' + sticker + '.png';
+    } else if (total > 1) {
+      const mappedSticker = this.party.campaignStickers.map((sticker, index) => { return { sticker: sticker.toLowerCase().replaceAll(' ', '-'), origIndex: index } });
+      const mapped = mappedSticker.filter((value) => value.sticker == sticker).map((value, index) => { return { sticker: value.sticker, origIndex: value.origIndex, index: index + 1 } }).find((value) => value.origIndex == stickerIndex);
+      if (mapped) {
+        return './assets/images/fh/party/campaign-stickers/' + sticker + '-' + mapped.index + '.png';
+      }
     }
     return undefined;
   }

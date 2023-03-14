@@ -2,6 +2,7 @@
   "name": "flask",
   "characterClass": "human",
   "edition": "cs",
+  "handSize": 11,
   "color": "#caad2e",
   "spoiler": true,
   "stats": [

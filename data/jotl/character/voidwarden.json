@@ -3,6 +3,7 @@
   "characterClass": "human",
   "gender": "f",
   "edition": "jotl",
+  "handSize": 11,
   "color": "#e8e9e9",
   "stats": [
     {

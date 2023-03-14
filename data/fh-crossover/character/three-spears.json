@@ -5,6 +5,7 @@
   "icon": "gh-three-spears",
   "thumbnail": "gh-three-spears",
   "edition": "fh-crossover",
+  "handSize": 9,
   "color": "#ad9477",
   "spoiler": true,
   "stats": [

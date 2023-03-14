@@ -2,6 +2,7 @@
   "name": "boneshaper",
   "characterClass": "aesther",
   "edition": "fh",
+  "handSize": 12,
   "color": "#49a967",
   "stats": [
     {

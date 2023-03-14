@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { Action, ActionType, ActionTypesIcons, ActionValueType } from 'src/app/game/model/Action';
+import { Action, ActionType, ActionTypesIcons, ActionValueType, ActionSpecialTarget } from 'src/app/game/model/Action';
 import { Condition, ConditionType } from 'src/app/game/model/Condition';
 import { ElementState } from 'src/app/game/model/Element';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
@@ -287,12 +287,12 @@ export class ActionComponent implements OnInit {
       newSubActions.forEach((subAction) => {
         if (this.action) {
           if (subAction.type == ActionType.target) {
-            if (!this.additionalSubActions.some((other) => other.type == ActionType.target || other.type == ActionType.specialTarget)) {
+            if (!this.additionalSubActions.some((other) => other.type == ActionType.target || other.type == ActionType.specialTarget && other.value != ActionSpecialTarget.enemyOneAll)) {
               if (subAction.valueType == ActionValueType.add) {
                 subAction.valueType = ActionValueType.fixed;
                 subAction.value = EntityValueFunction(subAction.value) + 1;
               }
-              if (this.additionalSubActions.length > 0 && this.additionalSubActions[this.additionalSubActions.length - 1].type == ActionType.element) {
+              if (this.additionalSubActions.length > 0 && (this.additionalSubActions[this.additionalSubActions.length - 1].type == ActionType.element || this.additionalSubActions[this.additionalSubActions.length - 1].type == ActionType.specialTarget && this.additionalSubActions[this.additionalSubActions.length - 1].value == ActionSpecialTarget.enemyOneAll)) {
                 this.additionalSubActions.splice(this.additionalSubActions.length - 1, 0, subAction);
               } else {
                 this.additionalSubActions.push(subAction);

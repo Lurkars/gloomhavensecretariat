@@ -28,7 +28,8 @@
     .loot,
     .attack-modifier-button,
     .icon-container,
-    .stats .column {
+    .stats .column,
+    .hand-size {
       filter: grayscale(15%);
       opacity: 0.5;
     }
@@ -404,6 +405,10 @@
     align-items: center;
     margin-right: calc(var(--ghs-unit) * 4);
 
+    &.hand-size-margin {
+      margin-left: calc(var(--ghs-unit) * 0.5);
+    }
+
     img {
       height: calc(var(--ghs-unit) * 8);
       width: auto;
@@ -416,6 +421,35 @@
       left: 0;
       bottom: 0;
       right: 0;
+    }
+  }
+
+  .hand-size {
+    position: absolute;
+    right: calc(var(--ghs-unit) * 14);
+    top: calc(var(--ghs-unit) * 4);
+    width: calc(var(--ghs-unit) * 4.2);
+    height: calc(var(--ghs-unit) * 5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--ghs-font-title);
+    font-size: calc(var(--ghs-unit) * 2.4);
+    padding-right: calc(var(--ghs-unit) * 0.4);
+
+    &:after {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: var(--ghs-character-color);
+      mask-image: url('~/src/assets/images/character/hand-size-mask.svg');
+      mask-size: 100%;
+      mask-repeat: no-repeat;
+      filter: brightness(1.6);
+      z-index: -1;
     }
   }
 
@@ -440,6 +474,7 @@
     .loot,
     .icon-container,
     .character-sheet-button,
+    .hand-size,
     &::before {
       filter: grayscale(1) !important;
     }

@@ -3,6 +3,10 @@
   "name": "Aiding Diamara",
   "edition": "fc",
   "parent": "108",
+  "blockedSections": [
+    "44",
+    "101"
+  ],
   "monsters": [
     "city-archer",
     "city-guard",

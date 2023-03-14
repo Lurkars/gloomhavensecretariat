@@ -5,6 +5,7 @@
   "icon": "jotl-hatchet",
   "thumbnail": "jotl-hatchet",
   "edition": "fh-crossover",
+  "handSize": 10,
   "color": "#7bbbd6",
   "marker": true,
   "stats": [

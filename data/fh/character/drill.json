@@ -1,8 +1,8 @@
 {
   "name": "drill",
   "characterClass": "unfettered",
-  "gender": "",
   "edition": "fh",
+  "handSize": 9,
   "color": "#ad8f68",
   "spoiler": true,
   "stats": [

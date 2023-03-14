@@ -1,8 +1,8 @@
 {
   "name": "kelp",
   "characterClass": "lurker",
-  "gender": "",
   "edition": "fh",
+  "handSize": 10,
   "color": "#987bab",
   "spoiler": true,
   "stats": [

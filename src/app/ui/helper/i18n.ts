@@ -115,6 +115,8 @@ export const applyPlaceholder = function (value: string, placeholder: string[] =
         replace = '<span class="map-marker">' + split[2] + '</span>';
       } else if (type == "objectiveMarker" && split.length == 3) {
         replace = '<span class="objective-marker">' + split[2] + '</span>';
+      } else if (type == "scenarioNumber") {
+        replace = '<span class="scenario-number">' + value + '</span>';
       } else if (fh && type == "target" && split.length == 2) {
         image = '<img  src="./assets/images/fh/action/target.svg" class="icon ghs-svg">';
         replace = '<span class="placeholder-action">' + image + '</span>';
