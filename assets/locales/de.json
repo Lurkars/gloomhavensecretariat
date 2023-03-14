@@ -421,10 +421,22 @@
           "loot": "erhalte {0} Münzmarker",
           "lootCards": "erhalte %number.{0}% Beutekarten",
           "partyAchievement": "Gruppenerfolg: \"{0}\"",
-          "randomItem": "Erhalte einen zufälligen Gegenstand (Gegenstände {0})",
-          "randomItemBlueprint": "Zufälliger Gegenstandsplan",
-          "randomItemDesign": "Zufälliger Gegenstandsplan",
-          "randomScenario": "Zufälliges Nebenszenario",
+          "randomItem": {
+            ".": "Erhalte einen zufälligen Gegenstand (Gegenstände {0})",
+            "result": ": {1} ({0})"
+          },
+          "randomItemBlueprint": {
+            ".": "Zufälliger Gegenstandsplan",
+            "result": ": {1} Gegenstandsplan ({0})"
+          },
+          "randomItemDesign": {
+            ".": "Zufälliger Gegenstandsplan",
+            "result": ": {1} Gegenstandsplan ({0})"
+          },
+          "randomScenario": {
+            ".": "Zufälliges Nebenszenario",
+            "result": ": {1} %data.scenarioNumber:{0}%"
+          },
           "resource": "Erhalte {0}",
           "scenario": "Neues Szenario: {1} <span class=\"scenario-number\">{0}</span>"
         }
@@ -939,6 +951,11 @@
       ".": "Füge Monsterwerte zu Fähigkeiten zu",
       "hint": "Basiswerte werden zu Fähigkeiten hinzugefügt, z.B. wird die Reichweite automatisch bei einer Angriffsfertigkeit angezeigt"
     },
+    "character": "Charakter",
+    "characterHandSize": {
+      ".": "Handkartenanzahl anzeigen",
+      "hint": "Zeite die Handkartenanzahl auf dem Charakterboard an."
+    },
     "conditions": "Zustände/Elemente",
     "debug": {
       ".": "Debug Einstellung/Werkzeuge",
@@ -1090,6 +1107,14 @@
       "fh": "Frosthaven",
       "hint": "",
       "modern": "Modern (%wip%)"
+    },
+    "treasures": {
+      ".": "Schätze anzeigen",
+      "hint": "Zeige Schätze von aufgedeckten Räumen an und einen Dialog um den Schatz zu öffnen."
+    },
+    "treasuresLoot": {
+      ".": "Belohnungen aus Schatz anwenden",
+      "hint": "Wendet nach dem öffnen eines Schatzes automatisch die Belohnungen an: Gold, EP etc. zum entsprechenden Charakter, ein zufälliges Nebenszenario oder einen zuälligen Gegenstand ziehen etc."
     },
     "zoom": {
       ".": "Zoom",

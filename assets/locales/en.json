@@ -71,7 +71,7 @@
     "present": "Present",
     "progress": {
       ".": "Character Sheet",
-      "battlegoals": "Battelgoals",
+      "battlegoals": "Battel Goals",
       "donate": "Donate",
       "donations": "Donations to Sanctuary of the Great Oak",
       "export": "Export",
@@ -522,10 +522,22 @@
           "loot": "gain {0} money tokens",
           "lootCards": "gain %number.{0}% loot cards",
           "partyAchievement": "Party Achievement: \"{0}\"",
-          "randomItem": "Gain one random item (Items {0})",
-          "randomItemBlueprint": "Random Item Blueprint",
-          "randomItemDesign": "Random Item Design",
-          "randomScenario": "Random Side Scenario",
+          "randomItem": {
+            ".": "Gain one random item (Items {0})",
+            "result": ": {1} ({0})"
+          },
+          "randomItemBlueprint": {
+            ".": "Random Item Blueprint",
+            "result": ": {1} blueprint ({0})"
+          },
+          "randomItemDesign": {
+            ".": "Random Item Design",
+            "result": ": {1} design ({0})"
+          },
+          "randomScenario": {
+            ".": "Random Side Scenario",
+            "result": ": {1} %data.scenarioNumber:{0}%"
+          },
           "resource": "gain {0}",
           "scenario": "New Scenario: {1} <span class=\"scenario-number\">{0}</span>"
         }
@@ -877,7 +889,7 @@
         "reapply": "Switch back to casual mode"
       },
       "apply": "Finish",
-      "battlegoals": "Battelgoals",
+      "battlegoals": "Battel Goals",
       "cancel": "Cancel",
       "casualWarning": "Casual Mode",
       "casualFhWarning": {
@@ -1040,6 +1052,11 @@
       ".": "Add stats values to abilities",
       "hint": "Default stats values are added to the ability value, for example a Range value is automatically added to the Attack ability"
     },
+    "character": "Character",
+    "characterHandSize": {
+      ".": "Display hand size",
+      "hint": "Display the hand size on the character's board."
+    },
     "conditions": "Conditions/Elements",
     "debug": {
       ".": "Debug Settings/Tools",
@@ -1190,6 +1207,14 @@
       "fh": "Frosthaven",
       "hint": "Choose a theme for background, bars and fonts.",
       "modern": "Modern (%wip%)"
+    },
+    "treasures": {
+      ".": "Room Treasures indicator",
+      "hint": "Show available treasures for scenario when corresponding room is revealed and add dialog to open the treasure."
+    },
+    "treasuresLoot": {
+      ".": "Apply treasure rewards",
+      "hint": "Automatically apply treasure rewards: give gold, XP etc. to looting character, draw random side scenario or item design etc."
     },
     "zoom": {
       ".": "Zoom",
