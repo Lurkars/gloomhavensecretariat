@@ -1470,25 +1470,25 @@
 
         .achievements,
         .treasures {
+          height: auto;
           display: flex;
           flex-direction: column;
-          height: calc(var(--ghs-unit) * 17 * var(--ghs-dialog-factor));
           margin-top: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
-          width: 50%;
-          flex-grow: 1;
 
           .achievements-container {
-            height: 100%;
+            height: auto;
             width: 100%;
 
             .list {
-              width: calc(var(--ghs-unit) * 15 * var(--ghs-dialog-factor));
+              width: initial;
             }
           }
         }
 
+        .items,
         .treasures {
 
+          .item-add,
           .treasure-add {
 
             font-family: var(--ghs-font-text);
@@ -1529,20 +1529,37 @@
 
           }
 
+          .item-list,
           .treasure-list {
             overflow-y: auto;
             font-size: 0.9em;
 
+            .item,
             .treasure {
               display: grid;
               grid-template-columns: 0.3fr 0.2fr 0.2fr 2fr;
               align-items: center;
               cursor: pointer;
 
+              &.edition {
+                grid-template-columns: 0.3fr 0.2fr 0.2fr 2fr 1fr;
+              }
+
               .index {
                 font-family: var(--ghs-font-text);
                 font-size: 0.9em;
                 justify-self: end;
+              }
+
+              .item-index {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                justify-self: initial;
+
+                .icon {
+                  height: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+                  width: auto;
+                }
               }
 
               .separator {

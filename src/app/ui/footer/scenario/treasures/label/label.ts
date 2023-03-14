@@ -84,7 +84,7 @@ export class TreasureLabelComponent implements OnInit {
                         itemId = +itemString;
                     }
 
-                    const item = gameManager.item(itemId, itemEdition);
+                    const item = gameManager.item(itemId, itemEdition, true);
 
                     if (item) {
                         itemIdValues.push('%game.item% ' + (itemEdition == this.edition ? item.id : item.id + ' [%data.edition.' + item.edition + '%]'));
@@ -109,7 +109,7 @@ export class TreasureLabelComponent implements OnInit {
 
                 return [this.labelPrefix + reward.type, itemIdValue, itemNameValue];
             case TreasureRewardType.itemBlueprint:
-                const blueprintItem = gameManager.item(+value, this.edition);
+                const blueprintItem = gameManager.item(+value, this.edition, true);
                 if (blueprintItem) {
                     return [this.labelPrefix + reward.type, value, blueprintItem.name];
                 } else {
@@ -118,7 +118,7 @@ export class TreasureLabelComponent implements OnInit {
                 }
                 break;
             case TreasureRewardType.itemFh:
-                const itemFh = gameManager.item(+value, this.edition);
+                const itemFh = gameManager.item(+value, this.edition, true);
                 if (itemFh) {
                     return [this.labelPrefix + reward.type, value, itemFh.name];
                 } else {

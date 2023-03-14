@@ -5,7 +5,9 @@ import { settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { AttackModifierDeck } from "src/app/game/model/AttackModifier";
 import { Character, GameCharacterModel } from "src/app/game/model/Character";
 import { CampaignData, TownGuardPerk } from "src/app/game/model/data/EditionData";
+import { ItemData } from "src/app/game/model/data/ItemData";
 import { ScenarioData } from "src/app/game/model/data/ScenarioData";
+import { FH_PROSPERITY_STEPS, GH_PROSPERITY_STEPS } from "src/app/game/model/Game";
 import { Identifier } from "src/app/game/model/Identifier";
 import { LootType } from "src/app/game/model/Loot";
 
@@ -25,7 +27,7 @@ export class PartySheetDialogComponent implements OnInit {
   gameManager: GameManager = gameManager;
   ghsInputFullScreenCheck = ghsInputFullScreenCheck;
   party: Party;
-  prosperitySteps = [3, 8, 14, 21, 29, 38, 49, 63];
+  prosperitySteps = GH_PROSPERITY_STEPS;
   priceModifier: number = 0;
   campaign: boolean = false;
   buildings: boolean = false;
@@ -41,6 +43,7 @@ export class PartySheetDialogComponent implements OnInit {
 
   townGuardDeck: AttackModifierDeck | undefined;
 
+  @ViewChild('itemIndex') itemIndex!: ElementRef;
   @ViewChild('treasureIndex') treasureIndex!: ElementRef;
 
   constructor(private dialogRef: DialogRef, private dialog: Dialog) {
@@ -66,7 +69,7 @@ export class PartySheetDialogComponent implements OnInit {
     this.csSheet = !this.fhSheet && gameManager.editionRules('cs');
 
     if (this.fhSheet) {
-      this.prosperitySteps = [5, 14, 26, 41, 59, 80, 104, 131];
+      this.prosperitySteps = FH_PROSPERITY_STEPS;
     }
   }
 
@@ -454,6 +457,34 @@ export class PartySheetDialogComponent implements OnInit {
     return "";
   }
 
+  items(): ItemData[] {
+    return this.party.unlockedItems.filter((identifier) => !this.party.edition || identifier.edition == this.party.edition).sort((a, b) => {
+      if (!this.party.edition && a.edition != b.edition) {
+        return gameManager.editions().indexOf(a.edition) - gameManager.editions().indexOf(b.edition);
+      }
+
+      return +a.name - +b.name;
+    }).map((identifier) => gameManager.item(+identifier.name, identifier.edition, true)).filter((itemData) => itemData != undefined).map((itemData) => itemData as ItemData);
+  }
+
+  addItem(item: string, edition: string) {
+    gameManager.stateManager.before("addUnlockedItem", edition, item);
+    this.party.unlockedItems = this.party.unlockedItems || [];
+    this.party.unlockedItems.push(new Identifier(item, edition));
+    this.itemIndex.nativeElement.value = "0";
+    gameManager.stateManager.after();
+  }
+
+  hasItem(item: string, edition: string): boolean {
+    return this.party.unlockedItems.some((identifier) => identifier.name == item && identifier.edition == edition);
+  }
+
+  removeItem(item: Identifier) {
+    gameManager.stateManager.before("removeUnlockedItem", item.edition, item.name);
+    this.party.unlockedItems.splice(this.party.unlockedItems.indexOf(item), 1);
+    gameManager.stateManager.after();
+  }
+
   treasures(): Identifier[] {
     return this.party.treasures.filter((identifier) => !this.party.edition || identifier.edition == this.party.edition).sort((a, b) => {
       if (!this.party.edition && a.edition != b.edition) {
@@ -646,18 +677,20 @@ export class PartySheetDialogComponent implements OnInit {
     }
   }
 
-  campaignStickerImage(campaignSticker: string, stickerIndex: number): string | undefined {
+  campaignStickerImage(stringValue: string, stickerIndex: number): string | undefined {
     const campaign = this.campaignData();
-    const sticker = campaignSticker.toLowerCase().replaceAll(' ', '-');
+    const sticker = stringValue.toLowerCase().replaceAll(' ', '-');
 
     let total = 0;
     if (campaign && campaign.campaignStickers) {
-      const campaignSticker = campaign.campaignStickers.find((campaignSticker) => campaignSticker.startsWith(sticker));
+      const campaignSticker = campaign.campaignStickers.find((campaignSticker) => campaignSticker == sticker || campaignSticker.startsWith(sticker));
       if (campaignSticker) {
-        if (campaignSticker.indexOf(':') != -1)
+        if (campaignSticker.indexOf(':') != -1) {
           total = +(campaignSticker.split(':')[1]);
-      } else {
-        total = 1;
+        }
+        else {
+          total = 1;
+        }
       }
     }
 

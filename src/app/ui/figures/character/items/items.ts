@@ -47,7 +47,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
         this.items = [];
         if (this.character.progress.items) {
             this.character.progress.items.forEach((item) => {
-                const itemData = gameManager.item(+item.name, item.edition);
+                const itemData = gameManager.item(+item.name, item.edition, false);
                 if (itemData) {
                     this.items.push(itemData);
                 } else {
@@ -68,14 +68,22 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
     itemChange(itemIndexChange: number = 0) {
         setTimeout(() => {
             if (itemIndexChange != 0) {
+                const max = gameManager.maxItemIndex(this.itemEdition || this.character.edition);
                 this.itemIndex += itemIndexChange;
-                this.item = gameManager.item(this.itemIndex, this.itemEdition && this.itemEdition || this.character.edition);
-                while (!this.item && this.itemIndex > 0 && this.itemIndex < gameManager.maxItemIndex(this.itemEdition || this.character.edition)) {
+                if (this.itemIndex < 1) {
+                    this.itemIndex = max;
+                }
+                this.item = gameManager.item(this.itemIndex, this.itemEdition && this.itemEdition || this.character.edition, false);
+                while (!this.item && this.itemIndex > 0 && this.itemIndex < max) {
                     this.itemIndex += itemIndexChange;
-                    this.item = gameManager.item(this.itemIndex, this.itemEdition || this.character.edition);
+                    this.item = gameManager.item(this.itemIndex, this.itemEdition || this.character.edition, false);
+                }
+                if (this.itemIndex > max) {
+                    this.itemIndex = 1;
+                    this.item = gameManager.item(this.itemIndex, this.itemEdition || this.character.edition, false);
                 }
             } else {
-                this.item = gameManager.item(this.itemIndex, this.itemEdition || this.character.edition);
+                this.item = gameManager.item(this.itemIndex, this.itemEdition || this.character.edition, false);
             }
         });
     }
@@ -130,7 +138,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
             if (item.requiredItems) {
                 item.requiredItems.forEach((itemId) => {
                     if (itemId != item.id) {
-                        const requiredItem = gameManager.item(itemId, item.edition);
+                        const requiredItem = gameManager.item(itemId, item.edition, true);
                         if (!requiredItem) {
                             console.error("Missing required item '" + itemId + "' for item '" + item.id + "' (" + item.name + ")");
                         } else if (!this.items.find((itemData) => itemData.id == requiredItem.id && itemData.edition == requiredItem.edition)) {
@@ -190,7 +198,7 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
             if (item.requiredItems) {
                 item.requiredItems.forEach((itemId) => {
                     if (itemId != item.id) {
-                        const requiredItem = gameManager.item(itemId, item.edition);
+                        const requiredItem = gameManager.item(itemId, item.edition, true);
                         if (!requiredItem) {
                             console.error("Missing required item '" + itemId + "' for item '" + item.id + "' (" + item.name + ")");
                         } else if (this.items.find((itemData) => itemData.id == requiredItem.id && itemData.edition == requiredItem.edition)) {
@@ -282,9 +290,23 @@ export class CharacterItemsComponent implements OnInit, OnDestroy {
         const equipIndex = equippedItems.indexOf(item);
         if (equipIndex != -1) {
             equippedItems.splice(equipIndex, 1);
+            const allowed = Math.ceil(this.character.level / 2);
+            const smallEquipped = equippedItems.filter((itemData) => itemData.slot == ItemSlot.small).length;
+            if (item.id == 16 && item.edition == 'gh' && smallEquipped >= allowed) {
+                for (let i = 0; i < (smallEquipped - allowed); i++) {
+                    const equipped = equippedItems.find((itemData) => itemData.slot == ItemSlot.small);
+                    if (equipped) {
+                        equippedItems.splice(equippedItems.indexOf(equipped), 1);
+                    }
+                }
+            }
         } else {
             if (item.slot == ItemSlot.small) {
-                const allowed = Math.ceil(this.character.level / 2);
+                let allowed = Math.ceil(this.character.level / 2);
+                if (equippedItems.find((itemData) => itemData.id == 16 && itemData.edition == 'gh')) {
+                    allowed += 2;
+                }
+
                 if (equippedItems.filter((itemData) => itemData.slot == item.slot).length >= allowed) {
                     const equipped = equippedItems.find((itemData) => itemData.slot == item.slot);
                     if (equipped) {

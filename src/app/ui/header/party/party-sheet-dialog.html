@@ -49,6 +49,7 @@
                 <div class="list">
                   <div class="achievement" *ngFor="let achievement of party.achievementsList; let i = index;">
                     <input [value]="achievement" (change)="updateAchievement($event, i)">
+                    <span class="spacer"></span>
                     <span class="remove" (click)="removeAchievement(i)">
                       <img class="ghs-svg" src="./assets/images/close.svg"></span>
                   </div>
@@ -408,54 +409,6 @@
           </ng-container>
         </div>
 
-        <div class="row">
-          <div class="achievements" *ngIf="!fhSheet">
-            <label>{{'party.campaign.achievements' | ghsLabel}}:</label>
-            <div class="achievements-container">
-              <div class="list">
-                <div class="achievement" *ngFor="let achievement of party.globalAchievementsList; let i = index;">
-                  <input [value]="achievement" (change)="updateGlobalAchievement($event, i)">
-                  <span class="remove" (click)="removeGlobalAchievement(i)">
-                    <img class="ghs-svg" src="./assets/images/close.svg"></span>
-                </div>
-              </div>
-
-              <textarea type="text" [value]="party.globalAchievements" (change)="setGlobalAchievements($event)"
-                placeholder="{{'party.campaign.achievements'| ghsLabel}}"></textarea>
-            </div>
-          </div>
-          <div class="treasures">
-            <label>{{'party.campaign.treasures' | ghsLabel}}:</label>
-
-            <div class="treasure-add">
-              <input min="1" #treasureIndex type="number" value="0">
-              <a [ngClass]="{'disabled' : !treasureIndex.value || +treasureIndex.value < 1 || hasTreasure(treasureIndex.value,treasureEdition.value)}"
-                (click)="addTreasure(treasureIndex.value, treasureEdition.value)"><img
-                  src="./assets/images/plus.svg"></a>
-              <select #treasureEdition [disabled]="party.edition">
-                <option *ngFor="let edition of gameManager.editions()" [value]="edition"
-                  [selected]="edition == party.edition">{{'data.edition.' + edition |
-                  ghsLabel}}</option>
-              </select>
-            </div>
-
-            <div class="treasure-list">
-              <label class="treasure" (click)="removeTreasure(treasure)" *ngFor="let treasure of treasures()">
-                <span class="index">{{treasure.name}}</span>
-                <span class="separator">:</span>
-                <span class="checkbox"><img class="check" src="./assets/images/check.svg"><img class="close"
-                    src="./assets/images/close.svg"></span>
-                <span class="text">
-                  <ghs-treasure-label [edition]="treasure.edition" [index]="+treasure.name -1"></ghs-treasure-label>
-                  <span *ngIf="!party.edition">[{{'data.edition.' +
-                    treasure.edition |
-                    ghsLabel}}]</span>
-                </span>
-              </label>
-            </div>
-          </div>
-        </div>
-
         <div class="prosperity">
           <div class="legend">
             <div class="level">{{'party.prosperity' | ghsLabel}}:</div>
@@ -476,7 +429,104 @@
           </div>
         </div>
 
-        <div class="row title">
+        <div class="row donations" *ngIf="!fhSheet">
+          <label>{{'party.campaign.donations' | ghsLabel}}:</label>
+          <div class="checklist">
+            <div class="tick" *ngFor="let check of []|ghsRange:10; let index = index;">
+              <div class="donation">
+                <div class="checkbox" (click)="setDonations(index+1)" [ngClass]="{'checked': party.donations > index}">
+                </div>
+                <img src="./assets/images/coin.png" />
+                +10g
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="achievements" *ngIf="!fhSheet">
+            <label>{{'party.campaign.achievements' | ghsLabel}}:</label>
+            <div class="achievements-container">
+              <div class="list">
+                <div class="achievement" *ngFor="let achievement of party.globalAchievementsList; let i = index;">
+                  <input [value]="achievement" (change)="updateGlobalAchievement($event, i)">
+                  <span class="spacer"></span>
+                  <span class="remove" (click)="removeGlobalAchievement(i)">
+                    <img class="ghs-svg" src="./assets/images/close.svg"></span>
+                </div>
+              </div>
+
+              <textarea type="text" [value]="party.globalAchievements" (change)="setGlobalAchievements($event)"
+                placeholder="{{'party.campaign.achievements'| ghsLabel}}"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="items">
+            <label>{{'party.campaign.items' | ghsLabel}}:</label>
+
+            <div class="item-add">
+              <input min="1" #itemIndex type="number" value="0">
+              <a [ngClass]="{'disabled' : !itemIndex.value || +itemIndex.value < 1 || hasItem(itemIndex.value,itemEdition.value)}"
+                (click)="addItem(itemIndex.value, itemEdition.value)"><img src="./assets/images/plus.svg"></a>
+              <select #itemEdition [disabled]="party.edition">
+                <option *ngFor="let edition of gameManager.editions()" [value]="edition"
+                  [selected]="edition == party.edition">{{'data.edition.' + edition |
+                  ghsLabel}}</option>
+              </select>
+            </div>
+
+            <div class="item-list">
+              <label class="item" (click)="removeItem(item)" *ngFor="let item of items()" [ngClass]="{'edition' : !party.edition}">
+                <span class="item-index">
+                  <img class="icon" [src]="'./assets/images/items/slots/' + item.slot +'.svg'">
+                  <span class="index">{{item.id}}</span>
+                </span>
+                <span class="separator">:</span>
+                <span class="checkbox"><img class="check" src="./assets/images/check.svg"><img class="close"
+                    src="./assets/images/close.svg"></span>
+                <span class="text">
+                  {{item.name}}
+                </span>
+                <span class="text" *ngIf="!party.edition">[{{'data.edition.' + item.edition | ghsLabel}}]</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="treasures">
+            <label>{{'party.campaign.treasures' | ghsLabel}}:</label>
+
+            <div class="treasure-add">
+              <input min="1" #treasureIndex type="number" value="0">
+              <a [ngClass]="{'disabled' : !treasureIndex.value || +treasureIndex.value < 1 || hasTreasure(treasureIndex.value,treasureEdition.value)}"
+                (click)="addTreasure(treasureIndex.value, treasureEdition.value)"><img
+                  src="./assets/images/plus.svg"></a>
+              <select #treasureEdition [disabled]="party.edition">
+                <option *ngFor="let edition of gameManager.editions()" [value]="edition"
+                  [selected]="edition == party.edition">{{'data.edition.' + edition |
+                  ghsLabel}}</option>
+              </select>
+            </div>
+
+            <div class="treasure-list"> 
+              <label class="treasure" (click)="removeTreasure(treasure)" *ngFor="let treasure of treasures()" [ngClass]="{'edition' : !party.edition}">
+                <span class="index">{{treasure.name}}</span>
+                <span class="separator">:</span>
+                <span class="checkbox"><img class="check" src="./assets/images/check.svg"><img class="close"
+                    src="./assets/images/close.svg"></span>
+                <span class="text">
+                  <ghs-treasure-label [edition]="treasure.edition" [index]="+treasure.name -1"></ghs-treasure-label>
+                </span>
+                <span class="text" *ngIf="!party.edition">[{{'data.edition.' + treasure.edition | ghsLabel}}]</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
           <label>{{'party.campaign.players' | ghsLabel}}:</label>
         </div>
 
@@ -492,7 +542,7 @@
           </a>
         </div>
 
-        <div class="row title" *ngIf="party.retirements && party.retirements.length > 0">
+        <div class="row" *ngIf="party.retirements && party.retirements.length > 0">
           <label>{{'party.campaign.retirements' | ghsLabel}}:</label>
         </div>
 
@@ -527,20 +577,6 @@
                 [title]="'party.campaign.retirements.reactivate' | ghsLabel">
                 <img class="ghs-svg" src="./assets/images/long-rest.svg">
               </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="row donations" *ngIf="!fhSheet">
-          <label>{{'party.campaign.donations' | ghsLabel}}:</label>
-          <div class="checklist">
-            <div class="tick" *ngFor="let check of []|ghsRange:10; let index = index;">
-              <div class="donation">
-                <div class="checkbox" (click)="setDonations(index+1)" [ngClass]="{'checked': party.donations > index}">
-                </div>
-                <img src="./assets/images/coin.png" />
-                +10g
-              </div>
             </div>
           </div>
         </div>

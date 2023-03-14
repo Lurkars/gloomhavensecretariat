@@ -7,7 +7,7 @@ import { MonsterData } from "../model/data/MonsterData";
 import { ScenarioData } from "../model/data/ScenarioData";
 import { FigureError, FigureErrorType } from "../model/FigureError";
 import { Figure } from "../model/Figure";
-import { Game, GameState } from "../model/Game";
+import { FH_PROSPERITY_STEPS, Game, GameState, GH_PROSPERITY_STEPS } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { MonsterStat } from "../model/MonsterStat";
 import { MonsterType } from "../model/MonsterType";
@@ -150,14 +150,38 @@ export class GameManager {
     return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(edition).indexOf(edition) != -1).map((editionData) => editionData.sections).flat();
   }
 
-  itemData(edition: string | undefined = undefined): ItemData[] {
-    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(edition).indexOf(edition) != -1).map((editionData) => editionData.items).flat();
+  itemData(edition: string | undefined = undefined, all: boolean = false): ItemData[] {
+    const prosperityLevel = this.prosperityLevel();
+    return this.editionData.filter((editionData) => !edition || editionData.edition == edition || this.editionExtensions(edition).indexOf(edition) != -1).map((editionData) => editionData.items).flat().filter((itemData) => {
+      if (all || !this.game.party.campaignMode) {
+        return true;
+      }
+
+      if (this.game.party.unlockedItems.find((identifier) => identifier.name == '' + itemData.id && identifier.edition == itemData.edition)) {
+        return true;
+      }
+
+      if (itemData.unlockProsperity > 0 && itemData.unlockProsperity <= prosperityLevel) {
+        return true;
+      }
+
+      if (itemData.unlockScenario && this.scenarioData(edition).find((scenarioData) => itemData.unlockScenario && scenarioData.index == itemData.unlockScenario.name && scenarioData.edition == itemData.unlockScenario.edition)) {
+        return true;
+      }
+
+      if (itemData.requiredBuilding && this.game.party.buildings.find((buildingModel) => buildingModel.name == itemData.requiredBuilding && buildingModel.level >= itemData.requiredBuildingLevel)) {
+        return true;
+      }
+
+      return false;
+
+    });
   }
 
-  item(id: number, edition: string): ItemData | undefined {
-    let item = this.itemData(edition).find((itemData) => itemData && itemData.id == id && itemData.edition == edition);
+  item(id: number, edition: string, all : boolean): ItemData | undefined {
+    let item = this.itemData(edition, all).find((itemData) => itemData && itemData.id == id && itemData.edition == edition);
     if (!item) {
-      item = this.itemData().find((itemData) => itemData && itemData.id == id && this.editionExtensions(edition).indexOf(itemData.edition) != -1);
+      item = this.itemData(undefined, all).find((itemData) => itemData && itemData.id == id && this.editionExtensions(edition).indexOf(itemData.edition) != -1);
     }
     return item;
   }
@@ -438,6 +462,17 @@ export class GameManager {
     }
 
     return monsterData;
+  }
+
+  prosperityLevel(): number {
+    let prosperityLevel = 1;
+    const prosperitySteps = this.fhRules() ? FH_PROSPERITY_STEPS : GH_PROSPERITY_STEPS;
+    prosperitySteps.forEach((step) => {
+      if (this.game.party.prosperity >= step) {
+        prosperityLevel++;
+      }
+    })
+    return prosperityLevel;
   }
 
   fhRules(): boolean {

@@ -282,7 +282,7 @@ export class CharacterManager {
   applyItemEffects(character: Character) {
     if (!this.ignoreNegativeItemEffects(character)) {
       for (let itemIdentifier of character.progress.equippedItems) {
-        const itemData = gameManager.item(+itemIdentifier.name, itemIdentifier.edition);
+        const itemData = gameManager.item(+itemIdentifier.name, itemIdentifier.edition, true);
         if (itemData && itemData.minusOne) {
           for (let i = 0; i < itemData.minusOne; i++) {
             gameManager.attackModifierManager.addModifier(character.attackModifierDeck, new AttackModifier(AttackModifierType.minus1));

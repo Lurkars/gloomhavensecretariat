@@ -25,7 +25,7 @@
         </div>
     </div>
     <div class="item-form">
-        <span class="prev" [ngClass]="{'disabled' : itemIndex == 1}" (click)="itemChange(-1)"><img
+        <span class="prev" (click)="itemChange(-1)"><img
                 src="./assets/images/left.svg"></span>
         <input type="number" (change)="itemChange()" [(ngModel)]="itemIndex" min="1" value="1"
             [ngClass]="{ 'error': !item}">

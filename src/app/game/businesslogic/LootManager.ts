@@ -148,7 +148,7 @@ export class LootManager {
             } else {
               itemId = +itemValue;
             }
-            const item = gameManager.item(itemId, itemEdition);
+            const item = gameManager.item(itemId, itemEdition, true);
             if (item) {
               const identifier = new Identifier('' + item.id, item.edition);
               if (reward.type == TreasureRewardType.item) {
@@ -164,7 +164,7 @@ export class LootManager {
       case TreasureRewardType.itemBlueprint:
       case TreasureRewardType.itemFh:
         if (reward.value) {
-          const item = gameManager.item(+reward.value, edition);
+          const item = gameManager.item(+reward.value, edition, true);
           if (item) {
             const identifier = new Identifier('' + item.id, item.edition);
             if (reward.type == TreasureRewardType.itemFh) {

@@ -10,6 +10,9 @@ import { GameObjectiveModel, Objective } from "./Objective";
 import { Party } from "./Party";
 import { GameScenarioModel, Scenario } from "./Scenario";
 
+export const GH_PROSPERITY_STEPS = [3, 8, 14, 21, 29, 38, 49, 63];
+export const FH_PROSPERITY_STEPS = [5, 14, 26, 41, 59, 80, 104, 131];
+
 export class Game {
   revision: number = 0;
   edition: string | undefined = undefined;

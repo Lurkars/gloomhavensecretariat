@@ -76,7 +76,7 @@ export class ScenarioSummaryComponent {
                 if (rewardItems) {
                     this.characters.forEach((char, index) => this.items[index] = []);
                     rewardItems.forEach((item) => {
-                        const itemData = gameManager.item(+item.split(':')[0], this.scenario.edition);
+                        const itemData = gameManager.item(+item.split(':')[0], this.scenario.edition, true);
                         if (itemData) {
                             this.rewardItems.push(itemData);
                             this.rewardItemCount.push(item.indexOf(':') == -1 ? 1 : +item.split(':')[1]);
