@@ -3,6 +3,7 @@
   "name": "Through the Fire and the Flames",
   "edition": "cs",
   "monsters": [
+    "drakefiend",
     "flame-demon",
     "rending-drake-cs",
     "savvas-lavaflow",
@@ -31,7 +32,7 @@
       ],
       "monster": [
         {
-          "name": "rending-drake",
+          "name": "rending-drake-cs",
           "type": "elite"
         }
       ]
@@ -41,7 +42,7 @@
       "ref": "n1",
       "monster": [
         {
-          "name": "elder-drake",
+          "name": "drakefiend",
           "type": "elite"
         },
         {

@@ -1,0 +1,56 @@
+{
+  "index": "2B",
+  "name": "Scenario 1",
+  "edition": "cs",
+  "parent": "1",
+  "parentSections": [
+    "2A"
+  ],
+  "marker": "2",
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "ref": "d1b",
+      "initial": true,
+      "treasures": [
+        11
+      ],
+      "monster": [
+        {
+          "name": "spitting-drake",
+          "player2": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player3": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "type": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "water-spirit",
+          "player2": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "water-spirit",
+          "player3": "elite",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

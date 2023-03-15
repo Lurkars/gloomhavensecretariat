@@ -494,6 +494,7 @@
       "selfOrAlly": "자신 또는 아군",
       "targets": "모든 대상"
     },
+    "sufferDamage": "{0}가 스스로 피해 %game.damage:{1}%점을 입는다",
     "summon": {
       "spawn": "%data.monster.{0}% {1}",
       "spawnType": "%game.monsterType.{1}% %data.monster.{0}% {2}",

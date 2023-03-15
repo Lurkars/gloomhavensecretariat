@@ -13,6 +13,8 @@ export class Settings {
   randomStandees: boolean = false;
   activeStandees: boolean = true;
   activeSummons: boolean = true;
+  interactiveAbilities: boolean = true;
+  combineSummonAction: boolean = true;
   alwaysAllyAttackModifierDeck: boolean = false;
   alwaysHazardousTerrain: boolean = false;
   alwaysFhSolo: boolean = false;

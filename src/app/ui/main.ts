@@ -1,4 +1,4 @@
-import { CdkDragDrop, CdkDragEnter, CdkDragExit, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, CdkDragEnter, CdkDragExit, CdkDragRelease, CdkDragStart, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { gameManager, GameManager } from 'src/app/game/businesslogic/GameManager';
@@ -33,6 +33,9 @@ export class MainComponent implements OnInit {
   scrollTimeout: any = null;
   zoomInterval: any = null;
   currentZoom: number = 0;
+
+  draggingEnabled: boolean = false;
+  draggingeTimeout: any = null;
 
   @ViewChild('footer') footer!: FooterComponent;
 
@@ -345,6 +348,48 @@ export class MainComponent implements OnInit {
     }, 1);
   }
 
+  enabledDragging(event: any, element: HTMLElement) {
+    this.draggingEnabled = true;
+    element.classList.add('dragging');
+    window.document.body.classList.add('dragging');
+    this.draggingeTimeout = setTimeout(() => {
+      this.draggingEnabled = false;
+      window.document.body.classList.remove('dragging');
+      element.classList.remove('dragging');
+      this.draggingeTimeout = null;
+    }, 1500);
+  }
+
+  disableDragging(event: any, element: HTMLElement) {
+    this.draggingEnabled = false;
+    window.document.body.classList.remove('dragging');
+    element.classList.remove('dragging');
+    this.draggingeTimeout = null;
+    if (this.draggingeTimeout) {
+      clearTimeout(this.draggingeTimeout);
+    }
+  }
+
+  startedDrag(event: CdkDragStart, element: HTMLElement) {
+    this.draggingEnabled = true;
+    element.classList.add('dragging');
+    event.source.getPlaceholderElement().classList.add('dragging');
+    window.document.body.classList.add('dragging');
+    if (this.draggingeTimeout) {
+      clearTimeout(this.draggingeTimeout);
+    }
+  }
+
+  releasedDrag(event: CdkDragRelease, element: HTMLElement) {
+    this.draggingEnabled = false;
+    element.classList.remove('dragging');
+    window.document.body.classList.remove('dragging');
+    event.source.getPlaceholderElement().classList.remove('dragging');
+    if (this.draggingeTimeout) {
+      clearTimeout(this.draggingeTimeout);
+    }
+  }
+
   drop(event: CdkDragDrop<number>) {
     if (event.previousContainer != event.container && (event.currentIndex == 0 && event.container.data != event.previousContainer.data + 1 || event.currentIndex != 0 && event.container.data != event.previousContainer.data - event.currentIndex)) {
       let prev = event.previousContainer.data;
@@ -361,6 +406,7 @@ export class MainComponent implements OnInit {
     } else {
       this.translate();
     }
+    this.draggingEnabled = false;
   }
 
   entered(event: CdkDragEnter<number>) {
@@ -376,5 +422,6 @@ export class MainComponent implements OnInit {
     if (elements[0].classList.contains('cdk-drag-handle') && elements.length > 1) {
       (elements[1] as HTMLElement).click();
     }
+    event.preventDefault();
   }
 }

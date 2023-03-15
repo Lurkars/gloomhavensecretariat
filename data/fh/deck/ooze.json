@@ -171,17 +171,17 @@
       "shuffle": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "Ooze suffers %game.damage:2%"
+          "type": "sufferDamage",
+          "value": 2
         },
         {
           "type": "summon",
-          "value": "ooze:normal",
+          "value": "ooze:normal:1:H",
           "small": true,
           "subActions": [
             {
               "type": "custom",
-              "value": "with a hit point value equal to the<br>summoning Ooze's current hit point<br>value (limited by a normal Ooze's<br>maximum hit point values).",
+              "value": "with H equal to the<br>summoning Ooze's current hit point<br>value (limited by a normal Ooze's<br>maximum hit point values).",
               "small": true
             }
           ]
@@ -194,17 +194,17 @@
       "shuffle": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "Ooze suffers %game.damage:2%"
+          "type": "sufferDamage",
+          "value": 2
         },
         {
           "type": "summon",
-          "value": "ooze:normal",
+          "value": "ooze:normal:1:H",
           "small": true,
           "subActions": [
             {
               "type": "custom",
-              "value": "with a hit point value equal to the<br>summoning Ooze's current hit point<br>value (limited by a normal Ooze's<br>maximum hit point values).",
+              "value": "with H equal to the<br>summoning Ooze's current hit point<br>value (limited by a normal Ooze's<br>maximum hit point values).",
               "small": true
             }
           ]

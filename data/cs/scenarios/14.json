@@ -3,7 +3,7 @@
   "name": "Cultist Cave",
   "edition": "cs",
   "monsters": [
-    "cultist_lc",
+    "cultist-scenario-14",
     "deep-terror",
     "living-corpse"
   ],
@@ -67,7 +67,7 @@
       ],
       "monster": [
         {
-          "name": "cultist",
+          "name": "cultist-scenario-14",
           "type": "elite"
         },
         {
@@ -113,7 +113,7 @@
       "ref": "b4",
       "monster": [
         {
-          "name": "cultist",
+          "name": "cultist-scenario-14",
           "type": "elite"
         },
         {
@@ -134,11 +134,11 @@
       "ref": "l3",
       "monster": [
         {
-          "name": "cultist",
+          "name": "cultist-scenario-14",
           "type": "elite"
         },
         {
-          "name": "cultist",
+          "name": "cultist-scenario-14",
           "type": "elite"
         },
         {

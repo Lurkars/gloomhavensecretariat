@@ -20,9 +20,15 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%data.custom.cs.blood-ooze.1%",
-          "small": true
+          "type": "summon",
+          "value": "blood-ooze:normal:1:H-2",
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.cs.blood-ooze.1%"
+            }
+          ]
         }
       ]
     },
@@ -32,8 +38,8 @@
       "shuffle": true,
       "actions": [
         {
-          "type": "custom",
-          "value": "%data.custom.cs.blood-ooze.2%",
+          "type": "summon",
+          "value": "blood-ooze:normal:1:4",
           "small": true,
           "subActions": [
             {
@@ -42,9 +48,15 @@
               "valueType": "minus",
               "subActions": [
                 {
-                  "type": "custom",
-                  "value": "%data.custom.cs.blood-ooze.3%",
-                  "small": true
+                  "type": "summon",
+                  "value": "blood-ooze:normal:1:3",
+                  "subActions": [
+                    {
+                      "type": "custom",
+                      "value": "game.custom.instead",
+                      "small": true
+                    }
+                  ]
                 }
               ]
             }
@@ -58,7 +70,7 @@
       "actions": [
         {
           "type": "custom",
-          "value": "%data.custom.cs.blood-ooze.4%",
+          "value": "%data.custom.cs.blood-ooze.3%",
           "small": true
         },
         {
@@ -72,7 +84,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.blood-ooze.5%",
+              "value": "%data.custom.cs.blood-ooze.4%",
               "small": true
             }
           ]
@@ -100,7 +112,7 @@
             },
             {
               "type": "custom",
-              "value": "%data.custom.cs.blood-ooze.6%",
+              "value": "%data.custom.cs.blood-ooze.5%",
               "small": true
             }
           ]
@@ -134,8 +146,8 @@
           "valueType": "minus",
           "subActions": [
             {
-              "type": "custom",
-              "value": "%data.custom.cs.blood-ooze.7%",
+              "type": "specialTarget",
+              "value": "enemyRange:2",
               "small": true
             }
           ]
@@ -157,7 +169,7 @@
         },
         {
           "type": "custom",
-          "value": "%data.custom.cs.blood-ooze.8%",
+          "value": "%data.custom.cs.blood-ooze.6%",
           "small": true,
           "subActions": [
             {
@@ -207,8 +219,8 @@
       "initiative": 80,
       "actions": [
         {
-          "type": "custom",
-          "value": "%data.custom.cs.blood-ooze.9%",
+          "type": "sufferDamage",
+          "value": 2,
           "small": true
         },
         {

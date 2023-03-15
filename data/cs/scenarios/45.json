@@ -92,10 +92,6 @@
           "player4": "normal"
         },
         {
-          "name": "deep-terror",
-          "type": "elite"
-        },
-        {
           "name": "forest-imp",
           "type": "elite"
         },
@@ -118,6 +114,10 @@
         {
           "name": "forest-imp",
           "player4": "normal"
+        },
+        {
+          "name": "land-leviathan:+1",
+          "type": "elite"
         }
       ]
     },

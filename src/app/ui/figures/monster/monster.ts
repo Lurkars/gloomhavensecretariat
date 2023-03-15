@@ -6,6 +6,7 @@ import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/Set
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { MonsterType } from 'src/app/game/model/MonsterType';
+import { SummonState } from 'src/app/game/model/Summon';
 import { ghsDefaultDialogPositions } from '../../helper/Static';
 import { EntitiesMenuDialogComponent } from '../entities-menu/entities-menu-dialog';
 import { MonsterNumberPickerDialog } from './dialogs/numberpicker';
@@ -71,6 +72,11 @@ export class MonsterComponent {
         } else if (a.type == MonsterType.normal && b.type == MonsterType.elite) {
           return 1;
         }
+      }
+      if (a.summon == SummonState.new && b.summon != SummonState.new) {
+        return 1;
+      } else if (a.summon != SummonState.new && b.summon == SummonState.new) {
+        return -1;
       }
       if (a.number < 0 && b.number >= 0) {
         return 1;

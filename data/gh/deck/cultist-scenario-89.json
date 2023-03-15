@@ -141,8 +141,8 @@
           "value": "giant-viper:elite"
         },
         {
-          "type": "custom",
-          "value": "%data.custom.gh.cultist.1%",
+          "type": "sufferDamage",
+          "value": 2,
           "small": true
         }
       ]
@@ -157,8 +157,8 @@
           "value": "giant-viper:elite"
         },
         {
-          "type": "custom",
-          "value": "%data.custom.gh.cultist.1%",
+          "type": "sufferDamage",
+          "value": 2,
           "small": true
         }
       ]

@@ -141,9 +141,6 @@
           "21": "Summon one %game.monster.aesther-scout%: normal for two or three characters, elite for four characters.",
           "22": "On the next three sources of damage to you, suffer no damage instead."
         },
-        "savage": {
-          "1": "%data.deck.savage% suffers %game.damage:2%."
-        },
         "sraka-the-wise": {
           "1": "Double all Heal values. Heals target The Steel Lion if able",
           "2": "If you apply %game.condition.curse% or %game.condition.bless%, apply a second %game.condition.curse% or %game.condition.bless%"
@@ -277,9 +274,6 @@
           "20": "%game.action.attack%-1 für einen Gegner in %game.action.range%4 zum ersten Ziel, anschließend %game.action.attack%-2 an einen dritten Gegner in %game.action.range%3 des zweiten Ziels.",
           "21": "Beschwöre einen %game.monster.aesther-scout%: Normal für zwei oder drei, Elite für vier Charaktere.",
           "22": "Die nächsten drei mal wenn du Schaden erleidest, erleide stattdessen keinen Schaden."
-        },
-        "savage": {
-          "1": "%data.deck.savage% erleidet %game.damage:2%."
         },
         "sraka-the-wise": {
           "1": "Verdopple alle Heil-Werte. Wenn möglich visiert Heilung den Stählernden Löwen an.",
@@ -469,9 +463,6 @@
           "21": "Invoque un Éclaireur Esther : normal pour deux ou trois aventuriers, d'élite pour quatre aventuriers.",
           "22": "Les trois prochaines fois qu'une source lui inflige des dégâts, il ne subit pas de dégâts à la place."
         },
-        "savage": {
-          "1": "Le %data.deck.savage% subit %game.damage:2%."
-        },
         "sraka-the-wise": {
           "1": "Double toutes les valeurs de Soin. Si possible, les soins ciblent en priorité le Lion d'Acier",
           "2": "Tous les états %game.condition.curse% et %game.condition.bless% appliqués sont doublés"
@@ -635,9 +626,6 @@
           "20": "%game.action.attack%-1 on a new enemy within %game.action.range%4 of the first target, then %game.action.attack%-2 on a third enemy within %game.action.range%3 of the second target.",
           "21": "Summon one %game.monster.aesther-scout%: normal for two or three characters, elite for four characters.",
           "22": "On the next three sources of damage to you, suffer no damage instead."
-        },
-        "savage": {
-          "1": "%data.deck.savage% suffers %game.damage:2%."
         },
         "sraka-the-wise": {
           "1": "Double all Heal values. Heals target The Steel Lion if able",

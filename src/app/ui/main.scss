@@ -302,6 +302,22 @@ main {
       position: relative;
       display: block;
     }
+
+    &.enabled {
+      cursor: grabbing;
+    }
+
+    &.dragging::before {
+      content: ' ';
+      position: absolute;
+      top: calc(var(--ghs-unit) * -1);
+      left: calc(var(--ghs-unit) * -1);
+      bottom: calc(var(--ghs-unit) * -1);
+      right: calc(var(--ghs-unit) * -1);
+      border-radius: calc(var(--ghs-unit) * 1);
+      background-color: var(--ghs-color-darkgray);
+      opacity: 0.5;
+    }
   }
 
   &.column-left {
@@ -385,6 +401,10 @@ main {
     }
   }
 
+  &.enabled {
+    cursor: grabbing;
+  }
+
   &.character,
   &.objective {
     top: initial;
@@ -424,7 +444,6 @@ main {
 
 
 .cdk-drag-preview {
-
   padding: calc(var(--ghs-unit) * 0.5) calc(var(--ghs-unit) * 1);
 
   .handle {
@@ -433,7 +452,7 @@ main {
 }
 
 .cdk-drag-placeholder {
-  opacity: 0.5;
+  opacity: 0.8;
   transform: initial;
   margin-bottom: calc(var(--ghs-unit) * 0.5);
 }

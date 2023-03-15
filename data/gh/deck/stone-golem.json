@@ -34,8 +34,8 @@
           "valueType": "plus"
         },
         {
-          "type": "custom",
-          "value": "%data.custom.gh.stone-golem.1%",
+          "type": "sufferDamage",
+          "value": 1,
           "small": true
         }
       ]
@@ -90,8 +90,8 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "%data.custom.gh.stone-golem.2%",
+          "type": "sufferDamage",
+          "value": 2,
           "small": true
         }
       ]

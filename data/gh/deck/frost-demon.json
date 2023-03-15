@@ -218,8 +218,8 @@
           "valueType": "minus",
           "subActions": [
             {
-              "type": "custom",
-              "value": "%data.custom.gh.frost-demon.1%",
+              "type": "sufferDamage",
+              "value": 1,
               "small": true
             }
           ]

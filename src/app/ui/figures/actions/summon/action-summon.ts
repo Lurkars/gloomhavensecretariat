@@ -7,8 +7,9 @@ import { MonsterSpawnData } from "src/app/game/model/data/ScenarioRule";
 import { SummonData } from "src/app/game/model/data/SummonData";
 import { EntityValueFunction } from "src/app/game/model/Entity";
 import { Monster } from "src/app/game/model/Monster";
+import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { MonsterType } from "src/app/game/model/MonsterType";
-import { Summon, SummonColor } from "src/app/game/model/Summon";
+import { Summon, SummonColor, SummonState } from "src/app/game/model/Summon";
 
 @Component({
   selector: 'ghs-action-summon',
@@ -22,6 +23,8 @@ export class ActionSummonComponent implements OnChanges {
   @Input() right: boolean = false;
   @Input() spawn: boolean = false;
   @Input() additional: boolean = false;
+  @Input() highlight: boolean = true;
+  spawners: MonsterEntity[] = [];
   monsters: MonsterSpawnData[] = [];
   type: MonsterType | undefined;
   summonData: SummonData | undefined;
@@ -44,13 +47,17 @@ export class ActionSummonComponent implements OnChanges {
 
   update() {
     this.summonData = undefined;
+    this.spawners = [];
+    if (this.monster) {
+      this.spawners = this.monster.entities.filter((entity) => !entity.dead && entity.health > 0 && entity.summon != SummonState.new);
+    }
     this.monsters = [];
     this.tags = [];
     this.count = undefined;
     this.type = undefined;
     if (this.action.value == 'summonData') {
       this.summonData = this.action.valueObject as SummonData;
-    } if (this.action.value == 'monsterStandee') {
+    } else if (this.action.value == 'monsterStandee') {
       this.monsters = JSON.parse(JSON.stringify(this.action.valueObject)) as MonsterSpawnData[];
       const charCount = Math.max(2, gameManager.characterManager.characterCount());
       this.monsters = this.monsters.filter((spawn) => {
@@ -98,6 +105,10 @@ export class ActionSummonComponent implements OnChanges {
           }
         }
 
+        if (summonValue.length > 3) {
+          monsterStandee.health = summonValue[3];
+        }
+
         this.monsters.push(monsterSpawn);
       });
     }
@@ -108,7 +119,7 @@ export class ActionSummonComponent implements OnChanges {
           figure.entities.forEach((entity) => {
             if (this.monster && entity.tags) {
               entity.tags.forEach((tag) => {
-                if (this.monster && tag.startsWith("summon-" + this.monster.name + "-" + this.getSpawnId())) {
+                if (this.monster && tag.startsWith('roundAction-summon-' + this.monster.name + '-' + this.getSpawnId())) {
                   this.tags.push(tag);
                 }
               })
@@ -149,39 +160,58 @@ export class ActionSummonComponent implements OnChanges {
     return -1;
   }
 
-  getTag(index: number): string {
+  getTag(index: number, spawner: boolean = false): string {
     if (this.monster) {
-      return "summon-" + this.monster.name + "-" + this.getSpawnId() + "-" + index;
+      return (spawner ? 'roundAction-spawner-' : 'roundAction-summon-') + this.monster.name + "-" + this.getSpawnId() + "-" + index;
     }
     return "";
   }
 
   spawnHightlight(spawn: MonsterSpawnData, index: number): boolean {
-    const entities = this.monster && gameManager.monsterManager.monsterEntityCount(this.monster) || 0;
     const spawnMonster = gameManager.game.figures.find((figure) => figure instanceof Monster && figure.name == spawn.monster.name);
     const spawns = spawnMonster && gameManager.monsterManager.monsterEntityCountAll(spawnMonster as Monster) || 0;
-    return entities > 0 && this.monster && this.monster.active && this.tags.filter((tag) => tag == this.getTag(index)).length < entities && (!spawnMonster || spawns < (spawnMonster as Monster).count) || false;
+    return this.highlight && (this.spawners.length > 0 && this.monster && this.monster.active && this.tags.filter((tag) => tag == this.getTag(index)).length < this.spawners.length && (!spawnMonster || spawns < (spawnMonster as Monster).count) || false);
   }
 
   spawnSummons(event: any, spawn: MonsterSpawnData, index: number) {
-    if (this.monster && spawn.monster && spawn.monster.type && gameManager.game.scenario) {
-      const count = EntityValueFunction(spawn.count || 1);
-      gameManager.stateManager.before("summonAction", "data.monster." + spawn.monster.name, "game.monsterType." + spawn.monster.type, '' + count);
-      for (let i = 0; i < count; i++) {
-        const entity = gameManager.monsterManager.spawnMonsterEntity(spawn.monster.name, spawn.monster.type, this.monster.edition, this.monster.isAlly, false, !this.spawn);
-        if (entity) {
-          const tag = this.getTag(index);
-          entity.tags = entity.tags || [];
-          entity.tags.push(tag);
-          this.tags.push(tag);
-          if (spawn.monster.health) {
-            entity.health = EntityValueFunction(spawn.monster.health);
+    if (this.spawnHightlight(spawn, index)) {
+      const spawnerTag = this.getTag(index, true);
+      const spawners = this.spawners.filter((entity) => entity.tags.indexOf(spawnerTag) == -1).filter((entity, index) => settingsManager.settings.combineSummonAction || index == 0);
+
+      if (this.monster && spawn.monster && spawn.monster.type) {
+        const count = EntityValueFunction(spawn.count || 1);
+        gameManager.stateManager.before("summonAction", "data.monster." + spawn.monster.name, "game.monsterType." + spawn.monster.type, '' + count * spawners.length);
+        spawners.forEach((spawner) => {
+          if (this.monster && spawn.monster && spawn.monster.type) {
+            for (let i = 0; i < count; i++) {
+              const entity = gameManager.monsterManager.spawnMonsterEntity(spawn.monster.name, spawn.monster.type, this.monster.edition, this.monster.isAlly, false, !this.spawn);
+              if (entity) {
+                const tag = this.getTag(index);
+                entity.tags = entity.tags || [];
+                entity.tags.push(tag);
+                this.tags.push(tag);
+                if (spawn.monster.health) {
+                  let health = spawn.monster.health;
+                  if (typeof health === 'string') {
+                    health = health.replaceAll('H', '' + spawner.health);
+                  }
+
+                  entity.health = EntityValueFunction(health);
+
+                  if (entity.health > entity.maxHealth) {
+                    entity.health = entity.maxHealth;
+                  }
+                }
+              }
+            }
+            spawner.tags.push(spawnerTag);
           }
-        }
+        })
+        this.update();
+        gameManager.stateManager.after();
       }
-      this.update();
-      gameManager.stateManager.after();
+      event.preventDefault();
     }
-    event.preventDefault();
   }
+
 }

@@ -72,8 +72,8 @@ export class MonsterEntity implements Entity {
         return condition;
       });
     }
-    this.markers = model.markers || this.markers;
-    this.tags = model.tags || this.tags;
+    this.markers = model.markers || [];
+    this.tags = model.tags || [];
   }
 
 

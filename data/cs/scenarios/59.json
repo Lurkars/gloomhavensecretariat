@@ -16,7 +16,7 @@
       "initial": true,
       "monster": [
         {
-          "name": "giant-viper-mount",
+          "name": "giant-viper",
           "type": "elite"
         },
         {
@@ -29,7 +29,7 @@
       "roomNumber": 2,
       "monster": [
         {
-          "name": "giant-viper-mount",
+          "name": "giant-viper",
           "type": "elite"
         },
         {
@@ -42,7 +42,7 @@
       "roomNumber": 3,
       "monster": [
         {
-          "name": "hound-mount",
+          "name": "hound",
           "type": "elite"
         },
         {
@@ -55,7 +55,7 @@
       "roomNumber": 4,
       "monster": [
         {
-          "name": "cave-bear-mount",
+          "name": "cave-bear",
           "type": "elite"
         },
         {

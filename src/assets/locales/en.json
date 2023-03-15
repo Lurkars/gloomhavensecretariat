@@ -265,6 +265,7 @@
       "spawn": "Spawn",
       "special": "Special",
       "specialTarget": "Special Target",
+      "sufferDamage": "Suffer Damage",
       "summon": "Summon",
       "swing": "Swing",
       "target": "Target",
@@ -560,12 +561,12 @@
       "enemiesAdjacent": "%game.target% all adjacent enemies",
       "enemiesMovedThrough": "%game.target% all enemies moved through",
       "enemiesMovedThroughAdjacent": "%game.target% all enemies occupying or adjecent to<br>hexes entered during the move ability",
-      "enemiesRange": "%game.target% all enemies within %game.action.range% {0}",
+      "enemiesRange": "%game.target% all enemies at exactly %game.action.range% {0}",
       "enemiesRangeAffect": "%game.affect% all enemies within %game.action.range% {0}",
       "enemy": "%game.target% one enemy",
       "enemyAdjacent": "%game.target% one adjacent enemy",
       "enemyOneAll": "%game.target% one enemy with all attacks",
-      "enemyRange": "%game.target% one enemy within %game.action.range% {0}",
+      "enemyRange": "%game.target% one enemy at exactly %game.action.range% {0}",
       "figures": "%game.target% all figures",
       "figuresAdjacent": "%game.target% all adjacent figures",
       "figuresRange": "%game.target% all figures %game.action.range% {0}",
@@ -578,6 +579,7 @@
       "selfOrAlly": "Self or ally",
       "targets": "All targets"
     },
+    "sufferDamage": "{0} suffers %game.damage:{1}%",
     "summon": {
       "spawn": "{1} %data.monster.{0}%",
       "spawnType": "{2} %game.monsterType.{1}% %data.monster.{0}%",
@@ -1058,6 +1060,10 @@
       ".": "Display hand size",
       "hint": "Display the hand size on the character's board."
     },
+    "combineSummonAction": {
+      ".": "Combine Summon Action",
+      "hint": "Perform Summon Action for all standees at once."
+    },
     "conditions": "Conditions/Elements",
     "debug": {
       ".": "Debug Settings/Tools",
@@ -1147,6 +1153,10 @@
     "initiativeRequired": {
       ".": "Initiative is required",
       "hint": "If unchecked, the order of the entities must be set manually with drag&drop "
+    },
+    "interactiveAbilities": {
+      ".": "Interactive Abilities",
+      "hint": "On abilitiy cards, click on a highlighted action like summons or element actions to perform that action directly."
     },
     "interface": "Interface",
     "levelAdjustment": {

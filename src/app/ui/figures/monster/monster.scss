@@ -45,7 +45,8 @@
   }
 
   ghs-monster-image {
-    margin: 0 calc(var(--ghs-unit) * 0.5);
+    margin-left: calc(var(--ghs-unit) * -0.5);
+    margin-right: calc(var(--ghs-unit) * 0.5);
   }
 
   ghs-monster-ability-card {

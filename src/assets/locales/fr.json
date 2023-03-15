@@ -345,6 +345,7 @@
       "selfAlliesRange": "Sur lui-même et tous les alliés à %game.action.range% {0}",
       "targets": "Toutes les cibles"
     },
+    "sufferDamage": "{0} subit %game.damage:{1}%",
     "target": {
       ".": "Cible",
       "all": "tous"

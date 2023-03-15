@@ -1,0 +1,80 @@
+{
+  "index": "5B",
+  "name": "Scenario ",
+  "edition": "cs",
+  "parent": "4",
+  "marker": "2",
+  "rules": [
+    {
+      "round": "always",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "city-.*",
+            "tag": "5B"
+          },
+          "type": "gainCondition",
+          "value": "infect"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "ref": "e1",
+      "initial": true,
+      "treasures": [
+        18
+      ],
+      "monster": [
+        {
+          "name": "blood-ooze",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "blood-ooze",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer-scenario-4:-1",
+          "marker": "a",
+          "tags": [
+            "5B"
+          ],
+          "type": "normal"
+        },
+        {
+          "name": "city-archer-scenario-4:-1",
+          "marker": "a",
+          "tags": [
+            "5B"
+          ],
+          "type": "normal"
+        },
+        {
+          "name": "flaming-drake",
+          "type": "elite"
+        },
+        {
+          "name": "flaming-drake",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "toxic-imp",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

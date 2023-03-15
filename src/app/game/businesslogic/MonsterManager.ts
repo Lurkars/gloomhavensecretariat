@@ -148,6 +148,7 @@ export class MonsterManager {
 
     let monsterEntity: MonsterEntity = new MonsterEntity(number, type, monster);
 
+    monster.entities = monster.entities.filter((other) => other.number != number);
     monster.entities.push(monsterEntity);
 
     if (summon) {
@@ -211,7 +212,7 @@ export class MonsterManager {
 
         if (settingsManager.settings.randomStandees) {
           number = Math.floor(Math.random() * monster.count) + 1;
-          while (monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
+          while (monster.entities.some((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && monsterEntity.number == number)) {
             number = Math.floor(Math.random() * monster.count) + 1;
           }
         } else if (this.monsterEntityCountAll(monster) == monster.count - 1 && this.monsterEntityCount(monster, true) == this.monsterEntityCountAll(monster)) {
@@ -374,10 +375,10 @@ export class MonsterManager {
 
         figure.entities.forEach((entity) => {
           if (entity.tags) {
-            let summonTag = entity.tags.find((tag) => tag.startsWith('summon-'));
-            while (summonTag) {
-              entity.tags.splice(entity.tags.indexOf(summonTag), 1);
-              summonTag = entity.tags.find((tag) => tag.startsWith('summon-'));
+            let roundAction = entity.tags.find((tag) => tag.startsWith('roundAction-'));
+            while (roundAction) {
+              entity.tags.splice(entity.tags.indexOf(roundAction), 1);
+              roundAction = entity.tags.find((tag) => tag.startsWith('roundAction-'));
             }
           }
 

@@ -169,19 +169,12 @@
         "archer": {
           "1": "Create a %game.damage:3% trap in an adjacent empty hex closest to an enemy."
         },
-        "cultist": {
-          "1": "%data.monster.cultist% suffers %game.damage:2%."
-        },
         "deep-terror": {
           "1": "%game.action.summon% %data.monster.deep-terror% (%monster.normal%) in a hex adjacent to the target"
         },
         "flame-demon": {
-          "1": "%data.monster.flame-demon% suffers %game.damage:1%.",
-          "2": "All adjacent enemies suffer %game.damage:2%.",
-          "3": "Create a %game.damage:4% trap in an adjacent empty hex closest to an enemy."
-        },
-        "frost-demon": {
-          "1": "%data.monster.frost-demon% suffers %game.damage:1%."
+          "1": "All adjacent enemies suffer %game.damage:2%.",
+          "2": "Create a %game.damage:4% trap in an adjacent empty hex closest to an enemy."
         },
         "giant-viper": {
           "1": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.giant-viper%'s allies.",
@@ -193,9 +186,6 @@
         "hound": {
           "1": "Add +2 %game.action.attack% if the target is adjacent to any of the %data.monster.hound%'s allies."
         },
-        "living-corpse": {
-          "1": "%data.monster.living-corpse% suffers %game.damage:1%."
-        },
         "mindthief": {
           "augment": "Augment %game.characterIconColored.mindthief%",
           "augments": "Augments %game.characterIconColored.mindthief%"
@@ -204,16 +194,11 @@
           "1": "All adjacent enemies and allies suffer %game.damage:1%."
         },
         "ooze": {
-          "1": "Ooze suffers %game.damage:2%.",
-          "2": "%game.action.summon% %data.monster.ooze% (%monster.normal%) with a hit point value equal to the summoning %data.monster.ooze%'s current hit point value (limited by a normal %data.monster.ooze%'s specified maximum hit point value)"
+          "1": "with H equal to the summoning %data.monster.ooze%'s current hit point value (limited by a normal %data.monster.ooze%'s specified maximum hit point value)"
         },
         "savvas-lavaflow": {
           "1": "All allies and enemies adjacent to the target suffer %game.damage:2%",
           "2": "All enemies suffer %game.damage:2%."
-        },
-        "stone-golem": {
-          "1": "%data.monster.stone-golem% suffers %game.damage:1%.",
-          "2": "%data.monster.stone-golem% suffers %game.damage:2%."
         },
         "bandit-commander": {
           "1": "Move to next door and reveal room"
@@ -461,19 +446,12 @@
         "archer": {
           "1": "Erstelle eine %game.damage:3% Falle in einem leeren angrenzenden Feld zum nächsten Gegner."
         },
-        "cultist": {
-          "1": "%data.monster.cultist% erleidet %game.damage:2%."
-        },
         "deep-terror": {
           "1": "%game.action.summon% %data.monster.deep-terror% (%monster.normal%) in einem am Ziel angrenzenden Feld."
         },
         "flame-demon": {
-          "1": "%data.monster.flame-demon% erleidet %game.damage:1%.",
-          "2": "Alle angrenzenden Gegner erleiden %game.damage:2%.",
-          "3": "Erstelle eine %game.damage:4% Falle in einem leeren angrenzenden Feld zum nächsten Gegner."
-        },
-        "frost-demon": {
-          "1": "%data.monster.frost-demon% erleidet %game.damage:1%."
+          "1": "Alle angrenzenden Gegner erleiden %game.damage:2%.",
+          "2": "Erstelle eine %game.damage:4% Falle in einem leeren angrenzenden Feld zum nächsten Gegner."
         },
         "giant-viper": {
           "1": "Füge +2 %game.action.attack% hinzu wenn das Ziel an einem Verbündeten der %data.monster.giant-viper% angrenzt.",
@@ -485,9 +463,6 @@
         "hound": {
           "1": "Füge +2 %game.action.attack% hinzu wenn das Ziel an einem Verbündeten des %data.monster.hound% angrenzt."
         },
-        "living-corpse": {
-          "1": "%data.monster.living-corpse% erleidet %game.damage:1%."
-        },
         "mindthief": {
           "augment": "Erweiterung %game.characterIconColored.mindthief%",
           "augments": "Erweiterungen %game.characterIconColored.mindthief%"
@@ -496,16 +471,11 @@
           "1": "Alle angrenzenden Verbündeten und Gegner erleiden %game.damage:2%."
         },
         "ooze": {
-          "1": "%data.monster.ooze% erleidet %game.damage:2%.",
-          "2": "%game.action.summon% %data.monster.ooze% (%monster.normal%) mit einem TP Wert gleich dem beschwörenden %data.monster.ooze% (limitiert auf den maximalen TP Wert eines normalens %data.monster.ooze%)"
+          "1": "mit H gleich dem TP Wert des beschwörenden %data.monster.ooze% (limitiert auf den maximalen TP Wert eines normalens %data.monster.ooze%)"
         },
         "savvas-lavaflow": {
           "1": "Alle an das Ziel angrenzenden Verbündeten und Gegner erleiden %game.damage:2%.",
           "2": "Alle Gegner erleiden %game.damage:2%."
-        },
-        "stone-golem": {
-          "1": "%data.monster.stone-golem% erleidet %game.damage:1%.",
-          "2": "%data.monster.stone-golem% erleidet %game.damage:2%."
         },
         "bandit-commander": {
           "1": "Zur nächsten Tür gehen und den Raum aufdecken."
@@ -757,19 +727,12 @@
         "archer": {
           "1": "Crée un piège à %game.damage:3% sur l'hexagone vide adjacent le plus proche d'un adversaire."
         },
-        "cultist": {
-          "1": "Le %data.monster.cultist% subit %game.damage:2%."
-        },
         "deep-terror": {
           "1": "Invoque une %data.monster.deep-terror% normale sur un hexagone adjacent à la cible"
         },
         "flame-demon": {
-          "1": "Le %data.monster.flame-demon% subit 1 dégât.",
-          "2": "Tous les adversaires adjacents subissent %game.damage:2%.",
-          "3": "Crée un piège à %game.damage:4% sur l'hexagone vide adjacent le plus proche d'un adversaire."
-        },
-        "frost-demon": {
-          "1": "Le %data.monster.frost-demon% subit 1 dégât."
+          "1": "Tous les adversaires adjacents subissent %game.damage:2%.",
+          "2": "Crée un piège à %game.damage:4% sur l'hexagone vide adjacent le plus proche d'un adversaire."
         },
         "giant-viper": {
           "1": "Ajoute +2 %game.action.attack% si la cible est adjacente à un allié de la %data.monster.giant-viper%.",
@@ -781,9 +744,6 @@
         "hound": {
           "1": "Ajoute +2 %game.action.attack% si la cible est adjacente à un allié du %data.monster.hound%."
         },
-        "living-corpse": {
-          "1": "Le %data.monster.living-corpse% subit 1 dégât."
-        },
         "mindthief": {
           "augment": "Augmentation %game.characterIconColored.mindthief%",
           "augments": "Augmente %game.characterIconColored.mindthief%"
@@ -792,16 +752,11 @@
           "1": "Tous les alliés et adversaires adjacents subissent 1 dégât."
         },
         "ooze": {
-          "1": "Le %data.monster.ooze% subit %game.damage:2%.",
-          "2": "Invoque un %data.monster.ooze% (normal) dont le nombre de points de vie est égal à son propre nombre de points de vie actuel (limité à la valeur maximale de points de vie d'un %data.monster.ooze% normal)"
+          "1": "Invoque un %data.monster.ooze% (normal) dont le nombre de points de vie est égal à son propre nombre de points de vie actuel (limité à la valeur maximale de points de vie d'un %data.monster.ooze% normal)"
         },
         "savvas-lavaflow": {
           "1": "Tous les alliés et adversaires adjacents à la cible subissent %game.damage:2%.",
           "2": "Tous les adversaires subissent %game.damage:2%."
-        },
-        "stone-golem": {
-          "1": "Le %data.monster.stone-golem% subit 1 dégât.",
-          "2": "Le %data.monster.stone-golem% subit %game.damage:2%."
         },
         "bandit-commander": {
           "1": "Se déplace vers la prochaine porte et révèle la salle"
@@ -1074,19 +1029,12 @@
         "archer": {
           "1": "인접한 빈칸 중 적과 가장 가까운 칸 하나에 피해 %game.damage:3%점짜리 함정을 생성한다."
         },
-        "cultist": {
-          "1": "%data.monster.cultist%가 스스로 피해 %game.damage:2%점을 입는다."
-        },
         "deep-terror": {
           "1": "대상의 인접한 칸 하나에 %monster.normal% %data.monster.deep-terror% %game.action.summon%"
         },
         "flame-demon": {
-          "1": "%data.monster.flame-demon%가 스스로 피해 %game.damage:1%점을 입는다.",
-          "2": "인접한 모든 적이 피해 %game.damage:2%점을 입는다.",
-          "3": "인접한 빈칸 중 적과 가장 가까운 칸에 피해 %game.damage:4%점짜리 함정을 생성한다."
-        },
-        "frost-demon": {
-          "1": "%data.monster.frost-demon%가 스스로 피해 %game.damage:1%점을 입는다."
+          "1": "인접한 모든 적이 피해 %game.damage:2%점을 입는다.",
+          "2": "인접한 빈칸 중 적과 가장 가까운 칸에 피해 %game.damage:4%점짜리 함정을 생성한다."
         },
         "giant-viper": {
           "1": "대상이 %data.monster.giant-viper%의 아군에 인접해 있다면 +2 %game.action.attack% 추가",
@@ -1109,16 +1057,11 @@
           "1": "인접한 모든 적과 아군이 피해 %game.damage:1%점을 입는다."
         },
         "ooze": {
-          "1": "점액이 스스로 피해 %game.damage:2%점을 입는다.",
-          "2": "%data.monster.ooze%의 현재 체력과 동일한 체력을 가진 %monster.normal% %data.monster.ooze% %game.action.summon% (단, 일반 %data.monster.ooze%의 정해진 최대 체력은 초과 불가)"
+          "1": "%data.monster.ooze%의 현재 체력과 동일한 체력을 가진 %monster.normal% %data.monster.ooze% %game.action.summon% (단, 일반 %data.monster.ooze%의 정해진 최대 체력은 초과 불가)"
         },
         "savvas-lavaflow": {
           "1": "대상에 인접한 모든 아군과 적이 피해 %game.damage:2%점을 입는다.",
           "2": "모든 적이 피해 %game.damage:2%점을 입는다."
-        },
-        "stone-golem": {
-          "1": "%data.monster.stone-golem%이 스스로 피해 %game.damage:1%점을 입는다.",
-          "2": "%data.monster.stone-golem%이 스스로 피해 %game.damage:2%점을 입는다."
         },
         "bandit-commander": {
           "1": "다음 문 위로 이동해서 문과 연결된 방을 공개"

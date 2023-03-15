@@ -9,8 +9,7 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox"
-            [checked]="settingsManager.settings.scenarioRooms"
+          <input type="checkbox" [checked]="settingsManager.settings.scenarioRooms"
             (change)="settingsManager.setScenarioRooms(!settingsManager.settings.scenarioRooms)">
           {{'settings.scenarioRooms' | ghsLabel}}
         </label>
@@ -38,9 +37,9 @@
   <div class="column">
     <div class="line">
       <div class="hint-container">
-        <label 
-        [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms}">
-          <input type="checkbox" [checked]="settingsManager.settings.treasures && settingsManager.settings.scenarioRooms"
+        <label [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms}">
+          <input type="checkbox"
+            [checked]="settingsManager.settings.treasures && settingsManager.settings.scenarioRooms"
             (change)="settingsManager.setTreasures(!settingsManager.settings.treasures)">
           {{'settings.treasures' | ghsLabel}}
         </label>
@@ -104,8 +103,10 @@
   <div class="column">
     <div class="line">
       <div class="hint-container">
-        <label  [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || !settingsManager.settings.treasures }">
-          <input type="checkbox" [checked]="settingsManager.settings.treasuresLoot && settingsManager.settings.scenarioRooms  && settingsManager.settings.treasures"
+        <label
+          [ngClass]="{'disabled' : !settingsManager.settings.scenarioRooms || !settingsManager.settings.treasures }">
+          <input type="checkbox"
+            [checked]="settingsManager.settings.treasuresLoot && settingsManager.settings.scenarioRooms  && settingsManager.settings.treasures"
             (change)="settingsManager.setTreasuresLoot(!settingsManager.settings.treasuresLoot)">
           {{'settings.treasuresLoot' | ghsLabel}}
         </label>
@@ -165,6 +166,19 @@
     <div class="line">
       <div class="hint-container">
         <label>
+          <input type="checkbox" [checked]="settingsManager.settings.abilityReveal"
+            (change)="settingsManager.setAbilityReveal(!settingsManager.settings.abilityReveal)">{{'settings.abilityReveal'
+          | ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.abilityReveal.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label>
           <input type="checkbox" [checked]="settingsManager.settings.hideStats"
             (change)="settingsManager.setHideStats(!settingsManager.settings.hideStats)">{{'settings.hideStats' |
           ghsLabel}}
@@ -181,13 +195,29 @@
     <div class="line">
       <div class="hint-container">
         <label>
-          <input type="checkbox" [checked]="settingsManager.settings.abilityReveal"
-            (change)="settingsManager.setAbilityReveal(!settingsManager.settings.abilityReveal)">{{'settings.abilityReveal'
-          | ghsLabel}}
+          <input type="checkbox" [checked]="settingsManager.settings.interactiveAbilities"
+            (change)="settingsManager.setInteractiveAbilities(!settingsManager.settings.interactiveAbilities)">{{'settings.interactiveAbilities'
+          |
+          ghsLabel}}
         </label>
         <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
         <span class="hint">
-          <span class="text">{{'settings.abilityReveal.hint' | ghsLabel}}</span>
+          <span class="text">{{'settings.interactiveAbilities.hint' | ghsLabel}}</span>
+        </span>
+      </div>
+    </div>
+    <div class="line">
+      <div class="hint-container">
+        <label [ngClass]="{'disabled' : !settingsManager.settings.interactiveAbilities}">
+          <input type="checkbox"
+            [checked]="settingsManager.settings.combineSummonAction && settingsManager.settings.interactiveAbilities"
+            (change)="settingsManager.setCombineSummonAction(!settingsManager.settings.combineSummonAction)">{{'settings.combineSummonAction'
+          |
+          ghsLabel}}
+        </label>
+        <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+        <span class="hint">
+          <span class="text">{{'settings.combineSummonAction.hint' | ghsLabel}}</span>
         </span>
       </div>
     </div>

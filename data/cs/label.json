@@ -18,7 +18,6 @@
       "clockwork-railcaster": "Clockwork Railcaster",
       "clockwork-ravager": "Clockwork Ravager",
       "clockwork-soldier": "Clockwork Soldier",
-      "cultist_lc": "Cultist",
       "dark-lurker": "Dark Lurker",
       "drake-porter": "Drake Porter",
       "drakefiend": "Drakefiend",
@@ -135,15 +134,12 @@
     "custom": {
       "cs": {
         "blood-ooze": {
-          "1": "Summon one normal %data.monster.blood-ooze% in a hex adjacent to the target with a hit point value equal to the summoning %data.monster.blood-ooze%'s current hit point value minus 2 (limited by a normal %data.monster.blood-ooze%'s specific maximum hit point value)",
-          "2": "Summon one normal %data.monster.blood-ooze% with a current hit point value equal to four.",
-          "3": "Hit point value equal to three instead",
-          "4": "All adjacent enemies suffer %game.damage:1%.",
-          "5": "Target all adjacent %data.monster.blood-ooze%s",
-          "6": "Add +2 %game.action.attack% if the target is adjacent to at least two %data.monster.blood-ooze%s",
-          "7": "Target one enemy at exactly %game.action.range:2%",
-          "8": "If at least one money token was looted:",
-          "9": "%data.monster.blood-ooze% suffers %game.damage:2%."
+          "1": "in a hex adjacent to the target with H equal to the summoning %data.monster.blood-ooze%'s current hit point value minus 2 (limited by a normal %data.monster.blood-ooze%'s specific maximum hit point value)",
+          "2": "Hit point value equal to three instead",
+          "3": "All adjacent enemies suffer %game.damage:1%.",
+          "4": "Target all adjacent %data.monster.blood-ooze%s",
+          "5": "Add +2 %game.action.attack% if the target is adjacent to at least two %data.monster.blood-ooze%s",
+          "6": "If at least one money token was looted:"
         },
         "brood-mother": {
           "1": "She cannot be reduced below 1 hit point. When attacks, she considers any %game.attackmodifier.double% attack modifier card the enemy draws to be %game.attackmodifier.plus0% instead.",
@@ -211,12 +207,11 @@
           "3": "At %game.initiative.60% perform the following abilities",
           "4": "At %game.initiative.90% perform the following abilities",
           "5": "where X is the %game.damage% dealt by the attack ability.",
-          "6": "Target all enemies at exactly %game.action.range:2% or 3",
-          "7": "This movement may move through all figures.",
-          "8": "where X is this figure's %game.action.attack% value.",
-          "9": "All ranged attacks targeting this figure gain Disadvantage.",
-          "10": "At %game.initiative.50% perform the following abilities",
-          "11": "If this attack was performed, remove %game.condition.invisible%."
+          "6": "This movement may move through all figures.",
+          "7": "where X is this figure's %game.action.attack% value.",
+          "8": "All ranged attacks targeting this figure gain Disadvantage.",
+          "9": "At %game.initiative.50% perform the following abilities",
+          "10": "If this attack was performed, remove %game.condition.invisible%."
         },
         "rogue-hollowpact": {
           "1": "where X is equal to the number of Void Pit obstacles",
@@ -232,9 +227,6 @@
         "terrorscale-drake": {
           "1": "all enemies adjacent to the target suffer %game.damage:1%",
           "2": "destroy the occupied obstacle"
-        },
-        "the-cultist": {
-          "1": "%data.monster.the-cultist% suffers %game.damage:2%."
         },
         "toxic-imp": {
           "1": "Add +1 %game.action.attack% if the target has %game.condition.infect%",

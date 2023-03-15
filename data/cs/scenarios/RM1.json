@@ -23,46 +23,46 @@
       ],
       "monster": [
         {
-          "name": "bandit-archer",
+          "name": "bandit-archer-hired-muscle",
           "player2": "elite",
           "player3": "normal"
         },
         {
-          "name": "bandit-archer",
+          "name": "bandit-archer-hired-muscle",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "bandit-archer",
+          "name": "bandit-archer-hired-muscle",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "bandit-archer",
+          "name": "bandit-archer-hired-muscle",
           "player4": "normal"
         },
         {
-          "name": "bandit-archer",
+          "name": "bandit-archer-hired-muscle",
           "player4": "normal"
         },
         {
-          "name": "bandit-guard",
+          "name": "bandit-guard-hired-muscle",
           "player2": "normal",
           "player3": "elite",
           "player4": "normal"
         },
         {
-          "name": "bandit-guard",
+          "name": "bandit-guard-hired-muscle",
           "player2": "normal",
           "player4": "normal"
         },
         {
-          "name": "bandit-guard",
+          "name": "bandit-guard-hired-muscle",
           "player2": "normal",
           "player4": "normal"
         },
         {
-          "name": "bandit-guard",
+          "name": "bandit-guard-hired-muscle",
           "player3": "elite",
           "player4": "normal"
         }
@@ -127,12 +127,12 @@
       "ref": "d2",
       "monster": [
         {
-          "name": "bandit-archer",
+          "name": "bandit-archer-hired-muscle",
           "player3": "normal",
           "player4": "normal"
         },
         {
-          "name": "bandit-guard",
+          "name": "bandit-guard-hired-muscle",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"

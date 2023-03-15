@@ -112,6 +112,10 @@ body {
     --ghs-font-extra: 'ghs-extra';
     --ghs-font-title: 'ghs-title-fh';
   }
+
+  &.dragging {
+    cursor: grabbing !important;
+  }
 }
 
 *::-webkit-scrollbar {

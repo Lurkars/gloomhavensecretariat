@@ -153,8 +153,8 @@
           "valueType": "minus"
         },
         {
-          "type": "custom",
-          "value": "%data.custom.bas.desiccated-corpse.3%",
+          "type": "sufferDamage",
+          "value": 3,
           "small": true
         }
       ]

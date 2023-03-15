@@ -49,23 +49,31 @@
       (cdkDropListEntered)="entered($event)" (cdkDropListExited)="exited($event)"
       [cdkDropListDisabled]="settingsManager.settings.disableDragFigures || gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters && !gameManager.stateManager.permissions.monsters"
       [ngClass]="{'column' : columns > 1, 'column-left' : columns > 1 && i < columnSize, 'column-right' : columns > 1 && i >= columnSize}">
-      <div cdkDrag>
-        <div cdkDragHandle class="handle" (click)="handleClick($event)"
+
+      <div cdkDrag #figureDrag [cdkDragStartDelay]="500" [ngClass]="{'enabled' : draggingEnabled}"
+        (cdkDragStarted)="startedDrag($event, figureDrag)" (cdkDragReleased)="releasedDrag($event, figureDrag)">
+
+        <div cdkDragHandle class="handle" (click)="handleClick($event)" (press)="enabledDragging($event, figureDrag)"
+          (pressup)="disableDragging($event, figureDrag)"
           [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure), 'monster-full' : settingsManager.settings.showFullAbilityCard}"
           *ngIf="!gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters || gameManager.stateManager.permissions.monsters">
         </div>
+
         <ghs-character [character]="gameManager.toCharacter(figure)" *ngIf="gameManager.isCharacter(figure)">
         </ghs-character>
         <ghs-objective [objective]="gameManager.toObjective(figure)" *ngIf="gameManager.isObjective(figure)">
         </ghs-objective>
         <ghs-monster [monster]="gameManager.toMonster(figure)" *ngIf="gameManager.isMonster(figure)">
         </ghs-monster>
+
         <div cdkDragHandle class="handle right" (click)="handleClick($event)"
+          (press)="enabledDragging($event, figureDrag)" (pressup)="disableDragging($event, figureDrag)"
           [ngClass]="{'character' : gameManager.isCharacter(figure), 'monster' : gameManager.isMonster(figure), 'objective' : gameManager.isObjective(figure), 'monster-full' : settingsManager.settings.showFullAbilityCard}"
           *ngIf=" !gameManager.stateManager.permissions || gameManager.stateManager.permissions.characters ||
           gameManager.stateManager.permissions.monsters">
         </div>
       </div>
+
     </div>
   </div>
   <div *ngIf="fullviewChar">

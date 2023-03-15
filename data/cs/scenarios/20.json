@@ -35,10 +35,6 @@
       "initial": true,
       "monster": [
         {
-          "name": "cultist",
-          "type": "elite"
-        },
-        {
           "name": "deep-terror",
           "type": "normal"
         },
@@ -93,6 +89,10 @@
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "the-cultist",
+          "type": "boss"
         }
       ]
     }

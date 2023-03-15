@@ -154,8 +154,8 @@
           "valueType": "minus",
           "subActions": [
             {
-              "type": "custom",
-              "value": "%data.custom.gh.flame-demon.1%",
+              "type": "sufferDamage",
+              "value": 1,
               "small": true
             }
           ]
@@ -174,7 +174,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.flame-demon.2%",
+              "value": "%data.custom.gh.flame-demon.1%",
               "small": true
             }
           ]
@@ -214,7 +214,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.gh.flame-demon.3%",
+              "value": "%data.custom.gh.flame-demon.2%",
               "small": true
             }
           ]

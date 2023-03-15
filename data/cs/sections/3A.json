@@ -1,0 +1,53 @@
+{
+  "index": "3A",
+  "name": "Scenario 2",
+  "edition": "cs",
+  "parent": "2",
+  "marker": "1",
+  "rooms": [
+    {
+      "roomNumber": 2,
+      "ref": "h1",
+      "initial": true,
+      "monster": [
+        {
+          "name": "deep-terror",
+          "type": "normal"
+        },
+        {
+          "name": "deep-terror",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "deep-terror",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player2": "normal",
+          "player3": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "water-spirit",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

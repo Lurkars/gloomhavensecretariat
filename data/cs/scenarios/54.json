@@ -16,31 +16,31 @@
       ],
       "monster": [
         {
-          "name": "giant-viper",
-          "type": "elite"
-        },
-        {
-          "name": "giant-viper",
+          "name": "dark-lurker",
           "player2": "normal",
           "player3": "normal",
           "player4": "elite"
         },
         {
-          "name": "giant-viper",
-          "player3": "normal",
-          "player4": "normal"
-        },
-        {
-          "name": "lurker",
-          "player2": "normal",
-          "player3": "normal",
-          "player4": "elite"
-        },
-        {
-          "name": "lurker",
+          "name": "dark-lurker",
           "player2": "normal",
           "player3": "elite",
           "player4": "elite"
+        },
+        {
+          "name": "hanging-snake",
+          "type": "elite"
+        },
+        {
+          "name": "hanging-snake",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "hanging-snake",
+          "player3": "normal",
+          "player4": "normal"
         }
       ]
     },

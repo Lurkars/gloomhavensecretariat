@@ -161,6 +161,16 @@ export class SettingsManager {
     this.storeSettings();
   }
 
+  setInteractiveAbilities(interactiveAbilities: boolean) {
+    this.settings.interactiveAbilities = interactiveAbilities;
+    this.storeSettings();
+  }
+
+  setCombineSummonAction(combineSummonAction: boolean) {
+    this.settings.combineSummonAction = combineSummonAction;
+    this.storeSettings();
+  }
+
   setAlwaysAllyAttackModifierDeck(alwaysAllyAttackModifierDeck: boolean) {
     this.settings.alwaysAllyAttackModifierDeck = alwaysAllyAttackModifierDeck;
     this.storeSettings();

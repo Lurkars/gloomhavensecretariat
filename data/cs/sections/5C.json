@@ -1,0 +1,60 @@
+{
+  "index": "5C",
+  "name": "Scenario ",
+  "edition": "cs",
+  "parent": "4",
+  "marker": "3",
+  "rules": [
+    {
+      "round": "always",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "city-.*",
+            "tag": "5C"
+          },
+          "type": "gainCondition",
+          "value": "infect"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "ref": "a2",
+      "initial": true,
+      "monster": [
+        {
+          "name": "blood-ooze",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "blood-ooze",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard-scenario-4:-1",
+          "marker": "b",
+          "tags": [
+            "5C"
+          ],
+          "type": "normal"
+        },
+        {
+          "name": "toxic-imp",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

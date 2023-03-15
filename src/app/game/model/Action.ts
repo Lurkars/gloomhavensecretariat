@@ -43,6 +43,7 @@ export enum ActionType {
   spawn = "spawn",
   special = "special",
   specialTarget = "specialTarget",
+  sufferDamage = "sufferDamage",
   summon = "summon",
   swing = "swing",
   target = "target",

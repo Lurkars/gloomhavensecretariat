@@ -96,8 +96,15 @@
         },
         {
           "type": "custom",
-          "value": "If the move ability was perfomed,<br>Ruined Machine suffers %game.damage:1%.",
-          "small": true
+          "value": "If the move ability was perfomed,",
+          "small": true,
+          "subActions": [
+            {
+              "type": "sufferDamage",
+              "value": 1,
+              "small": true
+            }
+          ]
         },
         {
           "type": "attack",
@@ -125,8 +132,15 @@
         },
         {
           "type": "custom",
-          "value": "If the attack ability was perfomed,<br>Ruined Machine suffers %game.damage:1%.",
-          "small": true
+          "value": "If the attack ability was perfomed,",
+          "small": true,
+          "subActions": [
+            {
+              "type": "sufferDamage",
+              "value": 1,
+              "small": true
+            }
+          ]
         }
       ]
     },
@@ -158,8 +172,8 @@
           ]
         },
         {
-          "type": "custom",
-          "value": "Ruined Machine suffers %game.damage:1%.",
+          "type": "sufferDamage",
+          "value": 1,
           "small": true
         }
       ]

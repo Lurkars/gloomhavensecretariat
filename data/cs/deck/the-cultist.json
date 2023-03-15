@@ -151,8 +151,8 @@
           "value": "monsterStandee"
         },
         {
-          "type": "custom",
-          "value": "%data.custom.cs.the-cultist.1%",
+          "type": "sufferDamage",
+          "value": 1,
           "small": true
         }
       ]

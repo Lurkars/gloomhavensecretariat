@@ -110,8 +110,8 @@
           "value": 1,
           "subActions": [
             {
-              "type": "custom",
-              "value": "%data.custom.cs.ravenous-gharial.6%",
+              "type": "specialTarget",
+              "value": "enemiesRange:2 %or% 3",
               "small": true
             }
           ]
@@ -165,7 +165,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.ravenous-gharial.7%",
+              "value": "%data.custom.cs.ravenous-gharial.6%",
               "small": true
             }
           ]
@@ -204,14 +204,14 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.ravenous-gharial.8%",
+              "value": "%data.custom.cs.ravenous-gharial.7%",
               "small": true
             }
           ]
         },
         {
           "type": "custom",
-          "value": "%data.custom.cs.ravenous-gharial.9%",
+          "value": "%data.custom.cs.ravenous-gharial.8%",
           "small": true
         }
       ]
@@ -233,7 +233,7 @@
         },
         {
           "type": "trigger",
-          "value": "%data.custom.cs.ravenous-gharial.10%",
+          "value": "%data.custom.cs.ravenous-gharial.9%",
           "subActions": [
             {
               "type": "move",
@@ -249,7 +249,7 @@
           "subActions": [
             {
               "type": "custom",
-              "value": "%data.custom.cs.ravenous-gharial.11%",
+              "value": "%data.custom.cs.ravenous-gharial.10%",
               "small": true
             }
           ]

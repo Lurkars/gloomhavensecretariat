@@ -108,8 +108,8 @@
           "valueType": "minus"
         },
         {
-          "type": "custom",
-          "value": "%data.custom.gh.living-corpse.1%",
+          "type": "sufferDamage",
+          "value": 1,
           "small": true
         }
       ]

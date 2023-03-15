@@ -206,12 +206,11 @@ export class ScenarioManager {
     if (!settingsManager.settings.scenarioRooms || !scenarioData.rooms || scenarioData.rooms.length == 0) {
       if (scenarioData.monsters) {
         scenarioData.monsters.forEach((name) => {
+          const monsterName = name.split(':')[0];
           let monster = gameManager.monsterManager.addMonsterByName(name, scenarioData.edition);
-          if (monster && scenarioData.allies && scenarioData.allies.indexOf(name) != -1) {
-            monster.isAlly = true;
-          }
-          if (monster && scenarioData.drawExtra && scenarioData.drawExtra.indexOf(name) != -1) {
-            monster.drawExtra = true;
+          if (monster) {
+            monster.isAlly = scenarioData.allies && scenarioData.allies.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.allies && gameManager.game.scenario.allies.indexOf(monsterName) != -1 || false;
+            monster.drawExtra = scenarioData.drawExtra && scenarioData.drawExtra.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.drawExtra && gameManager.game.scenario.drawExtra.indexOf(monsterName) != -1 || false;
           }
         });
       }
@@ -240,13 +239,12 @@ export class ScenarioManager {
 
       if (!settingsManager.settings.automaticStandees && scenarioData.monsters) {
         scenarioData.monsters.forEach((name) => {
-          if (!scenarioData.rooms || !scenarioData.rooms.some((roomData) => roomData.monster && roomData.monster.some((standee) => standee.name == name))) {
+          const monsterName = name.split(':')[0];
+          if (!scenarioData.rooms || !scenarioData.rooms.some((roomData) => roomData.monster && roomData.monster.some((standee) => standee.name.split(':')[0] == monsterName))) {
             let monster = gameManager.monsterManager.addMonsterByName(name, scenarioData.edition);
-            if (monster && scenarioData.allies && scenarioData.allies.indexOf(name) != -1) {
-              monster.isAlly = true;
-            }
-            if (monster && scenarioData.drawExtra && scenarioData.drawExtra.indexOf(name) != -1) {
-              monster.drawExtra = true;
+            if (monster) {
+              monster.isAlly = scenarioData.allies && scenarioData.allies.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.allies && gameManager.game.scenario.allies.indexOf(monsterName) != -1 || false;
+              monster.drawExtra = scenarioData.drawExtra && scenarioData.drawExtra.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.drawExtra && gameManager.game.scenario.drawExtra.indexOf(monsterName) != -1 || false;
             }
           }
         })
@@ -314,7 +312,10 @@ export class ScenarioManager {
           if (settingsManager.settings.disableStandees) {
             gameManager.monsterManager.addMonsterByName(monsterStandeeData.name, scenarioData.edition);
           } else {
-            const entity = gameManager.monsterManager.spawnMonsterEntity(monsterStandeeData.name, type, scenarioData.edition, scenarioData.allies && scenarioData.allies.indexOf(monsterStandeeData.name) != -1, scenarioData.drawExtra && scenarioData.drawExtra.indexOf(monsterStandeeData.name) != -1);
+            const monsterName = monsterStandeeData.name.split(':')[0];
+            const isAlly = scenarioData.allies && scenarioData.allies.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.allies && gameManager.game.scenario.allies.indexOf(monsterName) != -1 || false;
+            const drawExtra = scenarioData.drawExtra && scenarioData.drawExtra.indexOf(monsterName) != -1 || section && gameManager.game.scenario && gameManager.game.scenario.drawExtra && gameManager.game.scenario.drawExtra.indexOf(monsterName) != -1 || false;
+            const entity = gameManager.monsterManager.spawnMonsterEntity(monsterStandeeData.name, type, scenarioData.edition, isAlly, drawExtra);
             if (entity) {
               if (monsterStandeeData.marker) {
                 entity.marker = monsterStandeeData.marker;
