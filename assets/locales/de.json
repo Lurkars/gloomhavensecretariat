@@ -164,6 +164,7 @@
       "spawn": "Hervorbringen",
       "special": "Spezial",
       "specialTarget": "Sonderziel",
+      "sufferDamage": "Schaden erleiden",
       "summon": "Beschwöre",
       "swing": "Schwingen",
       "target": "Ziel",
@@ -459,12 +460,12 @@
       "enemiesAdjacent": "%game.target% alle angrenzenden Gegner an",
       "enemiesMovedThrough": "%game.target% alle durchquerten Gegner an",
       "enemiesMovedThroughAdjacent": "%game.target% alle Gegner auf besetzten oder angrenzenden<br>durchquerten Feldern der Beweungsfertigkeit",
-      "enemiesRange": "%game.target% alle Gegner in %game.action.range% {0} an",
+      "enemiesRange": "%game.target% alle Gegner genau in %game.action.range% {0} an",
       "enemiesRangeAffect": "%game.target% alle Gegner in %game.action.range% {0}",
       "enemy": "%game.target% einen Gegner an",
       "enemyAdjacent": "%game.target% einen angrenzenden Gegner an",
       "enemyOneAll": "%game.target% einen Gegner für alle Angriffe an",
-      "enemyRange": "%game.target% einen Gegner in %game.action.range% {0} an",
+      "enemyRange": "%game.target% einen Gegner genau in %game.action.range% {0} an",
       "figures": "%game.target% alle Figuren an",
       "figuresAdjacent": "%game.target% alle angrenzenden Figuren an",
       "figuresRange": "%game.target% alle Figuren in %game.action.range% {0} an",
@@ -477,6 +478,7 @@
       "selfOrAlly": "Selbst oder Verbündeter",
       "targets": "Alle Ziele"
     },
+    "sufferDamage": "{0} erleidet %game.damage:{1}%",
     "summon": {
       "spawn": "{1} %data.monster.{0}%",
       "spawnType": "{2} %game.monsterType.{1}% %data.monster.{0}%",
@@ -957,6 +959,10 @@
       ".": "Handkartenanzahl anzeigen",
       "hint": "Zeite die Handkartenanzahl auf dem Charakterboard an."
     },
+    "combineSummonAction": {
+      ".": "Beschwörung Aktion kombinieren",
+      "hint": "Führe die Beschwörung Aktion für alle Aufsteller gleichzeitig aus."
+    },
     "conditions": "Zustände/Elemente",
     "debug": {
       ".": "Debug Einstellung/Werkzeuge",
@@ -1047,6 +1053,10 @@
     "initiativeRequired": {
       ".": "Initiative muss gesetzt werden",
       "hint": "Wenn nicht ausgewählt muss die Reihenfolge der Figuren manuell über drag&drop festgelegt werden"
+    },
+    "interactiveAbilities": {
+      ".": "Interaktive Fertigkeitskarten",
+      "hint": "Auf Fertigkeitskarten können herorgehoben Aktionen wie Beschwörungen oder Element durch Klick direkt ausgeführt werden."
     },
     "interface": "Oberfläche",
     "levelAdjustment": {
