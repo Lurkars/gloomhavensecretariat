@@ -1,11 +1,11 @@
 <div class="light character-sheet-dialog" [ngClass]="{'cs-sheet' : csSheet, 'fh-sheet' : fhSheet}">
   <a class="close" (click)="close()" [title]="'close' | ghsLabel"><img src="./assets/images/close.svg"></a>
-  <div class="scroll-container" [ngClass]="{'denied' : !gameManager.stateManager.hasCharacterPermission(character)}">
+  <div class="scroll-container" [ngClass]="{'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition]}">
     <div class="container">
       <div class="columns">
         <div class="column column-left">
           <div class="row title">
-            <img [src]="gameManager.characterManager.characterIcon(character)" />
+            <img [src]="character.iconUrl" />
             <label class="headline" [ngClass]="{'absent' : character.absent}" (click)="toggleCharacterAbsent()"
               [title]="(character.absent ? 'character.absent' : 'character.present') | ghsLabel">
               <div class="character-title" text-shrink>

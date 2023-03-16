@@ -112,7 +112,7 @@ export class RoundManager {
       if (gameManager.gameplayFigure(figure)) {
         figure.active = true;
         if (settingsManager.settings.activeSummons && figure instanceof Character) {
-          const summon = figure.summons.find((summon) => !summon.dead && summon.health > 0 && summon.state != SummonState.new);
+          const summon = figure.summons.find((summon) => gameManager.entityManager.isAlive(summon, true));
           if (summon && !figure.summons.find((summon) => summon.active)) {
             summon.active = true;
           }
@@ -240,7 +240,7 @@ export class RoundManager {
     }
 
     if (settingsManager.settings.activeSummons && figure instanceof Character) {
-      const summon = figure.summons.find((summon) => !summon.dead && summon.health > 0 && summon.state != SummonState.new);
+      const summon = figure.summons.find((summon) => gameManager.entityManager.isAlive(summon, true));
       if (summon && !figure.summons.find((summon) => summon.active)) {
         summon.active = true;
       }

@@ -54,7 +54,7 @@ export class AttackModifierDeckDialogComponent implements OnInit {
     if (this.character) {
       this.deck = this.character.attackModifierDeck;
       this.numeration = "" + this.character.number;
-      this.characterIcon = gameManager.characterManager.characterIcon(this.character);
+      this.characterIcon = this.character.iconUrl;
     }
     setTimeout(() => {
       this.maxHeight = 'calc(80vh - ' + this.menuElement.nativeElement.offsetHeight + 'px)';

@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { GameManager, gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
 import { Ability } from "src/app/game/model/Ability";
@@ -12,7 +12,7 @@ import { applyPlaceholder } from "../../helper/i18n";
   templateUrl: './ability.html',
   styleUrls: ['./ability.scss']
 })
-export class AbilityComponent {
+export class AbilityComponent implements OnInit {
 
   @Input() ability: Ability | undefined;
   @Input() abilities!: Ability[];
@@ -27,7 +27,21 @@ export class AbilityComponent {
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
-  abilityIndex(ability: Ability): number {
+  abilityIndex: number = -1;
+  abilityLabel: string = "";
+
+  ngOnInit() {
+    this.abilityIndex = this.ability && this.setAbilityIndex(this.ability) || -1;
+    this.abilityLabel = this.ability && this.setAbilityLabel(this.ability) || "";
+    gameManager.uiChange.subscribe({
+      next: () => {
+        this.abilityIndex = this.ability && this.setAbilityIndex(this.ability) || -1;
+        this.abilityLabel = this.ability && this.setAbilityLabel(this.ability) || "";
+      }
+    });
+  }
+
+  setAbilityIndex(ability: Ability): number {
     if (this.abilities && this.abilities.length > 0) {
       return this.abilities.indexOf(ability);
     } else if (this.monster) {
@@ -36,7 +50,7 @@ export class AbilityComponent {
     return -1;
   }
 
-  abilityLabel(ability: Ability): string {
+  setAbilityLabel(ability: Ability): string {
     let label = ability.name || "";
     if (!ability.name && this.monster) {
       label = 'data.monster.' + this.monster.name;

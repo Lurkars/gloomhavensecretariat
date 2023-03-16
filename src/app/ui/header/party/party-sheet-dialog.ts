@@ -450,11 +450,7 @@ export class PartySheetDialogComponent implements OnInit {
   }
 
   characterIcon(name: string): string {
-    const char = gameManager.charactersData().find((characterData) => characterData.name == name);
-    if (char) {
-      return gameManager.characterManager.characterIcon(char);
-    }
-    return "";
+    return gameManager.characterManager.characterIcon(name);
   }
 
   items(): ItemData[] {

@@ -1,6 +1,7 @@
-<div class="monster" [ngClass]="{'off' : monsterOff(), 'full-ability'  : settingsManager.settings.showFullAbilityCard}">
+<div class="monster"
+  [ngClass]="{'off' : monster.off || nonDead == 0, 'full-ability'  : settingsManager.settings.showFullAbilityCard}">
   <ghs-monster-image [monster]="monster"
-    [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round || !gameManager.stateManager.hasMonsterPermission(monster)}">
+    [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round || !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]}">
   </ghs-monster-image>
   <ghs-monster-ability-card [monster]="monster"></ghs-monster-ability-card>
   <ghs-monster-stats [monster]="monster" [fullAbility]="settingsManager.settings.showFullAbilityCard"
@@ -8,24 +9,24 @@
 
   <ghs-monster-numberpicker *ngIf="!monster.boss" class="normal" [monster]="monster" [type]="MonsterType.normal"
     [max]="monster.count"
-    [ngClass]="{'disabled' : nonDead() >= monster.count, 'denied' : !gameManager.stateManager.hasMonsterPermission(monster)}">
+    [ngClass]="{'disabled' : nonDead >= monster.count, 'denied' : !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]}">
   </ghs-monster-numberpicker>
   <ghs-monster-numberpicker *ngIf="!monster.boss" class="elite" [monster]="monster" [type]="MonsterType.elite"
     [max]="monster.count"
-    [ngClass]="{'disabled' : nonDead() >= monster.count,'denied' : !gameManager.stateManager.hasMonsterPermission(monster)}">
+    [ngClass]="{'disabled' : nonDead >= monster.count,'denied' : !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]}">
   </ghs-monster-numberpicker>
   <ghs-monster-numberpicker *ngIf="monster.boss" class="boss" [monster]="monster" [type]="MonsterType.boss"
     [max]="monster.count"
-    [ngClass]="{'disabled' : nonDead() >= monster.count, 'denied' : !gameManager.stateManager.hasMonsterPermission(monster)}">
+    [ngClass]="{'disabled' : nonDead >= monster.count, 'denied' : !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]}">
   </ghs-monster-numberpicker>
 
   <ghs-figure-errors [figure]="monster"></ghs-figure-errors>
 </div>
 
 <div class="entities-container"
-  [ngClass]="{'empty' : emptyEntities(), 'full-ability'  : settingsManager.settings.showFullAbilityCard, 'denied' : !gameManager.stateManager.hasMonsterPermission(monster)  }"
+  [ngClass]="{'empty' : nonDead == 0, 'full-ability'  : settingsManager.settings.showFullAbilityCard, 'denied' : !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition] }"
   *ngIf="!settingsManager.settings.disableStandees">
-  <div class="spacer" [ngClass]="{'disabled' : nonDead() < 2}">
+  <div class="spacer" [ngClass]="{'disabled' : nonDead < 2}">
     <a class="entities-menu all" (click)="entitiesMenu($event)" [title]="'game.monster.selectStandees.all' | ghsLabel">
       <img src="./assets/images/up.svg">
     </a>

@@ -1,6 +1,6 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Monster } from 'src/app/game/model/Monster';
@@ -16,14 +16,26 @@ import { MonsterNumberPickerDialog } from './dialogs/numberpicker';
   templateUrl: './monster.html',
   styleUrls: ['./monster.scss']
 })
-export class MonsterComponent {
+export class MonsterComponent implements OnInit {
 
   @Input() monster!: Monster;
   MonsterType = MonsterType;
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
 
-  constructor(private dialog: Dialog, private overlay: Overlay) { }
+  nonDead: number = 0;
+
+  constructor(private dialog: Dialog, private overlay: Overlay) {
+    gameManager.uiChange.subscribe({
+      next: () => {
+        this.nonDead = gameManager.monsterManager.monsterEntityCount(this.monster);
+      }
+    })
+  }
+
+  ngOnInit(): void {
+    this.nonDead = gameManager.monsterManager.monsterEntityCount(this.monster);
+  }
 
   addMissingStandees() {
     const missingStandees = this.monster.entities.filter((monsterEntity) => monsterEntity.number < 0).sort((a, b) => {
@@ -56,14 +68,6 @@ export class MonsterComponent {
     }
   }
 
-  emptyEntities(): boolean {
-    return this.monster.entities.length == 0 || this.monster.entities.every((monsterEntity) => monsterEntity.dead);
-  }
-
-  monsterOff(): boolean {
-    return this.monster.off || this.monster.entities.every((monsterEntity) => monsterEntity.dead);
-  }
-
   sortedEntites(): MonsterEntity[] {
     return this.monster.entities.sort((a, b) => {
       if (settingsManager.settings.eliteFirst) {
@@ -77,6 +81,8 @@ export class MonsterComponent {
         return 1;
       } else if (a.summon != SummonState.new && b.summon == SummonState.new) {
         return -1;
+      } else if (a.summon == SummonState.new && b.summon == SummonState.new) {
+        return 0;
       }
       if (a.number < 0 && b.number >= 0) {
         return 1;
@@ -97,17 +103,13 @@ export class MonsterComponent {
     return this.monster.entities.filter((value) => value.type == type).sort((a, b) => a.number - b.number);
   }
 
-  nonDead(): number {
-    return this.monster.entities.filter((monsterEntity) => !monsterEntity.dead).length;
-  }
-
   getEdition(): string {
     return gameManager.getEdition(this.monster);
   }
 
   entityTypeCount(type: MonsterType): boolean {
     const count = this.monster.entities.filter((entity) => entity.type == type).length;
-    return count > 1 && count < this.nonDead();
+    return count > 1 && count < this.nonDead;
   }
 
   entitiesMenu(event: any, type: MonsterType | undefined = undefined) {

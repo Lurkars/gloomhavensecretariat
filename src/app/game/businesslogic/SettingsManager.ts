@@ -1,3 +1,4 @@
+import { CharacterData } from "../model/data/CharacterData";
 import { EditionData } from "../model/data/EditionData";
 import { ScenarioData } from "../model/data/ScenarioData";
 import { Settings } from "../model/Settings";
@@ -477,6 +478,9 @@ export class SettingsManager {
           }
 
           value.url = url;
+          if (value.characters) {
+            value.characters = value.characters.map((characterData) => new CharacterData(characterData));
+          }
           gameManager.editionData.push(value);
           gameManager.editionData.sort((a, b) => {
             return this.settings.editionDataUrls.indexOf(a.url) - this.settings.editionDataUrls.indexOf(b.url);

@@ -127,11 +127,11 @@ export class MonsterManager {
   }
 
   monsterEntityCount(monster: Monster, standee: boolean = false, type: MonsterType | undefined = undefined): number {
-    return monster.entities.filter((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && (!standee || monsterEntity.number > 0) && (standee || monsterEntity.summon != SummonState.new) && (!type || monsterEntity.type == type)).length;
+    return monster.entities.filter((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity, standee) && (!standee || monsterEntity.number > 0) && (!type || monsterEntity.type == type)).length;
   }
 
   monsterEntityCountAll(monster: Monster): number {
-    return monster.entities.filter((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0).length;
+    return gameManager.entityManager.entities(monster).length;
   }
 
   addMonsterEntity(monster: Monster, number: number, type: MonsterType, summon: boolean = false): MonsterEntity | undefined {
@@ -212,7 +212,7 @@ export class MonsterManager {
 
         if (settingsManager.settings.randomStandees) {
           number = Math.floor(Math.random() * monster.count) + 1;
-          while (monster.entities.some((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && monsterEntity.number == number)) {
+          while (monster.entities.some((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && monsterEntity.number == number)) {
             number = Math.floor(Math.random() * monster.count) + 1;
           }
         } else if (this.monsterEntityCountAll(monster) == monster.count - 1 && this.monsterEntityCount(monster, true) == this.monsterEntityCountAll(monster)) {
@@ -371,7 +371,7 @@ export class MonsterManager {
           });
         }
 
-        figure.entities = figure.entities.filter((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0);
+        figure.entities = figure.entities.filter((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity));
 
         figure.entities.forEach((entity) => {
           if (entity.tags) {
@@ -385,6 +385,15 @@ export class MonsterManager {
           if (entity.summon == SummonState.new) {
             entity.summon = SummonState.true;
           }
+
+          entity.entityConditions.forEach((entityCondition) => {
+            if (entityCondition.types.indexOf(ConditionType.expire) != -1) {
+              if (entityCondition.state == EntityConditionState.normal) {
+                entityCondition.lastState = entityCondition.state;
+                entityCondition.state = EntityConditionState.expire;
+              }
+            }
+          })
         })
 
 

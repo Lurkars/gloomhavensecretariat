@@ -60,6 +60,9 @@ export class AttackModifierDeckComponent implements OnInit {
   queueTimeout: any = null;
   newStyle: boolean = false;
 
+  rollingIndex: number[] = [];
+  rollingIndexPrev: number[] = [];
+
   @ViewChild('drawCard') drawCard!: ElementRef;
 
   constructor(public element: ElementRef, private dialog: Dialog) {
@@ -77,10 +80,15 @@ export class AttackModifierDeckComponent implements OnInit {
       this.deck = this.character.attackModifierDeck;
       this.edition = this.character.edition;
       this.numeration = "" + this.character.number;
-      this.characterIcon = gameManager.characterManager.characterIcon(this.character);
+      this.characterIcon = this.character.iconUrl;
     }
     this.current = this.deck.current;
     this.internalDraw = -99;
+
+    this.deck.cards.forEach((card, index) => {
+      this.rollingIndex[index] = this.calcRollingIndex(index, this.current);
+      this.rollingIndexPrev[index] = this.calcRollingIndex(index, this.current - 1);
+    });
     gameManager.uiChange.subscribe({
       next: () => {
         if (this.internalDraw == -99 && this.current < this.deck.current) {
@@ -110,6 +118,11 @@ export class AttackModifierDeckComponent implements OnInit {
         if (settingsManager.settings.fhStyle) {
           this.newStyle = true;
         }
+
+        this.deck.cards.forEach((card, index) => {
+          this.rollingIndex[index] = this.calcRollingIndex(index, this.current);
+          this.rollingIndexPrev[index] = this.calcRollingIndex(index, this.current - 1);
+        });
       }
     })
 
@@ -180,9 +193,9 @@ export class AttackModifierDeckComponent implements OnInit {
     event.stopPropagation();
   }
 
-  rollingIndex(index: number, current: number): number {
+  calcRollingIndex(index: number, current: number): number {
     const am: AttackModifier = this.deck.cards[index];
-    if (!am.rolling || am.active && this.deck.disgarded.indexOf(index) != -1) {
+    if (!am.rolling || am.active && this.deck.disgarded.indexOf(index) != -1 || current < 0) {
       return 0;
     }
 

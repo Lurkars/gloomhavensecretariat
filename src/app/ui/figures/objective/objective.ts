@@ -4,7 +4,7 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
-import { ConditionType } from 'src/app/game/model/Condition';
+import { ConditionType, EntityCondition } from 'src/app/game/model/Condition';
 import { ObjectiveData } from 'src/app/game/model/data/ObjectiveData';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
@@ -33,14 +33,21 @@ export class ObjectiveComponent implements OnInit {
   ConditionType = ConditionType;
   health: number = 0;
   objectiveData: ObjectiveData | undefined;
+  activeConditions: EntityCondition[] = [];
 
-
-  constructor(private dialog: Dialog, private overlay: Overlay) { }
+  constructor(private dialog: Dialog, private overlay: Overlay) {
+    gameManager.uiChange.subscribe({ next: () => this.update() })
+  }
 
   ngOnInit(): void {
     if (this.objective && this.objective.objectiveId) {
       this.objectiveData = gameManager.objectiveDataByScenarioObjectiveIdentifier(this.objective.objectiveId);
     }
+    this.update();
+  }
+
+  update(): void {
+    this.activeConditions = gameManager.entityManager.activeConditions(this.objective);
   }
 
   exhausted() {

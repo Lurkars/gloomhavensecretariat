@@ -4,7 +4,7 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { Character } from 'src/app/game/model/Character';
-import { ConditionType } from 'src/app/game/model/Condition';
+import { ConditionType, EntityCondition } from 'src/app/game/model/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Summon, SummonState } from 'src/app/game/model/Summon';
@@ -32,8 +32,10 @@ export class SummonEntityComponent implements OnInit {
   levelDialog: boolean = false;
   gameManager: GameManager = gameManager;
   settingsManager: SettingsManager = settingsManager;
+  activeConditions: EntityCondition[] = [];
 
   constructor(private element: ElementRef, private dialog: Dialog, private overlay: Overlay) {
+    gameManager.uiChange.subscribe({ next: () => this.update() })
   }
 
   ngOnInit(): void {
@@ -42,6 +44,11 @@ export class SummonEntityComponent implements OnInit {
         this.open();
       }, settingsManager.settings.disableAnimations ? 0 : 500)
     }
+    this.update();
+  }
+
+  update(): void {
+    this.activeConditions = gameManager.entityManager.activeConditions(this.summon, true);
   }
 
   dragHpMove(value: number) {
@@ -118,7 +125,7 @@ export class SummonEntityComponent implements OnInit {
   toggleActive() {
     if (this.summon.active) {
       gameManager.stateManager.before("summonInactive", "data.character." + this.character.name, "data.summon." + this.summon.name);
-      const summon = this.character.summons.find((summon, index, self) => index > self.indexOf(this.summon) && !summon.dead && summon.health > 0 && summon.state != SummonState.new && !summon.active);
+      const summon = this.character.summons.find((summon, index, self) => index > self.indexOf(this.summon) && gameManager.entityManager.isAlive(summon, true) && !summon.active);
       if (this.character.active && summon && settingsManager.settings.activeSummons) {
         summon.active = true;
       }

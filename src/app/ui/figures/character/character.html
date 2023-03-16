@@ -1,8 +1,8 @@
 <div class="summons-container" *ngIf="!character.absent"
-  [ngClass]="{'empty' : emptySummons(), 'off' : character.off || character.exhausted || character.health <= 0 }">
+  [ngClass]="{'empty' : emptySummons, 'off' : character.off || character.exhausted || character.health <= 0 }">
   <span class="spacer"></span>
-  <span class="icon" [ngClass]="{'empty' : emptySummons()}" [entityAnimation]="emptySummons()">
-    <img [src]="characterManager.characterIcon(character)" />
+  <span class="icon" [ngClass]="{'empty' : emptySummons}" [entityAnimation]="emptySummons">
+    <img [src]="character.iconUrl" />
   </span>
   <div class="summons">
     <ghs-summon-entity *ngFor="let summon of character.summons" [character]="character" [summon]="summon">
@@ -12,7 +12,7 @@
 
 <div class="character" [style.--ghs-character-color]="character.color"
   *ngIf="!character.absent || !settingsManager.settings.hideAbsent"
-  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.hasCharacterPermission(character), 'absent' : character.absent, 'dimmed' : character.attackModifierDeckVisible || character.lootCardsVisible}">
+  [ngClass]="{'off' : character.off || character.exhausted || character.health <= 0  || character.absent, 'denied' : !gameManager.stateManager.characterPermissions[character.name + '|' + character.edition], 'absent' : character.absent, 'dimmed' : character.attackModifierDeckVisible || character.lootCardsVisible}">
 
   <ghs-character-image [character]="character"
     [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.round}">
@@ -68,7 +68,7 @@
       <div class="column col-1" (click)="openEntityMenu($event)">
         <div class="title-bar">
           <div class="title" #characterName>
-            <img class="icon" [src]="characterManager.characterIcon(character)" />
+            <img class="icon" [src]="character.iconUrl" />
             {{character.title || ('data.character.' + character.name | ghsLabel)}}
             <img class="ghs-svg exhausted" *ngIf="character.exhausted" src="./assets/images/status/exhausted.svg" />
           </div>
@@ -89,7 +89,7 @@
           </div>
           <div class="conditions">
             <span class="condition"
-              *ngFor="let entityCondition of gameManager.entityManager.activeConditions(character)">
+              *ngFor="let entityCondition of activeConditions">
               <img
                 [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
                 [style.z-index]="entityCondition.value" />
@@ -107,7 +107,7 @@
     </ng-container>
 
     <ng-container *ngIf="character.absent">
-      <div class="title" #characterName><img class="icon" [src]="characterManager.characterIcon(character)" />
+      <div class="title" #characterName><img class="icon" [src]="character.iconUrl" />
         {{character.title || ('data.character.' + character.name | ghsLabel)}}
         <img class="ghs-svg exhausted" *ngIf="character.exhausted" src="./assets/images/status/exhausted.svg" />
       </div>
@@ -154,7 +154,7 @@
 
     <a class="character-sheet-button" title="{{'character.progress' | ghsLabel}}"
       [ngClass]="{'hand-size-margin' : settingsManager.settings.characterHandSize}">
-      <img [src]="characterManager.characterIcon(character)" />
+      <img [src]="character.iconUrl" />
       <ghs-drag-click (singleClick)="openCharacterSheet()" (doubleClick)="characterFullView()">
       </ghs-drag-click>
     </a>

@@ -30,7 +30,8 @@
   .attack-modifierdeck-container {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 30vw;
+    max-height: 350px;
     overflow-x: auto;
     display: flex;
     flex-direction: column;
@@ -52,6 +53,10 @@
     &.vertical {
       overflow-y: auto;
       overflow-x: hidden;
+      width: 99vw;
+      max-width: 800px;
+      height: 100%;
+      max-height: initial;
 
       ghs-attackmodifier-deck {
         width: 98vw;

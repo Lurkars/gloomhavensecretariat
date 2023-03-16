@@ -1,6 +1,6 @@
 <div class="abilities-dialog" [ngClass]="{ 'edit' : edit}">
   <a class="close" (click)="dialogRef.close()" [title]="'close' | ghsLabel"><img src="./assets/images/close.svg"></a>
-  <div #menu class="menu" [ngClass]="{'denied' : monster && !gameManager.stateManager.hasMonsterPermission(monster)}">
+  <div #menu class="menu" [ngClass]="{'denied' : monster && !gameManager.stateManager.monsterPermissions[monster.name + '|' + monster.edition]}">
     <a (click)="reveal = (reveal + 1) % 3">{{(reveal == 2 ? 'game.cards.coverAll' : (reveal == 0 ?
       'game.cards.revealAll' : 'game.cards.revealAllConfirm')) | ghsLabel}}</a>
     <a (click)="shuffle()">{{'game.cards.shuffle' | ghsLabel}}</a>

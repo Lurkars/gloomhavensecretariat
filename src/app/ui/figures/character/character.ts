@@ -1,12 +1,12 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, EventEmitter, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, ViewChild } from '@angular/core';
 import { CharacterManager } from 'src/app/game/businesslogic/CharacterManager';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifierType } from 'src/app/game/model/AttackModifier';
 import { Character } from 'src/app/game/model/Character';
-import { ConditionType } from 'src/app/game/model/Condition';
+import { ConditionType, EntityCondition } from 'src/app/game/model/Condition';
 import { GameState } from 'src/app/game/model/Game';
 import { ghsDefaultDialogPositions, ghsValueSign } from '../../helper/Static';
 import { AttackModiferDeckChange } from '../attackmodifier/attackmodifierdeck';
@@ -22,7 +22,7 @@ import { CharacterSummonDialog } from './dialogs/summondialog';
   templateUrl: './character.html',
   styleUrls: ['./character.scss']
 })
-export class CharacterComponent {
+export class CharacterComponent implements OnInit {
 
   @Input() character!: Character;
 
@@ -45,10 +45,20 @@ export class CharacterComponent {
   loot: number = 0;
   maxHp: number = 0;
 
-  constructor(private dialog: Dialog, private overlay: Overlay) { }
+  emptySummons: boolean = true;
+  activeConditions: EntityCondition[] = [];
 
-  emptySummons(): boolean {
-    return this.character.summons.length == 0 || this.character.summons.every((summon) => summon.dead);
+  constructor(private dialog: Dialog, private overlay: Overlay) {
+    gameManager.uiChange.subscribe({ next: () => this.update() })
+  }
+
+  ngOnInit(): void {
+    this.update();
+  }
+
+  update(): void {
+    this.emptySummons = this.character.summons.length == 0 || this.character.summons.every((summon) => !gameManager.entityManager.isAlive(summon));
+    this.activeConditions = gameManager.entityManager.activeConditions(this.character);
   }
 
   beforeAttackModifierDeck(change: AttackModiferDeckChange) {

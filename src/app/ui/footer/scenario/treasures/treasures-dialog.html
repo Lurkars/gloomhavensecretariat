@@ -14,7 +14,7 @@
     <div class="characters">
         <div class="character" *ngFor="let char of characters" (click)="toggleCharacter(char)"
             [ngClass]="{'selected' : character == char && treasureIndex != -1, 'disabled' : treasureIndex == -1}">
-            <img class="icon" [src]="gameManager.characterManager.characterIcon(char)" />
+            <img class="icon" [src]="char.iconUrl" />
             <span class="name">{{char.title || ('data.character.' + char.name | ghsLabel)}}</span>
 
             <div class="treasures">

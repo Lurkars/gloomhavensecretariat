@@ -1,4 +1,5 @@
-<div class="summon-border" [ngClass]="{'dead' : summon.dead, 'off' : character.off, 'active' : summon.active, 'fh' : settingsManager.settings.fhStyle}"
+<div class="summon-border"
+  [ngClass]="{'dead' : summon.dead, 'off' : character.off, 'active' : summon.active, 'fh' : settingsManager.settings.fhStyle}"
   [entityAnimation]="summon.dead">
   <div class="summon" title="{{'data.summon.' + summon.name | ghsLabel}}">
     <div #standee class="standee">
@@ -35,7 +36,8 @@
     <ghs-highlight-conditions [entity]="summon" [figure]="character"></ghs-highlight-conditions>
 
     <div class="conditions">
-      <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.activeConditions(summon)">
+      <span class="condition" *ngFor="let entityCondition of activeConditions"
+        [ngClass]="{'expired' : entityCondition.expired}">
         <img
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
         <span class="value"

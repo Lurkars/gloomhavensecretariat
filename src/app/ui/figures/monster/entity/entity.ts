@@ -1,10 +1,10 @@
 import { Dialog } from '@angular/cdk/dialog';
 import { Overlay } from '@angular/cdk/overlay';
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
 import { AttackModifierType } from 'src/app/game/model/AttackModifier';
-import { Condition, ConditionName, ConditionType } from 'src/app/game/model/Condition';
+import { Condition, ConditionName, ConditionType, EntityCondition } from 'src/app/game/model/Condition';
 import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { GameState } from 'src/app/game/model/Game';
 import { Monster } from 'src/app/game/model/Monster';
@@ -19,7 +19,7 @@ import { MonsterNumberPickerDialog } from '../dialogs/numberpicker';
   templateUrl: './entity.html',
   styleUrls: ['./entity.scss']
 })
-export class MonsterEntityComponent {
+export class MonsterEntityComponent implements OnInit {
 
   @ViewChild('standee') standee!: ElementRef;
 
@@ -36,8 +36,19 @@ export class MonsterEntityComponent {
   health: number = 0;
   maxHp: number = 0;
 
-  constructor(private element: ElementRef, private dialog: Dialog, private overlay: Overlay) { }
+  activeConditions: EntityCondition[] = [];
 
+  constructor(private element: ElementRef, private dialog: Dialog, private overlay: Overlay) {
+    gameManager.uiChange.subscribe({ next: () => this.update() })
+  }
+
+  ngOnInit(): void {
+    this.update();
+  }
+
+  update(): void {
+    this.activeConditions = gameManager.entityManager.activeConditions(this.entity, true);
+  }
 
   dead() {
     this.entity.dead = true;

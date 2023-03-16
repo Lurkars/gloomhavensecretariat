@@ -21,11 +21,11 @@
         <div class="line" *ngFor="let characterData of characterData(filter, edition)"
           [ngClass]="{'disabled' : hasCharacter(characterData), 'spoiler' : characterData.spoiler}">
           <a (click)="addCharacter(characterData);" *ngIf="isSpoiled(characterData)">
-            <img class="icon" [src]="gameManager.characterManager.characterIcon(characterData)" />{{'data.character.'
+            <img class="icon" [src]="characterData.iconUrl" />{{'data.character.'
             + characterData.name | ghsLabel}}
           </a>
           <a (click)="settingsManager.addSpoiler(characterData.name);" *ngIf="!isSpoiled(characterData)">
-            <img class="icon spoiler" [src]="gameManager.characterManager.characterIcon(characterData)" />
+            <img class="icon spoiler" [src]="characterData.iconUrl" />
             <span class="name">
               {{'spoiler.placeholder' | ghsLabel}}</span>
             <span class="add">{{'spoiler.add' | ghsLabel}}</span>

@@ -483,7 +483,9 @@
   &.denied {
 
     .character-sheet-button,
-    .character-sheet-button * {
+    .character-sheet-button *,
+    .attack-modifier-button,
+    .attack-modifierdeck-close {
       pointer-events: initial;
     }
   }

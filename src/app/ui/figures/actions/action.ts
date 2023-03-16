@@ -10,7 +10,6 @@ import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { MonsterStat } from 'src/app/game/model/MonsterStat';
 import { MonsterType } from 'src/app/game/model/MonsterType';
-import { SummonState } from 'src/app/game/model/Summon';
 import { valueCalc } from '../../helper/valueCalc';
 
 @Component({
@@ -80,7 +79,7 @@ export class ActionComponent implements OnInit {
       return this.hasEntities(MonsterType.boss);
     }
 
-    return this.monster && this.monster.entities.some((monsterEntity) => (!type || monsterEntity.type == type) && !monsterEntity.dead && monsterEntity.health > 0) || false;
+    return this.monster && this.monster.entities.some((monsterEntity) => (!type || monsterEntity.type == type) && gameManager.entityManager.isAlive(monsterEntity)) || false;
   }
 
   getNormalValue(): number | string {
@@ -114,7 +113,7 @@ export class ActionComponent implements OnInit {
   }
 
   getEliteRange(): number | string {
-    if (this.monster && !this.monster.entities.some((monsterEntity) => monsterEntity.type == MonsterType.elite && !monsterEntity.dead)) {
+    if (this.monster && !this.monster.entities.some((monsterEntity) => monsterEntity.type == MonsterType.elite && gameManager.entityManager.isAlive(monsterEntity))) {
       return this.getRange();
     }
 
@@ -239,13 +238,13 @@ export class ActionComponent implements OnInit {
           this.additionalSubActions.splice(this.hasAOE ? 1 : 0, 0, newSubAction);
         }
 
-        if (stat.actions && this.monster.entities.some((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && (monsterEntity.type == MonsterType.normal || monsterEntity.type == MonsterType.boss))) {
+        if (stat.actions && this.monster.entities.some((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && (monsterEntity.type == MonsterType.normal || monsterEntity.type == MonsterType.boss))) {
           let normalActions: Action | undefined = undefined;
           stat.actions.filter((statAction) => this.additionAttackSubActionTypes.indexOf(statAction.type) != -1).forEach((statAction) => {
             const newStatAction = new Action(statAction.type, statAction.value, statAction.valueType, statAction.subActions);
             if (this.action && !this.subActionExists(this.action.subActions, newStatAction) && !this.subActionExists(newSubActions, newStatAction)) {
               if (statAction.type != ActionType.area || this.action.subActions.every((subAction) => subAction.type != ActionType.area)) {
-                if (!eliteStat || eliteStat.actions && this.subActionExists(eliteStat.actions, newStatAction, false) || (settingsManager.settings.hideStats && this.monster && !this.monster.entities.some((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && monsterEntity.type == MonsterType.elite))) {
+                if (!eliteStat || eliteStat.actions && this.subActionExists(eliteStat.actions, newStatAction, false) || (settingsManager.settings.hideStats && this.monster && !this.monster.entities.some((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && monsterEntity.type == MonsterType.elite))) {
                   newStatAction.small = true;
                   newSubActions.push(newStatAction);
                 } else if (eliteStat && (!eliteStat.actions || !this.subActionExists(eliteStat.actions, newStatAction))) {
@@ -266,7 +265,7 @@ export class ActionComponent implements OnInit {
           })
         }
 
-        if (eliteStat && this.monster.entities.some((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && monsterEntity.type == MonsterType.elite)) {
+        if (eliteStat && this.monster.entities.some((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && monsterEntity.type == MonsterType.elite)) {
           let eliteActions: Action | undefined = undefined;
           eliteStat.actions.filter((eliteAction) => this.additionAttackSubActionTypes.indexOf(eliteAction.type) != -1).forEach((eliteAction) => {
             const newEliteAction = new Action(eliteAction.type, eliteAction.value, eliteAction.valueType, eliteAction.subActions);
@@ -407,7 +406,7 @@ export class ActionComponent implements OnInit {
         return false;
       }
 
-      return this.highlightElements && (this.monster.active && this.monster && this.monster.entities.find((entity) => this.action && !entity.dead && entity.health > 0 && entity.summon != SummonState.new && !entity.tags.find((tag) => this.action && tag == 'roundAction-' + this.action.type)) != undefined || false);
+      return this.highlightElements && (this.monster.active && this.monster && this.monster.entities.find((entity) => this.action && gameManager.entityManager.isAlive(entity, true) && !entity.tags.find((tag) => this.action && tag == 'roundAction-' + this.action.type)) != undefined || false);
     }
     return false;
   }
@@ -415,7 +414,7 @@ export class ActionComponent implements OnInit {
   applyHighlightAction(event: any) {
     if (this.monster && this.highlightAction() && this.action) {
       gameManager.stateManager.before('applyHightlightAction.' + this.action.type, "data.monster." + this.monster.name, '' + this.action.value);
-      this.monster.entities.filter((entity) => !entity.dead && entity.health > 0 && entity.summon != SummonState.new).forEach((entity) => {
+      this.monster.entities.filter((entity) => gameManager.entityManager.isAlive(entity, true)).forEach((entity) => {
         if (this.action && !entity.tags.find((tag) => tag == 'roundAction-' + this.action)) {
           entity.tags.push('roundAction-' + this.action.type);
           if (this.action.type == ActionType.heal) {
@@ -445,7 +444,7 @@ export class ActionComponent implements OnInit {
 
   elementAction(event: any, action: Action, element: string) {
     if (this.monster && this.highlightElement(element, action.valueType == ActionValueType.minus)) {
-      const entity = this.monster && this.monster.entities.find((entity) => !entity.dead && entity.health > 0 && !entity.tags.some((tag) => tag == 'roundAction-element-' + (action.valueType == ActionValueType.minus ? 'consume-' : '') + element));
+      const entity = this.monster && this.monster.entities.find((entity) => gameManager.entityManager.isAlive(entity) && !entity.tags.some((tag) => tag == 'roundAction-element-' + (action.valueType == ActionValueType.minus ? 'consume-' : '') + element));
       if (action.valueType == ActionValueType.minus) {
         gameManager.game.elementBoard.forEach((elementModel) => {
           if (elementModel.type == element && this.monster) {
@@ -474,6 +473,6 @@ export class ActionComponent implements OnInit {
   }
 
   elementActionPerformed(elementType: string, consume: boolean): MonsterEntity | undefined {
-    return this.monster && this.monster.entities.find((entity) => !entity.dead && entity.health > 0 && entity.tags.some((tag) => tag == 'roundAction-element-' + (consume ? 'consume-' : '') + elementType));
+    return this.monster && this.monster.entities.find((entity) => gameManager.entityManager.isAlive(entity) && entity.tags.some((tag) => tag == 'roundAction-element-' + (consume ? 'consume-' : '') + elementType));
   }
 }

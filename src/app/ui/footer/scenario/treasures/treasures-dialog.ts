@@ -39,7 +39,7 @@ export class ScenarioTreasuresDialogComponent {
 
     update() {
         this.scenario = gameManager.game.scenario || gameManager.scenarioManager.createScenario();
-        this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent && !figure.exhausted && figure.health > 0).map((figure) => figure as Character);
+        this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent &&  gameManager.entityManager.isAlive(figure)).map((figure) => figure as Character);
         if (!this.character) {
             this.character = this.characters.find((figure) => figure.active) || this.characters.length > 0 && this.characters[0] || undefined;
         }

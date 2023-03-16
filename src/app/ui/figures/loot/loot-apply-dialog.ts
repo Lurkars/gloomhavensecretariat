@@ -19,7 +19,7 @@ export class LootApplyDialogComponent {
     constructor(@Inject(DIALOG_DATA) public data: { loot: Loot, selected: string | undefined }, private dialogRef: DialogRef) {
         this.loot = data.loot;
         this.selected = data.selected || "";
-        this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent && !figure.exhausted && figure.health > 0).map((figure) => figure as Character);
+        this.characters = gameManager.game.figures.filter((figure) => figure instanceof Character && !figure.absent &&  gameManager.entityManager.isAlive(figure)).map((figure) => figure as Character);
     }
 
     toggleSelect(name: string) {

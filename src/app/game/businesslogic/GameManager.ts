@@ -24,7 +24,7 @@ import { ItemData } from "../model/data/ItemData";
 import { LevelManager } from "./LevelManager";
 import { ScenarioManager } from "./ScenarioManager";
 import { RoundManager } from "./RoundManager";
-import { Entity, EntityValueFunction } from "../model/Entity";
+import { Entity } from "../model/Entity";
 import { MonsterEntity } from "../model/MonsterEntity";
 import { Summon } from "../model/Summon";
 import { LootManager } from "./LootManager";
@@ -178,7 +178,7 @@ export class GameManager {
     });
   }
 
-  item(id: number, edition: string, all : boolean): ItemData | undefined {
+  item(id: number, edition: string, all: boolean): ItemData | undefined {
     let item = this.itemData(edition, all).find((itemData) => itemData && itemData.id == id && itemData.edition == edition);
     if (!item) {
       item = this.itemData(undefined, all).find((itemData) => itemData && itemData.id == id && this.editionExtensions(edition).indexOf(itemData.edition) != -1);
@@ -402,7 +402,7 @@ export class GameManager {
   }
 
   gameplayFigure(figure: Figure) {
-    return figure instanceof Monster && figure.entities.length > 0 && figure.entities.some((entity) => !entity.dead && entity.health > 0) || figure instanceof Character && !figure.absent && !figure.exhausted && (figure.health > 0 || EntityValueFunction(figure.maxHealth) == 0) || figure instanceof Objective && !figure.exhausted && (figure.health > 0 || EntityValueFunction(figure.maxHealth) == 0);
+    return figure instanceof Monster && this.entityManager.entities(figure).length > 0 || figure instanceof Character && gameManager.entityManager.isAlive(figure) || figure instanceof Objective && gameManager.entityManager.isAlive(figure);
   }
 
   figuresByIdentifier(identifier: FigureIdentifier, scenarioEffect: boolean): Figure[] {

@@ -6,14 +6,14 @@
 <div class="scroll-container" [ngSwitch]="active">
   <div *ngSwitchCase="SubMenu.main" class="menu-container main two-column">
     <div class="line span-xs">
-      <a class="state undo" [ngClass]="{'disabled' : !gameManager.stateManager.hasUndoPermission() }"
+      <a class="state undo" [ngClass]="{'disabled' : !gameManager.stateManager.undoPermission }"
         (click)="gameManager.stateManager.undo()">
         {{'state.undo' | ghsLabel}}
         <span class="info text-white" *ngIf="undoInfo.length > 0" [i18n]="'state.info.' + undoInfo[0]"
           [i18n-args]="(undoInfo | slice:1:undoInfo.length)"></span> </a>
     </div>
     <div class="line span-xs">
-      <a class="state redo" [ngClass]="{'disabled' :!gameManager.stateManager.hasRedoPermission()}"
+      <a class="state redo" [ngClass]="{'disabled' :!gameManager.stateManager.redoPermission}"
         (click)="gameManager.stateManager.redo()">
         {{'state.redo' | ghsLabel}}
         <span class="info text-white" *ngIf="redoInfo.length > 0" [i18n]="'state.info.' + redoInfo[0]"
@@ -135,7 +135,7 @@
     </div>
     <div class="line" *ngFor="let character of characters()">
       <a (click)="removeCharacter(character);">
-        <img class="icon" [src]="gameManager.characterManager.characterIcon(character)" /><span
+        <img class="icon" [src]="character.iconUrl" /><span
           *ngIf="character.title">{{character.title}} (</span>
         {{'data.character.' + character.name | ghsLabel}}
         <span *ngIf="character.title">)</span><span class="edition"

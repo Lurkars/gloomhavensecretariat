@@ -60,7 +60,7 @@
       "cardId": "080",
       "level": 6,
       "health": 2,
-      "attack": 2,
+      "attack": "2 %game.element.fire%",
       "movement": 3,
       "range": 3,
       "action": {

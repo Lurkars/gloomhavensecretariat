@@ -26,7 +26,7 @@
             <img class="ghs-svg"
                 [src]="'./assets/images/' +(settingsManager.settings.fhStyle ? 'fh/' : '') + 'action/attack.svg'" />
             <span>:</span>
-            <span [value-calc]="summon.attack" [empty]="true"></span>
+            <span [i18n]="'' + summon.attack"></span>
         </span>
         <span class="item range">
             <img class="ghs-svg"

@@ -185,7 +185,7 @@ export class FooterComponent implements OnInit {
   }
 
   missingInitiative(): boolean {
-    return gameManager.game.figures.some((figure) => figure instanceof Character && settingsManager.settings.initiativeRequired && figure.initiative < 1 && !figure.exhausted && !figure.absent);
+    return gameManager.game.figures.some((figure) => figure instanceof Character && settingsManager.settings.initiativeRequired && figure.initiative < 1 &&  gameManager.entityManager.isAlive(figure) && !figure.absent);
   }
 
   active(): boolean {

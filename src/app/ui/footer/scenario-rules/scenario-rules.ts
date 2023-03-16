@@ -58,7 +58,7 @@ export class ScenarioRulesComponent {
         if (count && rule.figures) {
             const figureRule = rule.figures.find((figureRule) => figureRule.type == "present" || figureRule.type == "dead");
             if (figureRule) {
-                const gameplayFigures: Figure[] = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect).filter((figure) => gameManager.gameplayFigure(figure) && (!(figure instanceof Monster) || !(figureRule.identifier?.marker) || (figure instanceof Monster && figure.entities.some((entity) => entity.marker == figureRule.identifier?.marker && !entity.dead && entity.health >= 1))));
+                const gameplayFigures: Figure[] = gameManager.figuresByIdentifier(figureRule.identifier, figureRule.scenarioEffect).filter((figure) => gameManager.gameplayFigure(figure) && (!(figure instanceof Monster) || !(figureRule.identifier?.marker) || (figure instanceof Monster && figure.entities.some((entity) => entity.marker == figureRule.identifier?.marker && gameManager.entityManager.isAlive(entity)))));
                 const max: number = figureRule.value && figureRule.value.split(':').length > 1 ? EntityValueFunction(figureRule.value.split(':')[1]) : 0;
                 F = figureRule.type == "present" ? gameplayFigures.length : Math.max(0, max - gameplayFigures.length);
             }

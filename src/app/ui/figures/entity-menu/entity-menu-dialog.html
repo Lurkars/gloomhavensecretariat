@@ -4,7 +4,7 @@
     <ng-container *ngIf="data.entity && gameManager.isCharacter(data.figure) && gameManager.isCharacter(data.entity)">
       <span class="spacer"></span>
       <img (click)="toggleCharacterMarker()" class="icon character-icon"
-        [src]="gameManager.characterManager.characterIcon(gameManager.toCharacter(data.figure))" />
+        [src]="gameManager.toCharacter(data.figure).iconUrl" />
       <span class="character-title" [ngClass]="{'absent' : gameManager.toCharacter(data.figure).absent}"
         [title]="(gameManager.toCharacter(data.figure).absent ? 'character.absent' : 'character.present') | ghsLabel">
         {{gameManager.toCharacter(data.figure).title || ('data.character.' + data.figure.name |
@@ -45,7 +45,7 @@
 
     <ng-container *ngIf="data.entity && gameManager.isCharacter(data.figure) && gameManager.isSummon(data.entity)">
       <small>
-        <img class="icon" [src]="gameManager.characterManager.characterIcon(gameManager.toCharacter(data.figure))" />
+        <img class="icon" [src]="gameManager.toCharacter(data.figure).iconUrl" />
         {{gameManager.toCharacter(data.figure).title || ('data.character.' + data.figure.name |
         ghsLabel)}}
         <span *ngIf="gameManager.toCharacter(data.figure).title">&nbsp;({{('data.character.' + data.figure.name |

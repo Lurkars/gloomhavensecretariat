@@ -48,7 +48,7 @@ export class HintDialogComponent {
     }
 
     missingInitiative(): boolean {
-        return gameManager.game.figures.some((figure) => figure instanceof Character && settingsManager.settings.initiativeRequired && figure.initiative < 1 && !figure.exhausted && !figure.absent);
+        return gameManager.game.figures.some((figure) => figure instanceof Character && settingsManager.settings.initiativeRequired && figure.initiative < 1 && gameManager.entityManager.isAlive(figure) && !figure.absent);
     }
 
     active(): boolean {
@@ -60,7 +60,7 @@ export class HintDialogComponent {
     }
 
     failed(): boolean {
-        return !this.active() && !this.empty() && gameManager.game.figures.some((figure) => figure instanceof Character) && gameManager.game.figures.every((figure) => !(figure instanceof Character) || figure instanceof Character && (figure.exhausted || figure.health <= 0 || figure.absent));
+        return !this.active() && !this.empty() && gameManager.game.figures.some((figure) => figure instanceof Character) && gameManager.game.figures.every((figure) => !(figure instanceof Character) || figure instanceof Character && (!gameManager.entityManager.isAlive(figure) || figure.absent));
     }
 
 }

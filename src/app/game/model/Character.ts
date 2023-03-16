@@ -156,11 +156,14 @@ export class Character extends CharacterData implements Entity, Figure {
       return found;
     });
 
-    model.summons.forEach((value) => {
+    model.summons.forEach((value, index) => {
       let summon = this.summons.find((summonEntity) => summonEntity.name == value.name && summonEntity.number == value.number && summonEntity.color == value.color) as Summon;
       if (!summon) {
         summon = new Summon(value.name, value.cardId, value.level, value.number, value.color);
-        this.summons.push(summon);
+        this.summons.splice(index, 0, summon);
+      } else if (index != this.summons.indexOf(summon)) {
+        this.summons.splice(this.summons.indexOf(summon), 1);
+        this.summons.splice(index, 0, summon);
       }
       summon.fromModel(value);
     })

@@ -52,10 +52,11 @@ p {
     display: flex;
     justify-content: center;
     margin-top: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
-    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
 
     a {
         cursor: pointer;
+        color: var(--ghs-color-green);
 
         &:hover {
             opacity: 0.6;
@@ -64,6 +65,7 @@ p {
         &.disabled {
             pointer-events: none;
             opacity: 0.5;
+            color: var(--ghs-color-gray);
         }
     }
 

@@ -2,7 +2,7 @@
   <div class="header">
     <div class="title">
       <ng-container *ngIf="character">
-        <img class="icon" [src]="gameManager.characterManager.characterIcon(character)" />
+        <img class="icon" [src]="character.iconUrl" />
         {{character.title || ('data.character.' + character.name | ghsLabel)}}
       </ng-container>
 

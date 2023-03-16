@@ -2,7 +2,7 @@
 
   <div class="title">
     <span class="character" *ngIf="gameManager.isCharacter(character)">
-      <img class="icon" [src]="gameManager.characterManager.characterIcon(gameManager.toCharacter(character))" />
+      <img class="icon" [src]="gameManager.toCharacter(character).iconUrl" />
       {{character.title || ('data.character.' + character.name | ghsLabel)}}
       <span *ngIf="character.title">&nbsp;({{'data.character.' + character.name | ghsLabel}})</span>
     </span>

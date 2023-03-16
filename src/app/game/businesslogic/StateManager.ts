@@ -25,6 +25,11 @@ export class StateManager {
   updateBlocked: boolean = false;
   permissionBackup: Permissions | undefined;
 
+  undoPermission: boolean = false;
+  redoPermission: boolean = false;
+  characterPermissions: Record<string, boolean> = {};
+  monsterPermissions: Record<string, boolean> = {};
+
   wakeLock: any = null;
 
   constructor(game: Game) {
@@ -51,6 +56,7 @@ export class StateManager {
       } else {
         gameManager.stateManager.updateBlocked = true;
         gameManager.stateManager.permissions = new Permissions();
+        this.updatePermissions();
       }
     }
 
@@ -80,6 +86,16 @@ export class StateManager {
     for (let i = 0; i < missingUndoInfos; i++) {
       this.undoInfos.unshift([]);
     }
+
+    gameManager.uiChange.subscribe({
+      next: () => {
+        if (!settingsManager.settings.serverUrl || !settingsManager.settings.serverPort || !settingsManager.settings.serverPassword) {
+          this.permissions = undefined;
+          this.updateBlocked = false;
+        }
+        this.updatePermissions();
+      }
+    })
   }
 
   async install() {
@@ -212,6 +228,7 @@ export class StateManager {
 
   disconnect() {
     this.permissions = undefined;
+    this.updatePermissions();
     if (this.ws && this.ws.readyState != WebSocket.CLOSED) {
       this.ws.close();
     }
@@ -220,6 +237,7 @@ export class StateManager {
   onMessage(ev: any): any {
     try {
       const message: any = JSON.parse(ev.data);
+      gameManager.stateManager.updateBlocked = false;
       switch (message.type) {
         case "game":
           window.document.body.classList.add('working');
@@ -263,6 +281,23 @@ export class StateManager {
               settings.serverSettings = settingsManager.settings.serverSettings;
             }
 
+            // keep local
+            settings.fullscreen = settingsManager.settings.fullscreen;
+            settings.fhStyle = settingsManager.settings.fhStyle;
+            settings.theme = settingsManager.settings.theme;
+            settings.autoscroll = settingsManager.settings.autoscroll;
+            settings.disableColumns = settingsManager.settings.disableColumns;
+            settings.disableAnimations = settingsManager.settings.disableAnimations;
+            settings.dragValues = settingsManager.settings.dragValues;
+            settings.pressDoubleClick = settingsManager.settings.pressDoubleClick;
+            settings.automaticAttackModifierFullscreen = settingsManager.settings.automaticAttackModifierFullscreen;
+            settings.disableWakeLock = settingsManager.settings.disableWakeLock;
+            settings.barsize = settingsManager.settings.barsize;
+            settings.fontsize = settingsManager.settings.fontsize;
+            settings.locale = settingsManager.settings.locale;
+            settings.debugRightClick = settingsManager.settings.debugRightClick;
+            settings.zoom = settingsManager.settings.zoom;
+
             settingsManager.setSettings(settings);
             localStorage.setItem("ghs-settings", JSON.stringify(settingsManager.settings));
             setTimeout(() => {
@@ -273,6 +308,7 @@ export class StateManager {
         case "permissions":
           gameManager.stateManager.permissions = message.payload as Permissions || undefined;
           gameManager.stateManager.permissionBackup = gameManager.stateManager.permissions && JSON.parse(JSON.stringify(gameManager.stateManager.permissions)) || undefined;
+          gameManager.stateManager.updatePermissions();
           break;
         case "requestUpdate":
           gameManager.stateManager.after();
@@ -316,6 +352,8 @@ export class StateManager {
         }
         ws.send(JSON.stringify(message));
       }
+
+      gameManager.stateManager.updatePermissions();
     }
   }
 
@@ -323,12 +361,14 @@ export class StateManager {
     gameManager.game.server = false;
     gameManager.stateManager.updateBlocked = true;
     gameManager.stateManager.permissions = new Permissions();
+    gameManager.stateManager.updatePermissions();
   }
 
   onError(ev: Event) {
     gameManager.game.server = false;
     gameManager.stateManager.updateBlocked = true;
     gameManager.stateManager.permissions = new Permissions();
+    gameManager.stateManager.updatePermissions();
   }
 
   forceUpdateState() {
@@ -376,6 +416,25 @@ export class StateManager {
       }
       this.ws.send(JSON.stringify(message));
     }
+  }
+
+  updatePermissions() {
+    this.undoPermission = this.hasUndo() && (!this.permissions || !this.updateBlocked);
+    this.redoPermission = this.hasRedo() && (!this.permissions || !this.updateBlocked);
+    this.characterPermissions = {};
+
+    gameManager.game.figures.forEach((figure) => {
+      if (figure instanceof Character) {
+        this.characterPermissions[figure.name + '|' + figure.edition] = !this.permissions || this.permissions && (this.permissions.characters || this.permissions.character.some((value) => value.name == figure.name && value.edition == figure.edition));
+      }
+    })
+
+    this.monsterPermissions = {};
+    gameManager.game.figures.forEach((figure) => {
+      if (figure instanceof Monster) {
+        this.monsterPermissions[figure.name + '|' + figure.edition] = !this.permissions || this.permissions && (this.permissions.monsters || this.permissions.monster.some((value) => value.name == figure.name && value.edition == figure.edition));
+      }
+    })
   }
 
   before(...info: string[]) {
@@ -444,14 +503,6 @@ export class StateManager {
     return this.undos.length > 0;
   }
 
-  hasUndoPermission(): boolean {
-    if (!this.hasUndo()) {
-      return false;
-    }
-
-    return !this.permissions || !this.updateBlocked;
-  }
-
   undo(sync: boolean = true) {
     if (this.undos.length > 0) {
       window.document.body.classList.add('working');
@@ -472,14 +523,6 @@ export class StateManager {
 
   hasRedo(): boolean {
     return this.redos.length > 0;
-  }
-
-  hasRedoPermission(): boolean {
-    if (!this.hasRedo()) {
-      return false;
-    }
-
-    return !this.permissions || !this.updateBlocked;
   }
 
   redo(sync: boolean = true) {
@@ -512,13 +555,5 @@ export class StateManager {
       }
       this.ws.send(JSON.stringify(message));
     }
-  }
-
-  hasCharacterPermission(character: Character): boolean {
-    return this.permissions == undefined || this.permissions.characters || this.permissions.character.some((value) => value.name == character.name && value.edition == character.edition);
-  }
-
-  hasMonsterPermission(monster: Monster): boolean {
-    return this.permissions == undefined || this.permissions.monsters || this.permissions.monster.some((value) => value.name == monster.name && value.edition == monster.edition);
   }
 }

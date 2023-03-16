@@ -46,8 +46,10 @@ export class LootComponent implements OnInit, OnChanges {
         }
     }
 
-    changeCharacter() {
+    changeCharacter(event: any) {
         if (settingsManager.settings.applyLoot && (this.edit || !this.character)) {
+            event.preventDefault();
+            event.stopPropagation();
             const dialog = this.dialog.open(LootApplyDialogComponent, {
                 panelClass: 'dialog',
                 data: { loot: this.loot, selected: this.character }

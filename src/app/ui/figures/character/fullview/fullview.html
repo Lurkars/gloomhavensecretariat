@@ -1,8 +1,8 @@
 <div class="summons-container"
-  [ngClass]="{'empty' : emptySummons(), 'off' : character.off || character.exhausted || character.health <= 0  }">
+  [ngClass]="{'empty' : emptySummons, 'off' : character.off || character.exhausted || character.health <= 0  }">
   <span class="spacer"></span>
-  <span class="icon" [ngClass]="{'empty' : emptySummons()}" [entityAnimation]="emptySummons()">
-    <img [src]="characterManager.characterIcon(character)" />
+  <span class="icon" [ngClass]="{'empty' : emptySummons}" [entityAnimation]="emptySummons">
+    <img [src]="character.iconUrl" />
   </span>
   <div class="summons">
     <ghs-summon-entity *ngFor="let summon of character.summons" [character]="character" [summon]="summon">
@@ -29,7 +29,7 @@
 
   <div class="row">
     <div class="conditions">
-      <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.activeConditions(character)">
+      <span class="condition" *ngFor="let entityCondition of activeConditions">
         <img
           [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
           [style.z-index]="entityCondition.value" />

@@ -30,7 +30,7 @@
     </ng-container>
 
     <img src="./assets/images/shuffle.svg" class="server-connection syncing" *ngIf="syncing()">
-    <span class="game-server" *ngIf="!syncing() && gameManager.game.server">°</span>
+    <span class="game-server" *ngIf="!syncing() && gameManager.stateManager.wsState() != -99 && gameManager.game.server">°</span>
 
     <div class="hints" *ngIf="settingsManager.settings.hints" [ngClass]="{'visible' : init}">
       <ng-container [ngSwitch]="hintState">

@@ -15,7 +15,7 @@
 
       <span class="head-col first">{{'scenario.summary.name' | ghsLabel}}</span>
       <span class="first" *ngFor="let character of characters; let index = index;">
-        <img class="icon" [src]="gameManager.characterManager.characterIcon(character)" />
+        <img class="icon" [src]="character.iconUrl" />
         <a class="name" (click)="character.absent = !character.absent" [ngClass]="{'absent' : character.absent}">
           {{character.title || ('data.character.' + character.name | ghsLabel)}}
           <span *ngIf="character.title">&nbsp;({{('data.character.' + character.name | ghsLabel)}})</span>

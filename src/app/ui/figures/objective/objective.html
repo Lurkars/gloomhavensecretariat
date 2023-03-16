@@ -54,7 +54,7 @@
           <span *ngIf="maxHealth() == 0">-</span>
         </div>
         <div class="conditions">
-          <span class="condition" *ngFor="let entityCondition of gameManager.entityManager.activeConditions(objective)">
+          <span class="condition" *ngFor="let entityCondition of activeConditions">
             <img
               [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
             <span class="value"

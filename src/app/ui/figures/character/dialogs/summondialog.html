@@ -1,7 +1,7 @@
 <div class="summon-dialog">
   <div class="title">
     <small>
-      <img class="icon" [src]="gameManager.characterManager.characterIcon(character)" />
+      <img class="icon" [src]="character.iconUrl" />
       {{character.title || ('data.character.' + character.name | ghsLabel)}}
       <span *ngIf="character.title">&nbsp;({{('data.character.' + character.name | ghsLabel)}})</span>
     </small>

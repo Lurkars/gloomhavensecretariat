@@ -33,11 +33,11 @@ export class CharacterSummonDialog {
   }
 
   available(summonData: SummonData) {
-    return this.summonColor != SummonColor.custom && this.summonNumber != 0 && this.character.summons.every((summon) => summon.dead || summon.name != summonData.name || (summonData.special ? summon.number != 0 : summon.number != this.summonNumber) || (summonData.special ? summon.color != SummonColor.custom : summon.color != this.summonColor)) && (summonData.count || 1) > this.character.summons.filter((summon) => summon.name == summonData.name && summon.cardId == summonData.cardId && !summon.dead && summon.health > 0).length
+    return this.summonColor != SummonColor.custom && this.summonNumber != 0 && this.character.summons.every((summon) => summon.dead || summon.name != summonData.name || (summonData.special ? summon.number != 0 : summon.number != this.summonNumber) || (summonData.special ? summon.color != SummonColor.custom : summon.color != this.summonColor)) && (summonData.count || 1) > this.character.summons.filter((summon) => summon.name == summonData.name && summon.cardId == summonData.cardId && gameManager.entityManager.isAlive(summon)).length
   }
 
   customDisabled() {
-    return this.character.summons.some((summon) => !summon.dead && summon.name == this.summonName && summon.number == this.summonNumber && summon.color == this.summonColor);
+    return this.character.summons.some((summon) => gameManager.entityManager.isAlive(summon) && summon.name == this.summonName && summon.number == this.summonNumber && summon.color == this.summonColor);
   }
 
   showLevel(summonData: SummonData): boolean {

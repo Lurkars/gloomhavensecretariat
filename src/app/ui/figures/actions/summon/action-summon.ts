@@ -9,7 +9,7 @@ import { EntityValueFunction } from "src/app/game/model/Entity";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
 import { MonsterType } from "src/app/game/model/MonsterType";
-import { Summon, SummonColor, SummonState } from "src/app/game/model/Summon";
+import { Summon, SummonColor } from "src/app/game/model/Summon";
 
 @Component({
   selector: 'ghs-action-summon',
@@ -49,7 +49,7 @@ export class ActionSummonComponent implements OnChanges {
     this.summonData = undefined;
     this.spawners = [];
     if (this.monster) {
-      this.spawners = this.monster.entities.filter((entity) => !entity.dead && entity.health > 0 && entity.summon != SummonState.new);
+      this.spawners = gameManager.entityManager.entities(this.monster, true).map((entity) => entity as MonsterEntity);
     }
     this.monsters = [];
     this.tags = [];
@@ -131,12 +131,14 @@ export class ActionSummonComponent implements OnChanges {
   }
 
   getSummonLabel(monsterSpawnData: MonsterSpawnData): string {
+    const health = typeof monsterSpawnData.monster.health === 'string' && monsterSpawnData.monster.health.indexOf('H') != -1 ? monsterSpawnData.monster.health : (monsterSpawnData.monster.health ? EntityValueFunction(monsterSpawnData.monster.health) : '');
+
     if (monsterSpawnData.monster.player2 == monsterSpawnData.monster.player3 && monsterSpawnData.monster.player3 == monsterSpawnData.monster.player4) {
-      return settingsManager.getLabel('game.summon.playerAll', ['' + monsterSpawnData.monster.type]) + (monsterSpawnData.monster.health ? ('(' + EntityValueFunction(monsterSpawnData.monster.health) + ' ' + settingsManager.getLabel('figure.health') + ')') : '');
+      return settingsManager.getLabel('game.summon.playerAll', ['' + monsterSpawnData.monster.type]) + (health ? ('(' + health + ' ' + settingsManager.getLabel('game.hp') + ')') : '');
     } else if (monsterSpawnData.monster.player2 == monsterSpawnData.monster.player3) {
-      return settingsManager.getLabel('game.summon.player2-3', ['' + monsterSpawnData.monster.player2, '' + monsterSpawnData.monster.player4]) + (monsterSpawnData.monster.health ? ('(' + EntityValueFunction(monsterSpawnData.monster.health) + ' ' + settingsManager.getLabel('figure.health') + ')') : '');
+      return settingsManager.getLabel('game.summon.player2-3', ['' + monsterSpawnData.monster.player2, '' + monsterSpawnData.monster.player4]) + (health ? ('(' + health + ' ' + settingsManager.getLabel('game.hp') + ')') : '');
     } else if (monsterSpawnData.monster.player3 == monsterSpawnData.monster.player4) {
-      return settingsManager.getLabel('game.summon.player3-4', ['' + monsterSpawnData.monster.player2, '' + monsterSpawnData.monster.player4]) + (monsterSpawnData.monster.health ? ('(' + EntityValueFunction(monsterSpawnData.monster.health) + ' ' + settingsManager.getLabel('figure.health') + ')') : '');
+      return settingsManager.getLabel('game.summon.player3-4', ['' + monsterSpawnData.monster.player2, '' + monsterSpawnData.monster.player4]) + (health ? ('(' + health + ' ' + settingsManager.getLabel('game.hp') + ')') : '');
     } else {
       console.warn('Incorrect summon data', monsterSpawnData);
     }

@@ -6,7 +6,8 @@ import { Game } from "../model/Game";
 import { Monster } from "../model/Monster";
 import { MonsterEntity } from "../model/MonsterEntity";
 import { Objective } from "../model/Objective";
-import { Summon } from "../model/Summon";
+import { Summon, SummonState } from "../model/Summon";
+import { gameManager } from "./GameManager";
 import { settingsManager } from "./SettingsManager";
 
 export class EntityManager {
@@ -17,14 +18,34 @@ export class EntityManager {
     this.game = game;
   }
 
-  entities(figure: Figure): Entity[] {
+  entities(figure: Figure, acting: boolean = false): Entity[] {
     let entities: Entity[] = [];
     if (figure instanceof Character || figure instanceof Objective) {
       entities.push(figure);
     } else if (figure instanceof Monster) {
-      entities = figure.entities.filter((entity) => !entity.dead && entity.health > 0);
+      entities = figure.entities.filter((entity) => gameManager.entityManager.isAlive(entity, acting));
     }
     return entities;
+  }
+
+  isAlive(entity: Entity, acting: boolean = false): boolean {
+    if ((entity.health <= 0 && EntityValueFunction(entity.maxHealth) > 0) || acting && entity.entityConditions.find((entityCondition) => entityCondition.name == ConditionName.stun && entityCondition.state != EntityConditionState.new && entityCondition.lastState != EntityConditionState.new && entityCondition.state != EntityConditionState.removed)) {
+      return false;
+    }
+
+    if ((entity instanceof Character || entity instanceof Objective)) {
+      return !entity.exhausted;
+    }
+
+    if (entity instanceof MonsterEntity) {
+      return !entity.dead && (!acting || entity.summon != SummonState.new);
+    }
+
+    if (entity instanceof Summon) {
+      return !entity.dead && (!acting || entity.state != SummonState.new);
+    }
+
+    return false;
   }
 
   changeHealth(entity: Entity, value: number) {
@@ -102,12 +123,12 @@ export class EntityManager {
     }
   }
 
-  hasCondition(entity: Entity, condition: Condition) {
+  hasCondition(entity: Entity, condition: Condition): boolean {
     return entity.entityConditions.some((entityCondition) => entityCondition.name == condition.name && !entityCondition.expired);
   }
 
-  activeConditions(entity: Entity, hidden: boolean = false) {
-    return entity.entityConditions.filter((value) => !value.expired && (hidden || value.types.indexOf(ConditionType.hidden) == -1));
+  activeConditions(entity: Entity, expiredIndicator: boolean = false, hidden: boolean = false): EntityCondition[] {
+    return entity.entityConditions.filter((value) => (!value.expired || expiredIndicator && value.types.indexOf(ConditionType.expiredIndicator) != -1) && (hidden || value.types.indexOf(ConditionType.hidden) == -1));
   }
 
   isImmune(monster: Monster, entity: MonsterEntity, conditionName: ConditionName): boolean {
@@ -291,10 +312,7 @@ export class EntityManager {
 
     entity.entityConditions.forEach((entityCondition) => {
       if (entityCondition.types.indexOf(ConditionType.expire) != -1) {
-        if (entityCondition.state == EntityConditionState.normal) {
-          entityCondition.lastState = entityCondition.state;
-          entityCondition.state = EntityConditionState.expire;
-        } else if (entityCondition.state == EntityConditionState.expire) {
+        if (entityCondition.state == EntityConditionState.expire) {
           entityCondition.expired = true;
         }
       }

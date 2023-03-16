@@ -234,6 +234,10 @@
         justify-content: center;
         width: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
 
+        &.expired {
+          opacity: 0.6;
+        }
+
         img {
           width: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
           height: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));

@@ -43,6 +43,7 @@ export enum ConditionType {
   positive = "positive",
   negative = "negative",
   double = "double",
+  expiredIndicator = "expiredIndicator",
   hidden = "hidden"
 }
 
@@ -129,6 +130,10 @@ export class Condition {
       this.types.push(ConditionType.positive);
     }
 
+    if ([ConditionName.stun].indexOf(this.name) != -1) {
+      this.types.push(ConditionType.expiredIndicator);
+    }
+
     if ([ConditionName.heal].indexOf(this.name) != -1) {
       this.types.push(ConditionType.hidden);
       this.types.push(ConditionType.value);
@@ -151,7 +156,7 @@ export class EntityCondition extends Condition {
   constructor(name: ConditionName, value: number = 1) {
     super(name, value);
     this.state = EntityConditionState.normal;
-    this.lastState = EntityConditionState.normal;
+    this.lastState = EntityConditionState.new;
   }
 
   toModel(): GameEntityConditionModel {
@@ -182,7 +187,7 @@ export class GameEntityConditionModel {
     this.name = name;
     this.value = value;
     this.state = state;
-    this.lastState = state;
+    this.lastState = lastState;
     this.expired = expired;
     this.highlight = highlight;
   }

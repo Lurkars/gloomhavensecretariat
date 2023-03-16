@@ -1,6 +1,6 @@
 <ghs-header #header></ghs-header>
 <main [ngClass]="{'compact' : footer.compact}">
-  <div *ngIf="gameManager.stateManager.updateBlocked" class="dialog blocked">
+  <div *ngIf="gameManager.stateManager.updateBlocked && settingsManager.settings.serverUrl && settingsManager.settings.serverPort && settingsManager.settings.serverPassword" class="dialog blocked">
     {{'server.blocked' | ghsLabel}}
     <div class="buttons">
       <a class="force" (click)="gameManager.stateManager.forceUpdateState()">

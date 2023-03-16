@@ -37,8 +37,8 @@ export class CharacterData implements Editional, Spoilable {
   handSize: number = 0;
   availableSummons: SummonData[] = [];
 
-  icon: string | undefined;
-  iconUrl: string | undefined;
+  icon: string = '';
+  iconUrl: string = '';
   thumbnail: string | undefined;
   thumbnailUrl: string | undefined;
   color: string = "#aaaaaa";
@@ -64,30 +64,30 @@ export class CharacterData implements Editional, Spoilable {
 
   replace: boolean = false;
 
-  constructor(character: CharacterData | undefined = undefined) {
-    if (character) {
-      this.errors = character.errors || [];
-      this.name = character.name;
-      this.stats = character.stats || [];
-      this.characterClass = character.characterClass || undefined;
-      this.gender = character.gender || CharacterGender.unknown;
-      this.handSize = character.handSize;
-      this.availableSummons = character.availableSummons || [];
-      this.edition = character.edition || "";
-      this.icon = character.icon || undefined;
-      this.iconUrl = character.iconUrl || undefined;
-      this.thumbnail = character.thumbnail || undefined;
-      this.thumbnailUrl = character.thumbnailUrl || undefined;
-      this.color = character.color || "#00000";
-      this.marker = character.marker || false;
-      this.spoiler = character.spoiler || false;
-      this.deck = character.deck;
-      if (character.deck) {
-        this.deck = character.deck;
+  constructor(characterData: CharacterData | undefined = undefined) {
+    if (characterData) {
+      this.errors = characterData.errors || [];
+      this.name = characterData.name;
+      this.stats = characterData.stats || [];
+      this.characterClass = characterData.characterClass || undefined;
+      this.gender = characterData.gender || CharacterGender.unknown;
+      this.handSize = characterData.handSize;
+      this.availableSummons = characterData.availableSummons || [];
+      this.edition = characterData.edition || "";
+      this.icon = characterData.icon || characterData.edition + '-' + characterData.name;
+      this.iconUrl = characterData.iconUrl || './assets/images/character/icons/' + this.icon + '.svg';
+      this.thumbnail = characterData.thumbnail || undefined;
+      this.thumbnailUrl = characterData.thumbnailUrl || undefined;
+      this.color = characterData.color || "#00000";
+      this.marker = characterData.marker || false;
+      this.spoiler = characterData.spoiler || false;
+      this.deck = characterData.deck;
+      if (characterData.deck) {
+        this.deck = characterData.deck;
       }
-      this.perks = character.perks || [];
-      this.additionalModifier = character.additionalModifier || [];
-      this.masteries = character.masteries || [];
+      this.perks = characterData.perks || [];
+      this.additionalModifier = characterData.additionalModifier || [];
+      this.masteries = characterData.masteries || [];
     }
   }
 

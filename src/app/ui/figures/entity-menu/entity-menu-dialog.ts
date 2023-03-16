@@ -291,27 +291,29 @@ export class EntityMenuDialogComponent {
         }
       }
 
-      const activeFigure = gameManager.game.figures.find((figure) => figure.active);
-      if (this.data.figure.active || gameManager.game.state == GameState.next && (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(this.data.figure))) {
-        let ability = gameManager.monsterManager.getAbility(this.data.figure);
-        if (ability) {
-          ability.actions.forEach((action) => {
-            if (action.type == ActionType.shield && (!action.subActions || !action.subActions.find((shieldSubAction) => shieldSubAction.type == ActionType.specialTarget && !('' + shieldSubAction.value).startsWith('self')))) {
-              shieldAction.value = +shieldAction.value + +action.value;
-              if (action.subActions && action.subActions.length > 0) {
-                shieldAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions.filter((subAction) => subAction.type != ActionType.specialTarget))));
-              }
-            } else if (action.type == ActionType.monsterType && action.value == (this.data.entity as MonsterEntity).type) {
-              action.subActions.forEach((action) => {
-                if (action.type == ActionType.shield) {
-                  shieldAction.value = +shieldAction.value + +action.value;
-                  if (action.subActions && action.subActions.length > 0) {
-                    shieldAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions.filter((subAction) => subAction.type != ActionType.specialTarget))));
-                  }
+      if (gameManager.entityManager.isAlive(this.data.entity, true)) {
+        const activeFigure = gameManager.game.figures.find((figure) => figure.active);
+        if (this.data.figure.active || gameManager.game.state == GameState.next && (!activeFigure || gameManager.game.figures.indexOf(activeFigure) > gameManager.game.figures.indexOf(this.data.figure))) {
+          let ability = gameManager.monsterManager.getAbility(this.data.figure);
+          if (ability) {
+            ability.actions.forEach((action) => {
+              if (action.type == ActionType.shield && (!action.subActions || !action.subActions.find((shieldSubAction) => shieldSubAction.type == ActionType.specialTarget && !('' + shieldSubAction.value).startsWith('self')))) {
+                shieldAction.value = +shieldAction.value + +action.value;
+                if (action.subActions && action.subActions.length > 0) {
+                  shieldAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions.filter((subAction) => subAction.type != ActionType.specialTarget))));
                 }
-              });
-            }
-          })
+              } else if (action.type == ActionType.monsterType && action.value == (this.data.entity as MonsterEntity).type) {
+                action.subActions.forEach((action) => {
+                  if (action.type == ActionType.shield) {
+                    shieldAction.value = +shieldAction.value + +action.value;
+                    if (action.subActions && action.subActions.length > 0) {
+                      shieldAction.subActions.push(...JSON.parse(JSON.stringify(action.subActions.filter((subAction) => subAction.type != ActionType.specialTarget))));
+                    }
+                  }
+                });
+              }
+            })
+          }
         }
       }
     }

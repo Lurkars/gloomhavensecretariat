@@ -33,12 +33,12 @@ export class MonsterNumberPicker {
   }
 
   hasEntity(): boolean {
-    return this.monster.entities.filter((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && (!settingsManager.settings.hideStats || monsterEntity.type == this.type)).length > 0;
+    return this.monster.entities.filter((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && (!settingsManager.settings.hideStats || monsterEntity.type == this.type)).length > 0;
   }
 
   hasNumber(number: number) {
     return this.monster.entities.some((monsterEntity) => {
-      return monsterEntity.number == number && !monsterEntity.dead;
+      return monsterEntity.number == number && gameManager.entityManager.isAlive(monsterEntity);
     })
   }
 
@@ -63,7 +63,7 @@ export class MonsterNumberPicker {
 
     if (this.nonDead() == this.max - 1 && this.monster.entities.every((me) => me.number > 0)) {
       for (let i = 0; i < this.max; i++) {
-        if (!this.monster.entities.some((me) => !me.dead && me.number == i + 1)) {
+        if (!this.monster.entities.some((me) => gameManager.entityManager.isAlive(me) && me.number == i + 1)) {
           this.pickNumber(i + 1);
         }
       }
@@ -159,17 +159,13 @@ export class MonsterNumberPickerDialog implements OnInit {
     this.range = Array.from(Array(this.max).keys()).map(x => x + this.min);
   }
 
-  nonDead(): number {
-    return this.monster.entities.filter((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0).length;
-  }
-
   hasEntity(): boolean {
-    return this.monster.entities.filter((monsterEntity) => !monsterEntity.dead && monsterEntity.health > 0 && (!settingsManager.settings.hideStats || monsterEntity.type == this.type)).length > 0;
+    return this.monster.entities.filter((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && (!settingsManager.settings.hideStats || monsterEntity.type == this.type)).length > 0;
   }
 
   hasNumber(number: number) {
     return this.monster.entities.some((monsterEntity) => {
-      return monsterEntity.number == number && !monsterEntity.dead;
+      return monsterEntity.number == number && gameManager.entityManager.isAlive(monsterEntity);
     })
   }
 
