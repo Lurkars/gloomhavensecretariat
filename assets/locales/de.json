@@ -481,7 +481,9 @@
     "sufferDamage": "{0} erleidet %game.damage:{1}%",
     "summon": {
       "spawn": "{1} %data.monster.{0}%",
+      "spawnMarker": "{1} %data.monster.{0}% bei %game.mapMarker.{2}%",
       "spawnType": "{2} %game.monsterType.{1}% %data.monster.{0}%",
+      "spawnTypeMarker": "{2} %game.monsterType.{1}% %data.monster.{0}% bei %game.mapMarker.{3}%",
       "playerAll": "%game.monsterType.{0}% für alle Charaktere",
       "player2-3": "%game.monsterType.{0}% für zwei oder drei Charaktere oder %game.monsterType.{1}% für vier Charaktere",
       "player3-4": "%game.monsterType.{0}% für zwei oder %game.monsterType.{1}% für drei oder vier Charaktere"
