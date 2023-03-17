@@ -98,10 +98,11 @@ export class MonsterEntityComponent implements OnInit {
 
   openEntityMenu(event: any): void {
     if (this.entity.number < 0) {
+      const count = EntityValueFunction(this.monster.count, this.monster.level);
       if (settingsManager.settings.randomStandees) {
-        let number = Math.floor(Math.random() * this.monster.count) + 1;
+        let number = Math.floor(Math.random() * count) + 1;
         while (this.monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
-          number = Math.floor(Math.random() * this.monster.count) + 1;
+          number = Math.floor(Math.random() * count) + 1;
         }
         gameManager.stateManager.before("addRandomStandee", "data.monster." + this.monster.name, "monster." + this.entity.type, "" + number);
         this.entity.number = number;
@@ -113,7 +114,7 @@ export class MonsterEntityComponent implements OnInit {
             monster: this.monster,
             type: this.entity.type,
             min: 1,
-            max: this.monster.count,
+            max: count,
             range: [],
             entity: this.entity
           },

@@ -207,15 +207,16 @@ export class MonsterManager {
     if (monster) {
       monster.isAlly = isAlly;
       monster.drawExtra = drawExtra;
-      if (settingsManager.settings.automaticStandees && this.monsterEntityCountAll(monster) < monster.count) {
+      const monsterCount = EntityValueFunction(monster.count, monster.level);
+      if (settingsManager.settings.automaticStandees && this.monsterEntityCountAll(monster) < monsterCount) {
         let number = (monster.entities.length + 1) * -1;
 
         if (settingsManager.settings.randomStandees) {
-          number = Math.floor(Math.random() * monster.count) + 1;
+          number = Math.floor(Math.random() * monsterCount) + 1;
           while (monster.entities.some((monsterEntity) => gameManager.entityManager.isAlive(monsterEntity) && monsterEntity.number == number)) {
-            number = Math.floor(Math.random() * monster.count) + 1;
+            number = Math.floor(Math.random() * monsterCount) + 1;
           }
-        } else if (this.monsterEntityCountAll(monster) == monster.count - 1 && this.monsterEntityCount(monster, true) == this.monsterEntityCountAll(monster)) {
+        } else if (this.monsterEntityCountAll(monster) == monsterCount - 1 && this.monsterEntityCount(monster, true) == this.monsterEntityCountAll(monster)) {
           number = 1;
           while (monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
             number++;

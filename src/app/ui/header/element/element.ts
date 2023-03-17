@@ -25,6 +25,11 @@ export class ElementComponent {
 
   nextElementState(element: ElementModel, double: boolean = false): ElementState {
     if (gameManager.game.state == GameState.draw) {
+      if (element.state == ElementState.new) {
+        if (!double) {
+          return ElementState.strong;
+        }
+      }
       if (element.state == ElementState.new || element.state == ElementState.strong) {
         if (!double) {
           return ElementState.waning;
@@ -32,26 +37,30 @@ export class ElementComponent {
       } else if (element.state == ElementState.waning) {
         return ElementState.inert;
       } else {
-        if (!double) {
-          return ElementState.new;
-        } else {
+        if (double) {
           return ElementState.waning;
+        } else {
+          return ElementState.new;
         }
       }
     } else {
-      if (element.state == ElementState.strong || element.state == ElementState.new) {
+      if (element.state == ElementState.new) {
+        if (!double) {
+          return ElementState.strong;
+        }
+      } if (element.state == ElementState.strong) {
         if (double) {
           return ElementState.waning;
         }
       } else if (element.state == ElementState.waning) {
         if (double) {
-          return ElementState.strong;
+          return ElementState.new;
         }
       } else {
         if (double) {
           return ElementState.waning;
         } else {
-          return ElementState.strong;
+          return ElementState.new;
         }
       }
     }

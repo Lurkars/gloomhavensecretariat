@@ -3,6 +3,7 @@ import { Overlay } from '@angular/cdk/overlay';
 import { Component, Input, OnInit } from '@angular/core';
 import { GameManager, gameManager } from 'src/app/game/businesslogic/GameManager';
 import { SettingsManager, settingsManager } from 'src/app/game/businesslogic/SettingsManager';
+import { EntityValueFunction } from 'src/app/game/model/Entity';
 import { Monster } from 'src/app/game/model/Monster';
 import { MonsterEntity } from 'src/app/game/model/MonsterEntity';
 import { MonsterType } from 'src/app/game/model/MonsterType';
@@ -24,17 +25,20 @@ export class MonsterComponent implements OnInit {
   settingsManager: SettingsManager = settingsManager;
 
   nonDead: number = 0;
+  count: number= 0;
 
   constructor(private dialog: Dialog, private overlay: Overlay) {
     gameManager.uiChange.subscribe({
       next: () => {
         this.nonDead = gameManager.monsterManager.monsterEntityCount(this.monster);
+        this.count = EntityValueFunction(this.monster.count, this.monster.level);
       }
     })
   }
 
   ngOnInit(): void {
     this.nonDead = gameManager.monsterManager.monsterEntityCount(this.monster);
+    this.count = EntityValueFunction(this.monster.count, this.monster.level);
   }
 
   addMissingStandees() {
@@ -56,7 +60,7 @@ export class MonsterComponent implements OnInit {
           monster: this.monster,
           type: monsterEntity.type,
           min: 1,
-          max: this.monster.count,
+          max: this.count,
           range: [],
           entity: monsterEntity
         }

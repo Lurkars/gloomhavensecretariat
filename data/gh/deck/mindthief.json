@@ -209,6 +209,8 @@
       "lost": true,
       "actions": [
         {
+          "type": "summon",
+          "value": "summonData",
           "valueObject": {
             "name": "Rat Swarm",
             "health": 6,
@@ -219,8 +221,6 @@
               "value": "poison"
             }
           },
-          "type": "summon",
-          "value": "summonData",
           "small": true
         },
         {
@@ -711,6 +711,8 @@
       "lost": true,
       "actions": [
         {
+          "type": "summon",
+          "value": "summonData",
           "valueObject": {
             "name": "Monstrous Rat",
             "health": "4",
@@ -718,8 +720,6 @@
             "movement": "3",
             "count": 1
           },
-          "type": "summon",
-          "value": "summonData",
           "small": true
         },
         {
@@ -1637,6 +1637,8 @@
       "lost": true,
       "actions": [
         {
+          "type": "summon",
+          "value": "summonData",
           "valueObject": {
             "name": "Rat King",
             "health": "9",
@@ -1649,8 +1651,6 @@
             },
             "count": 1
           },
-          "type": "summon",
-          "value": "summonData",
           "small": true
         },
         {

@@ -3,6 +3,7 @@ import { Overlay } from "@angular/cdk/overlay";
 import { Component, ElementRef, Inject, Input, OnInit } from "@angular/core";
 import { gameManager } from "src/app/game/businesslogic/GameManager";
 import { SettingsManager, settingsManager } from "src/app/game/businesslogic/SettingsManager";
+import { EntityValueFunction } from "src/app/game/model/Entity";
 import { GameState } from "src/app/game/model/Game";
 import { Monster } from "src/app/game/model/Monster";
 import { MonsterEntity } from "src/app/game/model/MonsterEntity";
@@ -85,9 +86,10 @@ export class MonsterNumberPicker {
   }
 
   randomStandee() {
-    let number = Math.floor(Math.random() * this.monster.count) + 1;
+    const count = EntityValueFunction(this.monster.count, this.monster.level);
+    let number = Math.floor(Math.random() * count) + 1;
     while (this.monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
-      number = Math.floor(Math.random() * this.monster.count) + 1;
+      number = Math.floor(Math.random() * count) + 1;
     }
     this.pickNumber(number, true, false);
   }
@@ -170,9 +172,10 @@ export class MonsterNumberPickerDialog implements OnInit {
   }
 
   randomStandee() {
-    let number = Math.floor(Math.random() * this.monster.count) + 1;
+    const count = EntityValueFunction(this.monster.count, this.monster.level);
+    let number = Math.floor(Math.random() * count) + 1;
     while (this.monster.entities.some((monsterEntity) => monsterEntity.number == number)) {
-      number = Math.floor(Math.random() * this.monster.count) + 1;
+      number = Math.floor(Math.random() * count) + 1;
     }
     this.pickNumber(number, true, false);
   }
@@ -212,7 +215,7 @@ export class MonsterNumberPickerDialog implements OnInit {
         }
       }
       gameManager.stateManager.after();
-      if (this.monster.entities.length == this.monster.count || this.entity) {
+      if (this.monster.entities.length == EntityValueFunction(this.monster.count, this.monster.level) || this.entity) {
         this.dialogRef.close();
       }
     }

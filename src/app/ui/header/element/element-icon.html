@@ -1,2 +1,2 @@
 <span [innerHTML]="svg" title="{{'game.element.' + element.type | ghsLabel}}" [class]="element.type" class="element-svg"
-    [ngClass]="{'full' : element.state == ElementState.new || element.state == ElementState.strong, 'half' : element.state == ElementState.waning, 'inert' : element.state == ElementState.inert}"></span>
+    [ngClass]="{'new' : element.state == ElementState.new, 'full' : element.state == ElementState.strong, 'half' : element.state == ElementState.waning, 'inert' : element.state == ElementState.inert}"></span>

@@ -3,8 +3,12 @@
   <ng-container *ngFor="let spawn of monsters; let i = index;">
     <span [ngClass]="{'spawn-highlight' : spawnHightlight(spawn,i) && !settingsManager.settings.disableAnimations}"
       *ngIf="spawn.monster.type" (tap)="spawnSummons($event,spawn, i)">
-      <span [i18n]="'game.summon.spawnType'"
-        [i18n-args]="[spawn.monster.name, spawn.monster.type, spawn.count ? '' + spawn.count : '']"></span>
+      <span *ngIf="spawn.monster.type != MonsterType.boss"
+        [i18n]="spawn.marker ? 'game.summon.spawnTypeMarker' : 'game.summon.spawnType'"
+        [i18n-args]="[spawn.monster.name, spawn.monster.type, spawn.count ? '' + spawn.count : '', spawn.marker]"></span>
+      <span *ngIf="spawn.monster.type == MonsterType.boss"
+        [i18n]="spawn.marker ? 'game.summon.spawnMarker' : 'game.summon.spawn'"
+        [i18n-args]="[spawn.monster.name, spawn.count ? '' + spawn.count : '', spawn.marker]"></span>
       <span *ngIf="spawn.monster.health">
         (<span [value-calc]="spawn.monster.health"></span>&nbsp;{{'game.hp' | ghsLabel}})&nbsp;
       </span>

@@ -173,13 +173,13 @@
         {
           "type": "element",
           "value": "light",
+          "valueType": "minus",
           "subActions": [
             {
               "type": "shield",
               "value": "[(1+L)/6{$math.ceil}]"
             }
-          ],
-          "valueType": "minus"
+          ]
         },
         {
           "type": "concatenation",

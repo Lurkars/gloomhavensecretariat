@@ -137,6 +137,8 @@
       "shuffle": true,
       "actions": [
         {
+          "type": "summon",
+          "value": "monsterStandee",
           "valueObject": [
             {
               "monster": {
@@ -146,9 +148,7 @@
                 "player4": "elite"
               }
             }
-          ],
-          "type": "summon",
-          "value": "monsterStandee"
+          ]
         },
         {
           "type": "sufferDamage",
@@ -163,6 +163,8 @@
       "shuffle": true,
       "actions": [
         {
+          "type": "summon",
+          "value": "monsterStandee",
           "valueObject": [
             {
               "monster": {
@@ -172,9 +174,7 @@
                 "player4": "elite"
               }
             }
-          ],
-          "type": "summon",
-          "value": "monsterStandee"
+          ]
         },
         {
           "type": "custom",

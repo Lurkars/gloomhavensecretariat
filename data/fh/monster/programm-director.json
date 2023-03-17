@@ -19,6 +19,7 @@
         {
           "type": "specialTarget",
           "value": "focusEnemyFarthest",
+          "small": true,
           "subActions": [
             {
               "type": "grid",
@@ -35,8 +36,7 @@
                 }
               ]
             }
-          ],
-          "small": true
+          ]
         },
         {
           "type": "attack",

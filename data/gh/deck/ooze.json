@@ -117,12 +117,14 @@
         {
           "type": "summon",
           "value": "ooze:1:normal:H",
-          "small": true
-        },
-        {
-          "type": "custom",
-          "value": "%data.custom.gh.ooze.1%",
-          "small": true
+          "small": true,
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "%data.custom.gh.ooze.1%",
+              "small": true
+            }
+          ]
         }
       ]
     },

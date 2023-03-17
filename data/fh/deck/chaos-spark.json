@@ -1,0 +1,27 @@
+{
+  "name": "chaos-spark",
+  "edition": "fh",
+  "abilities": [
+    {
+      "initiative": 90,
+      "shuffle": true,
+      "actions": [
+        {
+          "type": "move",
+          "value": 2
+        },
+        {
+          "type": "attack",
+          "value": "(C-2)+(2xT)",
+          "subActions": [
+            {
+              "type": "custom",
+              "value": "where T is the number of damage tokens on the target’s character mat",
+              "small": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

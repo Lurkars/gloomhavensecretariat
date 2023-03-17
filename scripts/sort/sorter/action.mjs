@@ -6,5 +6,5 @@ export const sortAction = function (action) {
         action.subActions = action.subActions.sort((subAction) => sortAction(subAction));
     }
 
-    return sortObjectKeys(action, 'type', 'value', 'valueType', 'small', 'subActions');
+    return sortObjectKeys(action, 'type', 'value', 'valueType', 'valueObject', 'small', 'subActions');
 }

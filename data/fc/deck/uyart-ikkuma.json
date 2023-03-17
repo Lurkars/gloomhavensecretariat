@@ -7,6 +7,8 @@
       "initiative": 97,
       "actions": [
         {
+          "type": "summon",
+          "value": "monsterStandee",
           "valueObject": [
             {
               "monster": {
@@ -16,9 +18,7 @@
                 "player4": "elite"
               }
             }
-          ],
-          "type": "summon",
-          "value": "monsterStandee"
+          ]
         },
         {
           "type": "element",
@@ -31,6 +31,8 @@
       "initiative": 97,
       "actions": [
         {
+          "type": "summon",
+          "value": "monsterStandee",
           "valueObject": [
             {
               "monster": {
@@ -40,9 +42,7 @@
                 "player4": "elite"
               }
             }
-          ],
-          "type": "summon",
-          "value": "monsterStandee"
+          ]
         },
         {
           "type": "element",

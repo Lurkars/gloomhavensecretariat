@@ -45,6 +45,7 @@
         {
           "type": "specialTarget",
           "value": "focusEnemyFarthest",
+          "small": true,
           "subActions": [
             {
               "type": "attack",
@@ -58,8 +59,7 @@
                 }
               ]
             }
-          ],
-          "small": true
+          ]
         },
         {
           "type": "push",

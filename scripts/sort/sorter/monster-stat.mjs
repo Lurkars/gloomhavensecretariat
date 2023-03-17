@@ -8,7 +8,7 @@ export const sortMonsterStat = function (monsterStat) {
     }
 
     if (monsterStat.special) {
-        monsterStat.special.map((special) => special.map((action) => sortAction(action)));
+        monsterStat.special = monsterStat.special.map((special) => special.map((action) => sortAction(action)));
     }
 
     return sortObjectKeys(monsterStat, 'type', 'level', 'health', 'movement', 'attack', 'range', 'note', 'actions', 'immunities', 'special');

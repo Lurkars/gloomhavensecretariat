@@ -32,6 +32,7 @@ export class ActionSummonComponent implements OnChanges {
   tags: string[] = [];
 
   settingsManager: SettingsManager = settingsManager;
+  MonsterType = MonsterType;
 
   constructor() {
     gameManager.uiChange.subscribe({
@@ -172,7 +173,7 @@ export class ActionSummonComponent implements OnChanges {
   spawnHightlight(spawn: MonsterSpawnData, index: number): boolean {
     const spawnMonster = gameManager.game.figures.find((figure) => figure instanceof Monster && figure.name == spawn.monster.name);
     const spawns = spawnMonster && gameManager.monsterManager.monsterEntityCountAll(spawnMonster as Monster) || 0;
-    return this.highlight && (this.spawners.length > 0 && this.monster && this.monster.active && this.tags.filter((tag) => tag == this.getTag(index)).length < this.spawners.length && (!spawnMonster || spawns < (spawnMonster as Monster).count) || false);
+    return this.highlight && (this.spawners.length > 0 && this.monster && this.monster.active && this.tags.filter((tag) => tag == this.getTag(index)).length < this.spawners.length && (!spawnMonster || spawns < EntityValueFunction((spawnMonster as Monster).count, (spawnMonster as Monster).level)) || false);
   }
 
   spawnSummons(event: any, spawn: MonsterSpawnData, index: number) {
@@ -192,6 +193,9 @@ export class ActionSummonComponent implements OnChanges {
                 entity.tags = entity.tags || [];
                 entity.tags.push(tag);
                 this.tags.push(tag);
+                if (spawn.marker) {
+                  entity.marker = spawn.marker;
+                }
                 if (spawn.monster.health) {
                   let health = spawn.monster.health;
                   if (typeof health === 'string') {

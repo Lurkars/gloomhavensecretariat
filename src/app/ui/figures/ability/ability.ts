@@ -31,17 +31,24 @@ export class AbilityComponent implements OnInit {
   abilityLabel: string = "";
 
   ngOnInit() {
-    this.abilityIndex = this.ability && this.setAbilityIndex(this.ability) || -1;
-    this.abilityLabel = this.ability && this.setAbilityLabel(this.ability) || "";
+    this.update();
     gameManager.uiChange.subscribe({
       next: () => {
-        this.abilityIndex = this.ability && this.setAbilityIndex(this.ability) || -1;
-        this.abilityLabel = this.ability && this.setAbilityLabel(this.ability) || "";
+        this.update();
       }
     });
   }
 
-  setAbilityIndex(ability: Ability): number {
+  update() {
+    this.abilityIndex = -1;
+    this.abilityLabel = "";
+    if (this.ability) {
+      this.abilityIndex = this.getAbilityIndex(this.ability);
+      this.abilityLabel = this.getAbilityLabel(this.ability);
+    }
+  }
+
+  getAbilityIndex(ability: Ability): number {
     if (this.abilities && this.abilities.length > 0) {
       return this.abilities.indexOf(ability);
     } else if (this.monster) {
@@ -50,7 +57,7 @@ export class AbilityComponent implements OnInit {
     return -1;
   }
 
-  setAbilityLabel(ability: Ability): string {
+  getAbilityLabel(ability: Ability): string {
     let label = ability.name || "";
     if (!ability.name && this.monster) {
       label = 'data.monster.' + this.monster.name;

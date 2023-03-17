@@ -17,10 +17,15 @@
     }
   }
 
-  &.full {
+  &.full,
+  &.new {
     #bg {
       clip-path: inset(0% 0px 0px 0px);
     }
+  }
+
+  &.new {
+    opacity: 0.7;
   }
 
   &.half {

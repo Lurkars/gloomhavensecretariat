@@ -40,7 +40,7 @@ export class RoundManager {
 
       if (settingsManager.settings.moveElements) {
         this.game.elementBoard.forEach((element) => {
-          if (element.state == ElementState.strong) {
+          if (element.state == ElementState.strong || element.state == ElementState.new) {
             element.state = ElementState.waning;
           } else if (element.state == ElementState.waning) {
             element.state = ElementState.inert;

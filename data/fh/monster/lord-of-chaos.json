@@ -18,9 +18,26 @@
     "special": [
       [
         {
-          "type": "custom",
-          "value": "Spawn [C/2{$math.floor}] sparks.",
-          "small": true
+          "type": "spawn",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "chaos-spark",
+                "player2": "boss",
+                "player3": "boss",
+                "player4": "boss"
+              },
+              "marker": "b"
+            },
+            {
+              "monster": {
+                "name": "chaos-spark",
+                "player4": "boss"
+              },
+              "marker": "a"
+            }
+          ]
         },
         {
           "type": "attack",
@@ -47,9 +64,26 @@
       ],
       [
         {
-          "type": "custom",
-          "value": "Spawn [C/2{$math.ceil}] sparks.",
-          "small": true
+          "type": "spawn",
+          "value": "monsterStandee",
+          "valueObject": [
+            {
+              "monster": {
+                "name": "chaos-spark",
+                "player2": "boss",
+                "player3": "boss",
+                "player4": "boss"
+              },
+              "marker": "b"
+            },
+            {
+              "monster": {
+                "name": "chaos-spark",
+                "player4": "boss"
+              },
+              "marker": "a"
+            }
+          ]
         },
         {
           "type": "custom",
