@@ -24,18 +24,18 @@
             {
               "monster": {
                 "name": "chaos-spark",
+                "player4": "boss"
+              },
+              "marker": "a"
+            },
+            {
+              "monster": {
+                "name": "chaos-spark",
                 "player2": "boss",
                 "player3": "boss",
                 "player4": "boss"
               },
               "marker": "b"
-            },
-            {
-              "monster": {
-                "name": "chaos-spark",
-                "player4": "boss"
-              },
-              "marker": "a"
             }
           ]
         },
@@ -74,14 +74,14 @@
                 "player3": "boss",
                 "player4": "boss"
               },
-              "marker": "b"
+              "marker": "a"
             },
             {
               "monster": {
                 "name": "chaos-spark",
                 "player4": "boss"
               },
-              "marker": "a"
+              "marker": "b"
             }
           ]
         },
